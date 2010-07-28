@@ -44,6 +44,10 @@ public class Hl7DotNetMessageTypeWriterTest {
 		this.type.getRelationships().add(new Attribute(new Relationship("id", "II.BUS", Cardinality.create("1")), new TypeConverter().convertToType("II.BUS", null)));
 		this.type.getRelationships().add(new Attribute(new Relationship("details", "ANY", Cardinality.create("1")), new TypeConverter().convertToType("ANY", null)));
 		this.type.getRelationships().add(Association.createStandardAssociation(new Relationship("component", associationTypeName, Cardinality.create("1")), new Type(new TypeName(associationTypeName)), 3));
+		Relationship myChoice = new Relationship("myChoice", "ABCD_MT123456CA.MyChoice", Cardinality.create("1"));
+		myChoice.getChoices().add(new Relationship("option1", "ABCD_MT123456CA.Option1", Cardinality.create("1")));
+		myChoice.getChoices().add(new Relationship("option1", "ABCD_MT123456CA.Option2", Cardinality.create("1")));
+		this.type.getRelationships().add(Association.createStandardAssociation(myChoice, new Type(new TypeName("ABCD_MT123456CA.MyChoice")), 4));
 		this.translator = this.jmock.mock(NameTranslator.class);
 		this.manager = this.jmock.mock(DependencyManager.class);
 
@@ -55,6 +59,8 @@ public class Hl7DotNetMessageTypeWriterTest {
 			allowing(manager).getRepresentationOfClassName(ANY.class.getName()); will(returnValue("ANY"));
 			allowing(manager).getRepresentationOfClassName("System.object"); will(returnValue("object"));
 			allowing(manager).getRepresentationOfTypeName(new TypeName("ABCD_MT123456CA.MyChoice")); will(returnValue("IMyChoice"));
+			allowing(manager).getRepresentationOfTypeName(new TypeName("ABCD_MT123456CA.Option1")); will(returnValue("Ca.Infoway.Messagebuilder.Model.Abcd_mt123456ca.Option1"));
+			allowing(manager).getRepresentationOfTypeName(new TypeName("ABCD_MT123456CA.Option2")); will(returnValue("Option2"));
 			allowing(manager).getRepresentationOfTypeName(new TypeName("ABCD_MT123456CA.MyOtherChoice")); will(returnValue("IMyOtherChoice"));
 			allowing(manager).getRepresentationOfTypeName(new TypeName(associationTypeName)); will(returnValue("Requestor"));
 		}});

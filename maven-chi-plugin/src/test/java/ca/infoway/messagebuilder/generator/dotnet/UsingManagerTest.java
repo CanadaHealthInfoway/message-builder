@@ -6,6 +6,7 @@ import static org.junit.Assert.assertTrue;
 
 import java.io.StringWriter;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -53,7 +54,7 @@ public class UsingManagerTest {
 		
 		Set<Object> classes = new HashSet<Object>();
 		classes.add(List.class.getName());
-		UsingManager manager = new UsingManager(this.name, classes, this.translator, this.contents);
+		UsingManager manager = new UsingManager(this.name, classes, this.translator, this.contents, new HashMap<TypeName, TypeName>());
 		manager.generate(this.writer, 1);
 		
 		String output = writer.toString();
@@ -86,7 +87,7 @@ public class UsingManagerTest {
 		classes.add(fred2);
 		classes.add(wilma);
 		classes.add(betty);
-		UsingManager manager = new UsingManager(this.name, classes, this.translator, this.contents);
+		UsingManager manager = new UsingManager(this.name, classes, this.translator, this.contents, new HashMap<TypeName, TypeName>());
 		manager.generate(this.writer, 1);
 		
 		String output = writer.toString();
@@ -115,7 +116,7 @@ public class UsingManagerTest {
 		Set<Object> classes = new HashSet<Object>();
 		classes.add(fred1);
 		classes.add(fred2);
-		UsingManager manager = new UsingManager(this.name, classes, this.translator, this.contents);
+		UsingManager manager = new UsingManager(this.name, classes, this.translator, this.contents, new HashMap<TypeName, TypeName>());
 		manager.generate(this.writer, 1);
 		
 		String output = writer.toString();
@@ -130,7 +131,7 @@ public class UsingManagerTest {
 		
 		Set<Object> classes = new HashSet<Object>();
 		classes.add(List.class.getName());
-		UsingManager manager = new UsingManager(this.name, classes, this.translator, this.contents);
+		UsingManager manager = new UsingManager(this.name, classes, this.translator, this.contents, new HashMap<TypeName, TypeName>());
 		manager.generate(this.writer, 1);
 		
 		String output = writer.toString();

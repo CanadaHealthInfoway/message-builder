@@ -20,7 +20,7 @@ class PropertyDefinitionGenerator extends FieldTemplateProcessor {
 		"    {10}\n" +
 		"'}'";
 	private static final String CSHARP_DERIVED_CHOICE_HAS_PROPERTY_DEFINITION =
-		"public bool has{2}() '{'\n" +
+		"public bool Has{2}() '{'\n" +
 		"    {10}\n" +
 		"'}'";
 	private static final String JAVA_INTERFACE_READ_DEFINITION = "public {8} get{2}();";
