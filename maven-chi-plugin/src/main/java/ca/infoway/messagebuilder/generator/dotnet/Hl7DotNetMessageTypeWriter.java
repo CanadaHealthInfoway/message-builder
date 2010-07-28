@@ -49,7 +49,7 @@ class Hl7DotNetMessageTypeWriter extends Hl7MessageTypeWriter implements Hl7Type
 	}
 	
 	Hl7DotNetMessageTypeWriter(Type type, NameTranslator translator, NamespaceContents contents, Map<TypeName, TypeName> removedTypesTranslation) throws GeneratorException {
-		this(type, translator, new UsingManager(type.getName(), ImportTypeUtil.getImports(type, C_SHARP, removedTypesTranslation), translator, contents));
+		this(type, translator, new UsingManager(type.getName(), ImportTypeUtil.getImports(type, C_SHARP, removedTypesTranslation), translator, contents, removedTypesTranslation));
 	}
 
 	public void write(Writer writer) throws IOException, GeneratorException {

@@ -25,7 +25,8 @@ class CsharpPackageNameAdjustingDecorator implements NameTranslator {
 	}
 
 	public String getFullyQualifiedClassName(TypeName name) {
-		return getPackageName(name) + "." + getClassNameWithoutPackage(name); 
+		String fullyQualifiedName = getPackageName(name) + "." + getClassNameWithoutPackage(name);
+		return fullyQualifiedName; 
 	}
 
 	public String getPackageName(TypeName name) {

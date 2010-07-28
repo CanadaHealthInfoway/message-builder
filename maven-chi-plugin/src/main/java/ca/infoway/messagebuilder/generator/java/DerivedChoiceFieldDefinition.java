@@ -55,7 +55,7 @@ class DerivedChoiceFieldDefinition implements FieldDefinition {
 	}
 
 	private String getBaseType() {
-			return getManager().getRepresentationOfTypeName(new TypeName(this.derivedRelationship.getType()));
+		return getManager().getRepresentationOfTypeName(new TypeName(this.derivedRelationship.getType()));
 	}
 
 	public GetterBodyStyle getGetterBodyStyle() {
