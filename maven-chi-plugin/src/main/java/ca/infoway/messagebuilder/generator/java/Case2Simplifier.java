@@ -98,9 +98,19 @@ public class Case2Simplifier extends InlineableSimplifier {
 			return true;
 		}
 		
+		// if the reference type is a merged type and the reference relationship is inlined then the checking here
+		// can become *very* complicated. In this case just allow without checking for now. Currently affects only 1 merged type in MR2009.
+		// AssignedEntity_2Bean: [POIZ_MT030060CA.AssignedEntity, POIZ_MT030050CA.AssignedEntity, POIZ_MT060150CA.AssignedEntity]
+		if (!referenceType.getMergedTypes().isEmpty() && !(referenceRelationship instanceof MergedAssociation)) {
+			this.log.log(INFO, "Simplification case 2: SKIPPING check (and allowing match) for: " + (referenceType.getName() instanceof TemporaryTypeName ? referenceType.getMergedTypes() : referenceType.getName()) 
+					+ "." + referenceRelationship.getName() + " when inlining " + inliningRelationship.getName());
+			return true;
+		}
+		
 		Collection<TypeName> typeNames = referenceType.getMergedTypes().isEmpty() ? Arrays.asList(referenceType.getName()) : referenceType.getMergedTypes();
 		
 		for (TypeName typeName : typeNames) {
+			
 			Type typeToCheck = getType(typeName);
 			// pull out reference relationship from here
 			BaseRelationship innerRelationship = typeToCheck.getRelationship(referenceRelationship.getName());
@@ -118,7 +128,6 @@ public class Case2Simplifier extends InlineableSimplifier {
 						return true;
 					}
 				}
-				
 			}
 		}
 		
