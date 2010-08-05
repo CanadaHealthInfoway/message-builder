@@ -3,7 +3,7 @@
     <id root="ce031e09-fed6-4136-915e-d79be4280426"/>
     <creationTime value="20090916112259"/>
     <versionCode code="V3-2007-05"/>
-    <interactionId extension="POME_IN010060CA" root="2.16.840.1.113883.1.6"/>
+    <interactionId displayable="true" specializationType="II.PUBLIC" extension="POME_IN010060CA" root="2.16.840.1.113883.1.6"/>
     <processingCode code="P"/>
     <processingModeCode code="T"/>
     <acceptAckCode code="NE"/>

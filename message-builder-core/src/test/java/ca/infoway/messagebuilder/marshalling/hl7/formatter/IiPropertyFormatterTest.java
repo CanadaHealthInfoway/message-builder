@@ -16,7 +16,7 @@ public class IiPropertyFormatterTest extends MarshallingTestCase {
 	@Test
     public void testGetAttributeNameValuePairsAllFilledIn() throws Exception {
         Identifier ii = new Identifier("rootString", "extensionString");
-        Map<String, String> result = new IiPropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl("name", null, null), ii);
+        Map<String, String> result = new IiPropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl("name", null, null), ii, null);
         assertEquals("map size", 2, result.size());
         
         assertKeyValuePairInMap(result, "root", "rootString");
@@ -26,7 +26,7 @@ public class IiPropertyFormatterTest extends MarshallingTestCase {
 	@Test
     public void testGetAttributeNameValuePairsAllFilledInWithTypeId() throws Exception {
     	Identifier ii = new Identifier("rootString", "extensionString");
-    	Map<String, String> result = new IiPropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl("name", null, null), ii);
+    	Map<String, String> result = new IiPropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl("name", null, null), ii, null);
     	assertEquals("map size", 2, result.size());
     	
     	assertKeyValuePairInMap(result, "root", "rootString");
@@ -43,7 +43,7 @@ public class IiPropertyFormatterTest extends MarshallingTestCase {
 	@Test
     public void testGetAttributeNameValuePairsExtensionNotFilled() throws Exception {
         Identifier ii = new Identifier("rootString", null);
-        Map<String, String> result = new IiPropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl("name", null, null), ii);
+        Map<String, String> result = new IiPropertyFormatter().getAttributeNameValuePairs(new FormatContextImpl("name", null, null), ii, null);
         assertEquals("map size", 1, result.size());
         
         assertKeyValuePairInMap(result, "root", "rootString");

@@ -4,7 +4,7 @@
     <creationTime value="20090526170139.0208-0400"/>
     <responseModeCode code="D"/>
     <versionCode code="NE2006"/>
-    <interactionId displayable="true" extension="PRPA_IN101999CA" root="2.16.840.1.113883.1.6"/>
+    <interactionId specializationType="II.PUBLIC" displayable="true" extension="PRPA_IN101999CA" root="2.16.840.1.113883.1.6"/>
     <profileId extension="tbd" root="tbd" use="BUS"/>
     <processingCode code="P"/>
     <processingModeCode code="T"/>

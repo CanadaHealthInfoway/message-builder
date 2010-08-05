@@ -48,64 +48,95 @@ class IiElementParser extends AbstractSingleElementParser<Identifier> {
 	private static final String II_PUBLIC = "II.PUBLIC";
 	private static final String II_OID = "II.OID";
 	private static final String II_VER = "II.VER";
+	private static final String II_BUS_AND_VER = "II.BUS_AND_VER";
 
 	@Override
 	protected BareANY doCreateDataTypeInstance(String typeName) {
 		return new IIImpl();
 	}
-	
+
 	@Override
-	protected Identifier parseNonNullNode(ParseContext context, Node node, Type expectedReturnType, XmlToModelResult xmlToJavaResult) throws XmlToModelTransformationException {
-		return parseNonNull(context, (Element) node, xmlToJavaResult);
+	protected Identifier parseNonNullNode(ParseContext context, Node node, Type expectedReturnType, XmlToModelResult xmlToModelResult) 
+			throws XmlToModelTransformationException {
+		throw new UnsupportedOperationException("Different parseNonNullNode handler used for II");
 	}
 
-	private Identifier parseNonNull(ParseContext context, Element element,
-			XmlToModelResult xmlToJavaResult)
+	@Override
+	protected Identifier parseNonNullNode(ParseContext context, Node node, BareANY result, Type returnType, XmlToModelResult xmlToModelResult)
 			throws XmlToModelTransformationException {
-		String root = getMandatoryAttributeValue(element, "root", xmlToJavaResult);
+		
+		Element element = (Element) node;
+		
+		String root = getMandatoryAttributeValue(element, "root", xmlToModelResult);
 		String extension = getAttributeValue(element, "extension");
+		String type = getType(context, element, xmlToModelResult);
+		
+		// type might have resolved to something different if this II.x is abstract (II, II_BUS_AND_VER), so set it again
+		setDataType(type, result);
 		
 		if (StringUtils.isBlank(root)) {
 			// skip it... already handled
-		} else if (II_TOKEN.equals(context.getType())) {
-			validateRootAsUuid(element, root, xmlToJavaResult);
-			validateUnallowedAttributes(context.getType(), element, xmlToJavaResult, "extension");
-			validateUnallowedAttributes(context.getType(), element, xmlToJavaResult, "use");
-			validateUnallowedAttributes(context.getType(), element, xmlToJavaResult, "displayable");
-		} else if (II_BUS.equals(context.getType())) {
+		} else if (II_TOKEN.equals(type)) {
+			validateRootAsUuid(element, root, xmlToModelResult);
+			validateUnallowedAttributes(type, element, xmlToModelResult, "extension");
+			validateUnallowedAttributes(type, element, xmlToModelResult, "use");
+			validateUnallowedAttributes(type, element, xmlToModelResult, "displayable");
+		} else if (II_BUS.equals(type)) {
 			if (!isUuid(root)) {
-				validateRootAsOid(root, element, xmlToJavaResult);
+				validateRootAsOid(root, element, xmlToModelResult);
 			} else {
-				validateRootAsUuid(element, root, xmlToJavaResult);
-				validateUnallowedAttributes(context.getType(), element, xmlToJavaResult, "extension");
+				validateRootAsUuid(element, root, xmlToModelResult);
+				validateUnallowedAttributes(type, element, xmlToModelResult, "extension");
 			}
-			validateUnallowedAttributes(context.getType(), element, xmlToJavaResult, "displayable");
-			validateAttributeEquals(context.getType(), element, xmlToJavaResult, "use", "BUS");
-		} else if (II_OID.equals(context.getType())) {
-			validateRootAsOid(root, element, xmlToJavaResult);
-			validateUnallowedAttributes(context.getType(), element, xmlToJavaResult, "extension");
-			validateUnallowedAttributes(context.getType(), element, xmlToJavaResult, "use");
-			validateUnallowedAttributes(context.getType(), element, xmlToJavaResult, "displayable");
-		} else if (II_PUBLIC.equals(context.getType())) {
-			validateRootAsOid(root, element, xmlToJavaResult);
-			validateAttributeEquals(context.getType(), element, xmlToJavaResult, "displayable", "true");
+			validateUnallowedAttributes(type, element, xmlToModelResult, "displayable");
+			validateAttributeEquals(type, element, xmlToModelResult, "use", "BUS");
+		} else if (II_OID.equals(type)) {
+			validateRootAsOid(root, element, xmlToModelResult);
+			validateUnallowedAttributes(type, element, xmlToModelResult, "extension");
+			validateUnallowedAttributes(type, element, xmlToModelResult, "use");
+			validateUnallowedAttributes(type, element, xmlToModelResult, "displayable");
+		} else if (II_PUBLIC.equals(type)) {
+			validateRootAsOid(root, element, xmlToModelResult);
+			validateAttributeEquals(type, element, xmlToModelResult, "displayable", "true");
+		} else if (II_VER.equals(type)) {
+			validateRootAsUuid(element, root, xmlToModelResult);
+			validateUnallowedAttributes(type, element, xmlToModelResult, "extension");
+			validateUnallowedAttributes(type, element, xmlToModelResult, "displayable");
+			validateAttributeEquals(type, element, xmlToModelResult, "use", "VER");
 		}
-		validateUnallowedAttributes(context.getType(), element, xmlToJavaResult, "assigningAuthorityName");
+		validateUnallowedAttributes(type, element, xmlToModelResult, "assigningAuthorityName");
 		return new Identifier(root, extension);
 	}
 
+	private String getType(ParseContext context, Element element, XmlToModelResult xmlToModelResult) {
+		String type = context.getType();
+		
+		if (II_BUS_AND_VER.equals(type) || II.equals(type)) {
+			String specializationType = getAttributeValue(element, SPECIALIZATION_TYPE);
+			if (specializationType == null) {
+				xmlToModelResult.addHl7Error(Hl7Error.createMissingMandatoryAttributeError(SPECIALIZATION_TYPE, element));
+			} else if (II_BUS_AND_VER.equals(type) && !II_BUS.equals(specializationType) && !II_VER.equals(specializationType)) {
+			    xmlToModelResult.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR,
+			    		"Specialization type must be II.BUS or II.VER. Invalid specialization type " + specializationType + " (" + XmlDescriber.describeSingleElement(element)
+			    		+ ")"));
+			} else {
+				type = specializationType;
+			}
+		}
+		return type;
+	}
 
 	private void validateAttributeEquals(String type, Element element,
-			XmlToModelResult xmlToJavaResult, String attributeName, String attributeValue) {
+			XmlToModelResult xmlToModelResult, String attributeName, String attributeValue) {
 		if (!element.hasAttribute(attributeName)) {
-			xmlToJavaResult.addHl7Error(new Hl7Error(DATA_TYPE_ERROR, 
+			xmlToModelResult.addHl7Error(new Hl7Error(DATA_TYPE_ERROR, 
 					MessageFormat.format(
 							"Data type " + type + " requires the attribute {0}=\"{1}\" ({2})",
 							attributeName, XmlStringEscape.escape(attributeValue), 
 							XmlDescriber.describeSingleElement(element)),
 					element));
 		} else if (!StringUtils.equals(element.getAttribute(attributeName), attributeValue)) {
-			xmlToJavaResult.addHl7Error(new Hl7Error(DATA_TYPE_ERROR, 
+			xmlToModelResult.addHl7Error(new Hl7Error(DATA_TYPE_ERROR, 
 					MessageFormat.format(
 							"Data type " + type + " expected the attribute {0}=\"{1}\" ({2})",
 							attributeName, XmlStringEscape.escape(attributeValue), 
@@ -115,9 +146,9 @@ class IiElementParser extends AbstractSingleElementParser<Identifier> {
 	}
 
 
-	private void validateRootAsUuid(Element element, String root, XmlToModelResult xmlToJavaResult) {
+	private void validateRootAsUuid(Element element, String root, XmlToModelResult xmlToModelResult) {
 		if (!isUuid(root)) {
-			xmlToJavaResult.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, "root '" + root + "' should be a UUID. ("
+			xmlToModelResult.addHl7Error(new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, "root '" + root + "' should be a UUID. ("
 					+ XmlDescriber.describeSingleElement(element) +")"));
 		}
 	}
@@ -131,9 +162,9 @@ class IiElementParser extends AbstractSingleElementParser<Identifier> {
 		}
 	}
 
-	private void validateRootAsOid(String root, Element element, XmlToModelResult xmlToJavaResult) {
+	private void validateRootAsOid(String root, Element element, XmlToModelResult xmlToModelResult) {
 		if (!isOid(root)) {
-			xmlToJavaResult.addHl7Error(
+			xmlToModelResult.addHl7Error(
 					new Hl7Error(Hl7ErrorCode.DATA_TYPE_ERROR, 
 							"The oid, \"" + root + "\" does not appear to be a valid oid", element));
 		}
