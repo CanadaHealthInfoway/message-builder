@@ -3,7 +3,7 @@
     <id root="1ee83ff1-08ab-4fe7-b573-ea777e9bad51"/>
     <creationTime value="20080625141610-0400"/>
     <versionCode code="V3-2007-05"/>
-    <interactionId extension="POIZ_IN010040CA" root="2.16.840.1.113883.1.6"/>
+    <interactionId displayable="true" specializationType="II.PUBLIC" extension="POIZ_IN010040CA" root="2.16.840.1.113883.1.6"/>
     <processingCode code="P"/>
     <processingModeCode code="T"/>
     <acceptAckCode code="AL"/>

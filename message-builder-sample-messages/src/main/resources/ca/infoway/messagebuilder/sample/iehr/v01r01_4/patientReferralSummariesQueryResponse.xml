@@ -4,7 +4,7 @@
     <creationTime value="20080625141610-0400"/>
     <responseModeCode code="I"/>
     <versionCode code="V3-2007-05"/>
-    <interactionId displayable="true" extension="REPC_IN000085CA" root="2.16.840.1.113883.1.6"/>
+    <interactionId specializationType="II.PUBLIC" displayable="true" extension="REPC_IN000085CA" root="2.16.840.1.113883.1.6"/>
     <processingCode code="P"/>
     <processingModeCode code="T"/>
     <acceptAckCode code="AL"/>

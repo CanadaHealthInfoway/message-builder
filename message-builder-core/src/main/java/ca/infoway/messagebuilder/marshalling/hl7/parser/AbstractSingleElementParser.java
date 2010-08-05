@@ -67,7 +67,7 @@ public abstract class AbstractSingleElementParser<V> extends AbstractElementPars
 		return dataTypeInstance;
 	}
 
-	private void setDataType(String dataTypeName, BareANY dataTypeInstance) {
+	protected void setDataType(String dataTypeName, BareANY dataTypeInstance) {
 		if (dataTypeName!=null) {
 			StandardDataType dataType = StandardDataType.getByTypeName(dataTypeName);
 			if (dataType != null) {

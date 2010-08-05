@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import ca.infoway.messagebuilder.datatype.BareANY;
+import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.datatype.impl.CSImpl;
 import ca.infoway.messagebuilder.datatype.impl.IIImpl;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
@@ -47,8 +48,13 @@ class TopLevelBeanBridgeWrapper implements PartBridge {
 				result.add(new FixedValueAttributeBeanBridge(relationshipBridge.getRelationship(), 
 						new CSImpl(HL7StandardVersionCode.V3_2007_05)));
 			} else if ("interactionId".equals(relationshipBridge.getRelationship().getName())) {
+				IIImpl iiImpl = new IIImpl(new Identifier("2.16.840.1.113883.1.6", this.interactionId));
+				if (StandardDataType.II.getType().equals(relationshipBridge.getRelationship().getType())) {
+					// we must set a concrete specialization type when defined as abstract
+					iiImpl.setDataType(StandardDataType.II_PUBLIC);
+				}
 				result.add(new FixedValueIfNotProvidedAttributeBeanBridge((AttributeBridge) relationshipBridge, 
-						new IIImpl(new Identifier("2.16.840.1.113883.1.6", this.interactionId))));
+						iiImpl));
 			} else {
 				result.add(relationshipBridge);
 			}
