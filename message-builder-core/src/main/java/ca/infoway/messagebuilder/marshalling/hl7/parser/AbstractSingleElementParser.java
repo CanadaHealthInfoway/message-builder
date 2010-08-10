@@ -57,9 +57,7 @@ public abstract class AbstractSingleElementParser<V> extends AbstractElementPars
         return result;
     }
 
-	protected V parseNonNullNode(ParseContext context, Node node, BareANY result, Type returnType, XmlToModelResult xmlToModelResult) throws XmlToModelTransformationException {
-        return parseNonNullNode(context, node, returnType, xmlToModelResult);
-	}
+	protected abstract V parseNonNullNode(ParseContext context, Node node, BareANY result, Type returnType, XmlToModelResult xmlToModelResult) throws XmlToModelTransformationException;
 
 	private BareANY createDataTypeInstance(String typeName) {
 		BareANY dataTypeInstance = doCreateDataTypeInstance(typeName);
@@ -104,8 +102,6 @@ public abstract class AbstractSingleElementParser<V> extends AbstractElementPars
         return result;
     }
 
-    protected abstract V parseNonNullNode(ParseContext context, Node node, Type expectedReturnType, XmlToModelResult xmlToModelResult) throws XmlToModelTransformationException;
-    
     protected String getMandatoryAttributeValue(Node node, String attributeName, XmlToModelResult parsingResult) 
     		throws XmlToModelTransformationException {
         String result = getAttributeValue(node, attributeName);

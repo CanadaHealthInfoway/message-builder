@@ -19,6 +19,7 @@ import org.junit.Test;
 import org.w3c.dom.Node;
 
 import ca.infoway.messagebuilder.Code;
+import ca.infoway.messagebuilder.datatype.CD;
 import ca.infoway.messagebuilder.datatype.CV;
 import ca.infoway.messagebuilder.domainvalue.nullflavor.NullFlavor;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode;
@@ -307,6 +308,121 @@ public class CvElementParserTest extends MarshallingTestCase {
 				result.getHl7Errors().get(0).getMessage());
 		assertEquals("error type", 
 				Hl7ErrorCode.VALUE_NOT_IN_CODE_SYSTEM, 
+				result.getHl7Errors().get(0).getHl7ErrorCode());
+	}
+	
+	@Test
+	public void testParseValidTranslation() throws Exception {
+		Node node = createNode("<something code=\"BARNEY\" codeSystem=\"1.2.3.4.5\"><translation code=\"FRED\" codeSystem=\"1.2.3.4.5\" /></something>");
+		
+		XmlToModelResult result = new XmlToModelResult();
+		CD cd = (CD) this.parser.parse(
+				ParserContextImpl.create("CD", MockEnum.class, V02R02.getVersionLiteral(), OPTIONAL), 
+				node, 
+				result);
+		
+		assertNotNull("main enum found", cd.getValue());
+		assertFalse("translation enum found", cd.getTranslations().isEmpty());
+		assertTrue("translation enum found", cd.getTranslations().size() == 1);
+		assertEquals("error message count", 0, result.getHl7Errors().size());
+		assertEquals("main code", "BARNEY", cd.getValue().getCodeValue());
+		assertEquals("translation", "FRED", cd.getTranslations().get(0).getValue().getCodeValue());
+	}
+	
+	@Test
+	public void testParseInvalidTranslation() throws Exception {
+		// triggers every error for translations
+		Node node = createNode("<something code=\"BARNEY\" codeSystem=\"1.2.3.4.5\">" +
+				"<translation nullFlavor=\"OTH\" codeSystemName=\"aName\" codeSystemVersion=\"123\" displayName=\"aName\" >" +
+				"  <originalText>should not be here</originalText>" +
+				"  <translation code=\"FRED\" codeSystem=\"1.2.3.4.5\" />" +
+				"  <qualifier />" +
+				"</translation>" +
+				"</something>");
+		
+		XmlToModelResult result = new XmlToModelResult();
+		CD cd = (CD) this.parser.parse(
+				ParserContextImpl.create("CD", MockEnum.class, V02R02.getVersionLiteral(), OPTIONAL), 
+				node, 
+				result);
+		
+		assertNotNull("main enum found", cd.getValue());
+		assertEquals("main code", "BARNEY", cd.getValue().getCodeValue());
+		assertTrue("translation enum not found", cd.getTranslations().isEmpty());
+		assertEquals("error message count", 9, result.getHl7Errors().size());
+		assertTrue("error message", result.getHl7Errors().get(0).getMessage().startsWith("CD should not include the 'codeSystemName' property."));
+		assertTrue("error message", result.getHl7Errors().get(1).getMessage().startsWith("CD should not include the 'codeSystemVersion' property."));
+		assertTrue("error message", result.getHl7Errors().get(2).getMessage().startsWith("CD should not include the 'displayName' property."));
+		assertTrue("error message", result.getHl7Errors().get(3).getMessage().startsWith("CD should not include the 'qualifier' property."));
+		assertTrue("error message", result.getHl7Errors().get(4).getMessage().startsWith("CD should not include the 'nullFlavor' property."));
+		assertTrue("error message", result.getHl7Errors().get(5).getMessage().startsWith("CD should not include the 'originalText' property."));
+		assertTrue("error message", result.getHl7Errors().get(6).getMessage().startsWith("CD should not include the 'translation' property."));
+		assertTrue("error message", result.getHl7Errors().get(7).getMessage().startsWith("Attribute code is mandatory for node /something/translation"));
+		assertTrue("error message", result.getHl7Errors().get(8).getMessage().startsWith("Attribute codeSystem is mandatory for node /something/translation"));
+	}
+	
+	@Test
+	public void testParseMaximumValidTranslation() throws Exception {
+		Node node = createNode("<something code=\"BARNEY\" codeSystem=\"1.2.3.4.5\">" +
+				"<translation code=\"FRED\" codeSystem=\"1.2.3.4.5\" />" +
+				"<translation code=\"WILMA\" codeSystem=\"1.2.3.4.5\" />" +
+				"<translation code=\"BETTY\" codeSystem=\"1.2.3.4.5\" />" +
+				"<translation code=\"BAM_BAM\" codeSystem=\"1.2.3.4.5\" />" +
+				"<translation code=\"FRED\" codeSystem=\"1.2.3.4.5\" />" +
+				"<translation code=\"WILMA\" codeSystem=\"1.2.3.4.5\" />" +
+				"<translation code=\"BETTY\" codeSystem=\"1.2.3.4.5\" />" +
+				"<translation code=\"BAM_BAM\" codeSystem=\"1.2.3.4.5\" />" +
+				"<translation code=\"FRED\" codeSystem=\"1.2.3.4.5\" />" +
+				"<translation code=\"WILMA\" codeSystem=\"1.2.3.4.5\" /></something>");
+		
+		XmlToModelResult result = new XmlToModelResult();
+		CD cd = (CD) this.parser.parse(
+				ParserContextImpl.create("CD", MockEnum.class, V02R02.getVersionLiteral(), OPTIONAL), 
+				node, 
+				result);
+		
+		assertNotNull("main enum found", cd.getValue());
+		assertFalse("translation enums found", cd.getTranslations().isEmpty());
+		assertTrue("translation enums found", cd.getTranslations().size() == 10);
+		assertEquals("error message count", 0, result.getHl7Errors().size());
+		assertEquals("main code", "BARNEY", cd.getValue().getCodeValue());
+		assertEquals("translation", "FRED", cd.getTranslations().get(0).getValue().getCodeValue());
+		assertEquals("translation", "WILMA", cd.getTranslations().get(9).getValue().getCodeValue());
+	}
+	
+	@Test
+	public void testParseTooManyTranslations() throws Exception {
+		Node node = createNode("<something code=\"BARNEY\" codeSystem=\"1.2.3.4.5\">" +
+				"<translation code=\"FRED\" codeSystem=\"1.2.3.4.5\" />" +
+				"<translation code=\"WILMA\" codeSystem=\"1.2.3.4.5\" />" +
+				"<translation code=\"BETTY\" codeSystem=\"1.2.3.4.5\" />" +
+				"<translation code=\"BAM_BAM\" codeSystem=\"1.2.3.4.5\" />" +
+				"<translation code=\"FRED\" codeSystem=\"1.2.3.4.5\" />" +
+				"<translation code=\"WILMA\" codeSystem=\"1.2.3.4.5\" />" +
+				"<translation code=\"BETTY\" codeSystem=\"1.2.3.4.5\" />" +
+				"<translation code=\"BAM_BAM\" codeSystem=\"1.2.3.4.5\" />" +
+				"<translation code=\"FRED\" codeSystem=\"1.2.3.4.5\" />" +
+				"<translation code=\"WILMA\" codeSystem=\"1.2.3.4.5\" />" +
+				"<translation code=\"BETTY\" codeSystem=\"1.2.3.4.5\" /></something>");
+		
+		XmlToModelResult result = new XmlToModelResult();
+		CD cd = (CD) this.parser.parse(
+				ParserContextImpl.create("CD", MockEnum.class, V02R02.getVersionLiteral(), OPTIONAL), 
+				node, 
+				result);
+		
+		assertNotNull("main enum found", cd.getValue());
+		assertFalse("translation enums found", cd.getTranslations().isEmpty());
+		assertTrue("translation enums found", cd.getTranslations().size() == 11);
+		assertEquals("error message count", 1, result.getHl7Errors().size());
+		assertEquals("main code", "BARNEY", cd.getValue().getCodeValue());
+		assertEquals("translation", "FRED", cd.getTranslations().get(0).getValue().getCodeValue());
+		assertEquals("translation", "BETTY", cd.getTranslations().get(10).getValue().getCodeValue());
+		assertEquals("error message", 
+				"A maximum of 10 translations are allowed for any given code.", 
+				result.getHl7Errors().get(0).getMessage());
+		assertEquals("error type", 
+				Hl7ErrorCode.DATA_TYPE_ERROR, 
 				result.getHl7Errors().get(0).getHl7ErrorCode());
 	}
 }

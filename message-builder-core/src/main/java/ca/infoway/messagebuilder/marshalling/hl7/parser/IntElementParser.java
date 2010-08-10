@@ -37,7 +37,7 @@ import ca.infoway.messagebuilder.util.xml.XmlDescriber;
 class IntElementParser extends AbstractSingleElementParser<Integer> {
 
 	@Override
-	protected Integer parseNonNullNode(ParseContext context, Node node, Type expectedReturnType, XmlToModelResult xmlToJavaResult) throws XmlToModelTransformationException {
+	protected Integer parseNonNullNode(ParseContext context, Node node, BareANY result, Type expectedReturnType, XmlToModelResult xmlToJavaResult) throws XmlToModelTransformationException {
 		validateNoChildren(context, node);
 		return parseNonNullNode((Element) node, expectedReturnType, xmlToJavaResult);
 	}

@@ -111,7 +111,7 @@ class TsElementParser extends AbstractSingleElementParser<Date> {
 	}
 	
 	@Override
-	protected Date parseNonNullNode(ParseContext context, Node node, Type expectedReturnType, XmlToModelResult xmlToJavaResult) throws XmlToModelTransformationException {
+	protected Date parseNonNullNode(ParseContext context, Node node, BareANY result, Type expectedReturnType, XmlToModelResult xmlToJavaResult) throws XmlToModelTransformationException {
 		if (isAbstractFullDateWithTime(context)) {
 			context = handleSpecializationType(context, node, xmlToJavaResult);
 		}

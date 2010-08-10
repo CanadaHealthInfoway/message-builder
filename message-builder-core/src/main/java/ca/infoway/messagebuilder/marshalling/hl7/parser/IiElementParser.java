@@ -56,12 +56,6 @@ class IiElementParser extends AbstractSingleElementParser<Identifier> {
 	}
 
 	@Override
-	protected Identifier parseNonNullNode(ParseContext context, Node node, Type expectedReturnType, XmlToModelResult xmlToModelResult) 
-			throws XmlToModelTransformationException {
-		throw new UnsupportedOperationException("Different parseNonNullNode handler used for II");
-	}
-
-	@Override
 	protected Identifier parseNonNullNode(ParseContext context, Node node, BareANY result, Type returnType, XmlToModelResult xmlToModelResult)
 			throws XmlToModelTransformationException {
 		

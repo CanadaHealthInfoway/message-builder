@@ -7,6 +7,7 @@ import java.util.StringTokenizer;
 
 import org.w3c.dom.Node;
 
+import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.lang.EntityName;
 import ca.infoway.messagebuilder.datatype.lang.EntityNameUse;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
@@ -16,7 +17,7 @@ import ca.infoway.messagebuilder.resolver.CodeResolverRegistry;
 public abstract class AbstractEntityNameElementParser extends AbstractSingleElementParser<EntityName> {
 
 	@Override
-	protected EntityName parseNonNullNode(ParseContext context, Node node, Type expectedReturnType, XmlToModelResult xmlToJavaResult) throws XmlToModelTransformationException {
+	protected EntityName parseNonNullNode(ParseContext context, Node node, BareANY parseResult, Type expectedReturnType, XmlToModelResult xmlToJavaResult) throws XmlToModelTransformationException {
 		EntityName result = parseNode(node, xmlToJavaResult);
         result.setUses(getNameUses(getAttributeValue(node, "use")));
 		return result;

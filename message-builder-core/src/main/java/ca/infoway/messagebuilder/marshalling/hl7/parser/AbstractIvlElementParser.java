@@ -43,7 +43,7 @@ public abstract class AbstractIvlElementParser<T> extends AbstractSingleElementP
 	
 	@Override
 	@SuppressWarnings("unchecked")
-	protected Interval<T> parseNonNullNode(ParseContext context, Node node, Type expectedReturnType, XmlToModelResult xmlToJavaResult) throws XmlToModelTransformationException {
+	protected Interval<T> parseNonNullNode(ParseContext context, Node node, BareANY parseResult, Type expectedReturnType, XmlToModelResult xmlToJavaResult) throws XmlToModelTransformationException {
 
 		Interval<T> result = null;
 		

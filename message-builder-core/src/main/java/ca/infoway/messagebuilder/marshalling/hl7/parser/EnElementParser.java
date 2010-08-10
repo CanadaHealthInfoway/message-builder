@@ -31,7 +31,7 @@ class EnElementParser extends AbstractSingleElementParser<EntityName> {
     private final TnElementParser tnElementParser = new TnElementParser();
 
     @Override
-	protected EntityName parseNonNullNode(ParseContext context, Node node, Type expectedReturnType, XmlToModelResult xmlToJavaResult) throws XmlToModelTransformationException {
+	protected EntityName parseNonNullNode(ParseContext context, Node node, BareANY parseResult, Type expectedReturnType, XmlToModelResult xmlToJavaResult) throws XmlToModelTransformationException {
     	EntityName result;
         
         if (tnElementParser.isParseable(node)) {

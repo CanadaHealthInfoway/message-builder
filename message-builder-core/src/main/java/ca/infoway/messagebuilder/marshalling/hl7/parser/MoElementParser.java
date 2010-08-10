@@ -37,7 +37,7 @@ class MoElementParser extends AbstractSingleElementParser<Money> {
 	}
 	
 	@Override
-	protected Money parseNonNullNode(ParseContext context, Node node, Type expectedReturnType, XmlToModelResult xmlToJavaResult) throws XmlToModelTransformationException {
+	protected Money parseNonNullNode(ParseContext context, Node node, BareANY result, Type expectedReturnType, XmlToModelResult xmlToJavaResult) throws XmlToModelTransformationException {
 		
 		validateNoChildren(context, node);
 

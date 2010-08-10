@@ -56,7 +56,7 @@ class PqElementParser extends AbstractSingleElementParser<PhysicalQuantity> {
 	private static final int MAXIMUM_FRACTION_DIGITS = 2;
 
 	@Override
-	protected PhysicalQuantity parseNonNullNode(ParseContext context, Node node, Type expectedReturnType, XmlToModelResult xmlToJavaResult) throws XmlToModelTransformationException {
+	protected PhysicalQuantity parseNonNullNode(ParseContext context, Node node, BareANY result, Type expectedReturnType, XmlToModelResult xmlToJavaResult) throws XmlToModelTransformationException {
 		return parseNonNullElement(context, (Element) node, xmlToJavaResult);
 	}
 

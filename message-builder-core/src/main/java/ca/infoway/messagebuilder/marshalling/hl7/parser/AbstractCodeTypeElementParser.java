@@ -41,7 +41,7 @@ public abstract class AbstractCodeTypeElementParser extends AbstractSingleElemen
 	}
 
 	private void populateValue(BareANY dataType, ParseContext context, Node node, XmlToModelResult xmlToJavaResult) throws XmlToModelTransformationException {
-		Code value = parseNonNullNode(context, node, getReturnType(context), xmlToJavaResult);
+		Code value = parseNonNullNode(context, node, dataType, getReturnType(context), xmlToJavaResult);
         ((BareANYImpl) dataType).setBareValue(value);
 	}
 	
@@ -88,10 +88,4 @@ public abstract class AbstractCodeTypeElementParser extends AbstractSingleElemen
 		}
 	}
 	
-    @Override
-	protected Code parseNonNullNode(ParseContext context, Node node, Type expectedReturnType, XmlToModelResult xmlToJavaResult) throws XmlToModelTransformationException {
-    	return parseNonNullNode(context, (Element) node, expectedReturnType, xmlToJavaResult);
-    }	
-
-    protected abstract Code parseNonNullNode(ParseContext context, Element element, Type expectedReturnType, XmlToModelResult xmlToJavaResult) throws XmlToModelTransformationException;
 }
