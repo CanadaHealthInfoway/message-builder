@@ -17,7 +17,7 @@ public class MockEnum extends EnumPattern implements MockCharacters {
 	}
 	
 	public String getCodeSystem() {
-		return "";
+		return "1.2.3.4.5";
 	}
 
 	public String getCodeValue() {

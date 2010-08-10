@@ -23,7 +23,7 @@ class PivlTsDateTimeElementParser extends AbstractSingleElementParser<PeriodicIn
 
 	@Override
 	protected PeriodicIntervalTime parseNonNullNode(
-			ParseContext context, Node node, Type expectedReturnType, XmlToModelResult xmlToJavaResult) throws XmlToModelTransformationException {
+			ParseContext context, Node node, BareANY result, Type expectedReturnType, XmlToModelResult xmlToJavaResult) throws XmlToModelTransformationException {
 		return parseNonNullNode(context, (Element) node, expectedReturnType, xmlToJavaResult);
 	}
 	

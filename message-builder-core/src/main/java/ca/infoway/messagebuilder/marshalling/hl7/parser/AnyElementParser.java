@@ -106,10 +106,4 @@ public class AnyElementParser extends AbstractSingleElementParser<Object> {
 		return result;
 	}
 	
-	@Override
-	protected Object parseNonNullNode(ParseContext context, Node node, Type expectedReturnType, XmlToModelResult xmlToJavaResult)
-			throws XmlToModelTransformationException {
-		throw new UnsupportedOperationException("Different parseNonNullNode handler used for ANY.LAB");
-	}
-
 }

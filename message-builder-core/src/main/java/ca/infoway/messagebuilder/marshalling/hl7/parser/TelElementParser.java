@@ -38,7 +38,7 @@ import ca.infoway.messagebuilder.util.xml.XmlDescriber;
 class TelElementParser extends AbstractSingleElementParser<TelecommunicationAddress> {
 
 	@Override
-	protected TelecommunicationAddress parseNonNullNode(ParseContext context, Node node, Type expectedReturnType, XmlToModelResult xmlToJavaResult) throws XmlToModelTransformationException {
+	protected TelecommunicationAddress parseNonNullNode(ParseContext context, Node node, BareANY parseResult, Type expectedReturnType, XmlToModelResult xmlToJavaResult) throws XmlToModelTransformationException {
 		validateNoChildren(context, node);
 
 		String value = getAttributeValue(node, "value");

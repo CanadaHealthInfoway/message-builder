@@ -33,7 +33,7 @@ class EdSignatureElementParser extends AbstractSingleElementParser<String> {
 	private final StElementParser stElementParser = new StElementParser();
 	
 	@Override
-	protected String parseNonNullNode(ParseContext context, Node node, Type expectedReturnType, XmlToModelResult xmlToJavaResult) throws XmlToModelTransformationException {
+	protected String parseNonNullNode(ParseContext context, Node node, BareANY parseResult, Type expectedReturnType, XmlToModelResult xmlToJavaResult) throws XmlToModelTransformationException {
 		
 		String result = null;
 		
