@@ -245,6 +245,10 @@ class BridgeFactoryImpl implements BridgeFactory {
 				Relationship option = argument.findChoiceOption(predicate);
 				if (option != null) {
 					typeName = option.getType();
+				} else {
+					// couldn't find a choice type to use (most likely, value is null)
+					// can't leave typeName as null, so just use first choice type from argument
+					typeName = argument.getChoices().get(0).getType();
 				}
 			} else {
 				typeName = argument.getName();
