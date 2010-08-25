@@ -1,9 +1,9 @@
 package ca.infoway.messagebuilder.marshalling.hl7.formatter;
 
 import ca.infoway.messagebuilder.datatype.BareANY;
-import ca.infoway.messagebuilder.marshalling.RenderingException;
 import ca.infoway.messagebuilder.marshalling.hl7.AnyHelper;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
+import ca.infoway.messagebuilder.xml.util.XmlWarningRenderer;
 /**
  * ANY, ANY.LAB, ANY.CA.IZ, ANY.PATH
  * 
@@ -25,7 +25,8 @@ public class AnyPropertyFormatter extends AbstractPropertyFormatter {
 		PropertyFormatter formatter = FormatterRegistry.getInstance().get(type);
 		String parentType = formatContext.getType();
 		if (formatter == null || !AnyHelper.isValidTypeForAny(parentType, type)) {
-			throw new RenderingException("Cannot support properties of type " + type + " for " + parentType);
+			String errorText = "Cannot support properties of type " + type + " for " + parentType + ". Please specify a specializationType applicable for " + parentType + " in the appropriate message bean.";
+			throw new ModelToXmlTransformationException(errorText);
 		} else {
 			return formatter.format(
 					new FormatContextImpl(formatContext.getElementName(), type, formatContext.getConformanceLevel(), true, null), 
