@@ -28,7 +28,12 @@ public abstract class AbstractPropertyFormatter implements PropertyFormatter {
     		if (attributes == null) {
     			attributes = new HashMap<String, String>();
     		}
-    		attributes.putAll(createSpecializationTypeAttibutesIfNecessary(context));
+    		Map<String, String> extraAttributes = createSpecializationTypeAttibutesIfNecessary(context);
+    		// bug 13884 - csharp throws exception if put duplicate key in map; this was occurring when using putAll() instead of below code
+    		for (String key : extraAttributes.keySet()) {
+				attributes.remove(key);
+				attributes.put(key, extraAttributes.get(key));
+			}
     	}
     	return createElement(context.getElementName(), attributes, indentLevel, close, lineBreak); 
     }
