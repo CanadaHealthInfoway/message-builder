@@ -66,8 +66,9 @@ abstract class IvlPropertyFormatter<T> extends AbstractIvlPropertyFormatter<T> {
 	    	String type = Hl7DataTypeName.getParameterizedType(context.getType());
 	    	PropertyFormatter formatter = FormatterRegistry.getInstance().get(type);
 	    	if (formatter != null) {
-	    		return formatter.format(
-	    				new FormatContextImpl(name, type, ConformanceLevel.MANDATORY, context.isSpecializationType(), null),
+	    		boolean isSpecializationType = context.isSpecializationType() && context.isPassOnSpecializationType();
+				return formatter.format(
+	    				new FormatContextImpl(name, type, ConformanceLevel.MANDATORY, isSpecializationType, null),
 	    				wrapWithHl7DataType(type, diff),
 	    				indentLevel);
 	    	} else {
@@ -101,8 +102,9 @@ abstract class IvlPropertyFormatter<T> extends AbstractIvlPropertyFormatter<T> {
     	String type = Hl7DataTypeName.getParameterizedType(context.getType());
     	PropertyFormatter formatter = FormatterRegistry.getInstance().get(type);
     	if (formatter != null) {
+    		boolean isSpecializationType = context.isSpecializationType() && context.isPassOnSpecializationType();
     		return formatter.format(
-    				new FormatContextImpl(name, type, ConformanceLevel.MANDATORY, context.isSpecializationType(), context.getVersion()), value, indentLevel);
+    				new FormatContextImpl(name, type, ConformanceLevel.MANDATORY, isSpecializationType, context.getVersion()), value, indentLevel);
     	} else {
     		throw new ModelToXmlTransformationException("No formatter found for " + type);
     	}

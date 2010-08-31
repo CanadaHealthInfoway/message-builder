@@ -7,6 +7,7 @@ public interface FormatContext {
 	public String getElementName();
 	public String getType();
 	public boolean isSpecializationType();
+	public boolean isPassOnSpecializationType();
 	public ConformanceLevel getConformanceLevel();
 	public VersionNumber getVersion();
 }
