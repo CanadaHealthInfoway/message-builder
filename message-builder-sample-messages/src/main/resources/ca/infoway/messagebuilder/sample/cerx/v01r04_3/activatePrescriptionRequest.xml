@@ -181,7 +181,7 @@
                     <text>ad hoc dosage instruction</text>
 	                <effectiveTime specializationType="GTS.BOUNDEDPIVL" xsi:type="SXPR_TS">
 	                  <comp specializationType="IVL_TS.FULLDATE" xsi:type="IVL_TS">
-	                    <low specializationType="TS.FULLDATE" value="19691231" xsi:type="TS"/>
+	                    <low value="19691231"/>
 	                    <width unit="wk" value="3"/>
 	                  </comp>
 	                  <comp operator="I" specializationType="PIVL_TS.DATETIME" xsi:type="PIVL_TS">
