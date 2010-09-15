@@ -143,9 +143,17 @@ class MifXPathHelper extends BaseMifXPathHelper {
 			return true; 
 		} else if (isTargetConnection(targetConnection)) {
 			return null != getSingleElement(targetConnection, "./mif:participantClass/mif:commonModelElementRef");
+		} else if (isParticipantClassSpecialization(targetConnection)) {
+			String className = targetConnection.getAttribute("className");
+			return null != getSingleElement(targetConnection, "../mif:participantClass//mif:commonModelElementRef[@name='" +
+					className + "']");
 		} else {
 			return null != getSingleElement(targetConnection, "./mif:specializedClass/mif:commonModelElementRef");
 		}
+	}
+
+	public static boolean isParticipantClassSpecialization(Element element) {
+		return "participantClassSpecialization".equals(NodeUtil.getLocalOrTagName(element));
 	}
 
 	public static boolean isMifReferenceElementPresent(Element targetConnection) {
@@ -153,6 +161,10 @@ class MifXPathHelper extends BaseMifXPathHelper {
 			return null != getSingleElement(targetConnection, "./mif:participantClass/mif:reference");
 		} else if ("specializationChild".equals(targetConnection.getLocalName())) {
 			return null != getSingleElement(targetConnection, "./mif:specializedClass/mif:reference");
+		} else if (isParticipantClassSpecialization(targetConnection)) {
+			String className = targetConnection.getAttribute("className");
+			return null != getSingleElement(targetConnection, "../mif:participantClass//mif:reference[@name='" +
+					className + "']");
 		} else {
 			throw new MifProcessingException("cannot use this type: " + targetConnection.getLocalName());
 		}
@@ -169,6 +181,9 @@ class MifXPathHelper extends BaseMifXPathHelper {
 			return StringUtils.isNotBlank(referenceType) ? referenceType : getOwnedEntryPoint(targetConnection); 
 		} else if (isTargetConnection(targetConnection)) {
 			return getAttribute(targetConnection, "./mif:participantClass/mif:commonModelElementRef/mif:generalizationParent/@name");
+		} else if (isParticipantClassSpecialization(targetConnection)) {
+			String className = targetConnection.getAttribute("className");
+			return getAttribute(targetConnection, "../mif:participantClass//mif:commonModelElementRef[@name='" + className + "']/mif:generalizationParent/@name");
 		} else {
 			return getAttribute(targetConnection, "./mif:specializedClass/mif:commonModelElementRef/mif:generalizationParent/@name");
 		}
@@ -195,6 +210,8 @@ class MifXPathHelper extends BaseMifXPathHelper {
 	public static String getMifReferenceType(Element targetConnection) {
 		if (isTargetConnection(targetConnection)) {
 			return getAttribute(targetConnection, "./mif:participantClass/mif:reference/@name");
+		} else if (isParticipantClassSpecialization(targetConnection)) {
+			return targetConnection.getAttribute("className");
 		} else {
 			return getAttribute(targetConnection, "./mif:specializedClass/mif:reference/@name");
 		}
@@ -209,9 +226,13 @@ class MifXPathHelper extends BaseMifXPathHelper {
 		return getAttribute(element, "./mif:businessName/@name");
 	}
 
-	public static List<Element> getParticipantSpecializations(
-			Element targetConnection) {
-		return toElementList(getNodes(targetConnection, "./mif:participantClassSpecialization"));
+	public static List<Element> getParticipantSpecializations(Element targetConnection) {
+		return getParticipantSpecializations(targetConnection, null);
+	}
+
+	public static List<Element> getParticipantSpecializations(Element targetConnection, String referenceName) {
+		String searchCriteria = StringUtils.isBlank(referenceName) ? "" : "[@className='" + referenceName + "']";
+		return toElementList(getNodes(targetConnection, "./mif:participantClassSpecialization" + searchCriteria));
 	}
 
 	public static List<Element> getSpecializationChilds(Element element) {
@@ -241,4 +262,5 @@ class MifXPathHelper extends BaseMifXPathHelper {
 	public static boolean isSpecializationChildReference(Element specializationChild) {
 		return null != getSingleElement(specializationChild, "./mif:reference");
 	}
+
 }

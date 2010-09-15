@@ -16,6 +16,7 @@ import org.xml.sax.SAXException;
 
 import ca.infoway.messagebuilder.util.iterator.NodeListIterator;
 import ca.infoway.messagebuilder.xml.MessagePart;
+import ca.infoway.messagebuilder.xml.MessagePartResolver;
 import ca.infoway.messagebuilder.xml.MessageSet;
 import ca.infoway.messagebuilder.xml.PackageLocation;
 import ca.infoway.messagebuilder.xml.Relationship;
@@ -221,7 +222,7 @@ class Mif1Processor extends BaseMifProcessorImpl implements MifProcessor {
 		addDocumentation(element, relationship);
 	}
 
-	static String determineType(MessageSet messageSet, Element targetConnection) {
+	static String determineType(MessagePartResolver messagePartResolver, Element targetConnection) {
 		if (MifXPathHelper.isMifReferenceElementPresent(targetConnection) && !isExternalReference(targetConnection)) {
 			String type = MifXPathHelper.getMifReferenceType(targetConnection);
 			if (MifXPathHelper.isTypeDefinedInMif(type, targetConnection)) {
@@ -231,7 +232,7 @@ class Mif1Processor extends BaseMifProcessorImpl implements MifProcessor {
 			}
 		} else if (MifXPathHelper.isReferenceToOtherModelType(targetConnection)) {
 			String generalizationTarget = MifXPathHelper.getGeneralizationTarget(targetConnection);
-			return TypeResolver.getExternalType(messageSet, targetConnection,
+			return TypeResolver.getExternalType(messagePartResolver, targetConnection,
 					generalizationTarget);
 		} else if (isParticipantClass(targetConnection)) {
 			String unqualifiedName = MifXPathHelper.getParticipantClassName(targetConnection);
@@ -239,7 +240,7 @@ class Mif1Processor extends BaseMifProcessorImpl implements MifProcessor {
 		} else if (isTemplateParameter(targetConnection)) {
 			return null;
 		} else {
-			throw new MifProcessingException("Can't determine the type for relationship: " + targetConnection.getAttribute("name"));
+			throw new MifProcessingException("Can't determine the type for relationship: " + targetConnection.getAttribute("name") + " " + targetConnection.getAttribute("className") + " " + targetConnection.getAttribute("traversalName"));
 		}
 	}
 

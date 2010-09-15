@@ -4,6 +4,7 @@ import org.apache.commons.lang.StringUtils;
 
 import ca.infoway.messagebuilder.marshalling.hl7.DomainTypeHelper;
 import ca.infoway.messagebuilder.xml.Argument;
+import ca.infoway.messagebuilder.xml.ConformanceLevel;
 import ca.infoway.messagebuilder.xml.Interaction;
 import ca.infoway.messagebuilder.xml.Relationship;
 import ca.infoway.messagebuilder.xml.TypeName;
@@ -26,6 +27,10 @@ public class Matcher {
 	
 	public boolean matchesArgumentRoot(Argument base, Argument other) {
 		return matchesTypeName(base == null ? null : base.getName(), other == null ? null : other.getName());
+	}
+	
+	public boolean matchesArgumentTraversalName(Argument base, Argument other) {
+		return StringUtils.equals(base == null ? null : base.getTraversalName(), other == null ? null : other.getTraversalName());
 	}
 	
 	public boolean matchesTypeName(String base, String other) {
@@ -86,6 +91,34 @@ public class Matcher {
 			return MatchType.MAJOR_DIFFERENCE;
 		} else {
 			return MatchType.EXACT;
+		}
+	}
+
+	public MatchType matchesConformance(Relationship base, Relationship other) {
+		if (base == null && other == null) {
+			return MatchType.EXACT;
+		} else if (base == null || other == null) {
+			return MatchType.MAJOR_DIFFERENCE;
+		} else if (base.getConformance() == other.getConformance()) {
+			return MatchType.EXACT;
+		} else if (base.getConformance() == ConformanceLevel.MANDATORY || other.getConformance() == ConformanceLevel.MANDATORY) {
+			return MatchType.MAJOR_DIFFERENCE;
+		} else {
+			return MatchType.MINOR_DIFFERENCE;
+		}
+	}
+
+	public MatchType matchesCardinality(Relationship base, Relationship other) {
+		if (base == null && other == null) {
+			return MatchType.EXACT;
+		} else if (base == null || other == null) {
+			return MatchType.MAJOR_DIFFERENCE;
+		} else if (StringUtils.equals(base.getCardinality().toString(), other.getCardinality().toString())) {
+			return MatchType.EXACT;
+		} else if (base.getCardinality().isSingle() == other.getCardinality().isSingle()) {
+			return MatchType.MINOR_DIFFERENCE;
+		} else {
+			return MatchType.MAJOR_DIFFERENCE;
 		}
 	}
 	
