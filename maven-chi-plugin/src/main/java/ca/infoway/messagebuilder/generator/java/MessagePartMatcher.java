@@ -48,4 +48,14 @@ public class MessagePartMatcher {
 		Relationship baselineRelationship = getBaselineRelationship(relationship.getName());
 		return this.matcher.matchesType(baselineRelationship, relationship);
 	}
+
+	public MatchType matchesConformance(Relationship relationship) {
+		Relationship baselineRelationship = getBaselineRelationship(relationship.getName());
+		return this.matcher.matchesConformance(baselineRelationship, relationship);
+	}
+
+	public MatchType matchesCardinality(Relationship relationship) {
+		Relationship baselineRelationship = getBaselineRelationship(relationship.getName());
+		return this.matcher.matchesCardinality(baselineRelationship, relationship);
+	}
 }
