@@ -15282,13 +15282,13 @@
                <relationship name="contextControlCode" type="CS" structural="true" domainType="ContextControl" conformance="MANDATORY" cardinality="1" sortOrder="1" fixedValue="ON" codingStrength="CNE"/>
                <relationship name="contextConductionInd" type="BL" structural="true" conformance="MANDATORY" cardinality="1" sortOrder="2" fixedValue="false"/>
                <relationship name="causalActs" type="PORX_MT980010CA.CausalActs" conformance="POPULATED" cardinality="1" sortOrder="3">
-                  <choice name="substanceAdministration" type="PORX_MT980010CA.ObservationMeasurableEvent"/>
-                  <choice name="supplyEvent" type="PORX_MT980010CA.ObservationMeasurableEvent"/>
-                  <choice name="observationCodedEvent" type="PORX_MT980010CA.ObservationMeasurableEvent"/>
+                  <choice name="substanceAdministration" type="PORX_MT980010CA.SubstanceAdministration"/>
+                  <choice name="supplyEvent" type="PORX_MT980010CA.SupplyEvent"/>
+                  <choice name="observationCodedEvent" type="PORX_MT980010CA.ObservationCodedEvent"/>
                   <choice name="observationMeasurableEvent" type="PORX_MT980010CA.ObservationMeasurableEvent"/>
-                  <choice name="causalActs1" type="PORX_MT980010CA.ObservationMeasurableEvent"/>
-                  <choice name="causalActs2" type="PORX_MT980010CA.ObservationMeasurableEvent"/>
-                  <choice name="causalActs3" type="PORX_MT980010CA.ObservationMeasurableEvent"/>
+                  <choice name="causalActs1" type="PORX_MT980010CA.SubstanceAdministration"/>
+                  <choice name="causalActs2" type="PORX_MT980010CA.SupplyEvent"/>
+                  <choice name="causalActs3" type="PORX_MT980010CA.ObservationCodedEvent"/>
                   <choice name="causalActs4" type="PORX_MT980010CA.ObservationMeasurableEvent"/>
                </relationship>
             </messagePart>
@@ -15719,13 +15719,13 @@
                <relationship name="contextControlCode" type="CS" structural="true" domainType="ContextControl" conformance="MANDATORY" cardinality="1" sortOrder="1" fixedValue="ON" codingStrength="CNE"/>
                <relationship name="contextConductionInd" type="BL" structural="true" conformance="MANDATORY" cardinality="1" sortOrder="2" fixedValue="false"/>
                <relationship name="causalActs" type="PORX_MT980020CA.CausalActs" conformance="POPULATED" cardinality="1" sortOrder="3">
-                  <choice name="substanceAdministration" type="PORX_MT980020CA.ObservationMeasurableEvent"/>
-                  <choice name="supplyEvent" type="PORX_MT980020CA.ObservationMeasurableEvent"/>
-                  <choice name="observationCodedEvent" type="PORX_MT980020CA.ObservationMeasurableEvent"/>
+                  <choice name="substanceAdministration" type="PORX_MT980020CA.SubstanceAdministration"/>
+                  <choice name="supplyEvent" type="PORX_MT980020CA.SupplyEvent"/>
+                  <choice name="observationCodedEvent" type="PORX_MT980020CA.ObservationCodedEvent"/>
                   <choice name="observationMeasurableEvent" type="PORX_MT980020CA.ObservationMeasurableEvent"/>
-                  <choice name="causalActs1" type="PORX_MT980020CA.ObservationMeasurableEvent"/>
-                  <choice name="causalActs2" type="PORX_MT980020CA.ObservationMeasurableEvent"/>
-                  <choice name="causalActs3" type="PORX_MT980020CA.ObservationMeasurableEvent"/>
+                  <choice name="causalActs1" type="PORX_MT980020CA.SubstanceAdministration"/>
+                  <choice name="causalActs2" type="PORX_MT980020CA.SupplyEvent"/>
+                  <choice name="causalActs3" type="PORX_MT980020CA.ObservationCodedEvent"/>
                   <choice name="causalActs4" type="PORX_MT980020CA.ObservationMeasurableEvent"/>
                </relationship>
             </messagePart>
@@ -16159,13 +16159,13 @@
                <relationship name="contextControlCode" type="CS" structural="true" domainType="ContextControl" conformance="MANDATORY" cardinality="1" sortOrder="1" fixedValue="OP" codingStrength="CNE"/>
                <relationship name="contextConductionInd" type="BL" structural="true" conformance="MANDATORY" cardinality="1" sortOrder="2" fixedValue="false"/>
                <relationship name="causalActs" type="PORX_MT980030CA.CausalActs" conformance="POPULATED" cardinality="1" sortOrder="3">
-                  <choice name="substanceAdministration" type="PORX_MT980030CA.ObservationMeasurableEvent"/>
-                  <choice name="supplyEvent" type="PORX_MT980030CA.ObservationMeasurableEvent"/>
-                  <choice name="observationCodedEvent" type="PORX_MT980030CA.ObservationMeasurableEvent"/>
+                  <choice name="substanceAdministration" type="PORX_MT980030CA.SubstanceAdministration"/>
+                  <choice name="supplyEvent" type="PORX_MT980030CA.SupplyEvent"/>
+                  <choice name="observationCodedEvent" type="PORX_MT980030CA.ObservationCodedEvent"/>
                   <choice name="observationMeasurableEvent" type="PORX_MT980030CA.ObservationMeasurableEvent"/>
-                  <choice name="causalActs1" type="PORX_MT980030CA.ObservationMeasurableEvent"/>
-                  <choice name="causalActs2" type="PORX_MT980030CA.ObservationMeasurableEvent"/>
-                  <choice name="causalActs3" type="PORX_MT980030CA.ObservationMeasurableEvent"/>
+                  <choice name="causalActs1" type="PORX_MT980030CA.SubstanceAdministration"/>
+                  <choice name="causalActs2" type="PORX_MT980030CA.SupplyEvent"/>
+                  <choice name="causalActs3" type="PORX_MT980030CA.ObservationCodedEvent"/>
                   <choice name="causalActs4" type="PORX_MT980030CA.ObservationMeasurableEvent"/>
                </relationship>
             </messagePart>
@@ -16803,15 +16803,15 @@
                   </documentation>
                </relationship>
                <relationship name="assignedAuthorChoice" type="POSP_MT000001PP.AuthorChoice" conformance="OPTIONAL" cardinality="0-1" sortOrder="3">
-                  <choice name="assignedPerson" type="POSP_MT000001PP.AuthoringDevice"/>
+                  <choice name="assignedPerson" type="POSP_MT000001PP.Person"/>
                   <choice name="assignedAuthoringDevice" type="POSP_MT000001PP.AuthoringDevice"/>
-                  <choice name="assignedAuthorChoice1" type="POSP_MT000001PP.AuthoringDevice"/>
+                  <choice name="assignedAuthorChoice1" type="POSP_MT000001PP.Person"/>
                   <choice name="assignedAuthorChoice2" type="POSP_MT000001PP.AuthoringDevice"/>
                </relationship>
                <relationship name="representedAssignedScoper" type="POSP_MT000001PP.AssignedScoper" conformance="OPTIONAL" cardinality="0-1" sortOrder="4">
-                  <choice name="representedOrganization" type="POSP_MT000001PP.AssignedPersonAsPerson2"/>
+                  <choice name="representedOrganization" type="POSP_MT000001PP.Organization"/>
                   <choice name="representedAssignedPersonAsPerson" type="POSP_MT000001PP.AssignedPersonAsPerson2"/>
-                  <choice name="representedAssignedScoper1" type="POSP_MT000001PP.AssignedPersonAsPerson2"/>
+                  <choice name="representedAssignedScoper1" type="POSP_MT000001PP.Organization"/>
                   <choice name="representedAssignedScoper2" type="POSP_MT000001PP.AssignedPersonAsPerson2"/>
                </relationship>
             </messagePart>
@@ -17062,9 +17062,9 @@
             <messagePart name="POSP_MT000001PP.Component6" abstract="false">
                <relationship name="typeCode" type="CS" structural="true" domainType="ActRelationshipType" conformance="MANDATORY" cardinality="1" sortOrder="0" fixedValue="COMP" codingStrength="CNE"/>
                <relationship name="adjudicatedInvoiceElementChoice" type="POSP_MT000001PP.AdjudicatedInvoiceElementChoice" conformance="POPULATED" cardinality="1" sortOrder="1">
-                  <choice name="adjudicatedInvoiceElementGroup" type="POSP_MT000001PP.AdjudicatedInvoiceElementDetail"/>
+                  <choice name="adjudicatedInvoiceElementGroup" type="POSP_MT000001PP.ClinicalDocument"/>
                   <choice name="adjudicatedInvoiceElementDetail" type="POSP_MT000001PP.AdjudicatedInvoiceElementDetail"/>
-                  <choice name="adjudicatedInvoiceElementChoice1" type="POSP_MT000001PP.AdjudicatedInvoiceElementDetail"/>
+                  <choice name="adjudicatedInvoiceElementChoice1" type="POSP_MT000001PP.ClinicalDocument"/>
                   <choice name="adjudicatedInvoiceElementChoice2" type="POSP_MT000001PP.AdjudicatedInvoiceElementDetail"/>
                </relationship>
             </messagePart>
@@ -17272,23 +17272,23 @@
                <relationship name="typeCode" type="CS" structural="true" domainType="x_ActRelationshipEntry" conformance="MANDATORY" cardinality="1" sortOrder="0" codingStrength="CNE"/>
                <relationship name="contextConductionInd" type="BL" structural="true" conformance="MANDATORY" cardinality="1" sortOrder="1"/>
                <relationship name="entryChoice" type="POSP_MT000001PP.EntryChoice" conformance="POPULATED" cardinality="1" sortOrder="2">
-                  <choice name="observation" type="POSP_MT000001PP.PaymentRequest"/>
-                  <choice name="act" type="POSP_MT000001PP.PaymentRequest"/>
-                  <choice name="observationMedia" type="POSP_MT000001PP.PaymentRequest"/>
-                  <choice name="substanceAdministration" type="POSP_MT000001PP.PaymentRequest"/>
-                  <choice name="supply" type="POSP_MT000001PP.PaymentRequest"/>
-                  <choice name="encounterAppointment" type="POSP_MT000001PP.PaymentRequest"/>
-                  <choice name="procedure" type="POSP_MT000001PP.PaymentRequest"/>
-                  <choice name="encounter" type="POSP_MT000001PP.PaymentRequest"/>
+                  <choice name="observation" type="POSP_MT000001PP.Observation"/>
+                  <choice name="act" type="POSP_MT000001PP.Act"/>
+                  <choice name="observationMedia" type="POSP_MT000001PP.ObservationMedia"/>
+                  <choice name="substanceAdministration" type="POSP_MT000001PP.SubstanceAdministration"/>
+                  <choice name="supply" type="POSP_MT000001PP.Supply"/>
+                  <choice name="encounterAppointment" type="POSP_MT000001PP.EncounterAppointment"/>
+                  <choice name="procedure" type="POSP_MT000001PP.Procedure"/>
+                  <choice name="encounter" type="POSP_MT000001PP.Encounter"/>
                   <choice name="paymentRequest" type="POSP_MT000001PP.PaymentRequest"/>
-                  <choice name="entryChoice1" type="POSP_MT000001PP.PaymentRequest"/>
-                  <choice name="entryChoice2" type="POSP_MT000001PP.PaymentRequest"/>
-                  <choice name="entryChoice3" type="POSP_MT000001PP.PaymentRequest"/>
-                  <choice name="entryChoice4" type="POSP_MT000001PP.PaymentRequest"/>
-                  <choice name="entryChoice5" type="POSP_MT000001PP.PaymentRequest"/>
-                  <choice name="entryChoice6" type="POSP_MT000001PP.PaymentRequest"/>
-                  <choice name="entryChoice7" type="POSP_MT000001PP.PaymentRequest"/>
-                  <choice name="entryChoice8" type="POSP_MT000001PP.PaymentRequest"/>
+                  <choice name="entryChoice1" type="POSP_MT000001PP.Observation"/>
+                  <choice name="entryChoice2" type="POSP_MT000001PP.Act"/>
+                  <choice name="entryChoice3" type="POSP_MT000001PP.ObservationMedia"/>
+                  <choice name="entryChoice4" type="POSP_MT000001PP.SubstanceAdministration"/>
+                  <choice name="entryChoice5" type="POSP_MT000001PP.Supply"/>
+                  <choice name="entryChoice6" type="POSP_MT000001PP.EncounterAppointment"/>
+                  <choice name="entryChoice7" type="POSP_MT000001PP.Procedure"/>
+                  <choice name="entryChoice8" type="POSP_MT000001PP.Encounter"/>
                   <choice name="entryChoice9" type="POSP_MT000001PP.PaymentRequest"/>
                </relationship>
             </messagePart>
@@ -17586,9 +17586,9 @@
             <messagePart name="POSP_MT000001PP.ParticipantRole" abstract="false">
                <relationship name="classCode" type="CS" structural="true" domainType="RoleClass" conformance="MANDATORY" cardinality="1" sortOrder="0" codingStrength="CNE"/>
                <relationship name="playingEntityChoice" type="POSP_MT000001PP.EntityChoice" conformance="OPTIONAL" cardinality="0-1" sortOrder="1">
-                  <choice name="playingDevice" type="POSP_MT000001PP.PlayingEntity"/>
+                  <choice name="playingDevice" type="POSP_MT000001PP.Device"/>
                   <choice name="playingEntity" type="POSP_MT000001PP.PlayingEntity"/>
-                  <choice name="playingEntityChoice1" type="POSP_MT000001PP.PlayingEntity"/>
+                  <choice name="playingEntityChoice1" type="POSP_MT000001PP.Device"/>
                   <choice name="playingEntityChoice2" type="POSP_MT000001PP.PlayingEntity"/>
                </relationship>
             </messagePart>
@@ -17729,9 +17729,9 @@
                   </documentation>
                </relationship>
                <relationship name="invoicingPayeeChoice" type="POSP_MT000001PP.PayeeChoice" conformance="MANDATORY" cardinality="1" sortOrder="2">
-                  <choice name="invoicingPayeePerson" type="POSP_MT000001PP.PayeeOrganization"/>
+                  <choice name="invoicingPayeePerson" type="POSP_MT000001PP.PayeePerson"/>
                   <choice name="invoicingPayeeOrganization" type="POSP_MT000001PP.PayeeOrganization"/>
-                  <choice name="invoicingPayeeChoice1" type="POSP_MT000001PP.PayeeOrganization"/>
+                  <choice name="invoicingPayeeChoice1" type="POSP_MT000001PP.PayeePerson"/>
                   <choice name="invoicingPayeeChoice2" type="POSP_MT000001PP.PayeeOrganization"/>
                </relationship>
             </messagePart>
@@ -17860,9 +17860,9 @@
             <messagePart name="POSP_MT000001PP.PertinentInformation2" abstract="false">
                <relationship name="typeCode" type="CS" structural="true" domainType="ActRelationshipType" conformance="MANDATORY" cardinality="1" sortOrder="0" fixedValue="PERT" codingStrength="CNE"/>
                <relationship name="adjudicationCodeChoice" type="POSP_MT000001PP.AdjudicationCodeChoice" conformance="POPULATED" cardinality="1" sortOrder="1">
-                  <choice name="adjudicationResultReason" type="POSP_MT000001PP.AdjudicationResultInformation"/>
+                  <choice name="adjudicationResultReason" type="POSP_MT000001PP.AdjudicationResultReason"/>
                   <choice name="adjudicationResultInformation" type="POSP_MT000001PP.AdjudicationResultInformation"/>
-                  <choice name="pertinentAdjudicationCodeChoice1" type="POSP_MT000001PP.AdjudicationResultInformation"/>
+                  <choice name="pertinentAdjudicationCodeChoice1" type="POSP_MT000001PP.AdjudicationResultReason"/>
                   <choice name="pertinentAdjudicationCodeChoice2" type="POSP_MT000001PP.AdjudicationResultInformation"/>
                </relationship>
             </messagePart>
@@ -17975,9 +17975,9 @@
             <messagePart name="POSP_MT000001PP.Reason2" abstract="false">
                <relationship name="typeCode" type="CS" structural="true" domainType="ActRelationshipType" conformance="MANDATORY" cardinality="1" sortOrder="0" fixedValue="RSON" codingStrength="CNE"/>
                <relationship name="invoiceElementChoice" type="POSP_MT000001PP.InvoiceElementChoice" conformance="POPULATED" cardinality="1" sortOrder="1">
-                  <choice name="invoiceElementGroup" type="POSP_MT000001PP.InvoiceElementDetail"/>
+                  <choice name="invoiceElementGroup" type="POSP_MT000001PP.InvoiceElementGroup"/>
                   <choice name="invoiceElementDetail" type="POSP_MT000001PP.InvoiceElementDetail"/>
-                  <choice name="justifiedInvoiceElementChoice1" type="POSP_MT000001PP.InvoiceElementDetail"/>
+                  <choice name="justifiedInvoiceElementChoice1" type="POSP_MT000001PP.InvoiceElementGroup"/>
                   <choice name="justifiedInvoiceElementChoice2" type="POSP_MT000001PP.InvoiceElementDetail"/>
                </relationship>
             </messagePart>
@@ -18963,9 +18963,9 @@
                <relationship name="contextControlCode" type="CS" structural="true" domainType="ContextControl" conformance="MANDATORY" cardinality="1" sortOrder="1" fixedValue="AN" codingStrength="CNE"/>
                <relationship name="contextConductionInd" type="BL" structural="true" conformance="MANDATORY" cardinality="1" sortOrder="2" fixedValue="true"/>
                <relationship name="records" type="REPC_MT000001CA.Records" conformance="POPULATED" cardinality="1" sortOrder="3">
-                  <choice name="causalityAssessment" type="REPC_MT000001CA.AllergyTestEvent"/>
+                  <choice name="causalityAssessment" type="REPC_MT000001CA.CausalityAssessment"/>
                   <choice name="allergyTestEvent" type="REPC_MT000001CA.AllergyTestEvent"/>
-                  <choice name="supportingRecords1" type="REPC_MT000001CA.AllergyTestEvent"/>
+                  <choice name="supportingRecords1" type="REPC_MT000001CA.CausalityAssessment"/>
                   <choice name="supportingRecords2" type="REPC_MT000001CA.AllergyTestEvent"/>
                </relationship>
             </messagePart>
@@ -19792,9 +19792,9 @@
                <relationship name="contextControlCode" type="CS" structural="true" domainType="ContextControl" conformance="MANDATORY" cardinality="1" sortOrder="1" fixedValue="AN" codingStrength="CNE"/>
                <relationship name="contextConductionInd" type="BL" structural="true" conformance="MANDATORY" cardinality="1" sortOrder="2" fixedValue="true"/>
                <relationship name="records" type="REPC_MT000005CA.Records" conformance="POPULATED" cardinality="1" sortOrder="3">
-                  <choice name="causalityAssessment" type="REPC_MT000005CA.AllergyTestEvent"/>
+                  <choice name="causalityAssessment" type="REPC_MT000005CA.CausalityAssessment"/>
                   <choice name="allergyTestEvent" type="REPC_MT000005CA.AllergyTestEvent"/>
-                  <choice name="supportingRecords1" type="REPC_MT000005CA.AllergyTestEvent"/>
+                  <choice name="supportingRecords1" type="REPC_MT000005CA.CausalityAssessment"/>
                   <choice name="supportingRecords2" type="REPC_MT000005CA.AllergyTestEvent"/>
                </relationship>
             </messagePart>
@@ -20762,9 +20762,9 @@
                <relationship name="contextControlCode" type="CS" structural="true" domainType="ContextControl" conformance="MANDATORY" cardinality="1" sortOrder="1" fixedValue="AN" codingStrength="CNE"/>
                <relationship name="contextConductionInd" type="BL" structural="true" conformance="MANDATORY" cardinality="1" sortOrder="2" fixedValue="true"/>
                <relationship name="records" type="REPC_MT000009CA.Records" conformance="POPULATED" cardinality="1" sortOrder="3">
-                  <choice name="causalityAssessment" type="REPC_MT000009CA.AllergyTestEvent"/>
+                  <choice name="causalityAssessment" type="REPC_MT000009CA.CausalityAssessment"/>
                   <choice name="allergyTestEvent" type="REPC_MT000009CA.AllergyTestEvent"/>
-                  <choice name="supportingRecords1" type="REPC_MT000009CA.AllergyTestEvent"/>
+                  <choice name="supportingRecords1" type="REPC_MT000009CA.CausalityAssessment"/>
                   <choice name="supportingRecords2" type="REPC_MT000009CA.AllergyTestEvent"/>
                </relationship>
             </messagePart>
@@ -21513,9 +21513,9 @@
                <relationship name="contextControlCode" type="CS" structural="true" domainType="ContextControl" conformance="MANDATORY" cardinality="1" sortOrder="1" fixedValue="AN" codingStrength="CNE"/>
                <relationship name="contextConductionInd" type="BL" structural="true" conformance="MANDATORY" cardinality="1" sortOrder="2" fixedValue="true"/>
                <relationship name="records" type="REPC_MT000013CA.Records" conformance="POPULATED" cardinality="1" sortOrder="3">
-                  <choice name="causalityAssessment" type="REPC_MT000013CA.AllergyTestEvent"/>
+                  <choice name="causalityAssessment" type="REPC_MT000013CA.CausalityAssessment"/>
                   <choice name="allergyTestEvent" type="REPC_MT000013CA.AllergyTestEvent"/>
-                  <choice name="supportingRecords1" type="REPC_MT000013CA.AllergyTestEvent"/>
+                  <choice name="supportingRecords1" type="REPC_MT000013CA.CausalityAssessment"/>
                   <choice name="supportingRecords2" type="REPC_MT000013CA.AllergyTestEvent"/>
                </relationship>
             </messagePart>
