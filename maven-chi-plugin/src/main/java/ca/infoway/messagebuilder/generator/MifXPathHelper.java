@@ -262,5 +262,15 @@ class MifXPathHelper extends BaseMifXPathHelper {
 	public static boolean isSpecializationChildReference(Element specializationChild) {
 		return null != getSingleElement(specializationChild, "./mif:reference");
 	}
+	
+	public static String getExternalReferenceType(Element element, int i) {
+		List<Element> specializationChilds = toElementList(getNodes(element, ".//mif:class/mif:specializationChild"));
+		if (specializationChilds != null && i < specializationChilds.size()) {
+			Element child = specializationChilds.get(i);
+			return getAttribute(child, "./mif:specializedClass/mif:commonModelElementRef/mif:generalizationParent/@name");
+		} else {
+			throw new MifProcessingException("Tried to access specialization child at index " + i + " but only found " + (specializationChilds == null ? 0 : specializationChilds.size()));
+		}
+	}
 
 }
