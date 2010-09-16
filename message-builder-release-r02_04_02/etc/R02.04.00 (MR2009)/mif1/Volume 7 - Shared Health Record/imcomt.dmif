@@ -1,0 +1,537 @@
+<mif:dynamicModel xmlns:mif="urn:hl7-org:v3/mif">
+   <mif:header>
+      <mif:renderingInformation schemaVersion="1" application="RoseTree 4.2.20">
+         <mif:renderingNotes>This document was rendered into XML using software provided to HL7 by Beeler Consulting LLC.
+ PubDB to MIF Transform: $RCSfile: PubDbXmlToMIF.xsl,v $ $Revision: 1.11 $ $Date: 2007/10/19 05:55:13 $
+  Fix names transform: $Id: FixMifNames.xsl,v 1.8 2007/03/20 02:48:49 wbeeler Exp $
+  HTML to MIF Markup transform: $Id: HtmlToMIFMarkup.xsl,v 1.4 2007/03/20 02:48:49 wbeeler Exp $
+  Base transform: $Id: ConvertBase.xsl,v 1.5 2007/10/19 05:55:13 wbeeler Exp $
+  Package Id Conversion: $Id: TransformPackageIds.xsl,v 1.6 2007/03/20 02:48:49 wbeeler Exp $</mif:renderingNotes>
+      </mif:renderingInformation>
+      <mif:legalese copyrightOwner="Health Level Seven, Inc." copyrightYears="2008">
+         <mif:notation>All rights reserved.</mif:notation>
+      </mif:legalese>
+   </mif:header>
+   <mif:triggerEvent name="300001" title="Annotation Event Complete Patient Request"
+                     invokingInteractionId="COMT_IN300001CA">
+      <mif:businessName name="Request to add note to patient"/>
+      <mif:packageLocation root="DEFN" section="IM" subSection="CO" domain="MT" artifact="TE" realm="CA"
+                           id="300001"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>A user or system attempts to add a note directly to a patient.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="300003" title="Annotation Event Complete Patient Rejection"
+                     invokingInteractionId="COMT_IN300003CA">
+      <mif:businessName name="Decision not to add note to patient"/>
+      <mif:packageLocation root="DEFN" section="IM" subSection="CO" domain="MT" artifact="TE" realm="CA"
+                           id="300003"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>A request to add a note directly to a patient has been refused (e.g. no permission).</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="300002" title="Annotation Event Complete Patient"
+                     invokingInteractionId="COMT_IN300002CA">
+      <mif:businessName name="Note added to patient"/>
+      <mif:packageLocation root="DEFN" section="IM" subSection="CO" domain="MT" artifact="TE" realm="CA"
+                           id="300002"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>A note has been added directly to a patient.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="300101" title="Annotation Event Nullify Patient Request"
+                     invokingInteractionId="COMT_IN300101CA">
+      <mif:businessName name="Request to remove note from patient"/>
+      <mif:packageLocation root="DEFN" section="IM" subSection="CO" domain="MT" artifact="TE" realm="CA"
+                           id="300101"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>A user or system attempts to mark a previously recorded patient note as ""no longer applicable"".</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="300103" title="Annotation Event Nullify Patient Rejection"
+                     invokingInteractionId="COMT_IN300103CA">
+      <mif:businessName name="Decision not to remove note from patient"/>
+      <mif:packageLocation root="DEFN" section="IM" subSection="CO" domain="MT" artifact="TE" realm="CA"
+                           id="300103"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>A request to mark a previously recorded patient note as ""no longer applicable"" has been refused (e.g. no permission).</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="300102" title="Annotation Event Nullify Patient"
+                     invokingInteractionId="COMT_IN300102CA">
+      <mif:businessName name="Note removed from patient"/>
+      <mif:packageLocation root="DEFN" section="IM" subSection="CO" domain="MT" artifact="TE" realm="CA"
+                           id="300102"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>A previously recorded patient note has been marked as ""no longer applicable"".</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="300201" title="Annotation Event Patient Query"
+                     invokingInteractionId="COMT_IN300201CA">
+      <mif:businessName name="Notes for patient requested"/>
+      <mif:packageLocation root="DEFN" section="IM" subSection="CO" domain="MT" artifact="TE" realm="CA"
+                           id="300201"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>A user or system requires information about patient notes recorded agains a patient.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="300202" title="Annotation Event Patient Query Response"
+                     invokingInteractionId="COMT_IN300202CA">
+      <mif:businessName name="Request for patient notes received"/>
+      <mif:packageLocation root="DEFN" section="IM" subSection="CO" domain="MT" artifact="TE" realm="CA"
+                           id="300202"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>An application responds to a request for information about patient notes recorded agains a patient.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="002121" title="Care Composition Jump Request">
+      <mif:businessName name="Request to record event"/>
+      <mif:packageLocation root="DEFN" section="IM" subSection="CO" domain="MT" artifact="TE" realm="CA"
+                           id="002121"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>A user or system requires information about a patient event.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="002125" title="Care Composition Revise Request">
+      <mif:businessName name="Request to record change to event"/>
+      <mif:packageLocation root="DEFN" section="IM" subSection="CO" domain="MT" artifact="TE" realm="CA"
+                           id="002125"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>A user attempts to modify a previously recorded event record.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="002123" title="Care Composition Jump Rejection">
+      <mif:businessName name="Decision not to record event"/>
+      <mif:packageLocation root="DEFN" section="IM" subSection="CO" domain="MT" artifact="TE" realm="CA"
+                           id="002123"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>A request to record an event in a patient's record has been refused.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="002122" title="Care Composition Jump">
+      <mif:businessName name="Event recorded in patient record"/>
+      <mif:packageLocation root="DEFN" section="IM" subSection="CO" domain="MT" artifact="TE" realm="CA"
+                           id="002122"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>An event has been recorded in a patient's record.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="002127" title="Care Composition Revise Rejection">
+      <mif:businessName name="Decision to not record event change"/>
+      <mif:packageLocation root="DEFN" section="IM" subSection="CO" domain="MT" artifact="TE" realm="CA"
+                           id="002127"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>A request to record an event change in a patient's record has been refused.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="002126" title="Care Composition Revise">
+      <mif:businessName name="Event updated"/>
+      <mif:packageLocation root="DEFN" section="IM" subSection="CO" domain="MT" artifact="TE" realm="CA"
+                           id="002126"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>The record of a patient evnet has been updated.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="020010" title="Care Composition Query">
+      <mif:businessName name="Patient event summaries requested"/>
+      <mif:packageLocation root="DEFN" section="IM" subSection="CO" domain="MT" artifact="TE" realm="CA"
+                           id="020010"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>A user or system requires information about patient event summaries.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="020020" title="Care Composition Query Response">
+      <mif:businessName name="Requested for event summaries received"/>
+      <mif:packageLocation root="DEFN" section="IM" subSection="CO" domain="MT" artifact="TE" realm="CA"
+                           id="020020"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>An application responds to a request for information about patient event summaries.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:hl7Interaction name="300001" title="Annotation Event Complete Request Patient">
+      <mif:businessName name="Add Patient note request"/>
+      <mif:packageLocation root="DEFN" section="IM" subSection="CO" domain="MT" artifact="IN" realm="CA"
+                           id="300001"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>Requests that the specified annotation be recorded against the identified patient</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="IM" subSection="CO" domain="MT" artifact="TE" realm="CA"
+                      id="300001"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002100">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="MC"
+                                      domain="AI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="700210"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="Act" root="DEFN" section="IM" subSection="CO"
+                                         domain="MT"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="300001"
+                                         traversalName="annotation"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+      <mif:receiverResponsibility triggerEventName="Annotation Event Complete Patient"
+                                  interactionName="Annotation Event Complete Confirmation Patient"/>
+      <mif:receiverResponsibility interactionName="Annotation Event Complete Rejection Patient"/>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="300002" title="Annotation Event Complete Confirmation Patient">
+      <mif:businessName name="Add patient note request accepted"/>
+      <mif:packageLocation root="DEFN" section="IM" subSection="CO" domain="MT" artifact="IN" realm="CA"
+                           id="300002"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>Indicates that the specified annotation has been successfully recorded against the requested patient.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="IM" subSection="CO" domain="MT" artifact="TE" realm="CA"
+                      id="300002"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002300">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="MC"
+                                      domain="AI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="700226"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="Act" root="DEFN" section="IM" subSection="CO"
+                                         domain="MT"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="001101"
+                                         traversalName="actRequest"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="300003" title="Annotation Event Complete Rejection Patient">
+      <mif:businessName name="Add patient note request refused"/>
+      <mif:packageLocation root="DEFN" section="IM" subSection="CO" domain="MT" artifact="IN" realm="CA"
+                           id="300003"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>Indicates that the request to record the annotation against a particular patient has been denied.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="IM" subSection="CO" domain="MT" artifact="TE" realm="CA"
+                      id="300003"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002300">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="MC"
+                                      domain="AI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="700236"
+                                      traversalName="controlActEvent"/>
+      </mif:parameterTypeModel>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="300101" title="Annotation Event Nullify Request Patient">
+      <mif:businessName name="Deprecate patient note request"/>
+      <mif:packageLocation root="DEFN" section="IM" subSection="CO" domain="MT" artifact="IN" realm="CA"
+                           id="300101"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>Requests that the specified patient annotation be marked as no longer applicable.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="IM" subSection="CO" domain="MT" artifact="TE" realm="CA"
+                      id="300101"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002100">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="MC"
+                                      domain="AI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="700210"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="Act" root="DEFN" section="IM" subSection="CO"
+                                         domain="MT"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="001101"
+                                         traversalName="actRequest"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+      <mif:receiverResponsibility triggerEventName="Annotation Event Nullify Patient  "
+                                  interactionName="Annotation Event Nullify Confirmation Patient"/>
+      <mif:receiverResponsibility interactionName="Annotation Event Nullify Rejection Patient"/>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="300102" title="Annotation Event Nullify Confirmation Patient">
+      <mif:businessName name="Deprecate patient note request accepted"/>
+      <mif:packageLocation root="DEFN" section="IM" subSection="CO" domain="MT" artifact="IN" realm="CA"
+                           id="300102"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>Indicates that the specified patient annotation has been successfully marked as no longer applicable.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="IM" subSection="CO" domain="MT" artifact="TE" realm="CA"
+                      id="300102"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002300">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="MC"
+                                      domain="AI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="700226"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="Act" root="DEFN" section="IM" subSection="CO"
+                                         domain="MT"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="001101"
+                                         traversalName="actRequest"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="300103" title="Annotation Event Nullify Rejection Patient">
+      <mif:businessName name="Deprecate patient note request refused"/>
+      <mif:packageLocation root="DEFN" section="IM" subSection="CO" domain="MT" artifact="IN" realm="CA"
+                           id="300103"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>Indicates that the request to mark the specified patient annotation as no longer applicable has been refused.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="IM" subSection="CO" domain="MT" artifact="TE" realm="CA"
+                      id="300103"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002300">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="MC"
+                                      domain="AI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="700226"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="Act" root="DEFN" section="IM" subSection="CO"
+                                         domain="MT"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="001101"
+                                         traversalName="actRequest"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="300201" title="Annotation Event Query Patient">
+      <mif:businessName name="Patient note query"/>
+      <mif:packageLocation root="DEFN" section="IM" subSection="CO" domain="MT" artifact="IN" realm="CA"
+                           id="300201"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>Requests retrieval of the notes that have been recorded against a particular patient, potentially filtered by note type and/or date.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="IM" subSection="CO" domain="MT" artifact="TE" realm="CA"
+                      id="300201"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002100">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="QU"
+                                      domain="QI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="020000"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="ParameterList" root="DEFN" section="IM" subSection="CO"
+                                         domain="MT"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="300002"
+                                         traversalName="parameterList"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+      <mif:receiverResponsibility interactionName="Annotation Event Query Response Patient"/>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="300202" title="Annotation Event Query Response Patient">
+      <mif:businessName name="Patient note query response"/>
+      <mif:packageLocation root="DEFN" section="IM" subSection="CO" domain="MT" artifact="IN" realm="CA"
+                           id="300202"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>Returns the notes that have been recorded against a particular patient, potentially filtered by note type and/or date.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="IM" subSection="CO" domain="MT" artifact="TE" realm="CA"
+                      id="300202"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002300">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="QU"
+                                      domain="QI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="120006"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="Act" root="DEFN" section="IM" subSection="CO"
+                                         domain="MT"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="300003"
+                                         traversalName="annotation"/>
+            <mif:supplierBindingArgument templateParameterName="ParameterList" root="DEFN" section="IM" subSection="CO"
+                                         domain="MT"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="300002"
+                                         traversalName="parameterList"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="200000" title="Cross-domain Query Query Response List">
+      <mif:businessName name="Clinical summary/profile query response"/>
+      <mif:packageLocation root="DEFN" section="IM" subSection="CO" domain="MT" artifact="IN" realm="CA"
+                           id="200000"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>Return the 'summary' versions of all demographics, medications, allergies, medical conditions, lab tests, observations, procedures, encounters, referrals and other clinical data.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                      id="000097"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002300">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="QU"
+                                      domain="QI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="120006"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="Act" root="DEFN" section="IM" subSection="CO"
+                                         domain="MT"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="111111"
+                                         traversalName="summary">
+               <participantClassSpecialization xmlns="urn:hl7-org:v3/mif" className="RenderedContent"
+                                               traversalName="renderedContent1"/>
+               <participantClassSpecialization xmlns="urn:hl7-org:v3/mif" className="SHR" traversalName="sHR1">
+                  <specialization className="A_PatientProfileCareComp" traversalName="patientCareProvisionEvent1"/>
+                  <specialization className="A_PatientProfileProcedure" traversalName="procedureEvent1"/>
+                  <specialization className="A_PatientProfileAllergy" traversalName="intoleranceCondition1"/>
+                  <specialization className="A_PatientProfileCoded" traversalName="commonObservationEvent1"/>
+                  <specialization className="A_PatientProfileMeasured" traversalName="commonObservationEvent2"/>
+                  <specialization className="A_PatientProfileReport" traversalName="document1"/>
+                  <specialization className="A_PatientProfileDischarge" traversalName="document2"/>
+                  <specialization className="A_PatientProfileReferral" traversalName="document3"/>
+                  <specialization className="A_PatientProfileReaction" traversalName="reactionObservationEvent1"/>
+               </participantClassSpecialization>
+               <participantClassSpecialization xmlns="urn:hl7-org:v3/mif" className="Pharmacy" traversalName="pharmacy1">
+                  <specialization className="A_PatientProfileDrugRx" traversalName="combinedMedicationRequest1"/>
+                  <specialization className="A_PatientProfileDeviceRx" traversalName="devicePrescription1"/>
+                  <specialization className="A_PatientProfileOtherMed" traversalName="otherMedication1"/>
+               </participantClassSpecialization>
+               <participantClassSpecialization xmlns="urn:hl7-org:v3/mif" className="Lab" traversalName="lab">
+                  <specialization className="A_PatientProfileLabOrder" traversalName="requestChoice1">
+                     <specialization className="PlacerGroup" traversalName="placerGroup1"/>
+                     <specialization className="BatteryRequest" traversalName="batteryRequest1"/>
+                     <specialization className="ObservationRequest" traversalName="observationRequest1"/>
+                  </specialization>
+                  <specialization className="A_PatientProfileLabResult"
+                                  traversalName="resultInstancePayloadChoice">
+                     <specialization className="ResultChoice" traversalName="resultChoice1">
+                        <specialization className="ObservationReport" traversalName="observationReport1"/>
+                        <specialization className="BatteryEvent" traversalName="batteryEvent1"/>
+                        <specialization className="ObservationEvent" traversalName="observationEvent1"/>
+                     </specialization>
+                     <specialization className="ObservationReport" traversalName="observationReport2"/>
+                     <specialization className="ObservationChoice" traversalName="observationChoice">
+                        <specialization className="ObservationReport" traversalName="observationReport3"/>
+                        <specialization className="BatteryEvent" traversalName="batteryEvent2"/>
+                        <specialization className="SectionLevelObservationEvent"
+                                        traversalName="sectionLevelObservationEvent"/>
+                     </specialization>
+                  </specialization>
+               </participantClassSpecialization>
+            </mif:supplierBindingArgument>
+            <mif:supplierBindingArgument templateParameterName="ParameterList" root="DEFN" section="HM" subSection="RE"
+                                         domain="PC"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="000008"
+                                         traversalName="parameterList"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="100000" title="Cross-domain Query Query List">
+      <mif:businessName name="Clinical summary/profile query"/>
+      <mif:packageLocation root="DEFN" section="IM" subSection="CO" domain="MT" artifact="IN" realm="CA"
+                           id="100000"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>Requests retrieval for matching 'summary' versions of clinical data based on search criteria.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                      id="000096"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002100">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="QU"
+                                      domain="QI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="020000"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="ParameterList" root="DEFN" section="HM" subSection="RE"
+                                         domain="PC"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="000008"
+                                         traversalName="parameterList"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+      <mif:receiverResponsibility interactionName="Cross-domain Query Query Response List"/>
+   </mif:hl7Interaction>
+</mif:dynamicModel>

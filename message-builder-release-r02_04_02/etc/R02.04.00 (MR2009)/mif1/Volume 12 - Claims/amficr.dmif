@@ -1,0 +1,226 @@
+<mif:dynamicModel xmlns:mif="urn:hl7-org:v3/mif">
+   <mif:header>
+      <mif:renderingInformation schemaVersion="1" application="RoseTree 4.2.20">
+         <mif:renderingNotes>This document was rendered into XML using software provided to HL7 by Beeler Consulting LLC.
+ PubDB to MIF Transform: $RCSfile: PubDbXmlToMIF.xsl,v $ $Revision: 1.11 $ $Date: 2007/10/19 05:55:13 $
+  Fix names transform: $Id: FixMifNames.xsl,v 1.8 2007/03/20 02:48:49 wbeeler Exp $
+  HTML to MIF Markup transform: $Id: HtmlToMIFMarkup.xsl,v 1.4 2007/03/20 02:48:49 wbeeler Exp $
+  Base transform: $Id: ConvertBase.xsl,v 1.5 2007/10/19 05:55:13 wbeeler Exp $
+  Package Id Conversion: $Id: TransformPackageIds.xsl,v 1.6 2007/03/20 02:48:49 wbeeler Exp $</mif:renderingNotes>
+      </mif:renderingInformation>
+      <mif:legalese copyrightOwner="Health Level Seven, Inc." copyrightYears="2008">
+         <mif:notation>All rights reserved.</mif:notation>
+      </mif:legalese>
+   </mif:header>
+   <mif:triggerEvent name="600101" title="Invoice Topic Activate Request"
+                     invokingInteractionId="FICR_IN600102CA">
+      <mif:businessName name="Invoice Activate Request"/>
+      <mif:packageLocation root="DEFN" section="AM" subSection="FI" domain="CR" artifact="TE" realm="CA"
+                           id="600101"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>A trigger to send an Invoice Adjudication Request for adjudication of services and/or products.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="610101" title="Invoice Topic Complete Notification"
+                     invokingInteractionId="FICR_IN610102CA">
+      <mif:businessName name="Invoice Complete Notification"/>
+      <mif:packageLocation root="DEFN" section="AM" subSection="FI" domain="CR" artifact="TE" realm="CA"
+                           id="610101"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>A trigger to send a completed Invoice Adjudication Result.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="630101" title="Event Nullify Notification"
+                     invokingInteractionId="FICR_IN630102CA">
+      <mif:businessName name="Invoice Adjudication Nullify Notification"/>
+      <mif:packageLocation root="DEFN" section="AM" subSection="FI" domain="CR" artifact="TE" realm="CA"
+                           id="630101"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>A trigger that indicated successful completion of an Invoice Nullify Request. In other words, the request has been nullified.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="620101" title="Event Nullify Request"
+                     invokingInteractionId="FICR_IN620102CA">
+      <mif:businessName name="Invoice Adjudication Nullify Request"/>
+      <mif:packageLocation root="DEFN" section="AM" subSection="FI" domain="CR" artifact="TE" realm="CA"
+                           id="620101"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>A trigger to send an Invoice Nullify Request.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="630202" title="Event Nullify Rejection"
+                     invokingInteractionId="FICR_IN630202CA">
+      <mif:businessName name="Invoice Adjudication Nullify Rejection"/>
+      <mif:packageLocation root="DEFN" section="AM" subSection="FI" domain="CR" artifact="TE" realm="CA"
+                           id="630202"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>A trigger that indicated unsuccessful completion of an Invoice Nullify Request. In other words, the request has NOT been nullified.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:hl7Interaction name="620102" title="Invoice Nullify Request Complete Pharmacy">
+      <mif:businessName name="Invoice Nullify Request, Rx"/>
+      <mif:packageLocation root="DEFN" section="AM" subSection="FI" domain="CR" artifact="IN" realm="CA"
+                           id="620102"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>The sender sends an Invoice Nullify Request message to request the nullification of a previously submitted Invoice Adjudication Request for Pharmacy services and/or products.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="AM" subSection="FI" domain="CR" artifact="TE" realm="CA"
+                      id="620101"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002100">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="MC"
+                                      domain="AI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="700211"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="Act" root="DEFN" section="AM" subSection="FI"
+                                         domain="CR"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="620000"
+                                         traversalName="invoiceElementGroup"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+      <mif:receiverResponsibility triggerEventName="Event Nullify Notification"
+                                  interactionName="Invoice Nullify Notification Complete Pharmacy"/>
+      <mif:receiverResponsibility triggerEventName="Event Nullify Rejection"
+                                  interactionName="Invoice Nullify Rejection Complete Pharmacy"/>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="600102" title="Invoice Event Activate Request Complete Pharmacy">
+      <mif:businessName name="Invoice Request, Rx"/>
+      <mif:packageLocation root="DEFN" section="AM" subSection="FI" domain="CR" artifact="IN" realm="CA"
+                           id="600102"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>The sender sends an Invoice Adjudication Request message for Pharmacy services and/or products.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="AM" subSection="FI" domain="CR" artifact="TE" realm="CA"
+                      id="600101"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002100">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="MC"
+                                      domain="AI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="700211"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="Act" root="DEFN" section="AM" subSection="FI"
+                                         domain="CR"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="600201"
+                                         traversalName="paymentRequest"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+      <mif:receiverResponsibility triggerEventName="Invoice Topic Complete Notification"
+                                  interactionName="Invoice Event Complete Notification Pharmacy"/>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="610102" title="Invoice Event Complete Notification Pharmacy">
+      <mif:businessName name="Invoice Results, Rx"/>
+      <mif:packageLocation root="DEFN" section="AM" subSection="FI" domain="CR" artifact="IN" realm="CA"
+                           id="610102"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>The sender sends an Invoice Adjudication Results message containing the completed results of an Invoice Adjudication Request for Pharmacy services and/or products.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="AM" subSection="FI" domain="CR" artifact="TE" realm="CA"
+                      id="610101"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002300">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="MC"
+                                      domain="AI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="700227"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="Act" root="DEFN" section="AM" subSection="FI"
+                                         domain="CR"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="610201"
+                                         traversalName="paymentIntent"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="630102" title="Invoice Nullify Notification Complete Pharmacy">
+      <mif:businessName name="Invoice Nullify Results, Rx"/>
+      <mif:packageLocation root="DEFN" section="AM" subSection="FI" domain="CR" artifact="IN" realm="CA"
+                           id="630102"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>The sender sends an Invoice Nullify Results message containing the completed results of an Invoice Nullify Request for Pharmacy services and/or products.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="AM" subSection="FI" domain="CR" artifact="TE" realm="CA"
+                      id="630101"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002300">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="MC"
+                                      domain="AI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="700227"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="Act" root="DEFN" section="AM" subSection="FI"
+                                         domain="CR"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="630000"
+                                         traversalName="invoiceElementGroup"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="630202" title="Invoice Nullify Rejection Complete Pharmacy">
+      <mif:businessName name="Invoice Nullify Rejection, Rx"/>
+      <mif:packageLocation root="DEFN" section="AM" subSection="FI" domain="CR" artifact="IN" realm="CA"
+                           id="630202"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>The sender sends an ACK to acknowledge of the request and indicate that the nullification was rejected and the adjudication results not reversed.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="AM" subSection="FI" domain="CR" artifact="TE" realm="CA"
+                      id="630202"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002300">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="MC"
+                                      domain="AI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="700227"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="Act" root="DEFN" section="IM" subSection="CO"
+                                         domain="MT"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="001103"
+                                         traversalName="actEvent"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+   </mif:hl7Interaction>
+</mif:dynamicModel>
