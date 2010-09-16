@@ -134,20 +134,25 @@ class DmifProcessor {
 		for (int i = 0, length = nodes == null ? 0 : nodes.getLength(); i < length; i++) {
 			Element specialization = (Element) nodes.item(i);
 			Relationship relationship = new Relationship();
-			String attribute = specialization.getAttribute("className");
+			String className = specialization.getAttribute("className");
 			
 			String nestedPackageName = packageName;
 			
-			String type = packageName + "." + attribute;
+			String type = packageName + "." + className;
 			if (messageSet.getMessagePart(type) != null) {
 				relationship.setType(type);
 				relationship.setName(specialization.getAttribute("traversalName"));
 				choices.add(relationship);
 			} else if (this.registry.isMifRegistered(packageName)) {
 				Mif mif = this.registry.getMif(packageName);
-				String referenceType = MifXPathHelper.getExternalReferenceType(mif.asDocument().getDocumentElement(), attribute);
-				
-				type = referenceType == null ? null : messageSet.getPackageLocationRootType(referenceType);
+				String referenceType = MifXPathHelper.getExternalReferenceType(mif.asDocument().getDocumentElement(), className);
+				if (referenceType == null) {
+					referenceType = MifXPathHelper.getExternalReferenceType(mif.asDocument().getDocumentElement(), i);
+					mif = this.registry.getMif(referenceType);
+					type = referenceType + "." + className;
+				} else {
+					type = messageSet.getPackageLocationRootType(referenceType);
+				}
 				
 				if (StringUtils.isNotBlank(type)) {
 					nestedPackageName = referenceType;
@@ -155,10 +160,10 @@ class DmifProcessor {
 					relationship.setName(specialization.getAttribute("traversalName"));
 					choices.add(relationship);
 				} else {
-					this.outputUI.log(WARN, "Name " + packageName + "." + attribute + " seems to resolve to " + referenceType + " but we can't resolve that.");
+					this.outputUI.log(WARN, "Name " + packageName + "." + className + " seems to resolve to " + referenceType + " but we can't resolve that.");
 				}
 			} else {
-				this.outputUI.log(WARN, "Cannot find type : " + attribute + " related to " + packageName);
+				this.outputUI.log(WARN, "Cannot find type : " + className + " related to " + packageName);
 			}
 			
 			// find nested choices
