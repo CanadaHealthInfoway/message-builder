@@ -1,0 +1,552 @@
+<mif:serializedStaticModel xmlns:mif="urn:hl7-org:v3/mif" packageKind="realm"
+                           representationKind="serialized"
+                           isAbstract="false"
+                           title="Device Prescription summary query"
+                           isSerializable="true"
+                           name="CA">
+   <mif:packageLocation root="DEFN" section="HM" subSection="PO" domain="RX" artifact="MT-deprecated"
+                        realm="CA"
+                        id="060070"/>
+   <mif:header>
+      <mif:renderingInformation schemaVersion="1" application="Visio to MIF transform"/>
+      <mif:legalese copyrightOwner="Health Level Seven" copyrightYears="2009"/>
+   </mif:header>
+   <mif:graphicRepresentation presentation="HL7">
+      <mif:graphElement name="Main">
+         <mif:position x="0.0" y="0.0"/>
+         <mif:size width="10.506" height="9.247"/>
+      </mif:graphElement>
+   </mif:graphicRepresentation>
+   <mif:derivationSupplier staticModelDerivationId="1">
+      <mif:targetStaticModel root="DEFN" artifact="RIM" version="0221"/>
+   </mif:derivationSupplier>
+   <mif:importedDatatypeModelPackage root="DEFN" artifact="DT" realm="UV" version="1.0"/>
+   <mif:importedVocabularyModelPackage root="DEFN" artifact="VO" realmNamespace="UV" version="586-20081030"/>
+   <mif:importedCommonModelElementPackage root="DEFN" artifact="IFC" realm="UV" version="1.8.3"/>
+   <mif:ownedEntryPoint id="PORX_MT060070CA" name="Device Prescription summary query"
+                        isAbstract="false">
+      <mif:graphicRepresentation>
+         <mif:graphElement shapeId="Sheet.9" containerDiagramName="Main">
+            <mif:position x="0.471" y="5.726"/>
+            <mif:size width="2.453" height="0.453"/>
+            <mif:anchorage connectToShapeId="Sheet.9">
+               <mif:position x="2.925" y="5.152"/>
+               <mif:graphEdge>
+                  <mif:anchor connectToShapeId="Sheet.5">
+                     <mif:position x="3.664" y="5.242"/>
+                  </mif:anchor>
+               </mif:graphEdge>
+            </mif:anchorage>
+         </mif:graphElement>
+      </mif:graphicRepresentation>
+      <mif:specializedClass>
+         <mif:class name="ParameterList" isAbstract="false">
+            <mif:businessName name="Query Parameters"/>
+            <mif:derivationSupplier staticModelDerivationId="1" className="ParameterList"/>
+            <mif:graphicRepresentation presentation="HL7">
+               <mif:graphElement shapeId="Sheet.5" containerDiagramName="Main" shapeTemplate="OtherClass"
+                                 isWidthAutoSize="true"
+                                 isHeightAutoSize="false">
+                  <mif:position x="3.664" y="4.075"/>
+                  <mif:size width="1.250" height="2.334"/>
+               </mif:graphElement>
+            </mif:graphicRepresentation>
+            <mif:annotations>
+               <mif:definition>
+                  <mif:text>
+                     <mif:p>
+                        <mif:p>Defines the set of parameters that may be used to filter the query response.</mif:p>
+                     </mif:p>
+                  </mif:text>
+               </mif:definition>
+               <mif:rationale>
+                  <mif:text>
+                     <mif:p>
+                        <mif:p>Root class for query definition</mif:p>
+                     </mif:p>
+                  </mif:text>
+               </mif:rationale>
+            </mif:annotations>
+            <mif:association sortKey="2">
+               <mif:graphicRepresentation>
+                  <mif:graphElement connectToShapeId="Sheet.5" containerDiagramName="Main" shapeId="Sheet.380">
+                     <mif:position x="4.914" y="5.826"/>
+                     <mif:graphEdge>
+                        <mif:waypoint x="5.863" y="5.826"/>
+                        <mif:waypoint x="5.863" y="5.872"/>
+                        <mif:anchor connectToShapeId="Sheet.376">
+                           <mif:position x="6.813" y="5.872"/>
+                        </mif:anchor>
+                     </mif:graphEdge>
+                  </mif:graphElement>
+               </mif:graphicRepresentation>
+               <mif:targetConnection name="amendedInTimeRange" minimumMultiplicity="0" maximumMultiplicity="1"
+                                     conformance="R"
+                                     isMandatory="false"
+                                     sortKey="Z ZZ">
+                  <mif:derivationSupplier staticModelDerivationId="1" className="ParameterList"
+                                          associationEndName="parameter"/>
+                  <mif:participantClass>
+                     <mif:class name="AmendedInTimeRange" isAbstract="false">
+                        <mif:derivationSupplier staticModelDerivationId="1" className="ParameterItem"/>
+                        <mif:graphicRepresentation presentation="HL7">
+                           <mif:graphElement shapeId="Sheet.376" containerDiagramName="Main" shapeTemplate="OtherClass"
+                                             isWidthAutoSize="true"
+                                             isHeightAutoSize="true">
+                              <mif:position x="6.813" y="5.497"/>
+                              <mif:size width="3.387" height="0.750"/>
+                           </mif:graphElement>
+                        </mif:graphicRepresentation>
+                        <mif:attribute name="value" sortKey="1" minimumMultiplicity="1" maximumMultiplicity="1"
+                                       conformance="R"
+                                       isMandatory="true"
+                                       isStructural="false">
+                           <mif:businessName name="Amended in Time Range"/>
+                           <mif:annotations>
+                              <mif:definition>
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>Indicates that the returned records should be filtered to only include those which have been amended in some way (had status changed, been annotated, prescription was dispensed, etc.) within the indicated time-period. This will commonly be used to 'retrieve everything that has been amended since xxx'.</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:definition>
+                              <mif:rationale>
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>Allows the requester to specify the event period of interest for the retrieval of medication records.</mif:p>
+                                    </mif:p>
+                                    <mif:p>
+                                       <mif:p>Useful for constraining run-away queries.</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:rationale>
+                           </mif:annotations>
+                           <mif:derivationSupplier staticModelDerivationId="1" className="ParameterItem" attributeName="value"/>
+                           <mif:type name="IVL">
+                              <supplierBindingArgumentDatatype xmlns="urn:hl7-org:v3/mif" name="TS.FULLDATETIME"/>
+                           </mif:type>
+                        </mif:attribute>
+                     </mif:class>
+                  </mif:participantClass>
+               </mif:targetConnection>
+               <mif:sourceConnection>
+                  <mif:nonTraversableConnection participantClassName="ParameterList">
+                     <mif:derivationSupplier staticModelDerivationId="1" className="Parameter"
+                                             associationEndName="parameterList"/>
+                  </mif:nonTraversableConnection>
+               </mif:sourceConnection>
+            </mif:association>
+            <mif:association sortKey="6">
+               <mif:graphicRepresentation>
+                  <mif:graphElement connectToShapeId="Sheet.5" containerDiagramName="Main" shapeId="Sheet.408">
+                     <mif:position x="3.976" y="6.409"/>
+                     <mif:graphEdge>
+                        <mif:waypoint x="3.976" y="6.633"/>
+                        <mif:waypoint x="3.976" y="8.647"/>
+                        <mif:anchor connectToShapeId="Sheet.404">
+                           <mif:position x="2.307" y="8.647"/>
+                        </mif:anchor>
+                     </mif:graphEdge>
+                  </mif:graphElement>
+               </mif:graphicRepresentation>
+               <mif:targetConnection name="careCompositionID" minimumMultiplicity="0" maximumMultiplicity="10"
+                                     conformance="R"
+                                     isMandatory="false"
+                                     sortKey="Z ZZ">
+                  <mif:derivationSupplier staticModelDerivationId="1" className="ParameterList"
+                                          associationEndName="parameter"/>
+                  <mif:participantClass>
+                     <mif:class name="CareCompositionID" isAbstract="false">
+                        <mif:derivationSupplier staticModelDerivationId="1" className="ParameterItem"/>
+                        <mif:graphicRepresentation presentation="HL7">
+                           <mif:graphElement shapeId="Sheet.404" containerDiagramName="Main" shapeTemplate="OtherClass"
+                                             isWidthAutoSize="true"
+                                             isHeightAutoSize="true">
+                              <mif:position x="0.044" y="8.272"/>
+                              <mif:size width="2.263" height="0.750"/>
+                           </mif:graphElement>
+                        </mif:graphicRepresentation>
+                        <mif:attribute name="value" sortKey="1" minimumMultiplicity="1" maximumMultiplicity="1"
+                                       conformance="R"
+                                       isMandatory="true"
+                                       isStructural="false">
+                           <mif:businessName name="Care Composition IDs"/>
+                           <mif:annotations>
+                              <mif:definition>
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>Filters the records retrieved to only include those associated with the specified encounter, episode or care event. If unspecified, no filter is applied.</mif:p>
+                                    </mif:p>
+                                    <mif:p>
+                                       <mif:p>Note: When matching on care composition id, systems should also retrieve records with a fulfillment id to requisitions associated with the care composition. E.g. When retrieving records associated with an encounter which includes a referral, the retrieved records should also include the care summary created in fulfillment of the referral.</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:definition>
+                              <mif:rationale>
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>Allows retrieving all records associated with an encounter, episode or care event.</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:rationale>
+                           </mif:annotations>
+                           <mif:derivationSupplier staticModelDerivationId="1" className="ParameterItem" attributeName="value"/>
+                           <mif:type name="II.BUS"/>
+                        </mif:attribute>
+                     </mif:class>
+                  </mif:participantClass>
+               </mif:targetConnection>
+               <mif:sourceConnection>
+                  <mif:nonTraversableConnection participantClassName="ParameterList">
+                     <mif:derivationSupplier staticModelDerivationId="1" className="Parameter"
+                                             associationEndName="parameterList"/>
+                  </mif:nonTraversableConnection>
+               </mif:sourceConnection>
+            </mif:association>
+            <mif:association sortKey="0">
+               <mif:graphicRepresentation>
+                  <mif:graphElement connectToShapeId="Sheet.5" containerDiagramName="Main" shapeId="Sheet.422">
+                     <mif:position x="3.664" y="5.826"/>
+                     <mif:graphEdge>
+                        <mif:waypoint x="3.027" y="5.826"/>
+                        <mif:waypoint x="3.027" y="7.172"/>
+                        <mif:anchor connectToShapeId="Sheet.418">
+                           <mif:position x="2.391" y="7.172"/>
+                        </mif:anchor>
+                     </mif:graphEdge>
+                  </mif:graphElement>
+               </mif:graphicRepresentation>
+               <mif:targetConnection name="careCompositionType" minimumMultiplicity="0" maximumMultiplicity="5"
+                                     conformance="R"
+                                     isMandatory="false"
+                                     sortKey="Z ZZ">
+                  <mif:derivationSupplier staticModelDerivationId="1" className="ParameterList"
+                                          associationEndName="parameter"/>
+                  <mif:participantClass>
+                     <mif:class name="CareCompositionType" isAbstract="false">
+                        <mif:derivationSupplier staticModelDerivationId="1" className="ParameterItem"/>
+                        <mif:graphicRepresentation presentation="HL7">
+                           <mif:graphElement shapeId="Sheet.418" containerDiagramName="Main" shapeTemplate="OtherClass"
+                                             isWidthAutoSize="true"
+                                             isHeightAutoSize="true">
+                              <mif:position x="0.096" y="6.797"/>
+                              <mif:size width="2.294" height="0.750"/>
+                           </mif:graphElement>
+                        </mif:graphicRepresentation>
+                        <mif:attribute name="value" sortKey="1" minimumMultiplicity="1" maximumMultiplicity="1"
+                                       conformance="R"
+                                       isMandatory="true"
+                                       isStructural="false">
+                           <mif:businessName name="Care Composition Types"/>
+                           <mif:annotations>
+                              <mif:definition>
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>Filters the records retrieved to only include those associated with the specified 'kind' of encounter, episode or care event. If unspecified, no filter is applied.</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:definition>
+                              <mif:rationale>
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>Allows retrieving all records associated with a particular type of encounter, episode or care event. E.g.Orthopedic Clinic Encounter, ER encounter, Walk-in encounter, etc.</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:rationale>
+                           </mif:annotations>
+                           <mif:derivationSupplier staticModelDerivationId="1" className="ParameterItem" attributeName="value"/>
+                           <mif:type name="CV"/>
+                           <mif:supplierDomainSpecification codingStrength="CNE" domainName="ActCareEventType"/>
+                        </mif:attribute>
+                     </mif:class>
+                  </mif:participantClass>
+               </mif:targetConnection>
+               <mif:sourceConnection>
+                  <mif:nonTraversableConnection participantClassName="ParameterList">
+                     <mif:derivationSupplier staticModelDerivationId="1" className="Parameter"
+                                             associationEndName="parameterList"/>
+                  </mif:nonTraversableConnection>
+               </mif:sourceConnection>
+            </mif:association>
+            <mif:association sortKey="1">
+               <mif:graphicRepresentation>
+                  <mif:graphElement connectToShapeId="Sheet.5" containerDiagramName="Main" shapeId="Sheet.394">
+                     <mif:position x="4.914" y="6.409"/>
+                     <mif:graphEdge>
+                        <mif:waypoint x="5.811" y="6.409"/>
+                        <mif:waypoint x="5.811" y="6.972"/>
+                        <mif:anchor connectToShapeId="Sheet.390">
+                           <mif:position x="6.708" y="6.972"/>
+                        </mif:anchor>
+                     </mif:graphEdge>
+                  </mif:graphElement>
+               </mif:graphicRepresentation>
+               <mif:targetConnection name="issueFilterCode" minimumMultiplicity="1" maximumMultiplicity="1"
+                                     conformance="R"
+                                     isMandatory="true"
+                                     sortKey="Z ZZ">
+                  <mif:derivationSupplier staticModelDerivationId="1" className="ParameterList"
+                                          associationEndName="parameter"/>
+                  <mif:participantClass>
+                     <mif:class name="IssueFilterCode" isAbstract="false">
+                        <mif:derivationSupplier staticModelDerivationId="1" className="ParameterItem"/>
+                        <mif:graphicRepresentation presentation="HL7">
+                           <mif:graphElement shapeId="Sheet.390" containerDiagramName="Main" shapeTemplate="OtherClass"
+                                             isWidthAutoSize="true"
+                                             isHeightAutoSize="true">
+                              <mif:position x="6.708" y="6.597"/>
+                              <mif:size width="3.020" height="0.750"/>
+                           </mif:graphElement>
+                        </mif:graphicRepresentation>
+                        <mif:attribute name="value" sortKey="1" minimumMultiplicity="1" maximumMultiplicity="1"
+                                       conformance="R"
+                                       isMandatory="true"
+                                       isStructural="false">
+                           <mif:businessName name="Issue Filter Code"/>
+                           <mif:annotations>
+                              <mif:definition>
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>Indicates whether records to be returned (e.g. prescription order, prescription dispense and/or other medication) should be filtered to those with at least one persistent un-managed issue (against the record), with at least one persistent issues or should return all records, independent of the presence of persistent issues.</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:definition>
+                              <mif:rationale>
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>By filtering returned records to include only those which have unmanaged issues or any issues at all, allows a provider to focus on those aspects of care where extra attention is needed. Because the attribute must be known, it is mandatory.</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:rationale>
+                           </mif:annotations>
+                           <mif:derivationSupplier staticModelDerivationId="1" className="ParameterItem" attributeName="value"/>
+                           <mif:type name="CV"/>
+                           <mif:supplierDomainSpecification codingStrength="CNE" domainName="IssueFilterCode"/>
+                        </mif:attribute>
+                     </mif:class>
+                  </mif:participantClass>
+               </mif:targetConnection>
+               <mif:sourceConnection>
+                  <mif:nonTraversableConnection participantClassName="ParameterList">
+                     <mif:derivationSupplier staticModelDerivationId="1" className="Parameter"
+                                             associationEndName="parameterList"/>
+                  </mif:nonTraversableConnection>
+               </mif:sourceConnection>
+            </mif:association>
+            <mif:association sortKey="4">
+               <mif:graphicRepresentation>
+                  <mif:graphElement connectToShapeId="Sheet.5" containerDiagramName="Main" shapeId="Sheet.202">
+                     <mif:position x="4.914" y="4.659"/>
+                     <mif:graphEdge>
+                        <mif:waypoint x="5.200" y="4.659"/>
+                        <mif:waypoint x="5.200" y="2.472"/>
+                        <mif:anchor connectToShapeId="Sheet.114">
+                           <mif:position x="6.926" y="2.472"/>
+                        </mif:anchor>
+                     </mif:graphEdge>
+                  </mif:graphElement>
+               </mif:graphicRepresentation>
+               <mif:targetConnection name="mostRecentByDeviceIndicator" minimumMultiplicity="1"
+                                     maximumMultiplicity="1"
+                                     conformance="R"
+                                     isMandatory="true"
+                                     sortKey="Z ZZ">
+                  <mif:derivationSupplier staticModelDerivationId="1" className="ParameterList"
+                                          associationEndName="parameter"/>
+                  <mif:participantClass>
+                     <mif:class name="MostRecentByDeviceIndicator" isAbstract="false">
+                        <mif:derivationSupplier staticModelDerivationId="1" className="ParameterItem"/>
+                        <mif:graphicRepresentation presentation="HL7">
+                           <mif:graphElement shapeId="Sheet.114" containerDiagramName="Main" shapeTemplate="OtherClass"
+                                             isWidthAutoSize="true"
+                                             isHeightAutoSize="true">
+                              <mif:position x="6.926" y="2.097"/>
+                              <mif:size width="2.947" height="0.750"/>
+                           </mif:graphElement>
+                        </mif:graphicRepresentation>
+                        <mif:attribute name="value" sortKey="1" minimumMultiplicity="1" maximumMultiplicity="1"
+                                       conformance="R"
+                                       isMandatory="true"
+                                       defaultValue="false"
+                                       isStructural="false">
+                           <mif:businessName name="Most Recent By Device Indicator"/>
+                           <mif:annotations>
+                              <mif:definition>
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>Indicates whether or not the records are to be retrieved based on the most recent by Device Code. If true, only the most recent prescription or dispense for a particular device type will be returned. The default is 'FALSE' indicating that retrieval of prescription or dispense records should not be limited to one per device type.</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:definition>
+                              <mif:rationale>
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>Helps decrease the volume of records returned, while still maintaining information on all devices that the patient is using.</mif:p>
+                                    </mif:p>
+                                    <mif:p>
+                                       <mif:p>Because this is a boolean attribute whose value must be known to evaluate the query, the attribute is mandatory.</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:rationale>
+                           </mif:annotations>
+                           <mif:derivationSupplier staticModelDerivationId="1" className="ParameterItem" attributeName="value"/>
+                           <mif:type name="BL"/>
+                        </mif:attribute>
+                     </mif:class>
+                  </mif:participantClass>
+               </mif:targetConnection>
+               <mif:sourceConnection>
+                  <mif:nonTraversableConnection participantClassName="ParameterList">
+                     <mif:derivationSupplier staticModelDerivationId="1" className="Parameter"
+                                             associationEndName="parameterList"/>
+                  </mif:nonTraversableConnection>
+               </mif:sourceConnection>
+            </mif:association>
+            <mif:association sortKey="3">
+               <mif:graphicRepresentation>
+                  <mif:graphElement connectToShapeId="Sheet.5" containerDiagramName="Main" shapeId="Sheet.184">
+                     <mif:position x="4.914" y="5.242"/>
+                     <mif:graphEdge>
+                        <mif:waypoint x="5.945" y="5.242"/>
+                        <mif:waypoint x="5.945" y="4.047"/>
+                        <mif:anchor connectToShapeId="Sheet.110">
+                           <mif:position x="6.976" y="4.047"/>
+                        </mif:anchor>
+                     </mif:graphEdge>
+                  </mif:graphElement>
+               </mif:graphicRepresentation>
+               <mif:targetConnection name="rxDispenseIndicator" minimumMultiplicity="0" maximumMultiplicity="3"
+                                     conformance="R"
+                                     isMandatory="false"
+                                     sortKey="Z ZZ">
+                  <mif:derivationSupplier staticModelDerivationId="1" className="ParameterList"
+                                          associationEndName="parameter"/>
+                  <mif:participantClass>
+                     <mif:class name="RxDispenseIndicator" isAbstract="false">
+                        <mif:derivationSupplier staticModelDerivationId="1" className="ParameterItem"/>
+                        <mif:graphicRepresentation presentation="HL7">
+                           <mif:graphElement shapeId="Sheet.110" containerDiagramName="Main" shapeTemplate="OtherClass"
+                                             isWidthAutoSize="true"
+                                             isHeightAutoSize="true">
+                              <mif:position x="6.976" y="3.672"/>
+                              <mif:size width="2.924" height="0.750"/>
+                           </mif:graphElement>
+                        </mif:graphicRepresentation>
+                        <mif:attribute name="value" sortKey="1" minimumMultiplicity="1" maximumMultiplicity="1"
+                                       conformance="R"
+                                       isMandatory="true"
+                                       isStructural="false">
+                           <mif:businessName name="Rx Dispenser Indicators"/>
+                           <mif:annotations>
+                              <mif:definition>
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>A coded value indicating the dispensing (fill) status of the prescription to be included in the result set. Rx Dispense Indicators include: ND (Never Dispensed), DRR (Dispensed with Refills Remaining), etc.</mif:p>
+                                    </mif:p>
+                                    <mif:p>
+                                       <mif:p>The repetition of 3 allows for retrieval based on all three Rx Dispense Indicators.</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:definition>
+                              <mif:rationale>
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>Allows for finer sub-set of prescriptions to be retrieved based on the fill status of the prescription.</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:rationale>
+                           </mif:annotations>
+                           <mif:derivationSupplier staticModelDerivationId="1" className="ParameterItem" attributeName="value"/>
+                           <mif:type name="CV"/>
+                           <mif:supplierDomainSpecification codingStrength="CNE" domainName="PrescriptionDispenseFilterCode"/>
+                        </mif:attribute>
+                     </mif:class>
+                  </mif:participantClass>
+               </mif:targetConnection>
+               <mif:sourceConnection>
+                  <mif:nonTraversableConnection participantClassName="ParameterList">
+                     <mif:derivationSupplier staticModelDerivationId="1" className="Parameter"
+                                             associationEndName="parameterList"/>
+                  </mif:nonTraversableConnection>
+               </mif:sourceConnection>
+            </mif:association>
+            <mif:association sortKey="5">
+               <mif:graphicRepresentation>
+                  <mif:graphElement connectToShapeId="Sheet.5" containerDiagramName="Main" shapeId="Sheet.240">
+                     <mif:position x="4.914" y="4.075"/>
+                     <mif:graphEdge>
+                        <mif:waypoint x="4.900" y="4.075"/>
+                        <mif:waypoint x="4.900" y="1.260"/>
+                        <mif:anchor connectToShapeId="Sheet.1">
+                           <mif:position x="6.889" y="1.260"/>
+                        </mif:anchor>
+                     </mif:graphEdge>
+                  </mif:graphElement>
+               </mif:graphicRepresentation>
+               <mif:targetConnection name="usageEffectivePeriod" minimumMultiplicity="0" maximumMultiplicity="1"
+                                     conformance="R"
+                                     isMandatory="false"
+                                     sortKey="Z ZZ">
+                  <mif:derivationSupplier staticModelDerivationId="1" className="ParameterList"
+                                          associationEndName="parameter"/>
+                  <mif:participantClass>
+                     <mif:class name="UsageEffectivePeriod" isAbstract="false">
+                        <mif:derivationSupplier staticModelDerivationId="1" className="ParameterItem"/>
+                        <mif:graphicRepresentation presentation="HL7">
+                           <mif:graphElement shapeId="Sheet.1" containerDiagramName="Main" shapeTemplate="OtherClass"
+                                             isWidthAutoSize="true"
+                                             isHeightAutoSize="true">
+                              <mif:position x="6.889" y="0.697"/>
+                              <mif:size width="3.023" height="0.750"/>
+                           </mif:graphElement>
+                        </mif:graphicRepresentation>
+                        <mif:attribute name="value" sortKey="1" minimumMultiplicity="1" maximumMultiplicity="1"
+                                       conformance="R"
+                                       isMandatory="true"
+                                       isStructural="false">
+                           <mif:businessName name="Usage Effective Period"/>
+                           <mif:annotations>
+                              <mif:definition>
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>Indicates the usage period for which the request/query applies.</mif:p>
+                                    </mif:p>
+                                    <mif:p>
+                                       <mif:p>Filter the result set to include only those device records (device order and device dispense) for which the patient was deemed to be using the device within the specified period.</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:definition>
+                              <mif:usageNotes>
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>The determination for applicability for inclusion in the query response should be considered to be the 'Pick up date plus the days supply'</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:usageNotes>
+                              <mif:rationale>
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>Allows the requester to specify the usage period of interest for the retrieval. Useful for constraining run-away queries.</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:rationale>
+                           </mif:annotations>
+                           <mif:derivationSupplier staticModelDerivationId="1" className="ParameterItem" attributeName="value"/>
+                           <mif:type name="IVL">
+                              <supplierBindingArgumentDatatype xmlns="urn:hl7-org:v3/mif" name="TS.FULLDATE"/>
+                           </mif:type>
+                        </mif:attribute>
+                     </mif:class>
+                  </mif:participantClass>
+               </mif:targetConnection>
+               <mif:sourceConnection>
+                  <mif:nonTraversableConnection participantClassName="ParameterList">
+                     <mif:derivationSupplier staticModelDerivationId="1" className="Parameter"
+                                             associationEndName="parameterList"/>
+                  </mif:nonTraversableConnection>
+               </mif:sourceConnection>
+            </mif:association>
+         </mif:class>
+      </mif:specializedClass>
+   </mif:ownedEntryPoint>
+</mif:serializedStaticModel>

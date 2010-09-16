@@ -1,0 +1,196 @@
+<mif:dynamicModel xmlns:mif="urn:hl7-org:v3/mif">
+   <mif:header>
+      <mif:renderingInformation schemaVersion="1" application="RoseTree 4.2.20">
+         <mif:renderingNotes>This document was rendered into XML using software provided to HL7 by Beeler Consulting LLC.
+ PubDB to MIF Transform: $RCSfile: PubDbXmlToMIF.xsl,v $ $Revision: 1.11 $ $Date: 2007/10/19 05:55:13 $
+  Fix names transform: $Id: FixMifNames.xsl,v 1.8 2007/03/20 02:48:49 wbeeler Exp $
+  HTML to MIF Markup transform: $Id: HtmlToMIFMarkup.xsl,v 1.4 2007/03/20 02:48:49 wbeeler Exp $
+  Base transform: $Id: ConvertBase.xsl,v 1.5 2007/10/19 05:55:13 wbeeler Exp $
+  Package Id Conversion: $Id: TransformPackageIds.xsl,v 1.6 2007/03/20 02:48:49 wbeeler Exp $</mif:renderingNotes>
+      </mif:renderingInformation>
+      <mif:legalese copyrightOwner="Health Level Seven, Inc." copyrightYears="2008">
+         <mif:notation>All rights reserved.</mif:notation>
+      </mif:legalese>
+   </mif:header>
+   <mif:triggerEvent name="100001"
+                     title="Polling Message Transmission Event Send Poll Transmission Request"
+                     invokingInteractionId="MCCI_IN100001CA">
+      <mif:businessName name="Send Poll Message 1 Request"/>
+      <mif:packageLocation root="DEFN" section="IM" subSection="MC" domain="CI" artifact="TE" realm="CA"
+                           id="100001"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>The processing of a poll operation to retrieve an interaction from a remotely managed interaction queue has started.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="102002" title="Polling Message Transmission Poll Status Query"
+                     invokingInteractionId="MCCI_IN102002CA">
+      <mif:businessName name="Check for Queued Interactions"/>
+      <mif:packageLocation root="DEFN" section="IM" subSection="MC" domain="CI" artifact="TE" realm="CA"
+                           id="102002"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>A system or user wishes to know if there are any queued interactions</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="102003" title="Polling Message Transmission Poll Status Query Response"
+                     invokingInteractionId="MCCI_IN102003CA">
+      <mif:businessName name="Request for Queued Interactions Received"/>
+      <mif:packageLocation root="DEFN" section="IM" subSection="MC" domain="CI" artifact="TE" realm="CA"
+                           id="102003"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>A request for a count of queued interactions has been received</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="000003" title="Query Continuation"
+                     invokingInteractionId="QUQI_IN000003CA">
+      <mif:businessName name="Query Continuation"/>
+      <mif:packageLocation root="DEFN" section="IM" subSection="MC" domain="CI" artifact="TE" realm="CA"
+                           version="01"
+                           id="000003"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>Query Continuation</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="000002" title="Send Message Accept Acknowledgement"
+                     invokingInteractionId="MCCI_IN000002CA">
+      <mif:businessName name="Send Message Accept Acknowledgement"/>
+      <mif:packageLocation root="DEFN" section="IM" subSection="MC" domain="CI" artifact="TE" realm="CA"
+                           version="01"
+                           id="000002"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>Send Message Accept Acknowledgement</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="100003" title="Send Poll Message Accept Acknowledgement"
+                     invokingInteractionId="MCCI_IN100004CA">
+      <mif:businessName name="Send Poll Message Accept Acknowledgement"/>
+      <mif:packageLocation root="DEFN" section="IM" subSection="MC" domain="CI" artifact="TE" realm="CA"
+                           version="01"
+                           id="100003"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>Send Poll Message Accept Acknowledgement</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="100004" title="Send Poll Message Error"
+                     invokingInteractionId="MCCI_IN100005CA">
+      <mif:businessName name="Send Poll Message Error"/>
+      <mif:packageLocation root="DEFN" section="IM" subSection="MC" domain="CI" artifact="TE" realm="CA"
+                           version="01"
+                           id="100004"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>Send Poll Message Error</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:hl7Interaction name="100004" title="Polling Message Transmission Event Request">
+      <mif:businessName name="Accept Ack Poll for Next Message"/>
+      <mif:packageLocation root="DEFN" section="IM" subSection="MC" domain="CI" artifact="IN" realm="CA"
+                           id="100004"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>Communication level acknowledgement that polled message received and immediately making a poll request for the next message in the queue. Note: This interaction is invoked, where appropriate, as a receiver responsibility.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="IM" subSection="MC" domain="CI" artifact="TE" realm="CA"
+                      version="01"
+                      id="100003"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002200"/>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="100001"
+                       title="Polling Message Transmission Event Request Send Poll Transmission">
+      <mif:businessName name="Send Poll Request"/>
+      <mif:packageLocation root="DEFN" section="IM" subSection="MC" domain="CI" artifact="IN" realm="CA"
+                           id="100001"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>Sends HL7 poll request control message to an HL7 message queue manager.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="IM" subSection="MC" domain="CI" artifact="TE" realm="CA"
+                      id="100001"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="102001"/>
+      <mif:receiverResponsibility triggerEventName="Send Poll Message Error"
+                                  interactionName="Polling Message Transmission Event"/>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="100005" title="Polling Message Transmission Event">
+      <mif:businessName name="Exception Ack in Response to Poll Request"/>
+      <mif:packageLocation root="DEFN" section="IM" subSection="MC" domain="CI" artifact="IN" realm="CA"
+                           id="100005"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>Communication level acknowledgement indicating exception as to why message payload not returned by poll request that has been received. Note: This interaction is invoked, where appropriate, as a receiver responsibility.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="IM" subSection="MC" domain="CI" artifact="TE" realm="CA"
+                      version="01"
+                      id="100004"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002200"/>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="102002" title="Polling Message Transmission Event Query Poll Status">
+      <mif:businessName name="Request Poll Queue Status"/>
+      <mif:packageLocation root="DEFN" section="IM" subSection="MC" domain="CI" artifact="IN" realm="CA"
+                           id="102002"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>Requests an indication of the number and priority of outstanding interactions (if any) on the application's poll queue.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="IM" subSection="MC" domain="CI" artifact="TE" realm="CA"
+                      id="102002"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="102001"/>
+      <mif:receiverResponsibility triggerEventName="Polling Message Transmission Poll Status Query Response"
+                                  interactionName="Polling Message Transmission Event Query Response Poll Status"/>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="102003"
+                       title="Polling Message Transmission Event Query Response Poll Status">
+      <mif:businessName name="Return Poll Queue Status"/>
+      <mif:packageLocation root="DEFN" section="IM" subSection="MC" domain="CI" artifact="IN" realm="CA"
+                           id="102003"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>Returns an indication of the number and priority of outstanding interactions (if any) on the application's poll queue.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="IM" subSection="MC" domain="CI" artifact="TE" realm="CA"
+                      id="102003"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002200"/>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="000002" title="Infrastructure Event">
+      <mif:businessName name="Accept Ack"/>
+      <mif:packageLocation root="DEFN" section="IM" subSection="MC" domain="CI" artifact="IN" realm="CA"
+                           id="000002"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>Accept acknowledgement</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="IM" subSection="MC" domain="CI" artifact="TE" realm="CA"
+                      version="01"
+                      id="000002"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002200"/>
+   </mif:hl7Interaction>
+</mif:dynamicModel>

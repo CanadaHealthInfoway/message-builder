@@ -1,0 +1,282 @@
+<mif:dynamicModel xmlns:mif="urn:hl7-org:v3/mif">
+   <mif:header>
+      <mif:renderingInformation schemaVersion="1" application="RoseTree 4.2.20">
+         <mif:renderingNotes>This document was rendered into XML using software provided to HL7 by Beeler Consulting LLC.
+ PubDB to MIF Transform: $RCSfile: PubDbXmlToMIF.xsl,v $ $Revision: 1.11 $ $Date: 2007/10/19 05:55:13 $
+  Fix names transform: $Id: FixMifNames.xsl,v 1.8 2007/03/20 02:48:49 wbeeler Exp $
+  HTML to MIF Markup transform: $Id: HtmlToMIFMarkup.xsl,v 1.4 2007/03/20 02:48:49 wbeeler Exp $
+  Base transform: $Id: ConvertBase.xsl,v 1.5 2007/10/19 05:55:13 wbeeler Exp $
+  Package Id Conversion: $Id: TransformPackageIds.xsl,v 1.6 2007/03/20 02:48:49 wbeeler Exp $</mif:renderingNotes>
+      </mif:renderingInformation>
+      <mif:legalese copyrightOwner="Health Level Seven, Inc." copyrightYears="2008">
+         <mif:notation>All rights reserved.</mif:notation>
+      </mif:legalese>
+   </mif:header>
+   <mif:triggerEvent name="010090" title="Drug Knowledge Base Document Query"
+                     invokingInteractionId="POME_IN010010CA">
+      <mif:businessName name="Request for drug document(s)"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="PO" domain="ME" artifact="TE" realm="UV"
+                           id="010090"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>A user has requested documents about a drug or indication.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="010040" title="Drug Knowledge Base Document Query Response"
+                     invokingInteractionId="POME_IN010020CA">
+      <mif:businessName name="Received request for drug document(s)"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="PO" domain="ME" artifact="TE" realm="UV"
+                           id="010040"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>An application responds to a request for a document about a drug or indication.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="010070" title="Drug Knowledge Base Drug Detail Query"
+                     invokingInteractionId="POME_IN010050CA">
+      <mif:businessName name="Request for detailed drug information"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="PO" domain="ME" artifact="TE" realm="UV"
+                           id="010070"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>A user or system requires detailed information about a drug product.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="010020" title="Drug Knowledge Base Drug Detail Query Response"
+                     invokingInteractionId="POME_IN010060CA">
+      <mif:businessName name="Received request for detailed drug information"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="PO" domain="ME" artifact="TE" realm="UV"
+                           id="010020"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>An application responds to a request for detailed information about a drug product.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="010100" title="Drug Knowledge Base Drug Query"
+                     invokingInteractionId="POME_IN010070CA">
+      <mif:businessName name="Request for matching drugs"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="PO" domain="ME" artifact="TE" realm="UV"
+                           id="010100"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>A user or system requires information about drugs matching a set of criteria.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="010050" title="Drug Knowledge Base Drug Query Response"
+                     invokingInteractionId="POME_IN010080CA">
+      <mif:businessName name="Received request for matching drugs"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="PO" domain="ME" artifact="TE" realm="UV"
+                           id="010050"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>An application responds to a request for information about drugs matching a set of criteria.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:hl7Interaction name="010010" title="Drug Knowledge Base Query Document">
+      <mif:businessName name="Drug document query"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="PO" domain="ME" artifact="IN" realm="CA"
+                           id="010010"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>Requests retrieval of a specific monograph or set of monographs for a particular medication (specified by identifier) or indication. The type of monograph (provider, patient, long, short, etc.) may be specified.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="HM" subSection="PO" domain="ME" artifact="TE" realm="UV"
+                      id="010090"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002100">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="QU"
+                                      domain="QI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="020002"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="ParameterList" root="DEFN" section="HM" subSection="PO"
+                                         domain="ME"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="010050"
+                                         traversalName="parameterList"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+      <mif:receiverResponsibility interactionName="Drug Knowledge Base Query Response Document"/>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="010070" title="Drug Knowledge Base Query Drug">
+      <mif:businessName name="Drug search query"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="PO" domain="ME" artifact="IN" realm="CA"
+                           id="010070"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>Requests retrieval of a lists of candidate drugs based on various search criteria such as name, route, code, manufacturer, appearance, etc.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="HM" subSection="PO" domain="ME" artifact="TE" realm="UV"
+                      id="010100"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002100">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="QU"
+                                      domain="QI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="020002"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="ParameterList" root="DEFN" section="HM" subSection="PO"
+                                         domain="ME"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="010090"
+                                         traversalName="parameterList"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+      <mif:receiverResponsibility interactionName="Drug Knowledge Base Query Response Drug"/>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="010050" title="Drug Knowledge Base Query Drug Detail">
+      <mif:businessName name="Drug product detail query"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="PO" domain="ME" artifact="IN" realm="CA"
+                           id="010050"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>Requests retrieval of detailed information about a single drug product by product code.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="HM" subSection="PO" domain="ME" artifact="TE" realm="UV"
+                      id="010070"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002100">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="QU"
+                                      domain="QI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="020002"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="ParameterList" root="DEFN" section="HM" subSection="PO"
+                                         domain="ME"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="010030"
+                                         traversalName="parameterList"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+      <mif:receiverResponsibility interactionName="Drug Knowledge Base Query Response Drug Detail"/>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="010020" title="Drug Knowledge Base Query Response Document">
+      <mif:businessName name="Drug document query response"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="PO" domain="ME" artifact="IN" realm="CA"
+                           id="010020"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>Returns one or more drug, protocol or contraindication monographs as text, HTML, PDF or CDA documents.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="HM" subSection="PO" domain="ME" artifact="TE" realm="UV"
+                      id="010040"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002300">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="QU"
+                                      domain="QI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="120008"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="Act" root="DEFN" section="HM" subSection="PO"
+                                         domain="RR"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="050016"
+                                         traversalName="document"/>
+            <mif:supplierBindingArgument templateParameterName="ParameterList" root="DEFN" section="HM" subSection="PO"
+                                         domain="ME"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="010050"
+                                         traversalName="parameterList"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="010080" title="Drug Knowledge Base Query Response Drug">
+      <mif:businessName name="Drug search query response"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="PO" domain="ME" artifact="IN" realm="CA"
+                           id="010080"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>Returns a list of basic identifying and descriptive information about one or more medications.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="HM" subSection="PO" domain="ME" artifact="TE" realm="UV"
+                      id="010050"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002300">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="QU"
+                                      domain="QI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="120008"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="Act" root="DEFN" section="HM" subSection="PO"
+                                         domain="ME"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="010100"
+                                         traversalName="target"/>
+            <mif:supplierBindingArgument templateParameterName="ParameterList" root="DEFN" section="HM" subSection="PO"
+                                         domain="ME"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="010090"
+                                         traversalName="parameterList"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="010060" title="Drug Knowledge Base Query Response Drug Detail">
+      <mif:businessName name="Drug product detail query response"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="PO" domain="ME" artifact="IN" realm="CA"
+                           id="010060"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>Returns detailed information about a single drug product.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="HM" subSection="PO" domain="ME" artifact="TE" realm="UV"
+                      id="010020"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002300">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="QU"
+                                      domain="QI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="120008"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="Act" root="DEFN" section="HM" subSection="PO"
+                                         domain="ME"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="010040"
+                                         traversalName="target"/>
+            <mif:supplierBindingArgument templateParameterName="ParameterList" root="DEFN" section="HM" subSection="PO"
+                                         domain="ME"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="010030"
+                                         traversalName="parameterList"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+   </mif:hl7Interaction>
+</mif:dynamicModel>

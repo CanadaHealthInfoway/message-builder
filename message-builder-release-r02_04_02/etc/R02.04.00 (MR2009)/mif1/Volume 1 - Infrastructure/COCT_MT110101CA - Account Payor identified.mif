@@ -1,0 +1,207 @@
+<mif:serializedStaticModel xmlns:mif="urn:hl7-org:v3/mif" packageKind="realm"
+                           representationKind="serialized"
+                           isAbstract="false"
+                           title="Account Payor identified"
+                           isSerializable="true"
+                           name="CA">
+   <mif:packageLocation root="DEFN" section="IM" subSection="CO" domain="CT" artifact="MT-deprecated"
+                        realm="CA"
+                        id="110101"/>
+   <mif:header>
+      <mif:renderingInformation schemaVersion="1" application="Visio to MIF transform"/>
+      <mif:legalese copyrightOwner="Health Level Seven" copyrightYears="2009"/>
+   </mif:header>
+   <mif:graphicRepresentation presentation="HL7">
+      <mif:graphElement name="Main">
+         <mif:position x="0.0" y="0.0"/>
+         <mif:size width="11.000" height="8.500"/>
+      </mif:graphElement>
+   </mif:graphicRepresentation>
+   <mif:derivationSupplier staticModelDerivationId="1">
+      <mif:targetStaticModel root="DEFN" artifact="RIM" version="0221"/>
+   </mif:derivationSupplier>
+   <mif:importedDatatypeModelPackage root="DEFN" artifact="DT" realm="UV" version="1.0"/>
+   <mif:importedVocabularyModelPackage root="DEFN" artifact="VO" realmNamespace="UV" version="586-20081030"/>
+   <mif:importedCommonModelElementPackage root="DEFN" artifact="IFC" realm="UV" version="1.8.3"/>
+   <mif:ownedEntryPoint id="COCT_MT110101CA" name="Account Payor identified" isAbstract="false">
+      <mif:annotations>
+         <mif:description>
+            <mif:text>
+               <mif:p>Used to identify payor in the context of a health claim.</mif:p>
+            </mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:graphicRepresentation>
+         <mif:graphElement shapeId="Sheet.40" containerDiagramName="Main">
+            <mif:position x="0.213" y="5.038"/>
+            <mif:size width="2.748" height="0.500"/>
+            <mif:anchorage connectToShapeId="Sheet.40">
+               <mif:position x="2.962" y="2.199"/>
+               <mif:graphEdge>
+                  <mif:anchor connectToShapeId="Sheet.24">
+                     <mif:position x="3.462" y="2.199"/>
+                  </mif:anchor>
+               </mif:graphEdge>
+            </mif:anchorage>
+         </mif:graphElement>
+      </mif:graphicRepresentation>
+      <mif:specializedClass>
+         <mif:class name="Account" isAbstract="false">
+            <mif:derivationSupplier staticModelDerivationId="1" className="Account"/>
+            <mif:graphicRepresentation presentation="HL7">
+               <mif:graphElement shapeId="Sheet.24" containerDiagramName="Main" shapeTemplate="Act"
+                                 isWidthAutoSize="true"
+                                 isHeightAutoSize="true">
+                  <mif:position x="3.462" y="1.824"/>
+                  <mif:size width="1.250" height="0.750"/>
+               </mif:graphElement>
+            </mif:graphicRepresentation>
+            <mif:annotations>
+               <mif:definition>
+                  <mif:text>
+                     <mif:p>
+                        <mif:p>Payor identifier, assigned by adjudicator.</mif:p>
+                     </mif:p>
+                  </mif:text>
+               </mif:definition>
+            </mif:annotations>
+            <mif:attribute name="classCode" sortKey="1" minimumMultiplicity="1" maximumMultiplicity="1"
+                           conformance="R"
+                           isMandatory="true"
+                           fixedValue="ACCT"
+                           isStructural="true">
+               <mif:derivationSupplier staticModelDerivationId="1" className="Account" attributeName="classCode"/>
+               <mif:type name="CS"/>
+               <mif:supplierDomainSpecification codingStrength="CNE" codeSystemName="ActClass" mnemonic="ACCT"/>
+            </mif:attribute>
+            <mif:attribute name="moodCode" sortKey="2" minimumMultiplicity="1" maximumMultiplicity="1"
+                           conformance="R"
+                           isMandatory="true"
+                           fixedValue="EVN"
+                           isStructural="true">
+               <mif:derivationSupplier staticModelDerivationId="1" className="Account" attributeName="moodCode"/>
+               <mif:type name="CS"/>
+               <mif:supplierDomainSpecification codingStrength="CNE" codeSystemName="ActMood" mnemonic="EVN"/>
+            </mif:attribute>
+            <mif:association sortKey="2">
+               <mif:graphicRepresentation>
+                  <mif:graphElement connectToShapeId="Sheet.24" containerDiagramName="Main">
+                     <mif:position x="4.087" y="2.574"/>
+                     <mif:graphEdge>
+                        <mif:anchor connectToShapeId="Sheet.30">
+                           <mif:position x="4.087" y="2.574"/>
+                        </mif:anchor>
+                     </mif:graphEdge>
+                  </mif:graphElement>
+               </mif:graphicRepresentation>
+               <mif:targetConnection name="holder" minimumMultiplicity="1" maximumMultiplicity="1" conformance="R"
+                                     isMandatory="true"
+                                     sortKey="ABE_______">
+                  <mif:derivationSupplier staticModelDerivationId="1" className="Act" associationEndName="participation"/>
+                  <mif:participantClass>
+                     <mif:class name="Holder" isAbstract="false">
+                        <mif:derivationSupplier staticModelDerivationId="1" className="Participation"/>
+                        <mif:graphicRepresentation presentation="HL7">
+                           <mif:graphElement shapeId="Sheet.30" containerDiagramName="Main" shapeTemplate="Participation"
+                                             textWrappingWidth="66.0"
+                                             nodeOrientation="Down">
+                              <mif:position x="3.509" y="2.574"/>
+                              <mif:size width="1.091" height="0.849"/>
+                           </mif:graphElement>
+                        </mif:graphicRepresentation>
+                        <mif:attribute name="typeCode" sortKey="1" minimumMultiplicity="1" maximumMultiplicity="1"
+                                       conformance="R"
+                                       isMandatory="true"
+                                       fixedValue="HLD"
+                                       isStructural="true">
+                           <mif:derivationSupplier staticModelDerivationId="1" className="Participation" attributeName="typeCode"/>
+                           <mif:type name="CS"/>
+                           <mif:supplierDomainSpecification codingStrength="CNE" codeSystemName="ParticipationType" mnemonic="HLD"/>
+                        </mif:attribute>
+                        <mif:association sortKey="1">
+                           <mif:graphicRepresentation>
+                              <mif:graphElement connectToShapeId="Sheet.30" containerDiagramName="Main">
+                                 <mif:position x="4.023" y="3.423"/>
+                                 <mif:graphEdge>
+                                    <mif:anchor connectToShapeId="Sheet.13">
+                                       <mif:position x="4.023" y="3.423"/>
+                                    </mif:anchor>
+                                 </mif:graphEdge>
+                              </mif:graphElement>
+                           </mif:graphicRepresentation>
+                           <mif:targetConnection name="payorRole" minimumMultiplicity="1" maximumMultiplicity="1"
+                                                 conformance="R"
+                                                 isMandatory="true"
+                                                 sortKey="BZ">
+                              <mif:derivationSupplier staticModelDerivationId="1" className="Participation" associationEndName="role"/>
+                              <mif:participantClass>
+                                 <mif:class name="PayorRole" isAbstract="false">
+                                    <mif:businessName name="Account Payor"/>
+                                    <mif:derivationSupplier staticModelDerivationId="1" className="Role"/>
+                                    <mif:graphicRepresentation presentation="HL7">
+                                       <mif:graphElement shapeId="Sheet.13" containerDiagramName="Main" shapeTemplate="Role"
+                                                         isWidthAutoSize="true"
+                                                         isHeightAutoSize="true">
+                                          <mif:position x="2.993" y="3.423"/>
+                                          <mif:size width="2.059" height="0.514"/>
+                                       </mif:graphElement>
+                                    </mif:graphicRepresentation>
+                                    <mif:annotations>
+                                       <mif:definition>
+                                          <mif:text>
+                                             <mif:p>
+                                                <mif:p>A Payor is the organization whose is responsible for the payment.</mif:p>
+                                             </mif:p>
+                                          </mif:text>
+                                       </mif:definition>
+                                    </mif:annotations>
+                                    <mif:attribute name="classCode" sortKey="1" minimumMultiplicity="1" maximumMultiplicity="1"
+                                                   conformance="R"
+                                                   isMandatory="true"
+                                                   fixedValue="PAYOR"
+                                                   isStructural="true">
+                                       <mif:derivationSupplier staticModelDerivationId="1" className="Role" attributeName="classCode"/>
+                                       <mif:type name="CS"/>
+                                       <mif:supplierDomainSpecification codingStrength="CNE" codeSystemName="RoleClass" mnemonic="PAYOR"/>
+                                    </mif:attribute>
+                                    <mif:attribute name="id" sortKey="2" minimumMultiplicity="1" maximumMultiplicity="*"
+                                                   conformance="R"
+                                                   isMandatory="true"
+                                                   isStructural="false">
+                                       <mif:businessName name="Payor identifier"/>
+                                       <mif:annotations>
+                                          <mif:definition>
+                                             <mif:text>
+                                                <mif:p>
+                                                   <mif:p>assigned by adjudicator</mif:p>
+                                                </mif:p>
+                                             </mif:text>
+                                          </mif:definition>
+                                       </mif:annotations>
+                                       <mif:derivationSupplier staticModelDerivationId="1" className="Role" attributeName="id"/>
+                                       <mif:type name="SET">
+                                          <supplierBindingArgumentDatatype xmlns="urn:hl7-org:v3/mif" name="II.BUS"/>
+                                       </mif:type>
+                                    </mif:attribute>
+                                 </mif:class>
+                              </mif:participantClass>
+                           </mif:targetConnection>
+                           <mif:sourceConnection>
+                              <mif:nonTraversableConnection participantClassName="Holder">
+                                 <mif:derivationSupplier staticModelDerivationId="1" className="Role" associationEndName="participation"/>
+                              </mif:nonTraversableConnection>
+                           </mif:sourceConnection>
+                        </mif:association>
+                     </mif:class>
+                  </mif:participantClass>
+               </mif:targetConnection>
+               <mif:sourceConnection>
+                  <mif:nonTraversableConnection participantClassName="Account">
+                     <mif:derivationSupplier staticModelDerivationId="1" className="Participation" associationEndName="act"/>
+                  </mif:nonTraversableConnection>
+               </mif:sourceConnection>
+            </mif:association>
+         </mif:class>
+      </mif:specializedClass>
+   </mif:ownedEntryPoint>
+</mif:serializedStaticModel>
