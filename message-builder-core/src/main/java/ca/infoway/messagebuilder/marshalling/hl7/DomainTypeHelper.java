@@ -55,15 +55,19 @@ public class DomainTypeHelper {
 		Class<? extends Code> code1 = getReturnType(relationship1);
 		Class<? extends Code> code2 = getReturnType(relationship2);
 
-		if (code1 != null && code1.isAssignableFrom(code2)) {
-			return relationship1.getDomainType();
-		} else if (code2 != null && code2.isAssignableFrom(code1)) {
-			return relationship2.getDomainType();
-		} else {
+		String result = null;
+		if (code1 != null && code2 != null) {
+			if (code1.isAssignableFrom(code2)) {
+				result = relationship1.getDomainType();
+			} else if (code2.isAssignableFrom(code1)) {
+				result = relationship2.getDomainType();
+			}
 			// TODO - TM - could also try walking up each code's hierarchy looking for a compatible domain type
 			//           - this only affects one group of types in MR2009, so I'll leave this as an enhancement
-			return null;
+		} else if (code1 != code2) {
+			System.out.println("WARNING: one of the relationships seems to be missing a domainType");
 		}
+		return result;
 	}
 
 	public static boolean hasDomainType(Relationship relationship, String domainType) {
