@@ -13,6 +13,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+import ca.infoway.messagebuilder.generator.LogLevel;
 import ca.infoway.messagebuilder.generator.MessageSetWriter;
 import ca.infoway.messagebuilder.generator.OutputUI;
 import ca.infoway.messagebuilder.xml.MessageSet;
@@ -51,6 +52,7 @@ public class MultipleXmlToXmlGeneratorTest {
 		this.jmock.checking(new Expectations() {{
 			one(messageSetMarshaller).unmarshall(inputMessageSet1); will(returnValue(new MessageSet()));
 			one(messageSetMarshaller).unmarshall(inputMessageSet2); will(returnValue(new MessageSet()));
+			one(outputUI).log(LogLevel.INFO, MultipleXmlToXmlGenerator.MESSAGE_SET_MERGE_COMPLETED);
 		}});
 		
 		this.generator.processAllMessageSets(inputMessageSets);
