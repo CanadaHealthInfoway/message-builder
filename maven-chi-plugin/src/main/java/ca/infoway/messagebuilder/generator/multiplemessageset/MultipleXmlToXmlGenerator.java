@@ -5,7 +5,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.commons.collections.CollectionUtils;
+
 import ca.infoway.messagebuilder.generator.GeneratorException;
+import ca.infoway.messagebuilder.generator.LogLevel;
 import ca.infoway.messagebuilder.generator.MessageSetGenerator;
 import ca.infoway.messagebuilder.generator.MessageSetWriter;
 import ca.infoway.messagebuilder.generator.MifSource;
@@ -15,6 +18,10 @@ import ca.infoway.messagebuilder.xml.MessageSetMarshaller;
 
 public class MultipleXmlToXmlGenerator implements MessageSetGenerator {
 
+	static final String MESSAGE_SET_MERGE_COMPLETED = "Message set merge completed";
+
+	private static final int MAX_MESSAGE_SETS_ALLOWED_FOR_MERGE = 2;
+	
 	private MessageSetMarshaller messageSetMarshaller;
 	private MessageSet messageSet = new MessageSet();
 	private OutputUI outputUI;
@@ -36,12 +43,22 @@ public class MultipleXmlToXmlGenerator implements MessageSetGenerator {
 	}
 
 	public void processAllMessageSets(List<File> inputMessageSets) throws GeneratorException {
-		List<MessageSet> messageSets = convertFilesToMessageSets(inputMessageSets);
-		
-		// FIXME - do merge here
-		
+		int size = CollectionUtils.size(inputMessageSets);
+		if (size > MAX_MESSAGE_SETS_ALLOWED_FOR_MERGE) {
+			this.outputUI.log(LogLevel.WARN, "Message set merge currently only supports merging two message sets");
+		} else if (size < 2) {
+			this.outputUI.log(LogLevel.WARN, "Message set merge requires at least two message sets as input");
+		} else {
+			List<MessageSet> messageSets = convertFilesToMessageSets(inputMessageSets);
+			mergeMessageSets(messageSets.get(0), messageSets.get(1));
+			this.outputUI.log(LogLevel.INFO, MESSAGE_SET_MERGE_COMPLETED);
+		}
 	}
 	
+	private void mergeMessageSets(MessageSet primaryMessageSet, MessageSet secondaryMessageSet) {
+		new MessageSetMerger(this.outputUI, this.messageSet).merge(primaryMessageSet, secondaryMessageSet);
+	}
+
 	public void writeToMessageSet(File outputFile) throws GeneratorException, IOException {
 		this.messageSetWriter.writeToMessageSet(outputFile);
 	}
