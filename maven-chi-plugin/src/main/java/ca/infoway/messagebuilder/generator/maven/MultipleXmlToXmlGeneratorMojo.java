@@ -2,6 +2,7 @@ package ca.infoway.messagebuilder.generator.maven;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.commons.collections.CollectionUtils;
@@ -44,7 +45,7 @@ public class MultipleXmlToXmlGeneratorMojo extends AbstractMojo {
      * @parameter 
      * @required
      */
-    private List<File> inputMessageSets;
+    private List<FileSet> inputMessageSets;
 
 	private final MessageSetGeneratorFactory factory;
     
@@ -86,8 +87,8 @@ public class MultipleXmlToXmlGeneratorMojo extends AbstractMojo {
 
 	private void generate() throws MojoExecutionException, MojoFailureException {
 		try {
-			MessageSetGenerator generator = this.factory.create(this, this.version, null);
-			generator.processAllMessageSets(this.inputMessageSets);
+			MessageSetGenerator generator = this.factory.create(this, this.version);
+			generator.processAllMessageSets(extractFiles(this.inputMessageSets));
 			generator.writeToMessageSet(this.outputMessageSet);
 		} catch (GeneratorException e) {
 			getLog().error(e);
@@ -101,6 +102,14 @@ public class MultipleXmlToXmlGeneratorMojo extends AbstractMojo {
 		}
 	}
 	
+	private List<File> extractFiles(List<FileSet> fileSetToConvert) {
+		List<File> files = new ArrayList<File>();
+		for (FileSet fileSet : fileSetToConvert) {
+			files.add(fileSet.getDirectory());
+		}
+		return files;
+	}
+
 	File getOutputFile() {
 		return this.outputMessageSet;
 	}
@@ -114,10 +123,10 @@ public class MultipleXmlToXmlGeneratorMojo extends AbstractMojo {
 		this.version = version;
 	}
 
-	List<File> getInputMessageSets() {
+	List<FileSet> getInputMessageSets() {
 		return this.inputMessageSets;
 	}
-	void setInputMessageSets(List<File> inputMessageSets) {
+	void setInputMessageSets(List<FileSet> inputMessageSets) {
 		this.inputMessageSets = inputMessageSets;
 	}
 }
