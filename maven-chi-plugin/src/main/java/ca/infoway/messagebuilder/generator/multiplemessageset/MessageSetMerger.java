@@ -3,6 +3,8 @@ package ca.infoway.messagebuilder.generator.multiplemessageset;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.apache.commons.lang.ObjectUtils;
+
 import ca.infoway.messagebuilder.generator.OutputUI;
 import ca.infoway.messagebuilder.xml.Interaction;
 import ca.infoway.messagebuilder.xml.MessageSet;
@@ -28,12 +30,9 @@ class MessageSetMerger {
 	}
 
 	void merge(MessageSet primaryMessageSet, MessageSet secondaryMessageSet) {
-		if (primaryMessageSet == null) {
-			primaryMessageSet = new MessageSet();
-		}
-		if (secondaryMessageSet == null) {
-			secondaryMessageSet = new MessageSet();
-		}
+		primaryMessageSet = (MessageSet) ObjectUtils.defaultIfNull(primaryMessageSet, new MessageSet());
+		secondaryMessageSet = (MessageSet) ObjectUtils.defaultIfNull(secondaryMessageSet, new MessageSet());
+		
 		// leave "version" as is on result messageset
 		mergeComponent(primaryMessageSet.getComponent(), secondaryMessageSet.getComponent());
 		mergeInteractions(primaryMessageSet.getInteractions(), secondaryMessageSet.getInteractions());
@@ -45,16 +44,15 @@ class MessageSetMerger {
 		
 		for (String packageLocationName : packageLocations.keySet()) {
 			PackageLocation primaryPackageLocation = packageLocations.get(packageLocationName);
-			if (packageLocations2copy.containsKey(packageLocationName)) {
-				PackageLocation secondaryPackageLocation = packageLocations2copy.remove(packageLocationName);
-				PackageLocation mergedPackageLocation = this.packageLocationMerger.merge(primaryPackageLocation, secondaryPackageLocation);
-				this.resultMessageSet.getPackageLocations().put(packageLocationName, mergedPackageLocation);
-			} else {
-				this.resultMessageSet.getPackageLocations().put(packageLocationName, primaryPackageLocation);
-			}
+			PackageLocation secondaryPackageLocation = packageLocations2copy.remove(packageLocationName);
+			PackageLocation mergedPackageLocation = this.packageLocationMerger.merge(primaryPackageLocation, secondaryPackageLocation);
+			this.resultMessageSet.getPackageLocations().put(packageLocationName, mergedPackageLocation);
 		}
-		
-		this.resultMessageSet.getPackageLocations().putAll(packageLocations2copy);
+
+		for (String packageLocationName : packageLocations2copy.keySet()) {
+			PackageLocation mergedPackageLocation = this.packageLocationMerger.merge(null, packageLocations2copy.get(packageLocationName));
+			this.resultMessageSet.getPackageLocations().put(packageLocationName, mergedPackageLocation);
+		}
 	}
 
 	private void mergeInteractions(Map<String, Interaction> interactions, Map<String, Interaction> interactions2) {
@@ -62,16 +60,15 @@ class MessageSetMerger {
 		
 		for (String interactionName : interactions.keySet()) {
 			Interaction primaryInteraction = interactions.get(interactionName);
-			if (interactions2copy.containsKey(interactionName)) {
-				Interaction secondaryInteraction = interactions2copy.remove(interactionName);
-				Interaction mergedInteraction = this.interactionMerger.merge(primaryInteraction, secondaryInteraction);
-				this.resultMessageSet.getInteractions().put(interactionName, mergedInteraction);
-			} else {
-				this.resultMessageSet.getInteractions().put(interactionName, primaryInteraction);
-			}
+			Interaction secondaryInteraction = interactions2copy.remove(interactionName);
+			Interaction mergedInteraction = this.interactionMerger.merge(primaryInteraction, secondaryInteraction);
+			this.resultMessageSet.getInteractions().put(interactionName, mergedInteraction);
 		}
-		
-		this.resultMessageSet.getInteractions().putAll(interactions2copy);
+
+		for (String interactionName : interactions2copy.keySet()) {
+			Interaction mergedInteraction = this.interactionMerger.merge(null, interactions2copy.get(interactionName));
+			this.resultMessageSet.getInteractions().put(interactionName, mergedInteraction);
+		}
 	}
 
 	private void mergeComponent(String component, String component2) {
