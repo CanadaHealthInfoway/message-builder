@@ -31,22 +31,22 @@ public class DocumentationMergerTest {
 	
 	@Test
 	public void shouldMergeTwoEmptyDocumentations() {
-		Documentation result = this.merger.merge(null, null);
+		Documentation result = this.merger.merge(null, null, null, null);
 		Assert.assertNull(result);
 		
-		result = this.merger.merge(null, new Documentation());
+		result = this.merger.merge(null, null, new Documentation(), "2");
 		Assert.assertNotNull(result);
 		Assert.assertTrue(result.getParagraphs().isEmpty());
 		Assert.assertNull(result.getBusinessName());
 		Assert.assertNull(result.getTitle());
 		
-		result = this.merger.merge(new Documentation(), null);
+		result = this.merger.merge(new Documentation(), "1", null, null);
 		Assert.assertNotNull(result);
 		Assert.assertTrue(result.getParagraphs().isEmpty());
 		Assert.assertNull(result.getBusinessName());
 		Assert.assertNull(result.getTitle());
 		
-		result = this.merger.merge(new Documentation(), new Documentation());
+		result = this.merger.merge(new Documentation(), "1", new Documentation(), "2");
 		Assert.assertNotNull(result);
 		Assert.assertTrue(result.getParagraphs().isEmpty());
 		Assert.assertNull(result.getBusinessName());
@@ -59,7 +59,7 @@ public class DocumentationMergerTest {
 		doc.setBusinessName("business name");
 		doc.setTitle("title");
 		
-		Documentation result = this.merger.merge(doc, null);
+		Documentation result = this.merger.merge(doc, "1", null, null);
 		Assert.assertNotNull(result);
 		Assert.assertEquals(2, result.getParagraphs().size());
 		Assert.assertEquals("para1", result.getParagraphs().get(0));
@@ -67,7 +67,7 @@ public class DocumentationMergerTest {
 		Assert.assertEquals("business name", result.getBusinessName());
 		Assert.assertEquals("title", result.getTitle());
 		
-		result = this.merger.merge(null, doc);
+		result = this.merger.merge(null, null, doc, "2");
 		Assert.assertNotNull(result);
 		Assert.assertEquals(2, result.getParagraphs().size());
 		Assert.assertEquals("para1", result.getParagraphs().get(0));
@@ -87,7 +87,7 @@ public class DocumentationMergerTest {
 		doc2.setBusinessName("business name2");
 		doc2.setTitle("title2");
 		
-		Documentation result = this.merger.merge(doc1, doc2);
+		Documentation result = this.merger.merge(doc1, "1", doc2, "2");
 		Assert.assertNotNull(result);
 		Assert.assertEquals(2, result.getParagraphs().size());
 		Assert.assertEquals("para11", result.getParagraphs().get(0));
@@ -95,7 +95,7 @@ public class DocumentationMergerTest {
 		Assert.assertEquals("business name1", result.getBusinessName());
 		Assert.assertEquals("title1", result.getTitle());
 		
-		result = this.merger.merge(doc2, doc1);
+		result = this.merger.merge(doc2, "2", doc1, "1");
 		Assert.assertNotNull(result);
 		Assert.assertEquals(3, result.getParagraphs().size());
 		Assert.assertEquals("para21", result.getParagraphs().get(0));

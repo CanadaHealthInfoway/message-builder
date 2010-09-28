@@ -39,12 +39,12 @@ public class MessageSetMergerTest {
 	
 	@Test
 	public void shouldHandleEmptyMessageSets() {
-		this.merger.merge(null, null);
+		this.merger.merge(null, null, null, null);
 		Assert.assertTrue(this.resultMessageSet.getPackageLocations().isEmpty());
 		Assert.assertTrue(this.resultMessageSet.getInteractions().isEmpty());
 		Assert.assertNull(this.resultMessageSet.getVersion());
 		
-		this.merger.merge(new MessageSet(), new MessageSet());
+		this.merger.merge(new MessageSet(), "1", new MessageSet(), "2");
 		Assert.assertTrue(this.resultMessageSet.getPackageLocations().isEmpty());
 		Assert.assertTrue(this.resultMessageSet.getInteractions().isEmpty());
 		Assert.assertNull(this.resultMessageSet.getVersion());
@@ -56,6 +56,7 @@ public class MessageSetMergerTest {
 		this.resultMessageSet.setVersion(version); // version is pre-set
 		
 		MessageSet messageSet = new MessageSet();
+		messageSet.setVersion("1");
 		
 		final PackageLocation plValue = new PackageLocation();
 		String plKey = "plKey";
@@ -69,11 +70,11 @@ public class MessageSetMergerTest {
 		messageSet.setComponent(component);
 		
 		this.jmock.checking(new Expectations() {{
-			one(interactionMerger).merge(intValue, null); will(returnValue(intValue));
-			one(packageLocationMerger).merge(plValue, null); will(returnValue(plValue));
+			one(interactionMerger).merge(intValue, "1", null, null); will(returnValue(intValue));
+			one(packageLocationMerger).merge(plValue, "1", null, null); will(returnValue(plValue));
 		}});
 
-		this.merger.merge(messageSet, null);
+		this.merger.merge(messageSet, "1", null, null);
 		Assert.assertEquals(1, this.resultMessageSet.getPackageLocations().size());
 		Assert.assertEquals(plValue, this.resultMessageSet.getPackageLocations().get(plKey));
 		Assert.assertEquals(1, this.resultMessageSet.getInteractions().size());
@@ -88,6 +89,7 @@ public class MessageSetMergerTest {
 		this.resultMessageSet.setVersion(version); // version is pre-set
 		
 		MessageSet messageSet = new MessageSet();
+		messageSet.setVersion("2");
 		
 		final PackageLocation plValue = new PackageLocation();
 		String plKey = "plKey";
@@ -101,11 +103,11 @@ public class MessageSetMergerTest {
 		messageSet.setComponent(component);
 		
 		this.jmock.checking(new Expectations() {{
-			one(interactionMerger).merge(null, intValue); will(returnValue(intValue));
-			one(packageLocationMerger).merge(null, plValue); will(returnValue(plValue));
+			one(interactionMerger).merge(null, null, intValue, "2"); will(returnValue(intValue));
+			one(packageLocationMerger).merge(null, null, plValue, "2"); will(returnValue(plValue));
 		}});
 
-		this.merger.merge(null, messageSet);
+		this.merger.merge(null, null, messageSet, "2");
 		Assert.assertEquals(1, this.resultMessageSet.getPackageLocations().size());
 		Assert.assertEquals(plValue, this.resultMessageSet.getPackageLocations().get(plKey));
 		Assert.assertEquals(1, this.resultMessageSet.getInteractions().size());
@@ -120,6 +122,7 @@ public class MessageSetMergerTest {
 		this.resultMessageSet.setVersion(version); // version is pre-set
 		
 		MessageSet messageSet1 = new MessageSet();
+		messageSet1.setVersion("1");
 		
 		final PackageLocation plValue1 = new PackageLocation();
 		String plKey1 = "plKey1";
@@ -133,6 +136,7 @@ public class MessageSetMergerTest {
 		messageSet1.setComponent(component1);
 		
 		MessageSet messageSet2 = new MessageSet();
+		messageSet2.setVersion("2");
 		
 		final PackageLocation plValue2 = new PackageLocation();
 		String plKey2 = "plKey2";
@@ -146,14 +150,14 @@ public class MessageSetMergerTest {
 		messageSet2.setComponent(component2);
 		
 		this.jmock.checking(new Expectations() {{
-			one(interactionMerger).merge(intValue1, null); will(returnValue(intValue1));
-			one(packageLocationMerger).merge(plValue1, null); will(returnValue(plValue1));
+			one(interactionMerger).merge(intValue1, "1", null, "2"); will(returnValue(intValue1));
+			one(packageLocationMerger).merge(plValue1, "1", null, "2"); will(returnValue(plValue1));
 			
-			one(interactionMerger).merge(null, intValue2); will(returnValue(intValue2));
-			one(packageLocationMerger).merge(null, plValue2); will(returnValue(plValue2));
+			one(interactionMerger).merge(null, "1", intValue2, "2"); will(returnValue(intValue2));
+			one(packageLocationMerger).merge(null, "1", plValue2, "2"); will(returnValue(plValue2));
 		}});
 
-		this.merger.merge(messageSet1, messageSet2);
+		this.merger.merge(messageSet1, "1", messageSet2, "2");
 		Assert.assertEquals(2, this.resultMessageSet.getPackageLocations().size());
 		Assert.assertTrue(this.resultMessageSet.getPackageLocations().containsKey(plKey1));
 		Assert.assertTrue(this.resultMessageSet.getPackageLocations().containsKey(plKey2));
@@ -174,6 +178,7 @@ public class MessageSetMergerTest {
 		this.resultMessageSet.setVersion(version); // version is pre-set
 		
 		MessageSet messageSet1 = new MessageSet();
+		messageSet1.setVersion("1");
 		
 		final PackageLocation plValue1 = new PackageLocation();
 		String plKey1 = "plKey";
@@ -187,6 +192,7 @@ public class MessageSetMergerTest {
 		messageSet1.setComponent(component1);
 		
 		MessageSet messageSet2 = new MessageSet();
+		messageSet2.setVersion("2");
 		
 		final PackageLocation plValue2 = new PackageLocation();
 		String plKey2 = "plKey";
@@ -200,11 +206,11 @@ public class MessageSetMergerTest {
 		messageSet2.setComponent(component2);
 		
 		this.jmock.checking(new Expectations() {{
-			one(interactionMerger).merge(intValue1, intValue2); will(returnValue(intValue1));
-			one(packageLocationMerger).merge(plValue1, plValue2); will(returnValue(plValue1));
+			one(interactionMerger).merge(intValue1, "1", intValue2, "2"); will(returnValue(intValue1));
+			one(packageLocationMerger).merge(plValue1, "1", plValue2, "2"); will(returnValue(plValue1));
 		}});
 
-		this.merger.merge(messageSet1, messageSet2);
+		this.merger.merge(messageSet1, "1", messageSet2, "2");
 		Assert.assertEquals(1, this.resultMessageSet.getPackageLocations().size());
 		Assert.assertTrue(this.resultMessageSet.getPackageLocations().containsKey(plKey1));
 		Assert.assertTrue(this.resultMessageSet.getPackageLocations().containsValue(plValue1));
