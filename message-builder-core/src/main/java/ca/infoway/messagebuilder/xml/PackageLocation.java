@@ -4,7 +4,9 @@ import java.util.Map;
 import java.util.TreeMap;
 
 import org.simpleframework.xml.Attribute;
+import org.simpleframework.xml.Element;
 import org.simpleframework.xml.ElementMap;
+import org.simpleframework.xml.Namespace;
 import org.simpleframework.xml.Root;
 
 /**
@@ -13,7 +15,7 @@ import org.simpleframework.xml.Root;
  * @author <a href="http://www.intelliware.ca/">Intelliware Development</a>
  */
 @Root
-public class PackageLocation implements Categorizable {
+public class PackageLocation implements Categorizable, HasDifference {
 	
 	@Attribute
 	private String name;
@@ -21,6 +23,9 @@ public class PackageLocation implements Categorizable {
 	private String descriptiveName;
 	@Attribute(required=false)
 	private String rootType;
+	@Element(required=false)
+	@Namespace(prefix="regen",reference="regen_ns")
+	private Difference difference;
 	@ElementMap(name="messagePart",key="name",required=false,inline=true,attribute=true)
 	private Map<String,MessagePart> messageParts = new TreeMap<String,MessagePart>();
 	@Attribute(required=false)
@@ -108,4 +113,17 @@ public class PackageLocation implements Categorizable {
 	public String getCategory() {
 		return this.category;
 	}
+	
+	/**
+	 * Tracks an interaction difference for regen 
+	 * 
+	 * @return the difference
+	 */
+	public Difference getDifference() {
+		return this.difference;
+	}
+	public void setDifference(Difference difference) {
+		this.difference = difference;
+	}
+	
 }

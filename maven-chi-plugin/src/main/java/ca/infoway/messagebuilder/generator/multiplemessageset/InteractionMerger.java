@@ -15,18 +15,23 @@ class InteractionMerger implements Merger<Interaction> {
 
 	private MessageSetMergeHelper mergeHelper = new MessageSetMergeHelper();
 	private DocumentationMerger documentationMerger;
+	private ArgumentMerger argumentMerger;
 	private final OutputUI outputUI;
 
 	InteractionMerger(OutputUI outputUI) {
-		this(outputUI, new DocumentationMerger(outputUI));
+		this(outputUI, new DocumentationMerger(outputUI), new ArgumentMerger(outputUI));
 	}
 
-	InteractionMerger(OutputUI outputUI, DocumentationMerger documentationMerger) {
+	InteractionMerger(OutputUI outputUI, DocumentationMerger documentationMerger, ArgumentMerger argumentMerger) {
 		this.outputUI = outputUI;
 		this.documentationMerger = documentationMerger;
+		this.argumentMerger = argumentMerger;
 	}
 
-	public Interaction merge(Interaction primaryInteraction, Interaction secondaryInteraction) {
+	public Interaction merge(Interaction primaryInteraction, String primaryVersion, Interaction secondaryInteraction, String secondaryVersion) {
+		boolean primaryInteractionNull = (primaryInteraction == null);
+		boolean secondaryInteractionNull = (secondaryInteraction == null);
+		
 		primaryInteraction = (Interaction) ObjectUtils.defaultIfNull(primaryInteraction, new Interaction());
 		secondaryInteraction = (Interaction) ObjectUtils.defaultIfNull(secondaryInteraction, new Interaction());
 		
@@ -34,9 +39,9 @@ class InteractionMerger implements Merger<Interaction> {
 		
 		mergeName(resultInteraction, primaryInteraction.getName(), secondaryInteraction.getName());
 		mergeBusinessName(resultInteraction, primaryInteraction.getBusinessName(), secondaryInteraction.getBusinessName());
-		mergeSuperTypeName(resultInteraction, primaryInteraction.getSuperTypeName(), secondaryInteraction.getSuperTypeName());
-		mergeArguments(resultInteraction, primaryInteraction.getArguments(), secondaryInteraction.getArguments());
-		mergeDocumentation(resultInteraction, primaryInteraction.getDocumentation(), secondaryInteraction.getDocumentation());
+		mergeSuperTypeName(resultInteraction, primaryInteraction.getSuperTypeName(), primaryVersion, secondaryInteraction.getSuperTypeName(), secondaryVersion);
+		mergeArguments(resultInteraction, primaryInteraction.getArguments(), primaryVersion, primaryInteractionNull, secondaryInteraction.getArguments(), secondaryVersion, secondaryInteractionNull);
+		mergeDocumentation(resultInteraction, primaryInteraction.getDocumentation(), primaryVersion, secondaryInteraction.getDocumentation(), secondaryVersion);
 		mergeCategory(resultInteraction, primaryInteraction.getCategory(), secondaryInteraction.getCategory());
 		
 		return resultInteraction;
@@ -47,17 +52,32 @@ class InteractionMerger implements Merger<Interaction> {
 		resultInteraction.setCategory(mergedCategory);
 	}
 
-	private void mergeDocumentation(Interaction resultInteraction, Documentation documentation, Documentation documentation2) {
-		Documentation mergedDoc = this.documentationMerger.merge(documentation, documentation2);
+	private void mergeDocumentation(Interaction resultInteraction, Documentation documentation, String primaryVersion, Documentation documentation2, String secondaryVersion) {
+		Documentation mergedDoc = this.documentationMerger.merge(documentation, primaryVersion, documentation2, secondaryVersion);
 		resultInteraction.setDocumentation(mergedDoc);
 	}
 
-	private void mergeArguments(Interaction resultInteraction, List<Argument> arguments, List<Argument> arguments2) {
-		// FIXME TM - handle arguments in a later story
-		resultInteraction.setArguments(arguments);
+	private void mergeArguments(Interaction resultInteraction, 
+			List<Argument> arguments, String primaryVersion, boolean primaryInteractionNull, 
+			List<Argument> arguments2, String secondaryVersion, boolean secondaryInteractionNull) {
+		if (primaryInteractionNull) {
+			resultInteraction.setArguments(arguments2);
+		} else if (secondaryInteractionNull){
+			resultInteraction.setArguments(arguments);
+		} else if (arguments.size() == arguments2.size()) {
+			for (int i = 0; i < arguments.size(); i++) {
+				Argument argument = arguments.get(i);
+				Argument argument2 = arguments2.get(i);
+				Argument mergedArgument = this.argumentMerger.merge(argument, primaryVersion, argument2, secondaryVersion);
+				resultInteraction.getArguments().add(mergedArgument);
+			}
+		} else {
+			this.outputUI.log(LogLevel.ERROR, "Mismatching argument count (" + arguments.size() +" vs " + arguments2.size() + ") for " + resultInteraction.getName());
+			resultInteraction.setArguments(arguments);
+		}
 	}
 
-	private void mergeSuperTypeName(Interaction resultInteraction, String superTypeName, String superTypeName2) {
+	private void mergeSuperTypeName(Interaction resultInteraction, String superTypeName, String version, String superTypeName2, String version2) {
 		if (StringUtils.equals(superTypeName, superTypeName2) || superTypeName2 == null) {
 			resultInteraction.setSuperTypeName(superTypeName);
 		} else if (superTypeName == null) {
@@ -75,7 +95,22 @@ class InteractionMerger implements Merger<Interaction> {
 //				v02r02    / r02.04.00 : MCCI 2100 changes to 2300 (3 occurrences)
 //				v02r02    / r02.04.02 : MCCI 2100 changes to 2300 (2 occurrences)
 //				r02.04.00 / r02.04.02 : MCCI 2300 changes to 2100 (1 occurrence)
+			
+			
+//       <interaction name="COMT_IN100000CA" superTypeName="MCCI_MT002100CA.Message">
+//           <regen:difference type="superType" isOk="true">
+//             <regen:value version="V02R02" value="MCCI_MT002100CA.Message" />
+//             <regen:value version="R02.04.00" value="MCCI_MT002300CA.Message" />
+//           </regen:difference>
+//	         <businessName>Clinical summary/profile query</businessName>
+//	         <argument name="QUQI_MT020000CA.ControlActEvent" templateParameterName="ControlActEvent" traversalName="controlActEvent">
+//	            <argument name="REPC_MT000008CA.ParameterList" templateParameterName="ParameterList" traversalName="parameterList"/>
+//	         </argument>
+//	      </interaction>
+			
 			this.outputUI.log(LogLevel.ERROR, "Different supertypes for interaction: " + resultInteraction.getName() + " - " + superTypeName + " vs " + superTypeName2);
+			this.mergeHelper.addDifference(resultInteraction, "superTypeName", superTypeName, version, superTypeName2, version2);
+			
 			resultInteraction.setSuperTypeName(superTypeName);
 		}
 	}

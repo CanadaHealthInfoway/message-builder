@@ -56,7 +56,7 @@ public class MultipleXmlToXmlGenerator implements MessageSetGenerator {
 	}
 	
 	private void mergeMessageSets(MessageSet primaryMessageSet, MessageSet secondaryMessageSet) {
-		new MessageSetMerger(this.outputUI, this.messageSet).merge(primaryMessageSet, secondaryMessageSet);
+		new MessageSetMerger(this.outputUI, this.messageSet).merge(primaryMessageSet, primaryMessageSet.getVersion(), secondaryMessageSet, secondaryMessageSet.getVersion());
 	}
 
 	public void writeToMessageSet(File outputFile) throws GeneratorException, IOException {

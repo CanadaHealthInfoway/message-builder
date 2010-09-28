@@ -7,6 +7,7 @@ import org.apache.commons.lang.StringUtils;
 import org.simpleframework.xml.Attribute;
 import org.simpleframework.xml.Element;
 import org.simpleframework.xml.ElementList;
+import org.simpleframework.xml.Namespace;
 import org.simpleframework.xml.Root;
 
 /**
@@ -15,10 +16,13 @@ import org.simpleframework.xml.Root;
  * @author <a href="http://www.intelliware.ca/">Intelliware Development</a>
  */
 @Root
-public class Interaction implements Categorizable {
+public class Interaction implements Categorizable, HasDifference {
 
 	@Attribute
 	private String name;
+	@Element(required=false)
+	@Namespace(prefix="regen",reference="regen_ns")
+	private Difference difference;
 	@Element(required=false)
 	private String businessName;
 	@Attribute
@@ -137,4 +141,17 @@ public class Interaction implements Categorizable {
 	public void setCategory(String category) {
 		this.category = category;
 	}
+	
+	/**
+	 * Tracks an interaction difference for regen 
+	 * 
+	 * @return the difference
+	 */
+	public Difference getDifference() {
+		return this.difference;
+	}
+	public void setDifference(Difference difference) {
+		this.difference = difference;
+	}
+	
 }

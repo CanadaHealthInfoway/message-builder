@@ -19,6 +19,7 @@ public class InteractionMergerTest {
 
 	private OutputUI outputUI;
 	private DocumentationMerger documentationMerger;
+	private ArgumentMerger argumentMerger;
 	private InteractionMerger merger;
 	
 	private final Mockery jmock = new JUnit4Mockery() {{
@@ -30,26 +31,27 @@ public class InteractionMergerTest {
 	public void setup() {
 		this.outputUI = this.jmock.mock(OutputUI.class);
 		this.documentationMerger = this.jmock.mock(DocumentationMerger.class);
-		this.merger = new InteractionMerger(this.outputUI, this.documentationMerger);
+		this.argumentMerger = this.jmock.mock(ArgumentMerger.class);
+		this.merger = new InteractionMerger(this.outputUI, this.documentationMerger, this.argumentMerger);
 	}
 
 	@Test
 	public void shouldHandleEmptyInteractions() {
 		this.jmock.checking(new Expectations() {{
-			one(documentationMerger).merge(null, null); will(returnValue(null));
+			one(documentationMerger).merge(null, null, null, null); will(returnValue(null));
 		}});
 
-		Interaction result = this.merger.merge(null, null);
+		Interaction result = this.merger.merge(null, null, null, null);
 		Assert.assertNull(result.getName());
 		
 		Interaction primaryInteraction = new Interaction();
 		Interaction secondaryInteraction = new Interaction();
 		
 		this.jmock.checking(new Expectations() {{
-			one(documentationMerger).merge(null, null); will(returnValue(null));
+			one(documentationMerger).merge(null, "1", null, "2"); will(returnValue(null));
 		}});
 
-		result = this.merger.merge(primaryInteraction, secondaryInteraction);
+		result = this.merger.merge(primaryInteraction, "1", secondaryInteraction, "2");
 		Assert.assertNull(result.getName());
 		Assert.assertNotSame(result, primaryInteraction);
 		Assert.assertNotSame(result, secondaryInteraction);
@@ -65,10 +67,10 @@ public class InteractionMergerTest {
 		interaction.setDocumentation(new Documentation());
 		
 		this.jmock.checking(new Expectations() {{
-			one(documentationMerger).merge(interaction.getDocumentation(), null); will(returnValue(interaction.getDocumentation()));
+			one(documentationMerger).merge(interaction.getDocumentation(), "1", null, null); will(returnValue(interaction.getDocumentation()));
 		}});
 
-		Interaction result = this.merger.merge(interaction, null);
+		Interaction result = this.merger.merge(interaction, "1", null, null);
 		Assert.assertNotSame(interaction, result);
 		Assert.assertEquals(interaction.getName(), result.getName());
 		Assert.assertEquals(interaction.getBusinessName(), result.getBusinessName());
@@ -77,10 +79,10 @@ public class InteractionMergerTest {
 		Assert.assertEquals(interaction.getDocumentation(), result.getDocumentation());
 		
 		this.jmock.checking(new Expectations() {{
-			one(documentationMerger).merge(null, interaction.getDocumentation()); will(returnValue(interaction.getDocumentation()));
+			one(documentationMerger).merge(null, null, interaction.getDocumentation(), "2"); will(returnValue(interaction.getDocumentation()));
 		}});
 
-		result = this.merger.merge(null, interaction);
+		result = this.merger.merge(null, null, interaction, "2");
 		Assert.assertNotSame(interaction, result);
 		Assert.assertEquals(interaction.getName(), result.getName());
 		Assert.assertEquals(interaction.getBusinessName(), result.getBusinessName());
@@ -106,10 +108,10 @@ public class InteractionMergerTest {
 		interaction2.setDocumentation(new Documentation());
 		
 		this.jmock.checking(new Expectations() {{
-			one(documentationMerger).merge(interaction1.getDocumentation(), interaction2.getDocumentation()); will(returnValue(interaction1.getDocumentation()));
+			one(documentationMerger).merge(interaction1.getDocumentation(), "1", interaction2.getDocumentation(), "2"); will(returnValue(interaction1.getDocumentation()));
 		}});
 
-		Interaction result = this.merger.merge(interaction1, interaction2);
+		Interaction result = this.merger.merge(interaction1, "1", interaction2, "2");
 		Assert.assertNotSame(interaction1, result);
 		Assert.assertNotSame(interaction2, result);
 		Assert.assertEquals(interaction1.getName(), result.getName());
@@ -119,10 +121,10 @@ public class InteractionMergerTest {
 		Assert.assertEquals(interaction1.getDocumentation(), result.getDocumentation());
 		
 		this.jmock.checking(new Expectations() {{
-			one(documentationMerger).merge(interaction2.getDocumentation(), interaction1.getDocumentation()); will(returnValue(interaction2.getDocumentation()));
+			one(documentationMerger).merge(interaction2.getDocumentation(), "2", interaction1.getDocumentation(), "1"); will(returnValue(interaction2.getDocumentation()));
 		}});
 
-		result = this.merger.merge(interaction2, interaction1);
+		result = this.merger.merge(interaction2, "2", interaction1, "1");
 		Assert.assertNotSame(interaction2, result);
 		Assert.assertNotSame(interaction1, result);
 		Assert.assertEquals(interaction2.getName(), result.getName());

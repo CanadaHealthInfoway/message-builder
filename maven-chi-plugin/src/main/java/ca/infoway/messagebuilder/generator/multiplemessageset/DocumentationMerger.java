@@ -19,7 +19,7 @@ class DocumentationMerger implements Merger<Documentation> {
 		this.mergeHelper = new MessageSetMergeHelper();
 	}
 
-	public Documentation merge(Documentation primary, Documentation secondary) {
+		public Documentation merge(Documentation primary, String primaryVersion, Documentation secondary, String secondaryVersion) {
 		if (primary == null && secondary == null) {
 			return null;
 		}
@@ -67,5 +67,5 @@ class DocumentationMerger implements Merger<Documentation> {
 		String mergedResult = this.mergeHelper.standardMerge(title, title2);
 		result.setTitle(mergedResult);
 	}
-	
+
 }
