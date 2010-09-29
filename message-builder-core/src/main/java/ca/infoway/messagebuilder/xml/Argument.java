@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.simpleframework.xml.Attribute;
 import org.simpleframework.xml.ElementList;
+import org.simpleframework.xml.Namespace;
 import org.simpleframework.xml.Root;
 
 /**
@@ -45,6 +46,11 @@ public class Argument extends ChoiceSupport {
 	
 	@Attribute
 	private String name;
+	
+	@ElementList(required=false)
+	@Namespace(prefix="regen",reference="regen_ns")
+	private List<Difference> differences;
+	
 	@ElementList(inline=true,required=false,name="argument")
 	private List<Argument> arguments = new ArrayList<Argument>();
 	
@@ -136,5 +142,17 @@ public class Argument extends ChoiceSupport {
 	 */
 	public boolean isChoice() {
 		return !this.choices.isEmpty();
+	}
+
+	/**
+	 * Records the differences between arguments of different release versions during regen.
+	 * 
+	 * @return list of differences
+	 */
+	public List<Difference> getDifferences() {
+		return this.differences;
+	}
+	public void setDifferences(List<Difference> differences) {
+		this.differences = differences;
 	}
 }

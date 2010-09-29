@@ -21,15 +21,15 @@ class MessageSetMergeHelper {
 		return ObjectUtils.defaultIfNull(primary, secondary);
 	}
 	
-	void addDifference(HasDifference hasDifference, String type, String value, String version, String value2, String version2) {
+	void addDifference(MergeContext context, HasDifference hasDifference, String type, String value, String value2) {
 		
 		DifferenceValue differenceValue1 = new DifferenceValue();
 		differenceValue1.setValue(value);
-		differenceValue1.setVersion(version);
+		differenceValue1.setVersion(context.getPrimaryVersion());
 		
 		DifferenceValue differenceValue2 = new DifferenceValue();
 		differenceValue2.setValue(value2);
-		differenceValue2.setVersion(version2);
+		differenceValue2.setVersion(context.getSecondaryVersion());
 		
 		Difference difference = new Difference();
 		difference.setType(type);

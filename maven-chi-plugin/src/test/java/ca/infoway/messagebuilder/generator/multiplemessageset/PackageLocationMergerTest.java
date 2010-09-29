@@ -10,17 +10,15 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import ca.infoway.messagebuilder.generator.LogLevel;
-import ca.infoway.messagebuilder.generator.OutputUI;
 import ca.infoway.messagebuilder.xml.MessagePart;
 import ca.infoway.messagebuilder.xml.PackageLocation;
 
 @RunWith(JMock.class)
 public class PackageLocationMergerTest {
 
-	private OutputUI outputUI;
 	private MessagePartMerger messagePartMerger;
 	private PackageLocationMerger merger;
+	private MergeContext mergeContext;
 	
 	private final Mockery jmock = new JUnit4Mockery() {{
 		setImposteriser(ClassImposteriser.INSTANCE);
@@ -28,17 +26,22 @@ public class PackageLocationMergerTest {
 
 	@Before
 	public void setup() {
-		this.outputUI = this.jmock.mock(OutputUI.class);
+		this.mergeContext = this.jmock.mock(MergeContext.class);
+		this.jmock.checking(new Expectations() {{
+			allowing(mergeContext).getPrimaryVersion(); will(returnValue("1"));
+			allowing(mergeContext).getSecondaryVersion(); will(returnValue("2"));
+		}});
+		
 		this.messagePartMerger = this.jmock.mock(MessagePartMerger.class);
-		this.merger = new PackageLocationMerger(this.outputUI, this.messagePartMerger);
+		this.merger = new PackageLocationMerger(this.mergeContext, this.messagePartMerger);
 	}
 
 	@Test
 	public void shouldHandleEmptyPackageLocations() {
-		PackageLocation result = this.merger.merge(null, "1", null, "2");
+		PackageLocation result = this.merger.merge(null, null);
 		Assert.assertNull(result.getName());
 		
-		result = this.merger.merge(new PackageLocation(), "1", new PackageLocation(), "2");
+		result = this.merger.merge(new PackageLocation(), new PackageLocation());
 		Assert.assertNull(result.getName());
 	}
 	
@@ -54,30 +57,30 @@ public class PackageLocationMergerTest {
 		packageLocation.getMessageParts().put("type", messagePart);
 		
 		this.jmock.checking(new Expectations() {{
-			one(messagePartMerger).merge(messagePart, "1", null, "2"); will(returnValue(messagePart));
+			one(messagePartMerger).merge(messagePart, null); will(returnValue(messagePart));
 		}});
 		
-		PackageLocation result = this.merger.merge(packageLocation, "1", new PackageLocation(), "2");
+		PackageLocation result = this.merger.merge(packageLocation, new PackageLocation());
 		Assert.assertEquals(packageLocation.getCategory(), result.getCategory());
 		Assert.assertEquals(packageLocation.getDescriptiveName(), result.getDescriptiveName());
 		Assert.assertEquals(packageLocation.getName(), result.getName());
 		Assert.assertEquals(packageLocation.getRootType(), result.getRootType());
 		
 		this.jmock.checking(new Expectations() {{
-			one(messagePartMerger).merge(messagePart, "1", null, "2"); will(returnValue(messagePart));
+			one(messagePartMerger).merge(messagePart, null); will(returnValue(messagePart));
 		}});
 		
-		result = this.merger.merge(packageLocation, "1", null, "2");
+		result = this.merger.merge(packageLocation, null);
 		Assert.assertEquals(packageLocation.getCategory(), result.getCategory());
 		Assert.assertEquals(packageLocation.getDescriptiveName(), result.getDescriptiveName());
 		Assert.assertEquals(packageLocation.getName(), result.getName());
 		Assert.assertEquals(packageLocation.getRootType(), result.getRootType());
 		
 		this.jmock.checking(new Expectations() {{
-			one(messagePartMerger).merge(null, "1", messagePart, "2"); will(returnValue(messagePart));
+			one(messagePartMerger).merge(null, messagePart); will(returnValue(messagePart));
 		}});
 		
-		result = this.merger.merge(null, "1", packageLocation, "2");
+		result = this.merger.merge(null, packageLocation);
 		Assert.assertEquals(packageLocation.getCategory(), result.getCategory());
 		Assert.assertEquals(packageLocation.getDescriptiveName(), result.getDescriptiveName());
 		Assert.assertEquals(packageLocation.getName(), result.getName());
@@ -105,11 +108,11 @@ public class PackageLocationMergerTest {
 		packageLocation2.getMessageParts().put("typeCommon", messagePart2);
 		
 		this.jmock.checking(new Expectations() {{
-			one(messagePartMerger).merge(messagePart1, "1", messagePart2, "2"); will(returnValue(messagePart1));
-			one(outputUI).log(LogLevel.ERROR, "Merging two package locations with different root types: myRootType1 / myRootType2");
+			one(messagePartMerger).merge(messagePart1, messagePart2); will(returnValue(messagePart1));
+			one(mergeContext).logError("Merging two package locations with different root types: myRootType1 / myRootType2");
 		}});
 		
-		PackageLocation result = this.merger.merge(packageLocation1, "1", packageLocation2, "2");
+		PackageLocation result = this.merger.merge(packageLocation1, packageLocation2);
 		Assert.assertEquals(packageLocation1.getCategory(), result.getCategory());
 		Assert.assertEquals(packageLocation1.getDescriptiveName(), result.getDescriptiveName());
 		Assert.assertEquals(packageLocation1.getName(), result.getName());

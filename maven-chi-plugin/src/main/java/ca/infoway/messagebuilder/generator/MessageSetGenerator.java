@@ -4,6 +4,8 @@ import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
+import ca.infoway.messagebuilder.generator.maven.FileSet;
+
 /**
  * <p>An interface describing the basic functions of a message set generator.</p>
  * 
@@ -31,7 +33,7 @@ public interface MessageSetGenerator {
 	 * @throws GeneratorException - if the generator encounters a problem
 	 * @throws IOException - if there's a problem reading any of the files
 	 */
-	public void processAllMessageSets(List<File> inputMessageSets) throws GeneratorException, IOException;
+	public void processAllMessageSets(List<FileSet> inputMessageSets) throws GeneratorException, IOException;
 
 	/**
 	 * <p>Write all processed complex types to a message set XML file.

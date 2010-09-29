@@ -16,6 +16,7 @@ import org.junit.runner.RunWith;
 import ca.infoway.messagebuilder.generator.LogLevel;
 import ca.infoway.messagebuilder.generator.MessageSetWriter;
 import ca.infoway.messagebuilder.generator.OutputUI;
+import ca.infoway.messagebuilder.generator.maven.FileSet;
 import ca.infoway.messagebuilder.xml.MessageSet;
 import ca.infoway.messagebuilder.xml.MessageSetMarshaller;
 
@@ -46,8 +47,10 @@ public class MultipleXmlToXmlGeneratorTest {
 	@Test
 	public void shouldProcessSuccessfully() throws Exception {
 		final File inputMessageSet1 = new File("inputFile1");
+		final FileSet fileSet1 = new FileSet("1", inputMessageSet1);
 		final File inputMessageSet2 = new File("inputFile2");
-		final List<File> inputMessageSets = Arrays.asList(inputMessageSet1, inputMessageSet2);
+		final FileSet fileSet2 = new FileSet("2", inputMessageSet2);
+		final List<FileSet> inputFileSets = Arrays.asList(fileSet1, fileSet2);
 		
 		this.jmock.checking(new Expectations() {{
 			one(messageSetMarshaller).unmarshall(inputMessageSet1); will(returnValue(new MessageSet()));
@@ -55,7 +58,7 @@ public class MultipleXmlToXmlGeneratorTest {
 			one(outputUI).log(LogLevel.INFO, MultipleXmlToXmlGenerator.MESSAGE_SET_MERGE_COMPLETED);
 		}});
 		
-		this.generator.processAllMessageSets(inputMessageSets);
+		this.generator.processAllMessageSets(inputFileSets);
 
 		
 		final File outputMessageSet = new File("outputFile");

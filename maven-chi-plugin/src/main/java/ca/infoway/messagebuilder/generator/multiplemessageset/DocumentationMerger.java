@@ -6,20 +6,19 @@ import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang.ObjectUtils;
 import org.apache.commons.lang.StringUtils;
 
-import ca.infoway.messagebuilder.generator.OutputUI;
 import ca.infoway.messagebuilder.xml.Documentation;
 
 class DocumentationMerger implements Merger<Documentation> {
 
-	private final OutputUI outputUI;
 	private final MessageSetMergeHelper mergeHelper;
+	private final MergeContext context;
 
-	DocumentationMerger(OutputUI outputUI) {
-		this.outputUI = outputUI;
+	DocumentationMerger(MergeContext context) {
+		this.context = context;
 		this.mergeHelper = new MessageSetMergeHelper();
 	}
 
-		public Documentation merge(Documentation primary, String primaryVersion, Documentation secondary, String secondaryVersion) {
+	public Documentation merge(Documentation primary, Documentation secondary) {
 		if (primary == null && secondary == null) {
 			return null;
 		}
