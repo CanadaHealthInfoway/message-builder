@@ -12,8 +12,6 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import ca.infoway.messagebuilder.generator.LogLevel;
-import ca.infoway.messagebuilder.generator.OutputUI;
 import ca.infoway.messagebuilder.xml.Documentation;
 import ca.infoway.messagebuilder.xml.MessagePart;
 import ca.infoway.messagebuilder.xml.Relationship;
@@ -21,7 +19,7 @@ import ca.infoway.messagebuilder.xml.Relationship;
 @RunWith(JMock.class)
 public class MessagePartMergerTest {
 
-	private OutputUI outputUI;
+	private MergeContext mergeContext;
 	private DocumentationMerger documentationMerger;
 	private RelationshipMerger relationshipMerger;
 	private MessagePartMerger merger;
@@ -32,26 +30,31 @@ public class MessagePartMergerTest {
 
 	@Before
 	public void setup() {
-		this.outputUI = this.jmock.mock(OutputUI.class);
+		this.mergeContext = this.jmock.mock(MergeContext.class);
+		this.jmock.checking(new Expectations() {{
+			allowing(mergeContext).getPrimaryVersion(); will(returnValue("1"));
+			allowing(mergeContext).getSecondaryVersion(); will(returnValue("2"));
+		}});
+
 		this.documentationMerger = this.jmock.mock(DocumentationMerger.class);
 		this.relationshipMerger = this.jmock.mock(RelationshipMerger.class);
-		this.merger = new MessagePartMerger(this.outputUI, this.documentationMerger, this.relationshipMerger);
+		this.merger = new MessagePartMerger(this.mergeContext, this.documentationMerger, this.relationshipMerger);
 	}
 
 	@Test
 	public void shouldHandleEmptyMessageParts() {
 		this.jmock.checking(new Expectations() {{
-			one(documentationMerger).merge(null, "1", null, "2"); will(returnValue(null));
+			one(documentationMerger).merge(null, null); will(returnValue(null));
 		}});
 
-		MessagePart result = this.merger.merge(null, "1", null, "2");
+		MessagePart result = this.merger.merge(null, null);
 		Assert.assertNull(result.getName());
 		
 		this.jmock.checking(new Expectations() {{
-			one(documentationMerger).merge(null, "1", null, "2"); will(returnValue(null));
+			one(documentationMerger).merge(null, null); will(returnValue(null));
 		}});
 
-		result = this.merger.merge(new MessagePart(), "1", new MessagePart(), "2");
+		result = this.merger.merge(new MessagePart(), new MessagePart());
 		Assert.assertNull(result.getName());
 	}
 	
@@ -68,12 +71,12 @@ public class MessagePartMergerTest {
 		messagePart.getRelationships().add(relationship);
 		
 		this.jmock.checking(new Expectations() {{
-			one(documentationMerger).merge(documentation, "1", null, "2"); will(returnValue(documentation));
-			one(relationshipMerger).merge(relationship, "1",  null, "2"); will(returnValue(relationship));
-			one(outputUI).log(LogLevel.ERROR, "Merging abstract messagePart with non-abstract messagePart");
+			one(documentationMerger).merge(documentation, null); will(returnValue(documentation));
+			one(relationshipMerger).merge(relationship,  null); will(returnValue(relationship));
+			one(mergeContext).logError("Merging abstract messagePart with non-abstract messagePart");
 		}});
 		
-		MessagePart result = this.merger.merge(messagePart, "1", new MessagePart(), "2");
+		MessagePart result = this.merger.merge(messagePart, new MessagePart());
 		Assert.assertEquals(messagePart.getName(), result.getName());
 		Assert.assertEquals(messagePart.isAbstract(), result.isAbstract());
 		Assert.assertEquals(messagePart.getDocumentation(), result.getDocumentation());
@@ -81,11 +84,11 @@ public class MessagePartMergerTest {
 		Assert.assertEquals(messagePart.getSpecializationChilds().get(0), result.getSpecializationChilds().get(0));
 		
 		this.jmock.checking(new Expectations() {{
-			one(documentationMerger).merge(documentation, "1", null, "2"); will(returnValue(documentation));
-			one(relationshipMerger).merge(relationship, "1",  null, "2"); will(returnValue(relationship));
+			one(documentationMerger).merge(documentation, null); will(returnValue(documentation));
+			one(relationshipMerger).merge(relationship,  null); will(returnValue(relationship));
 		}});
 		
-		result = this.merger.merge(messagePart, "1", null, "2");
+		result = this.merger.merge(messagePart, null);
 		Assert.assertEquals(messagePart.getName(), result.getName());
 		Assert.assertEquals(messagePart.isAbstract(), result.isAbstract());
 		Assert.assertEquals(messagePart.getDocumentation(), result.getDocumentation());
@@ -93,11 +96,11 @@ public class MessagePartMergerTest {
 		Assert.assertEquals(messagePart.getSpecializationChilds().get(0), result.getSpecializationChilds().get(0));
 		
 		this.jmock.checking(new Expectations() {{
-			one(documentationMerger).merge(null, "1", documentation, "2"); will(returnValue(documentation));
-			one(relationshipMerger).merge(null, "1",  relationship, "2"); will(returnValue(relationship));
+			one(documentationMerger).merge(null, documentation); will(returnValue(documentation));
+			one(relationshipMerger).merge(null,  relationship); will(returnValue(relationship));
 		}});
 		
-		result = this.merger.merge(null, "1", messagePart, "2");
+		result = this.merger.merge(null, messagePart);
 		Assert.assertEquals(messagePart.getName(), result.getName());
 		Assert.assertEquals(messagePart.isAbstract(), result.isAbstract());
 		Assert.assertEquals(messagePart.getDocumentation(), result.getDocumentation());
@@ -129,11 +132,11 @@ public class MessagePartMergerTest {
 		messagePart2.getRelationships().add(relationship2);
 		
 		this.jmock.checking(new Expectations() {{
-			one(documentationMerger).merge(documentation1, "1", documentation2, "2"); will(returnValue(documentation1));
-			one(relationshipMerger).merge(relationship1, "1",  relationship2, "2"); will(returnValue(relationship1));
+			one(documentationMerger).merge(documentation1, documentation2); will(returnValue(documentation1));
+			one(relationshipMerger).merge(relationship1,  relationship2); will(returnValue(relationship1));
 		}});
 		
-		MessagePart result = this.merger.merge(messagePart1, "1", messagePart2, "2");
+		MessagePart result = this.merger.merge(messagePart1, messagePart2);
 		Assert.assertEquals(messagePart1.getName(), result.getName());
 		Assert.assertEquals(messagePart1.isAbstract(), result.isAbstract());
 		Assert.assertEquals(messagePart1.getDocumentation(), result.getDocumentation());
@@ -142,11 +145,11 @@ public class MessagePartMergerTest {
 		Assert.assertTrue(result.getSpecializationChilds().contains(messagePart2.getSpecializationChilds().get(0)));
 		
 		this.jmock.checking(new Expectations() {{
-			one(documentationMerger).merge(documentation2, "2", documentation1, "1"); will(returnValue(documentation2));
-			one(relationshipMerger).merge(relationship2, "2",  relationship1, "1"); will(returnValue(relationship2));
+			one(documentationMerger).merge(documentation2, documentation1); will(returnValue(documentation2));
+			one(relationshipMerger).merge(relationship2,  relationship1); will(returnValue(relationship2));
 		}});
 		
-		result = this.merger.merge(messagePart2, "2", messagePart1, "1");
+		result = this.merger.merge(messagePart2, messagePart1);
 		Assert.assertEquals(messagePart2.getName(), result.getName());
 		Assert.assertEquals(messagePart2.isAbstract(), result.isAbstract());
 		Assert.assertEquals(messagePart2.getDocumentation(), result.getDocumentation());

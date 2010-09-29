@@ -2,7 +2,6 @@ package ca.infoway.messagebuilder.generator.maven;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.commons.collections.CollectionUtils;
@@ -88,7 +87,7 @@ public class MultipleXmlToXmlGeneratorMojo extends AbstractMojo {
 	private void generate() throws MojoExecutionException, MojoFailureException {
 		try {
 			MessageSetGenerator generator = this.factory.create(this, this.version);
-			generator.processAllMessageSets(extractFiles(this.inputMessageSets));
+			generator.processAllMessageSets(this.inputMessageSets);
 			generator.writeToMessageSet(this.outputMessageSet);
 		} catch (GeneratorException e) {
 			getLog().error(e);
@@ -102,14 +101,6 @@ public class MultipleXmlToXmlGeneratorMojo extends AbstractMojo {
 		}
 	}
 	
-	private List<File> extractFiles(List<FileSet> fileSetToConvert) {
-		List<File> files = new ArrayList<File>();
-		for (FileSet fileSet : fileSetToConvert) {
-			files.add(fileSet.getDirectory());
-		}
-		return files;
-	}
-
 	File getOutputFile() {
 		return this.outputMessageSet;
 	}

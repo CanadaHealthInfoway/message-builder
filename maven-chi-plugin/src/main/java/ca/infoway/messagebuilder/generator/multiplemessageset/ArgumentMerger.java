@@ -1,26 +1,62 @@
 package ca.infoway.messagebuilder.generator.multiplemessageset;
 
-import ca.infoway.messagebuilder.generator.OutputUI;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.apache.commons.lang.StringUtils;
+
 import ca.infoway.messagebuilder.xml.Argument;
 
-class ArgumentMerger implements Merger<Argument> {
+class ArgumentMerger implements Merger<List<Argument>> {
 
-	private final OutputUI outputUI;
+	private final MergeContext context;
 
-	ArgumentMerger(OutputUI outputUI) {
-		this.outputUI = outputUI;
+	ArgumentMerger(MergeContext context) {
+		this.context = context;
 	}
 
-	public Argument merge(Argument primary, String primaryVersion, Argument secondary, String secondaryVersion) {
+	public List<Argument> merge(List<Argument> primaryArgs, List<Argument> secondaryArgs) {
+		List<Argument> results = new ArrayList<Argument>();
+
+		if (primaryArgs.size() != secondaryArgs.size()) {
+			this.context.logError("Mismatching number of arguments");
+			results = primaryArgs;
+		} else {
+			for (int i = 0; i < primaryArgs.size(); i++) {
+				Argument arg1 = primaryArgs.get(i);
+				Argument arg2 = secondaryArgs.get(i);
+				Argument mergedArgument = mergeArgument(arg1, arg2);
+				results.add(mergedArgument);
+			}
+		}
 		
-//		private String name;
-//		private List<Argument> arguments = new ArrayList<Argument>();
-//		private String templateParameterName;
-//		private String traversalName;
-//		private List<Relationship> choices = new ArrayList<Relationship>();
-
-		return primary;
+		return results;
 	}
+	
+	private Argument mergeArgument(Argument primaryArgument, Argument secondaryArgument) {
+		
+		Argument result = new Argument();
+
+		if (!StringUtils.equals(primaryArgument.getName(), secondaryArgument.getName())) {
+			this.context.logError("Mismatching argument name: " + primaryArgument.getName() + ", " + secondaryArgument.getName());
+		}
+		
+		if (!StringUtils.equals(primaryArgument.getTemplateParameterName(), secondaryArgument.getTemplateParameterName())) {
+			this.context.logError("Mismatching template parameter name: " + primaryArgument.getTemplateParameterName() + ", " + secondaryArgument.getTemplateParameterName());
+		}
+		
+		if (!StringUtils.equals(primaryArgument.getTraversalName(), secondaryArgument.getTraversalName())) {
+			this.context.logError("Mismatching traversal name: " + primaryArgument.getTraversalName() + ", " + secondaryArgument.getTraversalName());
+		}
+
+		merge(primaryArgument.getArguments(), secondaryArgument.getArguments());
+		
+//		FIXME - TM - handle choices in a later story
+//		private List<Relationship> choices = new ArrayList<Relationship>();
+		
+		return primaryArgument;
+	}
+	
 
 //if (!StringUtils.equals(argument.getName(), argument2.getName())) {
 //	this.outputUI.log(LogLevel.ERROR, "Mismatching argument name (" + argument.getName() +" vs " + argument2.getName() + ") for " + resultInteraction.getName());

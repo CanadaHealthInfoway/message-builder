@@ -13,6 +13,7 @@ import javax.xml.xpath.XPathExpressionException;
 
 import org.apache.commons.collections.CollectionUtils;
 
+import ca.infoway.messagebuilder.generator.maven.FileSet;
 import ca.infoway.messagebuilder.xml.MessageSet;
 
 public class MifToXmlGenerator implements MessageSetGenerator {
@@ -101,7 +102,7 @@ public class MifToXmlGenerator implements MessageSetGenerator {
 		this.messageSetWriter.writeToMessageSet(outputFile);
 	}
 
-	public void processAllMessageSets(List<File> inputMessageSets) throws GeneratorException, IOException {
+	public void processAllMessageSets(List<FileSet> inputMessageSets) throws GeneratorException, IOException {
 		throw new UnsupportedOperationException("Must use processAllMifs() method instead.");
 	}
 

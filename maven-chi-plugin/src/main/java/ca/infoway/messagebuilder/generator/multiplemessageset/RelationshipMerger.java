@@ -1,17 +1,16 @@
 package ca.infoway.messagebuilder.generator.multiplemessageset;
 
-import ca.infoway.messagebuilder.generator.OutputUI;
 import ca.infoway.messagebuilder.xml.Relationship;
 
 class RelationshipMerger implements Merger<Relationship> {
 
-	private final OutputUI outputUI;
+	private final MergeContext context;
 
-	RelationshipMerger(OutputUI outputUI) {
-		this.outputUI = outputUI;
+	RelationshipMerger(MergeContext context) {
+		this.context = context;
 	}
 
-	public Relationship merge(Relationship primary, String primaryVersion, Relationship secondary, String secondaryVersion) {
+	public Relationship merge(Relationship primary, Relationship secondary) {
 		// FIXME - TM - to be implemented in a later story 
 		return primary != null ? primary : secondary;
 	}
