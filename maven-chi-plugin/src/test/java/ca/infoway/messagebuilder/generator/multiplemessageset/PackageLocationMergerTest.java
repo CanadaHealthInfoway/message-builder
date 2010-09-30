@@ -119,8 +119,9 @@ public class PackageLocationMergerTest {
 		Assert.assertEquals(packageLocation1.getRootType(), result.getRootType());
 		Assert.assertEquals(1, result.getMessageParts().size());
 		Assert.assertEquals(packageLocation1.getMessageParts().get("typeCommon"), result.getMessageParts().get("typeCommon"));
-		Assert.assertNotNull(result.getDifference());
-		Assert.assertEquals("rootType", result.getDifference().getType());
-		Assert.assertEquals(2, result.getDifference().getDifferences().size());
+		Assert.assertFalse(result.getDifferences().isEmpty());
+		Assert.assertEquals(1, result.getDifferences().size());
+		Assert.assertEquals("rootType", result.getDifferences().get(0).getType());
+		Assert.assertEquals(2, result.getDifferences().get(0).getDifferences().size());
 	}
 }

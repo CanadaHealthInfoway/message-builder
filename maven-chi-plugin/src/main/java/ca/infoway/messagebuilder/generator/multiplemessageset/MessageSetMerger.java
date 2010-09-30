@@ -47,11 +47,13 @@ class MessageSetMerger implements Merger<MessageSet> {
 		for (String packageLocationName : packageLocations.keySet()) {
 			PackageLocation primaryPackageLocation = packageLocations.get(packageLocationName);
 			PackageLocation secondaryPackageLocation = packageLocations2copy.remove(packageLocationName);
+			this.context.setCurrentPackageLocation(packageLocationName);
 			PackageLocation mergedPackageLocation = this.packageLocationMerger.merge(primaryPackageLocation, secondaryPackageLocation);
 			this.result.getPackageLocations().put(packageLocationName, mergedPackageLocation);
 		}
 
 		for (String packageLocationName : packageLocations2copy.keySet()) {
+			this.context.setCurrentPackageLocation(packageLocationName);
 			PackageLocation mergedPackageLocation = this.packageLocationMerger.merge(null, packageLocations2copy.get(packageLocationName));
 			this.result.getPackageLocations().put(packageLocationName, mergedPackageLocation);
 		}
@@ -64,11 +66,13 @@ class MessageSetMerger implements Merger<MessageSet> {
 		for (String interactionName : primaryMessageSet.getInteractions().keySet()) {
 			Interaction primaryInteraction = primaryMessageSet.getInteractions().get(interactionName);
 			Interaction secondaryInteraction = interactions2copy.remove(interactionName);
+			this.context.setCurrentInteraction(interactionName);
 			Interaction mergedInteraction = this.interactionMerger.merge(primaryInteraction, secondaryInteraction);
 			this.result.getInteractions().put(interactionName, mergedInteraction);
 		}
 
 		for (String interactionName : interactions2copy.keySet()) {
+			this.context.setCurrentInteraction(interactionName);
 			Interaction mergedInteraction = this.interactionMerger.merge(null, interactions2copy.get(interactionName));
 			this.result.getInteractions().put(interactionName, mergedInteraction);
 		}

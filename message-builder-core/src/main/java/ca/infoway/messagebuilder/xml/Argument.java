@@ -42,14 +42,14 @@ import org.simpleframework.xml.Root;
  * @author <a href="http://www.intelliware.ca/">Intelliware Development</a>
  */
 @Root
-public class Argument extends ChoiceSupport {
+public class Argument extends ChoiceSupport implements HasDifferences {
 	
 	@Attribute
 	private String name;
 	
-	@ElementList(required=false)
+	@ElementList(inline=true, required=false)
 	@Namespace(prefix="regen",reference="regen_ns")
-	private List<Difference> differences;
+	private List<Difference> differences = new ArrayList<Difference>();
 	
 	@ElementList(inline=true,required=false,name="argument")
 	private List<Argument> arguments = new ArrayList<Argument>();
@@ -154,5 +154,8 @@ public class Argument extends ChoiceSupport {
 	}
 	public void setDifferences(List<Difference> differences) {
 		this.differences = differences;
+	}
+	public void addDifference(Difference difference) {
+		this.differences.add(difference);
 	}
 }

@@ -63,7 +63,6 @@ class InteractionMerger implements Merger<Interaction> {
 		} else if (secondaryInteractionNull) {
 			this.result.setArguments(arguments);
 		} else {
-			System.out.println("Merging arguments for " + this.result.getName());
 			List<Argument> mergedArguments = this.argumentMerger.merge(arguments, arguments2);
 			this.result.getArguments().addAll(mergedArguments);
 		}

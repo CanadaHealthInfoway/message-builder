@@ -5,7 +5,7 @@ import org.apache.commons.lang.StringUtils;
 
 import ca.infoway.messagebuilder.xml.Difference;
 import ca.infoway.messagebuilder.xml.DifferenceValue;
-import ca.infoway.messagebuilder.xml.HasDifference;
+import ca.infoway.messagebuilder.xml.HasDifferences;
 
 class MessageSetMergeHelper {
 
@@ -21,7 +21,7 @@ class MessageSetMergeHelper {
 		return ObjectUtils.defaultIfNull(primary, secondary);
 	}
 	
-	void addDifference(MergeContext context, HasDifference hasDifference, String type, String value, String value2) {
+	void addDifference(MergeContext context, HasDifferences hasDifferences, String type, String value, String value2) {
 		
 		DifferenceValue differenceValue1 = new DifferenceValue();
 		differenceValue1.setValue(value);
@@ -36,7 +36,7 @@ class MessageSetMergeHelper {
 		difference.getDifferences().add(differenceValue1);
 		difference.getDifferences().add(differenceValue2);
 		
-		hasDifference.setDifference(difference);
+		hasDifferences.addDifference(difference);
 	}
 
 }
