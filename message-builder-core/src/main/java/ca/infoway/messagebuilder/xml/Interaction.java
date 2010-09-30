@@ -16,13 +16,13 @@ import org.simpleframework.xml.Root;
  * @author <a href="http://www.intelliware.ca/">Intelliware Development</a>
  */
 @Root
-public class Interaction implements Categorizable, HasDifference {
+public class Interaction implements Categorizable, HasDifferences {
 
 	@Attribute
 	private String name;
-	@Element(required=false)
+	@ElementList(inline=true, required=false)
 	@Namespace(prefix="regen",reference="regen_ns")
-	private Difference difference;
+	private List<Difference> differences = new ArrayList<Difference>();
 	@Element(required=false)
 	private String businessName;
 	@Attribute
@@ -147,11 +147,14 @@ public class Interaction implements Categorizable, HasDifference {
 	 * 
 	 * @return the difference
 	 */
-	public Difference getDifference() {
-		return this.difference;
+	public List<Difference> getDifferences() {
+		return this.differences;
 	}
-	public void setDifference(Difference difference) {
-		this.difference = difference;
+	public void setDifferences(List<Difference> differences) {
+		this.differences = differences;
+	}
+	public void addDifference(Difference difference) {
+		this.differences.add(difference);
 	}
 	
 }

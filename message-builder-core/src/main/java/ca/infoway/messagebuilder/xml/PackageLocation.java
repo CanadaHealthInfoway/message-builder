@@ -1,10 +1,12 @@
 package ca.infoway.messagebuilder.xml;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
 import org.simpleframework.xml.Attribute;
-import org.simpleframework.xml.Element;
+import org.simpleframework.xml.ElementList;
 import org.simpleframework.xml.ElementMap;
 import org.simpleframework.xml.Namespace;
 import org.simpleframework.xml.Root;
@@ -15,7 +17,7 @@ import org.simpleframework.xml.Root;
  * @author <a href="http://www.intelliware.ca/">Intelliware Development</a>
  */
 @Root
-public class PackageLocation implements Categorizable, HasDifference {
+public class PackageLocation implements Categorizable, HasDifferences {
 	
 	@Attribute
 	private String name;
@@ -23,9 +25,9 @@ public class PackageLocation implements Categorizable, HasDifference {
 	private String descriptiveName;
 	@Attribute(required=false)
 	private String rootType;
-	@Element(required=false)
+	@ElementList(inline=true, required=false)
 	@Namespace(prefix="regen",reference="regen_ns")
-	private Difference difference;
+	private List<Difference> differences = new ArrayList<Difference>();
 	@ElementMap(name="messagePart",key="name",required=false,inline=true,attribute=true)
 	private Map<String,MessagePart> messageParts = new TreeMap<String,MessagePart>();
 	@Attribute(required=false)
@@ -115,15 +117,18 @@ public class PackageLocation implements Categorizable, HasDifference {
 	}
 	
 	/**
-	 * Tracks an interaction difference for regen 
+	 * Tracks package location differences for regen 
 	 * 
-	 * @return the difference
+	 * @return the differences
 	 */
-	public Difference getDifference() {
-		return this.difference;
+	public List<Difference> getDifferences() {
+		return this.differences;
 	}
-	public void setDifference(Difference difference) {
-		this.difference = difference;
+	public void setDifferences(List<Difference> differences) {
+		this.differences = differences;
+	}
+	public void addDifference(Difference difference) {
+		this.differences.add(difference);
 	}
 	
 }

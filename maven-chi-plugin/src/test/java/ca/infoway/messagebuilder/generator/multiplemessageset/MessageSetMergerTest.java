@@ -32,6 +32,8 @@ public class MessageSetMergerTest {
 		this.jmock.checking(new Expectations() {{
 			allowing(mergeContext).getPrimaryVersion(); will(returnValue("1"));
 			allowing(mergeContext).getSecondaryVersion(); will(returnValue("2"));
+			allowing(mergeContext).setCurrentInteraction("intKey");
+			allowing(mergeContext).setCurrentPackageLocation("plKey");
 		}});
 		
 		this.packageLocationMerger = this.jmock.mock(PackageLocationMerger.class);
@@ -139,6 +141,11 @@ public class MessageSetMergerTest {
 		messageSet2.setComponent(component2);
 		
 		this.jmock.checking(new Expectations() {{
+			one(mergeContext).setCurrentInteraction("intKey1");
+			one(mergeContext).setCurrentPackageLocation("plKey1");
+			one(mergeContext).setCurrentInteraction("intKey2");
+			one(mergeContext).setCurrentPackageLocation("plKey2");
+
 			one(interactionMerger).merge(intValue1, null); will(returnValue(intValue1));
 			one(packageLocationMerger).merge(plValue1, null); will(returnValue(plValue1));
 			
