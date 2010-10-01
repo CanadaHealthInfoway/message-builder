@@ -9,5 +9,7 @@ interface MergeContext {
 	public void setCurrentInteraction(String interaction);
 	public String getCurrentPackageLocation();
 	public void setCurrentPackageLocation(String packageLocation);
+	public String getCurrentMessagePart();
+	public void setCurrentMessagePart(String messagePart);
 
 }

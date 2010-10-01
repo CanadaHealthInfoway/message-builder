@@ -3,7 +3,6 @@ package ca.infoway.messagebuilder.generator.multiplemessageset;
 import java.util.List;
 
 import org.apache.commons.collections.CollectionUtils;
-import org.apache.commons.lang.ObjectUtils;
 import org.apache.commons.lang.StringUtils;
 
 import ca.infoway.messagebuilder.xml.Documentation;
@@ -12,6 +11,7 @@ class DocumentationMerger implements Merger<Documentation> {
 
 	private final MessageSetMergeHelper mergeHelper;
 	private final MergeContext context;
+	private Documentation result;
 
 	DocumentationMerger(MergeContext context) {
 		this.context = context;
@@ -19,18 +19,14 @@ class DocumentationMerger implements Merger<Documentation> {
 	}
 
 	public Documentation merge(Documentation primary, Documentation secondary) {
-		if (primary == null && secondary == null) {
-			return null;
+		if (primary == null || secondary == null) {
+			this.result = (secondary == null ? primary : secondary);
+		} else {
+			this.result = new Documentation();
+			mergeTitle(result, primary.getTitle(), secondary.getTitle());
+			mergeBusinessName(result, primary.getBusinessName(), secondary.getBusinessName());
+			mergeParagrahs(result, primary.getParagraphs(), secondary.getParagraphs());
 		}
-		
-		primary = (Documentation) ObjectUtils.defaultIfNull(primary, new Documentation());
-		secondary = (Documentation) ObjectUtils.defaultIfNull(secondary, new Documentation());
-		
-		Documentation result = new Documentation();
-		
-		mergeTitle(result, primary.getTitle(), secondary.getTitle());
-		mergeBusinessName(result, primary.getBusinessName(), secondary.getBusinessName());
-		mergeParagrahs(result, primary.getParagraphs(), secondary.getParagraphs());
 		
 		return result;
 	}

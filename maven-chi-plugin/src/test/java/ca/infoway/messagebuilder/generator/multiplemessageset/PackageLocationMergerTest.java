@@ -30,6 +30,7 @@ public class PackageLocationMergerTest {
 		this.jmock.checking(new Expectations() {{
 			allowing(mergeContext).getPrimaryVersion(); will(returnValue("1"));
 			allowing(mergeContext).getSecondaryVersion(); will(returnValue("2"));
+			allowing(mergeContext).setCurrentMessagePart(with(any(String.class)));
 		}});
 		
 		this.messagePartMerger = this.jmock.mock(MessagePartMerger.class);
@@ -39,9 +40,10 @@ public class PackageLocationMergerTest {
 	@Test
 	public void shouldHandleEmptyPackageLocations() {
 		PackageLocation result = this.merger.merge(null, null);
-		Assert.assertNull(result.getName());
+		Assert.assertNull(result);
 		
 		result = this.merger.merge(new PackageLocation(), new PackageLocation());
+		Assert.assertNotNull(result);
 		Assert.assertNull(result.getName());
 	}
 	
@@ -66,19 +68,11 @@ public class PackageLocationMergerTest {
 		Assert.assertEquals(packageLocation.getName(), result.getName());
 		Assert.assertEquals(packageLocation.getRootType(), result.getRootType());
 		
-		this.jmock.checking(new Expectations() {{
-			one(messagePartMerger).merge(messagePart, null); will(returnValue(messagePart));
-		}});
-		
 		result = this.merger.merge(packageLocation, null);
 		Assert.assertEquals(packageLocation.getCategory(), result.getCategory());
 		Assert.assertEquals(packageLocation.getDescriptiveName(), result.getDescriptiveName());
 		Assert.assertEquals(packageLocation.getName(), result.getName());
 		Assert.assertEquals(packageLocation.getRootType(), result.getRootType());
-		
-		this.jmock.checking(new Expectations() {{
-			one(messagePartMerger).merge(null, messagePart); will(returnValue(messagePart));
-		}});
 		
 		result = this.merger.merge(null, packageLocation);
 		Assert.assertEquals(packageLocation.getCategory(), result.getCategory());

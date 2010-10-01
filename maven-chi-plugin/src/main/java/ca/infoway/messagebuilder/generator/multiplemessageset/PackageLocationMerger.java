@@ -3,7 +3,6 @@ package ca.infoway.messagebuilder.generator.multiplemessageset;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.apache.commons.lang.ObjectUtils;
 import org.apache.commons.lang.StringUtils;
 
 import ca.infoway.messagebuilder.xml.MessagePart;
@@ -27,16 +26,16 @@ class PackageLocationMerger implements Merger<PackageLocation> {
 	}
 
 	public PackageLocation merge(PackageLocation primaryPackageLocation, PackageLocation secondaryPackageLocation) {
-		primaryPackageLocation = (PackageLocation) ObjectUtils.defaultIfNull(primaryPackageLocation, new PackageLocation());
-		secondaryPackageLocation = (PackageLocation) ObjectUtils.defaultIfNull(secondaryPackageLocation, new PackageLocation());
-
-		this.result = new PackageLocation();
-		
-		mergeCategory(primaryPackageLocation.getCategory(), secondaryPackageLocation.getCategory());
-		mergeDescriptiveName(primaryPackageLocation.getDescriptiveName(), secondaryPackageLocation.getDescriptiveName());
-		mergeName(primaryPackageLocation.getName(), secondaryPackageLocation.getName());
-		mergeRootType(primaryPackageLocation.getRootType(), secondaryPackageLocation.getRootType());
-		mergeMessageParts(primaryPackageLocation.getMessageParts(), secondaryPackageLocation.getMessageParts());
+		if (primaryPackageLocation == null || secondaryPackageLocation == null) {
+			this.result = (secondaryPackageLocation == null ? primaryPackageLocation : secondaryPackageLocation);
+		} else {
+			this.result = new PackageLocation();
+			mergeCategory(primaryPackageLocation.getCategory(), secondaryPackageLocation.getCategory());
+			mergeDescriptiveName(primaryPackageLocation.getDescriptiveName(), secondaryPackageLocation.getDescriptiveName());
+			mergeName(primaryPackageLocation.getName(), secondaryPackageLocation.getName());
+			mergeRootType(primaryPackageLocation.getRootType(), secondaryPackageLocation.getRootType());
+			mergeMessageParts(primaryPackageLocation.getMessageParts(), secondaryPackageLocation.getMessageParts());
+		}
 		
 		return this.result;
 	}
@@ -45,6 +44,7 @@ class PackageLocationMerger implements Merger<PackageLocation> {
 		Map<String, MessagePart> messageParts2copy = new HashMap<String, MessagePart>(messageParts2);
 		
 		for (String messagePartName : messageParts.keySet()) {
+			this.context.setCurrentMessagePart(messagePartName);
 			MessagePart primaryMessagePart = messageParts.get(messagePartName);
 			MessagePart secondaryMessagePart = messageParts2copy.remove(messagePartName);
 			MessagePart mergedMessagePart = this.messagePartMerger.merge(primaryMessagePart, secondaryMessagePart);
@@ -52,6 +52,7 @@ class PackageLocationMerger implements Merger<PackageLocation> {
 		}
 
 		for (String messagePartName : messageParts2copy.keySet()) {
+			this.context.setCurrentMessagePart(messagePartName);
 			MessagePart mergedMessagePart = this.messagePartMerger.merge(null, messageParts2copy.get(messagePartName));
 			this.result.getMessageParts().put(messagePartName, mergedMessagePart);
 		}

@@ -167,7 +167,7 @@ public class ArgumentMergerTest {
 		Assert.assertEquals("traversalName", result.get(0).getTraversalName());
 		Assert.assertEquals(1, result.get(0).getDifferences().size());
 		Assert.assertEquals("missingArgument", result.get(0).getDifferences().get(0).getType());
-		Assert.assertEquals("missing", result.get(0).getDifferences().get(0).getDifferences().get(1).getValue());
+		Assert.assertEquals("[missing]", result.get(0).getDifferences().get(0).getDifferences().get(1).getValue());
 	}
 	
 	@Test
@@ -187,7 +187,7 @@ public class ArgumentMergerTest {
 		Assert.assertEquals("traversalName", result.get(0).getTraversalName());
 		Assert.assertEquals(1, result.get(0).getDifferences().size());
 		Assert.assertEquals("missingArgument", result.get(0).getDifferences().get(0).getType());
-		Assert.assertEquals("missing", result.get(0).getDifferences().get(0).getDifferences().get(0).getValue());
+		Assert.assertEquals("[missing]", result.get(0).getDifferences().get(0).getDifferences().get(0).getValue());
 	}
 	
 	@Test
@@ -229,7 +229,7 @@ public class ArgumentMergerTest {
 		Assert.assertEquals(1, resultSubargument.getDifferences().size());
 		Assert.assertEquals("missingArgument", resultSubargument.getDifferences().get(0).getType());
 		Assert.assertEquals("subname", resultSubargument.getDifferences().get(0).getDifferences().get(0).getValue());
-		Assert.assertEquals("missing", resultSubargument.getDifferences().get(0).getDifferences().get(1).getValue());
+		Assert.assertEquals("[missing]", resultSubargument.getDifferences().get(0).getDifferences().get(1).getValue());
 	}
 	
 }

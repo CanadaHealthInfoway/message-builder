@@ -45,11 +45,9 @@ public class MessageSetMergerTest {
 	@Test
 	public void shouldHandleEmptyMessageSets() {
 		MessageSet resultMessageSet = this.merger.merge(null, null);
-		Assert.assertTrue(resultMessageSet.getPackageLocations().isEmpty());
-		Assert.assertTrue(resultMessageSet.getInteractions().isEmpty());
-		Assert.assertNull(resultMessageSet.getVersion());
+		Assert.assertNull(resultMessageSet);
 		
-		this.merger.merge(new MessageSet(), new MessageSet());
+		resultMessageSet = this.merger.merge(new MessageSet(), new MessageSet());
 		Assert.assertTrue(resultMessageSet.getPackageLocations().isEmpty());
 		Assert.assertTrue(resultMessageSet.getInteractions().isEmpty());
 		Assert.assertNull(resultMessageSet.getVersion());
@@ -70,11 +68,6 @@ public class MessageSetMergerTest {
 		String component = "myComponent";
 		messageSet.setComponent(component);
 		
-		this.jmock.checking(new Expectations() {{
-			one(interactionMerger).merge(intValue, null); will(returnValue(intValue));
-			one(packageLocationMerger).merge(plValue, null); will(returnValue(plValue));
-		}});
-
 		MessageSet resultMessageSet = this.merger.merge(messageSet, null);
 		Assert.assertEquals(1, resultMessageSet.getPackageLocations().size());
 		Assert.assertEquals(plValue, resultMessageSet.getPackageLocations().get(plKey));
@@ -98,11 +91,6 @@ public class MessageSetMergerTest {
 		String component = "myComponent";
 		messageSet.setComponent(component);
 		
-		this.jmock.checking(new Expectations() {{
-			one(interactionMerger).merge(null, intValue); will(returnValue(intValue));
-			one(packageLocationMerger).merge(null, plValue); will(returnValue(plValue));
-		}});
-
 		MessageSet resultMessageSet = this.merger.merge(null, messageSet);
 		Assert.assertEquals(1, resultMessageSet.getPackageLocations().size());
 		Assert.assertEquals(plValue, resultMessageSet.getPackageLocations().get(plKey));
