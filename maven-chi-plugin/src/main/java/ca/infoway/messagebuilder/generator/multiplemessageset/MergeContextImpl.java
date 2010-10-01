@@ -10,6 +10,7 @@ class MergeContextImpl implements MergeContext {
 	private String currentPackageLocation;
 	private String primaryVersion;
 	private String secondaryVersion;
+	private String currentMessagePart;
 
 	MergeContextImpl(OutputUI outputUI, String primaryVersion, String secondaryVersion) {
 		this.outputUI = outputUI;
@@ -43,6 +44,14 @@ class MergeContextImpl implements MergeContext {
 
 	public void setCurrentPackageLocation(String packageLocation) {
 		this.currentPackageLocation = packageLocation;
+	}
+
+	public String getCurrentMessagePart() {
+		return this.currentMessagePart;
+	}
+
+	public void setCurrentMessagePart(String messagePart) {
+		this.currentMessagePart = messagePart;
 	}
 
 }

@@ -8,6 +8,7 @@ import org.apache.commons.lang.StringUtils;
 import org.simpleframework.xml.Attribute;
 import org.simpleframework.xml.Element;
 import org.simpleframework.xml.ElementList;
+import org.simpleframework.xml.Namespace;
 import org.simpleframework.xml.Root;
 
 import ca.infoway.messagebuilder.Typed;
@@ -28,7 +29,7 @@ import ca.infoway.messagebuilder.lang.EnumPattern;
  * @author <a href="http://www.intelliware.ca/">Intelliware Development</a>
  */
 @Root
-public class Relationship extends ChoiceSupport implements Documentable, Typed {
+public class Relationship extends ChoiceSupport implements Documentable, Typed, HasDifferences {
 
 	@Attribute
 	private String name;
@@ -54,6 +55,10 @@ public class Relationship extends ChoiceSupport implements Documentable, Typed {
 	private String codingStrength;
 	@Attribute(required=false)
 	private String defaultValue;
+	
+	@ElementList(inline=true, required=false)
+	@Namespace(prefix="regen",reference="regen_ns")
+	private List<Difference> differences = new ArrayList<Difference>();
 	
 	@Element(required=false)
 	private Documentation documentation;
@@ -419,5 +424,20 @@ public class Relationship extends ChoiceSupport implements Documentable, Typed {
 	@Override
 	public String toString() {
 		return (isAttribute() ? "Attribute: " : "Association: ") + getName();
+	}
+	
+	/**
+	 * Records the differences between relationships of different release versions during regen.
+	 * 
+	 * @return list of differences
+	 */
+	public List<Difference> getDifferences() {
+		return this.differences;
+	}
+	public void setDifferences(List<Difference> differences) {
+		this.differences = differences;
+	}
+	public void addDifference(Difference difference) {
+		this.differences.add(difference);
 	}
 }

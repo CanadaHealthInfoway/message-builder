@@ -34,14 +34,17 @@ class InteractionMerger implements Merger<Interaction> {
 		primaryInteraction = (Interaction) ObjectUtils.defaultIfNull(primaryInteraction, new Interaction());
 		secondaryInteraction = (Interaction) ObjectUtils.defaultIfNull(secondaryInteraction, new Interaction());
 		
-		this.result = new Interaction();
-		
-		mergeName(primaryInteraction.getName(), secondaryInteraction.getName());
-		mergeBusinessName(primaryInteraction.getBusinessName(), secondaryInteraction.getBusinessName());
-		mergeSuperTypeName(primaryInteraction.getSuperTypeName(), secondaryInteraction.getSuperTypeName());
-		mergeArguments(primaryInteraction.getArguments(), primaryInteractionNull, secondaryInteraction.getArguments(), secondaryInteractionNull);
-		mergeDocumentation(primaryInteraction.getDocumentation(), secondaryInteraction.getDocumentation());
-		mergeCategory(primaryInteraction.getCategory(), secondaryInteraction.getCategory());
+		if (primaryInteraction == null || secondaryInteraction == null) {
+			this.result = (primaryInteraction == null ? secondaryInteraction : primaryInteraction);
+		} else {
+			this.result = new Interaction();
+			mergeName(primaryInteraction.getName(), secondaryInteraction.getName());
+			mergeBusinessName(primaryInteraction.getBusinessName(), secondaryInteraction.getBusinessName());
+			mergeSuperTypeName(primaryInteraction.getSuperTypeName(), secondaryInteraction.getSuperTypeName());
+			mergeArguments(primaryInteraction.getArguments(), primaryInteractionNull, secondaryInteraction.getArguments(), secondaryInteractionNull);
+			mergeDocumentation(primaryInteraction.getDocumentation(), secondaryInteraction.getDocumentation());
+			mergeCategory(primaryInteraction.getCategory(), secondaryInteraction.getCategory());
+		}
 		
 		return this.result;
 	}

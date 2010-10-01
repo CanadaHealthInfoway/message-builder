@@ -6,7 +6,6 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 
-import org.apache.commons.lang.ObjectUtils;
 import org.apache.commons.lang.StringUtils;
 
 import ca.infoway.messagebuilder.xml.Documentation;
@@ -33,25 +32,23 @@ class MessagePartMerger implements Merger<MessagePart> {
 	}
 
 	public MessagePart merge(MessagePart primary, MessagePart secondary) {
-		boolean primaryNull = (primary == null);
-		boolean secondaryNull = (secondary == null);
 		
-		primary = (MessagePart) ObjectUtils.defaultIfNull(primary, new MessagePart());
-		secondary = (MessagePart) ObjectUtils.defaultIfNull(secondary, new MessagePart());
-		
-		this.result = new MessagePart();
-		
-		mergeName(primary.getName(), secondary.getName());
-		mergeDocumentation(primary.getDocumentation(), secondary.getDocumentation());
-		mergeRelationships(primary.getRelationships(), secondary.getRelationships());
-		mergeSpecializationChilds(primary.getSpecializationChilds(), secondary.getSpecializationChilds());
-		mergeAbstract(primary.isAbstract(), primaryNull, secondary.isAbstract(), secondaryNull);
+		if (primary == null || secondary == null) {
+			this.result = (secondary == null ? primary : secondary);
+		} else {
+			this.result = new MessagePart();
+			mergeName(primary.getName(), secondary.getName());
+			mergeDocumentation(primary.getDocumentation(), secondary.getDocumentation());
+			mergeRelationships(primary.getRelationships(), secondary.getRelationships());
+			mergeSpecializationChilds(primary.getSpecializationChilds(), secondary.getSpecializationChilds());
+			mergeAbstract(primary.isAbstract(), secondary.isAbstract());
+		}
 		
 		return this.result;
 	}
 
-	private void mergeAbstract(boolean abstract1, boolean primaryIsNull, boolean abstract2, boolean secondaryIsNull) {
-		if (abstract1 != abstract2 && !primaryIsNull && !secondaryIsNull) {
+	private void mergeAbstract(boolean abstract1, boolean abstract2) {
+		if (abstract1 != abstract2) {
 			this.context.logError("Merging abstract messagePart with non-abstract messagePart");
 		}
 		this.result.setAbstract(abstract1 || abstract2);
@@ -92,6 +89,7 @@ class MessagePartMerger implements Merger<MessagePart> {
 
 	private void mergeName(String name1, String name2) {
 		// should not normally be merging message parts with different names
+		// FIXME TM - should log a difference here 
 		if (name1 != null && name2 != null && !StringUtils.equals(name1, name2)) {
 			this.context.logError("Merging two messageParts with different names: " + name1 + " / " + name2);
 		}

@@ -43,12 +43,8 @@ public class MessagePartMergerTest {
 
 	@Test
 	public void shouldHandleEmptyMessageParts() {
-		this.jmock.checking(new Expectations() {{
-			one(documentationMerger).merge(null, null); will(returnValue(null));
-		}});
-
 		MessagePart result = this.merger.merge(null, null);
-		Assert.assertNull(result.getName());
+		Assert.assertNull(result);
 		
 		this.jmock.checking(new Expectations() {{
 			one(documentationMerger).merge(null, null); will(returnValue(null));
@@ -83,22 +79,12 @@ public class MessagePartMergerTest {
 		Assert.assertEquals(messagePart.getSpecializationChilds().size(), result.getSpecializationChilds().size());
 		Assert.assertEquals(messagePart.getSpecializationChilds().get(0), result.getSpecializationChilds().get(0));
 		
-		this.jmock.checking(new Expectations() {{
-			one(documentationMerger).merge(documentation, null); will(returnValue(documentation));
-			one(relationshipMerger).merge(relationship,  null); will(returnValue(relationship));
-		}});
-		
 		result = this.merger.merge(messagePart, null);
 		Assert.assertEquals(messagePart.getName(), result.getName());
 		Assert.assertEquals(messagePart.isAbstract(), result.isAbstract());
 		Assert.assertEquals(messagePart.getDocumentation(), result.getDocumentation());
 		Assert.assertEquals(messagePart.getSpecializationChilds().size(), result.getSpecializationChilds().size());
 		Assert.assertEquals(messagePart.getSpecializationChilds().get(0), result.getSpecializationChilds().get(0));
-		
-		this.jmock.checking(new Expectations() {{
-			one(documentationMerger).merge(null, documentation); will(returnValue(documentation));
-			one(relationshipMerger).merge(null,  relationship); will(returnValue(relationship));
-		}});
 		
 		result = this.merger.merge(null, messagePart);
 		Assert.assertEquals(messagePart.getName(), result.getName());

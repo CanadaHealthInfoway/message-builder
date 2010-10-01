@@ -3,8 +3,6 @@ package ca.infoway.messagebuilder.generator.multiplemessageset;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.apache.commons.lang.ObjectUtils;
-
 import ca.infoway.messagebuilder.xml.Interaction;
 import ca.infoway.messagebuilder.xml.MessageSet;
 import ca.infoway.messagebuilder.xml.PackageLocation;
@@ -28,15 +26,16 @@ class MessageSetMerger implements Merger<MessageSet> {
 	}
 
 	public MessageSet merge(MessageSet primaryMessageSet, MessageSet secondaryMessageSet) {
-		this.result = new MessageSet();
 		
-		primaryMessageSet = (MessageSet) ObjectUtils.defaultIfNull(primaryMessageSet, new MessageSet());
-		secondaryMessageSet = (MessageSet) ObjectUtils.defaultIfNull(secondaryMessageSet, new MessageSet());
-		
-		// leave "version" as is on result messageset
-		mergeComponent(primaryMessageSet.getComponent(), secondaryMessageSet.getComponent());
-		mergeInteractions(primaryMessageSet, secondaryMessageSet);
-		mergePackageLocations(primaryMessageSet.getPackageLocations(), secondaryMessageSet.getPackageLocations());
+		if (primaryMessageSet == null || secondaryMessageSet == null) {
+			this.result = (secondaryMessageSet == null ? primaryMessageSet : secondaryMessageSet);
+		} else {
+			this.result = new MessageSet();
+			// leave "version" as is on result messageset
+			mergeComponent(primaryMessageSet.getComponent(), secondaryMessageSet.getComponent());
+			mergeInteractions(primaryMessageSet, secondaryMessageSet);
+			mergePackageLocations(primaryMessageSet.getPackageLocations(), secondaryMessageSet.getPackageLocations());
+		}
 		
 		return this.result;
 	}

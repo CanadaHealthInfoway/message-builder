@@ -24,11 +24,11 @@ class MessageSetMergeHelper {
 	void addDifference(MergeContext context, HasDifferences hasDifferences, String type, String value, String value2) {
 		
 		DifferenceValue differenceValue1 = new DifferenceValue();
-		differenceValue1.setValue(value);
+		differenceValue1.setValue(StringUtils.isBlank(value) ? "[missing]" : value);
 		differenceValue1.setVersion(context.getPrimaryVersion());
 		
 		DifferenceValue differenceValue2 = new DifferenceValue();
-		differenceValue2.setValue(value2);
+		differenceValue2.setValue(StringUtils.isBlank(value2) ? "[missing]" : value2);
 		differenceValue2.setVersion(context.getSecondaryVersion());
 		
 		Difference difference = new Difference();

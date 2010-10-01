@@ -45,9 +45,9 @@ class ArgumentMerger implements Merger<List<Argument>> {
 		
 		if (primaryArgument == null || secondaryArgument == null) {
 			result = primaryArgument == null ? secondaryArgument : primaryArgument;
-			String value1 = primaryArgument == null ? "missing" : result.getName();
-			String value2 = primaryArgument == null ? result.getName() : "missing";
-			this.mergeHelper.addDifference(this.context, result, "missingArgument", value1, value2);
+			this.mergeHelper.addDifference(this.context, result, "missingArgument", 
+					primaryArgument == null ? null : primaryArgument.getName(), 
+					secondaryArgument == null ? null : secondaryArgument.getName());
 		} else {
 			mergeName(result, primaryArgument.getName(), secondaryArgument.getName());
 			mergeTemplateParameterName(result, primaryArgument.getTemplateParameterName(), secondaryArgument.getTemplateParameterName());
