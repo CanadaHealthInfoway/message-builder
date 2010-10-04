@@ -59,11 +59,8 @@ class PackageLocationMerger implements Merger<PackageLocation> {
 	}
 
 	private void mergeRootType(String rootType, String rootType2) {
-		// FIXME - TM - what to do if root types are different?? is this an ok state?
-		//            - have detected that this *does* happen in some cases
 		if (rootType != null && rootType2 != null && !StringUtils.equals(rootType, rootType2)) {
-			this.context.logError("Merging two package locations with different root types: " + rootType + " / " + rootType2);
-			this.mergeHelper.addDifference(this.context, this.result, "rootType", rootType, rootType2);
+			this.mergeHelper.addDifference(this.context, this.result, "package location rootType", rootType, rootType2);
 		}
 		String mergedRootType = this.mergeHelper.standardMerge(rootType, rootType2);
 		this.result.setRootType(mergedRootType);

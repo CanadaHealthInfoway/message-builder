@@ -38,6 +38,10 @@ class MergeContextImpl implements MergeContext {
 		this.outputUI.log(LogLevel.ERROR, error);
 	}
 
+	public void logInfo(String info) {
+		this.outputUI.log(LogLevel.INFO, info);
+	}
+
 	public void setCurrentInteraction(String interaction) {
 		this.currentInteraction = interaction;
 	}

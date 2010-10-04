@@ -3,6 +3,7 @@ package ca.infoway.messagebuilder.generator.multiplemessageset;
 interface MergeContext {
 	
 	public void logError(String error);
+	public void logInfo(String info);
 	public String getPrimaryVersion();
 	public String getSecondaryVersion();
 	public String getCurrentInteraction();

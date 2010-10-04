@@ -36,7 +36,9 @@ public class RelationshipMergerTest {
 			allowing(mergeContext).getPrimaryVersion(); will(returnValue("1"));
 			allowing(mergeContext).getSecondaryVersion(); will(returnValue("2"));
 			allowing(mergeContext).setCurrentMessagePart(with(any(String.class)));
+			allowing(mergeContext).getCurrentInteraction(); will(returnValue(""));
 			allowing(mergeContext).getCurrentMessagePart(); will(returnValue("aCurrentMessagePart"));
+			allowing(mergeContext).getCurrentPackageLocation(); will(returnValue("aPackageLocation"));
 		}});
 		
 		this.merger = new RelationshipMerger(this.mergeContext, this.documentationMerger);
@@ -108,10 +110,7 @@ public class RelationshipMergerTest {
 		
 		this.jmock.checking(new Expectations() {{
 			one(documentationMerger).merge(primaryDoc, secondaryDoc); will(returnValue(primaryDoc));
-			one(mergeContext).logError("aCurrentMessagePart - domain types are different: ActCode, AdministrativeGender");
-			one(mergeContext).logError("aCurrentMessagePart - relationship names should not be different: aName, bName");
-			one(mergeContext).logError("aCurrentMessagePart - templateParameterNames are different: aParamName, bParamName");
-			one(mergeContext).logError("aCurrentMessagePart - types are different: aType, bType");
+			exactly(4).of(mergeContext).logError(with(any(String.class)));
 		}});
 
 		Relationship result = this.merger.merge(primary, secondary);

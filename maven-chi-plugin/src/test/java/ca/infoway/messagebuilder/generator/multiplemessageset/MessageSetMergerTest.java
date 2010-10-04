@@ -33,6 +33,8 @@ public class MessageSetMergerTest {
 			allowing(mergeContext).getPrimaryVersion(); will(returnValue("1"));
 			allowing(mergeContext).getSecondaryVersion(); will(returnValue("2"));
 			allowing(mergeContext).setCurrentInteraction("intKey");
+			allowing(mergeContext).setCurrentInteraction("");
+			allowing(mergeContext).setCurrentMessagePart("");
 			allowing(mergeContext).setCurrentPackageLocation("plKey");
 		}});
 		

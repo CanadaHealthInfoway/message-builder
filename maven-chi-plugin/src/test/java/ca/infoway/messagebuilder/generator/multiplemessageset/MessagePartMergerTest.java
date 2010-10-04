@@ -34,6 +34,9 @@ public class MessagePartMergerTest {
 		this.jmock.checking(new Expectations() {{
 			allowing(mergeContext).getPrimaryVersion(); will(returnValue("1"));
 			allowing(mergeContext).getSecondaryVersion(); will(returnValue("2"));
+			allowing(mergeContext).getCurrentInteraction(); will(returnValue(""));
+			allowing(mergeContext).getCurrentMessagePart(); will(returnValue("aCurrentMessagePart"));
+			allowing(mergeContext).getCurrentPackageLocation(); will(returnValue("aPackageLocation"));
 		}});
 
 		this.documentationMerger = this.jmock.mock(DocumentationMerger.class);
@@ -69,7 +72,7 @@ public class MessagePartMergerTest {
 		this.jmock.checking(new Expectations() {{
 			one(documentationMerger).merge(documentation, null); will(returnValue(documentation));
 			one(relationshipMerger).merge(relationship,  null); will(returnValue(relationship));
-			one(mergeContext).logError("Merging abstract messagePart with non-abstract messagePart");
+			one(mergeContext).logError(with(any(String.class)));
 		}});
 		
 		MessagePart result = this.merger.merge(messagePart, new MessagePart());

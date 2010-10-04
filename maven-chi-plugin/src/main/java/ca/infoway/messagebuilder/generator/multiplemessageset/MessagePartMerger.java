@@ -49,7 +49,7 @@ class MessagePartMerger implements Merger<MessagePart> {
 
 	private void mergeAbstract(boolean abstract1, boolean abstract2) {
 		if (abstract1 != abstract2) {
-			this.context.logError("Merging abstract messagePart with non-abstract messagePart");
+			this.mergeHelper.addDifference(this.context, this.result, "message part abstract", ""+abstract1, ""+abstract2);
 		}
 		this.result.setAbstract(abstract1 || abstract2);
 	}
@@ -89,7 +89,6 @@ class MessagePartMerger implements Merger<MessagePart> {
 
 	private void mergeName(String name1, String name2) {
 		// should not normally be merging message parts with different names
-		// FIXME TM - should log a difference here 
 		if (name1 != null && name2 != null && !StringUtils.equals(name1, name2)) {
 			this.context.logError("Merging two messageParts with different names: " + name1 + " / " + name2);
 		}
