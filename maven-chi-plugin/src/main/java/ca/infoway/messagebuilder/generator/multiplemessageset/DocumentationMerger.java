@@ -23,20 +23,20 @@ class DocumentationMerger implements Merger<Documentation> {
 			this.result = (secondary == null ? primary : secondary);
 		} else {
 			this.result = new Documentation();
-			mergeTitle(result, primary.getTitle(), secondary.getTitle());
-			mergeBusinessName(result, primary.getBusinessName(), secondary.getBusinessName());
-			mergeParagrahs(result, primary.getParagraphs(), secondary.getParagraphs());
+			mergeTitle(primary.getTitle(), secondary.getTitle());
+			mergeBusinessName(primary.getBusinessName(), secondary.getBusinessName());
+			mergeParagrahs(primary.getParagraphs(), secondary.getParagraphs());
 		}
 		
-		return result;
+		return this.result;
 	}
 
-	private void mergeParagrahs(Documentation result, List<String> paragraphs, List<String> paragraphs2) {
+	private void mergeParagrahs(List<String> paragraphs, List<String> paragraphs2) {
 		// take only 1? combine the two sets of paragraphs?
 		if (hasContent(paragraphs)) {
-			result.getParagraphs().addAll(paragraphs);
+			this.result.getParagraphs().addAll(paragraphs);
 		} else if (hasContent(paragraphs2)) {
-			result.getParagraphs().addAll(paragraphs2);
+			this.result.getParagraphs().addAll(paragraphs2);
 		}
 	}
 
@@ -53,14 +53,14 @@ class DocumentationMerger implements Merger<Documentation> {
 		return result;
 	}
 
-	private void mergeBusinessName(Documentation result, String businessName, String businessName2) {
+	private void mergeBusinessName(String businessName, String businessName2) {
 		String mergedResult = this.mergeHelper.standardMerge(businessName, businessName2);
-		result.setBusinessName(mergedResult);
+		this.result.setBusinessName(mergedResult);
 	}
 
-	private void mergeTitle(Documentation result, String title, String title2) {
+	private void mergeTitle(String title, String title2) {
 		String mergedResult = this.mergeHelper.standardMerge(title, title2);
-		result.setTitle(mergedResult);
+		this.result.setTitle(mergedResult);
 	}
 
 }

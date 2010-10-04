@@ -31,6 +31,9 @@ public class PackageLocationMergerTest {
 			allowing(mergeContext).getPrimaryVersion(); will(returnValue("1"));
 			allowing(mergeContext).getSecondaryVersion(); will(returnValue("2"));
 			allowing(mergeContext).setCurrentMessagePart(with(any(String.class)));
+			allowing(mergeContext).getCurrentInteraction(); will(returnValue(""));
+			allowing(mergeContext).getCurrentMessagePart(); will(returnValue(""));
+			allowing(mergeContext).getCurrentPackageLocation(); will(returnValue("aPackageLocation"));
 		}});
 		
 		this.messagePartMerger = this.jmock.mock(MessagePartMerger.class);
@@ -103,7 +106,7 @@ public class PackageLocationMergerTest {
 		
 		this.jmock.checking(new Expectations() {{
 			one(messagePartMerger).merge(messagePart1, messagePart2); will(returnValue(messagePart1));
-			one(mergeContext).logError("Merging two package locations with different root types: myRootType1 / myRootType2");
+			one(mergeContext).logError(with(any(String.class)));
 		}});
 		
 		PackageLocation result = this.merger.merge(packageLocation1, packageLocation2);
@@ -115,7 +118,7 @@ public class PackageLocationMergerTest {
 		Assert.assertEquals(packageLocation1.getMessageParts().get("typeCommon"), result.getMessageParts().get("typeCommon"));
 		Assert.assertFalse(result.getDifferences().isEmpty());
 		Assert.assertEquals(1, result.getDifferences().size());
-		Assert.assertEquals("rootType", result.getDifferences().get(0).getType());
+		Assert.assertEquals("package location rootType", result.getDifferences().get(0).getType());
 		Assert.assertEquals(2, result.getDifferences().get(0).getDifferences().size());
 	}
 }

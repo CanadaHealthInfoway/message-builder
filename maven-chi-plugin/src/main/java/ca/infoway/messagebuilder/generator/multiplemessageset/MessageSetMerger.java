@@ -3,6 +3,8 @@ package ca.infoway.messagebuilder.generator.multiplemessageset;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.apache.commons.lang.StringUtils;
+
 import ca.infoway.messagebuilder.xml.Interaction;
 import ca.infoway.messagebuilder.xml.MessageSet;
 import ca.infoway.messagebuilder.xml.PackageLocation;
@@ -43,16 +45,20 @@ class MessageSetMerger implements Merger<MessageSet> {
 	private void mergePackageLocations(Map<String, PackageLocation> packageLocations, Map<String, PackageLocation> packageLocations2) {
 		Map<String, PackageLocation> packageLocations2copy = new HashMap<String, PackageLocation>(packageLocations2);
 		
+		this.context.setCurrentInteraction(StringUtils.EMPTY);
+		
 		for (String packageLocationName : packageLocations.keySet()) {
 			PackageLocation primaryPackageLocation = packageLocations.get(packageLocationName);
 			PackageLocation secondaryPackageLocation = packageLocations2copy.remove(packageLocationName);
 			this.context.setCurrentPackageLocation(packageLocationName);
+			this.context.setCurrentMessagePart(StringUtils.EMPTY);
 			PackageLocation mergedPackageLocation = this.packageLocationMerger.merge(primaryPackageLocation, secondaryPackageLocation);
 			this.result.getPackageLocations().put(packageLocationName, mergedPackageLocation);
 		}
 
 		for (String packageLocationName : packageLocations2copy.keySet()) {
 			this.context.setCurrentPackageLocation(packageLocationName);
+			this.context.setCurrentMessagePart(StringUtils.EMPTY);
 			PackageLocation mergedPackageLocation = this.packageLocationMerger.merge(null, packageLocations2copy.get(packageLocationName));
 			this.result.getPackageLocations().put(packageLocationName, mergedPackageLocation);
 		}

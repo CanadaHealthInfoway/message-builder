@@ -8,6 +8,7 @@ import java.util.List;
 import org.simpleframework.xml.Attribute;
 import org.simpleframework.xml.Element;
 import org.simpleframework.xml.ElementList;
+import org.simpleframework.xml.Namespace;
 import org.simpleframework.xml.Root;
 
 /**
@@ -19,13 +20,17 @@ import org.simpleframework.xml.Root;
  * @sharpen.ignore isAbstract must be mapped to @abstract so simplexml works on .net.
  */
 @Root
-public class MessagePart implements Documentable {
+public class MessagePart implements Documentable, HasDifferences {
 
 	@Attribute(required=false)
 	private String name;
 
 	@Attribute(required=false,name="abstract")
 	private boolean isAbstract;
+	
+	@ElementList(inline=true, required=false)
+	@Namespace(prefix="regen",reference="regen_ns")
+	private List<Difference> differences = new ArrayList<Difference>();
 	
 	@Element(required=false)
 	private Documentation documentation;
@@ -203,5 +208,20 @@ public class MessagePart implements Documentable {
 			}
 		}
 		return result;
+	}
+	
+	/**
+	 * Records the differences between message parts of different release versions during regen.
+	 * 
+	 * @return list of differences
+	 */
+	public List<Difference> getDifferences() {
+		return this.differences;
+	}
+	public void setDifferences(List<Difference> differences) {
+		this.differences = differences;
+	}
+	public void addDifference(Difference difference) {
+		this.differences.add(difference);
 	}
 }

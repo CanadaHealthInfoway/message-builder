@@ -37,6 +37,14 @@ class MessageSetMergeHelper {
 		difference.getDifferences().add(differenceValue2);
 		
 		hasDifferences.addDifference(difference);
+		
+		String differenceError = 
+			  StringUtils.trimToEmpty(context.getCurrentInteraction()) + " " 
+			+ StringUtils.trimToEmpty(context.getCurrentPackageLocation()) + " " 
+			+ StringUtils.trimToEmpty(context.getCurrentMessagePart())
+			+ " - " + "difference for " + type + ": " + value + ", " + value2;
+		context.logError(differenceError.trim());
+		
 	}
 
 }

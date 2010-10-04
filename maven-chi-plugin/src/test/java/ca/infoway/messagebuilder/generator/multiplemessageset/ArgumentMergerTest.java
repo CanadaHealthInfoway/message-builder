@@ -32,8 +32,10 @@ public class ArgumentMergerTest {
 		this.jmock.checking(new Expectations() {{
 			allowing(mergeContext).getPrimaryVersion(); will(returnValue("1"));
 			allowing(mergeContext).getSecondaryVersion(); will(returnValue("2"));
-			allowing(mergeContext).getCurrentInteraction(); will(returnValue("COMT_IN000001CA"));
 			allowing(mergeContext).logError(with(any(String.class)));
+			allowing(mergeContext).getCurrentInteraction(); will(returnValue(""));
+			allowing(mergeContext).getCurrentMessagePart(); will(returnValue("aCurrentMessagePart"));
+			allowing(mergeContext).getCurrentPackageLocation(); will(returnValue("aPackageLocation"));
 		}});
 		
 		this.merger = new ArgumentMerger(this.mergeContext);
@@ -97,7 +99,7 @@ public class ArgumentMergerTest {
 		Assert.assertEquals("templateParameterName", result.get(0).getTemplateParameterName());
 		Assert.assertEquals("traversalName", result.get(0).getTraversalName());
 		Assert.assertEquals(1, result.get(0).getDifferences().size());
-		Assert.assertEquals("name", result.get(0).getDifferences().get(0).getType());
+		Assert.assertEquals("argument name", result.get(0).getDifferences().get(0).getType());
 	}
 	
 	@Test
@@ -122,7 +124,7 @@ public class ArgumentMergerTest {
 		Assert.assertEquals("templateParameterName", result.get(0).getTemplateParameterName());
 		Assert.assertEquals("traversalName1", result.get(0).getTraversalName());
 		Assert.assertEquals(1, result.get(0).getDifferences().size());
-		Assert.assertEquals("traversalName", result.get(0).getDifferences().get(0).getType());
+		Assert.assertEquals("arg traversalName", result.get(0).getDifferences().get(0).getType());
 	}
 	
 	@Test
@@ -147,7 +149,7 @@ public class ArgumentMergerTest {
 		Assert.assertEquals("templateParameterName1", result.get(0).getTemplateParameterName());
 		Assert.assertEquals("traversalName", result.get(0).getTraversalName());
 		Assert.assertEquals(1, result.get(0).getDifferences().size());
-		Assert.assertEquals("templateParameterName", result.get(0).getDifferences().get(0).getType());
+		Assert.assertEquals("arg templateParameterName", result.get(0).getDifferences().get(0).getType());
 	}
 	
 	@Test

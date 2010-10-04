@@ -64,24 +64,21 @@ class ArgumentMerger implements Merger<List<Argument>> {
 	private void mergeName(Argument result, String name, String name2) {
 		result.setName(name);
 		if (!StringUtils.equals(name, name2)) {
-			this.context.logError(this.context.getCurrentInteraction() + "- Mismatching argument name: " + name + ", " + name2);
-			this.mergeHelper.addDifference(this.context, result, "name", name, name2);
+			this.mergeHelper.addDifference(this.context, result, "argument name", name, name2);
 		}
 	}
 	
 	private void mergeTemplateParameterName(Argument result, String templateParameterName, String templateParameterName2) {
 		result.setTemplateParameterName(templateParameterName);
 		if (!StringUtils.equals(templateParameterName, templateParameterName2)) {
-			this.context.logError(this.context.getCurrentInteraction() + "- Mismatching argument template parameter name: " + templateParameterName + ", " + templateParameterName2);
-			this.mergeHelper.addDifference(this.context, result, "templateParameterName", templateParameterName, templateParameterName2);
+			this.mergeHelper.addDifference(this.context, result, "arg templateParameterName", templateParameterName, templateParameterName2);
 		}
 	}
 
 	private void mergeTraversalName(Argument result, String traversalName, String traversalName2) {
 		result.setTraversalName(traversalName);
 		if (!StringUtils.equals(traversalName, traversalName2)) {
-			this.context.logError(this.context.getCurrentInteraction() + "- Mismatching argument traversal name: " + traversalName + ", " + traversalName2);
-			this.mergeHelper.addDifference(this.context, result, "traversalName", traversalName, traversalName2);
+			this.mergeHelper.addDifference(this.context, result, "arg traversalName", traversalName, traversalName2);
 		}
 	}
 

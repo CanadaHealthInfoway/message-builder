@@ -102,8 +102,7 @@ class InteractionMerger implements Merger<Interaction> {
 //	         </argument>
 //	      </interaction>
 			
-			this.context.logError("Different supertypes for interaction: " + this.result.getName() + " - " + superTypeName + " vs " + superTypeName2);
-			this.mergeHelper.addDifference(this.context, this.result, "superTypeName", superTypeName, superTypeName2);
+			this.mergeHelper.addDifference(this.context, this.result, "interaction superTypeName", superTypeName, superTypeName2);
 			
 			this.result.setSuperTypeName(superTypeName);
 		}
