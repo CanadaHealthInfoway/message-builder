@@ -7,6 +7,9 @@ import org.apache.commons.lang.StringUtils;
 
 import ca.infoway.messagebuilder.Code;
 import ca.infoway.messagebuilder.generator.util.DomainRegistry;
+import ca.infoway.messagebuilder.marshalling.hl7.Hl7DataTypeName;
+import ca.infoway.messagebuilder.marshalling.hl7.parser.ElementParser;
+import ca.infoway.messagebuilder.marshalling.hl7.parser.ParserRegistry;
 import ca.infoway.messagebuilder.xml.Cardinality;
 import ca.infoway.messagebuilder.xml.CodingStrength;
 import ca.infoway.messagebuilder.xml.ConformanceLevel;
@@ -181,11 +184,83 @@ class RelationshipMerger implements Merger<Relationship> {
 	}
 
 	private void mergeType(String type, String type2) {
-		if (!StringUtils.equals(type, type2)) {
-			this.mergeHelper.addDifference(this.context, this.result, "rel type", type, type2);
-		}
 		String mergedType = this.mergeHelper.standardMerge(type, type2);
+		if (!StringUtils.equals(type, type2)) {
+			String compatibleType = getCompatibleType(type, type2);
+			if (compatibleType != null) {
+				this.context.logInfo("Determined these different types were compatible: " + type + "/" + type2 + " [" + compatibleType + "]");
+				mergedType = compatibleType;
+			} else {
+				this.mergeHelper.addDifference(this.context, this.result, "rel type", type, type2);
+			}
+		}
 		this.result.setType(mergedType);
 	}
+
+	private String getCompatibleType(String type, String type2) {
+		String result = null;
+		ElementParser elementParser1 = ParserRegistry.getInstance().get(type);
+		ElementParser elementParser2 = ParserRegistry.getInstance().get(type2);
+		if (elementParser1 != null && elementParser2 != null) {
+			// first check to see if the types are straight-up compatible 
+			if (elementParser1.equals(elementParser2)) {
+				result = type;
+			} else if (isCollection(type) || isCollection(type2)) {
+				// check if one is a list or a set, but otherwise compatible
+				result = checkCollectionCompatibility(type, type2);
+//			} else if (isInterval(type) && isInterval(type2)) {
+//				// can we handle IVL vs non-IVL here?
+//				result = checkIntervalCompatibility(type, type2);
+			}
+		}
+		return result;
+	}
+
+	private String checkCollectionCompatibility(String type, String type2) {
+		String parameterizedType1 = Hl7DataTypeName.getParameterizedType(type);
+		if (StringUtils.isBlank(parameterizedType1)) {
+			parameterizedType1 = type;
+		}
+		String parameterizedType2 = Hl7DataTypeName.getParameterizedType(type2);
+		if (StringUtils.isBlank(parameterizedType2)) {
+			parameterizedType2 = type2;
+		}
+		ElementParser elementParser1 = ParserRegistry.getInstance().get(parameterizedType1);
+		ElementParser elementParser2 = ParserRegistry.getInstance().get(parameterizedType2);
+		String result = null;
+		if (elementParser1 != null && elementParser2 != null && elementParser1.equals(elementParser2)) {
+			result = isCollection(type) ? type : type2;
+			this.context.logInfo("Determined compatible types when one (or both) was a collection: " + type + "/" + type2 + " [" + result + "]");
+		}
+		return result;
+	}
+
+//	// TODO - TM - this is not currently necessary
+//	private String checkIntervalCompatibility(String type, String type2) {
+//		String parameterizedType1 = isInterval(type) ? Hl7DataTypeName.getParameterizedType(type) : type;
+//		if (StringUtils.isBlank(parameterizedType1)) {
+//			parameterizedType1 = type;
+//		}
+//		String parameterizedType2 = isInterval(type2) ? Hl7DataTypeName.getParameterizedType(type2) : type2;
+//		if (StringUtils.isBlank(parameterizedType2)) {
+//			parameterizedType2 = type2;
+//		}
+//		ElementParser elementParser1 = ParserRegistry.getInstance().get(parameterizedType1);
+//		ElementParser elementParser2 = ParserRegistry.getInstance().get(parameterizedType2);
+//		String result = null;
+//		if (elementParser1 != null && elementParser2 != null && elementParser1.equals(elementParser2)) {
+//			result = isInterval(type) ? type : type2;
+//			this.context.logInfo("Determined compatible types when one (or both) was an interval: " + type + "/" + type2 + " [" + result + "]");
+//		}
+//		return result;
+//	}
+
+	private boolean isCollection(String type) {
+		return type.startsWith("LIST") || type.startsWith("SET");
+	}
+
+//	private boolean isInterval(String type) {
+//		return type.startsWith("IVL");
+//	}
 
 }
