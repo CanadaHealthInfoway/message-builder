@@ -6,6 +6,7 @@ import org.apache.commons.lang.ObjectUtils;
 import org.apache.commons.lang.StringUtils;
 
 import ca.infoway.messagebuilder.xml.Argument;
+import ca.infoway.messagebuilder.xml.DifferenceType;
 import ca.infoway.messagebuilder.xml.Documentation;
 import ca.infoway.messagebuilder.xml.Interaction;
 
@@ -102,7 +103,7 @@ class InteractionMerger implements Merger<Interaction> {
 //	         </argument>
 //	      </interaction>
 			
-			this.mergeHelper.addDifference(this.context, this.result, "interaction superTypeName", superTypeName, superTypeName2);
+			this.mergeHelper.addDifference(this.context, this.result, DifferenceType.INTERACTION_SUPER_TYPE_NAME, superTypeName, superTypeName2);
 			
 			this.result.setSuperTypeName(superTypeName);
 		}

@@ -4,6 +4,7 @@ import org.apache.commons.lang.ObjectUtils;
 import org.apache.commons.lang.StringUtils;
 
 import ca.infoway.messagebuilder.xml.Difference;
+import ca.infoway.messagebuilder.xml.DifferenceType;
 import ca.infoway.messagebuilder.xml.DifferenceValue;
 import ca.infoway.messagebuilder.xml.HasDifferences;
 
@@ -21,7 +22,7 @@ class MessageSetMergeHelper {
 		return ObjectUtils.defaultIfNull(primary, secondary);
 	}
 	
-	void addDifference(MergeContext context, HasDifferences hasDifferences, String type, String value, String value2) {
+	void addDifference(MergeContext context, HasDifferences hasDifferences, DifferenceType type, String value, String value2) {
 		
 		DifferenceValue differenceValue1 = new DifferenceValue();
 		differenceValue1.setValue(StringUtils.isBlank(value) ? "[missing]" : value);

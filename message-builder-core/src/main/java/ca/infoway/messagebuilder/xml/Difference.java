@@ -18,7 +18,7 @@ import org.simpleframework.xml.Root;
 public class Difference {
 
 	@Attribute
-	private String type;
+	private DifferenceType type;
 	@Attribute(name="isOk",required=false)
 	private boolean ok;
 	@ElementList(inline=true, required=false)
@@ -30,10 +30,10 @@ public class Difference {
 	 * 
 	 * @return the  type of this difference
 	 */
-	public String getType() {
+	public DifferenceType getType() {
 		return this.type;
 	}
-	public void setType(String type) {
+	public void setType(DifferenceType type) {
 		this.type = type;
 	}
 	

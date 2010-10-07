@@ -5,6 +5,7 @@ import java.util.Map;
 
 import org.apache.commons.lang.StringUtils;
 
+import ca.infoway.messagebuilder.xml.DifferenceType;
 import ca.infoway.messagebuilder.xml.MessagePart;
 import ca.infoway.messagebuilder.xml.PackageLocation;
 
@@ -60,7 +61,7 @@ class PackageLocationMerger implements Merger<PackageLocation> {
 
 	private void mergeRootType(String rootType, String rootType2) {
 		if (rootType != null && rootType2 != null && !StringUtils.equals(rootType, rootType2)) {
-			this.mergeHelper.addDifference(this.context, this.result, "package location rootType", rootType, rootType2);
+			this.mergeHelper.addDifference(this.context, this.result, DifferenceType.PACKAGE_LOCATION_ROOT_TYPE, rootType, rootType2);
 		}
 		String mergedRootType = this.mergeHelper.standardMerge(rootType, rootType2);
 		this.result.setRootType(mergedRootType);
