@@ -39,7 +39,7 @@ class MergeContextImpl implements MergeContext {
 	}
 
 	public void logInfo(String info) {
-		this.outputUI.log(LogLevel.INFO, info);
+		//this.outputUI.log(LogLevel.INFO, info);
 	}
 
 	public void setCurrentInteraction(String interaction) {

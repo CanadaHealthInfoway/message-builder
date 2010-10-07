@@ -11,13 +11,15 @@ import org.simpleframework.xml.ElementMap;
 import org.simpleframework.xml.Namespace;
 import org.simpleframework.xml.Root;
 
+import ca.infoway.messagebuilder.Named;
+
 /**
  * <p>The package location.  Each package location corresponds with one MIF file.
  * 
  * @author <a href="http://www.intelliware.ca/">Intelliware Development</a>
  */
 @Root
-public class PackageLocation implements Categorizable, HasDifferences {
+public class PackageLocation implements Categorizable, HasDifferences, Named {
 	
 	@Attribute
 	private String name;

@@ -8,6 +8,8 @@ import org.simpleframework.xml.ElementList;
 import org.simpleframework.xml.Namespace;
 import org.simpleframework.xml.Root;
 
+import ca.infoway.messagebuilder.Named;
+
 /**
  * <p>The specific type argument for a template parameter.</p>
  * 
@@ -42,7 +44,7 @@ import org.simpleframework.xml.Root;
  * @author <a href="http://www.intelliware.ca/">Intelliware Development</a>
  */
 @Root
-public class Argument extends ChoiceSupport implements HasDifferences {
+public class Argument extends ChoiceSupport implements HasDifferences, Named {
 	
 	@Attribute
 	private String name;
