@@ -13,6 +13,7 @@ import ca.infoway.messagebuilder.marshalling.hl7.parser.ParserRegistry;
 import ca.infoway.messagebuilder.xml.Cardinality;
 import ca.infoway.messagebuilder.xml.CodingStrength;
 import ca.infoway.messagebuilder.xml.ConformanceLevel;
+import ca.infoway.messagebuilder.xml.DifferenceType;
 import ca.infoway.messagebuilder.xml.Documentation;
 import ca.infoway.messagebuilder.xml.Relationship;
 
@@ -98,7 +99,7 @@ class RelationshipMerger implements Merger<Relationship> {
 		if (domainType == null || domainType2 == null) {
 			resultDomainType = this.mergeHelper.standardMerge(domainType, domainType2);
 			if (resultDomainType != null) {
-				this.mergeHelper.addDifference(this.context, this.result, "rel domainType only on one", domainType, domainType2);
+				this.mergeHelper.addDifference(this.context, this.result, DifferenceType.RELATIONSHIP_ONLY_ONE_HAS_DOMAIN_TYPE, domainType, domainType2);
 			}
 		} else if (!StringUtils.equals(domainType, domainType2)) {
 			resultDomainType = findCompatibleDomainType(domainType, domainType2);
@@ -113,7 +114,7 @@ class RelationshipMerger implements Merger<Relationship> {
 		Class<?> type = DomainRegistry.getInstance().getDomainType(domainType);
 		Class<?> type2 = DomainRegistry.getInstance().getDomainType(domainType2);
 		if (type == null || type2 == null) {
-			this.mergeHelper.addDifference(this.context, this.result, "rel domainType(s) not found in system: " + (type == null ? domainType : "") + (type2 == null ? domainType2 : ""), domainType, domainType2);
+			this.mergeHelper.addDifference(this.context, this.result, DifferenceType.RELATIONSHIP_ONE_OR_BOTH_DOMAIN_TYPES_NOT_IN_SYSTEM, domainType, domainType2);
 			return null;
 		} else if (type.isAssignableFrom(type2)) {
 			this.context.logInfo("Merged domain type to a compatible type: " + domainType + "/" + domainType2 + " to " + domainType);
@@ -130,7 +131,7 @@ class RelationshipMerger implements Merger<Relationship> {
 					return clazz.getSimpleName();
 				}
 			}
-			this.mergeHelper.addDifference(this.context, this.result, "rel domainTypes incompatible", domainType, domainType2);
+			this.mergeHelper.addDifference(this.context, this.result, DifferenceType.RELATIONSHIP_DOMAIN_TYPES_INCOMPATIBLE, domainType, domainType2);
 			return null;
 		}
 	}
@@ -177,7 +178,7 @@ class RelationshipMerger implements Merger<Relationship> {
 
 	private void mergeTemplateParameterName(String templateParameterName, String templateParameterName2) {
 		if (!StringUtils.equals(templateParameterName, templateParameterName2)) {
-			this.mergeHelper.addDifference(this.context, this.result, "rel templateParameterName", templateParameterName, templateParameterName2);
+			this.mergeHelper.addDifference(this.context, this.result, DifferenceType.RELATIONSHIP_TEMPLATE_PARAMETER_NAME, templateParameterName, templateParameterName2);
 		}
 		String mergedTemplateParameterName = this.mergeHelper.standardMerge(templateParameterName, templateParameterName2);
 		this.result.setTemplateParameterName(mergedTemplateParameterName);
@@ -191,7 +192,7 @@ class RelationshipMerger implements Merger<Relationship> {
 				this.context.logInfo("Determined these different types were compatible: " + type + "/" + type2 + " [" + compatibleType + "]");
 				mergedType = compatibleType;
 			} else {
-				this.mergeHelper.addDifference(this.context, this.result, "rel type", type, type2);
+				this.mergeHelper.addDifference(this.context, this.result, DifferenceType.RELATIONSHIP_TYPE, type, type2);
 			}
 		}
 		this.result.setType(mergedType);

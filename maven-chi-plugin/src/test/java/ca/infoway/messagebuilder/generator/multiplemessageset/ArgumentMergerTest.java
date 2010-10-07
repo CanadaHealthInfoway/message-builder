@@ -15,6 +15,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import ca.infoway.messagebuilder.xml.Argument;
+import ca.infoway.messagebuilder.xml.DifferenceType;
 
 @RunWith(JMock.class)
 public class ArgumentMergerTest {
@@ -99,7 +100,7 @@ public class ArgumentMergerTest {
 		Assert.assertEquals("templateParameterName", result.get(0).getTemplateParameterName());
 		Assert.assertEquals("traversalName", result.get(0).getTraversalName());
 		Assert.assertEquals(1, result.get(0).getDifferences().size());
-		Assert.assertEquals("argument name", result.get(0).getDifferences().get(0).getType());
+		Assert.assertEquals(DifferenceType.ARGUMENT_NAME, result.get(0).getDifferences().get(0).getType());
 	}
 	
 	@Test
@@ -124,7 +125,7 @@ public class ArgumentMergerTest {
 		Assert.assertEquals("templateParameterName", result.get(0).getTemplateParameterName());
 		Assert.assertEquals("traversalName1", result.get(0).getTraversalName());
 		Assert.assertEquals(1, result.get(0).getDifferences().size());
-		Assert.assertEquals("arg traversalName", result.get(0).getDifferences().get(0).getType());
+		Assert.assertEquals(DifferenceType.ARGUMENT_TRAVERSAL_NAME, result.get(0).getDifferences().get(0).getType());
 	}
 	
 	@Test
@@ -149,7 +150,7 @@ public class ArgumentMergerTest {
 		Assert.assertEquals("templateParameterName1", result.get(0).getTemplateParameterName());
 		Assert.assertEquals("traversalName", result.get(0).getTraversalName());
 		Assert.assertEquals(1, result.get(0).getDifferences().size());
-		Assert.assertEquals("arg templateParameterName", result.get(0).getDifferences().get(0).getType());
+		Assert.assertEquals(DifferenceType.ARGUMENT_TEMPLATE_PARAMETER_NAME, result.get(0).getDifferences().get(0).getType());
 	}
 	
 	@Test
@@ -168,7 +169,7 @@ public class ArgumentMergerTest {
 		Assert.assertEquals("templateParameterName", result.get(0).getTemplateParameterName());
 		Assert.assertEquals("traversalName", result.get(0).getTraversalName());
 		Assert.assertEquals(1, result.get(0).getDifferences().size());
-		Assert.assertEquals("missingArgument", result.get(0).getDifferences().get(0).getType());
+		Assert.assertEquals(DifferenceType.ARGUMENT_MISSING, result.get(0).getDifferences().get(0).getType());
 		Assert.assertEquals("[missing]", result.get(0).getDifferences().get(0).getDifferences().get(1).getValue());
 	}
 	
@@ -188,7 +189,7 @@ public class ArgumentMergerTest {
 		Assert.assertEquals("templateParameterName", result.get(0).getTemplateParameterName());
 		Assert.assertEquals("traversalName", result.get(0).getTraversalName());
 		Assert.assertEquals(1, result.get(0).getDifferences().size());
-		Assert.assertEquals("missingArgument", result.get(0).getDifferences().get(0).getType());
+		Assert.assertEquals(DifferenceType.ARGUMENT_MISSING, result.get(0).getDifferences().get(0).getType());
 		Assert.assertEquals("[missing]", result.get(0).getDifferences().get(0).getDifferences().get(0).getValue());
 	}
 	
@@ -229,7 +230,7 @@ public class ArgumentMergerTest {
 		Assert.assertEquals("subtraversalName", resultSubargument.getTraversalName());
 		
 		Assert.assertEquals(1, resultSubargument.getDifferences().size());
-		Assert.assertEquals("missingArgument", resultSubargument.getDifferences().get(0).getType());
+		Assert.assertEquals(DifferenceType.ARGUMENT_MISSING, resultSubargument.getDifferences().get(0).getType());
 		Assert.assertEquals("subname", resultSubargument.getDifferences().get(0).getDifferences().get(0).getValue());
 		Assert.assertEquals("[missing]", resultSubargument.getDifferences().get(0).getDifferences().get(1).getValue());
 	}

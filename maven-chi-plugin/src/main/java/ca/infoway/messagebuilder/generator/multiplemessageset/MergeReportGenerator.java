@@ -146,7 +146,7 @@ public class MergeReportGenerator {
 		
 		// not currently needed since we track and report on our context (above)
 		// row.createCell(cell++).setCellValue(new HSSFRichTextString(named.getName()));
-		row.createCell(cell++).setCellValue(new HSSFRichTextString(difference.getType()));
+		row.createCell(cell++).setCellValue(new HSSFRichTextString(difference.getType().toString()));
 		for (DifferenceValue value : difference.getDifferences()) {
 			row.createCell(cell++).setCellValue(new HSSFRichTextString(value.getVersion()));
 			row.createCell(cell++).setCellValue(new HSSFRichTextString(value.getValue()));

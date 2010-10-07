@@ -1,18 +1,23 @@
 package ca.infoway.messagebuilder.generator.multiplemessageset;
 
+import static java.io.File.createTempFile;
+import static org.apache.commons.lang.ClassUtils.getShortClassName;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 import java.util.Arrays;
 
 import org.apache.poi.hssf.usermodel.HSSFCell;
 import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.junit.Before;
 import org.junit.Test;
 
 import ca.infoway.messagebuilder.xml.Argument;
 import ca.infoway.messagebuilder.xml.Difference;
+import ca.infoway.messagebuilder.xml.DifferenceType;
 import ca.infoway.messagebuilder.xml.Interaction;
 import ca.infoway.messagebuilder.xml.MessageSet;
 
@@ -26,49 +31,49 @@ public class MergeReportGeneratorTest {
 		this.messageSet = new MessageSet();
 	}
 
-//	@Test
-//	public void shouldHandleSuperTypeDifferences() throws Exception {
-//		createInteractionWithSuperTypeDifference("ABCD_IN123456CA");
-//		createInteractionWithSuperTypeDifference("ABCD_IN987654CA");
-//		
-//		MergeReportGenerator generator = new MergeReportGenerator(this.messageSet, 
-//				createTempFile(getShortClassName(getClass()), ".xls"));
-//		HSSFWorkbook workbook = generator.createReportWorkbook();
-//		
-//		assertNotNull("workbook", workbook);
-//		assertTrue("has work sheet", workbook.getNumberOfSheets() > 0);
-//		
-//		assertCellValueEquals("cell A1", "superType", workbook.getSheetAt(0), 0, 4);
-//		assertCellValueEquals("cell A2", "superType", workbook.getSheetAt(0), 1, 4);
-//	}
-//
+	@Test
+	public void shouldHandleSuperTypeDifferences() throws Exception {
+		createInteractionWithSuperTypeDifference("ABCD_IN123456CA");
+		createInteractionWithSuperTypeDifference("ABCD_IN987654CA");
+		
+		MergeReportGenerator generator = new MergeReportGenerator(this.messageSet, 
+				createTempFile(getShortClassName(getClass()), ".xls"));
+		HSSFWorkbook workbook = generator.createReportWorkbook();
+		
+		assertNotNull("workbook", workbook);
+		assertTrue("has work sheet", workbook.getNumberOfSheets() > 0);
+		
+		assertCellValueEquals("cell A1", "INTERACTION_SUPER_TYPE_NAME", workbook.getSheetAt(0), 3, 3);
+		assertCellValueEquals("cell A2", "INTERACTION_SUPER_TYPE_NAME", workbook.getSheetAt(0), 4, 3);
+	}
+
 	@Test
 	public void shouldHandleArgumentDifferences() throws Exception {
-//		createInteractionWithArgumentDifference("ABCD_IN123456CA");
-//		createInteractionWithArgumentDifference("ABCD_IN987654CA");
-//		
-//		MergeReportGenerator generator = new MergeReportGenerator(this.messageSet, 
-//				createTempFile(getShortClassName(getClass()), ".xls"));
-//		HSSFWorkbook workbook = generator.createReportWorkbook();
-//		
-//		assertNotNull("workbook", workbook);
-//		assertTrue("has work sheet", workbook.getNumberOfSheets() > 0);
-//		
-//		assertCellValueEquals("cell A1", "arg", workbook.getSheetAt(0), 0, 4);
-//		assertCellValueEquals("cell A2", "arg", workbook.getSheetAt(0), 1, 4);
+		createInteractionWithArgumentDifference("ABCD_IN123456CA");
+		createInteractionWithArgumentDifference("ABCD_IN987654CA");
+		
+		MergeReportGenerator generator = new MergeReportGenerator(this.messageSet, 
+				createTempFile(getShortClassName(getClass()), ".xls"));
+		HSSFWorkbook workbook = generator.createReportWorkbook();
+		
+		assertNotNull("workbook", workbook);
+		assertTrue("has work sheet", workbook.getNumberOfSheets() > 0);
+		
+		assertCellValueEquals("cell A1", "ARGUMENT_NAME", workbook.getSheetAt(0), 3, 3);
+		assertCellValueEquals("cell A2", "ARGUMENT_NAME", workbook.getSheetAt(0), 4, 3);
 	}
 	
 	private void createInteractionWithSuperTypeDifference(String interactionId) {
 		Interaction interaction = new Interaction();
 		Difference difference = new Difference();
-		difference.setType("superType");
+		difference.setType(DifferenceType.INTERACTION_SUPER_TYPE_NAME);
 		interaction.addDifference(difference);
 		this.messageSet.getInteractions().put(interactionId, interaction);
 	}
 
 	private void createInteractionWithArgumentDifference(String interactionId) {
 		Difference difference = new Difference();
-		difference.setType("arg");
+		difference.setType(DifferenceType.ARGUMENT_NAME);
 		
 		Argument argument = new Argument();
 		argument.addDifference(difference);

@@ -8,6 +8,7 @@ import java.util.TreeSet;
 
 import org.apache.commons.lang.StringUtils;
 
+import ca.infoway.messagebuilder.xml.DifferenceType;
 import ca.infoway.messagebuilder.xml.Documentation;
 import ca.infoway.messagebuilder.xml.MessagePart;
 import ca.infoway.messagebuilder.xml.Relationship;
@@ -49,7 +50,7 @@ class MessagePartMerger implements Merger<MessagePart> {
 
 	private void mergeAbstract(boolean abstract1, boolean abstract2) {
 		if (abstract1 != abstract2) {
-			this.mergeHelper.addDifference(this.context, this.result, "message part abstract", ""+abstract1, ""+abstract2);
+			this.mergeHelper.addDifference(this.context, this.result, DifferenceType.MESSAGE_PART_ABSTRACT, ""+abstract1, ""+abstract2);
 		}
 		this.result.setAbstract(abstract1 || abstract2);
 	}

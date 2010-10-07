@@ -10,6 +10,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+import ca.infoway.messagebuilder.xml.DifferenceType;
 import ca.infoway.messagebuilder.xml.MessagePart;
 import ca.infoway.messagebuilder.xml.PackageLocation;
 
@@ -118,7 +119,7 @@ public class PackageLocationMergerTest {
 		Assert.assertEquals(packageLocation1.getMessageParts().get("typeCommon"), result.getMessageParts().get("typeCommon"));
 		Assert.assertFalse(result.getDifferences().isEmpty());
 		Assert.assertEquals(1, result.getDifferences().size());
-		Assert.assertEquals("package location rootType", result.getDifferences().get(0).getType());
+		Assert.assertEquals(DifferenceType.PACKAGE_LOCATION_ROOT_TYPE, result.getDifferences().get(0).getType());
 		Assert.assertEquals(2, result.getDifferences().get(0).getDifferences().size());
 	}
 }
