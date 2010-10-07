@@ -19,6 +19,8 @@ public class Difference {
 
 	@Attribute
 	private String type;
+	@Attribute(name="isOk",required=false)
+	private boolean ok;
 	@ElementList(inline=true, required=false)
 	private List<DifferenceValue> differences = new ArrayList<DifferenceValue>();
 	
@@ -40,6 +42,13 @@ public class Difference {
 	}
 	public void setDifferences(List<DifferenceValue> differences) {
 		this.differences = differences;
+	}
+	
+	public boolean isOk() {
+		return this.ok;
+	}
+	public void setOk(boolean ok) {
+		this.ok = ok;
 	}
 	
 }

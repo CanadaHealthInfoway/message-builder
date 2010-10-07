@@ -11,6 +11,8 @@ import org.simpleframework.xml.ElementList;
 import org.simpleframework.xml.Namespace;
 import org.simpleframework.xml.Root;
 
+import ca.infoway.messagebuilder.Named;
+
 /**
  * <p>A message part.  An example message part might be represent the type
  * "MCCI_MT700751CA.ControlActEvent".
@@ -20,7 +22,7 @@ import org.simpleframework.xml.Root;
  * @sharpen.ignore isAbstract must be mapped to @abstract so simplexml works on .net.
  */
 @Root
-public class MessagePart implements Documentable, HasDifferences {
+public class MessagePart implements Documentable, HasDifferences, Named {
 
 	@Attribute(required=false)
 	private String name;

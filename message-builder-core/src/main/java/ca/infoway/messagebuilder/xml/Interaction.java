@@ -10,13 +10,15 @@ import org.simpleframework.xml.ElementList;
 import org.simpleframework.xml.Namespace;
 import org.simpleframework.xml.Root;
 
+import ca.infoway.messagebuilder.Named;
+
 /**
  * <p>A class that models the interaction.
  * 
  * @author <a href="http://www.intelliware.ca/">Intelliware Development</a>
  */
 @Root
-public class Interaction implements Categorizable, HasDifferences {
+public class Interaction implements Categorizable, HasDifferences, Named {
 
 	@Attribute
 	private String name;

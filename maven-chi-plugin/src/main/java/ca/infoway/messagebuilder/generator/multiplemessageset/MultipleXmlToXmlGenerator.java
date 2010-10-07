@@ -52,18 +52,25 @@ public class MultipleXmlToXmlGenerator implements MessageSetGenerator {
 			
 			MessageSet primaryMessageSet = convertFileToMessageSet(inputMessageSets.get(0).getDirectory());
 			MessageSet secondaryMessageSet = convertFileToMessageSet(inputMessageSets.get(1).getDirectory());
-			mergeMessageSets(mergeContext, primaryMessageSet, secondaryMessageSet);
+			MessageSet mergedMessageSet = mergeMessageSets(mergeContext, primaryMessageSet, secondaryMessageSet);
+			
+			createMergeReport(mergedMessageSet, new File("/tmp/myReport.xls"));
 			
 			this.outputUI.log(LogLevel.INFO, MESSAGE_SET_MERGE_COMPLETED);
 		}
 	}
 	
-	private void mergeMessageSets(MergeContext mergeContext, MessageSet primaryMessageSet, MessageSet secondaryMessageSet) {
+	private void createMergeReport(MessageSet messageSet, File reportFile) throws IOException {
+		new MergeReportGenerator(messageSet, reportFile).create();
+	}
+
+	private MessageSet mergeMessageSets(MergeContext mergeContext, MessageSet primaryMessageSet, MessageSet secondaryMessageSet) {
 		MessageSet result = new MessageSetMerger(mergeContext).merge(primaryMessageSet, secondaryMessageSet);
 		result.setVersion(this.version);
 		if (this.messageSetWriter == null) {
 			this.messageSetWriter = new MessageSetWriter(result, this.outputUI);
 		}
+		return result;
 	}
 
 	public void writeToMessageSet(File outputFile) throws GeneratorException, IOException {
