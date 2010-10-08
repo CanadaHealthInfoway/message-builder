@@ -1,4 +1,4 @@
-package ca.infoway.messagebuilder.generator.multiplemessageset;
+package ca.infoway.messagebuilder.generator.multiplemessageset.differenceanalyzer;
 
 import ca.infoway.messagebuilder.xml.Difference;
 
