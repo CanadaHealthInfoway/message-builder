@@ -12,6 +12,8 @@ import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 
 import ca.infoway.messagebuilder.Named;
+import ca.infoway.messagebuilder.generator.multiplemessageset.differenceanalyzer.DifferenceAnalyzer;
+import ca.infoway.messagebuilder.generator.multiplemessageset.differenceanalyzer.DifferenceAnalyzerRegistry;
 import ca.infoway.messagebuilder.xml.Argument;
 import ca.infoway.messagebuilder.xml.Difference;
 import ca.infoway.messagebuilder.xml.DifferenceValue;
@@ -122,11 +124,7 @@ public class MergeReportGenerator {
 	}
 
 	private DifferenceAnalyzer getDifferenceAnalyzer(Difference difference) {
-		return new DifferenceAnalyzer() {
-			public void analyze(Difference difference) {
-				difference.setOk(true);
-			}
-		};
+		return DifferenceAnalyzerRegistry.getInstance().get(difference.getType());
 	}
 
 	private HSSFRow getNextRow(HSSFSheet sheet) {
