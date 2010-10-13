@@ -30,20 +30,20 @@ public class DifferenceAnalyzerRegistry {
 	}
     
     public void registerAll() {
-    	register(ARGUMENT_MISSING, new TrivialDifferenceAnalyzer(true));
-    	register(ARGUMENT_NAME, new TrivialDifferenceAnalyzer(true));
-    	register(ARGUMENT_TEMPLATE_PARAMETER_NAME, new TrivialDifferenceAnalyzer(true));
-    	register(ARGUMENT_TRAVERSAL_NAME, new TrivialDifferenceAnalyzer(true));
+    	register(ARGUMENT_MISSING, new ArgumentMissingDifferenceAnalyzer());
+    	register(ARGUMENT_NAME, new ArgumentNameDifferenceAnalyzer());
+    	register(ARGUMENT_TEMPLATE_PARAMETER_NAME, new ArgumentTemplateParameterNameDifferenceAnalyzer());
+    	register(ARGUMENT_TRAVERSAL_NAME, new ArgumentTraversalNameDifferenceAnalyzer());
     	register(INTERACTION_SUPER_TYPE_NAME, new InteractionSuperTypeNameDifferenceAnalyzer());
-    	register(MESSAGE_PART_ABSTRACT, new TrivialDifferenceAnalyzer(true));
-    	register(PACKAGE_LOCATION_ROOT_TYPE, new TrivialDifferenceAnalyzer(true));
-    	register(RELATIONSHIP_DOMAIN_TYPES_INCOMPATIBLE, new TrivialDifferenceAnalyzer(true));
-    	register(RELATIONSHIP_ONE_OR_BOTH_DOMAIN_TYPES_NOT_IN_SYSTEM, new TrivialDifferenceAnalyzer(true));
-    	register(RELATIONSHIP_ONLY_ONE_HAS_DOMAIN_TYPE, new TrivialDifferenceAnalyzer(true));
-    	register(RELATIONSHIP_TEMPLATE_PARAMETER_NAME, new TrivialDifferenceAnalyzer(true));
-    	register(RELATIONSHIP_TYPE, new TrivialDifferenceAnalyzer(true));
+    	register(MESSAGE_PART_ABSTRACT, new MessagePartAbstractDifferenceAnalyzer());
+    	register(PACKAGE_LOCATION_ROOT_TYPE, new PackageLocationRootTypeDifferenceAnalyzer());
+    	register(RELATIONSHIP_DOMAIN_TYPES_INCOMPATIBLE, new RelationshipDomainTypesIncompatibleDifferenceAnalyzer());
+    	register(RELATIONSHIP_ONE_OR_BOTH_DOMAIN_TYPES_NOT_IN_SYSTEM, new RelationshipDomainTypeNotInSystemDifferenceAnalyzer());
+    	register(RELATIONSHIP_ONLY_ONE_HAS_DOMAIN_TYPE, new RelationshipMissingDomainTypeDifferenceAnalyzer());
+    	register(RELATIONSHIP_TEMPLATE_PARAMETER_NAME, new RelationshipTemplateParameterNameDifferenceAnalyzer());
+    	register(RELATIONSHIP_TYPE, new RelationshipTypeDifferenceAnalyzer());
     }
-
+    
 	private void register(DifferenceType differenceKey, DifferenceAnalyzer differenceAnalyzer) {
 		this.registryMap.put(differenceKey, differenceAnalyzer);
 	}

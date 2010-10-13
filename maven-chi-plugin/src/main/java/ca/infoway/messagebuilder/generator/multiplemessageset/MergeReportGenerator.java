@@ -79,7 +79,7 @@ public class MergeReportGenerator {
 	}
 
 	private void adjustColumnWidths(HSSFSheet sheet) {
-		for (int i = 0; i < 8; i++) {
+		for (int i = 0; i < 9; i++) {
 			sheet.autoSizeColumn(i);
 		}
 	}
@@ -91,6 +91,7 @@ public class MergeReportGenerator {
 		firstHeaderRow.createCell(cell++).setCellValue(new HSSFRichTextString("Argument"));
 		firstHeaderRow.createCell(cell++).setCellValue(new HSSFRichTextString("Nested Argument"));
 		firstHeaderRow.createCell(cell++).setCellValue(new HSSFRichTextString("Difference"));
+		firstHeaderRow.createCell(cell++).setCellValue(new HSSFRichTextString("isOk"));
 		firstHeaderRow.createCell(cell++).setCellValue(new HSSFRichTextString("Version1"));
 		firstHeaderRow.createCell(cell++).setCellValue(new HSSFRichTextString("Value1"));
 		firstHeaderRow.createCell(cell++).setCellValue(new HSSFRichTextString("Version2"));
@@ -145,6 +146,7 @@ public class MergeReportGenerator {
 		// not currently needed since we track and report on our context (above)
 		// row.createCell(cell++).setCellValue(new HSSFRichTextString(named.getName()));
 		row.createCell(cell++).setCellValue(new HSSFRichTextString(difference.getType().toString()));
+		row.createCell(cell++).setCellValue(new HSSFRichTextString(difference.isOk() ? "Y" : "N"));
 		for (DifferenceValue value : difference.getDifferences()) {
 			row.createCell(cell++).setCellValue(new HSSFRichTextString(value.getVersion()));
 			row.createCell(cell++).setCellValue(new HSSFRichTextString(value.getValue()));

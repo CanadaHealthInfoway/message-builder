@@ -124,7 +124,7 @@ public class RelationshipMergerTest {
 		Assert.assertEquals("aDefault", result.getDefaultValue());
 		Assert.assertEquals(3, result.getDifferences().size()); // name difference is a true error and should not log a difference
 		Assert.assertEquals(primaryDoc, result.getDocumentation());
-		Assert.assertEquals("ActCode", result.getDomainType());
+		Assert.assertEquals("Code", result.getDomainType());
 		Assert.assertEquals("aFixedValue", result.getFixedValue());
 		Assert.assertEquals(Integer.valueOf(1), result.getLength());
 		Assert.assertEquals("aName", result.getName());

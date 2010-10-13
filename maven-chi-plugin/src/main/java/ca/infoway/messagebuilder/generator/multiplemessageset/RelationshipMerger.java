@@ -131,8 +131,9 @@ class RelationshipMerger implements Merger<Relationship> {
 					return clazz.getSimpleName();
 				}
 			}
+			// register the difference, but go with the generic Code type
 			this.mergeHelper.addDifference(this.context, this.result, DifferenceType.RELATIONSHIP_DOMAIN_TYPES_INCOMPATIBLE, domainType, domainType2);
-			return null;
+			return Code.class.getSimpleName();
 		}
 	}
 
