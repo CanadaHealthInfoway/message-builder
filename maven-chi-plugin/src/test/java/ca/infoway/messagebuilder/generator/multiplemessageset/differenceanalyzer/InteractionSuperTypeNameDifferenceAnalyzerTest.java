@@ -36,16 +36,16 @@ public class InteractionSuperTypeNameDifferenceAnalyzerTest {
 	public void shouldProperlyAcceptOrRejectMessageSuperTypes() {
 		testDifference(MESSAGE_0100, MESSAGE_0100, true);		
 		testDifference(MESSAGE_0100, MESSAGE_0200, false);		
-		testDifference(MESSAGE_0100, MESSAGE_0300, false);		
+		testDifference(MESSAGE_0100, MESSAGE_0300, true);		
 		testDifference(MESSAGE_0100, MESSAGE_2100, true);		
 		testDifference(MESSAGE_0100, MESSAGE_2200, false);		
-		testDifference(MESSAGE_0100, MESSAGE_2300, false);
+		testDifference(MESSAGE_0100, MESSAGE_2300, true);
 		
 		testDifference(MESSAGE_0200, MESSAGE_0100, false);		
-		testDifference(MESSAGE_0300, MESSAGE_0100, false);		
+		testDifference(MESSAGE_0300, MESSAGE_0100, true);		
 		testDifference(MESSAGE_2100, MESSAGE_0100, true);		
 		testDifference(MESSAGE_2200, MESSAGE_0100, false);		
-		testDifference(MESSAGE_2300, MESSAGE_0100, false);
+		testDifference(MESSAGE_2300, MESSAGE_0100, true);
 		
 		testDifference(MESSAGE_0200, MESSAGE_0200, true);		
 		testDifference(MESSAGE_0200, MESSAGE_0300, false);		
@@ -59,20 +59,20 @@ public class InteractionSuperTypeNameDifferenceAnalyzerTest {
 		testDifference(MESSAGE_2300, MESSAGE_0200, false);
 		
 		testDifference(MESSAGE_0300, MESSAGE_0300, true);		
-		testDifference(MESSAGE_0300, MESSAGE_2100, false);		
+		testDifference(MESSAGE_0300, MESSAGE_2100, true);		
 		testDifference(MESSAGE_0300, MESSAGE_2200, false);		
 		testDifference(MESSAGE_0300, MESSAGE_2300, true);
 		
-		testDifference(MESSAGE_2100, MESSAGE_0300, false);		
+		testDifference(MESSAGE_2100, MESSAGE_0300, true);		
 		testDifference(MESSAGE_2200, MESSAGE_0300, false);		
 		testDifference(MESSAGE_2300, MESSAGE_0300, true);		
 		
 		testDifference(MESSAGE_2100, MESSAGE_2100, true);		
 		testDifference(MESSAGE_2100, MESSAGE_2200, false);		
-		testDifference(MESSAGE_2100, MESSAGE_2300, false);
+		testDifference(MESSAGE_2100, MESSAGE_2300, true);
 		
 		testDifference(MESSAGE_2200, MESSAGE_2100, false);		
-		testDifference(MESSAGE_2300, MESSAGE_2100, false);		
+		testDifference(MESSAGE_2300, MESSAGE_2100, true);		
 		
 		testDifference(MESSAGE_2200, MESSAGE_2200, true);		
 		testDifference(MESSAGE_2200, MESSAGE_2300, false);
