@@ -6,6 +6,7 @@ import java.util.List;
 import org.apache.commons.lang.StringUtils;
 
 import ca.infoway.messagebuilder.Code;
+import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.generator.util.DomainRegistry;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7DataTypeName;
 import ca.infoway.messagebuilder.marshalling.hl7.parser.ElementParser;
@@ -21,15 +22,17 @@ class RelationshipMerger implements Merger<Relationship> {
 
 	private final MergeContext context;
 	private final DocumentationMerger documentationMerger;
+	private final RelationshipsMerger choicesMerger;
 	private final MessageSetMergeHelper mergeHelper;
 	private Relationship result;
 
 	RelationshipMerger(MergeContext context) {
-		this(context, new DocumentationMerger(context));
+		this(context, new RelationshipsMerger(context, true), new DocumentationMerger(context));
 	}
 
-	RelationshipMerger(MergeContext context, DocumentationMerger documentationMerger) {
+	RelationshipMerger(MergeContext context, RelationshipsMerger relationshipsMerger, DocumentationMerger documentationMerger) {
 		this.context = context;
+		this.choicesMerger = relationshipsMerger;
 		this.documentationMerger = documentationMerger;
 		this.mergeHelper = new MessageSetMergeHelper();
 	}
@@ -66,9 +69,15 @@ class RelationshipMerger implements Merger<Relationship> {
 		}
 	}
 
+	// TODO - TM - perhaps log some differences here when appropriate? 
 	private void mergeChoices(List<Relationship> choices, List<Relationship> choices2) {
-		// FIXME - TM - implement in a later story
-		this.result.getChoices().addAll(choices);
+		List<Relationship> mergedChoices = this.choicesMerger.merge(choices, choices2);
+		
+		if (mergedChoices.size() != choices.size() || mergedChoices.size() != choices2.size()) {
+			this.context.logInfo(this.context.getCurrentMessagePart() + "has mismatching choices");
+		}
+		
+		this.result.getChoices().addAll(mergedChoices);
 	}
 
 	private void mergeCodingStrength(CodingStrength codingStrength, CodingStrength codingStrength2) {
@@ -115,7 +124,7 @@ class RelationshipMerger implements Merger<Relationship> {
 		Class<?> type2 = DomainRegistry.getInstance().getDomainType(domainType2);
 		if (type == null || type2 == null) {
 			this.mergeHelper.addDifference(this.context, this.result, DifferenceType.RELATIONSHIP_ONE_OR_BOTH_DOMAIN_TYPES_NOT_IN_SYSTEM, domainType, domainType2);
-			return null;
+			return Code.class.getSimpleName();
 		} else if (type.isAssignableFrom(type2)) {
 			this.context.logInfo("Merged domain type to a compatible type: " + domainType + "/" + domainType2 + " to " + domainType);
 			return domainType;
@@ -207,12 +216,13 @@ class RelationshipMerger implements Merger<Relationship> {
 			// first check to see if the types are straight-up compatible 
 			if (elementParser1.equals(elementParser2)) {
 				result = type;
-			} else if (isCollection(type) || isCollection(type2)) {
+			} else if (StandardDataType.isSetOrList(type) || StandardDataType.isSetOrList(type2)) {
 				// check if one is a list or a set, but otherwise compatible
 				result = checkCollectionCompatibility(type, type2);
-//			} else if (isInterval(type) && isInterval(type2)) {
-//				// can we handle IVL vs non-IVL here?
-//				result = checkIntervalCompatibility(type, type2);
+			} else if (StandardDataType.getByTypeName(type).isCoded() && StandardDataType.getByTypeName(type2).isCoded()) {
+				result = StandardDataType.CV.getType();
+			} else if (isInterval(type) || isInterval(type2)) {
+				result = checkIntervalCompatibility(type, type2);
 			}
 		}
 		return result;
@@ -231,38 +241,33 @@ class RelationshipMerger implements Merger<Relationship> {
 		ElementParser elementParser2 = ParserRegistry.getInstance().get(parameterizedType2);
 		String result = null;
 		if (elementParser1 != null && elementParser2 != null && elementParser1.equals(elementParser2)) {
-			result = isCollection(type) ? type : type2;
+			result = StandardDataType.isSetOrList(type) ? type : type2;
 			this.context.logInfo("Determined compatible types when one (or both) was a collection: " + type + "/" + type2 + " [" + result + "]");
 		}
 		return result;
 	}
 
-//	// TODO - TM - this is not currently necessary
-//	private String checkIntervalCompatibility(String type, String type2) {
-//		String parameterizedType1 = isInterval(type) ? Hl7DataTypeName.getParameterizedType(type) : type;
-//		if (StringUtils.isBlank(parameterizedType1)) {
-//			parameterizedType1 = type;
-//		}
-//		String parameterizedType2 = isInterval(type2) ? Hl7DataTypeName.getParameterizedType(type2) : type2;
-//		if (StringUtils.isBlank(parameterizedType2)) {
-//			parameterizedType2 = type2;
-//		}
-//		ElementParser elementParser1 = ParserRegistry.getInstance().get(parameterizedType1);
-//		ElementParser elementParser2 = ParserRegistry.getInstance().get(parameterizedType2);
-//		String result = null;
-//		if (elementParser1 != null && elementParser2 != null && elementParser1.equals(elementParser2)) {
-//			result = isInterval(type) ? type : type2;
-//			this.context.logInfo("Determined compatible types when one (or both) was an interval: " + type + "/" + type2 + " [" + result + "]");
-//		}
-//		return result;
-//	}
-
-	private boolean isCollection(String type) {
-		return type.startsWith("LIST") || type.startsWith("SET");
+	private String checkIntervalCompatibility(String type, String type2) {
+		String parameterizedType1 = isInterval(type) ? Hl7DataTypeName.getParameterizedType(type) : type;
+		if (StringUtils.isBlank(parameterizedType1)) {
+			parameterizedType1 = type;
+		}
+		String parameterizedType2 = isInterval(type2) ? Hl7DataTypeName.getParameterizedType(type2) : type2;
+		if (StringUtils.isBlank(parameterizedType2)) {
+			parameterizedType2 = type2;
+		}
+		ElementParser elementParser1 = ParserRegistry.getInstance().get(parameterizedType1);
+		ElementParser elementParser2 = ParserRegistry.getInstance().get(parameterizedType2);
+		String result = null;
+		if (elementParser1 != null && elementParser2 != null && elementParser1.equals(elementParser2)) {
+			result = isInterval(type) ? type : type2;
+			this.context.logInfo("Determined compatible types when one (or both) was an interval: " + type + "/" + type2 + " [" + result + "]");
+		}
+		return result;
 	}
 
-//	private boolean isInterval(String type) {
-//		return type.startsWith("IVL");
-//	}
+	private boolean isInterval(String type) {
+		return type.startsWith("IVL");
+	}
 
 }

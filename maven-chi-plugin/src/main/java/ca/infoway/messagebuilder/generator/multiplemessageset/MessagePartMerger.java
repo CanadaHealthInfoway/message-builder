@@ -1,8 +1,6 @@
 package ca.infoway.messagebuilder.generator.multiplemessageset;
 
-import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -17,18 +15,18 @@ class MessagePartMerger implements Merger<MessagePart> {
 
 	private final DocumentationMerger documentationMerger;
 	private final MessageSetMergeHelper mergeHelper;
-	private final RelationshipMerger relationshipMerger;
+	private final RelationshipsMerger relationshipsMerger;
 	private final MergeContext context;
 	private MessagePart result;
 
 	MessagePartMerger(MergeContext context) {
-		this(context, new DocumentationMerger(context), new RelationshipMerger(context));
+		this(context, new DocumentationMerger(context), new RelationshipsMerger(context, false));
 	}
 	
-	MessagePartMerger(MergeContext context, DocumentationMerger documentationMerger, RelationshipMerger relationshipMerger) {
+	MessagePartMerger(MergeContext context, DocumentationMerger documentationMerger, RelationshipsMerger relationshipsMerger) {
 		this.context = context;
 		this.documentationMerger = documentationMerger;
-		this.relationshipMerger = relationshipMerger;
+		this.relationshipsMerger = relationshipsMerger;
 		this.mergeHelper = new MessageSetMergeHelper();
 	}
 
@@ -48,6 +46,11 @@ class MessagePartMerger implements Merger<MessagePart> {
 		return this.result;
 	}
 
+	private void mergeRelationships(List<Relationship> relationships, List<Relationship> relationships2) {
+		List<Relationship> mergedRelationships = this.relationshipsMerger.merge(relationships, relationships2);
+		this.result.setRelationships(mergedRelationships);
+	}
+
 	private void mergeAbstract(boolean abstract1, boolean abstract2) {
 		if (abstract1 != abstract2) {
 			this.mergeHelper.addDifference(this.context, this.result, DifferenceType.MESSAGE_PART_ABSTRACT, ""+abstract1, ""+abstract2);
@@ -55,32 +58,13 @@ class MessagePartMerger implements Merger<MessagePart> {
 		this.result.setAbstract(abstract1 || abstract2);
 	}
 
+	// TODO - TM - perhaps log some differences here when appropriate? 
 	private void mergeSpecializationChilds(List<String> specializationChilds1, List<String> specializationChilds2) {
 		// can we really just merge this list? seems like it should be ok
 		Set<String> resultSet = new TreeSet<String>(); 
 		resultSet.addAll(specializationChilds1);
 		resultSet.addAll(specializationChilds2);
 		this.result.getSpecializationChilds().addAll(resultSet);
-	}
-
-	private void mergeRelationships(List<Relationship> relationships1, List<Relationship> relationships2) {
-		// hmmm - will order matter? Likely not, as we will only be using this merged messageset for api generation, not to produce a message or for validation 
-		Map<String, Relationship> relationships2Map = new LinkedHashMap<String, Relationship>();
-		for (Relationship relationship : relationships2) {
-			relationships2Map.put(relationship.getName(), relationship);
-		}
-		
-		for (Relationship relationship1 : relationships1) {
-			Relationship relationship2 = relationships2Map.remove(relationship1.getName());
-			Relationship mergedRelationship = this.relationshipMerger.merge(relationship1, relationship2);
-			this.result.getRelationships().add(mergedRelationship);
-		}
-		
-		for (Relationship relationship : relationships2Map.values()) {
-			Relationship mergedRelationship = this.relationshipMerger.merge(null, relationship);
-			this.result.getRelationships().add(mergedRelationship);
-		}
-		
 	}
 
 	private void mergeDocumentation(Documentation documentation1, Documentation documentation2) {
