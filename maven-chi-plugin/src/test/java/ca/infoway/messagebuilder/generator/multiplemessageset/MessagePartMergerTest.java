@@ -1,6 +1,7 @@
 package ca.infoway.messagebuilder.generator.multiplemessageset;
 
 import java.util.Arrays;
+import java.util.Collections;
 
 import org.jmock.Expectations;
 import org.jmock.Mockery;
@@ -21,7 +22,7 @@ public class MessagePartMergerTest {
 
 	private MergeContext mergeContext;
 	private DocumentationMerger documentationMerger;
-	private RelationshipMerger relationshipMerger;
+	private RelationshipsMerger relationshipsMerger;
 	private MessagePartMerger merger;
 	
 	private final Mockery jmock = new JUnit4Mockery() {{
@@ -40,8 +41,8 @@ public class MessagePartMergerTest {
 		}});
 
 		this.documentationMerger = this.jmock.mock(DocumentationMerger.class);
-		this.relationshipMerger = this.jmock.mock(RelationshipMerger.class);
-		this.merger = new MessagePartMerger(this.mergeContext, this.documentationMerger, this.relationshipMerger);
+		this.relationshipsMerger = this.jmock.mock(RelationshipsMerger.class);
+		this.merger = new MessagePartMerger(this.mergeContext, this.documentationMerger, this.relationshipsMerger);
 	}
 
 	@Test
@@ -51,6 +52,7 @@ public class MessagePartMergerTest {
 		
 		this.jmock.checking(new Expectations() {{
 			one(documentationMerger).merge(null, null); will(returnValue(null));
+			one(relationshipsMerger).merge(Collections.<Relationship>emptyList(), Collections.<Relationship>emptyList()); will(returnValue(Collections.emptyList()));
 		}});
 
 		result = this.merger.merge(new MessagePart(), new MessagePart());
@@ -62,7 +64,7 @@ public class MessagePartMergerTest {
 		final Documentation documentation = new Documentation();
 		final Relationship relationship = new Relationship();
 		
-		MessagePart messagePart = new MessagePart();
+		final MessagePart messagePart = new MessagePart();
 		messagePart.setAbstract(true);
 		messagePart.setDocumentation(documentation);
 		messagePart.setName("myName");
@@ -71,7 +73,7 @@ public class MessagePartMergerTest {
 		
 		this.jmock.checking(new Expectations() {{
 			one(documentationMerger).merge(documentation, null); will(returnValue(documentation));
-			one(relationshipMerger).merge(relationship,  null); will(returnValue(relationship));
+			one(relationshipsMerger).merge(messagePart.getRelationships(), Collections.<Relationship>emptyList()); will(returnValue(Arrays.asList(relationship)));
 			one(mergeContext).logError(with(any(String.class)));
 		}});
 		
@@ -102,7 +104,7 @@ public class MessagePartMergerTest {
 		final Relationship relationship1 = new Relationship();
 		relationship1.setName("commonName");
 		
-		MessagePart messagePart1 = new MessagePart();
+		final MessagePart messagePart1 = new MessagePart();
 		messagePart1.setAbstract(true);
 		messagePart1.setDocumentation(documentation1);
 		messagePart1.setName("myName");
@@ -113,7 +115,7 @@ public class MessagePartMergerTest {
 		final Relationship relationship2 = new Relationship();
 		relationship2.setName("commonName");
 		
-		MessagePart messagePart2 = new MessagePart();
+		final MessagePart messagePart2 = new MessagePart();
 		messagePart2.setAbstract(true);
 		messagePart2.setDocumentation(documentation2);
 		messagePart2.setName("myName");
@@ -122,7 +124,7 @@ public class MessagePartMergerTest {
 		
 		this.jmock.checking(new Expectations() {{
 			one(documentationMerger).merge(documentation1, documentation2); will(returnValue(documentation1));
-			one(relationshipMerger).merge(relationship1,  relationship2); will(returnValue(relationship1));
+			one(relationshipsMerger).merge(messagePart1.getRelationships(),  messagePart2.getRelationships()); will(returnValue(Arrays.asList(relationship1)));
 		}});
 		
 		MessagePart result = this.merger.merge(messagePart1, messagePart2);
@@ -135,7 +137,7 @@ public class MessagePartMergerTest {
 		
 		this.jmock.checking(new Expectations() {{
 			one(documentationMerger).merge(documentation2, documentation1); will(returnValue(documentation2));
-			one(relationshipMerger).merge(relationship2,  relationship1); will(returnValue(relationship2));
+			one(relationshipsMerger).merge(messagePart2.getRelationships(),  messagePart1.getRelationships()); will(returnValue(Arrays.asList(relationship2)));
 		}});
 		
 		result = this.merger.merge(messagePart2, messagePart1);

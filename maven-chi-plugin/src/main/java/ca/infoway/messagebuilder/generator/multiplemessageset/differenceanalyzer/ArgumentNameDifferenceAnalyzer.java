@@ -2,6 +2,8 @@ package ca.infoway.messagebuilder.generator.multiplemessageset.differenceanalyze
 
 public class ArgumentNameDifferenceAnalyzer extends TrivialDifferenceAnalyzer {
 
+	// indicates argument type has changed
+	
 	public ArgumentNameDifferenceAnalyzer() {
 		super(false);
 	}

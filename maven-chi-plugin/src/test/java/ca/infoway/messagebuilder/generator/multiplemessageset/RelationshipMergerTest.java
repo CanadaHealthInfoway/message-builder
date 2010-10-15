@@ -1,5 +1,7 @@
 package ca.infoway.messagebuilder.generator.multiplemessageset;
 
+import java.util.Collections;
+
 import org.jmock.Expectations;
 import org.jmock.Mockery;
 import org.jmock.integration.junit4.JMock;
@@ -21,6 +23,7 @@ public class RelationshipMergerTest {
 
 	private MergeContext mergeContext;
 	private RelationshipMerger merger;
+	private RelationshipsMerger relationshipsMerger;
 	private DocumentationMerger documentationMerger;
 	
 	private final Mockery jmock = new JUnit4Mockery() {{
@@ -31,6 +34,7 @@ public class RelationshipMergerTest {
 	public void setup() {
 		this.mergeContext = this.jmock.mock(MergeContext.class);
 		this.documentationMerger = this.jmock.mock(DocumentationMerger.class);
+		this.relationshipsMerger = this.jmock.mock(RelationshipsMerger.class);
 		
 		this.jmock.checking(new Expectations() {{
 			allowing(mergeContext).getPrimaryVersion(); will(returnValue("1"));
@@ -41,7 +45,7 @@ public class RelationshipMergerTest {
 			allowing(mergeContext).getCurrentPackageLocation(); will(returnValue("aPackageLocation"));
 		}});
 		
-		this.merger = new RelationshipMerger(this.mergeContext, this.documentationMerger);
+		this.merger = new RelationshipMerger(this.mergeContext, this.relationshipsMerger, this.documentationMerger);
 	}
 
 	@Test
@@ -65,6 +69,7 @@ public class RelationshipMergerTest {
 	public void shoudlHandleEmptyRelationships() {
 		this.jmock.checking(new Expectations() {{
 			one(documentationMerger).merge(null, null); will(returnValue(null));
+			one(relationshipsMerger).merge(Collections.<Relationship>emptyList(), Collections.<Relationship>emptyList()); will(returnValue(Collections.EMPTY_LIST));
 		}});
 
 		Relationship result = this.merger.merge(new Relationship(), new Relationship());
@@ -76,7 +81,7 @@ public class RelationshipMergerTest {
 	public void shoudlMergeRelationships() {
 		final Documentation primaryDoc = new Documentation();
 		
-		Relationship primary = new Relationship();
+		final Relationship primary = new Relationship();
 		primary.setCardinality(new Cardinality(1,1));
 		primary.setCodingStrength(CodingStrength.CNE);
 		primary.setConformance(ConformanceLevel.MANDATORY);
@@ -93,7 +98,7 @@ public class RelationshipMergerTest {
 		
 		final Documentation secondaryDoc = new Documentation();
 
-		Relationship secondary = new Relationship();
+		final Relationship secondary = new Relationship();
 		secondary.setCardinality(new Cardinality(1,10));
 		secondary.setCodingStrength(CodingStrength.CWE);
 		secondary.setConformance(ConformanceLevel.OPTIONAL);
@@ -110,6 +115,7 @@ public class RelationshipMergerTest {
 		
 		this.jmock.checking(new Expectations() {{
 			one(documentationMerger).merge(primaryDoc, secondaryDoc); will(returnValue(primaryDoc));
+			one(relationshipsMerger).merge(primary.getChoices(), secondary.getChoices()); will(returnValue(primary.getChoices()));
 			exactly(4).of(mergeContext).logError(with(any(String.class)));
 		}});
 
@@ -133,4 +139,129 @@ public class RelationshipMergerTest {
 		Assert.assertEquals("aType", result.getType());
 	}
 	
+	@Test
+	public void shoudlMergeDifferentCodedTypes() {
+		final Documentation primaryDoc = new Documentation();
+		
+		final Relationship primary = new Relationship();
+		primary.setCardinality(new Cardinality(1,1));
+		primary.setCodingStrength(CodingStrength.CNE);
+		primary.setConformance(ConformanceLevel.MANDATORY);
+		primary.setDefaultValue("aDefault");
+		primary.setDocumentation(primaryDoc);
+		primary.setDomainType("ActCode");
+		primary.setFixedValue("aFixedValue");
+		primary.setLength(1);
+		primary.setName("aName");
+		primary.setSortOrder(1);
+		primary.setStructural(false);
+		primary.setTemplateParameterName("aParamName");
+		primary.setType("CS");
+		
+		final Documentation secondaryDoc = new Documentation();
+
+		final Relationship secondary = new Relationship();
+		secondary.setCardinality(new Cardinality(1,10));
+		secondary.setCodingStrength(CodingStrength.CWE);
+		secondary.setConformance(ConformanceLevel.OPTIONAL);
+		secondary.setDefaultValue("bDefault");
+		secondary.setDocumentation(secondaryDoc);
+		secondary.setDomainType("AdministrativeGender");
+		secondary.setFixedValue("bFixedValue");
+		secondary.setLength(2);
+		secondary.setName("bName");
+		secondary.setSortOrder(2);
+		secondary.setStructural(true);
+		secondary.setTemplateParameterName("bParamName");
+		secondary.setType("CV");
+		
+		this.jmock.checking(new Expectations() {{
+			one(documentationMerger).merge(primaryDoc, secondaryDoc); will(returnValue(primaryDoc));
+			one(relationshipsMerger).merge(primary.getChoices(), secondary.getChoices()); will(returnValue(primary.getChoices()));
+			exactly(3).of(mergeContext).logError(with(any(String.class)));
+			exactly(1).of(mergeContext).logInfo(with(any(String.class)));
+		}});
+
+		Relationship result = this.merger.merge(primary, secondary);
+		Assert.assertNotNull(result);
+		Assert.assertNotSame(primary, result);
+		Assert.assertNotSame(secondary, result);
+		Assert.assertTrue(result.getCardinality().isMultiple());
+		Assert.assertEquals(primary.getChoices().size(), result.getChoices().size());
+		Assert.assertEquals(CodingStrength.CNE, result.getCodingStrength());
+		Assert.assertEquals(ConformanceLevel.OPTIONAL, result.getConformance());
+		Assert.assertEquals("aDefault", result.getDefaultValue());
+		Assert.assertEquals(2, result.getDifferences().size()); // name difference is a true error and should not log a difference
+		Assert.assertEquals(primaryDoc, result.getDocumentation());
+		Assert.assertEquals("Code", result.getDomainType());
+		Assert.assertEquals("aFixedValue", result.getFixedValue());
+		Assert.assertEquals(Integer.valueOf(1), result.getLength());
+		Assert.assertEquals("aName", result.getName());
+		Assert.assertEquals(1, result.getSortOrder());
+		Assert.assertEquals("aParamName", result.getTemplateParameterName());
+		Assert.assertEquals("CV", result.getType());
+	}
+	
+	@Test
+	public void shoudlMergeIntervalTypeWithNonIntervalType() {
+		final Documentation primaryDoc = new Documentation();
+		
+		final Relationship primary = new Relationship();
+		primary.setCardinality(new Cardinality(1,1));
+		primary.setCodingStrength(CodingStrength.CNE);
+		primary.setConformance(ConformanceLevel.MANDATORY);
+		primary.setDefaultValue("aDefault");
+		primary.setDocumentation(primaryDoc);
+		primary.setDomainType("ActCode");
+		primary.setFixedValue("aFixedValue");
+		primary.setLength(1);
+		primary.setName("aName");
+		primary.setSortOrder(1);
+		primary.setStructural(false);
+		primary.setTemplateParameterName("aParamName");
+		primary.setType("TS.FULLDATE");
+		
+		final Documentation secondaryDoc = new Documentation();
+
+		final Relationship secondary = new Relationship();
+		secondary.setCardinality(new Cardinality(1,10));
+		secondary.setCodingStrength(CodingStrength.CWE);
+		secondary.setConformance(ConformanceLevel.OPTIONAL);
+		secondary.setDefaultValue("bDefault");
+		secondary.setDocumentation(secondaryDoc);
+		secondary.setDomainType("AdministrativeGender");
+		secondary.setFixedValue("bFixedValue");
+		secondary.setLength(2);
+		secondary.setName("bName");
+		secondary.setSortOrder(2);
+		secondary.setStructural(true);
+		secondary.setTemplateParameterName("bParamName");
+		secondary.setType("IVL<TS.FULLDATETIME>");
+		
+		this.jmock.checking(new Expectations() {{
+			one(documentationMerger).merge(primaryDoc, secondaryDoc); will(returnValue(primaryDoc));
+			one(relationshipsMerger).merge(primary.getChoices(), secondary.getChoices()); will(returnValue(primary.getChoices()));
+			exactly(3).of(mergeContext).logError(with(any(String.class)));
+			exactly(2).of(mergeContext).logInfo(with(any(String.class)));
+		}});
+
+		Relationship result = this.merger.merge(primary, secondary);
+		Assert.assertNotNull(result);
+		Assert.assertNotSame(primary, result);
+		Assert.assertNotSame(secondary, result);
+		Assert.assertTrue(result.getCardinality().isMultiple());
+		Assert.assertEquals(primary.getChoices().size(), result.getChoices().size());
+		Assert.assertEquals(CodingStrength.CNE, result.getCodingStrength());
+		Assert.assertEquals(ConformanceLevel.OPTIONAL, result.getConformance());
+		Assert.assertEquals("aDefault", result.getDefaultValue());
+		Assert.assertEquals(2, result.getDifferences().size()); // name difference is a true error and should not log a difference
+		Assert.assertEquals(primaryDoc, result.getDocumentation());
+		Assert.assertEquals("Code", result.getDomainType());
+		Assert.assertEquals("aFixedValue", result.getFixedValue());
+		Assert.assertEquals(Integer.valueOf(1), result.getLength());
+		Assert.assertEquals("aName", result.getName());
+		Assert.assertEquals(1, result.getSortOrder());
+		Assert.assertEquals("aParamName", result.getTemplateParameterName());
+		Assert.assertEquals("IVL<TS.FULLDATETIME>", result.getType());
+	}
 }

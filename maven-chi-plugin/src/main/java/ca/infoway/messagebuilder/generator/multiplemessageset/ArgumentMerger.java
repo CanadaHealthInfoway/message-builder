@@ -14,10 +14,16 @@ import ca.infoway.messagebuilder.xml.Relationship;
 class ArgumentMerger implements Merger<List<Argument>> {
 
 	private final MergeContext context;
+	private final RelationshipsMerger choicesMerger;
 	private MessageSetMergeHelper mergeHelper;
 
 	ArgumentMerger(MergeContext context) {
+		this(context, new RelationshipsMerger(context, true));
+	}
+	
+	ArgumentMerger(MergeContext context, RelationshipsMerger relationshipsMerger) {
 		this.context = context;
+		this.choicesMerger = relationshipsMerger;
 		this.mergeHelper = new MessageSetMergeHelper();
 	}
 
@@ -77,6 +83,9 @@ class ArgumentMerger implements Merger<List<Argument>> {
 	}
 
 	private void mergeTraversalName(Argument result, String traversalName, String traversalName2) {
+		
+		// TODO - TM - might want to ensure that a traversal name difference does not match a traversal name in the same hierarchy-level of argumrnts
+		
 		result.setTraversalName(traversalName);
 		if (!StringUtils.equals(traversalName, traversalName2)) {
 			this.mergeHelper.addDifference(this.context, result, DifferenceType.ARGUMENT_TRAVERSAL_NAME, traversalName, traversalName2);
@@ -84,8 +93,13 @@ class ArgumentMerger implements Merger<List<Argument>> {
 	}
 
 	private void mergeChoices(Argument result, List<Relationship> choices, List<Relationship> choices2) {
-//		FIXME - TM - handle choices in a later story
-		result.getChoices().addAll(choices);
+		List<Relationship> mergedChoices = this.choicesMerger.merge(choices, choices2);
+		
+		if (mergedChoices.size() != choices.size() || mergedChoices.size() != choices2.size()) {
+			this.context.logInfo(this.context.getCurrentInteraction() + "has mismatching choices");
+		}
+		
+		result.getChoices().addAll(mergedChoices);
 	}
 
 }

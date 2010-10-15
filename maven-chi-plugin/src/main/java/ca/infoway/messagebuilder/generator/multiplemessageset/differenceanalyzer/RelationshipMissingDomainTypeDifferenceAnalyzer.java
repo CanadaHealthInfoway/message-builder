@@ -2,10 +2,11 @@ package ca.infoway.messagebuilder.generator.multiplemessageset.differenceanalyze
 
 public class RelationshipMissingDomainTypeDifferenceAnalyzer extends TrivialDifferenceAnalyzer {
 
-	// any case of this difference needs to be investigated for potential MIF errors 
+	// all known instances of this difference has indicated an error in the source MIF(s)
+	// this has been handled substituting (TBD) either the domain type that is present, or Code
 	
 	public RelationshipMissingDomainTypeDifferenceAnalyzer() {
-		super(false);
+		super(true);
 	}
 	
 }
