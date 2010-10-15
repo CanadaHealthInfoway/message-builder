@@ -60,8 +60,7 @@ class InteractionMerger implements Merger<Interaction> {
 		this.result.setDocumentation(mergedDoc);
 	}
 
-	private void mergeArguments(List<Argument> arguments, boolean primaryInteractionNull, 
-			List<Argument> arguments2, boolean secondaryInteractionNull) {
+	private void mergeArguments(List<Argument> arguments, boolean primaryInteractionNull, List<Argument> arguments2, boolean secondaryInteractionNull) {
 		if (primaryInteractionNull) {
 			this.result.setArguments(arguments2);
 		} else if (secondaryInteractionNull) {

@@ -4,6 +4,7 @@ import static ca.infoway.messagebuilder.xml.DifferenceType.ARGUMENT_MISSING;
 import static ca.infoway.messagebuilder.xml.DifferenceType.ARGUMENT_NAME;
 import static ca.infoway.messagebuilder.xml.DifferenceType.ARGUMENT_TEMPLATE_PARAMETER_NAME;
 import static ca.infoway.messagebuilder.xml.DifferenceType.ARGUMENT_TRAVERSAL_NAME;
+import static ca.infoway.messagebuilder.xml.DifferenceType.CHOICE_RELATIONSHIP_MISSING;
 import static ca.infoway.messagebuilder.xml.DifferenceType.CHOICE_RELATIONSHIP_TYPE;
 import static ca.infoway.messagebuilder.xml.DifferenceType.INTERACTION_SUPER_TYPE_NAME;
 import static ca.infoway.messagebuilder.xml.DifferenceType.MESSAGE_PART_ABSTRACT;
@@ -44,6 +45,7 @@ public class DifferenceAnalyzerRegistry {
     	register(RELATIONSHIP_TEMPLATE_PARAMETER_NAME, new RelationshipTemplateParameterNameDifferenceAnalyzer());
     	register(RELATIONSHIP_TYPE, new RelationshipTypeDifferenceAnalyzer());
     	register(CHOICE_RELATIONSHIP_TYPE, new RelationshipTypeDifferenceAnalyzer());
+    	register(CHOICE_RELATIONSHIP_MISSING, new TrivialDifferenceAnalyzer(true));
     }
     
 	private void register(DifferenceType differenceKey, DifferenceAnalyzer differenceAnalyzer) {

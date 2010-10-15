@@ -94,11 +94,6 @@ class ArgumentMerger implements Merger<List<Argument>> {
 
 	private void mergeChoices(Argument result, List<Relationship> choices, List<Relationship> choices2) {
 		List<Relationship> mergedChoices = this.choicesMerger.merge(choices, choices2);
-		
-		if (mergedChoices.size() != choices.size() || mergedChoices.size() != choices2.size()) {
-			this.context.logInfo(this.context.getCurrentInteraction() + "has mismatching choices");
-		}
-		
 		result.getChoices().addAll(mergedChoices);
 	}
 

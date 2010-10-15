@@ -67,6 +67,9 @@ public class MergeReportGenerator {
 				for (Relationship relationship : messagePart.getRelationships()) {
 					this.reportContext.push(relationship.getName());
 					analyzeDifferences(sheet, relationship, relationship);
+					for (Relationship choice : relationship.getChoices()) {
+						analyzeDifferences(sheet, choice, choice);
+					}
 					this.reportContext.pop();
 				}
 				this.reportContext.pop();
@@ -111,6 +114,9 @@ public class MergeReportGenerator {
 		for (Argument argument : arguments) {
 			this.reportContext.push(argument.getName());
 			analyzeDifferences(sheet, argument, argument);
+			for (Relationship choice : argument.getChoices()) {
+				analyzeDifferences(sheet, choice, choice);
+			}
 			processArguments(sheet, argument.getArguments());
 			this.reportContext.pop();
 		}
