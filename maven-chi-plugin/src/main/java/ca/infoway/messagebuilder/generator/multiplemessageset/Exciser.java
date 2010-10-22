@@ -1,6 +1,8 @@
 package ca.infoway.messagebuilder.generator.multiplemessageset;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -23,6 +25,7 @@ import ca.intelliware.commons.dependency.Node;
 public class Exciser {
 
 	private final MessageSet messageSet;
+	private Set<String> removals = Collections.synchronizedSet(new HashSet<String>());
 
 	public Exciser(MessageSet messageSet) {
 		this.messageSet = messageSet;
@@ -87,7 +90,7 @@ public class Exciser {
 	private void removeDependenciesOfComponent(DependencyManager<String> manager, String name) {
 		LayeredGraph<String> layeredGraph = manager.getLayeredGraph();
 		Node<String> node = layeredGraph.getNode(name);
-		
+
 		Set<String> afferentCouplings = node.getAfferentCouplings();
 		for (String afferent : afferentCouplings) {
 			removeComponent(manager, afferent);
@@ -117,7 +120,6 @@ public class Exciser {
 	private void removeComponent(DependencyManager<String> manager, String name) {
 		TypeName typeName = new TypeName(name);
 		if (typeName.isInteraction()) {
-			System.out.println("Removing interaction " + name);
 			this.messageSet.getInteractions().remove(name);
 		} else if (typeName.isRoot()) {
 			this.messageSet.getPackageLocations().remove(name);
@@ -127,7 +129,9 @@ public class Exciser {
 				location.getMessageParts().remove(name);
 			}
 		}
-		removeDependenciesOfComponent(manager, name);
+		if (this.removals.add(name)) {
+			removeDependenciesOfComponent(manager, name);
+		}
 	}
 
 	DependencyManager<String> buildUpDependencyMap() {
