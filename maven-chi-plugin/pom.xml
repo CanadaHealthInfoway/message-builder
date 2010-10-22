@@ -60,6 +60,11 @@
 		    <version>3.6</version>
 		</dependency>
 		<dependency>
+		    <groupId>ca.intelliware.commons</groupId>
+		    <artifactId>dependency</artifactId>
+		    <version>1.2-SNAPSHOT</version>
+		</dependency>
+		<dependency>
 		    <groupId>com.google.collections</groupId>
 		    <artifactId>google-collections</artifactId>
 		</dependency>

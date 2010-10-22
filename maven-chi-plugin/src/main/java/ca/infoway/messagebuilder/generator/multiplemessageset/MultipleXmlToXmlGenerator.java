@@ -56,10 +56,16 @@ public class MultipleXmlToXmlGenerator implements MessageSetGenerator {
 			
 			createMergeReport(mergedMessageSet, new File("/tmp/myReport.xls"));
 			
+			exciseUnmatchedItems(mergedMessageSet);
+			
 			this.outputUI.log(LogLevel.INFO, MESSAGE_SET_MERGE_COMPLETED);
 		}
 	}
 	
+	private void exciseUnmatchedItems(MessageSet messageSet) {
+		new Exciser(messageSet).execute();
+	}
+
 	private void createMergeReport(MessageSet messageSet, File reportFile) throws IOException {
 		new MergeReportGenerator(messageSet, reportFile).create();
 	}
