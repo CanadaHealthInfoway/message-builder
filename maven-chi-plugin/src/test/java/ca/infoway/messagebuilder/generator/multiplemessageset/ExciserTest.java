@@ -65,6 +65,7 @@ public class ExciserTest {
 		assertEquals("interaction layer", 2, map.getLayeredGraph().getLayer("ABCD_IN123456CA"));
 	}
 	
+	@SuppressWarnings("unchecked")
 	@Test
 	public void shouldMarkDependencyInArgument() throws Exception {
 		
@@ -167,6 +168,28 @@ public class ExciserTest {
 		assertNull("interaction", messageSet.getInteractions().get("ABCD_IN123456CA"));
 	}
 
+	@Test
+	public void shouldRemoveAllDependenciesIfWeHaveCyclicDependency() throws Exception {
+		MessageSet messageSet = createInteractionWithArguments();
+		MessagePart location = new MessagePart("ABCD_MT123456CA.Location");
+		MessagePart place = new MessagePart("ABCD_MT123456CA.Place");
+		location.getRelationships().add(new Relationship("place", "ABCD_MT123456CA.Place", Cardinality.create("0-1")));
+		place.getRelationships().add(new Relationship("location", "ABCD_MT123456CA.Location", Cardinality.create("0-1")));
+		
+		messageSet.addMessagePart(location);
+		messageSet.addMessagePart(place);
+		MessagePart parameterList = messageSet.getMessagePart("ABCD_MT123456CA.ParameterList");
+		parameterList.getRelationships().add(new Relationship("location", "ABCD_MT123456CA.Location", Cardinality.create("0-1")));
+		
+		createDifference(messageSet.getPackageLocations().get("ABCD_MT123456CA"));
+		
+		new Exciser(messageSet).execute();
+		
+		assertNull("package location", messageSet.getPackageLocations().get("ABCD_MT123456CA"));
+		assertNull("payload", messageSet.getMessagePart("ABCD_MT123456CA.ParameterList"));
+		assertNull("interaction", messageSet.getInteractions().get("ABCD_IN123456CA"));
+	}
+	
 	private void createDifference(HasDifferences differences) {
 		Difference difference = new Difference();
 		difference.setOk(false);
