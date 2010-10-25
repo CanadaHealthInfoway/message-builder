@@ -79,9 +79,11 @@ public class Exciser {
 	private boolean checkChoicesForOkayness(List<Relationship> choices) {
 		boolean ok = true;
 		for (Relationship relationship : choices) {
-			ok = isAllDifferencesOkay(relationship);
+			ok &= isAllDifferencesOkay(relationship);
 			if (ok) {
 				ok &= checkChoicesForOkayness(relationship.getChoices());
+			} else {
+				break;
 			}
 		}
 		return ok;
@@ -99,10 +101,28 @@ public class Exciser {
 
 	private void removeProblemInteractions(DependencyManager<String> manager) {
 		for (Interaction interaction : new ArrayList<Interaction>(this.messageSet.getInteractions().values())) {
-			if (!isAllDifferencesOkay(interaction)) {
+			boolean ok = isAllDifferencesOkay(interaction);
+			if (ok) {
+				ok = checkArgumentsforOkayness(interaction.getArguments());
+			}
+			if (!ok) {
 				removeComponent(manager, interaction);
 			}
 		}
+	}
+
+	private boolean checkArgumentsforOkayness(List<Argument> arguments) {
+		boolean ok = true;
+		for (Argument argument : arguments) {
+			ok &= isAllDifferencesOkay(argument);
+			if (ok) {
+				ok &= checkArgumentsforOkayness(argument.getArguments());
+			} else {
+				break;
+			}
+			
+		}
+		return ok;
 	}
 
 	private boolean isAllDifferencesOkay(HasDifferences differences) {
@@ -140,6 +160,7 @@ public class Exciser {
 		for (MessagePart messagePart : this.messageSet.getAllMessageParts()) {
 			String name = messagePart.getName();
 			manager.add(name);
+			// we have decided to *not* add the reverse dependency of package location to root type 
 			manager.add(name, new TypeName(name).getParent().getName());
 			
 			for (String child : messagePart.getSpecializationChilds()) {

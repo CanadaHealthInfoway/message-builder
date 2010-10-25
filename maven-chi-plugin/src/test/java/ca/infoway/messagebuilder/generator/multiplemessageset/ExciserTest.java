@@ -144,6 +144,18 @@ public class ExciserTest {
 	}
 	
 	@Test
+	public void shouldRemoveInteractionsWithArgumentDifferences() throws Exception {
+		MessageSet messageSet = createInteractionWithArguments();
+		
+		createDifference(messageSet.getInteractions().get("ABCD_IN123456CA").getArguments().get(0).getArguments().get(0));
+		
+		new Exciser(messageSet).execute();
+		
+		assertNull("interaction", messageSet.getInteractions().get("ABCD_IN123456CA"));
+		assertNotNull("payload", messageSet.getMessagePart("ABCD_MT123456CA.ParameterList"));
+	}
+	
+	@Test
 	public void shouldRemoveAllDependenciesIfWeRemovePayload() throws Exception {
 		MessageSet messageSet = createInteractionWithArguments();
 		
@@ -195,4 +207,39 @@ public class ExciserTest {
 		difference.setOk(false);
 		differences.addDifference(difference);
 	}
+	
+	@Test
+	public void shouldRemoveDependenciesWithChoiceDifference() throws Exception {
+		Relationship choiceNotOk = new Relationship("otherPlace", "ABCD_MT123456CA.OtherPlace", Cardinality.create("0-1"));
+		createDifference(choiceNotOk);
+		
+		Relationship choiceOk = new Relationship("anotherPlace", "ABCD_MT123456CA.AnotherPlace", Cardinality.create("0-1"));
+
+		Relationship rel = new Relationship("place", "ABCD_MT123456CA.Place", Cardinality.create("0-1"));
+		rel.getChoices().add(choiceNotOk);
+		rel.getChoices().add(choiceOk);
+		
+		MessagePart part = new MessagePart("ABCD_MT123456CA.Message");
+		part.getRelationships().add(rel);
+		
+		PackageLocation packageLocation = new PackageLocation("ABCD_MT123456CA");
+		packageLocation.setRootType(part.getName());
+		
+		MessageSet messageSet = new MessageSet();
+		messageSet.getPackageLocations().put("ABCD_MT123456CA", packageLocation);
+		messageSet.addMessagePart(part);
+		
+		Interaction interaction = new Interaction();
+		interaction.setName("ABCD_IN123456CA");
+		interaction.setSuperTypeName("ABCD_MT123456CA.Message");
+		messageSet.getInteractions().put(interaction.getName(), interaction);
+		
+		new Exciser(messageSet).execute();
+		
+		assertNull("interaction", messageSet.getInteractions().get("ABCD_IN123456CA"));
+		// we have decided that leaving an empty package location (or one containing orphaned parts) is acceptable
+		assertNotNull("package location", messageSet.getPackageLocations().get("ABCD_MT123456CA"));
+		assertNull("message part", messageSet.getMessagePart("ABCD_MT123456CA.Message"));
+	}
+	
 }
