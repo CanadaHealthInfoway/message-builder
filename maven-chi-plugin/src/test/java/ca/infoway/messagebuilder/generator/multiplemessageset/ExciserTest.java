@@ -1,6 +1,7 @@
 package ca.infoway.messagebuilder.generator.multiplemessageset;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
@@ -23,7 +24,6 @@ import ca.intelliware.commons.dependency.DependencyManager;
 import ca.intelliware.commons.dependency.Layer;
 import ca.intelliware.commons.dependency.Node;
 
-
 public class ExciserTest {
 	
 	@Test
@@ -37,13 +37,97 @@ public class ExciserTest {
 		MessagePart arm = new MessagePart("ABCD_MT123456CA.Arm");
 		messageSet.addMessagePart(arm);
 		
-		DependencyManager<String> map = new Exciser(messageSet).buildUpDependencyMap();
+		DependencyManager<String> map = new Exciser(messageSet).buildUpDependencyMap().manager;
 		
 		printNodes(map);
 		
 		assertEquals("package", 0, map.getLayeredGraph().getLayer("ABCD_MT123456CA"));
 		assertEquals("arm layer", 1, map.getLayeredGraph().getLayer("ABCD_MT123456CA.Arm"));
 		assertEquals("body layer", 2, map.getLayeredGraph().getLayer("ABCD_MT123456CA.Body"));
+	}
+	
+	@Test
+	public void shouldMarkChoiceDependencyInAssociation() throws Exception {
+		MessageSet messageSet = new MessageSet();
+		messageSet.getPackageLocations().put("ABCD_MT123456CA", new PackageLocation("ABCD_MT123456CA"));
+		MessagePart body = new MessagePart("ABCD_MT123456CA.Body");
+		Relationship relationship = new Relationship("arm", "ABCD_MT123456CA.Arm", Cardinality.create("1"));
+		relationship.getChoices().add(new Relationship("hand", "ABCD_MT123456CA.Hand", Cardinality.create("1")));
+		body.getRelationships().add(relationship);
+		messageSet.addMessagePart(body);
+		MessagePart arm = new MessagePart("ABCD_MT123456CA.Arm");
+		messageSet.addMessagePart(arm);
+		MessagePart hand = new MessagePart("ABCD_MT123456CA.Hand");
+		messageSet.addMessagePart(hand);
+		
+		DependencyManager<String> map = new Exciser(messageSet).buildUpDependencyMap().choiceManager;
+		
+		printNodes(map);
+		
+		assertEquals("hand layer", 0, map.getLayeredGraph().getLayer("ABCD_MT123456CA.Hand"));
+		assertEquals("body layer", 1, map.getLayeredGraph().getLayer("ABCD_MT123456CA.Body"));
+	}
+	
+	@Test
+	public void shouldMarkNestedChoiceDependencyInAssociation() throws Exception {
+		MessageSet messageSet = new MessageSet();
+		messageSet.getPackageLocations().put("ABCD_MT123456CA", new PackageLocation("ABCD_MT123456CA"));
+		
+		Relationship handRelationship = new Relationship("hand", "ABCD_MT123456CA.Hand", Cardinality.create("1"));
+		handRelationship.getChoices().add(new Relationship("finger", "ABCD_MT123456CA.Finger", Cardinality.create("1")));
+		
+		Relationship relationship = new Relationship("arm", "ABCD_MT123456CA.Arm", Cardinality.create("1"));
+		relationship.getChoices().add(handRelationship);
+		
+		MessagePart body = new MessagePart("ABCD_MT123456CA.Body");
+		body.getRelationships().add(relationship);
+		
+		messageSet.addMessagePart(body);
+		MessagePart arm = new MessagePart("ABCD_MT123456CA.Arm");
+		messageSet.addMessagePart(arm);
+		MessagePart hand = new MessagePart("ABCD_MT123456CA.Hand");
+		messageSet.addMessagePart(hand);
+		MessagePart finger = new MessagePart("ABCD_MT123456CA.Finger");
+		messageSet.addMessagePart(finger);
+		
+		DependencyManager<String> map = new Exciser(messageSet).buildUpDependencyMap().choiceManager;
+		
+		printNodes(map);
+		
+		assertEquals("Finger layer", 0, map.getLayeredGraph().getLayer("ABCD_MT123456CA.Finger"));
+		assertEquals("Hand layer", 0, map.getLayeredGraph().getLayer("ABCD_MT123456CA.Hand"));
+		assertEquals("body layer", 1, map.getLayeredGraph().getLayer("ABCD_MT123456CA.Body"));
+	}
+	
+	@Test
+	public void shouldRemoveNestedChoiceDependencyInAssociation() throws Exception {
+		MessageSet messageSet = new MessageSet();
+		messageSet.getPackageLocations().put("ABCD_MT123456CA", new PackageLocation("ABCD_MT123456CA"));
+		
+		Relationship handRelationship = new Relationship("hand", "ABCD_MT123456CA.Hand", Cardinality.create("1"));
+		handRelationship.getChoices().add(new Relationship("finger", "ABCD_MT123456CA.Finger", Cardinality.create("1")));
+		
+		Relationship relationship = new Relationship("arm", "ABCD_MT123456CA.Arm", Cardinality.create("1"));
+		relationship.getChoices().add(handRelationship);
+		
+		MessagePart body = new MessagePart("ABCD_MT123456CA.Body");
+		body.getRelationships().add(relationship);
+		
+		messageSet.addMessagePart(body);
+		MessagePart arm = new MessagePart("ABCD_MT123456CA.Arm");
+		messageSet.addMessagePart(arm);
+		MessagePart hand = new MessagePart("ABCD_MT123456CA.Hand");
+		messageSet.addMessagePart(hand);
+		MessagePart finger = new MessagePart("ABCD_MT123456CA.Finger");
+		messageSet.addMessagePart(finger);
+
+		createDifference(finger);
+		
+		assertFalse("finger choice exists", handRelationship.getChoices().isEmpty());
+
+		new Exciser(messageSet).execute();
+		
+		assertTrue("finger choice removed", handRelationship.getChoices().isEmpty());
 	}
 	
 	@Test
@@ -58,7 +142,7 @@ public class ExciserTest {
 		interaction.setSuperTypeName("ABCD_MT123456CA.Message");
 		messageSet.getInteractions().put(interaction.getName(), interaction);
 		
-		DependencyManager<String> map = new Exciser(messageSet).buildUpDependencyMap();
+		DependencyManager<String> map = new Exciser(messageSet).buildUpDependencyMap().manager;
 		
 		assertEquals("package", 0, map.getLayeredGraph().getLayer("ABCD_MT123456CA"));
 		assertEquals("message layer", 1, map.getLayeredGraph().getLayer("ABCD_MT123456CA.Message"));
@@ -71,7 +155,7 @@ public class ExciserTest {
 		
 		MessageSet messageSet = createInteractionWithArguments();
 		
-		DependencyManager<String> map = new Exciser(messageSet).buildUpDependencyMap();
+		DependencyManager<String> map = new Exciser(messageSet).buildUpDependencyMap().manager;
 		
 		printNodes(map);
 		
@@ -86,22 +170,43 @@ public class ExciserTest {
 		assertTrue("depends on payload", node.getEfferentCouplings().contains("ABCD_MT123456CA.ParameterList"));
 	}
 
+	@Test
+	public void shouldMarkChoiceDependenciesInArgument() throws Exception {
+		
+		MessageSet messageSet = createInteractionWithArguments();
+		
+		DependencyManager<String> map = new Exciser(messageSet).buildUpDependencyMap().choiceManager;
+		
+		printNodes(map);
+		
+		assertEquals("choice layer1", 0, map.getLayeredGraph().getLayer("ABCD_MT123456CA.ChoiceType1"));
+		assertEquals("choice layer2", 0, map.getLayeredGraph().getLayer("ABCD_MT123456CA.ChoiceType2"));
+		assertEquals("choice layer3", 0, map.getLayeredGraph().getLayer("ABCD_MT123456CA.ChoiceType3"));
+		assertEquals("interaction layer", 1, map.getLayeredGraph().getLayer("ABCD_IN123456CA"));
+	}
+
 	private MessageSet createInteractionWithArguments() {
 		MessageSet messageSet = new MessageSet();
 		messageSet.getPackageLocations().put("ABCD_MT123456CA", new PackageLocation("ABCD_MT123456CA"));
 		messageSet.addMessagePart(new MessagePart("ABCD_MT123456CA.Message"));
 		messageSet.addMessagePart(new MessagePart("ABCD_MT123456CA.ControlAct"));
 		messageSet.addMessagePart(new MessagePart("ABCD_MT123456CA.ParameterList"));
+		messageSet.addMessagePart(new MessagePart("ABCD_MT123456CA.ChoiceType1"));
+		messageSet.addMessagePart(new MessagePart("ABCD_MT123456CA.ChoiceType2"));
+		messageSet.addMessagePart(new MessagePart("ABCD_MT123456CA.ChoiceType3"));
 		
 		Interaction interaction = new Interaction();
 		interaction.setName("ABCD_IN123456CA");
 		interaction.setSuperTypeName("ABCD_MT123456CA.Message");
 		Argument argument1 = new Argument();
 		argument1.setName("ABCD_MT123456CA.ControlAct");
+		argument1.getChoices().add(new Relationship("choice1", "ABCD_MT123456CA.ChoiceType1", Cardinality.create("1")));
 		interaction.getArguments().add(argument1);
 		
 		Argument argument2 = new Argument();
 		argument2.setName("ABCD_MT123456CA.ParameterList");
+		argument2.getChoices().add(new Relationship("choice1", "ABCD_MT123456CA.ChoiceType2", Cardinality.create("1")));
+		argument2.getChoices().get(0).getChoices().add(new Relationship("choice2", "ABCD_MT123456CA.ChoiceType3", Cardinality.create("1")));
 		argument1.getArguments().add(argument2);
 		messageSet.getInteractions().put(interaction.getName(), interaction);
 		return messageSet;
@@ -124,7 +229,7 @@ public class ExciserTest {
 		MessagePart arm = new MessagePart("ABCD_MT123456CA.Arm");
 		messageSet.addMessagePart(arm);
 		
-		DependencyManager<String> map = new Exciser(messageSet).buildUpDependencyMap();
+		DependencyManager<String> map = new Exciser(messageSet).buildUpDependencyMap().manager;
 		
 		assertEquals("package", 0, map.getLayeredGraph().getLayer("ABCD_MT123456CA"));
 		assertEquals("appendage layer", 1, map.getLayeredGraph().getLayer("ABCD_MT123456CA.Appendage"));
@@ -165,6 +270,22 @@ public class ExciserTest {
 		
 		assertNull("interaction", messageSet.getInteractions().get("ABCD_IN123456CA"));
 		assertNull("payload", messageSet.getMessagePart("ABCD_MT123456CA.ParameterList"));
+	}
+	
+	@Test
+	public void shouldRemoveNestedArgumentChoiceIfWeRemoveChoiceType() throws Exception {
+		MessageSet messageSet = createInteractionWithArguments();
+		
+		createDifference(messageSet.getMessagePart("ABCD_MT123456CA.ChoiceType3"));
+		
+		assertFalse("choice", messageSet.getInteractions().get("ABCD_IN123456CA").getArguments().get(0).getArguments().get(0)
+				.getChoices().get(0).getChoices().isEmpty());
+
+		new Exciser(messageSet).execute();
+		
+		assertNull("choice type", messageSet.getInteractions().get("ABCD_MT123456CA.ChoiceType3"));
+		assertTrue("choice", messageSet.getInteractions().get("ABCD_IN123456CA").getArguments().get(0).getArguments().get(0)
+				.getChoices().get(0).getChoices().isEmpty());
 	}
 	
 	@Test
