@@ -24,6 +24,16 @@ import ca.intelliware.commons.dependency.Node;
 
 public class Exciser {
 
+	class DependencyContainer {
+		DependencyManager<String> manager;
+		DependencyManager<String> choiceManager;
+		
+		public DependencyContainer(DependencyManager<String> manager, DependencyManager<String> choiceManager) {
+			this.manager = manager;
+			this.choiceManager = choiceManager;
+		}
+	}
+	
 	private final MessageSet messageSet;
 	private Set<String> removals = Collections.synchronizedSet(new HashSet<String>());
 
@@ -32,29 +42,29 @@ public class Exciser {
 	}
 
 	public void execute() {
-		DependencyManager<String> manager = buildUpDependencyMap();
-		removeProblemDifferences(manager);
+		DependencyContainer dependencies = buildUpDependencyMap();
+		removeProblemDifferences(dependencies);
 	}
 
-	void removeProblemDifferences(DependencyManager<String> manager) {
-		removeProblemInteractions(manager);
-		removeProblemMessageParts(manager);
-		removeProblemPackageLocations(manager);
+	void removeProblemDifferences(DependencyContainer dependencies) {
+		removeProblemInteractions(dependencies);
+		removeProblemMessageParts(dependencies);
+		removeProblemPackageLocations(dependencies);
 	}
 
-	private void removeProblemPackageLocations(DependencyManager<String> manager) {
+	private void removeProblemPackageLocations(DependencyContainer dependencies) {
 		for (PackageLocation location : new ArrayList<PackageLocation>(this.messageSet.getPackageLocations().values())) {
 			if (!isAllDifferencesOkay(location)) {
-				removeComponent(manager, location);
+				removeComponent(dependencies, location);
 			}
 		}
 	}
 
-	private void removeComponent(DependencyManager<String> manager, Named named) {
-		removeComponent(manager, named.getName());
+	private void removeComponent(DependencyContainer dependencies, Named named) {
+		removeComponent(dependencies, named.getName());
 	}
 
-	private void removeProblemMessageParts(DependencyManager<String> manager) {
+	private void removeProblemMessageParts(DependencyContainer dependencies) {
 		for (MessagePart messagePart : this.messageSet.getAllMessageParts()) {
 			boolean ok = isAllDifferencesOkay(messagePart);
 			
@@ -70,8 +80,7 @@ public class Exciser {
 			}
 			
 			if (!ok) {
-				removeComponent(manager, messagePart);
-				removeDependenciesOfComponent(manager, messagePart.getName());
+				removeComponent(dependencies, messagePart);
 			}
 		}
 	}
@@ -89,24 +98,24 @@ public class Exciser {
 		return ok;
 	}
 
-	private void removeDependenciesOfComponent(DependencyManager<String> manager, String name) {
-		LayeredGraph<String> layeredGraph = manager.getLayeredGraph();
+	private void removeDependenciesOfComponent(DependencyContainer dependencies, String name) {
+		LayeredGraph<String> layeredGraph = dependencies.manager.getLayeredGraph();
 		Node<String> node = layeredGraph.getNode(name);
 
 		Set<String> afferentCouplings = node.getAfferentCouplings();
 		for (String afferent : afferentCouplings) {
-			removeComponent(manager, afferent);
+			removeComponent(dependencies, afferent);
 		}
 	}
 
-	private void removeProblemInteractions(DependencyManager<String> manager) {
+	private void removeProblemInteractions(DependencyContainer dependencies) {
 		for (Interaction interaction : new ArrayList<Interaction>(this.messageSet.getInteractions().values())) {
 			boolean ok = isAllDifferencesOkay(interaction);
 			if (ok) {
 				ok = checkArgumentsforOkayness(interaction.getArguments());
 			}
 			if (!ok) {
-				removeComponent(manager, interaction);
+				removeComponent(dependencies, interaction);
 			}
 		}
 	}
@@ -137,7 +146,7 @@ public class Exciser {
 		return ok;
 	}
 
-	private void removeComponent(DependencyManager<String> manager, String name) {
+	private void removeComponent(DependencyContainer dependencies, String name) {
 		TypeName typeName = new TypeName(name);
 		if (typeName.isInteraction()) {
 			this.messageSet.getInteractions().remove(name);
@@ -150,12 +159,75 @@ public class Exciser {
 			}
 		}
 		if (this.removals.add(name)) {
-			removeDependenciesOfComponent(manager, name);
+			removeDependenciesOfComponent(dependencies, name);
+			removeChoiceDependenciesOfComponent(dependencies, name);
 		}
 	}
 
-	DependencyManager<String> buildUpDependencyMap() {
+	private void removeChoiceDependenciesOfComponent(DependencyContainer dependencies, String name) {
+		LayeredGraph<String> layeredGraph = dependencies.choiceManager.getLayeredGraph();
+		Node<String> node = layeredGraph.getNode(name);
+		
+		if (node != null) {
+			Set<String> afferentCouplings = node.getAfferentCouplings();
+			for (String afferent : afferentCouplings) {
+				removeChoiceReference(name, afferent);
+			}
+		}
+	}
+
+	private void removeChoiceReference(String name, String afferent) {
+		TypeName typeName = new TypeName(afferent);
+		if (typeName.isInteraction()) {
+			Interaction interaction = this.messageSet.getInteractions().get(afferent);
+			if (interaction != null) {
+				removeChoiceComponentFromArguments(name, interaction.getArguments());
+			}
+		} else {
+			MessagePart messagePart = this.messageSet.getMessagePart(afferent);
+			if (messagePart != null) {
+				removeChoiceReferenceFromMessagePart(name, messagePart);
+			}
+		}
+	}
+
+	private void removeChoiceReferenceFromMessagePart(String name, MessagePart messagePart) {
+		if (messagePart.isAbstract()) {
+			List<String> specializationChilds = messagePart.getSpecializationChilds();
+			for (String child : new ArrayList<String>(specializationChilds)) {
+				if (StringUtils.equals(name, child)) {
+					specializationChilds.remove(child);
+				}
+			}
+		} else {
+			for (Relationship relationship : messagePart.getRelationships()) {
+				List<Relationship> choices = relationship.getChoices();
+				removeMatchingChoices(name, choices);
+			}
+		}
+	}
+
+	private void removeChoiceComponentFromArguments(String name, List<Argument> arguments) {
+		for (Argument argument : arguments) {
+			removeMatchingChoices(name, argument.getChoices());
+			removeChoiceComponentFromArguments(name, argument.getArguments());
+		}
+	}
+
+	private void removeMatchingChoices(String name, List<Relationship> choices) {
+		for (Relationship choice : new ArrayList<Relationship>(choices)) {
+			if (StringUtils.equals(name, choice.getType())) {
+				choices.remove(choice);
+			} else {
+				removeMatchingChoices(name, choice.getChoices());
+			}
+		}
+	}
+
+	DependencyContainer buildUpDependencyMap() {
 		DependencyManager<String> manager = new DependencyManager<String>();
+		DependencyManager<String> choiceManager = new DependencyManager<String>();
+		DependencyContainer dependencies = new DependencyContainer(manager, choiceManager);
 		
 		for (MessagePart messagePart : this.messageSet.getAllMessageParts()) {
 			String name = messagePart.getName();
@@ -165,28 +237,39 @@ public class Exciser {
 			
 			for (String child : messagePart.getSpecializationChilds()) {
 				manager.add(child, name);
+				choiceManager.add(name, child);
 			}
 			
 			for (Relationship relationship : messagePart.getRelationships()) {
 				if (relationship.isAssociation() 
 						&& StringUtils.isNotBlank(relationship.getType())) {
 					manager.add(name, relationship.getType());
+					List<Relationship> choices = relationship.getChoices();
+					buildChoiceDependencies(choiceManager, name, choices);
 				}
 			}
 		}
 		
 		for (Interaction interaction : this.messageSet.getInteractions().values()) {
 			manager.add(interaction.getName(), interaction.getSuperTypeName());
-			addArguments(manager, interaction, interaction.getArguments());
+			addArguments(dependencies, interaction, interaction.getArguments());
 		}
 		
-		return manager;
+		return dependencies;
 	}
 
-	private void addArguments(DependencyManager<String> manager, Interaction interaction, List<Argument> arguments) {
+	private void buildChoiceDependencies(DependencyManager<String> choiceManager, String name, List<Relationship> choices) {
+		for (Relationship choice : choices) {
+			choiceManager.add(name, choice.getType());
+			buildChoiceDependencies(choiceManager, name, choice.getChoices());
+		}
+	}
+
+	private void addArguments(DependencyContainer dependencies, Interaction interaction, List<Argument> arguments) {
 		for (Argument argument : arguments) {
-			manager.add(interaction.getName(), argument.getName());
-			addArguments(manager, interaction, argument.getArguments());
+			dependencies.manager.add(interaction.getName(), argument.getName());
+			addArguments(dependencies, interaction, argument.getArguments());
+			buildChoiceDependencies(dependencies.choiceManager, interaction.getName(), argument.getChoices());
 		}
 	}
 }

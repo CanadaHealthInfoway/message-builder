@@ -2,10 +2,10 @@ package ca.infoway.messagebuilder.generator.multiplemessageset.differenceanalyze
 
 public class ArgumentTemplateParameterNameDifferenceAnalyzer extends TrivialDifferenceAnalyzer {
 
-	// unsure if this kind of difference is ok or not; leave as isOk=false
+	// unsure if this kind of difference is ok or not; BC says ok, so leave as isOk=true
 	
 	public ArgumentTemplateParameterNameDifferenceAnalyzer() {
-		super(false);
+		super(true);
 	}
 
 }
