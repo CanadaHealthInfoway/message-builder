@@ -3,6 +3,7 @@ package ca.infoway.messagebuilder.generator.multiplemessageset;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.List;
 import java.util.Stack;
 
 import org.apache.commons.io.IOUtils;
@@ -48,28 +49,35 @@ public class MergeReportGenerator {
 
 	HSSFWorkbook createReportWorkbook() {
 		HSSFWorkbook workbook = new HSSFWorkbook();
-		HSSFSheet sheet = workbook.createSheet("Difference Analysis");
-		createHeaderRows(sheet);
+		
+		HSSFSheet interactionOkSheet = workbook.createSheet("Interactions - Minor differences");
+		HSSFSheet interactionNotOkSheet = workbook.createSheet("Interactions - Major Differences");
+		HSSFSheet otherOkSheet = workbook.createSheet("Non-Interactions - Minor Differences");
+		HSSFSheet otherNotOkSheet = workbook.createSheet("Non-Interactions - Major Differences");
+		
+		createInteractionHeaderRows(interactionOkSheet);
+		createInteractionHeaderRows(interactionNotOkSheet);
+		createOtherHeaderRows(otherOkSheet);
+		createOtherHeaderRows(otherNotOkSheet);
 
 		for (Interaction interaction : this.messageSet.getInteractions().values()) {
 			this.reportContext.push(interaction.getName());
-			analyzeDifferences(sheet, interaction, interaction);
-			processArguments(sheet, interaction.getArguments());
+			analyzeDifferences(interactionOkSheet, interactionNotOkSheet, interaction, interaction);
+			processArguments(interactionOkSheet, interactionNotOkSheet, interaction.getArguments());
 			this.reportContext.pop();
 		}
 		
 		for (PackageLocation packageLocation : this.messageSet.getPackageLocations().values()) {
 			this.reportContext.push(packageLocation.getName());
-			analyzeDifferences(sheet, packageLocation, packageLocation);
+			analyzeDifferences(otherOkSheet, otherNotOkSheet, packageLocation, packageLocation);
 			for (MessagePart messagePart : packageLocation.getMessageParts().values()) {
 				this.reportContext.push(messagePart.getName());
-				analyzeDifferences(sheet, messagePart, messagePart);
+				analyzeDifferences(otherOkSheet, otherNotOkSheet, messagePart, messagePart);
 				for (Relationship relationship : messagePart.getRelationships()) {
 					this.reportContext.push(relationship.getName());
-					analyzeDifferences(sheet, relationship, relationship);
-					for (Relationship choice : relationship.getChoices()) {
-						analyzeDifferences(sheet, choice, choice);
-					}
+					analyzeDifferences(otherOkSheet, otherNotOkSheet, relationship, relationship);
+					List<Relationship> choices = relationship.getChoices();
+					processChoices(otherOkSheet, otherNotOkSheet, choices);
 					this.reportContext.pop();
 				}
 				this.reportContext.pop();
@@ -77,22 +85,46 @@ public class MergeReportGenerator {
 			this.reportContext.pop();
 		}
 		
-		adjustColumnWidths(sheet);
+		adjustColumnWidths(interactionOkSheet, interactionNotOkSheet, otherOkSheet, otherNotOkSheet);
 		return workbook;
 	}
 
-	private void adjustColumnWidths(HSSFSheet sheet) {
-		for (int i = 0; i < 9; i++) {
-			sheet.autoSizeColumn(i);
+	private void processChoices(HSSFSheet okSheet, HSSFSheet notOkSheet, List<Relationship> choices) {
+		for (Relationship choice : choices) {
+			analyzeDifferences(okSheet, notOkSheet, choice, choice);
+			processChoices(okSheet, notOkSheet, choice.getChoices());
 		}
 	}
 
-	private void createHeaderRows(HSSFSheet sheet) {
+	private void adjustColumnWidths(HSSFSheet... sheet) {
+		for (int i = 0; i < sheet.length; i++) {
+			for (int j = 0; j < 9; j++) {
+				sheet[i].autoSizeColumn(j);
+			}
+		}
+	}
+
+	private void createInteractionHeaderRows(HSSFSheet sheet) {
 		int cell = 0;
 		HSSFRow firstHeaderRow = getNextRow(sheet);
 		firstHeaderRow.createCell(cell++).setCellValue(new HSSFRichTextString("Interaction"));
 		firstHeaderRow.createCell(cell++).setCellValue(new HSSFRichTextString("Argument"));
 		firstHeaderRow.createCell(cell++).setCellValue(new HSSFRichTextString("Nested Argument"));
+		
+		createStandardHeaders(sheet, cell, firstHeaderRow);
+	}
+
+	private void createOtherHeaderRows(HSSFSheet sheet) {
+		int cell = 0;
+		HSSFRow firstHeaderRow = getNextRow(sheet);
+		firstHeaderRow.createCell(cell++).setCellValue(new HSSFRichTextString("Package Location"));
+		firstHeaderRow.createCell(cell++).setCellValue(new HSSFRichTextString("Message Part"));
+		firstHeaderRow.createCell(cell++).setCellValue(new HSSFRichTextString("Relationship"));
+		
+		createStandardHeaders(sheet, cell, firstHeaderRow);
+	}
+
+	private void createStandardHeaders(HSSFSheet sheet, int cell, HSSFRow firstHeaderRow) {
 		firstHeaderRow.createCell(cell++).setCellValue(new HSSFRichTextString("Difference"));
 		firstHeaderRow.createCell(cell++).setCellValue(new HSSFRichTextString("isOk"));
 		firstHeaderRow.createCell(cell++).setCellValue(new HSSFRichTextString("Version1"));
@@ -100,33 +132,25 @@ public class MergeReportGenerator {
 		firstHeaderRow.createCell(cell++).setCellValue(new HSSFRichTextString("Version2"));
 		firstHeaderRow.createCell(cell++).setCellValue(new HSSFRichTextString("Value2"));
 		
-		cell = 0;
-		HSSFRow secondHeaderRow = getNextRow(sheet);
-		secondHeaderRow.createCell(cell++).setCellValue(new HSSFRichTextString("Package Location"));
-		secondHeaderRow.createCell(cell++).setCellValue(new HSSFRichTextString("Message Part"));
-		secondHeaderRow.createCell(cell++).setCellValue(new HSSFRichTextString("Relationship"));
-		
 		// empty row
 		getNextRow(sheet);
 	}
 
-	private void processArguments(HSSFSheet sheet, Iterable<Argument> arguments) {
+	private void processArguments(HSSFSheet okSheet, HSSFSheet notOkSheet, Iterable<Argument> arguments) {
 		for (Argument argument : arguments) {
 			this.reportContext.push(argument.getName());
-			analyzeDifferences(sheet, argument, argument);
-			for (Relationship choice : argument.getChoices()) {
-				analyzeDifferences(sheet, choice, choice);
-			}
-			processArguments(sheet, argument.getArguments());
+			analyzeDifferences(okSheet, notOkSheet, argument, argument);
+			processChoices(okSheet, notOkSheet, argument.getChoices());
+			processArguments(okSheet, notOkSheet, argument.getArguments());
 			this.reportContext.pop();
 		}
 	}
 
-	private void analyzeDifferences(HSSFSheet sheet, Named named, HasDifferences different) {
+	private void analyzeDifferences(HSSFSheet okSheet, HSSFSheet notOkSheet, Named named, HasDifferences different) {
 		for (Difference difference : different.getDifferences()) {
 			DifferenceAnalyzer analyzer = getDifferenceAnalyzer(difference);
 			analyzer.analyze(difference);
-			writeDifference(getNextRow(sheet), named, difference);
+			writeDifference(getNextRow(difference.isOk() ? okSheet : notOkSheet), named, difference);
 		}
 	}
 
