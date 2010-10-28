@@ -11,8 +11,7 @@ import org.simpleframework.xml.ElementList;
 import org.simpleframework.xml.Namespace;
 import org.simpleframework.xml.Root;
 
-import ca.infoway.messagebuilder.Named;
-import ca.infoway.messagebuilder.Typed;
+import ca.infoway.messagebuilder.NamedAndTyped;
 import ca.infoway.messagebuilder.lang.EnumPattern;
 
 /**
@@ -30,7 +29,7 @@ import ca.infoway.messagebuilder.lang.EnumPattern;
  * @author <a href="http://www.intelliware.ca/">Intelliware Development</a>
  */
 @Root
-public class Relationship extends ChoiceSupport implements Documentable, Typed, HasDifferences, Named {
+public class Relationship extends ChoiceSupport implements Documentable, HasDifferences, NamedAndTyped {
 
 	@Attribute
 	private String name;
