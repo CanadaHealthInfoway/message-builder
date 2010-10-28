@@ -43,8 +43,8 @@ public class MergeReportGeneratorTest {
 		assertNotNull("workbook", workbook);
 		assertTrue("has work sheet", workbook.getNumberOfSheets() > 0);
 		
-		assertCellValueEquals("cell A1", "INTERACTION_SUPER_TYPE_NAME", workbook.getSheetAt(0), 3, 3);
-		assertCellValueEquals("cell A2", "INTERACTION_SUPER_TYPE_NAME", workbook.getSheetAt(0), 4, 3);
+		assertCellValueEquals("cell A1", "INTERACTION_SUPER_TYPE_NAME", workbook.getSheetAt(1), 2, 3);
+		assertCellValueEquals("cell A2", "INTERACTION_SUPER_TYPE_NAME", workbook.getSheetAt(1), 3, 3);
 	}
 
 	@Test
@@ -59,8 +59,8 @@ public class MergeReportGeneratorTest {
 		assertNotNull("workbook", workbook);
 		assertTrue("has work sheet", workbook.getNumberOfSheets() > 0);
 		
-		assertCellValueEquals("cell A1", "ARGUMENT_NAME", workbook.getSheetAt(0), 3, 3);
-		assertCellValueEquals("cell A2", "ARGUMENT_NAME", workbook.getSheetAt(0), 4, 3);
+		assertCellValueEquals("cell A1", "ARGUMENT_NAME", workbook.getSheetAt(1), 2, 3);
+		assertCellValueEquals("cell A2", "ARGUMENT_NAME", workbook.getSheetAt(1), 3, 3);
 	}
 	
 	private void createInteractionWithSuperTypeDifference(String interactionId) {
