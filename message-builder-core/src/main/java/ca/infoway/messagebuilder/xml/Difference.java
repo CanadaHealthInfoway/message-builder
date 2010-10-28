@@ -24,7 +24,6 @@ public class Difference {
 	@ElementList(inline=true, required=false)
 	private List<DifferenceValue> differences = new ArrayList<DifferenceValue>();
 	
-	
 	/**
 	 * A field indicating what kind of difference is being reported.
 	 * 

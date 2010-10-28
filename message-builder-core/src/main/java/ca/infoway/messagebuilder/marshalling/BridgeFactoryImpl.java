@@ -56,7 +56,7 @@ class BridgeFactoryImpl implements BridgeFactory {
 			Interaction interaction, MessagePartHolder currentMessagePart, BridgeContext context) {
 		List<BaseRelationshipBridge> relationships = new ArrayList<BaseRelationshipBridge>();
 		for (Relationship relationship : currentMessagePart.getRelationships()) {
-			Object o = sorter.get(relationship.getName());
+			Object o = sorter.get(relationship);
 			if (relationship.isAttribute() && relationship.isFixed()) {
 				relationships.add(new FixedValueAttributeBeanBridge(relationship, (BareANY) null));
 			} else if (relationship.isAttribute()) {
@@ -64,7 +64,7 @@ class BridgeFactoryImpl implements BridgeFactory {
 					createWarningIfPropertyIsNotMapped(sorter, currentMessagePart, relationship);
 					relationships.add(new AttributeBridgeImpl(relationship, null));
 				} else if (context.isIndexed()) {
-					Object field = sorter.getField(relationship.getName());
+					Object field = sorter.getField(relationship);
 					if (ListElementUtil.isCollection(field)) {
 						relationships.add(new CollapsedAttributeBridge(
 								((BeanProperty) o).getName(), relationship, 
@@ -150,18 +150,18 @@ class BridgeFactoryImpl implements BridgeFactory {
 			RelationshipSorter sorter, Interaction interaction,
 			MessagePartHolder currentMessagePart, BridgeContext context) {
 		
-		if (sorter.isCollapsedRelationship(relationship.getName())) {
+		if (sorter.isCollapsedRelationship(relationship)) {
 			if (relationship.getCardinality().isMultiple()) {
 				return createCollectionRelationshipBridge(relationship, sorter, interaction);
 			} else {
-				RelationshipSorter collapsedSorter = sorter.getAsRelationshipSorter(relationship.getName());
+				RelationshipSorter collapsedSorter = sorter.getAsRelationshipSorter(relationship);
 				PartBridge bridge = createPartBridge(collapsedSorter, interaction, 
 						getMessagePart(interaction, relationship, collapsedSorter.getBean()), 
 						new BridgeContext(true, context.getOriginalIndex()));
 				return new AssociationBridgeImpl(relationship, bridge);
 			}
 		} else {
-			Object o = sorter.get(relationship.getName());
+			Object o = sorter.get(relationship);
 			BeanProperty property = (BeanProperty) o;
 			Object value = property.get();
 			
@@ -200,7 +200,7 @@ class BridgeFactoryImpl implements BridgeFactory {
 	private AssociationBridge createCollectionRelationshipBridge(
 			Relationship relationship, RelationshipSorter sorter, Interaction interaction) {
 
-		RelationshipSorter association = sorter.getAsRelationshipSorter(relationship.getName());
+		RelationshipSorter association = sorter.getAsRelationshipSorter(relationship);
 		
 		ArrayList<PartBridge> list = new ArrayList<PartBridge>();
 		int length = association.getSingleCollapsedPropertySize();

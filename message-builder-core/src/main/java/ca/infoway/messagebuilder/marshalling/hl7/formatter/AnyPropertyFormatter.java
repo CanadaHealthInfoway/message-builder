@@ -3,7 +3,6 @@ package ca.infoway.messagebuilder.marshalling.hl7.formatter;
 import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.marshalling.hl7.AnyHelper;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
-import ca.infoway.messagebuilder.xml.util.XmlWarningRenderer;
 /**
  * ANY, ANY.LAB, ANY.CA.IZ, ANY.PATH
  * 
