@@ -150,6 +150,8 @@ public class MedicationProfileSummaryQueryTransformationTest extends BaseTransfo
 	public void shouldCreateAMeaningfulResponse() throws Exception {
 		MedicationProfileSummaryQueryResponseMessageBean model = createResponseBean();
 		String xml1 = this.transformer.transformToHl7(SpecificationVersion.NEWFOUNDLAND, model);
+		
+System.out.println(xml1);		
 		XmlToModelResult xmlToJavaResult = this.transformer.transformFromHl7(SpecificationVersion.NEWFOUNDLAND, this.factory.createFromString(xml1));
 		String xml2 = this.transformer.transformToHl7(SpecificationVersion.NEWFOUNDLAND, (NewBaseMessageBean) xmlToJavaResult.getMessageObject());
 		assertValidHl7Message(xml2);

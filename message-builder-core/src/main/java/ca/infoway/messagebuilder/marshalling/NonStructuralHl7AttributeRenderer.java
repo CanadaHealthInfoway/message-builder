@@ -4,7 +4,6 @@ import org.apache.commons.lang.StringUtils;
 
 import ca.infoway.messagebuilder.marshalling.hl7.DomainTypeHelper;
 import ca.infoway.messagebuilder.resolver.CodeResolverRegistry;
-import ca.infoway.messagebuilder.xml.MessagePart;
 import ca.infoway.messagebuilder.xml.Relationship;
 
 class NonStructuralHl7AttributeRenderer {
@@ -19,9 +18,5 @@ class NonStructuralHl7AttributeRenderer {
 		} else {
 			throw new MarshallingException("Cannot handle a fixed relationship of type: " + relationship.getType());
 		}
-	}
-	
-	public static boolean matches(RelationshipReader reader, Relationship relationship, MessagePart messagePart) {
-		return relationship.isAttribute() && !relationship.isStructural();
 	}
 }

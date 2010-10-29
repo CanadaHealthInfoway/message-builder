@@ -31,6 +31,7 @@ import ca.infoway.messagebuilder.model.RecordRequestMessageBean;
 import ca.infoway.messagebuilder.model.RecordResponseMessageBean;
 import ca.infoway.messagebuilder.model.cerx.ImmunizationBeanBuilder;
 import ca.infoway.messagebuilder.model.cerx.immunization.ImmunizationBean;
+import ca.infoway.messagebuilder.model.cerx.immunization.RecordImmunizationMessageBean;
 import ca.infoway.messagebuilder.resolver.CodeResolverRegistry;
 import ca.infoway.messagebuilder.resolver.CompositeCodeResolver;
 import ca.infoway.messagebuilder.resolver.EnumBasedCodeResolver;
@@ -93,7 +94,10 @@ public abstract class BaseImmunizationTransformationTest extends BaseTransformer
 	public void shouldTransformBackAndForthWithoutLosingData() throws Exception {
 		Document message = this.factory.createFromResource(new ClasspathResource(getRequestMessageFile()));
 		XmlToModelResult xmlToJavaResult = this.transformer.transformFromHl7(VERSION, message);
+		
+assertNotNull("informant", ((RecordImmunizationMessageBean) xmlToJavaResult.getMessageObject()).getRecord().getInformantRole());
 		String xmlString = this.transformer.transformToHl7(VERSION, (NewBaseMessageBean) xmlToJavaResult.getMessageObject());
+System.out.println(xmlString);		
 		assertTreeEquals(message, this.factory.createFromString(xmlString));
 	}
 

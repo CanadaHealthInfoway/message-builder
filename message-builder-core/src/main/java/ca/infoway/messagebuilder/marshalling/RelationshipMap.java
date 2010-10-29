@@ -84,9 +84,6 @@ class RelationshipMap {
 	}
 
 	Object get(NamedAndTyped relationship) {
-		
-		System.out.println(this.relationships);
-		
 		Object result = this.relationships.get(new Key(relationship));
 		if (result == null) {
 			result = this.relationships.get(new Key(relationship.getName()));
