@@ -94,9 +94,13 @@ public abstract class BaseImmunizationTransformationTest extends BaseTransformer
 	public void shouldTransformBackAndForthWithoutLosingData() throws Exception {
 		Document message = this.factory.createFromResource(new ClasspathResource(getRequestMessageFile()));
 		XmlToModelResult xmlToJavaResult = this.transformer.transformFromHl7(VERSION, message);
-		
-assertNotNull("informant", ((RecordImmunizationMessageBean) xmlToJavaResult.getMessageObject()).getRecord().getInformantRole());
-		String xmlString = this.transformer.transformToHl7(VERSION, (NewBaseMessageBean) xmlToJavaResult.getMessageObject());
+
+		RecordRequestMessageBean<ImmunizationBean> msgObj = (RecordRequestMessageBean<ImmunizationBean>) xmlToJavaResult.getMessageObject();
+		if (msgObj instanceof RecordImmunizationMessageBean) {
+			assertNotNull("informant", msgObj.getRecord().getInformantRole());
+		}
+
+		String xmlString = this.transformer.transformToHl7(VERSION, (NewBaseMessageBean) msgObj);
 System.out.println(xmlString);		
 		assertTreeEquals(message, this.factory.createFromString(xmlString));
 	}
