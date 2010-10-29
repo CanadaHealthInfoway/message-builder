@@ -3,7 +3,6 @@ package ca.infoway.messagebuilder.marshalling;
 import static org.apache.commons.lang.StringUtils.isBlank;
 
 import java.text.MessageFormat;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
@@ -15,9 +14,9 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 import ca.infoway.messagebuilder.Code;
+import ca.infoway.messagebuilder.NamedAndTyped;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
 import ca.infoway.messagebuilder.datatype.BareANY;
-import ca.infoway.messagebuilder.datatype.impl.ANYImpl;
 import ca.infoway.messagebuilder.datatype.impl.BareANYImpl;
 import ca.infoway.messagebuilder.datatype.nullflavor.NullFlavorSupport;
 import ca.infoway.messagebuilder.domainvalue.NullFlavor;
@@ -28,25 +27,30 @@ import ca.infoway.messagebuilder.platform.ListElementUtil;
 import ca.infoway.messagebuilder.resolver.CodeResolverRegistry;
 import ca.infoway.messagebuilder.xml.Relationship;
 
-class BeanWrapper implements Formattable {
+class BeanWrapper {
 
-	private final Object bean;
+	@Deprecated
 	private final Map<String, BeanProperty> map;
+	@Deprecated
 	private final String contextName;
 	private final Log log = LogFactory.getLog(BeanWrapper.class);
 	
 	private final DataTypeValueAdapterProvider adapterProvider = new DataTypeValueAdapterProvider();
+	private RelationshipSorter sorter;
+	private final BeanWrapper parentWrapper;
 
-	public BeanWrapper(Object bean) {
-		this.bean = bean;
-		this.map = BeanProperty.getProperties(this.bean);
+	BeanWrapper(Object bean) {
+		this.map = BeanProperty.getProperties(bean);
+		this.sorter = RelationshipSorter.create("", bean);
 		this.contextName = null;
+		this.parentWrapper = null;
 	}
 
-	private BeanWrapper(BeanWrapper beanWrapper, String contextName) {
-		this.bean = beanWrapper.bean;
-		this.map = beanWrapper.map;
-		this.contextName = concatenate(beanWrapper.contextName, contextName);
+	private BeanWrapper(BeanWrapper parentWrapper, String contextName, RelationshipSorter sorter) {
+		this.parentWrapper = parentWrapper;
+		this.map = parentWrapper.map;
+		this.sorter = sorter;
+		this.contextName = concatenate(parentWrapper.contextName, contextName);
 	}
 
 	private String concatenate(String part1, String part2) {
@@ -59,50 +63,25 @@ class BeanWrapper implements Formattable {
 		}
 	}
 
-	public Object read(Relationship relationship) {
-		return read(relationship.getName());
-	}
-	
-	public BareANY readDataType(Relationship relationship) {
-		return readHl7(relationship.getName());
-	}
-
-	@SuppressWarnings("unchecked")
-	private BareANY readHl7(String name) {
-		BareANY hl7Value = new ANYImpl();
-		BeanProperty property = getPropertyForPath(name);
-		if (property!=null) {
-			hl7Value = new DataTypeFieldHelper(property.getBean(), property.getName()).get(BareANY.class);
-		}
-		return hl7Value;
-	}
-
-	public Object read(String relationshipName) {
-		BeanProperty property = getPropertyForPath(relationshipName);
-		if (property != null) {
-			return property.get();
-		} else {
-			return null;
-		}
-	}
-	
-	public void write(String dataTypeName, String relationshipName, Object o, boolean isFixedValue) {
-		BeanProperty property = getPropertyForPath(relationshipName);
-		
-		if (!isFixedValue) {
+	void write(Relationship relationship, Object o) {
+		if (!relationship.isFixed()) {
+			BeanProperty property = findBeanProperty(relationship);
 			if (property != null) {
 				if (o!=null) {
 					if (o instanceof BareANY) {
-						writeDataType(property, (BareANY) o, dataTypeName);
+						writeDataType(property, (BareANY) o, relationship.getType());
 					} else {
-						writeNonDataType(relationshipName, property, o);
+						writeNonDataType(relationship.getName(), property, o);
 					} 
 				}
 			} else {
-				this.log.info("PROPERTY NOT WRITTEN: could not find property with relationship named " + relationshipName + " on " + getWrappedType());
+				this.log.info("PROPERTY NOT WRITTEN: could not find property with relationship named " + relationship + " on " + getWrappedType());
 			}
 		}
-		
+	}
+
+	private BeanProperty findBeanProperty(NamedAndTyped relationshipName) {
+		return (BeanProperty) this.sorter.get(relationshipName);
 	}
 
 	private void writeDataType(BeanProperty property, BareANY value, String dataTypeName) {
@@ -140,19 +119,19 @@ class BeanWrapper implements Formattable {
 				property.set(object);
 			} 
 		} else {
-			throw new MarshallingException("Cannot write to " + property.getName() + " of " + this.bean.getClass());
+			throw new MarshallingException("Cannot write to " + property.getName() + " of " + this.sorter.getBean().getClass());
 		}
 	}
 
 	public void writeNodeAttribute(Relationship relationship, String attributeValue) {
-		BeanProperty property = getPropertyForPath(relationship.getName());
+		BeanProperty property = findBeanProperty(relationship);
 		if (property != null) {
             if (StringUtils.isNotBlank(attributeValue)) {
             	if (property.isWritable()) {
             		if ("BL".equals(relationship.getType())) {
             			property.set(Boolean.valueOf(attributeValue));
             		} else if ("CS".equals(relationship.getType())) {
-            			property.set(CodeResolverRegistry.lookup((Class<Code>) DomainTypeHelper.getReturnType(relationship), attributeValue));
+            			property.set(resolveCodeValue(relationship, attributeValue));
             		} else {
             			this.log.info("UNSUPPORTED RimType: IGNORING relationhsipName=" + relationship.getName() + ", property=" + property.getName());
             		}
@@ -167,12 +146,17 @@ class BeanWrapper implements Formattable {
 		}
 	}
 
+	@SuppressWarnings("unchecked")
+	private Code resolveCodeValue(Relationship relationship, String attributeValue) {
+		return CodeResolverRegistry.lookup((Class<Code>) DomainTypeHelper.getReturnType(relationship), attributeValue);
+	}
+
 	public void writeNullFlavor(Hl7Source source, Relationship relationship, NullFlavor nullFlavor) {
 		Object targetBean = null;
-		if (this.contextName!=null) {
+		if (this.parentWrapper != null) {
 			targetBean = getOrCreateCollapsedBean(source, relationship);
 		} else {
-			targetBean = this.bean; 
+			targetBean = this.sorter.getBean(); 
 		}
 		
 		if (targetBean instanceof NullFlavorSupport) {
@@ -180,12 +164,12 @@ class BeanWrapper implements Formattable {
 		} else {
 			this.log.info(MessageFormat.format(
 					"CAN NOT SET NULL FLAVOR! Bean {0} does not implement {1}.", 
-					this.bean.getClass().getSimpleName(), NullFlavorSupport.class.getSimpleName()));
+					this.sorter.getBeanType().getSimpleName(), NullFlavorSupport.class.getSimpleName()));
 		}
 	}
 
 	private Object getOrCreateCollapsedBean(Hl7Source source, Relationship relationship) {
-		BeanProperty property = this.map.get(this.contextName);
+		BeanProperty property = findBeanProperty(relationship);
 		// TM - fix for bug 13100 - will property always be null?
 		if (property == null) {
 			property = getPropertyForAssociation();
@@ -206,7 +190,7 @@ class BeanWrapper implements Formattable {
 			} else {
 				this.log.info(MessageFormat.format(
 						"UNABLE TO SET NULL FLAVOR - Can not find bean for collapsed property {0}.{1}", 
-						this.bean.getClass().getSimpleName(), 
+						this.sorter.getBeanType().getSimpleName(), 
 						this.contextName));
 			} 
 		}
@@ -226,30 +210,6 @@ class BeanWrapper implements Formattable {
 		return relationship;
 	}
 	
-	private BeanProperty getPropertyForPath(String relationshipName) {
-		BeanProperty result = null;
-		for (BeanProperty property : this.map.values()) {
-			if (propertyMappingMatchesRelationship(relationshipName, property)) {
-				result = property;
-				break;
-			}
-		}
-		if (result == null){
-			this.log.debug("PROPERTY NOT FOUND: could not find property with relationship named " + relationshipName + " on " + getWrappedType());
-		}
-		return result;
-	}
-
-	private boolean propertyMappingMatchesRelationship(String relationshipName,	BeanProperty property) {
-		List<String> mappings = getMapping(property);
-		for(String mapping : mappings){
-			if (concatenate(this.contextName, relationshipName).equals(mapping)){
-				return true;
-			}
-		}
-		return false;
-	}
-
 	private List<String> getMapping(BeanProperty property) {
 		Hl7XmlMapping annotation = property.getAnnotation(Hl7XmlMapping.class);
 		if (annotation != null) {
@@ -259,16 +219,9 @@ class BeanWrapper implements Formattable {
 		}
 	}
 
-	public boolean isAssociationMappedToSameBean(String relationshipName) {
-		boolean result = false;
-		for (BeanProperty property : this.map.values()) {
-			if (isAssociationMappedToProperty(relationshipName, property)) {
-				result = true;
-				break;
-			}
-		}
-		return result;
-
+	public boolean isAssociationMappedToSameBean(NamedAndTyped relationshipName) {
+		Object object = this.sorter.get(relationshipName);
+		return object != null && object instanceof RelationshipSorter;
 	}
 
 	private BeanProperty getPropertyForAssociation() {
@@ -297,22 +250,22 @@ class BeanWrapper implements Formattable {
 		return mapping.startsWith(concatenate(this.contextName, name) +"/");
 	}
 
-	public Formattable createSubWrapper(String relationshipName) {
-		return new BeanWrapper(this, relationshipName);
+	public BeanWrapper createSubWrapper(NamedAndTyped relationshipName) {
+		return new BeanWrapper(this, relationshipName.getName(), (RelationshipSorter) this.sorter.get(relationshipName));
 	}
 
 	public String getWrappedType() {
-		return ClassUtils.getShortClassName(this.bean.getClass());
+		return ClassUtils.getShortClassName(this.sorter.getBeanType());
 	}
 
-	public boolean isPreInitializedDelegate(String relationshipName) {
+	public boolean isPreInitializedDelegate(NamedAndTyped relationshipName) {
 		return getInitializedReadOnlyAssociation(relationshipName) != null;
 	}
 	
-	public Object getInitializedReadOnlyAssociation(String relationshipName) {
+	public Object getInitializedReadOnlyAssociation(NamedAndTyped relationshipName) {
 		Object object;
-		BeanProperty beanProperty = getPropertyForPath(relationshipName);
-		if (beanProperty == null){
+		BeanProperty beanProperty = findBeanProperty(relationshipName);
+		if (beanProperty == null) {
 			object = null;
 		} else if (!beanProperty.isReadable()) {
 			object = null;
@@ -327,31 +280,13 @@ class BeanWrapper implements Formattable {
 		return object;
 	}
 
-	public List<String> findMatchingRelationshipNames(String pathPrefix) {
-		List<String> relationshipNames = new ArrayList<String>();
-		
-		for (BeanProperty property : this.map.values()) {
-			List<String> mappings = getMapping(property);
-			for (String mapping : mappings) {
-				if (startsWith(mapping, pathPrefix)) {
-					relationshipNames.add(StringUtils.removeStart(mapping, this.contextName + "/"));
-				}
-			}
-		}
-		return relationshipNames;
-	}
-
-	public String getContextName() {
-		return this.contextName;
-	}
-
 	public NullFlavor getNullFlavor() {
 		//AG: make sure we always traverse down collapsed associations.
 		NullFlavor nullFlavor = null;
 		
-		if (this.contextName==null) {
-			if (this.bean instanceof NullFlavorSupport) {
-				return ((NullFlavorSupport) this.bean).getNullFlavor();	
+		if (this.parentWrapper == null) {
+			if (this.sorter.getBean() instanceof NullFlavorSupport) {
+				return ((NullFlavorSupport) this.sorter.getBean()).getNullFlavor();	
 			}
 		}
 		

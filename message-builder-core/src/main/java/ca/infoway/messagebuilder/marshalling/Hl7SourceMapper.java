@@ -133,7 +133,7 @@ class Hl7SourceMapper {
 			NullFlavor nullFlavor = nullFlavorHelper.parseNullNode();
 			Object value = (nullFlavor == null ? new BLImpl(!nodes.isEmpty()): 
 												 new BLImpl((ca.infoway.messagebuilder.domainvalue.nullflavor.NullFlavor) nullFlavor));
-			bean.write(relationship.getType(), traversalName, value, relationship.isFixed());
+			bean.write(relationship, value);
 		} catch (ClassCastException e){
 			this.log.info("Can't parse relationship name=" + relationship.getName() + ", traversalName=" + traversalName + 
 					" [" +  e.getMessage() + "]");
@@ -164,26 +164,26 @@ class Hl7SourceMapper {
 			List<Node> nodes, Relationship relationship, String traversalName) {
 			this.log.debug("Writing association: traversalName=" + traversalName + ", relationshipType=" + relationship.getType());		
 		// 1. collapsed relationship
-		if (relationship.getCardinality().isSingle() && beanWrapper.isAssociationMappedToSameBean(relationship.getName())) {
+		if (relationship.getCardinality().isSingle() && beanWrapper.isAssociationMappedToSameBean(relationship)) {
 
 			this.log.debug("COLLAPSE RECURSE : " + traversalName + " as collapsed relationship to " + beanWrapper.getWrappedType());
-			BeanWrapper childBeanWrapper = (BeanWrapper) beanWrapper.createSubWrapper(traversalName);
+			BeanWrapper childBeanWrapper = beanWrapper.createSubWrapper(relationship);
 			writeSpecialAssociation(childBeanWrapper, source, nodes, relationship);
 
 		//1b. trivial collapsed relationship with cardinality change (e.g. "RecordId" collapsed into "Location criteria"
-		} else if (relationship.getCardinality().isMultiple() && beanWrapper.isAssociationMappedToSameBean(relationship.getName())
+		} else if (relationship.getCardinality().isMultiple() && beanWrapper.isAssociationMappedToSameBean(relationship)
 				&& isTypeWithSingleNonFixedRelationship(relationship, source)) {
 			
-			BeanWrapper childBeanWrapper = (BeanWrapper) beanWrapper.createSubWrapper(traversalName);
+			BeanWrapper childBeanWrapper = beanWrapper.createSubWrapper(relationship);
 			for (Node node : nodes) {
 				writeAssociation(childBeanWrapper, source, (Element) node, relationship);
 			}
 			
 		// 2. initialized read-only association
-		} else if (relationship.getCardinality().isSingle() && beanWrapper.isPreInitializedDelegate(relationship.getName())){
+		} else if (relationship.getCardinality().isSingle() && beanWrapper.isPreInitializedDelegate(relationship)){
 
 			this.log.debug("READ-ONLY ASSOCIATION: " + traversalName + " as collapsed relationship to " + beanWrapper.getWrappedType());
-			BeanWrapper childBeanWrapper = new BeanWrapper(beanWrapper.getInitializedReadOnlyAssociation(relationship.getName()));
+			BeanWrapper childBeanWrapper = new BeanWrapper(beanWrapper.getInitializedReadOnlyAssociation(relationship));
 			writeSpecialAssociation(childBeanWrapper, source, nodes, relationship);
 			
  		// 3. non-collapsed (including choice, specializationChild, and template type, handling for which is encapsulated in
@@ -201,12 +201,12 @@ class Hl7SourceMapper {
  			
  			if (relationship.getCardinality().isMultiple()) {
  				this.log.debug("WRITING MULTIPLE: " + beanWrapper.getWrappedType() + " property with annotation=" + traversalName + " - values=" + convertedBeans);
- 				beanWrapper.write(relationship.getType(), relationship.getName(), convertedBeans, relationship.isFixed());
+ 				beanWrapper.write(relationship, convertedBeans);
  			} else if (relationship.getCardinality().isSingle() && convertedBeans.isEmpty()) {
  	 			throw new MarshallingException("Why is this empty? : " + relationship.getName() + " on " + source.getType());
  			} else if (relationship.getCardinality().isSingle() && convertedBeans.size() == 1) {
  				this.log.debug("WRITING SINGLE: " + beanWrapper.getWrappedType() + " property with annotation=" + traversalName + " - value=" + convertedBeans.get(0));
- 				beanWrapper.write(relationship.getType(), relationship.getName(), convertedBeans.get(0), relationship.isFixed());
+ 				beanWrapper.write(relationship, convertedBeans.get(0));
  			} else {
  	 			throw new MarshallingException("Unexpected cardinality on : " + relationship.getName() + " on " + source.getType());
  			}
@@ -277,7 +277,7 @@ class Hl7SourceMapper {
 		if (parser != null) {
 			try {
 				Object object = parser.parse(ParseContextImpl.create(relationship, source.getVersion()), nodes, source.getResult());
-				bean.write(relationship.getType(), traversalName, object, relationship.isFixed());
+				bean.write(relationship, object);
 			} catch (ClassCastException e){
 				this.log.info("Can't parse relationship name=" + relationship.getName() + ", traversalName=" + traversalName + 
 						" [" +  e.getMessage() + "]");
