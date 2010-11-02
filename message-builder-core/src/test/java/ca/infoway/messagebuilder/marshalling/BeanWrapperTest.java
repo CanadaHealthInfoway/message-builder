@@ -2,9 +2,11 @@ package ca.infoway.messagebuilder.marshalling;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
 
 import org.junit.Test;
 
+import ca.infoway.messagebuilder.domainvalue.nullflavor.NullFlavor;
 import ca.infoway.messagebuilder.xml.Cardinality;
 import ca.infoway.messagebuilder.xml.Relationship;
 
@@ -35,4 +37,14 @@ public class BeanWrapperTest {
 		wrapper.write(new Relationship("text", "ST", Cardinality.create("0-10")), "This is my text");
 		assertEquals("text", "This is my text", beanB.getText().get(0));
 	}
+	
+	@Test
+	public void shouldWriteNullFlavorOnCollapsedAssociation() throws Exception {
+		BeanCPrime beanC = new BeanCPrime();
+		BeanWrapper wrapper = new BeanWrapper(beanC);
+		wrapper.writeNullFlavor(null, new Relationship("component2", "ABCD_IN123456CA.BeanB", Cardinality.create("0-1")), NullFlavor.NO_INFORMATION);
+		assertNull("bean", beanC.getBeanB());
+		//assertNull("bean", beanC.getBeanB().getText());
+	}
+	
 }
