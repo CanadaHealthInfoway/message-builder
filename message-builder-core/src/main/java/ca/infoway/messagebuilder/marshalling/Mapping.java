@@ -16,28 +16,60 @@ import ca.infoway.messagebuilder.util.iterator.EmptyIterable;
 
 class Mapping implements NamedAndTyped {
 
+	static class PartTypeMapping {
+		private final String type;
+		private final String name;
+
+		PartTypeMapping(String name, String type) {
+			this.name = name;
+			this.type = type;
+		}
+		public String getType() {
+			return this.type;
+		}
+		public String getName() {
+			return this.name;
+		}
+		public PartTypeMapping skip(String first) {
+			if (this.name.startsWith(first + "/")) {
+				return new PartTypeMapping(StringUtils.substringAfter(name, first + "/"), type);
+			} else {
+				throw new IllegalStateException("mapping does not start with " + first);
+			}
+		}
+	}
+
 	private final String mapping;
-	private final Hl7MapByPartTypes exceptions;
+	private final List<PartTypeMapping> mappings;
 	
-	Mapping(String mapping, Hl7MapByPartTypes exceptions) {
+	Mapping(String mapping, List<PartTypeMapping> mappings) {
 		this.mapping = mapping;
-		this.exceptions = exceptions;
+		this.mappings = mappings;
 	}
 
 	public boolean isCompound() {
 		return this.mapping.contains("/");
 	}
 
-	public static List<Mapping> from(Hl7XmlMapping mapping) {
-		return mapping == null ? Collections.<Mapping>emptyList() : from(Arrays.asList(mapping.value()), null);
-	}
 	static List<Mapping> from(List<String> mappings, Hl7MapByPartTypes exceptions) {
 		List<Mapping> result = new ArrayList<Mapping>();
 		for (String mapping : EmptyIterable.<String>nullSafeIterable(mappings)) {
-			result.add(new Mapping(mapping, exceptions));
+			result.add(new Mapping(mapping, extractPartTypeMappings(exceptions)));
 		}
 		return result;
 	}
+	private static List<PartTypeMapping> extractPartTypeMappings(Hl7MapByPartTypes exceptions) {
+		
+		List<PartTypeMapping> mappings = new ArrayList<PartTypeMapping>();
+		if (exceptions != null) {
+			for (Hl7MapByPartType nameValuePair : exceptions.value()) {
+				mappings.add(new PartTypeMapping(nameValuePair.name(), nameValuePair.type()));
+			}
+		}
+		
+		return mappings;
+	}
+
 	public static List<Mapping> from(BeanProperty property) {
 		Hl7XmlMapping mapping = property.getAnnotation(Hl7XmlMapping.class);
 		Hl7MapByPartTypes exceptions = property.getAnnotation(Hl7MapByPartTypes.class);
@@ -57,11 +89,21 @@ class Mapping implements NamedAndTyped {
 		return isCompound() ? StringUtils.substringBefore(this.mapping, "/") : this.mapping;
 	}
 	public Mapping rest() {
-		return isCompound() ? new Mapping(StringUtils.substringAfter(this.mapping, "/"), this.exceptions) : null;
+		return isCompound() ? new Mapping(StringUtils.substringAfter(this.mapping, "/"), extractMatchingMappings(this.mappings, first())) : null;
 	}
 
 	public Mapping firstPart() {
-		return new Mapping(first(), this.exceptions);
+		return new Mapping(first(), this.mappings);
+	}
+
+	private static List<PartTypeMapping> extractMatchingMappings(List<PartTypeMapping> mappings, String first) {
+		List<PartTypeMapping> result = new ArrayList<PartTypeMapping>();
+		for (PartTypeMapping partTypeMapping : mappings) {
+			if (partTypeMapping.getName().startsWith(first + "/")) {
+				result.add(partTypeMapping.skip(first));
+			}
+		}
+		return result;
 	}
 
 	public String getName() {
@@ -70,13 +112,10 @@ class Mapping implements NamedAndTyped {
 
 	public String getType() {
 		String result = null;
-		if (this.exceptions != null) {
-			// FIXME: TM: Compound!  Handle it!  Amazingly!
-			for (Hl7MapByPartType map : this.exceptions.value()) {
-				if (StringUtils.equals(this.mapping, map.name())) {
-					result = map.type();
-					break;
-				}
+		for (PartTypeMapping map : this.mappings) {
+			if (StringUtils.equals(this.mapping, map.getName())) {
+				result = map.getType();
+				break;
 			}
 		}
 		return result;
