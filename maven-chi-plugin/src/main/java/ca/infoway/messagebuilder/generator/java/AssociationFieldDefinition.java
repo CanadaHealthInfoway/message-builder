@@ -129,4 +129,12 @@ class AssociationFieldDefinition implements FieldDefinition {
 		return null;
 	}
 
+	public BaseRelationship getBaseRelationship() {
+		return this.association;
+	}
+
+	public ProgrammingLanguage getProgrammingLanguage() {
+		return this.language;
+	}
+
 }

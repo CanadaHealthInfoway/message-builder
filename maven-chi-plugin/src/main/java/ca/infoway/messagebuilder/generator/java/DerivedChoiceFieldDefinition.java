@@ -129,4 +129,12 @@ class DerivedChoiceFieldDefinition implements FieldDefinition {
 		return true;
 	}
 
+	public BaseRelationship getBaseRelationship() {
+		return this.choiceAssociation;
+	}
+
+	public ProgrammingLanguage getProgrammingLanguage() {
+		return this.language;
+	}
+
 }

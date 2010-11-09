@@ -215,7 +215,7 @@ public class PropertyGeneratorBuilderTest {
 	@Test
 	public void shouldGenerateCsharpPropertyWithGetterWithXmlMapping() throws Exception {
 		final Association association = createAssociation();
-		this.csharpBuilder.setFieldDefinition(new AssociationFieldDefinition(association, JAVA));
+		this.csharpBuilder.setFieldDefinition(new AssociationFieldDefinition(association, ProgrammingLanguage.C_SHARP));
 		
 		PropertyGenerator generator = this.csharpBuilder.build(this.manager, this.resolver);
 		
@@ -231,7 +231,7 @@ public class PropertyGeneratorBuilderTest {
 	@Test
 	public void shouldGeneratePropertyWithGetterWithBodyForAttribute() throws Exception {
 		final Attribute attribute = createAttribute();
-		this.javaBuilder.setFieldDefinition(new AttributeFieldDefinitionImpl(attribute, ProgrammingLanguage.C_SHARP));
+		this.javaBuilder.setFieldDefinition(new AttributeFieldDefinitionImpl(attribute, ProgrammingLanguage.JAVA));
 		PropertyGenerator generator = this.javaBuilder.build(this.manager, this.resolver);
 		
 		generator.createAttributeDefinition(0, this.writer);
@@ -245,7 +245,7 @@ public class PropertyGeneratorBuilderTest {
 	@Test
 	public void shouldGeneratePropertyWithSetter() throws Exception {
 		final Association association = createAssociation();
-		this.javaBuilder.setFieldDefinition(new AssociationFieldDefinition(association, ProgrammingLanguage.C_SHARP));
+		this.javaBuilder.setFieldDefinition(new AssociationFieldDefinition(association, ProgrammingLanguage.JAVA));
 		PropertyGenerator generator = this.javaBuilder.build(this.manager, this.resolver);
 		
 		generator.createAttributeDefinition(0, this.writer);
@@ -260,7 +260,7 @@ public class PropertyGeneratorBuilderTest {
 	@Test
 	public void shouldGeneratePropertyWithSetterWithBodyForAttribute() throws Exception {
 		final Attribute attribute = createAttribute();
-		this.javaBuilder.setFieldDefinition(new AttributeFieldDefinitionImpl(attribute, ProgrammingLanguage.C_SHARP));
+		this.javaBuilder.setFieldDefinition(new AttributeFieldDefinitionImpl(attribute, ProgrammingLanguage.JAVA));
 		PropertyGenerator generator = this.javaBuilder.build(this.manager, this.resolver);
 		
 		generator.createAttributeDefinition(0, this.writer);

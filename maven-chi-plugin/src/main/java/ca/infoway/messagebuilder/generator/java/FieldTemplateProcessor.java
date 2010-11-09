@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.io.Writer;
 import java.text.MessageFormat;
 
+import org.codehaus.plexus.util.StringUtils;
+
 import ca.infoway.messagebuilder.generator.lang.CodeTemplate;
 import ca.infoway.messagebuilder.generator.lang.ProgrammingLanguage;
 import ca.infoway.messagebuilder.generator.lang.StringArrayToAnnotationDecorator;
@@ -11,16 +13,16 @@ import ca.infoway.messagebuilder.generator.lang.StringArrayToAnnotationDecorator
 abstract class FieldTemplateProcessor {
 
 	private final FieldDefinition fieldDefinition;
-	private final ProgrammingLanguage language;
 
-	public FieldTemplateProcessor(FieldDefinition fieldDefinition, ProgrammingLanguage language) {
+	public FieldTemplateProcessor(FieldDefinition fieldDefinition) {
 		this.fieldDefinition = fieldDefinition;
-		this.language = language;
 	}
 
 	protected void write(CodeTemplate template, int indent, Writer writer) throws IOException {
 		template.write(writer, indent, 
-				decorate(this.fieldDefinition.getXmlPathName()),
+				decorate(this.fieldDefinition.getXmlPathName(),
+						 this.fieldDefinition.getBaseRelationship(), 
+						 this.fieldDefinition.getProgrammingLanguage()),
 				this.fieldDefinition.getFieldType(),
 				this.fieldDefinition.getCapitalizedPropertyName(),
 				populate(this.fieldDefinition.getGetterBodyStyle()),
@@ -37,7 +39,7 @@ abstract class FieldTemplateProcessor {
 		if (body == null) {
 			return "";
 		} else {
-			return MessageFormat.format(body.getBodyFormat(this.language), 
+			return MessageFormat.format(body.getBodyFormat(this.fieldDefinition.getProgrammingLanguage()), 
 					this.fieldDefinition.getFieldName(), 
 					this.fieldDefinition.getFieldName(),
 					this.fieldDefinition.getFieldElementImplementationType(),
@@ -47,8 +49,18 @@ abstract class FieldTemplateProcessor {
 		}
 	}
 
-	private String decorate(String[] strings) {
-		return new StringArrayToAnnotationDecorator(strings).render();
+	private String decorate(String[] strings, BaseRelationship baseRelationship, ProgrammingLanguage programmingLanguage) {
+		String result = new StringArrayToAnnotationDecorator(strings).render();
+		if (requiresMapByPartTypeAnnotation(baseRelationship)) {
+			String mapByPartTypeAnnotation = new MapByPartTypeAnnotationDecorator(baseRelationship, programmingLanguage).render();
+			result += "})\n" + StringUtils.chomp(mapByPartTypeAnnotation, "})");
+		}
+		return result;
+	}
+
+	private boolean requiresMapByPartTypeAnnotation(BaseRelationship baseRelationship) {
+		// FIXME - TM - check difference and look for numerical types (?)
+		return false;
 	}
 
 	protected FieldDefinition getFieldDefinition() {
