@@ -1,6 +1,7 @@
 package ca.infoway.messagebuilder.xml;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import org.simpleframework.xml.Attribute;
@@ -23,6 +24,15 @@ public class Difference {
 	private boolean ok;
 	@ElementList(inline=true, required=false)
 	private List<DifferenceValue> differences = new ArrayList<DifferenceValue>();
+	
+	public Difference() {
+	}
+	
+	public Difference(DifferenceType differenceType, boolean ok, DifferenceValue... values) {
+		this.type = differenceType;
+		this.ok = ok;
+		this.differences.addAll(Arrays.asList(values));
+	}
 	
 	/**
 	 * A field indicating what kind of difference is being reported.

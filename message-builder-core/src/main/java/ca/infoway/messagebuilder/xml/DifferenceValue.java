@@ -13,6 +13,13 @@ public class DifferenceValue {
 	@Attribute
 	private String value;
 
+	public DifferenceValue() {
+	}
+	public DifferenceValue(String version, String value) {
+		this.version = version;
+		this.value = value;
+	}
+	
 	/**
 	 * The messageset version this difference applies to .
 	 * 

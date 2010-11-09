@@ -8,6 +8,7 @@ import org.apache.commons.lang.WordUtils;
 
 import ca.infoway.messagebuilder.xml.Cardinality;
 import ca.infoway.messagebuilder.xml.Documentation;
+import ca.infoway.messagebuilder.xml.Relationship;
 
 public class InlinedAttribute extends Attribute {
 
@@ -74,5 +75,12 @@ public class InlinedAttribute extends Attribute {
 	Attribute getInlinedRelationship() {
 		return this.inlinedRelationship;
 	}
-	
+
+	@Override
+	public List<Relationship> getAllRelationships() {
+		List<Relationship> result = new ArrayList<Relationship>();
+		result.addAll(this.elidedRelationship.getAllRelationships());
+		result.addAll(this.inlinedRelationship.getAllRelationships());
+		return result;
+	}
 }
