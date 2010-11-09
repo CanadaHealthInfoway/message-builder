@@ -16,15 +16,16 @@ public class Association extends BaseRelationship {
 	private final Type associationType;
 
     protected Association(Relationship relationship, Type associationType) {
-    	super(relationship, null, relationship.getType());
-		this.templateVariable = null;
-    	this.associationType = associationType;
+    	this(relationship, associationType, null);
 	}
     protected Association(Relationship relationship, TemplateVariable templateVariable) {
-    	super(relationship, null, templateVariable.getType());
-		this.templateVariable = templateVariable;
-    	this.associationType = null;
+    	this(relationship, null, templateVariable);
 	}
+    protected Association(Relationship relationship, Type associationType, TemplateVariable templateVariable) {
+    	super(relationship, null, templateVariable != null ? templateVariable.getType() : relationship.getType());
+    	this.templateVariable = templateVariable;
+    	this.associationType = associationType;
+    }
 	@Override
 	public String getTypeParameters() {
 		if (getAssociationType() != null && getAssociationType().isTemplateType()) {
