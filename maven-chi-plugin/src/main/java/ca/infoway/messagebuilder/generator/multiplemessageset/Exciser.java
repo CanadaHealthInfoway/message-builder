@@ -44,6 +44,11 @@ public class Exciser {
 	public void execute() {
 		DependencyContainer dependencies = buildUpDependencyMap();
 		removeProblemDifferences(dependencies);
+//		ArrayList<String> sortedList = new ArrayList<String>(this.removals);
+//		Collections.sort(sortedList);
+//		for (String component : sortedList) {
+//			System.out.println(component);
+//		}
 	}
 
 	void removeProblemDifferences(DependencyContainer dependencies) {

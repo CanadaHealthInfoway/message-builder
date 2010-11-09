@@ -207,4 +207,12 @@ class AttributeFieldDefinitionImpl implements FieldDefinition {
 		return null;
 	}
 
+	public BaseRelationship getBaseRelationship() {
+		return this.attribute;
+	}
+
+	public ProgrammingLanguage getProgrammingLanguage() {
+		return this.language;
+	}
+
 }

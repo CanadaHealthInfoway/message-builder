@@ -18,15 +18,13 @@ public class PropertyDefinitionGeneratorTest {
 
 	private Mockery jmock = new Mockery();
 	private FieldDefinition fieldDefinition;
-	private PropertyDefinitionGenerator csharpPropertyDefinition;
 	private PropertyDefinitionGenerator javaPropertyDefinition;
 	private StringWriter writer;
 	
 	@Before
 	public void setUp() throws Exception {
 		this.fieldDefinition = this.jmock.mock(FieldDefinition.class);
-		this.csharpPropertyDefinition = new PropertyDefinitionGenerator(this.fieldDefinition, ProgrammingLanguage.C_SHARP);
-		this.javaPropertyDefinition = new PropertyDefinitionGenerator(this.fieldDefinition, ProgrammingLanguage.JAVA);
+		this.javaPropertyDefinition = new PropertyDefinitionGenerator(this.fieldDefinition);
 		this.writer = new StringWriter();
 	}
 	
@@ -48,6 +46,8 @@ public class PropertyDefinitionGeneratorTest {
 			allowing(fieldDefinition).getCollectionOfCodedPropertyElementType(); will(returnValue(""));
 			allowing(fieldDefinition).getFieldElementType(); will(returnValue(""));
 			allowing(fieldDefinition).getDerivedChoiceHasBodyStyle(); will(returnValue(null));
+			allowing(fieldDefinition).getProgrammingLanguage(); will(returnValue(ProgrammingLanguage.JAVA));
+			allowing(fieldDefinition).getBaseRelationship(); will(returnValue(null));
 		}});
 		
 		this.javaPropertyDefinition.createPropertyDefinition(1, writer, false);
@@ -76,6 +76,8 @@ public class PropertyDefinitionGeneratorTest {
 			allowing(fieldDefinition).getCollectionOfCodedPropertyElementType(); will(returnValue(""));
 			allowing(fieldDefinition).getFieldElementType(); will(returnValue(""));
 			allowing(fieldDefinition).getDerivedChoiceHasBodyStyle(); will(returnValue(GetterBodyStyle.DERIVED_CHOICE_HAS));
+			allowing(fieldDefinition).getProgrammingLanguage(); will(returnValue(ProgrammingLanguage.JAVA));
+			allowing(fieldDefinition).getBaseRelationship(); will(returnValue(null));
 		}});
 		
 		this.javaPropertyDefinition.createPropertyDefinition(1, writer, false);

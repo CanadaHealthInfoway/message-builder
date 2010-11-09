@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.io.Writer;
 
 import ca.infoway.messagebuilder.generator.lang.CodeTemplate;
-import ca.infoway.messagebuilder.generator.lang.ProgrammingLanguage;
 
 class PropertyDefinitionGenerator extends FieldTemplateProcessor {
 	
@@ -63,11 +62,8 @@ class PropertyDefinitionGenerator extends FieldTemplateProcessor {
 			"'}'");
 	private static final CodeTemplate JAVA_DERIVED_CHOICE_PROPERTY = new CodeTemplate(JAVA_DERIVED_CHOICE_PROPERTY_DEFINITION);
 		
-	private final ProgrammingLanguage language;
-
-	PropertyDefinitionGenerator(FieldDefinition fieldDefinition, ProgrammingLanguage language) {
-		super(fieldDefinition, language);
-		this.language = language;
+	PropertyDefinitionGenerator(FieldDefinition fieldDefinition) {
+		super(fieldDefinition);
 	}
 	
 	public void createPropertyDefinition(int indent, Writer writer, boolean isAbstract) throws IOException {
@@ -75,7 +71,7 @@ class PropertyDefinitionGenerator extends FieldTemplateProcessor {
 	}
 
 	private CodeTemplate chooseTemplate(boolean isAbstract) {
-		if (this.language.isJava()) {
+		if (getFieldDefinition().getProgrammingLanguage().isJava()) {
 			if (getFieldDefinition().isWritable()) {
 				return isAbstract ? JAVA_READ_WRITE_INTERFACE : JAVA_READ_WRITE_PROPERTY;
 			} else if (getFieldDefinition().isDerivedChoice()) {
