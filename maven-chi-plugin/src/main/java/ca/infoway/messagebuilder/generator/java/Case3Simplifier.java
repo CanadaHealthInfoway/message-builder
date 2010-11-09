@@ -5,7 +5,9 @@ import static ca.infoway.messagebuilder.generator.LogLevel.INFO;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 
 import ca.infoway.messagebuilder.generator.GeneratorException;
 import ca.infoway.messagebuilder.generator.LogUI;
@@ -102,43 +104,71 @@ public class Case3Simplifier {
 	
 	private void createMergedTypes() {
 		for (MergedTypeDescriptor descriptor : this.mergeResult.getDescriptors()) {
-			Type mergedType = new Type(descriptor.getNewName());
-			for (TypeName name : descriptor.getMergedTypes()) {
-				Type originalType = this.result.getTypes().get(name);
-				mergedType.getMergedTypes().add(name);
-				for (BaseRelationship relationship : originalType.getRelationships()) {
-					BaseRelationship storedRelationship = mergedType.getRelationship(relationship.getName());
-					if (storedRelationship == null) {
-						mergedType.getRelationships().add(relationship);
-					} else if (storedRelationship.hasDomainType()) {
-						// use the relationship that has the compatible type 
-						String compatibleDomainType = DomainTypeHelper.getCompatibleDomainType(storedRelationship.getRelationship(), relationship.getRelationship());
-						if (compatibleDomainType == null) {
-							throw new IllegalStateException("Could not find compatible domain type for merging types: " + storedRelationship.getType() + ", " + relationship.getType());
-						} else if (!DomainTypeHelper.hasDomainType(storedRelationship.getRelationship(), compatibleDomainType)) {
-							// switch stored relationship
-							this.log.log(DEBUG, "Simplification case 3: Switching domain type to be more compatible for merging types: " + storedRelationship.getType() + ", " + relationship.getType());
-							int index = mergedType.getRelationships().indexOf(storedRelationship);
-							mergedType.getRelationships().set(index, relationship);
-						}
-					}
-				}
-				// TODO: BCH: javadoc, etc.
-				if (originalType.isAbstract()) {
-					mergedType.setAbstract(true);
-				}
-				if (originalType.isRootType()) {
-					mergedType.setRootType(originalType.isRootType());
-				}
-				mergedType.getChildTypes().addAll(this.mergeResult.substituteAll(originalType.getChildTypes()));
-				mergedType.getInterfaceTypes().addAll(this.mergeResult.substituteAll(originalType.getInterfaceTypes()));
-				
-				this.result.removeType(originalType, mergedType);
+			this.result.addType(createMergedType(descriptor));
+		}
+	}
+	Type createMergedType(MergedTypeDescriptor descriptor) {
+		Type mergedType = new Type(descriptor.getNewName());
+		Map<String,List<BaseRelationship>> relationships = new LinkedHashMap<String,List<BaseRelationship>>();
+		for (TypeName typeName : descriptor.getMergedTypes()) {
+			Type originalType = this.result.getTypes().get(typeName);
+			mergedType.getMergedTypes().add(typeName);
+			for (BaseRelationship relationship : originalType.getRelationships()) {
+				addRelationshipToMap(relationships, relationship);
 			}
-			this.result.addType(mergedType);
+			
+			// TODO: BCH: javadoc, etc.
+			if (originalType.isAbstract()) {
+				mergedType.setAbstract(true);
+			}
+			if (originalType.isRootType()) {
+				mergedType.setRootType(originalType.isRootType());
+			}
+			mergedType.getChildTypes().addAll(this.mergeResult.substituteAll(originalType.getChildTypes()));
+			mergedType.getInterfaceTypes().addAll(this.mergeResult.substituteAll(originalType.getInterfaceTypes()));
+			
+			this.result.removeType(originalType, mergedType);
+		}
+		
+		for (Map.Entry<String,List<BaseRelationship>> entry : relationships.entrySet()) {
+			BaseRelationship exemplar = entry.getValue().get(0);
+			if (exemplar instanceof Association) {
+				mergedType.getRelationships().add(new Case3SimplifiedAssociation((Association) exemplar, rest(entry.getValue())));
+			} else {
+				mergedType.getRelationships().add(new Case3SimplifiedAttribute((Attribute) exemplar, rest(entry.getValue())));
+			}
+		}
+		return mergedType;
+	}
+	private void addRelationshipToMap(Map<String, List<BaseRelationship>> relationships,
+			BaseRelationship relationship) {
+		String name = relationship.getName();
+		if (!relationships.containsKey(name)) {
+			relationships.put(name, new ArrayList<BaseRelationship>());
+		}
+		
+		BaseRelationship exemplar = relationships.get(name).isEmpty() ? null : relationships.get(name).get(0);
+		
+		if (exemplar != null && exemplar.hasDomainType()) {
+			// use the relationship that has the compatible type 
+			String compatibleDomainType = DomainTypeHelper.getCompatibleDomainType(exemplar.getRelationship(), relationship.getRelationship());
+			if (compatibleDomainType == null) {
+				throw new IllegalStateException("Could not find compatible domain type for merging types: " + exemplar.getType() + ", " + relationship.getType());
+			} else if (!DomainTypeHelper.hasDomainType(exemplar.getRelationship(), compatibleDomainType)) {
+				// switch stored relationship
+				this.log.log(DEBUG, "Simplification case 3: Switching domain type to be more compatible for merging types: " + exemplar.getType() + ", " + relationship.getType());
+				relationships.get(name).add(0, relationship);
+			} else {
+				relationships.get(name).add(relationship);
+			}
+		} else {
+			relationships.get(name).add(relationship);
 		}
 	}
 	
+	private List<BaseRelationship> rest(List<BaseRelationship> value) {
+		return value.subList(1, value.size());
+	}
 	/**
 	 * <p>Walk through each of the matching approaches to populate the merge result.
 	 * 
