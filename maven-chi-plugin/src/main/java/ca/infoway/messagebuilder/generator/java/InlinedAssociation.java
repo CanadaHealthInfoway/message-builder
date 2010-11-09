@@ -1,8 +1,12 @@
 package ca.infoway.messagebuilder.generator.java;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.apache.commons.lang.WordUtils;
 
 import ca.infoway.messagebuilder.xml.Cardinality;
+import ca.infoway.messagebuilder.xml.Relationship;
 
 
 public class InlinedAssociation extends Association {
@@ -54,4 +58,12 @@ public class InlinedAssociation extends Association {
 		return this.elidedRelationship;
 	}
 
+	@Override
+	public List<Relationship> getAllRelationships() {
+		List<Relationship> result = new ArrayList<Relationship>();
+		result.addAll(this.elidedRelationship.getAllRelationships());
+		result.addAll(this.inlinedRelationship.getAllRelationships());
+		return result;
+	}
+	
 }

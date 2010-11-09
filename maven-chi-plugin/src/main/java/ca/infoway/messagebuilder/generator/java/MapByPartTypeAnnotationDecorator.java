@@ -55,23 +55,23 @@ public class MapByPartTypeAnnotationDecorator implements Decorator {
 	private String createMappingsForCsharp(List<NameAndType> mappingsByPartType) {
 		// FIXME - TM - handle CSHARP
 		
-		StringBuilder sb = new StringBuilder("@Hl7MapByPartTypes({");
+		StringBuilder builder = new StringBuilder("@Hl7MapByPartTypes({");
 		String comma = "";
 		for (NameAndType nameAndType : mappingsByPartType) {
-			sb.append(comma);
-			sb.append("@Hl7MapByPartType(name=\"");
-			sb.append(nameAndType.name);
-			sb.append(",type=\"");
-			sb.append(nameAndType.type);
-			sb.append("\")");
+			builder.append(comma);
+			builder.append("@Hl7MapByPartType(name=\"");
+			builder.append(nameAndType.name);
+			builder.append(",type=\"");
+			builder.append(nameAndType.type);
+			builder.append("\")");
 			comma = ",";
 		}
-		sb.append("})");
-		return sb.toString();
+		builder.append("})");
+		return builder.toString();
 	}
 
 	private String createMappingsForJava(List<NameAndType> mappingsByPartType) {
-		StringBuilder sb = new StringBuilder("@Hl7MapByPartTypes({");
+		StringBuilder builder = new StringBuilder("@Hl7MapByPartTypes({");
 		StringBuilder mappingPath = new StringBuilder();
 		String comma = "";
 		String mappingSeparator = "";
@@ -79,16 +79,16 @@ public class MapByPartTypeAnnotationDecorator implements Decorator {
 			mappingPath.append(mappingSeparator).append(nameAndType.name);
 			mappingSeparator = "/"; 
 			
-			sb.append(comma);
-			sb.append("@Hl7MapByPartType(name=\"");
-			sb.append(mappingPath);
-			sb.append("\",type=\"");
-			sb.append(nameAndType.type);
-			sb.append("\")");
+			builder.append(comma);
+			builder.append("@Hl7MapByPartType(name=\"");
+			builder.append(mappingPath);
+			builder.append("\",type=\"");
+			builder.append(nameAndType.type);
+			builder.append("\")");
 			comma = ",";
 		}
-		sb.append("})");
-		return sb.toString();
+		builder.append("})");
+		return builder.toString();
 	}
 
 	private List<NameAndType> createMappings(ArrayList<NameAndType> list, BaseRelationship baseRelationship) {

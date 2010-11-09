@@ -46,6 +46,7 @@ public class DifferenceAnalyzerRegistry {
     	register(RELATIONSHIP_TYPE, new RelationshipTypeDifferenceAnalyzer());
     	register(CHOICE_RELATIONSHIP_TYPE, new RelationshipTypeDifferenceAnalyzer());
     	register(CHOICE_RELATIONSHIP_MISSING, new TrivialDifferenceAnalyzer(true));
+    	register(DifferenceType.RELATIONSHIP_RENAMED, new TrivialDifferenceAnalyzer(false));
     }
     
 	private void register(DifferenceType differenceKey, DifferenceAnalyzer differenceAnalyzer) {

@@ -58,8 +58,7 @@ abstract class FieldTemplateProcessor {
 		return result;
 	}
 
-	private boolean requiresMapByPartTypeAnnotation(BaseRelationship baseRelationship) {
-		// FIXME - TM - check difference and look for numerical types (?)
+	protected boolean requiresMapByPartTypeAnnotation(BaseRelationship baseRelationship) {
 		return false;
 	}
 
