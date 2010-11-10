@@ -16,7 +16,7 @@ public class MapByPartTypeAnnotationDecoratorTest {
 	public void shouldGenerateNothingWhenNotInlinedForJava() {
 		Relationship relationship = new Relationship("relName", "ABCD_MT123456CA.SubjectOf2", Cardinality.create("1"));
 		BaseRelationship association = new Association(relationship, new Type(new TypeName(relationship.getType())));
-		MapByPartTypeAnnotationDecorator decorator = new MapByPartTypeAnnotationDecorator(association, ProgrammingLanguage.JAVA);
+		MapByPartTypeAnnotationDecorator decorator = new MapByPartTypeAnnotationDecorator(0, association, ProgrammingLanguage.JAVA);
 		assertEquals("", decorator.render());
 	}
 	
@@ -33,10 +33,10 @@ public class MapByPartTypeAnnotationDecoratorTest {
 		Association inlinedAssociation1 = new InlinedAssociation(lowestAssociation, middleAssociation);
 		Association inlinedAssociation2 = new InlinedAssociation(inlinedAssociation1, highestAssociation);
 		
-		MapByPartTypeAnnotationDecorator decorator = new MapByPartTypeAnnotationDecorator(inlinedAssociation2, ProgrammingLanguage.JAVA);
-		assertEquals(	"@Hl7MapByPartTypes({@Hl7MapByPartType(name=\"theType\",type=\"ABCD_MT123456CA.SubjectOf2\")," +
-						"@Hl7MapByPartType(name=\"theType/theSubType\",type=\"ABCD_MT123478CA.Component4\")," +
-						"@Hl7MapByPartType(name=\"theType/theSubType/theSubSubType\",type=\"ABCD_MT123490CA.Patient\")})"
+		MapByPartTypeAnnotationDecorator decorator = new MapByPartTypeAnnotationDecorator(0, inlinedAssociation2, ProgrammingLanguage.JAVA);
+		assertEquals(	"@Hl7MapByPartTypes({@Hl7MapByPartType(name=\"theType\",type=\"ABCD_MT123456CA.SubjectOf2\"),\n" +
+						"    @Hl7MapByPartType(name=\"theType/theSubType\",type=\"ABCD_MT123478CA.Component4\"),\n" +
+						"    @Hl7MapByPartType(name=\"theType/theSubType/theSubSubType\",type=\"ABCD_MT123490CA.Patient\")})"
 					, decorator.render());
 	}
 	
@@ -53,10 +53,10 @@ public class MapByPartTypeAnnotationDecoratorTest {
 		Association inlinedAssociation2 = new InlinedAssociation(middleAssociation, highestAssociation);
 		Association inlinedAssociation1 = new InlinedAssociation(lowestAssociation, inlinedAssociation2);
 		
-		MapByPartTypeAnnotationDecorator decorator = new MapByPartTypeAnnotationDecorator(inlinedAssociation1, ProgrammingLanguage.JAVA);
-		assertEquals(	"@Hl7MapByPartTypes({@Hl7MapByPartType(name=\"theType\",type=\"ABCD_MT123456CA.SubjectOf2\")," +
-						"@Hl7MapByPartType(name=\"theType/theSubType\",type=\"ABCD_MT123478CA.Component4\")," +
-						"@Hl7MapByPartType(name=\"theType/theSubType/theSubSubType\",type=\"ABCD_MT123490CA.Patient\")})" 
+		MapByPartTypeAnnotationDecorator decorator = new MapByPartTypeAnnotationDecorator(0, inlinedAssociation1, ProgrammingLanguage.JAVA);
+		assertEquals(	"@Hl7MapByPartTypes({@Hl7MapByPartType(name=\"theType\",type=\"ABCD_MT123456CA.SubjectOf2\"),\n" +
+						"    @Hl7MapByPartType(name=\"theType/theSubType\",type=\"ABCD_MT123478CA.Component4\"),\n" +
+						"    @Hl7MapByPartType(name=\"theType/theSubType/theSubSubType\",type=\"ABCD_MT123490CA.Patient\")})" 
 					, decorator.render());
 	}
 	
@@ -73,9 +73,9 @@ public class MapByPartTypeAnnotationDecoratorTest {
 		Association inlinedAssociation = new InlinedAssociation(middleAssociation, highestAssociation);
 		BaseRelationship inlinedAttribute = new InlinedAttribute(lowestAttribute, inlinedAssociation);
 		
-		MapByPartTypeAnnotationDecorator decorator = new MapByPartTypeAnnotationDecorator(inlinedAttribute, ProgrammingLanguage.JAVA);
-		assertEquals(	"@Hl7MapByPartTypes({@Hl7MapByPartType(name=\"theType\",type=\"ABCD_MT123456CA.SubjectOf2\")," +
-						"@Hl7MapByPartType(name=\"theType/theSubType\",type=\"ABCD_MT123478CA.Component4\")})"
+		MapByPartTypeAnnotationDecorator decorator = new MapByPartTypeAnnotationDecorator(0, inlinedAttribute, ProgrammingLanguage.JAVA);
+		assertEquals(	"@Hl7MapByPartTypes({@Hl7MapByPartType(name=\"theType\",type=\"ABCD_MT123456CA.SubjectOf2\"),\n" +
+						"    @Hl7MapByPartType(name=\"theType/theSubType\",type=\"ABCD_MT123478CA.Component4\")})"
 					, decorator.render());
 	}
 	
@@ -83,7 +83,7 @@ public class MapByPartTypeAnnotationDecoratorTest {
 	public void shouldGenerateNothingWhenNotInlinedForCsharp() {
 		Relationship relationship = new Relationship("relName", "ABCD_MT123456CA.SubjectOf2", Cardinality.create("1"));
 		BaseRelationship association = new Association(relationship, new Type(new TypeName(relationship.getType())));
-		MapByPartTypeAnnotationDecorator decorator = new MapByPartTypeAnnotationDecorator(association, ProgrammingLanguage.C_SHARP);
+		MapByPartTypeAnnotationDecorator decorator = new MapByPartTypeAnnotationDecorator(0, association, ProgrammingLanguage.C_SHARP);
 		assertEquals("", decorator.render());
 	}
 	
