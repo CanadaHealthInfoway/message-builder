@@ -174,9 +174,9 @@ class RelationshipMerger implements Merger<Relationship> {
 	}
 
 	private void mergeName(String name, String name2) {
-		// should never be different at this point
+		// should never be different at this point UNLESS we matched relationships based on identical association types
 		if (!StringUtils.equals(name, name2)) {
-			this.context.logError(this.context.getCurrentMessagePart() + " - relationship names should not be different: " + name + ", " + name2);
+			this.mergeHelper.addDifference(this.context, this.result, DifferenceType.RELATIONSHIP_RENAMED, name, name2);
 		}
 		this.result.setName(name);
 	}

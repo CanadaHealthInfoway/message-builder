@@ -128,7 +128,7 @@ public class RelationshipMergerTest {
 		Assert.assertEquals(CodingStrength.CNE, result.getCodingStrength());
 		Assert.assertEquals(ConformanceLevel.OPTIONAL, result.getConformance());
 		Assert.assertEquals("aDefault", result.getDefaultValue());
-		Assert.assertEquals(3, result.getDifferences().size()); // name difference is a true error and should not log a difference
+		Assert.assertEquals(4, result.getDifferences().size());
 		Assert.assertEquals(primaryDoc, result.getDocumentation());
 		Assert.assertEquals("Code", result.getDomainType());
 		Assert.assertEquals("aFixedValue", result.getFixedValue());
@@ -191,7 +191,7 @@ public class RelationshipMergerTest {
 		Assert.assertEquals(CodingStrength.CNE, result.getCodingStrength());
 		Assert.assertEquals(ConformanceLevel.OPTIONAL, result.getConformance());
 		Assert.assertEquals("aDefault", result.getDefaultValue());
-		Assert.assertEquals(2, result.getDifferences().size()); // name difference is a true error and should not log a difference
+		Assert.assertEquals(3, result.getDifferences().size());
 		Assert.assertEquals(primaryDoc, result.getDocumentation());
 		Assert.assertEquals("Code", result.getDomainType());
 		Assert.assertEquals("aFixedValue", result.getFixedValue());
@@ -254,7 +254,7 @@ public class RelationshipMergerTest {
 		Assert.assertEquals(CodingStrength.CNE, result.getCodingStrength());
 		Assert.assertEquals(ConformanceLevel.OPTIONAL, result.getConformance());
 		Assert.assertEquals("aDefault", result.getDefaultValue());
-		Assert.assertEquals(2, result.getDifferences().size()); // name difference is a true error and should not log a difference
+		Assert.assertEquals(3, result.getDifferences().size());
 		Assert.assertEquals(primaryDoc, result.getDocumentation());
 		Assert.assertEquals("Code", result.getDomainType());
 		Assert.assertEquals("aFixedValue", result.getFixedValue());
