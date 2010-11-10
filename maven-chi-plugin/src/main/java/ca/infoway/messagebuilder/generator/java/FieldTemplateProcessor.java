@@ -20,7 +20,7 @@ abstract class FieldTemplateProcessor {
 
 	protected void write(CodeTemplate template, int indent, Writer writer) throws IOException {
 		template.write(writer, indent, 
-				decorate(this.fieldDefinition.getXmlPathName(),
+				decorate(indent, this.fieldDefinition.getXmlPathName(),
 						 this.fieldDefinition.getBaseRelationship(), 
 						 this.fieldDefinition.getProgrammingLanguage()),
 				this.fieldDefinition.getFieldType(),
@@ -49,10 +49,10 @@ abstract class FieldTemplateProcessor {
 		}
 	}
 
-	private String decorate(String[] strings, BaseRelationship baseRelationship, ProgrammingLanguage programmingLanguage) {
+	private String decorate(int indent, String[] strings, BaseRelationship baseRelationship, ProgrammingLanguage programmingLanguage) {
 		String result = new StringArrayToAnnotationDecorator(strings).render();
 		if (requiresMapByPartTypeAnnotation(baseRelationship)) {
-			String mapByPartTypeAnnotation = new MapByPartTypeAnnotationDecorator(baseRelationship, programmingLanguage).render();
+			String mapByPartTypeAnnotation = new MapByPartTypeAnnotationDecorator(indent, baseRelationship, programmingLanguage).render();
 			result += "})\n" + StringUtils.chomp(mapByPartTypeAnnotation, "})");
 		}
 		return result;

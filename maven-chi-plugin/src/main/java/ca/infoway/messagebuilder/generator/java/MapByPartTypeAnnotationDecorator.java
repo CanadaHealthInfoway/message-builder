@@ -4,9 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import ca.infoway.messagebuilder.generator.lang.Decorator;
+import ca.infoway.messagebuilder.generator.lang.Indenter;
 import ca.infoway.messagebuilder.generator.lang.ProgrammingLanguage;
 
-public class MapByPartTypeAnnotationDecorator implements Decorator {
+public class MapByPartTypeAnnotationDecorator extends Indenter implements Decorator {
 
 	static class NameAndType {
 		final String name;
@@ -20,8 +21,10 @@ public class MapByPartTypeAnnotationDecorator implements Decorator {
 	
 	private final BaseRelationship baseRelationship;
 	private final ProgrammingLanguage programmingLanguage;
+	private final int indentLevel;
 
-	public MapByPartTypeAnnotationDecorator(BaseRelationship baseRelationship, ProgrammingLanguage programmingLanguage) {
+	public MapByPartTypeAnnotationDecorator(int indent, BaseRelationship baseRelationship, ProgrammingLanguage programmingLanguage) {
+		this.indentLevel = indent;
 		this.baseRelationship = baseRelationship;
 		this.programmingLanguage = programmingLanguage;
 	}
@@ -55,16 +58,21 @@ public class MapByPartTypeAnnotationDecorator implements Decorator {
 	private String createMappingsForCsharp(List<NameAndType> mappingsByPartType) {
 		// FIXME - TM - handle CSHARP
 		
-		StringBuilder builder = new StringBuilder("@Hl7MapByPartTypes({");
-		String comma = "";
+		StringBuilder builder = new StringBuilder();
+		indent(this.indentLevel, builder);
+		builder.append("@Hl7MapByPartTypes({");
+		boolean first = true;
 		for (NameAndType nameAndType : mappingsByPartType) {
-			builder.append(comma);
+			if (!first) {
+				builder.append(",\n");
+				indent(this.indentLevel+1, builder);
+			}
 			builder.append("@Hl7MapByPartType(name=\"");
 			builder.append(nameAndType.name);
 			builder.append(",type=\"");
 			builder.append(nameAndType.type);
 			builder.append("\")");
-			comma = ",";
+			first = false;
 		}
 		builder.append("})");
 		return builder.toString();
@@ -73,19 +81,22 @@ public class MapByPartTypeAnnotationDecorator implements Decorator {
 	private String createMappingsForJava(List<NameAndType> mappingsByPartType) {
 		StringBuilder builder = new StringBuilder("@Hl7MapByPartTypes({");
 		StringBuilder mappingPath = new StringBuilder();
-		String comma = "";
 		String mappingSeparator = "";
+		boolean first = true;
 		for (NameAndType nameAndType : mappingsByPartType) {
+			if (!first) {
+				builder.append(",\n");
+				indent(this.indentLevel+1, builder);
+			}
 			mappingPath.append(mappingSeparator).append(nameAndType.name);
 			mappingSeparator = "/"; 
 			
-			builder.append(comma);
 			builder.append("@Hl7MapByPartType(name=\"");
 			builder.append(mappingPath);
 			builder.append("\",type=\"");
 			builder.append(nameAndType.type);
 			builder.append("\")");
-			comma = ",";
+			first = false;
 		}
 		builder.append("})");
 		return builder.toString();
