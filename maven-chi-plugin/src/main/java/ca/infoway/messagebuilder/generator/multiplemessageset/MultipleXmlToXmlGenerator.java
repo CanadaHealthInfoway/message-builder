@@ -3,6 +3,7 @@ package ca.infoway.messagebuilder.generator.multiplemessageset;
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
+import java.util.Set;
 
 import org.apache.commons.collections.CollectionUtils;
 
@@ -54,16 +55,22 @@ public class MultipleXmlToXmlGenerator implements MessageSetGenerator {
 			MessageSet secondaryMessageSet = convertFileToMessageSet(inputMessageSets.get(1).getDirectory());
 			MessageSet mergedMessageSet = mergeMessageSets(mergeContext, primaryMessageSet, secondaryMessageSet);
 			
-			createMergeReport(mergedMessageSet, new File("/tmp/myReport.xls"));
+			createMergeReport(mergedMessageSet, new File("/tmp/generatorMergeReport.xls"));
 			
-			exciseUnmatchedItems(mergedMessageSet);
+			Set<String> excisedItems = exciseUnmatchedItems(mergedMessageSet);
+			
+			createExciseReport(excisedItems, new File("/tmp/generatorExciseReport.xls"));
 			
 			this.outputUI.log(LogLevel.INFO, MESSAGE_SET_MERGE_COMPLETED);
 		}
 	}
 	
-	private void exciseUnmatchedItems(MessageSet messageSet) {
-		new Exciser(messageSet).execute();
+	private void createExciseReport(Set<String> excisedItems, File reportFile) throws IOException {
+		new ExciseReportGenerator(excisedItems, reportFile).create();
+	}
+
+	private Set<String> exciseUnmatchedItems(MessageSet messageSet) {
+		return new Exciser(messageSet).execute();
 	}
 
 	private void createMergeReport(MessageSet messageSet, File reportFile) throws IOException {

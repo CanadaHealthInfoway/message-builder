@@ -41,9 +41,10 @@ public class Exciser {
 		this.messageSet = messageSet;
 	}
 
-	public void execute() {
+	public Set<String> execute() {
 		DependencyContainer dependencies = buildUpDependencyMap();
 		removeProblemDifferences(dependencies);
+		return this.removals;
 //		ArrayList<String> sortedList = new ArrayList<String>(this.removals);
 //		Collections.sort(sortedList);
 //		for (String component : sortedList) {
