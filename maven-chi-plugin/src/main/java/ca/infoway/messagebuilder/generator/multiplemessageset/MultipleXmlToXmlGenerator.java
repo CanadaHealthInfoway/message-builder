@@ -57,7 +57,7 @@ public class MultipleXmlToXmlGenerator implements MessageSetGenerator {
 			
 			createMergeReport(mergedMessageSet, new File("/tmp/generatorMergeReport.xls"));
 			
-			Set<String> excisedItems = exciseUnmatchedItems(mergedMessageSet);
+			Set<ExcisedItem> excisedItems = exciseUnmatchedItems(mergedMessageSet);
 			
 			createExciseReport(excisedItems, new File("/tmp/generatorExciseReport.xls"));
 			
@@ -65,11 +65,11 @@ public class MultipleXmlToXmlGenerator implements MessageSetGenerator {
 		}
 	}
 	
-	private void createExciseReport(Set<String> excisedItems, File reportFile) throws IOException {
+	private void createExciseReport(Set<ExcisedItem> excisedItems, File reportFile) throws IOException {
 		new ExciseReportGenerator(excisedItems, reportFile).create();
 	}
 
-	private Set<String> exciseUnmatchedItems(MessageSet messageSet) {
+	private Set<ExcisedItem> exciseUnmatchedItems(MessageSet messageSet) {
 		return new Exciser(messageSet).execute();
 	}
 

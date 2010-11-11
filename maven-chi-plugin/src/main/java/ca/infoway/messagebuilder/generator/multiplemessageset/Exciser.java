@@ -2,8 +2,10 @@ package ca.infoway.messagebuilder.generator.multiplemessageset;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import org.apache.commons.lang.StringUtils;
@@ -35,21 +37,17 @@ public class Exciser {
 	}
 	
 	private final MessageSet messageSet;
-	private Set<String> removals = Collections.synchronizedSet(new HashSet<String>());
+	private Set<ExcisedItem> removals = Collections.synchronizedSet(new HashSet<ExcisedItem>());
+	private Map<String, PackageLocation> removedPackageLocations = Collections.synchronizedMap(new HashMap<String, PackageLocation>()); 
 
 	public Exciser(MessageSet messageSet) {
 		this.messageSet = messageSet;
 	}
 
-	public Set<String> execute() {
+	public Set<ExcisedItem> execute() {
 		DependencyContainer dependencies = buildUpDependencyMap();
 		removeProblemDifferences(dependencies);
 		return this.removals;
-//		ArrayList<String> sortedList = new ArrayList<String>(this.removals);
-//		Collections.sort(sortedList);
-//		for (String component : sortedList) {
-//			System.out.println(component);
-//		}
 	}
 
 	void removeProblemDifferences(DependencyContainer dependencies) {
@@ -67,7 +65,7 @@ public class Exciser {
 	}
 
 	private void removeComponent(DependencyContainer dependencies, Named named) {
-		removeComponent(dependencies, named.getName());
+		removeComponent(dependencies, named.getName(), named.getName());
 	}
 
 	private void removeProblemMessageParts(DependencyContainer dependencies) {
@@ -104,13 +102,13 @@ public class Exciser {
 		return ok;
 	}
 
-	private void removeDependenciesOfComponent(DependencyContainer dependencies, String name) {
+	private void removeDependenciesOfComponent(DependencyContainer dependencies, String name, String exciseSourceName) {
 		LayeredGraph<String> layeredGraph = dependencies.manager.getLayeredGraph();
 		Node<String> node = layeredGraph.getNode(name);
 
 		Set<String> afferentCouplings = node.getAfferentCouplings();
 		for (String afferent : afferentCouplings) {
-			removeComponent(dependencies, afferent);
+			removeComponent(dependencies, afferent, exciseSourceName);
 		}
 	}
 
@@ -152,22 +150,43 @@ public class Exciser {
 		return ok;
 	}
 
-	private void removeComponent(DependencyContainer dependencies, String name) {
+	private void removeComponent(DependencyContainer dependencies, String name, String exciseSourceName) {
 		TypeName typeName = new TypeName(name);
+		HasDifferences removedItem = null;
 		if (typeName.isInteraction()) {
-			this.messageSet.getInteractions().remove(name);
+			removedItem = this.messageSet.getInteractions().remove(name);
 		} else if (typeName.isRoot()) {
-			this.messageSet.getPackageLocations().remove(name);
+			removedItem = removePackageLocation(name);
 		} else {
-			PackageLocation location = this.messageSet.getPackageLocations().get(typeName.getParent().getName());
+			PackageLocation location = findPackageLocation(typeName);
 			if (location != null) {
-				location.getMessageParts().remove(name);
+				removedItem = location.getMessageParts().remove(name);
 			}
 		}
-		if (this.removals.add(name)) {
-			removeDependenciesOfComponent(dependencies, name);
-			removeChoiceDependenciesOfComponent(dependencies, name);
+		if (removedItem != null) {
+			ExcisedItem excisedItem = new ExcisedItem(removedItem, exciseSourceName);
+			if (this.removals.add(excisedItem)) {
+				removeDependenciesOfComponent(dependencies, name, exciseSourceName);
+				removeChoiceDependenciesOfComponent(dependencies, name);
+			}
 		}
+	}
+
+	private HasDifferences removePackageLocation(String name) {
+		HasDifferences removedItem = this.messageSet.getPackageLocations().remove(name);
+		if (removedItem != null) {
+			this.removedPackageLocations.put(name, (PackageLocation) removedItem);
+		}
+		return removedItem;
+	}
+
+	private PackageLocation findPackageLocation(TypeName typeName) {
+		String parentName = typeName.getParent().getName();
+		PackageLocation location = this.messageSet.getPackageLocations().get(parentName);
+		if (location == null) {
+			location = this.removedPackageLocations.get(parentName);
+		}
+		return location;
 	}
 
 	private void removeChoiceDependenciesOfComponent(DependencyContainer dependencies, String name) {
