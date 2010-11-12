@@ -15,7 +15,7 @@ public class TypeAnalysisResult implements TypeProvider, TypeNameHelper {
 
     protected final Map<TypeName,Type> types = Collections.synchronizedMap(new LinkedHashMap<TypeName,Type>());
     protected final Map<TypeName,ComplexTypePackage> packages = Collections.synchronizedMap(new LinkedHashMap<TypeName,ComplexTypePackage>());
-    protected final Map<TypeName,NamedType> removedTypes = Collections.synchronizedMap(new LinkedHashMap<TypeName,NamedType>());
+    protected final Map<TypeName,Type> removedTypes = Collections.synchronizedMap(new LinkedHashMap<TypeName,Type>());
     protected final Map<TypeName,TypeName> removedTypeTranslation = Collections.synchronizedMap(new LinkedHashMap<TypeName,TypeName>());
     
 	public Map<TypeName, TypeName> getRemovedTypeTranslation() {
@@ -35,7 +35,7 @@ public class TypeAnalysisResult implements TypeProvider, TypeNameHelper {
 		return this.types;
 	}
 
-	public Map<TypeName, NamedType> getRemovedTypes() {
+	public Map<TypeName, Type> getRemovedTypes() {
 		return this.removedTypes;
 	}
 
@@ -89,7 +89,7 @@ public class TypeAnalysisResult implements TypeProvider, TypeNameHelper {
 	/**
 	 * <p>Returns information about type name, whether or not it has been removed.
 	 */
-	public NamedType getNamedType(TypeName name) {
+	public Type getNamedType(TypeName name) {
 		if (this.types.containsKey(name)) {
 			return this.types.get(name);
 		} else if (this.removedTypes.containsKey(name)) {

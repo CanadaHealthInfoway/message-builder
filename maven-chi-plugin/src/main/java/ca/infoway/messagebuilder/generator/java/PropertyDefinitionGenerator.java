@@ -4,9 +4,6 @@ import java.io.IOException;
 import java.io.Writer;
 
 import ca.infoway.messagebuilder.generator.lang.CodeTemplate;
-import ca.infoway.messagebuilder.xml.Difference;
-import ca.infoway.messagebuilder.xml.DifferenceType;
-import ca.infoway.messagebuilder.xml.Relationship;
 
 class PropertyDefinitionGenerator extends FieldTemplateProcessor {
 	
@@ -95,17 +92,6 @@ class PropertyDefinitionGenerator extends FieldTemplateProcessor {
 	
 	@Override
 	protected boolean requiresMapByPartTypeAnnotation(BaseRelationship baseRelationship) {
-		boolean result = false;
-		if (baseRelationship != null) {
-			outer: for (Relationship relationship : baseRelationship.getAllRelationships()) {
-				for (Difference difference : relationship.getDifferences()) {
-					if (difference.getType() == DifferenceType.RELATIONSHIP_RENAMED) {
-						result = true;
-						break outer;
-					}
-				}
-			}
-		}
-		return result;
+		return baseRelationship == null ? false : baseRelationship.requiresMapByPartTypeAnnotation();
 	}
 }

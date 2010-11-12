@@ -11,6 +11,7 @@ import ca.infoway.messagebuilder.generator.java.Case3Simplifier;
 import ca.infoway.messagebuilder.generator.java.IntermediateToModelGenerator;
 import ca.infoway.messagebuilder.generator.java.NameTranslator;
 import ca.infoway.messagebuilder.generator.java.SimpleNameTranslator;
+import ca.infoway.messagebuilder.generator.java.SimplifiableDefinitions;
 import ca.infoway.messagebuilder.generator.java.TypeAnalysisResult;
 
 public class IntermediateToCsharpGenerator extends IntermediateToModelGenerator {
@@ -28,9 +29,9 @@ public class IntermediateToCsharpGenerator extends IntermediateToModelGenerator 
 	 * <p>The Case 3 algorithm only applies to Java and .Net. 
 	 */
 	@Override
-	public void simplify(TypeAnalysisResult result) throws GeneratorException {
+	public void simplify(TypeAnalysisResult result, SimplifiableDefinitions definitions) throws GeneratorException {
 		new Case3Simplifier(this.outputUI, result).execute();
-		super.simplify(result);
+		super.simplify(result, definitions);
 	}
 	
 	@Override

@@ -3,6 +3,8 @@ package ca.infoway.messagebuilder.generator.java;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.commons.lang.ClassUtils;
+
 import ca.infoway.messagebuilder.generator.lang.Decorator;
 import ca.infoway.messagebuilder.generator.lang.Indenter;
 import ca.infoway.messagebuilder.generator.lang.ProgrammingLanguage;
@@ -22,6 +24,8 @@ public class MapByPartTypeAnnotationDecorator extends Indenter implements Decora
 	private final BaseRelationship baseRelationship;
 	private final ProgrammingLanguage programmingLanguage;
 	private final int indentLevel;
+	
+	private boolean print = true;
 
 	public MapByPartTypeAnnotationDecorator(int indent, BaseRelationship baseRelationship, ProgrammingLanguage programmingLanguage) {
 		this.indentLevel = indent;
@@ -34,6 +38,7 @@ public class MapByPartTypeAnnotationDecorator extends Indenter implements Decora
 		
 		if (isInlined(this.baseRelationship)) {
 			List<NameAndType> mappingsByPartType = createMappings(new ArrayList<NameAndType>(), this.baseRelationship);
+			this.print = false;
 			mappingsString = createMappingsString(mappingsByPartType);
 		}
 
@@ -79,7 +84,9 @@ public class MapByPartTypeAnnotationDecorator extends Indenter implements Decora
 	}
 
 	private String createMappingsForJava(List<NameAndType> mappingsByPartType) {
-		StringBuilder builder = new StringBuilder("@Hl7MapByPartTypes({");
+		StringBuilder builder = new StringBuilder();
+		indent(this.indentLevel, builder);
+		builder.append("@Hl7MapByPartTypes({");
 		StringBuilder mappingPath = new StringBuilder();
 		String mappingSeparator = "";
 		boolean first = true;
@@ -112,10 +119,27 @@ public class MapByPartTypeAnnotationDecorator extends Indenter implements Decora
 			createMappings(list, inlinedAttribute.getElidedRelationship());
 			createMappings(list, inlinedAttribute.getInlinedRelationship());
 		} else if (baseRelationship instanceof Association) {
-			list.add(new NameAndType(baseRelationship.getName(), baseRelationship.getType()));
+			
+			if (baseRelationship.getOriginalType().endsWith(".Manufacturer")) {
+				this.print = true;
+			}
+			
+			list.add(new NameAndType(baseRelationship.getName(), baseRelationship.getOriginalType()));
 		} else {
 			// do nothing (attributes are ignored)
 		}
+		
+		if (this.print) {
+			System.out.println("Mapping   >>>> " + ClassUtils.getShortClassName(baseRelationship.getClass()));
+			System.out.println("Name      >>>> " + baseRelationship.getName());
+			System.out.println("Type      >>>> " + baseRelationship.getType());
+			System.out.println("Orig.Type >>>> " + baseRelationship.getOriginalType());
+			if (baseRelationship instanceof InlinedAssociation) {
+				System.out.println("Orig.Type >>>> " + ((InlinedAssociation) baseRelationship).getElidedRelationship().getType());
+			}
+			System.out.println();
+		}
+		
 		return list;
 	}
 

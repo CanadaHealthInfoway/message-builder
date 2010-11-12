@@ -9,8 +9,8 @@ import ca.infoway.messagebuilder.generator.TypeConverter;
 
 public class Case0Simplifier extends InlineableSimplifier {
 
-	public Case0Simplifier(LogUI log, TypeAnalysisResult result) {
-		super(log, result);
+	public Case0Simplifier(LogUI log, TypeAnalysisResult result, SimplifiableDefinitions definitions) {
+		super(log, result, definitions);
 	}
 
 	protected boolean isInlineable(ComplexTypePackage complexTypePackage, Type inlineableType) {

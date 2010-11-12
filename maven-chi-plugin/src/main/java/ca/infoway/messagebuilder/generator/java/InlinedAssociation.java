@@ -66,4 +66,8 @@ public class InlinedAssociation extends Association {
 		return result;
 	}
 	
+	@Override
+	String getOriginalType() {
+		return this.inlinedRelationship.getOriginalType();
+	}
 }
