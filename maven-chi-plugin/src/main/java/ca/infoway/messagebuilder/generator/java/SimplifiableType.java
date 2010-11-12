@@ -4,9 +4,10 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import ca.infoway.messagebuilder.Named;
 import ca.infoway.messagebuilder.xml.MessagePart;
 
-class SimplifiableType {
+class SimplifiableType implements Named {
 
 	private List<SimplifiableRelationship> relationships = Collections.synchronizedList(new ArrayList<SimplifiableRelationship>());
 	private boolean inlined;
@@ -39,11 +40,19 @@ class SimplifiableType {
 		return this.rootType;
 	}
 
+	public boolean isMerged() {
+		return !this.mergedWithTypes.isEmpty();
+	}
+	
 	public void setInlined(boolean inlined) {
 		this.inlined = inlined;
 	}
 	@Override
 	public String toString() {
+		return this.messagePart.getName();
+	}
+
+	public String getName() {
 		return this.messagePart.getName();
 	}
 }

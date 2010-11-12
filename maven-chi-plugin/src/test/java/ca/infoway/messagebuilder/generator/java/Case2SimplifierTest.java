@@ -1,11 +1,14 @@
 package ca.infoway.messagebuilder.generator.java;
 
 import static ca.infoway.messagebuilder.generator.java.TypeAndRelationshipBuilder.createAssociation;
+import static ca.infoway.messagebuilder.generator.java.TypeAndRelationshipBuilder.createSimplifiableAssociation;
 import static ca.infoway.messagebuilder.generator.java.TypeAndRelationshipBuilder.createAttribute;
+import static ca.infoway.messagebuilder.generator.java.TypeAndRelationshipBuilder.createSimplifiableAttribute;
 import static ca.infoway.messagebuilder.generator.java.TypeAndRelationshipBuilder.createInlinedAttribute;
 import static ca.infoway.messagebuilder.generator.java.TypeAndRelationshipBuilder.createMergedAssociation;
 import static ca.infoway.messagebuilder.generator.java.TypeAndRelationshipBuilder.createRootType;
 import static ca.infoway.messagebuilder.generator.java.TypeAndRelationshipBuilder.createType;
+import static ca.infoway.messagebuilder.generator.java.TypeAndRelationshipBuilder.createSimplifiableType;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
@@ -39,11 +42,24 @@ public class Case2SimplifierTest {
 								createAttribute("desc", new Cardinality(0,1), "ST")
 								)));
 
+		createSimplifiableType(this.definitions,
+				"Sender", 
+				true,
+				createSimplifiableAttribute("telecom", new Cardinality(1, 1), "TEL.URI"),
+				createSimplifiableAssociation("device", new Cardinality(1,1), 
+						createSimplifiableType(this.definitions, "Device1", false,
+								createSimplifiableAttribute("id", new Cardinality(0,1), "II"),
+								createSimplifiableAttribute("name", new Cardinality(0,1), "ST"),
+								createSimplifiableAttribute("desc", new Cardinality(0,1), "ST")
+						)));
+		
 		assertTrue("not yet elided", this.result.getTypes().containsKey(new TypeName("ABCD_MT123456CA.Device1")));
+		assertFalse("definition not yet elided", this.definitions.getType("ABCD_MT123456CA.Device1").isInlined());
 		
 		new Case2Simplifier(new SysoutLogUI(), this.result, this.definitions).execute();
 		
 		assertFalse("elided", this.result.getTypes().containsKey(new TypeName("ABCD_MT123456CA.Device1")));
+		assertTrue("definition elided", this.definitions.getType("ABCD_MT123456CA.Device1").isInlined());
 		assertEquals("number of properties", 4, 
 				this.result.getTypes().get(new TypeName("ABCD_MT123456CA.Sender")).getRelationships().size());
 		

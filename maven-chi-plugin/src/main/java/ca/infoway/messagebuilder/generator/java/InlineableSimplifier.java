@@ -59,8 +59,6 @@ public abstract class InlineableSimplifier {
 	
 	protected BaseRelationship createInlinedRelationship(TypeName name, 
 			BaseRelationship inlinedRelationship, BaseRelationship elidedRelationship) {
-		elidedRelationship = unmerge(name, elidedRelationship);
-		
 		if (inlinedRelationship.getRelationshipType() == RelationshipType.ATTRIBUTE) {
 			return new InlinedAttribute((Attribute) inlinedRelationship, elidedRelationship);
 		} else {
@@ -68,22 +66,6 @@ public abstract class InlineableSimplifier {
 		}
 	}
 	
-	/**
-	 * <p>Restore original unmerged relationship on inlining.
-	 * <p>Once a type gets inlined, the fact that it might have been merged no longer 
-	 * becomes interesting.  We should "unmerge" the association.
-	 * 
-	 * @param elidedRelationship
-	 * @return
-	 */
-	private BaseRelationship unmerge(TypeName name, BaseRelationship elidedRelationship) {
-		if (elidedRelationship instanceof WrapperRelationship) {
-			return ((WrapperRelationship) elidedRelationship).unwrap(name);
-		} else {
-			return elidedRelationship;
-		}
-	}
-
 	protected boolean matches(Type inlineableType, BaseRelationship relationship) {
 		return relationship.getRelationshipType() == RelationshipType.ASSOCIATION
 				&& ObjectUtils.equals(((Association) relationship).getPropertyTypeName(),

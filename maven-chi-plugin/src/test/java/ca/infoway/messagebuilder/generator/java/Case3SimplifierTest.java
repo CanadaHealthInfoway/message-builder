@@ -26,13 +26,14 @@ public class Case3SimplifierTest {
 	private LogUI log;
 	private Case3Simplifier simplifier;
 	private Case3MergeResult mergeResult;
-
+	private SimplifiableDefinitions definitions = new SimplifiableDefinitions();
+	
 	@Before
 	public void setUp() throws Exception {
 		this.result = new TypeAnalysisResult();
 		this.log = this.jmock.mock(LogUI.class);
 		this.mergeResult = new Case3MergeResult();
-		this.simplifier = new Case3Simplifier(this.log, this.result, this.mergeResult);
+		this.simplifier = new Case3Simplifier(this.log, this.result, this.definitions, this.mergeResult);
 	}
 
 	@Test

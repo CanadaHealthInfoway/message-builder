@@ -33,20 +33,34 @@ public class Case3Simplifier {
 					return new Case3FuzzyMatcher(log, provider, result);
 				}
 			});
+	private final SimplifiableDefinitions definitions;
 	
 	
-	public Case3Simplifier(LogUI log, TypeAnalysisResult result) {
-		this(log, result, new Case3MergeResult());
+	public Case3Simplifier(LogUI log, TypeAnalysisResult result, SimplifiableDefinitions definitions) {
+		this(log, result, definitions, new Case3MergeResult());
 	}
-	Case3Simplifier(LogUI log, TypeAnalysisResult result, Case3MergeResult mergeResult) {
+	Case3Simplifier(LogUI log, TypeAnalysisResult result, SimplifiableDefinitions definitions, Case3MergeResult mergeResult) {
 		this.log = log;
 		this.result = result;
+		this.definitions = definitions;
 		this.mergeResult = mergeResult;
 	}
 	public void execute() throws GeneratorException {
 		createMatchResult();
+		markDefinitions();
 		createMergedTypes();
 		replaceReferencesWithMergedTypes();
+	}
+	private void markDefinitions() {
+		for (MergedTypeDescriptor descriptor : this.mergeResult.getDescriptors()) {
+			for (TypeName originalName : descriptor.getMergedTypes()) {
+				SimplifiableType type = this.definitions.getType(originalName.getName());
+				for (TypeName mergedName : descriptor.getMergedTypes()) {
+					SimplifiableType mergedType = this.definitions.getType(mergedName.getName());
+					type.getMergedWithTypes().add(mergedType);
+				}
+			}
+		}
 	}
 	void replaceReferencesWithMergedTypes() {
 		Collection<Type> allTypes = new ArrayList<Type>(this.result.getAllMessageTypes());

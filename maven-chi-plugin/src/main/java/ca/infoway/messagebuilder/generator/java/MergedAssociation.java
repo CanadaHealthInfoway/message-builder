@@ -2,7 +2,7 @@ package ca.infoway.messagebuilder.generator.java;
 
 import ca.infoway.messagebuilder.xml.TypeName;
 
-public class MergedAssociation extends Association implements WrapperRelationship {
+public class MergedAssociation extends Association {
 
 	private static final long serialVersionUID = 3765276875077194477L;
 	
@@ -33,14 +33,5 @@ public class MergedAssociation extends Association implements WrapperRelationshi
 	@Override
 	String getOriginalType() {
 		return this.association.getOriginalType();
-	}
-
-	public BaseRelationship unwrap(TypeName name) {
-		Association relationship = this.getOriginalAssociation();
-		if (relationship instanceof WrapperRelationship) {
-			return ((WrapperRelationship) relationship).unwrap(name);
-		} else {
-			return relationship;
-		}
 	}
 }

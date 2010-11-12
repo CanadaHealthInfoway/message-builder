@@ -35,5 +35,9 @@ public class SimplifiableDefinitions {
 	public Collection<SimplifiablePackage> getAllPackages() {
 		return this.packages.values();
 	}
+
+	public Collection<SimplifiableType> getAllTypes() {
+		return this.types.values();
+	}
 	
 }
