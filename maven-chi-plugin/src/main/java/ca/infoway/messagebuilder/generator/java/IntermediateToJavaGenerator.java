@@ -24,7 +24,7 @@ public class IntermediateToJavaGenerator extends IntermediateToModelGenerator {
 	 */
 	@Override
 	public void simplify(TypeAnalysisResult result, SimplifiableDefinitions definitions) throws GeneratorException {
-		new Case3Simplifier(this.outputUI, result).execute();
+		new Case3Simplifier(this.outputUI, result, definitions).execute();
 		super.simplify(result, definitions);
 	}
 	

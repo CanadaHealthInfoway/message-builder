@@ -9,7 +9,7 @@ import java.util.Set;
 import ca.infoway.messagebuilder.xml.Relationship;
 import ca.infoway.messagebuilder.xml.TypeName;
 
-class Case3SimplifiedAssociation extends Association implements WrapperRelationship {
+class Case3SimplifiedAssociation extends Association {
 
 	private final Association exemplar;
 	private final Map<TypeName, BaseRelationship> mergedRelationships;
@@ -32,14 +32,5 @@ class Case3SimplifiedAssociation extends Association implements WrapperRelations
 
 	Association getExemplar() {
 		return this.exemplar;
-	}
-
-	public BaseRelationship unwrap(TypeName name) {
-		BaseRelationship relationship = this.mergedRelationships.get(name);
-		if (relationship instanceof WrapperRelationship) {
-			return ((WrapperRelationship) relationship).unwrap(name);
-		} else {
-			return relationship;
-		}
 	}
 }

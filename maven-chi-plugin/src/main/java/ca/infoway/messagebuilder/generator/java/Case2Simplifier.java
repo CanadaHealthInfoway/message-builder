@@ -37,6 +37,22 @@ public class Case2Simplifier extends InlineableSimplifier {
 		}
 	}
 
+	class SimplifiableReference {
+		private final SimplifiableRelationship relationship;
+		private final SimplifiableType type;
+		
+		public SimplifiableReference(SimplifiableType type, SimplifiableRelationship relationship) {
+			this.type = type;
+			this.relationship = relationship;
+		}
+		public SimplifiableRelationship getRelationship() {
+			return this.relationship;
+		}
+		public SimplifiableType getType() {
+			return this.type;
+		}
+	}
+	
 	private Set<TypeName> nonInlineableTypes = Collections.synchronizedSet(new HashSet<TypeName>());
 	private final Case1Simplifier case1Simplifier;
 	private final SimplifiableDefinitions definitions;
@@ -193,8 +209,31 @@ public class Case2Simplifier extends InlineableSimplifier {
 		return result;
 	}
 
+	@Override
+	protected boolean isInlineable(SimplifiablePackage complexTypePackage, SimplifiableType inlineableType) {
+		boolean result = true;
+		
+		if (inlineableType.isRootType()) {
+			result = false;
+		} else if (inlineableType.getMessagePart().isAbstract()) {
+			result = false;
+		} else if (!isUsedExactlyOnce(complexTypePackage, inlineableType)) {
+			// if used more than once do not inline - we don't want to denormalize unnecessarily; 
+			result = false;
+		} else {
+			List<SimplifiableReference> references = getAllSimplifiableReferencesToType(
+					getPotentialReferrers(complexTypePackage, inlineableType), inlineableType);
+			result = validateReferences(complexTypePackage, inlineableType, references);
+		}
+		
+		return result;
+	}
+	
 	private Collection<Type> getPotentialReferrers(ComplexTypePackage complexTypePackage, Type inlineableType) {
 		return this.result.getAllMessageTypes();
+	}
+	private Collection<SimplifiableType> getPotentialReferrers(SimplifiablePackage complexTypePackage, SimplifiableType inlineableType) {
+		return this.definitions.getAllTypes();
 	}
 
 	private boolean validateReferences(ComplexTypePackage complexTypePackage, Type inlineableType, List<Reference> references) {
@@ -205,6 +244,14 @@ public class Case2Simplifier extends InlineableSimplifier {
 		return result;
 	}
 
+	private boolean validateReferences(SimplifiablePackage complexTypePackage, SimplifiableType inlineableType, List<SimplifiableReference> references) {
+		boolean result = !references.isEmpty();
+		for (SimplifiableReference reference : references) {
+			result &= validateReference(complexTypePackage, inlineableType, reference);
+		}
+		return result;
+	}
+	
 	private List<Reference> getAllReferencesToType(Collection<Type> values, Type inlineableType) {
 		List<Reference> result = new ArrayList<Reference>();
 		for (Type type : values) {
@@ -217,6 +264,18 @@ public class Case2Simplifier extends InlineableSimplifier {
 		return result;
 	}
 
+	private List<SimplifiableReference> getAllSimplifiableReferencesToType(Collection<SimplifiableType> values, SimplifiableType inlineableType) {
+		List<SimplifiableReference> result = new ArrayList<SimplifiableReference>();
+		for (SimplifiableType type : values) {
+			for (SimplifiableRelationship relationship : type.getRelationships()) {
+				if (matches(inlineableType, relationship)) {
+					result.add(new SimplifiableReference(type, relationship));
+				}
+			}
+		}
+		return result;
+	}
+	
 	private boolean validateReference(ComplexTypePackage complexTypePackage, Type inlineableType, Reference reference) {
 		boolean result = true;
 		
@@ -238,6 +297,27 @@ public class Case2Simplifier extends InlineableSimplifier {
 		return result && !reference.getRelationship().getConformanceLevel().equals(ConformanceLevel.POPULATED);
 	}
 
+	private boolean validateReference(SimplifiablePackage complexTypePackage, SimplifiableType inlineableType, SimplifiableReference reference) {
+		boolean result = true;
+		
+		if (reference.getRelationship().getRelationship().getCardinality().isMultiple()) {
+			result = false;
+		} else if (this.nonInlineableTypes.contains(reference.getType().getMessagePart().getName())) {
+			result = false;
+		} else if (ObjectUtils.equals(inlineableType.getName(), reference.getType().getName())) {
+			return false;
+		} else if (this.case1Simplifier.isInlineable(complexTypePackage, reference.getType())) {
+			return false;
+		} else if (EXACTLY_ONE.equals(reference.getRelationship().getRelationship().getCardinality())) {
+			result = true;
+		} else {
+			// must have at least one mandatory property in order to avoid ambiguity with collapsed relationships (parent is nullflavor vs parent has child and all child relationships are nullflavor)
+			result = hasAtLeastOneMandatoryProperty(inlineableType);
+		}
+		
+		return result && !reference.getRelationship().getRelationship().getConformance().equals(ConformanceLevel.POPULATED);
+	}
+	
 	private boolean hasAtLeastOneMandatoryProperty(Type inlineableType) {
 		boolean result = false;
 		for (BaseRelationship relationship : inlineableType.getRelationships()) {
@@ -249,11 +329,34 @@ public class Case2Simplifier extends InlineableSimplifier {
 		return result;
 	}
 
+	private boolean hasAtLeastOneMandatoryProperty(SimplifiableType inlineableType) {
+		boolean result = false;
+		for (SimplifiableRelationship relationship : inlineableType.getRelationships()) {
+			if (relationship.getRelationship().getCardinality().getMin() == 1) {
+				result = true;
+				break;
+			}
+		}
+		return result;
+	}
+	
 	private boolean isUsedExactlyOnce(ComplexTypePackage complexTypePackage,
 			Type inlineableType) {
 		int count = 0;
 		for (Type type : complexTypePackage.getTypes().values()) {
 			for (BaseRelationship relationship : type.getRelationships()) {
+				if (matches(inlineableType, relationship)) {
+					count++;
+				}
+			}
+		}
+		return count == 1;
+	}
+	private boolean isUsedExactlyOnce(SimplifiablePackage complexTypePackage,
+			SimplifiableType inlineableType) {
+		int count = 0;
+		for (SimplifiableType type : complexTypePackage.getTypes()) {
+			for (SimplifiableRelationship relationship : type.getRelationships()) {
 				if (matches(inlineableType, relationship)) {
 					count++;
 				}

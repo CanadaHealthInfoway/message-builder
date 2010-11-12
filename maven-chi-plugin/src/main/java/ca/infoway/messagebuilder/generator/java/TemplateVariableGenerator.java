@@ -7,6 +7,7 @@ import org.apache.commons.lang.StringUtils;
 
 import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.j5goodies.CamelCaseUtil;
+import ca.infoway.messagebuilder.xml.Relationship;
 
 
 public class TemplateVariableGenerator {
@@ -14,6 +15,9 @@ public class TemplateVariableGenerator {
 	public Set<String> items = new HashSet<String>();
 	public StringBuffer buffer = new StringBuffer("TUVWXYZ");
 	
+	public synchronized TemplateVariable getNext(Relationship relationship) {
+		return getNext(relationship.getTemplateParameterName());
+	}
 	public synchronized TemplateVariable getNext(String templateParameterName) {
 		String option = transform(templateParameterName);
 		while (isStandardDataType(option) || StringUtils.isBlank(option) || !this.items.add(option)) {

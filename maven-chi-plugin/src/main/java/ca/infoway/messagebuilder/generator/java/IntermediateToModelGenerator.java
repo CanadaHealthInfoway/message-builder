@@ -65,14 +65,14 @@ public abstract class IntermediateToModelGenerator {
 		
 		simplify(result, definitions);
 		
-//		return createResultFromDefinitions(definitions);
-		return result;
+		return createResultFromDefinitions(definitions);
+//		return result;
 	}
 
 
-	private TypeAnalysisResult createResultFromDefinitions(
+	protected TypeAnalysisResult createResultFromDefinitions(
 			SimplifiableDefinitions definitions) {
-		return null;
+		return new DefinitionToResultConverter().convert(definitions);
 	}
 	public void simplify(TypeAnalysisResult result, SimplifiableDefinitions definitions) throws GeneratorException {
 		new Case2Simplifier(this.outputUI, result, definitions).execute();
