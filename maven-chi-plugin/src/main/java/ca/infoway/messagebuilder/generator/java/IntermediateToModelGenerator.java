@@ -55,25 +55,32 @@ public abstract class IntermediateToModelGenerator {
 	
 	public TypeAnalysisResult resultify(MessageSet messageSet) throws GeneratorException {
 		TypeAnalysisResult result = new TypeAnalysisResult();
-
-		createTypes(messageSet, result);
-		createRelationships(messageSet, result);
-		createInteractions(messageSet, result);
-		assignSuperTypes(messageSet, result);
-		assignRelationshipsFromInterfaces(messageSet, result);
+		SimplifiableDefinitions definitions = new SimplifiableDefinitions();
 		
-		simplify(result);
+		createTypes(messageSet, result, definitions);
+		createRelationships(messageSet, result, definitions);
+		createInteractions(messageSet, result, definitions);
+		createChoiceStructures(messageSet, result, definitions);
+		assignRelationshipsFromInterfaces(messageSet, result, definitions);
+		
+		simplify(result, definitions);
+		
+//		return createResultFromDefinitions(definitions);
 		return result;
 	}
 
 
-	public void simplify(TypeAnalysisResult result) throws GeneratorException {
-		new Case2Simplifier(this.outputUI, result).execute();
-		new Case1Simplifier(this.outputUI, result).execute();
-		new Case0Simplifier(this.outputUI, result).execute();
+	private TypeAnalysisResult createResultFromDefinitions(
+			SimplifiableDefinitions definitions) {
+		return null;
+	}
+	public void simplify(TypeAnalysisResult result, SimplifiableDefinitions definitions) throws GeneratorException {
+		new Case2Simplifier(this.outputUI, result, definitions).execute();
+		new Case1Simplifier(this.outputUI, result, definitions).execute();
+		new Case0Simplifier(this.outputUI, result, definitions).execute();
 	}
 
-	private void assignRelationshipsFromInterfaces(MessageSet messageSet, TypeAnalysisResult result) {
+	private void assignRelationshipsFromInterfaces(MessageSet messageSet, TypeAnalysisResult result, SimplifiableDefinitions definitions) {
 		for (MessagePart messagePart : messageSet.getAllMessageParts()) {
 			TypeName name = new TypeName(messagePart.getName());
 			Type type = result.getTypes().get(name);
@@ -98,7 +105,7 @@ public abstract class IntermediateToModelGenerator {
 		}
 	}
 	
-	private void assignSuperTypes(MessageSet messageSet, TypeAnalysisResult result) throws GeneratorException {
+	private void createChoiceStructures(MessageSet messageSet, TypeAnalysisResult result, SimplifiableDefinitions definitions) throws GeneratorException {
 		for (MessagePart messagePart : messageSet.getAllMessageParts()) {
 			TypeName name = new TypeName(messagePart.getName());
 			Type type = result.getTypes().get(name);
@@ -119,8 +126,9 @@ public abstract class IntermediateToModelGenerator {
 		}
 	}
 
-	private void createInteractions(MessageSet messageSet, TypeAnalysisResult result) {
+	private void createInteractions(MessageSet messageSet, TypeAnalysisResult result, SimplifiableDefinitions definitions) {
 		for (Interaction interaction : messageSet.getInteractions().values()) {
+			definitions.addInteraction(new SimplifiableInteraction(interaction));
 			InteractionType messageType = new InteractionType(new TypeName(interaction.getName()));
 			TypeName parentTypeName = new TypeName(interaction.getSuperTypeName());
 			messageType.setParentType(parentTypeName);
@@ -142,17 +150,18 @@ public abstract class IntermediateToModelGenerator {
 		}
 		return result;
 	}
-	private void createRelationships(MessageSet messageSet, TypeAnalysisResult result) throws GeneratorException {
+	private void createRelationships(MessageSet messageSet, TypeAnalysisResult result, SimplifiableDefinitions definitions) throws GeneratorException {
 		for (MessagePart messagePart : messageSet.getAllMessageParts()) {
 			TypeName name = new TypeName(messagePart.getName());
 			Type type = result.getTypes().get(name);
+			SimplifiableType simplifiableType = definitions.getType(messagePart.getName());
 			if (type != null) {
-				createRelationships(messagePart, type, result);
+				createRelationships(messagePart, type, simplifiableType, result, definitions);
 			}
 		}		
 	}
 
-	private void createRelationships(MessagePart messagePart, Type type, TypeAnalysisResult result) throws GeneratorException {
+	private void createRelationships(MessagePart messagePart, Type type, SimplifiableType simplifiableType, TypeAnalysisResult result, SimplifiableDefinitions definitions) throws GeneratorException {
 		TemplateVariableGenerator generator = new TemplateVariableGenerator();
 		
 		for (Relationship relationship : messagePart.getRelationships()) {
@@ -160,6 +169,7 @@ public abstract class IntermediateToModelGenerator {
 				// skip it
 			} else {
 				type.getRelationships().add(createRelationship(type.getName(), result, relationship, generator, type.getRelationships().size()));
+				simplifiableType.getRelationships().add(new SimplifiableRelationship(relationship));
 			}
 		}
 	}
@@ -199,12 +209,15 @@ public abstract class IntermediateToModelGenerator {
 		return result.getTypes().get(new TypeName(relationship.getType()));
 	}
 
-	private void createTypes(MessageSet messageSet, TypeAnalysisResult result) {
+	private void createTypes(MessageSet messageSet, TypeAnalysisResult result, SimplifiableDefinitions definitions) {
 		for (PackageLocation packageLocation : messageSet.getPackageLocations().values()) {
 			
 			for (MessagePart messagePart : packageLocation.getMessageParts().values()) {
 				TypeName name = new TypeName(messagePart.getName());
 				Type type = new Type(name, isRootType(messagePart, packageLocation));
+				
+				definitions.addType(new SimplifiableType(messagePart, isRootType(messagePart, packageLocation)));
+				
 				type.setCategory(packageLocation.getCategory());
 				if (messagePart.getDocumentation() != null) {
 					type.setBusinessName(messagePart.getDocumentation().getBusinessName());

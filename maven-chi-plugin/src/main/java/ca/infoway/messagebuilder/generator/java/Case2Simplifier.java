@@ -39,10 +39,12 @@ public class Case2Simplifier extends InlineableSimplifier {
 
 	private Set<TypeName> nonInlineableTypes = Collections.synchronizedSet(new HashSet<TypeName>());
 	private final Case1Simplifier case1Simplifier;
+	private final SimplifiableDefinitions definitions;
 	
-	public Case2Simplifier(LogUI log, TypeAnalysisResult result) {
-		super(log, result);
-		this.case1Simplifier = new Case1Simplifier(log, result);
+	public Case2Simplifier(LogUI log, TypeAnalysisResult result, SimplifiableDefinitions definitions) {
+		super(log, result, definitions);
+		this.definitions = definitions;
+		this.case1Simplifier = new Case1Simplifier(log, result, definitions);
 	}
 
 	@Override
@@ -83,7 +85,8 @@ public class Case2Simplifier extends InlineableSimplifier {
 			for (BaseRelationship relationship : inlineableType.getRelationships()) {
 				// bug 13644 - only create an inlined relationship if the reference type actually makes use of the relationship
 				if (typeUsesRelationship(reference.getType(), oldRelationship, relationship)) {
-					reference.getType().getRelationships().add(createInlinedRelationship(relationship, oldRelationship));
+					reference.getType().getRelationships().add(createInlinedRelationship(
+							inlineableType.getName(), relationship, oldRelationship));
 				}
 			}
 			reference.getType().getRelationships().remove(oldRelationship);

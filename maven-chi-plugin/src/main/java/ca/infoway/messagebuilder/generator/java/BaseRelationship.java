@@ -12,6 +12,8 @@ import org.apache.commons.lang.StringUtils;
 
 import ca.infoway.messagebuilder.xml.Cardinality;
 import ca.infoway.messagebuilder.xml.ConformanceLevel;
+import ca.infoway.messagebuilder.xml.Difference;
+import ca.infoway.messagebuilder.xml.DifferenceType;
 import ca.infoway.messagebuilder.xml.Documentation;
 import ca.infoway.messagebuilder.xml.Relationship;
 
@@ -112,6 +114,10 @@ public abstract class BaseRelationship implements PropertyGeneratorProvider {
 	public Set<Object> getImportTypes() {
 		Set<Object> result = new HashSet<Object>();
 		result.add("ca.infoway.messagebuilder.annotation.Hl7XmlMapping");
+		if (requiresMapByPartTypeAnnotation()) {
+			result.add("ca.infoway.messagebuilder.annotation.Hl7MapByPartTypes");
+			result.add("ca.infoway.messagebuilder.annotation.Hl7MapByPartType");
+		}
 		return result;
 	}
 	
@@ -141,4 +147,19 @@ public abstract class BaseRelationship implements PropertyGeneratorProvider {
 		return getDocumentation()!=null ? getDocumentation().getBusinessName() : null; 
 	}
 	
+	boolean requiresMapByPartTypeAnnotation() {
+		boolean result = false;
+		outer: for (Relationship relationship : getAllRelationships()) {
+			for (Difference difference : relationship.getDifferences()) {
+				if (difference.getType() == DifferenceType.RELATIONSHIP_RENAMED) {
+					result = true;
+					break outer;
+				}
+			}
+		}
+		return result;
+	}
+	String getOriginalType() {
+		return this.relationship.getType();
+	}
 }

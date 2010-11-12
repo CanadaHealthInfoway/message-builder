@@ -2,6 +2,7 @@ package ca.infoway.messagebuilder.generator.java;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 import org.jmock.Mockery;
 import org.jmock.integration.junit4.JMock;
@@ -24,12 +25,42 @@ public class Case3SimplifierTest {
 	private TypeAnalysisResult result;
 	private LogUI log;
 	private Case3Simplifier simplifier;
+	private Case3MergeResult mergeResult;
 
 	@Before
 	public void setUp() throws Exception {
 		this.result = new TypeAnalysisResult();
 		this.log = this.jmock.mock(LogUI.class);
-		this.simplifier = new Case3Simplifier(this.log, this.result);
+		this.mergeResult = new Case3MergeResult();
+		this.simplifier = new Case3Simplifier(this.log, this.result, this.mergeResult);
+	}
+
+	@Test
+	public void shouldUpdateReferencesToRemovedTypes() throws Exception {
+		Type type1 = createType1();
+		Type type2 = createType2();
+		Type personType2 = createPersonType2();
+		
+		this.mergeResult.recordMatch(type1, type2);
+		this.mergeResult.recordMatch(personType2, this.result.getTypeByName(new TypeName("ABCD_MT898989CA.Person")));
+		this.simplifier.createMergedTypes();
+		
+		assertEquals("type count", 2, this.result.getAllMessageTypes().size());
+
+		this.simplifier.replaceReferencesWithMergedTypes();
+		
+		MergedTypeDescriptor descriptor = this.mergeResult.getDescriptorByName(type1.getName());
+		Type type = this.result.getTypeByName(descriptor.getNewName());
+		
+		assertIsTemporaryRelationship("merged", type, "person");
+		assertIsTemporaryRelationship("original", type2, "person");
+	}
+
+	private void assertIsTemporaryRelationship(String description, Type type, String relationshipName) {
+		BaseRelationship relationship = type.getRelationship(relationshipName);
+		assertNotNull(description + " person relationship exists", relationship);
+		assertTrue(description + " person relationship", relationship instanceof Association);
+		assertTrue(description + " name", ((Association) relationship).getAssociationType().getName() instanceof TemporaryTypeName);
 	}
 	
 	@Test
@@ -49,6 +80,24 @@ public class Case3SimplifierTest {
 		
 	}
 
+	private Type createPersonType() {
+		Type type = new Type(new TypeName("ABCD_MT898989CA.Person"));
+		this.result.addType(type);
+		type.getRelationships().add(new Attribute(
+				new Relationship("asIdentifiedEntity", "II.BUS", Cardinality.create("1")), 
+				createDataType("II.BUS")));
+		return type;
+	}
+	
+	private Type createPersonType2() {
+		Type type = new Type(new TypeName("ABCD_MT555555CA.Person"));
+		this.result.addType(type);
+		type.getRelationships().add(new Attribute(
+				new Relationship("asIdentifiedEntity", "II.BUS", Cardinality.create("1")), 
+				createDataType("II.BUS")));
+		return type;
+	}
+	
 	private Type createType2() {
 		Type type = new Type(new TypeName("ABCD_MT898989CA.Patient"));
 		type.getRelationships().add(new Attribute(
@@ -59,7 +108,7 @@ public class Case3SimplifierTest {
 				createDataType("PN")));
 		type.getRelationships().add(new Association(
 				new Relationship("person", "ABCD_MT898989CA.Person", Cardinality.create("1")), 
-				new Type(new TypeName("ABCD_MT898989CA.Person"))));
+				createPersonType()));
 		
 		this.result.addType(type);
 		return type;

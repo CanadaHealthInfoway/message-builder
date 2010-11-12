@@ -24,6 +24,7 @@ import ca.infoway.messagebuilder.xml.TypeName;
 public class Case2SimplifierTest {
 
 	private TypeAnalysisResult result = new TypeAnalysisResult();
+	private SimplifiableDefinitions definitions = new SimplifiableDefinitions();
 	
 	@Test
 	public void shouldElideType() throws Exception {
@@ -40,7 +41,7 @@ public class Case2SimplifierTest {
 
 		assertTrue("not yet elided", this.result.getTypes().containsKey(new TypeName("ABCD_MT123456CA.Device1")));
 		
-		new Case2Simplifier(new SysoutLogUI(), this.result).execute();
+		new Case2Simplifier(new SysoutLogUI(), this.result, this.definitions).execute();
 		
 		assertFalse("elided", this.result.getTypes().containsKey(new TypeName("ABCD_MT123456CA.Device1")));
 		assertEquals("number of properties", 4, 
@@ -79,7 +80,7 @@ public class Case2SimplifierTest {
 		
 		assertTrue("not yet elided", this.result.getTypes().containsKey(temporaryTypeName));
 		
-		new Case2Simplifier(new SysoutLogUI(), this.result).execute();
+		new Case2Simplifier(new SysoutLogUI(), this.result, this.definitions).execute();
 		
 		assertFalse("elided", this.result.getTypes().containsKey(temporaryTypeName));
 		assertEquals("number of properties", 4, 
@@ -132,7 +133,7 @@ public class Case2SimplifierTest {
 		assertTrue("not yet elided", this.result.getTypes().containsKey(temporaryTypeName));
 		assertTrue("not yet elided", this.result.getTypes().containsKey(innerType.getName()));
 		
-		new Case2Simplifier(new SysoutLogUI(), this.result).execute();
+		new Case2Simplifier(new SysoutLogUI(), this.result, this.definitions).execute();
 		
 		assertFalse("elided", this.result.getTypes().containsKey(temporaryTypeName));
 		assertFalse("elided", this.result.getTypes().containsKey(innerType.getName()));
@@ -178,7 +179,7 @@ public class Case2SimplifierTest {
 
 		assertTrue("not yet elided", this.result.getTypes().containsKey(temporaryTypeName));
 		
-		new Case2Simplifier(new SysoutLogUI(), this.result).execute();
+		new Case2Simplifier(new SysoutLogUI(), this.result, this.definitions).execute();
 		
 		assertFalse("elided", this.result.getTypes().containsKey(temporaryTypeName));
 		
@@ -254,7 +255,7 @@ public class Case2SimplifierTest {
 		assertTrue("not yet elided", this.result.getTypes().containsKey(temporaryTypeName1));
 		assertTrue("not yet elided", this.result.getTypes().containsKey(temporaryTypeName2));
 		
-		new Case2Simplifier(new SysoutLogUI(), this.result).execute();
+		new Case2Simplifier(new SysoutLogUI(), this.result, this.definitions).execute();
 		
 		assertFalse("elided", this.result.getTypes().containsKey(temporaryTypeName1));
 		assertFalse("elided", this.result.getTypes().containsKey(temporaryTypeName2));
@@ -309,7 +310,7 @@ public class Case2SimplifierTest {
 		
 		assertTrue("not yet elided", this.result.getTypes().containsKey(temporaryTypeName));
 		
-		new Case2Simplifier(new SysoutLogUI(), this.result).execute();
+		new Case2Simplifier(new SysoutLogUI(), this.result, this.definitions).execute();
 		
 		assertFalse("elided", this.result.getTypes().containsKey(temporaryTypeName));
 		
@@ -353,7 +354,7 @@ public class Case2SimplifierTest {
 		
 		assertTrue("not yet elided", this.result.getTypes().containsKey(temporaryTypeName));
 		
-		new Case2Simplifier(new SysoutLogUI(), this.result).execute();
+		new Case2Simplifier(new SysoutLogUI(), this.result, this.definitions).execute();
 		
 		assertFalse("elided", this.result.getTypes().containsKey(temporaryTypeName));
 		
@@ -378,7 +379,7 @@ public class Case2SimplifierTest {
 								createAttribute("desc", new Cardinality(0,1), "ST")
 						)));
 		
-		new Case2Simplifier(new SysoutLogUI(), this.result).execute();
+		new Case2Simplifier(new SysoutLogUI(), this.result, this.definitions).execute();
 		
 		assertTrue("elided", this.result.getTypes().containsKey(new TypeName("ABCD_MT123456CA.Device1")));
 	}
@@ -399,7 +400,7 @@ public class Case2SimplifierTest {
 		crossReferenceType.getInterfaceTypes().add(rootType.getName());
 		rootType.getChildTypes().add(crossReferenceType.getName());
 		
-		new Case2Simplifier(new SysoutLogUI(), this.result).execute();
+		new Case2Simplifier(new SysoutLogUI(), this.result, this.definitions).execute();
 		
 		assertTrue("type not removed", this.result.getTypes().containsKey(new TypeName("ABCD_MT123456CA.CrossReference")));
 		assertTrue("relationship removed", otherType.getRelationship("crossRefId") instanceof InlinedAttribute);

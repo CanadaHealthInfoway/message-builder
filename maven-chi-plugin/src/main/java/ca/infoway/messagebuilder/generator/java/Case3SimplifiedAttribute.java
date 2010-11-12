@@ -1,16 +1,20 @@
 package ca.infoway.messagebuilder.generator.java;
 
 import java.util.ArrayList;
+import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 import ca.infoway.messagebuilder.xml.Relationship;
+import ca.infoway.messagebuilder.xml.TypeName;
 
-class Case3SimplifiedAttribute extends Attribute {
+class Case3SimplifiedAttribute extends Attribute implements WrapperRelationship {
 
-	private final List<BaseRelationship> mergedRelationships;
 	private final Attribute exemplar;
+	private final Map<TypeName, BaseRelationship> mergedRelationships;
 
-	public Case3SimplifiedAttribute(Attribute exemplar, List<BaseRelationship> mergedRelationships) {
+	public Case3SimplifiedAttribute(Attribute exemplar, Map<TypeName,BaseRelationship> mergedRelationships) {
 		super(exemplar.getRelationship(), exemplar.getDataType(), exemplar.isIndicator());
 		this.exemplar = exemplar;
 		this.mergedRelationships = mergedRelationships;
@@ -18,15 +22,23 @@ class Case3SimplifiedAttribute extends Attribute {
 
 	@Override
 	public List<Relationship> getAllRelationships() {
-		List<Relationship> result = new ArrayList<Relationship>();
+		Set<Relationship> result = new LinkedHashSet<Relationship>();
 		result.addAll(super.getAllRelationships());
-		for (BaseRelationship relationship : this.mergedRelationships) {
+		for (BaseRelationship relationship : this.mergedRelationships.values()) {
 			result.addAll(relationship.getAllRelationships());
 		}
-		return result;
+		return new ArrayList<Relationship>(result);
 	}
 
 	Attribute getExemplar() {
 		return this.exemplar;
+	}
+	public BaseRelationship unwrap(TypeName name) {
+		BaseRelationship relationship = this.mergedRelationships.get(name);
+		if (relationship instanceof WrapperRelationship) {
+			return ((WrapperRelationship) relationship).unwrap(name);
+		} else {
+			return relationship;
+		}
 	}
 }
