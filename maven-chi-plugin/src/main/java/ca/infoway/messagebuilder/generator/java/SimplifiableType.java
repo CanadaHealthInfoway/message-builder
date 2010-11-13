@@ -14,6 +14,7 @@ class SimplifiableType implements Named {
 	private List<SimplifiableType> mergedWithTypes = Collections.synchronizedList(new ArrayList<SimplifiableType>());
 	private final MessagePart messagePart;
 	private final boolean rootType;
+	private String mergedTypeName;
 
 	public SimplifiableType(MessagePart messagePart, boolean rootType) {
 		this.messagePart = messagePart;
@@ -54,5 +55,13 @@ class SimplifiableType implements Named {
 
 	public String getName() {
 		return this.messagePart.getName();
+	}
+
+	public void setMergedTypeName(String mergedTypeName) {
+		this.mergedTypeName = mergedTypeName;
+	}
+
+	public String getMergedTypeName() {
+		return this.mergedTypeName;
 	}
 }

@@ -57,6 +57,7 @@ public class Case3Simplifier {
 				SimplifiableType type = this.definitions.getType(originalName.getName());
 				for (TypeName mergedName : descriptor.getMergedTypes()) {
 					SimplifiableType mergedType = this.definitions.getType(mergedName.getName());
+					type.setMergedTypeName(descriptor.getNewName().getName());
 					type.getMergedWithTypes().add(mergedType);
 				}
 			}
