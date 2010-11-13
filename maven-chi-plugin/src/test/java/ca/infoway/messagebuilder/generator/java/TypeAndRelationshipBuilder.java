@@ -125,7 +125,7 @@ public class TypeAndRelationshipBuilder {
 		}
 		relationship.setConformance(conformanceLevel);
 		relationship.setDocumentation(new Documentation());
-		return new SimplifiableRelationship(relationship);
+		return new SimplifiableRelationship(relationship, type);
 	}
 
 	public static SimplifiableRelationship createSimplifiableAttribute(String name, Cardinality cardinality,
@@ -144,7 +144,7 @@ public class TypeAndRelationshipBuilder {
 			relationship.setCardinality(new Cardinality(1,1));
 		}
 		relationship.setDocumentation(new Documentation());
-		return new SimplifiableRelationship(relationship); // , dataType);
+		return new SimplifiableRelationship(relationship, dataType);
 		
 	}
 
