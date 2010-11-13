@@ -53,6 +53,13 @@ public class Type implements RenderedType, NamedType {
         return this.relationships;
     }
     
+    public void replace(BaseRelationship oldRelationship, BaseRelationship newRelationship) {
+    	int index = this.relationships.indexOf(oldRelationship);
+    	if (index >= 0) {
+    		this.relationships.set(index, newRelationship);
+    	}
+    }
+    
     public BaseRelationship getRelationship(String name) {
     	BaseRelationship result = null;
     	for (BaseRelationship relationship : this.relationships) {

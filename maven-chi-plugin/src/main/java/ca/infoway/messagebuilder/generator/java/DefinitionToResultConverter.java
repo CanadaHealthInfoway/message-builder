@@ -1,5 +1,6 @@
 package ca.infoway.messagebuilder.generator.java;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -7,46 +8,86 @@ import ca.infoway.messagebuilder.generator.TypeConverter;
 import ca.infoway.messagebuilder.xml.Relationship;
 import ca.infoway.messagebuilder.xml.TypeName;
 
-public class DefinitionToResultConverter {
+class DefinitionToResultConverter {
 	
 	private TypeConverter converter = new TypeConverter();
 	private Map<String,Type> types = new HashMap<String,Type>();
+	private final SimplifiableDefinitions definitions;
 
-	public TypeAnalysisResult convert(SimplifiableDefinitions definitions) {
+	DefinitionToResultConverter(SimplifiableDefinitions definitions) {
+		this.definitions = definitions;
+	}
+	
+	public TypeAnalysisResult convert() {
 		TypeAnalysisResult result = new TypeAnalysisResult();
-		createAllTypes(definitions, result);
-		createAllRelationships(definitions, result);
+		createAllTypes(result);
+		createAllRelationships(result);
 		return result;
 	}
 
-	private void createAllRelationships(SimplifiableDefinitions definitions,
-			TypeAnalysisResult result) {
-		for (SimplifiableType simplifiableType : definitions.getAllTypes()) {
-			TemplateVariableGenerator generator = new TemplateVariableGenerator();
+	private void createAllRelationships(TypeAnalysisResult result) {
+		for (SimplifiableType simplifiableType : this.definitions.getAllTypes()) {
+			Type type = this.types.get(simplifiableType.getName());
+			for (SimplifiableRelationship simplifiableRelationship : simplifiableType.getRelationships()) {
+				type.getRelationships().add(createRelationship(result, simplifiableRelationship.getRelationship()));
+			}
+		}
+		for (SimplifiableType simplifiableType : this.definitions.getAllTypes()) {
 			Type type = result.getTypeByName(new TypeName(simplifiableType.getName()));
 			if (type != null) {
-				for (SimplifiableRelationship simplifiableRelationship : simplifiableType.getRelationships()) {
-					Relationship relationship = simplifiableRelationship.getRelationship();
-					
-					// TODO: handle relationships that have been inlined or merged...
-					if (relationship.isAttribute()) {
-						type.getRelationships().add(new Attribute(relationship, this.converter.convertToType(relationship)));
-					} else if (relationship.isTemplateRelationship()) {
-						type.getRelationships().add(Association.createTemplateAssociation(
-								relationship, generator.getNext(relationship), 0));
-					} else {
-						Type relationshipType = result.getTypeByName(new TypeName(relationship.getType()));
-						type.getRelationships().add(Association.createStandardAssociation(
-								relationship, relationshipType, 0));
-					}
-				}
+				handleInlining(type);
 			}
-		}		
+		}
 	}
 
-	private void createAllTypes(SimplifiableDefinitions definitions, 
-			TypeAnalysisResult result) {
-		for (SimplifiableType simplifiableType : definitions.getAllTypes()) {
+	private void handleInlining(Type type) {
+		for (BaseRelationship relationship : new ArrayList<BaseRelationship>(type.getRelationships())) {
+			if (isInlined(relationship)) {
+				inline(type, relationship);
+			} // else if is merged...
+		}
+	}
+
+	private void inline(Type type, BaseRelationship relationship) {
+		int index = type.getRelationships().indexOf(relationship);
+		Type elidedType = this.types.get(relationship.getType());
+		handleInlining(elidedType);
+		for (BaseRelationship subRelationship : elidedType.getRelationships()) {
+			if (subRelationship.getRelationshipType() == RelationshipType.ATTRIBUTE) {
+				type.getRelationships().add(index++, new InlinedAttribute((Attribute) subRelationship, relationship));
+			} else {
+				type.getRelationships().add(index++, new InlinedAssociation((Association) subRelationship, relationship));
+			}
+		}
+		type.getRelationships().remove(relationship);
+	}
+
+	private boolean isInlined(BaseRelationship relationship) {
+		if (relationship.getRelationshipType() == RelationshipType.ATTRIBUTE) {
+			return false;
+		} else if (((Association) relationship).isTemplateType()) {
+			return false;
+		} else {
+			return this.definitions.getType(relationship.getType()).isInlined();
+		}
+	}
+
+	private BaseRelationship createRelationship(TypeAnalysisResult result, 
+			Relationship relationship) {
+		if (relationship.isAttribute()) {
+			return new Attribute(relationship, this.converter.convertToType(relationship));
+		} else if (relationship.isTemplateRelationship()) {
+			return Association.createTemplateAssociation(
+					relationship, new TemplateVariableGenerator().getNext(relationship), 0);
+		} else {
+			Type relationshipType = result.getTypeByName(new TypeName(relationship.getType()));
+			return Association.createStandardAssociation(
+					relationship, relationshipType, 0);
+		}
+	}
+
+	private void createAllTypes(TypeAnalysisResult result) {
+		for (SimplifiableType simplifiableType : this.definitions.getAllTypes()) {
 			Type type = new Type(new TypeName(simplifiableType.getName()), simplifiableType.isRootType());
 			this.types.put(simplifiableType.getName(), type);
 			if (!simplifiableType.isInlined() && !simplifiableType.isMerged()) {

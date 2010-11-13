@@ -72,7 +72,7 @@ public abstract class IntermediateToModelGenerator {
 
 	protected TypeAnalysisResult createResultFromDefinitions(
 			SimplifiableDefinitions definitions) {
-		return new DefinitionToResultConverter().convert(definitions);
+		return new DefinitionToResultConverter(definitions).convert();
 	}
 	public void simplify(TypeAnalysisResult result, SimplifiableDefinitions definitions) throws GeneratorException {
 		new Case2Simplifier(this.outputUI, result, definitions).execute();
@@ -163,13 +163,14 @@ public abstract class IntermediateToModelGenerator {
 
 	private void createRelationships(MessagePart messagePart, Type type, SimplifiableType simplifiableType, TypeAnalysisResult result, SimplifiableDefinitions definitions) throws GeneratorException {
 		TemplateVariableGenerator generator = new TemplateVariableGenerator();
+		TemplateVariableGenerator generator2 = new TemplateVariableGenerator();
 		
 		for (Relationship relationship : messagePart.getRelationships()) {
 			if (relationship.isAttribute() && relationship.isFixed()) {
 				// skip it
 			} else {
 				type.getRelationships().add(createRelationship(type.getName(), result, relationship, generator, type.getRelationships().size()));
-				simplifiableType.getRelationships().add(new SimplifiableRelationship(relationship));
+				simplifiableType.getRelationships().add(createRelationship(type.getName(), definitions, relationship, generator2, 0));
 			}
 		}
 	}
@@ -200,6 +201,23 @@ public abstract class IntermediateToModelGenerator {
 		} else {
 			return Association.createStandardAssociation(relationship, 
 					getTypeCorrespondingTo(result, relationship), sortKey);
+		}
+	}
+
+	private SimplifiableRelationship createRelationship(TypeName name, SimplifiableDefinitions definitions,
+			Relationship relationship, TemplateVariableGenerator generator, int sortKey) throws GeneratorException {
+		
+		if (relationship.isAttribute()) {
+			DataType type = this.converter.convertToType(relationship);
+			if (type == null) {
+				throw new GeneratorException("Can't determine the type of " + relationship.getType() + " (property=" + name.toString() + "." + relationship.getName() + ")");
+			} else {
+				return new SimplifiableRelationship(relationship, type);
+			}
+		} else if (relationship.isTemplateRelationship()) {
+			return new SimplifiableRelationship(relationship, generator.getNext(relationship.getTemplateParameterName()));
+		} else {
+			return new SimplifiableRelationship(relationship, definitions.getType(relationship.getType()));
 		}
 	}
 
