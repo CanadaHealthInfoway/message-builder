@@ -13,6 +13,11 @@
 	<url>http://maven.apache.org</url>
 	<dependencies>
 		<dependency>
+			<groupId>ca.infoway.messagebuilder</groupId>
+			<artifactId>message-builder-util</artifactId>
+			<version>${project.version}</version>
+		</dependency>			
+		<dependency>
 			<groupId>commons-io</groupId>
 			<artifactId>commons-io</artifactId>
 			<scope>test</scope>
