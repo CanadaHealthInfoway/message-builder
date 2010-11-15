@@ -318,6 +318,8 @@
 			  					<constructor-arg>
 			  						<list>
 					  					<value>message-builder-core</value>
+					  					<value>message-builder-util</value>
+					  					<value>message-builder-xml</value>
 			  						</list>
 			  					</constructor-arg>
 		  						</bean>
