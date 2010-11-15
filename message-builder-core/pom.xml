@@ -14,6 +14,23 @@
 	
 	<dependencies>
 		<!-- message-builder -->
+		<dependency>
+			<groupId>ca.infoway.messagebuilder</groupId>
+			<artifactId>message-builder-util</artifactId>
+			<version>${project.version}</version>
+		</dependency>				
+		<dependency>
+			<groupId>ca.infoway.messagebuilder</groupId>
+			<artifactId>message-builder-xml</artifactId>
+			<version>${project.version}</version>
+		</dependency>		
+		<dependency>
+			<groupId>ca.infoway.messagebuilder</groupId>
+			<artifactId>message-builder-xml</artifactId>
+			<classifier>tests</classifier>
+			<scope>test</scope>
+			<version>${project.version}</version>		
+		</dependency>		
 		<!-- other -->	
 		<dependency>
 			<groupId>org.simpleframework</groupId>
