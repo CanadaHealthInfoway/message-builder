@@ -28,7 +28,7 @@ import ca.infoway.messagebuilder.xml.Relationship;
  */
 public abstract class BaseMessageDefinitionService implements MessageDefinitionService {
 	
-	private List<MessageSet> messageSets;
+	protected List<MessageSet> messageSets;
 
 	/**
 	 * <p>Get an interaction by name and version.
@@ -66,8 +66,8 @@ public abstract class BaseMessageDefinitionService implements MessageDefinitionS
 
 	private synchronized void initialize() {
 		if (!initialized()) {
-			MessageSetMarshaller marshaller = new MessageSetMarshaller();
 			List<MessageSet> list = new ArrayList<MessageSet>();
+			MessageSetMarshaller marshaller = new MessageSetMarshaller();
 			for (String name : getNames()) {
 				InputStream input = ResourceLoader.getResource(getClass(), name);
 				try {
