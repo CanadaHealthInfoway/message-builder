@@ -43,7 +43,8 @@
             <include>target/*-sources.jar</include>
           </includes>
         </binaries>
-      </moduleSet>      
+      </moduleSet>
+      
       <moduleSet>
         <includes>
           <include>ca.infoway.messagebuilder:message-builder-release-r02_04_02</include>
@@ -57,8 +58,8 @@
               <includes />
               <excludes>
                 <exclude>ca.infoway.messagebuilder:message-builder-core</exclude>
-		<exclude>ca.infoway.messagebuilder:message-builder-xml</exclude>
-		<exclude>ca.infoway.messagebuilder:message-builder-util</exclude>
+                <exclude>ca.infoway.messagebuilder:message-builder-xml</exclude>
+                <exclude>ca.infoway.messagebuilder:message-builder-util</exclude>
               </excludes>
               <outputDirectory>releases/release-r02_04_02/lib</outputDirectory>
             </dependencySet>
@@ -84,8 +85,8 @@
               <includes />
               <excludes>
                 <exclude>ca.infoway.messagebuilder:message-builder-core</exclude>
-		<exclude>ca.infoway.messagebuilder:message-builder-xml</exclude>
-		<exclude>ca.infoway.messagebuilder:message-builder-util</exclude>
+                <exclude>ca.infoway.messagebuilder:message-builder-xml</exclude>
+                <exclude>ca.infoway.messagebuilder:message-builder-util</exclude>
               </excludes>
               <outputDirectory>releases/release-v02_r02/lib</outputDirectory>
             </dependencySet>
@@ -111,8 +112,8 @@
               <includes />
               <excludes>
                 <exclude>ca.infoway.messagebuilder:message-builder-core</exclude>
-		<exclude>ca.infoway.messagebuilder:message-builder-xml</exclude>
-		<exclude>ca.infoway.messagebuilder:message-builder-util</exclude>
+                <exclude>ca.infoway.messagebuilder:message-builder-xml</exclude>
+                <exclude>ca.infoway.messagebuilder:message-builder-util</exclude>
               </excludes>
               <outputDirectory>releases/release-v02_r01/lib</outputDirectory>
             </dependencySet>
@@ -138,8 +139,8 @@
               <includes />
               <excludes>
                 <exclude>ca.infoway.messagebuilder:message-builder-core</exclude>
-		<exclude>ca.infoway.messagebuilder:message-builder-xml</exclude>
-		<exclude>ca.infoway.messagebuilder:message-builder-util</exclude>
+                <exclude>ca.infoway.messagebuilder:message-builder-xml</exclude>
+                <exclude>ca.infoway.messagebuilder:message-builder-util</exclude>
               </excludes>
               <outputDirectory>releases/release-v01_r04_3/lib</outputDirectory>
             </dependencySet>
@@ -164,8 +165,8 @@
               <includes />
               <excludes>
                 <exclude>ca.infoway.messagebuilder:message-builder-core</exclude>
-		<exclude>ca.infoway.messagebuilder:message-builder-xml</exclude>
-		<exclude>ca.infoway.messagebuilder:message-builder-util</exclude>
+                <exclude>ca.infoway.messagebuilder:message-builder-xml</exclude>
+                <exclude>ca.infoway.messagebuilder:message-builder-util</exclude>
                 <exclude>ca.infoway.messagebuilder:message-builder-terminology</exclude>
               </excludes>
               <outputDirectory>chi/lib</outputDirectory>
@@ -192,8 +193,8 @@
               <includes />
               <excludes>
                 <exclude>ca.infoway.messagebuilder:message-builder-core</exclude>
-		<exclude>ca.infoway.messagebuilder:message-builder-xml</exclude>
-		<exclude>ca.infoway.messagebuilder:message-builder-util</exclude>
+                <exclude>ca.infoway.messagebuilder:message-builder-xml</exclude>
+                <exclude>ca.infoway.messagebuilder:message-builder-util</exclude>
                 <exclude>ca.infoway.messagebuilder:message-builder-r02_04_02</exclude>
               </excludes>
               <outputDirectory>optional/example/lib</outputDirectory>
@@ -216,8 +217,8 @@
               <includes />
               <excludes>
                 <exclude>ca.infoway.messagebuilder:message-builder-core</exclude>
-		<exclude>ca.infoway.messagebuilder:message-builder-xml</exclude>
-		<exclude>ca.infoway.messagebuilder:message-builder-util</exclude>
+                <exclude>ca.infoway.messagebuilder:message-builder-xml</exclude>
+                <exclude>ca.infoway.messagebuilder:message-builder-util</exclude>
               </excludes>
               <outputDirectory>optional/terminology/lib</outputDirectory>
             </dependencySet>
@@ -240,9 +241,9 @@
               <unpack>false</unpack>
               <includes />
               <excludes>
+                <exclude>ca.infoway.messagebuilder:message-builder-xml</exclude>
+                <exclude>ca.infoway.messagebuilder:message-builder-util</exclude>
                 <exclude>ca.infoway.messagebuilder:message-builder-core</exclude>
-		<exclude>ca.infoway.messagebuilder:message-builder-xml</exclude>
-		<exclude>ca.infoway.messagebuilder:message-builder-util</exclude>
                 <exclude>ca.infoway.messagebuilder:message-builder-simple-xml</exclude>
                 <exclude>ca.infoway.messagebuilder:message-builder-r02_04_02</exclude>
               </excludes>
@@ -264,14 +265,14 @@
         <outputDirectory>core/src</outputDirectory>
       </fileSet>
       <fileSet>
-        <directory>message-builder-util/target</directory>
+        <directory>message-builder-xml/target</directory>
         <includes>
           <include>*-sources.jar</include>
         </includes>
         <outputDirectory>core/src</outputDirectory>
       </fileSet>
       <fileSet>
-        <directory>message-builder-xml/target</directory>
+        <directory>message-builder-util/target</directory>
         <includes>
           <include>*-sources.jar</include>
         </includes>
