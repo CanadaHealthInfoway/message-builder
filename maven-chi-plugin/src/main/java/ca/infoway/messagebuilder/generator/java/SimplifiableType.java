@@ -2,7 +2,9 @@ package ca.infoway.messagebuilder.generator.java;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import ca.infoway.messagebuilder.Named;
 import ca.infoway.messagebuilder.xml.MessagePart;
@@ -15,10 +17,17 @@ class SimplifiableType implements Named {
 	private final MessagePart messagePart;
 	private final boolean rootType;
 	private String mergedTypeName;
+    private Set<String> interfaceTypes = Collections.synchronizedSet(new HashSet<String>());
+	private final String category;
 
-	public SimplifiableType(MessagePart messagePart, boolean rootType) {
+	public SimplifiableType(MessagePart messagePart, boolean rootType, String category) {
 		this.messagePart = messagePart;
 		this.rootType = rootType;
+		this.category = category;
+	}
+	
+	SimplifiableType(MessagePart messagePart, boolean rootType) {
+		this(messagePart, rootType, null);
 	}
 	
 	public boolean isInlined() {
@@ -63,5 +72,13 @@ class SimplifiableType implements Named {
 
 	public String getMergedTypeName() {
 		return this.mergedTypeName;
+	}
+
+	public Set<String> getInterfaceTypes() {
+		return this.interfaceTypes;
+	}
+
+	public String getCategory() {
+		return this.category;
 	}
 }

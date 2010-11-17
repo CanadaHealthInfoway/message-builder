@@ -41,6 +41,7 @@ public class DefinitionToResultConverterTest {
 		assertEquals("name", new TypeName("ABCD_MT123456CA.Tom"), type.getName());
 		
 		assertEquals("number of relationships", 1, type.getRelationships().size());
+		assertTrue("atribute", type.getRelationships().get(0) instanceof Attribute);
 		
 	}
 	
@@ -113,6 +114,7 @@ public class DefinitionToResultConverterTest {
 			assertTrue("name", new HashSet<String>(Arrays.asList("personTomName", "personTomAge")).contains(relationship.getName()));
 		}
 	}
+	
 	@Test
 	public void shouldConvertSimpleCaseWithTemplateAssociation() throws Exception {
 		SimplifiableType simplifiableType = new SimplifiableType(new MessagePart("ABCD_MT123456CA.Patient"), true);
@@ -130,5 +132,79 @@ public class DefinitionToResultConverterTest {
 		assertTrue("association", type.getRelationships().get(0) instanceof Association);
 		assertTrue("template association", ((Association) type.getRelationships().get(0)).isTemplateType());
 		assertEquals("variable name", "RR", ((Association) type.getRelationships().get(0)).getType());
+	}
+	
+	@Test
+	public void shouldConvertSimpleCaseWithMergedTypes() {
+		Relationship relationship1 = new Relationship("role", "ST", Cardinality.create("1"));
+		SimplifiableType simplifiableType1 = new SimplifiableType(new MessagePart("ABCD_MT123456CA.Patient1"), false);
+		simplifiableType1.getRelationships().add(new SimplifiableRelationship(relationship1, this.typeConverter.convertToType("ST", null)));
+		
+		Relationship relationship2 = new Relationship("name", "ST", Cardinality.create("1"));
+		SimplifiableType simplifiableType2 = new SimplifiableType(new MessagePart("ABCD_MT123456CA.Patient2"), false);
+		simplifiableType2.getRelationships().add(new SimplifiableRelationship(relationship2, this.typeConverter.convertToType("ST", null)));
+		
+		simplifiableType1.getMergedWithTypes().add(simplifiableType2);
+		simplifiableType1.setMergedTypeName("myMergedTypeName");
+		simplifiableType2.getMergedWithTypes().add(simplifiableType1);
+		simplifiableType2.setMergedTypeName("myMergedTypeName");
+
+		this.definitions.addType(simplifiableType1);
+		this.definitions.addType(simplifiableType2);
+		
+		TypeAnalysisResult result = this.converter.convert();
+		
+		assertNotNull("result", result);
+		
+		Type type = result.getTypeByName(new TypeName("myMergedTypeName"));
+		assertNotNull("type", type);
+		assertEquals("number of relationships", 2, type.getRelationships().size());
+		assertTrue("attribute", type.getRelationships().get(0) instanceof Attribute);
+		assertTrue("attribute", type.getRelationships().get(1) instanceof Attribute);
+		
+	}
+	
+	@Test
+	public void shouldConvertSimpleCaseWithMergedAssociations() {
+		Relationship relationship1 = new Relationship("role", "ST", Cardinality.create("1"));
+		SimplifiableType simplifiableType1 = new SimplifiableType(new MessagePart("ABCD_MT123456CA.Patient1"), false);
+		simplifiableType1.getRelationships().add(new SimplifiableRelationship(relationship1, this.typeConverter.convertToType("ST", null)));
+		
+		Relationship relationship2 = new Relationship("name", "ST", Cardinality.create("1"));
+		SimplifiableType simplifiableType2 = new SimplifiableType(new MessagePart("ABCD_MT123456CA.Patient2"), false);
+		simplifiableType2.getRelationships().add(new SimplifiableRelationship(relationship2, this.typeConverter.convertToType("ST", null)));
+		
+		simplifiableType1.getMergedWithTypes().add(simplifiableType2);
+		simplifiableType1.setMergedTypeName("myMergedTypeName");
+		simplifiableType2.getMergedWithTypes().add(simplifiableType1);
+		simplifiableType2.setMergedTypeName("myMergedTypeName");
+
+		Relationship relationship3 = new Relationship("patient1", "ABCD_MT123456CA.Patient1", Cardinality.create("1"));
+		Relationship relationship4 = new Relationship("patient2", "ABCD_MT123456CA.Patient2", Cardinality.create("1"));
+		SimplifiableType simplifiableType3 = new SimplifiableType(new MessagePart("ABCD_MT123456CA.SomeOtherType"), false);
+		simplifiableType3.getRelationships().add(new SimplifiableRelationship(relationship3, simplifiableType1));
+		simplifiableType3.getRelationships().add(new SimplifiableRelationship(relationship4, simplifiableType2));
+		
+		this.definitions.addType(simplifiableType1);
+		this.definitions.addType(simplifiableType2);
+		this.definitions.addType(simplifiableType3);
+		
+		TypeAnalysisResult result = this.converter.convert();
+		
+		assertNotNull("result", result);
+		
+		Type type = result.getTypeByName(new TypeName("myMergedTypeName"));
+		assertNotNull("type", type);
+		assertEquals("number of relationships", 2, type.getRelationships().size());
+		assertTrue("attribute", type.getRelationships().get(0) instanceof Attribute);
+		assertTrue("attribute", type.getRelationships().get(1) instanceof Attribute);
+		
+		type = result.getTypeByName(new TypeName("ABCD_MT123456CA.SomeOtherType"));
+		assertNotNull("type", type);
+		assertEquals("number of relationships", 2, type.getRelationships().size());
+		assertTrue("association", type.getRelationships().get(0) instanceof MergedAssociation);
+		assertTrue("association", type.getRelationships().get(1) instanceof MergedAssociation);
+		assertEquals("association type", "myMergedTypeName", type.getRelationships().get(0).getType());
+		assertEquals("association type", "myMergedTypeName", type.getRelationships().get(1).getType());
 	}
 }

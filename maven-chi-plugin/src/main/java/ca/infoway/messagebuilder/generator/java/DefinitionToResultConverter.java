@@ -1,5 +1,7 @@
 package ca.infoway.messagebuilder.generator.java;
 
+import static org.apache.commons.collections.CollectionUtils.isEmpty;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -7,6 +9,8 @@ import java.util.Map;
 import java.util.Set;
 
 import ca.infoway.messagebuilder.generator.TypeConverter;
+import ca.infoway.messagebuilder.generator.lang.TypeDocumentation;
+import ca.infoway.messagebuilder.xml.MessagePart;
 import ca.infoway.messagebuilder.xml.Relationship;
 import ca.infoway.messagebuilder.xml.TypeName;
 
@@ -40,6 +44,12 @@ class DefinitionToResultConverter {
 				handleInlining(type);
 			}
 		}
+		for (SimplifiableType simplifiableType : this.definitions.getAllTypes()) {
+			Type type = result.getTypeByName(new TypeName(simplifiableType.getName()));
+			if (type != null) {
+				handleMerging(type);
+			}
+		}
 
 		Set<String> mergedTypeNames = new HashSet<String>();
 		for (SimplifiableType type : this.definitions.getAllTypes()) {
@@ -49,26 +59,29 @@ class DefinitionToResultConverter {
 		}
 		
 		for (String name : mergedTypeNames) {
-			Type mergedType = this.types.get(name);
-			MergedTypeCollator collator = new MergedTypeCollator();
-			for (TypeName typeName : mergedType.getMergedTypes()) {
-				
-				Type originalType = this.types.get(typeName.getName());
-				mergedType.getMergedTypes().add(typeName);
-				for (BaseRelationship relationship : originalType.getRelationships()) {
-					collator.addRelationship(originalType.getName(), relationship);
+			if (this.types.containsKey(name)) {
+				System.out.println("found type: " + name);
+				Type mergedType = this.types.get(name);
+				MergedTypeCollator collator = new MergedTypeCollator();
+				for (TypeName typeName : mergedType.getMergedTypes()) {
+					
+					Type originalType = this.types.get(typeName.getName());
+					mergedType.getMergedTypes().add(typeName);
+					for (BaseRelationship relationship : originalType.getRelationships()) {
+						collator.addRelationship(originalType.getName(), relationship);
+					}
+					
+					// TODO: restore this...
+//					mergedType.getChildTypes().addAll(this.mergeResult.substituteAll(originalType.getChildTypes()));
+//					mergedType.getInterfaceTypes().addAll(this.mergeResult.substituteAll(originalType.getInterfaceTypes()));
 				}
 				
-				// Old TODO: BCH: javadoc, etc.
-				if (originalType.isAbstract()) {
-					mergedType.setAbstract(true);
+				for (String relationshipName : collator.relationshipNames()) {
+					BaseRelationship exemplar = collator.getExemplar(relationshipName);
+					mergedType.getRelationships().add(exemplar);
 				}
-				if (originalType.isRootType()) {
-					mergedType.setRootType(originalType.isRootType());
-				}
-				// TODO: restore this...
-//				mergedType.getChildTypes().addAll(this.mergeResult.substituteAll(originalType.getChildTypes()));
-//				mergedType.getInterfaceTypes().addAll(this.mergeResult.substituteAll(originalType.getInterfaceTypes()));
+			} else {
+				System.out.println("did NOT find type: " + name);
 			}
 		}
 	}
@@ -77,11 +90,25 @@ class DefinitionToResultConverter {
 		for (BaseRelationship relationship : new ArrayList<BaseRelationship>(type.getRelationships())) {
 			if (isInlined(relationship)) {
 				inline(type, relationship);
-			} else if (isMerged(relationship)) {
-				// TM: TODO: create a MergedAssociation with the merged type
-				System.out.println("Need to handle merges some time soon.  Doofus.");
 			}
 		}
+	}
+
+	private void handleMerging(Type type) {
+		for (BaseRelationship relationship : new ArrayList<BaseRelationship>(type.getRelationships())) {
+			if (isMerged(relationship)) {
+				merge(type, relationship);
+			}
+		}
+	}
+
+	private void merge(Type type, BaseRelationship relationship) {
+		String mergedTypeName = this.definitions.getType(relationship.getType()).getMergedTypeName();
+		Type mergedType = this.types.get(mergedTypeName);
+		BaseRelationship mergedAssociation = new MergedAssociation((Association) relationship, mergedType);
+		int index = type.getRelationships().indexOf(relationship);
+		type.getRelationships().remove(index);
+		type.getRelationships().add(index, mergedAssociation);
 	}
 
 	private boolean isMerged(BaseRelationship relationship) {
@@ -97,7 +124,7 @@ class DefinitionToResultConverter {
 	private void inline(Type type, BaseRelationship relationship) {
 		int index = type.getRelationships().indexOf(relationship);
 		Type elidedType = this.types.get(relationship.getType());
-		handleInlining(elidedType);
+		handleInlining(elidedType); // and merging???
 		for (BaseRelationship subRelationship : elidedType.getRelationships()) {
 			if (subRelationship.getRelationshipType() == RelationshipType.ATTRIBUTE) {
 				type.getRelationships().add(index++, new InlinedAttribute((Attribute) subRelationship, relationship));
@@ -138,16 +165,45 @@ class DefinitionToResultConverter {
 			this.types.put(simplifiableType.getName(), type);
 			if (simplifiableType.isInlined()) {
 				// skip it
-			} else if (simplifiableType.isMerged()) {
-				if (!this.types.containsKey(simplifiableType.getMergedTypeName())) {
-					Type mergedType = new Type(new TypeName(simplifiableType.getMergedTypeName()));
-					this.types.put(simplifiableType.getMergedTypeName(), mergedType);
-				}
-				Type mergedType = this.types.get(simplifiableType.getMergedTypeName());
-				// TM: TODO: child types, javadoc, interface names, etc.
-				mergedType.getMergedTypes().add(type.getName());
 			} else {
-				result.addType(type);
+				MessagePart messagePart = simplifiableType.getMessagePart();
+				if (simplifiableType.isMerged()) {
+					String mergedTypeName = simplifiableType.getMergedTypeName();
+					if (!this.types.containsKey(mergedTypeName)) {
+						Type mergedType = new Type(new TypeName(mergedTypeName));
+						this.types.put(mergedTypeName, mergedType);
+					}
+					Type mergedType = this.types.get(mergedTypeName);
+					mergedType.getMergedTypes().add(type.getName());
+					
+					// TM - TODO: how to merge business name/documentation? (wasn't being done in pre-refactor merge code)
+					// mergedType.setBusinessName(businessName);
+					// mergedType.setTypeDocumentation(description);
+					
+					// no category when merged (?)
+					// mergedType.setCategory(null); 
+					
+					if (messagePart.isAbstract()) {
+						mergedType.setAbstract(true);
+					}
+					if (simplifiableType.isRootType()) {
+						mergedType.setRootType(true);
+					}
+					
+					if (result.getTypeByName(mergedType.getName()) == null) {
+						result.addType(mergedType);
+					}
+				} else {
+					type.setCategory(simplifiableType.getCategory());
+					if (messagePart.getDocumentation() != null) {
+						type.setBusinessName(messagePart.getDocumentation().getBusinessName());
+						if(!isEmpty(messagePart.getDocumentation().getParagraphs())) {
+							type.setTypeDocumentation(new TypeDocumentation(messagePart.getDocumentation()));
+						}
+					}
+					type.setAbstract(messagePart.isAbstract());
+					result.addType(type);
+				}
 			}
 		}
 	}

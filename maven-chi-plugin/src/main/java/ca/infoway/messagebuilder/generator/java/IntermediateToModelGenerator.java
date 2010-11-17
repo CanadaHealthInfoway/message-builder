@@ -84,13 +84,26 @@ public abstract class IntermediateToModelGenerator {
 		for (MessagePart messagePart : messageSet.getAllMessageParts()) {
 			TypeName name = new TypeName(messagePart.getName());
 			Type type = result.getTypes().get(name);
+			SimplifiableType simplifiableType = definitions.getType(messagePart.getName());
 
-			if (!type.isAbstract() && !type.getInterfaceTypes().isEmpty()) {
+			if (!simplifiableType.getMessagePart().isAbstract() && !simplifiableType.getInterfaceTypes().isEmpty()) {
 				this.outputUI.log(LogLevel.DEBUG, "Checking interface relationships for non-abstract type: " + name);
 				addInterfaceRelationshipsForType(type, type.getRelationships(), result);
+				addInterfaceRelationshipsForType(simplifiableType, simplifiableType.getRelationships(), definitions);
 			}
 			
 			sortRelationships(type);
+		}
+	}
+	
+	private void addInterfaceRelationshipsForType(SimplifiableType simplifiableType, List<SimplifiableRelationship> allRelationships, SimplifiableDefinitions definitions) {
+		Set<String> interfaceTypes = simplifiableType.getInterfaceTypes();
+		for (String interfaceName : interfaceTypes) {
+			SimplifiableType interfaceType = definitions.getType(interfaceName);
+			if (allRelationships.addAll(interfaceType.getRelationships())) {
+				this.outputUI.log(LogLevel.DEBUG, "Added interface relationships for type: " + interfaceName);
+			}
+			addInterfaceRelationshipsForType(interfaceType, allRelationships, definitions);
 		}
 	}
 	
@@ -113,12 +126,14 @@ public abstract class IntermediateToModelGenerator {
 			List<String> childs = messagePart.getSpecializationChilds();
 			for (String childName : childs) {
 				Type childType = result.getTypes().get(new TypeName(childName));
+				SimplifiableType simplifiableChildType = definitions.getType(childName);
 				
-				if (childType == null) {
+				if (simplifiableChildType == null) {
 					throw new GeneratorException("Type " + name + " has a specialization child " + childName + " which does not appear to be defined.");
 				} else if (type.isAbstract()) {
 					childType.getInterfaceTypes().add(name);
 					type.getChildTypes().add(childType.getName());
+					simplifiableChildType.getInterfaceTypes().add(messagePart.getName());
 				} else {
 					this.outputUI.log(LogLevel.WARN, "Type " + name + " has specialization childs, but is not abstract");
 				}
@@ -234,7 +249,7 @@ public abstract class IntermediateToModelGenerator {
 				TypeName name = new TypeName(messagePart.getName());
 				Type type = new Type(name, isRootType(messagePart, packageLocation));
 				
-				definitions.addType(new SimplifiableType(messagePart, isRootType(messagePart, packageLocation)));
+				definitions.addType(new SimplifiableType(messagePart, isRootType(messagePart, packageLocation), packageLocation.getCategory()));
 				
 				type.setCategory(packageLocation.getCategory());
 				if (messagePart.getDocumentation() != null) {
