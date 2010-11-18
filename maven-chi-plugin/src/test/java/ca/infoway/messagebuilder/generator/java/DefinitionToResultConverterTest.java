@@ -135,7 +135,7 @@ public class DefinitionToResultConverterTest {
 	}
 	
 	@Test
-	public void shouldConvertSimpleCaseWithMergedTypes() {
+	public void shouldConvertSimpleCaseWithMergedTypes() throws Exception {
 		Relationship relationship1 = new Relationship("role", "ST", Cardinality.create("1"));
 		SimplifiableType simplifiableType1 = new SimplifiableType(new MessagePart("ABCD_MT123456CA.Patient1"), false);
 		simplifiableType1.getRelationships().add(new SimplifiableRelationship(relationship1, this.typeConverter.convertToType("ST", null)));
@@ -165,7 +165,7 @@ public class DefinitionToResultConverterTest {
 	}
 	
 	@Test
-	public void shouldConvertSimpleCaseWithMergedAssociations() {
+	public void shouldConvertSimpleCaseWithMergedAssociations() throws Exception {
 		Relationship relationship1 = new Relationship("role", "ST", Cardinality.create("1"));
 		SimplifiableType simplifiableType1 = new SimplifiableType(new MessagePart("ABCD_MT123456CA.Patient1"), false);
 		simplifiableType1.getRelationships().add(new SimplifiableRelationship(relationship1, this.typeConverter.convertToType("ST", null)));
