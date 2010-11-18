@@ -11,6 +11,7 @@ import org.apache.commons.lang.builder.CompareToBuilder;
 
 import ca.infoway.messagebuilder.xml.TypeName;
 
+@Deprecated
 class SortedTypeProvider implements TypeProvider {
 
 	public class ComparatorImpl implements Comparator<Type> {

@@ -177,13 +177,13 @@ public class Case3Simplifier {
 	}
 	private void createMatchResult(Case3MatcherFactory factory) {
 		SortedTypeProvider provider = new SortedTypeProvider(this.result);
-		this.mergeResult.initialize(this.result);
+		this.mergeResult.initialize(this.definitions);
 		boolean repeat = false;
 		do {
 			repeat = false;
 			Case3Matcher matcher = factory.create(this.log, provider, this.definitions, this.mergeResult);
 			this.log.log(INFO, "Simplification case 3: " + matcher.getDescription());
-			for (Type type : provider.getAllMessageTypes()) {
+			for (SimplifiableType type : this.definitions.getAllTypes()) {
 				boolean changes = matcher.performMatching(type);
 				this.log.log(DEBUG, "Simplification case 3: Now analyzing " + type.getTypeName() + ". " +
 						(changes ? "Candidate for simplification" : ""));
