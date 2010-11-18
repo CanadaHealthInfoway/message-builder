@@ -5,11 +5,16 @@ import static org.apache.commons.collections.CollectionUtils.isEmpty;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import ca.infoway.messagebuilder.generator.GeneratorException;
 import ca.infoway.messagebuilder.generator.TypeConverter;
+import ca.infoway.messagebuilder.generator.java.InteractionType.ArgumentType;
 import ca.infoway.messagebuilder.generator.lang.TypeDocumentation;
+import ca.infoway.messagebuilder.xml.Argument;
+import ca.infoway.messagebuilder.xml.Interaction;
 import ca.infoway.messagebuilder.xml.MessagePart;
 import ca.infoway.messagebuilder.xml.Relationship;
 import ca.infoway.messagebuilder.xml.TypeName;
@@ -24,14 +29,16 @@ class DefinitionToResultConverter {
 		this.definitions = definitions;
 	}
 	
-	public TypeAnalysisResult convert() {
+	public TypeAnalysisResult convert() throws GeneratorException {
 		TypeAnalysisResult result = new TypeAnalysisResult();
-		createAllTypes(result);
+		createAllTypes(result);  // should also create packages
 		createAllRelationships(result);
+		createInteractions(result);
+		
 		return result;
 	}
 
-	private void createAllRelationships(TypeAnalysisResult result) {
+	private void createAllRelationships(TypeAnalysisResult result) throws GeneratorException {
 		for (SimplifiableType simplifiableType : this.definitions.getAllTypes()) {
 			Type type = this.types.get(simplifiableType.getName());
 			for (SimplifiableRelationship simplifiableRelationship : simplifiableType.getRelationships()) {
@@ -53,35 +60,28 @@ class DefinitionToResultConverter {
 
 		Set<String> mergedTypeNames = new HashSet<String>();
 		for (SimplifiableType type : this.definitions.getAllTypes()) {
-			if (type.isMerged()) {
+			if (type.isMerged() && !type.isInlined()) {
 				mergedTypeNames.add(type.getMergedTypeName());
 			}
 		}
 		
 		for (String name : mergedTypeNames) {
-			if (this.types.containsKey(name)) {
-				System.out.println("found type: " + name);
-				Type mergedType = this.types.get(name);
-				MergedTypeCollator collator = new MergedTypeCollator();
-				for (TypeName typeName : mergedType.getMergedTypes()) {
-					
-					Type originalType = this.types.get(typeName.getName());
-					mergedType.getMergedTypes().add(typeName);
-					for (BaseRelationship relationship : originalType.getRelationships()) {
-						collator.addRelationship(originalType.getName(), relationship);
-					}
-					
-					// TODO: restore this...
-//					mergedType.getChildTypes().addAll(this.mergeResult.substituteAll(originalType.getChildTypes()));
-//					mergedType.getInterfaceTypes().addAll(this.mergeResult.substituteAll(originalType.getInterfaceTypes()));
+			Type mergedType = this.types.get(name);
+			MergedTypeCollator collator = new MergedTypeCollator();
+			for (TypeName typeName : mergedType.getMergedTypes()) {
+				Type originalType = this.types.get(typeName.getName());
+				for (BaseRelationship relationship : originalType.getRelationships()) {
+					collator.addRelationship(originalType.getName(), relationship);
 				}
 				
-				for (String relationshipName : collator.relationshipNames()) {
-					BaseRelationship exemplar = collator.getExemplar(relationshipName);
-					mergedType.getRelationships().add(exemplar);
-				}
-			} else {
-				System.out.println("did NOT find type: " + name);
+				// TODO: restore this...
+//					mergedType.getChildTypes().addAll(this.mergeResult.substituteAll(originalType.getChildTypes()));
+//					mergedType.getInterfaceTypes().addAll(this.mergeResult.substituteAll(originalType.getInterfaceTypes()));
+			}
+			
+			for (String relationshipName : collator.relationshipNames()) {
+				BaseRelationship exemplar = collator.getExemplar(relationshipName);
+				mergedType.getRelationships().add(exemplar);
 			}
 		}
 	}
@@ -103,12 +103,14 @@ class DefinitionToResultConverter {
 	}
 
 	private void merge(Type type, BaseRelationship relationship) {
+		
+		// FIXME - TM - if the type is an InlinedAssociation when need to replace the bottom-most type with a MergedAssociation
+		
 		String mergedTypeName = this.definitions.getType(relationship.getType()).getMergedTypeName();
 		Type mergedType = this.types.get(mergedTypeName);
 		BaseRelationship mergedAssociation = new MergedAssociation((Association) relationship, mergedType);
 		int index = type.getRelationships().indexOf(relationship);
-		type.getRelationships().remove(index);
-		type.getRelationships().add(index, mergedAssociation);
+		type.getRelationships().set(index, mergedAssociation);
 	}
 
 	private boolean isMerged(BaseRelationship relationship) {
@@ -117,14 +119,17 @@ class DefinitionToResultConverter {
 		} else if (((Association) relationship).isTemplateType()) {
 			return false;
 		} else {
-			return this.definitions.getType(relationship.getType()).isMerged();
+			SimplifiableType type = this.definitions.getType(relationship.getType());
+			// TODO - TM - confirm excluding inlined types is correct (then move extra check to isMerged())
+			return type.isMerged() && !type.isInlined();
 		}
 	}
 
 	private void inline(Type type, BaseRelationship relationship) {
+		// don't need to worry about inlining a merged type - merging has not been handled yet
 		int index = type.getRelationships().indexOf(relationship);
 		Type elidedType = this.types.get(relationship.getType());
-		handleInlining(elidedType); // and merging???
+		handleInlining(elidedType); 
 		for (BaseRelationship subRelationship : elidedType.getRelationships()) {
 			if (subRelationship.getRelationshipType() == RelationshipType.ATTRIBUTE) {
 				type.getRelationships().add(index++, new InlinedAttribute((Attribute) subRelationship, relationship));
@@ -153,7 +158,7 @@ class DefinitionToResultConverter {
 			return Association.createTemplateAssociation(
 					relationship, new TemplateVariableGenerator().getNext(relationship), 0);
 		} else {
-			Type relationshipType = result.getTypeByName(new TypeName(relationship.getType()));
+			Type relationshipType = this.types.get(relationship.getType());
 			return Association.createStandardAssociation(
 					relationship, relationshipType, 0);
 		}
@@ -176,7 +181,8 @@ class DefinitionToResultConverter {
 					Type mergedType = this.types.get(mergedTypeName);
 					mergedType.getMergedTypes().add(type.getName());
 					
-					// TM - TODO: how to merge business name/documentation? (wasn't being done in pre-refactor merge code)
+					// TM - TODO: how to merge business name/documentation? 
+					//            (wasn't being done in pre-refactor merge code)
 					// mergedType.setBusinessName(businessName);
 					// mergedType.setTypeDocumentation(description);
 					
@@ -207,4 +213,36 @@ class DefinitionToResultConverter {
 			}
 		}
 	}
+	
+	private void createInteractions(TypeAnalysisResult result) {
+		for (SimplifiableInteraction simplifiableInteraction : this.definitions.getAllInteractions()) {
+			Interaction interaction = simplifiableInteraction.getInteraction();
+			InteractionType interactionType = new InteractionType(new TypeName(interaction.getName()));
+			
+			SimplifiableType simplifiableType = this.definitions.getType(interaction.getSuperTypeName());
+			TypeName parentTypeName = new TypeName(simplifiableType.isMerged() 
+					? simplifiableType.getMergedTypeName() : simplifiableType.getName());
+			
+			interactionType.setParentType(parentTypeName);
+			interactionType.setTypeDocumentation(new TypeDocumentation(interaction.getDocumentation()));
+			interactionType.setBusinessName(interaction.getBusinessName());
+			interactionType.getArguments().addAll(groupArgumentsAndTypes(interaction.getArguments()));
+			result.getTypes().put(interactionType.getName(), interactionType);
+		}
+	}
+
+	private List<ArgumentType> groupArgumentsAndTypes(List<Argument> arguments) {
+		List<ArgumentType> result = new ArrayList<ArgumentType>();
+		for (Argument argument : arguments) {
+			SimplifiableType simplifiableType = this.definitions.getType(argument.getName());
+			TypeName typeName = new TypeName(simplifiableType.isMerged() 
+					? simplifiableType.getMergedTypeName() : simplifiableType.getName());
+			
+			ArgumentType argumentType = new ArgumentType(argument, typeName);
+			argumentType.getArgumentTypes().addAll(groupArgumentsAndTypes(argument.getArguments()));
+			result.add(argumentType);
+		}
+		return result;
+	}
+	
 }

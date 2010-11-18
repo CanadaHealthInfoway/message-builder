@@ -40,4 +40,8 @@ public class SimplifiableDefinitions {
 		return this.types.values();
 	}
 	
+	public Collection<SimplifiableInteraction> getAllInteractions() {
+		return this.interactions.values();
+	}
+	
 }
