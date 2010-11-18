@@ -159,30 +159,6 @@ class Case3MergeResult implements TypeNameSubstituter {
 	 * 
 	 * @param result
 	 */
-	public void initialize(TypeProvider result) {
-		Map<TypeName,Set<TypeName>> choices = new HashMap<TypeName,Set<TypeName>>();
-		if (!this.initialized) {
-			for (Type type : result.getAllMessageTypes()) {
-				for (TypeName choice : type.getInterfaceTypes()) {
-					if (!choices.containsKey(choice)) {
-						choices.put(choice, new HashSet<TypeName>());
-					}
-					choices.get(choice).add(type.getTypeName());
-				}
-			}
-			
-			for (Set<TypeName> set : choices.values()) {
-				Set<TypeName> temp = new HashSet<TypeName>();
-				for (TypeName name1 : set) {
-					for (TypeName name2 : temp) {
-						this.unmergeableTypes.add(new TypeNameTuple(name1, name2));
-					}
-					temp.add(name1);
-				}
-			}
-		}
-		this.initialized = true;
-	}
 	public void initialize(SimplifiableTypeProvider result) {
 		Map<TypeName,Set<TypeName>> choices = new HashMap<TypeName,Set<TypeName>>();
 		if (!this.initialized) {
