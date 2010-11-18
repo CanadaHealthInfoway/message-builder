@@ -141,8 +141,8 @@ public class Case1SimplifierTest {
 		Type rootType = createRootType(this.result, "BillableActChoice");
 		
 		rootType.setAbstract(true);
-		crossReferenceType.getInterfaceTypes().add(rootType.getName());
-		rootType.getChildTypes().add(crossReferenceType.getName());
+		crossReferenceType.getInterfaceTypes().add(rootType.getTypeName());
+		rootType.getChildTypes().add(crossReferenceType.getTypeName());
 		
 		new Case1Simplifier(new SysoutLogUI(), this.result, this.definitions).execute();
 		

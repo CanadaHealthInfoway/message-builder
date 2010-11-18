@@ -26,7 +26,7 @@ class Case3ExactMatcher extends Case3Matcher {
 	boolean performMatching(Type type) {
 		boolean somethingMatched = false;
 		for (Type otherType : getAllMessageTypes()) {
-			if (type.getName().equals(otherType.getName())) {
+			if (type.getTypeName().equals(otherType.getTypeName())) {
 				break;
 			} else if (this.mergeResult.isKnownMatch(type, otherType)) {
 				// Skip it.  We already know about it

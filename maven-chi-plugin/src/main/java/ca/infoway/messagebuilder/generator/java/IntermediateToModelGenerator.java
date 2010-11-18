@@ -132,7 +132,7 @@ public abstract class IntermediateToModelGenerator {
 					throw new GeneratorException("Type " + name + " has a specialization child " + childName + " which does not appear to be defined.");
 				} else if (type.isAbstract()) {
 					childType.getInterfaceTypes().add(name);
-					type.getChildTypes().add(childType.getName());
+					type.getChildTypes().add(childType.getTypeName());
 					simplifiableChildType.getInterfaceTypes().add(messagePart.getName());
 				} else {
 					this.outputUI.log(LogLevel.WARN, "Type " + name + " has specialization childs, but is not abstract");
@@ -150,7 +150,7 @@ public abstract class IntermediateToModelGenerator {
 			messageType.setTypeDocumentation(new TypeDocumentation(interaction.getDocumentation()));
 			messageType.setBusinessName(interaction.getBusinessName());
 			messageType.getArguments().addAll(groupArgumentsAndTypes(interaction.getArguments(), result.getTypes()));
-			result.getTypes().put(messageType.getName(), messageType);
+			result.getTypes().put(messageType.getTypeName(), messageType);
 		}
 	}
 
@@ -184,8 +184,8 @@ public abstract class IntermediateToModelGenerator {
 			if (relationship.isAttribute() && relationship.isFixed()) {
 				// skip it
 			} else {
-				type.getRelationships().add(createRelationship(type.getName(), result, relationship, generator, type.getRelationships().size()));
-				simplifiableType.getRelationships().add(createRelationship(type.getName(), definitions, relationship, generator2, 0));
+				type.getRelationships().add(createRelationship(type.getTypeName(), result, relationship, generator, type.getRelationships().size()));
+				simplifiableType.getRelationships().add(createRelationship(type.getTypeName(), definitions, relationship, generator2, 0));
 			}
 		}
 	}

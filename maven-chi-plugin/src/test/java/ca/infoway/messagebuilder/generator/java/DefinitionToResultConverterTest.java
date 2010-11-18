@@ -38,7 +38,7 @@ public class DefinitionToResultConverterTest {
 		assertEquals("number of types", 1, result.getAllMessageTypes().size());
 		
 		Type type = (Type) CollectionUtils.get(result.getAllMessageTypes(), 0);
-		assertEquals("name", new TypeName("ABCD_MT123456CA.Tom"), type.getName());
+		assertEquals("name", new TypeName("ABCD_MT123456CA.Tom"), type.getTypeName());
 		
 		assertEquals("number of relationships", 1, type.getRelationships().size());
 		assertTrue("atribute", type.getRelationships().get(0) instanceof Attribute);

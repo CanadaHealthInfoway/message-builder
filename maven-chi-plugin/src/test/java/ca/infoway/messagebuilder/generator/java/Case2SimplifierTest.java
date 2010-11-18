@@ -82,7 +82,7 @@ public class Case2SimplifierTest {
 				createAttribute("name", new Cardinality(0,1), "ST"),
 				createAttribute("desc", new Cardinality(0,1), "ST")
 		);
-		mergedType.getMergedTypes().add(mergedType.getName());
+		mergedType.getMergedTypes().add(mergedType.getTypeName());
 		createRootType(this.result,
 				"Sender", 
 				createAttribute("telecom", new Cardinality(1, 1), "TEL.URI"),
@@ -128,7 +128,7 @@ public class Case2SimplifierTest {
 						createAttribute("name", new Cardinality(0,1), "ST"),
 						createAttribute("desc", new Cardinality(0,1), "ST")
 		);
-		mergedType.getMergedTypes().add(unmergedType.getName());
+		mergedType.getMergedTypes().add(unmergedType.getTypeName());
 		createRootType(this.result,
 				"Sender", 
 				createAttribute("telecom", new Cardinality(1, 1), "TEL.URI"),
@@ -147,12 +147,12 @@ public class Case2SimplifierTest {
 		this.result.removeType(unmergedType);
 
 		assertTrue("not yet elided", this.result.getTypes().containsKey(temporaryTypeName));
-		assertTrue("not yet elided", this.result.getTypes().containsKey(innerType.getName()));
+		assertTrue("not yet elided", this.result.getTypes().containsKey(innerType.getTypeName()));
 		
 		new Case2Simplifier(new SysoutLogUI(), this.result, this.definitions).execute();
 		
 		assertFalse("elided", this.result.getTypes().containsKey(temporaryTypeName));
-		assertFalse("elided", this.result.getTypes().containsKey(innerType.getName()));
+		assertFalse("elided", this.result.getTypes().containsKey(innerType.getTypeName()));
 		
 		assertEquals("number of properties", 5, 
 				this.result.getTypes().get(new TypeName("ABCD_MT123456CA.Sender")).getRelationships().size());
@@ -180,7 +180,7 @@ public class Case2SimplifierTest {
 				createAttribute("id", new Cardinality(0,1), "II"),
 				createAttribute("name", new Cardinality(0,1), "ST")
 			);
-		mergedType.getMergedTypes().add(unmergedType.getName());
+		mergedType.getMergedTypes().add(unmergedType.getTypeName());
 		createRootType(this.result,
 				"Sender", 
 				createAttribute("telecom", new Cardinality(1, 1), "TEL.URI"),
@@ -240,7 +240,7 @@ public class Case2SimplifierTest {
 		);
 		
 		Association mergedAssociation = createMergedAssociation("typeD", new Cardinality(1,1), typeD, typeF, null);
-		typeF.getMergedTypes().add(typeD.getName());
+		typeF.getMergedTypes().add(typeD.getTypeName());
 		
 		Type typeA = createType(this.result, "UnmergedType1", false,  // TypeA
 					idAttr,
@@ -252,7 +252,7 @@ public class Case2SimplifierTest {
 				nameAttr,
 				mergedAssociation
 			);
-		typeC.getMergedTypes().add(typeA.getName());
+		typeC.getMergedTypes().add(typeA.getTypeName());
 		
 		createRootType(this.result,   // TypeG
 				"Sender", 
@@ -310,7 +310,7 @@ public class Case2SimplifierTest {
 				createAttribute("name", new Cardinality(0,1), "ST"),
 				createAttribute("desc", new Cardinality(0,1), "ST")
 			);
-		mergedType.getMergedTypes().add(unmergedType.getName());
+		mergedType.getMergedTypes().add(unmergedType.getTypeName());
 		createRootType(this.result,
 				"Sender", 
 				createAttribute("telecom", new Cardinality(1, 1), "TEL.URI"),
@@ -352,8 +352,8 @@ public class Case2SimplifierTest {
 				createAttribute("name", new Cardinality(0,1), "ST"),
 				createAttribute("desc", new Cardinality(0,1), "ST")
 			);
-		mergedType.getMergedTypes().add(unmergedType1.getName());
-		mergedType.getMergedTypes().add(unmergedType2.getName());
+		mergedType.getMergedTypes().add(unmergedType1.getTypeName());
+		mergedType.getMergedTypes().add(unmergedType2.getTypeName());
 		createRootType(this.result,
 				"Sender", 
 				createAttribute("telecom", new Cardinality(1, 1), "TEL.URI"),
@@ -413,8 +413,8 @@ public class Case2SimplifierTest {
 				"A_BillableActChoice");
 		
 		rootType.setAbstract(true);
-		crossReferenceType.getInterfaceTypes().add(rootType.getName());
-		rootType.getChildTypes().add(crossReferenceType.getName());
+		crossReferenceType.getInterfaceTypes().add(rootType.getTypeName());
+		rootType.getChildTypes().add(crossReferenceType.getTypeName());
 		
 		new Case2Simplifier(new SysoutLogUI(), this.result, this.definitions).execute();
 		

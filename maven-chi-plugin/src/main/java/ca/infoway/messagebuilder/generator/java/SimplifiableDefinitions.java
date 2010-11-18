@@ -7,7 +7,7 @@ import java.util.TreeMap;
 
 import ca.infoway.messagebuilder.xml.TypeName;
 
-public class SimplifiableDefinitions {
+public class SimplifiableDefinitions implements SimplifiableTypeProvider {
 	
 	private Map<String,SimplifiableType> types = Collections.synchronizedMap(new TreeMap<String,SimplifiableType>());
 	private Map<String,SimplifiablePackage> packages = Collections.synchronizedMap(new TreeMap<String,SimplifiablePackage>());

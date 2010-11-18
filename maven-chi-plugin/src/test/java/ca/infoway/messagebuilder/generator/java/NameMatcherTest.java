@@ -21,7 +21,7 @@ public class NameMatcherTest {
 		public String getBusinessName() {
 			return this.businessName;
 		}
-		public TypeName getName() {
+		public TypeName getTypeName() {
 			return this.name;
 		}
 	}

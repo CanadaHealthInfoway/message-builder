@@ -73,7 +73,7 @@ public class Case2Simplifier extends InlineableSimplifier {
 		for (ComplexTypePackage complexTypePackage : this.result.getAllPackages()) {
 			for (Type type : new ArrayList<Type>(complexTypePackage.getTypes().values())) {
 				if (type.getRelationships().size() >= 7) {
-					this.nonInlineableTypes.add(type.getName());
+					this.nonInlineableTypes.add(type.getTypeName());
 				}
 			}
 		}
@@ -86,15 +86,15 @@ public class Case2Simplifier extends InlineableSimplifier {
 			inlineReference(inlineableType, reference);
 		}
 		if (!containedInChoice(inlineableType)) {
-			this.log.log(DEBUG, "Simplification case 2: removing type " + inlineableType.getName());
+			this.log.log(DEBUG, "Simplification case 2: removing type " + inlineableType.getTypeName());
 			this.result.removeType(inlineableType);
 		}
 	}
 
 	private void inlineReference(Type inlineableType, Reference reference) {
-		this.log.log(DEBUG, "Simplification case 2: Type " + inlineableType.getName() + " is being rolled up into " + reference.getType().getName());
-		if (ObjectUtils.equals(inlineableType.getName(), reference.getType().getName())) {
-			this.log.log(LogLevel.WARN, "warning - trying to inline type to itself:  " + inlineableType.getName());
+		this.log.log(DEBUG, "Simplification case 2: Type " + inlineableType.getTypeName() + " is being rolled up into " + reference.getType().getTypeName());
+		if (ObjectUtils.equals(inlineableType.getTypeName(), reference.getType().getTypeName())) {
+			this.log.log(LogLevel.WARN, "warning - trying to inline type to itself:  " + inlineableType.getTypeName());
 		} else {
 			BaseRelationship oldRelationship = reference.getRelationship();
 			
@@ -102,7 +102,7 @@ public class Case2Simplifier extends InlineableSimplifier {
 				// bug 13644 - only create an inlined relationship if the reference type actually makes use of the relationship
 				if (typeUsesRelationship(reference.getType(), oldRelationship, relationship)) {
 					reference.getType().getRelationships().add(createInlinedRelationship(
-							inlineableType.getName(), relationship, oldRelationship));
+							inlineableType.getTypeName(), relationship, oldRelationship));
 				}
 			}
 			reference.getType().getRelationships().remove(oldRelationship);
@@ -121,12 +121,12 @@ public class Case2Simplifier extends InlineableSimplifier {
 		// can become *very* complicated. In this case just allow without checking for now. Currently affects only 1 merged type in MR2009.
 		// AssignedEntity_2Bean: [POIZ_MT030060CA.AssignedEntity, POIZ_MT030050CA.AssignedEntity, POIZ_MT060150CA.AssignedEntity]
 		if (!referenceType.getMergedTypes().isEmpty() && !(referenceRelationship instanceof MergedAssociation)) {
-			this.log.log(INFO, "Simplification case 2: SKIPPING check (and allowing match) for: " + (referenceType.getName() instanceof TemporaryTypeName ? referenceType.getMergedTypes() : referenceType.getName()) 
+			this.log.log(INFO, "Simplification case 2: SKIPPING check (and allowing match) for: " + (referenceType.getTypeName() instanceof TemporaryTypeName ? referenceType.getMergedTypes() : referenceType.getTypeName()) 
 					+ "." + referenceRelationship.getName() + " when inlining " + inliningRelationship.getName());
 			return true;
 		}
 		
-		Collection<TypeName> typeNames = referenceType.getMergedTypes().isEmpty() ? Arrays.asList(referenceType.getName()) : referenceType.getMergedTypes();
+		Collection<TypeName> typeNames = referenceType.getMergedTypes().isEmpty() ? Arrays.asList(referenceType.getTypeName()) : referenceType.getMergedTypes();
 		
 		for (TypeName typeName : typeNames) {
 			
@@ -142,7 +142,7 @@ public class Case2Simplifier extends InlineableSimplifier {
 					// second check is for inlined inliningRelationships - is this sufficent (or even necessary)?
 					if (StringUtils.equals(relationship.getXmlMapping(), inliningRelationship.getXmlMapping()) ||
 							StringUtils.startsWith(inliningRelationship.getXmlMapping(), relationship.getXmlMapping() + "/")) {
-						this.log.log(DEBUG, "Simplification case 2: Inlined match found for: " + (referenceType.getName() instanceof TemporaryTypeName ? referenceType.getMergedTypes() : referenceType.getName()) 
+						this.log.log(DEBUG, "Simplification case 2: Inlined match found for: " + (referenceType.getTypeName() instanceof TemporaryTypeName ? referenceType.getMergedTypes() : referenceType.getTypeName()) 
 								+ "." + referenceRelationship.getName() + " when inlining " + inliningRelationship.getName());
 						return true;
 					}
@@ -150,7 +150,7 @@ public class Case2Simplifier extends InlineableSimplifier {
 			}
 		}
 		
-		this.log.log(INFO, "Simplification case 2: NO match found for: " + (referenceType.getName() instanceof TemporaryTypeName ? referenceType.getMergedTypes() : referenceType.getName()) 
+		this.log.log(INFO, "Simplification case 2: NO match found for: " + (referenceType.getTypeName() instanceof TemporaryTypeName ? referenceType.getMergedTypes() : referenceType.getTypeName()) 
 				+ "." + referenceRelationship.getName() + " when inlining " + inliningRelationship.getName());
 		return false;
 	}
@@ -281,9 +281,9 @@ public class Case2Simplifier extends InlineableSimplifier {
 		
 		if (reference.getRelationship().isCardinalityMultiple()) {
 			result = false;
-		} else if (this.nonInlineableTypes.contains(reference.getType().getName())) {
+		} else if (this.nonInlineableTypes.contains(reference.getType().getTypeName())) {
 			result = false;
-		} else if (ObjectUtils.equals(inlineableType.getName(), reference.getType().getName())) {
+		} else if (ObjectUtils.equals(inlineableType.getTypeName(), reference.getType().getTypeName())) {
 			return false;
 		} else if (this.case1Simplifier.isInlineable(complexTypePackage, reference.getType())) {
 			return false;

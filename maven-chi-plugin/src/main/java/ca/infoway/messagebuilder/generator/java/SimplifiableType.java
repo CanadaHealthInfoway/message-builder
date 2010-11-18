@@ -6,10 +6,13 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import org.codehaus.plexus.util.StringUtils;
+
 import ca.infoway.messagebuilder.Named;
 import ca.infoway.messagebuilder.xml.MessagePart;
+import ca.infoway.messagebuilder.xml.TypeName;
 
-class SimplifiableType implements Named {
+class SimplifiableType implements Named, NamedType {
 
 	private List<SimplifiableRelationship> relationships = Collections.synchronizedList(new ArrayList<SimplifiableRelationship>());
 	private boolean inlined;
@@ -40,6 +43,16 @@ class SimplifiableType implements Named {
 
 	public List<SimplifiableRelationship> getRelationships() {
 		return this.relationships;
+	}
+	public SimplifiableRelationship getRelationship(String name) {
+		SimplifiableRelationship result = null;
+		for (SimplifiableRelationship relationship : this.relationships) {
+			if (StringUtils.equals(name, relationship.getRelationship().getName())) {
+				result = relationship;
+				break;
+			}
+		}
+		return result;
 	}
 
 	public MessagePart getMessagePart() {
@@ -80,5 +93,13 @@ class SimplifiableType implements Named {
 
 	public String getCategory() {
 		return this.category;
+	}
+
+	public String getBusinessName() {
+		return this.messagePart.getDocumentation() != null ? this.messagePart.getDocumentation().getBusinessName() : null;
+	}
+
+	public TypeName getTypeName() {
+		return new TypeName(getName());
 	}
 }

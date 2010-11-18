@@ -81,8 +81,8 @@ public class MergeTypeUtil {
 	}
 
 	private TypeName validateTypeNamesMatch(Type oldType, Type newType) {
-		TypeName newName = newType.getName();
-		TypeName oldName = oldType.getName();
+		TypeName newName = newType.getTypeName();
+		TypeName oldName = oldType.getTypeName();
 		if (differentTypeName(oldName, newName)) {
 			error("Can not merge types with different TypeNames", oldType, newType);
 		}
@@ -142,7 +142,7 @@ public class MergeTypeUtil {
 	}
 
 	private void error(String message, Type oldType, Type newType) {
-		throw new MergeTypeException(message +" [" + newType.getName() + ", " + oldType.getName() + "]");
+		throw new MergeTypeException(message +" [" + newType.getTypeName() + ", " + oldType.getTypeName() + "]");
 //		System.out.println(">>>>>>>>>>>>" + message +" [" + newType.getName() + ", " + oldType.getName() + "]");
 	}
 	

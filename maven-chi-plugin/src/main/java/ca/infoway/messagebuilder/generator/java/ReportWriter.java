@@ -181,7 +181,7 @@ public class ReportWriter {
 	private Map<TypeName, Type> getAllCase3MergedTypes() {
 		Map<TypeName,Type> mergedType = new HashMap<TypeName,Type>();
 		for (Type type : this.result.getAllMessageTypes()) {
-			TypeName name = type.getName();
+			TypeName name = type.getTypeName();
 			if (name instanceof TemporaryTypeName) {
 				for (TypeName mergedName : type.getMergedTypes()) {
 					mergedType.put(mergedName, type);

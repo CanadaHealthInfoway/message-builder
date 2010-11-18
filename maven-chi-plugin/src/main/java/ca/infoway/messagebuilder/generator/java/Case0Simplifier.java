@@ -41,15 +41,15 @@ public class Case0Simplifier extends InlineableSimplifier {
 						newRelationship = new InlinedAttribute(newRelationship, elidedRelationship, true); 
 					}
 				
-					this.log.log(INFO, "Simplification case 0: Type " + inlineableType.getName() 
-							+ " is being rolled up into " + type.getName() + "." + relationship.getName() + " as a Boolean");
+					this.log.log(INFO, "Simplification case 0: Type " + inlineableType.getTypeName() 
+							+ " is being rolled up into " + type.getTypeName() + "." + relationship.getName() + " as a Boolean");
 					
 					type.getRelationships().set(i, newRelationship);
 				}
 			}
 		}
 		if (!containedInChoice(inlineableType)) {
-			this.log.log(INFO, "Simplification case 0: removing type " + inlineableType.getName());
+			this.log.log(INFO, "Simplification case 0: removing type " + inlineableType.getTypeName());
 			this.result.removeType(inlineableType);
 		}
 	}

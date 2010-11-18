@@ -10,6 +10,7 @@ import java.util.Set;
 
 import org.apache.commons.lang.StringUtils;
 
+import ca.infoway.messagebuilder.Named;
 import ca.infoway.messagebuilder.xml.Cardinality;
 import ca.infoway.messagebuilder.xml.ConformanceLevel;
 import ca.infoway.messagebuilder.xml.Difference;
@@ -17,7 +18,7 @@ import ca.infoway.messagebuilder.xml.DifferenceType;
 import ca.infoway.messagebuilder.xml.Documentation;
 import ca.infoway.messagebuilder.xml.Relationship;
 
-public abstract class BaseRelationship implements PropertyGeneratorProvider {
+public abstract class BaseRelationship implements PropertyGeneratorProvider, Named {
 
     private final String type;
     private final String wrappedType;
@@ -161,5 +162,5 @@ public abstract class BaseRelationship implements PropertyGeneratorProvider {
 	}
 	String getOriginalType() {
 		return this.relationship.getType();
-	}
+	}	
 }

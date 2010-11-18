@@ -14,9 +14,14 @@ public class MergedAssociation extends Association {
 		super(association.getRelationship(), type);
 		this.association = association;
 		this.type = type;
-		this.typeName = this.type.getName();
+		this.typeName = this.type.getTypeName();
 	}
 
+	@Override
+	public String getName() {
+		return this.association.getName();
+	}
+	
 	@Override
 	public Type getAssociationType() {
 		return this.type;

@@ -51,7 +51,7 @@ public class Hl7XsdMessageTypeWriter extends Hl7XsdTypeWriter {
 	private void writeChoices(Element schema, Type type) {
 		Document document = schema.getOwnerDocument();
 		Element choices = document.createElement("xs:group");
-		choices.setAttribute("name", type.getName().getName());
+		choices.setAttribute("name", type.getTypeName().getName());
 		Element choice = document.createElement("xs:choice");
 		choices.appendChild(choice);
 		document.createElement("xs:element");
@@ -81,7 +81,7 @@ public class Hl7XsdMessageTypeWriter extends Hl7XsdTypeWriter {
 	void writeRelationships(Element schema, Type type) throws DOMException, GeneratorException {
 		Document document = schema.getOwnerDocument();
 		Element complexType = document.createElement("xs:complexType");
-		complexType.setAttribute("name", type.getName().getName());
+		complexType.setAttribute("name", type.getTypeName().getName());
 		Element sequence = document.createElement("xs:sequence");
 		complexType.appendChild(sequence);
 		PropertyNameResolver propertyNameResolver = new PropertyNameResolver(

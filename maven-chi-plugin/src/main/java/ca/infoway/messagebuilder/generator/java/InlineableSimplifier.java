@@ -29,7 +29,7 @@ public abstract class InlineableSimplifier {
 	public void execute() {
 		for (ComplexTypePackage complexTypePackage : this.result.getAllPackages()) {
 			for (Type type : new ArrayList<Type>(complexTypePackage.getTypes().values())) {
-				this.log.log(DEBUG, "Now analyzing " + type.getName());
+				this.log.log(DEBUG, "Now analyzing " + type.getTypeName());
 				if (isInlineable(complexTypePackage, type)) {
 					inline(complexTypePackage, type);
 				}
@@ -69,7 +69,7 @@ public abstract class InlineableSimplifier {
 	protected boolean matches(Type inlineableType, BaseRelationship relationship) {
 		return relationship.getRelationshipType() == RelationshipType.ASSOCIATION
 				&& ObjectUtils.equals(((Association) relationship).getPropertyTypeName(),
-						inlineableType.getName());
+						inlineableType.getTypeName());
 	}
 
 	protected boolean matches(SimplifiableType inlineableType, SimplifiableRelationship relationship) {
@@ -83,7 +83,7 @@ public abstract class InlineableSimplifier {
 	}
 
 	protected boolean isTemporary(Type inlineableType) {
-		return inlineableType.getName() instanceof TemporaryTypeName;
+		return inlineableType.getTypeName() instanceof TemporaryTypeName;
 	}
 
 	protected List<BaseRelationship> getNonFixedRelationships(Type inlineableType) {

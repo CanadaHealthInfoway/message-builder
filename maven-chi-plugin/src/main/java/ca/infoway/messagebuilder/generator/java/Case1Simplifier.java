@@ -169,21 +169,21 @@ public class Case1Simplifier extends InlineableSimplifier {
 					//             to the type gaining the inlined relationship (due to the characteristics of a Case1 candidate)
 					BaseRelationship newRelationship = createInlinedRelationship(
 							inlineableType, relationship);
-					this.log.log(DEBUG, "Simplification case 1: Type " + inlineableType.getName() 
-							+ " is being rolled up into " + type.getName() + "." + relationship.getName());
+					this.log.log(DEBUG, "Simplification case 1: Type " + inlineableType.getTypeName() 
+							+ " is being rolled up into " + type.getTypeName() + "." + relationship.getName());
 					
 					type.getRelationships().set(i, newRelationship);
 				}
 			}
 		}
 		if (!containedInChoice(inlineableType)) {
-			this.log.log(DEBUG, "Simplification case 1: removing type " + inlineableType.getName());
+			this.log.log(DEBUG, "Simplification case 1: removing type " + inlineableType.getTypeName());
 			this.result.removeType(inlineableType);
 		}
 	}
 
 	protected BaseRelationship createInlinedRelationship(Type inlineableType, BaseRelationship elidedRelationship) {
-		return createInlinedRelationship(inlineableType.getName(), getSingleRelationship(inlineableType), elidedRelationship);
+		return createInlinedRelationship(inlineableType.getTypeName(), getSingleRelationship(inlineableType), elidedRelationship);
 	}
 
 	private BaseRelationship getSingleRelationship(Type inlineableType) {

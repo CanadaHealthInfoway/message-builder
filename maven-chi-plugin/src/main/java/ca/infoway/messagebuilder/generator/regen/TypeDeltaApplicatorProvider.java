@@ -48,7 +48,7 @@ public class TypeDeltaApplicatorProvider {
 		static NullApplicator INSTANCE = new NullApplicator();
 		public void apply(RelationshipsMergerContext context, BaseRelationship originalRelationship, BaseRelationship newRelationship) {
 			log.error(format("Unable to support type change for %s.%s. Type changed from %s/%s%s to %s/%s%s.", 
-					context.getMergedType().getName(), originalRelationship.getName(),
+					context.getMergedType().getTypeName(), originalRelationship.getName(),
 					toSimpleName(originalRelationship.getWrappedType()), toSimpleName(originalRelationship.getType()), originalRelationship.getTypeParameters(), 
 					toSimpleName(newRelationship.getWrappedType()), toSimpleName(newRelationship.getType()), newRelationship.getTypeParameters()));
 		}
