@@ -12,7 +12,7 @@ import ca.infoway.messagebuilder.Named;
 import ca.infoway.messagebuilder.xml.MessagePart;
 import ca.infoway.messagebuilder.xml.TypeName;
 
-class SimplifiableType implements Named, NamedType {
+class SimplifiableType implements Named, NamedType, HierarchicalType {
 
 	private List<SimplifiableRelationship> relationships = Collections.synchronizedList(new ArrayList<SimplifiableRelationship>());
 	private boolean inlined;
@@ -101,5 +101,13 @@ class SimplifiableType implements Named, NamedType {
 
 	public TypeName getTypeName() {
 		return new TypeName(getName());
+	}
+
+	public Set<TypeName> getChildTypes() {
+		Set<TypeName> result = new HashSet<TypeName>();
+		for (String typeName : this.messagePart.getSpecializationChilds()) {
+			result.add(new TypeName(typeName));
+		}
+		return result;
 	}
 }

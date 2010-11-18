@@ -25,7 +25,7 @@ public class Case3Simplifier {
 	private List<? extends Case3MatcherFactory> factories = Arrays.asList(
 			new Case3MatcherFactory() {
 				public Case3Matcher create(LogUI log, TypeProvider provider, SimplifiableDefinitions definitions, Case3MergeResult result) {
-					return new Case3ExactMatcher(log, provider, result);
+					return new Case3ExactMatcher(log, provider, definitions, result);
 				}
 			},
 			new Case3MatcherFactory() {
