@@ -51,7 +51,7 @@ class Case3MergeResult implements TypeNameSubstituter {
 	 * @param otherType - the other of two types that have been identified as matching.
 	 * @return true if the match hasn't been previously discovered.
 	 */
-	boolean recordMatch(Type type, Type otherType) {
+	boolean recordMatch(NamedType type, NamedType otherType) {
 		TypeName typeName = type.getTypeName();
 		TypeName otherTypeName = otherType.getTypeName();
 		return recordMatch(typeName, otherTypeName);
@@ -87,7 +87,7 @@ class Case3MergeResult implements TypeNameSubstituter {
 		return this.mergedTypes.get(name1).getMergedTypes();
 	}
 
-	boolean isKnownMatch(Type type, Type otherType) {
+	boolean isKnownMatch(NamedType type, NamedType otherType) {
 		return isKnownMatch(type.getTypeName(), otherType.getTypeName());
 	}
 	boolean isKnownMatch(TypeName typeName, TypeName otherTypeName) {

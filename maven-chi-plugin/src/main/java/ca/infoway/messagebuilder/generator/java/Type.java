@@ -14,7 +14,7 @@ import ca.infoway.messagebuilder.generator.lang.TypeDocumentation;
 import ca.infoway.messagebuilder.xml.Documentation;
 import ca.infoway.messagebuilder.xml.TypeName;
 
-public class Type implements RenderedType, NamedType {
+public class Type implements RenderedType, NamedType, HierarchicalType {
 
 	private final TypeName name;
     private TypeDocumentation typeDocumentation;

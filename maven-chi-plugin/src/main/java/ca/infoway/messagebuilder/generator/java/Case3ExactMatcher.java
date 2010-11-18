@@ -15,14 +15,29 @@ class Case3ExactMatcher extends Case3Matcher {
 	private final Case3MergeResult mergeResult;
 	private Matcher matcher;
 	private final LogUI log;
+	private final SimplifiableTypeProvider definitions;
 	
-	Case3ExactMatcher(LogUI log, TypeProvider typeProvider, Case3MergeResult mergeResult) {
+	Case3ExactMatcher(LogUI log, TypeProvider typeProvider, SimplifiableTypeProvider definitions, Case3MergeResult mergeResult) {
 		this.log = log;
 		this.typeProvider = typeProvider;
+		this.definitions = definitions;
 		this.mergeResult = mergeResult;
 		this.matcher = new Matcher(this.mergeResult);
 	}
 
+	boolean performMatching(SimplifiableType type) {
+		boolean somethingMatched = false;
+		for (SimplifiableType otherType : getAllSimplifiableTypes()) {
+			if (type.getTypeName().equals(otherType.getTypeName())) {
+				break;
+			} else if (this.mergeResult.isKnownMatch(type, otherType)) {
+				// Skip it.  We already know about it
+			} else if (matchType(type, otherType) == MatchType.EXACT) {
+				somethingMatched |= this.mergeResult.recordMatch(type, otherType);
+			}
+		}
+		return somethingMatched;
+	}
 	boolean performMatching(Type type) {
 		boolean somethingMatched = false;
 		for (Type otherType : getAllMessageTypes()) {
@@ -39,6 +54,11 @@ class Case3ExactMatcher extends Case3Matcher {
 
 	private List<Type> getAllMessageTypes() {
 		ArrayList<Type> list = new ArrayList<Type>(this.typeProvider.getAllMessageTypes());
+		Collections.reverse(list);
+		return list;
+	}
+	private List<SimplifiableType> getAllSimplifiableTypes() {
+		ArrayList<SimplifiableType> list = new ArrayList<SimplifiableType>(this.definitions.getAllTypes());
 		Collections.reverse(list);
 		return list;
 	}
@@ -67,7 +87,32 @@ class Case3ExactMatcher extends Case3Matcher {
 		return result;
 	}
 
-	private MatchType matchesAbstractType(Type type, Type otherType) {
+	private MatchType matchType(SimplifiableType type, SimplifiableType otherType) {
+		MatchType result = type.getRelationships().size() == otherType.getRelationships().size() ?
+				MatchType.EXACT : MatchType.MAJOR_DIFFERENCE;
+		if (this.mergeResult.isUnmergeable(type, otherType)) {
+			result = MatchType.REPRESENTS_DIFFERENT_CHOICES;
+		} else if (result == MatchType.EXACT && type.getMessagePart().isAbstract()) {
+			result = matchesAbstractType(type, otherType);
+		}
+		
+		if (result == MatchType.EXACT) {
+			result = new NameMatcher().matchNames(type, otherType);
+		}
+		
+		if (result == MatchType.EXACT) {
+			for (SimplifiableRelationship relationship : type.getRelationships()) {
+				result = matchRelationship(otherType, relationship);
+				
+				if (result != MatchType.EXACT) {
+					break;
+				}
+			}
+		}
+		return result;
+	}
+	
+	private MatchType matchesAbstractType(HierarchicalType type, HierarchicalType otherType) {
 		boolean match = type.getChildTypes().size() == otherType.getChildTypes().size();
 		if (match) {
 			Set<TypeName> convertedTypes = convertTypes(type.getChildTypes());
@@ -100,6 +145,15 @@ class Case3ExactMatcher extends Case3Matcher {
 		}
 	}
 
+	protected MatchType matchRelationship(SimplifiableType otherType, SimplifiableRelationship relationship) {
+		SimplifiableRelationship otherRelationship = otherType.getRelationship(relationship.getName());
+		if (otherRelationship == null) {
+			return MatchType.MAJOR_DIFFERENCE;
+		} else {
+			return this.matcher.matchesType(relationship.getRelationship(), otherRelationship.getRelationship());
+		}
+	}
+	
 	public String getDescription() {
 		return "Looking for exact matches between types";
 	}
