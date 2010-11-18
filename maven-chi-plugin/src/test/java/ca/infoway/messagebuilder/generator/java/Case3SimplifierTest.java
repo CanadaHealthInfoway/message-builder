@@ -50,7 +50,7 @@ public class Case3SimplifierTest {
 
 		this.simplifier.replaceReferencesWithMergedTypes();
 		
-		MergedTypeDescriptor descriptor = this.mergeResult.getDescriptorByName(type1.getName());
+		MergedTypeDescriptor descriptor = this.mergeResult.getDescriptorByName(type1.getTypeName());
 		Type type = this.result.getTypeByName(descriptor.getNewName());
 		
 		assertIsTemporaryRelationship("merged", type, "person");
@@ -61,7 +61,7 @@ public class Case3SimplifierTest {
 		BaseRelationship relationship = type.getRelationship(relationshipName);
 		assertNotNull(description + " person relationship exists", relationship);
 		assertTrue(description + " person relationship", relationship instanceof Association);
-		assertTrue(description + " name", ((Association) relationship).getAssociationType().getName() instanceof TemporaryTypeName);
+		assertTrue(description + " name", ((Association) relationship).getAssociationType().getTypeName() instanceof TemporaryTypeName);
 	}
 	
 	@Test
@@ -70,8 +70,8 @@ public class Case3SimplifierTest {
 		Type type2 = createType2();
 
 		MergedTypeDescriptor descriptor = new MergedTypeDescriptor();
-		descriptor.getMergedTypes().add(type1.getName());
-		descriptor.getMergedTypes().add(type2.getName());
+		descriptor.getMergedTypes().add(type1.getTypeName());
+		descriptor.getMergedTypes().add(type2.getTypeName());
 		
 		Type mergedType = this.simplifier.createMergedType(descriptor);
 		

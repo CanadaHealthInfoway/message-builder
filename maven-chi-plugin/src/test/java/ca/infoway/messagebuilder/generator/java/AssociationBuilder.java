@@ -18,8 +18,8 @@ public class AssociationBuilder {
 		Relationship relationship = new Relationship();
 		relationship.setName(this.name);
 		relationship.setCardinality(cardinality);
-		if (this.type!=null && this.type.getName()!=null) {
-			relationship.setType(this.type.getName().getName());
+		if (this.type!=null && this.type.getTypeName()!=null) {
+			relationship.setType(this.type.getTypeName().getName());
 		}
 		if (businessName!=null) {
 			Documentation documentation = new Documentation();

@@ -41,15 +41,15 @@ class Hl7DotNetMessageTypeWriter extends Hl7MessageTypeWriter implements Hl7Type
 	Hl7DotNetMessageTypeWriter(Type type, NameTranslator nameTranslator, DependencyManager manager) throws GeneratorException {
 		super(type);
 		this.nameTranslator = nameTranslator;
-		this.namespace = this.nameTranslator.getPackageName(type.getName());
+		this.namespace = this.nameTranslator.getPackageName(type.getTypeName());
 		this.manager = manager;
 		this.nameResolver = new PropertyNameResolver(
-				this.nameTranslator.getClassNameWithoutPackage(this.type.getName()), 
+				this.nameTranslator.getClassNameWithoutPackage(this.type.getTypeName()), 
 				type.getRelationships());
 	}
 	
 	Hl7DotNetMessageTypeWriter(Type type, NameTranslator translator, NamespaceContents contents, Map<TypeName, TypeName> removedTypesTranslation) throws GeneratorException {
-		this(type, translator, new UsingManager(type.getName(), ImportTypeUtil.getImports(type, C_SHARP, removedTypesTranslation), translator, contents, removedTypesTranslation));
+		this(type, translator, new UsingManager(type.getTypeName(), ImportTypeUtil.getImports(type, C_SHARP, removedTypesTranslation), translator, contents, removedTypesTranslation));
 	}
 
 	public void write(Writer writer) throws IOException, GeneratorException {
@@ -211,7 +211,7 @@ class Hl7DotNetMessageTypeWriter extends Hl7MessageTypeWriter implements Hl7Type
 	}
 
 	private String getClassName() {
-		return this.nameTranslator.getClassNameWithoutPackage(this.type.getName());
+		return this.nameTranslator.getClassNameWithoutPackage(this.type.getTypeName());
 	}
 
 	private void writeNamespace(Writer writer) throws IOException {

@@ -15,7 +15,7 @@ class SortedTypeProvider implements TypeProvider {
 
 	public class ComparatorImpl implements Comparator<Type> {
 		public int compare(Type o1, Type o2) {
-			return new CompareToBuilder().append(o1.getName().getName(), o2.getName().getName()).toComparison();
+			return new CompareToBuilder().append(o1.getTypeName().getName(), o2.getTypeName().getName()).toComparison();
 		}
 	}
 
@@ -26,7 +26,7 @@ class SortedTypeProvider implements TypeProvider {
 		Collection<Type> types = typeProvider.getAllMessageTypes();
 		this.types = initialize(types);
 		for (Type type : types) {
-			this.nameMap.put(type.getName(), type);
+			this.nameMap.put(type.getTypeName(), type);
 		}
 	}
 	

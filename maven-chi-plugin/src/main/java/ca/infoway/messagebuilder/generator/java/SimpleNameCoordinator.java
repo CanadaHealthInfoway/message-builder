@@ -52,10 +52,10 @@ public class SimpleNameCoordinator implements NameCoordinator {
 			this.type = type;
 		}
 		public String getNameContext() {
-			if (this.type.getName().isInteraction()) {
+			if (this.type.getTypeName().isInteraction()) {
 				return "interaction";
 			} else {
-				return this.type.getName().getRootName().toString();
+				return this.type.getTypeName().getRootName().toString();
 			}
 		}
 		@SuppressWarnings("unchecked")
@@ -68,10 +68,10 @@ public class SimpleNameCoordinator implements NameCoordinator {
 			}
 		}
 		public String getDefaultName() {
-			return type.getName().getUnqualifiedName();
+			return type.getTypeName().getUnqualifiedName();
 		}
 		public String getExemplarName() {
-			return this.type.getName().getName();
+			return this.type.getTypeName().getName();
 		}
 	}
 	
@@ -82,7 +82,7 @@ public class SimpleNameCoordinator implements NameCoordinator {
 			this.type = type;
 		}
 		public String getNameContext() {
-			return this.type.getName().getRootName().toString();
+			return this.type.getTypeName().getRootName().toString();
 		}
 		public List<String> getPreferredNames() {
 			Counter<String> counter1 = new Counter<String>();
@@ -202,11 +202,11 @@ public class SimpleNameCoordinator implements NameCoordinator {
 		
 		for (Type type : types.values()) {
 			
-			CandidateNames candidateNames = (type.getName() instanceof TemporaryTypeName)
+			CandidateNames candidateNames = (type.getTypeName() instanceof TemporaryTypeName)
 				? new MergedNamesAdapter(type) : new SimpleNamesAdapter(type);
 			
 			Name name = new Name(candidateNames);
-			this.names.put(type.getName(), name);
+			this.names.put(type.getTypeName(), name);
 			for (TypeName mergedTypeName : type.getMergedTypes()) {
 				this.names.put(mergedTypeName, name);
 			}

@@ -37,13 +37,13 @@ public class Hl7XsdInteractionTypeWriterTest {
 		controlActType.getRelationships().add(new Association(controlActRelationship, queryByParameterType ));
 		controlActArgument.setName("MFMI_MT700751CA.ControlActEvent");
 		controlActArgument.setTemplateParameterName("ControlActEvent");
-		ArgumentType controlActArgumentType = new ArgumentType(controlActArgument, controlActType.getName());
+		ArgumentType controlActArgumentType = new ArgumentType(controlActArgument, controlActType.getTypeName());
 		
 		Argument payload = new Argument();
 		Type payloadType = new Type(new TypeName("PRPA_MT101103CA.ParameterList"));
 		payload.setName("PRPA_MT101103CA.ParameterList");
 		payload.setTemplateParameterName("parameterList");
-		ArgumentType payloadArgumentType = new ArgumentType(payload, payloadType.getName());
+		ArgumentType payloadArgumentType = new ArgumentType(payload, payloadType.getTypeName());
 		controlActArgumentType.getArgumentTypes().add(payloadArgumentType);
 		
 		interactionType.getArguments().add(controlActArgumentType);
@@ -57,10 +57,10 @@ public class Hl7XsdInteractionTypeWriterTest {
 		interactionType.setParentType(parentTypeName);
 
 		TypeAnalysisResult typeResults = new TypeAnalysisResult();
-		typeResults.getTypes().put(controlActType.getName(), controlActType);
-		typeResults.getTypes().put(queryByParameterType.getName(), queryByParameterType);
-		typeResults.getTypes().put(payloadType.getName(), payloadType);
-		typeResults.getTypes().put(type.getName(), type);
+		typeResults.getTypes().put(controlActType.getTypeName(), controlActType);
+		typeResults.getTypes().put(queryByParameterType.getTypeName(), queryByParameterType);
+		typeResults.getTypes().put(payloadType.getTypeName(), payloadType);
+		typeResults.getTypes().put(type.getTypeName(), type);
 		
 		Hl7XsdInteractionTypeWriter writer = new Hl7XsdInteractionTypeWriter(interactionType, typeResults);
 		StringWriter stringWriter = new StringWriter();

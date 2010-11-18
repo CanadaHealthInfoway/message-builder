@@ -4,7 +4,7 @@ import ca.infoway.messagebuilder.xml.TypeName;
 
 public interface NamedType {
 	
-	public TypeName getName();
+	public TypeName getTypeName();
 	public String getBusinessName();
 
 }

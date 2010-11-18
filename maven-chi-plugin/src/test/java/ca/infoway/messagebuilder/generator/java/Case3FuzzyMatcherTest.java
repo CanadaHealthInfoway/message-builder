@@ -15,6 +15,7 @@ import org.junit.runner.RunWith;
 
 import ca.infoway.messagebuilder.generator.SysoutLogUI;
 import ca.infoway.messagebuilder.xml.Cardinality;
+import ca.infoway.messagebuilder.xml.MessagePart;
 import ca.infoway.messagebuilder.xml.TypeName;
 
 
@@ -23,6 +24,7 @@ public class Case3FuzzyMatcherTest {
 
 	private Mockery jmock = new Mockery();
 	private TypeProvider provider = this.jmock.mock(TypeProvider.class);
+	private SimplifiableTypeProvider definitions = this.jmock.mock(SimplifiableTypeProvider.class);
 	
 	@Test
 	public void shouldNotMatchNonSimilarTypes() throws Exception {
@@ -35,7 +37,25 @@ public class Case3FuzzyMatcherTest {
 		}});
 		
 		Case3MergeResult result = new Case3MergeResult();
-		assertFalse("no matches", new Case3FuzzyMatcher(new SysoutLogUI(), this.provider, result).performMatching(type1));
+		assertFalse("no matches", createMatcher(result).performMatching(type1));
+	}
+	
+	@Test
+	public void shouldNotMatchNonSimilarSimplifiableTypes() throws Exception {
+		
+		final SimplifiableType type1 = new SimplifiableType(new MessagePart("ABCD_MT123456CA.SomeType"), false);
+		final SimplifiableType type2 = new SimplifiableType(new MessagePart("ABCD_MT987654CA.CompletelyUnrelatedType"), false);
+		
+		this.jmock.checking(new Expectations() {{
+			allowing(definitions).getAllTypes(); will(returnValue(Arrays.asList(type1, type2)));
+		}});
+		
+		Case3MergeResult result = new Case3MergeResult();
+		assertFalse("no matches", createMatcher(result).performMatching(type1));
+	}
+
+	private Case3FuzzyMatcher createMatcher(Case3MergeResult result) {
+		return new Case3FuzzyMatcher(new SysoutLogUI(), this.provider, this.definitions, result);
 	}
 	
 	@Test
@@ -52,7 +72,7 @@ public class Case3FuzzyMatcherTest {
 		}});
 		
 		Case3MergeResult result = new Case3MergeResult();
-		assertTrue("matches", new Case3FuzzyMatcher(new SysoutLogUI(), this.provider, result).performMatching(type1));
+		assertTrue("matches", createMatcher(result).performMatching(type1));
 	}
 	@Test
 	public void shouldNotMatchDifferentChoices() throws Exception {
@@ -71,7 +91,7 @@ public class Case3FuzzyMatcherTest {
 		
 		Case3MergeResult result = new Case3MergeResult();
 		result.initialize(provider);
-		assertFalse("matches", new Case3FuzzyMatcher(new SysoutLogUI(), this.provider, result).performMatching(type1));
+		assertFalse("matches", createMatcher(result).performMatching(type1));
 	}
 
 	@Test
@@ -92,15 +112,15 @@ public class Case3FuzzyMatcherTest {
 		
 		this.jmock.checking(new Expectations() {{
 			allowing(provider).getAllMessageTypes(); will(returnValue(Arrays.asList(type1, type3)));
-			allowing(provider).getTypeByName(type1.getName()); will(returnValue(type1));
-			allowing(provider).getTypeByName(type2.getName()); will(returnValue(type2));
+			allowing(provider).getTypeByName(type1.getTypeName()); will(returnValue(type1));
+			allowing(provider).getTypeByName(type2.getTypeName()); will(returnValue(type2));
 		}});
 		
 		Case3MergeResult result = new Case3MergeResult();
 		result.initialize(provider);
 		result.recordMatch(type1, type2);
 		
-		assertFalse("matches", new Case3FuzzyMatcher(new SysoutLogUI(), this.provider, result).performMatching(type1));
+		assertFalse("matches", createMatcher(result).performMatching(type1));
 	}
 
 }

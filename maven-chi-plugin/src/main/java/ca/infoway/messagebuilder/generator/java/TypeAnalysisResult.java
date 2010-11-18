@@ -23,12 +23,12 @@ public class TypeAnalysisResult implements TypeProvider, TypeNameHelper {
 	}
 
 	public void addType(Type type) {
-		TypeName rootName = type.getName().getRootName();
+		TypeName rootName = type.getTypeName().getRootName();
 		if (!this.packages.containsKey(rootName)) {
 			this.packages.put(rootName, new ComplexTypePackage(rootName));
 		}
-		this.packages.get(rootName).addInnerClass(type.getName().getName(), type);
-		this.types.put(type.getName(), type);
+		this.packages.get(rootName).addInnerClass(type.getTypeName().getName(), type);
+		this.types.put(type.getTypeName(), type);
 	}
 	
 	public Map<TypeName, Type> getTypes() {
@@ -44,17 +44,17 @@ public class TypeAnalysisResult implements TypeProvider, TypeNameHelper {
 	}
 
 	public void removeType(Type type) {
-		TypeName rootName = type.getName().getRootName();
+		TypeName rootName = type.getTypeName().getRootName();
 		if (this.packages.containsKey(rootName)) {
-			this.packages.get(rootName).removeInnerClass(type.getName());
+			this.packages.get(rootName).removeInnerClass(type.getTypeName());
 		}
-		this.types.remove(type.getName());
-		this.removedTypes.put(type.getName(), type);
+		this.types.remove(type.getTypeName());
+		this.removedTypes.put(type.getTypeName(), type);
 	}
 	
 	public void removeType(Type removedType, Type newType) {
 		removeType(removedType);
-		this.removedTypeTranslation.put(removedType.getName(), newType.getName());
+		this.removedTypeTranslation.put(removedType.getTypeName(), newType.getTypeName());
 	}
 
 	@SuppressWarnings("unchecked")

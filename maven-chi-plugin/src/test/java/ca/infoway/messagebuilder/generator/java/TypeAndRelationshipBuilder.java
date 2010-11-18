@@ -20,7 +20,7 @@ public class TypeAndRelationshipBuilder {
 	public static Association createAssociation(String name, Cardinality cardinality, Type type, ConformanceLevel conformanceLevel) {
 		Relationship relationship = new Relationship();
 		relationship.setName(name);
-		relationship.setType(type.getName().getName());
+		relationship.setType(type.getTypeName().getName());
 		relationship.setCardinality(cardinality);
 		relationship.setConformance(conformanceLevel);
 		return new Association(relationship, type);
@@ -29,7 +29,7 @@ public class TypeAndRelationshipBuilder {
 	public static Association createMergedAssociation(String name, Cardinality cardinality, Type originalType, Type mergedType, ConformanceLevel conformanceLevel) {
 		Relationship relationship = new Relationship();
 		relationship.setName(name);
-		relationship.setType(originalType.getName().getName());
+		relationship.setType(originalType.getTypeName().getName());
 		relationship.setCardinality(cardinality);
 		relationship.setConformance(conformanceLevel);
 		Association association = new Association(relationship, originalType);

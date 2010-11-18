@@ -36,8 +36,8 @@ public class TypeDeltaCalculator extends NameBasedDeltaCalculator {
 
 	private boolean equals(Type associationType1, Type associationType2) {
 		return new EqualsBuilder().append(
-				associationType1 != null ? associationType1.getName() : null, 
-				associationType2 != null ? associationType2.getName() : null)
+				associationType1 != null ? associationType1.getTypeName() : null, 
+				associationType2 != null ? associationType2.getTypeName() : null)
 			.isEquals();
 	}
 

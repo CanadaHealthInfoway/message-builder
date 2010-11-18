@@ -32,7 +32,7 @@ public class Hl7XsdInteractionTypeWriter extends Hl7XsdTypeWriter {
 
 	@Override
 	protected String getTypeName() {
-		return this.interactionType.getName().getName();
+		return this.interactionType.getTypeName().getName();
 	}
 
 	private void addInteractionToSchema(Element schema) {
@@ -51,7 +51,7 @@ public class Hl7XsdInteractionTypeWriter extends Hl7XsdTypeWriter {
 		if (StringUtils.isNotBlank(businessName)) {
 			return uncapitalize(cleanUpBusinessName(businessName));
 		} else {
-			return this.interactionType.getName().getName();
+			return this.interactionType.getTypeName().getName();
 		}
 	}
 
@@ -97,12 +97,12 @@ public class Hl7XsdInteractionTypeWriter extends Hl7XsdTypeWriter {
 				Association association = (Association) relationship;
 				addTemplateType(schema,	sequence,
 						association.getName(),
-						association.getAssociationType().getName().getName(),
+						association.getAssociationType().getTypeName().getName(),
 						argumentTypes.isEmpty());
 				addTemplateTypes(schema, 
-						association.getAssociationType().getName().getName(), 
+						association.getAssociationType().getTypeName().getName(), 
 						argumentTypes, 
-						association.getAssociationType().getName(), 
+						association.getAssociationType().getTypeName(), 
 						false);
 			}
 		}

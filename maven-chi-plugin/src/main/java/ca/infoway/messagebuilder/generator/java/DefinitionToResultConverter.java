@@ -71,7 +71,7 @@ class DefinitionToResultConverter {
 			for (TypeName typeName : mergedType.getMergedTypes()) {
 				Type originalType = this.types.get(typeName.getName());
 				for (BaseRelationship relationship : originalType.getRelationships()) {
-					collator.addRelationship(originalType.getName(), relationship);
+					collator.addRelationship(originalType.getTypeName(), relationship);
 				}
 				
 				// TODO: restore this...
@@ -179,7 +179,7 @@ class DefinitionToResultConverter {
 						this.types.put(mergedTypeName, mergedType);
 					}
 					Type mergedType = this.types.get(mergedTypeName);
-					mergedType.getMergedTypes().add(type.getName());
+					mergedType.getMergedTypes().add(type.getTypeName());
 					
 					// TM - TODO: how to merge business name/documentation? 
 					//            (wasn't being done in pre-refactor merge code)
@@ -196,7 +196,7 @@ class DefinitionToResultConverter {
 						mergedType.setRootType(true);
 					}
 					
-					if (result.getTypeByName(mergedType.getName()) == null) {
+					if (result.getTypeByName(mergedType.getTypeName()) == null) {
 						result.addType(mergedType);
 					}
 				} else {
@@ -227,7 +227,7 @@ class DefinitionToResultConverter {
 			interactionType.setTypeDocumentation(new TypeDocumentation(interaction.getDocumentation()));
 			interactionType.setBusinessName(interaction.getBusinessName());
 			interactionType.getArguments().addAll(groupArgumentsAndTypes(interaction.getArguments()));
-			result.getTypes().put(interactionType.getName(), interactionType);
+			result.getTypes().put(interactionType.getTypeName(), interactionType);
 		}
 	}
 

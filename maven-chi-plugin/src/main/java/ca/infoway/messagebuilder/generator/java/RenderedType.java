@@ -8,7 +8,7 @@ import ca.infoway.messagebuilder.xml.TypeName;
 
 public interface RenderedType {
 
-	public TypeName getName();
+	public TypeName getTypeName();
 	public List<BaseRelationship> getRelationships();
 	public TypeDocumentation getTypeDocumentation();
 	public boolean isAbstract();

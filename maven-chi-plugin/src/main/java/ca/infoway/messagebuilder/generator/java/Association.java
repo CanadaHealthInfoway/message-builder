@@ -70,7 +70,7 @@ public class Association extends BaseRelationship {
 	public Set<Object> getImportTypes() {
 		Set<Object> result = super.getImportTypes();
 		if (this.associationType != null) {
-			result.add(this.associationType.getName());
+			result.add(this.associationType.getTypeName());
 		}
 		if (isCardinalityMultiple()) {
 			result.add(List.class.getName());
@@ -96,7 +96,7 @@ public class Association extends BaseRelationship {
 		if (getAssociationType() == null) {
 			return null;
 		} else {
-			return getAssociationType().getName();
+			return getAssociationType().getTypeName();
 		}
 	}
 

@@ -37,7 +37,7 @@ public class Type implements RenderedType, NamedType {
     	this(typeName, false);
     }
 
-	public TypeName getName() {
+	public TypeName getTypeName() {
         return this.name;
     }
 	
@@ -100,8 +100,8 @@ public class Type implements RenderedType, NamedType {
 			if (relationship.getRelationshipType() == RelationshipType.ASSOCIATION) {
 				Association association = (Association) relationship;
 				Type associationType = association.getAssociationType();
-				if (associationType != null && !visitedTypes.contains(associationType.getName())) {
-					visitedTypes.add(associationType.getName());
+				if (associationType != null && !visitedTypes.contains(associationType.getTypeName())) {
+					visitedTypes.add(associationType.getTypeName());
 					if (associationType.isTemplateType(visitedTypes)) {
 						result = true;
 						break;
@@ -116,7 +116,7 @@ public class Type implements RenderedType, NamedType {
 	}
 	@Override
 	public String toString() {
-		return getName() == null ? "unknown type" : getName().toString();
+		return getTypeName() == null ? "unknown type" : getTypeName().toString();
 	}
 	
 	public boolean isAbstract() {

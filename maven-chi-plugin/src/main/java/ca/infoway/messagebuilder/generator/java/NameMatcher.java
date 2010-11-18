@@ -2,6 +2,8 @@ package ca.infoway.messagebuilder.generator.java;
 
 import org.apache.commons.lang.StringUtils;
 
+import ca.infoway.messagebuilder.xml.TypeName;
+
 class NameMatcher {
 
 	MatchType matchNames(NamedType type, NamedType otherType) {
@@ -27,9 +29,15 @@ class NameMatcher {
 	}
 
 	private MatchType matchesTypeNames(NamedType type, NamedType otherType) {
-		if (StringUtils.equals(type.getName().getUnqualifiedName(), otherType.getName().getUnqualifiedName())) {
+		TypeName name = type.getTypeName();
+		TypeName otherName = otherType.getTypeName();
+		return matchesTypeNames(name, otherName);
+	}
+
+	private MatchType matchesTypeNames(TypeName name, TypeName otherName) {
+		if (StringUtils.equals(name.getUnqualifiedName(), otherName.getUnqualifiedName())) {
 			return MatchType.EXACT;
-		} else if (StringUtils.equals(removeSuffix(type.getName().getUnqualifiedName()), removeSuffix(otherType.getName().getUnqualifiedName()))) {
+		} else if (StringUtils.equals(removeSuffix(name.getUnqualifiedName()), removeSuffix(otherName.getUnqualifiedName()))) {
 			return MatchType.MINOR_DIFFERENCE;
 		} else {
 			return MatchType.MAJOR_DIFFERENCE;

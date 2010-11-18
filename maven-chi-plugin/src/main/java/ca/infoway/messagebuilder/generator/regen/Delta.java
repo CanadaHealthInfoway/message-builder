@@ -17,7 +17,7 @@ public abstract class Delta {
 	protected String toString(Type type) {
 		return format("%s, %s, %s", 
 				getClass().getSimpleName(),
-				type.getName(),
+				type.getTypeName(),
 				this.oldRelationship.getName());
 	}
 	

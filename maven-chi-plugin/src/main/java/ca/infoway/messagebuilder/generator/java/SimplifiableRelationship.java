@@ -1,9 +1,10 @@
 package ca.infoway.messagebuilder.generator.java;
 
+import ca.infoway.messagebuilder.Named;
 import ca.infoway.messagebuilder.generator.DataType;
 import ca.infoway.messagebuilder.xml.Relationship;
 
-class SimplifiableRelationship {
+class SimplifiableRelationship implements Named {
 
 	private final Relationship relationship;
 	private DataType dataType;
@@ -40,4 +41,14 @@ class SimplifiableRelationship {
 		return this.variable;
 	}
 
+	public String getName() {
+		return this.relationship.getName();
+	}
+
+	public boolean isAssociation() {
+		return this.relationship.isAssociation();
+	}
+	public boolean isTemplateType() {
+		return this.relationship.isTemplateRelationship();
+	}
 }

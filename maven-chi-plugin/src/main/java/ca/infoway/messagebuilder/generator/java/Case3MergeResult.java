@@ -52,15 +52,15 @@ class Case3MergeResult implements TypeNameSubstituter {
 	 * @return true if the match hasn't been previously discovered.
 	 */
 	boolean recordMatch(Type type, Type otherType) {
-		TypeName typeName = type.getName();
-		TypeName otherTypeName = otherType.getName();
+		TypeName typeName = type.getTypeName();
+		TypeName otherTypeName = otherType.getTypeName();
 		return recordMatch(typeName, otherTypeName);
 	}
 	
-	boolean isUnmergeable(Type type, Type otherType) {
-		return isUnmergeable(type.getName(), otherType.getName());
+	boolean isUnmergeable(NamedType type, NamedType otherType) {
+		return isUnmergeable(type.getTypeName(), otherType.getTypeName());
 	}
-	private boolean isUnmergeable(TypeName name1, TypeName name2) {
+	boolean isUnmergeable(TypeName name1, TypeName name2) {
 		if (this.unmergeableTypes.contains(new TypeNameTuple(name1, name2))) {
 			return true;
 		} else if (!isMerged(name1) && !isMerged(name2)) {
@@ -88,7 +88,7 @@ class Case3MergeResult implements TypeNameSubstituter {
 	}
 
 	boolean isKnownMatch(Type type, Type otherType) {
-		return isKnownMatch(type.getName(), otherType.getName());
+		return isKnownMatch(type.getTypeName(), otherType.getTypeName());
 	}
 	boolean isKnownMatch(TypeName typeName, TypeName otherTypeName) {
 		MergedTypeDescriptor descriptor = getDescriptorByName(typeName);
@@ -167,7 +167,7 @@ class Case3MergeResult implements TypeNameSubstituter {
 					if (!choices.containsKey(choice)) {
 						choices.put(choice, new HashSet<TypeName>());
 					}
-					choices.get(choice).add(type.getName());
+					choices.get(choice).add(type.getTypeName());
 				}
 			}
 			

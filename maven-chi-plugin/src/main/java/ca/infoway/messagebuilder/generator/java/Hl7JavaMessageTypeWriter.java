@@ -29,10 +29,10 @@ public class Hl7JavaMessageTypeWriter extends Hl7MessageTypeWriter implements Hl
 	public Hl7JavaMessageTypeWriter(RenderedType type, NameTranslator nameTranslator, Map<TypeName, TypeName> removedTypesTranslation) throws GeneratorException {
 		super(type);
 		this.nameTranslator = nameTranslator;
-		this.packageName = this.nameTranslator.getPackageName(type.getName());
-		this.nameResolver = new PropertyNameResolver(nameTranslator.getClassNameWithoutPackage(type.getName()), type.getRelationships());
+		this.packageName = this.nameTranslator.getPackageName(type.getTypeName());
+		this.nameResolver = new PropertyNameResolver(nameTranslator.getClassNameWithoutPackage(type.getTypeName()), type.getRelationships());
 		Set<Object> importTypes = new HashSet<Object>(ImportTypeUtil.getImports(this.type, JAVA, removedTypesTranslation));
-        this.importDeclarationGenerator = new ImportDeclarationGenerator(this.type.getName(), importTypes, this.nameTranslator, removedTypesTranslation);
+        this.importDeclarationGenerator = new ImportDeclarationGenerator(this.type.getTypeName(), importTypes, this.nameTranslator, removedTypesTranslation);
 	}
 
 	public void write(Writer writer) throws IOException {
@@ -78,7 +78,7 @@ public class Hl7JavaMessageTypeWriter extends Hl7MessageTypeWriter implements Hl
         }
         
         
-        writer.write(this.nameTranslator.getClassNameWithoutPackage(this.type.getName()));
+        writer.write(this.nameTranslator.getClassNameWithoutPackage(this.type.getTypeName()));
         if (this.type.isTemplateType()) {
         	writeTemplateParameters(writer);
         }

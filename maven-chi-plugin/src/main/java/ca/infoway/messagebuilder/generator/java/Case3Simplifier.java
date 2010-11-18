@@ -16,7 +16,7 @@ import ca.infoway.messagebuilder.xml.TypeName;
 public class Case3Simplifier {
 	
 	abstract class Case3MatcherFactory {
-		public abstract Case3Matcher create(LogUI log, TypeProvider provider, Case3MergeResult result);
+		public abstract Case3Matcher create(LogUI log, TypeProvider provider, SimplifiableDefinitions definitions, Case3MergeResult result);
 	}
 
 	private LogUI log;
@@ -24,13 +24,13 @@ public class Case3Simplifier {
 	private final Case3MergeResult mergeResult;
 	private List<? extends Case3MatcherFactory> factories = Arrays.asList(
 			new Case3MatcherFactory() {
-				public Case3Matcher create(LogUI log, TypeProvider provider, Case3MergeResult result) {
+				public Case3Matcher create(LogUI log, TypeProvider provider, SimplifiableDefinitions definitions, Case3MergeResult result) {
 					return new Case3ExactMatcher(log, provider, result);
 				}
 			},
 			new Case3MatcherFactory() {
-				public Case3Matcher create(LogUI log, TypeProvider provider, Case3MergeResult result) {
-					return new Case3FuzzyMatcher(log, provider, result);
+				public Case3Matcher create(LogUI log, TypeProvider provider, SimplifiableDefinitions definitions, Case3MergeResult result) {
+					return new Case3FuzzyMatcher(log, provider, definitions, result);
 				}
 			});
 	private final SimplifiableDefinitions definitions;
@@ -76,7 +76,7 @@ public class Case3Simplifier {
 					// also don't care
 				} else {
 					Association association = (Association) relationship;
-					MergedTypeDescriptor descriptor = this.mergeResult.getDescriptorByName(association.getAssociationType().getName());
+					MergedTypeDescriptor descriptor = this.mergeResult.getDescriptorByName(association.getAssociationType().getTypeName());
 					if (descriptor != null) {
 						Type mergedType = this.result.getTypes().get(descriptor.getNewName());
 						association = new MergedAssociation(association, mergedType);
@@ -134,7 +134,7 @@ public class Case3Simplifier {
 			Type originalType = this.result.getTypes().get(typeName);
 			mergedType.getMergedTypes().add(typeName);
 			for (BaseRelationship relationship : originalType.getRelationships()) {
-				collator.addRelationship(originalType.getName(), relationship);
+				collator.addRelationship(originalType.getTypeName(), relationship);
 			}
 			
 			// TODO: BCH: javadoc, etc.
@@ -181,11 +181,11 @@ public class Case3Simplifier {
 		boolean repeat = false;
 		do {
 			repeat = false;
-			Case3Matcher matcher = factory.create(this.log, provider, this.mergeResult);
+			Case3Matcher matcher = factory.create(this.log, provider, this.definitions, this.mergeResult);
 			this.log.log(INFO, "Simplification case 3: " + matcher.getDescription());
 			for (Type type : provider.getAllMessageTypes()) {
 				boolean changes = matcher.performMatching(type);
-				this.log.log(DEBUG, "Simplification case 3: Now analyzing " + type.getName() + ". " +
+				this.log.log(DEBUG, "Simplification case 3: Now analyzing " + type.getTypeName() + ". " +
 						(changes ? "Candidate for simplification" : ""));
 				repeat |= changes;
 			}
