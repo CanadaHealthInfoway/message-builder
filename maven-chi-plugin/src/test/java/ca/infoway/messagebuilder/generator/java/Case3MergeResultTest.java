@@ -5,8 +5,6 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
-import ca.infoway.messagebuilder.xml.TypeName;
-
 
 public class Case3MergeResultTest {
 	
@@ -31,30 +29,30 @@ public class Case3MergeResultTest {
 
 	@Test
 	public void shouldInitialize() throws Exception {
-		TypeAnalysisResult result = new TypeAnalysisResult();
-		Type type1 = TypeAndRelationshipBuilder.createType(result, "Person");
-		type1.getInterfaceTypes().add(new TypeName("ABCD_MT123456CA.Choice1"));
-		Type type2 = TypeAndRelationshipBuilder.createType(result, "APerson");
-		type2.getInterfaceTypes().add(new TypeName("ABCD_MT123456CA.Choice1"));
+		SimplifiableDefinitions definitions = new SimplifiableDefinitions();
+		SimplifiableType type1 = TypeAndRelationshipBuilder.createSimplifiableType(definitions, "Person", false);
+		type1.getInterfaceTypes().add("ABCD_MT123456CA.Choice1");
+		SimplifiableType type2 = TypeAndRelationshipBuilder.createSimplifiableType(definitions, "APerson", false);
+		type2.getInterfaceTypes().add("ABCD_MT123456CA.Choice1");
 		
 		Case3MergeResult mergeResult = new Case3MergeResult();
-		mergeResult.initialize(result);
+		mergeResult.initialize(definitions);
 		
 		assertTrue("unmergeable", mergeResult.isUnmergeable(type1, type2));
 	}
 
 	@Test
 	public void shouldRecognizeTransitivelyUnmergeableResults() throws Exception {
-		TypeAnalysisResult result = new TypeAnalysisResult();
-		Type type1 = TypeAndRelationshipBuilder.createType(result, "Person");
-		type1.getInterfaceTypes().add(new TypeName("ABCD_MT123456CA.Choice1"));
-		Type type2 = TypeAndRelationshipBuilder.createType(result, "APerson");
-		type2.getInterfaceTypes().add(new TypeName("ABCD_MT123456CA.Choice1"));
+		SimplifiableDefinitions definitions = new SimplifiableDefinitions();
+		SimplifiableType type1 = TypeAndRelationshipBuilder.createSimplifiableType(definitions, "Person", false);
+		type1.getInterfaceTypes().add("ABCD_MT123456CA.Choice1");
+		SimplifiableType type2 = TypeAndRelationshipBuilder.createSimplifiableType(definitions, "APerson", false);
+		type2.getInterfaceTypes().add("ABCD_MT123456CA.Choice1");
 		
 		Case3MergeResult mergeResult = new Case3MergeResult();
-		mergeResult.initialize(result);
+		mergeResult.initialize(definitions);
 		
-		Type type3 = TypeAndRelationshipBuilder.createType(result, "Person1");
+		SimplifiableType type3 = TypeAndRelationshipBuilder.createSimplifiableType(definitions, "Person1", false);
 		
 		mergeResult.recordMatch(type3, type1);
 		
