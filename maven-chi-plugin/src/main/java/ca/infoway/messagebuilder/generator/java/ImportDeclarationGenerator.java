@@ -25,7 +25,6 @@ public class ImportDeclarationGenerator extends Hl7TypeCodeGenerator implements 
 	private final Set<String> classes = Collections.synchronizedSet(new TreeSet<String>());
 	private final TypeName typeName;
 	private final NameTranslator nameTranslator;
-	private final Map<TypeName, TypeName> removedTypesTranslation;
 
 	/**
 	 *
@@ -34,10 +33,9 @@ public class ImportDeclarationGenerator extends Hl7TypeCodeGenerator implements 
 	 * @param classes
 	 * @param map 
 	 */
-	public ImportDeclarationGenerator(TypeName typeName, Collection<Object> classes, NameTranslator nameTranslator, Map<TypeName, TypeName> removedTypesTranslation) {
+	public ImportDeclarationGenerator(TypeName typeName, Collection<Object> classes, NameTranslator nameTranslator) {
 		this.typeName = typeName;
 		this.nameTranslator = nameTranslator;
-		this.removedTypesTranslation = removedTypesTranslation;
 		
 		this.shortNameToFullNameMap.put(this.nameTranslator.getClassNameWithoutPackage(typeName), this.nameTranslator.getFullyQualifiedClassName(typeName));
 		
@@ -126,9 +124,6 @@ public class ImportDeclarationGenerator extends Hl7TypeCodeGenerator implements 
 	}
 
 	public String getRepresentationOfTypeName(TypeName typeName) {
-		if (this.removedTypesTranslation.containsKey(typeName)) {
-			typeName = this.removedTypesTranslation.get(typeName);
-		}
 		String className = this.nameTranslator.getFullyQualifiedClassName(typeName);
 		return getRepresentationOfClassName(className);
 	}

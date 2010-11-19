@@ -65,12 +65,10 @@ public class UsingManager extends Indenter implements DependencyManager {
 	private Set<String> imports = new TreeSet<String>();
 	private Map<String,List<String>> typeToNamespaceMap = new HashMap<String,List<String>>();
 	private final NameTranslator nameTranslator;
-	private final Map<TypeName, TypeName> removedTypesTranslation;
 	
 	public UsingManager(TypeName typeName, Collection<Object> classes,
-			NameTranslator nameTranslator, NamespaceContents contents, Map<TypeName, TypeName> removedTypesTranslation) {
+			NameTranslator nameTranslator, NamespaceContents contents) {
 		this.nameTranslator = nameTranslator;
-		this.removedTypesTranslation = removedTypesTranslation;
 		this.currentNamespace = nameTranslator.getPackageName(typeName);
 		
 		addClass(nameTranslator.getFullyQualifiedClassName(typeName));
@@ -143,9 +141,6 @@ public class UsingManager extends Indenter implements DependencyManager {
 	}
 
 	public String getRepresentationOfTypeName(TypeName typeName) {
-		if (this.removedTypesTranslation.containsKey(typeName)) {
-			typeName = this.removedTypesTranslation.get(typeName);
-		}
 		return getRepresentationOfClassName(this.nameTranslator.getFullyQualifiedClassName(typeName));
 	}
 

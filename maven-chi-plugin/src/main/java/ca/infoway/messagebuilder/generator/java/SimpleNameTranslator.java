@@ -33,7 +33,16 @@ public class SimpleNameTranslator implements NameTranslator {
 	}
 	
 	public String getClassNameWithoutPackage(TypeName name) {
-		return getPrefix(name) + this.nameCoordinator.getName(name) + (this.language == JAVA ? "Bean" : "");
+		return getPrefix(name) + this.nameCoordinator.getName(name) + getSuffix(name);
+	}
+	private String getSuffix(TypeName name) {
+		if (this.language == ProgrammingLanguage.C_SHARP) {
+			return "";
+		} else if (this.helper.isAbstract(name)) {
+			return "";
+		} else {
+			return "Bean";
+		}
 	}
 	
 	private String getPrefix(TypeName name) {

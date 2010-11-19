@@ -137,11 +137,11 @@ public class DefinitionToResultConverterTest {
 	@Test
 	public void shouldConvertSimpleCaseWithMergedTypes() throws Exception {
 		Relationship relationship1 = new Relationship("role", "ST", Cardinality.create("1"));
-		SimplifiableType simplifiableType1 = new SimplifiableType(new MessagePart("ABCD_MT123456CA.Patient1"), false);
+		SimplifiableType simplifiableType1 = new SimplifiableType(new MessagePart("ABCD_MT123456CA.Patient1"), false, "common");
 		simplifiableType1.getRelationships().add(new SimplifiableRelationship(relationship1, this.typeConverter.convertToType("ST", null)));
 		
 		Relationship relationship2 = new Relationship("name", "ST", Cardinality.create("1"));
-		SimplifiableType simplifiableType2 = new SimplifiableType(new MessagePart("ABCD_MT123456CA.Patient2"), false);
+		SimplifiableType simplifiableType2 = new SimplifiableType(new MessagePart("ABCD_MT123456CA.Patient2"), false, "common");
 		simplifiableType2.getRelationships().add(new SimplifiableRelationship(relationship2, this.typeConverter.convertToType("ST", null)));
 		
 		TypeName mergedTypeName = TemporaryTypeName.create("merged");
@@ -161,6 +161,7 @@ public class DefinitionToResultConverterTest {
 		Type type = result.getTypeByName(mergedTypeName);
 		assertNotNull("type", type);
 		assertEquals("number of relationships", 2, type.getRelationships().size());
+		assertEquals("category", "common", type.getCategory());
 		assertTrue("attribute", type.getRelationships().get(0) instanceof Attribute);
 		assertTrue("attribute", type.getRelationships().get(1) instanceof Attribute);
 		

@@ -1,7 +1,6 @@
 package ca.infoway.messagebuilder.generator.dotnet;
 
 import java.io.IOException;
-import java.util.HashMap;
 
 import ca.infoway.messagebuilder.generator.GeneratorException;
 import ca.infoway.messagebuilder.generator.LogUI;
@@ -12,7 +11,6 @@ import ca.infoway.messagebuilder.generator.java.Type;
 import ca.infoway.messagebuilder.generator.java.TypeAnalysisResult;
 import ca.infoway.messagebuilder.generator.java.TypeWriter;
 import ca.infoway.messagebuilder.generator.java.WriterProvider;
-import ca.infoway.messagebuilder.xml.TypeName;
 
 public class CsharpTypeWriter extends TypeWriter {
 
@@ -25,10 +23,7 @@ public class CsharpTypeWriter extends TypeWriter {
 
 	@Override
 	protected Hl7TypeWriter getHl7MessageTypeWriter(Type type) throws GeneratorException {
-		return new Hl7DotNetMessageTypeWriter(type, this.translator, this.contents, 
-				new HashMap<TypeName, TypeName>());
-//				
-//				this.result.getRemovedTypeTranslation());
+		return new Hl7DotNetMessageTypeWriter(type, this.translator, this.contents);
 	}
 
 	@Override

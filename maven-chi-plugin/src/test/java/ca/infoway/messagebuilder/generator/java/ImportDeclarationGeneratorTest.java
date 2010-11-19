@@ -7,10 +7,6 @@ import java.io.IOException;
 import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
-
-import junit.framework.Assert;
 
 import org.apache.commons.lang.StringUtils;
 import org.junit.Test;
@@ -49,7 +45,7 @@ public class ImportDeclarationGeneratorTest {
 		classes.add("ca.infoway.temp.SomethingElse"); 
 
 		ImportDeclarationGenerator generator = new ImportDeclarationGenerator(new TypeName("ABCD_MT123456CA.Stephen"), 
-				classes, new SimpleNameTranslator(JAVA, "ca.infoway.example", new TypeNameHelperImpl()), null);
+				classes, new SimpleNameTranslator(JAVA, "ca.infoway.example", new TypeNameHelperImpl()));
 
 		assertEquals("second", "ca.infoway.temp2.MyClass", generator.getRepresentationOfClassName("ca.infoway.temp2.MyClass"));
 		assertEquals("first", "MyClass", generator.getRepresentationOfClassName("ca.infoway.temp.MyClass"));
@@ -62,7 +58,7 @@ public class ImportDeclarationGeneratorTest {
 		classes.add("ca.infoway.temp.SomethingElse"); 
 		
 		ImportDeclarationGenerator generator = new ImportDeclarationGenerator(new TypeName("ABCD_MT123456CA.Stephen"), 
-				classes, new SimpleNameTranslator(JAVA, "ca.infoway.example", new TypeNameHelperImpl()), null);
+				classes, new SimpleNameTranslator(JAVA, "ca.infoway.example", new TypeNameHelperImpl()));
 		
 		assertEquals("class", "MyClass", generator.getRepresentationOfClassName("ca.infoway.example.abcd_mt123456ca.MyClass"));
 	}
@@ -75,7 +71,7 @@ public class ImportDeclarationGeneratorTest {
 		classes.add("ca.infoway.temp.SomethingElse"); 
 		
 		ImportDeclarationGenerator generator = new ImportDeclarationGenerator(new TypeName("ABCD_MT123456CA.Stephen"), 
-				classes, new SimpleNameTranslator(JAVA, "ca.infoway.example", new TypeNameHelperImpl()), null);
+				classes, new SimpleNameTranslator(JAVA, "ca.infoway.example", new TypeNameHelperImpl()));
 		
 		assertEquals("class", "ca.infoway.example.abcd_mt123456ca.MyClass", generator.getRepresentationOfClassName("ca.infoway.example.abcd_mt123456ca.MyClass"));
 	}
@@ -100,29 +96,9 @@ public class ImportDeclarationGeneratorTest {
 		generate(classes, 2);
 	}
 	
-	@Test
-	public void shouldRememberWhatRemovedTypesMapTo() throws Exception {
-		Collection<Object> classes = new ArrayList<Object>();
-		classes.add("ca.infoway.temp.MyClass");
-		classes.add("java.lang.String");
-		classes.add("ca.infoway.temp.SomethingElse"); 
-		
-		TypeName removedType = new TypeName("PRPA_123456CA.RemovedType");
-		TypeName newType = new TypeName("PRPA_654321CA.NewType");
-		
-		Map<TypeName, TypeName> removedTypesTranslator = new HashMap<TypeName, TypeName>();
-		removedTypesTranslator.put(removedType, newType);
-		
-		ImportDeclarationGenerator generator = new ImportDeclarationGenerator(new TypeName("ABCD_MT123456CA.Stephen"), 
-				classes, new SimpleNameTranslator(JAVA, "ca.infoway.example", new TypeNameHelperImpl()), removedTypesTranslator);
-
-		Assert.assertEquals("ca.infoway.example.prpa_654321ca.NewTypeBean", generator.getRepresentationOfTypeName(removedType));
-		
-	}
-	
 	private void generate(Collection<Object> classes, int count) throws IOException {
 		ImportDeclarationGenerator generator = new ImportDeclarationGenerator(new TypeName("ABCD_MT123456CA.Stephen"), 
-				classes, new SimpleNameTranslator(JAVA, "ca.infoway.example", new TypeNameHelperImpl()), null);
+				classes, new SimpleNameTranslator(JAVA, "ca.infoway.example", new TypeNameHelperImpl()));
 		
 		StringWriter writer = new StringWriter();
 		generator.generate(writer, 0);

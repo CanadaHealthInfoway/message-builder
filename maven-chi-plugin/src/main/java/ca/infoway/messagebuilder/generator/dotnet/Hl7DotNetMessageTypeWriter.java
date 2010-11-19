@@ -6,7 +6,6 @@ import static org.apache.commons.lang.SystemUtils.LINE_SEPARATOR;
 import java.io.IOException;
 import java.io.Writer;
 import java.util.List;
-import java.util.Map;
 
 import ca.infoway.messagebuilder.generator.GeneratorException;
 import ca.infoway.messagebuilder.generator.java.Association;
@@ -48,8 +47,8 @@ class Hl7DotNetMessageTypeWriter extends Hl7MessageTypeWriter implements Hl7Type
 				type.getRelationships());
 	}
 	
-	Hl7DotNetMessageTypeWriter(Type type, NameTranslator translator, NamespaceContents contents, Map<TypeName, TypeName> removedTypesTranslation) throws GeneratorException {
-		this(type, translator, new UsingManager(type.getTypeName(), ImportTypeUtil.getImports(type, C_SHARP, removedTypesTranslation), translator, contents, removedTypesTranslation));
+	Hl7DotNetMessageTypeWriter(Type type, NameTranslator translator, NamespaceContents contents) throws GeneratorException {
+		this(type, translator, new UsingManager(type.getTypeName(), ImportTypeUtil.getImports(type, C_SHARP), translator, contents));
 	}
 
 	public void write(Writer writer) throws IOException, GeneratorException {

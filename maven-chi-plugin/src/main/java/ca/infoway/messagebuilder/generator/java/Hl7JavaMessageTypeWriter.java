@@ -8,7 +8,6 @@ import java.io.Writer;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
 
 import org.apache.commons.lang.time.DateFormatUtils;
@@ -26,13 +25,13 @@ public class Hl7JavaMessageTypeWriter extends Hl7MessageTypeWriter implements Hl
 	private final String packageName;
 	private final BaseRelationshipNameResolver nameResolver;
 
-	public Hl7JavaMessageTypeWriter(RenderedType type, NameTranslator nameTranslator, Map<TypeName, TypeName> removedTypesTranslation) throws GeneratorException {
+	public Hl7JavaMessageTypeWriter(RenderedType type, NameTranslator nameTranslator) throws GeneratorException {
 		super(type);
 		this.nameTranslator = nameTranslator;
 		this.packageName = this.nameTranslator.getPackageName(type.getTypeName());
 		this.nameResolver = new PropertyNameResolver(nameTranslator.getClassNameWithoutPackage(type.getTypeName()), type.getRelationships());
-		Set<Object> importTypes = new HashSet<Object>(ImportTypeUtil.getImports(this.type, JAVA, removedTypesTranslation));
-        this.importDeclarationGenerator = new ImportDeclarationGenerator(this.type.getTypeName(), importTypes, this.nameTranslator, removedTypesTranslation);
+		Set<Object> importTypes = new HashSet<Object>(ImportTypeUtil.getImports(this.type, JAVA));
+        this.importDeclarationGenerator = new ImportDeclarationGenerator(this.type.getTypeName(), importTypes, this.nameTranslator);
 	}
 
 	public void write(Writer writer) throws IOException {
