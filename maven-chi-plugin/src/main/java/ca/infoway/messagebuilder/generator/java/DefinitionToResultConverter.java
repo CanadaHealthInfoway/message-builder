@@ -10,6 +10,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import org.apache.commons.collections.CollectionUtils;
+
 import ca.infoway.messagebuilder.generator.GeneratorException;
 import ca.infoway.messagebuilder.generator.TypeConverter;
 import ca.infoway.messagebuilder.generator.java.InteractionType.ArgumentType;
@@ -195,28 +197,7 @@ class DefinitionToResultConverter {
 			} else {
 				MessagePart messagePart = simplifiableType.getMessagePart();
 				if (simplifiableType.isMerged()) {
-					TypeName mergedTypeName = simplifiableType.getMergedTypeName();
-					if (!this.types.containsKey(mergedTypeName.getName())) {
-						Type mergedType = new Type(mergedTypeName);
-						this.types.put(mergedTypeName.getName(), mergedType);
-					}
-					Type mergedType = this.types.get(mergedTypeName.getName());
-					mergedType.getMergedTypes().add(type);
-					
-					// TM - TODO: how to merge business name/documentation? 
-					//            (wasn't being done in pre-refactor merge code)
-					// mergedType.setBusinessName(businessName);
-					// mergedType.setTypeDocumentation(description);
-					
-					// no category when merged (?)
-					// mergedType.setCategory(null); 
-					
-					if (messagePart.isAbstract()) {
-						mergedType.setAbstract(true);
-					}
-					if (simplifiableType.isRootType()) {
-						mergedType.setRootType(true);
-					}
+					Type mergedType = createMergedType(simplifiableType, type);
 					
 					if (result.getTypeByName(mergedType.getTypeName()) == null) {
 						result.addType(mergedType);
@@ -233,6 +214,42 @@ class DefinitionToResultConverter {
 					result.addType(type);
 				}
 			}
+		}
+	}
+
+	private Type createMergedType(SimplifiableType simplifiableType, Type type) {
+		TypeName mergedTypeName = simplifiableType.getMergedTypeName();
+		if (!this.types.containsKey(mergedTypeName.getName())) {
+			Type mergedType = new Type(mergedTypeName);
+			assignCategoryIfSame(simplifiableType, mergedType);
+			this.types.put(mergedTypeName.getName(), mergedType);
+		}
+		Type mergedType = this.types.get(mergedTypeName.getName());
+		mergedType.getMergedTypes().add(type);
+		
+		// TM - TODO: how to merge business name/documentation? 
+		//            (wasn't being done in pre-refactor merge code)
+		// mergedType.setBusinessName(businessName);
+		// mergedType.setTypeDocumentation(description);
+		
+		
+		MessagePart messagePart = simplifiableType.getMessagePart();
+		if (messagePart.isAbstract()) {
+			mergedType.setAbstract(true);
+		}
+		if (simplifiableType.isRootType()) {
+			mergedType.setRootType(true);
+		}
+		return mergedType;
+	}
+
+	private void assignCategoryIfSame(SimplifiableType simplifiableType, Type mergedType) {
+		Set<String> categories = new HashSet<String>();
+		for (SimplifiableType otherType : simplifiableType.getMergedWithTypes()) {
+			categories.add(otherType.getCategory());
+		}
+		if (categories.size() == 1) {
+			mergedType.setCategory((String) CollectionUtils.get(categories, 0));
 		}
 	}
 	

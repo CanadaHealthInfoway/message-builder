@@ -50,6 +50,7 @@ public class SimpleNameTranslatorTest {
 	@Test
 	public void shouldGetClassNameWithoutPackage() throws Exception {
 		this.jmock.checking(new Expectations() {{
+			allowing(helper).isAbstract(typeName); will(returnValue(false));
 			one(nameCoordinator).getName(typeName); will(returnValue("BarneyAndFriends"));
 		}});
 		
@@ -80,6 +81,7 @@ public class SimpleNameTranslatorTest {
 	@Test
 	public void shouldGetFullyQualifiedClassName() throws Exception {
 		this.jmock.checking(new Expectations() {{
+			allowing(helper).isAbstract(typeName); will(returnValue(false));
 			one(nameCoordinator).getName(typeName); will(returnValue("BarneyAndFriends"));
 		}});
 		
