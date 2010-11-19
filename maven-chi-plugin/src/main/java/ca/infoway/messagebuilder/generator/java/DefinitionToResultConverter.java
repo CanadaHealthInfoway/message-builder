@@ -15,6 +15,7 @@ import org.apache.commons.collections.CollectionUtils;
 import ca.infoway.messagebuilder.generator.GeneratorException;
 import ca.infoway.messagebuilder.generator.TypeConverter;
 import ca.infoway.messagebuilder.generator.java.InteractionType.ArgumentType;
+import ca.infoway.messagebuilder.generator.lang.ProgrammingLanguage;
 import ca.infoway.messagebuilder.generator.lang.TypeDocumentation;
 import ca.infoway.messagebuilder.xml.Argument;
 import ca.infoway.messagebuilder.xml.Interaction;
@@ -27,18 +28,35 @@ class DefinitionToResultConverter {
 	private TypeConverter converter = new TypeConverter();
 	private Map<String,Type> types = new HashMap<String,Type>();
 	private final SimplifiableDefinitions definitions;
+	private final String basePackageName;
+	private final ProgrammingLanguage programmingLanguage;
 
-	DefinitionToResultConverter(SimplifiableDefinitions definitions) {
+	DefinitionToResultConverter(SimplifiableDefinitions definitions,
+			String basePackageName, ProgrammingLanguage programmingLanguage) {
 		this.definitions = definitions;
+		this.basePackageName = basePackageName;
+		this.programmingLanguage = programmingLanguage;
 	}
-	
+
 	public TypeAnalysisResult convert() throws GeneratorException {
 		TypeAnalysisResult result = new TypeAnalysisResult();
 		createAllTypes(result);  // should also create packages
 		createAllRelationships(result);
 		createInteractions(result);
 		
+		createLanguageSpecificNames(result);
+		
 		return result;
+	}
+
+	private void createLanguageSpecificNames(TypeAnalysisResult result) {
+		SimpleNameTranslator translator = new SimpleNameTranslator(this.programmingLanguage, this.basePackageName, result);
+		for (Type type : result.getAllMessageTypes()) {
+			type.setLanguageSpecificName(translator.getLanguageSpecificName(type.getTypeName()));
+		}
+		for (Type type : result.getAllInteractions()) {
+			type.setLanguageSpecificName(translator.getLanguageSpecificName(type.getTypeName()));
+		}
 	}
 
 	private void createAllRelationships(TypeAnalysisResult result) throws GeneratorException {
@@ -192,7 +210,7 @@ class DefinitionToResultConverter {
 		for (SimplifiableType simplifiableType : this.definitions.getAllTypes()) {
 			Type type = new Type(new TypeName(simplifiableType.getName()), simplifiableType.isRootType());
 			this.types.put(simplifiableType.getName(), type);
-			if (simplifiableType.isInlined()) {
+			if (simplifiableType.isInlined() && simplifiableType.getInterfaceTypes().isEmpty()) {
 				// skip it
 			} else {
 				MessagePart messagePart = simplifiableType.getMessagePart();
@@ -262,7 +280,7 @@ class DefinitionToResultConverter {
 			TypeName parentTypeName = simplifiableType.isMerged() 
 					? simplifiableType.getMergedTypeName() : new TypeName(simplifiableType.getName());
 			
-			interactionType.setParentType(parentTypeName);
+			interactionType.setParentType(result.getTypeByName(parentTypeName));
 			interactionType.setTypeDocumentation(new TypeDocumentation(interaction.getDocumentation()));
 			interactionType.setBusinessName(interaction.getBusinessName());
 			interactionType.getArguments().addAll(groupArgumentsAndTypes(interaction.getArguments()));

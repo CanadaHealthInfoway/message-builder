@@ -1,5 +1,6 @@
 package ca.infoway.messagebuilder.generator.java;
 
+import static ca.infoway.messagebuilder.generator.lang.ProgrammingLanguage.JAVA;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
@@ -21,7 +22,7 @@ public class DefinitionToResultConverterTest {
 
 
 	private SimplifiableDefinitions definitions = new SimplifiableDefinitions();
-	private DefinitionToResultConverter converter = new DefinitionToResultConverter(this.definitions);
+	private DefinitionToResultConverter converter = new DefinitionToResultConverter(this.definitions, "ca.infoway.test", JAVA);
 	private TypeConverter typeConverter = new TypeConverter();
 	
 	@Test
@@ -43,6 +44,7 @@ public class DefinitionToResultConverterTest {
 		assertEquals("number of relationships", 1, type.getRelationships().size());
 		assertTrue("atribute", type.getRelationships().get(0) instanceof Attribute);
 		
+		assertEquals("class name", "ca.infoway.test.abcd_mt123456ca.TomBean", type.getLanguageSpecificName().getFullyQualifiedName());
 	}
 	
 	@Test
@@ -165,6 +167,7 @@ public class DefinitionToResultConverterTest {
 		assertTrue("attribute", type.getRelationships().get(0) instanceof Attribute);
 		assertTrue("attribute", type.getRelationships().get(1) instanceof Attribute);
 		
+		assertEquals("class name", "ca.infoway.test.common.merged.Patient2Bean", type.getLanguageSpecificName().getFullyQualifiedName());
 	}
 	
 	@Test

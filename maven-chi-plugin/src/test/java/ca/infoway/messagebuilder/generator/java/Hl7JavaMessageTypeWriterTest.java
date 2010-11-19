@@ -53,6 +53,7 @@ public class Hl7JavaMessageTypeWriterTest {
 	@Test
 	public void shouldWriteAutoGenerationComment() throws Exception {
 		final Type type = new Type(this.typeName);
+		type.setLanguageSpecificName(new LanguageSpecificName("ca.infoway.test", "MyType"));
 		type.setAbstract(true);
 
 		Hl7JavaMessageTypeWriter typeWriter = new Hl7JavaMessageTypeWriter(type, this.translator);
@@ -64,17 +65,20 @@ public class Hl7JavaMessageTypeWriterTest {
 	@Test
 	public void shouldWriteSuperclassInClassDefinition() throws Exception {
 		final InteractionType type = new InteractionType(this.interactionType);
-		type.setParentType(this.typeName);
+		type.setLanguageSpecificName(new LanguageSpecificName("ca.infoway.test", "Fred"));
+		type.setParentType(new Type(this.typeName));
+		type.getParentType().setLanguageSpecificName(new LanguageSpecificName("ca.infoway.test", "MyTranslatedType"));
 		
 		Hl7JavaMessageTypeWriter typeWriter = new Hl7JavaMessageTypeWriter(type, this.translator);
 		typeWriter.writeClassDefinition(this.writer, 0);
-		assertTrue("comment", this.writer.toString().contains(
+		assertTrue("declaration", this.writer.toString().contains(
 			"public class Fred extends MyTranslatedType implements InteractionBean {"));
 	}
 	
 	@Test
 	public void shouldWriteHl7RootTypeAnnotationForHl7RootType() throws Exception {
 		final Type type = new Type(this.typeName, true);
+		type.setLanguageSpecificName(new LanguageSpecificName("ca.infoway.test", "MyType"));
 		
 		Hl7JavaMessageTypeWriter typeWriter = new Hl7JavaMessageTypeWriter(type, this.translator);
 		typeWriter.write(this.writer);

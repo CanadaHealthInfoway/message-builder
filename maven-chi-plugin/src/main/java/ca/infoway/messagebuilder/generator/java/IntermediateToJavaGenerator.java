@@ -7,6 +7,7 @@ import java.io.IOException;
 
 import ca.infoway.messagebuilder.generator.GeneratorException;
 import ca.infoway.messagebuilder.generator.OutputUI;
+import ca.infoway.messagebuilder.generator.lang.ProgrammingLanguage;
 
 public class IntermediateToJavaGenerator extends IntermediateToModelGenerator {
 	
@@ -33,5 +34,9 @@ public class IntermediateToJavaGenerator extends IntermediateToModelGenerator {
 		SimpleNameTranslator translator = new SimpleNameTranslator(JAVA, this.basePackageName, result);
 		JavaSourceFileWriterProvider writerProvider = new JavaSourceFileWriterProvider(this.sourceFolder, translator);
 		new JavaTypeWriter(this.outputUI, writerProvider, translator, result).writeTypes();
+	}
+	@Override
+	protected ProgrammingLanguage getProgrammingLanguage() {
+		return ProgrammingLanguage.JAVA;
 	}
 }

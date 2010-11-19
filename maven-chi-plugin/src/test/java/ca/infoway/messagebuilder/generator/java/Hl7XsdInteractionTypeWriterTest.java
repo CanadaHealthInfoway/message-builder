@@ -49,12 +49,11 @@ public class Hl7XsdInteractionTypeWriterTest {
 		interactionType.getArguments().add(controlActArgumentType);
 		TypeName parentTypeName = new TypeName("MCCI_MT002100CA.Message");
 		Type type = new Type(parentTypeName);
-		interactionType.setParentType(parentTypeName);
+		interactionType.setParentType(type);
 		Relationship messageRelationship = new Relationship();
 		messageRelationship.setTemplateParameterName("ControlActEvent");
 		messageRelationship.setName("controlActEvent");
 		type.getRelationships().add(new Association(messageRelationship, new TemplateVariable("T")));
-		interactionType.setParentType(parentTypeName);
 
 		TypeAnalysisResult typeResults = new TypeAnalysisResult();
 		typeResults.getTypes().put(controlActType.getTypeName(), controlActType);

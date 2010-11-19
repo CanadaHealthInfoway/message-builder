@@ -23,8 +23,10 @@ public class ImportDeclarationGenerator extends Hl7TypeCodeGenerator implements 
 	private final Map<String,String> shortNameToFullNameMap = Collections.synchronizedMap(new HashMap<String,String>());
 	
 	private final Set<String> classes = Collections.synchronizedSet(new TreeSet<String>());
-	private final TypeName typeName;
 	private final NameTranslator nameTranslator;
+
+	private final LanguageSpecificName className;
+
 
 	/**
 	 *
@@ -33,11 +35,11 @@ public class ImportDeclarationGenerator extends Hl7TypeCodeGenerator implements 
 	 * @param classes
 	 * @param map 
 	 */
-	public ImportDeclarationGenerator(TypeName typeName, Collection<Object> classes, NameTranslator nameTranslator) {
-		this.typeName = typeName;
+	public ImportDeclarationGenerator(LanguageSpecificName className, Collection<Object> classes, NameTranslator nameTranslator) {
+		this.className = className;
 		this.nameTranslator = nameTranslator;
 		
-		this.shortNameToFullNameMap.put(this.nameTranslator.getClassNameWithoutPackage(typeName), this.nameTranslator.getFullyQualifiedClassName(typeName));
+		this.shortNameToFullNameMap.put(this.className.getUnqualifiedClassName(), this.className.getFullyQualifiedName());
 		
 		for (Object o : EmptyIterable.nullSafeIterable(classes)) {
 			if (o instanceof String) {
@@ -96,13 +98,13 @@ public class ImportDeclarationGenerator extends Hl7TypeCodeGenerator implements 
 	}
 
 	public String getPackageName() {
-		return this.nameTranslator.getPackageName(this.typeName);
+		return this.className.getPackageName();
 	}
 
 	@Override
 	protected boolean conflictsWithTypeName(String className) {
 		return StringUtils.equals(
-				this.nameTranslator.getClassNameWithoutPackage(this.typeName), 
+				this.className.getUnqualifiedClassName(), 
 				ClassUtils.getShortClassName(className));
 	}
 

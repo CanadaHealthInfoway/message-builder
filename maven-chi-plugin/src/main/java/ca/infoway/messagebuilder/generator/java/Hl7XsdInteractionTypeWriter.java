@@ -40,9 +40,9 @@ public class Hl7XsdInteractionTypeWriter extends Hl7XsdTypeWriter {
 		Element typeElement = document.createElement("xs:element");
 		typeElement.setAttribute("name", getNodeName());
 		typeElement.setAttribute("type", "chi:" + getTypeName());
-		String parentName = this.interactionType.getParentType().getName();
+		String parentName = this.interactionType.getParentType().getTypeName().getName();
 		List<ArgumentType> arguments = this.interactionType.getArguments();
-		addTemplateTypes(schema, parentName, arguments, this.interactionType.getParentType(), true);
+		addTemplateTypes(schema, parentName, arguments, this.interactionType.getParentType().getTypeName(), true);
 		schema.appendChild(typeElement);
 	}
 
