@@ -13,6 +13,7 @@ import ca.infoway.messagebuilder.generator.java.NameTranslator;
 import ca.infoway.messagebuilder.generator.java.SimpleNameTranslator;
 import ca.infoway.messagebuilder.generator.java.SimplifiableDefinitions;
 import ca.infoway.messagebuilder.generator.java.TypeAnalysisResult;
+import ca.infoway.messagebuilder.generator.lang.ProgrammingLanguage;
 
 public class IntermediateToCsharpGenerator extends IntermediateToModelGenerator {
 	
@@ -39,5 +40,9 @@ public class IntermediateToCsharpGenerator extends IntermediateToModelGenerator 
 		NameTranslator translator = new CsharpPackageNameAdjustingDecorator(new SimpleNameTranslator(C_SHARP, this.basePackageName, result));
 		CsharpSourceFileWriterProvider writerProvider = new CsharpSourceFileWriterProvider(this.sourceFolder, translator);
 		new CsharpTypeWriter(this.outputUI, writerProvider, translator, result).writeTypes();
+	}
+	@Override
+	protected ProgrammingLanguage getProgrammingLanguage() {
+		return ProgrammingLanguage.C_SHARP;
 	}
 }

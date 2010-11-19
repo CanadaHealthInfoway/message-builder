@@ -52,9 +52,9 @@ public class InteractionType extends Type {
 	}
 	
 	private final List<ArgumentType> arguments = Collections.synchronizedList(new ArrayList<ArgumentType>());
-	private TypeName parentType;
+	private Type parentType;
 
-	public TypeName getParentType() {
+	public Type getParentType() {
 		return this.parentType;
 	}
 
@@ -66,7 +66,7 @@ public class InteractionType extends Type {
 		return this.arguments;
 	}
 
-	public void setParentType(TypeName typeName) {
+	public void setParentType(Type typeName) {
 		this.parentType = typeName;
 	}
 

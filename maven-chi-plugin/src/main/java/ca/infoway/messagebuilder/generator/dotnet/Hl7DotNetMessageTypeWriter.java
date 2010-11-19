@@ -43,7 +43,7 @@ class Hl7DotNetMessageTypeWriter extends Hl7MessageTypeWriter implements Hl7Type
 		this.namespace = this.nameTranslator.getPackageName(type.getTypeName());
 		this.manager = manager;
 		this.nameResolver = new PropertyNameResolver(
-				this.nameTranslator.getClassNameWithoutPackage(this.type.getTypeName()), 
+				this.type.getLanguageSpecificName().getUnqualifiedClassName(), 
 				type.getRelationships());
 	}
 	
@@ -165,8 +165,8 @@ class Hl7DotNetMessageTypeWriter extends Hl7MessageTypeWriter implements Hl7Type
 	private void writeInteractionDeclaration(Writer writer) throws IOException {
 		writer.write(" : ");
 		InteractionType interaction = (InteractionType) this.type;
-		TypeName parentTypeName = interaction.getParentType();
-		writer.write(this.nameTranslator.getClassNameWithoutPackage(parentTypeName));
+		Type parent = interaction.getParentType();
+		writer.write(parent.getLanguageSpecificName().getUnqualifiedClassName());
 		
 		writeTemplateArguments(writer, interaction.getArguments());
 		
@@ -210,7 +210,7 @@ class Hl7DotNetMessageTypeWriter extends Hl7MessageTypeWriter implements Hl7Type
 	}
 
 	private String getClassName() {
-		return this.nameTranslator.getClassNameWithoutPackage(this.type.getTypeName());
+		return this.type.getLanguageSpecificName().getUnqualifiedClassName();
 	}
 
 	private void writeNamespace(Writer writer) throws IOException {

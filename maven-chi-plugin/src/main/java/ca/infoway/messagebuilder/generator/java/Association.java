@@ -70,7 +70,11 @@ public class Association extends BaseRelationship {
 	public Set<Object> getImportTypes() {
 		Set<Object> result = super.getImportTypes();
 		if (this.associationType != null) {
-			result.add(this.associationType.getTypeName());
+			if (this.associationType.getLanguageSpecificName() != null) {
+				result.add(this.associationType.getLanguageSpecificName().getFullyQualifiedName());
+			} else {
+				result.add(this.associationType.getTypeName());
+			}
 		}
 		if (isCardinalityMultiple()) {
 			result.add(List.class.getName());
@@ -82,7 +86,7 @@ public class Association extends BaseRelationship {
 		return result;
 	}
 	
-	private void addLeafChoices(List<Relationship> choices, Set<Object> result) {
+	protected void addLeafChoices(List<Relationship> choices, Set<Object> result) {
 		for (Relationship relationship : choices) {
 			if (relationship.isChoice()) {
 				addLeafChoices(relationship.getChoices(), result);

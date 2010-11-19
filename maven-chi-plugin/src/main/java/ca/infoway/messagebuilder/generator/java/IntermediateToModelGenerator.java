@@ -20,6 +20,7 @@ import ca.infoway.messagebuilder.generator.LogLevel;
 import ca.infoway.messagebuilder.generator.OutputUI;
 import ca.infoway.messagebuilder.generator.TypeConverter;
 import ca.infoway.messagebuilder.generator.java.InteractionType.ArgumentType;
+import ca.infoway.messagebuilder.generator.lang.ProgrammingLanguage;
 import ca.infoway.messagebuilder.generator.lang.TypeDocumentation;
 import ca.infoway.messagebuilder.xml.Argument;
 import ca.infoway.messagebuilder.xml.Interaction;
@@ -36,6 +37,8 @@ public abstract class IntermediateToModelGenerator {
 	protected final File sourceFolder;
 	protected final String basePackageName;
 	private final File report;
+	
+	protected abstract ProgrammingLanguage getProgrammingLanguage();
 
 	public IntermediateToModelGenerator(OutputUI outputUI, File sourceFolder, String basePackageName) {
 		this(outputUI, sourceFolder, basePackageName, null);
@@ -72,7 +75,7 @@ public abstract class IntermediateToModelGenerator {
 
 	protected TypeAnalysisResult createResultFromDefinitions(
 			SimplifiableDefinitions definitions) throws GeneratorException {
-		return new DefinitionToResultConverter(definitions).convert();
+		return new DefinitionToResultConverter(definitions, this.basePackageName, getProgrammingLanguage()).convert();
 	}
 	public void simplify(TypeAnalysisResult result, SimplifiableDefinitions definitions) throws GeneratorException {
 		new Case2Simplifier(this.outputUI, result, definitions).execute();
@@ -146,7 +149,7 @@ public abstract class IntermediateToModelGenerator {
 			definitions.addInteraction(new SimplifiableInteraction(interaction));
 			InteractionType messageType = new InteractionType(new TypeName(interaction.getName()));
 			TypeName parentTypeName = new TypeName(interaction.getSuperTypeName());
-			messageType.setParentType(parentTypeName);
+			messageType.setParentType(result.getTypeByName(parentTypeName));
 			messageType.setTypeDocumentation(new TypeDocumentation(interaction.getDocumentation()));
 			messageType.setBusinessName(interaction.getBusinessName());
 			messageType.getArguments().addAll(groupArgumentsAndTypes(interaction.getArguments(), result.getTypes()));

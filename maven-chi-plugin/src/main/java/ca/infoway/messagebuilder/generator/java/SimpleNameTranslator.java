@@ -55,6 +55,10 @@ public class SimpleNameTranslator implements NameTranslator {
 		}
 	}
 
+	public LanguageSpecificName getLanguageSpecificName(TypeName name) {
+		return new LanguageSpecificName(getPackageName(name), getClassNameWithoutPackage(name));
+	}
+	
 	public String getFullyQualifiedClassName(TypeName name) {
 		return getPackageName(name) + "." + getClassNameWithoutPackage(name);
 	}

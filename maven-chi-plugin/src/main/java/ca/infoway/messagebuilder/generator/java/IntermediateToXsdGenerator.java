@@ -5,6 +5,7 @@ import java.io.IOException;
 
 import ca.infoway.messagebuilder.generator.GeneratorException;
 import ca.infoway.messagebuilder.generator.OutputUI;
+import ca.infoway.messagebuilder.generator.lang.ProgrammingLanguage;
 
 public class IntermediateToXsdGenerator extends IntermediateToModelGenerator {
 	
@@ -19,5 +20,9 @@ public class IntermediateToXsdGenerator extends IntermediateToModelGenerator {
 		XsdNameTranslator translator = new XsdNameTranslator(this.basePackageName, result);
 		XsdSourceFileWriterProvider writerProvider = new XsdSourceFileWriterProvider(this.sourceFolder, translator);
 		new XsdTypeWriter(this.outputUI, writerProvider, translator, result).writeTypes();
+	}
+	@Override
+	protected ProgrammingLanguage getProgrammingLanguage() {
+		return null;
 	}
 }

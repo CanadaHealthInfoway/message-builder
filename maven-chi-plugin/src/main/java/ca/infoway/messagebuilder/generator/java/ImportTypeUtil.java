@@ -8,7 +8,6 @@ import java.util.Set;
 
 import ca.infoway.messagebuilder.generator.java.InteractionType.ArgumentType;
 import ca.infoway.messagebuilder.generator.lang.ProgrammingLanguage;
-import ca.infoway.messagebuilder.xml.TypeName;
 
 public class ImportTypeUtil {
 	
@@ -21,9 +20,9 @@ public class ImportTypeUtil {
 			importTypes.add("ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping");
 			importTypes.add("ca.infoway.messagebuilder.model.InteractionBean");
 		}
-		TypeName parentTypeName = ((InteractionType) type).getParentType();
-		if (parentTypeName != null) {
-			importTypes.add(parentTypeName);
+		Type parentType = ((InteractionType) type).getParentType();
+		if (parentType != null) {
+			importTypes.add(parentType.getLanguageSpecificName().getFullyQualifiedName());
 		}
 		addArgumentTypes(importTypes, type.getArguments());
 		return importTypes;

@@ -26,6 +26,8 @@ public class Type implements RenderedType, NamedType, HierarchicalType {
 	private boolean rootType;
 	private String category;
 	
+	private LanguageSpecificName languageSpecificName;
+	
     private Set<NamedType> mergedTypes = Collections.synchronizedSet(new HashSet<NamedType>());
 	
     public Type(TypeName typeName, boolean rootType) {
@@ -231,5 +233,11 @@ public class Type implements RenderedType, NamedType, HierarchicalType {
 	}
 	public void setRootType(boolean rootType) {
 		this.rootType = rootType;
+	}
+	public void setLanguageSpecificName(LanguageSpecificName languageSpecificName) {
+		this.languageSpecificName = languageSpecificName;
+	}
+	public LanguageSpecificName getLanguageSpecificName() {
+		return this.languageSpecificName;
 	}
 }

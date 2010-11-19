@@ -1,5 +1,9 @@
 package ca.infoway.messagebuilder.generator.java;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
+
 import ca.infoway.messagebuilder.xml.TypeName;
 
 public class MergedAssociation extends Association {
@@ -44,4 +48,26 @@ public class MergedAssociation extends Association {
 	String getOriginalType() {
 		return this.association.getOriginalType();
 	}
+	
+	@Override
+	public Set<Object> getImportTypes() {
+		Set<Object> result = super.getImportTypes();
+		if (this.type != null) {
+			if (this.type.getLanguageSpecificName() != null) {
+				result.add(this.type.getLanguageSpecificName().getFullyQualifiedName());
+			} else {
+				result.add(this.type.getTypeName());
+			}
+		}
+		if (isCardinalityMultiple()) {
+			result.add(List.class.getName());
+			result.add(ArrayList.class.getName());
+		}
+		if (isChoice() && !isCardinalityMultiple()) {
+			addLeafChoices(this.getRelationship().getChoices(), result);
+		}
+		return result;
+	}
+	
+	
 }

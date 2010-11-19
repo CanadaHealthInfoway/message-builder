@@ -11,8 +11,6 @@ import java.util.Collection;
 import org.apache.commons.lang.StringUtils;
 import org.junit.Test;
 
-import ca.infoway.messagebuilder.xml.TypeName;
-
 
 public class ImportDeclarationGeneratorTest {
 	
@@ -44,7 +42,7 @@ public class ImportDeclarationGeneratorTest {
 		classes.add("ca.infoway.temp2.MyClass");
 		classes.add("ca.infoway.temp.SomethingElse"); 
 
-		ImportDeclarationGenerator generator = new ImportDeclarationGenerator(new TypeName("ABCD_MT123456CA.Stephen"), 
+		ImportDeclarationGenerator generator = new ImportDeclarationGenerator(new LanguageSpecificName("ca.infoway.temp", "Stephen"), 
 				classes, new SimpleNameTranslator(JAVA, "ca.infoway.example", new TypeNameHelperImpl()));
 
 		assertEquals("second", "ca.infoway.temp2.MyClass", generator.getRepresentationOfClassName("ca.infoway.temp2.MyClass"));
@@ -57,10 +55,10 @@ public class ImportDeclarationGeneratorTest {
 		classes.add("ca.infoway.temp.Fred");
 		classes.add("ca.infoway.temp.SomethingElse"); 
 		
-		ImportDeclarationGenerator generator = new ImportDeclarationGenerator(new TypeName("ABCD_MT123456CA.Stephen"), 
-				classes, new SimpleNameTranslator(JAVA, "ca.infoway.example", new TypeNameHelperImpl()));
+		ImportDeclarationGenerator generator = new ImportDeclarationGenerator(new LanguageSpecificName("ca.infoway.temp.abcd_mt123456ca", "Stephen"), 
+				classes, new SimpleNameTranslator(JAVA, "ca.infoway.temp", new TypeNameHelperImpl()));
 		
-		assertEquals("class", "MyClass", generator.getRepresentationOfClassName("ca.infoway.example.abcd_mt123456ca.MyClass"));
+		assertEquals("class", "MyClass", generator.getRepresentationOfClassName("ca.infoway.temp.abcd_mt123456ca.MyClass"));
 	}
 	
 	@Test
@@ -70,7 +68,7 @@ public class ImportDeclarationGeneratorTest {
 		classes.add("ca.infoway.temp.MyClass");
 		classes.add("ca.infoway.temp.SomethingElse"); 
 		
-		ImportDeclarationGenerator generator = new ImportDeclarationGenerator(new TypeName("ABCD_MT123456CA.Stephen"), 
+		ImportDeclarationGenerator generator = new ImportDeclarationGenerator(new LanguageSpecificName("ca.infoway.temp", "Stephen"), 
 				classes, new SimpleNameTranslator(JAVA, "ca.infoway.example", new TypeNameHelperImpl()));
 		
 		assertEquals("class", "ca.infoway.example.abcd_mt123456ca.MyClass", generator.getRepresentationOfClassName("ca.infoway.example.abcd_mt123456ca.MyClass"));
@@ -97,7 +95,7 @@ public class ImportDeclarationGeneratorTest {
 	}
 	
 	private void generate(Collection<Object> classes, int count) throws IOException {
-		ImportDeclarationGenerator generator = new ImportDeclarationGenerator(new TypeName("ABCD_MT123456CA.Stephen"), 
+		ImportDeclarationGenerator generator = new ImportDeclarationGenerator(new LanguageSpecificName("ca.infoway.temp.abcd_mt123456ca", "Stephen"), 
 				classes, new SimpleNameTranslator(JAVA, "ca.infoway.example", new TypeNameHelperImpl()));
 		
 		StringWriter writer = new StringWriter();
