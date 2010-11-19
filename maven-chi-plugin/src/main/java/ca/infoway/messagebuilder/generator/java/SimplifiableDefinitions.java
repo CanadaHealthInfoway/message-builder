@@ -43,5 +43,9 @@ public class SimplifiableDefinitions implements SimplifiableTypeProvider {
 	public Collection<SimplifiableInteraction> getAllInteractions() {
 		return this.interactions.values();
 	}
+
+	public NamedType getNamedType(TypeName name) {
+		return getType(name.getName());
+	}
 	
 }

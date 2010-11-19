@@ -45,15 +45,11 @@ public abstract class InlineableSimplifier {
 		}
 	}
 	
-	private void inline(SimplifiableType type) {
+	protected void inline(SimplifiableType type) {
 		type.setInlined(true);
 	}
 
-	protected boolean isInlineable(SimplifiablePackage simplifiablePackage,
-			SimplifiableType type) {
-		return false;
-	}
-
+	protected abstract boolean isInlineable(SimplifiablePackage simplifiablePackage, SimplifiableType type);
 	protected abstract boolean isInlineable(ComplexTypePackage complexTypePackage, Type inlineableType);
 	protected abstract void inline(ComplexTypePackage complexTypePackage, Type inlineableType);
 	
@@ -98,6 +94,21 @@ public abstract class InlineableSimplifier {
 	}
 	
 	protected boolean hasAtLeastOneNonFixedRelationship(Type inlineableType) {
+		return !getNonFixedRelationships(inlineableType).isEmpty();
+	}
+	
+	protected List<SimplifiableRelationship> getNonFixedRelationships(SimplifiableType inlineableType) {
+		List<SimplifiableRelationship> nonFixedRelationships = new ArrayList<SimplifiableRelationship>();
+		List<SimplifiableRelationship> allRelationships = inlineableType.getRelationships();
+		for (SimplifiableRelationship simplifiableRelationship : allRelationships) {
+			if (!simplifiableRelationship.getRelationship().isFixed()) {
+				nonFixedRelationships.add(simplifiableRelationship);
+			}
+		}
+		return nonFixedRelationships;
+	}
+	
+	protected boolean hasAtLeastOneNonFixedRelationship(SimplifiableType inlineableType) {
 		return !getNonFixedRelationships(inlineableType).isEmpty();
 	}
 }

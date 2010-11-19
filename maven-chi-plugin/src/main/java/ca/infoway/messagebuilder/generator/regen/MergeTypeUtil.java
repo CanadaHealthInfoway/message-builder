@@ -41,7 +41,7 @@ public class MergeTypeUtil {
 		// the following properties are merged with the union of their types
 		mergeInterfaceTypes(resultType, oldType.getInterfaceTypes(), newType.getInterfaceTypes());
 		mergeChildTypes(resultType, oldType.getChildTypes(), newType.getChildTypes());
-		mergeMergedTypes(resultType, oldType.getMergedTypes(), newType.getMergedTypes());
+//		mergeMergedTypes(resultType, oldType.getMergedTypes(), newType.getMergedTypes());
 		
 		mergeInteractions(resultType, oldType, newType);
 		
@@ -52,8 +52,8 @@ public class MergeTypeUtil {
 
 	private void mergeMergedTypes(Type resultType, Set<TypeName> oldMergedTypes, Set<TypeName> newMergedTypes) {
 		// the result of merging merged types is the union of all types
-		resultType.getMergedTypes().addAll(newMergedTypes);
-		resultType.getMergedTypes().addAll(oldMergedTypes);
+//		resultType.getMergedTypes().addAll(newMergedTypes);
+//		resultType.getMergedTypes().addAll(oldMergedTypes);
 	}
 
 	private void mergeInteractions(Type resultType, Type oldType, Type newType) {
