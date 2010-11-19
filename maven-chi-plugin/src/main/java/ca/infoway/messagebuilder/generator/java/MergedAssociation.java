@@ -21,6 +21,11 @@ public class MergedAssociation extends Association {
 	public String getName() {
 		return this.association.getName();
 	}
+
+	@Override
+	public String getXmlMapping() {
+		return this.association.getXmlMapping();
+	}
 	
 	@Override
 	public Type getAssociationType() {

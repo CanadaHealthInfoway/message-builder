@@ -26,7 +26,7 @@ public class Type implements RenderedType, NamedType, HierarchicalType {
 	private boolean rootType;
 	private String category;
 	
-    private Set<TypeName> mergedTypes = Collections.synchronizedSet(new HashSet<TypeName>());
+    private Set<NamedType> mergedTypes = Collections.synchronizedSet(new HashSet<NamedType>());
 	
     public Type(TypeName typeName, boolean rootType) {
     	this.name = typeName;
@@ -213,11 +213,8 @@ public class Type implements RenderedType, NamedType, HierarchicalType {
 		Collections.sort(result);
 		return result;
 	}
-	public Set<TypeName> getMergedTypes() {
+	public Set<NamedType> getMergedTypes() {
 		return this.mergedTypes;
-	}
-	public void setMergedTypes(Set<TypeName> mergedTypes) {
-		this.mergedTypes = mergedTypes;
 	}
 	
 	public String[] getPartTypeMapping() {
@@ -225,8 +222,8 @@ public class Type implements RenderedType, NamedType, HierarchicalType {
 			return new String[] { this.name.toString() };
 		} else {
 			List<String> result = new ArrayList<String>();
-			for (TypeName name : this.mergedTypes) {
-				result.add(name.toString());
+			for (NamedType type : this.mergedTypes) {
+				result.add(type.getTypeName().getName());
 			}
 			Collections.sort(result);
 			return result.toArray(new String[result.size()]);

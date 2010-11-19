@@ -87,17 +87,12 @@ public class SimpleNameCoordinator implements NameCoordinator {
 		public List<String> getPreferredNames() {
 			Counter<String> counter1 = new Counter<String>();
 			Counter<String> counter2 = new Counter<String>();
-			for (TypeName mergedTypeName : this.type.getMergedTypes()) {
-				NamedType mergedType = typeNameHelper.getNamedType(mergedTypeName);
-				if (mergedType == null) {
-					throw new IllegalStateException("Cannot find type : " + mergedTypeName);
-				} else {
-					String businessName = cleanUpBusinessName(mergedType.getBusinessName());
-					if (StringUtils.isNotBlank(businessName)) {
-						counter1.increment(businessName);
-					}
-					counter2.increment(mergedTypeName.getUnqualifiedName());
+			for (NamedType mergedType : this.type.getMergedTypes()) {
+				String businessName = cleanUpBusinessName(mergedType.getBusinessName());
+				if (StringUtils.isNotBlank(businessName)) {
+					counter1.increment(businessName);
 				}
+				counter2.increment(mergedType.getTypeName().getUnqualifiedName());
 			}
 			List<String> result = new ArrayList<String>();
 			for (Tally<String> tally : counter1.getAll(CounterOrder.Descending)) {
@@ -110,8 +105,8 @@ public class SimpleNameCoordinator implements NameCoordinator {
 		}
 		public String getDefaultName() {
 			Counter<String> counter = new Counter<String>();
-			for (TypeName typeName : this.type.getMergedTypes()) {
-				counter.increment(typeName.getUnqualifiedName());
+			for (NamedType type : this.type.getMergedTypes()) {
+				counter.increment(type.getTypeName().getUnqualifiedName());
 			}
 			
 			Tally<String> winner = counter.getAll(CounterOrder.Descending).get(0);
@@ -119,8 +114,8 @@ public class SimpleNameCoordinator implements NameCoordinator {
 		}
 		public String getExemplarName() {
 			Set<String> names = new TreeSet<String>();
-			for (TypeName mergedType : this.type.getMergedTypes()) {
-				names.add(mergedType.getName());
+			for (NamedType mergedType : this.type.getMergedTypes()) {
+				names.add(mergedType.getTypeName().getName());
 			}
 			return (String) CollectionUtils.get(names, 0);
 		}
@@ -189,10 +184,8 @@ public class SimpleNameCoordinator implements NameCoordinator {
 	}
 
 	private Map<TypeName,Name> names = Collections.synchronizedMap(new HashMap<TypeName,Name>());
-	private final TypeNameHelper typeNameHelper;
 
 	public SimpleNameCoordinator(TypeNameHelper typeNameHelper) {
-		this.typeNameHelper = typeNameHelper;
 		setupNames(typeNameHelper.getTypes());
 	}
 
@@ -207,8 +200,8 @@ public class SimpleNameCoordinator implements NameCoordinator {
 			
 			Name name = new Name(candidateNames);
 			this.names.put(type.getTypeName(), name);
-			for (TypeName mergedTypeName : type.getMergedTypes()) {
-				this.names.put(mergedTypeName, name);
+			for (NamedType mergedType : type.getMergedTypes()) {
+				this.names.put(mergedType.getTypeName(), name);
 			}
 			
 			if (!contexts.containsKey(candidateNames.getNameContext())) {

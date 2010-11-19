@@ -19,9 +19,10 @@ class SimplifiableType implements Named, NamedType, HierarchicalType {
 	private List<SimplifiableType> mergedWithTypes = Collections.synchronizedList(new ArrayList<SimplifiableType>());
 	private final MessagePart messagePart;
 	private final boolean rootType;
-	private String mergedTypeName;
+	private TypeName mergedTypeName;
     private Set<String> interfaceTypes = Collections.synchronizedSet(new HashSet<String>());
 	private final String category;
+	private boolean indicator;
 
 	public SimplifiableType(MessagePart messagePart, boolean rootType, String category) {
 		this.messagePart = messagePart;
@@ -64,7 +65,7 @@ class SimplifiableType implements Named, NamedType, HierarchicalType {
 	}
 
 	public boolean isMerged() {
-		return !this.mergedWithTypes.isEmpty();
+		return !this.mergedWithTypes.isEmpty() && !isInlined();
 	}
 	
 	public void setInlined(boolean inlined) {
@@ -79,11 +80,11 @@ class SimplifiableType implements Named, NamedType, HierarchicalType {
 		return this.messagePart.getName();
 	}
 
-	public void setMergedTypeName(String mergedTypeName) {
+	public void setMergedTypeName(TypeName mergedTypeName) {
 		this.mergedTypeName = mergedTypeName;
 	}
 
-	public String getMergedTypeName() {
+	public TypeName getMergedTypeName() {
 		return this.mergedTypeName;
 	}
 
@@ -95,6 +96,10 @@ class SimplifiableType implements Named, NamedType, HierarchicalType {
 		return this.category;
 	}
 
+	public boolean isAbstract() {
+		return this.messagePart.isAbstract();
+	}
+	
 	public String getBusinessName() {
 		return this.messagePart.getDocumentation() != null ? this.messagePart.getDocumentation().getBusinessName() : null;
 	}
@@ -110,4 +115,13 @@ class SimplifiableType implements Named, NamedType, HierarchicalType {
 		}
 		return result;
 	}
+
+	public boolean isIndicator() {
+		return this.indicator;
+	}
+	
+	public void setIndicator(boolean indicator) {
+		this.indicator = indicator;
+	}
+
 }

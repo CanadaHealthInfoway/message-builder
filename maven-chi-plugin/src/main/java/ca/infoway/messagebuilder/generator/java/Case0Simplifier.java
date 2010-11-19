@@ -54,4 +54,25 @@ public class Case0Simplifier extends InlineableSimplifier {
 		}
 	}
 
+	@Override
+	protected boolean isInlineable(SimplifiablePackage simplifiablePackage,	SimplifiableType inlineableType) {
+		boolean result = true;
+		
+		if (inlineableType.isRootType()) {
+			result = false;
+		} else if (!getNonFixedRelationships(inlineableType).isEmpty()) {
+			result = false;
+		} else if (inlineableType.isAbstract()) {
+			result = false;
+		}
+
+		return result;
+	}
+
+	@Override
+	protected void inline(SimplifiableType type) {
+		super.inline(type);
+		type.setIndicator(true);
+	}	
+	
 }

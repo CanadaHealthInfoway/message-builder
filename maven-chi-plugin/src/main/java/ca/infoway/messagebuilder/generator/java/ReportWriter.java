@@ -157,11 +157,11 @@ public class ReportWriter {
 				writer.write("<td>merged</td><td>");
 				Type type = mergedTypes.get(name);
 				boolean first = true;
-				for (TypeName merged : type.getMergedTypes()) {
+				for (NamedType merged : type.getMergedTypes()) {
 					if (!first) {
 						writer.write("<br />");
 					}
-					writer.write(merged.getName());
+					writer.write(merged.getTypeName().getName());
 					first = false;
 				}
 				writer.write("</td>");
@@ -183,8 +183,8 @@ public class ReportWriter {
 		for (Type type : this.result.getAllMessageTypes()) {
 			TypeName name = type.getTypeName();
 			if (name instanceof TemporaryTypeName) {
-				for (TypeName mergedName : type.getMergedTypes()) {
-					mergedType.put(mergedName, type);
+				for (NamedType mergedName : type.getMergedTypes()) {
+					mergedType.put(mergedName.getTypeName(), type);
 				}
 			}
 		}

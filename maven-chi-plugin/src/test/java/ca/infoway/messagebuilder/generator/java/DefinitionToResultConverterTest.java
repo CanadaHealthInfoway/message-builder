@@ -144,10 +144,12 @@ public class DefinitionToResultConverterTest {
 		SimplifiableType simplifiableType2 = new SimplifiableType(new MessagePart("ABCD_MT123456CA.Patient2"), false);
 		simplifiableType2.getRelationships().add(new SimplifiableRelationship(relationship2, this.typeConverter.convertToType("ST", null)));
 		
+		TypeName mergedTypeName = TemporaryTypeName.create("merged");
+		
 		simplifiableType1.getMergedWithTypes().add(simplifiableType2);
-		simplifiableType1.setMergedTypeName("myMergedTypeName");
+		simplifiableType1.setMergedTypeName(mergedTypeName);
 		simplifiableType2.getMergedWithTypes().add(simplifiableType1);
-		simplifiableType2.setMergedTypeName("myMergedTypeName");
+		simplifiableType2.setMergedTypeName(mergedTypeName);
 
 		this.definitions.addType(simplifiableType1);
 		this.definitions.addType(simplifiableType2);
@@ -156,7 +158,7 @@ public class DefinitionToResultConverterTest {
 		
 		assertNotNull("result", result);
 		
-		Type type = result.getTypeByName(new TypeName("myMergedTypeName"));
+		Type type = result.getTypeByName(mergedTypeName);
 		assertNotNull("type", type);
 		assertEquals("number of relationships", 2, type.getRelationships().size());
 		assertTrue("attribute", type.getRelationships().get(0) instanceof Attribute);
@@ -174,10 +176,12 @@ public class DefinitionToResultConverterTest {
 		SimplifiableType simplifiableType2 = new SimplifiableType(new MessagePart("ABCD_MT123456CA.Patient2"), false);
 		simplifiableType2.getRelationships().add(new SimplifiableRelationship(relationship2, this.typeConverter.convertToType("ST", null)));
 		
+		TypeName mergedTypeName = TemporaryTypeName.create("merged");
+		
 		simplifiableType1.getMergedWithTypes().add(simplifiableType2);
-		simplifiableType1.setMergedTypeName("myMergedTypeName");
+		simplifiableType1.setMergedTypeName(mergedTypeName);
 		simplifiableType2.getMergedWithTypes().add(simplifiableType1);
-		simplifiableType2.setMergedTypeName("myMergedTypeName");
+		simplifiableType2.setMergedTypeName(mergedTypeName);
 
 		Relationship relationship3 = new Relationship("patient1", "ABCD_MT123456CA.Patient1", Cardinality.create("1"));
 		Relationship relationship4 = new Relationship("patient2", "ABCD_MT123456CA.Patient2", Cardinality.create("1"));
@@ -193,7 +197,7 @@ public class DefinitionToResultConverterTest {
 		
 		assertNotNull("result", result);
 		
-		Type type = result.getTypeByName(new TypeName("myMergedTypeName"));
+		Type type = result.getTypeByName(mergedTypeName);
 		assertNotNull("type", type);
 		assertEquals("number of relationships", 2, type.getRelationships().size());
 		assertTrue("attribute", type.getRelationships().get(0) instanceof Attribute);
@@ -204,7 +208,7 @@ public class DefinitionToResultConverterTest {
 		assertEquals("number of relationships", 2, type.getRelationships().size());
 		assertTrue("association", type.getRelationships().get(0) instanceof MergedAssociation);
 		assertTrue("association", type.getRelationships().get(1) instanceof MergedAssociation);
-		assertEquals("association type", "myMergedTypeName", type.getRelationships().get(0).getType());
-		assertEquals("association type", "myMergedTypeName", type.getRelationships().get(1).getType());
+		assertEquals("association type", mergedTypeName.getName(), type.getRelationships().get(0).getType());
+		assertEquals("association type", mergedTypeName.getName(), type.getRelationships().get(1).getType());
 	}
 }

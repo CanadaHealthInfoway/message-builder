@@ -73,8 +73,8 @@ public class MergeAllTypesUtil {
 		// - since removed types are used to generate a class name, how can we ensure that a name is chosen that
 		//   satisfies all previous APIs in the re-gen?
 		
-		mergedResult.getRemovedTypes().putAll(newTypesResult.getRemovedTypes());
-		mergedResult.getRemovedTypes().putAll(oldTypesResult.getRemovedTypes());
+//		mergedResult.getRemovedTypes().putAll(newTypesResult.getRemovedTypes());
+//		mergedResult.getRemovedTypes().putAll(oldTypesResult.getRemovedTypes());
 		
 		// need to be concerned with merging packages ??? 
 		// addType() creates packages, but what if a pair of merged types has different packages?? (can this even happen?)
