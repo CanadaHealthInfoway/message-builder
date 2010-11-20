@@ -55,25 +55,25 @@ public class Hl7XsdMessageTypeWriter extends Hl7XsdTypeWriter {
 		Element choice = document.createElement("xs:choice");
 		choices.appendChild(choice);
 		document.createElement("xs:element");
-		for (TypeName childTypeName : type.getChildTypes()) {
+		for (RenderedType childTypeName : type.getChildTypes()) {
 
-			Type childType = getType(childTypeName);
+			Type childType = getType(childTypeName.getTypeName());
 			
 			if (childType == null) {
-				throw new IllegalStateException("Could not find childType '" + childTypeName.getName()
+				throw new IllegalStateException("Could not find childType '" + childTypeName.getTypeName()
 						+ "' in result types");
 			} else if (childType.isInterface()) {
 				Element propertyElement = document.createElement("xs:group");
 				choice.appendChild(propertyElement);
-				propertyElement.setAttribute("ref", "chi:" + childTypeName.getName());
+				propertyElement.setAttribute("ref", "chi:" + childTypeName.getTypeName());
 			} else {
 				Element propertyElement = document.createElement("xs:element");
 				choice.appendChild(propertyElement);
-				String name = WordUtils.uncapitalize(this.translator.getClassNameWithoutPackage(childTypeName));
+				String name = WordUtils.uncapitalize(this.translator.getClassNameWithoutPackage(childTypeName.getTypeName()));
 				propertyElement.setAttribute("name", name);
-				propertyElement.setAttribute("type", "chi:" + childTypeName.getName());
+				propertyElement.setAttribute("type", "chi:" + childTypeName.getTypeName());
 			}
-			addInclude(schema, childTypeName.getParent().getName());
+			addInclude(schema, childTypeName.getTypeName().getParent().getName());
 		}
 		schema.appendChild(choices);
 	}

@@ -60,6 +60,8 @@ public class Hl7DotNetMessageTypeWriterTest {
 			allowing(manager).getRepresentationOfClassName(Identifier.class.getName()); will(returnValue("Identifier"));
 			allowing(manager).getRepresentationOfClassName(ANY.class.getName()); will(returnValue("ANY"));
 			allowing(manager).getRepresentationOfClassName("System.object"); will(returnValue("object"));
+			allowing(manager).getRepresentationOfClassName(".IMyChoice"); will(returnValue("IMyChoice"));
+			allowing(manager).getRepresentationOfClassName(".IMyOtherChoice"); will(returnValue("IMyOtherChoice"));
 			allowing(manager).getRepresentationOfTypeName(new TypeName("ABCD_MT123456CA.MyChoice")); will(returnValue("IMyChoice"));
 			allowing(manager).getRepresentationOfTypeName(new TypeName("ABCD_MT123456CA.Option1")); will(returnValue("Ca.Infoway.Messagebuilder.Model.Abcd_mt123456ca.Option1"));
 			allowing(manager).getRepresentationOfTypeName(new TypeName("ABCD_MT123456CA.Option2")); will(returnValue("Option2"));
@@ -119,8 +121,12 @@ public class Hl7DotNetMessageTypeWriterTest {
 	
 	@Test
 	public void shouldWriteInterfaces() throws Exception {
-		this.type.getInterfaceTypes().add(new TypeName("ABCD_MT123456CA.MyChoice"));
-		this.type.getInterfaceTypes().add(new TypeName("ABCD_MT123456CA.MyOtherChoice"));
+		Type type1 = new Type(new TypeName("ABCD_MT123456CA.MyChoice"));
+		type1.setLanguageSpecificName(new LanguageSpecificName("", "IMyChoice"));
+		this.type.getInterfaceTypes().add(type1);
+		Type type2 = new Type(new TypeName("ABCD_MT123456CA.MyOtherChoice"));
+		type2.setLanguageSpecificName(new LanguageSpecificName("", "IMyOtherChoice"));
+		this.type.getInterfaceTypes().add(type2);
 		
 		this.writer.write(this.stringWriter);
 		String output = stringWriter.toString();
@@ -131,7 +137,9 @@ public class Hl7DotNetMessageTypeWriterTest {
 	@Test
 	public void shouldWriteInterfaceDefinition() throws Exception {
 		this.type.setAbstract(true);
-		this.type.getInterfaceTypes().add(new TypeName("ABCD_MT123456CA.MyChoice"));
+		Type type1 = new Type(new TypeName("ABCD_MT123456CA.MyChoice"));
+		type1.setLanguageSpecificName(new LanguageSpecificName("", "IMyChoice"));
+		this.type.getInterfaceTypes().add(type1);
 		
 		this.writer.write(this.stringWriter);
 		String output = stringWriter.toString();

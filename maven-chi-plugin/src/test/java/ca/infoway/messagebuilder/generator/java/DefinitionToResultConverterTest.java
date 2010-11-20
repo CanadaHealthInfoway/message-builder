@@ -169,6 +169,54 @@ public class DefinitionToResultConverterTest {
 		
 		assertEquals("class name", "ca.infoway.test.common.merged.Patient2Bean", type.getLanguageSpecificName().getFullyQualifiedName());
 	}
+
+	@Test
+	public void shouldConvertSimpleCaseWithMergedAndInlinedTypes() throws Exception {
+		
+		SimplifiableType simplifiableType1 = new SimplifiableType(new MessagePart("ABCD_MT123456CA.Patient1"), false);
+		simplifiableType1.setInlined(true);
+		
+		SimplifiableType simplifiableType2 = new SimplifiableType(new MessagePart("ABCD_MT123456CA.Patient2"), false);
+		simplifiableType2.setInlined(true);
+		
+		TemporaryTypeName name = TemporaryTypeName.create("merged");
+		simplifiableType1.setMergedTypeName(name);
+		simplifiableType1.getMergedWithTypes().add(simplifiableType2);
+		
+		simplifiableType2.setMergedTypeName(name);
+		simplifiableType2.getMergedWithTypes().add(simplifiableType1);
+
+		this.definitions.addType(simplifiableType1);
+		this.definitions.addType(simplifiableType2);
+		
+		TypeAnalysisResult result = this.converter.convert();
+		
+		assertEquals("count", 0, result.getAllMessageTypes().size());
+	}	
+	
+	@Test
+	public void shouldConvertSimpleCaseWithMergedWithTrivialInlinedCase() throws Exception {
+		
+		SimplifiableType simplifiableType1 = new SimplifiableType(new MessagePart("ABCD_MT123456CA.Patient1"), false);
+		simplifiableType1.setInlined(true);
+		
+		SimplifiableType simplifiableType2 = new SimplifiableType(new MessagePart("ABCD_MT123456CA.Patient2"), false);
+		
+		TemporaryTypeName name = TemporaryTypeName.create("merged");
+		simplifiableType1.setMergedTypeName(name);
+		simplifiableType1.getMergedWithTypes().add(simplifiableType2);
+		
+		simplifiableType2.setMergedTypeName(name);
+		simplifiableType2.getMergedWithTypes().add(simplifiableType1);
+		
+		this.definitions.addType(simplifiableType1);
+		this.definitions.addType(simplifiableType2);
+		
+		TypeAnalysisResult result = this.converter.convert();
+		
+		assertEquals("count", 1, result.getAllMessageTypes().size());
+		assertNotNull("type", result.getTypeByName(new TypeName("ABCD_MT123456CA.Patient2")));
+	}	
 	
 	@Test
 	public void shouldConvertSimpleCaseWithMergedAssociations() throws Exception {

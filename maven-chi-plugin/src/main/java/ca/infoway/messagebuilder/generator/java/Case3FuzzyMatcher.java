@@ -26,7 +26,6 @@ class Case3FuzzyMatcher extends Case3Matcher {
 	private static final Predicate ADDED_PREDICATE = PredicateUtils.equalPredicate(ADDED);
 	private static final Predicate EXACT_PREDICATE = PredicateUtils.equalPredicate(EXACT);
 	
-	private final TypeProvider provider;
 	private final SimplifiableTypeProvider definitions;
 	private final Case3MergeResult mergeResult;
 	private final Matcher matcher;
@@ -34,42 +33,9 @@ class Case3FuzzyMatcher extends Case3Matcher {
 
 	public Case3FuzzyMatcher(LogUI log, TypeProvider provider, SimplifiableTypeProvider definitions, Case3MergeResult result) {
 		this.log = log;
-		this.provider = provider;
 		this.definitions = definitions;
 		this.mergeResult = result;
 		this.matcher = new Matcher(this.mergeResult);
-	}
-
-	public boolean performMatching(Type type) {
-		List<Type> matches = new ArrayList<Type>();
-		if (!type.isAbstract() && !type.isTemplateType()) {
-			for (Type otherType : this.provider.getAllMessageTypes()) {
-				if (type.getTypeName().equals(otherType.getTypeName())) {
-					// skip it
-				} else if (this.mergeResult.isUnmergeable(type, otherType)) {
-					// skip it
-				} else if (otherType.isTemplateType()) {
-					// skip it
-				} else if (!isExactOrMinor(new NameMatcher().matchNames(type, otherType))) {
-					// skip it
-				} else if (isOverlappingSetOfRelationships(type, otherType)) {
-					if (isMergeable(matches, otherType)) {
-						if (matches.isEmpty()) {
-							matches.add(type);
-						}
-					
-						matches.add(otherType);
-					}
-				}
-			}
-		}
-		
-		if (!matches.isEmpty() && isAllMatchesCompatible(matches) && !isAlreadyRecorded(type, matches)) {
-			recordAllMatches(matches);
-			return true;
-		} else {
-			return false;
-		}
 	}
 
 	public boolean performMatching(SimplifiableType type) {
@@ -105,17 +71,9 @@ class Case3FuzzyMatcher extends Case3Matcher {
 	}
 	
 	private boolean isTemplateType(SimplifiableType type) {
-		// TODO: BCH/TM: Mom! Dad! Don't touch it! It's evil!
-		return false;
+		return type.isTemplateType();
 	}
 
-	private boolean isMergeable(List<Type> matches, Type otherType) {
-		boolean unmergeable = false;
-		for (Type type : matches) {
-			unmergeable |= this.mergeResult.isUnmergeable(type, otherType);
-		}
-		return !unmergeable;
-	}
 	private boolean isMergeable(List<SimplifiableType> matches, SimplifiableType otherType) {
 		boolean unmergeable = false;
 		for (SimplifiableType type : matches) {
@@ -151,21 +109,6 @@ class Case3FuzzyMatcher extends Case3Matcher {
 		}
 	}
 
-	private boolean isAllMatchesCompatible(List<Type> matches) {
-		matches = createMergeList(matches);
-		boolean result = true;
-		while (!matches.isEmpty() && result) {
-			Type exemplar = matches.remove(0);
-			for (Type type : matches) {
-				result &= isOverlappingSetOfRelationships(exemplar, type);
-				if (!result) {
-					break;
-				}
-			}
-		}
-		return result;
-	}
-
 	private boolean isAllMatchesCompatible2(List<SimplifiableType> matches) {
 		matches = createMergeList2(matches);
 		boolean result = true;
@@ -181,28 +124,6 @@ class Case3FuzzyMatcher extends Case3Matcher {
 		return result;
 	}
 	
-	// need to consolidate both the cluster, and everything that 
-	// items in the cluster have previously merged with.
-	private List<Type> createMergeList(List<Type> matches) {
-		HashMap<TypeName,Type> map = new HashMap<TypeName, Type>();
-		for (Type type : matches) {
-			map.put(type.getTypeName(), type);
-			MergedTypeDescriptor descriptor = this.mergeResult.getDescriptorByName(type.getTypeName());
-			if (descriptor != null) {
-				for (TypeName existingMerges : descriptor.getMergedTypes()) {
-					Type otherType = this.provider.getTypeByName(existingMerges);
-					if (otherType != null) {
-						map.put(existingMerges, otherType);
-					} else {
-						this.log.log(LogLevel.WARN, "No type found for " + existingMerges);
-					}
-				}
-			}
-		}
-		
-		return new ArrayList<Type>(map.values());
-	}
-
 	// need to consolidate both the cluster, and everything that 
 	// items in the cluster have previously merged with.
 	private List<SimplifiableType> createMergeList2(List<SimplifiableType> matches) {
@@ -225,14 +146,6 @@ class Case3FuzzyMatcher extends Case3Matcher {
 		return new ArrayList<SimplifiableType>(map.values());
 	}
 	
-	private boolean isOverlappingSetOfRelationships(Type type, Type otherType) {
-		List<MatchType> matchTypes = new ArrayList<MatchType>();
-		checkRelationships(type, otherType, matchTypes, MatchType.ADDED);
-		checkRelationships(otherType, type, matchTypes, MatchType.REMOVED);
-		
-		return isSufficientOverlap(matchTypes);
-	}
-
 	private boolean isOverlappingSetOfRelationships(SimplifiableType type, SimplifiableType otherType) {
 		List<MatchType> matchTypes = new ArrayList<MatchType>();
 		checkRelationships(type, otherType, matchTypes, MatchType.ADDED);
@@ -263,25 +176,6 @@ class Case3FuzzyMatcher extends Case3Matcher {
 		return type.getTypeName().getName() + "." + (relationship == null ? "?" : relationship.getName());
 	}
 	
-	private void checkRelationships(Type type, Type otherType, List<MatchType> matchTypes, MatchType missingMatchType) {
-		for (BaseRelationship relationship : type.getRelationships()) {
-			MatchType matchType = MatchType.EXACT;
-			BaseRelationship otherRelationship = otherType.getRelationship(relationship.getName());
-			if (otherRelationship != null) {
-				matchTypes.add(matchType =
-						this.matcher.matchesType(relationship.getRelationship(), otherRelationship.getRelationship()));
-			} else if (relationship.isTemplateType() || isTemplateAssociationType(relationship)) {
-				matchTypes.add(matchType =MatchType.MAJOR_DIFFERENCE);
-			} else {
-				// TODO: BCH: Should we search by business name?
-				matchTypes.add(matchType = missingMatchType);
-			}
-			this.log.log(LogLevel.DEBUG, "comparing " + describe(type, relationship) + 
-					" with " + describe(otherType, otherRelationship) + " : match type = " 
-					+ matchType);
-		}
-	}
-
 	private void checkRelationships(SimplifiableType type, SimplifiableType otherType, List<MatchType> matchTypes, MatchType missingMatchType) {
 		for (SimplifiableRelationship relationship : type.getRelationships()) {
 			MatchType matchType = MatchType.EXACT;
@@ -305,11 +199,6 @@ class Case3FuzzyMatcher extends Case3Matcher {
 		return relationship.isAssociation() 
 				&& relationship.getType() != null
 				&& isTemplateType(relationship.getType());
-	}
-	private boolean isTemplateAssociationType(BaseRelationship relationship) {
-		return relationship.getRelationshipType() == RelationshipType.ASSOCIATION 
-		&& ((Association) relationship).getAssociationType() != null
-		&& ((Association) relationship).getAssociationType().isTemplateType();
 	}
 
 	private boolean isExactOrMinor(MatchType matchType) {

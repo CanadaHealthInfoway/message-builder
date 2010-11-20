@@ -3,7 +3,6 @@ package ca.infoway.messagebuilder.generator.java;
 import static org.apache.commons.collections.CollectionUtils.isEmpty;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -42,10 +41,56 @@ class DefinitionToResultConverter {
 		TypeAnalysisResult result = new TypeAnalysisResult();
 		createAllTypes(result);  // should also create packages
 		createAllRelationships(result);
+		createAllHierarchies(result);
 		createInteractions(result);
 		
 		createLanguageSpecificNames(result);
 		
+		return result;
+	}
+
+	private void createAllHierarchies(TypeAnalysisResult result) {
+		for (SimplifiableType simplifiableType : this.definitions.getAllTypes()) {
+			Type type = this.types.get(simplifiableType.getName());
+			if (simplifiableType.isMerged()) {
+				for (TypeName typeName : convertAll(collectAllInterfaceNames(simplifiableType))) {
+					type.getInterfaceTypes().add(result.getTypeByName(typeName));
+				}
+				for (TypeName typeName : convertAllNames(collectAllChildNames(simplifiableType))) {
+					type.getChildTypes().add(result.getTypeByName(typeName));
+				}
+				
+				
+			} else {
+				for (TypeName typeName : convertAll(simplifiableType.getInterfaceTypes())) {
+					type.getInterfaceTypes().add(result.getTypeByName(typeName));
+				}
+				for (TypeName typeName : convertAllNames(simplifiableType.getChildTypes())) {
+					type.getChildTypes().add(result.getTypeByName(typeName));
+				}
+			}
+		}		
+	}
+
+	private Set<String> collectAllInterfaceNames(SimplifiableType simplifiableType) {
+		Set<String> result = new HashSet<String>();
+		result.addAll(simplifiableType.getInterfaceTypes());
+		for (SimplifiableType type : simplifiableType.getMergedWithTypes()) {
+			if (!type.isInlined()) {
+				result.addAll(type.getInterfaceTypes());
+			}
+		}
+		return result;
+	}
+
+	private Set<TypeName> collectAllChildNames(SimplifiableType simplifiableType) {
+		Set<TypeName> result = new HashSet<TypeName>();
+		result.addAll(simplifiableType.getChildTypes());
+		for (SimplifiableType type : simplifiableType.getMergedWithTypes()) {
+			if (!type.isInlined()) {
+				result.addAll(type.getChildTypes());
+			}
+		}
 		return result;
 	}
 
@@ -65,10 +110,6 @@ class DefinitionToResultConverter {
 			for (SimplifiableRelationship simplifiableRelationship : simplifiableType.getRelationships()) {
 				type.getRelationships().add(createRelationship(result, simplifiableRelationship.getRelationship()));
 			}
-			for (String typeName : simplifiableType.getInterfaceTypes()) {
-				type.getInterfaceTypes().add(new TypeName(typeName));
-			}
-			type.getChildTypes().addAll(simplifiableType.getChildTypes());
 		}
 		for (SimplifiableType simplifiableType : this.definitions.getAllTypes()) {
 			Type type = result.getTypeByName(new TypeName(simplifiableType.getName()));
@@ -98,9 +139,8 @@ class DefinitionToResultConverter {
 				for (BaseRelationship relationship : originalType.getRelationships()) {
 					collator.addRelationship(originalType.getTypeName(), relationship);
 				}
-				
-				mergedType.getChildTypes().addAll(substituteAll(originalType.getChildTypes()));
-				mergedType.getInterfaceTypes().addAll(substituteAll(originalType.getInterfaceTypes()));
+//				mergedType.getChildTypes().addAll(substituteAll(originalType.getChildTypes(), result));
+//				mergedType.getInterfaceTypes().addAll(substituteAll(originalType.getInterfaceTypes(), result));
 			}
 			
 			for (String relationshipName : collator.relationshipNames()) {
@@ -110,15 +150,26 @@ class DefinitionToResultConverter {
 		}
 	}
 
-	private Collection<TypeName> substituteAll(Set<TypeName> typeNames) {
+	private Set<TypeName> convertAll(Set<String> interfaceTypes) {
 		Set<TypeName> result = new HashSet<TypeName>();
-		for (TypeName typeName : typeNames) {
-			SimplifiableType type = this.definitions.getType(typeName.getName());
-			result.add(type.isMerged() ? type.getMergedTypeName() : typeName);
+		for (String string : interfaceTypes) {
+			SimplifiableType type = this.definitions.getType(string);
+			TypeName name = type.isMerged() ? type.getMergedTypeName() : new TypeName(string);
+			result.add(name);
 		}
 		return result;
 	}
 
+	private Set<TypeName> convertAllNames(Set<TypeName> interfaceTypes) {
+		Set<TypeName> result = new HashSet<TypeName>();
+		for (TypeName typeName : interfaceTypes) {
+			SimplifiableType type = this.definitions.getType(typeName.getName());
+			TypeName name = type.isMerged() ? type.getMergedTypeName() : typeName;
+			result.add(name);
+		}
+		return result;
+	}
+	
 	private void handleInlining(Type type) throws GeneratorException {
 		for (BaseRelationship relationship : new ArrayList<BaseRelationship>(type.getRelationships())) {
 			if (isInlined(relationship)) {
@@ -263,6 +314,7 @@ class DefinitionToResultConverter {
 
 	private void assignCategoryIfSame(SimplifiableType simplifiableType, Type mergedType) {
 		Set<String> categories = new HashSet<String>();
+		categories.add(simplifiableType.getCategory());
 		for (SimplifiableType otherType : simplifiableType.getMergedWithTypes()) {
 			categories.add(otherType.getCategory());
 		}

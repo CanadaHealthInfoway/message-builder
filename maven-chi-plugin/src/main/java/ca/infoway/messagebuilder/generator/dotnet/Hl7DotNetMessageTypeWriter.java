@@ -22,7 +22,6 @@ import ca.infoway.messagebuilder.generator.java.Type;
 import ca.infoway.messagebuilder.generator.java.InteractionType.ArgumentType;
 import ca.infoway.messagebuilder.generator.lang.Hl7MessageTypeWriter;
 import ca.infoway.messagebuilder.xml.Relationship;
-import ca.infoway.messagebuilder.xml.TypeName;
 
 /**
  * <p>Write out a valid C# message class.
@@ -141,13 +140,13 @@ class Hl7DotNetMessageTypeWriter extends Hl7MessageTypeWriter implements Hl7Type
 	    	}
 	        if (!this.type.getInterfaceTypes().isEmpty()) {
 	       		boolean first = this.type.isAbstract();
-	       		for (TypeName interfaceType : this.type.getInterfaceTypes()) {
+	       		for (RenderedType interfaceType : this.type.getInterfaceTypes()) {
 	       			if (!first) {
 	       				writer.write(", ");
 	       			} else {
 	       				writer.write(" : ");
 	       			}
-	       			writer.write(this.manager.getRepresentationOfTypeName(interfaceType));
+	       			writer.write(this.manager.getRepresentationOfClassName(interfaceType.getLanguageSpecificName().getFullyQualifiedName()));
 	       			first = false;
 				}
 	       	}

@@ -16,7 +16,6 @@ import ca.infoway.messagebuilder.generator.GeneratorException;
 import ca.infoway.messagebuilder.generator.java.InteractionType.ArgumentType;
 import ca.infoway.messagebuilder.generator.lang.Hl7MessageTypeWriter;
 import ca.infoway.messagebuilder.xml.Relationship;
-import ca.infoway.messagebuilder.xml.TypeName;
 
 public class Hl7JavaMessageTypeWriter extends Hl7MessageTypeWriter implements Hl7TypeWriter {
 
@@ -94,11 +93,11 @@ public class Hl7JavaMessageTypeWriter extends Hl7MessageTypeWriter implements Hl
 	       			writer.write(" implements ");
 	       		}
 	       		boolean first = true;
-	       		for (TypeName interfaceType : this.type.getInterfaceTypes()) {
+	       		for (RenderedType interfaceType : this.type.getInterfaceTypes()) {
 	       			if (!first) {
 	       				writer.write(", ");
 	       			}
-	       			writer.write(this.importDeclarationGenerator.getRepresentationOfTypeName(interfaceType));
+	       			writer.write(this.importDeclarationGenerator.getRepresentationOfClassName(interfaceType.getLanguageSpecificName().getFullyQualifiedName()));
 	       			first = false;
 				}
 	       	}

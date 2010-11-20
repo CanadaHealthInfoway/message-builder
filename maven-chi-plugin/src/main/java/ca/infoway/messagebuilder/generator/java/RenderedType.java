@@ -16,6 +16,7 @@ public interface RenderedType {
 	public boolean isTemplateType();
 	public String[] getPartTypeMapping();
 	public List<String> getTemplateVariables();
-	public Set<TypeName> getInterfaceTypes();
+	public Set<RenderedType> getInterfaceTypes();
+	public TypeName getTypeName();
 
 }
