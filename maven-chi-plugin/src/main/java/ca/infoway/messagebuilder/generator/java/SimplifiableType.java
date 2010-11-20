@@ -12,7 +12,7 @@ import ca.infoway.messagebuilder.Named;
 import ca.infoway.messagebuilder.xml.MessagePart;
 import ca.infoway.messagebuilder.xml.TypeName;
 
-class SimplifiableType implements Named, NamedType, HierarchicalType {
+class SimplifiableType implements Named, NamedType {
 
 	private List<SimplifiableRelationship> relationships = Collections.synchronizedList(new ArrayList<SimplifiableRelationship>());
 	private boolean inlined;
@@ -65,7 +65,17 @@ class SimplifiableType implements Named, NamedType, HierarchicalType {
 	}
 
 	public boolean isMerged() {
-		return !this.mergedWithTypes.isEmpty() && !isInlined();
+		if (isInlined()) {
+			return false;
+		} else if (this.mergedWithTypes.isEmpty()) {
+			return false;
+		} else {
+			int count = isInlined() ? 0 : 1;
+			for (SimplifiableType type : this.mergedWithTypes) {
+				count += type.isInlined() ? 0 : 1;
+			}
+			return count > 1;
+		}
 	}
 	
 	public void setInlined(boolean inlined) {
@@ -124,4 +134,31 @@ class SimplifiableType implements Named, NamedType, HierarchicalType {
 		this.indicator = indicator;
 	}
 
+	public boolean isTemplateType() {
+		return isTemplateType(new HashSet<TypeName>());
+	}
+	// BCH: Ideally, we'd want to interrogate each relationship and find out if it is
+	//      either a template type or contains something with a template type.  
+	//      Unfortunately, that can get us into infinite loops because you can have
+	//      cycles.  So, we'll keep track of which types we've already visited.
+	boolean isTemplateType(Set<TypeName> visitedTypes) {
+		boolean result = false;
+		for (SimplifiableRelationship relationship : this.relationships) {
+			if (relationship.isAssociation()) {
+				SimplifiableType associationType = relationship.getType();
+				if (associationType != null && !visitedTypes.contains(associationType.getTypeName())) {
+					visitedTypes.add(associationType.getTypeName());
+					if (associationType.isTemplateType(visitedTypes)) {
+						result = true;
+						break;
+					}
+				} else if (associationType == null && relationship.getRelationship().isTemplateRelationship()) {
+					result = true;
+					break;
+				}
+			}
+		}
+		return result;
+	}
+	
 }

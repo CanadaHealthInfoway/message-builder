@@ -39,8 +39,8 @@ public class MergeTypeUtil {
 		mergeBusinessName(resultType, oldType.getBusinessName(), newType.getBusinessName());
 		
 		// the following properties are merged with the union of their types
-		mergeInterfaceTypes(resultType, oldType.getInterfaceTypes(), newType.getInterfaceTypes());
-		mergeChildTypes(resultType, oldType.getChildTypes(), newType.getChildTypes());
+//		mergeInterfaceTypes(resultType, oldType.getInterfaceTypes(), newType.getInterfaceTypes());
+//		mergeChildTypes(resultType, oldType.getChildTypes(), newType.getChildTypes());
 //		mergeMergedTypes(resultType, oldType.getMergedTypes(), newType.getMergedTypes());
 		
 		mergeInteractions(resultType, oldType, newType);
@@ -121,14 +121,14 @@ public class MergeTypeUtil {
 
 	private void mergeChildTypes(Type resultType, Set<TypeName> oldChildTypes, Set<TypeName> newChildTypes) {
 		// the result of merging interface types is the union of all types
-		resultType.getChildTypes().addAll(newChildTypes);
-		resultType.getChildTypes().addAll(oldChildTypes);
+//		resultType.getChildTypes().addAll(newChildTypes);
+//		resultType.getChildTypes().addAll(oldChildTypes);
 	}
 
 	private void mergeInterfaceTypes(Type resultType, Set<TypeName> oldInterfaceTypes, Set<TypeName> newInterfaceTypes) {
 		// the result of merging interface types is the union of all types
-		resultType.getInterfaceTypes().addAll(newInterfaceTypes);
-		resultType.getInterfaceTypes().addAll(oldInterfaceTypes);
+//		resultType.getInterfaceTypes().addAll(newInterfaceTypes);
+//		resultType.getInterfaceTypes().addAll(oldInterfaceTypes);
 	}
 
 	private void mergeRelationships(Type resultType, Type oldType, Type newType) {

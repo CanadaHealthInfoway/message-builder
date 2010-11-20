@@ -1,6 +1,7 @@
 package ca.infoway.messagebuilder.generator.java;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
@@ -14,13 +15,13 @@ import ca.infoway.messagebuilder.generator.lang.TypeDocumentation;
 import ca.infoway.messagebuilder.xml.Documentation;
 import ca.infoway.messagebuilder.xml.TypeName;
 
-public class Type implements RenderedType, NamedType, HierarchicalType {
+public class Type implements RenderedType, NamedType {
 
 	private final TypeName name;
     private TypeDocumentation typeDocumentation;
     private List<BaseRelationship> relationships = Collections.synchronizedList(new ArrayList<BaseRelationship>());
-    private Set<TypeName> interfaceTypes = Collections.synchronizedSet(new HashSet<TypeName>());
-    private Set<TypeName> childTypes = Collections.synchronizedSet(new HashSet<TypeName>());
+    private Set<RenderedType> interfaceTypes = Collections.synchronizedSet(new HashSet<RenderedType>());
+    private Set<Type> childTypes = Collections.synchronizedSet(new HashSet<Type>());
 	private boolean isAbstract = false;
 	private String businessName;
 	private boolean rootType;
@@ -133,11 +134,11 @@ public class Type implements RenderedType, NamedType, HierarchicalType {
 		return this.isAbstract &&  this.relationships.isEmpty();
 	}
 
-	public Set<TypeName> getInterfaceTypes() {
+	public Set<RenderedType> getInterfaceTypes() {
 		return this.interfaceTypes;
 	}
 	
-	public Set<TypeName> getChildTypes() {
+	public Set<Type> getChildTypes() {
 		return this.childTypes;
 	}
 
@@ -189,11 +190,18 @@ public class Type implements RenderedType, NamedType, HierarchicalType {
 				.append(this.typeDocumentation)
 				.append(this.businessName)
 				.append(this.category)
-				.append(this.interfaceTypes)
-				.append(this.childTypes)
+				.append(toNames(this.interfaceTypes))
+				.append(toNames(this.childTypes))
 				.toHashCode();
 	}
 
+	private Collection<TypeName> toNames(Set<? extends RenderedType> types) {
+		Collection<TypeName> result = new HashSet<TypeName>();
+		for (RenderedType type : types) {
+			result.add(type.getTypeName());
+		}
+		return result;
+	}
 	public List<String> getTemplateVariables() {
 		List<String> result = new ArrayList<String>();
 		for (BaseRelationship relationship : this.relationships) {
