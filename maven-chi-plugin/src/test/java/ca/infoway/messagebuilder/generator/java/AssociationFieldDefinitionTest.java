@@ -32,7 +32,7 @@ public class AssociationFieldDefinitionTest {
 	@Test
 	public void shouldProvideData() throws Exception {
 		Relationship relationship = new Relationship("component", "ABCD_MT123456CA.Component6", Cardinality.create("1"));
-		final Association association = new Association(relationship, new Type(new TypeName(relationship.getType())));
+		final Association association = Association.createStandardAssociation(relationship, new Type(new TypeName(relationship.getType())));
 		this.jmock.checking(new Expectations() {{
 			allowing(manager).getRepresentationOfTypeName(association.getPropertyTypeName()); will(returnValue("MedicalOrder"));
 			allowing(resolver).getName(association); will(returnValue("relatedTo"));
@@ -68,7 +68,7 @@ public class AssociationFieldDefinitionTest {
 		Relationship relationship = new Relationship("component", "ABCD_MT123456CA.Component6", Cardinality.create("1"));
 		Type associationType = new Type(new TypeName(relationship.getType()));
 		associationType.getRelationships().add(new Association(new Relationship(), new TemplateVariable("ACT")));
-		final Association association = new Association(relationship, associationType);
+		final Association association = Association.createStandardAssociation(relationship, associationType);
 		
 		this.jmock.checking(new Expectations() {{
 			allowing(manager).getRepresentationOfTypeName(association.getPropertyTypeName()); will(returnValue("Subject"));

@@ -16,7 +16,6 @@ import org.junit.runner.RunWith;
 
 import ca.infoway.messagebuilder.generator.lang.ProgrammingLanguage;
 import ca.infoway.messagebuilder.xml.Cardinality;
-import ca.infoway.messagebuilder.xml.Relationship;
 import ca.infoway.messagebuilder.xml.TypeName;
 
 @RunWith(JMock.class)
@@ -174,8 +173,9 @@ public class PropertyGeneratorBuilderTest {
 	@Test
 	public void shouldGenerateChoicePropertyWithGetterAndHas() throws Exception {
 		final Association choiceAssociation = createAssociation();
-		Relationship subChoiceRelationship = new Relationship("subChoice", "PRPA_123456CA.SubChoiceType", new Cardinality(0,1));
-		this.javaBuilder.setFieldDefinition(new DerivedChoiceFieldDefinition(choiceAssociation, subChoiceRelationship, ProgrammingLanguage.JAVA));
+//		Relationship subChoiceRelationship = new Relationship("subChoice", "PRPA_123456CA.SubChoiceType", new Cardinality(0,1));
+		this.javaBuilder.setFieldDefinition(new DerivedChoiceFieldDefinition(choiceAssociation, 
+				new Choice("subChoice", new Type(new TypeName("PRPA_123456CA.SubChoiceType"))), ProgrammingLanguage.JAVA));
 		PropertyGenerator generator = this.javaBuilder.build(this.manager, this.resolver);
 		
 		this.jmock.checking(new Expectations() {{

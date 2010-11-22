@@ -187,8 +187,8 @@ public abstract class IntermediateToModelGenerator {
 			if (relationship.isAttribute() && relationship.isFixed()) {
 				// skip it
 			} else {
-				type.getRelationships().add(createRelationship(type.getTypeName(), result, relationship, generator, type.getRelationships().size()));
-				simplifiableType.getRelationships().add(createRelationship(type.getTypeName(), definitions, relationship, generator2, 0));
+				type.getRelationships().add(createRelationship(type.getTypeName(), result, relationship, generator));
+				simplifiableType.getRelationships().add(createRelationship(type.getTypeName(), definitions, relationship, generator2));
 			}
 		}
 	}
@@ -205,7 +205,7 @@ public abstract class IntermediateToModelGenerator {
 	}
 
 	private BaseRelationship createRelationship(TypeName name, TypeAnalysisResult result,
-			Relationship relationship, TemplateVariableGenerator generator, int sortKey) throws GeneratorException {
+			Relationship relationship, TemplateVariableGenerator generator) throws GeneratorException {
 		
 		if (relationship.isAttribute()) {
 			DataType type = this.converter.convertToType(relationship);
@@ -215,15 +215,15 @@ public abstract class IntermediateToModelGenerator {
 				return new Attribute(relationship, type);
 			}
 		} else if (relationship.isTemplateRelationship()) {
-			return Association.createTemplateAssociation(relationship, generator.getNext(relationship.getTemplateParameterName()), sortKey);
+			return Association.createTemplateAssociation(relationship, generator.getNext(relationship.getTemplateParameterName()));
 		} else {
 			return Association.createStandardAssociation(relationship, 
-					getTypeCorrespondingTo(result, relationship), sortKey);
+					getTypeCorrespondingTo(result, relationship));
 		}
 	}
 
 	private SimplifiableRelationship createRelationship(TypeName name, SimplifiableDefinitions definitions,
-			Relationship relationship, TemplateVariableGenerator generator, int sortKey) throws GeneratorException {
+			Relationship relationship, TemplateVariableGenerator generator) throws GeneratorException {
 		
 		if (relationship.isAttribute()) {
 			DataType type = this.converter.convertToType(relationship);

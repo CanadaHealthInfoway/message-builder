@@ -10,6 +10,7 @@ import java.util.List;
 import ca.infoway.messagebuilder.generator.GeneratorException;
 import ca.infoway.messagebuilder.generator.java.Association;
 import ca.infoway.messagebuilder.generator.java.BaseRelationship;
+import ca.infoway.messagebuilder.generator.java.Choice;
 import ca.infoway.messagebuilder.generator.java.Hl7TypeWriter;
 import ca.infoway.messagebuilder.generator.java.ImportTypeUtil;
 import ca.infoway.messagebuilder.generator.java.InteractionType;
@@ -21,7 +22,6 @@ import ca.infoway.messagebuilder.generator.java.RenderedType;
 import ca.infoway.messagebuilder.generator.java.Type;
 import ca.infoway.messagebuilder.generator.java.InteractionType.ArgumentType;
 import ca.infoway.messagebuilder.generator.lang.Hl7MessageTypeWriter;
-import ca.infoway.messagebuilder.xml.Relationship;
 
 /**
  * <p>Write out a valid C# message class.
@@ -94,8 +94,8 @@ class Hl7DotNetMessageTypeWriter extends Hl7MessageTypeWriter implements Hl7Type
 	}
 
 	@Override
-	protected PropertyGenerator createChoicePropertyGenerator(BaseRelationship rootChoice, Relationship choiceRelationship) {
-		return PropertyGeneratorBuilders.newDerivedChoiceBuilder(C_SHARP, (Association) rootChoice, choiceRelationship).build(this.manager, this.nameResolver);
+	protected PropertyGenerator createChoicePropertyGenerator(BaseRelationship rootChoice, Choice choice) {
+		return PropertyGeneratorBuilders.newDerivedChoiceBuilder(C_SHARP, (Association) rootChoice, choice).build(this.manager, this.nameResolver);
 	}
 	
 	@Override

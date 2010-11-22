@@ -98,7 +98,7 @@ public class PropertyDefinitionGeneratorTest {
 	
 	@Test
 	public void shouldIndicateThatAdditionalAnnotationIsNotRequiredInTrivialCase() throws Exception {
-		Association association = new Association(new Relationship("person", "ABCD_MT123456CA.Person", Cardinality.create("1")), new Type(new TypeName("ABCD_MT123456CA.Person")));
+		Association association = Association.createStandardAssociation(new Relationship("person", "ABCD_MT123456CA.Person", Cardinality.create("1")), new Type(new TypeName("ABCD_MT123456CA.Person")));
 		assertFalse("simple case", this.javaPropertyDefinition.requiresMapByPartTypeAnnotation(association));
 	}
 	
@@ -108,7 +108,7 @@ public class PropertyDefinitionGeneratorTest {
 		relationship.addDifference(new Difference(DifferenceType.RELATIONSHIP_RENAMED,
 				true, new DifferenceValue("version1", "person1"), new DifferenceValue("version2", "person")));
 		
-		Association association = new Association(relationship, new Type(new TypeName("ABCD_MT123456CA.Person")));
+		Association association = Association.createStandardAssociation(relationship, new Type(new TypeName("ABCD_MT123456CA.Person")));
 		assertTrue("basic rename", this.javaPropertyDefinition.requiresMapByPartTypeAnnotation(association));
 	}
 	
@@ -117,8 +117,8 @@ public class PropertyDefinitionGeneratorTest {
 		Relationship relationship = new Relationship("person", "ABCD_MT123456CA.Person", Cardinality.create("1"));
 		relationship.addDifference(new Difference(DifferenceType.RELATIONSHIP_RENAMED,
 				true, new DifferenceValue("version1", "person1"), new DifferenceValue("version2", "person")));
-		Association association = new Association(relationship, new Type(new TypeName("ABCD_MT123456CA.Person")));
-		Association elidedAssociation = new Association(new Relationship("patientPerson", "ABCD_MT123456CA.Patient", Cardinality.create("1")), new Type(new TypeName("ABCD_MT123456CA.Patient")));
+		Association association = Association.createStandardAssociation(relationship, new Type(new TypeName("ABCD_MT123456CA.Person")));
+		Association elidedAssociation = Association.createStandardAssociation(new Relationship("patientPerson", "ABCD_MT123456CA.Patient", Cardinality.create("1")), new Type(new TypeName("ABCD_MT123456CA.Patient")));
 		
 		InlinedAssociation inlinedAssociation = new InlinedAssociation(association, elidedAssociation);
 		assertTrue("basic rename", this.javaPropertyDefinition.requiresMapByPartTypeAnnotation(inlinedAssociation));

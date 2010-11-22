@@ -34,7 +34,7 @@ public class Hl7XsdInteractionTypeWriterTest {
 		parameterListRelationship.setName("PRPA_MT101103CA.ParameterList");
 		queryByParameterType.getRelationships().add(new Association(parameterListRelationship, new TemplateVariable("T")));
 
-		controlActType.getRelationships().add(new Association(controlActRelationship, queryByParameterType ));
+		controlActType.getRelationships().add(Association.createStandardAssociation(controlActRelationship, queryByParameterType ));
 		controlActArgument.setName("MFMI_MT700751CA.ControlActEvent");
 		controlActArgument.setTemplateParameterName("ControlActEvent");
 		ArgumentType controlActArgumentType = new ArgumentType(controlActArgument, controlActType.getTypeName());

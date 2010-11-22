@@ -15,7 +15,7 @@ public class MapByPartTypeAnnotationDecoratorTest {
 	@Test
 	public void shouldGenerateNothingWhenNotInlinedForJava() {
 		Relationship relationship = new Relationship("relName", "ABCD_MT123456CA.SubjectOf2", Cardinality.create("1"));
-		BaseRelationship association = new Association(relationship, new Type(new TypeName(relationship.getType())));
+		BaseRelationship association = Association.createStandardAssociation(relationship, new Type(new TypeName(relationship.getType())));
 		MapByPartTypeAnnotationDecorator decorator = new MapByPartTypeAnnotationDecorator(0, association, ProgrammingLanguage.JAVA);
 		assertEquals("", decorator.render());
 	}
@@ -26,9 +26,9 @@ public class MapByPartTypeAnnotationDecoratorTest {
 		Relationship relationship2 = new Relationship("theSubType", "ABCD_MT123478CA.Component4", Cardinality.create("1"));
 		Relationship relationship3 = new Relationship("theSubSubType", "ABCD_MT123490CA.Patient", Cardinality.create("1"));
 		
-		Association highestAssociation = new Association(relationship1, new Type(new TypeName(relationship1.getType())));
-		Association middleAssociation = new Association(relationship2, new Type(new TypeName(relationship2.getType())));
-		Association lowestAssociation = new Association(relationship3, new Type(new TypeName(relationship3.getType())));
+		Association highestAssociation = Association.createStandardAssociation(relationship1, new Type(new TypeName(relationship1.getType())));
+		Association middleAssociation = Association.createStandardAssociation(relationship2, new Type(new TypeName(relationship2.getType())));
+		Association lowestAssociation = Association.createStandardAssociation(relationship3, new Type(new TypeName(relationship3.getType())));
 		
 		Association inlinedAssociation1 = new InlinedAssociation(lowestAssociation, middleAssociation);
 		Association inlinedAssociation2 = new InlinedAssociation(inlinedAssociation1, highestAssociation);
@@ -46,9 +46,9 @@ public class MapByPartTypeAnnotationDecoratorTest {
 		Relationship relationship2 = new Relationship("theSubType", "ABCD_MT123478CA.Component4", Cardinality.create("1"));
 		Relationship relationship3 = new Relationship("theSubSubType", "ABCD_MT123490CA.Patient", Cardinality.create("1"));
 		
-		Association highestAssociation = new Association(relationship1, new Type(new TypeName(relationship1.getType())));
-		Association middleAssociation = new Association(relationship2, new Type(new TypeName(relationship2.getType())));
-		Association lowestAssociation = new Association(relationship3, new Type(new TypeName(relationship3.getType())));
+		Association highestAssociation = Association.createStandardAssociation(relationship1, new Type(new TypeName(relationship1.getType())));
+		Association middleAssociation = Association.createStandardAssociation(relationship2, new Type(new TypeName(relationship2.getType())));
+		Association lowestAssociation = Association.createStandardAssociation(relationship3, new Type(new TypeName(relationship3.getType())));
 		
 		Association inlinedAssociation2 = new InlinedAssociation(middleAssociation, highestAssociation);
 		Association inlinedAssociation1 = new InlinedAssociation(lowestAssociation, inlinedAssociation2);
@@ -67,10 +67,10 @@ public class MapByPartTypeAnnotationDecoratorTest {
 		Relationship relationship2 = new Relationship("theSubType", "ABCD_MT123478CA.Component4", Cardinality.create("1"));
 		Relationship relationship3 = new Relationship("theSubSubType", "ABCD_MT123490CA.Patient", Cardinality.create("1"));
 		
-		Association highestAssociation = new Association(relationship1, new Type(new TypeName(relationship1.getType())));
-		Association middleAssociation = new Association(relationship2, new Type(new TypeName(relationship2.getType())));
+		Association highestAssociation = Association.createStandardAssociation(relationship1, new Type(new TypeName(relationship1.getType())));
+		Association middleAssociation = Association.createStandardAssociation(relationship2, new Type(new TypeName(relationship2.getType())));
 		middleAssociation = new MergedAssociation(middleAssociation, new Type(TemporaryTypeName.create("merged")));
-		Association lowestAssociation = new Association(relationship3, new Type(new TypeName(relationship3.getType())));
+		Association lowestAssociation = Association.createStandardAssociation(relationship3, new Type(new TypeName(relationship3.getType())));
 		
 		lowestAssociation = new MergedAssociation(lowestAssociation, new Type(TemporaryTypeName.create("merged")));
 		
@@ -90,8 +90,8 @@ public class MapByPartTypeAnnotationDecoratorTest {
 		Relationship relationship2 = new Relationship("theSubType", "ABCD_MT123478CA.Component4", Cardinality.create("1"));
 		Relationship relationship3 = new Relationship("theSubSubType", "ST", Cardinality.create("1"));
 		
-		Association highestAssociation = new Association(relationship1, new Type(new TypeName(relationship1.getType())));
-		Association middleAssociation = new Association(relationship2, new Type(new TypeName(relationship2.getType())));
+		Association highestAssociation = Association.createStandardAssociation(relationship1, new Type(new TypeName(relationship1.getType())));
+		Association middleAssociation = Association.createStandardAssociation(relationship2, new Type(new TypeName(relationship2.getType())));
 		Attribute lowestAttribute = new Attribute(relationship3, new TypeConverter().convertToType(relationship3));
 		
 		Association inlinedAssociation = new InlinedAssociation(middleAssociation, highestAssociation);
@@ -106,7 +106,7 @@ public class MapByPartTypeAnnotationDecoratorTest {
 	@Test
 	public void shouldGenerateNothingWhenNotInlinedForCsharp() {
 		Relationship relationship = new Relationship("relName", "ABCD_MT123456CA.SubjectOf2", Cardinality.create("1"));
-		BaseRelationship association = new Association(relationship, new Type(new TypeName(relationship.getType())));
+		BaseRelationship association = Association.createStandardAssociation(relationship, new Type(new TypeName(relationship.getType())));
 		MapByPartTypeAnnotationDecorator decorator = new MapByPartTypeAnnotationDecorator(0, association, ProgrammingLanguage.C_SHARP);
 		assertEquals("", decorator.render());
 	}

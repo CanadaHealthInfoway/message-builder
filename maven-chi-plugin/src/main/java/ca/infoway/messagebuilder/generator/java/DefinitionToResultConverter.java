@@ -43,9 +43,7 @@ class DefinitionToResultConverter {
 		createAllRelationships(result);
 		createAllHierarchies(result);
 		createInteractions(result);
-		
 		createLanguageSpecificNames(result);
-		
 		return result;
 	}
 
@@ -59,8 +57,6 @@ class DefinitionToResultConverter {
 				for (TypeName typeName : convertAllNames(collectAllChildNames(simplifiableType))) {
 					type.getChildTypes().add(result.getTypeByName(typeName));
 				}
-				
-				
 			} else {
 				for (TypeName typeName : convertAll(simplifiableType.getInterfaceTypes())) {
 					type.getInterfaceTypes().add(result.getTypeByName(typeName));
@@ -139,8 +135,6 @@ class DefinitionToResultConverter {
 				for (BaseRelationship relationship : originalType.getRelationships()) {
 					collator.addRelationship(originalType.getTypeName(), relationship);
 				}
-//				mergedType.getChildTypes().addAll(substituteAll(originalType.getChildTypes(), result));
-//				mergedType.getInterfaceTypes().addAll(substituteAll(originalType.getInterfaceTypes(), result));
 			}
 			
 			for (String relationshipName : collator.relationshipNames()) {
@@ -153,9 +147,7 @@ class DefinitionToResultConverter {
 	private Set<TypeName> convertAll(Set<String> interfaceTypes) {
 		Set<TypeName> result = new HashSet<TypeName>();
 		for (String string : interfaceTypes) {
-			SimplifiableType type = this.definitions.getType(string);
-			TypeName name = type.isMerged() ? type.getMergedTypeName() : new TypeName(string);
-			result.add(name);
+			result.add(getTypeNameForType(string));
 		}
 		return result;
 	}
@@ -163,9 +155,7 @@ class DefinitionToResultConverter {
 	private Set<TypeName> convertAllNames(Set<TypeName> interfaceTypes) {
 		Set<TypeName> result = new HashSet<TypeName>();
 		for (TypeName typeName : interfaceTypes) {
-			SimplifiableType type = this.definitions.getType(typeName.getName());
-			TypeName name = type.isMerged() ? type.getMergedTypeName() : typeName;
-			result.add(name);
+			result.add(getTypeNameForType(typeName.getName()));
 		}
 		return result;
 	}
@@ -249,12 +239,25 @@ class DefinitionToResultConverter {
 			return new Attribute(relationship, this.converter.convertToType(relationship));
 		} else if (relationship.isTemplateRelationship()) {
 			return Association.createTemplateAssociation(
-					relationship, new TemplateVariableGenerator().getNext(relationship), 0);
+					relationship, new TemplateVariableGenerator().getNext(relationship));
 		} else {
 			Type relationshipType = this.types.get(relationship.getType());
+			List<Choice> choiceTypes = createChoiceTypes(new ArrayList<Choice>(), relationship, result);
 			return Association.createStandardAssociation(
-					relationship, relationshipType, 0);
+					relationship, relationshipType, choiceTypes);
 		}
+	}
+
+	private List<Choice> createChoiceTypes(List<Choice> choiceTypes, Relationship relationship, TypeAnalysisResult result) {
+		if (relationship.isChoice()) {
+			List<Relationship> choices = relationship.getChoices();
+			for (Relationship choiceRelationship : choices) {
+				createChoiceTypes(choiceTypes, choiceRelationship, result);
+				TypeName typeName = getTypeNameForType(choiceRelationship.getType());
+				choiceTypes.add(new Choice(choiceRelationship.getName(), result.getTypeByName(typeName)));
+			}
+		}
+		return choiceTypes;
 	}
 
 	private void createAllTypes(TypeAnalysisResult result) {
@@ -301,7 +304,6 @@ class DefinitionToResultConverter {
 		// mergedType.setBusinessName(businessName);
 		// mergedType.setTypeDocumentation(description);
 		
-		
 		MessagePart messagePart = simplifiableType.getMessagePart();
 		if (messagePart.isAbstract()) {
 			mergedType.setAbstract(true);
@@ -328,9 +330,7 @@ class DefinitionToResultConverter {
 			Interaction interaction = simplifiableInteraction.getInteraction();
 			InteractionType interactionType = new InteractionType(new TypeName(interaction.getName()));
 			
-			SimplifiableType simplifiableType = this.definitions.getType(interaction.getSuperTypeName());
-			TypeName parentTypeName = simplifiableType.isMerged() 
-					? simplifiableType.getMergedTypeName() : new TypeName(simplifiableType.getName());
+			TypeName parentTypeName = getTypeNameForType(interaction.getSuperTypeName());
 			
 			interactionType.setParentType(result.getTypeByName(parentTypeName));
 			interactionType.setTypeDocumentation(new TypeDocumentation(interaction.getDocumentation()));
@@ -340,13 +340,16 @@ class DefinitionToResultConverter {
 		}
 	}
 
+	private TypeName getTypeNameForType(String type) {
+		SimplifiableType simplifiableType = this.definitions.getType(type);
+		return simplifiableType.isMerged() 
+				? simplifiableType.getMergedTypeName() : new TypeName(simplifiableType.getName());
+	}
+
 	private List<ArgumentType> groupArgumentsAndTypes(List<Argument> arguments) {
 		List<ArgumentType> result = new ArrayList<ArgumentType>();
 		for (Argument argument : arguments) {
-			SimplifiableType simplifiableType = this.definitions.getType(argument.getName());
-			TypeName typeName = simplifiableType.isMerged() 
-					? simplifiableType.getMergedTypeName() : new TypeName(simplifiableType.getName());
-			
+			TypeName typeName = getTypeNameForType(argument.getName());
 			ArgumentType argumentType = new ArgumentType(argument, typeName);
 			argumentType.getArgumentTypes().addAll(groupArgumentsAndTypes(argument.getArguments()));
 			result.add(argumentType);

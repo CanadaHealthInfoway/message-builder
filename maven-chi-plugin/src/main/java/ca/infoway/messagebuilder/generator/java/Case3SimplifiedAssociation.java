@@ -1,6 +1,7 @@
 package ca.infoway.messagebuilder.generator.java;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
@@ -15,7 +16,8 @@ class Case3SimplifiedAssociation extends Association {
 	private final Map<TypeName, BaseRelationship> mergedRelationships;
 
 	public Case3SimplifiedAssociation(Association exemplar, Map<TypeName,BaseRelationship> mergedRelationships) {
-		super(exemplar.getRelationship(), exemplar.getAssociationType(), exemplar.getTemplateVariable());
+		super(exemplar.getRelationship(), exemplar.getAssociationType(), 
+				exemplar.getTemplateVariable(), Collections.<Choice>emptyList());
 		this.exemplar = exemplar;
 		this.mergedRelationships = mergedRelationships;
 	}
