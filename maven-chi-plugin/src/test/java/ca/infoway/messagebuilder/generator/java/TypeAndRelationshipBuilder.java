@@ -23,7 +23,7 @@ public class TypeAndRelationshipBuilder {
 		relationship.setType(type.getTypeName().getName());
 		relationship.setCardinality(cardinality);
 		relationship.setConformance(conformanceLevel);
-		return new Association(relationship, type);
+		return Association.createStandardAssociation(relationship, type);
 	}
 
 	public static Association createMergedAssociation(String name, Cardinality cardinality, Type originalType, Type mergedType, ConformanceLevel conformanceLevel) {
@@ -32,7 +32,7 @@ public class TypeAndRelationshipBuilder {
 		relationship.setType(originalType.getTypeName().getName());
 		relationship.setCardinality(cardinality);
 		relationship.setConformance(conformanceLevel);
-		Association association = new Association(relationship, originalType);
+		Association association = Association.createStandardAssociation(relationship, originalType);
 		return new MergedAssociation(association, mergedType);
 	}
 
@@ -109,7 +109,7 @@ public class TypeAndRelationshipBuilder {
 		relationship.setName(name);
 		relationship.setCardinality(Cardinality.create("0-1"));
 		relationship.setConformance(ConformanceLevel.REQUIRED);
-		return Association.createTemplateAssociation(relationship, new TemplateVariable(templateVariable), 0);
+		return Association.createTemplateAssociation(relationship, new TemplateVariable(templateVariable));
 	}
 	public static SimplifiableRelationship createSimplifiableAssociation(String name, Cardinality cardinality, SimplifiableType type) {
 		return createSimplifiableAssociation(name, cardinality, type, null);

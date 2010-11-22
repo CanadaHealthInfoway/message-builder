@@ -3,8 +3,6 @@ package ca.infoway.messagebuilder.generator.java;
 import org.apache.commons.lang.WordUtils;
 
 import ca.infoway.messagebuilder.generator.lang.ProgrammingLanguage;
-import ca.infoway.messagebuilder.xml.Relationship;
-import ca.infoway.messagebuilder.xml.TypeName;
 
 class DerivedChoiceFieldDefinition implements FieldDefinition {
 
@@ -12,11 +10,11 @@ class DerivedChoiceFieldDefinition implements FieldDefinition {
 	private ClassNameManager manager;
 	private BaseRelationshipNameResolver resolver;
 	private final ProgrammingLanguage language;
-	private final Relationship derivedRelationship;
+	private final Choice choice;
 
-	DerivedChoiceFieldDefinition(Association choiceAssociation, Relationship derivedRelationship, ProgrammingLanguage language) {
+	DerivedChoiceFieldDefinition(Association choiceAssociation, Choice choice, ProgrammingLanguage language) {
 		this.choiceAssociation = choiceAssociation;
-		this.derivedRelationship = derivedRelationship;
+		this.choice = choice;
 		this.language = language;
 	}
 	
@@ -30,7 +28,7 @@ class DerivedChoiceFieldDefinition implements FieldDefinition {
 	
 	public String getCapitalizedPropertyName() {
 		String baseName = WordUtils.capitalize(getFieldName());
-		String derivedChoiceName = WordUtils.capitalize(this.derivedRelationship.getName());
+		String derivedChoiceName = WordUtils.capitalize(this.choice.getName());
 		return baseName + "As" + derivedChoiceName;
 	}
 
@@ -55,7 +53,7 @@ class DerivedChoiceFieldDefinition implements FieldDefinition {
 	}
 
 	private String getBaseType() {
-		return getManager().getRepresentationOfTypeName(new TypeName(this.derivedRelationship.getType()));
+		return getManager().getRepresentationOfTypeName(this.choice.getType().getTypeName());
 	}
 
 	public GetterBodyStyle getGetterBodyStyle() {

@@ -53,7 +53,7 @@ public class AttributeFieldDefinitionImplTest {
 		Relationship relationship = new Relationship("text", "ST", Cardinality.create("1"));
 		Attribute attribute = new Attribute(relationship, new TypeConverter().convertToType(relationship));
 		InlinedAttribute outer = new InlinedAttribute(attribute, 
-				new Association(
+				Association.createStandardAssociation(
 					new Relationship("component", "ABCD_MT123456CA.Component", Cardinality.create("0-10")), 
 					new Type(new TypeName("ABCD_MT123456CA.Component"))));
 		

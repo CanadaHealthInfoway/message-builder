@@ -1,6 +1,7 @@
 package ca.infoway.messagebuilder.generator.java;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import org.apache.commons.lang.WordUtils;
@@ -15,7 +16,7 @@ public class InlinedAssociation extends Association {
 	private final BaseRelationship elidedRelationship;
 
 	public InlinedAssociation(Association inlinedRelationship, BaseRelationship elidedRelationship) {
-		super(inlinedRelationship.getRelationship(), inlinedRelationship.getAssociationType());
+		super(inlinedRelationship.getRelationship(), inlinedRelationship.getAssociationType(), Collections.<Choice>emptyList());
 		this.inlinedRelationship = inlinedRelationship;
 		this.elidedRelationship = elidedRelationship;
 	}

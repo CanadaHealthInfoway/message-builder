@@ -45,11 +45,11 @@ public class Hl7DotNetMessageTypeWriterTest {
 		final String associationTypeName = "ABCD_MT123456CA.Component3";
 		this.type.getRelationships().add(new Attribute(new Relationship("id", "II.BUS", Cardinality.create("1")), new TypeConverter().convertToType("II.BUS", null)));
 		this.type.getRelationships().add(new Attribute(new Relationship("details", "ANY", Cardinality.create("1")), new TypeConverter().convertToType("ANY", null)));
-		this.type.getRelationships().add(Association.createStandardAssociation(new Relationship("component", associationTypeName, Cardinality.create("1")), new Type(new TypeName(associationTypeName)), 3));
+		this.type.getRelationships().add(Association.createStandardAssociation(new Relationship("component", associationTypeName, Cardinality.create("1")), new Type(new TypeName(associationTypeName))));
 		Relationship myChoice = new Relationship("myChoice", "ABCD_MT123456CA.MyChoice", Cardinality.create("1"));
 		myChoice.getChoices().add(new Relationship("option1", "ABCD_MT123456CA.Option1", Cardinality.create("1")));
 		myChoice.getChoices().add(new Relationship("option1", "ABCD_MT123456CA.Option2", Cardinality.create("1")));
-		this.type.getRelationships().add(Association.createStandardAssociation(myChoice, new Type(new TypeName("ABCD_MT123456CA.MyChoice")), 4));
+		this.type.getRelationships().add(Association.createStandardAssociation(myChoice, new Type(new TypeName("ABCD_MT123456CA.MyChoice"))));
 		this.translator = this.jmock.mock(NameTranslator.class);
 		this.manager = this.jmock.mock(DependencyManager.class);
 

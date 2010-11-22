@@ -1,5 +1,6 @@
 package ca.infoway.messagebuilder.generator.java;
 
+import java.util.Collections;
 import java.util.Set;
 
 import ca.infoway.messagebuilder.generator.lang.ProgrammingLanguage;
@@ -11,7 +12,7 @@ public class RegeneratedAssociationImpl extends Association implements Regenerat
 	private PropertyGeneratorBuilder builder;
 	
 	RegeneratedAssociationImpl(Association originalAssociation, Association newAssociation) {
-		super(originalAssociation.getRelationship(), originalAssociation.getAssociationType());
+		super(originalAssociation.getRelationship(), originalAssociation.getAssociationType(), Collections.<Choice>emptyList());
 		this.originalAssociation = originalAssociation;
 		this.newAssociation = newAssociation;
 		this.builder = new PropertyGeneratorBuilder(ProgrammingLanguage.JAVA);

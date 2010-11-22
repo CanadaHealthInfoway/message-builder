@@ -26,7 +26,7 @@ public class AssociationBuilder {
 			documentation.setBusinessName(businessName);
 			relationship.setDocumentation(documentation);
 		}
-		return Association.createStandardAssociation(relationship, this.type, 0);
+		return Association.createStandardAssociation(relationship, this.type);
 	}
 	
 	public AssociationBuilder setName(String name) {

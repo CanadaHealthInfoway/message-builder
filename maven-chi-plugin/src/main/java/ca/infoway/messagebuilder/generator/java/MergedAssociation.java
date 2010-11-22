@@ -1,6 +1,7 @@
 package ca.infoway.messagebuilder.generator.java;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 
@@ -15,7 +16,7 @@ public class MergedAssociation extends Association {
 	private final Association association;
 	
 	protected MergedAssociation(Association association, Type type) {
-		super(association.getRelationship(), type);
+		super(association.getRelationship(), type, Collections.<Choice>emptyList());
 		this.association = association;
 		this.type = type;
 		this.typeName = this.type.getTypeName();

@@ -15,7 +15,6 @@ import org.apache.commons.lang.time.DateFormatUtils;
 import ca.infoway.messagebuilder.generator.GeneratorException;
 import ca.infoway.messagebuilder.generator.java.InteractionType.ArgumentType;
 import ca.infoway.messagebuilder.generator.lang.Hl7MessageTypeWriter;
-import ca.infoway.messagebuilder.xml.Relationship;
 
 public class Hl7JavaMessageTypeWriter extends Hl7MessageTypeWriter implements Hl7TypeWriter {
 
@@ -188,8 +187,8 @@ public class Hl7JavaMessageTypeWriter extends Hl7MessageTypeWriter implements Hl
 	}
 
 	@Override
-	protected PropertyGenerator createChoicePropertyGenerator(BaseRelationship rootChoice, Relationship choiceRelationship) {
-		return PropertyGeneratorBuilders.newDerivedChoiceBuilder(JAVA, (Association) rootChoice, choiceRelationship).build(this.importDeclarationGenerator, this.nameResolver);
+	protected PropertyGenerator createChoicePropertyGenerator(BaseRelationship rootChoice, Choice choice) {
+		return PropertyGeneratorBuilders.newDerivedChoiceBuilder(JAVA, (Association) rootChoice, choice).build(this.importDeclarationGenerator, this.nameResolver);
 	}
     
 }

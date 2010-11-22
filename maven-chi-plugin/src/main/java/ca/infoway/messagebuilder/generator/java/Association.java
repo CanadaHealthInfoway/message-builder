@@ -1,6 +1,7 @@
 package ca.infoway.messagebuilder.generator.java;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 
@@ -14,17 +15,19 @@ public class Association extends BaseRelationship {
 	
 	private final TemplateVariable templateVariable;
 	private final Type associationType;
+	private final List<Choice> choices;
 
-    protected Association(Relationship relationship, Type associationType) {
-    	this(relationship, associationType, null);
+    protected Association(Relationship relationship, Type associationType, List<Choice> allChoiceTypes) {
+    	this(relationship, associationType, null, allChoiceTypes);
 	}
     protected Association(Relationship relationship, TemplateVariable templateVariable) {
-    	this(relationship, null, templateVariable);
+    	this(relationship, null, templateVariable, null);
 	}
-    protected Association(Relationship relationship, Type associationType, TemplateVariable templateVariable) {
+    protected Association(Relationship relationship, Type associationType, TemplateVariable templateVariable, List<Choice> allChoiceTypes) {
     	super(relationship, null, templateVariable != null ? templateVariable.getType() : relationship.getType());
     	this.templateVariable = templateVariable;
     	this.associationType = associationType;
+		this.choices = allChoiceTypes;
     }
 	@Override
 	public String getTypeParameters() {
@@ -48,10 +51,6 @@ public class Association extends BaseRelationship {
     public RelationshipType getRelationshipType() {
         return RelationshipType.ASSOCIATION;
     }
-
-    private boolean isAbstractType() {
-		return this.associationType != null && this.associationType.isAbstract();
-	}
 
 	public TemplateVariable getTemplateVariable() {
 		return this.templateVariable;
@@ -108,11 +107,17 @@ public class Association extends BaseRelationship {
 		return PropertyGeneratorBuilders.newAssociationBuilder(language, this).build(representation, nameResolver);
 	}
 	
-	public static Association createTemplateAssociation(Relationship relationship, TemplateVariable templateVariable, int sortKey) {
-		return new Association(relationship, templateVariable);
-	}
-	public static Association createStandardAssociation(Relationship relationship, Type type, int sortKey) {
-		return new Association(relationship, type);
+	public List<Choice> getAllChoiceTypes() {
+		return this.choices;
 	}
 	
+	public static Association createTemplateAssociation(Relationship relationship, TemplateVariable templateVariable) {
+		return new Association(relationship, templateVariable);
+	}
+	public static Association createStandardAssociation(Relationship relationship, Type type) {
+		return createStandardAssociation(relationship, type, Collections.<Choice>emptyList());
+	}
+	public static Association createStandardAssociation(Relationship relationship, Type type, List<Choice> allChoiceTypes) {
+		return new Association(relationship, type, allChoiceTypes);
+	}
 }
