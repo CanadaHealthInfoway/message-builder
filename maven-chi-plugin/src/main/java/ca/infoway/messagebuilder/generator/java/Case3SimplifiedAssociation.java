@@ -35,4 +35,13 @@ class Case3SimplifiedAssociation extends Association {
 	Association getExemplar() {
 		return this.exemplar;
 	}
+	
+	@Override
+	public List<Choice> getAllChoiceTypes() {
+		return this.exemplar.getAllChoiceTypes();
+	}
+	@Override
+	public Type getAssociationType() {
+		return this.exemplar.getAssociationType();
+	}
 }

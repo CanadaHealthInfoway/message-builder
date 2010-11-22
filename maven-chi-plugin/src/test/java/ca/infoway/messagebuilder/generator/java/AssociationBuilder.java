@@ -13,13 +13,15 @@ public class AssociationBuilder {
 	private Cardinality cardinality;
 	private Type type;
 	private String businessName;
+	private LanguageSpecificName languageSpecificName;
 	
 	public Association buildStandard() {
 		Relationship relationship = new Relationship();
 		relationship.setName(this.name);
 		relationship.setCardinality(cardinality);
-		if (this.type!=null && this.type.getTypeName()!=null) {
+		if (this.type != null && this.type.getTypeName() != null) {
 			relationship.setType(this.type.getTypeName().getName());
+			this.type.setLanguageSpecificName(this.languageSpecificName);
 		}
 		if (businessName!=null) {
 			Documentation documentation = new Documentation();
@@ -47,6 +49,11 @@ public class AssociationBuilder {
 
 	public AssociationBuilder setBusinessName(String businessName) {
 		this.businessName = businessName;
+		return this;
+	}
+
+	public AssociationBuilder setLanguageSpecificName(String packageName, String className) {
+		this.languageSpecificName = new LanguageSpecificName(packageName, className);
 		return this;
 	}
 

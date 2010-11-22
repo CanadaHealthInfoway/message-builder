@@ -37,7 +37,7 @@ public class PropertyGeneratorBuilderTest {
 		this.resolver = this.jmock.mock(BaseRelationshipNameResolver.class);
 
 		this.jmock.checking(new Expectations() {{
-			allowing(manager).getRepresentationOfTypeName(new TypeName("ABCD_MT123456CA.Type")); will(returnValue("Type"));
+			allowing(manager).getRepresentationOfClassName("ca.infoway.test.Type"); will(returnValue("Type"));
 			allowing(resolver).getName(with(any(Association.class))); will(returnValue("name"));
 		}});
 	}
@@ -107,13 +107,17 @@ public class PropertyGeneratorBuilderTest {
 	}
 	
 	private Association createAssociation() {
-		return TypeAndRelationshipBuilder.createAssociation("name", Cardinality.create("1"), 
+		Association association = TypeAndRelationshipBuilder.createAssociation("name", Cardinality.create("1"), 
 				TypeAndRelationshipBuilder.createType(null, "ABCD_MT123456CA.Type"));
+		association.getAssociationType().setLanguageSpecificName(new LanguageSpecificName("ca.infoway.test", "Type"));
+		return association;
 	}
 	
 	private Association createAssociationList() {
-		return TypeAndRelationshipBuilder.createAssociation("name", Cardinality.create("0-5"), 
+		Association association = TypeAndRelationshipBuilder.createAssociation("name", Cardinality.create("0-5"), 
 				TypeAndRelationshipBuilder.createType(null, "ABCD_MT123456CA.Type"));
+		association.getAssociationType().setLanguageSpecificName(new LanguageSpecificName("ca.infoway.test", "Type"));
+		return association;
 	}
 	
 	@Test
