@@ -15,6 +15,7 @@ import java.util.TreeSet;
 import org.apache.commons.lang.ClassUtils;
 import org.apache.commons.lang.StringUtils;
 
+import ca.infoway.messagebuilder.generator.GeneratorException;
 import ca.infoway.messagebuilder.util.iterator.EmptyIterable;
 import ca.infoway.messagebuilder.xml.TypeName;
 
@@ -128,5 +129,14 @@ public class ImportDeclarationGenerator extends Hl7TypeCodeGenerator implements 
 	public String getRepresentationOfTypeName(TypeName typeName) {
 		String className = this.nameTranslator.getFullyQualifiedClassName(typeName);
 		return getRepresentationOfClassName(className);
+	}
+
+	public String getRepresentationOfType(Type type) {
+		LanguageSpecificName name = type.getLanguageSpecificName();
+		if (name != null) {
+			return getRepresentationOfClassName(name.getFullyQualifiedName());
+		} else {
+			throw new GeneratorException("Type " + type.getTypeName() + " does not have a name assigned.");
+		}
 	}
 }

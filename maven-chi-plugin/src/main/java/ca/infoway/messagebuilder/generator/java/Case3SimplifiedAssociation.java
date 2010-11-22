@@ -44,4 +44,8 @@ class Case3SimplifiedAssociation extends Association {
 	public Type getAssociationType() {
 		return this.exemplar.getAssociationType();
 	}
+	@Override
+	public String getName() {
+		return this.exemplar.getName();
+	}
 }

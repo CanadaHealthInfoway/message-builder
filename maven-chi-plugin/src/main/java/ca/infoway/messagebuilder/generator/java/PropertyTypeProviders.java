@@ -3,7 +3,6 @@ package ca.infoway.messagebuilder.generator.java;
 import ca.infoway.messagebuilder.generator.DataType;
 import ca.infoway.messagebuilder.generator.java.PropertyGeneratorBuilder.PropertyTypeProvider;
 import ca.infoway.messagebuilder.generator.lang.ProgrammingLanguage;
-import ca.infoway.messagebuilder.xml.TypeName;
 
 public class PropertyTypeProviders {
 
@@ -43,12 +42,7 @@ public class PropertyTypeProviders {
 			if (this.association.isTemplateType()) {
 				type = this.association.getTemplateVariable().getType() + this.association.getTypeParameters();
 			} else {
-				TypeName typeName = this.association.getPropertyTypeName();
-				if (typeName != null) {
-					type = manager.getRepresentationOfTypeName(typeName) + this.association.getTypeParameters();
-				} else {
-					type = manager.getRepresentationOfClassName(this.association.getType()) + this.association.getTypeParameters();
-				}
+				type = manager.getRepresentationOfType(this.association.getAssociationType()) + this.association.getTypeParameters();
 			}
 			return type;
 		}

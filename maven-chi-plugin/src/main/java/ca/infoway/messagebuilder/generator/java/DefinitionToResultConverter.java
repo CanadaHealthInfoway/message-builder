@@ -108,13 +108,13 @@ class DefinitionToResultConverter {
 			}
 		}
 		for (SimplifiableType simplifiableType : this.definitions.getAllTypes()) {
-			Type type = result.getTypeByName(new TypeName(simplifiableType.getName()));
+			Type type = this.types.get(simplifiableType.getName());
 			if (type != null) {
 				handleInlining(type);
 			}
 		}
 		for (SimplifiableType simplifiableType : this.definitions.getAllTypes()) {
-			Type type = result.getTypeByName(new TypeName(simplifiableType.getName()));
+			Type type = this.types.get(simplifiableType.getName());
 			if (type != null) {
 				handleMerging(type);
 			}
@@ -173,10 +173,14 @@ class DefinitionToResultConverter {
 	
 	private void handleInlining(Type type) throws GeneratorException {
 		for (BaseRelationship relationship : new ArrayList<BaseRelationship>(type.getRelationships())) {
-			if (isInlined(relationship)) {
+			if (isInlined(relationship) && !isAlreadyInlined(relationship)) {
 				inline(type, relationship);
 			}
 		}
+	}
+
+	private boolean isAlreadyInlined(BaseRelationship relationship) {
+		return relationship instanceof InlinedAssociation || relationship instanceof InlinedAttribute;
 	}
 
 	private void handleMerging(Type type) {

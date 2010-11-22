@@ -33,4 +33,9 @@ class Case3SimplifiedAttribute extends Attribute {
 	Attribute getExemplar() {
 		return this.exemplar;
 	}
+	
+	@Override
+	public String getName() {
+		return this.exemplar.getName();
+	}
 }

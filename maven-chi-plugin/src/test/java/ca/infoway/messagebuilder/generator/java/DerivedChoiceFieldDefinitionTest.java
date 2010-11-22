@@ -31,15 +31,16 @@ public class DerivedChoiceFieldDefinitionTest {
 	@Test
 	public void shouldProvideData() throws Exception {
 		Relationship choiceRelationship = new Relationship("mainChoice", "ABCD_MT123456CA.Component6", Cardinality.create("1"));
-		final Relationship subChoiceRelationship = new Relationship("subChoice", "ABCD_MT123456CA.Component2", Cardinality.create("1"));
-		final Association association = Association.createStandardAssociation(choiceRelationship, new Type(new TypeName(choiceRelationship.getType())));
+		final Type associationType = new Type(new TypeName(choiceRelationship.getType()));
+		final Association association = Association.createStandardAssociation(choiceRelationship, associationType);
+		final Type choiceType = new Type(new TypeName("ABCD_MT123456CA.Component2"));
 		this.jmock.checking(new Expectations() {{
-			allowing(manager).getRepresentationOfTypeName(association.getPropertyTypeName()); will(returnValue("MedicalOrder"));
-			allowing(manager).getRepresentationOfTypeName(new TypeName(subChoiceRelationship.getType())); will(returnValue("MedicalOrderSpecialization"));
+			allowing(manager).getRepresentationOfType(associationType); will(returnValue("MedicalOrder"));
+			allowing(manager).getRepresentationOfType(choiceType); will(returnValue("MedicalOrderSpecialization"));
 			allowing(resolver).getName(association); will(returnValue("relatedTo"));
 		}});
 		DerivedChoiceFieldDefinition field = new DerivedChoiceFieldDefinition(association, 
-				new Choice("subChoice", new Type(new TypeName("ABCD_MT123456CA.Component2"))), JAVA);
+				new Choice("subChoice", choiceType), JAVA);
 		field.initializeContext(this.manager, this.resolver);
 		
 		assertFalse("not writable", field.isWritable());

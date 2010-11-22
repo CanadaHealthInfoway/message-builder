@@ -46,7 +46,6 @@ public class Hl7JavaMessageTypeWriterTest {
 			allowing(Hl7JavaMessageTypeWriterTest.this.translator).getClassNameWithoutPackage(Hl7JavaMessageTypeWriterTest.this.typeName); will(returnValue("MyTranslatedType"));
 			allowing(Hl7JavaMessageTypeWriterTest.this.translator).getClassNameWithoutPackage(with(any(TypeName.class)));
 			allowing(Hl7JavaMessageTypeWriterTest.this.translator).getFullyQualifiedClassName(with(any(TypeName.class)));
-			allowing(Hl7JavaMessageTypeWriterTest.this.importDeclarationGenerator).getRepresentationOfTypeName(Hl7JavaMessageTypeWriterTest.this.typeName); will(returnValue("MyTranslatedType"));
 		}});
 	}
 	
