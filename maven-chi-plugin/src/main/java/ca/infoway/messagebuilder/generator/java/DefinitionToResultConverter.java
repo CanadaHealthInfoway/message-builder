@@ -120,14 +120,7 @@ class DefinitionToResultConverter {
 			}
 		}
 
-		Set<TypeName> mergedTypeNames = new HashSet<TypeName>();
-		for (SimplifiableType type : this.definitions.getAllTypes()) {
-			if (type.isMerged()) {
-				mergedTypeNames.add(type.getMergedTypeName());
-			}
-		}
-		
-		for (TypeName name : mergedTypeNames) {
+		for (TypeName name : getAllMergedTypes()) {
 			Type mergedType = this.types.get(name.getName());
 			MergedTypeCollator collator = new MergedTypeCollator();
 			for (NamedType typeName : mergedType.getMergedTypes()) {
@@ -139,9 +132,27 @@ class DefinitionToResultConverter {
 			
 			for (String relationshipName : collator.relationshipNames()) {
 				BaseRelationship exemplar = collator.getExemplar(relationshipName);
-				mergedType.getRelationships().add(exemplar);
+				if (exemplar.getRelationshipType() == RelationshipType.ASSOCIATION) {
+					mergedType.getRelationships().add(
+							new Case3SimplifiedAssociation((Association) exemplar, 
+									collator.getRelationships(relationshipName)));
+				} else {
+					mergedType.getRelationships().add(
+							new Case3SimplifiedAttribute((Attribute) exemplar, 
+									collator.getRelationships(relationshipName)));
+				}
 			}
 		}
+	}
+
+	private Set<TypeName> getAllMergedTypes() {
+		Set<TypeName> mergedTypeNames = new HashSet<TypeName>();
+		for (SimplifiableType type : this.definitions.getAllTypes()) {
+			if (type.isMerged()) {
+				mergedTypeNames.add(type.getMergedTypeName());
+			}
+		}
+		return mergedTypeNames;
 	}
 
 	private Set<TypeName> convertAll(Set<String> interfaceTypes) {

@@ -33,8 +33,9 @@ public class AssociationFieldDefinitionTest {
 	public void shouldProvideData() throws Exception {
 		Relationship relationship = new Relationship("component", "ABCD_MT123456CA.Component6", Cardinality.create("1"));
 		final Association association = Association.createStandardAssociation(relationship, new Type(new TypeName(relationship.getType())));
+		association.getAssociationType().setLanguageSpecificName(new LanguageSpecificName("ca.infoway.test", "MedicalOrder"));
 		this.jmock.checking(new Expectations() {{
-			allowing(manager).getRepresentationOfTypeName(association.getPropertyTypeName()); will(returnValue("MedicalOrder"));
+			allowing(manager).getRepresentationOfClassName(with(any(String.class))); will(returnValue("MedicalOrder"));
 			allowing(resolver).getName(association); will(returnValue("relatedTo"));
 		}});
 		AssociationFieldDefinition field = new AssociationFieldDefinition(association, JAVA);
@@ -69,9 +70,10 @@ public class AssociationFieldDefinitionTest {
 		Type associationType = new Type(new TypeName(relationship.getType()));
 		associationType.getRelationships().add(new Association(new Relationship(), new TemplateVariable("ACT")));
 		final Association association = Association.createStandardAssociation(relationship, associationType);
+		association.getAssociationType().setLanguageSpecificName(new LanguageSpecificName("ca.infoway.test", "Subject"));
 		
 		this.jmock.checking(new Expectations() {{
-			allowing(manager).getRepresentationOfTypeName(association.getPropertyTypeName()); will(returnValue("Subject"));
+			allowing(manager).getRepresentationOfClassName("ca.infoway.test.Subject"); will(returnValue("Subject"));
 			allowing(resolver).getName(association); will(returnValue("subject"));
 		}});
 		AssociationFieldDefinition field = new AssociationFieldDefinition(association, JAVA);
