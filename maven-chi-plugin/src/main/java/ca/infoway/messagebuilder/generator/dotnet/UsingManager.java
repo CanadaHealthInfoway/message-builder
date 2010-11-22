@@ -21,6 +21,7 @@ import org.apache.commons.lang.ClassUtils;
 import org.apache.commons.lang.StringUtils;
 
 import ca.infoway.messagebuilder.generator.java.NameTranslator;
+import ca.infoway.messagebuilder.generator.java.Type;
 import ca.infoway.messagebuilder.generator.lang.Indenter;
 import ca.infoway.messagebuilder.util.iterator.EmptyIterable;
 import ca.infoway.messagebuilder.xml.TypeName;
@@ -154,5 +155,9 @@ public class UsingManager extends Indenter implements DependencyManager {
 				writer.write(LINE_SEPARATOR);
 			}
 		}
+	}
+
+	public String getRepresentationOfType(Type type) {
+		return getRepresentationOfClassName(type.getLanguageSpecificName().getFullyQualifiedName());
 	}
 }

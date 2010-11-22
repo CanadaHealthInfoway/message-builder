@@ -27,6 +27,7 @@ public class PropertyGeneratorBuilderTest {
 	private PropertyGeneratorBuilder csharpBuilder;
 	private ClassNameManager manager;
 	private BaseRelationshipNameResolver resolver;
+	private Type type;
 	
 	@Before
 	public void setUp() {
@@ -35,9 +36,10 @@ public class PropertyGeneratorBuilderTest {
 		this.csharpBuilder = new PropertyGeneratorBuilder(ProgrammingLanguage.C_SHARP);
 		this.manager = this.jmock.mock(ClassNameManager.class);
 		this.resolver = this.jmock.mock(BaseRelationshipNameResolver.class);
+		this.type = TypeAndRelationshipBuilder.createType(null, "ABCD_MT123456CA.Type");
 
 		this.jmock.checking(new Expectations() {{
-			allowing(manager).getRepresentationOfClassName("ca.infoway.test.Type"); will(returnValue("Type"));
+			allowing(manager).getRepresentationOfType(type); will(returnValue("Type"));
 			allowing(resolver).getName(with(any(Association.class))); will(returnValue("name"));
 		}});
 	}
@@ -107,17 +109,13 @@ public class PropertyGeneratorBuilderTest {
 	}
 	
 	private Association createAssociation() {
-		Association association = TypeAndRelationshipBuilder.createAssociation("name", Cardinality.create("1"), 
-				TypeAndRelationshipBuilder.createType(null, "ABCD_MT123456CA.Type"));
-		association.getAssociationType().setLanguageSpecificName(new LanguageSpecificName("ca.infoway.test", "Type"));
-		return association;
+		return TypeAndRelationshipBuilder.createAssociation("name", Cardinality.create("1"), 
+				this.type);
 	}
 	
 	private Association createAssociationList() {
-		Association association = TypeAndRelationshipBuilder.createAssociation("name", Cardinality.create("0-5"), 
-				TypeAndRelationshipBuilder.createType(null, "ABCD_MT123456CA.Type"));
-		association.getAssociationType().setLanguageSpecificName(new LanguageSpecificName("ca.infoway.test", "Type"));
-		return association;
+		return TypeAndRelationshipBuilder.createAssociation("name", Cardinality.create("0-5"), 
+				this.type);
 	}
 	
 	@Test
@@ -177,13 +175,13 @@ public class PropertyGeneratorBuilderTest {
 	@Test
 	public void shouldGenerateChoicePropertyWithGetterAndHas() throws Exception {
 		final Association choiceAssociation = createAssociation();
-//		Relationship subChoiceRelationship = new Relationship("subChoice", "PRPA_123456CA.SubChoiceType", new Cardinality(0,1));
+		final Type choiceType = new Type(new TypeName("PRPA_123456CA.SubChoiceType"));
 		this.javaBuilder.setFieldDefinition(new DerivedChoiceFieldDefinition(choiceAssociation, 
-				new Choice("subChoice", new Type(new TypeName("PRPA_123456CA.SubChoiceType"))), ProgrammingLanguage.JAVA));
+				new Choice("subChoice", choiceType), ProgrammingLanguage.JAVA));
 		PropertyGenerator generator = this.javaBuilder.build(this.manager, this.resolver);
 		
 		this.jmock.checking(new Expectations() {{
-			allowing(manager).getRepresentationOfTypeName(new TypeName("PRPA_123456CA.SubChoiceType")); will(returnValue("SubChoiceType"));
+			allowing(manager).getRepresentationOfType(choiceType); will(returnValue("SubChoiceType"));
 			allowing(resolver).getName(with(any(Association.class))); will(returnValue("name"));
 		}});
 
@@ -201,7 +199,6 @@ public class PropertyGeneratorBuilderTest {
 		final Association association = createAssociation();
 		this.javaBuilder.setFieldDefinition(new AssociationFieldDefinition(association, JAVA));
 		this.jmock.checking(new Expectations() {{
-			allowing(manager).getRepresentationOfTypeName(association.getPropertyTypeName()); will(returnValue("Type"));
 			allowing(resolver).getName(association); will(returnValue("name"));
 		}});
 		

@@ -52,7 +52,7 @@ class AssociationFieldDefinition implements FieldDefinition {
 		if (this.association.isTemplateType()) {
 			return this.association.getTemplateVariable().getType();
 		} else {
-			String name = getManager().getRepresentationOfClassName(this.association.getAssociationType().getLanguageSpecificName().getFullyQualifiedName());
+			String name = getManager().getRepresentationOfType(this.association.getAssociationType());
 			name += this.association.getTypeParameters();
 			return name;
 		}

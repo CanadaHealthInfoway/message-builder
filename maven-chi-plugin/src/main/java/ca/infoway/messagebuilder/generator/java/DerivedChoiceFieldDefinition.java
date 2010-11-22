@@ -53,7 +53,7 @@ class DerivedChoiceFieldDefinition implements FieldDefinition {
 	}
 
 	private String getBaseType() {
-		return getManager().getRepresentationOfTypeName(this.choice.getType().getTypeName());
+		return getManager().getRepresentationOfType(this.choice.getType());
 	}
 
 	public GetterBodyStyle getGetterBodyStyle() {
