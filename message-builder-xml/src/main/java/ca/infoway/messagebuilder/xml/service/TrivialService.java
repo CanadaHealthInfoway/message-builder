@@ -33,4 +33,10 @@ class TrivialService implements MessageDefinitionService {
 	public Set<String> getSupportedVersionsForInteraction(String type) {
 		return null;
 	}
+	public Map<String, MessagePart> getAllRelatedMessageParts(MessagePart messagePart, String version) {
+		return null;
+	}
+	public List<MessagePart> getAllRootMessageParts() {
+		return null;
+	}
 }

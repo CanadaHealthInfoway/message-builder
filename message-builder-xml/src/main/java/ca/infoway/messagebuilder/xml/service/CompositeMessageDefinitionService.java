@@ -146,4 +146,20 @@ public class CompositeMessageDefinitionService implements MessageDefinitionServi
 		}
 		return new HashMap<String, MessagePart>();
 	}
+	/**
+	 * <p>Get all the message parts that a particular root message part references.  Currently this method is unimplemented.
+	 * @param messagePart - the messagePart
+	 * @param version - the version
+	 * @return - the message parts
+	 */			
+	public Map<String, MessagePart> getAllRelatedMessageParts(MessagePart messagePart, String version) {
+		throw new UnsupportedOperationException();
+	}
+	/**
+	 * <p>Get all the root message parts for all message sets.  Currently this method is unimplemented.
+	 * @return - the message parts
+	 */	
+	public List<MessagePart> getAllRootMessageParts() {
+		throw new UnsupportedOperationException();
+	}
 }

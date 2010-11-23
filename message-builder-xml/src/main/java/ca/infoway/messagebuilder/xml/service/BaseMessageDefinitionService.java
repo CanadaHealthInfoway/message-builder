@@ -18,6 +18,7 @@ import ca.infoway.messagebuilder.xml.Interaction;
 import ca.infoway.messagebuilder.xml.MessagePart;
 import ca.infoway.messagebuilder.xml.MessageSet;
 import ca.infoway.messagebuilder.xml.MessageSetMarshaller;
+import ca.infoway.messagebuilder.xml.PackageLocation;
 import ca.infoway.messagebuilder.xml.Relationship;
 
 /**
@@ -189,8 +190,38 @@ public abstract class BaseMessageDefinitionService implements MessageDefinitionS
 		}
 		return allParts;
 	}
+	
+	/**
+	 * <p>Get all the root message parts for all message sets.
+	 * @return - the message parts
+	 */	
+	public List<MessagePart> getAllRootMessageParts() {
+		List<MessagePart> allRootParts = new ArrayList<MessagePart>();
+		for (MessageSet messageSet : getMessageSets()) {
+			for (PackageLocation packageLocation : messageSet.getPackageLocations().values()) {
+				for (MessagePart messagePart : packageLocation.getMessageParts().values()) {
+					if (packageLocation.getRootType().equals(messagePart.getName())) {
+						allRootParts.add(messagePart);
+					}
+				}
+			}
+		}
+		return allRootParts;
+	}
+	
+	/**
+	 * <p>Get all the message parts that a particular root message part references.
+	 * @param messagePart - the messagePart
+	 * @param version - the version
+	 * @return - the message parts
+	 */		
+	public Map<String, MessagePart> getAllRelatedMessageParts(MessagePart messagePart, String version) {
+		Map<String, MessagePart> allParts = new TreeMap<String, MessagePart>(); 
+		addMessagePartsFromSupertype(allParts, messagePart.getName(), version);
+		return allParts;
+	}	
 
-	private void addMessagePartsFromSupertype(Map<String, MessagePart> allParts, String superTypeName, String version) {
+	protected void addMessagePartsFromSupertype(Map<String, MessagePart> allParts, String superTypeName, String version) {
 		MessagePart messagePart = this.getMessagePart(version, superTypeName);
 		if (!allParts.containsKey(superTypeName)) {
 			allParts.put(superTypeName, messagePart);

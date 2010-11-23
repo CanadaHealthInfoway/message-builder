@@ -61,5 +61,17 @@ public interface MessageDefinitionService {
 	 * @return - the message parts
 	 */
 	public Map<String, MessagePart> getAllMessageParts(Interaction interaction, String version);
+	/**
+	 * <p>Get all the message parts that a particular root message part references.
+	 * @param messagePart - the messagePart
+	 * @param version - the version
+	 * @return - the message parts
+	 */			
+	public Map<String, MessagePart> getAllRelatedMessageParts(MessagePart messagePart, String version);
+	/**
+	 * <p>Get all the root message parts for all message sets.
+	 * @return - the message parts
+	 */	
+	public List<MessagePart> getAllRootMessageParts();
 	
 }
