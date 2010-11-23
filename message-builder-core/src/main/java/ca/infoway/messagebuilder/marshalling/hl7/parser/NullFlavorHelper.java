@@ -17,15 +17,18 @@ import ca.infoway.messagebuilder.xml.ConformanceLevel;
 public class NullFlavorHelper {
 	
 	static final String NULL_FLAVOR_ATTRIBUTE_NAME = "nullFlavor";
+	static final String NULL_FLAVOR_XSI_NIL_ATTRIBUTE_NAME = "xsi:nil";
 
 	private final Node node;
 	private final XmlToModelResult xmlToJavaResult;
 	private final ConformanceLevel conformanceLevel;
+	private final boolean isAssociation;
 
-	public NullFlavorHelper(ConformanceLevel conformanceLevel, Node node, XmlToModelResult xmlToJavaResult) {
+	public NullFlavorHelper(ConformanceLevel conformanceLevel, Node node, XmlToModelResult xmlToJavaResult, boolean isAssociation) {
 		this.conformanceLevel = conformanceLevel;
 		this.node = node;
 		this.xmlToJavaResult = xmlToJavaResult;
+		this.isAssociation = isAssociation;
 	}
 
 	public NullFlavor parseNullNode() {
@@ -42,7 +45,11 @@ public class NullFlavorHelper {
 					NodeUtil.getLocalOrTagName((Element) node), 
 					getAttributeValue(node, NULL_FLAVOR_ATTRIBUTE_NAME),
 					(Element) node));
-		} 
+		} else if (this.isAssociation && !StringUtils.equals(getAttributeValue(node, NULL_FLAVOR_XSI_NIL_ATTRIBUTE_NAME), "true")) {
+			xmlToJavaResult.addHl7Error(Hl7Error.createNullFlavorMissingXsiNilError(
+					NodeUtil.getLocalOrTagName((Element) node), 
+					(Element) node));
+		}
 		return nullFlavor;
 	}
 	
