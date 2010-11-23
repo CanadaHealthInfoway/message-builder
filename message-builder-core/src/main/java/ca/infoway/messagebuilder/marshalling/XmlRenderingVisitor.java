@@ -149,12 +149,10 @@ class XmlRenderingVisitor implements Visitor {
 	}
 
 	private NullFlavor getNullFlavor(PartBridge tealBean) {
-		//FIXME - AG: get null flavor!
 		NullFlavor nullFlavor = ca.infoway.messagebuilder.domainvalue.nullflavor.NullFlavor.NO_INFORMATION;
-//		if (tealBean.getBean()!=null && tealBean.getBean() instanceof MessagePartBean) {
-//			MessagePartBean beanPart = (MessagePartBean) tealBean.getBean();
-//			nullFlavor = beanPart.getAsNullFlavor(tealBean.getPropertyName());
-//		}
+		if (tealBean.hasNullFlavor()) {
+			nullFlavor = tealBean.getNullFlavor();
+		}
 		return nullFlavor;
 	}
 

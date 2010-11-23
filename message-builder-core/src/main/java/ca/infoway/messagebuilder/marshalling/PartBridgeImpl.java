@@ -3,6 +3,7 @@ package ca.infoway.messagebuilder.marshalling;
 import java.util.List;
 
 import ca.infoway.messagebuilder.datatype.nullflavor.NullFlavorSupport;
+import ca.infoway.messagebuilder.domainvalue.NullFlavor;
 
 class PartBridgeImpl implements PartBridge {
 	
@@ -51,11 +52,20 @@ class PartBridgeImpl implements PartBridge {
 		return empty;
 	}
 
-	private boolean hasNullFlavor() {
+	public boolean hasNullFlavor() {
 		boolean result = false;
 		if (this.bean instanceof NullFlavorSupport) {
 			NullFlavorSupport nullable = (NullFlavorSupport) this.bean;
 			result = nullable.hasNullFlavor();
+		}
+		return result;
+	}
+	
+	public NullFlavor getNullFlavor() {
+		NullFlavor result = null;
+		if (this.bean instanceof NullFlavorSupport) {
+			NullFlavorSupport nullable = (NullFlavorSupport) this.bean;
+			result = nullable.getNullFlavor();
 		}
 		return result;
 	}
