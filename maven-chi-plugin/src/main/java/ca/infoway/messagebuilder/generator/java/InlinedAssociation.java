@@ -70,5 +70,14 @@ public class InlinedAssociation extends Association {
 	@Override
 	String getOriginalType() {
 		return this.inlinedRelationship.getOriginalType();
-	}	
+	}
+	@Override
+	public Type getAssociationType() {
+		return this.inlinedRelationship.getAssociationType();
+	}
+	
+	@Override
+	public List<Choice> getAllChoiceTypes() {
+		return this.inlinedRelationship.getAllChoiceTypes();
+	}
 }
