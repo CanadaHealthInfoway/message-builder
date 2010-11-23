@@ -38,7 +38,7 @@ public abstract class BaseRelationship implements PropertyGeneratorProvider, Nam
         return this.relationship.getName();
     }
 
-    public String getXmlMapping() {
+    String getXmlMapping() {
         return this.relationship.getName();
     }
     

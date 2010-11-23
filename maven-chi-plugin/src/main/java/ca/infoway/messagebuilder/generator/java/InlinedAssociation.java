@@ -27,7 +27,7 @@ public class InlinedAssociation extends Association {
 	}
 	
 	@Override
-	public String getXmlMapping() {
+	String getXmlMapping() {
 		return this.elidedRelationship.getXmlMapping() + "/" + this.inlinedRelationship.getXmlMapping();
 	}
 
