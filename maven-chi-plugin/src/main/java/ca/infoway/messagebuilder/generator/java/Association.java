@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Set;
 
 import ca.infoway.messagebuilder.generator.lang.ProgrammingLanguage;
+import ca.infoway.messagebuilder.util.iterator.EmptyIterable;
 import ca.infoway.messagebuilder.xml.Relationship;
 import ca.infoway.messagebuilder.xml.TypeName;
 
@@ -68,12 +69,13 @@ public class Association extends BaseRelationship {
 	@Override
 	public Set<Object> getImportTypes() {
 		Set<Object> result = super.getImportTypes();
-		if (this.associationType != null) {
-			if (this.associationType.getLanguageSpecificName() != null) {
-				result.add(this.associationType.getLanguageSpecificName().getFullyQualifiedName());
-			} else {
-				result.add(this.associationType.getTypeName());
-			}
+		
+		Type type = getAssociationType();
+		if (type != null) {
+			result.add(type.getLanguageSpecificName().getFullyQualifiedName());
+		}
+		for (Choice choice : EmptyIterable.nullSafeIterable(getAllChoiceTypes())) {
+			result.add(choice.getType().getLanguageSpecificName().getFullyQualifiedName());
 		}
 		if (isCardinalityMultiple()) {
 			result.add(List.class.getName());
