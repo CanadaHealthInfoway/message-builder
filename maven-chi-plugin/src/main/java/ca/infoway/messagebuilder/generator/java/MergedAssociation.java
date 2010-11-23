@@ -25,7 +25,7 @@ public class MergedAssociation extends Association {
 	}
 
 	@Override
-	public String getXmlMapping() {
+	String getXmlMapping() {
 		return this.association.getXmlMapping();
 	}
 	
