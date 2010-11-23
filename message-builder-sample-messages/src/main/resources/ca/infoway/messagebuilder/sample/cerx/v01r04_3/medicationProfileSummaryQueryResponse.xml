@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <PORX_IN060400CA xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:hl7-org:v3" ITSVersion="XML_1.0">
     <!-- Message rendered by Intelliware TEAL version 1.6-SNAPSHOT -->
-    <id root="1ee83ff1-08ab-4fe7-b573-ea777e9bad51"/>
+    <id root="1.2.3.4.5.6.7.8"/>
     <creationTime value="20080625141610-0400"/>
     <versionCode code="V3-2007-05"/>
     <interactionId displayable="true" specializationType="II.PUBLIC" extension="PORX_IN060400CA" root="2.16.840.1.113883.1.6"/>
@@ -175,7 +175,7 @@
         <resultRemainingQuantity value="0"/>
       </queryAck>
       <queryByParameter>
-        <queryId root="1ee83ff1-08ab-4fe7-b573-ea777e9bad31"/>
+        <queryId root="1.2.3.4.5.6.7.8.9"/>
         <initialQuantityCode code="RD" codeSystem="2.16.840.1.113883.5.1112"/>
         <parameterList>
           <administrationEffectivePeriod>

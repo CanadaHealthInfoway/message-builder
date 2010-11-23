@@ -80,14 +80,16 @@ public abstract class AbstractSingleElementParser<V> extends AbstractElementPars
 		return new NullFlavorHelper(
 				context!=null ? context.getConformance() : null, 
 				node, 
-				xmlToModelResult).hasValidNullFlavorAttribute();
+				xmlToModelResult,
+				false).hasValidNullFlavorAttribute();
 	}
 
 	protected NullFlavor parseNullNode(ParseContext context, Node node, XmlToModelResult xmlToModelResult) throws XmlToModelTransformationException {
 		return new NullFlavorHelper(
 				context!=null ? context.getConformance() : null, 
 				node, 
-				xmlToModelResult).parseNullNode();
+				xmlToModelResult,
+				false).parseNullNode();
     }
 
     protected Node getNamedChildNode(Node node, String childNodeName) {

@@ -129,7 +129,7 @@ class Hl7SourceMapper {
 		try {
 			// if "false", as in the indicator element is absent, we will never actually get here :)
 			// can't really parse a boolean here, but we need to check for null flavor
-			NullFlavorHelper nullFlavorHelper = new NullFlavorHelper(relationship.getConformance(), nodes.isEmpty() ? null : nodes.get(0), new XmlToModelResult());
+			NullFlavorHelper nullFlavorHelper = new NullFlavorHelper(relationship.getConformance(), nodes.isEmpty() ? null : nodes.get(0), new XmlToModelResult(), true);
 			NullFlavor nullFlavor = nullFlavorHelper.parseNullNode();
 			Object value = (nullFlavor == null ? new BLImpl(!nodes.isEmpty()): 
 												 new BLImpl((ca.infoway.messagebuilder.domainvalue.nullflavor.NullFlavor) nullFlavor));
@@ -297,7 +297,8 @@ class Hl7SourceMapper {
     	NullFlavorHelper nullFlavorHelper = new NullFlavorHelper(
     			relationship!=null ? relationship.getConformance() : ConformanceLevel.OPTIONAL, 
     			currentElement,
-    			source.getResult());
+    			source.getResult(),
+    			true);
     	
     	if (nullFlavorHelper.hasValidNullFlavorAttribute()) {
     		wrapper.writeNullFlavor(source, relationship, nullFlavorHelper.parseNullNode());
