@@ -83,7 +83,7 @@
                 </assignedPerson>
               </author>
               <component typeCode="COMP" contextControlCode="ON" contextConductionInd="false">
-              	<supplyRequest nullFlavor="NI"/>
+              	<supplyRequest nullFlavor="NI" xsi:nil="true"/>
               </component>
             </substanceAdministrationRequest>
           </inFulfillmentOf>

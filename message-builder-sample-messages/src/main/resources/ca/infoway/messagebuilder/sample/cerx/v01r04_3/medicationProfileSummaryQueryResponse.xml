@@ -75,7 +75,7 @@
               </representedPerson>
             </assignedPerson>
           </author>
-          <location nullFlavor="NI"/>
+          <location nullFlavor="NI" xsi:nil="true"/>
           <reason typeCode="RSON" contextControlCode="AN" contextConductionInd="true">
             <priorityNumber value="1"/>
             <observationDiagnosis classCode="OBS" moodCode="EVN">
@@ -90,7 +90,7 @@
               <text>usage instructions</text>
             </administrationInstructions>
           </component1>
-          <component2 nullFlavor="NI"/>
+          <component2 nullFlavor="NI" xsi:nil="true"/>
           <fulfillment1 typeCode="FLFS" contextControlCode="ON" contextConductionInd="true">
             <subsetCode code="FUTSUM"/>
             <supplyEventFutureSummary classCode="SPLY" moodCode="EVN">
@@ -149,7 +149,7 @@
                   </reason>
               </refusalToFill>
             </subjectOf3>
-        	<componentOf nullFlavor="NI"/>
+        	<componentOf nullFlavor="NI" xsi:nil="true"/>
         </combinedMedicationRequest>
       </subject>
         <subjectOf typeCode="SUBJ" contextControlCode="AP" contextConductionInd="false">

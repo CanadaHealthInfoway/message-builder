@@ -31,6 +31,8 @@ import ca.infoway.messagebuilder.xml.util.XmlWarningRenderer;
 
 class XmlRenderingVisitor implements Visitor {
 	
+	private static final String NULL_FLAVOR_FORMAT_FOR_ASSOCIATIONS = "nullFlavor=\"{0}\" xsi:nil=\"true\"";
+
 	class Buffer {
 		private final String name;
 		private final StringBuilder structuralBuilder = new StringBuilder();
@@ -124,7 +126,8 @@ class XmlRenderingVisitor implements Visitor {
 			this.propertyPathNames.push(part.getPropertyName());
 			this.buffers.push(new Buffer(determineXmlName(part, relationship), this.buffers.size()));
 			if (part.isEmpty() && relationship.getConformance() == ConformanceLevel.POPULATED) {
-				currentBuffer().getStructuralBuilder().append(MessageFormat.format("nullFlavor=\"{0}\"", getNullFlavor(part).getCodeValue()));
+				currentBuffer().getStructuralBuilder().append(
+						MessageFormat.format(NULL_FLAVOR_FORMAT_FOR_ASSOCIATIONS, getNullFlavor(part).getCodeValue()));
 			} else if (part.isEmpty() && relationship.getConformance() == ConformanceLevel.MANDATORY && !isTrivial(part)) {
 				currentBuffer().setWarning("Mandatory association has no data. (" + relationship.getName() + ")");
 			}

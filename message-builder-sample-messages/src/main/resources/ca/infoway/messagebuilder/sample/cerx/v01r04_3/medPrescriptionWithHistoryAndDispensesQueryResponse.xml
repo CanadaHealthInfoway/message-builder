@@ -62,10 +62,10 @@
             </representedPerson>
           </assignedPerson>
         </author>
-        <location nullFlavor="NI"/>
-        <reason nullFlavor="NI"/>
+        <location nullFlavor="NI" xsi:nil="true"/>
+        <reason nullFlavor="NI" xsi:nil="true"/>
         <derivedFrom typeCode="DRIV" contextControlCode="ON" contextConductionInd="false">
-          <sourceDispense nullFlavor="NI"/>
+          <sourceDispense nullFlavor="NI" xsi:nil="true"/>
         </derivedFrom>
         <component1 typeCode="COMP" contextControlCode="ON" contextConductionInd="true">
           <dosageInstruction classCode="SBADM" moodCode="DEF">
@@ -149,7 +149,7 @@
             <code code="TF"/>
           </trialSupplyPermission>
         </component2>
-        <component3 nullFlavor="NI"/>
+        <component3 nullFlavor="NI" xsi:nil="true"/>
         <fulfillment2 typeCode="FLFS" contextControlCode="ON" contextConductionInd="true">
           <subsetCode code="RECENT"/>
           <supplyEventLastSummary classCode="SPLY" moodCode="EVN">
@@ -182,7 +182,7 @@
             <quantity unit="U" value="1"/>
           </supplyEventPastSummary>
         </fulfillment5>
-        <componentOf nullFlavor="NI"/>
+        <componentOf nullFlavor="NI" xsi:nil="true"/>
       </combinedMedicationRequest>
     </subject>
     <subjectOf typeCode="SUBJ" contextControlCode="AP" contextConductionInd="false">
