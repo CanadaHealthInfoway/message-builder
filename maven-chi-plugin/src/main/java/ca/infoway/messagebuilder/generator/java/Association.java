@@ -81,22 +81,8 @@ public class Association extends BaseRelationship {
 			result.add(List.class.getName());
 			result.add(ArrayList.class.getName());
 		}
-		if (isChoice() && !isCardinalityMultiple()) {
-			addLeafChoices(this.getRelationship().getChoices(), result);
-		}
 		return result;
 	}
-	
-	protected void addLeafChoices(List<Relationship> choices, Set<Object> result) {
-		for (Relationship relationship : choices) {
-			if (relationship.isChoice()) {
-				addLeafChoices(relationship.getChoices(), result);
-			} else {
-				result.add(new TypeName(relationship.getType()));
-			}
-		}
-	}
-	
 	public TypeName getPropertyTypeName() {
 		if (getAssociationType() == null) {
 			return null;
