@@ -8,6 +8,7 @@ import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.datatype.impl.CSImpl;
 import ca.infoway.messagebuilder.datatype.impl.IIImpl;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
+import ca.infoway.messagebuilder.domainvalue.NullFlavor;
 import ca.infoway.messagebuilder.domainvalue.transport.HL7StandardVersionCode;
 
 class TopLevelBeanBridgeWrapper implements PartBridge {
@@ -75,6 +76,14 @@ class TopLevelBeanBridgeWrapper implements PartBridge {
 	}
 
 	public boolean isCollapsed() {
+		return false;
+	}
+
+	public NullFlavor getNullFlavor() {
+		return null;
+	}
+
+	public boolean hasNullFlavor() {
 		return false;
 	}
 }

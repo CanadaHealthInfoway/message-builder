@@ -229,6 +229,25 @@ public class XmlRenderingVisitorTest {
 	}
 
 	@Test
+	public void shouldRenderSimpleAssociationWithNullFlavor() throws Exception {
+		Relationship relationship = createSimpleAssociationRelationship();
+		
+		this.partBridge.setNullFlavor(NullFlavor.MASKED);
+		this.partBridge.setEmpty(true);
+		
+		this.visitor.visitRootStart(this.partBridge, this.interation);
+		this.visitor.visitAssociationStart(this.partBridge, relationship);
+		this.visitor.visitAssociationEnd(this.partBridge, relationship);
+		this.visitor.visitRootEnd(this.partBridge, this.interation);
+		
+		String xml = this.visitor.toXml().getXmlMessage();
+		assertXmlEquals("xml", "<ABCD_IN123456CA xmlns=\"urn:hl7-org:v3\" " +
+				"xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" ITSVersion=\"XML_1.0\">" 
+				+"<receiver nullFlavor=\"MSK\"/></ABCD_IN123456CA>", xml);
+		
+	}
+
+	@Test
 	public void shouldRenderTemplateAssociation() throws Exception {
 		Relationship relationship = createTemplateAssociationRelationship();
 
