@@ -9,7 +9,6 @@ import ca.infoway.messagebuilder.Code;
  * messages.  It was later renamed to OtherIdentifierRoleType.</p>
  * 
  * @author BC Holmes
- * @deprecated
  * @see OtherIdentifierRoleType
  */
 public interface OtherIDsRoleCode extends Code {
