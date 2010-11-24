@@ -25,10 +25,10 @@ public class MergedAssociation extends Association {
 	}
 
 	@Override
-	public String[] getAllXmlMappings() {
-		return this.association.getAllXmlMappings();
+	XmlMappingHelper getXmlMappingHelper() {
+		return this.association.getXmlMappingHelper();
 	}
-	
+
 	@Override
 	public Type getAssociationType() {
 		return this.type;
