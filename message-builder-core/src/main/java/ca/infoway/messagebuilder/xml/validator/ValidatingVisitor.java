@@ -60,7 +60,7 @@ public class ValidatingVisitor implements MessageVisitor {
 		} else if (!relationship.getCardinality().contains(elements.size())) {
 			this.result.addHl7Error(Hl7Error.createWrongNumberOfAssociationsError(xmlName, base, elements.size(), relationship.getCardinality()));
 		}
-		if (elements.size() == 1) {
+		if (relationship.getCardinality().isSingle() && elements.size() == 1) {
 			checkForInvalidNullFlavor(elements.get(0), relationship);
 		}
 	}
