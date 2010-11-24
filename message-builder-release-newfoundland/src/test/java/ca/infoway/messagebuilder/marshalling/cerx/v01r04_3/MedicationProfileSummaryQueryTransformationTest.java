@@ -148,6 +148,11 @@ public class MedicationProfileSummaryQueryTransformationTest extends BaseTransfo
 	
 	@Test
 	public void shouldCreateResponseBeanFromXml() throws Exception {
+//		
+//		ClasspathResource classpathResource = new ClasspathResource(getClass(), QUERY_RESPONSE_MESSAGE_FILE);
+//		String responseAsString = IOUtils.toString(classpathResource.getInputStream());
+//		assertPassesMessageValidation(responseAsString, SpecificationVersion.NEWFOUNDLAND);
+//		
 		Document response = this.factory.createFromResource(new ClasspathResource(getClass(), QUERY_RESPONSE_MESSAGE_FILE));
 		XmlToModelResult xmlToJavaResult = this.transformer.transformFromHl7(SpecificationVersion.NEWFOUNDLAND, response);
 		MessageBean messageObject = (MessageBean) xmlToJavaResult.getMessageObject();
