@@ -48,8 +48,9 @@ class Case3SimplifiedAssociation extends Association {
 	public String getName() {
 		return this.exemplar.getName();
 	}
+	
 	@Override
-	public String[] getAllXmlMappings() {
-		return this.exemplar.getAllXmlMappings();
+	XmlMappingHelper getXmlMappingHelper() {
+		return this.exemplar.getXmlMappingHelper();
 	}
 }

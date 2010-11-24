@@ -40,7 +40,7 @@ class Case3SimplifiedAttribute extends Attribute {
 	}
 	
 	@Override
-	public String[] getAllXmlMappings() {
-		return this.exemplar.getAllXmlMappings();
+	XmlMappingHelper getXmlMappingHelper() {
+		return this.exemplar.getXmlMappingHelper();
 	}
 }
