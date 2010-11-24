@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.io.Writer;
 import java.text.MessageFormat;
 
-import org.codehaus.plexus.util.StringUtils;
+import org.apache.commons.lang.StringUtils;
 
 import ca.infoway.messagebuilder.generator.lang.CodeTemplate;
 import ca.infoway.messagebuilder.generator.lang.ProgrammingLanguage;

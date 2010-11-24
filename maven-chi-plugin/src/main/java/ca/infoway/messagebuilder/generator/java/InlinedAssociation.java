@@ -26,11 +26,12 @@ public class InlinedAssociation extends Association {
 		return this.elidedRelationship.getName() + WordUtils.capitalize(this.inlinedRelationship.getName());
 	}
 	
+	
 	@Override
-	String getXmlMapping() {
-		return this.elidedRelationship.getXmlMapping() + "/" + this.inlinedRelationship.getXmlMapping();
+	XmlMappingHelper getXmlMappingHelper() {
+		return this.elidedRelationship.getXmlMappingHelper().concat(inlinedRelationship.getXmlMappingHelper());
 	}
-
+	
 	@Override
 	public Cardinality getCardinality() {
 		Cardinality cardinality = super.getCardinality();

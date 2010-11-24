@@ -33,8 +33,8 @@ public class InlinedAttribute extends Attribute {
 	}
 	
 	@Override
-	String getXmlMapping() {
-		return this.elidedRelationship.getXmlMapping() + "/" + this.inlinedRelationship.getXmlMapping();
+	XmlMappingHelper getXmlMappingHelper() {
+		return this.elidedRelationship.getXmlMappingHelper().concat(inlinedRelationship.getXmlMappingHelper());
 	}
 	
 	@Override
