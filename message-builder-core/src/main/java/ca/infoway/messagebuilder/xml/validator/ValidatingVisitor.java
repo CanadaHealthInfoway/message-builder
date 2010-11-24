@@ -24,6 +24,7 @@ import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelTransformationExcepti
 import ca.infoway.messagebuilder.marshalling.hl7.parser.BlElementParser;
 import ca.infoway.messagebuilder.marshalling.hl7.parser.CsElementParser;
 import ca.infoway.messagebuilder.marshalling.hl7.parser.ElementParser;
+import ca.infoway.messagebuilder.marshalling.hl7.parser.NullFlavorHelper;
 import ca.infoway.messagebuilder.marshalling.hl7.parser.ParserRegistry;
 import ca.infoway.messagebuilder.util.xml.NodeUtil;
 import ca.infoway.messagebuilder.xml.ConformanceLevel;
@@ -58,6 +59,16 @@ public class ValidatingVisitor implements MessageVisitor {
 			this.result.addHl7Error(Hl7Error.createMissingPopulatedAssociationError(xmlName, base));
 		} else if (!relationship.getCardinality().contains(elements.size())) {
 			this.result.addHl7Error(Hl7Error.createWrongNumberOfAssociationsError(xmlName, base, elements.size(), relationship.getCardinality()));
+		}
+		if (elements.size() == 1) {
+			checkForInvalidNullFlavor(elements.get(0), relationship);
+		}
+	}
+
+	private void checkForInvalidNullFlavor(Element element, Relationship relationship) {
+		NullFlavorHelper nullFlavorHelper = new NullFlavorHelper(relationship.getConformance(), element, this.result, true);
+		if (nullFlavorHelper.hasValidNullFlavorAttribute()) {
+			nullFlavorHelper.parseNullNode();
 		}
 	}
 
