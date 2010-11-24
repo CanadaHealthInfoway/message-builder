@@ -375,7 +375,7 @@ public class Case2SimplifierTest {
 	private Set<String> getXmlMappings(Type type) {
 		Set<String> result = new HashSet<String>();
 		for (BaseRelationship relationship : type.getRelationships()) {
-			result.add(relationship.getXmlMapping());
+			result.addAll(Arrays.asList(relationship.getAllXmlMappings()));
 		}
 		return result;
 	}

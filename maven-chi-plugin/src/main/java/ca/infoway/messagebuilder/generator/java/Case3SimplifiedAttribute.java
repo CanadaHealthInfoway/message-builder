@@ -38,4 +38,9 @@ class Case3SimplifiedAttribute extends Attribute {
 	public String getName() {
 		return this.exemplar.getName();
 	}
+	
+	@Override
+	public String[] getAllXmlMappings() {
+		return this.exemplar.getAllXmlMappings();
+	}
 }
