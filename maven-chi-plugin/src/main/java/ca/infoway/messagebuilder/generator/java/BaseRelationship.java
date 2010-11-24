@@ -13,8 +13,6 @@ import org.apache.commons.lang.StringUtils;
 import ca.infoway.messagebuilder.Named;
 import ca.infoway.messagebuilder.xml.Cardinality;
 import ca.infoway.messagebuilder.xml.ConformanceLevel;
-import ca.infoway.messagebuilder.xml.Difference;
-import ca.infoway.messagebuilder.xml.DifferenceType;
 import ca.infoway.messagebuilder.xml.Documentation;
 import ca.infoway.messagebuilder.xml.Relationship;
 
@@ -149,16 +147,7 @@ public abstract class BaseRelationship implements PropertyGeneratorProvider, Nam
 	}
 	
 	boolean requiresMapByPartTypeAnnotation() {
-		boolean result = false;
-		outer: for (Relationship relationship : getAllRelationships()) {
-			for (Difference difference : relationship.getDifferences()) {
-				if (difference.getType() == DifferenceType.RELATIONSHIP_RENAMED) {
-					result = true;
-					break outer;
-				}
-			}
-		}
-		return result;
+		return !getMapByPartTypeMappings().isEmpty();
 	}
 	String getOriginalType() {
 		return this.relationship.getType();
