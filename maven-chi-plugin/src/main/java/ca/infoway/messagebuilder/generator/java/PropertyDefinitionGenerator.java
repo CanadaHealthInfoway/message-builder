@@ -7,7 +7,7 @@ import ca.infoway.messagebuilder.generator.lang.CodeTemplate;
 
 class PropertyDefinitionGenerator extends FieldTemplateProcessor {
 	
-	private static final String JAVA_PROPERTY_READ_DEFINITION = "@Hl7XmlMapping('{'{0}'}')\n{11}" + 
+	private static final String JAVA_PROPERTY_READ_DEFINITION = "@Hl7XmlMapping('{'{0}'}'){11}\n" + 
 			"public {8} get{2}() '{'\n" +
 			"    {3}\n" +
 			"'}'";
@@ -23,13 +23,13 @@ class PropertyDefinitionGenerator extends FieldTemplateProcessor {
 		"    {10}\n" +
 		"'}'";
 	private static final String JAVA_INTERFACE_READ_DEFINITION = "public {8} get{2}();";
-	private static final String CSHARP_ANNOTATION = "[Hl7XmlMappingAttribute(new string[] '{'{0}'}')]{11}";
+	private static final String CSHARP_ANNOTATION = "[Hl7XmlMappingAttribute(new string[] '{'{0}'}')]{11}\n";
 	private static final String CSHARP_PROPERTY_DEFINITION = "public {8} {2} '{'\n";
 	private static final String CSHARP_PROPERTY_GETTER_DEFINITION = 
 		"    get '{' {3} '}'";
 	private static final String CSHARP_PROPERTY_SETTER_DEFINITION = 
 			"    set '{' {5} '}'";
-	private static final CodeTemplate CSHARP_READ_ONLY_PROPERTY = new CodeTemplate(CSHARP_ANNOTATION + "\n" + 
+	private static final CodeTemplate CSHARP_READ_ONLY_PROPERTY = new CodeTemplate(CSHARP_ANNOTATION + 
 			CSHARP_PROPERTY_DEFINITION +
 			CSHARP_PROPERTY_GETTER_DEFINITION + "\n" +
 			"'}'");
@@ -38,16 +38,16 @@ class PropertyDefinitionGenerator extends FieldTemplateProcessor {
 			CSHARP_PROPERTY_GETTER_DEFINITION + "\n" +
 			"'}'\n\n" +
 			CSHARP_DERIVED_CHOICE_HAS_PROPERTY_DEFINITION);
-	private static final CodeTemplate CSHARP_READ_ONLY_INTERFACE = new CodeTemplate(CSHARP_ANNOTATION + "\n" + 
+	private static final CodeTemplate CSHARP_READ_ONLY_INTERFACE = new CodeTemplate(CSHARP_ANNOTATION + 
 			"{8} {2} '{'\n" +
 			"    get;\n" +
 			"'}'");
-	private static final CodeTemplate CSHARP_READ_WRITE_PROPERTY = new CodeTemplate(CSHARP_ANNOTATION + "\n" + 
+	private static final CodeTemplate CSHARP_READ_WRITE_PROPERTY = new CodeTemplate(CSHARP_ANNOTATION + 
 			CSHARP_PROPERTY_DEFINITION +
 			CSHARP_PROPERTY_GETTER_DEFINITION + "\n" +
 			CSHARP_PROPERTY_SETTER_DEFINITION + "\n" +
 			"'}'");
-	private static final CodeTemplate CSHARP_READ_WRITE_INTERFACE = new CodeTemplate(CSHARP_ANNOTATION + "\n" + 
+	private static final CodeTemplate CSHARP_READ_WRITE_INTERFACE = new CodeTemplate(CSHARP_ANNOTATION + 
 			"{8} {2} '{'\n" +
 			"    get;\n" +
 			"    set;\n" +

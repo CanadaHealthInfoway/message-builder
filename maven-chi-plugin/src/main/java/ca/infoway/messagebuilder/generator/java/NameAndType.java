@@ -1,9 +1,10 @@
 package ca.infoway.messagebuilder.generator.java;
 
+import org.apache.commons.lang.builder.CompareToBuilder;
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 
-class NameAndType {
+class NameAndType implements Comparable<NameAndType> {
 	private final String name;
 	private final String type;
 
@@ -12,6 +13,14 @@ class NameAndType {
 		this.type = type;
 	}
 	
+	String getName() {
+		return this.name;
+	}
+
+	String getType() {
+		return this.type;
+	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (obj == null) {
@@ -37,11 +46,10 @@ class NameAndType {
 			.toHashCode();
 	}
 
-	String getName() {
-		return this.name;
-	}
-
-	String getType() {
-		return this.type;
+	public int compareTo(NameAndType that) {
+		return new CompareToBuilder()
+					.append(this.name, that.name)
+					.append(this.type, that.type)
+					.toComparison();
 	}
 }
