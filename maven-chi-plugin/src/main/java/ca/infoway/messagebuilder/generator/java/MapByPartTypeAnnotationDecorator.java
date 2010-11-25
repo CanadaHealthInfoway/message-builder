@@ -2,6 +2,8 @@ package ca.infoway.messagebuilder.generator.java;
 
 import java.util.Set;
 
+import org.apache.commons.lang.StringUtils;
+
 import ca.infoway.messagebuilder.generator.lang.Decorator;
 import ca.infoway.messagebuilder.generator.lang.Indenter;
 import ca.infoway.messagebuilder.generator.lang.ProgrammingLanguage;
@@ -19,7 +21,15 @@ public class MapByPartTypeAnnotationDecorator extends Indenter implements Decora
 	}
 
 	public String render() {
-		return createMappingsString(this.baseRelationship.getMapByPartTypeMappings());
+		String result = StringUtils.EMPTY;
+		if (requiresMapByPartTypeAnnotation()) {
+			result = createMappingsString(this.baseRelationship.getMapByPartTypeMappings());
+		}
+		return result;
+	}
+
+	boolean requiresMapByPartTypeAnnotation() {
+		return this.baseRelationship.requiresMapByPartTypeAnnotation();
 	}
 
 	private String createMappingsString(Set<NameAndType> mappingsByPartType) {
@@ -38,25 +48,20 @@ public class MapByPartTypeAnnotationDecorator extends Indenter implements Decora
 	}
 
 	private String createMappingsForCsharp(Set<NameAndType> mappingsByPartType) {
-		// FIXME - TM - handle CSHARP
-		
 		StringBuilder builder = new StringBuilder();
-		indent(this.indentLevel, builder);
-		builder.append("@Hl7MapByPartTypes({");
 		boolean first = true;
 		for (NameAndType nameAndType : mappingsByPartType) {
 			if (!first) {
-				builder.append(",\n");
-				indent(this.indentLevel+1, builder);
+				builder.append("\n");
 			}
-			builder.append("@Hl7MapByPartType(name=\"");
+			indent(this.indentLevel, builder);
+			builder.append("[Hl7MapByPartType(Name=\"");
 			builder.append(nameAndType.getName());
-			builder.append(",type=\"");
+			builder.append("\", Type=\"");
 			builder.append(nameAndType.getType());
-			builder.append("\")");
+			builder.append("\")]");
 			first = false;
 		}
-		builder.append("})");
 		return builder.toString();
 	}
 
@@ -64,16 +69,20 @@ public class MapByPartTypeAnnotationDecorator extends Indenter implements Decora
 		StringBuilder builder = new StringBuilder();
 		indent(this.indentLevel, builder);
 		builder.append("@Hl7MapByPartTypes({");
+		boolean moreThanOneMapping = mappingsByPartType.size() > 1;
 		boolean first = true;
 		for (NameAndType nameAndType : mappingsByPartType) {
 			if (!first) {
-				builder.append(",\n");
+				builder.append(",");
+			}
+			if (moreThanOneMapping) {
+				builder.append("\n");
 				indent(this.indentLevel+1, builder);
 			}
 			
 			builder.append("@Hl7MapByPartType(name=\"");
 			builder.append(nameAndType.getName());
-			builder.append("\",type=\"");
+			builder.append("\", type=\"");
 			builder.append(nameAndType.getType());
 			builder.append("\")");
 			first = false;
