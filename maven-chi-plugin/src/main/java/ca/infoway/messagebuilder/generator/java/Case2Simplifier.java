@@ -11,7 +11,6 @@ import org.apache.commons.lang.ObjectUtils;
 
 import ca.infoway.messagebuilder.generator.LogUI;
 import ca.infoway.messagebuilder.xml.ConformanceLevel;
-import ca.infoway.messagebuilder.xml.TypeName;
 
 public class Case2Simplifier extends InlineableSimplifier {
 
@@ -47,7 +46,7 @@ public class Case2Simplifier extends InlineableSimplifier {
 		}
 	}
 	
-	private Set<TypeName> nonInlineableTypes = Collections.synchronizedSet(new HashSet<TypeName>());
+	private Set<String> nonInlineableTypes = Collections.synchronizedSet(new HashSet<String>());
 	private final Case1Simplifier case1Simplifier;
 	private final SimplifiableDefinitions definitions;
 	
@@ -64,11 +63,9 @@ public class Case2Simplifier extends InlineableSimplifier {
 	}
 	
 	private void analyze() {
-		for (ComplexTypePackage complexTypePackage : this.result.getAllPackages()) {
-			for (Type type : new ArrayList<Type>(complexTypePackage.getTypes().values())) {
-				if (type.getRelationships().size() >= 7) {
-					this.nonInlineableTypes.add(type.getTypeName());
-				}
+		for (SimplifiableType type : this.definitions.getAllTypes()) {
+			if (type.getRelationships().size() >= 7) {
+				this.nonInlineableTypes.add(type.getName());
 			}
 		}
 	}
@@ -83,45 +80,6 @@ public class Case2Simplifier extends InlineableSimplifier {
 //			this.log.log(DEBUG, "Simplification case 2: removing type " + inlineableType.getTypeName());
 //			this.result.removeType(inlineableType);
 //		}
-	}
-
-//	private void inlineReference(Type inlineableType, Reference reference) {
-//		this.log.log(DEBUG, "Simplification case 2: Type " + inlineableType.getTypeName() + " is being rolled up into " + reference.getType().getTypeName());
-//		if (ObjectUtils.equals(inlineableType.getTypeName(), reference.getType().getTypeName())) {
-//			this.log.log(LogLevel.WARN, "warning - trying to inline type to itself:  " + inlineableType.getTypeName());
-//		} else {
-//			BaseRelationship oldRelationship = reference.getRelationship();
-//			
-//			for (BaseRelationship relationship : inlineableType.getRelationships()) {
-//				// bug 13644 - only create an inlined relationship if the reference type actually makes use of the relationship
-//				if (typeUsesRelationship(reference.getType(), oldRelationship, relationship)) {
-//					reference.getType().getRelationships().add(createInlinedRelationship(
-//							inlineableType.getTypeName(), relationship, oldRelationship));
-//				}
-//			}
-//			reference.getType().getRelationships().remove(oldRelationship);
-//		}
-//	}
-
-	@Override
-	protected boolean isInlineable(ComplexTypePackage complexTypePackage, Type inlineableType) {
-		boolean result = true;
-		
-		if (inlineableType.isRootType()) {
-			result = false;
-		} else if (inlineableType.isAbstract()) {
-			result = false;
-		} else if (!isUsedExactlyOnce(complexTypePackage, inlineableType) && !isTemporary(inlineableType)) {
-			// if used more than once do not inline - we don't want to denormalize unnecessarily; 
-			// temporary (merged) types are an exception, and will not fall under this case
-			result = false;
-		} else {
-			List<Reference> references = getAllReferencesToType(
-					getPotentialReferrers(complexTypePackage, inlineableType), inlineableType);
-			result = validateReferences(complexTypePackage, inlineableType, references);
-		}
-		
-		return result;
 	}
 
 	@Override
@@ -144,19 +102,8 @@ public class Case2Simplifier extends InlineableSimplifier {
 		return result;
 	}
 	
-	private Collection<Type> getPotentialReferrers(ComplexTypePackage complexTypePackage, Type inlineableType) {
-		return this.result.getAllMessageTypes();
-	}
 	private Collection<SimplifiableType> getPotentialReferrers(SimplifiablePackage complexTypePackage, SimplifiableType inlineableType) {
 		return this.definitions.getAllTypes();
-	}
-
-	private boolean validateReferences(ComplexTypePackage complexTypePackage, Type inlineableType, List<Reference> references) {
-		boolean result = !references.isEmpty();
-		for (Reference reference : references) {
-			result &= validateReference(complexTypePackage, inlineableType, reference);
-		}
-		return result;
 	}
 
 	private boolean validateReferences(SimplifiablePackage complexTypePackage, SimplifiableType inlineableType, List<SimplifiableReference> references) {
@@ -167,18 +114,6 @@ public class Case2Simplifier extends InlineableSimplifier {
 		return result;
 	}
 	
-	private List<Reference> getAllReferencesToType(Collection<Type> values, Type inlineableType) {
-		List<Reference> result = new ArrayList<Reference>();
-		for (Type type : values) {
-			for (BaseRelationship relationship : type.getRelationships()) {
-				if (matches(inlineableType, relationship)) {
-					result.add(new Reference(type, relationship));
-				}
-			}
-		}
-		return result;
-	}
-
 	private List<SimplifiableReference> getAllSimplifiableReferencesToType(Collection<SimplifiableType> values, SimplifiableType inlineableType) {
 		List<SimplifiableReference> result = new ArrayList<SimplifiableReference>();
 		for (SimplifiableType type : values) {
@@ -191,27 +126,6 @@ public class Case2Simplifier extends InlineableSimplifier {
 		return result;
 	}
 	
-	private boolean validateReference(ComplexTypePackage complexTypePackage, Type inlineableType, Reference reference) {
-		boolean result = true;
-		
-		if (reference.getRelationship().isCardinalityMultiple()) {
-			result = false;
-		} else if (this.nonInlineableTypes.contains(reference.getType().getTypeName())) {
-			result = false;
-		} else if (ObjectUtils.equals(inlineableType.getTypeName(), reference.getType().getTypeName())) {
-			return false;
-		} else if (this.case1Simplifier.isInlineable(complexTypePackage, reference.getType())) {
-			return false;
-		} else if (EXACTLY_ONE.equals(reference.getRelationship().getCardinality())) {
-			result = true;
-		} else {
-			// must have at least one mandatory property in order to avoid ambiguity with collapsed relationships (parent is nullflavor vs parent has child and all child relationships are nullflavor)
-			result = hasAtLeastOneMandatoryProperty(inlineableType);
-		}
-		
-		return result && !reference.getRelationship().getConformanceLevel().equals(ConformanceLevel.POPULATED);
-	}
-
 	private boolean validateReference(SimplifiablePackage complexTypePackage, SimplifiableType inlineableType, SimplifiableReference reference) {
 		boolean result = true;
 		
@@ -233,17 +147,6 @@ public class Case2Simplifier extends InlineableSimplifier {
 		return result && !reference.getRelationship().getRelationship().getConformance().equals(ConformanceLevel.POPULATED);
 	}
 	
-	private boolean hasAtLeastOneMandatoryProperty(Type inlineableType) {
-		boolean result = false;
-		for (BaseRelationship relationship : inlineableType.getRelationships()) {
-			if (relationship.getCardinality().getMin() == 1) {
-				result = true;
-				break;
-			}
-		}
-		return result;
-	}
-
 	private boolean hasAtLeastOneMandatoryProperty(SimplifiableType inlineableType) {
 		boolean result = false;
 		for (SimplifiableRelationship relationship : inlineableType.getRelationships()) {
@@ -255,18 +158,6 @@ public class Case2Simplifier extends InlineableSimplifier {
 		return result;
 	}
 	
-	private boolean isUsedExactlyOnce(ComplexTypePackage complexTypePackage,
-			Type inlineableType) {
-		int count = 0;
-		for (Type type : complexTypePackage.getTypes().values()) {
-			for (BaseRelationship relationship : type.getRelationships()) {
-				if (matches(inlineableType, relationship)) {
-					count++;
-				}
-			}
-		}
-		return count == 1;
-	}
 	private boolean isUsedExactlyOnce(SimplifiablePackage complexTypePackage,
 			SimplifiableType inlineableType) {
 		int count = 0;
