@@ -1,6 +1,8 @@
 package ca.infoway.messagebuilder.generator.java;
 
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 import org.apache.commons.lang.StringUtils;
 
@@ -23,7 +25,9 @@ public class MapByPartTypeAnnotationDecorator extends Indenter implements Decora
 	public String render() {
 		String result = StringUtils.EMPTY;
 		if (requiresMapByPartTypeAnnotation()) {
-			result = createMappingsString(this.baseRelationship.getMapByPartTypeMappings());
+			List<NameAndType> mappings = new ArrayList<NameAndType>(this.baseRelationship.getMapByPartTypeMappings());
+			Collections.sort(mappings);
+			result = createMappingsString(mappings);
 		}
 		return result;
 	}
@@ -32,14 +36,14 @@ public class MapByPartTypeAnnotationDecorator extends Indenter implements Decora
 		return this.baseRelationship.requiresMapByPartTypeAnnotation();
 	}
 
-	private String createMappingsString(Set<NameAndType> mappingsByPartType) {
+	private String createMappingsString(List<NameAndType> mappings) {
 		String result = null;
 		switch (this.programmingLanguage) {
 		case JAVA:
-			result = createMappingsForJava(mappingsByPartType);
+			result = createMappingsForJava(mappings);
 			break;
 		case C_SHARP:
-			result = createMappingsForCsharp(mappingsByPartType);
+			result = createMappingsForCsharp(mappings);
 			break;
 		default:
 			throw new IllegalStateException(this.getClass().getSimpleName() + " currently only works with Java or CSharp.");
@@ -47,31 +51,28 @@ public class MapByPartTypeAnnotationDecorator extends Indenter implements Decora
 		return result;
 	}
 
-	private String createMappingsForCsharp(Set<NameAndType> mappingsByPartType) {
+	private String createMappingsForCsharp(List<NameAndType> mappings) {
 		StringBuilder builder = new StringBuilder();
-		boolean first = true;
-		for (NameAndType nameAndType : mappingsByPartType) {
-			if (!first) {
-				builder.append("\n");
-			}
+		for (NameAndType nameAndType : mappings) {
+			builder.append("\n");
 			indent(this.indentLevel, builder);
 			builder.append("[Hl7MapByPartType(Name=\"");
 			builder.append(nameAndType.getName());
 			builder.append("\", Type=\"");
 			builder.append(nameAndType.getType());
 			builder.append("\")]");
-			first = false;
 		}
 		return builder.toString();
 	}
 
-	private String createMappingsForJava(Set<NameAndType> mappingsByPartType) {
+	private String createMappingsForJava(List<NameAndType> mappings) {
 		StringBuilder builder = new StringBuilder();
+		builder.append("\n");
 		indent(this.indentLevel, builder);
 		builder.append("@Hl7MapByPartTypes({");
-		boolean moreThanOneMapping = mappingsByPartType.size() > 1;
+		boolean moreThanOneMapping = mappings.size() > 1;
 		boolean first = true;
-		for (NameAndType nameAndType : mappingsByPartType) {
+		for (NameAndType nameAndType : mappings) {
 			if (!first) {
 				builder.append(",");
 			}
