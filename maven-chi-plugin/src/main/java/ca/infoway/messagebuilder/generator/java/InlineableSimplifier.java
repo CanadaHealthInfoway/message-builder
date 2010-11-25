@@ -50,7 +50,9 @@ public abstract class InlineableSimplifier {
 	}
 
 	protected abstract boolean isInlineable(SimplifiablePackage simplifiablePackage, SimplifiableType type);
-	protected abstract boolean isInlineable(ComplexTypePackage complexTypePackage, Type inlineableType);
+	@Deprecated
+	protected boolean isInlineable(ComplexTypePackage complexTypePackage, Type inlineableType) { return false; }
+	@Deprecated
 	protected abstract void inline(ComplexTypePackage complexTypePackage, Type inlineableType);
 	
 	protected BaseRelationship createInlinedRelationship(TypeName name, 
