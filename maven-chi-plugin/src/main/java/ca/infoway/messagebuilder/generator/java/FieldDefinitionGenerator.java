@@ -5,7 +5,10 @@ import static ca.infoway.messagebuilder.generator.lang.ProgrammingLanguage.C_SHA
 import java.io.IOException;
 import java.io.Writer;
 
+import org.apache.commons.lang.StringUtils;
+
 import ca.infoway.messagebuilder.generator.lang.CodeTemplate;
+import ca.infoway.messagebuilder.generator.lang.ProgrammingLanguage;
 
 class FieldDefinitionGenerator extends FieldTemplateProcessor {
 	
@@ -31,5 +34,10 @@ class FieldDefinitionGenerator extends FieldTemplateProcessor {
 		} else {
 			write(JAVA_FIELD_DECLARATION, indent, writer);
 		}
+	}
+	
+	@Override
+	String generateMapByPartTypeAnnotations(int indent, String[] xmlPathName, BaseRelationship baseRelationship, ProgrammingLanguage programmingLanguage) {
+		return StringUtils.EMPTY;
 	}
 }

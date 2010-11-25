@@ -1,6 +1,5 @@
 package ca.infoway.messagebuilder.generator.java;
 
-import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 import java.io.StringWriter;
@@ -14,9 +13,6 @@ import org.junit.runner.RunWith;
 
 import ca.infoway.messagebuilder.generator.lang.ProgrammingLanguage;
 import ca.infoway.messagebuilder.xml.Cardinality;
-import ca.infoway.messagebuilder.xml.Difference;
-import ca.infoway.messagebuilder.xml.DifferenceType;
-import ca.infoway.messagebuilder.xml.DifferenceValue;
 import ca.infoway.messagebuilder.xml.Relationship;
 import ca.infoway.messagebuilder.xml.TypeName;
 
@@ -37,6 +33,9 @@ public class PropertyDefinitionGeneratorTest {
 	
 	@Test
 	public void shouldCreateWritableJavaProperty() throws Exception {
+		Relationship relationship = new Relationship("relName", "ABCD_MT123456CA.SubjectOf2", Cardinality.create("1"));
+		final BaseRelationship association = Association.createStandardAssociation(relationship, new Type(new TypeName(relationship.getType())));
+
 		this.jmock.checking(new Expectations() {{
 			allowing(fieldDefinition).isWritable(); will(returnValue(true));
 			allowing(fieldDefinition).getXmlPathName(); will(returnValue(new String[] {"name/value", "myName/value"}));
@@ -54,7 +53,7 @@ public class PropertyDefinitionGeneratorTest {
 			allowing(fieldDefinition).getFieldElementType(); will(returnValue(""));
 			allowing(fieldDefinition).getDerivedChoiceHasBodyStyle(); will(returnValue(null));
 			allowing(fieldDefinition).getProgrammingLanguage(); will(returnValue(ProgrammingLanguage.JAVA));
-			allowing(fieldDefinition).getBaseRelationship(); will(returnValue(null));
+			allowing(fieldDefinition).getBaseRelationship(); will(returnValue(association));
 		}});
 		
 		this.javaPropertyDefinition.createPropertyDefinition(1, writer, false);
@@ -66,6 +65,9 @@ public class PropertyDefinitionGeneratorTest {
 
 	@Test
 	public void shouldCreateReadOnlyJavaDerivedChoiceProperty() throws Exception {
+		Relationship relationship = new Relationship("relName", "ABCD_MT123456CA.SubjectOf2", Cardinality.create("1"));
+		final BaseRelationship association = Association.createStandardAssociation(relationship, new Type(new TypeName(relationship.getType())));
+
 		this.jmock.checking(new Expectations() {{
 			allowing(fieldDefinition).isWritable(); will(returnValue(false));
 			allowing(fieldDefinition).isDerivedChoice(); will(returnValue(true));
@@ -84,7 +86,7 @@ public class PropertyDefinitionGeneratorTest {
 			allowing(fieldDefinition).getFieldElementType(); will(returnValue(""));
 			allowing(fieldDefinition).getDerivedChoiceHasBodyStyle(); will(returnValue(GetterBodyStyle.DERIVED_CHOICE_HAS));
 			allowing(fieldDefinition).getProgrammingLanguage(); will(returnValue(ProgrammingLanguage.JAVA));
-			allowing(fieldDefinition).getBaseRelationship(); will(returnValue(null));
+			allowing(fieldDefinition).getBaseRelationship(); will(returnValue(association));
 		}});
 		
 		this.javaPropertyDefinition.createPropertyDefinition(1, writer, false);
@@ -96,31 +98,4 @@ public class PropertyDefinitionGeneratorTest {
 		assertTrue("has body", output.contains("return (this.choiceField instanceof SubChoiceType);"));
 	}
 	
-	@Test
-	public void shouldIndicateThatAdditionalAnnotationIsNotRequiredInTrivialCase() throws Exception {
-		Association association = Association.createStandardAssociation(new Relationship("person", "ABCD_MT123456CA.Person", Cardinality.create("1")), new Type(new TypeName("ABCD_MT123456CA.Person")));
-		assertFalse("simple case", this.javaPropertyDefinition.requiresMapByPartTypeAnnotation(association));
-	}
-	
-	@Test
-	public void shouldIndicateThatAdditionalAnnotationIsRequiredInTopMostCase() throws Exception {
-		Relationship relationship = new Relationship("person", "ABCD_MT123456CA.Person", Cardinality.create("1"));
-		relationship.addDifference(new Difference(DifferenceType.RELATIONSHIP_RENAMED,
-				true, new DifferenceValue("version1", "person1"), new DifferenceValue("version2", "person")));
-		
-		Association association = Association.createStandardAssociation(relationship, new Type(new TypeName("ABCD_MT123456CA.Person")));
-		assertTrue("basic rename", this.javaPropertyDefinition.requiresMapByPartTypeAnnotation(association));
-	}
-	
-	@Test
-	public void shouldIndicateThatAdditionalAnnotationIsRequiredInInlinedRelationship() throws Exception {
-		Relationship relationship = new Relationship("person", "ABCD_MT123456CA.Person", Cardinality.create("1"));
-		relationship.addDifference(new Difference(DifferenceType.RELATIONSHIP_RENAMED,
-				true, new DifferenceValue("version1", "person1"), new DifferenceValue("version2", "person")));
-		Association association = Association.createStandardAssociation(relationship, new Type(new TypeName("ABCD_MT123456CA.Person")));
-		Association elidedAssociation = Association.createStandardAssociation(new Relationship("patientPerson", "ABCD_MT123456CA.Patient", Cardinality.create("1")), new Type(new TypeName("ABCD_MT123456CA.Patient")));
-		
-		InlinedAssociation inlinedAssociation = new InlinedAssociation(association, elidedAssociation);
-		assertTrue("basic rename", this.javaPropertyDefinition.requiresMapByPartTypeAnnotation(inlinedAssociation));
-	}
 }

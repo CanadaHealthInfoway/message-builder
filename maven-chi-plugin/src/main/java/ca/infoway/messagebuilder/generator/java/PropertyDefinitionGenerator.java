@@ -7,7 +7,7 @@ import ca.infoway.messagebuilder.generator.lang.CodeTemplate;
 
 class PropertyDefinitionGenerator extends FieldTemplateProcessor {
 	
-	private static final String JAVA_PROPERTY_READ_DEFINITION = "@Hl7XmlMapping('{'{0}'}')\n" + 
+	private static final String JAVA_PROPERTY_READ_DEFINITION = "@Hl7XmlMapping('{'{0}'}')\n{11}" + 
 			"public {8} get{2}() '{'\n" +
 			"    {3}\n" +
 			"'}'";
@@ -23,7 +23,7 @@ class PropertyDefinitionGenerator extends FieldTemplateProcessor {
 		"    {10}\n" +
 		"'}'";
 	private static final String JAVA_INTERFACE_READ_DEFINITION = "public {8} get{2}();";
-	private static final String CSHARP_ANNOTATION = "[Hl7XmlMappingAttribute(new string[] '{'{0}'}')]";
+	private static final String CSHARP_ANNOTATION = "[Hl7XmlMappingAttribute(new string[] '{'{0}'}')]{11}";
 	private static final String CSHARP_PROPERTY_DEFINITION = "public {8} {2} '{'\n";
 	private static final String CSHARP_PROPERTY_GETTER_DEFINITION = 
 		"    get '{' {3} '}'";
@@ -90,8 +90,4 @@ class PropertyDefinitionGenerator extends FieldTemplateProcessor {
 		}
 	}
 	
-	@Override
-	protected boolean requiresMapByPartTypeAnnotation(BaseRelationship baseRelationship) {
-		return baseRelationship == null ? false : baseRelationship.requiresMapByPartTypeAnnotation();
-	}
 }

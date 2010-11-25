@@ -1,19 +1,24 @@
 package ca.infoway.messagebuilder.generator.java;
 
+import static ca.infoway.messagebuilder.generator.lang.ProgrammingLanguage.JAVA;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
-import org.junit.Ignore;
 import org.junit.Test;
 
 import ca.infoway.messagebuilder.generator.TypeConverter;
 import ca.infoway.messagebuilder.generator.lang.ProgrammingLanguage;
 import ca.infoway.messagebuilder.xml.Cardinality;
+import ca.infoway.messagebuilder.xml.Difference;
+import ca.infoway.messagebuilder.xml.DifferenceType;
+import ca.infoway.messagebuilder.xml.DifferenceValue;
 import ca.infoway.messagebuilder.xml.Relationship;
 import ca.infoway.messagebuilder.xml.TypeName;
 
 public class MapByPartTypeAnnotationDecoratorTest {
 
-	@Test @Ignore
+	@Test
 	public void shouldGenerateNothingWhenNotInlinedForJava() {
 		Relationship relationship = new Relationship("relName", "ABCD_MT123456CA.SubjectOf2", Cardinality.create("1"));
 		BaseRelationship association = Association.createStandardAssociation(relationship, new Type(new TypeName(relationship.getType())));
@@ -21,7 +26,7 @@ public class MapByPartTypeAnnotationDecoratorTest {
 		assertEquals("", decorator.render());
 	}
 	
-	@Test @Ignore
+	@Test
 	public void shouldGenerateMappingsForInlinedAssociationForJava() {
 		Relationship relationship1 = new Relationship("theType", "ABCD_MT123456CA.SubjectOf2", Cardinality.create("1"));
 		Relationship relationship2 = new Relationship("theSubType", "ABCD_MT123478CA.Component4", Cardinality.create("1"));
@@ -35,13 +40,14 @@ public class MapByPartTypeAnnotationDecoratorTest {
 		Association inlinedAssociation2 = new InlinedAssociation(inlinedAssociation1, highestAssociation);
 		
 		MapByPartTypeAnnotationDecorator decorator = new MapByPartTypeAnnotationDecorator(0, inlinedAssociation2, ProgrammingLanguage.JAVA);
-		assertEquals(	"@Hl7MapByPartTypes({@Hl7MapByPartType(name=\"theType\",type=\"ABCD_MT123456CA.SubjectOf2\"),\n" +
-						"    @Hl7MapByPartType(name=\"theType/theSubType\",type=\"ABCD_MT123478CA.Component4\"),\n" +
-						"    @Hl7MapByPartType(name=\"theType/theSubType/theSubSubType\",type=\"ABCD_MT123490CA.Patient\")})"
+		assertEquals(	"@Hl7MapByPartTypes({\n" +
+						"    @Hl7MapByPartType(name=\"theType/theSubType\", type=\"ABCD_MT123478CA.Component4\"),\n" +
+						"    @Hl7MapByPartType(name=\"theType/theSubType/theSubSubType\", type=\"ABCD_MT123490CA.Patient\"),\n" +
+						"    @Hl7MapByPartType(name=\"theType\", type=\"ABCD_MT123456CA.SubjectOf2\")})"
 					, decorator.render());
 	}
 	
-	@Test @Ignore
+	@Test
 	public void shouldGenerateMappingsForInlinedAssociationForJavaWithReversedInlining() {
 		Relationship relationship1 = new Relationship("theType", "ABCD_MT123456CA.SubjectOf2", Cardinality.create("1"));
 		Relationship relationship2 = new Relationship("theSubType", "ABCD_MT123478CA.Component4", Cardinality.create("1"));
@@ -55,15 +61,16 @@ public class MapByPartTypeAnnotationDecoratorTest {
 		Association inlinedAssociation1 = new InlinedAssociation(lowestAssociation, inlinedAssociation2);
 		
 		MapByPartTypeAnnotationDecorator decorator = new MapByPartTypeAnnotationDecorator(0, inlinedAssociation1, ProgrammingLanguage.JAVA);
-		assertEquals(	"@Hl7MapByPartTypes({@Hl7MapByPartType(name=\"theType\",type=\"ABCD_MT123456CA.SubjectOf2\"),\n" +
-						"    @Hl7MapByPartType(name=\"theType/theSubType\",type=\"ABCD_MT123478CA.Component4\"),\n" +
-						"    @Hl7MapByPartType(name=\"theType/theSubType/theSubSubType\",type=\"ABCD_MT123490CA.Patient\")})" 
+		assertEquals(	"@Hl7MapByPartTypes({\n" +
+						"    @Hl7MapByPartType(name=\"theType/theSubType\", type=\"ABCD_MT123478CA.Component4\"),\n" +
+						"    @Hl7MapByPartType(name=\"theType/theSubType/theSubSubType\", type=\"ABCD_MT123490CA.Patient\"),\n" + 
+						"    @Hl7MapByPartType(name=\"theType\", type=\"ABCD_MT123456CA.SubjectOf2\")})"
 					, decorator.render());
 	}
 	
 	
-	@Test @Ignore
-	public void shouldGenerateMappingsForMergedAndInlinedAssociationForJavaWithReversedInlining() {
+	@Test
+	public void shouldGenerateMappingsForMergedAndInlinedAssociationForJavaAndCSharpWithReversedInlining() {
 		Relationship relationship1 = new Relationship("theType", "ABCD_MT123456CA.SubjectOf2", Cardinality.create("1"));
 		Relationship relationship2 = new Relationship("theSubType", "ABCD_MT123478CA.Component4", Cardinality.create("1"));
 		Relationship relationship3 = new Relationship("theSubSubType", "ABCD_MT123490CA.Patient", Cardinality.create("1"));
@@ -79,13 +86,20 @@ public class MapByPartTypeAnnotationDecoratorTest {
 		Association inlinedAssociation1 = new InlinedAssociation(lowestAssociation, inlinedAssociation2);
 		
 		MapByPartTypeAnnotationDecorator decorator = new MapByPartTypeAnnotationDecorator(0, inlinedAssociation1, ProgrammingLanguage.JAVA);
-		assertEquals(	"@Hl7MapByPartTypes({@Hl7MapByPartType(name=\"theType\",type=\"ABCD_MT123456CA.SubjectOf2\"),\n" +
-				"    @Hl7MapByPartType(name=\"theType/theSubType\",type=\"ABCD_MT123478CA.Component4\"),\n" +
-				"    @Hl7MapByPartType(name=\"theType/theSubType/theSubSubType\",type=\"ABCD_MT123490CA.Patient\")})" 
+		assertEquals(	"@Hl7MapByPartTypes({\n" +
+						"    @Hl7MapByPartType(name=\"theType/theSubType\", type=\"ABCD_MT123478CA.Component4\"),\n" +
+						"    @Hl7MapByPartType(name=\"theType/theSubType/theSubSubType\", type=\"ABCD_MT123490CA.Patient\"),\n" + 
+						"    @Hl7MapByPartType(name=\"theType\", type=\"ABCD_MT123456CA.SubjectOf2\")})"
+				, decorator.render());
+		
+		decorator = new MapByPartTypeAnnotationDecorator(0, inlinedAssociation1, ProgrammingLanguage.C_SHARP);
+		assertEquals(	"[Hl7MapByPartType(Name=\"theType/theSubType\", Type=\"ABCD_MT123478CA.Component4\")]\n" +
+						"[Hl7MapByPartType(Name=\"theType/theSubType/theSubSubType\", Type=\"ABCD_MT123490CA.Patient\")]\n" + 
+						"[Hl7MapByPartType(Name=\"theType\", Type=\"ABCD_MT123456CA.SubjectOf2\")]"
 				, decorator.render());
 	}
 	
-	@Test @Ignore
+	@Test
 	public void shouldGenerateMappingsForInlinedAttributeForJava() {
 		Relationship relationship1 = new Relationship("theType", "ABCD_MT123456CA.SubjectOf2", Cardinality.create("1"));
 		Relationship relationship2 = new Relationship("theSubType", "ABCD_MT123478CA.Component4", Cardinality.create("1"));
@@ -99,12 +113,13 @@ public class MapByPartTypeAnnotationDecoratorTest {
 		BaseRelationship inlinedAttribute = new InlinedAttribute(lowestAttribute, inlinedAssociation);
 		
 		MapByPartTypeAnnotationDecorator decorator = new MapByPartTypeAnnotationDecorator(0, inlinedAttribute, ProgrammingLanguage.JAVA);
-		assertEquals(	"@Hl7MapByPartTypes({@Hl7MapByPartType(name=\"theType\",type=\"ABCD_MT123456CA.SubjectOf2\"),\n" +
-						"    @Hl7MapByPartType(name=\"theType/theSubType\",type=\"ABCD_MT123478CA.Component4\")})"
+		assertEquals(	"@Hl7MapByPartTypes({\n" +
+						"    @Hl7MapByPartType(name=\"theType/theSubType\", type=\"ABCD_MT123478CA.Component4\"),\n" +
+						"    @Hl7MapByPartType(name=\"theType\", type=\"ABCD_MT123456CA.SubjectOf2\")})"
 					, decorator.render());
 	}
 	
-	@Test @Ignore
+	@Test
 	public void shouldGenerateNothingWhenNotInlinedForCsharp() {
 		Relationship relationship = new Relationship("relName", "ABCD_MT123456CA.SubjectOf2", Cardinality.create("1"));
 		BaseRelationship association = Association.createStandardAssociation(relationship, new Type(new TypeName(relationship.getType())));
@@ -112,4 +127,31 @@ public class MapByPartTypeAnnotationDecoratorTest {
 		assertEquals("", decorator.render());
 	}
 	
+	@Test
+	public void shouldIndicateThatAdditionalAnnotationIsNotRequiredInTrivialCase() throws Exception {
+		Association association = Association.createStandardAssociation(new Relationship("person", "ABCD_MT123456CA.Person", Cardinality.create("1")), new Type(new TypeName("ABCD_MT123456CA.Person")));
+		assertFalse("simple case", new MapByPartTypeAnnotationDecorator(0, association, JAVA).requiresMapByPartTypeAnnotation());
+	}
+	
+	@Test
+	public void shouldIndicateThatAdditionalAnnotationIsRequiredInTopMostCase() throws Exception {
+		Relationship relationship = new Relationship("person", "ABCD_MT123456CA.Person", Cardinality.create("1"));
+		relationship.addDifference(new Difference(DifferenceType.RELATIONSHIP_RENAMED,
+				true, new DifferenceValue("version1", "person1"), new DifferenceValue("version2", "person")));
+		
+		Association association = Association.createStandardAssociation(relationship, new Type(new TypeName("ABCD_MT123456CA.Person")));
+		assertTrue("basic rename", new MapByPartTypeAnnotationDecorator(0, association, JAVA).requiresMapByPartTypeAnnotation());
+	}
+	
+	@Test
+	public void shouldIndicateThatAdditionalAnnotationIsRequiredInInlinedRelationship() throws Exception {
+		Relationship relationship = new Relationship("person", "ABCD_MT123456CA.Person", Cardinality.create("1"));
+		relationship.addDifference(new Difference(DifferenceType.RELATIONSHIP_RENAMED,
+				true, new DifferenceValue("version1", "person1"), new DifferenceValue("version2", "person")));
+		Association association = Association.createStandardAssociation(relationship, new Type(new TypeName("ABCD_MT123456CA.Person")));
+		Association elidedAssociation = Association.createStandardAssociation(new Relationship("patientPerson", "ABCD_MT123456CA.Patient", Cardinality.create("1")), new Type(new TypeName("ABCD_MT123456CA.Patient")));
+		
+		InlinedAssociation inlinedAssociation = new InlinedAssociation(association, elidedAssociation);
+		assertTrue("basic rename", new MapByPartTypeAnnotationDecorator(0, inlinedAssociation, JAVA).requiresMapByPartTypeAnnotation());
+	}
 }
