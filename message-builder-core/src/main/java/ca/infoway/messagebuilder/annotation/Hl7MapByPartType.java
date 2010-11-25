@@ -15,6 +15,11 @@ import java.lang.annotation.Retention;
  * new annotation -- and assuming that we know the required part type --  we 
  * should be able to look at the annotation to determine which mapping is the 
  * right one to consult.
+ *
+ * We are telling sharpen to ignore this class as we need the csharp version to have
+ * AllowMultiple=true.
+ * 
+ * @sharpen.ignore
  * 
  * @author <a href="http://www.intelliware.ca/">Intelliware Development</a>
  */
