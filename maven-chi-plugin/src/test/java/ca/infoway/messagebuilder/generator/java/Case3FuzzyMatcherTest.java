@@ -14,15 +14,16 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import ca.infoway.messagebuilder.generator.SysoutLogUI;
+import ca.infoway.messagebuilder.generator.TypeConverter;
 import ca.infoway.messagebuilder.xml.Cardinality;
 import ca.infoway.messagebuilder.xml.Documentation;
 import ca.infoway.messagebuilder.xml.MessagePart;
+import ca.infoway.messagebuilder.xml.Relationship;
 
 @RunWith(JMock.class)
 public class Case3FuzzyMatcherTest {
 
 	private Mockery jmock = new Mockery();
-	private TypeProvider provider = this.jmock.mock(TypeProvider.class);
 	private SimplifiableTypeProvider definitions = this.jmock.mock(SimplifiableTypeProvider.class);
 	
 	@Test
@@ -39,8 +40,36 @@ public class Case3FuzzyMatcherTest {
 		assertFalse("no matches", createMatcher(result).performMatching(type1));
 	}
 
+	@Test
+	public void shouldMatchRenamedTypes() throws Exception {
+		
+		final SimplifiableType type1 = new SimplifiableType(new MessagePart("MCCI_MT102001CA.Agent"), false);
+		final SimplifiableType organizationType = new SimplifiableType(new MessagePart("MCCI_MT102001CA.Organization"), false);
+		organizationType.getRelationships().add(new SimplifiableRelationship(new Relationship("id", "II", Cardinality.create("0-1")), new TypeConverter().convertToType("II", null)));
+		type1.getRelationships().add(new SimplifiableRelationship(new Relationship("agentOrganization", "MCCI_MT102001CA.Organization", Cardinality.create("0-1")), organizationType));
+		
+		final SimplifiableType organizationType2 = new SimplifiableType(new MessagePart("MCCI_MT102001CA.Organization2"), false);
+		organizationType2.getRelationships().add(new SimplifiableRelationship(new Relationship("id", "II", Cardinality.create("0-1")), new TypeConverter().convertToType("II", null)));
+		final SimplifiableType type2 = new SimplifiableType(new MessagePart("MCCI_MT102001CA.Agent2"), false);
+		type2.getRelationships().add(new SimplifiableRelationship(new Relationship("representedOrganization", "MCCI_MT102001CA.Organization2", Cardinality.create("0-1")), organizationType2));
+		
+		TemporaryTypeName mergedTypeName = TemporaryTypeName.create("merged");
+		organizationType.setMergedTypeName(mergedTypeName);
+		organizationType.getMergedWithTypes().add(organizationType2);
+		organizationType2.setMergedTypeName(mergedTypeName);
+		organizationType2.getMergedWithTypes().add(organizationType);
+		
+		this.jmock.checking(new Expectations() {{
+			allowing(definitions).getAllTypes(); will(returnValue(Arrays.asList(type1, type2,
+					organizationType, organizationType2)));
+		}});
+		
+		Case3MergeResult result = new Case3MergeResult();
+		assertTrue("matches", createMatcher(result).performMatching(type1));
+	}
+
 	private Case3FuzzyMatcher createMatcher(Case3MergeResult result) {
-		return new Case3FuzzyMatcher(new SysoutLogUI(), this.provider, this.definitions, result);
+		return new Case3FuzzyMatcher(new SysoutLogUI(), this.definitions, result);
 	}
 	
 	@Test

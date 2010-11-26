@@ -31,7 +31,7 @@ public class IntermediateToCsharpGenerator extends IntermediateToModelGenerator 
 	 */
 	@Override
 	public void simplify(TypeAnalysisResult result, SimplifiableDefinitions definitions) throws GeneratorException {
-		new Case3Simplifier(this.outputUI, result, definitions).execute();
+		new Case3Simplifier(this.outputUI, definitions).execute();
 		super.simplify(result, definitions);
 	}
 	
