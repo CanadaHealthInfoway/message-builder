@@ -9,7 +9,6 @@ import org.apache.commons.lang.StringUtils;
 
 import ca.infoway.messagebuilder.NamedAndTyped;
 import ca.infoway.messagebuilder.annotation.Hl7MapByPartType;
-import ca.infoway.messagebuilder.annotation.Hl7MapByPartTypes;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
 import ca.infoway.messagebuilder.j5goodies.BeanProperty;
 import ca.infoway.messagebuilder.util.iterator.EmptyIterable;
@@ -51,18 +50,18 @@ class Mapping implements NamedAndTyped {
 		return this.mapping.contains("/");
 	}
 
-	static List<Mapping> from(List<String> mappings, Hl7MapByPartTypes exceptions) {
+	static List<Mapping> from(List<String> mappings, Hl7MapByPartType[] exceptions) {
 		List<Mapping> result = new ArrayList<Mapping>();
 		for (String mapping : EmptyIterable.<String>nullSafeIterable(mappings)) {
 			result.add(new Mapping(mapping, extractPartTypeMappings(exceptions)));
 		}
 		return result;
 	}
-	private static List<PartTypeMapping> extractPartTypeMappings(Hl7MapByPartTypes exceptions) {
+	private static List<PartTypeMapping> extractPartTypeMappings(Hl7MapByPartType[] exceptions) {
 		
 		List<PartTypeMapping> mappings = new ArrayList<PartTypeMapping>();
 		if (exceptions != null) {
-			for (Hl7MapByPartType nameValuePair : exceptions.value()) {
+			for (Hl7MapByPartType nameValuePair : exceptions) {
 				mappings.add(new PartTypeMapping(nameValuePair.name(), nameValuePair.type()));
 			}
 		}
@@ -72,11 +71,11 @@ class Mapping implements NamedAndTyped {
 
 	public static List<Mapping> from(BeanProperty property) {
 		Hl7XmlMapping mapping = property.getAnnotation(Hl7XmlMapping.class);
-		Hl7MapByPartTypes exceptions = property.getAnnotation(Hl7MapByPartTypes.class);
+		Hl7MapByPartType[] exceptions = MappingHelper.getAllHl7MapByPartType(property);
 		return from(mapping, exceptions);
 	}
 
-	private static List<Mapping> from(Hl7XmlMapping mapping, Hl7MapByPartTypes exceptions) {
+	private static List<Mapping> from(Hl7XmlMapping mapping, Hl7MapByPartType[] exceptions) {
 		return mapping == null ? Collections.<Mapping>emptyList() : from(Arrays.asList(mapping.value()), exceptions);
 	}
 
@@ -120,4 +119,5 @@ class Mapping implements NamedAndTyped {
 		}
 		return result;
 	}
+	
 }
