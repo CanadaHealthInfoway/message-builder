@@ -40,10 +40,10 @@ public class MapByPartTypeAnnotationDecoratorTest {
 		Association inlinedAssociation2 = new InlinedAssociation(inlinedAssociation1, highestAssociation);
 		
 		MapByPartTypeAnnotationDecorator decorator = new MapByPartTypeAnnotationDecorator(0, inlinedAssociation2, ProgrammingLanguage.JAVA);
-		assertEquals(	"@Hl7MapByPartTypes({\n" +
+		assertEquals(	"\n@Hl7MapByPartTypes({\n" +
+						"    @Hl7MapByPartType(name=\"theType\", type=\"ABCD_MT123456CA.SubjectOf2\"),\n" +
 						"    @Hl7MapByPartType(name=\"theType/theSubType\", type=\"ABCD_MT123478CA.Component4\"),\n" +
-						"    @Hl7MapByPartType(name=\"theType/theSubType/theSubSubType\", type=\"ABCD_MT123490CA.Patient\"),\n" +
-						"    @Hl7MapByPartType(name=\"theType\", type=\"ABCD_MT123456CA.SubjectOf2\")})"
+						"    @Hl7MapByPartType(name=\"theType/theSubType/theSubSubType\", type=\"ABCD_MT123490CA.Patient\")})"
 					, decorator.render());
 	}
 	
@@ -61,10 +61,10 @@ public class MapByPartTypeAnnotationDecoratorTest {
 		Association inlinedAssociation1 = new InlinedAssociation(lowestAssociation, inlinedAssociation2);
 		
 		MapByPartTypeAnnotationDecorator decorator = new MapByPartTypeAnnotationDecorator(0, inlinedAssociation1, ProgrammingLanguage.JAVA);
-		assertEquals(	"@Hl7MapByPartTypes({\n" +
+		assertEquals(	"\n@Hl7MapByPartTypes({\n" +
+						"    @Hl7MapByPartType(name=\"theType\", type=\"ABCD_MT123456CA.SubjectOf2\"),\n" +
 						"    @Hl7MapByPartType(name=\"theType/theSubType\", type=\"ABCD_MT123478CA.Component4\"),\n" +
-						"    @Hl7MapByPartType(name=\"theType/theSubType/theSubSubType\", type=\"ABCD_MT123490CA.Patient\"),\n" + 
-						"    @Hl7MapByPartType(name=\"theType\", type=\"ABCD_MT123456CA.SubjectOf2\")})"
+						"    @Hl7MapByPartType(name=\"theType/theSubType/theSubSubType\", type=\"ABCD_MT123490CA.Patient\")})" 
 					, decorator.render());
 	}
 	
@@ -86,16 +86,17 @@ public class MapByPartTypeAnnotationDecoratorTest {
 		Association inlinedAssociation1 = new InlinedAssociation(lowestAssociation, inlinedAssociation2);
 		
 		MapByPartTypeAnnotationDecorator decorator = new MapByPartTypeAnnotationDecorator(0, inlinedAssociation1, ProgrammingLanguage.JAVA);
-		assertEquals(	"@Hl7MapByPartTypes({\n" +
+		assertEquals(	"\n@Hl7MapByPartTypes({\n" +
+						"    @Hl7MapByPartType(name=\"theType\", type=\"ABCD_MT123456CA.SubjectOf2\"),\n" +
 						"    @Hl7MapByPartType(name=\"theType/theSubType\", type=\"ABCD_MT123478CA.Component4\"),\n" +
-						"    @Hl7MapByPartType(name=\"theType/theSubType/theSubSubType\", type=\"ABCD_MT123490CA.Patient\"),\n" + 
-						"    @Hl7MapByPartType(name=\"theType\", type=\"ABCD_MT123456CA.SubjectOf2\")})"
+						"    @Hl7MapByPartType(name=\"theType/theSubType/theSubSubType\", type=\"ABCD_MT123490CA.Patient\")})" 
 				, decorator.render());
 		
 		decorator = new MapByPartTypeAnnotationDecorator(0, inlinedAssociation1, ProgrammingLanguage.C_SHARP);
-		assertEquals(	"[Hl7MapByPartType(Name=\"theType/theSubType\", Type=\"ABCD_MT123478CA.Component4\")]\n" +
-						"[Hl7MapByPartType(Name=\"theType/theSubType/theSubSubType\", Type=\"ABCD_MT123490CA.Patient\")]\n" + 
-						"[Hl7MapByPartType(Name=\"theType\", Type=\"ABCD_MT123456CA.SubjectOf2\")]"
+		assertEquals(	
+						"\n[Hl7MapByPartType(Name=\"theType\", Type=\"ABCD_MT123456CA.SubjectOf2\")]\n" +
+						"[Hl7MapByPartType(Name=\"theType/theSubType\", Type=\"ABCD_MT123478CA.Component4\")]\n" +
+						"[Hl7MapByPartType(Name=\"theType/theSubType/theSubSubType\", Type=\"ABCD_MT123490CA.Patient\")]" 
 				, decorator.render());
 	}
 	
@@ -113,9 +114,9 @@ public class MapByPartTypeAnnotationDecoratorTest {
 		BaseRelationship inlinedAttribute = new InlinedAttribute(lowestAttribute, inlinedAssociation);
 		
 		MapByPartTypeAnnotationDecorator decorator = new MapByPartTypeAnnotationDecorator(0, inlinedAttribute, ProgrammingLanguage.JAVA);
-		assertEquals(	"@Hl7MapByPartTypes({\n" +
-						"    @Hl7MapByPartType(name=\"theType/theSubType\", type=\"ABCD_MT123478CA.Component4\"),\n" +
-						"    @Hl7MapByPartType(name=\"theType\", type=\"ABCD_MT123456CA.SubjectOf2\")})"
+		assertEquals(	"\n@Hl7MapByPartTypes({\n" +
+						"    @Hl7MapByPartType(name=\"theType\", type=\"ABCD_MT123456CA.SubjectOf2\"),\n" +
+						"    @Hl7MapByPartType(name=\"theType/theSubType\", type=\"ABCD_MT123478CA.Component4\")})"
 					, decorator.render());
 	}
 	
