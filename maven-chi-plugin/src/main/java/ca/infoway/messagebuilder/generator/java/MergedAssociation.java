@@ -46,5 +46,4 @@ public class MergedAssociation extends Association {
 	String getOriginalType() {
 		return this.association.getOriginalType();
 	}
-	
 }
