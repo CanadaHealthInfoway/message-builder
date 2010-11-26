@@ -25,12 +25,10 @@ import ca.infoway.messagebuilder.xml.TypeName;
 public class Case3ExactMatcherTest {
 	
 	private Mockery jmock = new Mockery();
-	private TypeProvider typeProvider;
 	private SimplifiableTypeProvider definitions;
 	
 	@Before
 	public void setUp() throws Exception {
-		this.typeProvider = this.jmock.mock(TypeProvider.class);
 		this.definitions = this.jmock.mock(SimplifiableTypeProvider.class);
 	}
 	
@@ -50,7 +48,7 @@ public class Case3ExactMatcherTest {
 	}
 	
 	private Case3ExactMatcher createMatcher(Case3MergeResult result) {
-		return new Case3ExactMatcher(new SysoutLogUI(), this.typeProvider, this.definitions, result);
+		return new Case3ExactMatcher(new SysoutLogUI(), this.definitions, result);
 	}
 
 	@Test

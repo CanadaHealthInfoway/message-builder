@@ -21,21 +21,21 @@ public class Case3Simplifier {
 	private List<? extends Case3MatcherFactory> factories = Arrays.asList(
 			new Case3MatcherFactory() {
 				public Case3Matcher create(LogUI log, SimplifiableDefinitions definitions, Case3MergeResult result) {
-					return new Case3ExactMatcher(log, null, definitions, result);
+					return new Case3ExactMatcher(log, definitions, result);
 				}
 			},
 			new Case3MatcherFactory() {
 				public Case3Matcher create(LogUI log, SimplifiableDefinitions definitions, Case3MergeResult result) {
-					return new Case3FuzzyMatcher(log, null, definitions, result);
+					return new Case3FuzzyMatcher(log, definitions, result);
 				}
 			});
 	private final SimplifiableDefinitions definitions;
 	
 	
-	public Case3Simplifier(LogUI log, TypeAnalysisResult result, SimplifiableDefinitions definitions) {
-		this(log, result, definitions, new Case3MergeResult());
+	public Case3Simplifier(LogUI log,SimplifiableDefinitions definitions) {
+		this(log, definitions, new Case3MergeResult());
 	}
-	Case3Simplifier(LogUI log, TypeAnalysisResult result, SimplifiableDefinitions definitions, Case3MergeResult mergeResult) {
+	Case3Simplifier(LogUI log, SimplifiableDefinitions definitions, Case3MergeResult mergeResult) {
 		this.log = log;
 		this.definitions = definitions;
 		this.mergeResult = mergeResult;

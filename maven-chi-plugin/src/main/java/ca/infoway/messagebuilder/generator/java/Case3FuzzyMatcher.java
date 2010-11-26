@@ -5,6 +5,7 @@ import static ca.infoway.messagebuilder.generator.java.MatchType.EXACT;
 import static ca.infoway.messagebuilder.generator.java.MatchType.MAJOR_DIFFERENCE;
 import static ca.infoway.messagebuilder.generator.java.MatchType.MINOR_DIFFERENCE;
 import static ca.infoway.messagebuilder.generator.java.MatchType.REMOVED;
+import static ca.infoway.messagebuilder.generator.java.MatchType.RENAMED;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -13,6 +14,7 @@ import java.util.List;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.collections.Predicate;
 import org.apache.commons.collections.PredicateUtils;
+import org.codehaus.plexus.util.StringUtils;
 
 import ca.infoway.messagebuilder.Named;
 import ca.infoway.messagebuilder.generator.LogLevel;
@@ -24,14 +26,16 @@ class Case3FuzzyMatcher extends Case3Matcher {
 	private static final Predicate DIFFERENCE_PREDICATE = PredicateUtils.equalPredicate(MAJOR_DIFFERENCE);
 	private static final Predicate REMOVED_PREDICATE = PredicateUtils.equalPredicate(REMOVED);
 	private static final Predicate ADDED_PREDICATE = PredicateUtils.equalPredicate(ADDED);
-	private static final Predicate EXACT_PREDICATE = PredicateUtils.equalPredicate(EXACT);
+	private static final Predicate EXACT_OR_RENAMED_PREDICATE = PredicateUtils.orPredicate(
+			PredicateUtils.equalPredicate(EXACT),
+			PredicateUtils.equalPredicate(RENAMED));
 	
 	private final SimplifiableTypeProvider definitions;
 	private final Case3MergeResult mergeResult;
 	private final Matcher matcher;
 	private final LogUI log;
 
-	public Case3FuzzyMatcher(LogUI log, TypeProvider provider, SimplifiableTypeProvider definitions, Case3MergeResult result) {
+	public Case3FuzzyMatcher(LogUI log, SimplifiableTypeProvider definitions, Case3MergeResult result) {
 		this.log = log;
 		this.definitions = definitions;
 		this.mergeResult = result;
@@ -62,7 +66,7 @@ class Case3FuzzyMatcher extends Case3Matcher {
 			}
 		}
 		
-		if (!matches.isEmpty() && isAllMatchesCompatible2(matches) && !isAlreadyRecorded(type, matches)) {
+		if (!matches.isEmpty() && isAllMatchesCompatible(matches) && !isAlreadyRecorded(type, matches)) {
 			recordAllMatches(matches);
 			return true;
 		} else {
@@ -109,8 +113,8 @@ class Case3FuzzyMatcher extends Case3Matcher {
 		}
 	}
 
-	private boolean isAllMatchesCompatible2(List<SimplifiableType> matches) {
-		matches = createMergeList2(matches);
+	private boolean isAllMatchesCompatible(List<SimplifiableType> matches) {
+		matches = createMergeList(matches);
 		boolean result = true;
 		while (!matches.isEmpty() && result) {
 			SimplifiableType exemplar = matches.remove(0);
@@ -126,7 +130,7 @@ class Case3FuzzyMatcher extends Case3Matcher {
 	
 	// need to consolidate both the cluster, and everything that 
 	// items in the cluster have previously merged with.
-	private List<SimplifiableType> createMergeList2(List<SimplifiableType> matches) {
+	private List<SimplifiableType> createMergeList(List<SimplifiableType> matches) {
 		HashMap<TypeName,SimplifiableType> map = new HashMap<TypeName, SimplifiableType>();
 		for (SimplifiableType type : matches) {
 			map.put(type.getTypeName(), type);
@@ -155,7 +159,8 @@ class Case3FuzzyMatcher extends Case3Matcher {
 	}
 	
 	private boolean isSufficientOverlap(List<MatchType> matchTypes) {
-		int numExact = CollectionUtils.countMatches(matchTypes, EXACT_PREDICATE);
+		int numExact = CollectionUtils.countMatches(matchTypes, EXACT_OR_RENAMED_PREDICATE)
+			+ CollectionUtils.countMatches(matchTypes, EXACT_OR_RENAMED_PREDICATE);
 		int numAdded = CollectionUtils.countMatches(matchTypes, ADDED_PREDICATE);
 		int numRemoved = CollectionUtils.countMatches(matchTypes, REMOVED_PREDICATE);
 		int numMajorDifferences = CollectionUtils.countMatches(matchTypes, DIFFERENCE_PREDICATE);
@@ -185,6 +190,9 @@ class Case3FuzzyMatcher extends Case3Matcher {
 					this.matcher.matchesType(relationship.getRelationship(), otherRelationship.getRelationship()));
 			} else if (relationship.isTemplateType() || isTemplateAssociationType(relationship)) {
 				matchTypes.add(matchType =MatchType.MAJOR_DIFFERENCE);
+			} else if (relationship.isAssociation() && !relationship.isTemplateType() 
+					&& isRenamedRelationship(relationship, otherType)) {
+				matchTypes.add(MatchType.RENAMED);
 			} else {
 				// TODO: BCH: Should we search by business name?
 				matchTypes.add(matchType = missingMatchType);
@@ -195,6 +203,28 @@ class Case3FuzzyMatcher extends Case3Matcher {
 		}
 	}
 	
+	private boolean isRenamedRelationship(SimplifiableRelationship relationship,
+			SimplifiableType otherType) {
+		boolean result = false;
+		for (SimplifiableRelationship otherRelationship : otherType.getRelationships()) {
+			System.out.println("---> " + otherRelationship.getName() + " with " + relationship.getName());
+			
+			if (!otherRelationship.isAssociation()) {
+				// skip it
+			} else if (otherRelationship.isTemplateType()) {
+				// skip it
+			} else if (StringUtils.equals(otherRelationship.getRelationship().getType(), relationship.getRelationship().getType())) {
+				result = true;
+				break;
+			} else if (otherRelationship.getType().getMergedTypeName() != null && 
+					otherRelationship.getType().getMergedTypeName().equals(relationship.getType().getMergedTypeName())) {
+				result = true;
+				break;
+			}
+		}
+		return result;
+	}
+
 	private boolean isTemplateAssociationType(SimplifiableRelationship relationship) {
 		return relationship.isAssociation() 
 				&& relationship.getType() != null
