@@ -147,7 +147,7 @@ public abstract class BaseRelationship implements PropertyGeneratorProvider, Nam
 	}
 	
 	boolean requiresMapByPartTypeAnnotation() {
-		return !getMapByPartTypeMappings().isEmpty();
+		return getAllXmlMappings().length > 1;
 	}
 	String getOriginalType() {
 		return this.relationship.getType();
