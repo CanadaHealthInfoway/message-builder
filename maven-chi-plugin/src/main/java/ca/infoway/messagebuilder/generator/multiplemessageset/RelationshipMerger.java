@@ -62,10 +62,10 @@ class RelationshipMerger implements Merger<Relationship> {
 	}
 
 	private void mergeCardinality(Cardinality cardinality, Cardinality cardinality2) {
-		if (cardinality.isMultiple()) {
-			this.result.setCardinality(cardinality);
-		} else if (cardinality2.isMultiple()) {
+		if (cardinality2.isMultiple() && !cardinality.isMultiple()) {
 			this.result.setCardinality(cardinality2);
+		} else {
+			this.result.setCardinality(cardinality);
 		}
 	}
 
