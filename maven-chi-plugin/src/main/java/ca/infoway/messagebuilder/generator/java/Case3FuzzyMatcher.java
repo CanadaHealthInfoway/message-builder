@@ -159,8 +159,7 @@ class Case3FuzzyMatcher extends Case3Matcher {
 	}
 	
 	private boolean isSufficientOverlap(List<MatchType> matchTypes) {
-		int numExact = CollectionUtils.countMatches(matchTypes, EXACT_OR_RENAMED_PREDICATE)
-			+ CollectionUtils.countMatches(matchTypes, EXACT_OR_RENAMED_PREDICATE);
+		int numExact = CollectionUtils.countMatches(matchTypes, EXACT_OR_RENAMED_PREDICATE);
 		int numAdded = CollectionUtils.countMatches(matchTypes, ADDED_PREDICATE);
 		int numRemoved = CollectionUtils.countMatches(matchTypes, REMOVED_PREDICATE);
 		int numMajorDifferences = CollectionUtils.countMatches(matchTypes, DIFFERENCE_PREDICATE);
