@@ -26,7 +26,12 @@ public class Case3Simplifier {
 			},
 			new Case3MatcherFactory() {
 				public Case3Matcher create(LogUI log, SimplifiableDefinitions definitions, Case3MergeResult result) {
-					return new Case3FuzzyMatcher(log, definitions, result);
+					return new Case3FuzzyMatcher(log, definitions, result, FuzzQuotient.LEVEL_0);
+				}
+			},
+			new Case3MatcherFactory() {
+				public Case3Matcher create(LogUI log, SimplifiableDefinitions definitions, Case3MergeResult result) {
+					return new Case3FuzzyMatcher(log, definitions, result, FuzzQuotient.LEVEL_1);
 				}
 			});
 	private final SimplifiableDefinitions definitions;

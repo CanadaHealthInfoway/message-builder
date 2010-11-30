@@ -160,5 +160,4 @@ class SimplifiableType implements Named, NamedType {
 		}
 		return result;
 	}
-	
 }

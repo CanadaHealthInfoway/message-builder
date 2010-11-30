@@ -2,6 +2,8 @@ package ca.infoway.messagebuilder.generator.java;
 
 import org.apache.commons.lang.StringUtils;
 
+import ca.infoway.messagebuilder.datatype.Hl7TypeName;
+import ca.infoway.messagebuilder.generator.TypeConverter;
 import ca.infoway.messagebuilder.marshalling.hl7.DomainTypeHelper;
 import ca.infoway.messagebuilder.xml.Argument;
 import ca.infoway.messagebuilder.xml.ConformanceLevel;
@@ -12,6 +14,7 @@ import ca.infoway.messagebuilder.xml.TypeName;
 public class Matcher {
 	
 	private final TypeNameSubstituter substituter;
+	private final TypeConverter converter = new TypeConverter();
 
 	public Matcher() {
 		this(null);
@@ -59,7 +62,10 @@ public class Matcher {
 
 	private MatchType matchesAttributeType(Relationship base, Relationship other) {
 		// should list major difference checks first, followed by minor, then exact
-		if (!StringUtils.equals(base.getType(), other.getType())) {
+		Hl7TypeName baseType = Hl7TypeName.parse(base.getType());
+		Hl7TypeName otherType = Hl7TypeName.parse(other.getType());
+		
+		if (!baseType.getUnspecializedName().equals(otherType.getUnspecializedName())) {
 			return MatchType.MAJOR_DIFFERENCE;
 		} else if (base.getCardinality().isMultiple() != other.getCardinality().isMultiple()) {
 			// bug 13308: cardinality not being checked when merging types (see comment in matchesAssociationType)
@@ -72,8 +78,10 @@ public class Matcher {
 			return MatchType.MINOR_DIFFERENCE;
 		} else if (base.isFixed() && !StringUtils.equals(base.getFixedValue(), other.getFixedValue())) {
 			return MatchType.MINOR_DIFFERENCE;
-		} else {
+		} else if (baseType.toString().equals(otherType.toString())) {
 			return MatchType.EXACT;
+		} else {
+			return MatchType.MINOR_DIFFERENCE;
 		}
 	}
 
@@ -121,5 +129,4 @@ public class Matcher {
 			return MatchType.MAJOR_DIFFERENCE;
 		}
 	}
-	
 }

@@ -68,4 +68,11 @@ public class NameMatcherTest {
 				new NameMatcher().matchNames(new NamedTypeImpl("ABCD_MT123456CA.Wilma", "Flintstone"), 
 						new NamedTypeImpl("ABCD_MT987654CA.Wilma", "Wilma Flintstone")));
 	}
+	
+	@Test
+	public void shouldMatchIfBusinessNamesDontMatchButTypeNamesAreSimilar() throws Exception {
+		assertEquals("matches", MatchType.MINOR_DIFFERENCE, 
+				new NameMatcher().matchNames(new NamedTypeImpl("MCCI_MT102001CA.Organization3", null), 
+						new NamedTypeImpl("MCCI_MT102001CA.Organization2", null)));
+	}
 }
