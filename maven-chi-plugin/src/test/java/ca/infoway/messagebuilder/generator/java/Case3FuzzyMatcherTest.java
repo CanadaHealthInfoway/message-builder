@@ -65,11 +65,13 @@ public class Case3FuzzyMatcherTest {
 		}});
 		
 		Case3MergeResult result = new Case3MergeResult();
+		result.recordMatch(organizationType, organizationType2);
+		
 		assertTrue("matches", createMatcher(result).performMatching(type1));
 	}
 
 	private Case3FuzzyMatcher createMatcher(Case3MergeResult result) {
-		return new Case3FuzzyMatcher(new SysoutLogUI(), this.definitions, result);
+		return new Case3FuzzyMatcher(new SysoutLogUI(), this.definitions, result, FuzzQuotient.LEVEL_0);
 	}
 	
 	@Test

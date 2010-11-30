@@ -2,10 +2,7 @@ package ca.infoway.messagebuilder.generator.java;
 
 import static org.apache.commons.lang.StringUtils.isNotBlank;
 
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 import org.apache.commons.lang.StringUtils;
@@ -132,12 +129,6 @@ public abstract class BaseRelationship implements PropertyGeneratorProvider, Nam
 		return this.relationship;
 	}
 
-	public List<Relationship> getAllRelationships() {
-		return this.relationship == null 
-				? Collections.<Relationship>emptyList() 
-				: Arrays.asList(this.relationship);
-	}
-	
 	public boolean isWriteable() {
 		return !isCardinalityMultiple();
 	}
@@ -148,9 +139,6 @@ public abstract class BaseRelationship implements PropertyGeneratorProvider, Nam
 	
 	boolean requiresMapByPartTypeAnnotation() {
 		return getAllXmlMappings().length > 1;
-	}
-	String getOriginalType() {
-		return this.relationship.getType();
 	}
 
 	final Set<NameAndType> getMapByPartTypeMappings() {

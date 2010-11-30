@@ -1,9 +1,6 @@
 package ca.infoway.messagebuilder.generator.java;
 
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 import ca.infoway.messagebuilder.generator.LogUI;
@@ -14,11 +11,10 @@ class Case3ExactMatcher extends Case3Matcher {
 	private final Case3MergeResult mergeResult;
 	private Matcher matcher;
 	private final LogUI log;
-	private final SimplifiableTypeProvider definitions;
 	
 	Case3ExactMatcher(LogUI log, SimplifiableTypeProvider definitions, Case3MergeResult mergeResult) {
+		super(definitions);
 		this.log = log;
-		this.definitions = definitions;
 		this.mergeResult = mergeResult;
 		this.matcher = new Matcher(this.mergeResult);
 	}
@@ -36,12 +32,6 @@ class Case3ExactMatcher extends Case3Matcher {
 		}
 		return somethingMatched;
 	}
-	private List<SimplifiableType> getAllSimplifiableTypes() {
-		ArrayList<SimplifiableType> list = new ArrayList<SimplifiableType>(this.definitions.getAllTypes());
-		Collections.reverse(list);
-		return list;
-	}
-
 	private MatchType matchType(SimplifiableType type, SimplifiableType otherType) {
 		MatchType result = type.getRelationships().size() == otherType.getRelationships().size() ?
 				MatchType.EXACT : MatchType.MAJOR_DIFFERENCE;

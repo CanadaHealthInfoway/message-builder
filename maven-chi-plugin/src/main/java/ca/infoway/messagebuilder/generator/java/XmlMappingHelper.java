@@ -1,8 +1,10 @@
 package ca.infoway.messagebuilder.generator.java;
 
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
@@ -15,55 +17,98 @@ import ca.infoway.messagebuilder.xml.Relationship;
 class XmlMappingHelper {
 	
 	private static final String WILDCARD = "*";
-	private Map<String,String> versionToName = new HashMap<String,String>();
+	private Map<String,Set<String>> versionToName = new HashMap<String,Set<String>>();
 	private Set<NameAndType> nameAndTypes = new HashSet<NameAndType>();
 
 	XmlMappingHelper(Relationship relationship) {
+		processRelationship(relationship);
+	}
+	XmlMappingHelper(Relationship... relationships) {
+		this(Arrays.asList(relationships));
+	}
+	XmlMappingHelper(List<Relationship> relationships) {
+		for (Relationship relationship : relationships) {
+			processRelationship(relationship);
+		}
+	}
+	private void processRelationship(Relationship relationship) {
 		for (Difference difference : relationship.getDifferences()) {
 			if (difference.getType() == DifferenceType.RELATIONSHIP_RENAMED) {
 				for (DifferenceValue value : difference.getDifferences()) {
-					this.versionToName.put(value.getVersion(), value.getValue());
+					addVersion(value.getVersion(), value.getValue());
 					if (relationship.isAssociation()) {
 						this.nameAndTypes.add(new NameAndType(value.getValue(), relationship.getType()));
 					}
 				}
 			}
 		}
-		this.versionToName.put(WILDCARD,relationship.getName());
+		addVersion(WILDCARD,relationship.getName());
 		if (relationship.isAssociation()) {
 			this.nameAndTypes.add(new NameAndType(relationship.getName(), relationship.getType()));
 		}
 	}
-	private XmlMappingHelper(Map<String,String> map, Set<NameAndType> nameAndTypes) {
+	private void addVersion(String version, String value) {
+		if (!this.versionToName.containsKey(version)) {
+			this.versionToName.put(version, new HashSet<String>());
+		}
+		this.versionToName.get(version).add(value);
+		
+	}
+	private XmlMappingHelper(Map<String,Set<String>> map, Set<NameAndType> nameAndTypes) {
 		this.versionToName = map;
 		this.nameAndTypes = nameAndTypes;
 	}
 
 	String[] getAllXmlMappings() {
-		Set<String> result = new TreeSet<String>(this.versionToName.values());
+		Set<String> result = new TreeSet<String>();
+		for (Set<String> names : this.versionToName.values()) {
+			result.addAll(names);
+		}
 		return result.toArray(new String[result.size()]);
 	}
 	
 	XmlMappingHelper concat(XmlMappingHelper helper) {
-		Map<String,String> temp = new HashMap<String,String>();
+		Map<String,Set<String>> temp = new HashMap<String,Set<String>>();
 		Set<NameAndType> set = new HashSet<NameAndType>(this.nameAndTypes);
 		Set<String> keys = new HashSet<String>(this.versionToName.keySet());
 		keys.addAll(helper.versionToName.keySet());
 		
 		for (String version : keys) {
-			String firstNamePart = getNameForVersion(version);
-			String secondNamePart = helper.getNameForVersion(version);
-			temp.put(version, firstNamePart + "/" + secondNamePart);
+			Set<String> firstNamePart = getNameForVersion(version);
+			Set<String> secondNamePart = helper.getNameForVersion(version);
+			temp.put(version, concat(firstNamePart, secondNamePart));
 			
 			for (NameAndType nameAndType : helper.nameAndTypes) {
-				if (secondNamePart.equals(nameAndType.getName()) || secondNamePart.startsWith(nameAndType.getName() + "/")) {
-					set.add(new NameAndType(firstNamePart + "/" + nameAndType.getName(), nameAndType.getType()));
+				if (secondNamePart.contains(nameAndType.getName()) || containsPrefix(secondNamePart, nameAndType)) {
+					for (String first : firstNamePart) {
+						set.add(new NameAndType(first + "/" + nameAndType.getName(), nameAndType.getType()));
+					}
 				}
 			}
 		}
 		return new XmlMappingHelper(temp, set);
 	}
-	private String getNameForVersion(String version) {
+	private boolean containsPrefix(Set<String> parts, NameAndType nameAndType) {
+		boolean result = false;
+		for (String part : parts) {
+			if (part.startsWith(nameAndType.getName() + "/")) {
+				result = true;
+				break;
+			}
+		}
+		return result;
+	}
+	private Set<String> concat(Set<String> firstNamePart, Set<String> secondNamePart) {
+		Set<String> result = new HashSet<String>();
+		
+		for (String first : firstNamePart) {
+			for (String second : secondNamePart) {
+				result.add(first + "/" + second);
+			}
+		}
+		return result;
+	}
+	private Set<String> getNameForVersion(String version) {
 		if (this.versionToName.containsKey(version)) {
 			return this.versionToName.get(version);
 		} else {

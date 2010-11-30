@@ -47,7 +47,7 @@ public class Case3ExactMatcherTest {
 		assertTrue("matched", createMatcher(result).performMatching(type1));
 	}
 	
-	private Case3ExactMatcher createMatcher(Case3MergeResult result) {
+	private Case3Matcher createMatcher(Case3MergeResult result) {
 		return new Case3ExactMatcher(new SysoutLogUI(), this.definitions, result);
 	}
 

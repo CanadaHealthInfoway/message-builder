@@ -23,7 +23,6 @@ public class XmlMappingHelperTest {
 	@Before
 	public void setUp() {
 		this.relationship = new Relationship("name", "ABCD_MT123456CA.PatientName", Cardinality.create("1"));
-		
 	}
 	
 	@Test
@@ -31,6 +30,16 @@ public class XmlMappingHelperTest {
 		String[] mappings = new XmlMappingHelper(this.relationship).getAllXmlMappings();
 		assertEquals("count", 1, mappings.length);
 		assertEquals("mapping", "name", mappings[0]);
+	}
+	
+	@Test
+	public void shouldGetSimpleXmlNameForMergedRelationship() throws Exception {
+		String[] mappings = new XmlMappingHelper(this.relationship,
+				new Relationship(
+						"otherName", "ABCD_MT123456CA.PatientName", 
+						Cardinality.create("1"))).getAllXmlMappings();
+		assertEquals("count", 2, mappings.length);
+		assertTrue("mapping", new HashSet<String>(asList("name", "otherName")).containsAll(asList(mappings)));
 	}
 	
 	@Test
@@ -48,6 +57,19 @@ public class XmlMappingHelperTest {
 		String[] mappings = new XmlMappingHelper(this.relationship).getAllXmlMappings();
 		assertEquals("count", 2, mappings.length);
 		assertTrue("mapping", new HashSet<String>(asList("name", "oldName")).containsAll(asList(mappings)));
+	}
+	
+	@Test
+	public void shouldGetXmlNameOnRelationshipWithDifferencesAndMergedRelationship() throws Exception {
+		this.relationship.addDifference(new Difference(RELATIONSHIP_RENAMED, true, 
+				new DifferenceValue("MR2007", "oldName"),
+				new DifferenceValue("MR2009", "name")));
+		
+		String[] mappings = new XmlMappingHelper(this.relationship,
+				new Relationship("otherName", "ABCD_MT123456CA.PatientName", 
+						Cardinality.create("1"))).getAllXmlMappings();
+		assertEquals("count", 3, mappings.length);
+		assertTrue("mapping", new HashSet<String>(asList("name", "oldName", "otherName")).containsAll(asList(mappings)));
 	}
 	
 	@Test
@@ -70,6 +92,19 @@ public class XmlMappingHelperTest {
 		
 		assertEquals("count", 1, mappings.length);
 		assertEquals("mapping", "name/value", mappings[0]);
+	}
+	
+	@Test
+	public void shouldConcatSimpleXmlNameAndMergedType() throws Exception {
+		XmlMappingHelper newHelper = new XmlMappingHelper(this.relationship,
+				new Relationship(
+						"otherName", "ABCD_MT123456CA.PatientName", 
+						Cardinality.create("1"))).concat(
+				new XmlMappingHelper(new Relationship("value", "PN", Cardinality.create("1"))));
+		String[] mappings = newHelper.getAllXmlMappings();
+		
+		assertEquals("count", 2, mappings.length);
+		assertTrue("mapping", new HashSet<String>(asList("name/value", "otherName/value")).containsAll(asList(mappings)));
 	}
 	
 	@Test
