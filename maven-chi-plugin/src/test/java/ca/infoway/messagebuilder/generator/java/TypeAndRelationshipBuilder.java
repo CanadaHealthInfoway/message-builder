@@ -128,6 +128,20 @@ public class TypeAndRelationshipBuilder {
 		return new SimplifiableRelationship(relationship, type);
 	}
 
+	public static SimplifiableRelationship createSimplifiableAssociation(String name, Cardinality cardinality, TemplateVariable variable, ConformanceLevel conformanceLevel) {
+		Relationship relationship = new Relationship();
+		relationship.setName(name);
+		relationship.setTemplateParameterName("MyParameterName");
+		if (cardinality != null) {
+			relationship.setCardinality(cardinality);
+		} else {
+			relationship.setCardinality(new Cardinality(1,1));
+		}
+		relationship.setConformance(conformanceLevel);
+		relationship.setDocumentation(new Documentation());
+		return new SimplifiableRelationship(relationship, variable);
+	}
+	
 	public static SimplifiableRelationship createSimplifiableAttribute(String name, Cardinality cardinality,
 			String hl7Type) {
 		Relationship relationship = new Relationship();

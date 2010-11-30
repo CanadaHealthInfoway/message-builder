@@ -16,6 +16,7 @@ import org.junit.runner.RunWith;
 import ca.infoway.messagebuilder.generator.SysoutLogUI;
 import ca.infoway.messagebuilder.generator.TypeConverter;
 import ca.infoway.messagebuilder.xml.Cardinality;
+import ca.infoway.messagebuilder.xml.ConformanceLevel;
 import ca.infoway.messagebuilder.xml.Documentation;
 import ca.infoway.messagebuilder.xml.MessagePart;
 import ca.infoway.messagebuilder.xml.Relationship;
@@ -89,6 +90,62 @@ public class Case3FuzzyMatcherTest {
 		
 		Case3MergeResult result = new Case3MergeResult();
 		assertTrue("matches", createMatcher(result).performMatching(type1));
+	}
+	
+	@Test
+	public void shouldMatchTwoTemplateRelationships() throws Exception {
+		
+		final SimplifiableType type1 = new SimplifiableType(new MessagePart("ABCD_MT123456CA.SomeType"), false);
+		type1.getRelationships().add(createSimplifiableAssociation("act", Cardinality.create("1"), new TemplateVariable("T"), ConformanceLevel.MANDATORY));
+		final SimplifiableType type2 = new SimplifiableType(new MessagePart("ABCD_MT987654CA.SomeType"), false);
+		type2.getRelationships().add(createSimplifiableAssociation("act", Cardinality.create("1"), new TemplateVariable("T"), ConformanceLevel.MANDATORY));
+		type2.getRelationships().add(createSimplifiableAttribute("id", Cardinality.create("1"), "II"));
+		
+		this.jmock.checking(new Expectations() {{
+			allowing(definitions).getAllTypes(); will(returnValue(Arrays.asList(type1, type2)));
+		}});
+		
+		Case3MergeResult result = new Case3MergeResult();
+		assertTrue("matches", createMatcher(result).performMatching(type1));
+	}
+	
+	@Test
+	public void shouldNotMatchTemplateRelationshipsWithDifferentNumberOfTemplates() throws Exception {
+		
+		final SimplifiableType type1 = new SimplifiableType(new MessagePart("ABCD_MT123456CA.SomeType"), false);
+		type1.getRelationships().add(createSimplifiableAssociation("act", Cardinality.create("1"), new TemplateVariable("T"), ConformanceLevel.MANDATORY));
+		type1.getRelationships().add(createSimplifiableAssociation("registeredRole", Cardinality.create("1"), new TemplateVariable("R"), ConformanceLevel.MANDATORY));
+		final SimplifiableType type2 = new SimplifiableType(new MessagePart("ABCD_MT987654CA.SomeType"), false);
+		type2.getRelationships().add(createSimplifiableAssociation("act", Cardinality.create("1"), new TemplateVariable("T"), ConformanceLevel.MANDATORY));
+		type2.getRelationships().add(createSimplifiableAttribute("id", Cardinality.create("1"), "II"));
+		
+		this.jmock.checking(new Expectations() {{
+			allowing(definitions).getAllTypes(); will(returnValue(Arrays.asList(type1, type2)));
+		}});
+		
+		Case3MergeResult result = new Case3MergeResult();
+		assertFalse("matches", createMatcher(result).performMatching(type1));
+	}
+	
+	@Test
+	public void shouldNotMatchTransitiveTemplateRelationships() throws Exception {
+		final SimplifiableType templateType = new SimplifiableType(new MessagePart("ABCD_MT123456CA.Subject"), false);
+		templateType.getRelationships().add(createSimplifiableAssociation("act", Cardinality.create("1"), new TemplateVariable("T"), ConformanceLevel.MANDATORY));
+		
+		final SimplifiableType type1 = new SimplifiableType(new MessagePart("ABCD_MT123456CA.SomeType"), false);
+		type1.getRelationships().add(createSimplifiableAssociation("act", Cardinality.create("1"), templateType, ConformanceLevel.MANDATORY));
+		final SimplifiableType type2 = new SimplifiableType(new MessagePart("ABCD_MT987654CA.SomeType"), false);
+		type2.getRelationships().add(createSimplifiableAssociation("act", Cardinality.create("1"), new TemplateVariable("T"), ConformanceLevel.MANDATORY));
+		type2.getRelationships().add(createSimplifiableAttribute("id", Cardinality.create("1"), "II"));
+		
+		this.jmock.checking(new Expectations() {{
+			allowing(definitions).getAllTypes(); will(returnValue(Arrays.asList(type1, type2)));
+		}});
+		
+		Case3MergeResult result = new Case3MergeResult();
+		assertFalse("matches", createMatcher(result).performMatching(type1));
+		
+		assertFalse("matches reverse", createMatcher(result).performMatching(type2));
 	}
 	
 	@Test
