@@ -51,4 +51,7 @@ class SimplifiableRelationship implements Named {
 	public boolean isTemplateType() {
 		return this.relationship.isTemplateRelationship();
 	}
+	public boolean isTemplateParameterPresent() {
+		return this.variable != null;
+	}
 }

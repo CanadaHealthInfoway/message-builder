@@ -47,7 +47,7 @@ class Case3FuzzyMatcher extends Case3Matcher {
 
 	public boolean performMatching(SimplifiableType type) {
 		List<SimplifiableType> matches = new ArrayList<SimplifiableType>();
-		if (!type.getMessagePart().isAbstract() && !isTemplateType(type)) {
+		if (!type.getMessagePart().isAbstract() && !isTransitiveTemplateType(type)) {
 			for (SimplifiableType otherType : getAllSimplifiableTypes()) {
 				if (type.getName().equals(otherType.getName())) {
 					break;
@@ -55,7 +55,9 @@ class Case3FuzzyMatcher extends Case3Matcher {
 					// skip it
 				} else if (this.mergeResult.isUnmergeable(type, otherType)) {
 					// skip it
-				} else if (isTemplateType(otherType)) {
+				} else if (type.isTemplateType() != otherType.isTemplateType()) {
+					// skip it
+				} else if (otherType.isTemplateType() && isTransitiveTemplateType(otherType)) {
 					// skip it
 				} else if (!isExactOrMinor(new NameMatcher().matchNames(type, otherType))) {
 					// skip it
@@ -78,6 +80,21 @@ class Case3FuzzyMatcher extends Case3Matcher {
 		}
 	}
 	
+	private boolean isTransitiveTemplateType(SimplifiableType type) {
+		if (!type.isTemplateType()) {
+			return false;
+		} else {
+			boolean result = false;
+			for (SimplifiableRelationship relationship : type.getRelationships()) {
+				if (relationship.isTemplateType() && !relationship.isTemplateParameterPresent()) {
+					result = true;
+					break;
+				}
+			}
+			return result;
+		}
+	}
+
 	private boolean isTemplateType(SimplifiableType type) {
 		return type.isTemplateType();
 	}
@@ -179,8 +196,12 @@ class Case3FuzzyMatcher extends Case3Matcher {
 			MatchType matchType = MatchType.EXACT;
 			SimplifiableRelationship otherRelationship = otherType.getRelationship(relationship.getRelationship().getName());
 			if (otherRelationship != null) {
-				matchTypes.add(matchType =
-					this.matcher.matchesType(relationship.getRelationship(), otherRelationship.getRelationship()));
+				if (relationship.isTemplateParameterPresent() && otherRelationship.isTemplateParameterPresent()) {
+					matchTypes.add(MatchType.EXACT);
+				} else {
+					matchTypes.add(matchType =
+						this.matcher.matchesType(relationship.getRelationship(), otherRelationship.getRelationship()));
+				}
 			} else if (relationship.isTemplateType() || isTemplateAssociationType(relationship)) {
 				matchTypes.add(matchType =MatchType.MAJOR_DIFFERENCE);
 			} else if (relationship.isAssociation() && !relationship.isTemplateType() 
@@ -200,14 +221,6 @@ class Case3FuzzyMatcher extends Case3Matcher {
 			SimplifiableType otherType) {
 		boolean result = false;
 		for (SimplifiableRelationship otherRelationship : otherType.getRelationships()) {
-			boolean print = false;
-//			System.out.println("---> " + otherRelationship.getName() + " with " + relationship.getName());
-			
-			if (type.getName().contains("MCCI_") && otherType.getName().contains("MCCI_") && otherRelationship.isAssociation()) {
-				print = true;
-				System.out.println("Comparing " + describe(type, relationship) + " and " + describe(otherType, otherRelationship));
-			}
-			
 			if (!otherRelationship.isAssociation()) {
 				// skip it
 			} else if (otherRelationship.isTemplateType()) {
@@ -226,11 +239,6 @@ class Case3FuzzyMatcher extends Case3Matcher {
 						" and " + describe(otherType, otherRelationship));
 				result = true;
 				break;
-			} else if (print) {
-				System.out.println("No match "  + describe(type, relationship) 
-						+ " and " +  describe(otherType, otherRelationship));
-				System.out.println("Type      : "  + type.getMergedTypeName());
-				System.out.println("Other type: "  + otherType.getMergedTypeName());
 			}
 		}
 		return result;
