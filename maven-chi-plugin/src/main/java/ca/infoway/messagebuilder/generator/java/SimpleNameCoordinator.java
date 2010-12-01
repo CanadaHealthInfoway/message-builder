@@ -82,7 +82,12 @@ public class SimpleNameCoordinator implements NameCoordinator {
 			this.type = type;
 		}
 		public String getNameContext() {
-			return this.type.getTypeName().getRootName().toString();
+			if (StringUtils.isBlank(this.type.getCategory())) {
+				return this.type.getTypeName().getRootName().toString();
+			} else {
+				return this.type.getCategory() + "." + 
+						this.type.getTypeName().getRootName().toString();
+			}
 		}
 		public List<String> getPreferredNames() {
 			Counter<String> counter1 = new Counter<String>();
