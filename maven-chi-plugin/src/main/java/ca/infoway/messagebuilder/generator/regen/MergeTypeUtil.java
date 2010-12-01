@@ -161,8 +161,8 @@ public class MergeTypeUtil {
 					}
 				}, javaSourceFolder, "", null);
 		
-		TypeAnalysisResult oldTypeAnalysisResult = generator.resultify(oldMessages);
-		TypeAnalysisResult newTypeAnalysisResult = generator.resultify(newMessages);
+		TypeAnalysisResult oldTypeAnalysisResult = generator.generate(oldMessages);
+		TypeAnalysisResult newTypeAnalysisResult = generator.generate(newMessages);
 		
 		Map<TypeName, Type> oldTypes = oldTypeAnalysisResult.getTypes();
 		Map<TypeName, Type> newTypes = newTypeAnalysisResult.getTypes();

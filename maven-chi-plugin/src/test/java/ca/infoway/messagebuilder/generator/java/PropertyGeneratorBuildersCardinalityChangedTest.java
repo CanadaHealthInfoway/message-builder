@@ -76,7 +76,7 @@ public class PropertyGeneratorBuildersCardinalityChangedTest {
 	}
 
 	private PropertyGenerator createMultipleToSingleGenerator(RegeneratedAssociationImpl association) {
-		return PropertyGeneratorBuilders.newAssociationCardinalityChangedFromMultipleToSingleBuilder(association).build(manager, nameResolver);
+		return null;
 	}
 
 	@Test @Ignore

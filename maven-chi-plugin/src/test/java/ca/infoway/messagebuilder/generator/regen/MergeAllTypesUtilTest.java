@@ -55,8 +55,8 @@ public class MergeAllTypesUtilTest {
 		this.jmock.checking(new Expectations() {{
 			one(marshaller).unmarshall(new File(VALID_FILE_1)); will(returnValue(messageSet1));
 			one(marshaller).unmarshall(new File(VALID_FILE_2)); will(returnValue(messageSet2));
-			one(generator).resultify(messageSet1); will(returnValue(typeAnalysisResult1));
-			one(generator).resultify(messageSet2); will(returnValue(typeAnalysisResult2));
+			one(generator).generate(messageSet1); will(returnValue(typeAnalysisResult1));
+			one(generator).generate(messageSet2); will(returnValue(typeAnalysisResult2));
 //			one(generator).simplify(typeAnalysisResultMerged);
 			one(generator).completeProcessing(typeAnalysisResultMerged);
 		}});

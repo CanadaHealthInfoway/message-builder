@@ -26,6 +26,7 @@ public class Type implements RenderedType, NamedType {
 	private String businessName;
 	private boolean rootType;
 	private String category;
+	private TypeName mergedName;
 	
 	private LanguageSpecificName languageSpecificName;
 	
@@ -247,5 +248,21 @@ public class Type implements RenderedType, NamedType {
 	}
 	public LanguageSpecificName getLanguageSpecificName() {
 		return this.languageSpecificName;
+	}
+	/**
+	 * <p>Return the tempoarary name that was assigned during the case 3 simplification 
+	 * process.  
+	 * 
+	 * <p>The presence or absence of a value in this field does not indicate that the 
+	 * final type will be merged.  If it is inlined, we might not care if it is merged.
+	 * In reality, the type might have been inlined away.  But we want to remember its
+	 * merged-ness when we try to process similar relationships.
+	 * @return
+	 */
+	TypeName getMergedName() {
+		return this.mergedName;
+	}
+	void setMergedName(TypeName mergedName) {
+		this.mergedName = mergedName;
 	}
 }

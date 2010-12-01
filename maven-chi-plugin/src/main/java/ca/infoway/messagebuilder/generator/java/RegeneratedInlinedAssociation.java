@@ -17,10 +17,6 @@ public class RegeneratedInlinedAssociation extends InlinedAssociation implements
 		this.builder = new PropertyGeneratorBuilder(ProgrammingLanguage.JAVA);
 	}
 
-	public Association getOriginalRelationship() {
-		return this.originalAssociation;
-	}
-	
 	public Association getNewRelationship() {
 		return this.newAssociation;
 	}

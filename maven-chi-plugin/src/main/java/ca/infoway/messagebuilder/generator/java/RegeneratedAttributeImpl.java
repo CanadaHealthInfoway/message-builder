@@ -19,10 +19,6 @@ public class RegeneratedAttributeImpl extends Attribute implements RegeneratedAt
 		this.builder = new PropertyGeneratorBuilder(ProgrammingLanguage.JAVA);
 	}
 
-	public Attribute getOriginalRelationship() {
-		return this.originalAttribute;
-	}
-	
 	public Attribute getNewRelationship() {
 		return this.newAttribute;
 	}

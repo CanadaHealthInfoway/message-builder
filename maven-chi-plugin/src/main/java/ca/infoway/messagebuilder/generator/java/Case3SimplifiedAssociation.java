@@ -5,7 +5,6 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
-import ca.infoway.messagebuilder.xml.Relationship;
 import ca.infoway.messagebuilder.xml.TypeName;
 
 class Case3SimplifiedAssociation extends Association {
@@ -17,17 +16,17 @@ class Case3SimplifiedAssociation extends Association {
 		super(exemplar.getRelationship(), exemplar.getAssociationType(), 
 				exemplar.getTemplateVariable(), Collections.<Choice>emptyList());
 		this.exemplar = exemplar;
-		this.helper = new XmlMappingHelper(extractRelationships(exemplar, mergedRelationships));
+		this.helper = new XmlMappingHelper(extractHelpers(exemplar, mergedRelationships));
 	}
 
-	private List<Relationship> extractRelationships(Association exemplar,
+	private List<XmlMappingHelper> extractHelpers(Association exemplar,
 			Map<TypeName, BaseRelationship> mergedRelationships) {
-		List<Relationship> result = new ArrayList<Relationship>();
-		result.add(exemplar.getRelationship());
+		List<XmlMappingHelper> helpers = new ArrayList<XmlMappingHelper>();
+		helpers.add(exemplar.getXmlMappingHelper());
 		for (BaseRelationship relationship : mergedRelationships.values()) {
-			result.add(relationship.getRelationship());
+			helpers.add(relationship.getXmlMappingHelper());
 		}
-		return result;
+		return helpers;
 	}
 
 	Association getExemplar() {

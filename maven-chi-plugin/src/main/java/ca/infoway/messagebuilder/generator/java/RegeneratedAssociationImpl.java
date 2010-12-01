@@ -18,10 +18,6 @@ public class RegeneratedAssociationImpl extends Association implements Regenerat
 		this.builder = new PropertyGeneratorBuilder(ProgrammingLanguage.JAVA);
 	}
 
-	public Association getOriginalRelationship() {
-		return this.originalAssociation;
-	}
-	
 	public Association getNewRelationship() {
 		return this.newAssociation;
 	}
