@@ -10,48 +10,46 @@ import ca.infoway.messagebuilder.xml.TypeName;
 
 class MergedTypeCollator {
 	
-	private Map<String,Map<TypeName,BaseRelationship>> relationships = 
-			new LinkedHashMap<String,Map<TypeName,BaseRelationship>>();
-	private Map<String,BaseRelationship> exemplars = new HashMap<String,BaseRelationship>();
+	private Map<Fingerprint,Map<TypeName,BaseRelationship>> relationship = 
+			new LinkedHashMap<Fingerprint,Map<TypeName,BaseRelationship>>();
 	
+	private Map<Fingerprint,BaseRelationship> exemplars = new HashMap<Fingerprint,BaseRelationship>();
 	
-	public void addRelationship(TypeName name, BaseRelationship relationship) {
-		if (!this.relationships.containsKey(relationship.getName())) {
-			this.relationships.put(relationship.getName(), new HashMap<TypeName, BaseRelationship>());
-		}
-		this.relationships.get(relationship.getName()).put(name, relationship);
-		assignExemplarIfAppropriate(relationship);
-	}
-
-
-	private void assignExemplarIfAppropriate(BaseRelationship relationship) {
+	private void assignExemplarIfAppropriate(Fingerprint fingerprint, BaseRelationship relationship) {
 		if (!this.exemplars.containsKey(relationship.getName())) {
-			this.exemplars.put(relationship.getName(), relationship);
+			this.exemplars.put(fingerprint, relationship);
 		} else {
-			BaseRelationship exemplar = this.exemplars.get(relationship.getName());
+			BaseRelationship exemplar = this.exemplars.get(fingerprint);
 			if (exemplar != null && exemplar.hasDomainType()) {
 				String compatibleDomainType = DomainTypeHelper.getCompatibleDomainType(exemplar.getRelationship(), relationship.getRelationship());
 				if (compatibleDomainType == null) {
 					throw new IllegalStateException("Could not find compatible domain type for merging types: " + exemplar.getType() + ", " + relationship.getType());
 				} else if (!DomainTypeHelper.hasDomainType(exemplar.getRelationship(), compatibleDomainType)) {
-					this.exemplars.put(relationship.getName(), relationship);
+					this.exemplars.put(fingerprint, relationship);
 				}
 			}
 		}
 	}
 
 
-	public Collection<String> relationshipNames() {
-		return this.relationships.keySet();
+	Collection<Fingerprint> relationshipNames() {
+		return this.relationship.keySet();
 	}
 
-
-	public BaseRelationship getExemplar(String name) {
+	BaseRelationship getExemplar(Fingerprint name) {
 		return this.exemplars.get(name);
 	}
 
+	Map<TypeName,BaseRelationship> getRelationships(Fingerprint fingerprint) {
+		return this.relationship.get(fingerprint);
+	}
 
-	public Map<TypeName,BaseRelationship> getRelationships(String name) {
-		return this.relationships.get(name);
+
+	void addRelationship(TypeName typeName, BaseRelationship relationship) {
+		if (!this.relationship.containsKey(relationship.getFingerprint())) {
+			this.relationship.put(relationship.getFingerprint(), new HashMap<TypeName, BaseRelationship>());
+		}
+		this.relationship.get(relationship.getFingerprint()).put(typeName, relationship);
+		assignExemplarIfAppropriate(relationship.getFingerprint(), relationship);
 	}
 }

@@ -3,8 +3,6 @@ package ca.infoway.messagebuilder.generator.regen;
 import ca.infoway.messagebuilder.generator.DataType;
 import ca.infoway.messagebuilder.generator.java.Attribute;
 import ca.infoway.messagebuilder.generator.java.BaseRelationship;
-import ca.infoway.messagebuilder.generator.java.PropertyGeneratorBuilders;
-import ca.infoway.messagebuilder.generator.java.RegeneratedAttribute;
 import ca.infoway.messagebuilder.generator.java.RegeneratedRelationshipFactory;
 import ca.infoway.messagebuilder.generator.java.Type;
 
@@ -13,17 +11,17 @@ public class DataTypeChangedToFromSetOrListTypeDeltaApplicator implements TypeDe
 	private RegeneratedRelationshipFactory factory = new RegeneratedRelationshipFactory();
 
 	public void apply(final RelationshipsMergerContext context, final BaseRelationship originalRelationship, BaseRelationship newRelationship) {
-		factory.createRegenerated(originalRelationship, newRelationship, new RegeneratedRelationshipFactory.Callback() {
-			@Override
-			protected void created(final RegeneratedAttribute regenerated) {
-				if (originalRelationship.isCardinalityMultiple()) {
-					regenerated.setBuilder(PropertyGeneratorBuilders.newAttributeTypeChangedFromListOrSetToSimpleBuilder(regenerated));
-				} else {
-					regenerated.setBuilder(PropertyGeneratorBuilders.newAttributeTypeChangedFromSimpleToListOrSetBuilder(regenerated));
-				}
-				replaceRelationship(context.getMergedType(), originalRelationship, (BaseRelationship) regenerated);
-			}
-		});
+//		factory.createRegenerated(originalRelationship, newRelationship, new RegeneratedRelationshipFactory.Callback() {
+//			@Override
+//			protected void created(final RegeneratedAttribute regenerated) {
+//				if (originalRelationship.isCardinalityMultiple()) {
+//					regenerated.setBuilder(PropertyGeneratorBuilders.newAttributeTypeChangedFromListOrSetToSimpleBuilder(regenerated));
+//				} else {
+//					regenerated.setBuilder(PropertyGeneratorBuilders.newAttributeTypeChangedFromSimpleToListOrSetBuilder(regenerated));
+//				}
+//				replaceRelationship(context.getMergedType(), originalRelationship, (BaseRelationship) regenerated);
+//			}
+//		});
 	}
 
 	private void replaceRelationship(Type mergedType, BaseRelationship originalRelationship, BaseRelationship mergedRelationship) {

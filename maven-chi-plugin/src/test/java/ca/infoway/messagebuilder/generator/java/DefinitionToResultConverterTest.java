@@ -6,6 +6,8 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.HashSet;
 
 import org.apache.commons.collections.CollectionUtils;
@@ -262,5 +264,38 @@ public class DefinitionToResultConverterTest {
 		assertTrue("association", type.getRelationships().get(1) instanceof MergedAssociation);
 		assertEquals("association type", mergedTypeName.getName(), type.getRelationships().get(0).getType());
 		assertEquals("association type", mergedTypeName.getName(), type.getRelationships().get(1).getType());
+	}
+	
+	// an inlined attribute should collate according to the outer/elided association
+	@Test
+	public void shouldHandleMergedRenamedAssociations() throws Exception {
+		Type mergedType = new Type(TemporaryTypeName.create("merged"));
+		
+		Type type1 = new Type(new TypeName("ABCD_MT123456CA.Person"));
+		
+		type1.getRelationships().add(new InlinedAttribute(
+				new Attribute(new Relationship("name", "PN", Cardinality.create("1")),
+						this.typeConverter.convertToType("PN", null)),
+				new Association(
+						new Relationship("identifiedParty", "ABCD_MT123456CA.IndentifiedParty",
+						Cardinality.create("1")), new Type(new TypeName("ABCD_MT123456CA.IndentifiedParty")),
+						Collections.<Choice>emptyList())));
+		
+		Type type2 = new Type(new TypeName("ABCD_MT987654CA.Person"));
+		
+		mergedType.getMergedTypes().add(type1);
+		mergedType.getMergedTypes().add(type2);
+		
+		this.converter.types.put(type1.getTypeName().getName(), type1);
+		this.converter.types.put(type2.getTypeName().getName(), type2);
+
+		this.definitions.addType(new SimplifiableType(new MessagePart("ABCD_MT123456CA.IndentifiedParty"), false));
+		
+		MergedTypeCollator collator = this.converter.createCollator(mergedType);
+		
+		Collection<Fingerprint> names = collator.relationshipNames();
+		assertEquals("size", 1, names.size());
+		assertEquals("type", "ABCD_MT123456CA.IndentifiedParty/name", 
+				((Fingerprint) CollectionUtils.get(names, 0)).toString());
 	}
 }

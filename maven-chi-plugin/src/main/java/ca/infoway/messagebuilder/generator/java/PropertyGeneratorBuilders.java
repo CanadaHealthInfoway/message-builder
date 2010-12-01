@@ -29,32 +29,8 @@ public class PropertyGeneratorBuilders {
 		return builder;
 	}
 	
-	public static PropertyGeneratorBuilder newAssociationBusinessNameChangedBuilder(RegeneratedAssociation association) {
-		PropertyGeneratorBuilder builder = newAssociationBuilder(ProgrammingLanguage.JAVA, association.getOriginalRelationship());
-
-		return builder;
-	}
-	
-	public static PropertyGeneratorBuilder newAttributeBusinessNameChangedBuilder(RegeneratedAttribute attribute) {
-		PropertyGeneratorBuilder builder = newAttributeBuilder(ProgrammingLanguage.JAVA, attribute.getOriginalRelationship());
-		
-		return builder;
-	}
-
-	public static PropertyGeneratorBuilder newAssociationCardinalityChangedFromMultipleToSingleBuilder(RegeneratedAssociation association) {
-		PropertyGeneratorBuilder builder = newAssociationBuilder(ProgrammingLanguage.JAVA, association.getOriginalRelationship());
-
-		return builder;
-	}
-	
 	public static PropertyGeneratorBuilder newAssociationCardinalityChangedFromSingleToMultipleBuilder(RegeneratedAssociation association) {
 		PropertyGeneratorBuilder builder = newAssociationBuilder(ProgrammingLanguage.JAVA, association.getNewRelationship());
-
-		return builder;
-	}
-
-	public static PropertyGeneratorBuilder newAttributeTypeChangedFromListOrSetToSimpleBuilder(RegeneratedAttribute attribute) {
-		PropertyGeneratorBuilder builder = newAttributeBuilder(JAVA, attribute.getOriginalRelationship());
 
 		return builder;
 	}

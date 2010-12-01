@@ -50,13 +50,7 @@ public abstract class IntermediateToModelGenerator {
 		this.report = report;
 	}
 	
-	public void generate(MessageSet messageSet) throws IOException, GeneratorException {
-		TypeAnalysisResult result = resultify(messageSet);
-		completeProcessing(result, messageSet);
-		
-	}
-	
-	public TypeAnalysisResult resultify(MessageSet messageSet) throws GeneratorException {
+	public TypeAnalysisResult generate(MessageSet messageSet) throws IOException, GeneratorException {
 		TypeAnalysisResult result = new TypeAnalysisResult();
 		SimplifiableDefinitions definitions = new SimplifiableDefinitions();
 		
@@ -68,8 +62,9 @@ public abstract class IntermediateToModelGenerator {
 		
 		simplify(result, definitions);
 		
-		return createResultFromDefinitions(definitions);
-//		return result;
+		result = createResultFromDefinitions(definitions);
+		completeProcessing(result, messageSet, definitions);
+		return result;
 	}
 
 
@@ -276,14 +271,14 @@ public abstract class IntermediateToModelGenerator {
 		writeClasses(result);
 	}
 	
-	protected void completeProcessing(TypeAnalysisResult result, MessageSet messageSet) throws IOException, GeneratorException {
+	protected void completeProcessing(TypeAnalysisResult result, MessageSet messageSet, SimplifiableDefinitions definitions) throws IOException, GeneratorException {
 		completeProcessing(result);
-		writeReport(result, messageSet);
+		writeReport(result, messageSet, definitions);
 	}
 
-	private void writeReport(TypeAnalysisResult result, MessageSet messageSet) throws IOException {
+	private void writeReport(TypeAnalysisResult result, MessageSet messageSet, SimplifiableDefinitions definitions) throws IOException {
 		if (this.report != null) {
-			new ReportWriter(result, messageSet, this.outputUI).write(this.report);
+			new ReportWriter(result, messageSet, this.outputUI, definitions).write(this.report);
 		}
 	}
 

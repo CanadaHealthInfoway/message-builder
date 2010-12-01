@@ -10,6 +10,8 @@ import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
+import java.util.TreeSet;
 
 import org.apache.commons.io.IOUtils;
 
@@ -71,11 +73,13 @@ public class ReportWriter {
 	private final MessageSet messageSet;
 	private final TypeAnalysisResult result;
 	private final LogUI log;
+	private final SimplifiableDefinitions definitions;
 
-	public ReportWriter(TypeAnalysisResult result, MessageSet messageSet, LogUI log) {
+	public ReportWriter(TypeAnalysisResult result, MessageSet messageSet, LogUI log, SimplifiableDefinitions definitions) {
 		this.result = result;
 		this.messageSet = messageSet;
 		this.log = log;
+		this.definitions = definitions;
 	}
 
 	public void write(File report) throws IOException {
@@ -144,7 +148,7 @@ public class ReportWriter {
 		writer.write("<tbody>");
 		for (MessagePart part : this.messageSet.getAllMessageParts()) {
 			TypeName name = new TypeName(part.getName());
-			
+			SimplifiableType simplifiableType = this.definitions.getType(name.getName());
 			
 			writer.write(LINE_SEPARATOR);
 			writer.write("<tr><td>");
@@ -153,6 +157,27 @@ public class ReportWriter {
 
 			if (this.result.getTypes().containsKey(name)) {
 				writer.write("<td colspan=\"2\">written</td>");
+				writer.write("<td>");
+				Type type = this.result.getTypes().get(name);
+				writer.write(type.getLanguageSpecificName().getFullyQualifiedName());
+				writer.write("</td>");
+			} else if (simplifiableType != null && simplifiableType.isInlined()) {
+				if (simplifiableType.getMergedWithTypes().isEmpty()) {
+					writer.write("<td colspan=\"2\">inlined</td>");
+				} else {
+					writer.write("<td>inlined</td>");
+					writer.write("<td>also merges:<br>");
+					boolean first = true;
+					for (String mergedType : getAllMergedTypeNames(simplifiableType)) {
+						if (!first) {
+							writer.write("<br />");
+						}
+						writer.write(mergedType);
+						first = false;
+					}
+					writer.write("</td>");
+				}
+				writer.write("<td>n/a</td>");
 			} else if (mergedTypes.containsKey(name)) {
 				writer.write("<td>merged</td><td>");
 				Type type = mergedTypes.get(name);
@@ -164,9 +189,9 @@ public class ReportWriter {
 					writer.write(merged.getTypeName().getName());
 					first = false;
 				}
+				writer.write("</td><td>");
+				writer.write(type.getLanguageSpecificName().getFullyQualifiedName());
 				writer.write("</td>");
-			} else {
-				writer.write("<td colspan=\"2\">inlined</td>");
 			}
 			writer.write("</tr>");
 			
@@ -176,6 +201,14 @@ public class ReportWriter {
 		writer.write(LINE_SEPARATOR);
 		writer.write("</table>");
 		writer.write(LINE_SEPARATOR);
+	}
+
+	private Set<String> getAllMergedTypeNames(SimplifiableType simplifiableType) {
+		Set<String> names = new TreeSet<String>();
+		for (SimplifiableType mergedType : simplifiableType.getMergedWithTypes()) {
+			names.add(mergedType.getName());
+		}
+		return names;
 	}
 
 	private Map<TypeName, Type> getAllCase3MergedTypes() {

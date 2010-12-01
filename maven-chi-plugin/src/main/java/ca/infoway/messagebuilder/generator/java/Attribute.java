@@ -96,5 +96,9 @@ public class Attribute extends BaseRelationship {
 	public boolean isIndicator() {
 		return this.indicator;
 	}
-	
+
+	@Override
+	public Fingerprint getFingerprint() {
+		return new Fingerprint(RelationshipType.ATTRIBUTE, this.relationship.getName());
+	}
 }

@@ -108,4 +108,14 @@ public class Association extends BaseRelationship {
 	public static Association createStandardAssociation(Relationship relationship, Type type, List<Choice> allChoiceTypes) {
 		return new Association(relationship, type, allChoiceTypes);
 	}
+	@Override
+	public Fingerprint getFingerprint() {
+		if (this.relationship.isTemplateRelationship()) {
+			return new Fingerprint(RelationshipType.ASSOCIATION, this.relationship.getTemplateParameterName());
+		} else if (this.associationType.getMergedName() == null) {
+			return new Fingerprint(RelationshipType.ASSOCIATION, this.associationType.getTypeName().getName());
+		} else {
+			return new Fingerprint(RelationshipType.ASSOCIATION, this.associationType.getMergedName().getName());
+		}
+	}
 }

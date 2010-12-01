@@ -25,7 +25,7 @@ import ca.infoway.messagebuilder.xml.TypeName;
 class DefinitionToResultConverter {
 	
 	private TypeConverter converter = new TypeConverter();
-	private Map<String,Type> types = new HashMap<String,Type>();
+	Map<String,Type> types = new HashMap<String,Type>();
 	private final SimplifiableDefinitions definitions;
 	private final String basePackageName;
 	private final ProgrammingLanguage programmingLanguage;
@@ -122,27 +122,32 @@ class DefinitionToResultConverter {
 
 		for (TypeName name : getAllMergedTypes()) {
 			Type mergedType = this.types.get(name.getName());
-			MergedTypeCollator collator = new MergedTypeCollator();
-			for (NamedType typeName : mergedType.getMergedTypes()) {
-				Type originalType = this.types.get(typeName.getTypeName().getName());
-				for (BaseRelationship relationship : originalType.getRelationships()) {
-					collator.addRelationship(originalType.getTypeName(), relationship);
-				}
-			}
+			MergedTypeCollator collator = createCollator(mergedType);
 			
-			for (String relationshipName : collator.relationshipNames()) {
-				BaseRelationship exemplar = collator.getExemplar(relationshipName);
-				if (exemplar.getRelationshipType() == RelationshipType.ASSOCIATION) {
-					mergedType.getRelationships().add(
-							new Case3SimplifiedAssociation((Association) exemplar, 
-									collator.getRelationships(relationshipName)));
-				} else {
+			for (Fingerprint fingerprint : collator.relationshipNames()) {
+				BaseRelationship exemplar = collator.getExemplar(fingerprint);
+				if (exemplar.getRelationshipType() == RelationshipType.ATTRIBUTE) {
 					mergedType.getRelationships().add(
 							new Case3SimplifiedAttribute((Attribute) exemplar, 
-									collator.getRelationships(relationshipName)));
+									collator.getRelationships(fingerprint)));
+				} else {
+					mergedType.getRelationships().add(
+							new Case3SimplifiedAssociation((Association) exemplar, 
+									collator.getRelationships(fingerprint)));
 				}
 			}
 		}
+	}
+
+	MergedTypeCollator createCollator(Type mergedType) {
+		MergedTypeCollator collator = new MergedTypeCollator();
+		for (NamedType typeName : mergedType.getMergedTypes()) {
+			Type originalType = this.types.get(typeName.getTypeName().getName());
+			for (BaseRelationship relationship : originalType.getRelationships()) {
+				collator.addRelationship(originalType.getTypeName(), relationship);
+			}
+		}
+		return collator;
 	}
 
 	private Set<TypeName> getAllMergedTypes() {
@@ -279,6 +284,7 @@ class DefinitionToResultConverter {
 		for (SimplifiableType simplifiableType : this.definitions.getAllTypes()) {
 			Type type = new Type(new TypeName(simplifiableType.getName()), simplifiableType.isRootType());
 			this.types.put(simplifiableType.getName(), type);
+			type.setMergedName(simplifiableType.getMergedTypeName());
 			if (simplifiableType.isInlined() && simplifiableType.getInterfaceTypes().isEmpty()) {
 				// skip it
 			} else {

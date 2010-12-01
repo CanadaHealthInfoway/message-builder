@@ -13,7 +13,7 @@ import ca.infoway.messagebuilder.xml.ConformanceLevel;
 import ca.infoway.messagebuilder.xml.Documentation;
 import ca.infoway.messagebuilder.xml.Relationship;
 
-public abstract class BaseRelationship implements PropertyGeneratorProvider, Named {
+public abstract class BaseRelationship implements PropertyGeneratorProvider, Named, Fingerprintable {
 
     private final String type;
     private final String wrappedType;
@@ -128,6 +128,9 @@ public abstract class BaseRelationship implements PropertyGeneratorProvider, Nam
 	public Relationship getRelationship() {
 		return this.relationship;
 	}
+	Relationship getOriginalRelationship() {
+		return this.relationship;
+	}
 
 	public boolean isWriteable() {
 		return !isCardinalityMultiple();
@@ -144,4 +147,5 @@ public abstract class BaseRelationship implements PropertyGeneratorProvider, Nam
 	final Set<NameAndType> getMapByPartTypeMappings() {
 		return getXmlMappingHelper().getMapByPartTypeMappings();
 	}	
+	public abstract Fingerprint getFingerprint();
 }

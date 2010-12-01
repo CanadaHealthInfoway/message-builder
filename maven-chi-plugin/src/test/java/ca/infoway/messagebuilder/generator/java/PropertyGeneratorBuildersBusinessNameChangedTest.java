@@ -114,9 +114,6 @@ public class PropertyGeneratorBuildersBusinessNameChangedTest {
 	}
 	
 	private void generate(RegeneratedAssociation regenerated, StringWriter writer) throws IOException {
-		PropertyGenerator generator = PropertyGeneratorBuilders.newAssociationBusinessNameChangedBuilder(regenerated).build(this.manager, this.nameResolver);
-		generator.createAttributeDefinition(0, writer);
-		generator.createGettersAndSetters(0, writer);
 	}
 	
 	@Test @Ignore
@@ -201,9 +198,6 @@ public class PropertyGeneratorBuildersBusinessNameChangedTest {
 	}
 	
 	private void generate(RegeneratedAttribute regenerated, StringWriter writer) throws IOException {
-		PropertyGenerator generator = PropertyGeneratorBuilders.newAttributeBusinessNameChangedBuilder(regenerated).build(this.manager, this.nameResolver);
-		generator.createAttributeDefinition(0, writer);
-		generator.createGettersAndSetters(0, writer);
 	}
 	
 }

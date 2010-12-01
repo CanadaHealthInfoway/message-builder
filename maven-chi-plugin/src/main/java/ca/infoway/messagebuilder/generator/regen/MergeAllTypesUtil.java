@@ -28,7 +28,7 @@ public class MergeAllTypesUtil {
 		List<TypeAnalysisResult> convertedMessageSets = new ArrayList<TypeAnalysisResult>();
 		for (File messageSet : files) {
 			MessageSet convertedMessageSet = this.marshaller.unmarshall(messageSet);
-			TypeAnalysisResult typeAnalysisResult = this.generator.resultify(convertedMessageSet);
+			TypeAnalysisResult typeAnalysisResult = this.generator.generate(convertedMessageSet);
 			convertedMessageSets.add(typeAnalysisResult);
 		}
 

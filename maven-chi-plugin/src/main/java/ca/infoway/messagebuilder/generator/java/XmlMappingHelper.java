@@ -1,6 +1,6 @@
 package ca.infoway.messagebuilder.generator.java;
 
-import java.util.Arrays;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -24,11 +24,16 @@ class XmlMappingHelper {
 		processRelationship(relationship);
 	}
 	XmlMappingHelper(Relationship... relationships) {
-		this(Arrays.asList(relationships));
-	}
-	XmlMappingHelper(List<Relationship> relationships) {
 		for (Relationship relationship : relationships) {
 			processRelationship(relationship);
+		}
+	}
+	XmlMappingHelper(List<XmlMappingHelper> helpers) {
+		for (XmlMappingHelper helper : helpers) {
+			for (String key : helper.versionToName.keySet()) {
+				addVersion(key, helper.versionToName.get(key));
+			}
+			this.nameAndTypes.addAll(helper.nameAndTypes);
 		}
 	}
 	private void processRelationship(Relationship relationship) {
@@ -45,6 +50,11 @@ class XmlMappingHelper {
 		addVersion(WILDCARD,relationship.getName());
 		if (relationship.isAssociation()) {
 			this.nameAndTypes.add(new NameAndType(relationship.getName(), relationship.getType()));
+		}
+	}
+	private void addVersion(String version, Collection<String> values) {
+		for (String value : values) {
+			addVersion(version, value);
 		}
 	}
 	private void addVersion(String version, String value) {
