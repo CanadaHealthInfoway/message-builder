@@ -6,7 +6,6 @@ import java.util.List;
 import org.apache.commons.lang.WordUtils;
 
 import ca.infoway.messagebuilder.xml.Cardinality;
-import ca.infoway.messagebuilder.xml.Relationship;
 
 
 public class InlinedAssociation extends Association {
@@ -69,10 +68,6 @@ public class InlinedAssociation extends Association {
 		return this.inlinedRelationship.getAllChoiceTypes();
 	}
 	
-	@Override
-	Relationship getOriginalRelationship() {
-		return this.elidedRelationship.getOriginalRelationship();
-	}
 	@Override
 	public Fingerprint getFingerprint() {
 		return getElidedRelationship().getFingerprint().concat(getInlinedRelationship().getFingerprint());

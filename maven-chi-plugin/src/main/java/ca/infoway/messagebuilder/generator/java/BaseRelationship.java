@@ -128,9 +128,6 @@ public abstract class BaseRelationship implements PropertyGeneratorProvider, Nam
 	public Relationship getRelationship() {
 		return this.relationship;
 	}
-	Relationship getOriginalRelationship() {
-		return this.relationship;
-	}
 
 	public boolean isWriteable() {
 		return !isCardinalityMultiple();

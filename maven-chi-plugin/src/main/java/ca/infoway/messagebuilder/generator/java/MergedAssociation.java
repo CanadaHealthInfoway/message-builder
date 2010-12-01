@@ -2,7 +2,6 @@ package ca.infoway.messagebuilder.generator.java;
 
 import java.util.Collections;
 
-import ca.infoway.messagebuilder.xml.Relationship;
 import ca.infoway.messagebuilder.xml.TypeName;
 
 public class MergedAssociation extends Association {
@@ -44,10 +43,6 @@ public class MergedAssociation extends Association {
 		return this.association;
 	}
 	
-	@Override
-	Relationship getOriginalRelationship() {
-		return this.association.getOriginalRelationship();
-	}
 	@Override
 	public Fingerprint getFingerprint() {
 		return this.association.getFingerprint();
