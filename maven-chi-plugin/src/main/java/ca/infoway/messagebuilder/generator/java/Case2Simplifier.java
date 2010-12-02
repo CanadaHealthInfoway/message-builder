@@ -14,22 +14,6 @@ import ca.infoway.messagebuilder.xml.ConformanceLevel;
 
 public class Case2Simplifier extends InlineableSimplifier {
 
-	class Reference {
-		private final BaseRelationship relationship;
-		private final Type type;
-
-		public Reference(Type type, BaseRelationship relationship) {
-			this.type = type;
-			this.relationship = relationship;
-		}
-		public BaseRelationship getRelationship() {
-			return this.relationship;
-		}
-		public Type getType() {
-			return this.type;
-		}
-	}
-
 	class SimplifiableReference {
 		private final SimplifiableRelationship relationship;
 		private final SimplifiableType type;
@@ -50,10 +34,10 @@ public class Case2Simplifier extends InlineableSimplifier {
 	private final Case1Simplifier case1Simplifier;
 	private final SimplifiableDefinitions definitions;
 	
-	public Case2Simplifier(LogUI log, TypeAnalysisResult result, SimplifiableDefinitions definitions) {
-		super(log, result, definitions);
+	public Case2Simplifier(LogUI log, SimplifiableDefinitions definitions) {
+		super(log, definitions);
 		this.definitions = definitions;
-		this.case1Simplifier = new Case1Simplifier(log, result, definitions);
+		this.case1Simplifier = new Case1Simplifier(log, definitions);
 	}
 
 	@Override
@@ -68,18 +52,6 @@ public class Case2Simplifier extends InlineableSimplifier {
 				this.nonInlineableTypes.add(type.getName());
 			}
 		}
-	}
-
-	@Override
-	protected void inline(ComplexTypePackage complexTypePackage, Type inlineableType) {
-//		List<Reference> references = getAllReferencesToType(getPotentialReferrers(complexTypePackage, inlineableType), inlineableType);
-//		for (Reference reference : references) {
-//			inlineReference(inlineableType, reference);
-//		}
-//		if (!containedInChoice(inlineableType)) {
-//			this.log.log(DEBUG, "Simplification case 2: removing type " + inlineableType.getTypeName());
-//			this.result.removeType(inlineableType);
-//		}
 	}
 
 	@Override
@@ -158,8 +130,7 @@ public class Case2Simplifier extends InlineableSimplifier {
 		return result;
 	}
 	
-	private boolean isUsedExactlyOnce(SimplifiablePackage complexTypePackage,
-			SimplifiableType inlineableType) {
+	private boolean isUsedExactlyOnce(SimplifiablePackage complexTypePackage, SimplifiableType inlineableType) {
 		int count = 0;
 		for (SimplifiableType type : complexTypePackage.getTypes()) {
 			for (SimplifiableRelationship relationship : type.getRelationships()) {
