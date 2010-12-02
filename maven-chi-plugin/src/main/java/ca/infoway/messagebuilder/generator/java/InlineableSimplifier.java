@@ -15,26 +15,16 @@ public abstract class InlineableSimplifier {
 
 	protected static final Cardinality EXACTLY_ONE = new Cardinality(1, 1);
 	
-	protected final TypeAnalysisResult result;
 	protected final LogUI log;
 
 	private final SimplifiableDefinitions definitions;
 
-	protected InlineableSimplifier(LogUI log, TypeAnalysisResult result, SimplifiableDefinitions definitions) {
+	protected InlineableSimplifier(LogUI log, SimplifiableDefinitions definitions) {
 		this.log = log;
-		this.result = result;
 		this.definitions = definitions;
 	}
 
 	public void execute() {
-		for (ComplexTypePackage complexTypePackage : this.result.getAllPackages()) {
-			for (Type type : new ArrayList<Type>(complexTypePackage.getTypes().values())) {
-				this.log.log(DEBUG, "Now analyzing " + type.getTypeName());
-				if (isInlineable(complexTypePackage, type)) {
-					inline(complexTypePackage, type);
-				}
-			}
-		}
 		for (SimplifiablePackage simplifiablePackage : this.definitions.getAllPackages()) {
 			for (SimplifiableType type : new ArrayList<SimplifiableType>(simplifiablePackage.getTypes())) {
 				this.log.log(DEBUG, "Now analyzing " + type.getMessagePart().getName());
@@ -50,10 +40,6 @@ public abstract class InlineableSimplifier {
 	}
 
 	protected abstract boolean isInlineable(SimplifiablePackage simplifiablePackage, SimplifiableType type);
-	@Deprecated
-	protected boolean isInlineable(ComplexTypePackage complexTypePackage, Type inlineableType) { return false; }
-	@Deprecated
-	protected abstract void inline(ComplexTypePackage complexTypePackage, Type inlineableType);
 	
 	protected BaseRelationship createInlinedRelationship(TypeName name, 
 			BaseRelationship inlinedRelationship, BaseRelationship elidedRelationship) {

@@ -24,9 +24,9 @@ public class IntermediateToJavaGenerator extends IntermediateToModelGenerator {
 	 * <p>The Case 3 algorithm only applies to Java and .Net. 
 	 */
 	@Override
-	public void simplify(TypeAnalysisResult result, SimplifiableDefinitions definitions) throws GeneratorException {
+	public void simplify(SimplifiableDefinitions definitions) throws GeneratorException {
 		new Case3Simplifier(this.outputUI, definitions).execute();
-		super.simplify(result, definitions);
+		super.simplify(definitions);
 	}
 	
 	@Override
