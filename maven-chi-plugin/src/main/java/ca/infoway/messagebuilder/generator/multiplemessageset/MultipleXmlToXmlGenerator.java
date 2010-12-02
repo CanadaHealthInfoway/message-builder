@@ -27,17 +27,19 @@ public class MultipleXmlToXmlGenerator implements MessageSetGenerator {
 	private OutputUI outputUI;
 	private MessageSetWriter messageSetWriter;
 	private final String version;
+	private final TemplateParameterNameRenamer templateParameterNameRenamer;
 	
 	public MultipleXmlToXmlGenerator(OutputUI outputUI, String version) {
-		this(outputUI, version, new MessageSetMarshaller(), null);
+		this(outputUI, version, new MessageSetMarshaller(), null, new TemplateParameterNameRenamer());
 	}
 	
-	protected MultipleXmlToXmlGenerator(OutputUI outputUI, String version, MessageSetMarshaller messageSetMarshaller, MessageSetWriter messageSetWriter) {
+	protected MultipleXmlToXmlGenerator(OutputUI outputUI, String version, MessageSetMarshaller messageSetMarshaller, 
+			MessageSetWriter messageSetWriter, TemplateParameterNameRenamer templateParameterNameRenamer) {
 		this.outputUI = outputUI;
 		this.version = version;
 		this.messageSetMarshaller = messageSetMarshaller;
 		this.messageSetWriter = messageSetWriter;
-		
+		this.templateParameterNameRenamer = templateParameterNameRenamer;
 	}
 
 	public void processAllMessageSets(List<FileSet> inputMessageSets) throws GeneratorException, IOException {
@@ -53,6 +55,7 @@ public class MultipleXmlToXmlGenerator implements MessageSetGenerator {
 			
 			MessageSet primaryMessageSet = convertFileToMessageSet(inputMessageSets.get(0).getDirectory());
 			MessageSet secondaryMessageSet = convertFileToMessageSet(inputMessageSets.get(1).getDirectory());
+			renameTemplateParameterNames(primaryMessageSet, secondaryMessageSet);
 			MessageSet mergedMessageSet = mergeMessageSets(mergeContext, primaryMessageSet, secondaryMessageSet);
 			
 			createMergeReport(mergedMessageSet, new File("/tmp/generatorMergeReport.xls"));
@@ -65,6 +68,10 @@ public class MultipleXmlToXmlGenerator implements MessageSetGenerator {
 		}
 	}
 	
+	private void renameTemplateParameterNames(MessageSet... messageSets) {
+		this.templateParameterNameRenamer.renameTemplateParameterNames(messageSets);
+	}
+
 	private void createExciseReport(Set<ExcisedItem> excisedItems, File reportFile) throws IOException {
 		new ExciseReportGenerator(excisedItems, reportFile).create();
 	}

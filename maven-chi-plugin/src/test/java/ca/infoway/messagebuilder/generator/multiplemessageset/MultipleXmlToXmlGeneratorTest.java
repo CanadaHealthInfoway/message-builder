@@ -30,13 +30,15 @@ public class MultipleXmlToXmlGeneratorTest {
 	private OutputUI outputUI;
 	private MessageSetWriter messageSetWriter;
 	private MessageSetMarshaller messageSetMarshaller; 
+	private TemplateParameterNameRenamer templateParameterNameRenamer;
 	
 	@Before
 	public void setUp() {
 		this.outputUI = this.jmock.mock(OutputUI.class);
 		this.messageSetWriter = this.jmock.mock(MessageSetWriter.class);
 		this.messageSetMarshaller = this.jmock.mock(MessageSetMarshaller.class);
-		this.generator = new MultipleXmlToXmlGenerator(this.outputUI, "a_version", this.messageSetMarshaller, this.messageSetWriter); 
+		this.templateParameterNameRenamer = this.jmock.mock(TemplateParameterNameRenamer.class); 
+		this.generator = new MultipleXmlToXmlGenerator(this.outputUI, "a_version", this.messageSetMarshaller, this.messageSetWriter, this.templateParameterNameRenamer); 
 	}
 	
 	@Test(expected=UnsupportedOperationException.class)
@@ -52,9 +54,13 @@ public class MultipleXmlToXmlGeneratorTest {
 		final FileSet fileSet2 = new FileSet("2", inputMessageSet2);
 		final List<FileSet> inputFileSets = Arrays.asList(fileSet1, fileSet2);
 		
+		 final MessageSet messageSet1 = new MessageSet();
+		 final MessageSet messageSet2 = new MessageSet();
+		
 		this.jmock.checking(new Expectations() {{
-			one(messageSetMarshaller).unmarshall(inputMessageSet1); will(returnValue(new MessageSet()));
-			one(messageSetMarshaller).unmarshall(inputMessageSet2); will(returnValue(new MessageSet()));
+			one(messageSetMarshaller).unmarshall(inputMessageSet1); will(returnValue(messageSet1));
+			one(messageSetMarshaller).unmarshall(inputMessageSet2); will(returnValue(messageSet2));
+			one(templateParameterNameRenamer).renameTemplateParameterNames(with(new MessageSet[]{messageSet1, messageSet2}));
 			one(outputUI).log(LogLevel.INFO, MultipleXmlToXmlGenerator.MESSAGE_SET_MERGE_COMPLETED);
 		}});
 		
