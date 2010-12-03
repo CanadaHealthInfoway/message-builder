@@ -41,6 +41,9 @@ class RelationshipMerger implements Merger<Relationship> {
 		
 		if (primary == null || secondary == null) {
 			this.result = (primary == null ? secondary : primary);
+			if (this.result != null) {
+				this.mergeHelper.addMissingDifference(this.context, this.result, secondary == null);
+			}
 		} else {
 			this.result = new Relationship();
 			mergeCardinality(primary.getCardinality(), secondary.getCardinality());

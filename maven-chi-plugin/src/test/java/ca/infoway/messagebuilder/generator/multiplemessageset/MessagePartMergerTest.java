@@ -74,7 +74,7 @@ public class MessagePartMergerTest {
 		this.jmock.checking(new Expectations() {{
 			one(documentationMerger).merge(documentation, null); will(returnValue(documentation));
 			one(relationshipsMerger).merge(messagePart.getRelationships(), Collections.<Relationship>emptyList()); will(returnValue(Arrays.asList(relationship)));
-			one(mergeContext).logError(with(any(String.class)));
+			exactly(3).of(mergeContext).logError(with(any(String.class)));
 		}});
 		
 		MessagePart result = this.merger.merge(messagePart, new MessagePart());

@@ -34,6 +34,9 @@ class MessagePartMerger implements Merger<MessagePart> {
 		
 		if (primary == null || secondary == null) {
 			this.result = (secondary == null ? primary : secondary);
+			if (this.result != null) {
+				this.mergeHelper.addMissingDifference(this.context, this.result, secondary == null);
+			}
 		} else {
 			this.result = new MessagePart();
 			mergeName(primary.getName(), secondary.getName());

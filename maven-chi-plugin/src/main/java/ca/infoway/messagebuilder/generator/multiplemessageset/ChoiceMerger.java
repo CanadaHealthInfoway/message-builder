@@ -28,7 +28,7 @@ class ChoiceMerger implements Merger<Relationship> {
 		
 		if (primary == null || secondary == null) {
 			this.result = (primary == null ? secondary : primary);
-			this.mergeHelper.addDifference(this.context, this.result, DifferenceType.CHOICE_RELATIONSHIP_MISSING, (primary != null ? primary.getName() : "[missing]"), (secondary != null ? secondary.getName() : "[missing]"));
+			this.mergeHelper.addMissingDifference(this.context, this.result, secondary == null);
 		} else {
 			this.result = new Relationship();
 			mergeName(primary.getName(), secondary.getName());
