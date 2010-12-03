@@ -8,6 +8,7 @@ import org.apache.commons.lang.ObjectUtils;
 import org.apache.commons.lang.StringUtils;
 
 import ca.infoway.messagebuilder.xml.Argument;
+import ca.infoway.messagebuilder.xml.Difference;
 import ca.infoway.messagebuilder.xml.DifferenceType;
 import ca.infoway.messagebuilder.xml.Relationship;
 
@@ -52,9 +53,9 @@ class ArgumentMerger implements Merger<List<Argument>> {
 		
 		if (primaryArgument == null || secondaryArgument == null) {
 			result = primaryArgument == null ? secondaryArgument : primaryArgument;
-			this.mergeHelper.addDifference(this.context, result, DifferenceType.ARGUMENT_MISSING, 
-					primaryArgument == null ? null : primaryArgument.getName(), 
-					secondaryArgument == null ? null : secondaryArgument.getName());
+			Difference addMissingDifference = this.mergeHelper.addMissingDifference(this.context, result, secondaryArgument == null);
+			// interactions with different numbers of arguments are not supported
+			addMissingDifference.setOk(false);
 		} else {
 			mergeName(result, primaryArgument.getName(), secondaryArgument.getName());
 			mergeTemplateParameterName(result, primaryArgument.getTemplateParameterName(), secondaryArgument.getTemplateParameterName());

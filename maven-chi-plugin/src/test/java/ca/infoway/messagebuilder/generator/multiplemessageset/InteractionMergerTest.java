@@ -35,6 +35,9 @@ public class InteractionMergerTest {
 		this.jmock.checking(new Expectations() {{
 			allowing(mergeContext).getPrimaryVersion(); will(returnValue("1"));
 			allowing(mergeContext).getSecondaryVersion(); will(returnValue("2"));
+			allowing(mergeContext).getCurrentInteraction(); will(returnValue("currentInteraction"));
+			allowing(mergeContext).getCurrentPackageLocation(); will(returnValue("currentpackageLocation"));
+			allowing(mergeContext).getCurrentMessagePart(); will(returnValue("currentMessagePart"));
 		}});
 		
 		this.documentationMerger = this.jmock.mock(DocumentationMerger.class);
@@ -76,6 +79,7 @@ public class InteractionMergerTest {
 		
 		this.jmock.checking(new Expectations() {{
 			one(documentationMerger).merge(interaction.getDocumentation(), null); will(returnValue(interaction.getDocumentation()));
+			one(mergeContext).logError(with(any(String.class)));
 		}});
 
 		Interaction result = this.merger.merge(interaction, null);
@@ -88,6 +92,7 @@ public class InteractionMergerTest {
 		
 		this.jmock.checking(new Expectations() {{
 			one(documentationMerger).merge(null, interaction.getDocumentation()); will(returnValue(interaction.getDocumentation()));
+			one(mergeContext).logError(with(any(String.class)));
 		}});
 
 		result = this.merger.merge(null, interaction);

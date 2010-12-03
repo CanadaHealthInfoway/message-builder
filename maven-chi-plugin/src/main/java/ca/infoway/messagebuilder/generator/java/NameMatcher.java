@@ -5,7 +5,7 @@ import org.apache.commons.lang.StringUtils;
 import ca.infoway.messagebuilder.xml.TypeName;
 
 class NameMatcher {
-
+	
 	MatchType matchNames(NamedType type, NamedType otherType) {
 		if (StringUtils.isNotBlank(type.getBusinessName()) && StringUtils.isNotBlank(otherType.getBusinessName())) {
 			return matchBusinessNames(type, otherType);
@@ -24,6 +24,9 @@ class NameMatcher {
 		} else if (MatchType.EXACT == matchesTypeNames(type, otherType)) {
 			return MatchType.MINOR_DIFFERENCE;
 		} else {
+//			if (this.debug) {
+//				System.out.println("Major difference comparing business names: " + type + " " + otherType);
+//			}
 			return MatchType.MAJOR_DIFFERENCE;
 		}
 	}
@@ -40,6 +43,9 @@ class NameMatcher {
 		} else if (StringUtils.equals(removeSuffix(name.getUnqualifiedName()), removeSuffix(otherName.getUnqualifiedName()))) {
 			return MatchType.MINOR_DIFFERENCE;
 		} else {
+//			if (this.debug) {
+//				System.out.println("Major difference comparing typeNames: " + name + " " + otherName);
+//			}
 			return MatchType.MAJOR_DIFFERENCE;
 		}
 	}

@@ -1,17 +1,17 @@
 package ca.infoway.messagebuilder.generator.multiplemessageset.differenceanalyzer;
 
-import static ca.infoway.messagebuilder.xml.DifferenceType.ARGUMENT_MISSING;
 import static ca.infoway.messagebuilder.xml.DifferenceType.ARGUMENT_NAME;
 import static ca.infoway.messagebuilder.xml.DifferenceType.ARGUMENT_TEMPLATE_PARAMETER_NAME;
 import static ca.infoway.messagebuilder.xml.DifferenceType.ARGUMENT_TRAVERSAL_NAME;
-import static ca.infoway.messagebuilder.xml.DifferenceType.CHOICE_RELATIONSHIP_MISSING;
 import static ca.infoway.messagebuilder.xml.DifferenceType.CHOICE_RELATIONSHIP_TYPE;
+import static ca.infoway.messagebuilder.xml.DifferenceType.COMPONENT_ONLY_IN_ONE_VERSION;
 import static ca.infoway.messagebuilder.xml.DifferenceType.INTERACTION_SUPER_TYPE_NAME;
 import static ca.infoway.messagebuilder.xml.DifferenceType.MESSAGE_PART_ABSTRACT;
 import static ca.infoway.messagebuilder.xml.DifferenceType.PACKAGE_LOCATION_ROOT_TYPE;
 import static ca.infoway.messagebuilder.xml.DifferenceType.RELATIONSHIP_DOMAIN_TYPES_INCOMPATIBLE;
 import static ca.infoway.messagebuilder.xml.DifferenceType.RELATIONSHIP_ONE_OR_BOTH_DOMAIN_TYPES_NOT_IN_SYSTEM;
 import static ca.infoway.messagebuilder.xml.DifferenceType.RELATIONSHIP_ONLY_ONE_HAS_DOMAIN_TYPE;
+import static ca.infoway.messagebuilder.xml.DifferenceType.RELATIONSHIP_RENAMED;
 import static ca.infoway.messagebuilder.xml.DifferenceType.RELATIONSHIP_TEMPLATE_PARAMETER_NAME;
 import static ca.infoway.messagebuilder.xml.DifferenceType.RELATIONSHIP_TYPE;
 
@@ -32,7 +32,6 @@ public class DifferenceAnalyzerRegistry {
 	}
     
     public void registerAll() {
-    	register(ARGUMENT_MISSING, new ArgumentMissingDifferenceAnalyzer());
     	register(ARGUMENT_NAME, new ArgumentNameDifferenceAnalyzer());
     	register(ARGUMENT_TEMPLATE_PARAMETER_NAME, new ArgumentTemplateParameterNameDifferenceAnalyzer());
     	register(ARGUMENT_TRAVERSAL_NAME, new ArgumentTraversalNameDifferenceAnalyzer());
@@ -45,8 +44,9 @@ public class DifferenceAnalyzerRegistry {
     	register(RELATIONSHIP_TEMPLATE_PARAMETER_NAME, new RelationshipTemplateParameterNameDifferenceAnalyzer());
     	register(RELATIONSHIP_TYPE, new RelationshipTypeDifferenceAnalyzer());
     	register(CHOICE_RELATIONSHIP_TYPE, new RelationshipTypeDifferenceAnalyzer());
-    	register(CHOICE_RELATIONSHIP_MISSING, new TrivialDifferenceAnalyzer(true));
-    	register(DifferenceType.RELATIONSHIP_RENAMED, new TrivialDifferenceAnalyzer(true));
+    	register(COMPONENT_ONLY_IN_ONE_VERSION, new ComponentMissingDifferenceAnalyzer());
+    	register(RELATIONSHIP_RENAMED, new TrivialDifferenceAnalyzer(true));
+    	// FIXME - TM - add missing
     }
     
 	private void register(DifferenceType differenceKey, DifferenceAnalyzer differenceAnalyzer) {

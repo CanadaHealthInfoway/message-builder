@@ -169,7 +169,7 @@ public class ArgumentMergerTest {
 		Assert.assertEquals("templateParameterName", result.get(0).getTemplateParameterName());
 		Assert.assertEquals("traversalName", result.get(0).getTraversalName());
 		Assert.assertEquals(1, result.get(0).getDifferences().size());
-		Assert.assertEquals(DifferenceType.ARGUMENT_MISSING, result.get(0).getDifferences().get(0).getType());
+		Assert.assertEquals(DifferenceType.COMPONENT_ONLY_IN_ONE_VERSION, result.get(0).getDifferences().get(0).getType());
 		Assert.assertEquals("[missing]", result.get(0).getDifferences().get(0).getDifferences().get(1).getValue());
 	}
 	
@@ -189,7 +189,7 @@ public class ArgumentMergerTest {
 		Assert.assertEquals("templateParameterName", result.get(0).getTemplateParameterName());
 		Assert.assertEquals("traversalName", result.get(0).getTraversalName());
 		Assert.assertEquals(1, result.get(0).getDifferences().size());
-		Assert.assertEquals(DifferenceType.ARGUMENT_MISSING, result.get(0).getDifferences().get(0).getType());
+		Assert.assertEquals(DifferenceType.COMPONENT_ONLY_IN_ONE_VERSION, result.get(0).getDifferences().get(0).getType());
 		Assert.assertEquals("[missing]", result.get(0).getDifferences().get(0).getDifferences().get(0).getValue());
 	}
 	
@@ -230,8 +230,8 @@ public class ArgumentMergerTest {
 		Assert.assertEquals("subtraversalName", resultSubargument.getTraversalName());
 		
 		Assert.assertEquals(1, resultSubargument.getDifferences().size());
-		Assert.assertEquals(DifferenceType.ARGUMENT_MISSING, resultSubargument.getDifferences().get(0).getType());
-		Assert.assertEquals("subname", resultSubargument.getDifferences().get(0).getDifferences().get(0).getValue());
+		Assert.assertEquals(DifferenceType.COMPONENT_ONLY_IN_ONE_VERSION, resultSubargument.getDifferences().get(0).getType());
+		Assert.assertEquals("[exists]", resultSubargument.getDifferences().get(0).getDifferences().get(0).getValue());
 		Assert.assertEquals("[missing]", resultSubargument.getDifferences().get(0).getDifferences().get(1).getValue());
 	}
 	

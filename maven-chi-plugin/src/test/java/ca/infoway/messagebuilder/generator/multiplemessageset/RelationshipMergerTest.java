@@ -57,10 +57,18 @@ public class RelationshipMergerTest {
 	@Test
 	public void shoudlHandleOneNullRelationship() {
 		Relationship primary = new Relationship();
+		this.jmock.checking(new Expectations() {{
+			one(mergeContext).logError(with(any(String.class))); 
+		}});
 		Relationship result = this.merger.merge(primary, null);
 		Assert.assertSame(primary, result);
 		
 		Relationship secondary = new Relationship();
+		
+		this.jmock.checking(new Expectations() {{
+			one(mergeContext).logError(with(any(String.class))); 
+		}});
+		
 		result = this.merger.merge(null, secondary);
 		Assert.assertSame(secondary, result);
 	}
