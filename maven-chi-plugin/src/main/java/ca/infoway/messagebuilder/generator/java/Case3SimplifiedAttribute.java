@@ -4,6 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.commons.lang.StringUtils;
+
+import ca.infoway.messagebuilder.datatype.StandardDataType;
+import ca.infoway.messagebuilder.generator.DataType;
+import ca.infoway.messagebuilder.generator.TypeConverter;
 import ca.infoway.messagebuilder.xml.TypeName;
 
 class Case3SimplifiedAttribute extends Attribute {
@@ -37,5 +42,23 @@ class Case3SimplifiedAttribute extends Attribute {
 	@Override
 	XmlMappingHelper getXmlMappingHelper() {
 		return this.helper;
+	}
+	
+	@Override
+	public DataType getDataType() {
+		boolean isList = false;
+		boolean isSet = false;
+		for (BaseRelationship baseRelationship : this.mergedRelationships.values()) {
+			isSet |= StandardDataType.isSet(baseRelationship.getType());
+			isList |= StandardDataType.isList(baseRelationship.getType());
+		}
+		return isList && isSet ? createCollectionDataType() : super.getDataType();
+	}
+
+	private DataType createCollectionDataType() {
+		String type = this.exemplar.getType();
+		type = "COLLECTION<" + StringUtils.substringAfter(type, "<");
+		String domainType = this.exemplar.getDomainType();
+		return new TypeConverter().convertToType(type, domainType);
 	}
 }

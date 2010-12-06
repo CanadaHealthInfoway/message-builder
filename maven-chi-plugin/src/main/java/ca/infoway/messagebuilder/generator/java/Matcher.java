@@ -65,7 +65,7 @@ public class Matcher {
 		Hl7TypeName baseType = Hl7TypeName.parse(base.getType());
 		Hl7TypeName otherType = Hl7TypeName.parse(other.getType());
 		
-		if (!baseType.getUnspecializedName().equals(otherType.getUnspecializedName())) {
+		if (attributeTypesNotCompatible(baseType, otherType)) {
 			return MatchType.MAJOR_DIFFERENCE;
 		} else if (base.getCardinality().isMultiple() != other.getCardinality().isMultiple()) {
 			// bug 13308: cardinality not being checked when merging types (see comment in matchesAssociationType)
@@ -83,6 +83,16 @@ public class Matcher {
 		} else {
 			return MatchType.MINOR_DIFFERENCE;
 		}
+	}
+
+	private boolean attributeTypesNotCompatible(Hl7TypeName baseType, Hl7TypeName otherType) {
+		String baseUnspecializedName = convertType(baseType.getUnspecializedName());
+		String otherUnspecializedName = convertType(otherType.getUnspecializedName());
+		return !baseUnspecializedName.equals(otherUnspecializedName);
+	}
+
+	private String convertType(String typeName) {
+		return typeName.replace("LIST<", "COLLECTION<").replace("SET<", "COLLECTION<");
 	}
 
 	MatchType matchesAssociationType(Relationship base, Relationship other) {
