@@ -49,14 +49,14 @@ class Case3SimplifiedAttribute extends Attribute {
 		boolean isList = false;
 		boolean isSet = false;
 		for (BaseRelationship baseRelationship : this.mergedRelationships.values()) {
-			isSet |= StandardDataType.isSet(baseRelationship.getType());
-			isList |= StandardDataType.isList(baseRelationship.getType());
+			isSet |= StandardDataType.isSet(baseRelationship.getRelationship().getType());
+			isList |= StandardDataType.isList(baseRelationship.getRelationship().getType());
 		}
 		return isList && isSet ? createCollectionDataType() : super.getDataType();
 	}
 
 	private DataType createCollectionDataType() {
-		String type = this.exemplar.getType();
+		String type = this.exemplar.getRelationship().getType();
 		type = "COLLECTION<" + StringUtils.substringAfter(type, "<");
 		String domainType = this.exemplar.getDomainType();
 		return new TypeConverter().convertToType(type, domainType);
