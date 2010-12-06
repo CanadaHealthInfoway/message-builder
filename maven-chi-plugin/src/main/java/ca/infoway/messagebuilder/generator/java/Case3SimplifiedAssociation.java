@@ -1,6 +1,7 @@
 package ca.infoway.messagebuilder.generator.java;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
@@ -16,14 +17,21 @@ class Case3SimplifiedAssociation extends Association {
 		super(exemplar.getRelationship(), exemplar.getAssociationType(), 
 				exemplar.getTemplateVariable(), Collections.<Choice>emptyList());
 		this.exemplar = exemplar;
-		this.helper = new XmlMappingHelper(extractHelpers(exemplar, mergedRelationships));
+		this.helper = new XmlMappingHelper(extractHelpers(exemplar, mergedRelationships.values()));
 	}
 
+	Case3SimplifiedAssociation(Association exemplar, Collection<BaseRelationship> mergedRelationships) {
+		super(exemplar.getRelationship(), exemplar.getAssociationType(), 
+				exemplar.getTemplateVariable(), Collections.<Choice>emptyList());
+		this.exemplar = exemplar;
+		this.helper = new XmlMappingHelper(extractHelpers(exemplar, mergedRelationships));
+	}
+	
 	private List<XmlMappingHelper> extractHelpers(Association exemplar,
-			Map<TypeName, BaseRelationship> mergedRelationships) {
+			Collection<BaseRelationship> mergedRelationships) {
 		List<XmlMappingHelper> helpers = new ArrayList<XmlMappingHelper>();
 		helpers.add(exemplar.getXmlMappingHelper());
-		for (BaseRelationship relationship : mergedRelationships.values()) {
+		for (BaseRelationship relationship : mergedRelationships) {
 			helpers.add(relationship.getXmlMappingHelper());
 		}
 		return helpers;

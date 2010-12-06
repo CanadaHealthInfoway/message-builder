@@ -3,9 +3,12 @@ package ca.infoway.messagebuilder.generator.java;
 import static ca.infoway.messagebuilder.generator.java.DifferenceHelper.hasDifferenceOfType;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import org.codehaus.plexus.util.StringUtils;
@@ -47,6 +50,18 @@ class SimplifiableType implements Named, NamedType {
 		return this.mergedWithTypes;
 	}
 
+	public Map<Fingerprint,Collection<SimplifiableRelationship>> getMatchedRelationships() {
+		Map<Fingerprint,Collection<SimplifiableRelationship>> result = new HashMap<Fingerprint, Collection<SimplifiableRelationship>>();
+		
+		for (SimplifiableRelationship relationship : getRelationships()) {
+			Fingerprint fingerprint = relationship.getFingerprint();
+			if (!result.containsKey(fingerprint)) {
+				result.put(fingerprint, new ArrayList<SimplifiableRelationship>());
+			}
+			result.get(fingerprint).add(relationship);
+		}
+		return result;
+	}
 	public List<SimplifiableRelationship> getRelationships() {
 		return this.relationships;
 	}

@@ -3,6 +3,7 @@ package ca.infoway.messagebuilder.generator.java;
 import static org.apache.commons.collections.CollectionUtils.isEmpty;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -103,8 +104,8 @@ class DefinitionToResultConverter {
 	private void createAllRelationships(TypeAnalysisResult result) throws GeneratorException {
 		for (SimplifiableType simplifiableType : this.definitions.getAllTypes()) {
 			Type type = this.types.get(simplifiableType.getName());
-			for (SimplifiableRelationship simplifiableRelationship : simplifiableType.getRelationships()) {
-				type.getRelationships().add(createRelationship(result, simplifiableRelationship.getRelationship()));
+			for (Map.Entry<Fingerprint, Collection<SimplifiableRelationship>> entry : simplifiableType.getMatchedRelationships().entrySet()) {
+				type.getRelationships().add(createRelationship(result, entry.getValue()));
 			}
 		}
 		for (SimplifiableType simplifiableType : this.definitions.getAllTypes()) {
@@ -137,6 +138,33 @@ class DefinitionToResultConverter {
 				}
 			}
 		}
+	}
+
+	private BaseRelationship createRelationship(TypeAnalysisResult result,
+			Collection<SimplifiableRelationship> value) {
+		
+		if (value.size() == 1) {
+			return createRelationship(result, (SimplifiableRelationship) CollectionUtils.get(value, 0));
+		} else {
+			Association relationship = null;
+			List<BaseRelationship> relationships = new ArrayList<BaseRelationship>();
+			for (SimplifiableRelationship simplifiableRelationship : value) {
+				BaseRelationship temp = createRelationship(result, simplifiableRelationship);
+				if (!(temp instanceof Association)) {
+					throw new GeneratorException("Expected an association, but was : " + temp.getClass());
+				} else if (relationship == null) {
+					relationship = (Association) temp;
+				}
+				relationships.add(temp);
+			}
+			
+			return new Case3SimplifiedAssociation(relationship, relationships);
+		}
+	}
+
+	private BaseRelationship createRelationship(TypeAnalysisResult result,
+			SimplifiableRelationship simplifiableRelationship) {
+		return createRelationship(result, simplifiableRelationship.getRelationship());
 	}
 
 	MergedTypeCollator createCollator(Type mergedType) {

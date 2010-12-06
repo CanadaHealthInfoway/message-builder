@@ -238,10 +238,8 @@ public class DefinitionToResultConverterTest {
 		simplifiableType2.setMergedTypeName(mergedTypeName);
 
 		Relationship relationship3 = new Relationship("patient1", "ABCD_MT123456CA.Patient1", Cardinality.create("1"));
-		Relationship relationship4 = new Relationship("patient2", "ABCD_MT123456CA.Patient2", Cardinality.create("1"));
 		SimplifiableType simplifiableType3 = new SimplifiableType(new MessagePart("ABCD_MT123456CA.SomeOtherType"), false);
 		simplifiableType3.getRelationships().add(new SimplifiableRelationship(relationship3, simplifiableType1));
-		simplifiableType3.getRelationships().add(new SimplifiableRelationship(relationship4, simplifiableType2));
 		
 		this.definitions.addType(simplifiableType1);
 		this.definitions.addType(simplifiableType2);
@@ -259,11 +257,9 @@ public class DefinitionToResultConverterTest {
 		
 		type = result.getTypeByName(new TypeName("ABCD_MT123456CA.SomeOtherType"));
 		assertNotNull("type", type);
-		assertEquals("number of relationships", 2, type.getRelationships().size());
+		assertEquals("number of relationships", 1, type.getRelationships().size());
 		assertTrue("association", type.getRelationships().get(0) instanceof MergedAssociation);
-		assertTrue("association", type.getRelationships().get(1) instanceof MergedAssociation);
 		assertEquals("association type", mergedTypeName.getName(), type.getRelationships().get(0).getType());
-		assertEquals("association type", mergedTypeName.getName(), type.getRelationships().get(1).getType());
 	}
 	
 	// an inlined attribute should collate according to the outer/elided association
