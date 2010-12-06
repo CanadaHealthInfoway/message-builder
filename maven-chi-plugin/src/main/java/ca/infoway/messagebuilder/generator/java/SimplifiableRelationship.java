@@ -4,7 +4,7 @@ import ca.infoway.messagebuilder.Named;
 import ca.infoway.messagebuilder.generator.DataType;
 import ca.infoway.messagebuilder.xml.Relationship;
 
-class SimplifiableRelationship implements Named {
+class SimplifiableRelationship implements Named, Fingerprintable {
 
 	private final Relationship relationship;
 	private DataType dataType;
@@ -53,5 +53,17 @@ class SimplifiableRelationship implements Named {
 	}
 	public boolean isTemplateParameterPresent() {
 		return this.variable != null;
+	}
+
+	public Fingerprint getFingerprint() {
+		if (this.relationship.isAttribute()) {
+			return new Fingerprint(RelationshipType.ATTRIBUTE, this.relationship.getName());
+		} else if (this.relationship.isTemplateRelationship()) {
+			return new Fingerprint(RelationshipType.ASSOCIATION, this.relationship.getTemplateParameterName());
+		} else if (this.type.getMergedTypeName() != null) {
+			return new Fingerprint(RelationshipType.ASSOCIATION, this.type.getMergedTypeName().getName());
+		} else {
+			return new Fingerprint(RelationshipType.ASSOCIATION, this.type.getTypeName().getName());
+		}
 	}
 }

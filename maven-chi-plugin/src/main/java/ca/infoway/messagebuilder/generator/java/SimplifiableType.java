@@ -1,5 +1,7 @@
 package ca.infoway.messagebuilder.generator.java;
 
+import static ca.infoway.messagebuilder.generator.java.DifferenceHelper.hasDifferenceOfType;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
@@ -9,14 +11,17 @@ import java.util.Set;
 import org.codehaus.plexus.util.StringUtils;
 
 import ca.infoway.messagebuilder.Named;
+import ca.infoway.messagebuilder.generator.GeneratorException;
+import ca.infoway.messagebuilder.xml.DifferenceType;
 import ca.infoway.messagebuilder.xml.MessagePart;
+import ca.infoway.messagebuilder.xml.Relationship;
 import ca.infoway.messagebuilder.xml.TypeName;
 
 class SimplifiableType implements Named, NamedType {
 
 	private List<SimplifiableRelationship> relationships = Collections.synchronizedList(new ArrayList<SimplifiableRelationship>());
 	private boolean inlined;
-	private List<SimplifiableType> mergedWithTypes = Collections.synchronizedList(new ArrayList<SimplifiableType>());
+	private Set<SimplifiableType> mergedWithTypes = Collections.synchronizedSet(new HashSet<SimplifiableType>());
 	private final MessagePart messagePart;
 	private final boolean rootType;
 	private TypeName mergedTypeName;
@@ -38,7 +43,7 @@ class SimplifiableType implements Named, NamedType {
 		return this.inlined;
 	}
 
-	public List<SimplifiableType> getMergedWithTypes() {
+	public Set<SimplifiableType> getMergedWithTypes() {
 		return this.mergedWithTypes;
 	}
 
@@ -159,5 +164,36 @@ class SimplifiableType implements Named, NamedType {
 			}
 		}
 		return result;
+	}
+	
+	// can't cache this information, because the fingerprints will change as new 
+	// merges are discovered
+	SimplifiableRelationship getRelationshipByFingerprint(Fingerprint fingerprint) {
+		SimplifiableRelationship result = null;
+		for (SimplifiableRelationship relationship : this.relationships) {
+			if (fingerprint.equals(relationship.getFingerprint())) {
+				if (result != null) {
+					result = chooseMoreUpToDate(result, relationship);
+				} else {
+					result = relationship;
+				}
+			}
+		}
+		return result;
+	}
+
+	private SimplifiableRelationship chooseMoreUpToDate(SimplifiableRelationship relationship1,
+			SimplifiableRelationship relationship2) {
+		
+		if (hasDifferenceOfType(relationship1.getRelationship(), DifferenceType.COMPONENT_ONLY_IN_ONE_VERSION)
+				&& hasDifferenceOfType(relationship2.getRelationship(), DifferenceType.COMPONENT_ONLY_IN_ONE_VERSION)) {
+			Relationship primaryRelationship = DifferenceHelper.choosePrimary(relationship1.getRelationship(), relationship2.getRelationship());
+			return relationship1.getRelationship() == primaryRelationship ? relationship1 : relationship2;
+		} else {
+			throw new GeneratorException(
+					"Duplicate fingerprint found in type, \"" + this.getName() 
+					+ ". relationship1 = " + relationship1.getName() 
+					+ ", relationship2 = " +relationship2.getName());
+		}
 	}
 }

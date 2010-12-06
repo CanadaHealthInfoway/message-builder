@@ -26,6 +26,11 @@ public class Case3Simplifier {
 			},
 			new Case3MatcherFactory() {
 				public Case3Matcher create(LogUI log, SimplifiableDefinitions definitions, Case3MergeResult result) {
+					return new Case3FuzzyMatcher(log, definitions, result, FuzzQuotient.LEVEL_00);
+				}
+			},
+			new Case3MatcherFactory() {
+				public Case3Matcher create(LogUI log, SimplifiableDefinitions definitions, Case3MergeResult result) {
 					return new Case3FuzzyMatcher(log, definitions, result, FuzzQuotient.LEVEL_0);
 				}
 			},
@@ -47,7 +52,6 @@ public class Case3Simplifier {
 	}
 	public void execute() throws GeneratorException {
 		createMatchResult();
-		markDefinitions();
 	}
 	private void markDefinitions() {
 		for (MergedTypeDescriptor descriptor : this.mergeResult.getDescriptors()) {
@@ -85,6 +89,7 @@ public class Case3Simplifier {
 						(changes ? "Candidate for simplification" : ""));
 				repeat |= changes;
 			}
+			markDefinitions();
 		} while (repeat);
 	}
 }

@@ -194,19 +194,23 @@ class Case3FuzzyMatcher extends Case3Matcher {
 	private void checkRelationships(SimplifiableType type, SimplifiableType otherType, List<MatchType> matchTypes, MatchType missingMatchType) {
 		for (SimplifiableRelationship relationship : type.getRelationships()) {
 			MatchType matchType = MatchType.EXACT;
-			SimplifiableRelationship otherRelationship = otherType.getRelationship(relationship.getRelationship().getName());
+			SimplifiableRelationship otherRelationship = otherType.getRelationshipByFingerprint(relationship.getFingerprint());
+			
 			if (otherRelationship != null) {
-				if (relationship.isTemplateParameterPresent() && otherRelationship.isTemplateParameterPresent()) {
+				if (!StringUtils.equals(relationship.getName(), otherRelationship.getName())) {
+					this.log.log(LogLevel.DEBUG, "Relationship " + describe(type, relationship) + 
+							" and " + describe(otherType, otherRelationship) + " looks like a renamed relationship");
+					matchTypes.add(MatchType.RENAMED);
+				} else if (relationship.isTemplateParameterPresent() && otherRelationship.isTemplateParameterPresent()) {
 					matchTypes.add(MatchType.EXACT);
 				} else {
 					matchTypes.add(matchType =
 						this.matcher.matchesType(relationship.getRelationship(), otherRelationship.getRelationship()));
 				}
+			} else if (otherType.getRelationship(relationship.getName()) != null) {
+				matchTypes.add(matchType =MatchType.MAJOR_DIFFERENCE);
 			} else if (relationship.isTemplateType() || isTemplateAssociationType(relationship)) {
 				matchTypes.add(matchType =MatchType.MAJOR_DIFFERENCE);
-			} else if (relationship.isAssociation() && !relationship.isTemplateType() 
-					&& isRenamedRelationship(type, relationship, otherType)) {
-				matchTypes.add(MatchType.RENAMED);
 			} else {
 				// TODO: BCH: Should we search by business name?
 				matchTypes.add(matchType = missingMatchType);
@@ -217,37 +221,6 @@ class Case3FuzzyMatcher extends Case3Matcher {
 		}
 	}
 	
-	private boolean isRenamedRelationship(SimplifiableType type, SimplifiableRelationship relationship,
-			SimplifiableType otherType) {
-		boolean result = false;
-		for (SimplifiableRelationship otherRelationship : otherType.getRelationships()) {
-			if (!otherRelationship.isAssociation()) {
-				// skip it
-			} else if (otherRelationship.isTemplateType()) {
-				// skip it
-			} else if (StringUtils.equals(relationship.getRelationship().getType(), otherRelationship.getRelationship().getType())) {
-				this.log.log(LogLevel.INFO, 
-						"Identified a renamed relationship: " 
-						+ describe(type, relationship) 
-						+ " and " + describe(otherType, otherRelationship));
-				result = true;
-				break;
-			} else if (isSameMergeType(otherRelationship.getType(), relationship.getType())) {
-				this.log.log(LogLevel.INFO, 
-						"Identified a renamed relationship between merged types: " 
-						+ describe(type, relationship) + 
-						" and " + describe(otherType, otherRelationship));
-				result = true;
-				break;
-			}
-		}
-		return result;
-	}
-
-	private boolean isSameMergeType(SimplifiableType type, SimplifiableType otherType) {
-		return this.mergeResult.isKnownMatch(type, otherType);
-	}
-
 	private boolean isTemplateAssociationType(SimplifiableRelationship relationship) {
 		return relationship.isAssociation() 
 				&& relationship.getType() != null
