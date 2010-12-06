@@ -77,7 +77,6 @@ public class Case3FuzzyMatcherTest {
 	
 	@Test
 	public void shouldMatchSimilarTypes() throws Exception {
-		
 		final SimplifiableType type1 = new SimplifiableType(new MessagePart("ABCD_MT123456CA.SomeType"), false);
 		type1.getRelationships().add(createSimplifiableAttribute("name", Cardinality.create("1"), "ST"));
 		final SimplifiableType type2 = new SimplifiableType(new MessagePart("ABCD_MT987654CA.SomeType"), false);
@@ -92,6 +91,39 @@ public class Case3FuzzyMatcherTest {
 		assertTrue("matches", createMatcher(result).performMatching(type1));
 	}
 	
+	@Test
+	public void shouldMatchSimplifiableTypesWithSameGroupingPrefixAndSimilarType() throws Exception {
+		final SimplifiableType type1 = new SimplifiableType(new MessagePart("ABCD_MT123456CA.Device3"), false);
+		type1.getRelationships().add(createSimplifiableAttribute("name", Cardinality.create("1"), "ST"));
+		final SimplifiableType type2 = new SimplifiableType(new MessagePart("ABCD_MT987654CA.Device2"), false);
+		type2.getRelationships().add(createSimplifiableAttribute("name", Cardinality.create("1"), "ST"));
+		type2.getRelationships().add(createSimplifiableAttribute("id", Cardinality.create("1"), "II"));
+		
+		this.jmock.checking(new Expectations() {{
+			allowing(definitions).getAllTypes(); will(returnValue(Arrays.asList(type1, type2)));
+		}});
+		
+		Case3MergeResult result = new Case3MergeResult();
+		assertTrue("matches", createMatcher(result).performMatching(type1));
+		
+	}
+
+	@Test
+	public void shouldMatchSimplifiableTypesWithListAndSetType() throws Exception {
+		final SimplifiableType type1 = new SimplifiableType(new MessagePart("ABCD_MT123456CA.Device3"), false);
+		type1.getRelationships().add(createSimplifiableAttribute("id", Cardinality.create("0-4"), "LIST<II>"));
+		final SimplifiableType type2 = new SimplifiableType(new MessagePart("ABCD_MT987654CA.Device2"), false);
+		type2.getRelationships().add(createSimplifiableAttribute("id", Cardinality.create("2-5"), "SET<II>"));
+		
+		this.jmock.checking(new Expectations() {{
+			allowing(definitions).getAllTypes(); will(returnValue(Arrays.asList(type1, type2)));
+		}});
+		
+		Case3MergeResult result = new Case3MergeResult();
+		assertTrue("matches", createMatcher(result).performMatching(type1));
+		
+	}
+
 	@Test
 	public void shouldMatchTwoTemplateRelationships() throws Exception {
 		

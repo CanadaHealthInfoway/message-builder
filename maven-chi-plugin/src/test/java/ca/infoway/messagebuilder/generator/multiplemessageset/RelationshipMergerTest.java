@@ -43,6 +43,7 @@ public class RelationshipMergerTest {
 			allowing(mergeContext).getCurrentInteraction(); will(returnValue(""));
 			allowing(mergeContext).getCurrentMessagePart(); will(returnValue("aCurrentMessagePart"));
 			allowing(mergeContext).getCurrentPackageLocation(); will(returnValue("aPackageLocation"));
+			allowing(mergeContext).logInfo(with(any(String.class)));
 		}});
 		
 		this.merger = new RelationshipMerger(this.mergeContext, this.relationshipsMerger, this.documentationMerger);
@@ -148,6 +149,35 @@ public class RelationshipMergerTest {
 	}
 	
 	@Test
+	public void shoudlMergeSetAndListRelationships() {
+		final Relationship primary = new Relationship();
+		primary.setCardinality(new Cardinality(1,5));
+		primary.setConformance(ConformanceLevel.MANDATORY);
+		primary.setName("aName");
+		primary.setType("SET<II>");
+
+		final Relationship secondary = new Relationship();
+		secondary.setCardinality(new Cardinality(1,10));
+		secondary.setConformance(ConformanceLevel.OPTIONAL);
+		secondary.setName("aName");
+		secondary.setType("LIST<II.BUS>");
+		
+		this.jmock.checking(new Expectations() {{
+			one(documentationMerger).merge(null, null); will(returnValue(null));
+			one(relationshipsMerger).merge(primary.getChoices(), secondary.getChoices()); will(returnValue(primary.getChoices()));
+		}});
+
+		Relationship result = this.merger.merge(primary, secondary);
+		Assert.assertNotNull(result);
+		Assert.assertNotSame(primary, result);
+		Assert.assertNotSame(secondary, result);
+		Assert.assertTrue(result.getCardinality().isMultiple());
+		Assert.assertEquals(ConformanceLevel.OPTIONAL, result.getConformance());
+		Assert.assertEquals("aName", result.getName());
+		Assert.assertEquals("SET<II>", result.getType());
+	}
+
+	@Test
 	public void shoudlMergeDifferentCodedTypes() {
 		final Documentation primaryDoc = new Documentation();
 		
@@ -187,7 +217,6 @@ public class RelationshipMergerTest {
 			one(documentationMerger).merge(primaryDoc, secondaryDoc); will(returnValue(primaryDoc));
 			one(relationshipsMerger).merge(primary.getChoices(), secondary.getChoices()); will(returnValue(primary.getChoices()));
 			exactly(3).of(mergeContext).logError(with(any(String.class)));
-			exactly(1).of(mergeContext).logInfo(with(any(String.class)));
 		}});
 
 		Relationship result = this.merger.merge(primary, secondary);
@@ -250,7 +279,6 @@ public class RelationshipMergerTest {
 			one(documentationMerger).merge(primaryDoc, secondaryDoc); will(returnValue(primaryDoc));
 			one(relationshipsMerger).merge(primary.getChoices(), secondary.getChoices()); will(returnValue(primary.getChoices()));
 			exactly(3).of(mergeContext).logError(with(any(String.class)));
-			exactly(2).of(mergeContext).logInfo(with(any(String.class)));
 		}});
 
 		Relationship result = this.merger.merge(primary, secondary);

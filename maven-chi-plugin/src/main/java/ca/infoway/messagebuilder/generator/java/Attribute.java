@@ -43,26 +43,26 @@ public class Attribute extends BaseRelationship {
      * @return
      */
     public boolean isCollection() {
-        return this.dataType.isTypeCollection();
+        return getDataType().isTypeCollection();
     }
 	
 	@Override
 	public Set<Object> getImportTypes() {
 		Set<Object> result = super.getImportTypes();
-		if (this.dataType.isTypeCollection()) {
-			result.add(this.dataType.getTypeName());
-			if (this.dataType.getParameters()!=null && this.dataType.getParameters().length > 0) {
-				DataType parameter = this.dataType.getParameters()[0];
+		if (getDataType().isTypeCollection()) {
+			result.add(getDataType().getTypeName());
+			if (getDataType().getParameters()!=null && getDataType().getParameters().length > 0) {
+				DataType parameter = getDataType().getParameters()[0];
 				if (parameter.isCodedType()) {
 					result.add(Code.class.getName());
 				}
 			}
 		}
-		if (this.dataType != null) {
-			result.addAll(this.dataType.getImportTypes());
+		if (getDataType() != null) {
+			result.addAll(getDataType().getImportTypes());
 		}
 		
-		if (!this.dataType.isWrappedTypeListOrSet() && isCardinalityMultiple()) {
+		if (!getDataType().isWrappedTypeListOrSet() && isCardinalityMultiple()) {
 			result.add(RawListWrapper.class.getName());
 		}
 		
@@ -81,7 +81,7 @@ public class Attribute extends BaseRelationship {
 	@Override
 	public String getTypeParameters() {
 		// TODO: BCH: I don't think this should be called, here.
-		return this.dataType.getTypeParameters(ProgrammingLanguage.JAVA);
+		return getDataType().getTypeParameters(ProgrammingLanguage.JAVA);
 	}
 	
 	public PropertyGenerator getPropertyGenerator(ProgrammingLanguage language, ClassNameManager representation, BaseRelationshipNameResolver nameResolver) {
