@@ -8,10 +8,10 @@ import ca.infoway.messagebuilder.xml.DifferenceType;
 import ca.infoway.messagebuilder.xml.DifferenceValue;
 import ca.infoway.messagebuilder.xml.HasDifferences;
 
-class MessageSetMergeHelper {
+public class MessageSetMergeHelper {
 
-	private static final String EXISTS = "[exists]";
-	static final String MISSING = "[missing]";
+	public static final String EXISTS = "[exists]";
+	public static final String MISSING = "[missing]";
 
 	String standardMerge(String primary, String secondary) {
 		String result = primary;

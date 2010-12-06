@@ -131,7 +131,7 @@ public class TypeAndRelationshipBuilder {
 	public static SimplifiableRelationship createSimplifiableAssociation(String name, Cardinality cardinality, TemplateVariable variable, ConformanceLevel conformanceLevel) {
 		Relationship relationship = new Relationship();
 		relationship.setName(name);
-		relationship.setTemplateParameterName("MyParameterName");
+		relationship.setTemplateParameterName("MyParameterName" + variable.getType());
 		if (cardinality != null) {
 			relationship.setCardinality(cardinality);
 		} else {

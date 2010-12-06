@@ -196,6 +196,9 @@ public class Case3FuzzyMatcherTest {
 		result.initialize(definitions);
 		result.recordMatch(type1, type2);
 		
+		type1.setMergedTypeName(result.getDescriptorByName(type1.getTypeName()).getNewName());
+		type2.setMergedTypeName(result.getDescriptorByName(type2.getTypeName()).getNewName());
+		
 		assertFalse("matches", createMatcher(result).performMatching(type1));
 	}
 
