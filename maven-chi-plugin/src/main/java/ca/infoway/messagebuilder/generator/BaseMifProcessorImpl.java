@@ -15,6 +15,7 @@ import org.apache.commons.lang.math.NumberUtils;
 import org.apache.commons.lang.time.StopWatch;
 import org.w3c.dom.Element;
 
+import ca.infoway.messagebuilder.xml.Annotation;
 import ca.infoway.messagebuilder.xml.Cardinality;
 import ca.infoway.messagebuilder.xml.ConformanceLevel;
 import ca.infoway.messagebuilder.xml.Documentable;
@@ -120,8 +121,8 @@ abstract class BaseMifProcessorImpl implements MifProcessor {
 	}
 	
 	protected void addDocumentation(Element element, Documentable part) {
-		List<String> paragraphs = this.helper.getDocumentation(element);
-		part.setDocumentation(CollectionUtils.isEmpty(paragraphs) ? null : new Documentation(paragraphs));
+		List<Annotation> annotations = this.helper.getDocumentation(element);
+		part.setDocumentation(annotations==null || annotations.isEmpty() ? null : new Documentation(annotations));
 		
 		String businessName = this.helper.getBusinessName(element);
 		if (StringUtils.isNotBlank(businessName)) {

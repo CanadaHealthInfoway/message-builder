@@ -23,7 +23,7 @@ import org.xml.sax.SAXException;
 
 import ca.infoway.messagebuilder.generator.util.XPathHelper;
 import ca.infoway.messagebuilder.util.xml.DocumentFactory;
-import ca.infoway.messagebuilder.util.xml.NodeUtil;
+import ca.infoway.messagebuilder.xml.Annotation;
 import ca.infoway.messagebuilder.xml.Argument;
 import ca.infoway.messagebuilder.xml.Documentation;
 import ca.infoway.messagebuilder.xml.Interaction;
@@ -72,16 +72,15 @@ class DmifProcessor {
 		Interaction interaction = new Interaction();
 		Element packageLocation = (Element) new XPathHelper().getSingleNode(element, "./mif:packageLocation", Namespaces.MIF_NAMESPACE);
 		Element parameterTypeModel = (Element) new XPathHelper().getSingleNode(element, "./mif:parameterTypeModel", Namespaces.MIF_NAMESPACE);
-		Element documentation = (Element) new XPathHelper().getSingleNode(element, "./mif:annotations/mif:description", Namespaces.MIF_NAMESPACE);
-		String documentationText = NodeUtil.getTextValue(documentation);
+		List<Annotation> documentationForInteraction = new MifXPathHelper().getDocumentationForInteraction(element);
 		String businessName = new XPathHelper().getAttributeValue(element, "./mif:businessName/@name", Namespaces.MIF_NAMESPACE);
 
 		interaction.setName(EntryPointAssembler.getEntryPoint(packageLocation));
 		String parent = EntryPointAssembler.getEntryPoint(parameterTypeModel);
 		interaction.setSuperTypeName(messageSet.getPackageLocationRootType(parent));
 		interaction.setBusinessName(businessName);
-		if (StringUtils.isNotBlank(documentationText)) {
-			interaction.setDocumentation(new Documentation(documentationText));
+		if (documentationForInteraction != null && !documentationForInteraction.isEmpty()) {
+			interaction.setDocumentation(new Documentation(documentationForInteraction));
 		}
 		
 		List<Argument> arguments = getArguments(messageSet, parameterTypeModel);

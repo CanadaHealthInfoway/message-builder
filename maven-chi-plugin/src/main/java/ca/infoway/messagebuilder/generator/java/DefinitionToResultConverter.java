@@ -327,7 +327,7 @@ class DefinitionToResultConverter {
 					type.setCategory(simplifiableType.getCategory());
 					if (messagePart.getDocumentation() != null) {
 						type.setBusinessName(messagePart.getDocumentation().getBusinessName());
-						if(!isEmpty(messagePart.getDocumentation().getParagraphs())) {
+						if(!isEmpty(messagePart.getDocumentation().getAnnotations())) {
 							type.setTypeDocumentation(new TypeDocumentation(messagePart.getDocumentation()));
 						}
 					}

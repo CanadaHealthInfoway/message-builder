@@ -4,13 +4,11 @@
 			<entry name="COCT_MT470002CA.ActDefinition">
 				<messagePart name="COCT_MT470002CA.ActDefinition">
 					<documentation>
-						<p></p>
 					</documentation>
 					<relationship name="code" type="CV" conformance="MANDATORY"
 						cardinality="1" sortOrder="1" domainType="ActInformationAccessTypeCode"
 						structural="false">
 						<documentation>
-							<p></p>
 						</documentation>
 					</relationship>
 					<relationship name="classCode" type="CS" cardinality="0-1"
@@ -28,12 +26,10 @@
 			<entry name="COCT_MT470002CA.Subject3">
 				<messagePart name="COCT_MT470002CA.Subject3">
 					<documentation>
-						<p></p>
 					</documentation>
 					<relationship name="actDefinition" type="COCT_MT470002CA.ActDefinition"
 						conformance="MANDATORY" cardinality="1" sortOrder="1" structural="false">
 						<documentation>
-							<p></p>
 						</documentation>
 					</relationship>
 				</messagePart>

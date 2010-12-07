@@ -1,6 +1,5 @@
 package ca.infoway.messagebuilder.generator;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.commons.lang.StringUtils;
@@ -10,6 +9,7 @@ import org.w3c.dom.NodeList;
 
 import ca.infoway.messagebuilder.lang.EnumPattern;
 import ca.infoway.messagebuilder.util.xml.NodeUtil;
+import ca.infoway.messagebuilder.xml.Annotation;
 import ca.infoway.messagebuilder.xml.CodingStrength;
 
 class MifXPathHelper extends BaseMifXPathHelper {
@@ -55,17 +55,14 @@ class MifXPathHelper extends BaseMifXPathHelper {
 		return "specializationChild".equals(parent.getLocalName());
 	}
 
-	List<String> getDocumentation(Element classElement) {
-		List<Element> elements = toElementList(getNodes(classElement, "./mif:annotations//mif:p/mif:p"));
-		List<String> result = new ArrayList<String>();
-		for (Element paragraph : elements) {
-			String text = StringUtils.trim(NodeUtil.getTextValue(paragraph, true));
-			if (StringUtils.isNotBlank(text)) {
-				result.add(text);
-			}
-		}
-		return result;
+	List<Annotation> getDocumentation(Element classElement) {
+		return getDocumentation(classElement, "./mif:annotations//mif:", "//mif:p/mif:p");
 	}
+	
+	List<Annotation> getDocumentationForInteraction(Element classElement) {
+		return getDocumentation(classElement, "./mif:annotations//mif:", "//mif:p");
+	}
+	
 	public static String getSuperTypeName(Element element) {
 		return getAttribute(element, "../../@name");
 	}

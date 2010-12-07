@@ -7,11 +7,16 @@ import java.util.List;
 
 import javax.xml.xpath.XPathExpressionException;
 
+import org.apache.commons.lang.StringUtils;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 
 import ca.infoway.messagebuilder.generator.util.XPathHelper;
+import ca.infoway.messagebuilder.lang.EnumPattern;
+import ca.infoway.messagebuilder.util.xml.NodeUtil;
+import ca.infoway.messagebuilder.xml.Annotation;
+import ca.infoway.messagebuilder.xml.AnnotationType;
 
 abstract class BaseMifXPathHelper {
 
@@ -66,9 +71,40 @@ abstract class BaseMifXPathHelper {
 		return document.getDocumentElement().getNamespaceURI();
 	}
 	
+	List<Annotation> getDocumentation(Element classElement, String preMifAnnotationPath, String postMifAnnotationPath) {
+		//this.outputUI.log(DEBUG, "DMIF - now processing file " + reference.asFile().getName());
+		List<Annotation> result = new ArrayList<Annotation>();
+		for (AnnotationType annotationType : (List<AnnotationType>) EnumPattern.values(AnnotationType.class)) {
+			String[] elementNames = annotationType.getMifElementNames();
+			for (String elementName : elementNames) {
+				List<Element> elements = toElementList(getNodes(classElement, preMifAnnotationPath+elementName+postMifAnnotationPath));
+				List<Annotation> annotations = new ArrayList<Annotation>();
+				for (Element paragraph : elements) {
+					String text = StringUtils.trim(NodeUtil.getTextValue(paragraph, true));
+					if (StringUtils.isNotBlank(text)) {
+						Annotation annotation = new Annotation(text);
+						annotation.setElementNameFromMif(elementName);
+						if (!StringUtils.isBlank(paragraph.getAttribute("id"))) {
+							annotation.setId(paragraph.getAttribute("id"));
+						}
+						if (!StringUtils.isBlank(paragraph.getAttribute("sourceName"))) {						
+							annotation.setSourceName(paragraph.getAttribute("sourceName"));
+						}
+						annotation.setAnnotationType(annotationType);
+						annotations.add(annotation);
+					}
+				}
+				if (!annotations.isEmpty()) {
+					result.addAll(annotations);
+				}
+			}
+		}
+		return result;
+	}
+	
 	abstract String getOwnedEntryPoint(Document document);
 	abstract String getRootType(Element ownedEntryPoint);
-	abstract List<String> getDocumentation(Element classElement);
+	abstract List<Annotation> getDocumentation(Element classElement);
 	abstract String getBusinessName(Element element);
 	abstract Element getOwnedEntryPointElement(Document document);
 	

@@ -13,6 +13,7 @@ import org.apache.commons.lang.SystemUtils;
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 
+import ca.infoway.messagebuilder.xml.Annotation;
 import ca.infoway.messagebuilder.xml.Documentation;
 
 public class TypeDocumentation {
@@ -126,15 +127,15 @@ public class TypeDocumentation {
 			if (StringUtils.isNotBlank(this.documentation.getBusinessName())) {
 				text.add(cleanText(this.documentation.getBusinessName()));
 			}
-			text.addAll(cleanText(this.documentation.getParagraphs()));
+			text.addAll(cleanText(this.documentation.getAnnotations()));
 	        return text.toArray(new String[0]);
 		}
     }
 
-    private List<String> cleanText(List<String> strings) {
+    private List<String> cleanText(List<Annotation> list) {
     	List<String> results = new ArrayList<String>();
-    	for (String string : strings) {
-    		results.add(cleanText(string));
+    	for (Annotation string : list) {
+    		results.add(cleanText(string.getText()));
     	}
 		return results;
 	}
