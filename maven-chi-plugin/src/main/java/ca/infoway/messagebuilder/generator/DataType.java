@@ -17,7 +17,7 @@ public class DataType {
 	private final DataType[] parameters;
 	private final DataTypeGenerationDetails type;
 	
-	private final WrappedParameterAppenderRegistry parameterAppenderRegistry = WrappedParameterAppenderRegistry.getInstance(); 
+	private final ParameterAppenderRegistry parameterAppenderRegistry = ParameterAppenderRegistry.getInstance(); 
 
 	DataType(DataTypeGenerationDetails type, String qualifier, DataType... parameters) {
 		this.qualifier = qualifier;
@@ -28,9 +28,6 @@ public class DataType {
 		this(type, typeName, parameters == null ? new DataType[0] : parameters.toArray(new DataType[parameters.size()]));
 	}
 	
-	public String getShortName() {
-		return getShortName(ProgrammingLanguage.JAVA);
-	}
 	public String getShortName(ProgrammingLanguage language) {
 		StringBuilder builder = new StringBuilder();
 		getShortName(builder, language);
@@ -46,9 +43,6 @@ public class DataType {
 		getWrappedParameterAppender().append(builder, this, Arrays.asList(this.parameters), language);
 	}
 	
-	public String getUnparameterizedShortName() {
-		return getUnparameterizedShortName(ProgrammingLanguage.JAVA);
-	}
 	public String getUnparameterizedShortName(ProgrammingLanguage language) {
 		if (this.type.isCoded()) {
 			return ClassUtils.getShortClassName(this.qualifier);
@@ -92,8 +86,9 @@ public class DataType {
 	 * @return <b>true</b> if the java type used to represent this data type is a collection.
 	 */
 	public boolean isTypeCollection() {
-		return "Set".equals(getUnparameterizedShortName()) ||
-			"List".equals(getUnparameterizedShortName());
+		return "Set".equals(getUnparameterizedShortName(ProgrammingLanguage.JAVA)) ||
+			"List".equals(getUnparameterizedShortName(ProgrammingLanguage.JAVA)) ||
+			"Collection".equals(getUnparameterizedShortName(ProgrammingLanguage.JAVA));
 	}
 	
 	public Set<String> getImportTypes() {
@@ -106,17 +101,12 @@ public class DataType {
 		return result;
 	}
 	private void addWrappedTypeIfNecessary(Set<String> result) {
-		if (getWrappedName() != null) {
-			result.add(getWrappedName());
-			result.add(getWrappedTypeImplName());
+		if (getHl7ClassName() != null) {
+			result.add(getHl7ClassName());
+			result.add(getUnparameterizedImplementationType());
 		}
 	}
 
-	private String getWrappedTypeImplName() {
-		return getWrappedName().replace(
-				"."+getUnparameterizedShortWrappedName(), 
-				".impl."+getUnparameterizedShortWrappedName() + "Impl");
-	}
 	public String getTypeName(ProgrammingLanguage language) {
 		if (this.type.isCoded()) {
 			return this.qualifier;
@@ -150,11 +140,16 @@ public class DataType {
 
 	public String getUnparameterizedShortWrappedNameImpl() {
 		StringBuilder builder = new StringBuilder();
-		getUnparameterizedShortWrappedNameImpl(builder);
+		getUnparameterizedShortImplementationType(builder);
 		return builder.toString();
 	}
-	
-	public String getWrappedName() {
+
+	/**
+	 * <p>Returns the name of the Java class that defines the interface for the 
+	 * HL7 type.  Examples might include "ca.infoway.messagebuilder.datatype.ST".
+	 * @return - the Java class name of the HL7 interface type
+	 */
+	public String getHl7ClassName() {
 		return this.type.getHl7TypeName();
 	}
 	
@@ -168,17 +163,44 @@ public class DataType {
 	}
 	
 	private void getShortWrappedNameImpl(StringBuilder builder, ProgrammingLanguage language) {
-		getUnparameterizedShortWrappedNameImpl(builder);
+		getUnparameterizedShortImplementationType(builder);
 		getWrappedParameterAppender().appendWrapped(builder, this, Arrays.asList(this.parameters), language);
 	}
-	private void getUnparameterizedShortWrappedNameImpl(StringBuilder builder) {
-		builder.append(getUnparameterizedShortWrappedName());
-		builder.append("Impl");
+	protected String getUnparameterizedImplementationType() {
+		String packageName = ClassUtils.getPackageName(this.type.getHl7TypeName());
+		String implementationPackageName = packageName + ".impl";
+		
+		return implementationPackageName + "." + getUnparameterizedShortImplementationType(null);
+	}
+	/**
+	 * <p>Returns the type used for a field definition initialier.  Examples might
+	 * include "STImpl", "LISTImpl" or ANYImpl".
+	 * 
+	 * @param builder
+	 * @return 
+	 */
+	private String getUnparameterizedShortImplementationType(StringBuilder builder) {
+		StringBuilder stringBuilder = new StringBuilder();
+		if (isBareCollection()) {
+			stringBuilder.append(ClassUtils.getShortClassName(DataTypeGenerationDetails.LIST.getHl7TypeName()));
+		} else {
+			stringBuilder.append(getUnparameterizedShortWrappedName());
+		}
+		stringBuilder.append("Impl");
+		
+		String result = stringBuilder.toString();
+		if (builder != null) {
+			builder.append(result);
+		}
+		return result;
+	}
+	private boolean isBareCollection() {
+		return this.type == DataTypeGenerationDetails.COLLECTION;
 	}
 	
 	@Override
 	public String toString() {
-		return getShortWrappedName() + "/" + getShortName();
+		return getShortWrappedName() + "/" + getShortName(ProgrammingLanguage.JAVA);
 	}
 	DataTypeGenerationDetails getType() {
 		return this.type;
@@ -188,5 +210,34 @@ public class DataType {
 	}
 	public DataType[] getParameters() {
 		return this.parameters;
+	}
+	/**
+	 * <p>Provide a parameterized version of the implementation type.  The result includes
+	 * all generic parameters, but none of the classes are qualified with package names.
+	 * 
+	 * <p>Examples:
+	 * 
+	 * <p>The implementation type of a ST field is STImpl;
+	 * 
+	 * <p>The implementation type of a LIST&lt;II&gt; field is LISTImpl&lt;II, Identifier&gt;
+	 * 
+	 * @param language
+	 * @return
+	 */
+	public String getParameterizedImplementationType(ProgrammingLanguage language) {
+		StringBuilder builder = new StringBuilder();
+		getUnparameterizedShortImplementationType(builder);
+		ParameterAppender appender = getImplementationParameterAppender();
+		appender.appendWrapped(builder, this, Arrays.asList(this.parameters), language);
+		
+		// TODO: BCH/TM: consider whether or not constructor arguments should be added here.
+		return builder.toString();
+	}
+	private ParameterAppender getImplementationParameterAppender() {
+		if (isBareCollection()) {
+			return parameterAppenderRegistry.getAppender(StandardDataType.LIST);
+		} else {
+			return parameterAppenderRegistry.getAppender(StandardDataType.getByTypeName(getUnparameterizedShortWrappedName()));
+		}
 	}
 }

@@ -2,6 +2,7 @@ package ca.infoway.messagebuilder.generator;
 
 import java.math.BigDecimal;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
@@ -211,7 +212,7 @@ enum DataTypeGenerationDetails implements Typed {
 	SXPR("SXPR", SXPR.class.getName(), ParentheticSetExpr.class.getName(), null),
 	SXCM("SXCM", SXCM.class.getName(), SetComponent.class.getName(), null),
 	
-	COLLECTION("COLLECTION", COLLECTION.class.getName(), List.class.getName(), "System.Collections.Generic.IList"), 
+	COLLECTION("COLLECTION", COLLECTION.class.getName(), Collection.class.getName(), "System.Collections.Generic.ICollection"), 
 
 	SET("SET", SET.class.getName(), Set.class.getName(), "System.Collections.Generic.ICollection"), 
 	SET_II("SET<II>", SET.class.getName(), Set.class.getName(), "System.Collections.Generic.ICollection"),
@@ -385,6 +386,16 @@ enum DataTypeGenerationDetails implements Typed {
 	}
 
 	/**
+	 * <p>Determines if a given HL7 datatype name is a COLLECTION. 
+	 * 
+	 * @param dataTypeName the HL7 name of the datatype to check
+	 * @return whether the supplied HL7 datatype is a COLLECTION type
+	 */
+	public static boolean isCollection(String dataTypeName) {
+		return dataTypeName!=null && dataTypeName.startsWith(COLLECTION.getRootType());
+	}
+
+	/**
 	 * <p>Determines the enum datatype for the given type (Typed) object. 
 	 * 
 	 * @param typed the object to get the type name from
@@ -407,6 +418,8 @@ enum DataTypeGenerationDetails implements Typed {
 			result = DataTypeGenerationDetails.LIST;
 		} else if (isSet(name)) {
 			result = DataTypeGenerationDetails.SET;
+		} else if (isCollection(name)) {
+			result = DataTypeGenerationDetails.COLLECTION;
 		} else {
 			for (DataTypeGenerationDetails type : values()) {
 				if (StringUtils.equals(name, type.getType())) {

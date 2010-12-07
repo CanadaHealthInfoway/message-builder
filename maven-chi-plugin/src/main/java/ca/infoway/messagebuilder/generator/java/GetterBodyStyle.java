@@ -37,6 +37,11 @@ public enum GetterBodyStyle implements MethodBody {
 			return language.isJava() ? "return this.{0}.rawSet();" : "return this.{0}.RawSet();";
 		}
 	},
+	ATTRIBUTE_COLLECTION() {
+		public String getBodyFormat(ProgrammingLanguage language) {
+			return language.isJava() ? "return ({6}) this.{0}.rawCollection();" : "return ({6}) this.{0}.RawCollection();";
+		}
+	},
 	CODED_ATTRIBUTE_SET() {
 		public String getBodyFormat(ProgrammingLanguage language) {
 			return language.isJava() ? "return this.{0}.rawSet({4}.class);" : "return this.{0}.RawSet<{4}>();";
@@ -50,15 +55,6 @@ public enum GetterBodyStyle implements MethodBody {
 	CODED_ATTRIBUTE_LIST() {
 		public String getBodyFormat(ProgrammingLanguage language) {
 			return language.isJava() ? "return this.{0}.rawList({4}.class);" : "return this.{0}.RawList<{4}>();";
-		}
-	},
-	COLLECTION_ELEMENT() {
-		public String getBodyFormat(ProgrammingLanguage language) {
-			return "return get{0}().isEmpty() ? null : get{0}().iterator().next();";
-		}
-		@Override
-		public boolean useTypeDecorator() {
-			return false;
 		}
 	},
 	ASSOCIATION_COLLAPSED_TO_ATTRIBUTE() {

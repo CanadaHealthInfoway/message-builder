@@ -45,7 +45,8 @@ abstract class FieldTemplateProcessor {
 					this.fieldDefinition.getFieldElementImplementationType(),
 					this.fieldDefinition.getPropertyElementImplementationType(),
 					this.fieldDefinition.getCollectionOfCodedPropertyElementType(),
-					this.fieldDefinition.getFieldElementType());
+					this.fieldDefinition.getFieldElementType(),
+					this.fieldDefinition.getPropertyType());
 		}
 	}
 

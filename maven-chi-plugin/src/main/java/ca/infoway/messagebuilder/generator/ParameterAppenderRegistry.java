@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.lang.ClassUtils;
 
 import ca.infoway.messagebuilder.Code;
 import ca.infoway.messagebuilder.datatype.StandardDataType;
@@ -16,17 +17,17 @@ import ca.infoway.messagebuilder.generator.lang.ProgrammingLanguage;
 import com.google.common.base.Function;
 import com.google.common.base.Functions;
 
-class WrappedParameterAppenderRegistry {
+class ParameterAppenderRegistry {
 	
-	public static WrappedParameterAppenderRegistry instance;
+	public static ParameterAppenderRegistry instance;
 	
 	private final Map<StandardDataType, ParameterAppender> appenders;
 
-	WrappedParameterAppenderRegistry(Map<StandardDataType, ParameterAppender> appenders) {
+	ParameterAppenderRegistry(Map<StandardDataType, ParameterAppender> appenders) {
 		this.appenders = appenders;
 	}
 
-	public static WrappedParameterAppenderRegistry getInstance() {
+	public static ParameterAppenderRegistry getInstance() {
 		if (instance == null) {
 			initialize();
 		}
@@ -38,6 +39,7 @@ class WrappedParameterAppenderRegistry {
 			Map<StandardDataType, ParameterAppender> map = new HashMap<StandardDataType, ParameterAppender>();
 			map.put(StandardDataType.LIST, new ParameterAppenderForListOrSet());
 			map.put(StandardDataType.SET, new ParameterAppenderForListOrSet());
+			map.put(StandardDataType.COLLECTION, new ParameterAppenderForCollection());
 			map.put(StandardDataType.RTO, new ParameterAppenderForRto());
 			map.put(StandardDataType.CD, new ParameterAppenderForCode());
 			map.put(StandardDataType.CV, new ParameterAppenderForCode());
@@ -49,7 +51,7 @@ class WrappedParameterAppenderRegistry {
 			map.put(StandardDataType.PIVL, new ParameterAppenderForPivl());
 			map.put(StandardDataType.ED, new ParameterAppenderForEd());
 			map.put(StandardDataType.URG, new ParameterAppenderForUrg());
-			instance = new WrappedParameterAppenderRegistry(map);
+			instance = new ParameterAppenderRegistry(map);
 		}
 	}
 	
@@ -100,7 +102,7 @@ class WrappedParameterAppenderRegistry {
 		@Override
 		public void appendWrapped(StringBuilder builder, DataType dataType, List<DataType> parameters, ProgrammingLanguage language) {
 			builder.append("<");
-			builder.append(dataType.getShortName());
+			builder.append(dataType.getShortName(language));
 			builder.append(">");
 		}
 	}
@@ -109,7 +111,7 @@ class WrappedParameterAppenderRegistry {
 		@Override
 		public void appendWrapped(StringBuilder builder, DataType dataType, List<DataType> parameters, ProgrammingLanguage language) {
 			builder.append("<");
-			builder.append(dataType.getShortName());
+			builder.append(dataType.getShortName(language));
 			builder.append(">");
 		}
 	}
@@ -138,7 +140,31 @@ class WrappedParameterAppenderRegistry {
 			}
 		}
 	}
-	
+
+	static class ParameterAppenderForCollection extends DefaultWrappedParameterAppender {
+		@Override
+		public void appendWrapped(StringBuilder builder, DataType dataType, List<DataType> parameters, ProgrammingLanguage language) {
+			if (!CollectionUtils.isEmpty(parameters)) {
+				builder.append("<");
+				if (parameters.get(0).isCodedType()) {
+					builder.append(parameters.get(0).getShortName(language));
+					builder.append(", ");
+					builder.append(Code.class.getSimpleName());
+				} else {
+					boolean first = true;
+					for (DataType parameter : parameters) {
+						if (!first) {
+							builder.append(", ");
+						}
+						builder.append(ClassUtils.getShortClassName(parameter.getType().getHl7TypeName()));
+						first = false;
+					}
+				}
+				builder.append(">");
+			}
+		}
+	}
+
 	static class ParameterAppenderForUrg extends DefaultWrappedParameterAppender {
 		@Override
 		public void appendWrapped(StringBuilder builder, DataType dataType, List<DataType> parameters, ProgrammingLanguage language) {
@@ -168,7 +194,7 @@ class WrappedParameterAppenderRegistry {
 					if (!first) {
 						builder.append(", ");
 					}
-					builder.append(parameter.getShortName());
+					builder.append(parameter.getShortName(language));
 					first = false;
 				}
 				builder.append(">");

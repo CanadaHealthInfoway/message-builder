@@ -13,7 +13,7 @@ import java.util.List;
  * @param <V> the underlying Java datatype held by the underlying Java List
  * @sharpen.ignore - datatype - translated manually 
  */
-public interface LIST<T extends ANY<V>, V> extends COLLECTION<List<T>, V>  {
+public interface LIST<T extends ANY<V>, V> extends COLLECTION<T>  {
 	
 	/**
 	 * <p>Returns the underlying Java List containing values in the underlying Java datatype.
