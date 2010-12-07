@@ -48,7 +48,7 @@ public class MessagePartWrapper {
 		try {
 			Field field = getBeanField(fieldName);
 			if (isHl7Collection(field)) {
-				setHl7CollectionField((COLLECTION<?,?>) getField(fieldName), value);
+				setHl7CollectionField((COLLECTION<?>) getField(fieldName), value);
 			} else if (isStandardCollection(field)) {
 				setMessagePartCollection((List<?>) getField(fieldName), value);
 			} else if (value.size() == 1) {
