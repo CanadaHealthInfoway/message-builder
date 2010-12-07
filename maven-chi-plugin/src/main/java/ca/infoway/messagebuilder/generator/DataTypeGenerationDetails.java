@@ -2,7 +2,6 @@ package ca.infoway.messagebuilder.generator;
 
 import java.math.BigDecimal;
 import java.util.Arrays;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
@@ -212,7 +211,7 @@ enum DataTypeGenerationDetails implements Typed {
 	SXPR("SXPR", SXPR.class.getName(), ParentheticSetExpr.class.getName(), null),
 	SXCM("SXCM", SXCM.class.getName(), SetComponent.class.getName(), null),
 	
-	COLLECTION("COLLECTION", COLLECTION.class.getName(), Collection.class.getName(), "System.Collections.Generic.ICollection"), 
+	COLLECTION("COLLECTION", COLLECTION.class.getName(), List.class.getName(), "System.Collections.Generic.IList"), 
 
 	SET("SET", SET.class.getName(), Set.class.getName(), "System.Collections.Generic.ICollection"), 
 	SET_II("SET<II>", SET.class.getName(), Set.class.getName(), "System.Collections.Generic.ICollection"),

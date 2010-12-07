@@ -108,7 +108,7 @@ public class LISTImpl<T extends ANY<V>, V> extends ANYImpl<List<T>> implements L
 	 * 
 	 * @return the underlying Java Collection containing values in the underlying Java datatype
 	 */
-	public Collection<?> rawCollection() {
+	public Collection<V> rawCollection() {
 		return rawList();
 	}
 
@@ -117,7 +117,7 @@ public class LISTImpl<T extends ANY<V>, V> extends ANYImpl<List<T>> implements L
 	 * 
 	 * @return the HL7 datatype class.
 	 */
-	public Class<?> getElementType() {
+	public Class<T> getElementType() {
 		return this.hl7Class;
 	}
 
