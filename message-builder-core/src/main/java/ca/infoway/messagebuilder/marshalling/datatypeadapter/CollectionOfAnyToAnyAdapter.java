@@ -23,7 +23,7 @@ public class CollectionOfAnyToAnyAdapter implements DataTypeAdapter {
 	}
 	
 	public BareANY adapt(BareANY any) {
-		Collection collection = ((COLLECTION<Collection>) any).getValue();
+		Collection collection = ((COLLECTION<Collection,?>) any).getValue();
 		
 		BareANY element = null;
 		if (collection!=null && !collection.isEmpty()) {

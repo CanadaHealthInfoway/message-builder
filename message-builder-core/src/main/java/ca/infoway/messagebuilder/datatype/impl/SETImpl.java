@@ -111,7 +111,7 @@ public class SETImpl<T extends ANY<V>, V> extends ANYImpl<Set<T>> implements SET
 	 * 
 	 * @return the underlying Java Collection containing values in the underlying Java datatype
 	 */
-	public Collection<?> rawCollection() {
+	public Collection<V> rawCollection() {
 		return rawSet();
 	}
 
