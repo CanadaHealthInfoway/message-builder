@@ -5,6 +5,7 @@ package ca.infoway.messagebuilder.generator.java;
 
 import ca.infoway.messagebuilder.generator.DataType;
 import ca.infoway.messagebuilder.generator.TypeConverter;
+import ca.infoway.messagebuilder.xml.Annotation;
 import ca.infoway.messagebuilder.xml.ConformanceLevel;
 import ca.infoway.messagebuilder.xml.Documentation;
 import ca.infoway.messagebuilder.xml.Relationship;
@@ -31,7 +32,7 @@ public class AttributeBuilder {
 		Relationship relationship = new Relationship();
 		relationship.setName(this.name);
 		if (this.documentation!=null) {
-			relationship.setDocumentation(new Documentation(this.documentation));
+			relationship.setDocumentation(new Documentation(new Annotation(this.documentation)));
 		}
 		if (this.fixedValue!=null) {
 			relationship.setFixedValue(this.fixedValue);

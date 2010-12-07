@@ -1,6 +1,5 @@
 package ca.infoway.messagebuilder.generator;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.commons.lang.StringUtils;
@@ -9,8 +8,8 @@ import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 
 import ca.infoway.messagebuilder.lang.EnumPattern;
-import ca.infoway.messagebuilder.util.xml.NodeUtil;
 import ca.infoway.messagebuilder.util.xml.XmlDescriber;
+import ca.infoway.messagebuilder.xml.Annotation;
 import ca.infoway.messagebuilder.xml.CodingStrength;
 
 public class Mif2XPathHelper extends BaseMifXPathHelper {
@@ -62,16 +61,9 @@ public class Mif2XPathHelper extends BaseMifXPathHelper {
 	String getBusinessName(Element element) {
 		return getAttribute(element, "./mif2:businessName/@name");
 	}
-	public List<String> getDocumentation(Element classElement) {
-		List<Element> elements = toElementList(getNodes(classElement, "./mif2:annotations//mif2:text/html:p"));
-		List<String> result = new ArrayList<String>();
-		for (Element paragraph : elements) {
-			String text = StringUtils.trim(NodeUtil.getTextValue(paragraph, true));
-			if (StringUtils.isNotBlank(text)) {
-				result.add(text);
-			}
-		}
-		return result;
+	
+	List<Annotation> getDocumentation(Element classElement) {
+		return getDocumentation(classElement, "./mif2:annotations//mif2:", "//mif2:text/html:p");
 	}
 	
 	public static String getAttributeType(Element attribute) {
@@ -98,8 +90,7 @@ public class Mif2XPathHelper extends BaseMifXPathHelper {
 		String domain = getAttribute(element, "./mif2:vocabulary/mif2:code/@codeSystemName");
 		if (StringUtils.isBlank(domain)) {
 			domain = getAttribute(element, "./mif2:vocabulary/mif2:conceptDomain/@name");
-		}
-		if (StringUtils.isBlank(domain)) {
+		} else if (StringUtils.isBlank(domain)) {
 			domain = getAttribute(element, "./mif2:vocabulary/mif2:valueSet/@name");
 		}
 		return domain;

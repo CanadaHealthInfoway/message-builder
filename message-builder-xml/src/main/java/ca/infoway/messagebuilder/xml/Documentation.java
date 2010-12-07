@@ -24,8 +24,8 @@ public class Documentation {
 	@Element(required=false)
 	private String businessName;
 	
-	@ElementList(required=false,inline=true,entry="p")
-	private List<String> paragraphs = new ArrayList<String>();
+	@ElementList(required=false,inline=true,entry="annotation")
+	private List<Annotation> annotations = new ArrayList<Annotation>();
 
 	/**
 	 * <p>Standard constructor.
@@ -34,38 +34,21 @@ public class Documentation {
 	}
 	/**
 	 * <p>Standard constructor.
-	 * @param paragraphs - paragraphs of documentation.
+	 * @param annotations - annotations of documentation.
 	 */
-	public Documentation(List<String> paragraphs) {
-		if (paragraphs != null) {
-			this.paragraphs.addAll(paragraphs);
-		}
-	}
-	/**
-	 * <p>Standard constructor.
-	 * @param paragraphs - paragraphs of documentation.
-	 */
-	public Documentation(String... paragraphs) {
-		if (!ArrayUtils.isEmpty(paragraphs)) {
-			this.paragraphs.addAll(Arrays.asList(paragraphs));
-		}
+	public Documentation(List<Annotation> annotations) {
+		this.annotations = annotations;
 	}
 	
 	/**
-	 * <p>Get the paragraphs of documentation.
-	 * @return - the paragraphs of documentation.
-	 */
-	public List<String> getParagraphs() {
-		return this.paragraphs;
-	}
-
-	/**
-	 * <p>Set the paragraphs.
-	 * @param paragraphs - the new paragraphs of documentation.
-	 */
-	public void setParagraphs(List<String> paragraphs) {
-		this.paragraphs = paragraphs;
-	}
+	 * <p>Standard constructor.
+	 * @param paragraphs - annotations of documentation.
+	 */	
+	public Documentation(Annotation... annotations) {
+		if (!ArrayUtils.isEmpty(annotations)) {
+			this.annotations.addAll(Arrays.asList(annotations));
+		}
+	}	
 	
 	/**
 	 * <p>Get the title.
@@ -113,7 +96,7 @@ public class Documentation {
 			return new EqualsBuilder()
 					.append(this.businessName, that.businessName)
 					.append(this.title, that.title)
-					.append(this.getParagraphs(), that.getParagraphs())
+					.append(this.getAnnotations(), that.getAnnotations())
 					.isEquals();
 		}
 	}
@@ -127,8 +110,21 @@ public class Documentation {
 		return new HashCodeBuilder()
 		.append(this.businessName)
 		.append(this.title)
-		.append(this.getParagraphs())
+		.append(this.getAnnotations())
 		.toHashCode();
 	}
-	
+	/**
+	 * <p>Get all annotations of documentation.
+	 * @return - the annotations of documentation.
+	 */
+	public List<Annotation> getAnnotations() {
+		return annotations;
+	}
+	/**
+	 * <p>Set the annotations for one annotation type.
+	 * @param annotations - the new annotations of documentation.
+	 */
+	public void setAnnotations(List<Annotation> annotations) {
+		this.annotations = annotations;
+	}
 }

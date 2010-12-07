@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang.StringUtils;
 
+import ca.infoway.messagebuilder.xml.Annotation;
 import ca.infoway.messagebuilder.xml.Documentation;
 
 class DocumentationMerger implements Merger<Documentation> {
@@ -25,26 +26,26 @@ class DocumentationMerger implements Merger<Documentation> {
 			this.result = new Documentation();
 			mergeTitle(primary.getTitle(), secondary.getTitle());
 			mergeBusinessName(primary.getBusinessName(), secondary.getBusinessName());
-			mergeParagrahs(primary.getParagraphs(), secondary.getParagraphs());
+			mergeParagrahs(primary.getAnnotations(), secondary.getAnnotations());
 		}
 		
 		return this.result;
 	}
 
-	private void mergeParagrahs(List<String> paragraphs, List<String> paragraphs2) {
+	private void mergeParagrahs(List<Annotation> list, List<Annotation> list2) {
 		// take only 1? combine the two sets of paragraphs?
-		if (hasContent(paragraphs)) {
-			this.result.getParagraphs().addAll(paragraphs);
-		} else if (hasContent(paragraphs2)) {
-			this.result.getParagraphs().addAll(paragraphs2);
+		if (hasContent(list)) {
+			this.result.getAnnotations().addAll(list);
+		} else if (hasContent(list2)) {
+			this.result.getAnnotations().addAll(list2);
 		}
 	}
 
-	private boolean hasContent(List<String> paragraphs) {
+	private boolean hasContent(List<Annotation> paragraphs) {
 		boolean result = false;
 		if (!CollectionUtils.isEmpty(paragraphs)) {
-			for (String string : paragraphs) {
-				if (StringUtils.isNotBlank(string)) {
+			for (Annotation annotation : paragraphs) {
+				if (StringUtils.isNotBlank(annotation.getText())) {
 					result = true;
 					break;
 				}
