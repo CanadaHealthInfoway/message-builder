@@ -2,6 +2,8 @@ package ca.infoway.messagebuilder.generator.java;
 
 import static org.junit.Assert.assertEquals;
 
+import java.util.HashMap;
+
 import org.jmock.Expectations;
 import org.jmock.Mockery;
 import org.jmock.integration.junit4.JMock;
@@ -19,6 +21,8 @@ import ca.infoway.messagebuilder.xml.TypeName;
 @RunWith(JMock.class)
 public class AttributeFieldDefinitionImplTest {
 	
+	private TypeConverter converter = new TypeConverter();
+
 	private Mockery jmock = new Mockery();
 	private ClassNameManager manager;
 	private BaseRelationshipNameResolver resolver;
@@ -78,6 +82,7 @@ public class AttributeFieldDefinitionImplTest {
 		assertEquals("type", "SET<ST, String>", field.getFieldType());
 		assertEquals("implementation type", "SETImpl<ST, String>", field.getFieldImplementationType());
 		assertEquals("constructor args", "typeof(STImpl)", field.getInitializationArguments());
+		assertEquals("property implementation type", "ICollection<String>", field.getPropertyElementImplementationType());
 		assertEquals("getter body", GetterBodyStyle.ATTRIBUTE_SET, field.getGetterBodyStyle());
 	}
 	
@@ -92,6 +97,8 @@ public class AttributeFieldDefinitionImplTest {
 		assertEquals("type", "SET<ST, String>", field.getFieldType());
 		assertEquals("implementation type", "SETImpl<ST, String>", field.getFieldImplementationType());
 		assertEquals("constructor args", "STImpl.class", field.getInitializationArguments());
+		assertEquals("property type", "Set<String>", field.getPropertyType());
+		assertEquals("property implementation type", "Set<String>", field.getPropertyElementImplementationType());
 		assertEquals("getter body", GetterBodyStyle.ATTRIBUTE_SET, field.getGetterBodyStyle());
 	}
 	
@@ -138,5 +145,30 @@ public class AttributeFieldDefinitionImplTest {
 		assertEquals("implementation type", "CVImpl", field.getFieldImplementationType());
 		assertEquals("constructor args", "", field.getInitializationArguments());
 		assertEquals("getter body", GetterBodyStyle.CODED_ATTRIBUTE, field.getGetterBodyStyle());
+	}
+	
+	@Test
+	public void shouldDefineCollectionAttributeForJavaWhenCase3Simplified() throws Exception {
+		
+		Relationship relationship1 = new Relationship("profileId", "SET<II.OID>", Cardinality.create("0-20"));
+		Attribute attribute1 = new Attribute(relationship1, this.converter.convertToType(relationship1));
+		
+		Relationship relationship2 = new Relationship("profileId", "LIST<II.BUS>", Cardinality.create("0-20"));
+		Attribute attribute2 = new Attribute(relationship2, this.converter.convertToType(relationship2));
+		
+		HashMap<TypeName,BaseRelationship> map = new HashMap<TypeName,BaseRelationship>();
+		map.put(new TypeName("MCCI_MT000100CA.Message"), attribute1);
+		map.put(new TypeName("MCCI_MT002100CA.Message"), attribute2);
+		Case3SimplifiedAttribute attribute = new Case3SimplifiedAttribute(attribute1, map);
+		
+		AttributeFieldDefinitionImpl field = new AttributeFieldDefinitionImpl(attribute, ProgrammingLanguage.JAVA);
+		field.initializeContext(this.manager, this.resolver);
+		
+		assertEquals("type", "COLLECTION<II>", field.getFieldType());
+		assertEquals("implementation type", "LISTImpl<II, Identifier>", field.getFieldImplementationType());
+		assertEquals("property type", "Collection<Identifier>", field.getPropertyType());
+		assertEquals("property element impl type", "Collection<Identifier>", field.getPropertyElementImplementationType());
+		assertEquals("initialization arguments", "IIImpl.class", field.getInitializationArguments());
+		assertEquals("getter body", GetterBodyStyle.ATTRIBUTE_COLLECTION, field.getGetterBodyStyle());
 	}
 }

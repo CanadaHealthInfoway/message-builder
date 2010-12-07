@@ -21,7 +21,7 @@ public class Attribute extends BaseRelationship {
 	
 	public Attribute(Relationship relationship, DataType dataType, boolean indicator) {
 		super(relationship, 
-				dataType == null ? null : dataType.getWrappedName(), 
+				dataType == null ? null : dataType.getHl7ClassName(), 
 				dataType == null ? null : dataType.getTypeName());
 		this.dataType = dataType;
 		this.indicator = indicator;

@@ -39,6 +39,7 @@ public class XsdTypeConverterTest {
 	public void shouldResolveSimpleTypeToSomething(StandardDataType standardDataType) throws Exception {
 		Assume.assumeTrue(!"LIST".equals(standardDataType.getType()));
 		Assume.assumeTrue(!"SET".equals(standardDataType.getType()));
+		Assume.assumeTrue(!"COLLECTION".equals(standardDataType.getType()));
 		Assume.assumeTrue(standardDataType.isPartOfCanadianSpec());
 
 		XsdDataType type = new XsdTypeConverter().convertToType(createRelationship(standardDataType.getType()));

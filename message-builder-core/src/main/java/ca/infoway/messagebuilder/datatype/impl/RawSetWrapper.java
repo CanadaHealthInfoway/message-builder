@@ -22,8 +22,8 @@ class RawSetWrapper<T extends BareANY, V> implements Set<V> {
 	private final Set<T> original;
 	private final Class<? extends T> originalElementType;
 	
-	RawSetWrapper(Set<T> original, Class<? extends T> originalElementType) {
-		this.original = original;
+	RawSetWrapper(Collection<T> original, Class<? extends T> originalElementType) {
+		this.original = (Set<T>) original;
 		this.originalElementType = originalElementType;
 	}
 	

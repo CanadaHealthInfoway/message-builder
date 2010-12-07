@@ -13,14 +13,14 @@ import java.util.Collection;
  * 
  * @sharpen.ignore - datatype - translated manually 
  */
-public interface COLLECTION<T extends Collection<?>, V> extends ANY<T> {
+public interface COLLECTION<T> extends ANY<Collection<T>> {
 
 	/**
 	 * <p>Returns the underlying collection.
 	 * 
 	 * @return the underlying collection
 	 */
-	Collection<V> rawCollection();
+	Collection<?> rawCollection();
 	
 	/**
 	 * <p>Returns the element type.

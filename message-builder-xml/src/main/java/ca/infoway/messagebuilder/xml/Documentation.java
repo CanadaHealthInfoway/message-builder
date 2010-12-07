@@ -16,7 +16,7 @@ import org.simpleframework.xml.Root;
  * 
  * @author <a href="http://www.intelliware.ca/">Intelliware Development</a>
  */
-@Root
+@Root(strict=false)
 public class Documentation {
 	
 	@Element(required=false)
