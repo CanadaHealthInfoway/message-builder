@@ -98,7 +98,7 @@ public class MergeReportGenerator {
 
 	private void adjustColumnWidths(HSSFSheet... sheet) {
 		for (int i = 0; i < sheet.length; i++) {
-			for (int j = 0; j < 9; j++) {
+			for (int j = 0; j < 10; j++) {
 				sheet[i].autoSizeColumn(j);
 			}
 		}
@@ -127,6 +127,7 @@ public class MergeReportGenerator {
 	private void createStandardHeaders(HSSFSheet sheet, int cell, HSSFRow firstHeaderRow) {
 		firstHeaderRow.createCell(cell++).setCellValue(new HSSFRichTextString("Difference"));
 		firstHeaderRow.createCell(cell++).setCellValue(new HSSFRichTextString("isOk"));
+		firstHeaderRow.createCell(cell++).setCellValue(new HSSFRichTextString("matchConf"));
 		firstHeaderRow.createCell(cell++).setCellValue(new HSSFRichTextString("Version1"));
 		firstHeaderRow.createCell(cell++).setCellValue(new HSSFRichTextString("Value1"));
 		firstHeaderRow.createCell(cell++).setCellValue(new HSSFRichTextString("Version2"));
@@ -177,6 +178,7 @@ public class MergeReportGenerator {
 		// row.createCell(cell++).setCellValue(new HSSFRichTextString(named.getName()));
 		row.createCell(cell++).setCellValue(new HSSFRichTextString(difference.getType().toString()));
 		row.createCell(cell++).setCellValue(new HSSFRichTextString(difference.isOk() ? "Y" : "N"));
+		row.createCell(cell++).setCellValue(new HSSFRichTextString(difference.getMatchConfidence() == null ? "" : difference.getMatchConfidence().toString()));
 		for (DifferenceValue value : difference.getDifferences()) {
 			row.createCell(cell++).setCellValue(new HSSFRichTextString(value.getVersion()));
 			row.createCell(cell++).setCellValue(new HSSFRichTextString(value.getValue()));

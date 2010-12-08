@@ -20,6 +20,8 @@ public class Difference {
 
 	@Attribute
 	private DifferenceType type;
+	@Attribute(required=false)
+	private DifferenceMatch matchConfidence;
 	@Attribute(name="isOk",required=false)
 	private boolean ok;
 	@ElementList(inline=true, required=false)
@@ -46,6 +48,13 @@ public class Difference {
 		this.type = type;
 	}
 	
+	public DifferenceMatch getMatchConfidence() {
+		return this.matchConfidence;
+	}
+	public void setMatchConfidence(DifferenceMatch matchConfidence) {
+		this.matchConfidence = matchConfidence;
+	}
+	
 	public List<DifferenceValue> getDifferences() {
 		return this.differences;
 	}
@@ -59,5 +68,5 @@ public class Difference {
 	public void setOk(boolean ok) {
 		this.ok = ok;
 	}
-	
+
 }

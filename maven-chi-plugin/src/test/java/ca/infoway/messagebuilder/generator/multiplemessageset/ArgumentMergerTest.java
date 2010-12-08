@@ -100,7 +100,7 @@ public class ArgumentMergerTest {
 		Assert.assertEquals("templateParameterName", result.get(0).getTemplateParameterName());
 		Assert.assertEquals("traversalName", result.get(0).getTraversalName());
 		Assert.assertEquals(1, result.get(0).getDifferences().size());
-		Assert.assertEquals(DifferenceType.ARGUMENT_NAME, result.get(0).getDifferences().get(0).getType());
+		Assert.assertEquals(DifferenceType.ASSOCIATION_TYPE, result.get(0).getDifferences().get(0).getType());
 	}
 	
 	@Test
