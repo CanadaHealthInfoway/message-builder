@@ -219,7 +219,7 @@ public class ExciserTest {
 	}
 	
 	@Test
-	public void shouldMarkDependencyInInterfaceType() throws Exception {
+	public void shouldMarkDependencyInInterfaceTypeButNotBetweenInterfaceAndImplementingTypes() throws Exception {
 		
 		MessageSet messageSet = new MessageSet();
 		messageSet.getPackageLocations().put("ABCD_MT123456CA", new PackageLocation("ABCD_MT123456CA"));
@@ -233,7 +233,7 @@ public class ExciserTest {
 		
 		assertEquals("package", 0, map.getLayeredGraph().getLayer("ABCD_MT123456CA"));
 		assertEquals("appendage layer", 1, map.getLayeredGraph().getLayer("ABCD_MT123456CA.Appendage"));
-		assertEquals("arm layer", 2, map.getLayeredGraph().getLayer("ABCD_MT123456CA.Arm"));
+		assertEquals("arm layer", 1, map.getLayeredGraph().getLayer("ABCD_MT123456CA.Arm"));
 	}
 	
 	@Test
