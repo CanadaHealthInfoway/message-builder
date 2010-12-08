@@ -261,7 +261,9 @@ public class Exciser {
 			manager.add(name, new TypeName(name).getParent().getName());
 			
 			for (String child : messagePart.getSpecializationChilds()) {
-				manager.add(child, name);
+				// Do NOT add dependency from implementors to interface
+				// otherwise removing an interface type could remove a huge number of components
+				//manager.add(child, name);  
 				choiceManager.add(name, child);
 			}
 			
