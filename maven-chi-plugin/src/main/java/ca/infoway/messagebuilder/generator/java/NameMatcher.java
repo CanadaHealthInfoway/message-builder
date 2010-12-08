@@ -4,9 +4,22 @@ import org.apache.commons.lang.StringUtils;
 
 import ca.infoway.messagebuilder.xml.TypeName;
 
-class NameMatcher {
+/**
+ * A utility class used for gauging the degree that two type names match. 
+ * 
+ * @author <a href="http://www.intelliware.ca/">Intelliware Development</a>
+ *
+ */
+public class NameMatcher {
 
-	MatchType matchNames(NamedType type, NamedType otherType) {
+	/**
+	 * Compares two type names to see how close a match they are.
+	 * 
+	 * @param type first type to match
+	 * @param otherType second type to match
+	 * @return the degree of matching
+	 */
+	public MatchType matchNames(NamedType type, NamedType otherType) {
 		if (StringUtils.isNotBlank(type.getBusinessName()) && StringUtils.isNotBlank(otherType.getBusinessName())) {
 			return matchBusinessNames(type, otherType);
 		} else if (StringUtils.isNotBlank(type.getBusinessName()) || StringUtils.isNotBlank(otherType.getBusinessName())) {

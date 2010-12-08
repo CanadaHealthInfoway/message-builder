@@ -72,7 +72,7 @@ class ArgumentMerger implements Merger<List<Argument>> {
 	private void mergeName(Argument result, String name, String name2) {
 		result.setName(name);
 		if (!StringUtils.equals(name, name2)) {
-			this.mergeHelper.addDifference(this.context, result, DifferenceType.ARGUMENT_NAME, name, name2);
+			this.mergeHelper.addDifference(this.context, result, DifferenceType.ASSOCIATION_TYPE, name, name2);
 		}
 	}
 	

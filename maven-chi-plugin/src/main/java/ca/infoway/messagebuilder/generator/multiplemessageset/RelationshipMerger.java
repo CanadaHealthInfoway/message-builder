@@ -58,7 +58,7 @@ class RelationshipMerger implements Merger<Relationship> {
 			mergeName(primary.getName(), secondary.getName());
 			mergeSortOrder(primary.getSortOrder(), secondary.getSortOrder());
 			mergeTemplateParameterName(primary.getTemplateParameterName(), secondary.getTemplateParameterName());
-			mergeType(primary.getType(), secondary.getType());
+			mergeType(primary.getType(), secondary.getType(), primary.isAttribute() || secondary.isAttribute());
 		}
 		
 		return result;
@@ -197,7 +197,7 @@ class RelationshipMerger implements Merger<Relationship> {
 		this.result.setTemplateParameterName(mergedTemplateParameterName);
 	}
 
-	private void mergeType(String type, String type2) {
+	private void mergeType(String type, String type2, boolean isAttribute) {
 		String mergedType = this.mergeHelper.standardMerge(type, type2);
 		if (!StringUtils.equals(type, type2)) {
 			String compatibleType = getCompatibleType(type, type2);
@@ -205,7 +205,8 @@ class RelationshipMerger implements Merger<Relationship> {
 				this.context.logInfo("Determined these different types were compatible: " + type + "/" + type2 + " [" + compatibleType + "]");
 				mergedType = compatibleType;
 			} else {
-				this.mergeHelper.addDifference(this.context, this.result, DifferenceType.RELATIONSHIP_TYPE, type, type2);
+				DifferenceType differenceType = (isAttribute ? DifferenceType.ATTRIBUTE_TYPE : DifferenceType.ASSOCIATION_TYPE);
+				this.mergeHelper.addDifference(this.context, this.result, differenceType, type, type2);
 			}
 		}
 		this.result.setType(mergedType);

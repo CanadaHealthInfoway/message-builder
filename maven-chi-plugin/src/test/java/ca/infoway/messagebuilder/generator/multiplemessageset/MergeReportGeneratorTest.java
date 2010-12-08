@@ -59,8 +59,8 @@ public class MergeReportGeneratorTest {
 		assertNotNull("workbook", workbook);
 		assertTrue("has work sheet", workbook.getNumberOfSheets() > 0);
 		
-		assertCellValueEquals("cell A1", "ARGUMENT_NAME", workbook.getSheetAt(1), 2, 3);
-		assertCellValueEquals("cell A2", "ARGUMENT_NAME", workbook.getSheetAt(1), 3, 3);
+		assertCellValueEquals("cell A1", "ASSOCIATION_TYPE", workbook.getSheetAt(1), 2, 3);
+		assertCellValueEquals("cell A2", "ASSOCIATION_TYPE", workbook.getSheetAt(1), 3, 3);
 	}
 	
 	private void createInteractionWithSuperTypeDifference(String interactionId) {
@@ -73,7 +73,7 @@ public class MergeReportGeneratorTest {
 
 	private void createInteractionWithArgumentDifference(String interactionId) {
 		Difference difference = new Difference();
-		difference.setType(DifferenceType.ARGUMENT_NAME);
+		difference.setType(DifferenceType.ASSOCIATION_TYPE);
 		
 		Argument argument = new Argument();
 		argument.addDifference(difference);
