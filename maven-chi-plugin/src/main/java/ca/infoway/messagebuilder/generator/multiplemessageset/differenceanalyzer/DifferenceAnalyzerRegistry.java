@@ -7,6 +7,7 @@ import static ca.infoway.messagebuilder.xml.DifferenceType.ATTRIBUTE_TYPE;
 import static ca.infoway.messagebuilder.xml.DifferenceType.CHOICE_RELATIONSHIP_TYPE;
 import static ca.infoway.messagebuilder.xml.DifferenceType.COMPONENT_ONLY_IN_ONE_VERSION;
 import static ca.infoway.messagebuilder.xml.DifferenceType.DUPLICATE_ASSOCIATION_TYPE;
+import static ca.infoway.messagebuilder.xml.DifferenceType.DUPLICATE_RELATIONSHIP_NAME;
 import static ca.infoway.messagebuilder.xml.DifferenceType.INTERACTION_SUPER_TYPE_NAME;
 import static ca.infoway.messagebuilder.xml.DifferenceType.MESSAGE_PART_ABSTRACT;
 import static ca.infoway.messagebuilder.xml.DifferenceType.PACKAGE_LOCATION_ROOT_TYPE;
@@ -48,6 +49,7 @@ public class DifferenceAnalyzerRegistry {
     	register(ASSOCIATION_TYPE, new AssociationTypeDifferenceAnalyzer());
     	register(ATTRIBUTE_TYPE, new TrivialDifferenceAnalyzer(false));
     	register(DUPLICATE_ASSOCIATION_TYPE, new TrivialDifferenceAnalyzer(false));
+    	register(DUPLICATE_RELATIONSHIP_NAME, new TrivialDifferenceAnalyzer(false));
     }
     
 	private void register(DifferenceType differenceKey, DifferenceAnalyzer differenceAnalyzer) {
