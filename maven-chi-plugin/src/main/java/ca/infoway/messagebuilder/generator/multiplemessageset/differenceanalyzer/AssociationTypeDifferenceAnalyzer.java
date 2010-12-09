@@ -4,31 +4,13 @@ import java.util.List;
 
 import ca.infoway.messagebuilder.generator.java.MatchType;
 import ca.infoway.messagebuilder.generator.java.NameMatcher;
-import ca.infoway.messagebuilder.generator.java.NamedType;
+import ca.infoway.messagebuilder.generator.multiplemessageset.NamedTypeImpl;
 import ca.infoway.messagebuilder.xml.Difference;
 import ca.infoway.messagebuilder.xml.DifferenceMatch;
 import ca.infoway.messagebuilder.xml.DifferenceValue;
-import ca.infoway.messagebuilder.xml.TypeName;
 
 public class AssociationTypeDifferenceAnalyzer implements DifferenceAnalyzer {
 
-	private class NamedTypeImpl implements NamedType {
-
-		private TypeName typeName;
-
-		private NamedTypeImpl(String type) {
-			this.typeName = new TypeName(type);
-		}
-		
-		public String getBusinessName() {
-			return null;
-		}
-
-		public TypeName getTypeName() {
-			return this.typeName;
-		}
-	}
-	
 	private static final NameMatcher NAME_MATCHER = new NameMatcher(); 
 	
 	public AssociationTypeDifferenceAnalyzer() {
