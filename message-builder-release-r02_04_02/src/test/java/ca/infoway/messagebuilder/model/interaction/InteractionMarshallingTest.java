@@ -45,7 +45,6 @@ public class InteractionMarshallingTest {
 				new DocumentFactory().createFromResource(
 						new ClasspathResource("PRPA_EX101104CA.xml")));
 		String xml = this.transformer.transformToHl7(SpecificationVersion.R02_04_02, (InteractionBean) result.getMessageObject());
-System.out.println(xml);		
 		assertTrue("interaction id", xml.contains(" root=\"2.16.840.1.113883.1.18\""));
 	}
 	
