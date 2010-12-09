@@ -16,7 +16,21 @@ public class AssociationTypeDifferenceAnalyzer implements DifferenceAnalyzer {
 	public AssociationTypeDifferenceAnalyzer() {
 	}
 
+//	public List<String> exceptions = Arrays.asList("ControlActEvent", "ActEvent", "ActRequest");
+	
 	public void analyze(Difference difference) {
+//		boolean result = false;
+//		List<DifferenceValue> differenceValues = difference.getDifferences();
+//		if (differenceValues.size() == 2) {
+//			if (differenceValues.size() == 2) {
+//				String type1 = StringUtils.substringAfter(differenceValues.get(0).getValue(), ".");
+//				String type2 = StringUtils.substringAfter(differenceValues.get(1).getValue(), ".");
+//				if (exceptions.contains(type1) && exceptions.contains(type2)) {
+//					result = true;
+//				}
+//			}
+//		}
+//		difference.setOk(result);
 		boolean result = false;
 		List<DifferenceValue> differenceValues = difference.getDifferences();
 		if (differenceValues.size() == 2) {

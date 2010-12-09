@@ -138,7 +138,7 @@ public abstract class BaseRelationship implements PropertyGeneratorProvider, Nam
 	}
 	
 	boolean requiresMapByPartTypeAnnotation() {
-		return getAllXmlMappings().length > 1;
+		return getAllXmlMappings().length > 1 && !isTemplateType();
 	}
 
 	final Set<NameAndType> getMapByPartTypeMappings() {
