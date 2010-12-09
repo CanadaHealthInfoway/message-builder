@@ -11,6 +11,7 @@ import org.apache.commons.lang.StringUtils;
 
 import ca.infoway.messagebuilder.generator.java.MatchType;
 import ca.infoway.messagebuilder.generator.java.NameMatcher;
+import ca.infoway.messagebuilder.xml.DifferenceType;
 import ca.infoway.messagebuilder.xml.Relationship;
 
 class RelationshipsMerger implements Merger<List<Relationship>> {
@@ -36,8 +37,6 @@ class RelationshipsMerger implements Merger<List<Relationship>> {
 			relationships2Map.put(relationship.getName(), relationship);
 		}
 		
-		checkForDuplicateTypes(relationships1);
-		
 		for (Relationship relationship1 : relationships1) {
 			Relationship relationship2 = pullOutMatchingRelationship(relationship1,	relationships2Map);
 			Relationship mergedRelationship = createRelationshipMerger().merge(relationship1, relationship2);
@@ -48,16 +47,17 @@ class RelationshipsMerger implements Merger<List<Relationship>> {
 			Relationship mergedRelationship = createRelationshipMerger().merge(null, relationship);
 			this.result.add(mergedRelationship);
 		}
+
+		checkForDuplicateTypes(this.result);
 		
 		return this.result;
 	}
 
-	private void checkForDuplicateTypes(List<Relationship> relationships1) {
+	private void checkForDuplicateTypes(List<Relationship> relationships) {
 		Set<String> types = new HashSet<String>();
-		for (Relationship relationship : relationships1) {
-			if (relationship.isAssociation() && StringUtils.isNotBlank(relationship.getType()) && !types.add(relationship.getType())) {
-				this.context.logError("Found more than one type match in primary messageset for relationship " + relationship.getName() + " on part " + this.context.getCurrentMessagePart());
-				break;
+		for (Relationship relationship : relationships) {
+			if (relationship.isAssociation() && !relationship.isTemplateRelationship() && !types.add(relationship.getType())) {
+				this.mergeHelper.addDifference(this.context, relationship, DifferenceType.DUPLICATE_ASSOCIATION_TYPE, relationship.getType(), relationship.getType());
 			}
 		}
 	}
