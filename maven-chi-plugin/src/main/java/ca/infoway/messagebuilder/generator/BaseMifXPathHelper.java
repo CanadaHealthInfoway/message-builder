@@ -15,9 +15,9 @@ import org.w3c.dom.NodeList;
 
 import ca.infoway.messagebuilder.generator.util.XPathHelper;
 import ca.infoway.messagebuilder.lang.EnumPattern;
+import ca.infoway.messagebuilder.util.xml.DOMWriter;
 import ca.infoway.messagebuilder.xml.Annotation;
 import ca.infoway.messagebuilder.xml.AnnotationType;
-import ca.intelliware.commons.xml.DOMWriter;
 
 abstract class BaseMifXPathHelper {
 
