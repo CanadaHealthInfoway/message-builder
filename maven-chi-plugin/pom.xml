@@ -65,6 +65,11 @@
 		    <version>1.2-SNAPSHOT</version>
 		</dependency>
 		<dependency>
+			<groupId>ca.intelliware.commons</groupId>
+			<artifactId>xml</artifactId>
+			<version>1.9</version>
+		</dependency> 		
+		<dependency>
 		    <groupId>com.google.collections</groupId>
 		    <artifactId>google-collections</artifactId>
 		</dependency>

@@ -2,6 +2,7 @@ package ca.infoway.messagebuilder.generator;
 
 import static ca.infoway.messagebuilder.generator.Namespaces.isMif1;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,9 +15,9 @@ import org.w3c.dom.NodeList;
 
 import ca.infoway.messagebuilder.generator.util.XPathHelper;
 import ca.infoway.messagebuilder.lang.EnumPattern;
-import ca.infoway.messagebuilder.util.xml.NodeUtil;
 import ca.infoway.messagebuilder.xml.Annotation;
 import ca.infoway.messagebuilder.xml.AnnotationType;
+import ca.intelliware.commons.xml.DOMWriter;
 
 abstract class BaseMifXPathHelper {
 
@@ -72,25 +73,25 @@ abstract class BaseMifXPathHelper {
 	}
 	
 	List<Annotation> getDocumentation(Element classElement, String preMifAnnotationPath, String postMifAnnotationPath) {
-		//this.outputUI.log(DEBUG, "DMIF - now processing file " + reference.asFile().getName());
 		List<Annotation> result = new ArrayList<Annotation>();
 		for (AnnotationType annotationType : (List<AnnotationType>) EnumPattern.values(AnnotationType.class)) {
 			String[] elementNames = annotationType.getMifElementNames();
 			for (String elementName : elementNames) {
 				List<Element> elements = toElementList(getNodes(classElement, preMifAnnotationPath+elementName+postMifAnnotationPath));
 				List<Annotation> annotations = new ArrayList<Annotation>();
-				for (Element paragraph : elements) {
-					String text = StringUtils.trim(NodeUtil.getTextValue(paragraph, true));
-					if (StringUtils.isNotBlank(text)) {
-						Annotation annotation = new Annotation(text);
-						annotation.setElementNameFromMif(elementName);
-						if (!StringUtils.isBlank(paragraph.getAttribute("id"))) {
-							annotation.setId(paragraph.getAttribute("id"));
+				if (!elements.isEmpty()) {
+					Annotation annotation = new Annotation();
+					annotation.setAnnotationType(annotationType);
+					for (Element paragraph : elements) {
+						String text = null;
+						try {
+							text = StringUtils.trim(DOMWriter.renderAsString(paragraph));
+							if (StringUtils.isNotBlank(text)) {
+								annotation.setText((annotation.getText()!=null)?annotation.getText()+text:text);
+							}
+						} catch (IOException e) {
+							throw new MifProcessingException(e);
 						}
-						if (!StringUtils.isBlank(paragraph.getAttribute("sourceName"))) {						
-							annotation.setSourceName(paragraph.getAttribute("sourceName"));
-						}
-						annotation.setAnnotationType(annotationType);
 						annotations.add(annotation);
 					}
 				}
