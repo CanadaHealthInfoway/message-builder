@@ -9,6 +9,8 @@ import java.util.Set;
 
 import org.apache.commons.lang.StringUtils;
 
+import ca.infoway.messagebuilder.generator.java.MatchType;
+import ca.infoway.messagebuilder.generator.java.NameMatcher;
 import ca.infoway.messagebuilder.xml.Relationship;
 
 class RelationshipsMerger implements Merger<List<Relationship>> {
@@ -17,6 +19,8 @@ class RelationshipsMerger implements Merger<List<Relationship>> {
 	private final MessageSetMergeHelper mergeHelper;
 	private final boolean forChoice;
 	private List<Relationship> result;
+	
+	private static final NameMatcher NAME_MATCHER = new NameMatcher(); 
 
 	RelationshipsMerger(MergeContext context, boolean forChoice) {
 		this.context = context;
@@ -61,20 +65,35 @@ class RelationshipsMerger implements Merger<List<Relationship>> {
 	private Relationship pullOutMatchingRelationship(Relationship relationship1, Map<String, Relationship> relationships2Map) {
 		Relationship matchResult = null;
 		
-		// look for a type match first - only for associations, and only if there is a unique match
-		String type1 = relationship1.getType();
-		if (relationship1.isAssociation() && StringUtils.isNotBlank(type1)) {
-			for (Relationship relationship2 : relationships2Map.values()) {
-				String type2 = relationship2.getType();
-				if (StringUtils.equals(type1, type2)) {
-					if (matchResult != null) {
-						// found more than one type match. Hmmmm....
-						// (but what if relationship1's message part has a duplicated type in its associations???)
-						this.context.logError("Found more than one type match in secondary messageset for relationship " + relationship1.getName() + " on part " + this.context.getCurrentMessagePart());
-						matchResult = null;
-						break;
-					}
+		// first look for a match based on relationship name, but only where type is a true match or small change (package or numeric suffix)
+		if (relationships2Map.containsKey(relationship1.getName())) {
+			String type1 = relationship1.getType();
+			if (relationship1.isAssociation() && StringUtils.isNotBlank(type1)) {
+				Relationship relationship2 = relationships2Map.get(relationship1.getName());
+				String potentialTypeMatch = relationship2.getType();
+				MatchType matchType = NAME_MATCHER.matchNames(new NamedTypeImpl(relationship1.getType()), new NamedTypeImpl(potentialTypeMatch));
+				if (matchType == MatchType.EXACT || matchType == MatchType.MINOR_DIFFERENCE) {
 					matchResult = relationship2;
+				}
+			}
+		}
+		
+		// look for a type match next - only for associations, and only if there is a unique match
+		if (matchResult == null) {
+			String type1 = relationship1.getType();
+			if (relationship1.isAssociation() && StringUtils.isNotBlank(type1)) {
+				for (Relationship relationship2 : relationships2Map.values()) {
+					String type2 = relationship2.getType();
+					if (StringUtils.equals(type1, type2)) {
+						if (matchResult != null) {
+							// found more than one type match. Hmmmm....
+							// (but what if relationship1's message part has a duplicated type in its associations???)
+							this.context.logError("Found more than one type match in secondary messageset for relationship " + relationship1.getName() + " on part " + this.context.getCurrentMessagePart());
+							matchResult = null;
+							break;
+						}
+						matchResult = relationship2;
+					}
 				}
 			}
 		}
