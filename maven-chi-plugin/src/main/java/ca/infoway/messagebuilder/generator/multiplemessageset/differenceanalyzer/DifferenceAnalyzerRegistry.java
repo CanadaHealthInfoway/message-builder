@@ -6,6 +6,7 @@ import static ca.infoway.messagebuilder.xml.DifferenceType.ASSOCIATION_TYPE;
 import static ca.infoway.messagebuilder.xml.DifferenceType.ATTRIBUTE_TYPE;
 import static ca.infoway.messagebuilder.xml.DifferenceType.CHOICE_RELATIONSHIP_TYPE;
 import static ca.infoway.messagebuilder.xml.DifferenceType.COMPONENT_ONLY_IN_ONE_VERSION;
+import static ca.infoway.messagebuilder.xml.DifferenceType.DUPLICATE_ASSOCIATION_TYPE;
 import static ca.infoway.messagebuilder.xml.DifferenceType.INTERACTION_SUPER_TYPE_NAME;
 import static ca.infoway.messagebuilder.xml.DifferenceType.MESSAGE_PART_ABSTRACT;
 import static ca.infoway.messagebuilder.xml.DifferenceType.PACKAGE_LOCATION_ROOT_TYPE;
@@ -41,11 +42,12 @@ public class DifferenceAnalyzerRegistry {
     	register(RELATIONSHIP_ONE_OR_BOTH_DOMAIN_TYPES_NOT_IN_SYSTEM, new RelationshipDomainTypeNotInSystemDifferenceAnalyzer());
     	register(RELATIONSHIP_ONLY_ONE_HAS_DOMAIN_TYPE, new RelationshipMissingDomainTypeDifferenceAnalyzer());
     	register(RELATIONSHIP_TEMPLATE_PARAMETER_NAME, new RelationshipTemplateParameterNameDifferenceAnalyzer());
-    	register(ASSOCIATION_TYPE, new AssociationTypeDifferenceAnalyzer());
     	register(CHOICE_RELATIONSHIP_TYPE, new AssociationTypeDifferenceAnalyzer());
     	register(COMPONENT_ONLY_IN_ONE_VERSION, new ComponentMissingDifferenceAnalyzer());
     	register(RELATIONSHIP_RENAMED, new TrivialDifferenceAnalyzer(true));
+    	register(ASSOCIATION_TYPE, new AssociationTypeDifferenceAnalyzer());
     	register(ATTRIBUTE_TYPE, new TrivialDifferenceAnalyzer(false));
+    	register(DUPLICATE_ASSOCIATION_TYPE, new TrivialDifferenceAnalyzer(false));
     }
     
 	private void register(DifferenceType differenceKey, DifferenceAnalyzer differenceAnalyzer) {
