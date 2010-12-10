@@ -13,7 +13,6 @@ import org.apache.commons.lang.StringUtils;
 import ca.infoway.messagebuilder.Named;
 import ca.infoway.messagebuilder.generator.dependency.DependencyTracker;
 import ca.infoway.messagebuilder.xml.Argument;
-import ca.infoway.messagebuilder.xml.Difference;
 import ca.infoway.messagebuilder.xml.HasDifferences;
 import ca.infoway.messagebuilder.xml.Interaction;
 import ca.infoway.messagebuilder.xml.MessagePart;
@@ -28,10 +27,12 @@ public class Exciser {
 
 	private final MessageSet messageSet;
 	private Set<ExcisedItem> removals = Collections.synchronizedSet(new HashSet<ExcisedItem>());
-	private Map<String, PackageLocation> removedPackageLocations = Collections.synchronizedMap(new HashMap<String, PackageLocation>()); 
+	private Map<String, PackageLocation> removedPackageLocations = Collections.synchronizedMap(new HashMap<String, PackageLocation>());
+	private final ExcisionEvaluator evaluator; 
 
-	public Exciser(MessageSet messageSet) {
+	public Exciser(MessageSet messageSet, ExcisionEvaluator evaluator) {
 		this.messageSet = messageSet;
+		this.evaluator = evaluator;
 	}
 
 	public Set<ExcisedItem> execute() {
@@ -48,7 +49,7 @@ public class Exciser {
 
 	private void removeProblemPackageLocations(DependencyTracker dependencies) {
 		for (PackageLocation location : new ArrayList<PackageLocation>(this.messageSet.getPackageLocations().values())) {
-			if (!isAllDifferencesOkay(location)) {
+			if (this.evaluator.shouldRemove(location)) {
 				removeComponent(dependencies, location);
 			}
 		}
@@ -60,36 +61,12 @@ public class Exciser {
 
 	private void removeProblemMessageParts(DependencyTracker dependencies) {
 		for (MessagePart messagePart : this.messageSet.getAllMessageParts()) {
-			boolean ok = isAllDifferencesOkay(messagePart);
+			boolean remove = this.evaluator.shouldRemove(messagePart);
 			
-			if (ok) {
-				for (Relationship relationship : messagePart.getRelationships()) {
-					ok &= isAllDifferencesOkay(relationship);
-					if (ok) {
-						ok &= checkChoicesForOkayness(relationship.getChoices());
-					} else {
-						break;
-					}
-				}
-			}
-			
-			if (!ok) {
+			if (remove) {
 				removeComponent(dependencies, messagePart);
 			}
 		}
-	}
-
-	private boolean checkChoicesForOkayness(List<Relationship> choices) {
-		boolean ok = true;
-		for (Relationship relationship : choices) {
-			ok &= isAllDifferencesOkay(relationship);
-			if (ok) {
-				ok &= checkChoicesForOkayness(relationship.getChoices());
-			} else {
-				break;
-			}
-		}
-		return ok;
 	}
 
 	private void removeDependenciesOfComponent(DependencyTracker dependencies, String name, String exciseSourceName) {
@@ -104,40 +81,10 @@ public class Exciser {
 
 	private void removeProblemInteractions(DependencyTracker dependencies) {
 		for (Interaction interaction : new ArrayList<Interaction>(this.messageSet.getInteractions().values())) {
-			boolean ok = isAllDifferencesOkay(interaction);
-			if (ok) {
-				ok = checkArgumentsforOkayness(interaction.getArguments());
-			}
-			if (!ok) {
+			if (this.evaluator.shouldRemove(interaction)) {
 				removeComponent(dependencies, interaction);
 			}
 		}
-	}
-
-	private boolean checkArgumentsforOkayness(List<Argument> arguments) {
-		boolean ok = true;
-		for (Argument argument : arguments) {
-			ok &= isAllDifferencesOkay(argument);
-			if (ok) {
-				ok &= checkArgumentsforOkayness(argument.getArguments());
-			} else {
-				break;
-			}
-			
-		}
-		return ok;
-	}
-
-	private boolean isAllDifferencesOkay(HasDifferences differences) {
-		boolean ok = true;
-		
-		for (Difference difference : differences.getDifferences()) {
-			if (!difference.isOk()) {
-				ok = false;
-				break;
-			}
-		}
-		return ok;
 	}
 
 	private void removeComponent(DependencyTracker dependencies, String name, String exciseSourceName) {

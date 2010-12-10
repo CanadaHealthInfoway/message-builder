@@ -77,7 +77,7 @@ public class MultipleXmlToXmlGenerator implements MessageSetGenerator {
 	}
 
 	private Set<ExcisedItem> exciseUnmatchedItems(MessageSet messageSet) {
-		return new Exciser(messageSet).execute();
+		return new Exciser(messageSet, new PreMergeEvaluator()).execute();
 	}
 
 	private void createMergeReport(MessageSet messageSet, File reportFile) throws IOException {

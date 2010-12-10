@@ -10,12 +10,16 @@ import java.util.Set;
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.builder.CompareToBuilder;
 
+import ca.infoway.messagebuilder.Named;
 import ca.infoway.messagebuilder.generator.DataType;
 import ca.infoway.messagebuilder.generator.GeneratorException;
 import ca.infoway.messagebuilder.generator.LogLevel;
 import ca.infoway.messagebuilder.generator.OutputUI;
 import ca.infoway.messagebuilder.generator.TypeConverter;
 import ca.infoway.messagebuilder.generator.lang.ProgrammingLanguage;
+import ca.infoway.messagebuilder.generator.multiplemessageset.ExcisedItem;
+import ca.infoway.messagebuilder.generator.multiplemessageset.Exciser;
+import ca.infoway.messagebuilder.xml.HasDifferences;
 import ca.infoway.messagebuilder.xml.Interaction;
 import ca.infoway.messagebuilder.xml.MessagePart;
 import ca.infoway.messagebuilder.xml.MessageSet;
@@ -54,11 +58,40 @@ public abstract class IntermediateToModelGenerator {
 		
 		simplify(definitions);
 		
+		excise(messageSet, definitions);
+		
 		TypeAnalysisResult result = createResultFromDefinitions(definitions);
 		completeProcessing(result, messageSet, definitions);
 		return result;
 	}
 
+
+	/**
+	 * <p>After processing the simplifications, some of our differences may have been 
+	 * conditional on whether or not types merge.  If the types merge, then the difference
+	 * is okay.  If the types don't merge, then we want to remove the options, including 
+	 * any dependencies.
+	 * @param messageSet 
+	 * @param definitions
+	 */
+	protected void excise(MessageSet messageSet, SimplifiableDefinitions definitions) {
+		
+		Exciser exciser = new Exciser(messageSet, new PostSimplificationEvaluator(definitions));
+		Set<ExcisedItem> items = exciser.execute();
+		
+		for (ExcisedItem excisedItem : items) {
+			HasDifferences o = excisedItem.getItemWithDifferences();
+			if (o instanceof MessagePart) {
+				String name = ((Named) o).getName();
+				this.outputUI.log(LogLevel.INFO, "Removing message part " + name);
+				definitions.removeType(name);
+			} else if (o instanceof Interaction) {
+				String name = ((Named) o).getName();
+				this.outputUI.log(LogLevel.INFO, "Removing interaction " + name);
+				definitions.removeInteraction(name);
+			}
+		}
+	}
 
 	protected TypeAnalysisResult createResultFromDefinitions(SimplifiableDefinitions definitions) throws GeneratorException {
 		return new DefinitionToResultConverter(definitions, this.basePackageName, getProgrammingLanguage()).convert();
