@@ -5,7 +5,9 @@ import static ca.infoway.messagebuilder.generator.java.MatchType.MINOR_DIFFERENC
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.codehaus.plexus.util.StringUtils;
 
@@ -32,7 +34,7 @@ class Case3FuzzyMatcher extends Case3Matcher {
 
 	public boolean performMatching(SimplifiableType type) {
 		List<SimplifiableType> matches = new ArrayList<SimplifiableType>();
-		if (!type.getMessagePart().isAbstract() && !isTransitiveTemplateType(type)) {
+		if (!isTransitiveTemplateType(type)) {
 			for (SimplifiableType otherType : getAllSimplifiableTypes()) {
 				if (type.getName().equals(otherType.getName())) {
 					break;
@@ -46,6 +48,15 @@ class Case3FuzzyMatcher extends Case3Matcher {
 					// skip it
 				} else if (!isExactOrMinor(new NameMatcher().matchNames(type, otherType))) {
 					// skip it
+				} else if (type.isAbstract() && otherType.isAbstract()) {
+					if (isSameSetOfSpecializations(type, otherType)) {
+						if (matches.isEmpty()) {
+							matches.add(type);
+						}
+						matches.add(otherType);
+					}
+				} else if (type.isAbstract() || otherType.isAbstract()) {
+					// skip it
 				} else if (isOverlappingSetOfRelationships(type, otherType)) {
 					if (isMergeable(matches, otherType)) {
 						if (matches.isEmpty()) {
@@ -58,13 +69,51 @@ class Case3FuzzyMatcher extends Case3Matcher {
 			}
 		}
 		
-		if (!matches.isEmpty() && isAllMatchesCompatible(matches)) {
+		if (!matches.isEmpty() && type.isAbstract()) {
+			return recordAllMatches(matches);
+		} else if (!matches.isEmpty() && isAllMatchesCompatible(matches)) {
 			return recordAllMatches(matches);
 		} else {
 			return false;
 		}
 	}
 	
+	private boolean isSameSetOfSpecializations(SimplifiableType type,
+			SimplifiableType otherType) {
+		if (!type.getRelationships().isEmpty() || !otherType.getRelationships().isEmpty()) {
+			return false;
+		} else {
+			Set<String> childTypes = getTranslatedChildTypes(type);
+			Set<String> otherChildTypes = getTranslatedChildTypes(type);
+			
+			if (childTypes.size() == otherChildTypes.size() && childTypes.containsAll(otherChildTypes)) {
+				return true;
+			} else {
+				this.log.log(LogLevel.DEBUG, "Child types of " + type.getName() 
+						+ " " + childTypes + " and "
+						+ otherType.getName() + " " 
+						+ otherChildTypes + " do not match");
+				return false;
+			}
+		}
+	}
+
+	private Set<String> getTranslatedChildTypes(SimplifiableType type) {
+		Set<String> result = new HashSet<String>();
+		Set<TypeName> childTypes = type.getChildTypes();
+		
+		for (TypeName typeName : childTypes) {
+			MergedTypeDescriptor descriptor = this.mergeResult.getDescriptorByName(typeName);
+			if (descriptor == null) {
+				result.add(typeName.getName());
+			} else {
+				result.add(descriptor.getNewName().getName());
+			}
+		}
+		
+		return result;
+	}
+
 	private boolean isTransitiveTemplateType(SimplifiableType type) {
 		if (!type.isTemplateType()) {
 			return false;
