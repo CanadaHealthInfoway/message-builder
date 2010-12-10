@@ -17,6 +17,7 @@ import ca.infoway.messagebuilder.generator.LogLevel;
 import ca.infoway.messagebuilder.generator.OutputUI;
 import ca.infoway.messagebuilder.generator.TypeConverter;
 import ca.infoway.messagebuilder.generator.lang.ProgrammingLanguage;
+import ca.infoway.messagebuilder.generator.multiplemessageset.ExciseReportGenerator;
 import ca.infoway.messagebuilder.generator.multiplemessageset.ExcisedItem;
 import ca.infoway.messagebuilder.generator.multiplemessageset.Exciser;
 import ca.infoway.messagebuilder.xml.HasDifferences;
@@ -78,6 +79,12 @@ public abstract class IntermediateToModelGenerator {
 		
 		Exciser exciser = new Exciser(messageSet, new PostSimplificationEvaluator(definitions));
 		Set<ExcisedItem> items = exciser.execute();
+		try {
+			new ExciseReportGenerator(items, new File("/tmp/generatorExciseReport.xls"), false).create();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+			
 		
 		for (ExcisedItem excisedItem : items) {
 			HasDifferences o = excisedItem.getItemWithDifferences();
