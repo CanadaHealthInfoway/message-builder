@@ -313,6 +313,7 @@ class DefinitionToResultConverter {
 			Type type = new Type(new TypeName(simplifiableType.getName()), simplifiableType.isRootType());
 			this.types.put(simplifiableType.getName(), type);
 			type.setMergedName(simplifiableType.getMergedTypeName());
+			type.setBusinessName(simplifiableType.getBusinessName());
 			if (simplifiableType.isInlined() && simplifiableType.getInterfaceTypes().isEmpty()) {
 				// skip it
 			} else {
@@ -326,7 +327,6 @@ class DefinitionToResultConverter {
 				} else {
 					type.setCategory(simplifiableType.getCategory());
 					if (messagePart.getDocumentation() != null) {
-						type.setBusinessName(messagePart.getDocumentation().getBusinessName());
 						if(!isEmpty(messagePart.getDocumentation().getAnnotations())) {
 							type.setTypeDocumentation(new TypeDocumentation(messagePart.getDocumentation()));
 						}

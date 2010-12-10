@@ -133,4 +133,21 @@ public class SimpleNameCoordinatorTest {
 		assertEquals("Purple_1", translator.getName(type3.getTypeName()));
 	}	
 	
+	@Test
+	public void shouldProcessMergedTypesAndMakeUseOfBusinessNames() throws Exception {
+		HashMap<TypeName, Type> types = new HashMap<TypeName, Type>();
+		Type type1 = new Type(TemporaryTypeName.create("merged"));
+		Type mergedType1a = new Type(new TypeName("ABCD_MT123456CA.Purple"));
+		mergedType1a.setBusinessName("purple business name");
+		Type mergedType1b = new Type(new TypeName("ABCD_MT135799CA.Purple"));
+		mergedType1b.setBusinessName("purple business name");
+		type1.getMergedTypes().add(mergedType1a);
+		type1.getMergedTypes().add(mergedType1b);
+		types.put(type1.getTypeName(), type1);
+		types.put(mergedType1a.getTypeName(), mergedType1a);
+		types.put(mergedType1b.getTypeName(), mergedType1b);
+		
+		SimpleNameCoordinator translator = new SimpleNameCoordinator(new HelperImpl(types));
+		assertEquals("PurpleBusinessName", translator.getName(type1.getTypeName()));
+	}	
 }
