@@ -48,4 +48,10 @@ public class SimplifiableDefinitions implements SimplifiableTypeProvider {
 		return getType(name.getName());
 	}
 	
+	void removeType(String name) {
+		this.types.remove(name);
+	}
+	void removeInteraction(String name) {
+		this.interactions.remove(name);
+	}
 }

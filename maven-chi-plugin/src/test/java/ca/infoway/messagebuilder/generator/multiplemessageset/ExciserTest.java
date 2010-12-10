@@ -45,7 +45,7 @@ public class ExciserTest {
 		
 		assertFalse("finger choice exists", handRelationship.getChoices().isEmpty());
 
-		new Exciser(messageSet).execute();
+		new Exciser(messageSet, new PreMergeEvaluator()).execute();
 		
 		assertTrue("finger choice removed", handRelationship.getChoices().isEmpty());
 	}
@@ -83,7 +83,7 @@ public class ExciserTest {
 		
 		createDifference(messageSet.getInteractions().get("ABCD_IN123456CA"));
 		
-		new Exciser(messageSet).execute();
+		new Exciser(messageSet, new PreMergeEvaluator()).execute();
 		
 		assertNull("interaction", messageSet.getInteractions().get("ABCD_IN123456CA"));
 		assertNotNull("payload", messageSet.getMessagePart("ABCD_MT123456CA.ParameterList"));
@@ -95,7 +95,7 @@ public class ExciserTest {
 		
 		createDifference(messageSet.getInteractions().get("ABCD_IN123456CA").getArguments().get(0).getArguments().get(0));
 		
-		new Exciser(messageSet).execute();
+		new Exciser(messageSet, new PreMergeEvaluator()).execute();
 		
 		assertNull("interaction", messageSet.getInteractions().get("ABCD_IN123456CA"));
 		assertNotNull("payload", messageSet.getMessagePart("ABCD_MT123456CA.ParameterList"));
@@ -107,7 +107,7 @@ public class ExciserTest {
 		
 		createDifference(messageSet.getMessagePart("ABCD_MT123456CA.ParameterList"));
 		
-		new Exciser(messageSet).execute();
+		new Exciser(messageSet, new PreMergeEvaluator()).execute();
 		
 		assertNull("interaction", messageSet.getInteractions().get("ABCD_IN123456CA"));
 		assertNull("payload", messageSet.getMessagePart("ABCD_MT123456CA.ParameterList"));
@@ -122,7 +122,7 @@ public class ExciserTest {
 		assertFalse("choice", messageSet.getInteractions().get("ABCD_IN123456CA").getArguments().get(0).getArguments().get(0)
 				.getChoices().get(0).getChoices().isEmpty());
 
-		new Exciser(messageSet).execute();
+		new Exciser(messageSet, new PreMergeEvaluator()).execute();
 		
 		assertNull("choice type", messageSet.getInteractions().get("ABCD_MT123456CA.ChoiceType3"));
 		assertTrue("choice", messageSet.getInteractions().get("ABCD_IN123456CA").getArguments().get(0).getArguments().get(0)
@@ -135,7 +135,7 @@ public class ExciserTest {
 		
 		createDifference(messageSet.getPackageLocations().get("ABCD_MT123456CA"));
 		
-		new Exciser(messageSet).execute();
+		new Exciser(messageSet, new PreMergeEvaluator()).execute();
 		
 		assertNull("package location", messageSet.getPackageLocations().get("ABCD_MT123456CA"));
 		assertNull("payload", messageSet.getMessagePart("ABCD_MT123456CA.ParameterList"));
@@ -157,7 +157,7 @@ public class ExciserTest {
 		
 		createDifference(messageSet.getPackageLocations().get("ABCD_MT123456CA"));
 		
-		new Exciser(messageSet).execute();
+		new Exciser(messageSet, new PreMergeEvaluator()).execute();
 		
 		assertNull("package location", messageSet.getPackageLocations().get("ABCD_MT123456CA"));
 		assertNull("payload", messageSet.getMessagePart("ABCD_MT123456CA.ParameterList"));
@@ -196,7 +196,7 @@ public class ExciserTest {
 		interaction.setSuperTypeName("ABCD_MT123456CA.Message");
 		messageSet.getInteractions().put(interaction.getName(), interaction);
 		
-		new Exciser(messageSet).execute();
+		new Exciser(messageSet, new PreMergeEvaluator()).execute();
 		
 		assertNull("interaction", messageSet.getInteractions().get("ABCD_IN123456CA"));
 		// we have decided that leaving an empty package location (or one containing orphaned parts) is acceptable
