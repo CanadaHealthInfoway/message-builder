@@ -1,6 +1,7 @@
 package ca.infoway.messagebuilder.generator.multiplemessageset;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -27,8 +28,14 @@ public class ExciseReportGenerator {
 
 	private final File reportFile;
 	private final List<ExcisedItem> excisedItems;
+	private final boolean createFile;
 
 	public ExciseReportGenerator(Set<ExcisedItem> excisedItems, File reportFile) {
+		this(excisedItems, reportFile, true);
+	}
+	
+	public ExciseReportGenerator(Set<ExcisedItem> excisedItems, File reportFile, boolean createFile) {
+		this.createFile = createFile;
 		this.excisedItems = new ArrayList<ExcisedItem>(excisedItems);
 		Collections.sort(this.excisedItems);
 		this.reportFile = reportFile;
@@ -44,15 +51,13 @@ public class ExciseReportGenerator {
 		}
 	}
 
-	HSSFWorkbook createReportWorkbook() {
-		HSSFWorkbook workbook = new HSSFWorkbook();
+	HSSFWorkbook createReportWorkbook() throws IOException {
+		HSSFWorkbook workbook = obtainWorkbook();
 		
-		HSSFSheet interactionsSheet = workbook.createSheet("Excised Interactions");
-		HSSFSheet packageLocationSheet = workbook.createSheet("Excised Package Locations");
-		HSSFSheet messagePartSheet = workbook.createSheet("Excised Message Parts");
+		HSSFSheet interactionsSheet = obtainSheet(workbook, "Excised Interactions");
+		HSSFSheet packageLocationSheet = obtainSheet(workbook, "Excised Package Locations");
+		HSSFSheet messagePartSheet = obtainSheet(workbook, "Excised Message Parts");
 		
-		createHeaderRows(interactionsSheet, packageLocationSheet, messagePartSheet);
-
 		writeInteractions(interactionsSheet);
 		writePackageLocations(packageLocationSheet);
 		writeMessageParts(messagePartSheet);
@@ -60,6 +65,32 @@ public class ExciseReportGenerator {
 		adjustColumnWidths(interactionsSheet, packageLocationSheet, messagePartSheet);
 		
 		return workbook;
+	}
+
+	private HSSFSheet obtainSheet(HSSFWorkbook workbook, String name) {
+		HSSFSheet result = null;
+		if (this.createFile) {
+			result = workbook.createSheet(name);
+			createHeaderRow(result);
+		} else {
+			result = workbook.getSheet(name);
+		}
+		return result;
+	}
+	
+	private HSSFWorkbook obtainWorkbook() throws IOException {
+		HSSFWorkbook result = null;
+		if (!this.createFile && this.reportFile.exists()) {
+			FileInputStream input = new FileInputStream(this.reportFile);
+			try {
+				result = new HSSFWorkbook(input);
+			} finally {
+				IOUtils.closeQuietly(input);
+			}
+		} else {
+			result = new HSSFWorkbook();
+		}
+		return result;
 	}
 
 	private void writeMessageParts(HSSFSheet messagePartSheet) {
@@ -151,24 +182,22 @@ public class ExciseReportGenerator {
 		}
 	}
 
-	private void createHeaderRows(HSSFSheet... sheet) {
-		for (int i = 0; i < sheet.length; i++) {
-			int cell = 0;
-			HSSFRow firstHeaderRow = getNextRow(sheet[i]);
-			firstHeaderRow.createCell(cell++).setCellValue(new HSSFRichTextString("Component"));
-			firstHeaderRow.createCell(cell++).setCellValue(new HSSFRichTextString("Rejection Source"));
-			firstHeaderRow.createCell(cell++).setCellValue(new HSSFRichTextString("Difference"));
-			firstHeaderRow.createCell(cell++).setCellValue(new HSSFRichTextString("Value1"));
-			firstHeaderRow.createCell(cell++).setCellValue(new HSSFRichTextString("Value2"));
-			firstHeaderRow.createCell(cell++).setCellValue(new HSSFRichTextString("(etc.)"));
-			getNextRow(sheet[i]);
-		}
+	private void createHeaderRow(HSSFSheet sheet) {
+		int cell = 0;
+		HSSFRow firstHeaderRow = getNextRow(sheet);
+		firstHeaderRow.createCell(cell++).setCellValue(new HSSFRichTextString("Component"));
+		firstHeaderRow.createCell(cell++).setCellValue(new HSSFRichTextString("Rejection Source"));
+		firstHeaderRow.createCell(cell++).setCellValue(new HSSFRichTextString("Difference"));
+		firstHeaderRow.createCell(cell++).setCellValue(new HSSFRichTextString("Value1"));
+		firstHeaderRow.createCell(cell++).setCellValue(new HSSFRichTextString("Value2"));
+		firstHeaderRow.createCell(cell++).setCellValue(new HSSFRichTextString("(etc.)"));
+		getNextRow(sheet);
 	}
 
 	private HSSFRow getNextRow(HSSFSheet sheet) {
-		int rowNumber = sheet.getPhysicalNumberOfRows() == 0 ? 0 : sheet.getLastRowNum() + 1;
-		HSSFRow row = sheet.createRow(rowNumber);
-		return row;
+		int lastRowNum = sheet.getLastRowNum();
+		int rowNumber = (lastRowNum == 0 && sheet.getPhysicalNumberOfRows() == 0) ? 0 : lastRowNum + 1;
+		return sheet.createRow(rowNumber);
 	}
 
 }
