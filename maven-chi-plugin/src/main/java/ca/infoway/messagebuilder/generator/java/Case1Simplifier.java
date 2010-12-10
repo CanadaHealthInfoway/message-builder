@@ -21,6 +21,8 @@ public class Case1Simplifier extends InlineableSimplifier {
 			result = false;
 		} else if (getNonFixedRelationships(inlineableType).size() != 1) {
 			result = false;
+		} else if (isTemplateVariable(getNonFixedRelationships(inlineableType).get(0))) {
+			result = false;
 		} else if (inlineableType.getMessagePart().isAbstract()) {
 			result = false;
 		}
@@ -32,6 +34,10 @@ public class Case1Simplifier extends InlineableSimplifier {
 		return result;
 	}
 	
+	private boolean isTemplateVariable(SimplifiableRelationship simplifiableRelationship) {
+		return simplifiableRelationship.isTemplateParameterPresent();
+	}
+
 	private boolean checkConformanceCompatibility(SimplifiableType inlineableType,
 			Collection<SimplifiableType> types) {
 		boolean result = true;
