@@ -62,6 +62,8 @@ public class Case2Simplifier extends InlineableSimplifier {
 			result = false;
 		} else if (inlineableType.getMessagePart().isAbstract()) {
 			result = false;
+		} else if (isTemplateRelationshipPresent(inlineableType)) {
+			result = false;
 		} else if (!isUsedExactlyOnce(complexTypePackage, inlineableType)) {
 			// if used more than once do not inline - we don't want to denormalize unnecessarily; 
 			result = false;
@@ -74,6 +76,17 @@ public class Case2Simplifier extends InlineableSimplifier {
 		return result;
 	}
 	
+	private boolean isTemplateRelationshipPresent(SimplifiableType inlineableType) {
+		boolean result = false;
+		for (SimplifiableRelationship relationship : inlineableType.getRelationships()) {
+			if (relationship.isTemplateParameterPresent()) {
+				result = true;
+				break;
+			}
+		}
+		return result;
+	}
+
 	private Collection<SimplifiableType> getPotentialReferrers(SimplifiablePackage complexTypePackage, SimplifiableType inlineableType) {
 		return this.definitions.getAllTypes();
 	}

@@ -160,6 +160,26 @@ public class Case3FuzzyMatcherTest {
 	}
 	
 	@Test
+	public void shouldNotMatchTemplateRelationshipsWithUnmatchingTemplateRelationships() throws Exception {
+		
+		final SimplifiableType type1 = new SimplifiableType(new MessagePart("ABCD_MT123456CA.SomeType"), false);
+		type1.getRelationships().add(createSimplifiableAttribute("id", Cardinality.create("1"), "II"));
+		type1.getRelationships().add(createSimplifiableAssociation("subject", Cardinality.create("1"), new TemplateVariable("T"), ConformanceLevel.MANDATORY));
+		final SimplifiableType type2 = new SimplifiableType(new MessagePart("ABCD_MT987654CA.SomeType"), false);
+		final SimplifiableType subject = new SimplifiableType(new MessagePart("ABCD_MT987654CA.Subject"), false);
+		subject.getRelationships().add(createSimplifiableAssociation("act", Cardinality.create("1"), new TemplateVariable("T"), ConformanceLevel.MANDATORY));
+		type2.getRelationships().add(createSimplifiableAttribute("id", Cardinality.create("1"), "II"));
+		type2.getRelationships().add(createSimplifiableAssociation("subject", Cardinality.create("1"), subject));
+		
+		this.jmock.checking(new Expectations() {{
+			allowing(definitions).getAllTypes(); will(returnValue(Arrays.asList(type1, type2, subject)));
+		}});
+		
+		Case3MergeResult result = new Case3MergeResult();
+		assertFalse("matches", createMatcher(result).performMatching(type1));
+	}
+	
+	@Test
 	public void shouldNotMatchTransitiveTemplateRelationships() throws Exception {
 		final SimplifiableType templateType = new SimplifiableType(new MessagePart("ABCD_MT123456CA.Subject"), false);
 		templateType.getRelationships().add(createSimplifiableAssociation("act", Cardinality.create("1"), new TemplateVariable("T"), ConformanceLevel.MANDATORY));

@@ -20,7 +20,7 @@ import ca.infoway.messagebuilder.xml.MessagePart;
 import ca.infoway.messagebuilder.xml.Relationship;
 import ca.infoway.messagebuilder.xml.TypeName;
 
-class SimplifiableType implements Named, NamedType {
+public class SimplifiableType implements Named, NamedType {
 
 	private List<SimplifiableRelationship> relationships = Collections.synchronizedList(new ArrayList<SimplifiableRelationship>());
 	private boolean inlined;

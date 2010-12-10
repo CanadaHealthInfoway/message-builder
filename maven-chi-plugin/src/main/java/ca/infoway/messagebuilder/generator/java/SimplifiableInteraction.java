@@ -2,7 +2,7 @@ package ca.infoway.messagebuilder.generator.java;
 
 import ca.infoway.messagebuilder.xml.Interaction;
 
-class SimplifiableInteraction {
+public class SimplifiableInteraction {
 
 	private final Interaction interaction;
 
