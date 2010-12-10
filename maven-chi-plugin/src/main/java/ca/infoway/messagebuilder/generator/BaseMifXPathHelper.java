@@ -11,6 +11,7 @@ import javax.xml.xpath.XPathExpressionException;
 import org.apache.commons.lang.StringUtils;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
+import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 import ca.infoway.messagebuilder.generator.util.XPathHelper;
@@ -83,6 +84,7 @@ abstract class BaseMifXPathHelper {
 					Annotation annotation = new Annotation();
 					annotation.setAnnotationType(annotationType);
 					for (Element paragraph : elements) {
+						recurisvelyClearMifPrefix(paragraph);
 						String text = null;
 						try {
 							text = StringUtils.trim(DOMWriter.renderAsString(paragraph));
@@ -101,6 +103,17 @@ abstract class BaseMifXPathHelper {
 			}
 		}
 		return result;
+	}
+
+	private void recurisvelyClearMifPrefix(Element element) {
+		element.setPrefix(null);
+		NodeList children = element.getChildNodes();
+		for (int i = 0; i < children.getLength(); i++) {
+			Node child = children.item(i);
+			if (child instanceof Element) {
+				recurisvelyClearMifPrefix((Element)child);
+			}
+		}
 	}
 	
 	abstract String getOwnedEntryPoint(Document document);
