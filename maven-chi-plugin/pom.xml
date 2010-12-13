@@ -62,7 +62,7 @@
 		<dependency>
 		    <groupId>ca.intelliware.commons</groupId>
 		    <artifactId>dependency</artifactId>
-		    <version>1.2-SNAPSHOT</version>
+		    <version>1.2</version>
 		</dependency>
 		<dependency>
 		    <groupId>com.google.collections</groupId>
