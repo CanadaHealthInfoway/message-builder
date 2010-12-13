@@ -80,7 +80,7 @@ public abstract class IntermediateToModelGenerator {
 		Exciser exciser = new Exciser(messageSet, new PostSimplificationEvaluator(definitions));
 		Set<ExcisedItem> items = exciser.execute();
 		try {
-			new ExciseReportGenerator(items, new File("/tmp/generatorExciseReport.xls"), false).create();
+			new ExciseReportGenerator(items, new File("/tmp/generatorExciseReport_secondPass.xls")).create();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

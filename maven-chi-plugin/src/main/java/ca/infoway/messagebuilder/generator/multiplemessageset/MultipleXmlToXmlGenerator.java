@@ -62,7 +62,7 @@ public class MultipleXmlToXmlGenerator implements MessageSetGenerator {
 			
 			Set<ExcisedItem> excisedItems = exciseUnmatchedItems(mergedMessageSet);
 			
-			createExciseReport(excisedItems, new File("/tmp/generatorExciseReport.xls"));
+			createExciseReport(excisedItems, new File("/tmp/generatorExciseReport_firstPass.xls"));
 			
 			this.outputUI.log(LogLevel.INFO, MESSAGE_SET_MERGE_COMPLETED);
 		}
