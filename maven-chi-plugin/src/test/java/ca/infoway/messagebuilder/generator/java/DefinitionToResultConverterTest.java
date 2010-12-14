@@ -2,6 +2,7 @@ package ca.infoway.messagebuilder.generator.java;
 
 import static ca.infoway.messagebuilder.generator.lang.ProgrammingLanguage.JAVA;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
@@ -293,5 +294,47 @@ public class DefinitionToResultConverterTest {
 		assertEquals("size", 1, names.size());
 		assertEquals("type", "ABCD_MT123456CA.IndentifiedParty/name", 
 				((Fingerprint) CollectionUtils.get(names, 0)).toString());
+	}
+	@Test
+	public void shouldHandleForciblyMergedTypes() throws Exception {
+		Type mergedType = new Type(TemporaryTypeName.create("merged"));
+		Type type1 = new Type(new TypeName("ABCD_MT123456CA.Person"));
+		type1.getRelationships().add(
+				new Association(
+						new Relationship("identifiedParty", "ABCD_MT123456CA.IndentifiedParty",
+						Cardinality.create("1")), new Type(new TypeName("ABCD_MT123456CA.IndentifiedParty")),
+						Collections.<Choice>emptyList()));
+		
+		Type type2 = new Type(new TypeName("ABCD_MT987654CA.Person"));
+		type2.getRelationships().add(
+				new Association(
+						new Relationship("identifiedParty", "ABCD_MT987654CA.IndentifiedParty",
+						Cardinality.create("1")), new Type(new TypeName("ABCD_MT987654CA.IndentifiedParty")),
+						Collections.<Choice>emptyList()));
+		
+		mergedType.getMergedTypes().add(type1);
+		mergedType.getMergedTypes().add(type2);
+		
+		this.converter.types.put(type1.getTypeName().getName(), type1);
+		this.converter.types.put(type2.getTypeName().getName(), type2);
+		this.converter.types.put(mergedType.getTypeName().getName(), mergedType);
+
+		SimplifiableType simplifiableType1 = new SimplifiableType(new MessagePart("ABCD_MT123456CA.Person"), false);
+		SimplifiableType simplifiableType2 = new SimplifiableType(new MessagePart("ABCD_MT987654CA.Person"), false);
+		this.definitions.addType(simplifiableType1);
+		simplifiableType1.setMergedTypeName(mergedType.getTypeName());
+		simplifiableType1.getMergedWithTypes().add(simplifiableType2);
+		this.definitions.addType(simplifiableType2);
+		simplifiableType2.setMergedTypeName(mergedType.getTypeName());
+		simplifiableType2.getMergedWithTypes().add(simplifiableType1);
+		this.definitions.addType(new SimplifiableType(new MessagePart("ABCD_MT123456CA.IndentifiedParty"), false));
+		this.definitions.addType(new SimplifiableType(new MessagePart("ABCD_MT987654CA.IndentifiedParty"), false));
+		
+		this.converter.createRelationshipsForAllMergedTypes();
+		
+		assertFalse("relationships", mergedType.getRelationships().isEmpty());
+		assertEquals("relationship count", 2, mergedType.getRelationships().size());
+		assertTrue("1 requires thingie", mergedType.getRelationships().get(0).requiresMapByPartTypeAnnotation());
+		assertTrue("2 requires thingie", mergedType.getRelationships().get(1).requiresMapByPartTypeAnnotation());
 	}
 }

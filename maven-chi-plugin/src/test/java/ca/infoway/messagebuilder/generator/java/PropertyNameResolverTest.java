@@ -22,4 +22,39 @@ public class PropertyNameResolverTest {
 		assertEquals("Name", resolver.getName(association));
 	}
 	
+	@Test
+	public void shouldInventUniqueNamesIfThereAreDuplicates() throws Exception {
+		Association association1 = new AssociationBuilder()
+				.setName("assignedEntity").setCardinality(new Cardinality(0, 1))
+				.buildStandard();
+		Association association2 = new AssociationBuilder()
+			.setName("assignedEntity").setCardinality(new Cardinality(0, 1))
+			.buildStandard();
+		
+		PropertyNameResolver resolver = new PropertyNameResolver("HealthcareWorker", 
+				Arrays.<BaseRelationship>asList(association1, association2));
+		
+		assertEquals("AssignedEntity1", resolver.getName(association1));
+		assertEquals("AssignedEntity2", resolver.getName(association2));
+	}
+	
+	@Test
+	public void shouldWorkHardToDetermineUniqueNamesIfThereAreDuplicates() throws Exception {
+		Association association1 = new AssociationBuilder()
+				.setName("assignedEntity").setCardinality(new Cardinality(0, 1))
+				.buildStandard();
+		Association association2 = new AssociationBuilder()
+				.setName("assignedEntity").setCardinality(new Cardinality(0, 1))
+				.buildStandard();
+		Association association3 = new AssociationBuilder()
+				.setName("assignedEntity1").setCardinality(new Cardinality(0, 1))
+				.buildStandard();
+		
+		PropertyNameResolver resolver = new PropertyNameResolver("HealthcareWorker", 
+				Arrays.<BaseRelationship>asList(association1, association2, association3));
+		
+		assertEquals("AssignedEntityAssociation1", resolver.getName(association1));
+		assertEquals("AssignedEntityAssociation2", resolver.getName(association2));
+	}
+	
 }

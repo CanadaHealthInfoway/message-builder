@@ -8,10 +8,11 @@ import java.util.Map;
 
 import ca.infoway.messagebuilder.xml.TypeName;
 
-class Case3SimplifiedAssociation extends Association {
+class Case3SimplifiedAssociation extends Association implements MergedRelationshipSupport {
 
 	private final Association exemplar;
 	private XmlMappingHelper helper;
+	private boolean requiresExtraAnnotation;
 
 	public Case3SimplifiedAssociation(Association exemplar, Map<TypeName,BaseRelationship> mergedRelationships) {
 		super(exemplar.getRelationship(), exemplar.getAssociationType(), 
@@ -57,5 +58,12 @@ class Case3SimplifiedAssociation extends Association {
 	@Override
 	XmlMappingHelper getXmlMappingHelper() {
 		return this.helper;
+	}
+	public void markMapByPartTypeRequired() {
+		this.requiresExtraAnnotation = true;
+	}
+	@Override
+	boolean requiresMapByPartTypeAnnotation() {
+		return super.requiresMapByPartTypeAnnotation() || this.requiresExtraAnnotation;
 	}
 }

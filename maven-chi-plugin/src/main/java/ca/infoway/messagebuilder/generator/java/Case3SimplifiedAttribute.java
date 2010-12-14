@@ -11,11 +11,12 @@ import ca.infoway.messagebuilder.generator.DataType;
 import ca.infoway.messagebuilder.generator.TypeConverter;
 import ca.infoway.messagebuilder.xml.TypeName;
 
-class Case3SimplifiedAttribute extends Attribute {
+class Case3SimplifiedAttribute extends Attribute implements MergedRelationshipSupport {
 
 	private final Attribute exemplar;
 	private final Map<TypeName, BaseRelationship> mergedRelationships;
 	private XmlMappingHelper helper;
+	private boolean requiresExtraAnnotation;
 
 	public Case3SimplifiedAttribute(Attribute exemplar, Map<TypeName,BaseRelationship> mergedRelationships) {
 		super(exemplar.getRelationship(), exemplar.getDataType(), exemplar.isIndicator());
@@ -60,5 +61,13 @@ class Case3SimplifiedAttribute extends Attribute {
 		type = "COLLECTION<" + StringUtils.substringAfter(type, "<");
 		String domainType = this.exemplar.getDomainType();
 		return new TypeConverter().convertToType(type, domainType);
+	}
+
+	public void markMapByPartTypeRequired() {
+		this.requiresExtraAnnotation = true;
+	}
+	@Override
+	boolean requiresMapByPartTypeAnnotation() {
+		return super.requiresMapByPartTypeAnnotation() || this.requiresExtraAnnotation;
 	}
 }

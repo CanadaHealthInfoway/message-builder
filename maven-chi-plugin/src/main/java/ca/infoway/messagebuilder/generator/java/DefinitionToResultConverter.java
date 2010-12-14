@@ -3,6 +3,7 @@ package ca.infoway.messagebuilder.generator.java;
 import static org.apache.commons.collections.CollectionUtils.isEmpty;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -121,6 +122,10 @@ class DefinitionToResultConverter {
 			}
 		}
 
+		createRelationshipsForAllMergedTypes();
+	}
+
+	void createRelationshipsForAllMergedTypes() {
 		for (TypeName name : getAllMergedTypes()) {
 			Type mergedType = this.types.get(name.getName());
 			MergedTypeCollator collator = createCollator(mergedType);
@@ -135,6 +140,27 @@ class DefinitionToResultConverter {
 					mergedType.getRelationships().add(
 							new Case3SimplifiedAssociation((Association) exemplar, 
 									collator.getRelationships(fingerprint)));
+				}
+			}
+			
+			Map<String, Integer> duplicationXmlName = new HashMap<String, Integer>();
+			for (BaseRelationship relationship : mergedType.getRelationships()) {
+				String[] paths = relationship.getAllXmlMappings();
+				for (String xmlName : paths) {
+					if (duplicationXmlName.containsKey(xmlName)) {
+						duplicationXmlName.put(xmlName, duplicationXmlName.get(xmlName) + 1);
+					} else {
+						duplicationXmlName.put(xmlName, 1);
+					}
+				}
+			}
+			for (Map.Entry<String, Integer> entry : duplicationXmlName.entrySet()) {
+				if (entry.getValue() > 1) {
+					for (BaseRelationship relationship : mergedType.getRelationships()) {
+						if (Arrays.asList(relationship.getAllXmlMappings()).contains(entry.getKey())) {
+							((MergedRelationshipSupport) relationship).markMapByPartTypeRequired();
+						}
+					}
 				}
 			}
 		}

@@ -1,13 +1,16 @@
 package ca.infoway.messagebuilder.generator.java;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
+import ca.infoway.messagebuilder.generator.SysoutLogUI;
 import ca.infoway.messagebuilder.xml.Cardinality;
 import ca.infoway.messagebuilder.xml.Difference;
 import ca.infoway.messagebuilder.xml.DifferenceMatch;
 import ca.infoway.messagebuilder.xml.DifferenceType;
+import ca.infoway.messagebuilder.xml.DifferenceValue;
 import ca.infoway.messagebuilder.xml.MessagePart;
 import ca.infoway.messagebuilder.xml.Relationship;
 
@@ -32,7 +35,38 @@ public class PostSimplificationEvaluatorTest {
 		person.getChoices().add(tom);
 		part.getRelationships().add(person);
 		
-		assertFalse("difference", new PostSimplificationEvaluator(null).containsNoInterestingDifferences(part));
+		assertFalse("difference", new PostSimplificationEvaluator(null, new SysoutLogUI()).containsNoInterestingDifferences(part));
 	}
 
+	@Test
+	public void shouldDetectNonRectifiedDifferences() throws Exception {
+		
+		MessagePart part = new MessagePart("ABCD_MT123456CA.DataEntryLocation");
+		Relationship location = new Relationship("serviceDeliveryLocation", "COCT_MT123456CA.ServiceDeliveryLocation", Cardinality.create("1"));
+		Difference difference = new Difference(DifferenceType.ASSOCIATION_TYPE, true,
+				new DifferenceValue("R02.04.02", "COCT_MT123456CA.ServiceDeliveryLocation"),
+				new DifferenceValue("V01R04.3_HOTFIX3", "COCT_MT987654CA.ServiceDeliveryLocation"));
+		difference.setMatchConfidence(DifferenceMatch.POSSIBLE_MATCH);
+		location.addDifference(difference);
+		part.getRelationships().add(location);
+		
+		SimplifiableDefinitions definitions = new SimplifiableDefinitions();
+		definitions.addType(new SimplifiableType(part, false));
+		definitions.addType(new SimplifiableType(new MessagePart("COCT_MT123456CA.ServiceDeliveryLocation"), false));
+		definitions.addType(new SimplifiableType(new MessagePart("COCT_MT987654CA.ServiceDeliveryLocation"), false));
+		
+		assertFalse("has interesting difference", new PostSimplificationEvaluator(definitions, new SysoutLogUI()).containsNoInterestingDifferences(part));
+		assertTrue("not resolved", new PostSimplificationEvaluator(definitions, new SysoutLogUI()).containsDifferencesThatHasNotBeenRectified(part));
+		
+		TemporaryTypeName name = TemporaryTypeName.create("moiged");
+		
+		SimplifiableType simplifiableType1 = definitions.getType("COCT_MT123456CA.ServiceDeliveryLocation");
+		SimplifiableType simplifiableType2 = definitions.getType("COCT_MT987654CA.ServiceDeliveryLocation");
+		simplifiableType1.setMergedTypeName(name);
+		simplifiableType1.getMergedWithTypes().add(simplifiableType2);
+		simplifiableType2.setMergedTypeName(name);
+		simplifiableType2.getMergedWithTypes().add(simplifiableType1);
+		
+		assertFalse("resolved", new PostSimplificationEvaluator(definitions, new SysoutLogUI()).containsDifferencesThatHasNotBeenRectified(part));
+	}
 }

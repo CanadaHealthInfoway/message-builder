@@ -1,5 +1,7 @@
 package ca.infoway.messagebuilder.generator.java;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -15,6 +17,7 @@ class ForcedMatchManager implements Fuzziness {
 
 	private final SimplifiableDefinitions definitions;
 	Set<String> parts = new HashSet<String>();
+	Set<Tuple<String>> specificMatches = new HashSet<Tuple<String>>();
 	private final DependencyTracker tracker;
 
 	public ForcedMatchManager(SimplifiableDefinitions definitions) {
@@ -35,9 +38,23 @@ class ForcedMatchManager implements Fuzziness {
 	}
 
 	private void getAllNecessaryMerges(Relationship relationship) {
+		List<String> differences = new ArrayList<String>();
 		Difference difference = DifferenceHelper.getDifferenceByType(relationship, DifferenceType.ASSOCIATION_TYPE);
 		for (DifferenceValue value : difference.getDifferences()) {
 			this.parts.add(value.getValue());
+			differences.add(value.getValue());
+		}
+		recordRequiredMatches(differences);
+	}
+
+	private void recordRequiredMatches(List<String> differences) {
+		Collections.sort(differences);
+		
+		while (!differences.isEmpty()) {
+			String element = differences.remove(0);
+			for (String other : differences) {
+				this.specificMatches.add(new Tuple<String>(element, other));
+			}
 		}
 	}
 
@@ -55,5 +72,9 @@ class ForcedMatchManager implements Fuzziness {
 
 	public boolean isSufficientOverlap(List<MatchType> matchTypes) {
 		return matchTypes.contains(MatchType.EXACT) && !matchTypes.contains(MatchType.MAJOR_DIFFERENCE);
+	}
+
+	public Set<Tuple<String>> getSpecificMatches() {
+		return this.specificMatches;
 	}
 }
