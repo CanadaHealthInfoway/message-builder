@@ -1,0 +1,873 @@
+<?xml version="1.0" encoding="UTF-8"?><mif:staticModel xmlns:mif="urn:hl7-org:v3/mif" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:hl7-org:v3/mif" isAbstract="false" isSerializable="true" name="CA" packageKind="realmNamespace" representationKind="flat" schemaVersion="2.0" xsi:schemaLocation="">
+   <mif:packageLocation artifact="MT-deprecated" domain="CT" id="470012" realmNamespace="CA" root="DEFN" section="IM" subSection="CO"/>
+   <mif:header>
+      <mif:renderingInformation application="Visio to MIF transform"/>
+      <mif:legalese copyrightOwner="Health Level Seven" copyrightYears="2008"/>
+   </mif:header>
+   <mif:graphicRepresentation presentation="HL7">
+      <mif:graphElement name="Main">
+         <mif:position x="0" y="0"/>
+         <mif:size height="591" width="1007"/>
+      </mif:graphElement>
+   <entryPoint name="Consent Registry"><mif:graphElement containerDiagramName="Main" shapeId="Sheet.15">
+            <mif:position x="-12" y="439"/>
+            <mif:size height="43" width="118"/>
+            <mif:anchorage connectToShapeId="Sheet.15">
+               <mif:position x="105" y="211"/>
+               <mif:graphEdge>
+                  <mif:anchor connectToShapeId="Sheet.1">
+                     <mif:position x="153" y="228"/>
+                  </mif:anchor>
+               </mif:graphEdge>
+            </mif:anchorage>
+         </mif:graphElement></entryPoint><class className="ActDefinition" presentation="HL7"><mif:graphElement containerDiagramName="Main" isHeightAutoSize="true" isWidthAutoSize="true" shapeId="Sheet.66" shapeTemplate="Act">
+               <mif:position x="170" y="515"/>
+               <mif:size height="74" width="280"/>
+            </mif:graphElement></class><class className="Author" presentation="HL7"><mif:graphElement containerDiagramName="Main" nodeOrientation="Right" shapeId="Sheet.22" shapeTemplate="Participation" textWrappingWidth="66.0">
+               <mif:position x="495" y="161"/>
+               <mif:size height="80" width="338"/>
+            </mif:graphElement></class><class className="Author2" presentation="HL7"><mif:graphElement containerDiagramName="Main" nodeOrientation="Right" shapeId="Sheet.34" shapeTemplate="Participation" textWrappingWidth="66.0">
+               <mif:position x="495" y="257"/>
+               <mif:size height="41" width="339"/>
+            </mif:graphElement></class><class className="ConsentEvent" presentation="HL7"><mif:graphElement containerDiagramName="Main" isHeightAutoSize="false" isWidthAutoSize="true" shapeId="Sheet.1" shapeTemplate="Act">
+               <mif:position x="153" y="154"/>
+               <mif:size height="149" width="341"/>
+            </mif:graphElement></class><class className="InformDefinition" presentation="HL7"><mif:graphElement containerDiagramName="Main" isHeightAutoSize="true" isWidthAutoSize="true" shapeId="Sheet.104" shapeTemplate="Act">
+               <mif:position x="252" y="372"/>
+               <mif:size height="72" width="122"/>
+            </mif:graphElement></class><class className="R_ActingPersonIdentified-confirmable" presentation="HL7"><mif:graphElement containerDiagramName="Main" isHeightAutoSize="true" isWidthAutoSize="true" shapeId="Sheet.114" shapeTemplate="CMET">
+               <mif:position x="559" y="21"/>
+               <mif:size height="60" width="129"/>
+            </mif:graphElement></class><class className="R_AssignedPersonIdentified-confirmable" presentation="HL7"><mif:graphElement containerDiagramName="Main" isHeightAutoSize="true" isWidthAutoSize="true" shapeId="Sheet.28" shapeTemplate="CMET">
+               <mif:position x="834" y="238"/>
+               <mif:size height="60" width="129"/>
+            </mif:graphElement></class><class className="R_AssignedPersonIdentified-confirmable" presentation="HL7"><mif:graphElement containerDiagramName="Main" isHeightAutoSize="true" isWidthAutoSize="true" shapeId="Sheet.86" shapeTemplate="CMET">
+               <mif:position x="840" y="394"/>
+               <mif:size height="60" width="129"/>
+            </mif:graphElement></class><class className="R_PatientPersonIdentified-confirmable" presentation="HL7"><mif:graphElement containerDiagramName="Main" isHeightAutoSize="true" isWidthAutoSize="true" shapeId="Sheet.54" shapeTemplate="CMET">
+               <mif:position x="418" y="21"/>
+               <mif:size height="60" width="129"/>
+            </mif:graphElement></class><class className="R_RelatedPersonInformational" presentation="HL7"><mif:graphElement containerDiagramName="Main" isHeightAutoSize="true" isWidthAutoSize="true" shapeId="Sheet.70" shapeTemplate="CMET">
+               <mif:position x="833" y="159"/>
+               <mif:size height="60" width="105"/>
+            </mif:graphElement></class><class className="R_ServiceDeliveryLocationMinimal" presentation="HL7"><mif:graphElement containerDiagramName="Main" isHeightAutoSize="true" isWidthAutoSize="true" shapeId="Sheet.92" shapeTemplate="CMET">
+               <mif:position x="840" y="466"/>
+               <mif:size height="60" width="154"/>
+            </mif:graphElement></class><class className="Receiver" presentation="HL7"><mif:graphElement containerDiagramName="Main" nodeOrientation="Right" shapeId="Sheet.98" shapeTemplate="Participation" textWrappingWidth="66.0">
+               <mif:position x="374" y="390"/>
+               <mif:size height="41" width="454"/>
+            </mif:graphElement></class><class className="Recipient" presentation="HL7"><mif:graphElement containerDiagramName="Main" isHeightAutoSize="true" isWidthAutoSize="true" nodeOrientation="Portrait" shapeId="Sheet.84" shapeTemplate="Choice">
+               <mif:position x="828" y="370"/>
+               <mif:size height="168" width="178"/>
+            </mif:graphElement></class><class className="Subject" presentation="HL7"><mif:graphElement containerDiagramName="Main" nodeOrientation="Up" shapeId="Sheet.40" shapeTemplate="Participation" textWrappingWidth="66.0">
+               <mif:position x="366" y="92"/>
+               <mif:size height="61" width="222"/>
+            </mif:graphElement></class><class className="Subject2" presentation="HL7"><mif:graphElement containerDiagramName="Main" nodeOrientation="Down" shapeId="Sheet.60" shapeTemplate="ActRelationship" textWrappingWidth="66.0">
+               <mif:position x="207" y="303"/>
+               <mif:size height="70" width="222"/>
+            </mif:graphElement></class><class className="Subject3" presentation="HL7"><mif:graphElement containerDiagramName="Main" nodeOrientation="Down" shapeId="Sheet.108" shapeTemplate="ActRelationship" textWrappingWidth="66.0">
+               <mif:position x="204" y="444"/>
+               <mif:size height="71" width="214"/>
+            </mif:graphElement></class><class className="SubjectChoice" presentation="HL7"><mif:graphElement containerDiagramName="Main" isHeightAutoSize="true" isWidthAutoSize="true" nodeOrientation="Landscape" shapeId="Sheet.120" shapeTemplate="Choice">
+               <mif:position x="406" y="-3"/>
+               <mif:size height="96" width="294"/>
+            </mif:graphElement></class><association className="R_RelatedPersonInformational" relationshipName="personalRelationship"><mif:graphElement connectToShapeId="Sheet.22" containerDiagramName="Main">
+                                 <mif:position x="833" y="189"/>
+                                 <mif:graphEdge>
+                                    <mif:anchor connectToShapeId="Sheet.70">
+                                       <mif:position x="833" y="189"/>
+                                    </mif:anchor>
+                                 </mif:graphEdge>
+                              </mif:graphElement></association><association className="R_AssignedPersonIdentified-confirmable" relationshipName="assignedEntity"><mif:graphElement connectToShapeId="Sheet.34" containerDiagramName="Main">
+                                 <mif:position x="834" y="268"/>
+                                 <mif:graphEdge>
+                                    <mif:anchor connectToShapeId="Sheet.28">
+                                       <mif:position x="834" y="268"/>
+                                    </mif:anchor>
+                                 </mif:graphEdge>
+                              </mif:graphElement></association><association className="Author" relationshipName="author1"><mif:graphElement connectToShapeId="Sheet.1" containerDiagramName="Main">
+                     <mif:position x="495" y="213"/>
+                     <mif:graphEdge>
+                        <mif:anchor connectToShapeId="Sheet.22">
+                           <mif:position x="495" y="213"/>
+                        </mif:anchor>
+                     </mif:graphEdge>
+                  </mif:graphElement></association><association className="Author2" relationshipName="author2"><mif:graphElement connectToShapeId="Sheet.1" containerDiagramName="Main">
+                     <mif:position x="495" y="288"/>
+                     <mif:graphEdge>
+                        <mif:anchor connectToShapeId="Sheet.34">
+                           <mif:position x="495" y="288"/>
+                        </mif:anchor>
+                     </mif:graphEdge>
+                  </mif:graphElement></association><association className="Subject" relationshipName="subject1"><mif:graphElement connectToShapeId="Sheet.1" containerDiagramName="Main">
+                     <mif:position x="460" y="154"/>
+                     <mif:graphEdge>
+                        <mif:anchor connectToShapeId="Sheet.40">
+                           <mif:position x="460" y="154"/>
+                        </mif:anchor>
+                     </mif:graphEdge>
+                  </mif:graphElement></association><association className="Subject2" relationshipName="subject2"><mif:graphElement connectToShapeId="Sheet.1" containerDiagramName="Main">
+                     <mif:position x="324" y="303"/>
+                     <mif:graphEdge>
+                        <mif:anchor connectToShapeId="Sheet.60">
+                           <mif:position x="324" y="303"/>
+                        </mif:anchor>
+                     </mif:graphEdge>
+                  </mif:graphElement></association><association className="Receiver" relationshipName="receiver"><mif:graphElement connectToShapeId="Sheet.104" containerDiagramName="Main">
+                                             <mif:position x="374" y="400"/>
+                                             <mif:graphEdge>
+                                                <mif:anchor connectToShapeId="Sheet.98">
+                                                   <mif:position x="374" y="400"/>
+                                                </mif:anchor>
+                                             </mif:graphEdge>
+                                          </mif:graphElement></association><association className="Subject3" relationshipName="subject"><mif:graphElement connectToShapeId="Sheet.104" containerDiagramName="Main">
+                                             <mif:position x="313" y="444"/>
+                                             <mif:graphEdge>
+                                                <mif:anchor connectToShapeId="Sheet.108">
+                                                   <mif:position x="313" y="444"/>
+                                                </mif:anchor>
+                                             </mif:graphEdge>
+                                          </mif:graphElement></association><association className="Recipient" relationshipName="recipient"><mif:graphElement connectToShapeId="Sheet.98" containerDiagramName="Main">
+                                                         <mif:position x="828" y="421"/>
+                                                         <mif:graphEdge>
+                                                            <mif:anchor connectToShapeId="Sheet.84">
+                                                               <mif:position x="828" y="421"/>
+                                                            </mif:anchor>
+                                                         </mif:graphEdge>
+                                                      </mif:graphElement></association><association className="SubjectChoice" relationshipName="subjectChoice"><mif:graphElement connectToShapeId="Sheet.40" containerDiagramName="Main">
+                                 <mif:position x="494" y="92"/>
+                                 <mif:graphEdge>
+                                    <mif:anchor connectToShapeId="Sheet.120">
+                                       <mif:position x="494" y="92"/>
+                                    </mif:anchor>
+                                 </mif:graphEdge>
+                              </mif:graphElement></association><association className="InformDefinition" relationshipName="informDefinition"><mif:graphElement connectToShapeId="Sheet.60" containerDiagramName="Main">
+                                 <mif:position x="313" y="372"/>
+                                 <mif:graphEdge>
+                                    <mif:anchor connectToShapeId="Sheet.104">
+                                       <mif:position x="313" y="372"/>
+                                    </mif:anchor>
+                                 </mif:graphEdge>
+                              </mif:graphElement></association><association className="ActDefinition" relationshipName="actDefinition"><mif:graphElement connectToShapeId="Sheet.108" containerDiagramName="Main">
+                                                         <mif:position x="310" y="515"/>
+                                                         <mif:graphEdge>
+                                                            <mif:anchor connectToShapeId="Sheet.66">
+                                                               <mif:position x="310" y="515"/>
+                                                            </mif:anchor>
+                                                         </mif:graphEdge>
+                                                      </mif:graphElement></association><annotation id="629B2286-44D7-42E2-856E-FF34DA9823FC"><mif:graphElement containerDiagramName="Main" isHeightAutoSize="true" isWidthAutoSize="true" shapeId="Sheet.46">
+                     <mif:position x="67" y="50"/>
+                     <mif:size height="65" width="134"/>
+                     <mif:anchorage connectToShapeId="Sheet.46">
+                        <mif:position x="134" y="82"/>
+                        <mif:graphEdge>
+                           <mif:anchor connectToShapeId="Sheet.1">
+                              <mif:position x="187" y="154"/>
+                           </mif:anchor>
+                        </mif:graphEdge>
+                     </mif:anchorage>
+                  </mif:graphElement></annotation><annotation id="6DD6B782-7035-4582-8126-6A5B4084E9CE"><mif:graphElement containerDiagramName="Main" isHeightAutoSize="true" isWidthAutoSize="true" shapeId="Sheet.50">
+                     <mif:position x="220" y="25"/>
+                     <mif:size height="53" width="156"/>
+                     <mif:anchorage connectToShapeId="Sheet.50">
+                        <mif:position x="299" y="52"/>
+                        <mif:graphEdge>
+                           <mif:anchor connectToShapeId="Sheet.1">
+                              <mif:position x="290" y="154"/>
+                           </mif:anchor>
+                        </mif:graphEdge>
+                     </mif:anchorage>
+                  </mif:graphElement></annotation></mif:graphicRepresentation>
+   <derivedFrom staticModelDerivationId="1">
+      <mif:targetStaticModel artifact="RIM" root="DEFN" version="00"/>
+   </derivedFrom>
+   <entryPoint className="ConsentEvent" id="COCT_MT470012CA" isAbstract="false" name="Consent Registry">
+      
+   </entryPoint>
+   <containedClass>
+      <mif:class isAbstract="false" name="ActDefinition">
+         <derivedFrom className="Act" staticModelDerivationId="1"/>
+         
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="classCode" sortKey="1"><enumerationValues>ACT</enumerationValues>
+            <derivedFrom attributeName="classCode" className="Act" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="ACT" codeSystemName="ActClass"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="moodCode" sortKey="2"><enumerationValues>DEF</enumerationValues>
+            <derivedFrom attributeName="moodCode" className="Act" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="DEF" codeSystemName="ActMood"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="code" sortKey="3">
+            <mif:businessName name="B:Consent Information Types"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>The type of patient, client, or provider information that can be accessed or modified.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Different consents (or even keywords) may be needed to access different types of patient, client, or provider information (e.g. demographics, medications, allergies, lab results). Understanding the type of information the consent applies to is critical, and therefore the attribute is mandatory.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation></mif:annotations>
+            <derivedFrom attributeName="code" className="Act" staticModelDerivationId="1"/>
+            <mif:type name="CV"/>
+            <supplierVocabulary codingStrength="CNE"><vocabularyDomain name="ActInformationAccessTypeCode"/></supplierVocabulary>
+         </mif:attribute>
+      </mif:class>
+   </containedClass>
+   <containedClass>
+      <mif:class isAbstract="false" name="Author">
+         <mif:businessName name="b:consented to by"><realmNamespace value="UV"/></mif:businessName>
+         <derivedFrom className="Participation" staticModelDerivationId="1"/>
+         
+         <mif:annotations>
+            
+            
+            
+            
+         <documentation><mif:definition>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>Indicates that the consent was provided by the patient, client, provider or representative.</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:definition><mif:rationale>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>Consent can be provided by the patient or representative or the provider.</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:rationale></documentation><appInfo><mif:mapping sourceName="PIN">
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>Authorization.Person</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:mapping><mif:mapping sourceName="PIN">
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>Authorization.signatory(PT)</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:mapping></appInfo></mif:annotations>
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="typeCode" sortKey="1"><enumerationValues>AUT</enumerationValues>
+            <derivedFrom attributeName="typeCode" className="Participation" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="AUT" codeSystemName="ParticipationType"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="contextControlCode" sortKey="2"><enumerationValues>OP</enumerationValues>
+            <derivedFrom attributeName="contextControlCode" className="Participation" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="OP" codeSystemName="ContextControl"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="false" maximumMultiplicity="1" minimumMultiplicity="0" name="modeCode" sortKey="3">
+            <mif:businessName name="Patient Consent Mechanism"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Indicates whether the patient's consent is written or verbal.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Verbal consents may trigger a higher level of auditing.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation></mif:annotations>
+            <derivedFrom attributeName="modeCode" className="Participation" staticModelDerivationId="1"/>
+            <mif:type name="CV"/>
+            <supplierVocabulary codingStrength="CNE"><vocabularyDomain name="x_PhysicalVerbalParticipationMode"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="false" maximumLength="15" maximumMultiplicity="1" minimumMultiplicity="0" name="signatureText" sortKey="4">
+            <mif:businessName name="Keyword"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Indicates the keyword appropriate to the action being performed by the message.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Allows providers who know the keyword to access information protected by patient keywords.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation></mif:annotations>
+            <derivedFrom attributeName="signatureText" className="Participation" staticModelDerivationId="1"/>
+            <mif:type name="ST"/>
+         </mif:attribute>
+      </mif:class>
+   </containedClass>
+   <containedClass>
+      <mif:class isAbstract="false" name="Author2">
+         <mif:businessName name="c:consent overridden by"><realmNamespace value="UV"/></mif:businessName>
+         <derivedFrom className="Participation" staticModelDerivationId="1"/>
+         
+         <mif:annotations>
+            
+            
+            
+         <documentation><mif:definition>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>Indicates that information access was approved by a provider rather than a patient, client, or original provider. I.e. This is an override rather than an actual consent, and is used for the purposes of 'breaking the glass' only.</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:definition><mif:rationale>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>Clinical circumstances may demand that a patient's information be accessed without consent to ensure patient safety.</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:rationale></documentation><appInfo><mif:mapping sourceName="PIN">
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>Authorization.signatory(PROV)</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:mapping></appInfo></mif:annotations>
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="typeCode" sortKey="1"><enumerationValues>AUT</enumerationValues>
+            <derivedFrom attributeName="typeCode" className="Participation" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="AUT" codeSystemName="ParticipationType"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="contextControlCode" sortKey="2"><enumerationValues>OP</enumerationValues>
+            <derivedFrom attributeName="contextControlCode" className="Participation" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="OP" codeSystemName="ContextControl"/></supplierVocabulary>
+         </mif:attribute>
+      </mif:class>
+   </containedClass>
+   <containedClass>
+      <mif:class isAbstract="false" name="ConsentEvent">
+         <mif:businessName name="Consent"><realmNamespace value="UV"/></mif:businessName>
+         <derivedFrom className="Act" staticModelDerivationId="1"/>
+         
+         <mif:annotations>
+            
+            
+            
+            
+            
+         <documentation><mif:definition>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>Information pertaining to a patient's (or client or provider) agreement/acceptance to have his/her clinical or demographic information electronically stored and shared.</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:definition><mif:usageNotes>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>The keywords will not be passed from prescriber to dispenser by the DIS.</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:usageNotes><mif:rationale>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>Provides authorization to record and/or view patient, client, or provider information.</xhtml:p>
+                  </xhtml:p>
+                  <xhtml:p>
+                     <xhtml:p>Indicates the consent or keyword used to authorize access or update, including a reason for access; May also be used to override access restriction to the information ('break the glass') on a message by message basis. May be required on a Prescription Request to indicate a keyword for DUR processing.</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:rationale></documentation><appInfo><mif:constraint id="{629B2286-44D7-42E2-856E-FF34DA9823FC}">
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>One and only one of author2 (Consenter) and author1 (Provider) must be specified.</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+               
+            </mif:constraint><mif:constraint id="{6DD6B782-7035-4582-8126-6A5B4084E9CE}">
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>If author1 (provider) is specified, reason code must be specified.</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+               
+            </mif:constraint></appInfo></mif:annotations>
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="classCode" sortKey="1"><enumerationValues>CONS</enumerationValues>
+            <derivedFrom attributeName="classCode" className="Act" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="CONS" codeSystemName="ActClass"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="moodCode" sortKey="2"><enumerationValues>EVN</enumerationValues>
+            <derivedFrom attributeName="moodCode" className="Act" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="EVN" codeSystemName="ActMood"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="false" maximumMultiplicity="1" minimumMultiplicity="0" name="id" sortKey="3">
+            <mif:businessName name="D:Consent Form Number"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>A unique identifier for a specific consent for a patient, client or provider.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Provides a traceable audit link between a physical consent form and its electronic record</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation><appInfo><mif:mapping sourceName="PIN">
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Authorization.formNumber</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:mapping></appInfo></mif:annotations>
+            <derivedFrom attributeName="id" className="Act" staticModelDerivationId="1"/>
+            <mif:type name="II.BUS"/>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="code" sortKey="4"><enumerationValues>INF</enumerationValues>
+            <mif:annotations>
+               
+               
+            <documentation><mif:definition>
+                  <mif:text/>
+               </mif:definition></documentation><appInfo><mif:mapping sourceName="PIN">
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Authorization.dataType</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:mapping></appInfo></mif:annotations>
+            <derivedFrom attributeName="code" className="Act" staticModelDerivationId="1"/>
+            <mif:type name="CV"/>
+            <supplierVocabulary codingStrength="CNE"><code code="INF" codeSystemName="ActCode"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="false" maximumMultiplicity="1" minimumMultiplicity="0" name="effectiveTime" sortKey="5">
+            <mif:businessName name="C:Consent Effective and End Time"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Indicates the time that the consent will expire. 'Low' is effective time and 'High' is end time.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Most consents are not open-ended, to ensure the patient, client, or provider retains a level of control.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation><appInfo><mif:mapping sourceName="PIN">
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Authorization.endTime (high)</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:mapping></appInfo></mif:annotations>
+            <derivedFrom attributeName="effectiveTime" className="Act" staticModelDerivationId="1"/>
+            <mif:type name="IVL">
+               <argumentDatatype name="TS.FULLDATE"/>
+            </mif:type>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="false" maximumMultiplicity="1" minimumMultiplicity="0" name="reasonCode" sortKey="6">
+            <mif:businessName name="E:Consent Override Reason"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Indicates a reason for overriding a patient's (or client or provider) consent rules.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Important for audit purposes</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation><appInfo><mif:mapping sourceName="PIN">
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Authorization.reason (mnemonic)</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:mapping><mif:mapping sourceName="PIN">
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Authorization.comment (original text)</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:mapping></appInfo></mif:annotations>
+            <derivedFrom attributeName="reasonCode" className="Act" staticModelDerivationId="1"/>
+            <mif:type name="CV"/>
+            <supplierVocabulary codingStrength="CNE"><vocabularyDomain name="ActConsentInformationAccessReason"/></supplierVocabulary>
+         </mif:attribute>
+      </mif:class>
+   </containedClass>
+   <containedClass>
+      <mif:class isAbstract="false" name="InformDefinition">
+         <mif:businessName name="Access Type"><realmNamespace value="UV"/></mif:businessName>
+         <derivedFrom className="Act" staticModelDerivationId="1"/>
+         
+         <mif:annotations>
+            
+            
+         <documentation><mif:definition>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>Defines the types of information permission is being granted to access.</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:definition><mif:rationale>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>Allows discrete control over different types of information.</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:rationale></documentation></mif:annotations>
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="classCode" sortKey="1"><enumerationValues>INFRM</enumerationValues>
+            <derivedFrom attributeName="classCode" className="Act" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="INFRM" codeSystemName="ActClass"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="moodCode" sortKey="2"><enumerationValues>DEF</enumerationValues>
+            <derivedFrom attributeName="moodCode" className="Act" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="DEF" codeSystemName="ActMood"/></supplierVocabulary>
+         </mif:attribute>
+      </mif:class>
+   </containedClass>
+   <containedClass>
+      <mif:commonModelElementRef name="R_ActingPersonIdentified-confirmable">
+         <derivedFrom className="Role" staticModelDerivationId="1"/>
+         <supplierVocabulary><vocabularyDomain xmlns="" name="RoleClass"/></supplierVocabulary>
+         
+         <cmet name="COCT_MT911102CA"/>
+      </mif:commonModelElementRef>
+   </containedClass>
+   <containedClass>
+      <mif:commonModelElementRef name="R_AssignedPersonIdentified-confirmable">
+         <derivedFrom className="Role" staticModelDerivationId="1"/>
+         <supplierVocabulary><vocabularyDomain xmlns="" name="RoleClass"/></supplierVocabulary>
+         
+         
+         <cmet name="COCT_MT090102CA"/>
+      </mif:commonModelElementRef>
+   </containedClass>
+   <containedClass>
+      <mif:commonModelElementRef name="R_PatientPersonIdentified-confirmable">
+         <derivedFrom className="Patient" staticModelDerivationId="1"/>
+         <supplierVocabulary><vocabularyDomain xmlns="" name="RoleClass"/></supplierVocabulary>
+         
+         <cmet name="COCT_MT050202CA"/>
+      </mif:commonModelElementRef>
+   </containedClass>
+   <containedClass>
+      <mif:commonModelElementRef name="R_RelatedPersonInformational">
+         <derivedFrom className="Role" staticModelDerivationId="1"/>
+         <supplierVocabulary><vocabularyDomain xmlns="" name="RoleClass"/></supplierVocabulary>
+         
+         <cmet name="COCT_MT910107CA"/>
+      </mif:commonModelElementRef>
+   </containedClass>
+   <containedClass>
+      <mif:commonModelElementRef name="R_ServiceDeliveryLocationMinimal">
+         <derivedFrom className="Role" staticModelDerivationId="1"/>
+         <supplierVocabulary><vocabularyDomain xmlns="" name="RoleClass"/></supplierVocabulary>
+         
+         <cmet name="COCT_MT240012CA"/>
+      </mif:commonModelElementRef>
+   </containedClass>
+   <containedClass>
+      <mif:class isAbstract="false" name="Receiver">
+         <mif:businessName name="*consent given to"><realmNamespace value="UV"/></mif:businessName>
+         <derivedFrom className="ManagedParticipation" staticModelDerivationId="1"/>
+         
+         <mif:annotations>
+            
+            
+         <documentation><mif:definition>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>Identifies the beneficiary of the consent as being a Provider or Service Location.</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:definition><mif:rationale>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>Indicates who is receiving consent to view information.</xhtml:p>
+                  </xhtml:p>
+                  <xhtml:p>
+                     <xhtml:p>This participation is marked as "populated" as receiver must be specified when keyword is involved.</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:rationale></documentation></mif:annotations>
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="typeCode" sortKey="1"><enumerationValues>RCV</enumerationValues>
+            <derivedFrom attributeName="typeCode" className="ManagedParticipation" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="RCV" codeSystemName="ParticipationType"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="contextControlCode" sortKey="2"><enumerationValues>OP</enumerationValues>
+            <derivedFrom attributeName="contextControlCode" className="ManagedParticipation" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="OP" codeSystemName="ContextControl"/></supplierVocabulary>
+         </mif:attribute>
+      </mif:class>
+   </containedClass>
+   <containedClass>
+      <mif:class isAbstract="true" name="Recipient">
+         <derivedFrom className="Role" staticModelDerivationId="1"/>
+         
+         <childClass className="R_AssignedPersonIdentified-confirmable">
+            
+         </childClass>
+         <childClass className="R_ServiceDeliveryLocationMinimal">
+            
+         </childClass>
+      </mif:class>
+   </containedClass>
+   <containedClass>
+      <mif:class isAbstract="false" name="Subject">
+         <mif:businessName name="*a:consent pertains to"><realmNamespace value="UV"/></mif:businessName>
+         <derivedFrom className="Participation" staticModelDerivationId="1"/>
+         
+         <mif:annotations>
+            
+            
+         <documentation><mif:definition>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>The client's( or patient's) or provider's record the consent is associated with.</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:definition><mif:rationale>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>Essential for knowing what patient, client, or provider the consent is for, and therefore mandatory.</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:rationale></documentation></mif:annotations>
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="typeCode" sortKey="1"><enumerationValues>SBJ</enumerationValues>
+            <derivedFrom attributeName="typeCode" className="Participation" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="SBJ" codeSystemName="ParticipationType"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="contextControlCode" sortKey="2"><enumerationValues>OP</enumerationValues>
+            <derivedFrom attributeName="contextControlCode" className="Participation" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="OP" codeSystemName="ContextControl"/></supplierVocabulary>
+         </mif:attribute>
+      </mif:class>
+   </containedClass>
+   <containedClass>
+      <mif:class isAbstract="false" name="Subject2">
+         <mif:businessName name="controls"><realmNamespace value="UV"/></mif:businessName>
+         <derivedFrom className="ActRelationship" staticModelDerivationId="1"/>
+         
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="typeCode" sortKey="1"><enumerationValues>SUBJ</enumerationValues>
+            <derivedFrom attributeName="typeCode" className="ActRelationship" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="SUBJ" codeSystemName="ActRelationshipType"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="contextControlCode" sortKey="2"><enumerationValues>AN</enumerationValues>
+            <derivedFrom attributeName="contextControlCode" className="ActRelationship" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="AN" codeSystemName="ContextControl"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="contextConductionInd" sortKey="3"><enumerationValues>true</enumerationValues>
+            <derivedFrom attributeName="contextConductionInd" className="ActRelationship" staticModelDerivationId="1"/>
+            <mif:type name="BL"/>
+         </mif:attribute>
+      </mif:class>
+   </containedClass>
+   <containedClass>
+      <mif:class isAbstract="false" name="Subject3">
+         <derivedFrom className="ActRelationship" staticModelDerivationId="1"/>
+         
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="typeCode" sortKey="1"><enumerationValues>SUBJ</enumerationValues>
+            <derivedFrom attributeName="typeCode" className="ActRelationship" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="SUBJ" codeSystemName="ActRelationshipType"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="contextControlCode" sortKey="2"><enumerationValues>AN</enumerationValues>
+            <derivedFrom attributeName="contextControlCode" className="ActRelationship" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="AN" codeSystemName="ContextControl"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="contextConductionInd" sortKey="3"><enumerationValues>false</enumerationValues>
+            <derivedFrom attributeName="contextConductionInd" className="ActRelationship" staticModelDerivationId="1"/>
+            <mif:type name="BL"/>
+         </mif:attribute>
+      </mif:class>
+   </containedClass>
+   <containedClass>
+      <mif:class isAbstract="true" name="SubjectChoice">
+         <derivedFrom className="Role" staticModelDerivationId="1"/>
+         
+         <childClass className="R_PatientPersonIdentified-confirmable">
+            
+         </childClass>
+         <childClass className="R_ActingPersonIdentified-confirmable">
+            
+         </childClass>
+      </mif:class>
+   </containedClass>
+   <association sortKey="20">
+      
+      <mif:connections>
+         <mif:traversableConnection conformance="R" isMandatory="false" maximumMultiplicity="1" minimumMultiplicity="1" name="personalRelationship" participantClassName="R_RelatedPersonInformational" sortKey="BZ">
+            <derivedFrom associationEndName="role" className="Participation" staticModelDerivationId="1"/>
+         </mif:traversableConnection>
+         <mif:nonTraversableConnection participantClassName="Author">
+            <derivedFrom associationEndName="participation" className="Role" staticModelDerivationId="1"/>
+         </mif:nonTraversableConnection>
+      </mif:connections>
+   </association>
+   <association sortKey="5">
+      
+      <mif:connections>
+         <mif:traversableConnection conformance="R" isMandatory="false" maximumMultiplicity="1" minimumMultiplicity="1" name="assignedEntity" participantClassName="R_AssignedPersonIdentified-confirmable" sortKey="BZ">
+            <derivedFrom associationEndName="role" className="Participation" staticModelDerivationId="1"/>
+         </mif:traversableConnection>
+         <mif:nonTraversableConnection participantClassName="Author2">
+            <derivedFrom associationEndName="participation" className="Role" staticModelDerivationId="1"/>
+         </mif:nonTraversableConnection>
+      </mif:connections>
+   </association>
+   <association sortKey="1">
+      
+      <mif:connections>
+         <mif:traversableConnection conformance="R" isMandatory="false" maximumMultiplicity="1" minimumMultiplicity="0" name="author1" participantClassName="Author" sortKey="AEA_______">
+            <derivedFrom associationEndName="participation" className="Act" staticModelDerivationId="1"/>
+         </mif:traversableConnection>
+         <mif:nonTraversableConnection participantClassName="ConsentEvent">
+            <derivedFrom associationEndName="act" className="Participation" staticModelDerivationId="1"/>
+         </mif:nonTraversableConnection>
+      </mif:connections>
+   </association>
+   <association sortKey="0">
+      
+      <mif:connections>
+         <mif:traversableConnection conformance="R" isMandatory="false" maximumMultiplicity="1" minimumMultiplicity="0" name="author2" participantClassName="Author2" sortKey="AEA_______">
+            <derivedFrom associationEndName="participation" className="Act" staticModelDerivationId="1"/>
+         </mif:traversableConnection>
+         <mif:nonTraversableConnection participantClassName="ConsentEvent">
+            <derivedFrom associationEndName="act" className="Participation" staticModelDerivationId="1"/>
+         </mif:nonTraversableConnection>
+      </mif:connections>
+   </association>
+   <association sortKey="3">
+      
+      <mif:connections>
+         <mif:traversableConnection conformance="R" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="subject1" participantClassName="Subject" sortKey="AAA_______">
+            <derivedFrom associationEndName="participation" className="Act" staticModelDerivationId="1"/>
+         </mif:traversableConnection>
+         <mif:nonTraversableConnection participantClassName="ConsentEvent">
+            <derivedFrom associationEndName="act" className="Participation" staticModelDerivationId="1"/>
+         </mif:nonTraversableConnection>
+      </mif:connections>
+   </association>
+   <association sortKey="2">
+      
+      <mif:connections>
+         <mif:traversableConnection conformance="R" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="subject2" participantClassName="Subject2" sortKey="BDB_______">
+            <derivedFrom associationEndName="outboundRelationship" className="Act" staticModelDerivationId="1"/>
+         </mif:traversableConnection>
+         <mif:nonTraversableConnection participantClassName="ConsentEvent">
+            <derivedFrom associationEndName="source" className="ActRelationship" staticModelDerivationId="1"/>
+         </mif:nonTraversableConnection>
+      </mif:connections>
+   </association>
+   <association sortKey="11">
+      
+      <mif:connections>
+         <mif:traversableConnection conformance="R" isMandatory="false" maximumMultiplicity="1" minimumMultiplicity="1" name="receiver" participantClassName="Receiver" sortKey="ABD_______">
+            <derivedFrom associationEndName="participation" className="Act" staticModelDerivationId="1"/>
+         </mif:traversableConnection>
+         <mif:nonTraversableConnection participantClassName="InformDefinition">
+            <derivedFrom associationEndName="act" className="Participation" staticModelDerivationId="1"/>
+         </mif:nonTraversableConnection>
+      </mif:connections>
+   </association>
+   <association sortKey="12">
+      
+      <mif:connections>
+         <mif:traversableConnection conformance="R" isMandatory="true" maximumMultiplicity="10" minimumMultiplicity="1" name="subject" participantClassName="Subject3" sortKey="BDB_______">
+            <derivedFrom associationEndName="outboundRelationship" className="Act" staticModelDerivationId="1"/>
+         </mif:traversableConnection>
+         <mif:nonTraversableConnection participantClassName="InformDefinition">
+            <derivedFrom associationEndName="source" className="ActRelationship" staticModelDerivationId="1"/>
+         </mif:nonTraversableConnection>
+      </mif:connections>
+   </association>
+   <association sortKey="10">
+      
+      <mif:connections>
+         <mif:traversableConnection conformance="R" isMandatory="false" maximumMultiplicity="1" minimumMultiplicity="1" name="recipient" participantClassName="Recipient" sortKey="BZ">
+            <derivedFrom associationEndName="role" className="Participation" staticModelDerivationId="1"/>
+            <participantClassSpecialization className="R_AssignedPersonIdentified-confirmable" traversalName="assignedEntity"/>
+            <participantClassSpecialization className="R_ServiceDeliveryLocationMinimal" traversalName="serviceDeliveryLocation"/>
+         </mif:traversableConnection>
+         <mif:nonTraversableConnection participantClassName="Receiver">
+            <derivedFrom associationEndName="participation" className="Role" staticModelDerivationId="1"/>
+         </mif:nonTraversableConnection>
+      </mif:connections>
+   </association>
+   <association sortKey="23">
+      
+      <mif:connections>
+         <mif:traversableConnection conformance="R" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="subjectChoice" participantClassName="SubjectChoice" sortKey="BZ">
+            <derivedFrom associationEndName="role" className="Participation" staticModelDerivationId="1"/>
+            <participantClassSpecialization className="R_PatientPersonIdentified-confirmable" traversalName="patient1"/>
+            <participantClassSpecialization className="R_ActingPersonIdentified-confirmable" traversalName="actingPerson">
+                                 <specialization className="AssignedEntity" traversalName="assignedEntity1"/>
+                                 <specialization className="AssignedEntity" traversalName="assignedEntity2"/>
+                                 <specialization className="PersonalRelationship" traversalName="personalRelationship"/>
+                              </participantClassSpecialization>
+         </mif:traversableConnection>
+         <mif:nonTraversableConnection participantClassName="Subject">
+            <derivedFrom associationEndName="participation" className="Role" staticModelDerivationId="1"/>
+         </mif:nonTraversableConnection>
+      </mif:connections>
+   </association>
+   <association sortKey="18">
+      
+      <mif:connections>
+         <mif:traversableConnection conformance="R" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="informDefinition" participantClassName="InformDefinition" sortKey="BZ">
+            <derivedFrom associationEndName="target" className="ActRelationship" staticModelDerivationId="1"/>
+         </mif:traversableConnection>
+         <mif:nonTraversableConnection participantClassName="Subject2">
+            <derivedFrom associationEndName="inboundRelationship" className="Act" staticModelDerivationId="1"/>
+         </mif:nonTraversableConnection>
+      </mif:connections>
+   </association>
+   <association sortKey="15">
+      
+      <mif:connections>
+         <mif:traversableConnection conformance="R" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="actDefinition" participantClassName="ActDefinition" sortKey="BZ">
+            <derivedFrom associationEndName="target" className="ActRelationship" staticModelDerivationId="1"/>
+         </mif:traversableConnection>
+         <mif:nonTraversableConnection participantClassName="Subject3">
+            <derivedFrom associationEndName="inboundRelationship" className="Act" staticModelDerivationId="1"/>
+         </mif:nonTraversableConnection>
+      </mif:connections>
+   </association>
+</mif:staticModel>

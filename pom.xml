@@ -299,24 +299,17 @@
 			        <configuration>
 			          <finalName>message-builder</finalName>
 			          <outputDirectory>target/assembly-directory</outputDirectory>
-					    <descriptorRefs>
-					        <descriptorRef>project</descriptorRef>
-					    </descriptorRefs>
 			        </configuration>
 		      </plugin>
 
 			<plugin>
 				<artifactId>maven-source-plugin</artifactId>
-				<configuration>
-					<includePom>true</includePom>
-				</configuration>
 				<executions>
 					<execution>
 						<id>attach-sources</id>
 						<goals>
 							<goal>jar</goal>
 						</goals>
-		            	<phase>package</phase>
 					</execution>
 				</executions>
 			</plugin>
@@ -333,23 +326,6 @@
 				<artifactId>maven-eclipse-plugin</artifactId>
 				<version>2.5.1</version>
 			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-javadoc-plugin</artifactId>
-				<version>2.7</version>
-				<inherited>false</inherited>
-		        <executions>
-		          <execution>
-		            <goals>
-		              <goal>aggregate-jar</goal>
-		            </goals>
-		            <phase>package</phase>
-		            <configuration>
-		            	<excludePackageNames>ca.infoway.messagebuilder.model:ca.infoway.messagebuilder.junit:ca.infoway.messagebuilder.acceptance:ca.infoway.messagebuilder.messageset:ca.infoway.messagebuilder.marker</excludePackageNames>
-		            </configuration>
-		          </execution>
-		        </executions>
- 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-release-plugin</artifactId>

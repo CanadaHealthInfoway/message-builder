@@ -1,0 +1,551 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mif:staticModel xmlns:mif="urn:hl7-org:v3/mif2" conformanceLevel="RealmExtension"
+                 schemaVersion="2.1.3"
+                 packageKind="realmNamespace"
+                 representationKind="flat"
+                 isAbstract="false"
+                 title="Laboratory Result Provider Location Query Request"
+                 isSerializable="true"
+                 name="CA">
+   <mif:packageLocation realmNamespace="CA" artifact="MT" root="DEFN" section="HM" subSection="PO"
+                        domain="LB"
+                        id="320000"/>
+   <mif:header>
+      <mif:renderingInformation application="Visio to MIF transform"/>
+      <mif:legalese copyrightOwner="Health Level Seven" copyrightYears="2009"/>
+   </mif:header>
+   <mif:graphicRepresentation presentation="HL7">
+      <mif:graphElement name="Main">
+         <mif:position x="0.0" y="0.0"/>
+         <mif:size width="9.500" height="6.000"/>
+      </mif:graphElement>
+      <mif:entryPoint semanticLinkId="71EF7763-5C39-45B1-69F5-78FF0BC45292">
+         <mif:graphElement shapeId="Sheet.5">
+            <mif:position x="3.142" y="0.152"/>
+            <mif:size width="3.518" height="0.853"/>
+            <mif:anchorage connectToShapeId="Sheet.5">
+               <mif:position x="4.729" y="1.005"/>
+               <mif:graphEdge>
+                  <mif:anchor connectToShapeId="Sheet.1">
+                     <mif:position x="5.073" y="1.555"/>
+                  </mif:anchor>
+               </mif:graphEdge>
+            </mif:anchorage>
+         </mif:graphElement>
+      </mif:entryPoint>
+      <mif:class semanticLinkId="D309E77E-0A15-03D4-B94B-7B0CEB0CBA3C" presentation="HL7">
+         <mif:graphElement shapeId="Sheet.168" shapeTemplate="OtherClass" isWidthAutoSize="true"
+                           isHeightAutoSize="true">
+            <mif:position x="0.300" y="2.800"/>
+            <mif:size width="3.029" height="0.750"/>
+         </mif:graphElement>
+      </mif:class>
+      <mif:class semanticLinkId="276BE34C-1AC2-D4C1-9233-B970CC063417" presentation="HL7">
+         <mif:graphElement shapeId="Sheet.284" shapeTemplate="OtherClass" isWidthAutoSize="true"
+                           isHeightAutoSize="true">
+            <mif:position x="6.731" y="4.000"/>
+            <mif:size width="2.528" height="0.750"/>
+         </mif:graphElement>
+      </mif:class>
+      <mif:class semanticLinkId="C7D7B607-8126-3D61-9EF7-8C08325C3AF5" presentation="HL7">
+         <mif:graphElement shapeId="Sheet.16" shapeTemplate="OtherClass" isWidthAutoSize="true"
+                           isHeightAutoSize="true">
+            <mif:position x="0.300" y="4.000"/>
+            <mif:size width="1.998" height="0.750"/>
+         </mif:graphElement>
+      </mif:class>
+      <mif:class semanticLinkId="FDDA1688-1D1E-48F8-ED73-06EB8ADF85C8" presentation="HL7">
+         <mif:graphElement shapeId="Sheet.298" shapeTemplate="OtherClass" isWidthAutoSize="true"
+                           isHeightAutoSize="true">
+            <mif:position x="0.300" y="5.150"/>
+            <mif:size width="2.677" height="0.750"/>
+         </mif:graphElement>
+      </mif:class>
+      <mif:class semanticLinkId="5B9F8D7D-8DE9-DAAC-502C-8017EF1BBD06" presentation="HL7">
+         <mif:graphElement shapeId="Sheet.86" shapeTemplate="OtherClass" isWidthAutoSize="true"
+                           isHeightAutoSize="true">
+            <mif:position x="0.300" y="1.555"/>
+            <mif:size width="2.486" height="0.750"/>
+         </mif:graphElement>
+      </mif:class>
+      <mif:class semanticLinkId="7DDA81A3-B88E-D0BF-723A-B46674BE368D" presentation="HL7">
+         <mif:graphElement shapeId="Sheet.1" shapeTemplate="OtherClass" isWidthAutoSize="true"
+                           isHeightAutoSize="true">
+            <mif:position x="4.448" y="1.555"/>
+            <mif:size width="1.250" height="0.750"/>
+         </mif:graphElement>
+      </mif:class>
+      <mif:class semanticLinkId="324D13A1-5E86-00B2-5F0B-BE5B0419F2CD" presentation="HL7">
+         <mif:graphElement shapeId="Sheet.20" shapeTemplate="OtherClass" isWidthAutoSize="true"
+                           isHeightAutoSize="true">
+            <mif:position x="6.798" y="2.800"/>
+            <mif:size width="2.461" height="0.750"/>
+         </mif:graphElement>
+      </mif:class>
+      <mif:association semanticLinkId="DEBA6F90-1F31-9BA0-03BA-08B3CEBC201B">
+         <mif:graphElement connectToShapeId="Sheet.1" shapeId="Sheet.264">
+            <mif:position x="4.448" y="2.305"/>
+            <mif:graphEdge>
+               <mif:waypoint x="4.448" y="2.392"/>
+               <mif:waypoint x="4.448" y="3.175"/>
+               <mif:anchor connectToShapeId="Sheet.168">
+                  <mif:position x="3.329" y="3.175"/>
+               </mif:anchor>
+            </mif:graphEdge>
+         </mif:graphElement>
+      </mif:association>
+      <mif:association semanticLinkId="30E3F963-EEDE-4CB3-C0F8-288F01FEFF6E">
+         <mif:graphElement connectToShapeId="Sheet.1" shapeId="Sheet.288">
+            <mif:position x="5.385" y="2.305"/>
+            <mif:graphEdge>
+               <mif:waypoint x="5.385" y="2.512"/>
+               <mif:waypoint x="5.385" y="4.375"/>
+               <mif:anchor connectToShapeId="Sheet.284">
+                  <mif:position x="6.731" y="4.375"/>
+               </mif:anchor>
+            </mif:graphEdge>
+         </mif:graphElement>
+      </mif:association>
+      <mif:association semanticLinkId="844C0404-8496-DF74-85B5-45D4BBE26845">
+         <mif:graphElement connectToShapeId="Sheet.1" shapeId="Sheet.274">
+            <mif:position x="4.760" y="2.305"/>
+            <mif:graphEdge>
+               <mif:waypoint x="4.760" y="2.512"/>
+               <mif:waypoint x="4.760" y="4.375"/>
+               <mif:anchor connectToShapeId="Sheet.16">
+                  <mif:position x="2.298" y="4.375"/>
+               </mif:anchor>
+            </mif:graphEdge>
+         </mif:graphElement>
+      </mif:association>
+      <mif:association semanticLinkId="80F4CA38-D19E-182B-35F0-9540F8D78730">
+         <mif:graphElement connectToShapeId="Sheet.1" shapeId="Sheet.302">
+            <mif:position x="5.073" y="2.305"/>
+            <mif:graphEdge>
+               <mif:waypoint x="5.073" y="2.627"/>
+               <mif:waypoint x="5.073" y="5.525"/>
+               <mif:anchor connectToShapeId="Sheet.298">
+                  <mif:position x="2.977" y="5.525"/>
+               </mif:anchor>
+            </mif:graphEdge>
+         </mif:graphElement>
+      </mif:association>
+      <mif:association semanticLinkId="AC00AD22-FE30-036A-2E01-CF7B7152A7FE">
+         <mif:graphElement connectToShapeId="Sheet.1" shapeId="Sheet.254">
+            <mif:position x="4.448" y="1.930"/>
+            <mif:graphEdge>
+               <mif:waypoint x="3.617" y="1.930"/>
+               <mif:anchor connectToShapeId="Sheet.86">
+                  <mif:position x="2.786" y="1.930"/>
+               </mif:anchor>
+            </mif:graphEdge>
+         </mif:graphElement>
+      </mif:association>
+      <mif:association semanticLinkId="06A31BD6-AEB4-B8C4-B399-E4F8AA2B75D5">
+         <mif:graphElement connectToShapeId="Sheet.1" shapeId="Sheet.24">
+            <mif:position x="5.698" y="2.305"/>
+            <mif:graphEdge>
+               <mif:waypoint x="5.698" y="2.392"/>
+               <mif:waypoint x="5.698" y="3.175"/>
+               <mif:anchor connectToShapeId="Sheet.20">
+                  <mif:position x="6.798" y="3.175"/>
+               </mif:anchor>
+            </mif:graphEdge>
+         </mif:graphElement>
+      </mif:association>
+   </mif:graphicRepresentation>
+   <mif:derivedFrom staticModelDerivationId="1">
+      <mif:targetStaticModel artifact="RIM" root="DEFN" version="0221"/>
+   </mif:derivedFrom>
+   <mif:importedDatatypeModelPackage realmNamespace="UV" artifact="DT" root="DEFN" version="1.0"/>
+   <mif:importedVocabularyModelPackage root="DEFN" artifact="VO" realmNamespace="UV" version="586-20081030"/>
+   <mif:importedCommonModelElementPackage realmNamespace="UV" artifact="IFC" root="DEFN" version="1.8.3"/>
+   <mif:entryPoint graphicLinkId="71EF7763-5C39-45B1-69F5-78FF0BC45292" id="POLB_MT320000CA"
+                   name="Laboratory Result Provider Location Query Request"
+                   className="ParameterList">
+      <mif:annotations>
+         <mif:documentation>
+            <mif:description>
+               <mif:text>
+                  <html:p xmlns:html="http://www.w3.org/1999/xhtml">Entry point for the Lab Result Detail Query Request message containing the parameters and other relevant query information necessary to query a lab result repository for detailed lab results by patient.</html:p>
+               </mif:text>
+            </mif:description>
+         </mif:documentation>
+      </mif:annotations>
+   </mif:entryPoint>
+   <mif:containedClass>
+      <mif:class graphicLinkId="D309E77E-0A15-03D4-B94B-7B0CEB0CBA3C"
+                 name="AssignedPatientLocation"
+                 isAbstract="false">
+         <mif:businessName name="Assigned Patient Location Type Parameter"/>
+         <mif:derivedFrom staticModelDerivationId="1" className="ParameterItem"/>
+         <mif:annotations>
+            <mif:documentation>
+               <mif:definition>
+                  <mif:text>
+                     <html:p xmlns:html="http://www.w3.org/1999/xhtml">Filters the set of records to be retrieved to those patients seen at a particular location type e.g. nursing home, nurse station, clinic department, etc.</html:p>
+                  </mif:text>
+               </mif:definition>
+               <mif:rationale>
+                  <mif:text>
+                     <html:p xmlns:html="http://www.w3.org/1999/xhtml">Allows constraining the retrieved records to those patients seen at a location type (nursing station, clinic department, etc).</html:p>
+                  </mif:text>
+               </mif:rationale>
+            </mif:documentation>
+         </mif:annotations>
+         <mif:attribute name="value" sortKey="1" minimumMultiplicity="1" maximumMultiplicity="1"
+                        conformance="R"
+                        isMandatory="true"
+                        isImmutable="false">
+            <mif:businessName name="Assigned Patient Location Type"/>
+            <mif:annotations>
+               <mif:documentation>
+                  <mif:definition>
+                     <mif:text>
+                        <html:p xmlns:html="http://www.w3.org/1999/xhtml">Filters the set of records to be retrieved to those patients seen at a particular location type e.g. nursing home, nurse station, clinic department, etc.</html:p>
+                     </mif:text>
+                  </mif:definition>
+                  <mif:rationale>
+                     <mif:text>
+                        <html:p xmlns:html="http://www.w3.org/1999/xhtml">Allows constraining the retrieved records to those patients seen at a location type (nursing station, clinic department, etc).</html:p>
+                     </mif:text>
+                  </mif:rationale>
+               </mif:documentation>
+            </mif:annotations>
+            <mif:derivedFrom staticModelDerivationId="1" className="ParameterItem" attributeName="value"/>
+            <mif:type name="CV"/>
+            <mif:vocabulary>
+               <mif:conceptDomain name="ServiceDeliveryLocationRoleType"/>
+            </mif:vocabulary>
+         </mif:attribute>
+      </mif:class>
+   </mif:containedClass>
+   <mif:containedClass>
+      <mif:class graphicLinkId="276BE34C-1AC2-D4C1-9233-B970CC063417"
+                 name="IncludeHistoryIndicator"
+                 isAbstract="false">
+         <mif:businessName name="Include History Indicator Parameter"/>
+         <mif:derivedFrom staticModelDerivationId="1" className="ParameterItem"/>
+         <mif:annotations>
+            <mif:documentation>
+               <mif:definition>
+                  <mif:text>
+                     <html:p xmlns:html="http://www.w3.org/1999/xhtml">Indicates whether or not to include historical records (each change to a record, revisions, state changes, each trigger event). True=include records, the default is false.</html:p>
+                  </mif:text>
+               </mif:definition>
+               <mif:rationale>
+                  <mif:text>
+                     <html:p xmlns:html="http://www.w3.org/1999/xhtml">Historical (version) records are usable for audit, quality assurance, etc.</html:p>
+                  </mif:text>
+               </mif:rationale>
+            </mif:documentation>
+         </mif:annotations>
+         <mif:attribute name="value" sortKey="1" minimumMultiplicity="1" maximumMultiplicity="1"
+                        conformance="R"
+                        isMandatory="true"
+                        defaultValue="false"
+                        isImmutable="false">
+            <mif:businessName name="Include History Indicator"/>
+            <mif:annotations>
+               <mif:documentation>
+                  <mif:definition>
+                     <mif:text>
+                        <html:p xmlns:html="http://www.w3.org/1999/xhtml">Indicates whether or not to include historical records (each change to a record, revisions, state changes, each trigger event). True=include records, the default is false.</html:p>
+                     </mif:text>
+                  </mif:definition>
+                  <mif:rationale>
+                     <mif:text>
+                        <html:p xmlns:html="http://www.w3.org/1999/xhtml">Historical (version) records are usable for audit, quality assurance, etc.</html:p>
+                     </mif:text>
+                  </mif:rationale>
+               </mif:documentation>
+            </mif:annotations>
+            <mif:derivedFrom staticModelDerivationId="1" className="ParameterItem" attributeName="value"/>
+            <mif:type name="BL"/>
+         </mif:attribute>
+      </mif:class>
+   </mif:containedClass>
+   <mif:containedClass>
+      <mif:class graphicLinkId="C7D7B607-8126-3D61-9EF7-8C08325C3AF5"
+                 name="JLISReceivedDateTime"
+                 isAbstract="false">
+         <mif:businessName name="JLIS Received Date Time Range Parameter"/>
+         <mif:derivedFrom staticModelDerivationId="1" className="ParameterItem"/>
+         <mif:annotations>
+            <mif:documentation>
+               <mif:definition>
+                  <mif:text>
+                     <html:p xmlns:html="http://www.w3.org/1999/xhtml">Filters the set of records to be retrieved to those which the JLIS received date/time within the time boundaries specified. Either the lower bound or upper bound or both would be specified. If no value is specified, no filter will be applied. If there is any overlap between the specified time-range and the JLIS received date/time, the record will be returned.</html:p>
+                  </mif:text>
+               </mif:definition>
+               <mif:rationale>
+                  <mif:text>
+                     <html:p xmlns:html="http://www.w3.org/1999/xhtml">Allows constraining the retrieved records to those applicable at a particular time.</html:p>
+                  </mif:text>
+               </mif:rationale>
+            </mif:documentation>
+         </mif:annotations>
+         <mif:attribute name="value" sortKey="1" minimumMultiplicity="1" maximumMultiplicity="1"
+                        conformance="R"
+                        isMandatory="true"
+                        isImmutable="false">
+            <mif:businessName name="JLIS Received Effective Time Range"/>
+            <mif:annotations>
+               <mif:documentation>
+                  <mif:definition>
+                     <mif:text>
+                        <html:p xmlns:html="http://www.w3.org/1999/xhtml">Filters the set of records to be retrieved to those which the JLIS received date/time within the time boundaries specified. Either the lower bound or upper bound or both would be specified. If no value is specified, no filter will be applied. If there is any overlap between the specified time-range and the JLIS received date/time, the record will be returned.</html:p>
+                     </mif:text>
+                  </mif:definition>
+                  <mif:rationale>
+                     <mif:text>
+                        <html:p xmlns:html="http://www.w3.org/1999/xhtml">Allows constraining the retrieved records to those applicable at a particular time.</html:p>
+                     </mif:text>
+                  </mif:rationale>
+               </mif:documentation>
+            </mif:annotations>
+            <mif:derivedFrom staticModelDerivationId="1" className="ParameterItem" attributeName="value"/>
+            <mif:type name="IVL">
+               <mif:argumentDatatype name="TS.DATETIME"/>
+            </mif:type>
+         </mif:attribute>
+      </mif:class>
+   </mif:containedClass>
+   <mif:containedClass>
+      <mif:class graphicLinkId="FDDA1688-1D1E-48F8-ED73-06EB8ADF85C8"
+                 name="ObservationAvailabilityDateTimeRange"
+                 isAbstract="false">
+         <mif:businessName name="Observation Availability Time Range Parameter"/>
+         <mif:derivedFrom staticModelDerivationId="1" className="ParameterItem"/>
+         <mif:annotations>
+            <mif:documentation>
+               <mif:definition>
+                  <mif:text>
+                     <html:p xmlns:html="http://www.w3.org/1999/xhtml">Filters the set of records to be retrieved to those which the observation availability date/time for the patient within the time boundaries specified. Either the lower bound or upper bound or both would be specified. If no value is specified, no filter will be applied. If there is any overlap between the specified time-range and the order entry date/time, the record will be returned.</html:p>
+                  </mif:text>
+               </mif:definition>
+               <mif:rationale>
+                  <mif:text>
+                     <html:p xmlns:html="http://www.w3.org/1999/xhtml">Allows constraining the retrieved records to those applicable at a particular time.</html:p>
+                  </mif:text>
+               </mif:rationale>
+            </mif:documentation>
+         </mif:annotations>
+         <mif:attribute name="value" sortKey="1" minimumMultiplicity="1" maximumMultiplicity="1"
+                        conformance="R"
+                        isMandatory="true"
+                        isImmutable="false">
+            <mif:businessName name="Observation Availability Time Range"/>
+            <mif:annotations>
+               <mif:documentation>
+                  <mif:definition>
+                     <mif:text>
+                        <html:p xmlns:html="http://www.w3.org/1999/xhtml">Filters the set of records to be retrieved to those which the observation availability date/time for the patient within the time boundaries specified. Either the lower bound or upper bound or both would be specified. If no value is specified, no filter will be applied. If there is any overlap between the specified time-range and the order entry date/time, the record will be returned.</html:p>
+                     </mif:text>
+                  </mif:definition>
+                  <mif:rationale>
+                     <mif:text>
+                        <html:p xmlns:html="http://www.w3.org/1999/xhtml">Allows constraining the retrieved records to those applicable at a particular time.</html:p>
+                     </mif:text>
+                  </mif:rationale>
+               </mif:documentation>
+            </mif:annotations>
+            <mif:derivedFrom staticModelDerivationId="1" className="ParameterItem" attributeName="value"/>
+            <mif:type name="IVL">
+               <mif:argumentDatatype name="TS.DATETIME"/>
+            </mif:type>
+         </mif:attribute>
+      </mif:class>
+   </mif:containedClass>
+   <mif:containedClass>
+      <mif:class graphicLinkId="5B9F8D7D-8DE9-DAAC-502C-8017EF1BBD06" name="OrderingProvider"
+                 isAbstract="false">
+         <mif:businessName name="Ordering Provider Identifier Parameter"/>
+         <mif:derivedFrom staticModelDerivationId="1" className="ParameterItem"/>
+         <mif:annotations>
+            <mif:documentation>
+               <mif:definition>
+                  <mif:text>
+                     <html:p xmlns:html="http://www.w3.org/1999/xhtml">Filters the set of records to be retrieved to those ordered by a specific provider.</html:p>
+                  </mif:text>
+               </mif:definition>
+               <mif:rationale>
+                  <mif:text>
+                     <html:p xmlns:html="http://www.w3.org/1999/xhtml">Allows constraining the retrieved records to those applicable for a particular provider.</html:p>
+                  </mif:text>
+               </mif:rationale>
+            </mif:documentation>
+         </mif:annotations>
+         <mif:attribute name="value" sortKey="1" minimumMultiplicity="1" maximumMultiplicity="1"
+                        conformance="R"
+                        isMandatory="true"
+                        isImmutable="false">
+            <mif:businessName name="Ordering Provider Identfier"/>
+            <mif:annotations>
+               <mif:documentation>
+                  <mif:definition>
+                     <mif:text>
+                        <html:p xmlns:html="http://www.w3.org/1999/xhtml">Filters the set of records to be retrieved to those ordered by a specific provider.</html:p>
+                     </mif:text>
+                  </mif:definition>
+                  <mif:rationale>
+                     <mif:text>
+                        <html:p xmlns:html="http://www.w3.org/1999/xhtml">Allows constraining the retrieved records to those applicable for a particular provider.</html:p>
+                     </mif:text>
+                  </mif:rationale>
+               </mif:documentation>
+            </mif:annotations>
+            <mif:derivedFrom staticModelDerivationId="1" className="ParameterItem" attributeName="value"/>
+            <mif:type name="II.BUS"/>
+         </mif:attribute>
+      </mif:class>
+   </mif:containedClass>
+   <mif:containedClass>
+      <mif:class graphicLinkId="7DDA81A3-B88E-D0BF-723A-B46674BE368D" name="ParameterList"
+                 isAbstract="false">
+         <mif:derivedFrom staticModelDerivationId="1" className="ParameterList"/>
+         <mif:annotations>
+            <mif:documentation>
+               <mif:definition>
+                  <mif:text>
+                     <html:p xmlns:html="http://www.w3.org/1999/xhtml">Identifies the various parameters that act as filters on the records to be retrieved.</html:p>
+                  </mif:text>
+               </mif:definition>
+               <mif:rationale>
+                  <mif:text>
+                     <html:p xmlns:html="http://www.w3.org/1999/xhtml">Allows the user and/or point-of-service application to constrain what EHR information to be retrieved.</html:p>
+                  </mif:text>
+               </mif:rationale>
+            </mif:documentation>
+         </mif:annotations>
+      </mif:class>
+   </mif:containedClass>
+   <mif:containedClass>
+      <mif:class graphicLinkId="324D13A1-5E86-00B2-5F0B-BE5B0419F2CD" name="ResultCopiesTo"
+                 isAbstract="false">
+         <mif:businessName name="Result Copies To Parameter"/>
+         <mif:derivedFrom staticModelDerivationId="1" className="ParameterItem"/>
+         <mif:annotations>
+            <mif:documentation>
+               <mif:definition>
+                  <mif:text>
+                     <html:p xmlns:html="http://www.w3.org/1999/xhtml">Filters the set of records to be retrieved to those copied to an identified party.</html:p>
+                  </mif:text>
+               </mif:definition>
+               <mif:rationale>
+                  <mif:text>
+                     <html:p xmlns:html="http://www.w3.org/1999/xhtml">Allows constraining the retrieved records to those applicable for a particular party to whom the result was copied.</html:p>
+                  </mif:text>
+               </mif:rationale>
+            </mif:documentation>
+         </mif:annotations>
+         <mif:attribute name="value" sortKey="1" minimumMultiplicity="1" maximumMultiplicity="1"
+                        conformance="R"
+                        isMandatory="true"
+                        isImmutable="false">
+            <mif:businessName name="Result Copies To Identfier"/>
+            <mif:annotations>
+               <mif:documentation>
+                  <mif:definition>
+                     <mif:text>
+                        <html:p xmlns:html="http://www.w3.org/1999/xhtml">Filters the set of records to be retrieved to those copied to an identified party.</html:p>
+                     </mif:text>
+                  </mif:definition>
+                  <mif:rationale>
+                     <mif:text>
+                        <html:p xmlns:html="http://www.w3.org/1999/xhtml">Allows constraining the retrieved records to those applicable for a particular party to whom the result was copied.</html:p>
+                     </mif:text>
+                  </mif:rationale>
+               </mif:documentation>
+            </mif:annotations>
+            <mif:derivedFrom staticModelDerivationId="1" className="ParameterItem" attributeName="value"/>
+            <mif:type name="II.BUS"/>
+         </mif:attribute>
+      </mif:class>
+   </mif:containedClass>
+   <mif:association graphicLinkId="DEBA6F90-1F31-9BA0-03BA-08B3CEBC201B" sortKey="0">
+      <mif:traversableConnection name="assignedPatientLocation" minimumMultiplicity="0" maximumMultiplicity="1"
+                                 conformance="R"
+                                 isMandatory="false"
+                                 sortKey="Z ZZ"
+                                 participantClassName="AssignedPatientLocation">
+         <mif:derivedFrom staticModelDerivationId="1" className="ParameterList"
+                          associationEndName="parameter"/>
+      </mif:traversableConnection>
+      <mif:nonTraversableConnection participantClassName="ParameterList">
+         <mif:derivedFrom staticModelDerivationId="1" className="Parameter"
+                          associationEndName="parameterList"/>
+      </mif:nonTraversableConnection>
+   </mif:association>
+   <mif:association graphicLinkId="30E3F963-EEDE-4CB3-C0F8-288F01FEFF6E" sortKey="5">
+      <mif:traversableConnection name="includeHistoryIndicator" minimumMultiplicity="0" maximumMultiplicity="1"
+                                 conformance="R"
+                                 isMandatory="false"
+                                 sortKey="Z ZZ"
+                                 participantClassName="IncludeHistoryIndicator">
+         <mif:derivedFrom staticModelDerivationId="1" className="ParameterList"
+                          associationEndName="parameter"/>
+      </mif:traversableConnection>
+      <mif:nonTraversableConnection participantClassName="ParameterList">
+         <mif:derivedFrom staticModelDerivationId="1" className="Parameter"
+                          associationEndName="parameterList"/>
+      </mif:nonTraversableConnection>
+   </mif:association>
+   <mif:association graphicLinkId="844C0404-8496-DF74-85B5-45D4BBE26845" sortKey="3">
+      <mif:traversableConnection name="jLISReceivedDateTime" minimumMultiplicity="0" maximumMultiplicity="1"
+                                 conformance="R"
+                                 isMandatory="false"
+                                 sortKey="Z ZZ"
+                                 participantClassName="JLISReceivedDateTime">
+         <mif:derivedFrom staticModelDerivationId="1" className="ParameterList"
+                          associationEndName="parameter"/>
+      </mif:traversableConnection>
+      <mif:nonTraversableConnection participantClassName="ParameterList">
+         <mif:derivedFrom staticModelDerivationId="1" className="Parameter"
+                          associationEndName="parameterList"/>
+      </mif:nonTraversableConnection>
+   </mif:association>
+   <mif:association graphicLinkId="80F4CA38-D19E-182B-35F0-9540F8D78730" sortKey="4">
+      <mif:traversableConnection name="observationAvailabilityDateTimeRange" minimumMultiplicity="0"
+                                 maximumMultiplicity="1"
+                                 conformance="R"
+                                 isMandatory="false"
+                                 sortKey="Z ZZ"
+                                 participantClassName="ObservationAvailabilityDateTimeRange">
+         <mif:derivedFrom staticModelDerivationId="1" className="ParameterList"
+                          associationEndName="parameter"/>
+      </mif:traversableConnection>
+      <mif:nonTraversableConnection participantClassName="ParameterList">
+         <mif:derivedFrom staticModelDerivationId="1" className="Parameter"
+                          associationEndName="parameterList"/>
+      </mif:nonTraversableConnection>
+   </mif:association>
+   <mif:association graphicLinkId="AC00AD22-FE30-036A-2E01-CF7B7152A7FE" sortKey="1">
+      <mif:traversableConnection name="orderingProvider" minimumMultiplicity="0" maximumMultiplicity="1"
+                                 conformance="R"
+                                 isMandatory="false"
+                                 sortKey="Z ZZ"
+                                 participantClassName="OrderingProvider">
+         <mif:derivedFrom staticModelDerivationId="1" className="ParameterList"
+                          associationEndName="parameter"/>
+      </mif:traversableConnection>
+      <mif:nonTraversableConnection participantClassName="ParameterList">
+         <mif:derivedFrom staticModelDerivationId="1" className="Parameter"
+                          associationEndName="parameterList"/>
+      </mif:nonTraversableConnection>
+   </mif:association>
+   <mif:association graphicLinkId="06A31BD6-AEB4-B8C4-B399-E4F8AA2B75D5" sortKey="2">
+      <mif:traversableConnection name="resultCopiesTo" minimumMultiplicity="0" maximumMultiplicity="1"
+                                 conformance="R"
+                                 isMandatory="false"
+                                 sortKey="Z ZZ"
+                                 participantClassName="ResultCopiesTo">
+         <mif:derivedFrom staticModelDerivationId="1" className="ParameterList"
+                          associationEndName="parameter"/>
+      </mif:traversableConnection>
+      <mif:nonTraversableConnection participantClassName="ParameterList">
+         <mif:derivedFrom staticModelDerivationId="1" className="Parameter"
+                          associationEndName="parameterList"/>
+      </mif:nonTraversableConnection>
+   </mif:association>
+</mif:staticModel>

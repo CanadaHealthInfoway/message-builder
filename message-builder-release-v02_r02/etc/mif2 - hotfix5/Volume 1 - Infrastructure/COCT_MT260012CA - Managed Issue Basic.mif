@@ -1,0 +1,688 @@
+<?xml version="1.0" encoding="UTF-8"?><mif:staticModel xmlns:mif="urn:hl7-org:v3/mif" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:hl7-org:v3/mif" isAbstract="false" isSerializable="true" name="CA" packageKind="realmNamespace" representationKind="flat" schemaVersion="2.0" xsi:schemaLocation="">
+   <mif:packageLocation artifact="MT-deprecated" domain="CT" id="260012" realmNamespace="CA" root="DEFN" section="IM" subSection="CO"/>
+   <mif:header>
+      <mif:renderingInformation application="Visio to MIF transform"/>
+      <mif:legalese copyrightOwner="Health Level Seven" copyrightYears="2008"/>
+   </mif:header>
+   <mif:graphicRepresentation presentation="HL7">
+      <mif:graphElement name="Main">
+         <mif:position x="0" y="0"/>
+         <mif:size height="294" width="935"/>
+      </mif:graphElement>
+   <entryPoint name="Managed Issue Basic"><mif:graphElement containerDiagramName="Main" shapeId="Sheet.17">
+            <mif:position x="2" y="95"/>
+            <mif:size height="43" width="142"/>
+            <mif:anchorage connectToShapeId="Sheet.17">
+               <mif:position x="145" y="206"/>
+               <mif:graphEdge>
+                  <mif:anchor connectToShapeId="Sheet.1">
+                     <mif:position x="208" y="191"/>
+                  </mif:anchor>
+               </mif:graphEdge>
+            </mif:anchorage>
+         </mif:graphElement></entryPoint><class className="Author1" presentation="HL7"><mif:graphElement containerDiagramName="Main" nodeOrientation="Right" shapeId="Sheet.106" shapeTemplate="Participation" textWrappingWidth="66.0">
+               <mif:position x="513" y="34"/>
+               <mif:size height="41" width="291"/>
+            </mif:graphElement></class><class className="DetectedIssueEvent" presentation="HL7"><mif:graphElement containerDiagramName="Main" isHeightAutoSize="true" isWidthAutoSize="true" shapeId="Sheet.1" shapeTemplate="Act">
+               <mif:position x="208" y="180"/>
+               <mif:size height="113" width="309"/>
+            </mif:graphElement></class><class className="DetectedIssueManagement" presentation="HL7"><mif:graphElement containerDiagramName="Main" isHeightAutoSize="true" isWidthAutoSize="true" shapeId="Sheet.96" shapeTemplate="Act">
+               <mif:position x="220" y="3"/>
+               <mif:size height="100" width="293"/>
+            </mif:graphElement></class><class className="Mitigates" presentation="HL7"><mif:graphElement containerDiagramName="Main" nodeOrientation="Down" shapeId="Sheet.194" shapeTemplate="ActRelationship" textWrappingWidth="66.0">
+               <mif:position x="257" y="104"/>
+               <mif:size height="75" width="215"/>
+            </mif:graphElement></class><class className="R_AssignedPersonIdentified-confirmable" presentation="HL7"><mif:graphElement containerDiagramName="Main" isHeightAutoSize="true" isWidthAutoSize="true" shapeId="Sheet.166" shapeTemplate="CMET">
+               <mif:position x="805" y="26"/>
+               <mif:size height="60" width="129"/>
+            </mif:graphElement></class><association className="R_AssignedPersonIdentified-confirmable" relationshipName="assignedEntity"><mif:graphElement connectToShapeId="Sheet.106" containerDiagramName="Main">
+                                                         <mif:position x="805" y="57"/>
+                                                         <mif:graphEdge>
+                                                            <mif:anchor connectToShapeId="Sheet.166">
+                                                               <mif:position x="805" y="57"/>
+                                                            </mif:anchor>
+                                                         </mif:graphEdge>
+                                                      </mif:graphElement></association><association className="Mitigates" relationshipName="mitigatedBy"><mif:graphElement connectToShapeId="Sheet.1" containerDiagramName="Main">
+                     <mif:position x="363" y="180"/>
+                     <mif:graphEdge>
+                        <mif:anchor connectToShapeId="Sheet.194">
+                           <mif:position x="363" y="180"/>
+                        </mif:anchor>
+                     </mif:graphEdge>
+                  </mif:graphElement></association><association className="Author1" relationshipName="author"><mif:graphElement connectToShapeId="Sheet.96" containerDiagramName="Main">
+                                             <mif:position x="513" y="54"/>
+                                             <mif:graphEdge>
+                                                <mif:anchor connectToShapeId="Sheet.106">
+                                                   <mif:position x="513" y="54"/>
+                                                </mif:anchor>
+                                             </mif:graphEdge>
+                                          </mif:graphElement></association><association className="DetectedIssueManagement" relationshipName="detectedIssueManagement"><mif:graphElement connectToShapeId="Sheet.194" containerDiagramName="Main">
+                                 <mif:position x="366" y="104"/>
+                                 <mif:graphEdge>
+                                    <mif:anchor connectToShapeId="Sheet.96">
+                                       <mif:position x="366" y="104"/>
+                                    </mif:anchor>
+                                 </mif:graphEdge>
+                              </mif:graphElement></association></mif:graphicRepresentation>
+   <derivedFrom staticModelDerivationId="1">
+      <mif:targetStaticModel artifact="RIM" root="DEFN" version="00"/>
+   </derivedFrom>
+   <entryPoint className="DetectedIssueEvent" id="COCT_MT260012CA" isAbstract="false" name="Managed Issue Basic">
+      
+   </entryPoint>
+   <containedClass>
+      <mif:class isAbstract="false" name="Author1">
+         <mif:businessName name="*managed by"><realmNamespace value="UV"/></mif:businessName>
+         <derivedFrom className="Participation" staticModelDerivationId="1"/>
+         
+         <mif:annotations>
+            
+            
+            
+            
+            
+         <documentation><mif:definition>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>Identifies the provider who managed the issue.</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:definition><mif:rationale>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>Part of the audit record and therefore mandatory.</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:rationale></documentation><appInfo><mif:mapping sourceName="PIN">
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>OverrideReason.provider</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:mapping><mif:mapping sourceName="PIN">
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>ManagedContraindication.provider</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:mapping><mif:mapping sourceName="NeCST">
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>A_DetectedMedicationIssue</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:mapping></appInfo></mif:annotations>
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="typeCode" sortKey="1"><enumerationValues>AUT</enumerationValues>
+            <derivedFrom attributeName="typeCode" className="Participation" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="AUT" codeSystemName="ParticipationType"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="false" maximumMultiplicity="1" minimumMultiplicity="1" name="time" sortKey="2">
+            <mif:businessName name="B:Management Date"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>The date and time on which the provider managed the issue.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Part of the audit record, but not always available and therefore 'populated'.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation><appInfo><mif:mapping sourceName="PIN">
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>ManagedContraindication.CreationDate</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:mapping></appInfo></mif:annotations>
+            <derivedFrom attributeName="time" className="Participation" staticModelDerivationId="1"/>
+            <mif:type name="TS.FULLDATETIME"/>
+         </mif:attribute>
+      </mif:class>
+   </containedClass>
+   <containedClass>
+      <mif:class isAbstract="false" name="DetectedIssueEvent">
+         <mif:businessName name="Issues"><realmNamespace value="UV"/></mif:businessName>
+         <derivedFrom className="Observation" staticModelDerivationId="1"/>
+         
+         <mif:annotations>
+            
+            
+         <documentation><mif:definition>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>This is the list of clinical and business issues that have been detected and recorded involving the current action.</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:definition><mif:rationale>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>Provides a list of issues that have been detected and/or managed.</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:rationale></documentation></mif:annotations>
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="classCode" sortKey="1"><enumerationValues>ALRT</enumerationValues>
+            <derivedFrom attributeName="classCode" className="Observation" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="ALRT" codeSystemName="ActClass"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="moodCode" sortKey="2"><enumerationValues>EVN</enumerationValues>
+            <derivedFrom attributeName="moodCode" className="Observation" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="EVN" codeSystemName="ActMood"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="code" sortKey="3">
+            <mif:businessName name="A:Issue Type"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>A coded value that is used to distinguish between different kinds of issues. Types of issue include: unrecognized identifiers, permission issues, drug-drug contraindications, drug-allergy alerts, duplicate therapies, etc.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Identifies what kind of issue was detected or is being managed.</xhtml:p>
+                     </xhtml:p>
+                     <xhtml:p>
+                        <xhtml:p>This is mandatory so as to ensure that one issue type can be distinguished from another.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation><appInfo><mif:mapping sourceName="PIN">
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Contraindication.crossSensitive (if code is related reaction dected issue then crossSensitive is 'True')</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:mapping><mif:mapping sourceName="PIN">
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Distinguishes between DAI, DDI, DosageCheck, DPD, and Duplicate Therapy Contraindications</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:mapping><mif:mapping sourceName="PIN">
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Contraindication.DosageContraType</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:mapping><mif:mapping sourceName="PIN">
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>OverrideReason.reasonDomain</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:mapping><mif:mapping sourceName="BC">
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>ZP3.3</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:mapping><mif:mapping sourceName="CPhAv3">
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>E06(for contraindications errors are handled at transmission or controlAct wrapper level)</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:mapping><mif:mapping sourceName="MB">
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>05.03D</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:mapping><mif:mapping sourceName="PEI">
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>DUR Response Codes</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:mapping><mif:mapping sourceName="PEI">
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Interaction Type</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:mapping><mif:mapping sourceName="PECS">
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>ZPS.7.1</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:mapping><mif:mapping sourceName="PECS">
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>ZDU.9.1(PLYPHRM)</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:mapping><mif:mapping sourceName="PECS">
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>ZDU.10.1 (PLYDOC)</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:mapping><mif:mapping sourceName="PECS">
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>ZDU.6.2</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:mapping><mif:mapping sourceName="PECS">
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>ZDU.6.4</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:mapping><mif:mapping sourceName="PECS">
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>ZDU.7.3</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:mapping><mif:mapping sourceName="eScript">
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>DRU.100-01</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:mapping><mif:mapping sourceName="NCPDP">
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>DUR/PPS.439-E4</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:mapping><mif:mapping sourceName="NeCST">
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>A_DetectedMedicationIssue</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:mapping></appInfo></mif:annotations>
+            <derivedFrom attributeName="code" className="Observation" staticModelDerivationId="1"/>
+            <mif:type name="CV"/>
+            <supplierVocabulary codingStrength="CNE"><vocabularyDomain name="ActDetectedIssueCode"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="false" maximumLength="2000" maximumMultiplicity="1" minimumMultiplicity="0" name="text" sortKey="4">
+            <mif:businessName name="D:Issue Details"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+               
+               
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>A free form textual description of a detected issue. This textual information is provided to either augment the coded information or in place of the coded information.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Lets providers see textual explanation of the issue.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation><appInfo><mif:mapping sourceName="PIN">
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Contraindication.DDIDescription</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:mapping><mif:mapping sourceName="CPhAv3">
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>E20(for contraindication errors are handled at transmission or controlact wrapper level)</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:mapping><mif:mapping sourceName="BC">
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>ZPE.4</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:mapping><mif:mapping sourceName="PECS">
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>ZDU.11.1</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:mapping></appInfo></mif:annotations>
+            <derivedFrom attributeName="text" className="Observation" staticModelDerivationId="1"/>
+            <mif:type name="ST"/>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="statusCode" sortKey="5"><enumerationValues>completed</enumerationValues>
+            <derivedFrom attributeName="statusCode" className="Observation" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="completed" codeSystemName="ActStatus"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="priorityCode" sortKey="6">
+            <mif:businessName name="C:Issue Priority"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>A coded value denoting the importance of a detectable issue. Valid codes are: I - for Information, E - for Error, and W - for Warning.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Allows the provider to make informed decision on the importance and criticality of an issue. May also be used by the DIS to determine the order of returning issues. Attribute is mandatory because every issue needs to be prioritized.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation></mif:annotations>
+            <derivedFrom attributeName="priorityCode" className="Observation" staticModelDerivationId="1"/>
+            <mif:type name="CV"/>
+            <supplierVocabulary codingStrength="CNE"><vocabularyDomain name="ActIssuePriority"/></supplierVocabulary>
+         </mif:attribute>
+      </mif:class>
+   </containedClass>
+   <containedClass>
+      <mif:class isAbstract="false" name="DetectedIssueManagement">
+         <mif:businessName name="Issue Managements"><realmNamespace value="UV"/></mif:businessName>
+         <derivedFrom className="Act" staticModelDerivationId="1"/>
+         
+         <mif:annotations>
+            
+            
+            
+         <documentation><mif:definition>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>The processes and procedures employed by providers to resolve clinical and business issues between the action being performed and additional information already in the patient's record or system business rules.</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:definition><mif:rationale>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>It allows overriding of the detected issue</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:rationale></documentation><appInfo><mif:mapping sourceName="NeCST">
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>A_DetectedMedicationIssue</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:mapping></appInfo></mif:annotations>
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="classCode" sortKey="1"><enumerationValues>ACT</enumerationValues>
+            <derivedFrom attributeName="classCode" className="Act" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="ACT" codeSystemName="ActClass"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="moodCode" sortKey="2"><enumerationValues>EVN</enumerationValues>
+            <derivedFrom attributeName="moodCode" className="Act" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="EVN" codeSystemName="ActMood"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="code" sortKey="3">
+            <mif:businessName name="A:Management Type"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Indicates the kinds of management actions that have been taken, depending on the issue type.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Ensures consistency in description of management actions.</xhtml:p>
+                     </xhtml:p>
+                     <xhtml:p>
+                        <xhtml:p>This is mandatory so as to ensure distinction between different kinds of management.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation><appInfo><mif:mapping sourceName="PIN">
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>ManagedContraindication.State</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:mapping><mif:mapping sourceName="PIN">
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>OverrideReason.reason</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:mapping><mif:mapping sourceName="CPhAv3">
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>D65(when dealing with clinical indication overrides, otherwise use overrides in ControlAct wrapper.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:mapping><mif:mapping sourceName="BC">
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>ZPB3.10</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:mapping><mif:mapping sourceName="PEI">
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Intervention Codes</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:mapping><mif:mapping sourceName="PECS">
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>ZPS.8</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:mapping><mif:mapping sourceName="PECS">
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>ZPS.15</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:mapping><mif:mapping sourceName="PECS">
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>ZDP.21.1</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:mapping><mif:mapping sourceName="eScript">
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>DRU.100-02</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:mapping><mif:mapping sourceName="eScript">
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>DRU.100-03</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:mapping><mif:mapping sourceName="NCPDP">
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>DUR/PPS.440-E6</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:mapping><mif:mapping sourceName="NCPDP">
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>DUR/PPS.441-E6</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:mapping><mif:mapping sourceName="NCPDP">
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Claim.420-DK</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:mapping><mif:mapping sourceName="NeCST">
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>A_DetectedMedicationIssue</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:mapping></appInfo></mif:annotations>
+            <derivedFrom attributeName="code" className="Act" staticModelDerivationId="1"/>
+            <mif:type name="CV"/>
+            <supplierVocabulary codingStrength="CNE"><vocabularyDomain name="ActDetectedIssueManagementCode"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="false" maximumLength="2000" maximumMultiplicity="1" minimumMultiplicity="0" name="text" sortKey="4">
+            <mif:businessName name="C:Management Description"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Additional free-text details describing the management of the issue.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Allows additional clinical detail to be conveyed that are important clinically and not conveyed by the code.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation></mif:annotations>
+            <derivedFrom attributeName="text" className="Act" staticModelDerivationId="1"/>
+            <mif:type name="ST"/>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="statusCode" sortKey="5"><enumerationValues>completed</enumerationValues>
+            <derivedFrom attributeName="statusCode" className="Act" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="completed" codeSystemName="ActStatus"/></supplierVocabulary>
+         </mif:attribute>
+      </mif:class>
+   </containedClass>
+   <containedClass>
+      <mif:class isAbstract="false" name="Mitigates">
+         <mif:businessName name="managed by"><realmNamespace value="UV"/></mif:businessName>
+         <derivedFrom className="ActRelationship" staticModelDerivationId="1"/>
+         
+         <mif:annotations>
+            
+            
+         <documentation><mif:definition>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>Indicates how the issue has been managed.</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:definition><mif:rationale>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>Allows issues to be overridden and provides for enhanced clinical communication about issues.</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:rationale></documentation></mif:annotations>
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="typeCode" sortKey="1"><enumerationValues>MITGT</enumerationValues>
+            <derivedFrom attributeName="typeCode" className="ActRelationship" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="MITGT" codeSystemName="ActRelationshipType"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="contextControlCode" sortKey="2"><enumerationValues>ON</enumerationValues>
+            <derivedFrom attributeName="contextControlCode" className="ActRelationship" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="ON" codeSystemName="ContextControl"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="contextConductionInd" sortKey="3"><enumerationValues>false</enumerationValues>
+            <derivedFrom attributeName="contextConductionInd" className="ActRelationship" staticModelDerivationId="1"/>
+            <mif:type name="BL"/>
+         </mif:attribute>
+      </mif:class>
+   </containedClass>
+   <containedClass>
+      <mif:commonModelElementRef name="R_AssignedPersonIdentified-confirmable">
+         <derivedFrom className="Role" staticModelDerivationId="1"/>
+         <supplierVocabulary><vocabularyDomain xmlns="" name="RoleClass"/></supplierVocabulary>
+         
+         <cmet name="COCT_MT090102CA"/>
+      </mif:commonModelElementRef>
+   </containedClass>
+   <association sortKey="6">
+      
+      <mif:connections>
+         <mif:traversableConnection conformance="R" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="assignedEntity" participantClassName="R_AssignedPersonIdentified-confirmable" sortKey="BZ">
+            <derivedFrom associationEndName="role" className="Participation" staticModelDerivationId="1"/>
+         </mif:traversableConnection>
+         <mif:nonTraversableConnection participantClassName="Author1">
+            <derivedFrom associationEndName="participation" className="Role" staticModelDerivationId="1"/>
+         </mif:nonTraversableConnection>
+      </mif:connections>
+   </association>
+   <association sortKey="0">
+      
+      <mif:connections>
+         <mif:traversableConnection conformance="R" isMandatory="false" maximumMultiplicity="25" minimumMultiplicity="0" name="mitigatedBy" participantClassName="Mitigates" sortKey="CCAA______">
+            <derivedFrom associationEndName="inboundRelationship" className="Act" staticModelDerivationId="1"/>
+         </mif:traversableConnection>
+         <mif:nonTraversableConnection participantClassName="DetectedIssueEvent">
+            <derivedFrom associationEndName="target" className="ActRelationship" staticModelDerivationId="1"/>
+         </mif:nonTraversableConnection>
+      </mif:connections>
+   </association>
+   <association sortKey="3">
+      
+      <mif:connections>
+         <mif:traversableConnection conformance="R" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="author" participantClassName="Author1" sortKey="AEA_______">
+            <derivedFrom associationEndName="participation" className="Act" staticModelDerivationId="1"/>
+         </mif:traversableConnection>
+         <mif:nonTraversableConnection participantClassName="DetectedIssueManagement">
+            <derivedFrom associationEndName="act" className="Participation" staticModelDerivationId="1"/>
+         </mif:nonTraversableConnection>
+      </mif:connections>
+   </association>
+   <association sortKey="1">
+      
+      <mif:connections>
+         <mif:traversableConnection conformance="R" isMandatory="false" maximumMultiplicity="1" minimumMultiplicity="1" name="detectedIssueManagement" participantClassName="DetectedIssueManagement" sortKey="AZ">
+            <derivedFrom associationEndName="source" className="ActRelationship" staticModelDerivationId="1"/>
+         </mif:traversableConnection>
+         <mif:nonTraversableConnection participantClassName="Mitigates">
+            <derivedFrom associationEndName="outboundRelationship" className="Act" staticModelDerivationId="1"/>
+         </mif:nonTraversableConnection>
+      </mif:connections>
+   </association>
+</mif:staticModel>

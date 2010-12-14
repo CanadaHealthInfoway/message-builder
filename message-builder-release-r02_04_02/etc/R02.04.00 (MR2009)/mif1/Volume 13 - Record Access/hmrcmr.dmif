@@ -1,0 +1,283 @@
+<mif:dynamicModel xmlns:mif="urn:hl7-org:v3/mif">
+   <mif:header>
+      <mif:renderingInformation schemaVersion="1" application="RoseTree 4.2.20">
+         <mif:renderingNotes>This document was rendered into XML using software provided to HL7 by Beeler Consulting LLC.
+ PubDB to MIF Transform: $RCSfile: PubDbXmlToMIF.xsl,v $ $Revision: 1.11 $ $Date: 2007/10/19 05:55:13 $
+  Fix names transform: $Id: FixMifNames.xsl,v 1.8 2007/03/20 02:48:49 wbeeler Exp $
+  HTML to MIF Markup transform: $Id: HtmlToMIFMarkup.xsl,v 1.4 2007/03/20 02:48:49 wbeeler Exp $
+  Base transform: $Id: ConvertBase.xsl,v 1.5 2007/10/19 05:55:13 wbeeler Exp $
+  Package Id Conversion: $Id: TransformPackageIds.xsl,v 1.6 2007/03/20 02:48:49 wbeeler Exp $</mif:renderingNotes>
+      </mif:renderingInformation>
+      <mif:legalese copyrightOwner="Health Level Seven, Inc." copyrightYears="2008">
+         <mif:notation>All rights reserved.</mif:notation>
+      </mif:legalese>
+   </mif:header>
+   <mif:triggerEvent name="010003" title="Consent Event Activate Request"
+                     invokingInteractionId="RCMR_IN010003CA">
+      <mif:businessName name="Request to record consent or override"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RC" domain="MR" artifact="TE" realm="CA"
+                           id="010003"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>User or system attempts to bypass a requirement for patient consent.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="010002" title="Consent Event Activate Rejection"
+                     invokingInteractionId="RCMR_IN010002CA">
+      <mif:businessName name="Decision to refuse consent or override"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RC" domain="MR" artifact="TE" realm="CA"
+                           id="010002"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>A request to bypass a requirement for patient consent has been refused (e.g. do to lack of permission).</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="010001" title="Consent Event Activate"
+                     invokingInteractionId="RCMR_IN010001CA">
+      <mif:businessName name="Consent or override recorded"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RC" domain="MR" artifact="TE" realm="CA"
+                           id="010001"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>A requirement for patient consent has been bypassed.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="010006" title="Consent Event Revise Request"
+                     invokingInteractionId="RCMR_IN010006CA">
+      <mif:businessName name="Request to update keyword"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RC" domain="MR" artifact="TE" realm="CA"
+                           id="010006"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>A user attempts to update the keyword associated with all or part of a patient record.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="010005" title="Consent Event Revise Rejection"
+                     invokingInteractionId="RCMR_IN010005CA">
+      <mif:businessName name="Decision to reject keyword update"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RC" domain="MR" artifact="TE" realm="CA"
+                           id="010005"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>A request to update the keyword associated with all or part of a patient record has been refused (e.g. no permission, incorrect prior keyword, etc.).</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="010004" title="Consent Event Revise"
+                     invokingInteractionId="RCMR_IN010004CA">
+      <mif:businessName name="Keyword updated"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RC" domain="MR" artifact="TE" realm="CA"
+                           id="010004"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>The keyword associated with all or part of a patient record has been updated.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="010007" title="Consent Event Nullify">
+      <mif:businessName name="A previously entered consent has been reversed"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RC" domain="MR" artifact="TE" realm="CA"
+                           id="010007"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>The recording of a consent has been reversed.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:hl7Interaction name="010003" title="Consent Event Activate Request">
+      <mif:businessName name="Record consent or override request"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RC" domain="MR" artifact="IN" realm="CA"
+                           id="010003"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>Requests that a consent, revocation of consent or consent override be recorded for a particular patient.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="HM" subSection="RC" domain="MR" artifact="TE" realm="CA"
+                      id="010003"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002100">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="MC"
+                                      domain="AI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="700211"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="Act" root="DEFN" section="HM" subSection="RC"
+                                         domain="MR"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="010001"
+                                         traversalName="consentEvent"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+      <mif:receiverResponsibility triggerEventName="Consent Event Activate"
+                                  interactionName="Consent Event Activate Confirmation">
+         <mif:annotations>
+            <mif:description>
+               <mif:text>
+                  <p xmlns="urn:hl7-org:v3/mif">Consent or override recorded</p>
+               </mif:text>
+            </mif:description>
+         </mif:annotations>
+      </mif:receiverResponsibility>
+      <mif:receiverResponsibility triggerEventName="Consent Event Activate Rejection"
+                                  interactionName="Consent Event Activate Rejection">
+         <mif:annotations>
+            <mif:description>
+               <mif:text>
+                  <p xmlns="urn:hl7-org:v3/mif">Decision to refuse consent or override</p>
+               </mif:text>
+            </mif:description>
+         </mif:annotations>
+      </mif:receiverResponsibility>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="010001" title="Consent Event Activate Confirmation">
+      <mif:businessName name="Record consent or override request accepted"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RC" domain="MR" artifact="IN" realm="CA"
+                           id="010001"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>Indicates that the requested consent, revocation of consent or consent override has been successfully recorded for a particular patient.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="HM" subSection="RC" domain="MR" artifact="TE" realm="CA"
+                      id="010001"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002300">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="MC"
+                                      domain="AI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="700236"
+                                      traversalName="controlActEvent"/>
+      </mif:parameterTypeModel>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="010002" title="Consent Event Activate Rejection">
+      <mif:businessName name="Record consent or override request refused"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RC" domain="MR" artifact="IN" realm="CA"
+                           id="010002"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>Indicates that the request to record a consent, revocation of consent or consent override has been refused.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="HM" subSection="RC" domain="MR" artifact="TE" realm="CA"
+                      id="010002"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002300">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="MC"
+                                      domain="AI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="700236"
+                                      traversalName="controlActEvent"/>
+      </mif:parameterTypeModel>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="010006" title="Consent Event Revise Request">
+      <mif:businessName name="Update keyword request"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RC" domain="MR" artifact="IN" realm="CA"
+                           id="010006"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>Requests that the keyword used to control patient access to a all or a portion of the patient's record be revised to the specified value.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="HM" subSection="RC" domain="MR" artifact="TE" realm="CA"
+                      id="010006"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002100">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="MC"
+                                      domain="AI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="700211"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="Act" root="DEFN" section="HM" subSection="RC"
+                                         domain="MR"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="010002"
+                                         traversalName="keywordEvent"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+      <mif:receiverResponsibility triggerEventName="Consent Event Revise"
+                                  interactionName="Consent Event Revise Confirmation">
+         <mif:annotations>
+            <mif:description>
+               <mif:text>
+                  <p xmlns="urn:hl7-org:v3/mif">Keyword updated</p>
+               </mif:text>
+            </mif:description>
+         </mif:annotations>
+      </mif:receiverResponsibility>
+      <mif:receiverResponsibility triggerEventName="Consent Event Revise Rejection"
+                                  interactionName="Consent Event Revise Rejection">
+         <mif:annotations>
+            <mif:description>
+               <mif:text>
+                  <p xmlns="urn:hl7-org:v3/mif">Decision to reject keyword update</p>
+               </mif:text>
+            </mif:description>
+         </mif:annotations>
+      </mif:receiverResponsibility>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="010004" title="Consent Event Revise Confirmation">
+      <mif:businessName name="Update keyword request accepted"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RC" domain="MR" artifact="IN" realm="CA"
+                           id="010004"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>Indicates that the keyword used to control patient access to a all or a portion of the patient's record has been successfully revised to the requested value.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="HM" subSection="RC" domain="MR" artifact="TE" realm="CA"
+                      id="010004"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002300">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="MC"
+                                      domain="AI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="700236"
+                                      traversalName="controlActEvent"/>
+      </mif:parameterTypeModel>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="010005" title="Consent Event Revise Rejection">
+      <mif:businessName name="Update keyword request refused"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RC" domain="MR" artifact="IN" realm="CA"
+                           id="010005"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>Indicates that the request to revise the patient's keyword has been refused.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="HM" subSection="RC" domain="MR" artifact="TE" realm="CA"
+                      id="010005"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002300">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="MC"
+                                      domain="AI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="700236"
+                                      traversalName="controlActEvent"/>
+      </mif:parameterTypeModel>
+   </mif:hl7Interaction>
+</mif:dynamicModel>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?><mif:staticModel xmlns:mif="urn:hl7-org:v3/mif" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:hl7-org:v3/mif" isAbstract="false" isSerializable="true" name="CA" packageKind="realmNamespace" representationKind="flat" schemaVersion="2.0" xsi:schemaLocation="">
+   <mif:packageLocation artifact="MT-deprecated" domain="CT" id="911102" realmNamespace="CA" root="DEFN" section="IM" subSection="CO"/>
+   <mif:header>
+      <mif:renderingInformation application="Visio to MIF transform"/>
+      <mif:legalese copyrightOwner="Health Level Seven" copyrightYears="2008"/>
+   </mif:header>
+   <mif:graphicRepresentation presentation="HL7">
+      <mif:graphElement name="Main">
+         <mif:position x="0" y="0"/>
+         <mif:size height="322" width="246"/>
+      </mif:graphElement>
+   <entryPoint name="Acting Person identified-confirmable"><mif:graphElement containerDiagramName="Main" shapeId="Sheet.15">
+            <mif:position x="2" y="2"/>
+            <mif:size height="43" width="241"/>
+            <mif:anchorage connectToShapeId="Sheet.15">
+               <mif:position x="122" y="46"/>
+               <mif:graphEdge>
+                  <mif:anchor connectToShapeId="Sheet.1">
+                     <mif:position x="123" y="80"/>
+                  </mif:anchor>
+               </mif:graphEdge>
+            </mif:anchorage>
+         </mif:graphElement></entryPoint><class className="ActingPerson" presentation="HL7"><mif:graphElement containerDiagramName="Main" isHeightAutoSize="true" isWidthAutoSize="true" nodeOrientation="Portrait" shapeId="Sheet.1" shapeTemplate="Choice">
+               <mif:position x="38" y="80"/>
+               <mif:size height="240" width="170"/>
+            </mif:graphElement></class><class className="R_AssignedPersonIdentified-confirmable" presentation="HL7"><mif:graphElement containerDiagramName="Main" isHeightAutoSize="true" isWidthAutoSize="true" shapeId="Sheet.3" shapeTemplate="CMET">
+               <mif:position x="50" y="104"/>
+               <mif:size height="60" width="129"/>
+            </mif:graphElement></class><class className="R_AssigningOrganizationIdentified-confirmable" presentation="HL7"><mif:graphElement containerDiagramName="Main" isHeightAutoSize="true" isWidthAutoSize="true" shapeId="Sheet.22" shapeTemplate="CMET">
+               <mif:position x="50" y="176"/>
+               <mif:size height="60" width="146"/>
+            </mif:graphElement></class><class className="R_RelatedPersonIdentified-confirmable" presentation="HL7"><mif:graphElement containerDiagramName="Main" isHeightAutoSize="true" isWidthAutoSize="true" shapeId="Sheet.9" shapeTemplate="CMET">
+               <mif:position x="50" y="249"/>
+               <mif:size height="60" width="129"/>
+            </mif:graphElement></class></mif:graphicRepresentation>
+   <derivedFrom staticModelDerivationId="1">
+      <mif:targetStaticModel artifact="RIM" root="DEFN" version="00"/>
+   </derivedFrom>
+   <entryPoint className="ActingPerson" id="COCT_MT911102CA" isAbstract="false" name="Acting Person identified-confirmable">
+      
+   </entryPoint>
+   <containedClass>
+      <mif:class isAbstract="true" name="ActingPerson">
+         <derivedFrom className="Role" staticModelDerivationId="1"/>
+         
+         <childClass className="R_AssignedPersonIdentified-confirmable">
+            
+         </childClass>
+         <childClass className="R_AssigningOrganizationIdentified-confirmable">
+            
+         </childClass>
+         <childClass className="R_RelatedPersonIdentified-confirmable">
+            
+         </childClass>
+      </mif:class>
+   </containedClass>
+   <containedClass>
+      <mif:commonModelElementRef name="R_AssignedPersonIdentified-confirmable">
+         <derivedFrom className="Role" staticModelDerivationId="1"/>
+         <supplierVocabulary><vocabularyDomain xmlns="" name="RoleClass"/></supplierVocabulary>
+         
+         <cmet name="COCT_MT090102CA"/>
+      </mif:commonModelElementRef>
+   </containedClass>
+   <containedClass>
+      <mif:commonModelElementRef name="R_AssigningOrganizationIdentified-confirmable">
+         <derivedFrom className="Role" staticModelDerivationId="1"/>
+         <supplierVocabulary><vocabularyDomain xmlns="" name="RoleClass"/></supplierVocabulary>
+         
+         <cmet name="COCT_MT090502CA"/>
+      </mif:commonModelElementRef>
+   </containedClass>
+   <containedClass>
+      <mif:commonModelElementRef name="R_RelatedPersonIdentified-confirmable">
+         <derivedFrom className="Role" staticModelDerivationId="1"/>
+         <supplierVocabulary><vocabularyDomain xmlns="" name="RoleClass"/></supplierVocabulary>
+         
+         <cmet name="COCT_MT910102CA"/>
+      </mif:commonModelElementRef>
+   </containedClass>
+</mif:staticModel>

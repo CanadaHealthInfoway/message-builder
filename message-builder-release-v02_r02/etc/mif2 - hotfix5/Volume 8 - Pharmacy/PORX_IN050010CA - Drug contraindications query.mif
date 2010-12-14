@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mif:interaction xmlns:mif="urn:hl7-org:v3/mif" schemaVersion="2.0" name="050010"
+                 title="Patient Medication Contraindication Query Event Query Drug List">
+   <mif:businessName name="Drug contraindications query">
+      <mif:realmNamespace value="UV"/>
+   </mif:businessName>
+   <mif:packageLocation root="DEFN" section="HM" subSection="PO" domain="RX" artifact="IN"
+                        realmNamespace="CA"
+                        id="050010"/>
+   <mif:annotations>
+      <mif:documentation>
+         <mif:description>Requests retrieval of the contraindications associated with issuing a particular combination of drugs based only on a list of concomitant medications.</mif:description>
+      </mif:documentation>
+   </mif:annotations>
+   <mif:invokingTriggerEvent root="DEFN" section="HM" subSection="PO" domain="RX" artifact="TE"
+                             realmNamespace="CA"
+                             id="050080"/>
+   <mif:argumentMessage root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                        realmNamespace="CA"
+                        id="002100">
+      <mif:parameterModel parameterName="ControlActEvent" root="DEFN" section="IM" subSection="QU"
+                          domain="QI"
+                          artifact="MT-deprecated"
+                          realmNamespace="CA"
+                          id="020002"
+                          traversalName="controlActEvent">
+         <mif:parameterModel parameterName="ParameterList" root="DEFN" section="HM" subSection="PO"
+                             domain="RX"
+                             artifact="MT-deprecated"
+                             realmNamespace="CA"
+                             id="050010"
+                             traversalName="parameterList"/>
+      </mif:parameterModel>
+   </mif:argumentMessage>
+</mif:interaction>

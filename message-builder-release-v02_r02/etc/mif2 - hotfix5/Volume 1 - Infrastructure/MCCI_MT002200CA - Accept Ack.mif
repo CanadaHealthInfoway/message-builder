@@ -1,0 +1,1323 @@
+<?xml version="1.0" encoding="UTF-8"?><mif:staticModel xmlns:mif="urn:hl7-org:v3/mif" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:hl7-org:v3/mif" isAbstract="false" isSerializable="true" name="CA" packageKind="realmNamespace" representationKind="flat" schemaVersion="2.0" xsi:schemaLocation="">
+   <mif:packageLocation artifact="MT-deprecated" domain="CI" id="002200" realmNamespace="CA" root="DEFN" section="IM" subSection="MC"/>
+   <mif:header>
+      <mif:renderingInformation application="Visio to MIF transform"/>
+      <mif:legalese copyrightOwner="Health Level Seven" copyrightYears="2008"/>
+   </mif:header>
+   <mif:graphicRepresentation presentation="HL7">
+      <mif:graphElement name="Main">
+         <mif:position x="0" y="0"/>
+         <mif:size height="608" width="1048"/>
+      </mif:graphElement>
+   <entryPoint name="Accept Ack"><mif:graphElement containerDiagramName="Main" shapeId="Sheet.79">
+            <mif:position x="113" y="2"/>
+            <mif:size height="43" width="103"/>
+            <mif:anchorage connectToShapeId="Sheet.79">
+               <mif:position x="165" y="46"/>
+               <mif:graphEdge>
+                  <mif:anchor connectToShapeId="Sheet.23">
+                     <mif:position x="165" y="103"/>
+                  </mif:anchor>
+               </mif:graphEdge>
+            </mif:anchorage>
+         </mif:graphElement></entryPoint><class className="Acknowledgement" presentation="HL7"><mif:graphElement containerDiagramName="Main" isHeightAutoSize="true" isWidthAutoSize="true" shapeId="Sheet.199" shapeTemplate="OtherClass">
+               <mif:position x="0" y="455"/>
+               <mif:size height="126" width="277"/>
+            </mif:graphElement></class><class className="AcknowledgementDetail" presentation="HL7"><mif:graphElement containerDiagramName="Main" isHeightAutoSize="true" isWidthAutoSize="true" shapeId="Sheet.195" shapeTemplate="OtherClass">
+               <mif:position x="403" y="492"/>
+               <mif:size height="114" width="317"/>
+            </mif:graphElement></class><class className="Agent" presentation="HL7"><mif:graphElement containerDiagramName="Main" isHeightAutoSize="true" isWidthAutoSize="true" shapeId="Sheet.273" shapeTemplate="Role">
+               <mif:position x="806" y="195"/>
+               <mif:size height="48" width="120"/>
+            </mif:graphElement></class><class className="Agent2" presentation="HL7"><mif:graphElement containerDiagramName="Main" isHeightAutoSize="true" isWidthAutoSize="true" shapeId="Sheet.283" shapeTemplate="Role">
+               <mif:position x="816" y="444"/>
+               <mif:size height="48" width="120"/>
+            </mif:graphElement></class><class className="Device1" presentation="HL7"><mif:graphElement containerDiagramName="Main" isHeightAutoSize="true" isWidthAutoSize="true" shapeId="Sheet.72" shapeTemplate="Entity">
+               <mif:position x="747" y="3"/>
+               <mif:size height="177" width="298"/>
+            </mif:graphElement></class><class className="Device2" presentation="HL7"><mif:graphElement containerDiagramName="Main" isHeightAutoSize="true" isWidthAutoSize="true" shapeId="Sheet.58" shapeTemplate="Entity">
+               <mif:position x="742" y="356"/>
+               <mif:size height="74" width="300"/>
+            </mif:graphElement></class><class className="Device3" presentation="HL7"><mif:graphElement containerDiagramName="Main" isHeightAutoSize="true" isWidthAutoSize="true" shapeId="Sheet.265" shapeTemplate="Entity">
+               <mif:position x="425" y="392"/>
+               <mif:size height="72" width="265"/>
+            </mif:graphElement></class><class className="Message" presentation="HL7"><mif:graphElement containerDiagramName="Main" isHeightAutoSize="true" isWidthAutoSize="true" shapeId="Sheet.23" shapeTemplate="OtherClass">
+               <mif:position x="0" y="103"/>
+               <mif:size height="229" width="328"/>
+            </mif:graphElement></class><class className="Organization" presentation="HL7"><mif:graphElement containerDiagramName="Main" isHeightAutoSize="true" isWidthAutoSize="true" shapeId="Sheet.293" shapeTemplate="Entity">
+               <mif:position x="790" y="264"/>
+               <mif:size height="72" width="254"/>
+            </mif:graphElement></class><class className="Organization2" presentation="HL7"><mif:graphElement containerDiagramName="Main" isHeightAutoSize="true" isWidthAutoSize="true" shapeId="Sheet.269" shapeTemplate="Entity">
+               <mif:position x="777" y="516"/>
+               <mif:size height="72" width="259"/>
+            </mif:graphElement></class><class className="Receiver" presentation="HL7"><mif:graphElement containerDiagramName="Main" isHeightAutoSize="true" isWidthAutoSize="true" shapeId="Sheet.27" shapeTemplate="OtherClass">
+               <mif:position x="406" y="201"/>
+               <mif:size height="72" width="270"/>
+            </mif:graphElement></class><class className="RespondTo" presentation="HL7"><mif:graphElement containerDiagramName="Main" isHeightAutoSize="true" isWidthAutoSize="true" shapeId="Sheet.7" shapeTemplate="OtherClass">
+               <mif:position x="406" y="310"/>
+               <mif:size height="72" width="284"/>
+            </mif:graphElement></class><class className="Sender" presentation="HL7"><mif:graphElement containerDiagramName="Main" isHeightAutoSize="true" isWidthAutoSize="true" shapeId="Sheet.41" shapeTemplate="OtherClass">
+               <mif:position x="406" y="114"/>
+               <mif:size height="72" width="265"/>
+            </mif:graphElement></class><class className="TargetMessage" presentation="HL7"><mif:graphElement containerDiagramName="Main" isHeightAutoSize="true" isWidthAutoSize="true" shapeId="Sheet.218" shapeTemplate="OtherClass">
+               <mif:position x="119" y="363"/>
+               <mif:size height="72" width="254"/>
+            </mif:graphElement></class><association className="AcknowledgementDetail" relationshipName="acknowledgementDetail"><mif:graphElement connectToShapeId="Sheet.199" containerDiagramName="Main" shapeId="Sheet.110">
+                                 <mif:position x="278" y="550"/>
+                                 <mif:graphEdge>
+                                    <mif:waypoint x="3.550" y="5.737"/>
+                                    <mif:waypoint x="3.550" y="5.728"/>
+                                    <mif:anchor connectToShapeId="Sheet.195">
+                                       <mif:position x="403" y="549"/>
+                                    </mif:anchor>
+                                 </mif:graphEdge>
+                              </mif:graphElement></association><association className="TargetMessage" relationshipName="targetMessage"><mif:graphElement connectToShapeId="Sheet.199" containerDiagramName="Main" shapeId="Sheet.222">
+                                 <mif:position x="278" y="487"/>
+                                 <mif:graphEdge>
+                                    <mif:waypoint x="2.934" y="5.076"/>
+                                    <mif:waypoint x="3.237" y="5.076"/>
+                                    <mif:anchor connectToShapeId="Sheet.218">
+                                       <mif:position x="310" y="435"/>
+                                    </mif:anchor>
+                                 </mif:graphEdge>
+                              </mif:graphElement></association><association className="Organization" relationshipName="agentOrganization"><mif:graphElement connectToShapeId="Sheet.273" containerDiagramName="Main">
+                                                         <mif:position x="914" y="238"/>
+                                                         <mif:graphEdge>
+                                                            <mif:anchor connectToShapeId="Sheet.293">
+                                                               <mif:position x="981" y="264"/>
+                                                            </mif:anchor>
+                                                         </mif:graphEdge>
+                                                      </mif:graphElement></association><association className="Organization2" relationshipName="agentOrganization"><mif:graphElement connectToShapeId="Sheet.283" containerDiagramName="Main">
+                                                         <mif:position x="924" y="488"/>
+                                                         <mif:graphEdge>
+                                                            <mif:anchor connectToShapeId="Sheet.269">
+                                                               <mif:position x="972" y="516"/>
+                                                            </mif:anchor>
+                                                         </mif:graphEdge>
+                                                      </mif:graphElement></association><association className="Agent" relationshipName="agent"><mif:graphElement connectToShapeId="Sheet.72" containerDiagramName="Main">
+                                             <mif:position x="971" y="180"/>
+                                             <mif:graphEdge>
+                                                <mif:anchor connectToShapeId="Sheet.273">
+                                                   <mif:position x="914" y="200"/>
+                                                </mif:anchor>
+                                             </mif:graphEdge>
+                                          </mif:graphElement></association><association className="Agent2" relationshipName="agent"><mif:graphElement connectToShapeId="Sheet.58" containerDiagramName="Main">
+                                             <mif:position x="967" y="431"/>
+                                             <mif:graphEdge>
+                                                <mif:anchor connectToShapeId="Sheet.283">
+                                                   <mif:position x="924" y="449"/>
+                                                </mif:anchor>
+                                             </mif:graphEdge>
+                                          </mif:graphElement></association><association className="Acknowledgement" relationshipName="acknowledgement"><mif:graphElement connectToShapeId="Sheet.23" containerDiagramName="Main" shapeId="Sheet.141">
+                     <mif:position x="82" y="333"/>
+                     <mif:graphEdge>
+                        <mif:waypoint x="0.864" y="2.832"/>
+                        <mif:waypoint x="0.996" y="2.832"/>
+                        <mif:anchor connectToShapeId="Sheet.199">
+                           <mif:position x="70" y="455"/>
+                        </mif:anchor>
+                     </mif:graphEdge>
+                  </mif:graphElement></association><association className="Receiver" relationshipName="receiver"><mif:graphElement connectToShapeId="Sheet.23" containerDiagramName="Main" shapeId="Sheet.120">
+                     <mif:position x="328" y="218"/>
+                     <mif:graphEdge>
+                        <mif:waypoint x="3.833" y="2.275"/>
+                        <mif:waypoint x="3.833" y="2.288"/>
+                        <mif:anchor connectToShapeId="Sheet.27">
+                           <mif:position x="406" y="219"/>
+                        </mif:anchor>
+                     </mif:graphEdge>
+                  </mif:graphElement></association><association className="RespondTo" relationshipName="respondTo"><mif:graphElement connectToShapeId="Sheet.23" containerDiagramName="Main" shapeId="Sheet.127">
+                     <mif:position x="328" y="275"/>
+                     <mif:graphEdge>
+                        <mif:waypoint x="3.833" y="2.872"/>
+                        <mif:waypoint x="3.833" y="3.421"/>
+                        <mif:anchor connectToShapeId="Sheet.7">
+                           <mif:position x="406" y="328"/>
+                        </mif:anchor>
+                     </mif:graphEdge>
+                  </mif:graphElement></association><association className="Sender" relationshipName="sender"><mif:graphElement connectToShapeId="Sheet.23" containerDiagramName="Main" shapeId="Sheet.101">
+                     <mif:position x="328" y="161"/>
+                     <mif:graphEdge>
+                        <mif:waypoint x="3.832" y="1.678"/>
+                        <mif:waypoint x="3.832" y="1.567"/>
+                        <mif:anchor connectToShapeId="Sheet.41">
+                           <mif:position x="406" y="150"/>
+                        </mif:anchor>
+                     </mif:graphEdge>
+                  </mif:graphElement></association><association className="Device2" relationshipName="device"><mif:graphElement connectToShapeId="Sheet.27" containerDiagramName="Main" shapeId="Sheet.157">
+                                 <mif:position x="677" y="255"/>
+                                 <mif:graphEdge>
+                                    <mif:waypoint x="7.058" y="2.558"/>
+                                    <mif:waypoint x="7.058" y="1.617"/>
+                                    <mif:anchor connectToShapeId="Sheet.58">
+                                       <mif:position x="742" y="356"/>
+                                    </mif:anchor>
+                                 </mif:graphEdge>
+                              </mif:graphElement></association><association className="Device3" relationshipName="device"><mif:graphElement connectToShapeId="Sheet.7" containerDiagramName="Main" shapeId="Sheet.31">
+                                 <mif:position x="691" y="364"/>
+                                 <mif:graphEdge>
+                                    <mif:waypoint x="7.612" y="3.796"/>
+                                    <mif:waypoint x="7.612" y="3.321"/>
+                                    <mif:anchor connectToShapeId="Sheet.265">
+                                       <mif:position x="691" y="410"/>
+                                    </mif:anchor>
+                                 </mif:graphEdge>
+                              </mif:graphElement></association><association className="Device1" relationshipName="device"><mif:graphElement connectToShapeId="Sheet.41" containerDiagramName="Main" shapeId="Sheet.134">
+                                 <mif:position x="672" y="150"/>
+                                 <mif:graphEdge>
+                                    <mif:waypoint x="6.606" y="1.567"/>
+                                    <mif:waypoint x="6.606" y="2.177"/>
+                                    <mif:anchor connectToShapeId="Sheet.72">
+                                       <mif:position x="747" y="91"/>
+                                    </mif:anchor>
+                                 </mif:graphEdge>
+                              </mif:graphElement></association></mif:graphicRepresentation>
+   <derivedFrom staticModelDerivationId="1">
+      <mif:targetStaticModel artifact="RIM" root="DEFN" version="00"/>
+   </derivedFrom>
+   <entryPoint className="Message" id="MCCI_MT002200CA" isAbstract="false" name="Accept Ack">
+      
+   </entryPoint>
+   <containedClass>
+      <mif:class isAbstract="false" name="Acknowledgement">
+         <derivedFrom className="Acknowledgement" staticModelDerivationId="1"/>
+         
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="typeCode" sortKey="1">
+            <mif:businessName name="GA:Acknowledgement Code"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Indicates whether the previous interaction was successfully processed.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Key to understanding whether the interaction has been successful and is therefore mandatory.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation></mif:annotations>
+            <derivedFrom attributeName="typeCode" className="Acknowledgement" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><vocabularyDomain name="AcknowledgementType"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute isImmutable="false" isMandatory="false" maximumLength="4" maximumMultiplicity="1" minimumMultiplicity="0" name="messageWaitingNumber" sortKey="2">
+            <mif:businessName name="GC:Number of Waiting Messages"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>For applications which support polling, indicates the total number of messages waiting to be retrieved.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Indicates to a system how many polled messages are available without the need so send a separate query. The element is optional because not all systems will support polling.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation></mif:annotations>
+            <derivedFrom attributeName="messageWaitingNumber" className="Acknowledgement" staticModelDerivationId="1"/>
+            <mif:type name="INT.NONNEG"/>
+         </mif:attribute>
+         <mif:attribute isImmutable="false" isMandatory="false" maximumMultiplicity="1" minimumMultiplicity="0" name="messageWaitingPriorityCode" sortKey="3">
+            <mif:businessName name="GD:Message Waiting Priority"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Indicates the priority of the highest-priority message that is waiting on the poll queue for the system being responded to.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>The priority of the waiting message may influence how quickly the polling system may choose to download queued messages. The element is optional because not all systems will support polling.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation></mif:annotations>
+            <derivedFrom attributeName="messageWaitingPriorityCode" className="Acknowledgement" staticModelDerivationId="1"/>
+            <mif:type name="CV"/>
+            <supplierVocabulary codingStrength="CNE"><vocabularyDomain name="MessageWaitingPriority"/></supplierVocabulary>
+         </mif:attribute>
+      </mif:class>
+   </containedClass>
+   <containedClass>
+      <mif:class isAbstract="false" name="AcknowledgementDetail">
+         <mif:businessName name="Errors or Warnings"><realmNamespace value="UV"/></mif:businessName>
+         <derivedFrom className="AcknowledgementDetail" staticModelDerivationId="1"/>
+         
+         <mif:annotations>
+            
+            
+         <documentation><mif:definition>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>An error, warning or information message associated with the message being acknowledged.</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:definition><mif:rationale>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>Allows identification issues related to the parsing and low-level processing of the message.</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:rationale></documentation></mif:annotations>
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="typeCode" sortKey="1">
+            <mif:businessName name="Message type"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Distinguishes between errors, warnings and information messages.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Different types of messages have substantially different ramifications.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation></mif:annotations>
+            <derivedFrom attributeName="typeCode" className="AcknowledgementDetail" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><vocabularyDomain name="AcknowledgementDetailType"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="false" maximumMultiplicity="1" minimumMultiplicity="1" name="code" sortKey="2">
+            <mif:businessName name="A:Response Code"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Indicates the specific issue represented by this message.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>By providing coded identification of issues and errors, allows applications to have logic that manages particular errors and warnings automatically. However in some circumstances, a code may not be available. Therefore the attribute is marked as 'populated'.</xhtml:p>
+                     </xhtml:p>
+                     <xhtml:p>
+                        <xhtml:p>The coding strength is CWE (coded with extensions). The use of local codes is only permitted when those codes are submitted to the SC for consideration and if the SC makes a recommendation other then adoption of the local code, jurisdictions are bound to adopt the recommendation.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation></mif:annotations>
+            <derivedFrom attributeName="code" className="AcknowledgementDetail" staticModelDerivationId="1"/>
+            <mif:type name="CV"/>
+            <supplierVocabulary codingStrength="CWE"><vocabularyDomain name="AcknowledgementDetailCode"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="false" maximumLength="250" maximumMultiplicity="1" minimumMultiplicity="0" name="text" sortKey="3">
+            <mif:businessName name="C:Message Description"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>The human-readable description of the error, warning or information message. May convey additional details not present in the 'code', but is not intended to be human-processable.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Allows supplementing the 'computer' information for human-readability.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation></mif:annotations>
+            <derivedFrom attributeName="text" className="AcknowledgementDetail" staticModelDerivationId="1"/>
+            <mif:type name="ST"/>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="false" maximumLength="200" maximumMultiplicity="5" minimumMultiplicity="0" name="location" sortKey="4">
+            <mif:businessName name="B:Referenced Message Locations"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Indicates the location of the elements within the message instance that triggered this error, warning or information message.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:usageNotes>
+                  <mif:text>
+                     <xhtml:p/>
+                     <xhtml:p>
+                        <xhtml:p>I.e. only the default 'child' axis is permitted, occurrence numbers are always specified, and no other predicates are permitted.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:usageNotes><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Allows syntax and other messages to be linked to particular fields within the message.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation></mif:annotations>
+            <derivedFrom attributeName="location" className="AcknowledgementDetail" staticModelDerivationId="1"/>
+            <mif:type name="SET">
+               <argumentDatatype name="ST"/>
+            </mif:type>
+         </mif:attribute>
+      </mif:class>
+   </containedClass>
+   <containedClass>
+      <mif:class isAbstract="false" name="Agent">
+         <derivedFrom className="Role" staticModelDerivationId="1"/>
+         
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="classCode" sortKey="1"><enumerationValues>AGNT</enumerationValues>
+            <derivedFrom attributeName="classCode" className="Role" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="AGNT" codeSystemName="RoleClass"/></supplierVocabulary>
+         </mif:attribute>
+      </mif:class>
+   </containedClass>
+   <containedClass>
+      <mif:class isAbstract="false" name="Agent2">
+         <derivedFrom className="Role" staticModelDerivationId="1"/>
+         
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="classCode" sortKey="1"><enumerationValues>AGNT</enumerationValues>
+            <derivedFrom attributeName="classCode" className="Role" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="AGNT" codeSystemName="RoleClass"/></supplierVocabulary>
+         </mif:attribute>
+      </mif:class>
+   </containedClass>
+   <containedClass>
+      <mif:class isAbstract="false" name="Device1">
+         <derivedFrom className="Device" staticModelDerivationId="1"/>
+         
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="classCode" sortKey="1"><enumerationValues>DEV</enumerationValues>
+            <derivedFrom attributeName="classCode" className="Device" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="DEV" codeSystemName="EntityClass"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="determinerCode" sortKey="2"><enumerationValues>INSTANCE</enumerationValues>
+            <derivedFrom attributeName="determinerCode" className="Device" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="INSTANCE" codeSystemName="EntityDeterminer"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="id" sortKey="3">
+            <mif:businessName name="IA:Sending Application Identifier"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>The unique identifier of the application or system to whom the message is being routed.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Because this is the key identifier of where the message is intended to go, this attribute is mandatory.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation><appInfo><mif:mapping sourceName="SOAP">
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>soap:Header\wsa:From\@endpointID</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:mapping></appInfo></mif:annotations>
+            <derivedFrom attributeName="id" className="Device" staticModelDerivationId="1"/>
+            <mif:type name="II.BUS"/>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="false" maximumLength="100" maximumMultiplicity="1" minimumMultiplicity="0" name="name" sortKey="4">
+            <mif:businessName name="IE:Sending Application Name"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>This is the name associated with the system or application sending the message.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Provides useful information when debugging.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation></mif:annotations>
+            <derivedFrom attributeName="name" className="Device" staticModelDerivationId="1"/>
+            <mif:type name="ST"/>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="false" maximumLength="500" maximumMultiplicity="1" minimumMultiplicity="0" name="desc" sortKey="5">
+            <mif:businessName name="II:Sending Application Configuration Information"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Provides additional information about the configuration of the sending application. Useful when debugging.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Provides additional information that may assist in debugging interactions.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation></mif:annotations>
+            <derivedFrom attributeName="desc" className="Device" staticModelDerivationId="1"/>
+            <mif:type name="ST"/>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="false" maximumMultiplicity="1" minimumMultiplicity="0" name="existenceTime" sortKey="6">
+            <mif:businessName name="IH:Sending Application Version Date"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Indicates the last time the sending application was modified or reconfigured.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Can help to isolate the source of a problem when debugging.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation></mif:annotations>
+            <derivedFrom attributeName="existenceTime" className="Device" staticModelDerivationId="1"/>
+            <mif:type name="IVL.LOW">
+               <argumentDatatype name="TS.FULLDATE"/>
+            </mif:type>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="false" maximumLength="20" maximumMultiplicity="1" minimumMultiplicity="0" name="manufacturerModelName" sortKey="7">
+            <mif:businessName name="IG:Sending Software Version Number"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Indicates the version number of the piece of software used to construct the message.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>May be used to filter messages based on the compliance testing of the sending software.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation></mif:annotations>
+            <derivedFrom attributeName="manufacturerModelName" className="Device" staticModelDerivationId="1"/>
+            <mif:type name="ST"/>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="false" maximumLength="100" maximumMultiplicity="1" minimumMultiplicity="0" name="softwareName" sortKey="8">
+            <mif:businessName name="IF:Sending Application Software Name"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Indicates the name of the software used to construct the message.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>May be used to filter messages based on sending application compliance testing.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation></mif:annotations>
+            <derivedFrom attributeName="softwareName" className="Device" staticModelDerivationId="1"/>
+            <mif:type name="ST"/>
+         </mif:attribute>
+      </mif:class>
+   </containedClass>
+   <containedClass>
+      <mif:class isAbstract="false" name="Device2">
+         <derivedFrom className="Device" staticModelDerivationId="1"/>
+         
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="classCode" sortKey="1"><enumerationValues>DEV</enumerationValues>
+            <derivedFrom attributeName="classCode" className="Device" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="DEV" codeSystemName="EntityClass"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="determinerCode" sortKey="2"><enumerationValues>INSTANCE</enumerationValues>
+            <derivedFrom attributeName="determinerCode" className="Device" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="INSTANCE" codeSystemName="EntityDeterminer"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="id" sortKey="3">
+            <mif:businessName name="JA:Receiver Application Identifier"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>The unique identifier of the application to which the message is being sent.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Used for routing and for verification that "yes, this message is intended for me." This is mandatory because it is the key identifier of the receiving application.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation><appInfo><mif:mapping sourceName="SOAP">
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>soap:Header\wsa:To\@endpointID</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:mapping></appInfo></mif:annotations>
+            <derivedFrom attributeName="id" className="Device" staticModelDerivationId="1"/>
+            <mif:type name="II.BUS"/>
+         </mif:attribute>
+         <mif:attribute isImmutable="false" isMandatory="false" maximumLength="100" maximumMultiplicity="1" minimumMultiplicity="0" name="name" sortKey="4">
+            <mif:businessName name="JE:Receiver Application Name"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Name of receiver application.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Optional name of receiver application</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation></mif:annotations>
+            <derivedFrom attributeName="name" className="Device" staticModelDerivationId="1"/>
+            <mif:type name="ST"/>
+         </mif:attribute>
+      </mif:class>
+   </containedClass>
+   <containedClass>
+      <mif:class isAbstract="false" name="Device3">
+         <mif:businessName name="Respond To System"><realmNamespace value="UV"/></mif:businessName>
+         <derivedFrom className="Device" staticModelDerivationId="1"/>
+         
+         <mif:annotations>
+            
+            
+         <documentation><mif:definition>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>The system to which responses are to be directed.</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:definition><mif:rationale>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>Provides support for directing responses to applications other than the original sender.</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:rationale></documentation></mif:annotations>
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="classCode" sortKey="1"><enumerationValues>DEV</enumerationValues>
+            <derivedFrom attributeName="classCode" className="Device" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="DEV" codeSystemName="EntityClass"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="determinerCode" sortKey="2"><enumerationValues>INSTANCE</enumerationValues>
+            <derivedFrom attributeName="determinerCode" className="Device" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="INSTANCE" codeSystemName="EntityDeterminer"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="id" sortKey="3">
+            <mif:businessName name="KA:Respond to Application Identifier"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>The unique identifier of the applications to which responses should be sent. Only populated when different from the sending application id.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Allows unique identification and routing to the application to be responded to. This attribute is mandatory be cause it is the principal identifier of the application to respond to.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation><appInfo><mif:mapping sourceName="SOAP">
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>soap:Header\wsa:ReplyTo\@endpointID</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:mapping></appInfo></mif:annotations>
+            <derivedFrom attributeName="id" className="Device" staticModelDerivationId="1"/>
+            <mif:type name="II.BUS"/>
+         </mif:attribute>
+      </mif:class>
+   </containedClass>
+   <containedClass>
+      <mif:class isAbstract="false" name="Message">
+         <mif:businessName name="HL7 Message"><realmNamespace value="UV"/></mif:businessName>
+         <derivedFrom className="Message" staticModelDerivationId="1"/>
+         
+         <mif:annotations>
+            
+            
+         <documentation><mif:definition>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>The root class of all messages.</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:definition><mif:rationale>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>Conveys information about the interaction and how it is to be processed</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:rationale></documentation></mif:annotations>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="id" sortKey="1">
+            <mif:businessName name="A:Message Identifier"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>A unique identifier for the message.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Allows detection of duplicate messages, and allows tying acknowledgments to the message they are acknowledging. The attribute is therefore mandatory.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation><appInfo><mif:mapping sourceName="SOAP">
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>soap:Header\wsa:MessageID</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:mapping></appInfo></mif:annotations>
+            <derivedFrom attributeName="id" className="Message" staticModelDerivationId="1"/>
+            <mif:type name="II.TOKEN"/>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="creationTime" sortKey="2">
+            <mif:businessName name="G:Message Timestamp"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Indicates the time this particular message instance was constructed.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Allows identification of how current the information in a message is. Also provides a baseline for identifying the time-zone of other times within the message. As a result, the attribute is mandatory.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation></mif:annotations>
+            <derivedFrom attributeName="creationTime" className="Message" staticModelDerivationId="1"/>
+            <mif:type name="TS.FULLDATETIME"/>
+         </mif:attribute>
+         <mif:attribute isImmutable="false" isMandatory="false" maximumLength="2000" maximumMultiplicity="1" minimumMultiplicity="0" name="securityText" sortKey="3">
+            <mif:businessName name="H:Security Token"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>A locally-defined field used to maintain a session, identify a user, and/or perform some other function related to authenticating the message source.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Allows jurisdictions and applications to communicate authentication and session information. The attribute is optional because not all jurisdictions will require this capability.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation></mif:annotations>
+            <derivedFrom attributeName="securityText" className="Message" staticModelDerivationId="1"/>
+            <mif:type name="ST"/>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="responseModeCode" sortKey="4">
+            <mif:businessName name="DA: Response Type"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Identifies whether the response is desired immediately (as a direct acknowledgement), on a deferred basis (as a subsequent independent interaction) or via queue using polling.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Essential to determining receiver behavior and therefore mandatory.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation><appInfo><mif:mapping sourceName="SOAP">
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>soap:Header\wsa:Action (after the second underscore, if any, “D” otherwise)</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:mapping></appInfo></mif:annotations>
+            <derivedFrom attributeName="responseModeCode" className="Message" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><vocabularyDomain name="ResponseMode"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="versionCode" sortKey="5">
+            <mif:businessName name="C: HL7 Standard Version"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Indicates the version of the messaging standard being referenced.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Needed to know how to validate message definition, CMET definition, vocabulary and other information and is therefore mandatory.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation><appInfo><mif:mapping sourceName="SOAP">
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>soap:Header\wsa:To\ (portion between last “\” and second-last “\”)</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:mapping></appInfo></mif:annotations>
+            <derivedFrom attributeName="versionCode" className="Message" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><vocabularyDomain name="HL7StandardVersionCode"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="interactionId" sortKey="6">
+            <mif:businessName name="B:Interaction Type"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Indicates the interaction conveyed by this message.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Identifies what the receiving application should do, and how the message should be validated. The attribute is therefore mandatory.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation><appInfo><mif:mapping sourceName="SOAP">
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>soap:Header\wsa:Action (after “urn:hl7-org:v3:” and before the second underscore, if any)</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:mapping></appInfo></mif:annotations>
+            <derivedFrom attributeName="interactionId" className="Message" staticModelDerivationId="1"/>
+            <mif:type name="II.PUBLIC"/>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="false" maximumMultiplicity="10" minimumMultiplicity="0" name="profileId" sortKey="7">
+            <mif:businessName name="F:Conformance Profile Identifiers"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Identifies the conformance profile(s) this message complies with.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Indicates any additional validation that may be appropriate. Also influences what extensions can be processed.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation></mif:annotations>
+            <derivedFrom attributeName="profileId" className="Message" staticModelDerivationId="1"/>
+            <mif:type name="LIST">
+               <argumentDatatype name="II.BUS"/>
+            </mif:type>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="processingCode" sortKey="8">
+            <mif:businessName name="DB:Processing Code"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Indicates whether this message is intended to be processed as production, test or debug message.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Indicates how the message should be handled and is therefore mandatory.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation><appInfo><mif:mapping sourceName="SOAP">
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>soap:Header\wsa:To\(portion between second-last “\” and third-last “\”)</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:mapping></appInfo></mif:annotations>
+            <derivedFrom attributeName="processingCode" className="Message" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><vocabularyDomain name="ProcessingID"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="processingModeCode" sortKey="9"><enumerationValues>T</enumerationValues>
+            <derivedFrom attributeName="processingModeCode" className="Message" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="T" codeSystemName="ProcessingMode"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="acceptAckCode" sortKey="10">
+            <mif:businessName name="E:Desired Acknowledgment Type"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Indicates how the message is expected to be acknowledged.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:usageNotes>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>When using SOAP, this attribute MUST be set to NE (Never). (Accept acknowledgements are handled via the transport protocol, not HL7.)</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:usageNotes><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Provides support for immediate, deferred and polling mode and distinguishes which mode is desired. The attribute is therefore mandatory.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation></mif:annotations>
+            <derivedFrom attributeName="acceptAckCode" className="Message" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><vocabularyDomain name="AcknowledgementCondition"/></supplierVocabulary>
+         </mif:attribute>
+      </mif:class>
+   </containedClass>
+   <containedClass>
+      <mif:class isAbstract="false" name="Organization">
+         <derivedFrom className="Organization" staticModelDerivationId="1"/>
+         
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="classCode" sortKey="1"><enumerationValues>ORG</enumerationValues>
+            <derivedFrom attributeName="classCode" className="Organization" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="ORG" codeSystemName="EntityClass"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="determinerCode" sortKey="2"><enumerationValues>INSTANCE</enumerationValues>
+            <derivedFrom attributeName="determinerCode" className="Organization" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="INSTANCE" codeSystemName="EntityDeterminer"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="id" sortKey="3">
+            <mif:businessName name="IK:Sending Organization Identifier"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Sending organization unique identifier.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>The identifier is the only non-structural attribute in this class and is therefore mandatory. The association from sending device to agent is optional.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation></mif:annotations>
+            <derivedFrom attributeName="id" className="Organization" staticModelDerivationId="1"/>
+            <mif:type name="II.BUS"/>
+         </mif:attribute>
+      </mif:class>
+   </containedClass>
+   <containedClass>
+      <mif:class isAbstract="false" name="Organization2">
+         <derivedFrom className="Organization" staticModelDerivationId="1"/>
+         
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="classCode" sortKey="1"><enumerationValues>ORG</enumerationValues>
+            <derivedFrom attributeName="classCode" className="Organization" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="ORG" codeSystemName="EntityClass"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="determinerCode" sortKey="2"><enumerationValues>INSTANCE</enumerationValues>
+            <derivedFrom attributeName="determinerCode" className="Organization" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="INSTANCE" codeSystemName="EntityDeterminer"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="id" sortKey="3">
+            <mif:businessName name="JK:Receiver Organization Identifier"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Receiver organization.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>The identifier of the receiver organization. This is the only non-structural attribute in this class and is therefore mandatory. Receiver organization is optional (as the scoper association from the receiver application is optional).</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation></mif:annotations>
+            <derivedFrom attributeName="id" className="Organization" staticModelDerivationId="1"/>
+            <mif:type name="II.BUS"/>
+         </mif:attribute>
+      </mif:class>
+   </containedClass>
+   <containedClass>
+      <mif:class isAbstract="false" name="Receiver">
+         <derivedFrom className="CommunicationFunction" staticModelDerivationId="1"/>
+         
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="typeCode" sortKey="1"><enumerationValues>RCV</enumerationValues>
+            <derivedFrom attributeName="typeCode" className="CommunicationFunction" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="RCV" codeSystemName="CommunicationFunctionType"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute isImmutable="false" isMandatory="false" maximumMultiplicity="1" minimumMultiplicity="0" name="telecom" sortKey="2">
+            <mif:businessName name="JB:Receiver Network Address"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>The address to which this message is being sent.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Indicates where the message should be sent. This is optional because not all environments require network addresses. It is mandatory when communicating using SOAP.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation><appInfo><mif:mapping sourceName="SOAP">
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>soap:Header\wsa:To</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:mapping></appInfo></mif:annotations>
+            <derivedFrom attributeName="telecom" className="CommunicationFunction" staticModelDerivationId="1"/>
+            <mif:type name="TEL.URI"/>
+         </mif:attribute>
+      </mif:class>
+   </containedClass>
+   <containedClass>
+      <mif:class isAbstract="false" name="RespondTo">
+         <mif:businessName name="to be responded to by"><realmNamespace value="UV"/></mif:businessName>
+         <derivedFrom className="CommunicationFunction" staticModelDerivationId="1"/>
+         
+         <mif:annotations>
+            
+            
+         <documentation><mif:definition>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>Indicates the interaction that should receive the response to this interaction. Used when different from the sender of the original interaction.</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:definition><mif:rationale>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>In complex routing environments, the acknowledgements may need to be sent to a system other than the one which constructed the original message. This association is optional because not all environments will support responses to systems other than the original sender.</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:rationale></documentation></mif:annotations>
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="typeCode" sortKey="1"><enumerationValues>RSP</enumerationValues>
+            <derivedFrom attributeName="typeCode" className="CommunicationFunction" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="RSP" codeSystemName="CommunicationFunctionType"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute isImmutable="false" isMandatory="false" maximumMultiplicity="1" minimumMultiplicity="0" name="telecom" sortKey="2">
+            <mif:businessName name="KB:Respond to Network Address"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Indicates the address to send acknowledgments of this message to.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Needed when the address to respond to is different than that of the sender. This is optional because not all environments require network addresses. It is required when communicating using SOAP.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation><appInfo><mif:mapping sourceName="SOAP">
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>soap:Header\wsa:ReplyTo</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:mapping></appInfo></mif:annotations>
+            <derivedFrom attributeName="telecom" className="CommunicationFunction" staticModelDerivationId="1"/>
+            <mif:type name="TEL.URI"/>
+         </mif:attribute>
+      </mif:class>
+   </containedClass>
+   <containedClass>
+      <mif:class isAbstract="false" name="Sender">
+         <derivedFrom className="CommunicationFunction" staticModelDerivationId="1"/>
+         
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="typeCode" sortKey="1"><enumerationValues>SND</enumerationValues>
+            <derivedFrom attributeName="typeCode" className="CommunicationFunction" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="SND" codeSystemName="CommunicationFunctionType"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute isImmutable="false" isMandatory="false" maximumMultiplicity="1" minimumMultiplicity="0" name="telecom" sortKey="2">
+            <mif:businessName name="IB:Sending Network Address"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>The network address of the application which sent the message.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>May be important for sender validation. Usually also the address to which responses are sent. This is optional because not all environments require network addresses. It is mandatory when communicating using SOAP.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation><appInfo><mif:mapping sourceName="SOAP">
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>soap:Header\wsa:From</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:mapping></appInfo></mif:annotations>
+            <derivedFrom attributeName="telecom" className="CommunicationFunction" staticModelDerivationId="1"/>
+            <mif:type name="TEL.URI"/>
+         </mif:attribute>
+      </mif:class>
+   </containedClass>
+   <containedClass>
+      <mif:class isAbstract="false" name="TargetMessage">
+         <derivedFrom className="Message" staticModelDerivationId="1"/>
+         
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="id" sortKey="1">
+            <mif:businessName name="BA:Acknowledged Message Id"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>References the identifier of the message this current message is acknowledging.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Provides the necessary link to complete a conversation for systems using communication technologies which are not conversational. This attribute is therefore mandatory.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation><appInfo><mif:mapping sourceName="SOAP">
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>soap:Header\wsa:RelatesTo</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:mapping></appInfo></mif:annotations>
+            <derivedFrom attributeName="id" className="Message" staticModelDerivationId="1"/>
+            <mif:type name="II.TOKEN"/>
+         </mif:attribute>
+      </mif:class>
+   </containedClass>
+   <association sortKey="16">
+      
+      <mif:connections>
+         <mif:traversableConnection conformance="R" isMandatory="false" maximumMultiplicity="50" minimumMultiplicity="0" name="acknowledgementDetail" participantClassName="AcknowledgementDetail" sortKey="BZ">
+            <derivedFrom associationEndName="acknowledgementDetail" className="Acknowledgement" staticModelDerivationId="1"/>
+         </mif:traversableConnection>
+         <mif:nonTraversableConnection participantClassName="Acknowledgement">
+            <derivedFrom associationEndName="acknowledgement" className="AcknowledgementDetail" staticModelDerivationId="1"/>
+         </mif:nonTraversableConnection>
+      </mif:connections>
+   </association>
+   <association sortKey="17">
+      
+      <mif:connections>
+         <mif:traversableConnection conformance="R" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="targetMessage" participantClassName="TargetMessage" sortKey="AZ">
+            <derivedFrom associationEndName="acknowledges" className="Acknowledgement" staticModelDerivationId="1"/>
+         </mif:traversableConnection>
+         <mif:nonTraversableConnection participantClassName="Acknowledgement">
+            <derivedFrom associationEndName="acknowledgedBy" className="Transmission" staticModelDerivationId="1"/>
+         </mif:nonTraversableConnection>
+      </mif:connections>
+   </association>
+   <association sortKey="13">
+      
+      <mif:connections>
+         <mif:traversableConnection conformance="R" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="agentOrganization" participantClassName="Organization" sortKey="AZ">
+            <derivedFrom associationEndName="player" className="Role" staticModelDerivationId="1"/>
+         </mif:traversableConnection>
+         <mif:nonTraversableConnection participantClassName="Agent">
+            <derivedFrom associationEndName="playedRole" className="Entity" staticModelDerivationId="1"/>
+         </mif:nonTraversableConnection>
+      </mif:connections>
+   </association>
+   <association sortKey="23">
+      
+      <mif:connections>
+         <mif:traversableConnection conformance="R" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="agentOrganization" participantClassName="Organization2" sortKey="AZ">
+            <derivedFrom associationEndName="player" className="Role" staticModelDerivationId="1"/>
+         </mif:traversableConnection>
+         <mif:nonTraversableConnection participantClassName="Agent2">
+            <derivedFrom associationEndName="playedRole" className="Entity" staticModelDerivationId="1"/>
+         </mif:nonTraversableConnection>
+      </mif:connections>
+   </association>
+   <association sortKey="12">
+      
+      <mif:connections>
+         <mif:traversableConnection isMandatory="false" maximumMultiplicity="1" minimumMultiplicity="0" name="agent" participantClassName="Agent" sortKey="BAAAAD____">
+            <derivedFrom associationEndName="scopedRole" className="Entity" staticModelDerivationId="1"/>
+         </mif:traversableConnection>
+         <mif:nonTraversableConnection participantClassName="Device1">
+            <derivedFrom associationEndName="scoper" className="Role" staticModelDerivationId="1"/>
+         </mif:nonTraversableConnection>
+      </mif:connections>
+   </association>
+   <association sortKey="22">
+      
+      <mif:connections>
+         <mif:traversableConnection isMandatory="false" maximumMultiplicity="1" minimumMultiplicity="0" name="agent" participantClassName="Agent2" sortKey="BAAAAD____">
+            <derivedFrom associationEndName="scopedRole" className="Entity" staticModelDerivationId="1"/>
+         </mif:traversableConnection>
+         <mif:nonTraversableConnection participantClassName="Device2">
+            <derivedFrom associationEndName="scoper" className="Role" staticModelDerivationId="1"/>
+         </mif:nonTraversableConnection>
+      </mif:connections>
+   </association>
+   <association sortKey="5">
+      
+      <mif:connections>
+         <mif:traversableConnection conformance="R" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="acknowledgement" participantClassName="Acknowledgement" sortKey="CZ">
+            <derivedFrom associationEndName="acknowledgedBy" className="Transmission" staticModelDerivationId="1"/>
+         </mif:traversableConnection>
+         <mif:nonTraversableConnection participantClassName="Message">
+            <derivedFrom associationEndName="acknowledges" className="Acknowledgement" staticModelDerivationId="1"/>
+         </mif:nonTraversableConnection>
+      </mif:connections>
+   </association>
+   <association sortKey="3">
+      
+      <mif:connections>
+         <mif:traversableConnection conformance="R" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="receiver" participantClassName="Receiver" sortKey="AZ">
+            <derivedFrom associationEndName="communicationFunction" className="Transmission" staticModelDerivationId="1"/>
+         </mif:traversableConnection>
+         <mif:nonTraversableConnection participantClassName="Message">
+            <derivedFrom associationEndName="transmission" className="CommunicationFunction" staticModelDerivationId="1"/>
+         </mif:nonTraversableConnection>
+      </mif:connections>
+   </association>
+   <association sortKey="2">
+      
+      <mif:connections>
+         <mif:traversableConnection isMandatory="false" maximumMultiplicity="1" minimumMultiplicity="0" name="respondTo" participantClassName="RespondTo" sortKey="AZ">
+            <derivedFrom associationEndName="communicationFunction" className="Transmission" staticModelDerivationId="1"/>
+         </mif:traversableConnection>
+         <mif:nonTraversableConnection participantClassName="Message">
+            <derivedFrom associationEndName="transmission" className="CommunicationFunction" staticModelDerivationId="1"/>
+         </mif:nonTraversableConnection>
+      </mif:connections>
+   </association>
+   <association sortKey="4">
+      
+      <mif:connections>
+         <mif:traversableConnection conformance="R" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="sender" participantClassName="Sender" sortKey="AZ">
+            <derivedFrom associationEndName="communicationFunction" className="Transmission" staticModelDerivationId="1"/>
+         </mif:traversableConnection>
+         <mif:nonTraversableConnection participantClassName="Message">
+            <derivedFrom associationEndName="transmission" className="CommunicationFunction" staticModelDerivationId="1"/>
+         </mif:nonTraversableConnection>
+      </mif:connections>
+   </association>
+   <association sortKey="1">
+      
+      <mif:connections>
+         <mif:traversableConnection conformance="R" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="device" participantClassName="Device2" sortKey="ZZ">
+            <derivedFrom associationEndName="entity" className="CommunicationFunction" staticModelDerivationId="1"/>
+         </mif:traversableConnection>
+         <mif:nonTraversableConnection participantClassName="Receiver">
+            <derivedFrom associationEndName="communicationFunction" className="Entity" staticModelDerivationId="1"/>
+         </mif:nonTraversableConnection>
+      </mif:connections>
+   </association>
+   <association sortKey="7">
+      
+      <mif:connections>
+         <mif:traversableConnection conformance="R" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="device" participantClassName="Device3" sortKey="ZZ">
+            <derivedFrom associationEndName="entity" className="CommunicationFunction" staticModelDerivationId="1"/>
+         </mif:traversableConnection>
+         <mif:nonTraversableConnection participantClassName="RespondTo">
+            <derivedFrom associationEndName="communicationFunction" className="Entity" staticModelDerivationId="1"/>
+         </mif:nonTraversableConnection>
+      </mif:connections>
+   </association>
+   <association sortKey="10">
+      
+      <mif:connections>
+         <mif:traversableConnection conformance="R" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="device" participantClassName="Device1" sortKey="ZZ">
+            <derivedFrom associationEndName="entity" className="CommunicationFunction" staticModelDerivationId="1"/>
+         </mif:traversableConnection>
+         <mif:nonTraversableConnection participantClassName="Sender">
+            <derivedFrom associationEndName="communicationFunction" className="Entity" staticModelDerivationId="1"/>
+         </mif:nonTraversableConnection>
+      </mif:connections>
+   </association>
+</mif:staticModel>

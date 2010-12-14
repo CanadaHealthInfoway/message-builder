@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8"?><mif:staticModel xmlns:mif="urn:hl7-org:v3/mif" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:hl7-org:v3/mif" isAbstract="false" isSerializable="true" name="CA" packageKind="realmNamespace" representationKind="flat" schemaVersion="2.0" xsi:schemaLocation="">
+   <mif:packageLocation artifact="MT-deprecated" domain="RX" id="040020" realmNamespace="CA" root="DEFN" section="HM" subSection="PO"/>
+   <mif:header>
+      <mif:renderingInformation application="Visio to MIF transform"/>
+      <mif:legalese copyrightOwner="Health Level Seven" copyrightYears="2008"/>
+   </mif:header>
+   <mif:graphicRepresentation presentation="HL7">
+      <mif:graphElement name="Main">
+         <mif:position x="0" y="0"/>
+         <mif:size height="296" width="824"/>
+      </mif:graphElement>
+   <entryPoint name="Update Other Medication"><mif:graphElement containerDiagramName="Main" shapeId="Sheet.41">
+            <mif:position x="406" y="2"/>
+            <mif:size height="43" width="165"/>
+            <mif:anchorage connectToShapeId="Sheet.41">
+               <mif:position x="490" y="46"/>
+               <mif:graphEdge>
+                  <mif:anchor connectToShapeId="Sheet.642">
+                     <mif:position x="488" y="63"/>
+                  </mif:anchor>
+               </mif:graphEdge>
+            </mif:anchorage>
+         </mif:graphElement></entryPoint><class className="OtherMedication" presentation="HL7"><mif:graphElement containerDiagramName="Main" isHeightAutoSize="true" isWidthAutoSize="true" shapeId="Sheet.642" shapeTemplate="Act">
+               <mif:position x="335" y="63"/>
+               <mif:size height="151" width="305"/>
+            </mif:graphElement></class><annotation id="25F0067A-9FE8-4209-87FD-BE08C1B5BCE6"><mif:graphElement containerDiagramName="Main" isHeightAutoSize="true" isWidthAutoSize="true" shapeId="Sheet.646">
+                     <mif:position x="508" y="242"/>
+                     <mif:size height="53" width="150"/>
+                     <mif:anchorage connectToShapeId="Sheet.646">
+                        <mif:position x="584" y="269"/>
+                        <mif:graphEdge>
+                           <mif:anchor connectToShapeId="Sheet.642">
+                              <mif:position x="579" y="215"/>
+                           </mif:anchor>
+                        </mif:graphEdge>
+                     </mif:anchorage>
+                  </mif:graphElement></annotation><annotation id="11D3887F-864B-41E5-BC45-8ED42FBD4CA7"><mif:graphElement containerDiagramName="Main" isHeightAutoSize="true" isWidthAutoSize="true" shapeId="Sheet.650">
+                        <mif:position x="358" y="239"/>
+                        <mif:size height="42" width="122"/>
+                        <mif:anchorage connectToShapeId="Sheet.650">
+                           <mif:position x="419" y="260"/>
+                           <mif:graphEdge>
+                              <mif:anchor connectToShapeId="Sheet.642">
+                                 <mif:position x="426" y="215"/>
+                              </mif:anchor>
+                           </mif:graphEdge>
+                        </mif:anchorage>
+                     </mif:graphElement></annotation></mif:graphicRepresentation>
+   <derivedFrom staticModelDerivationId="1">
+      <mif:targetStaticModel artifact="RIM" root="DEFN" version="00"/>
+   </derivedFrom>
+   <entryPoint className="OtherMedication" id="PORX_MT040020CA" isAbstract="false" name="Update Other Medication">
+      
+   </entryPoint>
+   <containedClass>
+      <mif:class isAbstract="false" name="OtherMedication">
+         <mif:businessName name="Other Medication"><realmNamespace value="UV"/></mif:businessName>
+         <derivedFrom className="SubstanceAdministration" staticModelDerivationId="1"/>
+         
+         <mif:annotations>
+            
+            
+            
+            
+         <documentation><mif:definition>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>A record of an 'other medication'. Other medications include any drug product deemed relevant to the patient's drug profile, but which was not specifically ordered by a prescriber. Examples include over-the counter medications that were not specifically ordered, herbal remedies, and recreational drugs.</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:definition><mif:usageNotes>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>While SNOMED codes may pre-coordinate the drug code, the drug must not be modified. However route information for a drug may be updated.</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:usageNotes><mif:rationale>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>The medication record being updated.</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:rationale></documentation><appInfo><mif:constraint id="{25F0067A-9FE8-4209-87FD-BE08C1B5BCE6}">
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>routeCode must not be used when code is SNOMED and is mandatory otherwise</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+               
+            </mif:constraint></appInfo></mif:annotations>
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="classCode" sortKey="1"><enumerationValues>SBADM</enumerationValues>
+            <derivedFrom attributeName="classCode" className="SubstanceAdministration" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="SBADM" codeSystemName="ActClass"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="moodCode" sortKey="2"><enumerationValues>EVN</enumerationValues>
+            <derivedFrom attributeName="moodCode" className="SubstanceAdministration" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="EVN" codeSystemName="ActMood"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="id" sortKey="3">
+            <mif:businessName name="A:Other Medication Id"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Identifier of the Other Medication record that needs to be updated.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Uniquely identifies the record to be updated and is therefore mandatory.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation></mif:annotations>
+            <derivedFrom attributeName="id" className="SubstanceAdministration" staticModelDerivationId="1"/>
+            <mif:type name="II.BUSVER"/>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="code" sortKey="4">
+            <mif:businessName name="Other Medication Type"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Indicates that the record is a drug administration rather than an immunization or other type of administration. For SNOMED, may also include route, drug and other information.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Needed to convey the meaning of this class and is therefore mandatory.</xhtml:p>
+                     </xhtml:p>
+                     <xhtml:p>
+                        <xhtml:p>The element allows 'CD' to provide support for SNOMED.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation><appInfo><mif:constraint id="{11D3887F-864B-41E5-BC45-8ED42FBD4CA7}">
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Must be 'DRUG' unless using SNOMED</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+                  
+               </mif:constraint></appInfo></mif:annotations>
+            <derivedFrom attributeName="code" className="SubstanceAdministration" staticModelDerivationId="1"/>
+            <mif:type name="CD"/>
+            <supplierVocabulary codingStrength="CNE"><code code="DRUG" codeSystemName="ActCode"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="statusCode" sortKey="5">
+            <mif:businessName name="B:Medication Status"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Indicates whether the medication is still considered active.</xhtml:p>
+                     </xhtml:p>
+                     <xhtml:p>
+                        <xhtml:p>Valid status can only be 'ACTIVE' or 'COMPLETED'.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Indicates the new state of the medication and is therefore mandatory.</xhtml:p>
+                     </xhtml:p>
+                     <xhtml:p>
+                        <xhtml:p>Note ------ The provider might know that the patient is not taking the medication but not necessarily when the patient stopped it. Thus the status of the medication could be set to 'COMPLETED' by the provider without necessarily setting an End Date on the medication record.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation></mif:annotations>
+            <derivedFrom attributeName="statusCode" className="SubstanceAdministration" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><vocabularyDomain name="ActStatus"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="false" maximumMultiplicity="1" minimumMultiplicity="0" name="effectiveTime" sortKey="6">
+            <mif:businessName name="C:Drug Active Period"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>The new period in which the active medication is deemed to be active.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Allows the drug active period information to be changed.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation></mif:annotations>
+            <derivedFrom attributeName="effectiveTime" className="SubstanceAdministration" staticModelDerivationId="1"/>
+            <mif:type name="IVL">
+               <argumentDatatype name="TS.DATE"/>
+            </mif:type>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="false" maximumMultiplicity="2" minimumMultiplicity="0" name="confidentialityCode" sortKey="7">
+            <mif:businessName name="E:Other Medication Masking Indicators"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Taboo allows the provider to request restricted access to patient or their care giver.</xhtml:p>
+                     </xhtml:p>
+                     <xhtml:p>
+                        <xhtml:p>Constraint: Can’t have both normal and one of the other codes simultaneously.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Taboo allows the provider to request restricted access to patient or their care giver.</xhtml:p>
+                     </xhtml:p>
+                     <xhtml:p>
+                        <xhtml:p>Constraint: Can’t have both normal and one of the other codes simultaneously.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation></mif:annotations>
+            <derivedFrom attributeName="confidentialityCode" className="SubstanceAdministration" staticModelDerivationId="1"/>
+            <mif:type name="SET">
+               <argumentDatatype name="CV"/>
+            </mif:type>
+            <supplierVocabulary codingStrength="CNE"><vocabularyDomain name="x_NormalRestrictedTabooConfidentialityKind"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute isImmutable="false" isMandatory="false" maximumMultiplicity="1" minimumMultiplicity="0" name="routeCode" sortKey="8">
+            <mif:businessName name="D:Route"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>This is the means by which the patient is taking the other medication.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Ensures consistency in description of routes. Provides potential for cross-checking dosage form and route. Because this information is pre-coordinated into 'code' for SNOMED, it is marked as optional.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation></mif:annotations>
+            <derivedFrom attributeName="routeCode" className="SubstanceAdministration" staticModelDerivationId="1"/>
+            <mif:type name="CV"/>
+            <supplierVocabulary codingStrength="CNE"><vocabularyDomain name="RouteOfAdministration"/></supplierVocabulary>
+         </mif:attribute>
+      </mif:class>
+   </containedClass>
+</mif:staticModel>
