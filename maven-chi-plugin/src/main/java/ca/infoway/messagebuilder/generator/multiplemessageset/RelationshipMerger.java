@@ -58,7 +58,7 @@ class RelationshipMerger implements Merger<Relationship> {
 			mergeName(primary.getName(), secondary.getName());
 			mergeSortOrder(primary.getSortOrder(), secondary.getSortOrder());
 			mergeTemplateParameterName(primary.getTemplateParameterName(), secondary.getTemplateParameterName());
-			mergeType(primary.getType(), secondary.getType(), primary.isAttribute() || secondary.isAttribute());
+			mergeType(primary, secondary);
 		}
 		
 		return result;
@@ -197,7 +197,9 @@ class RelationshipMerger implements Merger<Relationship> {
 		this.result.setTemplateParameterName(mergedTemplateParameterName);
 	}
 
-	private void mergeType(String type, String type2, boolean isAttribute) {
+	private void mergeType(Relationship primary, Relationship secondary) {
+		String type = primary.getType();
+		String type2 = secondary.getType();
 		String mergedType = this.mergeHelper.standardMerge(type, type2);
 		if (!StringUtils.equals(type, type2)) {
 			String compatibleType = getCompatibleType(type, type2);
@@ -205,8 +207,13 @@ class RelationshipMerger implements Merger<Relationship> {
 				this.context.logInfo("Determined these different types were compatible: " + type + "/" + type2 + " [" + compatibleType + "]");
 				mergedType = compatibleType;
 			} else {
+				boolean isAttribute = primary.isAttribute() || secondary.isAttribute();
 				DifferenceType differenceType = (isAttribute ? DifferenceType.ATTRIBUTE_TYPE : DifferenceType.ASSOCIATION_TYPE);
 				this.mergeHelper.addDifference(this.context, this.result, differenceType, type, type2);
+				
+				if (!isAttribute && (primary.isChoice() != secondary.isChoice())) {
+					this.mergeHelper.addDifference(this.context, this.result, DifferenceType.MESSAGE_PART_ABSTRACT, type, type2);
+				}
 			}
 		}
 		this.result.setType(mergedType);

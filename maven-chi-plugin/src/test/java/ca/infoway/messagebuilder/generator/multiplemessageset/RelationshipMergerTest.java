@@ -178,6 +178,38 @@ public class RelationshipMergerTest {
 	}
 
 	@Test
+	public void shoudlDetectAbstractMismatchInRelationshipTypes() {
+		final Relationship primary = new Relationship();
+		primary.setCardinality(new Cardinality(1,1));
+		primary.setConformance(ConformanceLevel.MANDATORY);
+		primary.setName("aName");
+		primary.setType("ABCD_MT123456CA.ConcreteType");
+
+		final Relationship secondary = new Relationship();
+		secondary.setCardinality(new Cardinality(1,1));
+		secondary.setConformance(ConformanceLevel.OPTIONAL);
+		secondary.setName("aName");
+		secondary.setType("ABCD_MT987654CA.AbstractType");
+		secondary.getChoices().add(new Relationship("choice1", "ABCD_MT112233.Choice1Type", Cardinality.create("1")));
+		secondary.getChoices().add(new Relationship("choice2", "ABCD_MT112233.Choice2Type", Cardinality.create("1")));
+		
+		this.jmock.checking(new Expectations() {{
+			one(documentationMerger).merge(null, null); will(returnValue(null));
+			one(relationshipsMerger).merge(primary.getChoices(), secondary.getChoices()); will(returnValue(primary.getChoices()));
+			exactly(2).of(mergeContext).logError(with(any(String.class)));
+		}});
+
+		Relationship result = this.merger.merge(primary, secondary);
+		Assert.assertNotNull(result);
+		Assert.assertNotSame(primary, result);
+		Assert.assertNotSame(secondary, result);
+		Assert.assertTrue(result.getCardinality().isSingle());
+		Assert.assertEquals(ConformanceLevel.OPTIONAL, result.getConformance());
+		Assert.assertEquals("aName", result.getName());
+		Assert.assertEquals(2, result.getDifferences().size());
+	}
+
+	@Test
 	public void shoudlMergeDifferentCodedTypes() {
 		final Documentation primaryDoc = new Documentation();
 		

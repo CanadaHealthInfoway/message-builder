@@ -32,7 +32,7 @@ class ChoiceMerger implements Merger<Relationship> {
 		} else {
 			this.result = new Relationship();
 			mergeName(primary.getName(), secondary.getName());
-			mergeType(primary.getType(), secondary.getType());
+			mergeType(primary, secondary);
 			mergeChoices(primary.getChoices(), secondary.getChoices());
 		}
 		
@@ -53,10 +53,17 @@ class ChoiceMerger implements Merger<Relationship> {
 		this.result.setName(name);
 	}
 
-	private void mergeType(String type, String type2) {
+	private void mergeType(Relationship primary, Relationship secondary) {
+		String type = primary.getType();
+		String type2 = secondary.getType();
 		String mergedType = this.mergeHelper.standardMerge(type, type2);
 		if (!StringUtils.equals(type, type2)) {
 			this.mergeHelper.addDifference(this.context, this.result, DifferenceType.CHOICE_RELATIONSHIP_TYPE, type, type2);
+			
+			if (primary.isChoice() != secondary.isChoice()) {
+				this.mergeHelper.addDifference(this.context, this.result, DifferenceType.MESSAGE_PART_ABSTRACT, type, type2);
+			}
+			
 		}
 		this.result.setType(mergedType);
 	}
