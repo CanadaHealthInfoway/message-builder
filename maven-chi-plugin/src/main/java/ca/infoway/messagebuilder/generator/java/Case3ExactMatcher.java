@@ -1,6 +1,7 @@
 package ca.infoway.messagebuilder.generator.java;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import ca.infoway.messagebuilder.generator.LogUI;
@@ -13,17 +14,17 @@ class Case3ExactMatcher extends Case3Matcher {
 	private final LogUI log;
 	
 	Case3ExactMatcher(LogUI log, SimplifiableTypeProvider definitions, Case3MergeResult mergeResult) {
-		super(definitions);
+		super(log, definitions);
 		this.log = log;
 		this.mergeResult = mergeResult;
 		this.matcher = new Matcher(this.mergeResult);
 	}
 
-	boolean performMatching(SimplifiableType type) {
+	boolean performMatching(SimplifiableType type, List<SimplifiableType> types) {
 		boolean somethingMatched = false;
-		for (SimplifiableType otherType : getAllSimplifiableTypes()) {
+		for (SimplifiableType otherType : types) {
 			if (type.getTypeName().equals(otherType.getTypeName())) {
-				break;
+				// skip it
 			} else if (this.mergeResult.isKnownMatch(type, otherType)) {
 				// Skip it.  We already know about it
 			} else if (matchType(type, otherType) == MatchType.EXACT) {

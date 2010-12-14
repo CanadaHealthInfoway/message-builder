@@ -6,6 +6,8 @@ import java.util.Set;
 
 import org.apache.commons.collections.CollectionUtils;
 
+import ca.infoway.messagebuilder.generator.LogLevel;
+import ca.infoway.messagebuilder.generator.LogUI;
 import ca.infoway.messagebuilder.generator.multiplemessageset.ExcisionEvaluator;
 import ca.infoway.messagebuilder.xml.Difference;
 import ca.infoway.messagebuilder.xml.DifferenceType;
@@ -19,9 +21,11 @@ import ca.infoway.messagebuilder.xml.Relationship;
 class PostSimplificationEvaluator implements ExcisionEvaluator {
 
 	private final SimplifiableDefinitions definitions;
+	private final LogUI log;
 
-	public PostSimplificationEvaluator(SimplifiableDefinitions definitions) {
+	public PostSimplificationEvaluator(SimplifiableDefinitions definitions, LogUI log) {
 		this.definitions = definitions;
+		this.log = log;
 	}
 	
 	
@@ -41,7 +45,7 @@ class PostSimplificationEvaluator implements ExcisionEvaluator {
 		}
 	}
 
-	private boolean containsDifferencesThatHasNotBeenRectified(MessagePart messagePart) {
+	boolean containsDifferencesThatHasNotBeenRectified(MessagePart messagePart) {
 		boolean result = false;
 		for (Relationship relationship : messagePart.getRelationships()) {
 			result |= hasTypeThatDidNotMerge(relationship, DifferenceType.ASSOCIATION_TYPE);
@@ -83,17 +87,18 @@ class PostSimplificationEvaluator implements ExcisionEvaluator {
 		for (SimplifiableType merge : type.getMergedWithTypes()) {
 			someSet.add(merge.getName());
 		}
-		boolean first = true;
 		for (String temp : mergeTypes) {
 			if (!someSet.contains(temp)) {
-				if (first) {
-					System.out.println("Checking the merge status of : " + mergeTypes);
-					first = false;
-				}
-				System.out.println("Type " + temp + " does not appear to have successfully merged.");
+				this.log.log(LogLevel.INFO, "Type " + temp + " does not appear to have successfully merged.");
 			}
 		}
-		return someSet.containsAll(mergeTypes);
+		boolean result = someSet.containsAll(mergeTypes);
+		if (result) {
+			this.log.log(LogLevel.INFO, "The following items successfully merged: "+ mergeTypes);
+		} else {
+			this.log.log(LogLevel.INFO, "The following items should be merged, but did not: "+ mergeTypes);
+		}
+		return !result;
 	}
 
 	private Set<String> getRequiredMergeTypes(Relationship relationship, DifferenceType differenceType) {

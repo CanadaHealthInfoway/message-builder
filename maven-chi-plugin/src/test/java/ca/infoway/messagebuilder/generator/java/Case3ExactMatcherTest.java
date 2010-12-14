@@ -44,7 +44,7 @@ public class Case3ExactMatcherTest {
 		
 		Case3MergeResult result = new Case3MergeResult();
 		
-		assertTrue("matched", createMatcher(result).performMatching(type1));
+		assertTrue("matched", createMatcher(result).performMatching(type2, Arrays.asList(type1, type2)));
 	}
 	
 	private Case3Matcher createMatcher(Case3MergeResult result) {
@@ -67,7 +67,7 @@ public class Case3ExactMatcherTest {
 		
 		Case3MergeResult result = new Case3MergeResult();
 		
-		assertTrue("matched", createMatcher(result).performMatching(type1));
+		assertTrue("matched", createMatcher(result).performMatching(type2, Arrays.asList(type1, type2)));
 		MergedTypeDescriptor descriptor = result.getDescriptorByName(new TypeName("ABCD_MT123456CA.FifthSacredThing"));
 		assertEquals("merged descriptor", 2, descriptor.getMergedTypes().size());
 	}
@@ -89,7 +89,7 @@ public class Case3ExactMatcherTest {
 		Case3MergeResult result = new Case3MergeResult();
 		result.recordMatch(new Type(new TypeName("ABCD_MT333333CA.Spirit")), new Type(new TypeName("ABCD_MT222222CA.Spirit")));
 		
-		assertTrue("matched", createMatcher(result).performMatching(type1));
+		assertTrue("matched", createMatcher(result).performMatching(type2, Arrays.asList(type1, type2)));
 		MergedTypeDescriptor descriptor = result.getDescriptorByName(new TypeName("ABCD_MT123456CA.FifthSacredThing"));
 		assertEquals("merged descriptor", 2, descriptor.getMergedTypes().size());
 	}
@@ -108,7 +108,7 @@ public class Case3ExactMatcherTest {
 		
 		Case3MergeResult result = new Case3MergeResult();
 
-		assertFalse("not matched", createMatcher(result).performMatching(type1));
+		assertFalse("not matched", createMatcher(result).performMatching(type2, Arrays.asList(type1, type2)));
 		
 		result.recordMatch(
 				type1.getRelationship("person").getType(),
@@ -116,7 +116,7 @@ public class Case3ExactMatcherTest {
 			);
 		
 		assertNotNull("match emulated", result.getDescriptorByName(new TypeName("ABCD_MT987654CA.Person")));
-		assertTrue("matched", createMatcher(result).performMatching(type1));
+		assertTrue("matched", createMatcher(result).performMatching(type2, Arrays.asList(type1, type2)));
 	}
 
 	private SimplifiableRelationship createSimplifiableAssociation(String name, String type) {

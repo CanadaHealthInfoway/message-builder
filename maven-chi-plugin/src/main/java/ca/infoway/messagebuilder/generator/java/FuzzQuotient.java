@@ -71,9 +71,7 @@ enum FuzzQuotient implements Fuzziness {
 		int numTotal = numExact + numAdded + numRemoved;
 		int numDifferent = numAdded + numRemoved;
 		return numExact > 0 
-			&& numMajorDifferences == 0 
-			&& (numDifferent <= 2 
-			|| (numExact * 1.0 / numTotal >= 0.75));
+			&& numMajorDifferences == 0;
 		
 	}
 	

@@ -77,7 +77,7 @@ public abstract class IntermediateToModelGenerator {
 	 */
 	protected void excise(MessageSet messageSet, SimplifiableDefinitions definitions) {
 		
-		Exciser exciser = new Exciser(messageSet, new PostSimplificationEvaluator(definitions));
+		Exciser exciser = new Exciser(messageSet, new PostSimplificationEvaluator(definitions, this.outputUI));
 		Set<ExcisedItem> items = exciser.execute();
 		try {
 			new ExciseReportGenerator(items, new File("/tmp/generatorExciseReport_secondPass.xls")).create();

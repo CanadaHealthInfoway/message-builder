@@ -19,25 +19,25 @@ import ca.infoway.messagebuilder.xml.TypeName;
 class Case3FuzzyMatcher extends Case3Matcher {
 
 	
-	private final Case3MergeResult mergeResult;
+	protected final Case3MergeResult mergeResult;
 	private final Matcher matcher;
-	private final LogUI log;
+	protected final LogUI log;
 	private final Fuzziness fuzziness;
 
 	public Case3FuzzyMatcher(LogUI log, SimplifiableTypeProvider definitions, Case3MergeResult result, Fuzziness fuzziness) {
-		super(definitions);
+		super(log, definitions);
 		this.log = log;
 		this.mergeResult = result;
 		this.fuzziness = fuzziness;
 		this.matcher = new Matcher(this.mergeResult);
 	}
 
-	public boolean performMatching(SimplifiableType type) {
+	public boolean performMatching(SimplifiableType type, List<SimplifiableType> types) {
 		List<SimplifiableType> matches = new ArrayList<SimplifiableType>();
 		if (!isTransitiveTemplateType(type)) {
-			for (SimplifiableType otherType : getAllSimplifiableTypes()) {
+			for (SimplifiableType otherType : types) {
 				if (type.getName().equals(otherType.getName())) {
-					break;
+					// skip it
 				} else if (!this.fuzziness.isWorthChecking(type, otherType)) {
 					// skip it
 				} else if (this.mergeResult.isUnmergeable(type, otherType)) {
@@ -69,6 +69,11 @@ class Case3FuzzyMatcher extends Case3Matcher {
 			}
 		}
 		
+		return performFinalMatchChecks(type, matches);
+	}
+
+	boolean performFinalMatchChecks(SimplifiableType type,
+			List<SimplifiableType> matches) {
 		if (!matches.isEmpty() && type.isAbstract()) {
 			return recordAllMatches(matches);
 		} else if (!matches.isEmpty() && isAllMatchesCompatible(matches)) {
@@ -225,7 +230,7 @@ class Case3FuzzyMatcher extends Case3Matcher {
 					matchTypes.add(matchType =
 						this.matcher.matchesType(relationship.getRelationship(), otherRelationship.getRelationship()));
 				}
-			} else if (otherType.getRelationship(relationship.getName()) != null) {
+			} else if (hasNameCollision(otherType, relationship)) {
 				matchTypes.add(matchType =MatchType.MAJOR_DIFFERENCE);
 			} else if (relationship.isTemplateType() || isTemplateAssociationType(relationship)) {
 				matchTypes.add(matchType =MatchType.MAJOR_DIFFERENCE);
@@ -237,6 +242,10 @@ class Case3FuzzyMatcher extends Case3Matcher {
 					" with " + describe(otherType, otherRelationship) + " : match type = " 
 					+ matchType);
 		}
+	}
+
+	boolean hasNameCollision(SimplifiableType otherType, SimplifiableRelationship relationship) {
+		return otherType.getRelationship(relationship.getName()) != null;
 	}
 	
 	private boolean isTemplateAssociationType(SimplifiableRelationship relationship) {

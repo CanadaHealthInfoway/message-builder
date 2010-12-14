@@ -38,7 +38,7 @@ public class Case3FuzzyMatcherTest {
 		}});
 		
 		Case3MergeResult result = new Case3MergeResult();
-		assertFalse("no matches", createMatcher(result).performMatching(type1));
+		assertFalse("no matches", createMatcher(result).performMatching(type1, Arrays.asList(type1, type2)));
 	}
 
 	@Test
@@ -68,7 +68,7 @@ public class Case3FuzzyMatcherTest {
 		Case3MergeResult result = new Case3MergeResult();
 		result.recordMatch(organizationType, organizationType2);
 		
-		assertTrue("matches", createMatcher(result).performMatching(type1));
+		assertTrue("matches", createMatcher(result).performMatching(type2, Arrays.asList(type1, type2)));
 	}
 
 	private Case3FuzzyMatcher createMatcher(Case3MergeResult result) {
@@ -88,7 +88,7 @@ public class Case3FuzzyMatcherTest {
 		}});
 		
 		Case3MergeResult result = new Case3MergeResult();
-		assertTrue("matches", createMatcher(result).performMatching(type1));
+		assertTrue("matches", createMatcher(result).performMatching(type2, Arrays.asList(type1, type2)));
 	}
 	
 	@Test
@@ -104,7 +104,7 @@ public class Case3FuzzyMatcherTest {
 		}});
 		
 		Case3MergeResult result = new Case3MergeResult();
-		assertTrue("matches", createMatcher(result).performMatching(type1));
+		assertTrue("matches", createMatcher(result).performMatching(type2, Arrays.asList(type1, type2)));
 		
 	}
 
@@ -120,7 +120,7 @@ public class Case3FuzzyMatcherTest {
 		}});
 		
 		Case3MergeResult result = new Case3MergeResult();
-		assertTrue("matches", createMatcher(result).performMatching(type1));
+		assertTrue("matches", createMatcher(result).performMatching(type2, Arrays.asList(type1, type2)));
 		
 	}
 
@@ -138,7 +138,7 @@ public class Case3FuzzyMatcherTest {
 		}});
 		
 		Case3MergeResult result = new Case3MergeResult();
-		assertTrue("matches", createMatcher(result).performMatching(type1));
+		assertTrue("matches", createMatcher(result).performMatching(type2, Arrays.asList(type1, type2)));
 	}
 	
 	@Test
@@ -156,7 +156,7 @@ public class Case3FuzzyMatcherTest {
 		}});
 		
 		Case3MergeResult result = new Case3MergeResult();
-		assertFalse("matches", createMatcher(result).performMatching(type1));
+		assertFalse("matches", createMatcher(result).performMatching(type2, Arrays.asList(type1, type2)));
 	}
 	
 	@Test
@@ -176,7 +176,7 @@ public class Case3FuzzyMatcherTest {
 		}});
 		
 		Case3MergeResult result = new Case3MergeResult();
-		assertFalse("matches", createMatcher(result).performMatching(type1));
+		assertFalse("matches", createMatcher(result).matchAllTypes());
 	}
 	
 	@Test
@@ -195,9 +195,9 @@ public class Case3FuzzyMatcherTest {
 		}});
 		
 		Case3MergeResult result = new Case3MergeResult();
-		assertFalse("matches", createMatcher(result).performMatching(type1));
+		assertFalse("matches", createMatcher(result).performMatching(type1, Arrays.asList(type1, type2)));
 		
-		assertFalse("matches reverse", createMatcher(result).performMatching(type2));
+		assertFalse("matches reverse", createMatcher(result).performMatching(type2, Arrays.asList(type1, type2)));
 	}
 	
 	@Test
@@ -217,7 +217,7 @@ public class Case3FuzzyMatcherTest {
 		
 		Case3MergeResult result = new Case3MergeResult();
 		result.initialize(definitions);
-		assertFalse("matches", createMatcher(result).performMatching(type1));
+		assertFalse("matches", createMatcher(result).performMatching(type1, Arrays.asList(type1, type2)));
 	}
 
 	@Test
@@ -251,7 +251,7 @@ public class Case3FuzzyMatcherTest {
 		type1.setMergedTypeName(result.getDescriptorByName(type1.getTypeName()).getNewName());
 		type2.setMergedTypeName(result.getDescriptorByName(type2.getTypeName()).getNewName());
 		
-		assertFalse("matches", createMatcher(result).performMatching(type1));
+		assertFalse("matches", createMatcher(result).performMatching(type1, Arrays.asList(type1, type2)));
 	}
 
 }
