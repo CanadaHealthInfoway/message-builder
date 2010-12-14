@@ -57,7 +57,7 @@ class ArgumentMerger implements Merger<List<Argument>> {
 			// interactions with different numbers of arguments are not supported
 			addMissingDifference.setOk(false);
 		} else {
-			mergeName(result, primaryArgument.getName(), secondaryArgument.getName());
+			mergeName(result, primaryArgument, secondaryArgument);
 			mergeTemplateParameterName(result, primaryArgument.getTemplateParameterName(), secondaryArgument.getTemplateParameterName());
 			mergeTraversalName(result, primaryArgument.getTraversalName(), secondaryArgument.getTraversalName());
 			mergeChoices(result, primaryArgument.getChoices(), secondaryArgument.getChoices());
@@ -69,10 +69,16 @@ class ArgumentMerger implements Merger<List<Argument>> {
 		return result;
 	}
 
-	private void mergeName(Argument result, String name, String name2) {
+	private void mergeName(Argument result, Argument primary, Argument secondary) {
+		String name = primary.getName();
+		String name2 = secondary.getName();
 		result.setName(name);
 		if (!StringUtils.equals(name, name2)) {
 			this.mergeHelper.addDifference(this.context, result, DifferenceType.ASSOCIATION_TYPE, name, name2);
+			
+			if (primary.isChoice() != secondary.isChoice()) {
+				this.mergeHelper.addDifference(this.context, result, DifferenceType.MESSAGE_PART_ABSTRACT, name, name2);
+			}
 		}
 	}
 	

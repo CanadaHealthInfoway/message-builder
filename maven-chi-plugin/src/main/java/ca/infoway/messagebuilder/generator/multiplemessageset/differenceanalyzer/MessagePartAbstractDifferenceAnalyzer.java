@@ -2,9 +2,8 @@ package ca.infoway.messagebuilder.generator.multiplemessageset.differenceanalyze
 
 public class MessagePartAbstractDifferenceAnalyzer extends TrivialDifferenceAnalyzer {
 
-	// this is a problem if encountered; however, no difference of this type has ever been noted 
-	
 	public MessagePartAbstractDifferenceAnalyzer() {
+		// FIXME - TM/BCH - we can handle this, but not right now - need to implement  
 		super(false);
 	}
 	
