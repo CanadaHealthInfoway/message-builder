@@ -132,7 +132,7 @@ public class ImportDeclarationGenerator extends Hl7TypeCodeGenerator implements 
 	}
 
 	public String getRepresentationOfType(Type type) {
-		LanguageSpecificName name = type.getLanguageSpecificName();
+		LanguageSpecificName name = type == null ? null : type.getLanguageSpecificName();
 		if (name != null) {
 			return getRepresentationOfClassName(name.getFullyQualifiedName());
 		} else {
