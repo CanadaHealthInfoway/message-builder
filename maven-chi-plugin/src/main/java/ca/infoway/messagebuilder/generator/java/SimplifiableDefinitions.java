@@ -1,9 +1,12 @@
 package ca.infoway.messagebuilder.generator.java;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Map;
 import java.util.TreeMap;
+
+import org.codehaus.plexus.util.StringUtils;
 
 import ca.infoway.messagebuilder.xml.TypeName;
 
@@ -50,6 +53,14 @@ public class SimplifiableDefinitions implements SimplifiableTypeProvider {
 	
 	void removeType(String name) {
 		this.types.remove(name);
+		String packageName = new TypeName(name).getParent().getName();
+		if (!this.packages.containsKey(packageName)) {
+			for (SimplifiableType type : new ArrayList<SimplifiableType>(this.packages.get(packageName).getTypes())) {
+				if (StringUtils.equals(name, type.getName())) {
+					this.packages.get(packageName).getTypes().add(type);
+				}
+			}
+		}
 	}
 	void removeInteraction(String name) {
 		this.interactions.remove(name);

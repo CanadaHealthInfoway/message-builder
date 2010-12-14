@@ -54,17 +54,29 @@ class DefinitionToResultConverter {
 			Type type = this.types.get(simplifiableType.getName());
 			if (simplifiableType.isMerged()) {
 				for (TypeName typeName : convertAll(collectAllInterfaceNames(simplifiableType))) {
-					type.getInterfaceTypes().add(result.getTypeByName(typeName));
+					Type interfaceType = result.getTypeByName(typeName);
+					if (interfaceType != null) {
+						type.getInterfaceTypes().add(interfaceType);
+					}
 				}
 				for (TypeName typeName : convertAllNames(collectAllChildNames(simplifiableType))) {
-					type.getChildTypes().add(result.getTypeByName(typeName));
+					Type interfaceType = result.getTypeByName(typeName);
+					if (interfaceType != null) {
+						type.getChildTypes().add(result.getTypeByName(typeName));
+					}
 				}
 			} else {
 				for (TypeName typeName : convertAll(simplifiableType.getInterfaceTypes())) {
-					type.getInterfaceTypes().add(result.getTypeByName(typeName));
+					Type interfaceType = result.getTypeByName(typeName);
+					if (interfaceType != null) {
+						type.getInterfaceTypes().add(result.getTypeByName(typeName));
+					}
 				}
 				for (TypeName typeName : convertAllNames(simplifiableType.getChildTypes())) {
-					type.getChildTypes().add(result.getTypeByName(typeName));
+					Type interfaceType = result.getTypeByName(typeName);
+					if (interfaceType != null) {
+						type.getChildTypes().add(result.getTypeByName(typeName));
+					}
 				}
 			}
 		}		
@@ -106,7 +118,10 @@ class DefinitionToResultConverter {
 		for (SimplifiableType simplifiableType : this.definitions.getAllTypes()) {
 			Type type = this.types.get(simplifiableType.getName());
 			for (Map.Entry<Fingerprint, Collection<SimplifiableRelationship>> entry : simplifiableType.getMatchedRelationships().entrySet()) {
-				type.getRelationships().add(createRelationship(result, entry.getValue()));
+				BaseRelationship relationship = createRelationship(result, entry.getValue());
+				if (relationship != null) {
+					type.getRelationships().add(relationship);
+				}
 			}
 		}
 		for (SimplifiableType simplifiableType : this.definitions.getAllTypes()) {
@@ -145,8 +160,7 @@ class DefinitionToResultConverter {
 			
 			Map<String, Integer> duplicationXmlName = new HashMap<String, Integer>();
 			for (BaseRelationship relationship : mergedType.getRelationships()) {
-				String[] paths = relationship.getAllXmlMappings();
-				for (String xmlName : paths) {
+				for (String xmlName : relationship.getAllXmlMappings()) {
 					if (duplicationXmlName.containsKey(xmlName)) {
 						duplicationXmlName.put(xmlName, duplicationXmlName.get(xmlName) + 1);
 					} else {
@@ -176,12 +190,14 @@ class DefinitionToResultConverter {
 			List<BaseRelationship> relationships = new ArrayList<BaseRelationship>();
 			for (SimplifiableRelationship simplifiableRelationship : value) {
 				BaseRelationship temp = createRelationship(result, simplifiableRelationship);
-				if (!(temp instanceof Association)) {
-					throw new GeneratorException("Expected an association, but was : " + temp.getClass());
-				} else if (relationship == null) {
-					relationship = (Association) temp;
+				if (temp != null) {
+					if (!(temp instanceof Association)) {
+						throw new GeneratorException("Expected an association, but was : " + temp.getClass());
+					} else if (relationship == null) {
+						relationship = (Association) temp;
+					}
+					relationships.add(temp);
 				}
-				relationships.add(temp);
 			}
 			
 			return new Case3SimplifiedAssociation(relationship, relationships);
@@ -217,7 +233,10 @@ class DefinitionToResultConverter {
 	private Set<TypeName> convertAll(Set<String> interfaceTypes) {
 		Set<TypeName> result = new HashSet<TypeName>();
 		for (String string : interfaceTypes) {
-			result.add(getTypeNameForType(string));
+			TypeName typeNameForType = getTypeNameForType(string);
+			if (typeNameForType != null) {
+				result.add(typeNameForType);
+			}
 		}
 		return result;
 	}
@@ -225,14 +244,17 @@ class DefinitionToResultConverter {
 	private Set<TypeName> convertAllNames(Set<TypeName> interfaceTypes) {
 		Set<TypeName> result = new HashSet<TypeName>();
 		for (TypeName typeName : interfaceTypes) {
-			result.add(getTypeNameForType(typeName.getName()));
+			TypeName typeNameForType = getTypeNameForType(typeName.getName());
+			if (typeNameForType != null) {
+				result.add(typeNameForType);
+			}
 		}
 		return result;
 	}
 	
 	private void handleInlining(Type type) throws GeneratorException {
 		for (BaseRelationship relationship : new ArrayList<BaseRelationship>(type.getRelationships())) {
-			if (isInlined(relationship) && !isAlreadyInlined(relationship)) {
+			if (isInlined(type, relationship) && !isAlreadyInlined(relationship)) {
 				inline(type, relationship);
 			}
 		}
@@ -244,7 +266,7 @@ class DefinitionToResultConverter {
 
 	private void handleMerging(Type type) {
 		for (BaseRelationship relationship : new ArrayList<BaseRelationship>(type.getRelationships())) {
-			if (isMerged(relationship)) {
+			if (isMerged(type, relationship)) {
 				merge(type, relationship);
 			}
 		}
@@ -258,14 +280,22 @@ class DefinitionToResultConverter {
 		type.getRelationships().set(index, mergedAssociation);
 	}
 
-	private boolean isMerged(BaseRelationship relationship) {
+	private boolean isMerged(Type containingType, BaseRelationship relationship) {
 		if (relationship.getRelationshipType() == RelationshipType.ATTRIBUTE) {
 			return false;
 		} else if (((Association) relationship).isTemplateType()) {
 			return false;
 		} else {
 			SimplifiableType type = this.definitions.getType(relationship.getType());
-			return type.isMerged();
+			if (type == null) {
+				System.out.println("Cannot find type: " + 
+						relationship.getType() + " used by " + 
+						containingType.getTypeName() + "." + 
+						relationship.getName());
+				return false;
+			} else {
+				return type.isMerged();
+			}
 		}
 	}
 
@@ -297,13 +327,22 @@ class DefinitionToResultConverter {
 		return type.isIndicator();
 	}
 
-	private boolean isInlined(BaseRelationship relationship) {
+	private boolean isInlined(Type containingType, BaseRelationship relationship) {
 		if (relationship.getRelationshipType() == RelationshipType.ATTRIBUTE) {
 			return false;
 		} else if (((Association) relationship).isTemplateType()) {
 			return false;
 		} else {
-			return this.definitions.getType(relationship.getType()).isInlined();
+			SimplifiableType type = this.definitions.getType(relationship.getType());
+			if (type == null) {
+				System.out.println("Cannot find type: " + 
+						relationship.getType() + " used by " + 
+						containingType.getTypeName() + "." + 
+						relationship.getName());
+				return false;
+			} else {
+				return type.isInlined();
+			}
 		}
 	}
 
@@ -316,9 +355,14 @@ class DefinitionToResultConverter {
 					relationship, new TemplateVariableGenerator().getNext(relationship));
 		} else {
 			Type relationshipType = this.types.get(relationship.getType());
-			List<Choice> choiceTypes = createChoiceTypes(new ArrayList<Choice>(), relationship, result);
-			return Association.createStandardAssociation(
-					relationship, relationshipType, choiceTypes);
+			if (relationshipType == null) {
+				// TODO: BCH: hacky-tricky handling of abstract types with relationships
+				return null;
+			} else {
+				List<Choice> choiceTypes = createChoiceTypes(new ArrayList<Choice>(), relationship, result);
+				return Association.createStandardAssociation(
+						relationship, relationshipType, choiceTypes);
+			}
 		}
 	}
 
@@ -417,8 +461,12 @@ class DefinitionToResultConverter {
 
 	private TypeName getTypeNameForType(String type) {
 		SimplifiableType simplifiableType = this.definitions.getType(type);
-		return simplifiableType.isMerged() 
-				? simplifiableType.getMergedTypeName() : new TypeName(simplifiableType.getName());
+		if (simplifiableType == null) {
+			return null;
+		} else {
+			return simplifiableType.isMerged() 
+					? simplifiableType.getMergedTypeName() : new TypeName(simplifiableType.getName());
+		}
 	}
 
 	private List<ArgumentType> groupArgumentsAndTypes(List<Argument> arguments) {
