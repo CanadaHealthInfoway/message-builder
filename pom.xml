@@ -4,7 +4,7 @@
 	<groupId>ca.infoway.messagebuilder</groupId>
 	<artifactId>message-builder</artifactId>
 	<packaging>pom</packaging>
-	<version>1.1.2-SNAPSHOT</version>
+	<version>1.1.2</version>
 	<name>Message Builder Parent</name>
 	<issueManagement>
 		<system>Bugzilla</system>
@@ -60,11 +60,11 @@
 		</snapshotRepository>
 	</distributionManagement>
 	<scm>
-		<connection>scm:svn:http://subversion.intelliware.ca/rep/infoway/trunk/message-builder
+		<connection>scm:svn:http://subversion.intelliware.ca/rep/infoway/tags/message-builder-1.1.2
 		</connection>
-		<developerConnection>scm:svn:http://subversion.intelliware.ca/rep/infoway/trunk/message-builder
+		<developerConnection>scm:svn:http://subversion.intelliware.ca/rep/infoway/tags/message-builder-1.1.2
 		</developerConnection>
-		<url>http://subversion.intelliware.ca/rep/infoway/trunk/message-builder
+		<url>http://subversion.intelliware.ca/rep/infoway/tags/message-builder-1.1.2
 		</url>
 	</scm>
 	<modules>
