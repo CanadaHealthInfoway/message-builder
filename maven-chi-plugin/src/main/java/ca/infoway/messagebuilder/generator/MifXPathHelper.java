@@ -11,6 +11,7 @@ import ca.infoway.messagebuilder.lang.EnumPattern;
 import ca.infoway.messagebuilder.util.xml.NodeUtil;
 import ca.infoway.messagebuilder.xml.Annotation;
 import ca.infoway.messagebuilder.xml.CodingStrength;
+import ca.infoway.messagebuilder.xml.DomainSource;
 
 class MifXPathHelper extends BaseMifXPathHelper {
 	
@@ -95,11 +96,27 @@ class MifXPathHelper extends BaseMifXPathHelper {
 		String result = getAttribute(mifAttribute, "./mif:supplierDomainSpecification/@codeSystemName");
 		if (StringUtils.isBlank(result)) {
 			result = getAttribute(mifAttribute, "./mif:supplierDomainSpecification/@domainName");
-			if (StringUtils.isBlank(result)) {
-				result = getAttribute(mifAttribute, "./mif:supplierDomainSpecification/@valueSetName");
-			}
+		}
+		if (StringUtils.isBlank(result)) {
+			result = getAttribute(mifAttribute, "./mif:supplierDomainSpecification/@valueSetName");
 		}
 		return result;
+	}
+
+	public static DomainSource getDomainSource(Element mifAttribute) {
+		String result = getAttribute(mifAttribute, "./mif:supplierDomainSpecification/@codeSystemName");
+		if (!StringUtils.isBlank(result)) {
+			return DomainSource.CODE_SYSTEM;
+		}
+		result = getAttribute(mifAttribute, "./mif:supplierDomainSpecification/@domainName");
+		if (!StringUtils.isBlank(result)) {
+			return DomainSource.CONCEPT_DOMAIN;
+		}
+		result = getAttribute(mifAttribute, "./mif:supplierDomainSpecification/@valueSetName");
+		if (!StringUtils.isBlank(result)) {
+			return DomainSource.VALUE_SET;		
+		}
+		return null;
 	}
 
 	public static CodingStrength getCodingStrength(Element mifAttribute) {

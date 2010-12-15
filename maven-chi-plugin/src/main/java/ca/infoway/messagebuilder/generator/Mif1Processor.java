@@ -216,6 +216,7 @@ class Mif1Processor extends BaseMifProcessorImpl implements MifProcessor {
 		if (TypeConverter.isCodedType(relationship.getType()) || TypeConverter.isCodedCollectionType(relationship.getType())) {
 			relationship.setDomainType(MifXPathHelper.getDomainType(element));
 			relationship.setCodingStrength(MifXPathHelper.getCodingStrength(element));
+			relationship.setDomainSource(MifXPathHelper.getDomainSource(element));
 		}
 		relationship.setConformance(createConformance(element));
 		part.getRelationships().add(relationship);
@@ -260,8 +261,7 @@ class Mif1Processor extends BaseMifProcessorImpl implements MifProcessor {
 		return MifXPathHelper.isParticipantClassSpecializationPresent(element);
 	}
 
-	private MessagePart createPart(List<MessagePart> result, String qualifier,
-			Element element) {
+	private MessagePart createPart(List<MessagePart> result, String qualifier, Element element) {
 		Element classElement = MifXPathHelper.getClassElement(element);
 		String name = NameHelper.createName(qualifier, classElement.getAttribute("name"));
 		if (isAbstract(classElement)) {
