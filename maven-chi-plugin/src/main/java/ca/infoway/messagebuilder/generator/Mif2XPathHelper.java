@@ -11,6 +11,7 @@ import ca.infoway.messagebuilder.lang.EnumPattern;
 import ca.infoway.messagebuilder.util.xml.XmlDescriber;
 import ca.infoway.messagebuilder.xml.Annotation;
 import ca.infoway.messagebuilder.xml.CodingStrength;
+import ca.infoway.messagebuilder.xml.DomainSource;
 
 public class Mif2XPathHelper extends BaseMifXPathHelper {
 	
@@ -94,6 +95,22 @@ public class Mif2XPathHelper extends BaseMifXPathHelper {
 			domain = getAttribute(element, "./mif2:vocabulary/mif2:valueSet/@name");
 		}
 		return domain;
+	}
+
+	public static DomainSource getDomainSource(Element mifAttribute) {
+		String result = getAttribute(mifAttribute, "./mif2:vocabulary/mif2:code/@codeSystemName");
+		if (!StringUtils.isBlank(result)) {
+			return DomainSource.CODE_SYSTEM;
+		}
+		result = getAttribute(mifAttribute, "./mif2:vocabulary/mif2:conceptDomain/@name");
+		if (!StringUtils.isBlank(result)) {
+			return DomainSource.CONCEPT_DOMAIN;
+		}
+		result = getAttribute(mifAttribute, "./mif2:vocabulary/mif2:valueSet/@name");
+		if (!StringUtils.isBlank(result)) {
+			return DomainSource.VALUE_SET;		
+		}
+		return null;
 	}
 
 	public static CodingStrength getCodingStrength(Element mifAttribute) {

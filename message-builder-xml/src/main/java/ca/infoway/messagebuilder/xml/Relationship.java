@@ -40,6 +40,8 @@ public class Relationship extends ChoiceSupport implements Documentable, HasDiff
 	@Attribute(required=false)
 	private String domainType;
 	@Attribute(required=false)
+	private String domainSource;
+	@Attribute(required=false)
 	private String conformance;
 	@Attribute(required=false)
 	private String cardinality;
@@ -439,5 +441,21 @@ public class Relationship extends ChoiceSupport implements Documentable, HasDiff
 	}
 	public void addDifference(Difference difference) {
 		this.differences.add(difference);
+	}
+
+	/**
+	 * <p>Get the vocabulary source.
+	 * @return the vocabulary source
+	 */
+	public DomainSource getDomainSource() {
+		return EnumPattern.valueOf(DomainSource.class, this.domainSource);
+	}
+
+	/**
+	 * <p>Set the vocabulary source.
+	 * @param vocabulary source - the new value.
+	 */
+	public void setDomainSource(DomainSource domainSource) {
+		this.domainSource = domainSource == null ? null : domainSource.name();
 	}
 }
