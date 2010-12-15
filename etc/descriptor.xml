@@ -246,6 +246,7 @@
                 <exclude>ca.infoway.messagebuilder:message-builder-core</exclude>
                 <exclude>ca.infoway.messagebuilder:message-builder-simple-xml</exclude>
                 <exclude>ca.infoway.messagebuilder:message-builder-r02_04_02</exclude>
+	        <exclude>ca.infoway.messagebuilder:message-builder-simple-xml-process</exclude>
               </excludes>
               <outputDirectory>optional/simple-xml/lib</outputDirectory>
             </dependencySet>
@@ -258,68 +259,6 @@
 
     <fileSets>
       <fileSet>
-        <directory>message-builder-core/target</directory>
-        <includes>
-          <include>*-sources.jar</include>
-        </includes>
-        <outputDirectory>core/src</outputDirectory>
-      </fileSet>
-      <fileSet>
-        <directory>message-builder-xml/target</directory>
-        <includes>
-          <include>*-sources.jar</include>
-        </includes>
-        <outputDirectory>core/src</outputDirectory>
-      </fileSet>
-      <fileSet>
-        <directory>message-builder-util/target</directory>
-        <includes>
-          <include>*-sources.jar</include>
-        </includes>
-        <outputDirectory>core/src</outputDirectory>
-      </fileSet>
-
-      <fileSet>
-        <directory>message-builder-release-r02_04_02/target</directory>
-        <includes>
-          <include>*-sources.jar</include>
-        </includes>
-        <outputDirectory>releases/release-r02_04_02/src</outputDirectory>
-      </fileSet>
-
-      <fileSet>
-        <directory>message-builder-release-v02_r02/target</directory>
-        <includes>
-          <include>*-sources.jar</include>
-        </includes>
-        <outputDirectory>releases/release-v02_r02/src</outputDirectory>
-      </fileSet>
-
-      <fileSet>
-        <directory>message-builder-release-v02_r01/target</directory>
-        <includes>
-          <include>*-sources.jar</include>
-        </includes>
-        <outputDirectory>releases/release-v02_r01/src</outputDirectory>
-      </fileSet>
-
-      <fileSet>
-        <directory>message-builder-release-v01_r04_3/target</directory>
-        <includes>
-          <include>*-sources.jar</include>
-        </includes>
-        <outputDirectory>releases/release-v01_r04_3/src</outputDirectory>
-      </fileSet>
-
-      <fileSet>
-        <directory>maven-chi-plugin/target</directory>
-        <includes>
-          <include>*-sources.jar</include>
-        </includes>
-        <outputDirectory>chi/src</outputDirectory>
-      </fileSet>
-
-      <fileSet>
         <directory>message-builder-example/target</directory>
         <includes>
           <include>*-sources.jar</include>
@@ -328,27 +267,19 @@
       </fileSet>
 
       <fileSet>
-        <directory>message-builder-terminology/target</directory>
+        <directory>./</directory>
         <includes>
-          <include>*-sources.jar</include>
+          <include>**/*-sources.jar</include>
         </includes>
-        <outputDirectory>optional/terminology/src</outputDirectory>
+        <outputDirectory>source</outputDirectory>
       </fileSet>
-
+      
       <fileSet>
-        <directory>message-builder-simple-xml/target</directory>
+        <directory>./</directory>
         <includes>
-          <include>*-sources.jar</include>
+          <include>**/*-javadoc.jar</include>
         </includes>
-        <outputDirectory>optional/simple-xml/src</outputDirectory>
-      </fileSet>
-
-      <fileSet>
-        <directory>message-builder-simple-xml-process/target</directory>
-        <includes>
-          <include>*-sources.jar</include>
-        </includes>
-        <outputDirectory>optional/simple-xml/src</outputDirectory>
+        <outputDirectory>javadoc</outputDirectory>
       </fileSet>
     </fileSets>
 </assembly>
