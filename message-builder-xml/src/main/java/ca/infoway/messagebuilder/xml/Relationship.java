@@ -58,10 +58,13 @@ public class Relationship extends ChoiceSupport implements Documentable, HasDiff
 	@Attribute(required=false)
 	private String defaultValue;
 	
+	
 	@ElementList(inline=true, required=false)
 	@Namespace(prefix="regen",reference="regen_ns")
 	private List<Difference> differences = new ArrayList<Difference>();
 	
+	@Element(required=false)
+	private UpdateMode updateMode;
 	@Element(required=false)
 	private Documentation documentation;
 	
@@ -456,6 +459,23 @@ public class Relationship extends ChoiceSupport implements Documentable, HasDiff
 	 * @param vocabulary source - the new value.
 	 */
 	public void setDomainSource(DomainSource domainSource) {
-		this.domainSource = domainSource == null ? null : domainSource.name();
+		this.domainSource = domainSource == null ? null : domainSource.getName();
 	}
+
+	/**
+	 * <p>Gets the update mode information that may be used for this element.
+	 * @return updateMode;
+	 */
+	public UpdateMode getUpdateMode() {
+		return updateMode;
+	}
+	/**
+	 * <p>Gets the update mode information that may be used for this element.
+	 * @param updateMode
+	 */
+	public void setUpdateMode(UpdateMode updateMode) {
+		this.updateMode = updateMode;
+	}
+
+
 }

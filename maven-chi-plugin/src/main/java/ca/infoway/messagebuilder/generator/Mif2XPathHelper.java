@@ -1,5 +1,6 @@
 package ca.infoway.messagebuilder.generator;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.commons.lang.StringUtils;
@@ -12,6 +13,7 @@ import ca.infoway.messagebuilder.util.xml.XmlDescriber;
 import ca.infoway.messagebuilder.xml.Annotation;
 import ca.infoway.messagebuilder.xml.CodingStrength;
 import ca.infoway.messagebuilder.xml.DomainSource;
+import ca.infoway.messagebuilder.xml.UpdateModeType;
 
 public class Mif2XPathHelper extends BaseMifXPathHelper {
 	
@@ -49,6 +51,15 @@ public class Mif2XPathHelper extends BaseMifXPathHelper {
 	public static List<Element> getContainedClasses(Document document) {
 		NodeList nodes = getNodes(document.getDocumentElement(), ".//mif2:containedClass");
 		return MifXPathHelper.toElementList(nodes);
+	}
+	
+	public List<UpdateModeType> getAllowedUpdateModes(Element element) {
+		List<UpdateModeType> updateModeTypes = new ArrayList<UpdateModeType>();
+		NodeList nodes = getNodes(element, ".//mif2:updateModesAllowed");
+		for (int i=0; i<nodes.getLength(); i++) {
+			updateModeTypes.add(EnumPattern.valueOf(UpdateModeType.class, nodes.item(i).getNodeValue()));
+		}
+		return updateModeTypes;
 	}
 
 	public String getRootType(Element ownedEntryPoint) {

@@ -161,6 +161,7 @@ class Mif1Processor extends BaseMifProcessorImpl implements MifProcessor {
 		ChoiceTypeStrategy strategy = ChoiceTypeStrategy.getChoiceTypeStrategy(targetConnection);
 		choice.setType(strategy.getHighLevelType(messageSet));
 		choice.setCardinality(createCardinality(targetConnection));
+		choice.setUpdateMode(createUpdateMode(targetConnection));		
 		choice.setConformance(createConformance(targetConnection));
 		
 		List<ChoiceOption> choiceOptions = strategy.getChoiceOptions(messageSet);
@@ -211,8 +212,10 @@ class Mif1Processor extends BaseMifProcessorImpl implements MifProcessor {
 				? Integer.valueOf(element.getAttribute("maximumLength")) 
 				: null);
 		
+		relationship.setUpdateMode(createUpdateMode(element));
 		relationship.setCardinality(createCardinality(element));
 		relationship.setConformance(createConformance(element));
+		
 		if (TypeConverter.isCodedType(relationship.getType()) || TypeConverter.isCodedCollectionType(relationship.getType())) {
 			relationship.setDomainType(MifXPathHelper.getDomainType(element));
 			relationship.setCodingStrength(MifXPathHelper.getCodingStrength(element));

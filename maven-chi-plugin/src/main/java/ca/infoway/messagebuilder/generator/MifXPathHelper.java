@@ -1,5 +1,6 @@
 package ca.infoway.messagebuilder.generator;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.commons.lang.StringUtils;
@@ -12,6 +13,7 @@ import ca.infoway.messagebuilder.util.xml.NodeUtil;
 import ca.infoway.messagebuilder.xml.Annotation;
 import ca.infoway.messagebuilder.xml.CodingStrength;
 import ca.infoway.messagebuilder.xml.DomainSource;
+import ca.infoway.messagebuilder.xml.UpdateModeType;
 
 class MifXPathHelper extends BaseMifXPathHelper {
 	
@@ -55,6 +57,15 @@ class MifXPathHelper extends BaseMifXPathHelper {
 		Element parent = (Element) specializedClass.getParentNode();
 		return "specializationChild".equals(parent.getLocalName());
 	}
+	
+	public List<UpdateModeType> getAllowedUpdateModes(Element element) {
+		List<UpdateModeType> updateModeTypes = new ArrayList<UpdateModeType>();
+		NodeList nodes = getNodes(element, ".//mif:updateModesAllowed");
+		for (int i=0; i<nodes.getLength(); i++) {
+			updateModeTypes.add(EnumPattern.valueOf(UpdateModeType.class, nodes.item(i).getNodeValue()));
+		}
+		return updateModeTypes;
+	}	
 
 	List<Annotation> getDocumentation(Element classElement) {
 		return getDocumentation(classElement, "./mif:annotations//mif:", "//mif:p/mif:p");

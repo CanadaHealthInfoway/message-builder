@@ -15,6 +15,7 @@ import org.apache.commons.lang.math.NumberUtils;
 import org.apache.commons.lang.time.StopWatch;
 import org.w3c.dom.Element;
 
+import ca.infoway.messagebuilder.lang.EnumPattern;
 import ca.infoway.messagebuilder.xml.Annotation;
 import ca.infoway.messagebuilder.xml.Cardinality;
 import ca.infoway.messagebuilder.xml.ConformanceLevel;
@@ -23,6 +24,8 @@ import ca.infoway.messagebuilder.xml.Documentation;
 import ca.infoway.messagebuilder.xml.MessagePart;
 import ca.infoway.messagebuilder.xml.MessageSet;
 import ca.infoway.messagebuilder.xml.PackageLocation;
+import ca.infoway.messagebuilder.xml.UpdateMode;
+import ca.infoway.messagebuilder.xml.UpdateModeType;
 
 abstract class BaseMifProcessorImpl implements MifProcessor {
 
@@ -151,6 +154,30 @@ abstract class BaseMifProcessorImpl implements MifProcessor {
 			throw new MifProcessingException("Invalid conformance level.  It makes no sense.");
 		}
 	}
+	
+	private UpdateModeType createUpdateModeDefault(Element relationship) {
+		String updateMode = relationship.getAttribute("updateModeDefault");
+		if (StringUtils.isNotBlank(updateMode)) {
+			return EnumPattern.valueOf(UpdateModeType.class, updateMode);
+		}
+		return null;
+	}
+
+	private List<UpdateModeType> createUpdateModesAllowed(Element relationship) {
+		return helper.getAllowedUpdateModes(relationship); 
+	}
+	
+	protected UpdateMode createUpdateMode(Element relationship) {
+		UpdateModeType updateModeDefault = createUpdateModeDefault(relationship);
+		List<UpdateModeType> updateModesAllowed = createUpdateModesAllowed(relationship);
+		if (updateModeDefault != null || CollectionUtils.isNotEmpty(updateModesAllowed)) {
+			UpdateMode updateMode = new UpdateMode();
+			updateMode.setUpdateModeDefault(updateModeDefault);
+			updateMode.setUpdateModesAllowed(updateModesAllowed);
+			return updateMode;
+		}
+		return null;
+	}	
 
 	protected Cardinality createCardinality(Element attribute) {
 		String min = attribute.getAttribute("minimumMultiplicity");
