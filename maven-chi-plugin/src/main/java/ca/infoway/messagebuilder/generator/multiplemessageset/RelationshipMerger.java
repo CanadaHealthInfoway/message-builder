@@ -16,7 +16,9 @@ import ca.infoway.messagebuilder.xml.CodingStrength;
 import ca.infoway.messagebuilder.xml.ConformanceLevel;
 import ca.infoway.messagebuilder.xml.DifferenceType;
 import ca.infoway.messagebuilder.xml.Documentation;
+import ca.infoway.messagebuilder.xml.DomainSource;
 import ca.infoway.messagebuilder.xml.Relationship;
+import ca.infoway.messagebuilder.xml.UpdateMode;
 
 class RelationshipMerger implements Merger<Relationship> {
 
@@ -49,7 +51,9 @@ class RelationshipMerger implements Merger<Relationship> {
 			mergeCardinality(primary.getCardinality(), secondary.getCardinality());
 			mergeChoices(primary.getChoices(), secondary.getChoices());
 			mergeCodingStrength(primary.getCodingStrength(), secondary.getCodingStrength());
+			mergeDomainSource(primary.getDomainSource(), secondary.getDomainSource());
 			mergeConformance(primary.getConformance(), secondary.getConformance());
+			mergeUpdateMode(primary.getUpdateMode(), secondary.getUpdateMode());
 			mergeDefaultValue(primary.getDefaultValue(), secondary.getDefaultValue());
 			mergeDocumentation(primary.getDocumentation(), secondary.getDocumentation());
 			mergeDomainType(primary.getDomainType(), secondary.getDomainType());
@@ -62,6 +66,16 @@ class RelationshipMerger implements Merger<Relationship> {
 		}
 		
 		return result;
+	}
+
+	private void mergeUpdateMode(UpdateMode updateMode, UpdateMode updateMode2) {
+		UpdateMode mergedDefaultValue = (UpdateMode) this.mergeHelper.standardMerge(updateMode, updateMode2);
+		this.result.setUpdateMode(mergedDefaultValue);
+	}
+
+	private void mergeDomainSource(DomainSource domainSource, DomainSource domainSource2) {
+		DomainSource mergedDefaultValue = (DomainSource) this.mergeHelper.standardMerge(domainSource, domainSource);
+		this.result.setDomainSource(mergedDefaultValue);
 	}
 
 	private void mergeCardinality(Cardinality cardinality, Cardinality cardinality2) {

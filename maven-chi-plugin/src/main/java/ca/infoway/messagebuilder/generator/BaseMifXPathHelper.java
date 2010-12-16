@@ -19,6 +19,7 @@ import ca.infoway.messagebuilder.lang.EnumPattern;
 import ca.infoway.messagebuilder.util.xml.DOMWriter;
 import ca.infoway.messagebuilder.xml.Annotation;
 import ca.infoway.messagebuilder.xml.AnnotationType;
+import ca.infoway.messagebuilder.xml.UpdateModeType;
 
 abstract class BaseMifXPathHelper {
 
@@ -121,5 +122,6 @@ abstract class BaseMifXPathHelper {
 	abstract List<Annotation> getDocumentation(Element classElement);
 	abstract String getBusinessName(Element element);
 	abstract Element getOwnedEntryPointElement(Document document);
+	abstract List<UpdateModeType> getAllowedUpdateModes(Element element);
 	
 }

@@ -233,6 +233,7 @@ class Mif2Processor extends BaseMifProcessorImpl implements MifProcessor {
 		Relationship choice = new Relationship();
 		choice.setName(targetConnection.getAttribute("name"));
 		choice.setCardinality(createCardinality(targetConnection));
+		choice.setUpdateMode(createUpdateMode(targetConnection));
 		choice.setConformance(createConformance(targetConnection));
 		choice.setType(determineType(targetConnection.getAttribute("participantClassName"), messageSet, targetConnection));
 
@@ -281,6 +282,7 @@ class Mif2Processor extends BaseMifProcessorImpl implements MifProcessor {
 		
 		relationship.setCardinality(createCardinality(targetConnection));
 		relationship.setConformance(createConformance(targetConnection));
+		relationship.setUpdateMode(createUpdateMode(targetConnection));
 		part.getRelationships().add(relationship);
 		addDocumentation(targetConnection, relationship);
 	}
@@ -296,7 +298,7 @@ class Mif2Processor extends BaseMifProcessorImpl implements MifProcessor {
 		relationship.setLength(element.hasAttribute("maximumLength") 
 				? Integer.valueOf(element.getAttribute("maximumLength")) 
 				: null);
-		
+		relationship.setUpdateMode(createUpdateMode(element));	
 		relationship.setCardinality(createCardinality(element));
 		relationship.setConformance(createConformance(element));
 		if (TypeConverter.isCodedType(relationship.getType()) || TypeConverter.isCodedCollectionType(relationship.getType())) {

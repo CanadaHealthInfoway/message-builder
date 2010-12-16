@@ -13,29 +13,29 @@ public class DomainSource extends EnumPattern {
 	/**
 	 * <p>A vocabulary source that represents the value set.
 	 */
-	public static final DomainSource VALUE_SET = new DomainSource("VALUE_SET", "value set"); 
+	public static final DomainSource VALUE_SET = new DomainSource("VALUE_SET", "valueSet"); 
 	/**
 	 * <p>A vocabulary source that represents the code system.
 	 */
-	public static final DomainSource CODE_SYSTEM = new DomainSource("CODE_SYSTEM", "code system"); 
+	public static final DomainSource CODE_SYSTEM = new DomainSource("CODE_SYSTEM", "codeSystem"); 
 	/**
 	 * <p>A vocabulary source that represents the concept domain (domain name).
 	 */
 	public static final DomainSource CONCEPT_DOMAIN = new DomainSource("CONCEPT_DOMAIN", "domain"); 
 
 	
-	private final String description;
+	private final String code;
 
 	private DomainSource(String name, String description) {
 		super(name);
-		this.description = description;
+		this.code = description;
 	}
 
 	/**
-	 * <p>Gets a user-readable description of the vocabulary source.
-	 * @return the description.
+	 * <p>Gets the code of the vocabulary source.
+	 * @return the code.
 	 */
-	public String getDescription() {
-		return this.description;
+	public String getCode() {
+		return this.code;
 	}
 }
