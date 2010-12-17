@@ -130,6 +130,10 @@ class MifXPathHelper extends BaseMifXPathHelper {
 		return null;
 	}
 
+	public static String getMnemonic(Element mifAttribute) {
+		return getAttribute(mifAttribute, "./mif:supplierDomainSpecification/@mnemonic");
+	}
+
 	public static CodingStrength getCodingStrength(Element mifAttribute) {
 		String result = getAttribute(mifAttribute, "./mif:supplierDomainSpecification/@codingStrength");
 		return StringUtils.isBlank(result) ? null : EnumPattern.valueOf(CodingStrength.class, result);

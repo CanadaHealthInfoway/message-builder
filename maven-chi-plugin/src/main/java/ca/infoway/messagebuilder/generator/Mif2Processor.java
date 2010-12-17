@@ -305,6 +305,7 @@ class Mif2Processor extends BaseMifProcessorImpl implements MifProcessor {
 			relationship.setDomainType(Mif2XPathHelper.getDomainType(element));
 			relationship.setCodingStrength(Mif2XPathHelper.getCodingStrength(element));
 			relationship.setDomainSource(Mif2XPathHelper.getDomainSource(element));
+			relationship.setMnemonic(Mif2XPathHelper.getMnemonic(element));
 		}
 		relationship.setConformance(createConformance(element));
 		part.getRelationships().add(relationship);

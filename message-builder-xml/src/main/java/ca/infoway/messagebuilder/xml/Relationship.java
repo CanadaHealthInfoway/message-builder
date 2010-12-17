@@ -42,6 +42,8 @@ public class Relationship extends ChoiceSupport implements Documentable, HasDiff
 	@Attribute(required=false)
 	private String domainSource;
 	@Attribute(required=false)
+	private String mnemonic;	
+	@Attribute(required=false)
 	private String conformance;
 	@Attribute(required=false)
 	private String cardinality;
@@ -475,6 +477,22 @@ public class Relationship extends ChoiceSupport implements Documentable, HasDiff
 	 */
 	public void setUpdateMode(UpdateMode updateMode) {
 		this.updateMode = updateMode;
+	}
+
+	/**
+	 * Gets the mnemonic for a code system attribute.
+	 * @return mnemonic
+	 */
+	public String getMnemonic() {
+		return mnemonic;
+	}
+
+	/**
+	 * Sets the mnemonic.  Used for code system attributes.
+	 * @param mnemonic
+	 */
+	public void setMnemonic(String mnemonic) {
+		this.mnemonic = mnemonic;
 	}
 
 
