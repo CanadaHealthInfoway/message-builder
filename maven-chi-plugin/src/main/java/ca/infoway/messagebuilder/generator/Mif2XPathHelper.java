@@ -123,6 +123,10 @@ public class Mif2XPathHelper extends BaseMifXPathHelper {
 		}
 		return null;
 	}
+	
+	public static String getMnemonic(Element mifAttribute) {
+		return getAttribute(mifAttribute, "./mif2:vocabulary/mif2:code/@mnemonic");
+	}
 
 	public static CodingStrength getCodingStrength(Element mifAttribute) {
 		String result = getAttribute(mifAttribute, "./mif2:supplierDomainSpecification/@codingStrength");
