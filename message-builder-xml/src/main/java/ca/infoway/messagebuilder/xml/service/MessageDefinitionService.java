@@ -73,5 +73,11 @@ public interface MessageDefinitionService {
 	 * @return - the message parts
 	 */	
 	public List<MessagePart> getAllRootMessageParts();
+	/**
+	 * <p>Get all the root message parts for a specific message set.
+	 * @param version
+	 * @return - the message parts
+	 */
+	List<MessagePart> getAllRootMessageParts(String version);
 	
 }

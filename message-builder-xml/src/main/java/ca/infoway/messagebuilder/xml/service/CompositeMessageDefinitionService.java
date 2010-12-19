@@ -162,4 +162,8 @@ public class CompositeMessageDefinitionService implements MessageDefinitionServi
 	public List<MessagePart> getAllRootMessageParts() {
 		throw new UnsupportedOperationException();
 	}
+
+	public List<MessagePart> getAllRootMessageParts(String version) {
+		throw new UnsupportedOperationException();
+	}
 }

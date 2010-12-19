@@ -210,6 +210,27 @@ public abstract class BaseMessageDefinitionService implements MessageDefinitionS
 	}
 	
 	/**
+	 * <p>Get all the root message parts for a specific message set.
+	 * @param version
+	 * @return - the message parts
+	 */
+	public List<MessagePart> getAllRootMessageParts(String version) {
+		List<MessagePart> allRootParts = new ArrayList<MessagePart>();
+		for (MessageSet messageSet : getMessageSets()) {
+			if (version.equals(messageSet.getVersion())) {
+				for (PackageLocation packageLocation : messageSet.getPackageLocations().values()) {
+					for (MessagePart messagePart : packageLocation.getMessageParts().values()) {
+						if (packageLocation.getRootType().equals(messagePart.getName())) {
+							allRootParts.add(messagePart);
+						}
+					}
+				}
+			}
+		}
+		return allRootParts;
+	}
+	
+	/**
 	 * <p>Get all the message parts that a particular root message part references.
 	 * @param messagePart - the messagePart
 	 * @param version - the version
@@ -219,7 +240,7 @@ public abstract class BaseMessageDefinitionService implements MessageDefinitionS
 		Map<String, MessagePart> allParts = new TreeMap<String, MessagePart>(); 
 		addMessagePartsFromSupertype(allParts, messagePart.getName(), version);
 		return allParts;
-	}	
+	}
 
 	protected void addMessagePartsFromSupertype(Map<String, MessagePart> allParts, String superTypeName, String version) {
 		MessagePart messagePart = this.getMessagePart(version, superTypeName);

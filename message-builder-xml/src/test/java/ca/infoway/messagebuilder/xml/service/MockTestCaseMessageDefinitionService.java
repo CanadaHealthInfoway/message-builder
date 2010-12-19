@@ -3,6 +3,8 @@ package ca.infoway.messagebuilder.xml.service;
 import java.util.Arrays;
 import java.util.List;
 
+import ca.infoway.messagebuilder.xml.MessagePart;
+
 /**
  * @sharpen.ignore
  */
@@ -27,5 +29,11 @@ public class MockTestCaseMessageDefinitionService extends BaseMessageDefinitionS
 	@Override
 	protected List<String> getNames() {
 		return Arrays.asList("/messageSet_mock_r02_04_02.xml", "/messageSet_NEWFOUNDLAND.xml");
+	}
+
+	public List<MessagePart> getUnusedMessageParts(String version,
+			String messagePartName) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
