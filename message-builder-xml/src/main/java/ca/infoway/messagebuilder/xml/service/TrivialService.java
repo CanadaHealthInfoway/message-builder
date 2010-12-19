@@ -39,4 +39,7 @@ class TrivialService implements MessageDefinitionService {
 	public List<MessagePart> getAllRootMessageParts() {
 		return null;
 	}
+	public List<MessagePart> getAllRootMessageParts(String version) {
+		return null;
+	}
 }
