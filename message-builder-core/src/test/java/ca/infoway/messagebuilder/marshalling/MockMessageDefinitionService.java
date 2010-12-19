@@ -50,4 +50,7 @@ class MockMessageDefinitionService implements MessageDefinitionService {
 	public List<MessagePart> getAllRootMessageParts() {
 		throw new UnsupportedOperationException();
 	}
+	public List<MessagePart> getAllRootMessageParts(String version) {
+		throw new UnsupportedOperationException();
+	}
 }
