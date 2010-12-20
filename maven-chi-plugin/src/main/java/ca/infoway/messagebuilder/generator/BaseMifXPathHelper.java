@@ -86,11 +86,18 @@ abstract class BaseMifXPathHelper {
 					annotation.setAnnotationType(annotationType);
 					for (Element paragraph : elements) {
 						recurisvelyClearMifPrefix(paragraph);
-						String text = null;
 						try {
-							text = StringUtils.trim(DOMWriter.renderAsString(paragraph));
+							String text = StringUtils.trim(DOMWriter.renderAsString(paragraph));
 							if (StringUtils.isNotBlank(text)) {
 								annotation.setText((annotation.getText()!=null)?annotation.getText()+text:text);
+							}
+							String sourceName = paragraph.getAttribute("sourceName");
+							if (StringUtils.isNotBlank(sourceName)) {
+								annotation.setSourceName(sourceName);
+							}
+							String otherType = paragraph.getAttribute("type");
+							if (StringUtils.isNotBlank(otherType)) {
+								annotation.setOtherAnnotationType(otherType);
 							}
 						} catch (IOException e) {
 							throw new MifProcessingException(e);

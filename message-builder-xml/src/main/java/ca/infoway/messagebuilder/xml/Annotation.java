@@ -20,6 +20,12 @@ public class Annotation {
 	@Attribute(required=false)
 	private String annotationType;
 	
+	@Attribute(required=false)
+	private String sourceName;
+	
+	@Attribute(required=false)
+	private String otherAnnotationType;
+	
 	/**
 	 * <p>Standard constructor.
 	 */	
@@ -67,5 +73,25 @@ public class Annotation {
 	 */
 	public void setAnnotationType(AnnotationType annotationType) {
 		this.annotationType = annotationType == null ? null : annotationType.getName();
+	}
+
+	public String getSourceName() {
+		return sourceName;
+	}
+
+	public void setSourceName(String sourceName) {
+		this.sourceName = sourceName;
+	}
+
+	public String getOtherAnnotationType() {
+		return otherAnnotationType;
+	}
+
+	public void setOtherAnnotationType(String otherAnnotationType) {
+		this.otherAnnotationType = otherAnnotationType;
+	}
+
+	public void setAnnotationType(String annotationType) {
+		this.annotationType = annotationType;
 	}
 }
