@@ -299,6 +299,9 @@
 			        <configuration>
 			          <finalName>message-builder</finalName>
 			          <outputDirectory>target/assembly-directory</outputDirectory>
+    			          <descriptorRefs>
+				    <descriptorRef>project</descriptorRef>
+			          </descriptorRefs>
 			        </configuration>
 		      </plugin>
 
