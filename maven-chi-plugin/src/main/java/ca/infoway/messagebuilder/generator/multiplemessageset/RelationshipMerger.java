@@ -52,7 +52,6 @@ class RelationshipMerger implements Merger<Relationship> {
 			mergeChoices(primary.getChoices(), secondary.getChoices());
 			mergeCodingStrength(primary.getCodingStrength(), secondary.getCodingStrength());
 			mergeDomainSource(primary.getDomainSource(), secondary.getDomainSource());
-			mergeMnemonic(primary.getMnemonic(), secondary.getMnemonic());
 			mergeConformance(primary.getConformance(), secondary.getConformance());
 			mergeUpdateMode(primary.getUpdateMode(), secondary.getUpdateMode());
 			mergeDefaultValue(primary.getDefaultValue(), secondary.getDefaultValue());
@@ -79,11 +78,6 @@ class RelationshipMerger implements Merger<Relationship> {
 		this.result.setDomainSource(mergedDefaultValue);
 	}
 	
-	private void mergeMnemonic(String mnemonic, String mnemonic2) {
-		String mergedDefaultValue = (String) this.mergeHelper.standardMerge(mnemonic, mnemonic);
-		this.result.setMnemonic(mergedDefaultValue);
-	}
-
 	private void mergeCardinality(Cardinality cardinality, Cardinality cardinality2) {
 		if (cardinality2.isMultiple() && !cardinality.isMultiple()) {
 			this.result.setCardinality(cardinality2);
