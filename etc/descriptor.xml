@@ -189,7 +189,7 @@
           <dependencySets>
             <dependencySet>
               <unpack>false</unpack>
-	      <useTransitiveDependencies>false</useTransitiveDependencies>
+	      	  <useTransitiveDependencies>false</useTransitiveDependencies>
               <includes />
               <excludes>
                 <exclude>ca.infoway.messagebuilder:message-builder-core</exclude>
@@ -259,27 +259,65 @@
 
     <fileSets>
       <fileSet>
+        <directory>target</directory>
+        <includes>
+          <include>*-javadoc.jar</include>
+        </includes>
+        <outputDirectory>javadoc</outputDirectory>
+      </fileSet>
+      <fileSet>
+        <directory>message-builder-release-r02_04_02/target</directory>
+        <includes><include>*-javadoc.jar</include></includes>
+        <outputDirectory>javadoc</outputDirectory>
+      </fileSet>
+      <fileSet>
+        <directory>message-builder-release-v01_r04_3/target</directory>
+        <includes><include>*-javadoc.jar</include></includes>
+        <outputDirectory>javadoc</outputDirectory>
+      </fileSet>
+      <fileSet>
+        <directory>message-builder-release-v02_r01/target</directory>
+        <includes><include>*-javadoc.jar</include></includes>
+        <outputDirectory>javadoc</outputDirectory>
+      </fileSet>
+      <fileSet>
+        <directory>message-builder-release-v02_r02/target</directory>
+        <includes><include>*-javadoc.jar</include></includes>
+        <outputDirectory>javadoc</outputDirectory>
+      </fileSet>
+      <fileSet>
         <directory>message-builder-example/target</directory>
         <includes>
           <include>*-sources.jar</include>
         </includes>
         <outputDirectory>optional/example/src</outputDirectory>
       </fileSet>
-
+      <fileSet>
+        <directory>message-builder-release-r02_04_02/target</directory>
+        <includes><include>*-sources.jar</include></includes>
+        <outputDirectory>releases/release-r02_04_02/src</outputDirectory>
+      </fileSet>
+      <fileSet>
+        <directory>message-builder-release-v01_r04_3/target</directory>
+        <includes><include>*-sources.jar</include></includes>
+        <outputDirectory>releases/release-v01_r04_3/src</outputDirectory>
+      </fileSet>
+      <fileSet>
+        <directory>message-builder-release-v02_r01/target</directory>
+        <includes><include>*-sources.jar</include></includes>
+        <outputDirectory>releases/release-v02_r01/src</outputDirectory>
+      </fileSet>
+      <fileSet>
+        <directory>message-builder-release-v02_r02/target</directory>
+        <includes><include>*-sources.jar</include></includes>
+        <outputDirectory>releases/release-v02_r02/src</outputDirectory>
+      </fileSet>
       <fileSet>
         <directory>./</directory>
         <includes>
           <include>**/*-sources.jar</include>
         </includes>
         <outputDirectory>source</outputDirectory>
-      </fileSet>
-      
-      <fileSet>
-        <directory>./</directory>
-        <includes>
-          <include>**/*-javadoc.jar</include>
-        </includes>
-        <outputDirectory>javadoc</outputDirectory>
       </fileSet>
     </fileSets>
 </assembly>
