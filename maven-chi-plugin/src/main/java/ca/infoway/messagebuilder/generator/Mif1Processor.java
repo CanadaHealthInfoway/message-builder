@@ -220,7 +220,6 @@ class Mif1Processor extends BaseMifProcessorImpl implements MifProcessor {
 			relationship.setDomainType(MifXPathHelper.getDomainType(element));
 			relationship.setCodingStrength(MifXPathHelper.getCodingStrength(element));
 			relationship.setDomainSource(MifXPathHelper.getDomainSource(element));
-			relationship.setMnemonic(MifXPathHelper.getMnemonic(element));
 		}
 		relationship.setConformance(createConformance(element));
 		part.getRelationships().add(relationship);
