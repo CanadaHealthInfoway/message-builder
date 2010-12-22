@@ -1,15 +1,12 @@
 package ca.infoway.messagebuilder.generator.java;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
 import org.apache.commons.lang.StringUtils;
-import org.apache.commons.lang.builder.EqualsBuilder;
-import org.apache.commons.lang.builder.HashCodeBuilder;
 
 import ca.infoway.messagebuilder.generator.lang.TypeDocumentation;
 import ca.infoway.messagebuilder.xml.Documentation;
@@ -132,6 +129,7 @@ public class Type implements RenderedType, NamedType {
 	}
 
 	public boolean isInterface() {
+		// TODO - TM - hmmmm, but abtract types can have relationships
 		return this.isAbstract &&  this.relationships.isEmpty();
 	}
 
@@ -160,7 +158,6 @@ public class Type implements RenderedType, NamedType {
 		this.category = category;
 	}
 
-	// FIXME TM/AG - equals still needs to check relationships (which needs its own equals())
 	@Override
 	public boolean equals(Object obj) {
 		if (obj == null) {
@@ -169,40 +166,15 @@ public class Type implements RenderedType, NamedType {
 			return false;
 		} else {
 			Type that = (Type) obj;
-			return new EqualsBuilder()
-					.append(this.name, that.name)
-					.append(this.isAbstract, that.isAbstract)
-					.append(this.rootType, that.rootType)
-					.append(this.typeDocumentation, that.typeDocumentation)
-					.append(this.businessName, that.businessName)
-					.append(this.category, that.category)
-					.append(this.interfaceTypes, that.interfaceTypes)
-					.append(this.childTypes, that.childTypes)
-					.isEquals();
+			return this.getTypeName().equals(that.getTypeName());
 		}
 	}
 	
 	@Override
 	public int hashCode() {
-		return new HashCodeBuilder()
-				.append(this.name)
-				.append(this.isAbstract)
-				.append(this.rootType)
-				.append(this.typeDocumentation)
-				.append(this.businessName)
-				.append(this.category)
-				.append(toNames(this.interfaceTypes))
-				.append(toNames(this.childTypes))
-				.toHashCode();
+		return this.getTypeName().hashCode();
 	}
 
-	private Collection<TypeName> toNames(Set<? extends RenderedType> types) {
-		Collection<TypeName> result = new HashSet<TypeName>();
-		for (RenderedType type : types) {
-			result.add(type.getTypeName());
-		}
-		return result;
-	}
 	public List<String> getTemplateVariables() {
 		List<String> result = new ArrayList<String>();
 		for (BaseRelationship relationship : this.relationships) {
