@@ -1,9 +1,13 @@
 package ca.infoway.messagebuilder.generator.java;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.junit.Test;
@@ -52,13 +56,24 @@ public class SimpleNameCoordinatorTest {
 	}
 
 	@Test
-	public void shouldReturnUnqualifiedNameWhenTypeHasNotBusinessName() throws Exception {
+	public void shouldReturnUnqualifiedNameWhenTypeHasNoBusinessName() throws Exception {
 		HashMap<TypeName, Type> types = new HashMap<TypeName, Type>();
 		TypeName name = new TypeName("REPC_IN002120.Purple");
 		Type type = new Type(name);
 		types.put(name, type);
 		SimpleNameCoordinator translator = new SimpleNameCoordinator(new HelperImpl(types));
 		assertEquals("Purple", translator.getName(name));
+	}
+
+	@Test
+	public void shouldReturnBusinessNameWhenTypeHasBusinessName() throws Exception {
+		HashMap<TypeName, Type> types = new HashMap<TypeName, Type>();
+		TypeName name = new TypeName("REPC_IN002120.Purple");
+		Type type = new Type(name);
+		type.setBusinessName("Business name for purple type.");
+		types.put(name, type);
+		SimpleNameCoordinator translator = new SimpleNameCoordinator(new HelperImpl(types));
+		assertEquals("BusinessNameForPurpleType", translator.getName(name));
 	}
 
 	@Test
@@ -75,8 +90,10 @@ public class SimpleNameCoordinatorTest {
 		types.put(name2, type2);
 		
 		SimpleNameCoordinator translator = new SimpleNameCoordinator(new HelperImpl(types));
-		assertEquals("Purple", translator.getName(name1));
-		assertEquals("Orange", translator.getName(name2));
+		assertEquals("BarneyAndFriends_2", translator.getName(name1));
+		assertEquals("BarneyAndFriends_1", translator.getName(name2));
+//		assertEquals("Purple", translator.getName(name1));
+//		assertEquals("Orange", translator.getName(name2));
 	}	
 
 	@Test
@@ -93,8 +110,8 @@ public class SimpleNameCoordinatorTest {
 		types.put(name2, type2);
 		
 		SimpleNameCoordinator translator = new SimpleNameCoordinator(new HelperImpl(types));
-		assertEquals("Purple", translator.getName(name1));
-		assertEquals("Orange", translator.getName(name2));
+		assertEquals("Orange_2", translator.getName(name1));
+		assertEquals("Orange_1", translator.getName(name2));
 	}	
 	
 	@Test
@@ -149,5 +166,42 @@ public class SimpleNameCoordinatorTest {
 		
 		SimpleNameCoordinator translator = new SimpleNameCoordinator(new HelperImpl(types));
 		assertEquals("PurpleBusinessName", translator.getName(type1.getTypeName()));
+	}
+	
+	@Test
+	public void shouldProcessMultipleSimilarlyNameMergedTypesAndMakeUseOfBusinessNames() throws Exception {
+		HashMap<TypeName, Type> types = new HashMap<TypeName, Type>();
+		
+		Type type1 = new Type(TemporaryTypeName.create("merged"));
+		Type mergedType1a = new Type(new TypeName("ABCD_MT123456CA.Purple"));
+		mergedType1a.setBusinessName("purple business name");
+		Type mergedType1b = new Type(new TypeName("ABCD_MT135799CA.Purple"));
+		mergedType1b.setBusinessName("purple business name");
+		type1.getMergedTypes().add(mergedType1a);
+		type1.getMergedTypes().add(mergedType1b);
+		
+		Type type2 = new Type(TemporaryTypeName.create("merged"));
+		Type mergedType2a = new Type(new TypeName("ABCD_MT111111CA.Purple"));
+		mergedType2a.setBusinessName("purple business name");
+		Type mergedType2b = new Type(new TypeName("ABCD_MT222222CA.Purple"));
+		mergedType2b.setBusinessName("purple business name");
+		type2.getMergedTypes().add(mergedType2a);
+		type2.getMergedTypes().add(mergedType2b);
+		
+		types.put(type1.getTypeName(), type1);
+		types.put(mergedType1a.getTypeName(), mergedType1a);
+		types.put(mergedType1b.getTypeName(), mergedType1b);
+		types.put(type2.getTypeName(), type2);
+		types.put(mergedType2a.getTypeName(), mergedType2a);
+		types.put(mergedType2b.getTypeName(), mergedType2b);
+		
+		List<String> translatedTypeNames = Arrays.asList("PurpleBusinessName_1", "PurpleBusinessName_2"); 
+		SimpleNameCoordinator translator = new SimpleNameCoordinator(new HelperImpl(types));
+		String name1 = translator.getName(type1.getTypeName());
+		String name2 = translator.getName(type2.getTypeName());
+		System.out.println(name1 + " " + name2);
+		assertFalse("unique names", name1.equals(name2));
+		assertTrue("translated name1", translatedTypeNames.contains(name1));
+		assertTrue("translated name2", translatedTypeNames.contains(name2));
 	}	
 }
