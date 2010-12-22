@@ -68,7 +68,12 @@ public class SimpleNameCoordinator implements NameCoordinator {
 			}
 		}
 		public String getDefaultName() {
-			return type.getTypeName().getUnqualifiedName();
+			String result = type.getTypeName().getUnqualifiedName();
+			List<String> preferredNames = getPreferredNames();
+			if (!preferredNames.isEmpty()) {
+				result = preferredNames.get(0);
+			}
+			return result;
 		}
 		public String getExemplarName() {
 			return this.type.getTypeName().getName();
@@ -109,13 +114,7 @@ public class SimpleNameCoordinator implements NameCoordinator {
 			return result;
 		}
 		public String getDefaultName() {
-			Counter<String> counter = new Counter<String>();
-			for (NamedType type : this.type.getMergedTypes()) {
-				counter.increment(type.getTypeName().getUnqualifiedName());
-			}
-			
-			Tally<String> winner = counter.getAll(CounterOrder.Descending).get(0);
-			return winner.getKey();
+			return getPreferredNames().get(0);
 		}
 		public String getExemplarName() {
 			Set<String> names = new TreeSet<String>();
