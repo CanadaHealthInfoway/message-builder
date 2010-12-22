@@ -6,6 +6,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
+import ca.infoway.messagebuilder.xml.Cardinality;
 import ca.infoway.messagebuilder.xml.TypeName;
 
 class Case3SimplifiedAssociation extends Association implements MergedRelationshipSupport {
@@ -53,6 +54,11 @@ class Case3SimplifiedAssociation extends Association implements MergedRelationsh
 	@Override
 	public String getName() {
 		return this.exemplar.getName();
+	}
+	
+	@Override
+	public Cardinality getCardinality() {
+		return this.exemplar.getCardinality();
 	}
 	
 	@Override
