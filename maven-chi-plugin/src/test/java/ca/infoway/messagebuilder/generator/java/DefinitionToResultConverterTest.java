@@ -4,6 +4,7 @@ import static ca.infoway.messagebuilder.generator.lang.ProgrammingLanguage.JAVA;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
 import java.util.Arrays;
@@ -203,8 +204,17 @@ public class DefinitionToResultConverterTest {
 		SimplifiableType simplifiableType1 = new SimplifiableType(new MessagePart("ABCD_MT123456CA.Patient1"), false);
 		simplifiableType1.setInlined(true);
 		
-		SimplifiableType simplifiableType2 = new SimplifiableType(new MessagePart("ABCD_MT123456CA.Patient2"), false);
+		MessagePart messagePart = new MessagePart("ABCD_MT123456CA.Patient2");
+		messagePart.getSpecializationChilds().add("ABCD_MT123456CA.Patient3");
+		messagePart.getSpecializationChilds().add("ABCD_MT123456CA.Patient4");
+		SimplifiableType simplifiableType2 = new SimplifiableType(messagePart, false);
 		
+		SimplifiableType simplifiableType3 = new SimplifiableType(new MessagePart("ABCD_MT123456CA.Patient3"), false);
+		simplifiableType3.getInterfaceTypes().add("ABCD_MT123456CA.Patient2");
+
+		SimplifiableType simplifiableType4 = new SimplifiableType(new MessagePart("ABCD_MT123456CA.Patient4"), false);
+		simplifiableType4.getInterfaceTypes().add("ABCD_MT123456CA.Patient2");
+
 		TemporaryTypeName name = TemporaryTypeName.create("merged");
 		simplifiableType1.setMergedTypeName(name);
 		simplifiableType1.getMergedWithTypes().add(simplifiableType2);
@@ -214,12 +224,92 @@ public class DefinitionToResultConverterTest {
 		
 		this.definitions.addType(simplifiableType1);
 		this.definitions.addType(simplifiableType2);
+		this.definitions.addType(simplifiableType3);
+		this.definitions.addType(simplifiableType4);
 		
 		TypeAnalysisResult result = this.converter.convert();
 		
-		assertEquals("count", 1, result.getAllMessageTypes().size());
-		assertNotNull("type", result.getTypeByName(new TypeName("ABCD_MT123456CA.Patient2")));
+		assertEquals("count", 3, result.getAllMessageTypes().size());
+		
+		Type type = result.getTypeByName(new TypeName("ABCD_MT123456CA.Patient3"));
+		assertNotNull("type", type);
+		assertFalse("interface", type.getInterfaceTypes().isEmpty());
+		
+		type = result.getTypeByName(new TypeName("ABCD_MT123456CA.Patient4"));
+		assertNotNull("type", type);
+		assertFalse("interface", type.getInterfaceTypes().isEmpty());
+		
+		type = result.getTypeByName(new TypeName("ABCD_MT123456CA.Patient2"));
+		assertNotNull("type", type);
+		assertEquals("interfaces", 2, type.getChildTypes().size());
 	}	
+	
+	@Test
+	public void shouldConvertInlinedAndMergedCaseWithMultipleCardinality() throws Exception {
+
+		MessagePart messagePart1 = new MessagePart("ABCD_MT123456CA.MergedInterfaceType1");
+		messagePart1.getSpecializationChilds().add("ABCD_MT123456CA.ChildType1");
+		messagePart1.getSpecializationChilds().add("ABCD_MT123456CA.ChildType2");
+		SimplifiableType simplifiableType1 = new SimplifiableType(messagePart1, false);
+		
+		MessagePart messagePart2 = new MessagePart("ABCD_MT123456CA.MergedInterfaceType2");
+		messagePart2.getSpecializationChilds().add("ABCD_MT123456CA.ChildType1");
+		messagePart2.getSpecializationChilds().add("ABCD_MT123456CA.ChildType2");
+		SimplifiableType simplifiableType2 = new SimplifiableType(messagePart2, false);
+		
+		SimplifiableType simplifiableType3 = new SimplifiableType(new MessagePart("ABCD_MT123456CA.ChildType1"), false);
+		simplifiableType3.getInterfaceTypes().add("ABCD_MT123456CA.MergedInterfaceType1");
+
+		SimplifiableType simplifiableType4 = new SimplifiableType(new MessagePart("ABCD_MT123456CA.ChildType2"), false);
+		simplifiableType4.getInterfaceTypes().add("ABCD_MT123456CA.MergedInterfaceType1");
+
+		TemporaryTypeName name = TemporaryTypeName.create("merged");
+		simplifiableType1.setMergedTypeName(name);
+		simplifiableType1.getMergedWithTypes().add(simplifiableType2);
+		
+		simplifiableType2.setMergedTypeName(name);
+		simplifiableType2.getMergedWithTypes().add(simplifiableType1);
+		
+		Relationship relationship = new Relationship("relatedPerson", "ABCD_MT123456CA.MergedInterfaceType1", Cardinality.create("1"));
+		SimplifiableType simplifiableType = new SimplifiableType(new MessagePart("ABCD_MT123456CA.InlinedType"), false);
+		simplifiableType.getRelationships().add(new SimplifiableRelationship(relationship, simplifiableType1));
+		simplifiableType.setInlined(true);
+
+		Relationship relationship0 = new Relationship("relatedPersons", "ABCD_MT123456CA.InlinedType", Cardinality.create("0-20"));
+		SimplifiableType simplifiableType0 = new SimplifiableType(new MessagePart("ABCD_MT123456CA.TopMostType"), false);
+		simplifiableType0.getRelationships().add(new SimplifiableRelationship(relationship0, simplifiableType));
+
+		this.definitions.addType(simplifiableType0);
+		this.definitions.addType(simplifiableType);
+		this.definitions.addType(simplifiableType1);
+		this.definitions.addType(simplifiableType2);
+		this.definitions.addType(simplifiableType3);
+		this.definitions.addType(simplifiableType4);
+		
+		TypeAnalysisResult result = this.converter.convert();
+		
+		assertEquals("count", 4, result.getAllMessageTypes().size());
+		
+		Type type = result.getTypeByName(new TypeName("ABCD_MT123456CA.ChildType1"));
+		assertNotNull("type", type);
+		assertFalse("interface", type.getInterfaceTypes().isEmpty());
+		
+		type = result.getTypeByName(new TypeName("ABCD_MT123456CA.ChildType2"));
+		assertNotNull("type", type);
+		assertFalse("interface", type.getInterfaceTypes().isEmpty());
+		
+		type = result.getTypeByName(name);
+		assertNotNull("type", type);
+		assertEquals("interfaces", 2, type.getChildTypes().size());
+		
+		type = result.getTypeByName(new TypeName("ABCD_MT123456CA.InlinedType"));
+		assertNull("type", type);
+
+		type = result.getTypeByName(new TypeName("ABCD_MT123456CA.TopMostType"));
+		assertNotNull("type", type);
+		assertEquals("relationships", 1, type.getRelationships().size());
+		assertTrue("cardinality", type.getRelationships().get(0).getCardinality().isMultiple());
+	}
 	
 	@Test
 	public void shouldConvertSimpleCaseWithMergedAssociations() throws Exception {

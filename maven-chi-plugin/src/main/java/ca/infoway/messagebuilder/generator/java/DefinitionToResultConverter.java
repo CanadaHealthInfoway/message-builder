@@ -53,16 +53,19 @@ class DefinitionToResultConverter {
 		for (SimplifiableType simplifiableType : this.definitions.getAllTypes()) {
 			Type type = this.types.get(simplifiableType.getName());
 			if (simplifiableType.isMerged()) {
+				Type mergedType = this.types.get(simplifiableType.getMergedTypeName().getName());
 				for (TypeName typeName : convertAll(collectAllInterfaceNames(simplifiableType))) {
 					Type interfaceType = result.getTypeByName(typeName);
 					if (interfaceType != null) {
 						type.getInterfaceTypes().add(interfaceType);
+						mergedType.getInterfaceTypes().add(interfaceType);
 					}
 				}
 				for (TypeName typeName : convertAllNames(collectAllChildNames(simplifiableType))) {
-					Type interfaceType = result.getTypeByName(typeName);
-					if (interfaceType != null) {
-						type.getChildTypes().add(result.getTypeByName(typeName));
+					Type childType = result.getTypeByName(typeName);
+					if (childType != null) {
+						type.getChildTypes().add(childType);
+						mergedType.getChildTypes().add(childType);
 					}
 				}
 			} else {
