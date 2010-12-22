@@ -9,7 +9,6 @@ import org.apache.commons.lang.ObjectUtils;
 
 import ca.infoway.messagebuilder.generator.LogUI;
 import ca.infoway.messagebuilder.xml.Cardinality;
-import ca.infoway.messagebuilder.xml.TypeName;
 
 public abstract class InlineableSimplifier {
 
@@ -41,48 +40,10 @@ public abstract class InlineableSimplifier {
 
 	protected abstract boolean isInlineable(SimplifiablePackage simplifiablePackage, SimplifiableType type);
 	
-	protected BaseRelationship createInlinedRelationship(TypeName name, 
-			BaseRelationship inlinedRelationship, BaseRelationship elidedRelationship) {
-		if (inlinedRelationship.getRelationshipType() == RelationshipType.ATTRIBUTE) {
-			return new InlinedAttribute((Attribute) inlinedRelationship, elidedRelationship);
-		} else {
-			return new InlinedAssociation((Association) inlinedRelationship, elidedRelationship);
-		}
-	}
-	
-	protected boolean matches(Type inlineableType, BaseRelationship relationship) {
-		return relationship.getRelationshipType() == RelationshipType.ASSOCIATION
-				&& ObjectUtils.equals(((Association) relationship).getPropertyTypeName(),
-						inlineableType.getTypeName());
-	}
-
 	protected boolean matches(SimplifiableType inlineableType, SimplifiableRelationship relationship) {
 		return relationship.getRelationship().isAssociation()
 			&& ObjectUtils.equals(relationship.getRelationship().getType(),
 					inlineableType.getMessagePart().getName());
-	}
-	
-	protected boolean containedInChoice(Type inlineableType) {
-		return !inlineableType.getInterfaceTypes().isEmpty();
-	}
-
-	protected boolean isTemporary(Type inlineableType) {
-		return inlineableType.getTypeName() instanceof TemporaryTypeName;
-	}
-
-	protected List<BaseRelationship> getNonFixedRelationships(Type inlineableType) {
-		List<BaseRelationship> nonFixedRelationships = new ArrayList<BaseRelationship>();
-		List<BaseRelationship> allRelationships = inlineableType.getRelationships();
-		for (BaseRelationship baseRelationship : allRelationships) {
-			if (!baseRelationship.isFixed()) {
-				nonFixedRelationships.add(baseRelationship);
-			}
-		}
-		return nonFixedRelationships;
-	}
-	
-	protected boolean hasAtLeastOneNonFixedRelationship(Type inlineableType) {
-		return !getNonFixedRelationships(inlineableType).isEmpty();
 	}
 	
 	protected List<SimplifiableRelationship> getNonFixedRelationships(SimplifiableType inlineableType) {
@@ -96,7 +57,4 @@ public abstract class InlineableSimplifier {
 		return nonFixedRelationships;
 	}
 	
-	protected boolean hasAtLeastOneNonFixedRelationship(SimplifiableType inlineableType) {
-		return !getNonFixedRelationships(inlineableType).isEmpty();
-	}
 }
