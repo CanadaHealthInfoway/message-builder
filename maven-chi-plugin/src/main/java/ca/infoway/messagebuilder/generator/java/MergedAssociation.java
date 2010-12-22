@@ -1,7 +1,9 @@
 package ca.infoway.messagebuilder.generator.java;
 
 import java.util.Collections;
+import java.util.List;
 
+import ca.infoway.messagebuilder.xml.Cardinality;
 import ca.infoway.messagebuilder.xml.TypeName;
 
 public class MergedAssociation extends Association {
@@ -30,10 +32,25 @@ public class MergedAssociation extends Association {
 	}
 
 	@Override
+	public Cardinality getCardinality() {
+		return this.association.getCardinality();
+	}
+	
+	@Override
 	public Type getAssociationType() {
 		return this.type;
 	}
 
+	@Override
+	public List<Choice> getAllChoiceTypes() {
+		return this.association.getAllChoiceTypes();
+	}
+	
+	@Override
+	public TemplateVariable getTemplateVariable() {
+		return this.association.getTemplateVariable(); 
+	}
+	
 	@Override
 	public String getType() {
 		return this.typeName.toString();
