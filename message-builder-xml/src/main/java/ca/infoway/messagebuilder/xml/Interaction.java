@@ -18,7 +18,7 @@ import ca.infoway.messagebuilder.Named;
  * @author <a href="http://www.intelliware.ca/">Intelliware Development</a>
  */
 @Root
-public class Interaction implements Categorizable, HasDifferences, Named {
+public class Interaction implements Categorizable, HasDifferences, Named, Documentable {
 
 	@Attribute
 	private String name;
