@@ -152,8 +152,9 @@ class Case3FuzzyMatcher extends Case3Matcher {
 		for (NamedType match : matches) {
 			if (previous != null) {
 				if (this.mergeResult.recordMatch(previous.getTypeName(), match.getTypeName())) {
-					result |= true;
-					this.log.log(LogLevel.INFO, "linking: " + previous.getTypeName() + " to " + match.getTypeName());
+					result = true;
+					this.log.log(LogLevel.DEBUG, "(fuzzy) linking: " + previous.getTypeName() + " to " + match.getTypeName());
+					this.log.log(LogLevel.DEBUG, "all types in merge: " + this.definitions.getType(previous.getTypeName().getName()).getMergedWithTypes());
 				}
 			}
 			previous = match;
