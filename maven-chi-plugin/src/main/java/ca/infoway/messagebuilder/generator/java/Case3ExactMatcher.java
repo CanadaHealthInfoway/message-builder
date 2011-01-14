@@ -4,6 +4,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import ca.infoway.messagebuilder.generator.LogLevel;
 import ca.infoway.messagebuilder.generator.LogUI;
 import ca.infoway.messagebuilder.xml.TypeName;
 
@@ -28,7 +29,11 @@ class Case3ExactMatcher extends Case3Matcher {
 			} else if (this.mergeResult.isKnownMatch(type, otherType)) {
 				// Skip it.  We already know about it
 			} else if (matchType(type, otherType) == MatchType.EXACT) {
-				somethingMatched |= this.mergeResult.recordMatch(type, otherType);
+				if (this.mergeResult.recordMatch(type, otherType)) {
+					somethingMatched = true;
+					this.log.log(LogLevel.DEBUG, "(exact) linking: " + type.getTypeName() + " to " + otherType.getTypeName());
+					this.log.log(LogLevel.DEBUG, "all types in merge: " + this.definitions.getType(type.getTypeName().getName()).getMergedWithTypes());
+				}
 			}
 		}
 		return somethingMatched;

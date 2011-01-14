@@ -114,7 +114,8 @@ public class Case2Simplifier extends InlineableSimplifier {
 	private boolean validateReference(SimplifiablePackage complexTypePackage, SimplifiableType inlineableType, SimplifiableReference reference) {
 		boolean result = true;
 		
-		if (reference.getRelationship().getRelationship().getCardinality().isMultiple()) {
+		SimplifiableRelationship relationship = reference.getRelationship();
+		if (relationship.getRelationship().getCardinality().isMultiple()) {
 			result = false;
 		} else if (this.nonInlineableTypes.contains(reference.getType().getMessagePart().getName())) {
 			result = false;
@@ -122,14 +123,14 @@ public class Case2Simplifier extends InlineableSimplifier {
 			return false;
 		} else if (this.case1Simplifier.isInlineable(complexTypePackage, reference.getType())) {
 			return false;
-		} else if (EXACTLY_ONE.equals(reference.getRelationship().getRelationship().getCardinality())) {
+		} else if (EXACTLY_ONE.equals(relationship.getRelationship().getCardinality())) {
 			result = true;
 		} else {
 			// must have at least one mandatory property in order to avoid ambiguity with collapsed relationships (parent is nullflavor vs parent has child and all child relationships are nullflavor)
 			result = hasAtLeastOneMandatoryProperty(inlineableType);
 		}
 		
-		return result && !reference.getRelationship().getRelationship().getConformance().equals(ConformanceLevel.POPULATED);
+		return result && !relationship.getRelationship().getConformance().equals(ConformanceLevel.POPULATED);
 	}
 	
 	private boolean hasAtLeastOneMandatoryProperty(SimplifiableType inlineableType) {

@@ -14,6 +14,8 @@ import java.util.Set;
 import org.apache.commons.collections.CollectionUtils;
 
 import ca.infoway.messagebuilder.generator.GeneratorException;
+import ca.infoway.messagebuilder.generator.LogLevel;
+import ca.infoway.messagebuilder.generator.OutputUI;
 import ca.infoway.messagebuilder.generator.TypeConverter;
 import ca.infoway.messagebuilder.generator.java.InteractionType.ArgumentType;
 import ca.infoway.messagebuilder.generator.lang.ProgrammingLanguage;
@@ -31,22 +33,57 @@ class DefinitionToResultConverter {
 	private final SimplifiableDefinitions definitions;
 	private final String basePackageName;
 	private final ProgrammingLanguage programmingLanguage;
+	private final OutputUI outputUI;
 
 	DefinitionToResultConverter(SimplifiableDefinitions definitions,
-			String basePackageName, ProgrammingLanguage programmingLanguage) {
+			String basePackageName, ProgrammingLanguage programmingLanguage, OutputUI outputUI) {
 		this.definitions = definitions;
 		this.basePackageName = basePackageName;
 		this.programmingLanguage = programmingLanguage;
+		this.outputUI = outputUI;
 	}
 
 	public TypeAnalysisResult convert() throws GeneratorException {
 		TypeAnalysisResult result = new TypeAnalysisResult();
+		reassessInlining(result);
 		createAllTypes(result);  // should also create packages
 		createAllRelationships(result);
 		createAllHierarchies(result);
 		createInteractions(result);
 		createLanguageSpecificNames(result);
 		return result;
+	}
+
+	private void reassessInlining(TypeAnalysisResult result) {
+		for (SimplifiableType parentType : this.definitions.getAllTypes()) {
+			if (parentType.isMerged()) {
+				for (SimplifiableRelationship relationship : parentType.getRelationships()) {
+					SimplifiableType childType = relationship.getType();
+					if (relationship.isAssociation() && childType != null && childType.isInlined() && childType.getMergedWithTypes().size() > 0) {
+						boolean allInlined = true;
+						for (SimplifiableType simplifiableType : childType.getMergedWithTypes()) {
+							allInlined &= simplifiableType.isInlined();
+						}
+						if (!allInlined) {
+							for (SimplifiableType simplifiableType : childType.getMergedWithTypes()) {
+								if (simplifiableType.isInlined()) {
+									simplifiableType.setInlined(false);
+									this.outputUI.log(LogLevel.INFO, "Rejected inlining for ParentType: " +  parentType.getTypeName()
+											+ " inlining type:" + simplifiableType.getTypeName()
+											+ " relationship:" + relationship.getRelationship().getName()
+											+ " because of parent and child types are merged, and not all merged child types inline"
+									);
+								} else {
+									this.outputUI.log(LogLevel.INFO, "Rejected inlining for ParentType: " +  parentType.getTypeName()
+											+ " relationship:" + relationship.getRelationship().getName()
+											+ " but this type wasn't inlined to begin with: " + simplifiableType.getTypeName());
+								}
+							}
+						}
+					}
+				}
+			}
+		}
 	}
 
 	private void createAllHierarchies(TypeAnalysisResult result) {

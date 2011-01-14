@@ -10,6 +10,7 @@ import java.util.Arrays;
 import org.jmock.Expectations;
 import org.jmock.Mockery;
 import org.jmock.integration.junit4.JMock;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -26,6 +27,15 @@ public class Case3FuzzyMatcherTest {
 
 	private Mockery jmock = new Mockery();
 	private SimplifiableTypeProvider definitions = this.jmock.mock(SimplifiableTypeProvider.class);
+
+	@Before
+	public void initialize() {
+		final SimplifiableType type = new SimplifiableType(null, false);
+		this.jmock.checking(new Expectations() {{
+			// logging
+			allowing(definitions).getType(with(any(String.class))); will(returnValue(type));
+		}});
+	}
 	
 	@Test
 	public void shouldNotMatchNonSimilarSimplifiableTypes() throws Exception {

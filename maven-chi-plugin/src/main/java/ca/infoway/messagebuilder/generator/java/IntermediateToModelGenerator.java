@@ -101,7 +101,7 @@ public abstract class IntermediateToModelGenerator {
 	}
 
 	protected TypeAnalysisResult createResultFromDefinitions(SimplifiableDefinitions definitions) throws GeneratorException {
-		return new DefinitionToResultConverter(definitions, this.basePackageName, getProgrammingLanguage()).convert();
+		return new DefinitionToResultConverter(definitions, this.basePackageName, getProgrammingLanguage(), this.outputUI).convert();
 	}
 	
 	public void simplify(SimplifiableDefinitions definitions) throws GeneratorException {

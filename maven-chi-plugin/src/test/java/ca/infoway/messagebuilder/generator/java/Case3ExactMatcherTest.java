@@ -30,6 +30,11 @@ public class Case3ExactMatcherTest {
 	@Before
 	public void setUp() throws Exception {
 		this.definitions = this.jmock.mock(SimplifiableTypeProvider.class);
+		final SimplifiableType type = new SimplifiableType(null, false);
+		this.jmock.checking(new Expectations() {{
+			// logging
+			allowing(definitions).getType(with(any(String.class))); will(returnValue(type));
+		}});
 	}
 	
 	@Test

@@ -15,6 +15,8 @@ import java.util.HashSet;
 import org.apache.commons.collections.CollectionUtils;
 import org.junit.Test;
 
+import ca.infoway.messagebuilder.generator.LogLevel;
+import ca.infoway.messagebuilder.generator.OutputUI;
 import ca.infoway.messagebuilder.generator.TypeConverter;
 import ca.infoway.messagebuilder.xml.Cardinality;
 import ca.infoway.messagebuilder.xml.MessagePart;
@@ -24,9 +26,14 @@ import ca.infoway.messagebuilder.xml.TypeName;
 
 public class DefinitionToResultConverterTest {
 
+	private class TrivialLogger implements OutputUI {
+		public void log(LogLevel level, String message) {
+			System.out.println(message);
+		}
+	}
 
 	private SimplifiableDefinitions definitions = new SimplifiableDefinitions();
-	private DefinitionToResultConverter converter = new DefinitionToResultConverter(this.definitions, "ca.infoway.test", JAVA);
+	private DefinitionToResultConverter converter = new DefinitionToResultConverter(this.definitions, "ca.infoway.test", JAVA, new TrivialLogger());
 	private TypeConverter typeConverter = new TypeConverter();
 	
 	@Test
@@ -196,6 +203,63 @@ public class DefinitionToResultConverterTest {
 		TypeAnalysisResult result = this.converter.convert();
 		
 		assertEquals("count", 0, result.getAllMessageTypes().size());
+	}	
+	
+	@Test
+	public void shouldDisallowInliningWhenParentAndChildTypesAreMerged() throws Exception {
+		
+		SimplifiableType simplifiableType1 = new SimplifiableType(new MessagePart("ABCD_MT123456CA.Patient1"), false);
+		
+		SimplifiableType simplifiableType2 = new SimplifiableType(new MessagePart("ABCD_MT123456CA.Patient2"), false);
+
+		SimplifiableType simplifiableType3 = new SimplifiableType(new MessagePart("ABCD_MT123456CA.Child1"), false);
+
+		SimplifiableType simplifiableType4 = new SimplifiableType(new MessagePart("ABCD_MT123456CA.Child2"), false);
+		simplifiableType4.setInlined(true);
+
+		Relationship parentRelationship1 = new Relationship("child", "ABCD_MT123456CA.Child1", Cardinality.create("1"));
+		simplifiableType1.getRelationships().add(new SimplifiableRelationship(parentRelationship1, simplifiableType3));		
+		
+		Relationship parentRelationship2 = new Relationship("child", "ABCD_MT123456CA.Child2", Cardinality.create("1"));
+		simplifiableType2.getRelationships().add(new SimplifiableRelationship(parentRelationship2, simplifiableType4));		
+
+		Relationship childRelationship1 = new Relationship("childName", "ST", Cardinality.create("1"));
+		simplifiableType3.getRelationships().add(new SimplifiableRelationship(childRelationship1, this.typeConverter.convertToType("ST", null)));		
+		
+		Relationship childRelationship2 = new Relationship("childAge", "INT.POS", Cardinality.create("1"));
+		simplifiableType4.getRelationships().add(new SimplifiableRelationship(childRelationship2, this.typeConverter.convertToType("INT.POS", null)));		
+
+		TemporaryTypeName name = TemporaryTypeName.create("merged");
+		simplifiableType1.setMergedTypeName(name);
+		simplifiableType1.getMergedWithTypes().add(simplifiableType1);
+		simplifiableType1.getMergedWithTypes().add(simplifiableType2);
+		
+		simplifiableType2.setMergedTypeName(name);
+		simplifiableType2.getMergedWithTypes().add(simplifiableType1);
+		simplifiableType2.getMergedWithTypes().add(simplifiableType2);
+
+		TemporaryTypeName name2 = TemporaryTypeName.create("merged");
+		simplifiableType3.setMergedTypeName(name2);
+		simplifiableType3.getMergedWithTypes().add(simplifiableType3);
+		simplifiableType3.getMergedWithTypes().add(simplifiableType4);
+		
+		simplifiableType4.setMergedTypeName(name2);
+		simplifiableType4.getMergedWithTypes().add(simplifiableType3);
+		simplifiableType4.getMergedWithTypes().add(simplifiableType4);
+
+		this.definitions.addType(simplifiableType1);
+		this.definitions.addType(simplifiableType2);
+		this.definitions.addType(simplifiableType3);
+		this.definitions.addType(simplifiableType4);
+		
+		TypeAnalysisResult result = this.converter.convert();
+		
+		assertEquals("count", 2, result.getAllMessageTypes().size());
+		assertNotNull("type exists", result.getNamedType(name));
+		assertNotNull("type exists", result.getNamedType(name2));
+		assertNotNull("relationship", result.getNamedType(name).getRelationship("child"));
+		assertNull("relationship", result.getNamedType(name).getRelationship("childName"));
+		assertNull("relationship", result.getNamedType(name).getRelationship("childAge"));
 	}	
 	
 	@Test
