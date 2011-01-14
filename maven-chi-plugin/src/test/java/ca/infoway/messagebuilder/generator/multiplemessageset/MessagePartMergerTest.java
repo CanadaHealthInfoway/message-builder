@@ -38,6 +38,7 @@ public class MessagePartMergerTest {
 			allowing(mergeContext).getCurrentInteraction(); will(returnValue(""));
 			allowing(mergeContext).getCurrentMessagePart(); will(returnValue("aCurrentMessagePart"));
 			allowing(mergeContext).getCurrentPackageLocation(); will(returnValue("aPackageLocation"));
+			allowing(mergeContext).logInfo(with(any(String.class)));
 		}});
 
 		this.documentationMerger = this.jmock.mock(DocumentationMerger.class);
@@ -74,7 +75,6 @@ public class MessagePartMergerTest {
 		this.jmock.checking(new Expectations() {{
 			one(documentationMerger).merge(documentation, null); will(returnValue(documentation));
 			one(relationshipsMerger).merge(messagePart.getRelationships(), Collections.<Relationship>emptyList()); will(returnValue(Arrays.asList(relationship)));
-			exactly(3).of(mergeContext).logError(with(any(String.class)));
 		}});
 		
 		MessagePart result = this.merger.merge(messagePart, new MessagePart());

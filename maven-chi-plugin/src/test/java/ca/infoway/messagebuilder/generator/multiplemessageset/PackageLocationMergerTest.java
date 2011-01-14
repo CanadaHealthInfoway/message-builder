@@ -35,6 +35,7 @@ public class PackageLocationMergerTest {
 			allowing(mergeContext).getCurrentInteraction(); will(returnValue(""));
 			allowing(mergeContext).getCurrentMessagePart(); will(returnValue(""));
 			allowing(mergeContext).getCurrentPackageLocation(); will(returnValue("aPackageLocation"));
+			allowing(mergeContext).logInfo(with(any(String.class)));
 		}});
 		
 		this.messagePartMerger = this.jmock.mock(MessagePartMerger.class);
@@ -107,7 +108,6 @@ public class PackageLocationMergerTest {
 		
 		this.jmock.checking(new Expectations() {{
 			one(messagePartMerger).merge(messagePart1, messagePart2); will(returnValue(messagePart1));
-			one(mergeContext).logError(with(any(String.class)));
 		}});
 		
 		PackageLocation result = this.merger.merge(packageLocation1, packageLocation2);

@@ -33,7 +33,7 @@ public class ArgumentMergerTest {
 		this.jmock.checking(new Expectations() {{
 			allowing(mergeContext).getPrimaryVersion(); will(returnValue("1"));
 			allowing(mergeContext).getSecondaryVersion(); will(returnValue("2"));
-			allowing(mergeContext).logError(with(any(String.class)));
+			allowing(mergeContext).logInfo(with(any(String.class)));
 			allowing(mergeContext).getCurrentInteraction(); will(returnValue(""));
 			allowing(mergeContext).getCurrentMessagePart(); will(returnValue("aCurrentMessagePart"));
 			allowing(mergeContext).getCurrentPackageLocation(); will(returnValue("aPackageLocation"));
