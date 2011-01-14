@@ -39,6 +39,8 @@ class MergeContextImpl implements MergeContext {
 	}
 
 	public void logInfo(String info) {
+		// leaving as debug for now to reduce noise
+		this.outputUI.log(LogLevel.DEBUG, info);
 		//this.outputUI.log(LogLevel.INFO, info);
 	}
 

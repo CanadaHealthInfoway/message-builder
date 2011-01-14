@@ -58,17 +58,10 @@ public class RelationshipMergerTest {
 	@Test
 	public void shoudlHandleOneNullRelationship() {
 		Relationship primary = new Relationship();
-		this.jmock.checking(new Expectations() {{
-			one(mergeContext).logError(with(any(String.class))); 
-		}});
 		Relationship result = this.merger.merge(primary, null);
 		Assert.assertSame(primary, result);
 		
 		Relationship secondary = new Relationship();
-		
-		this.jmock.checking(new Expectations() {{
-			one(mergeContext).logError(with(any(String.class))); 
-		}});
 		
 		result = this.merger.merge(null, secondary);
 		Assert.assertSame(secondary, result);
@@ -125,7 +118,6 @@ public class RelationshipMergerTest {
 		this.jmock.checking(new Expectations() {{
 			one(documentationMerger).merge(primaryDoc, secondaryDoc); will(returnValue(primaryDoc));
 			one(relationshipsMerger).merge(primary.getChoices(), secondary.getChoices()); will(returnValue(primary.getChoices()));
-			exactly(4).of(mergeContext).logError(with(any(String.class)));
 		}});
 
 		Relationship result = this.merger.merge(primary, secondary);
@@ -196,7 +188,6 @@ public class RelationshipMergerTest {
 		this.jmock.checking(new Expectations() {{
 			one(documentationMerger).merge(null, null); will(returnValue(null));
 			one(relationshipsMerger).merge(primary.getChoices(), secondary.getChoices()); will(returnValue(primary.getChoices()));
-			exactly(2).of(mergeContext).logError(with(any(String.class)));
 		}});
 
 		Relationship result = this.merger.merge(primary, secondary);
@@ -248,7 +239,6 @@ public class RelationshipMergerTest {
 		this.jmock.checking(new Expectations() {{
 			one(documentationMerger).merge(primaryDoc, secondaryDoc); will(returnValue(primaryDoc));
 			one(relationshipsMerger).merge(primary.getChoices(), secondary.getChoices()); will(returnValue(primary.getChoices()));
-			exactly(3).of(mergeContext).logError(with(any(String.class)));
 		}});
 
 		Relationship result = this.merger.merge(primary, secondary);
@@ -310,7 +300,6 @@ public class RelationshipMergerTest {
 		this.jmock.checking(new Expectations() {{
 			one(documentationMerger).merge(primaryDoc, secondaryDoc); will(returnValue(primaryDoc));
 			one(relationshipsMerger).merge(primary.getChoices(), secondary.getChoices()); will(returnValue(primary.getChoices()));
-			exactly(3).of(mergeContext).logError(with(any(String.class)));
 		}});
 
 		Relationship result = this.merger.merge(primary, secondary);

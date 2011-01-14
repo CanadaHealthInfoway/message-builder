@@ -79,7 +79,7 @@ public class InteractionMergerTest {
 		
 		this.jmock.checking(new Expectations() {{
 			one(documentationMerger).merge(interaction.getDocumentation(), null); will(returnValue(interaction.getDocumentation()));
-			one(mergeContext).logError(with(any(String.class)));
+			one(mergeContext).logInfo(with(any(String.class)));
 		}});
 
 		Interaction result = this.merger.merge(interaction, null);
@@ -92,7 +92,7 @@ public class InteractionMergerTest {
 		
 		this.jmock.checking(new Expectations() {{
 			one(documentationMerger).merge(null, interaction.getDocumentation()); will(returnValue(interaction.getDocumentation()));
-			one(mergeContext).logError(with(any(String.class)));
+			one(mergeContext).logInfo(with(any(String.class)));
 		}});
 
 		result = this.merger.merge(null, interaction);
