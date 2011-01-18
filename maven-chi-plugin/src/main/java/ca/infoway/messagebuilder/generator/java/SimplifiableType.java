@@ -90,7 +90,8 @@ public class SimplifiableType implements Named, NamedType {
 		} else if (this.mergedWithTypes.isEmpty()) {
 			return false;
 		} else {
-			int count = isInlined() ? 0 : 1;
+//			int count = isInlined() ? 0 : 1;
+			int count = 0;
 			for (SimplifiableType type : this.mergedWithTypes) {
 				count += type.isInlined() ? 0 : 1;
 			}

@@ -159,9 +159,11 @@ public class DefinitionToResultConverterTest {
 		
 		TypeName mergedTypeName = TemporaryTypeName.create("merged");
 		
+		simplifiableType1.getMergedWithTypes().add(simplifiableType1);
 		simplifiableType1.getMergedWithTypes().add(simplifiableType2);
 		simplifiableType1.setMergedTypeName(mergedTypeName);
 		simplifiableType2.getMergedWithTypes().add(simplifiableType1);
+		simplifiableType2.getMergedWithTypes().add(simplifiableType2);
 		simplifiableType2.setMergedTypeName(mergedTypeName);
 
 		this.definitions.addType(simplifiableType1);
@@ -179,6 +181,43 @@ public class DefinitionToResultConverterTest {
 		assertTrue("attribute", type.getRelationships().get(1) instanceof Attribute);
 		
 		assertEquals("class name", "ca.infoway.test.common.merged.Patient2Bean", type.getLanguageSpecificName().getFullyQualifiedName());
+	}
+
+	@Test
+	public void shouldNotMergedTypeIfAllButOneTypeInlinedAway() throws Exception {
+		Relationship relationship1 = new Relationship("role", "ST", Cardinality.create("1"));
+		SimplifiableType simplifiableType1 = new SimplifiableType(new MessagePart("ABCD_MT123456CA.Patient1"), false, "common");
+		simplifiableType1.getRelationships().add(new SimplifiableRelationship(relationship1, this.typeConverter.convertToType("ST", null)));
+		
+		Relationship relationship2 = new Relationship("name", "ST", Cardinality.create("1"));
+		SimplifiableType simplifiableType2 = new SimplifiableType(new MessagePart("ABCD_MT123456CA.Patient2"), false, "common");
+		simplifiableType2.getRelationships().add(new SimplifiableRelationship(relationship2, this.typeConverter.convertToType("ST", null)));
+		simplifiableType2.setInlined(true);
+		
+		TypeName mergedTypeName = TemporaryTypeName.create("merged");
+		
+		simplifiableType1.getMergedWithTypes().add(simplifiableType1);
+		simplifiableType1.getMergedWithTypes().add(simplifiableType2);
+		simplifiableType1.setMergedTypeName(mergedTypeName);
+		simplifiableType2.getMergedWithTypes().add(simplifiableType1);
+		simplifiableType2.getMergedWithTypes().add(simplifiableType2);
+		simplifiableType2.setMergedTypeName(mergedTypeName);
+
+		this.definitions.addType(simplifiableType1);
+		this.definitions.addType(simplifiableType2);
+		
+		TypeAnalysisResult result = this.converter.convert();
+		
+		assertNotNull("result", result);
+		
+		Type type1 = result.getTypeByName(mergedTypeName);
+		assertNull("type", type1);
+		Type type2 = result.getTypeByName(simplifiableType1.getTypeName());
+		assertNotNull("type", type2);
+		Type type3 = result.getTypeByName(simplifiableType2.getTypeName());
+		assertNull("type", type3);
+
+		assertEquals("number of relationships", 1, type2.getRelationships().size());
 	}
 
 	@Test
@@ -329,10 +368,12 @@ public class DefinitionToResultConverterTest {
 
 		TemporaryTypeName name = TemporaryTypeName.create("merged");
 		simplifiableType1.setMergedTypeName(name);
+		simplifiableType1.getMergedWithTypes().add(simplifiableType1);
 		simplifiableType1.getMergedWithTypes().add(simplifiableType2);
 		
 		simplifiableType2.setMergedTypeName(name);
 		simplifiableType2.getMergedWithTypes().add(simplifiableType1);
+		simplifiableType2.getMergedWithTypes().add(simplifiableType2);
 		
 		Relationship relationship = new Relationship("relatedPerson", "ABCD_MT123456CA.MergedInterfaceType1", Cardinality.create("1"));
 		SimplifiableType simplifiableType = new SimplifiableType(new MessagePart("ABCD_MT123456CA.InlinedType"), false);
@@ -387,9 +428,11 @@ public class DefinitionToResultConverterTest {
 		
 		TypeName mergedTypeName = TemporaryTypeName.create("merged");
 		
+		simplifiableType1.getMergedWithTypes().add(simplifiableType1);
 		simplifiableType1.getMergedWithTypes().add(simplifiableType2);
 		simplifiableType1.setMergedTypeName(mergedTypeName);
 		simplifiableType2.getMergedWithTypes().add(simplifiableType1);
+		simplifiableType2.getMergedWithTypes().add(simplifiableType2);
 		simplifiableType2.setMergedTypeName(mergedTypeName);
 
 		Relationship relationship3 = new Relationship("patient1", "ABCD_MT123456CA.Patient1", Cardinality.create("1"));
@@ -477,10 +520,12 @@ public class DefinitionToResultConverterTest {
 		SimplifiableType simplifiableType2 = new SimplifiableType(new MessagePart("ABCD_MT987654CA.Person"), false);
 		this.definitions.addType(simplifiableType1);
 		simplifiableType1.setMergedTypeName(mergedType.getTypeName());
+		simplifiableType1.getMergedWithTypes().add(simplifiableType1);
 		simplifiableType1.getMergedWithTypes().add(simplifiableType2);
 		this.definitions.addType(simplifiableType2);
 		simplifiableType2.setMergedTypeName(mergedType.getTypeName());
 		simplifiableType2.getMergedWithTypes().add(simplifiableType1);
+		simplifiableType2.getMergedWithTypes().add(simplifiableType2);
 		this.definitions.addType(new SimplifiableType(new MessagePart("ABCD_MT123456CA.IndentifiedParty"), false));
 		this.definitions.addType(new SimplifiableType(new MessagePart("ABCD_MT987654CA.IndentifiedParty"), false));
 		

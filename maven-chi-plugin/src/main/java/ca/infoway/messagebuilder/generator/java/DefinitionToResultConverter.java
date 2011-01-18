@@ -59,6 +59,7 @@ class DefinitionToResultConverter {
 			if (parentType.isMerged()) {
 				for (SimplifiableRelationship relationship : parentType.getRelationships()) {
 					SimplifiableType childType = relationship.getType();
+					// can't check isMerged here, as it will always report false when inlined; need to check if it has merged with any other types
 					if (relationship.isAssociation() && childType != null && childType.isInlined() && childType.getMergedWithTypes().size() > 0) {
 						boolean allInlined = true;
 						for (SimplifiableType simplifiableType : childType.getMergedWithTypes()) {
@@ -328,13 +329,23 @@ class DefinitionToResultConverter {
 		} else {
 			SimplifiableType type = this.definitions.getType(relationship.getType());
 			if (type == null) {
-				System.out.println("Cannot find type: " + 
+				this.outputUI.log(LogLevel.ERROR, "Cannot find type: " + 
 						relationship.getType() + " used by " + 
 						containingType.getTypeName() + "." + 
 						relationship.getName());
 				return false;
 			} else {
-				return type.isMerged();
+				boolean merged = type.isMerged();
+				if (!merged && !type.isInlined() && !type.getMergedWithTypes().isEmpty()) {
+					int count = 0;
+					for (SimplifiableType typeMerged : type.getMergedWithTypes()) {
+						count += typeMerged.isInlined() ? 0 : 1;
+					}
+					if (count == 1) {
+						this.outputUI.log(LogLevel.INFO, "Not merging type when only 1 type in merge list: " + type.getTypeName());
+					}
+				}
+				return merged;
 			}
 		}
 	}
