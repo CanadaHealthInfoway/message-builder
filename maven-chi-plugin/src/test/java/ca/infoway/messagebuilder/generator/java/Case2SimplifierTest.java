@@ -56,6 +56,11 @@ public class Case2SimplifierTest {
 		
 		deviceType.setMergedTypeName(temporaryTypeName);
 		deviceType.getMergedWithTypes().add(device2Type);
+		deviceType.getMergedWithTypes().add(deviceType);
+		
+		device2Type.setMergedTypeName(temporaryTypeName);
+		device2Type.getMergedWithTypes().add(device2Type);
+		device2Type.getMergedWithTypes().add(deviceType);
 		
 		assertTrue("merged", this.definitions.getType(deviceType.getName()).isMerged());
 		assertFalse("not yet elided", this.definitions.getType(deviceType.getName()).isInlined());
