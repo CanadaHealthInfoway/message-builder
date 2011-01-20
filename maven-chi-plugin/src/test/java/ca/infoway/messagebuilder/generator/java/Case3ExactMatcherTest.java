@@ -53,7 +53,7 @@ public class Case3ExactMatcherTest {
 	}
 	
 	private Case3Matcher createMatcher(Case3MergeResult result) {
-		return new Case3ExactMatcher(new SysoutLogUI(), this.definitions, result);
+		return new Case3ExactMatcher(new SysoutLogUI(), this.definitions, null, result);
 	}
 
 	@Test

@@ -11,9 +11,10 @@ public class Case3ForcedMergedMatcher extends Case3FuzzyMatcher {
 	private final ForcedMatchManager forcedMatchManager;
 	private boolean greatBigSwitch = false;
 
-	public Case3ForcedMergedMatcher(LogUI log, SimplifiableTypeProvider definitions,
+	public Case3ForcedMergedMatcher(LogUI log, SimplifiableTypeProvider definitions, 
+			ClusterProvider clusterProvider,
 			Case3MergeResult result, ForcedMatchManager forcedMatchManager) {
-		super(log, definitions, result, forcedMatchManager);
+		super(log, definitions, clusterProvider, result, forcedMatchManager);
 		this.forcedMatchManager = forcedMatchManager;
 	}
 

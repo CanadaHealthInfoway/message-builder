@@ -27,10 +27,12 @@ public class Case3FuzzyMatcherTest {
 
 	private Mockery jmock = new Mockery();
 	private SimplifiableTypeProvider definitions = this.jmock.mock(SimplifiableTypeProvider.class);
+	private ClusterProvider provider;
 
 	@Before
 	public void initialize() {
 		final SimplifiableType type = new SimplifiableType(null, false);
+		this.provider = this.jmock.mock(ClusterProvider.class);
 		this.jmock.checking(new Expectations() {{
 			// logging
 			allowing(definitions).getType(with(any(String.class))); will(returnValue(type));
@@ -82,7 +84,7 @@ public class Case3FuzzyMatcherTest {
 	}
 
 	private Case3FuzzyMatcher createMatcher(Case3MergeResult result) {
-		return new Case3FuzzyMatcher(new SysoutLogUI(), this.definitions, result, FuzzQuotient.LEVEL_0);
+		return new Case3FuzzyMatcher(new SysoutLogUI(), this.definitions, this.provider, result, FuzzQuotient.LEVEL_0);
 	}
 	
 	@Test
@@ -183,6 +185,7 @@ public class Case3FuzzyMatcherTest {
 		
 		this.jmock.checking(new Expectations() {{
 			allowing(definitions).getAllTypes(); will(returnValue(Arrays.asList(type1, type2, subject)));
+			allowing(provider).getClusters(); will(returnValue(Arrays.asList(new Cluster(type1, type2, subject))));
 		}});
 		
 		Case3MergeResult result = new Case3MergeResult();

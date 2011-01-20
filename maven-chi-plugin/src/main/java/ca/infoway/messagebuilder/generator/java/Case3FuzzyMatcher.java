@@ -24,8 +24,8 @@ class Case3FuzzyMatcher extends Case3Matcher {
 	protected final LogUI log;
 	private final Fuzziness fuzziness;
 
-	public Case3FuzzyMatcher(LogUI log, SimplifiableTypeProvider definitions, Case3MergeResult result, Fuzziness fuzziness) {
-		super(log, definitions);
+	public Case3FuzzyMatcher(LogUI log, SimplifiableTypeProvider definitions, ClusterProvider clusterProvider, Case3MergeResult result, Fuzziness fuzziness) {
+		super(log, definitions, clusterProvider);
 		this.log = log;
 		this.mergeResult = result;
 		this.fuzziness = fuzziness;
