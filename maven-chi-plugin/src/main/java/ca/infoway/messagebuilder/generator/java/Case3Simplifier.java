@@ -12,35 +12,35 @@ import ca.infoway.messagebuilder.xml.TypeName;
 public class Case3Simplifier {
 	
 	abstract class Case3MatcherFactory {
-		public abstract Case3Matcher create(LogUI log, SimplifiableTypeProvider definitions, Case3MergeResult result);
+		public abstract Case3Matcher create(LogUI log, SimplifiableTypeProvider definitions, Case3MergeResult result, ClusterAnalyzer analyzer);
 	}
 
 	private LogUI log;
 	private final Case3MergeResult mergeResult;
 	private List<? extends Case3MatcherFactory> factories = Arrays.asList(
 			new Case3MatcherFactory() {
-				public Case3Matcher create(LogUI log, SimplifiableTypeProvider definitions, Case3MergeResult result) {
-					return new Case3ExactMatcher(log, definitions, result);
+				public Case3Matcher create(LogUI log, SimplifiableTypeProvider definitions, Case3MergeResult result, ClusterAnalyzer analyzer) {
+					return new Case3ExactMatcher(log, definitions, analyzer, result);
 				}
 			},
 			new Case3MatcherFactory() {
-				public Case3Matcher create(LogUI log, SimplifiableTypeProvider provider, Case3MergeResult result) {
-					return new Case3ForcedMergedMatcher(log, provider, result, new ForcedMatchManager(Case3Simplifier.this.definitions));
+				public Case3Matcher create(LogUI log, SimplifiableTypeProvider provider, Case3MergeResult result, ClusterAnalyzer analyzer) {
+					return new Case3ForcedMergedMatcher(log, provider, analyzer, result, new ForcedMatchManager(Case3Simplifier.this.definitions));
 				}
 			},
 			new Case3MatcherFactory() {
-				public Case3Matcher create(LogUI log, SimplifiableTypeProvider definitions, Case3MergeResult result) {
-					return new Case3FuzzyMatcher(log, definitions, result, FuzzQuotient.LEVEL_00);
+				public Case3Matcher create(LogUI log, SimplifiableTypeProvider definitions, Case3MergeResult result, ClusterAnalyzer analyzer) {
+					return new Case3FuzzyMatcher(log, definitions, analyzer, result, FuzzQuotient.LEVEL_00);
 				}
 			},
 			new Case3MatcherFactory() {
-				public Case3Matcher create(LogUI log, SimplifiableTypeProvider definitions, Case3MergeResult result) {
-					return new Case3FuzzyMatcher(log, definitions, result, FuzzQuotient.LEVEL_0);
+				public Case3Matcher create(LogUI log, SimplifiableTypeProvider definitions, Case3MergeResult result, ClusterAnalyzer analyzer) {
+					return new Case3FuzzyMatcher(log, definitions, analyzer, result, FuzzQuotient.LEVEL_0);
 				}
 			},
 			new Case3MatcherFactory() {
-				public Case3Matcher create(LogUI log, SimplifiableTypeProvider definitions, Case3MergeResult result) {
-					return new Case3FuzzyMatcher(log, definitions, result, FuzzQuotient.LEVEL_1);
+				public Case3Matcher create(LogUI log, SimplifiableTypeProvider definitions, Case3MergeResult result, ClusterAnalyzer analyzer) {
+					return new Case3FuzzyMatcher(log, definitions, analyzer, result, FuzzQuotient.LEVEL_1);
 				}
 			});
 	private final SimplifiableDefinitions definitions;
@@ -84,8 +84,11 @@ public class Case3Simplifier {
 		this.mergeResult.initialize(this.definitions);
 		boolean repeat = false;
 		SimplifiableTypeProvider provider = OrderedSimplifiableTypeProvider.create(this.definitions);
+		
+		ClusterAnalyzer analyzer = new ClusterAnalyzer();
+		analyzer.analyze(this.definitions.getAllTypes());
 		do {
-			Case3Matcher matcher = factory.create(this.log, provider, this.mergeResult);
+			Case3Matcher matcher = factory.create(this.log, provider, this.mergeResult, analyzer);
 			this.log.log(INFO, "Simplification case 3: " + matcher.getDescription());
 			repeat = matcher.matchAllTypes();
 			markDefinitions();

@@ -14,8 +14,8 @@ class Case3ExactMatcher extends Case3Matcher {
 	private Matcher matcher;
 	private final LogUI log;
 	
-	Case3ExactMatcher(LogUI log, SimplifiableTypeProvider definitions, Case3MergeResult mergeResult) {
-		super(log, definitions);
+	Case3ExactMatcher(LogUI log, SimplifiableTypeProvider definitions, ClusterProvider clusterProvider, Case3MergeResult mergeResult) {
+		super(log, definitions, clusterProvider);
 		this.log = log;
 		this.mergeResult = mergeResult;
 		this.matcher = new Matcher(this.mergeResult);
