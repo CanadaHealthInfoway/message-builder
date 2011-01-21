@@ -313,6 +313,26 @@
         <outputDirectory>releases/release-v02_r02/src</outputDirectory>
       </fileSet>
       <fileSet>
+        <directory>message-builder-release-r02_04_02/etc</directory>
+        <includes><include>**/*</include></includes>
+        <outputDirectory>releases/release-r02_04_02/etc</outputDirectory>
+      </fileSet>
+      <fileSet>
+        <directory>message-builder-release-v01_r04_3/etc</directory>
+        <includes><include>**/*</include></includes>
+        <outputDirectory>releases/release-v01_r04_3/etc</outputDirectory>
+      </fileSet>
+      <fileSet>
+        <directory>message-builder-release-v02_r01/etc</directory>
+        <includes><include>**/*</include></includes>
+        <outputDirectory>releases/release-v02_r01/etc</outputDirectory>
+      </fileSet>
+      <fileSet>
+        <directory>message-builder-release-v02_r02/etc</directory>
+        <includes><include>**/*</include></includes>
+        <outputDirectory>releases/release-v02_r02/etc</outputDirectory>
+      </fileSet>
+      <fileSet>
         <directory>./</directory>
         <includes>
           <include>**/*-sources.jar</include>
