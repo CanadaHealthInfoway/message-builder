@@ -19,7 +19,7 @@ public class DataTypeImplementationFactoryTest {
 	@Test
 	public void makeSureDataTypeHasAnImplemenation() throws Exception {
 		for (StandardDataType type : DATA_TYPES) {
-			if (type != StandardDataType.COLLECTION) {
+			if (type != StandardDataType.COLLECTION && type != StandardDataType.BAG) {
 				assertNotNull(MessageFormat.format("no implementation for: {0}", 
 						type.getType()), 
 						DataTypeImplementationFactory.getImplementation(type.getType()));

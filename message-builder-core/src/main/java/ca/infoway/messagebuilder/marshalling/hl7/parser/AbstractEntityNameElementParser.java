@@ -14,7 +14,7 @@ import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelTransformationException;
 import ca.infoway.messagebuilder.resolver.CodeResolverRegistry;
 
-public abstract class AbstractEntityNameElementParser extends AbstractSingleElementParser<EntityName> {
+abstract class AbstractEntityNameElementParser extends AbstractSingleElementParser<EntityName> {
 
 	@Override
 	protected EntityName parseNonNullNode(ParseContext context, Node node, BareANY parseResult, Type expectedReturnType, XmlToModelResult xmlToJavaResult) throws XmlToModelTransformationException {
