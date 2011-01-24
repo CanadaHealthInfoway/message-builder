@@ -1,5 +1,5 @@
 Manifest-Version: 1.0
-MBT-Model-Version-Numbers: V02_R01
+MBT-Model-Version-Numbers: V02R01
 MBT-Message-Set: /messageSet_v02_r01.xml
 
 

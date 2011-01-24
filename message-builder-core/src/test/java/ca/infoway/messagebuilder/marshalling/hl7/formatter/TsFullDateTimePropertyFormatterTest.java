@@ -89,7 +89,7 @@ public class TsFullDateTimePropertyFormatterTest {
 	
 	@Test
 	public void testVersionOld() throws Exception  {
-		handleVersion(SpecificationVersion.V01R04_3_HOTFIX3, "19990423101112");
+		handleVersion(SpecificationVersion.V01R04_3, "19990423101112");
 	}
 	
 	private void handleVersion(SpecificationVersion r020402, String expected)	throws ModelToXmlTransformationException {
