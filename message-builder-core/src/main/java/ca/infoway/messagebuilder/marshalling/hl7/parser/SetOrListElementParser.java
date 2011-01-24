@@ -52,14 +52,6 @@ abstract class SetOrListElementParser extends AbstractElementParser {
 		} catch (IllegalArgumentException e) {
 			return returnType;
 		}
-//		if (returnType instanceof ParameterizedType) {
-//			ParameterizedType parameterizedType = (ParameterizedType) returnType;
-//			Type[] actualTypeArguments = parameterizedType == null 
-//					? new Type[] { null } : parameterizedType.getActualTypeArguments();
-//			return actualTypeArguments[0];
-//		} else {
-//			return returnType;
-//		}
 	}
 
 	private List<Node> toList(Node node) {

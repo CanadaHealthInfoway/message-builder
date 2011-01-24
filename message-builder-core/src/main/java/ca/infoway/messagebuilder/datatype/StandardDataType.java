@@ -165,6 +165,13 @@ public class StandardDataType extends EnumPattern implements Typed {
 	public static final StandardDataType LIST_TEL_PHONEMAIL = new StandardDataType("LIST_TEL_PHONEMAIL", "LIST<TEL.PHONEMAIL>");
 	
 	public static final StandardDataType COLLECTION = new StandardDataType("COLLECTION", "COLLECTION");
+
+	/** 
+	 * <p>The BAG data type.  Note that this data type is not a standard part of the 
+	 * pan-Canadian Data Types specification.
+	 */
+	public static final StandardDataType BAG = new StandardDataType("BAG", "BAG"); 
+	
 	
 	private static final Map<StandardDataType,StandardDataType> widthType;
 	

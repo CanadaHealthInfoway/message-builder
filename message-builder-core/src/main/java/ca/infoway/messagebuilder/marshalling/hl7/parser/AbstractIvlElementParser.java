@@ -39,7 +39,7 @@ import ca.infoway.messagebuilder.util.xml.XmlDescriber;
  *
  * http://www.hl7.org/v3ballot/html/infrastructure/itsxml/datatypes-its-xml.htm#dtimpl-IVL
  */
-public abstract class AbstractIvlElementParser<T> extends AbstractSingleElementParser<Interval<T>> {
+abstract class AbstractIvlElementParser<T> extends AbstractSingleElementParser<Interval<T>> {
 	
 	@Override
 	@SuppressWarnings("unchecked")
