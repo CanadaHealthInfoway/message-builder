@@ -50,10 +50,6 @@ public class TsFullDateTimePropertyFormatter extends AbstractValueNullFlavorProp
     }
 
 	private boolean isV01R04_3(String versionLiteral) {
-		return StringUtils.equals(versionLiteral, SpecificationVersion.V01R04_3.getVersionLiteral())
-				|| StringUtils.equals(versionLiteral, SpecificationVersion.V01R04_3_HOTFIX1.getVersionLiteral())
-				|| StringUtils.equals(versionLiteral, SpecificationVersion.V01R04_3_HOTFIX2.getVersionLiteral())
-				|| StringUtils.equals(versionLiteral, SpecificationVersion.V01R04_3_HOTFIX3.getVersionLiteral())
-				;
+		return StringUtils.equals(versionLiteral, SpecificationVersion.V01R04_3.getVersionLiteral());
 	}
 }

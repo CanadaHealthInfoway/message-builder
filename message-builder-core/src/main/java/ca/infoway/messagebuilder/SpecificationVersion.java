@@ -13,15 +13,8 @@ public class SpecificationVersion extends EnumPattern implements VersionNumber {
 	 * <p>This designation is used for a stand-alone version of the IEHR messages.  It
 	 * was released on 2007-05-08
 	 */
-	public static final SpecificationVersion V01R01_4 = new SpecificationVersion("V01R01_4", "V01R01.4");
-
 	public static final SpecificationVersion V01R04_3 = new SpecificationVersion("V01R04_3", "V01R04.3");
-	public static final SpecificationVersion V01R04_3_HOTFIX1 = new SpecificationVersion("V01R04_3_HOTFIX1", "V01R04.3_HOTFIX1"); 
-	public static final SpecificationVersion V01R04_3_HOTFIX2 = new SpecificationVersion("V01R04_3_HOTFIX2", "V01R04.3_HOTFIX2"); 
-	public static final SpecificationVersion V01R04_3_HOTFIX3 = new SpecificationVersion("V01R04_3_HOTFIX3", "V01R04.3_HOTFIX3");
 
-	public static final SpecificationVersion R02_04_00 = new SpecificationVersion("R02_04_00", "R02.04.00");
-	
 	public static final SpecificationVersion V02R01 = new SpecificationVersion("V02R01", "V02R01");
 
 	/**

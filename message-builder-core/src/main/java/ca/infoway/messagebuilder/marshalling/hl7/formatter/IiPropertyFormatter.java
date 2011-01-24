@@ -94,7 +94,7 @@ class IiPropertyFormatter extends AbstractAttributePropertyFormatter<Identifier>
             VersionNumber version = context.getVersion();
             if (version != null) {
 				String versionLiteral = version.getVersionLiteral();
-				if (!StringUtils.equals(versionLiteral, SpecificationVersion.V01R04_3_HOTFIX3.getVersionLiteral()) &&
+				if (!StringUtils.equals(versionLiteral, SpecificationVersion.V01R04_3.getVersionLiteral()) &&
 						!StringUtils.equals(versionLiteral, "V02R01") &&
 						!StringUtils.equals(versionLiteral, SpecificationVersion.V02R02.getVersionLiteral()) &&
 						!StringUtils.equals(versionLiteral, SpecificationVersion.NEWFOUNDLAND.getVersionLiteral())) {

@@ -106,7 +106,7 @@ public class TsElementParserTest extends MarshallingTestCase {
         assertDateEquals("correct value returned " + value, FULL_DATE_TIME, expectedResult, (Date) (new TsElementParser()).parse(context, node, this.xmlJavaResult).getBareValue());
         assertEquals("no error", 0, this.xmlJavaResult.getHl7Errors().size());
         
-		context = ParserContextImpl.create("TS.FULLDATETIME", Date.class, SpecificationVersion.V01R04_3_HOTFIX3.getVersionLiteral(), ConformanceLevel.POPULATED);
+		context = ParserContextImpl.create("TS.FULLDATETIME", Date.class, SpecificationVersion.V01R04_3.getVersionLiteral(), ConformanceLevel.POPULATED);
 		assertDateEquals("correct value returned " + value, FULL_DATE_TIME, expectedResult, (Date) (new TsElementParser()).parse(context, node, this.xmlJavaResult).getBareValue());
 		assertEquals("one error", 1, this.xmlJavaResult.getHl7Errors().size());
     }
