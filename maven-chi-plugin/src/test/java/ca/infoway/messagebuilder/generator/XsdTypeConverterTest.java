@@ -40,6 +40,7 @@ public class XsdTypeConverterTest {
 		Assume.assumeTrue(!"LIST".equals(standardDataType.getType()));
 		Assume.assumeTrue(!"SET".equals(standardDataType.getType()));
 		Assume.assumeTrue(!"COLLECTION".equals(standardDataType.getType()));
+		Assume.assumeTrue(!"BAG".equals(standardDataType.getType()));
 		Assume.assumeTrue(standardDataType.isPartOfCanadianSpec());
 
 		XsdDataType type = new XsdTypeConverter().convertToType(createRelationship(standardDataType.getType()));
