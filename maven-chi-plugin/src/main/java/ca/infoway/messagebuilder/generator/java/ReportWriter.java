@@ -15,6 +15,7 @@ import java.util.TreeSet;
 
 import org.apache.commons.io.IOUtils;
 
+import ca.infoway.messagebuilder.generator.FileDirectoryUtil;
 import ca.infoway.messagebuilder.generator.LogLevel;
 import ca.infoway.messagebuilder.generator.LogUI;
 import ca.infoway.messagebuilder.xml.MessagePart;
@@ -85,6 +86,7 @@ public class ReportWriter {
 	public void write(File report) throws IOException {
 		FileWriter writer = new FileWriter(report);
 		try {
+			FileDirectoryUtil.createDirectoriesIfNeeded(report);
 			write(writer);
 			this.log.log(LogLevel.INFO, "Simplification report written to " + report.getAbsolutePath());
 		} finally {
