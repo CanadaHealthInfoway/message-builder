@@ -63,6 +63,7 @@ public class MessageSetWriter {
 						}
 					}
 				}
+				FileDirectoryUtil.createDirectoriesIfNeeded(outputFile);
 				new MessageSetMarshaller().marshall(this.messageSet, outputFile);
 				
 				this.outputUI.log(INFO, "The message set has been written to \"" + outputFile + "\"");
@@ -73,5 +74,5 @@ public class MessageSetWriter {
 			}
 		}
 	}
-	
+
 }
