@@ -1,5 +1,7 @@
 package ca.infoway.messagebuilder.xml;
 
+import org.apache.commons.lang.builder.EqualsBuilder;
+import org.apache.commons.lang.builder.HashCodeBuilder;
 import org.simpleframework.xml.Attribute;
 import org.simpleframework.xml.Element;
 import org.simpleframework.xml.Root;
@@ -93,5 +95,42 @@ public class Annotation {
 
 	public void setAnnotationType(String annotationType) {
 		this.annotationType = annotationType;
+	}
+	
+	/**
+	 * <p>Standard equals implementation.
+	 * 
+	 * @param obj - the other object
+	 * @return true if the objects are equal; false otherwise
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if (obj == null) {
+			return false;
+		} else if (getClass() != obj.getClass()) {
+			return false;
+		} else {
+			Annotation that = (Annotation) obj;
+			return new EqualsBuilder()
+					.append(this.text, that.text)
+					.append(this.annotationType, that.annotationType)
+					.append(this.otherAnnotationType, that.otherAnnotationType)
+					.append(this.sourceName, that.sourceName)
+					.isEquals();
+		}
+	}
+	
+	/**
+	 * <p>Standard hash code method.
+	 * @return the hash code
+	 */
+	@Override
+	public int hashCode() {
+		return new HashCodeBuilder()
+		.append(this.text)
+		.append(this.annotationType)
+		.append(this.otherAnnotationType)
+		.append(this.sourceName)
+		.toHashCode();
 	}
 }

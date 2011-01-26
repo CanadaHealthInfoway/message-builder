@@ -194,4 +194,8 @@ public class TypeDocumentation {
 		.append(this.getText())
 		.toHashCode();
 	}
+	
+	public Documentation getOriginalDocumentation() {
+		return this.documentation;
+	}
 }

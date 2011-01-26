@@ -9,6 +9,7 @@ import org.apache.commons.lang.StringUtils;
 import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.generator.DataType;
 import ca.infoway.messagebuilder.generator.TypeConverter;
+import ca.infoway.messagebuilder.xml.Documentation;
 import ca.infoway.messagebuilder.xml.TypeName;
 
 class Case3SimplifiedAttribute extends Attribute implements MergedRelationshipSupport {
@@ -17,12 +18,14 @@ class Case3SimplifiedAttribute extends Attribute implements MergedRelationshipSu
 	private final Map<TypeName, BaseRelationship> mergedRelationships;
 	private XmlMappingHelper helper;
 	private boolean requiresExtraAnnotation;
+	private Documentation mergedDocumentation;
 
 	public Case3SimplifiedAttribute(Attribute exemplar, Map<TypeName,BaseRelationship> mergedRelationships) {
 		super(exemplar.getRelationship(), exemplar.getDataType(), exemplar.isIndicator());
 		this.exemplar = exemplar;
 		this.mergedRelationships = mergedRelationships;
 		this.helper = new XmlMappingHelper(extractHelpers(exemplar, mergedRelationships));
+		this.mergedDocumentation = new MergedDocumentation(mergedRelationships.values());
 	}
 
 	private List<XmlMappingHelper> extractHelpers(BaseRelationship exemplar,
@@ -69,5 +72,10 @@ class Case3SimplifiedAttribute extends Attribute implements MergedRelationshipSu
 	@Override
 	boolean requiresMapByPartTypeAnnotation() {
 		return super.requiresMapByPartTypeAnnotation() || this.requiresExtraAnnotation;
+	}
+	
+	@Override
+	public Documentation getDocumentation() {
+		return this.mergedDocumentation;
 	}
 }

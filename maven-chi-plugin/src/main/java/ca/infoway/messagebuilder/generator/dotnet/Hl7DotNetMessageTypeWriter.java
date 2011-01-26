@@ -22,6 +22,8 @@ import ca.infoway.messagebuilder.generator.java.RenderedType;
 import ca.infoway.messagebuilder.generator.java.Type;
 import ca.infoway.messagebuilder.generator.java.InteractionType.ArgumentType;
 import ca.infoway.messagebuilder.generator.lang.Hl7MessageTypeWriter;
+import ca.infoway.messagebuilder.generator.lang.TypeDocumentation;
+import ca.infoway.messagebuilder.xml.Documentation;
 
 /**
  * <p>Write out a valid C# message class.
@@ -222,4 +224,9 @@ class Hl7DotNetMessageTypeWriter extends Hl7MessageTypeWriter implements Hl7Type
 		return this.namespace;
 	}
 
+	@Override
+	protected void writeDocumentation(Documentation documentation, int indentLevel, Writer writer) throws IOException {
+		new TypeDocumentation(documentation).write(C_SHARP, writer, indentLevel);
+	}
+    
 }
