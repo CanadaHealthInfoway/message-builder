@@ -4,21 +4,22 @@ package ca.infoway.messagebuilder.model.claims.ficr_mt610201ca;
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.merged.PaymentIntentBean;
+import ca.infoway.messagebuilder.model.claims.merged.PaymentIntentBean;
 
 
 
 @Hl7PartTypeMapping({"FICR_MT610201CA.AdjudicatedInvoiceElementComponent"})
 public class AdjudicatedInvoiceElementComponentBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20100603L;
-    private AdjudicatedInvoiceElementChoiceBean adjudicatedInvoiceElementChoice;
+    private static final long serialVersionUID = 20110126L;
+    private AdjudicatedInvoiceElementChoice adjudicatedInvoiceElementChoice;
+
 
     @Hl7XmlMapping({"adjudicatedInvoiceElementChoice"})
-    public AdjudicatedInvoiceElementChoiceBean getAdjudicatedInvoiceElementChoice() {
+    public AdjudicatedInvoiceElementChoice getAdjudicatedInvoiceElementChoice() {
         return this.adjudicatedInvoiceElementChoice;
     }
-    public void setAdjudicatedInvoiceElementChoice(AdjudicatedInvoiceElementChoiceBean adjudicatedInvoiceElementChoice) {
+    public void setAdjudicatedInvoiceElementChoice(AdjudicatedInvoiceElementChoice adjudicatedInvoiceElementChoice) {
         this.adjudicatedInvoiceElementChoice = adjudicatedInvoiceElementChoice;
     }
 

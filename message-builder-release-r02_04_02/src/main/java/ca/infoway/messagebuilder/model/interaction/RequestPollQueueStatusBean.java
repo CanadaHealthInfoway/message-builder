@@ -3,13 +3,13 @@ package ca.infoway.messagebuilder.model.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.merged.HL7MessageBean;
+import ca.infoway.messagebuilder.model.common.merged.HL7Message_2Bean;
 
 
 
 @Hl7PartTypeMapping({"MCCI_IN102002CA"})
-public class RequestPollQueueStatusBean extends HL7MessageBean implements InteractionBean {
+public class RequestPollQueueStatusBean extends HL7Message_2Bean implements InteractionBean {
 
-    private static final long serialVersionUID = 20100603L;
+    private static final long serialVersionUID = 20110126L;
 
 }

@@ -7,9 +7,9 @@ import ca.infoway.messagebuilder.datatype.ED;
 import ca.infoway.messagebuilder.datatype.impl.EDImpl;
 import ca.infoway.messagebuilder.datatype.lang.EncapsulatedData;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.merged.DocumentSectionsBean;
-import ca.infoway.messagebuilder.model.merged.ReferenceBean;
-import ca.infoway.messagebuilder.model.merged.ReferralBean;
+import ca.infoway.messagebuilder.model.iehr.merged.DocumentSectionsBean;
+import ca.infoway.messagebuilder.model.iehr.merged.ReferenceBean;
+import ca.infoway.messagebuilder.model.iehr.merged.ReferralBean;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,35 +18,18 @@ import java.util.List;
 @Hl7PartTypeMapping({"REPC_MT210001CA.Section"})
 public class SectionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20100603L;
+    private static final long serialVersionUID = 20110126L;
+    private DocumentContent component1DocumentContent;
     private ED<EncapsulatedData> documentOverviewContent = new EDImpl<EncapsulatedData>();
-    private List<DocumentSectionsBean> component2SubSection = new ArrayList<DocumentSectionsBean>();
     private List<ReferenceBean> component3Reference = new ArrayList<ReferenceBean>();
-    private DocumentContentBean component1DocumentContent;
+    private List<DocumentSectionsBean> component2SubSection = new ArrayList<DocumentSectionsBean>();
 
-    @Hl7XmlMapping({"text"})
-    public EncapsulatedData getDocumentOverviewContent() {
-        return this.documentOverviewContent.getValue();
-    }
-    public void setDocumentOverviewContent(EncapsulatedData documentOverviewContent) {
-        this.documentOverviewContent.setValue(documentOverviewContent);
-    }
-
-    @Hl7XmlMapping({"component2/subSection"})
-    public List<DocumentSectionsBean> getComponent2SubSection() {
-        return this.component2SubSection;
-    }
-
-    @Hl7XmlMapping({"component3/reference"})
-    public List<ReferenceBean> getComponent3Reference() {
-        return this.component3Reference;
-    }
 
     @Hl7XmlMapping({"component1/documentContent"})
-    public DocumentContentBean getComponent1DocumentContent() {
+    public DocumentContent getComponent1DocumentContent() {
         return this.component1DocumentContent;
     }
-    public void setComponent1DocumentContent(DocumentContentBean component1DocumentContent) {
+    public void setComponent1DocumentContent(DocumentContent component1DocumentContent) {
         this.component1DocumentContent = component1DocumentContent;
     }
 
@@ -55,6 +38,30 @@ public class SectionBean extends MessagePartBean {
     }
     public boolean hasComponent1DocumentContentAsPatientCareProvisionRequest() {
         return (this.component1DocumentContent instanceof ReferralBean);
+    }
+
+
+    /**
+     * <p>M: Document Overview Content</p>
+     */
+    @Hl7XmlMapping({"text"})
+    public EncapsulatedData getDocumentOverviewContent() {
+        return this.documentOverviewContent.getValue();
+    }
+    public void setDocumentOverviewContent(EncapsulatedData documentOverviewContent) {
+        this.documentOverviewContent.setValue(documentOverviewContent);
+    }
+
+
+    @Hl7XmlMapping({"component3/reference"})
+    public List<ReferenceBean> getComponent3Reference() {
+        return this.component3Reference;
+    }
+
+
+    @Hl7XmlMapping({"component2/subSection"})
+    public List<DocumentSectionsBean> getComponent2SubSection() {
+        return this.component2SubSection;
     }
 
 }

@@ -17,11 +17,15 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"FICR_MT490102CA.SpecialAuthorizationCriteria"})
 public class SpecialAuthorizationCriteriaBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20100603L;
+    private static final long serialVersionUID = 20110126L;
     private CV generalSupportingInformationType = new CVImpl();
     private ST generalSupportingInformationText = new STImpl();
     private ANY<Object> generalSupportingInformationValue = new ANYImpl<Object>();
 
+
+    /**
+     * <p>General Supporting Information Type</p>
+     */
     @Hl7XmlMapping({"code"})
     public Code getGeneralSupportingInformationType() {
         return (Code) this.generalSupportingInformationType.getValue();
@@ -30,6 +34,10 @@ public class SpecialAuthorizationCriteriaBean extends MessagePartBean {
         this.generalSupportingInformationType.setValue(generalSupportingInformationType);
     }
 
+
+    /**
+     * <p>General Supporting Information Text</p>
+     */
     @Hl7XmlMapping({"text"})
     public String getGeneralSupportingInformationText() {
         return this.generalSupportingInformationText.getValue();
@@ -38,6 +46,10 @@ public class SpecialAuthorizationCriteriaBean extends MessagePartBean {
         this.generalSupportingInformationText.setValue(generalSupportingInformationText);
     }
 
+
+    /**
+     * <p>General Supporting Information Value</p>
+     */
     @Hl7XmlMapping({"value"})
     public Object getGeneralSupportingInformationValue() {
         return this.generalSupportingInformationValue.getValue();

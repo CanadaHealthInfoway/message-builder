@@ -16,14 +16,20 @@ import java.util.Set;
 /**
  * <p>Pharmacist Role</p>
  * 
- * <p>Details of the pharmacist</p>
+ * <p><p>Details of the pharmacist</p></p>
  */
 @Hl7PartTypeMapping({"COCT_MT300000CA.PharmacistRole"})
 public class PharmacistRoleBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20100603L;
+    private static final long serialVersionUID = 20110126L;
     private SET<II, Identifier> pharmacistID = new SETImpl<II, Identifier>(IIImpl.class);
 
+
+    /**
+     * <p>Pharmacist ID</p>
+     * 
+     * <p><p>Pharmacist ID</p></p>
+     */
     @Hl7XmlMapping({"id"})
     public Set<Identifier> getPharmacistID() {
         return this.pharmacistID.rawSet();

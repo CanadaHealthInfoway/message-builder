@@ -21,11 +21,15 @@ import java.util.Date;
 @Hl7PartTypeMapping({"FICR_MT490102CA.RemainingLimits"})
 public class RemainingLimitsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20100603L;
+    private static final long serialVersionUID = 20110126L;
     private INT remainingFillsPermitted = new INTImpl();
     private PQ remainingQuantitySupply = new PQImpl();
     private IVL<TS, Interval<Date>> remainingDaysSupply = new IVLImpl<TS, Interval<Date>>();
 
+
+    /**
+     * <p>Remaining Fills Permitted</p>
+     */
     @Hl7XmlMapping({"repeatNumber"})
     public Integer getRemainingFillsPermitted() {
         return this.remainingFillsPermitted.getValue();
@@ -34,6 +38,10 @@ public class RemainingLimitsBean extends MessagePartBean {
         this.remainingFillsPermitted.setValue(remainingFillsPermitted);
     }
 
+
+    /**
+     * <p>Remaining Quantity Supply</p>
+     */
     @Hl7XmlMapping({"quantity"})
     public PhysicalQuantity getRemainingQuantitySupply() {
         return this.remainingQuantitySupply.getValue();
@@ -42,6 +50,10 @@ public class RemainingLimitsBean extends MessagePartBean {
         this.remainingQuantitySupply.setValue(remainingQuantitySupply);
     }
 
+
+    /**
+     * <p>Remaining Days Supply</p>
+     */
     @Hl7XmlMapping({"expectedUseTime"})
     public Interval<Date> getRemainingDaysSupply() {
         return this.remainingDaysSupply.getValue();

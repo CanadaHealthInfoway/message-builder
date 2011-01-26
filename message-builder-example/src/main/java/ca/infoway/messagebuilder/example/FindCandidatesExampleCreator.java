@@ -12,13 +12,14 @@ import ca.infoway.messagebuilder.domainvalue.payload.AdministrativeGender;
 import ca.infoway.messagebuilder.domainvalue.transport.HL7TriggerEventCode;
 import ca.infoway.messagebuilder.j5goodies.DateUtil;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.common.mfmi_mt700751ca.QueryByParameterBean;
+import ca.infoway.messagebuilder.model.common.merged.CreatedBy_2Bean;
+import ca.infoway.messagebuilder.model.common.merged.HealthcareWorkerBean;
+import ca.infoway.messagebuilder.model.common.merged.QueryByParameterBean;
 import ca.infoway.messagebuilder.model.common.mfmi_mt700751ca.TriggerEventBean;
 import ca.infoway.messagebuilder.model.cr.prpa_mt101103ca.ParameterListBean;
 import ca.infoway.messagebuilder.model.interaction.FindCandidatesQueryBean;
-import ca.infoway.messagebuilder.model.merged.AssignedEntity_1Bean;
-import ca.infoway.messagebuilder.model.merged.Author_2Bean;
-import ca.infoway.messagebuilder.model.merged.ServiceDeliveryLocation_1Bean;
+import ca.infoway.messagebuilder.model.merged.ActingPersonBean;
+import ca.infoway.messagebuilder.model.merged.ServiceDeliveryLocationBean;
 
 /**
  * <p>This class shows how to create a simple FindCandidates HL7 query bean.
@@ -64,25 +65,32 @@ public class FindCandidatesExampleCreator {
 		triggerEventBean.setEventIdentifier(new Identifier("2.16.840.1.113883.1.6", "8141234"));
 		triggerEventBean.setEventEffectivePeriod(IntervalFactory.<Date>createLow(new Date()));
 		triggerEventBean.setAuthor(createAuthorBean());
-		triggerEventBean.setLocationServiceDeliveryLocation(createServiceDeliveryLocationBean());
+		triggerEventBean.setDataEntryLocationServiceDeliveryLocation(createServiceDeliveryLocationBean());
 		triggerEventBean.getQueryByParameter().setQueryIdentifier(new Identifier("1ee83ff1-08ab-4fe7-b573-ea777e9bad31"));
 	}
 	
-	private ServiceDeliveryLocation_1Bean createServiceDeliveryLocationBean() {
-		ServiceDeliveryLocation_1Bean result = new ServiceDeliveryLocation_1Bean();
-		result.setLocationIdReference(new Identifier("2.16.124.113620.1.1.11111", "1"));
-		result.setServiceLocationName("Intelliware's Pharmacy");
+	private ServiceDeliveryLocationBean createServiceDeliveryLocationBean() {
+		ServiceDeliveryLocationBean result = new ServiceDeliveryLocationBean();
+		result.setId(new Identifier("2.16.124.113620.1.1.11111", "1"));
+		result.setLocationName("Intelliware's Pharmacy");
 		return result;
 	}
 
-	private Author_2Bean createAuthorBean() {
-		Author_2Bean authorBean = new Author_2Bean();
-		AssignedEntity_1Bean person = new AssignedEntity_1Bean();
-		authorBean.setAuthorPerson(person);
+	private CreatedBy_2Bean createAuthorBean() {
+		CreatedBy_2Bean authorBean = new CreatedBy_2Bean();
+		authorBean.setAuthorPerson(createHealthcareWorkerBean(authorBean));
+		return authorBean;
+	}
+
+	private HealthcareWorkerBean createHealthcareWorkerBean(
+			CreatedBy_2Bean authorBean) {
+		HealthcareWorkerBean person = new HealthcareWorkerBean();
 		person.getHealthcareWorkerIdentifier().add(new Identifier("1.1.1", "1"));
 		authorBean.setTimeOfCreation(new Date());
-		person.setHealthcareWorkerName(createFirstNameLastName("John", "Doe"));
-		return authorBean;
+		ActingPersonBean assignedPerson = new ActingPersonBean();
+		assignedPerson.setName(createFirstNameLastName("John", "Doe"));
+		person.setAssignedPerson(assignedPerson);
+		return person;
 	}
 	
 	private void populatePayload(FindCandidatesQueryBean messageBean) {
@@ -90,7 +98,7 @@ public class FindCandidatesExampleCreator {
 		ParameterListBean parameterList = messageBean.getControlActEvent().getQueryByParameter().getParameterList();
 		
 		parameterList.getClientName().add(createFirstNameLastName("Rober", "Smith"));
-		parameterList.setPrincipalPersonGender(AdministrativeGender.MALE);
+		parameterList.setClientGender(AdministrativeGender.MALE);
 		parameterList.setClientDateOfBirth(DateUtil.getDate(1974, 7, 20));
 		
 	}

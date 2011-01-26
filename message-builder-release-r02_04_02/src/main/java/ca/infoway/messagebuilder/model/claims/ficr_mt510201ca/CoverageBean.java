@@ -10,19 +10,23 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>Allows Payor to adj & pay on different policy</p>
+ * <p><p>Coverage must be specified for Root Adjudicated 
+ * Invoice Element Group and may not be specified for any other 
+ * Adjudicated Invoice Element Group.</p></p>
  * 
- * <p>Coverage must be specified for Root Adjudicated Invoice 
- * Element Group and may not be specified for any other 
- * Adjudicated Invoice Element Group.</p>
+ * <p><p>Allows Payor to adj &amp; pay on different policy</p></p>
  */
 @Hl7PartTypeMapping({"FICR_MT510201CA.Coverage"})
 public class CoverageBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20100603L;
+    private static final long serialVersionUID = 20110126L;
     private INT cOBSequenceAsAdjudicated = new INTImpl();
     private PolicyOrAccountBean policyOrAccount;
 
+
+    /**
+     * <p>COB sequence as adjudicated.</p>
+     */
     @Hl7XmlMapping({"sequenceNumber"})
     public Integer getCOBSequenceAsAdjudicated() {
         return this.cOBSequenceAsAdjudicated.getValue();
@@ -30,6 +34,7 @@ public class CoverageBean extends MessagePartBean {
     public void setCOBSequenceAsAdjudicated(Integer cOBSequenceAsAdjudicated) {
         this.cOBSequenceAsAdjudicated.setValue(cOBSequenceAsAdjudicated);
     }
+
 
     @Hl7XmlMapping({"policyOrAccount"})
     public PolicyOrAccountBean getPolicyOrAccount() {

@@ -16,6 +16,7 @@ import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.Money;
 import ca.infoway.messagebuilder.domainvalue.ActStatus;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import ca.infoway.messagebuilder.model.claims.merged.AdjudicatorBillingTaxAccountBean;
 import ca.infoway.messagebuilder.model.common.coct_mt110101ca.AccountBean;
 import ca.infoway.messagebuilder.model.common.coct_mt110200ca.PayeeAccountBean;
 import java.util.ArrayList;
@@ -25,42 +26,45 @@ import java.util.List;
 
 
 /**
- * <p>If an Adjudicator adjudicates for multiple insurance 
+ * <p><p>Amt must be positive or 0 for</p><p>completed 
+ * Adjudication Results</p><p>messages</p><p>Amt must be 
+ * negative or 0 for Invoice Cancel Results messages</p></p>
+ * 
+ * <p><p>Amt must be positive or 0 for</p><p>completed 
+ * Adjudication Results</p><p>messages</p><p>Amt must be 
+ * negative or 0 for Invoice Cancel Results messages</p></p>
+ * 
+ * <p><p>Amt must be positive or 0 for</p><p>completed 
+ * Adjudication Results</p><p>messages</p><p>Amt must be 
+ * negative or 0 for Invoice Cancel Results messages</p></p>
+ * 
+ * <p><p>Amt must be positive or 0 for</p><p>completed 
+ * Adjudication Results</p><p>messages</p><p>Amt must be 
+ * negative or 0 for Invoice Cancel Results messages</p></p>
+ * 
+ * <p><p>If an Adjudicator adjudicates for multiple insurance 
  * policies (EOBs) for multiple Payors and/or Payees, there 
  * would be more than 1 Payment Intent payload in the Results 
- * message</p>
- * 
- * <p>Amt must be positive or 0 for</p>
- * 
- * <p>completed Adjudication Results</p>
- * 
- * <p>messages</p>
- * 
- * <p>Amt must be negative or 0 for Invoice Cancel Results 
- * messages</p>
+ * message</p></p>
  */
 @Hl7PartTypeMapping({"FICR_MT510201CA.FinancialTransactionIntent"})
 @Hl7RootType
 public class FinancialTransactionIntentBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20100603L;
-    private II paymentIntentIdentifier = new IIImpl();
+    private static final long serialVersionUID = 20110126L;
     private CS paymentIntentStatus = new CSImpl();
-    private TS paymentIntentDateTime = new TSImpl();
-    private MO totalAmountOfPaymentIntent = new MOImpl();
     private PayeeAccountBean creditAccount;
-    private AccountBean debitAccount;
-    private List<AdjudicatorBillingTaxAccountBean> pertinentInformationAdjudicatorBillingTaxAccount = new ArrayList<AdjudicatorBillingTaxAccountBean>();
+    private II paymentIntentIdentifier = new IIImpl();
+    private TS paymentIntentDateTime = new TSImpl();
     private List<Reason2Bean> reasonOf = new ArrayList<Reason2Bean>();
+    private AccountBean debitAccount;
+    private MO totalAmountOfPaymentIntent = new MOImpl();
+    private List<AdjudicatorBillingTaxAccountBean> pertinentInformationAdjudicatorBillingTaxAccount = new ArrayList<AdjudicatorBillingTaxAccountBean>();
 
-    @Hl7XmlMapping({"id"})
-    public Identifier getPaymentIntentIdentifier() {
-        return this.paymentIntentIdentifier.getValue();
-    }
-    public void setPaymentIntentIdentifier(Identifier paymentIntentIdentifier) {
-        this.paymentIntentIdentifier.setValue(paymentIntentIdentifier);
-    }
 
+    /**
+     * <p>Payment Intent Status</p>
+     */
     @Hl7XmlMapping({"statusCode"})
     public ActStatus getPaymentIntentStatus() {
         return (ActStatus) this.paymentIntentStatus.getValue();
@@ -69,21 +73,6 @@ public class FinancialTransactionIntentBean extends MessagePartBean {
         this.paymentIntentStatus.setValue(paymentIntentStatus);
     }
 
-    @Hl7XmlMapping({"effectiveTime"})
-    public Date getPaymentIntentDateTime() {
-        return this.paymentIntentDateTime.getValue();
-    }
-    public void setPaymentIntentDateTime(Date paymentIntentDateTime) {
-        this.paymentIntentDateTime.setValue(paymentIntentDateTime);
-    }
-
-    @Hl7XmlMapping({"amt"})
-    public Money getTotalAmountOfPaymentIntent() {
-        return this.totalAmountOfPaymentIntent.getValue();
-    }
-    public void setTotalAmountOfPaymentIntent(Money totalAmountOfPaymentIntent) {
-        this.totalAmountOfPaymentIntent.setValue(totalAmountOfPaymentIntent);
-    }
 
     @Hl7XmlMapping({"credit/account"})
     public PayeeAccountBean getCreditAccount() {
@@ -93,6 +82,37 @@ public class FinancialTransactionIntentBean extends MessagePartBean {
         this.creditAccount = creditAccount;
     }
 
+
+    /**
+     * <p>Payment Intent Identifier</p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Identifier getPaymentIntentIdentifier() {
+        return this.paymentIntentIdentifier.getValue();
+    }
+    public void setPaymentIntentIdentifier(Identifier paymentIntentIdentifier) {
+        this.paymentIntentIdentifier.setValue(paymentIntentIdentifier);
+    }
+
+
+    /**
+     * <p>Payment Intent Date/Time</p>
+     */
+    @Hl7XmlMapping({"effectiveTime"})
+    public Date getPaymentIntentDateTime() {
+        return this.paymentIntentDateTime.getValue();
+    }
+    public void setPaymentIntentDateTime(Date paymentIntentDateTime) {
+        this.paymentIntentDateTime.setValue(paymentIntentDateTime);
+    }
+
+
+    @Hl7XmlMapping({"reasonOf"})
+    public List<Reason2Bean> getReasonOf() {
+        return this.reasonOf;
+    }
+
+
     @Hl7XmlMapping({"debit/account"})
     public AccountBean getDebitAccount() {
         return this.debitAccount;
@@ -101,14 +121,22 @@ public class FinancialTransactionIntentBean extends MessagePartBean {
         this.debitAccount = debitAccount;
     }
 
+
+    /**
+     * <p>Total Amount of Payment Intent</p>
+     */
+    @Hl7XmlMapping({"amt"})
+    public Money getTotalAmountOfPaymentIntent() {
+        return this.totalAmountOfPaymentIntent.getValue();
+    }
+    public void setTotalAmountOfPaymentIntent(Money totalAmountOfPaymentIntent) {
+        this.totalAmountOfPaymentIntent.setValue(totalAmountOfPaymentIntent);
+    }
+
+
     @Hl7XmlMapping({"pertinentInformation/adjudicatorBillingTaxAccount"})
     public List<AdjudicatorBillingTaxAccountBean> getPertinentInformationAdjudicatorBillingTaxAccount() {
         return this.pertinentInformationAdjudicatorBillingTaxAccount;
-    }
-
-    @Hl7XmlMapping({"reasonOf"})
-    public List<Reason2Bean> getReasonOf() {
-        return this.reasonOf;
     }
 
 }

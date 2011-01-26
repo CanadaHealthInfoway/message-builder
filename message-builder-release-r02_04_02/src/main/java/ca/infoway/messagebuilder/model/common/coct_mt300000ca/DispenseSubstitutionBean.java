@@ -14,11 +14,17 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COCT_MT300000CA.Substitution"})
 public class DispenseSubstitutionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20100603L;
+    private static final long serialVersionUID = 20110126L;
     private CV substitutionType = new CVImpl();
-    private CV substitutionReason = new CVImpl();
     private SubstitutionRoleBean performerSubstitutionRole;
+    private CV substitutionReason = new CVImpl();
 
+
+    /**
+     * <p>Substitution Type</p>
+     * 
+     * <p><p>type of substitution</p></p>
+     */
     @Hl7XmlMapping({"code"})
     public ActSubstanceAdminSubstitutionCode getSubstitutionType() {
         return (ActSubstanceAdminSubstitutionCode) this.substitutionType.getValue();
@@ -27,13 +33,6 @@ public class DispenseSubstitutionBean extends MessagePartBean {
         this.substitutionType.setValue(substitutionType);
     }
 
-    @Hl7XmlMapping({"reasonCode"})
-    public SubstanceAdminSubstitutionReason getSubstitutionReason() {
-        return (SubstanceAdminSubstitutionReason) this.substitutionReason.getValue();
-    }
-    public void setSubstitutionReason(SubstanceAdminSubstitutionReason substitutionReason) {
-        this.substitutionReason.setValue(substitutionReason);
-    }
 
     @Hl7XmlMapping({"performer/substitutionRole"})
     public SubstitutionRoleBean getPerformerSubstitutionRole() {
@@ -41,6 +40,23 @@ public class DispenseSubstitutionBean extends MessagePartBean {
     }
     public void setPerformerSubstitutionRole(SubstitutionRoleBean performerSubstitutionRole) {
         this.performerSubstitutionRole = performerSubstitutionRole;
+    }
+
+
+    /**
+     * <p>Substitution Reason</p>
+     * 
+     * <p><p>Reason why the substitution occurred.</p></p>
+     * 
+     * <p><p>Reason for substituting or not substituting, e.g. 
+     * because prescriber requested</p></p>
+     */
+    @Hl7XmlMapping({"reasonCode"})
+    public SubstanceAdminSubstitutionReason getSubstitutionReason() {
+        return (SubstanceAdminSubstitutionReason) this.substitutionReason.getValue();
+    }
+    public void setSubstitutionReason(SubstanceAdminSubstitutionReason substitutionReason) {
+        this.substitutionReason.setValue(substitutionReason);
     }
 
 }

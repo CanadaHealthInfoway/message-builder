@@ -3,16 +3,16 @@ package ca.infoway.messagebuilder.model.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.common.mcci_mt002300ca.HL7MessageBean;
-import ca.infoway.messagebuilder.model.common.quqi_mt120008ca.TriggerEventBean;
-import ca.infoway.messagebuilder.model.lab.polb_mt004999ca.ResultInstancePayloadChoiceBean;
-import ca.infoway.messagebuilder.model.lab.polb_mt320000ca.ParameterListBean;
+import ca.infoway.messagebuilder.model.common.merged.HL7Message_1Bean;
+import ca.infoway.messagebuilder.model.common.merged.TriggerEvent_6Bean;
+import ca.infoway.messagebuilder.model.lab.merged.ParameterListBean;
+import ca.infoway.messagebuilder.model.lab.polb_mt004999ca.ResultInstancePayloadChoice;
 
 
 
 @Hl7PartTypeMapping({"POLB_IN364006CA"})
-public class ResultsQueryResponseProviderOrLocationBean extends HL7MessageBean<TriggerEventBean<ResultInstancePayloadChoiceBean,ParameterListBean>> implements InteractionBean {
+public class ResultsQueryResponseProviderOrLocationBean extends HL7Message_1Bean<TriggerEvent_6Bean<ResultInstancePayloadChoice,ParameterListBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20100603L;
+    private static final long serialVersionUID = 20110126L;
 
 }

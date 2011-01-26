@@ -14,24 +14,38 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COCT_MT680000CA.AdjudicatedInvoiceAuthor"})
 public class AdjudicatedInvoiceAuthorBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20100603L;
-    private ED<String> eOBSignature = new EDImpl<String>();
+    private static final long serialVersionUID = 20110126L;
     private ST adjudicatorDeviceSoftwareName = new STImpl();
+    private ED<String> eOBSignature = new EDImpl<String>();
 
-    @Hl7XmlMapping({"signatureText"})
-    public String getEOBSignature() {
-        return this.eOBSignature.getValue();
-    }
-    public void setEOBSignature(String eOBSignature) {
-        this.eOBSignature.setValue(eOBSignature);
-    }
 
+    /**
+     * <p>Adjudicator Device Software Name</p>
+     * 
+     * <p><p>(COB Source. Which s/w rules were used to create the 
+     * COB CMET such as CPhA, NeCST. Use modifier for Invoice or 
+     * PreDet</p></p>
+     */
     @Hl7XmlMapping({"adjudicatorRole/playingAdjudicatorDevice/softwareName"})
     public String getAdjudicatorDeviceSoftwareName() {
         return this.adjudicatorDeviceSoftwareName.getValue();
     }
     public void setAdjudicatorDeviceSoftwareName(String adjudicatorDeviceSoftwareName) {
         this.adjudicatorDeviceSoftwareName.setValue(adjudicatorDeviceSoftwareName);
+    }
+
+
+    /**
+     * <p>EOB signature</p>
+     * 
+     * <p><p>EOB signature</p></p>
+     */
+    @Hl7XmlMapping({"signatureText"})
+    public String getEOBSignature() {
+        return this.eOBSignature.getValue();
+    }
+    public void setEOBSignature(String eOBSignature) {
+        this.eOBSignature.setValue(eOBSignature);
     }
 
 }

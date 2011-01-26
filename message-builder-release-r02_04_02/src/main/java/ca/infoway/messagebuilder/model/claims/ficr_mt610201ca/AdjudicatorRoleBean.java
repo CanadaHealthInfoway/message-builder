@@ -10,23 +10,26 @@ import ca.infoway.messagebuilder.datatype.impl.PNImpl;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.PersonName;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.merged.InsuranceCarrierRoleBean;
 
 
 
 /**
- * <p>NECST only: To note a contact person (adjudicator) for 
+ * <p><p>NECST only: To note a contact person (adjudicator) for 
  * the Provider to contact in case of questions on the EOB, use 
- * Adjudication Information codes</p>
+ * Adjudication Information codes</p></p>
  */
 @Hl7PartTypeMapping({"FICR_MT610201CA.AdjudicatorRole"})
 public class AdjudicatorRoleBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20100603L;
+    private static final long serialVersionUID = 20110126L;
     private II adjudicatorID = new IIImpl();
     private PN adjudicatorPersonName = new PNImpl();
     private InsuranceCarrierRoleBean directAuthorityInsuranceCarrierRole;
 
+
+    /**
+     * <p>Adjudicator ID</p>
+     */
     @Hl7XmlMapping({"id"})
     public Identifier getAdjudicatorID() {
         return this.adjudicatorID.getValue();
@@ -35,6 +38,10 @@ public class AdjudicatorRoleBean extends MessagePartBean {
         this.adjudicatorID.setValue(adjudicatorID);
     }
 
+
+    /**
+     * <p>Adjudicator Person Name</p>
+     */
     @Hl7XmlMapping({"playingAdjudicatorPerson/name"})
     public PersonName getAdjudicatorPersonName() {
         return this.adjudicatorPersonName.getValue();
@@ -42,6 +49,7 @@ public class AdjudicatorRoleBean extends MessagePartBean {
     public void setAdjudicatorPersonName(PersonName adjudicatorPersonName) {
         this.adjudicatorPersonName.setValue(adjudicatorPersonName);
     }
+
 
     @Hl7XmlMapping({"directAuthority/insuranceCarrierRole"})
     public InsuranceCarrierRoleBean getDirectAuthorityInsuranceCarrierRole() {

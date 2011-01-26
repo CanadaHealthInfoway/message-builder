@@ -16,10 +16,14 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"POIZ_MT070020CA.Attachment"})
 public class AttachmentBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20100603L;
+    private static final long serialVersionUID = 20110126L;
     private II attachmentIdentifier = new IIImpl();
     private ED<EncapsulatedData> attachmentContent = new EDImpl<EncapsulatedData>();
 
+
+    /**
+     * <p>Attachment Identifier</p>
+     */
     @Hl7XmlMapping({"id"})
     public Identifier getAttachmentIdentifier() {
         return this.attachmentIdentifier.getValue();
@@ -28,6 +32,10 @@ public class AttachmentBean extends MessagePartBean {
         this.attachmentIdentifier.setValue(attachmentIdentifier);
     }
 
+
+    /**
+     * <p>Attachment Content</p>
+     */
     @Hl7XmlMapping({"text"})
     public EncapsulatedData getAttachmentContent() {
         return this.attachmentContent.getValue();

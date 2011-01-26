@@ -9,10 +9,10 @@ import ca.infoway.messagebuilder.datatype.impl.CEImpl;
 import ca.infoway.messagebuilder.datatype.impl.TSImpl;
 import ca.infoway.messagebuilder.domainvalue.ParticipationSignature;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.common.coct_mt090108ca.HealthcareWorkerBean;
 import ca.infoway.messagebuilder.model.common.coct_mt090508ca.HealthcareOrganizationBean;
 import ca.infoway.messagebuilder.model.common.coct_mt910108ca.RelatedPersonBean;
-import ca.infoway.messagebuilder.model.common.coct_mt911108ca.ActingPersonBean;
+import ca.infoway.messagebuilder.model.common.coct_mt911108ca.ActingPerson;
+import ca.infoway.messagebuilder.model.common.merged.HealthcareWorkerBean;
 import java.util.Date;
 
 
@@ -20,19 +20,15 @@ import java.util.Date;
 @Hl7PartTypeMapping({"REPC_MT230001CA.Author"})
 public class AuthorBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20100603L;
-    private TS authoredDatetime = new TSImpl();
+    private static final long serialVersionUID = 20110126L;
     private CE attestedIndicator = new CEImpl();
-    private ActingPersonBean actingPerson;
+    private TS authoredDatetime = new TSImpl();
+    private ActingPerson actingPerson;
 
-    @Hl7XmlMapping({"time"})
-    public Date getAuthoredDatetime() {
-        return this.authoredDatetime.getValue();
-    }
-    public void setAuthoredDatetime(Date authoredDatetime) {
-        this.authoredDatetime.setValue(authoredDatetime);
-    }
 
+    /**
+     * <p>K: Attested Indicator</p>
+     */
     @Hl7XmlMapping({"signatureCode"})
     public ParticipationSignature getAttestedIndicator() {
         return (ParticipationSignature) this.attestedIndicator.getValue();
@@ -41,11 +37,24 @@ public class AuthorBean extends MessagePartBean {
         this.attestedIndicator.setValue(attestedIndicator);
     }
 
+
+    /**
+     * <p>X: Authored Datetime</p>
+     */
+    @Hl7XmlMapping({"time"})
+    public Date getAuthoredDatetime() {
+        return this.authoredDatetime.getValue();
+    }
+    public void setAuthoredDatetime(Date authoredDatetime) {
+        this.authoredDatetime.setValue(authoredDatetime);
+    }
+
+
     @Hl7XmlMapping({"actingPerson"})
-    public ActingPersonBean getActingPerson() {
+    public ActingPerson getActingPerson() {
         return this.actingPerson;
     }
-    public void setActingPerson(ActingPersonBean actingPerson) {
+    public void setActingPerson(ActingPerson actingPerson) {
         this.actingPerson = actingPerson;
     }
 

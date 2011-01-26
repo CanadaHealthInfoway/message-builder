@@ -17,6 +17,8 @@ import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.PersonName;
 import ca.infoway.messagebuilder.domainvalue.AssignedRoleType;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import ca.infoway.messagebuilder.model.pr.merged.ActDefinitionOrEventName_2Bean;
+import ca.infoway.messagebuilder.model.pr.merged.PrivilegeBean;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -26,7 +28,7 @@ import java.util.Set;
 /**
  * <p>Assigned Entity</p>
  * 
- * <p>The role class, assigned entity, captures the critical 
+ * <p><p>The role class, assigned entity, captures the critical 
  * information of the provider playing the role of interest. 
  * This includes an identifier for the role, mailing address, 
  * phone number, and the time within which the role is played 
@@ -34,40 +36,34 @@ import java.util.Set;
  * omitted if not needed, provides the organizational context 
  * for the entity that actually plays the role. For example, 
  * the role scoper will normally be the party that assigns the 
- * identifier for the role.</p>
+ * identifier for the role.</p></p>
  * 
- * <p>Roleclass required to provide additional information for 
- * the person responsible for providing healthcare services 
- * within a specific healthcare setting</p>
+ * <p><p>Roleclass required to provide additional information 
+ * for the person responsible for providing healthcare services 
+ * within a specific healthcare setting</p></p>
  */
 @Hl7PartTypeMapping({"PRPM_MT309000CA.AssignedEntity"})
-public class AssignedEntityBean extends MessagePartBean implements RoleChoiceBean {
+public class AssignedEntityBean extends MessagePartBean implements RoleChoice {
 
-    private static final long serialVersionUID = 20100603L;
-    private List<PrivilegeBean> responsibleForPrivilege = new ArrayList<PrivilegeBean>();
-    private SET<II, Identifier> functionalRoleIdentifier = new SETImpl<II, Identifier>(IIImpl.class);
-    private List<RoleChoiceBean> relatedToRoleChoice = new ArrayList<RoleChoiceBean>();
+    private static final long serialVersionUID = 20110126L;
     private CV functionalRoleType = new CVImpl();
+    private SET<II, Identifier> functionalRoleIdentifier = new SETImpl<II, Identifier>(IIImpl.class);
+    private List<PrivilegeBean> responsibleForPrivilege = new ArrayList<PrivilegeBean>();
+    private List<RoleChoice> relatedToRoleChoice = new ArrayList<RoleChoice>();
     private LIST<PN, PersonName> functionalRoleName = new LISTImpl<PN, PersonName>(PNImpl.class);
-    private PrinicpalPersonBean assignedPrincipalPerson;
+    private List<ActDefinitionOrEventName_2Bean> performanceActDefinitionOrEvent = new ArrayList<ActDefinitionOrEventName_2Bean>();
     private OrganizationBean representedOrganization;
-    private List<ActDefinitionOrEventNameBean> performanceActDefinitionOrEvent = new ArrayList<ActDefinitionOrEventNameBean>();
+    private PrinicpalPersonBean assignedPrincipalPerson;
 
-    @Hl7XmlMapping({"responsibleFor/privilege"})
-    public List<PrivilegeBean> getResponsibleForPrivilege() {
-        return this.responsibleForPrivilege;
-    }
 
-    @Hl7XmlMapping({"id"})
-    public Set<Identifier> getFunctionalRoleIdentifier() {
-        return this.functionalRoleIdentifier.rawSet();
-    }
-
-    @Hl7XmlMapping({"relatedTo/roleChoice"})
-    public List<RoleChoiceBean> getRelatedToRoleChoice() {
-        return this.relatedToRoleChoice;
-    }
-
+    /**
+     * <p>Functional Role Type</p>
+     * 
+     * <p><p>The code identifying the specific functional role.</p></p>
+     * 
+     * <p><p>Mandatory attribute supports the identification of the 
+     * healthcare provider</p></p>
+     */
     @Hl7XmlMapping({"code"})
     public AssignedRoleType getFunctionalRoleType() {
         return (AssignedRoleType) this.functionalRoleType.getValue();
@@ -76,18 +72,54 @@ public class AssignedEntityBean extends MessagePartBean implements RoleChoiceBea
         this.functionalRoleType.setValue(functionalRoleType);
     }
 
+
+    /**
+     * <p>Functional Role Identifier</p>
+     * 
+     * <p><p>Identifies specific functional role that a provider 
+     * may play within an organization.</p></p>
+     * 
+     * <p><p>Required attribute supports the identification of the 
+     * healthcare provider</p></p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Set<Identifier> getFunctionalRoleIdentifier() {
+        return this.functionalRoleIdentifier.rawSet();
+    }
+
+
+    @Hl7XmlMapping({"responsibleFor/privilege"})
+    public List<PrivilegeBean> getResponsibleForPrivilege() {
+        return this.responsibleForPrivilege;
+    }
+
+
+    @Hl7XmlMapping({"relatedTo/roleChoice"})
+    public List<RoleChoice> getRelatedToRoleChoice() {
+        return this.relatedToRoleChoice;
+    }
+
+
+    /**
+     * <p>Functional Role Name</p>
+     * 
+     * <p><p>The provider'''s name pertaining to the specific 
+     * functional role.</p></p>
+     * 
+     * <p><p>Required attribute supports the identification of the 
+     * healthcare provider</p></p>
+     */
     @Hl7XmlMapping({"name"})
     public List<PersonName> getFunctionalRoleName() {
         return this.functionalRoleName.rawList();
     }
 
-    @Hl7XmlMapping({"assignedPrincipalPerson"})
-    public PrinicpalPersonBean getAssignedPrincipalPerson() {
-        return this.assignedPrincipalPerson;
+
+    @Hl7XmlMapping({"performance/actDefinitionOrEvent"})
+    public List<ActDefinitionOrEventName_2Bean> getPerformanceActDefinitionOrEvent() {
+        return this.performanceActDefinitionOrEvent;
     }
-    public void setAssignedPrincipalPerson(PrinicpalPersonBean assignedPrincipalPerson) {
-        this.assignedPrincipalPerson = assignedPrincipalPerson;
-    }
+
 
     @Hl7XmlMapping({"representedOrganization"})
     public OrganizationBean getRepresentedOrganization() {
@@ -97,9 +129,13 @@ public class AssignedEntityBean extends MessagePartBean implements RoleChoiceBea
         this.representedOrganization = representedOrganization;
     }
 
-    @Hl7XmlMapping({"performance/actDefinitionOrEvent"})
-    public List<ActDefinitionOrEventNameBean> getPerformanceActDefinitionOrEvent() {
-        return this.performanceActDefinitionOrEvent;
+
+    @Hl7XmlMapping({"assignedPrincipalPerson"})
+    public PrinicpalPersonBean getAssignedPrincipalPerson() {
+        return this.assignedPrincipalPerson;
+    }
+    public void setAssignedPrincipalPerson(PrinicpalPersonBean assignedPrincipalPerson) {
+        this.assignedPrincipalPerson = assignedPrincipalPerson;
     }
 
 }

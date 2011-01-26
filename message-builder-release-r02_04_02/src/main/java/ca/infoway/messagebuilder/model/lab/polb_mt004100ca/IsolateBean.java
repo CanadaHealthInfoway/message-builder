@@ -18,24 +18,38 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 /**
  * <p>Isolate</p>
  * 
- * <p>The isolated micro-organism is represented by this role.</p>
+ * <p><p>The isolated micro-organism is represented by this 
+ * role.</p></p>
  */
 @Hl7PartTypeMapping({"POLB_MT004100CA.Isolate2"})
 public class IsolateBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20100603L;
-    private II isolateIdentifier = new IIImpl();
-    private CD microorganism = new CDImpl();
+    private static final long serialVersionUID = 20110126L;
     private ST microorganismDescription = new STImpl();
+    private CD microorganism = new CDImpl();
+    private II isolateIdentifier = new IIImpl();
 
-    @Hl7XmlMapping({"id"})
-    public Identifier getIsolateIdentifier() {
-        return this.isolateIdentifier.getValue();
+
+    /**
+     * <p>Microorganism Description</p>
+     * 
+     * <p><p>Text name or description of the Microorganism. Only to 
+     * be used if SNOMED is not supported.</p></p>
+     */
+    @Hl7XmlMapping({"isolateMicroorganism/desc"})
+    public String getMicroorganismDescription() {
+        return this.microorganismDescription.getValue();
     }
-    public void setIsolateIdentifier(Identifier isolateIdentifier) {
-        this.isolateIdentifier.setValue(isolateIdentifier);
+    public void setMicroorganismDescription(String microorganismDescription) {
+        this.microorganismDescription.setValue(microorganismDescription);
     }
 
+
+    /**
+     * <p>Microorganism</p>
+     * 
+     * <p><p>Code for the microorganism.</p></p>
+     */
     @Hl7XmlMapping({"isolateMicroorganism/code"})
     public Code getMicroorganism() {
         return (Code) this.microorganism.getValue();
@@ -44,12 +58,18 @@ public class IsolateBean extends MessagePartBean {
         this.microorganism.setValue(microorganism);
     }
 
-    @Hl7XmlMapping({"isolateMicroorganism/desc"})
-    public String getMicroorganismDescription() {
-        return this.microorganismDescription.getValue();
+
+    /**
+     * <p>Isolate Identifier</p>
+     * 
+     * <p><p>Unique identifier for the isolated microorganism.</p></p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Identifier getIsolateIdentifier() {
+        return this.isolateIdentifier.getValue();
     }
-    public void setMicroorganismDescription(String microorganismDescription) {
-        this.microorganismDescription.setValue(microorganismDescription);
+    public void setIsolateIdentifier(Identifier isolateIdentifier) {
+        this.isolateIdentifier.setValue(isolateIdentifier);
     }
 
 }

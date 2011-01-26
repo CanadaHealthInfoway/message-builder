@@ -7,10 +7,10 @@ import ca.infoway.messagebuilder.datatype.ED;
 import ca.infoway.messagebuilder.datatype.impl.EDImpl;
 import ca.infoway.messagebuilder.datatype.lang.EncapsulatedData;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.merged.DocumentContent_1Bean;
-import ca.infoway.messagebuilder.model.merged.DocumentSectionsBean;
-import ca.infoway.messagebuilder.model.merged.ReferenceBean;
-import ca.infoway.messagebuilder.model.merged.ReferralBean;
+import ca.infoway.messagebuilder.model.iehr.merged.DocumentContent_1;
+import ca.infoway.messagebuilder.model.iehr.merged.DocumentSectionsBean;
+import ca.infoway.messagebuilder.model.iehr.merged.ReferenceBean;
+import ca.infoway.messagebuilder.model.iehr.merged.ReferralBean;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,25 +19,18 @@ import java.util.List;
 @Hl7PartTypeMapping({"REPC_MT210003CA.Section"})
 public class SectionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20100603L;
+    private static final long serialVersionUID = 20110126L;
+    private DocumentContent_1 component1DocumentContent;
     private ED<EncapsulatedData> documentOverviewContent = new EDImpl<EncapsulatedData>();
-    private DocumentContent_1Bean component1DocumentContent;
-    private List<DocumentSectionsBean> component2SubSection = new ArrayList<DocumentSectionsBean>();
     private List<ReferenceBean> component3Reference = new ArrayList<ReferenceBean>();
+    private List<DocumentSectionsBean> component2SubSection = new ArrayList<DocumentSectionsBean>();
 
-    @Hl7XmlMapping({"text"})
-    public EncapsulatedData getDocumentOverviewContent() {
-        return this.documentOverviewContent.getValue();
-    }
-    public void setDocumentOverviewContent(EncapsulatedData documentOverviewContent) {
-        this.documentOverviewContent.setValue(documentOverviewContent);
-    }
 
     @Hl7XmlMapping({"component1/documentContent"})
-    public DocumentContent_1Bean getComponent1DocumentContent() {
+    public DocumentContent_1 getComponent1DocumentContent() {
         return this.component1DocumentContent;
     }
-    public void setComponent1DocumentContent(DocumentContent_1Bean component1DocumentContent) {
+    public void setComponent1DocumentContent(DocumentContent_1 component1DocumentContent) {
         this.component1DocumentContent = component1DocumentContent;
     }
 
@@ -48,14 +41,44 @@ public class SectionBean extends MessagePartBean {
         return (this.component1DocumentContent instanceof ReferralBean);
     }
 
-    @Hl7XmlMapping({"component2/subSection"})
-    public List<DocumentSectionsBean> getComponent2SubSection() {
-        return this.component2SubSection;
+
+    /**
+     * <p>M: Document Overview Content</p>
+     * 
+     * <p><p>Provides the primary rendered textual content of the 
+     * document.</p><p>E.g. The cover letter for a referral, the 
+     * overview portion of a report, etc.</p></p>
+     * 
+     * <p><p>Provides the primary rendered textual content of the 
+     * document.</p><p>E.g. The cover letter for a referral, the 
+     * overview portion of a report, etc.</p></p>
+     * 
+     * <p><p>Represents the principle content of the document and 
+     * therefore is mandatory.</p></p>
+     * 
+     * <p><p>There is no guidance provided within the standard on 
+     * how report content should be organized or formatted. 
+     * Guidance may be provided by professional colleges, specialty 
+     * groups or others.</p></p>
+     */
+    @Hl7XmlMapping({"text"})
+    public EncapsulatedData getDocumentOverviewContent() {
+        return this.documentOverviewContent.getValue();
     }
+    public void setDocumentOverviewContent(EncapsulatedData documentOverviewContent) {
+        this.documentOverviewContent.setValue(documentOverviewContent);
+    }
+
 
     @Hl7XmlMapping({"component3/reference"})
     public List<ReferenceBean> getComponent3Reference() {
         return this.component3Reference;
+    }
+
+
+    @Hl7XmlMapping({"component2/subSection"})
+    public List<DocumentSectionsBean> getComponent2SubSection() {
+        return this.component2SubSection;
     }
 
 }

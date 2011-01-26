@@ -22,18 +22,34 @@ import java.util.Date;
 /**
  * <p>Immunization Forecast</p>
  * 
- * <p>Represents the recommended vaccination schedule for a 
- * patient.</p>
+ * <p><p>Represents the recommended vaccination schedule for a 
+ * patient.</p></p>
  */
 @Hl7PartTypeMapping({"POIZ_MT070020CA.ImmunizationForecast"})
 public class ImmunizationForecastBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20100603L;
+    private static final long serialVersionUID = 20110126L;
     private IVL<TS, Interval<Date>> eligibilityPeriod = new IVLImpl<TS, Interval<Date>>();
-    private INT doseNumber = new INTImpl();
-    private CV immunizingAgentCode = new CVImpl();
     private CV immunizationStatus = new CVImpl();
+    private CV immunizingAgentCode = new CVImpl();
+    private INT doseNumber = new INTImpl();
 
+
+    /**
+     * <p>Eligibility Period</p>
+     * 
+     * <p><p>Represents the dates that the patient is eligible and 
+     * due for a vaccine administration.</p></p>
+     * 
+     * <p><p>Needed for informing service providers as to when a 
+     * patient is eligible or due for an administration. As such, 
+     * this attribute is mandatory.</p></p>
+     * 
+     * <p><p>Low date in range represents the earliest eligible 
+     * administration date. The high date in the range represents 
+     * the date that the patient is due for the vaccine 
+     * administration.</p></p>
+     */
     @Hl7XmlMapping({"effectiveTime"})
     public Interval<Date> getEligibilityPeriod() {
         return this.eligibilityPeriod.getValue();
@@ -42,14 +58,36 @@ public class ImmunizationForecastBean extends MessagePartBean {
         this.eligibilityPeriod.setValue(eligibilityPeriod);
     }
 
-    @Hl7XmlMapping({"consumable/sequenceNumber"})
-    public Integer getDoseNumber() {
-        return this.doseNumber.getValue();
+
+    /**
+     * <p>Immunization Status</p>
+     * 
+     * <p><p>Used to represent the patient's status with respect to 
+     * their immunization schedule.</p></p>
+     * 
+     * <p><p>Needed to indicate to a provider if a patient is up to 
+     * date with their immunizations according to the schedule and 
+     * is therefore mandatory.</p></p>
+     */
+    @Hl7XmlMapping({"subject/forecastStatus/code"})
+    public Code getImmunizationStatus() {
+        return (Code) this.immunizationStatus.getValue();
     }
-    public void setDoseNumber(Integer doseNumber) {
-        this.doseNumber.setValue(doseNumber);
+    public void setImmunizationStatus(Code immunizationStatus) {
+        this.immunizationStatus.setValue(immunizationStatus);
     }
 
+
+    /**
+     * <p>Immunizing Agent Code</p>
+     * 
+     * <p><p>A coded attribute which represents the immunizing 
+     * agent that is to be administered.</p></p>
+     * 
+     * <p><p>Used to represent higher-level vaccine information. It 
+     * is expected that either the immunizing agent name or code is 
+     * provided. As a result, this attribute is populated.</p></p>
+     */
     @Hl7XmlMapping({"consumable/medication/administerableMedicine/code"})
     public ClinicalDrug getImmunizingAgentCode() {
         return (ClinicalDrug) this.immunizingAgentCode.getValue();
@@ -58,12 +96,24 @@ public class ImmunizationForecastBean extends MessagePartBean {
         this.immunizingAgentCode.setValue(immunizingAgentCode);
     }
 
-    @Hl7XmlMapping({"subject/forecastStatus/code"})
-    public Code getImmunizationStatus() {
-        return (Code) this.immunizationStatus.getValue();
+
+    /**
+     * <p>Dose Number</p>
+     * 
+     * <p><p>Indicates whether the forecasted event is the initial 
+     * immunization (Dose Number = 1) or a specific booster (Dose 
+     * Number = 2 means first booster, 3 means second booster, 
+     * etc.).</p></p>
+     * 
+     * <p><p>Used to provide additional context to the immunization 
+     * forecast.</p></p>
+     */
+    @Hl7XmlMapping({"consumable/sequenceNumber"})
+    public Integer getDoseNumber() {
+        return this.doseNumber.getValue();
     }
-    public void setImmunizationStatus(Code immunizationStatus) {
-        this.immunizationStatus.setValue(immunizationStatus);
+    public void setDoseNumber(Integer doseNumber) {
+        this.doseNumber.setValue(doseNumber);
     }
 
 }

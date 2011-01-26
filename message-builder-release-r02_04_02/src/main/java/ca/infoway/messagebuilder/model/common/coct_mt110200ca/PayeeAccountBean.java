@@ -7,47 +7,39 @@ import ca.infoway.messagebuilder.annotation.Hl7RootType;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
 import ca.infoway.messagebuilder.datatype.CV;
 import ca.infoway.messagebuilder.datatype.II;
-import ca.infoway.messagebuilder.datatype.SET;
 import ca.infoway.messagebuilder.datatype.ST;
 import ca.infoway.messagebuilder.datatype.TS;
 import ca.infoway.messagebuilder.datatype.impl.CVImpl;
 import ca.infoway.messagebuilder.datatype.impl.IIImpl;
-import ca.infoway.messagebuilder.datatype.impl.SETImpl;
 import ca.infoway.messagebuilder.datatype.impl.STImpl;
 import ca.infoway.messagebuilder.datatype.impl.TSImpl;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import java.util.Date;
-import java.util.Set;
 
 
 
 /**
  * <p>Payee Account</p>
  * 
- * <p>Payee Bank account, transit number, credit card, etc. for 
- * payment.</p>
+ * <p><p>Payee Bank account, transit number, credit card, etc. 
+ * for payment.</p></p>
  */
 @Hl7PartTypeMapping({"COCT_MT110200CA.Account"})
 @Hl7RootType
 public class PayeeAccountBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20100603L;
-    private II accountID = new IIImpl();
+    private static final long serialVersionUID = 20110126L;
     private CV typeOfAccount = new CVImpl();
-    private ST nameOnCreditCard = new STImpl();
+    private II accountID = new IIImpl();
     private TS expiryDateOnCreditCard = new TSImpl();
-    private SET<II, Identifier> payeeIdentifier = new SETImpl<II, Identifier>(IIImpl.class);
-    private PayeeChoiceBean holderPayeeRolePayeeChoice;
+    private ST nameOnCreditCard = new STImpl();
+    private PayeeRoleBean holderPayeeRole;
 
-    @Hl7XmlMapping({"id"})
-    public Identifier getAccountID() {
-        return this.accountID.getValue();
-    }
-    public void setAccountID(Identifier accountID) {
-        this.accountID.setValue(accountID);
-    }
 
+    /**
+     * <p>Type of Account</p>
+     */
     @Hl7XmlMapping({"code"})
     public Code getTypeOfAccount() {
         return (Code) this.typeOfAccount.getValue();
@@ -56,14 +48,28 @@ public class PayeeAccountBean extends MessagePartBean {
         this.typeOfAccount.setValue(typeOfAccount);
     }
 
-    @Hl7XmlMapping({"title"})
-    public String getNameOnCreditCard() {
-        return this.nameOnCreditCard.getValue();
+
+    /**
+     * <p>Account ID</p>
+     * 
+     * <p><p>Bank Account, transit number, credit card, etc.</p></p>
+     * 
+     * <p><p>Bank account information can be used to indicate where 
+     * the Payer is instructed to direct deposit for a Payee who is 
+     * not already known to the Payer.</p></p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Identifier getAccountID() {
+        return this.accountID.getValue();
     }
-    public void setNameOnCreditCard(String nameOnCreditCard) {
-        this.nameOnCreditCard.setValue(nameOnCreditCard);
+    public void setAccountID(Identifier accountID) {
+        this.accountID.setValue(accountID);
     }
 
+
+    /**
+     * <p>expiry date on credit card</p>
+     */
     @Hl7XmlMapping({"effectiveTime"})
     public Date getExpiryDateOnCreditCard() {
         return this.expiryDateOnCreditCard.getValue();
@@ -72,31 +78,25 @@ public class PayeeAccountBean extends MessagePartBean {
         this.expiryDateOnCreditCard.setValue(expiryDateOnCreditCard);
     }
 
-    @Hl7XmlMapping({"holder/payeeRole/id"})
-    public Set<Identifier> getPayeeIdentifier() {
-        return this.payeeIdentifier.rawSet();
+
+    /**
+     * <p>name on credit card</p>
+     */
+    @Hl7XmlMapping({"title"})
+    public String getNameOnCreditCard() {
+        return this.nameOnCreditCard.getValue();
+    }
+    public void setNameOnCreditCard(String nameOnCreditCard) {
+        this.nameOnCreditCard.setValue(nameOnCreditCard);
     }
 
-    @Hl7XmlMapping({"holder/payeeRole/payeeChoice"})
-    public PayeeChoiceBean getHolderPayeeRolePayeeChoice() {
-        return this.holderPayeeRolePayeeChoice;
-    }
-    public void setHolderPayeeRolePayeeChoice(PayeeChoiceBean holderPayeeRolePayeeChoice) {
-        this.holderPayeeRolePayeeChoice = holderPayeeRolePayeeChoice;
-    }
 
-    public PayeePersonBean getHolderPayeeRolePayeeChoiceAsPayeePerson() {
-        return this.holderPayeeRolePayeeChoice instanceof PayeePersonBean ? (PayeePersonBean) this.holderPayeeRolePayeeChoice : null;
+    @Hl7XmlMapping({"holder/payeeRole"})
+    public PayeeRoleBean getHolderPayeeRole() {
+        return this.holderPayeeRole;
     }
-    public boolean hasHolderPayeeRolePayeeChoiceAsPayeePerson() {
-        return (this.holderPayeeRolePayeeChoice instanceof PayeePersonBean);
-    }
-
-    public PayeeOrganisationBean getHolderPayeeRolePayeeChoiceAsPayeeOrganization() {
-        return this.holderPayeeRolePayeeChoice instanceof PayeeOrganisationBean ? (PayeeOrganisationBean) this.holderPayeeRolePayeeChoice : null;
-    }
-    public boolean hasHolderPayeeRolePayeeChoiceAsPayeeOrganization() {
-        return (this.holderPayeeRolePayeeChoice instanceof PayeeOrganisationBean);
+    public void setHolderPayeeRole(PayeeRoleBean holderPayeeRole) {
+        this.holderPayeeRole = holderPayeeRole;
     }
 
 }

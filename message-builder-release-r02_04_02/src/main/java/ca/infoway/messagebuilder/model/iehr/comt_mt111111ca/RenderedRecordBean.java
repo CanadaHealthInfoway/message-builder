@@ -16,20 +16,31 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 /**
  * <p>Rendered Record</p>
  * 
- * <p>Conveys a portion of the patient's record as rendered 
- * content.</p>
+ * <p><p>Conveys a portion of the patient's record as rendered 
+ * content.</p></p>
  * 
- * <p>Allows simple applications which do not yet support all 
- * of the discrete messaging specifications to still access 
- * data within the EHR.</p>
+ * <p><p>Allows simple applications which do not yet support 
+ * all of the discrete messaging specifications to still access 
+ * data within the EHR.</p></p>
  */
 @Hl7PartTypeMapping({"COMT_MT111111CA.RenderedContent"})
-public class RenderedRecordBean extends MessagePartBean implements SummaryBean {
+public class RenderedRecordBean extends MessagePartBean implements Summary {
 
-    private static final long serialVersionUID = 20100603L;
+    private static final long serialVersionUID = 20110126L;
     private CV renderedContentType = new CVImpl();
     private ED<EncapsulatedData> renderedContent = new EDImpl<EncapsulatedData>();
 
+
+    /**
+     * <p>Rendered Content Type</p>
+     * 
+     * <p><p>Identifies the type of content contained within the 
+     * rendered document portion of this class.</p></p>
+     * 
+     * <p><p>Identifies what type of data has been returned. This 
+     * attribute is mandatory because type of data returned must be 
+     * known for presentation and consumption.</p></p>
+     */
     @Hl7XmlMapping({"code"})
     public Code getRenderedContentType() {
         return (Code) this.renderedContentType.getValue();
@@ -38,6 +49,19 @@ public class RenderedRecordBean extends MessagePartBean implements SummaryBean {
         this.renderedContentType.setValue(renderedContentType);
     }
 
+
+    /**
+     * <p>Rendered Content</p>
+     * 
+     * <p><p>Contains a rendered view of a particular portion of 
+     * the patients records. E.g. Allergy List, Problem List, Drug 
+     * List, etc.</p></p>
+     * 
+     * <p><p>Provides a human-readable view of a portion of a 
+     * patient's record when the PoS application may not be capable 
+     * of handling the discrete data. This attribute is mandatory 
+     * because the rendered content must be known.</p></p>
+     */
     @Hl7XmlMapping({"text"})
     public EncapsulatedData getRenderedContent() {
         return this.renderedContent.getValue();

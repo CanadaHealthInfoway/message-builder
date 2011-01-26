@@ -13,16 +13,22 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 /**
  * <p>Accident Injury coding</p>
  * 
- * <p>Accident Information</p>
+ * <p><p>Accident Information</p></p>
  */
 @Hl7PartTypeMapping({"COCT_MT290000CA.AccidentInjuryCoding"})
 public class AccidentInjuryCodingBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20100603L;
+    private static final long serialVersionUID = 20110126L;
     private CV observationInjuryType = new CVImpl();
-    private CV injuryCode = new CVImpl();
     private CV actInjurySite = new CVImpl();
+    private CV injuryCode = new CVImpl();
 
+
+    /**
+     * <p>Observation Injury type</p>
+     * 
+     * <p><p>Injury Type</p></p>
+     */
     @Hl7XmlMapping({"code"})
     public Code getObservationInjuryType() {
         return (Code) this.observationInjuryType.getValue();
@@ -31,20 +37,32 @@ public class AccidentInjuryCodingBean extends MessagePartBean {
         this.observationInjuryType.setValue(observationInjuryType);
     }
 
-    @Hl7XmlMapping({"value"})
-    public Code getInjuryCode() {
-        return (Code) this.injuryCode.getValue();
-    }
-    public void setInjuryCode(Code injuryCode) {
-        this.injuryCode.setValue(injuryCode);
-    }
 
+    /**
+     * <p>Act Injury Site</p>
+     * 
+     * <p><p>Body Part + modifier = Side of Body</p></p>
+     */
     @Hl7XmlMapping({"targetSiteCode"})
     public Code getActInjurySite() {
         return (Code) this.actInjurySite.getValue();
     }
     public void setActInjurySite(Code actInjurySite) {
         this.actInjurySite.setValue(actInjurySite);
+    }
+
+
+    /**
+     * <p>Injury code</p>
+     * 
+     * <p><p>Nature of Injury</p></p>
+     */
+    @Hl7XmlMapping({"value"})
+    public Code getInjuryCode() {
+        return (Code) this.injuryCode.getValue();
+    }
+    public void setInjuryCode(Code injuryCode) {
+        this.injuryCode.setValue(injuryCode);
     }
 
 }

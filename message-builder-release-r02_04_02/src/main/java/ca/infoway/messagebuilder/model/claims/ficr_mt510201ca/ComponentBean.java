@@ -10,14 +10,15 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"FICR_MT510201CA.Component"})
 public class ComponentBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20100603L;
-    private AdjudicatedInvoiceElementChoiceBean adjudicatedInvoiceElementChoice;
+    private static final long serialVersionUID = 20110126L;
+    private AdjudicatedInvoiceElementChoice adjudicatedInvoiceElementChoice;
+
 
     @Hl7XmlMapping({"adjudicatedInvoiceElementChoice"})
-    public AdjudicatedInvoiceElementChoiceBean getAdjudicatedInvoiceElementChoice() {
+    public AdjudicatedInvoiceElementChoice getAdjudicatedInvoiceElementChoice() {
         return this.adjudicatedInvoiceElementChoice;
     }
-    public void setAdjudicatedInvoiceElementChoice(AdjudicatedInvoiceElementChoiceBean adjudicatedInvoiceElementChoice) {
+    public void setAdjudicatedInvoiceElementChoice(AdjudicatedInvoiceElementChoice adjudicatedInvoiceElementChoice) {
         this.adjudicatedInvoiceElementChoice = adjudicatedInvoiceElementChoice;
     }
 

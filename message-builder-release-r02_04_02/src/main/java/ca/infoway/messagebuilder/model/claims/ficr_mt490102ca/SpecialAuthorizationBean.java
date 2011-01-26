@@ -12,10 +12,10 @@ import ca.infoway.messagebuilder.datatype.impl.TSImpl;
 import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.domainvalue.ActStatus;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import ca.infoway.messagebuilder.model.claims.merged.MaximumLimitsBean;
+import ca.infoway.messagebuilder.model.claims.merged.Subject3Bean;
 import ca.infoway.messagebuilder.model.common.coct_mt090508ca.HealthcareOrganizationBean;
-import ca.infoway.messagebuilder.model.merged.HasNotesBean;
-import ca.infoway.messagebuilder.model.merged.MaximumLimitsBean;
-import ca.infoway.messagebuilder.model.merged.Subject3Bean;
+import ca.infoway.messagebuilder.model.merged.IncludesBean;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -25,44 +25,16 @@ import java.util.List;
 @Hl7PartTypeMapping({"FICR_MT490102CA.SpecialAuthorization"})
 public class SpecialAuthorizationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20100603L;
-    private CS specialAuthorizationStatus = new CSImpl();
-    private IVL<TS, Interval<Date>> specialAuthorizationEffectiveDate = new IVLImpl<TS, Interval<Date>>();
-    private HealthcareOrganizationBean authorAssignedEntity;
-    private List<Subject3Bean> subject = new ArrayList<Subject3Bean>();
+    private static final long serialVersionUID = 20110126L;
     private PolicyOrAccountBean coveragePolicyOrAccount;
-    private RemainingLimitsBean limitation1RemainingLimits;
+    private CS specialAuthorizationStatus = new CSImpl();
+    private List<Subject3Bean> subject = new ArrayList<Subject3Bean>();
+    private List<IncludesBean> subjectOf = new ArrayList<IncludesBean>();
+    private HealthcareOrganizationBean authorAssignedEntity;
+    private IVL<TS, Interval<Date>> specialAuthorizationEffectiveDate = new IVLImpl<TS, Interval<Date>>();
     private MaximumLimitsBean limitation2MaximumLimits;
-    private List<HasNotesBean> subjectOf = new ArrayList<HasNotesBean>();
+    private RemainingLimitsBean limitation1RemainingLimits;
 
-    @Hl7XmlMapping({"statusCode"})
-    public ActStatus getSpecialAuthorizationStatus() {
-        return (ActStatus) this.specialAuthorizationStatus.getValue();
-    }
-    public void setSpecialAuthorizationStatus(ActStatus specialAuthorizationStatus) {
-        this.specialAuthorizationStatus.setValue(specialAuthorizationStatus);
-    }
-
-    @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getSpecialAuthorizationEffectiveDate() {
-        return this.specialAuthorizationEffectiveDate.getValue();
-    }
-    public void setSpecialAuthorizationEffectiveDate(Interval<Date> specialAuthorizationEffectiveDate) {
-        this.specialAuthorizationEffectiveDate.setValue(specialAuthorizationEffectiveDate);
-    }
-
-    @Hl7XmlMapping({"author/assignedEntity"})
-    public HealthcareOrganizationBean getAuthorAssignedEntity() {
-        return this.authorAssignedEntity;
-    }
-    public void setAuthorAssignedEntity(HealthcareOrganizationBean authorAssignedEntity) {
-        this.authorAssignedEntity = authorAssignedEntity;
-    }
-
-    @Hl7XmlMapping({"subject"})
-    public List<Subject3Bean> getSubject() {
-        return this.subject;
-    }
 
     @Hl7XmlMapping({"coverage/policyOrAccount"})
     public PolicyOrAccountBean getCoveragePolicyOrAccount() {
@@ -72,13 +44,51 @@ public class SpecialAuthorizationBean extends MessagePartBean {
         this.coveragePolicyOrAccount = coveragePolicyOrAccount;
     }
 
-    @Hl7XmlMapping({"limitation1/remainingLimits"})
-    public RemainingLimitsBean getLimitation1RemainingLimits() {
-        return this.limitation1RemainingLimits;
+
+    /**
+     * <p>Special Authorization Status</p>
+     */
+    @Hl7XmlMapping({"statusCode"})
+    public ActStatus getSpecialAuthorizationStatus() {
+        return (ActStatus) this.specialAuthorizationStatus.getValue();
     }
-    public void setLimitation1RemainingLimits(RemainingLimitsBean limitation1RemainingLimits) {
-        this.limitation1RemainingLimits = limitation1RemainingLimits;
+    public void setSpecialAuthorizationStatus(ActStatus specialAuthorizationStatus) {
+        this.specialAuthorizationStatus.setValue(specialAuthorizationStatus);
     }
+
+
+    @Hl7XmlMapping({"subject"})
+    public List<Subject3Bean> getSubject() {
+        return this.subject;
+    }
+
+
+    @Hl7XmlMapping({"subjectOf"})
+    public List<IncludesBean> getSubjectOf() {
+        return this.subjectOf;
+    }
+
+
+    @Hl7XmlMapping({"author/assignedEntity"})
+    public HealthcareOrganizationBean getAuthorAssignedEntity() {
+        return this.authorAssignedEntity;
+    }
+    public void setAuthorAssignedEntity(HealthcareOrganizationBean authorAssignedEntity) {
+        this.authorAssignedEntity = authorAssignedEntity;
+    }
+
+
+    /**
+     * <p>Special Authorization Effective Date</p>
+     */
+    @Hl7XmlMapping({"effectiveTime"})
+    public Interval<Date> getSpecialAuthorizationEffectiveDate() {
+        return this.specialAuthorizationEffectiveDate.getValue();
+    }
+    public void setSpecialAuthorizationEffectiveDate(Interval<Date> specialAuthorizationEffectiveDate) {
+        this.specialAuthorizationEffectiveDate.setValue(specialAuthorizationEffectiveDate);
+    }
+
 
     @Hl7XmlMapping({"limitation2/maximumLimits"})
     public MaximumLimitsBean getLimitation2MaximumLimits() {
@@ -88,9 +98,13 @@ public class SpecialAuthorizationBean extends MessagePartBean {
         this.limitation2MaximumLimits = limitation2MaximumLimits;
     }
 
-    @Hl7XmlMapping({"subjectOf"})
-    public List<HasNotesBean> getSubjectOf() {
-        return this.subjectOf;
+
+    @Hl7XmlMapping({"limitation1/remainingLimits"})
+    public RemainingLimitsBean getLimitation1RemainingLimits() {
+        return this.limitation1RemainingLimits;
+    }
+    public void setLimitation1RemainingLimits(RemainingLimitsBean limitation1RemainingLimits) {
+        this.limitation1RemainingLimits = limitation1RemainingLimits;
     }
 
 }

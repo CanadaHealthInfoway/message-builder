@@ -8,11 +8,55 @@ import ca.infoway.messagebuilder.model.common.coct_mt220200ca.DrugProductBean;
 
 
 
+/**
+ * <p>Dispensed</p>
+ * 
+ * <p>PORX_MT020070CA.Product2: *e:dispensed</p>
+ * 
+ * <p><p>Identifies the product being dispensed.</p><p>Also 
+ * provides information on compound ingredients and 
+ * instructions and packaging requirements</p></p>
+ * 
+ * <p><p>Identifies the product being dispensed.</p><p>Also 
+ * provides information on compound ingredients and 
+ * instructions and packaging requirements</p></p>
+ * 
+ * <p><p>Identifies the drug as part of the patient's 
+ * medication profile. The drug is one of the most important 
+ * parts of the dispense record, and it is therefore 
+ * mandatory.</p></p>
+ * 
+ * <p>PORX_MT020050CA.Product2: *c:dispensed</p>
+ * 
+ * <p><p>Identifies the product being dispensed.</p><p>Also 
+ * provides information on compound ingredients and 
+ * instructions and packaging requirements</p></p>
+ * 
+ * <p><p>Identifies the product being dispensed.</p><p>Also 
+ * provides information on compound ingredients and 
+ * instructions and packaging requirements</p></p>
+ * 
+ * <p><p>The drug being supplied must be identified and and is 
+ * therefore mandatory.</p></p>
+ * 
+ * <p>COCT_MT260010CA.Product: *a:dispensed</p>
+ * 
+ * <p><p>Indicates the drug that was dispensed</p></p>
+ * 
+ * <p><p>Important information for issue management.</p><p>The 
+ * association is marked as populated because it may be 
+ * masked.</p></p>
+ * 
+ * <p><p>Important information for issue management.</p><p>The 
+ * association is marked as populated because it may be 
+ * masked.</p></p>
+ */
 @Hl7PartTypeMapping({"COCT_MT260010CA.Product","COCT_MT260020CA.Product","PORX_MT020050CA.Product2","PORX_MT020070CA.Product2"})
 public class DispensedBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20100603L;
+    private static final long serialVersionUID = 20110126L;
     private DrugProductBean medication;
+
 
     @Hl7XmlMapping({"medication"})
     public DrugProductBean getMedication() {

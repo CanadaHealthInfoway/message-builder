@@ -17,8 +17,8 @@ import ca.infoway.messagebuilder.datatype.impl.TSImpl;
 import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.domainvalue.ActStatus;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.merged.HasNotesBean;
-import ca.infoway.messagebuilder.model.merged.ResultStatusProcessStepBean;
+import ca.infoway.messagebuilder.model.lab.merged.ResultStatusProcessStepBean;
+import ca.infoway.messagebuilder.model.merged.IncludesBean;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -28,28 +28,26 @@ import java.util.List;
 /**
  * <p>Isolate Observations</p>
  * 
- * <p>Allows for further observations to be documentation at 
- * the isolate level, e.g. growth, colony count, etc.</p>
+ * <p><p>Allows for further observations to be documentation at 
+ * the isolate level, e.g. growth, colony count, etc.</p></p>
  */
 @Hl7PartTypeMapping({"POLB_MT004100CA.IsolateObservationEvent"})
 public class IsolateObservationsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20100603L;
-    private CD isolateObservationType = new CDImpl();
+    private static final long serialVersionUID = 20110126L;
     private CS isolateObservationStatus = new CSImpl();
+    private ResultStatusProcessStepBean subjectOf2ResultStatusProcessStep;
+    private CD isolateObservationType = new CDImpl();
+    private List<IncludesBean> subjectOf1 = new ArrayList<IncludesBean>();
     private IVL<TS, Interval<Date>> isolateObservationEffectiveTime = new IVLImpl<TS, Interval<Date>>();
     private ST isolateObservationValue = new STImpl();
-    private List<HasNotesBean> subjectOf1 = new ArrayList<HasNotesBean>();
-    private ResultStatusProcessStepBean subjectOf2ResultStatusProcessStep;
 
-    @Hl7XmlMapping({"code"})
-    public Code getIsolateObservationType() {
-        return (Code) this.isolateObservationType.getValue();
-    }
-    public void setIsolateObservationType(Code isolateObservationType) {
-        this.isolateObservationType.setValue(isolateObservationType);
-    }
 
+    /**
+     * <p>Isolate Observation Status</p>
+     * 
+     * <p><p>Status associated with the Isolate Observation.</p></p>
+     */
     @Hl7XmlMapping({"statusCode"})
     public ActStatus getIsolateObservationStatus() {
         return (ActStatus) this.isolateObservationStatus.getValue();
@@ -58,6 +56,42 @@ public class IsolateObservationsBean extends MessagePartBean {
         this.isolateObservationStatus.setValue(isolateObservationStatus);
     }
 
+
+    @Hl7XmlMapping({"subjectOf2/resultStatusProcessStep"})
+    public ResultStatusProcessStepBean getSubjectOf2ResultStatusProcessStep() {
+        return this.subjectOf2ResultStatusProcessStep;
+    }
+    public void setSubjectOf2ResultStatusProcessStep(ResultStatusProcessStepBean subjectOf2ResultStatusProcessStep) {
+        this.subjectOf2ResultStatusProcessStep = subjectOf2ResultStatusProcessStep;
+    }
+
+
+    /**
+     * <p>Isolate Observation Type</p>
+     * 
+     * <p><p>Describes the type of isolate observation and is bound 
+     * to the LOINC code domain.</p></p>
+     */
+    @Hl7XmlMapping({"code"})
+    public Code getIsolateObservationType() {
+        return (Code) this.isolateObservationType.getValue();
+    }
+    public void setIsolateObservationType(Code isolateObservationType) {
+        this.isolateObservationType.setValue(isolateObservationType);
+    }
+
+
+    @Hl7XmlMapping({"subjectOf1"})
+    public List<IncludesBean> getSubjectOf1() {
+        return this.subjectOf1;
+    }
+
+
+    /**
+     * <p>Isolate Observation Effective Time</p>
+     * 
+     * <p><p>Effective time of the Isolate Observation.</p></p>
+     */
     @Hl7XmlMapping({"effectiveTime"})
     public Interval<Date> getIsolateObservationEffectiveTime() {
         return this.isolateObservationEffectiveTime.getValue();
@@ -66,25 +100,18 @@ public class IsolateObservationsBean extends MessagePartBean {
         this.isolateObservationEffectiveTime.setValue(isolateObservationEffectiveTime);
     }
 
+
+    /**
+     * <p>Isolate Observation Value</p>
+     * 
+     * <p><p>The value of the isolate observation.</p></p>
+     */
     @Hl7XmlMapping({"value"})
     public String getIsolateObservationValue() {
         return this.isolateObservationValue.getValue();
     }
     public void setIsolateObservationValue(String isolateObservationValue) {
         this.isolateObservationValue.setValue(isolateObservationValue);
-    }
-
-    @Hl7XmlMapping({"subjectOf1"})
-    public List<HasNotesBean> getSubjectOf1() {
-        return this.subjectOf1;
-    }
-
-    @Hl7XmlMapping({"subjectOf2/resultStatusProcessStep"})
-    public ResultStatusProcessStepBean getSubjectOf2ResultStatusProcessStep() {
-        return this.subjectOf2ResultStatusProcessStep;
-    }
-    public void setSubjectOf2ResultStatusProcessStep(ResultStatusProcessStepBean subjectOf2ResultStatusProcessStep) {
-        this.subjectOf2ResultStatusProcessStep = subjectOf2ResultStatusProcessStep;
     }
 
 }

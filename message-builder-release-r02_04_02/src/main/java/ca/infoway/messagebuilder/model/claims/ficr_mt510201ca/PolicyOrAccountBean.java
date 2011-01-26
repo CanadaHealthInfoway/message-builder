@@ -10,34 +10,29 @@ import ca.infoway.messagebuilder.datatype.impl.CVImpl;
 import ca.infoway.messagebuilder.datatype.impl.IIImpl;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.merged.CarrierRole_1Bean;
-import ca.infoway.messagebuilder.model.merged.CoveredPartyAsPatientBean;
+import ca.infoway.messagebuilder.model.claims.merged.CoveredPartyAsPatientBean;
 
 
 
 /**
- * <p>id: = Coverage Identifier, extension = 
+ * <p><p>id: = Coverage Identifier, extension = 
  * Policy.Plan.Group.Contract. Division.Section.Version (or 
  * similar). Carrier noted in author participation, and may not 
- * be same namespace as OID of id</p>
+ * be same namespace as OID of id</p></p>
  */
 @Hl7PartTypeMapping({"FICR_MT510201CA.PolicyOrAccount"})
 public class PolicyOrAccountBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20100603L;
-    private II policyIdentifier = new IIImpl();
+    private static final long serialVersionUID = 20110126L;
     private CV policyType = new CVImpl();
+    private II policyIdentifier = new IIImpl();
+    private II carrierId = new IIImpl();
     private CoveredPartyAsPatientBean beneficiaryCoveredPartyAsPatient;
-    private CarrierRole_1Bean authorCarrierRole;
 
-    @Hl7XmlMapping({"id"})
-    public Identifier getPolicyIdentifier() {
-        return this.policyIdentifier.getValue();
-    }
-    public void setPolicyIdentifier(Identifier policyIdentifier) {
-        this.policyIdentifier.setValue(policyIdentifier);
-    }
 
+    /**
+     * <p>Policy type</p>
+     */
     @Hl7XmlMapping({"code"})
     public Code getPolicyType() {
         return (Code) this.policyType.getValue();
@@ -46,20 +41,37 @@ public class PolicyOrAccountBean extends MessagePartBean {
         this.policyType.setValue(policyType);
     }
 
+
+    /**
+     * <p>Policy Identifier</p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Identifier getPolicyIdentifier() {
+        return this.policyIdentifier.getValue();
+    }
+    public void setPolicyIdentifier(Identifier policyIdentifier) {
+        this.policyIdentifier.setValue(policyIdentifier);
+    }
+
+
+    /**
+     * <p>Carrier Id</p>
+     */
+    @Hl7XmlMapping({"author/carrierRole/id"})
+    public Identifier getCarrierId() {
+        return this.carrierId.getValue();
+    }
+    public void setCarrierId(Identifier carrierId) {
+        this.carrierId.setValue(carrierId);
+    }
+
+
     @Hl7XmlMapping({"beneficiary/coveredPartyAsPatient"})
     public CoveredPartyAsPatientBean getBeneficiaryCoveredPartyAsPatient() {
         return this.beneficiaryCoveredPartyAsPatient;
     }
     public void setBeneficiaryCoveredPartyAsPatient(CoveredPartyAsPatientBean beneficiaryCoveredPartyAsPatient) {
         this.beneficiaryCoveredPartyAsPatient = beneficiaryCoveredPartyAsPatient;
-    }
-
-    @Hl7XmlMapping({"author/carrierRole"})
-    public CarrierRole_1Bean getAuthorCarrierRole() {
-        return this.authorCarrierRole;
-    }
-    public void setAuthorCarrierRole(CarrierRole_1Bean authorCarrierRole) {
-        this.authorCarrierRole = authorCarrierRole;
     }
 
 }

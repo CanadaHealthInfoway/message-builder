@@ -10,15 +10,16 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 /**
  * <p>Isolate Participation</p>
  * 
- * <p>Associates the isolate specimen and specimen material 
+ * <p><p>Associates the isolate specimen and specimen material 
  * (identification of the microorganism) with the grouper 
- * specimen cluster (object).</p>
+ * specimen cluster (object).</p></p>
  */
 @Hl7PartTypeMapping({"POLB_MT004100CA.Specimen2"})
 public class IsolateParticipationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20100603L;
+    private static final long serialVersionUID = 20110126L;
     private IsolateBean isolate;
+
 
     @Hl7XmlMapping({"isolate"})
     public IsolateBean getIsolate() {

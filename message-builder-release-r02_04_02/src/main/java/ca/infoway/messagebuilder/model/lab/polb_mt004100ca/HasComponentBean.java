@@ -10,14 +10,15 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 /**
  * <p>has component</p>
  * 
- * <p>Associates an Organism Identification Event with a 
- * Specimen Observation Cluster.</p>
+ * <p><p>Associates an Organism Identification Event with a 
+ * Specimen Observation Cluster.</p></p>
  */
 @Hl7PartTypeMapping({"POLB_MT004100CA.Component4"})
 public class HasComponentBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20100603L;
+    private static final long serialVersionUID = 20110126L;
     private OrganismIdentificatonObservationsBean organismIdentificationEvent;
+
 
     @Hl7XmlMapping({"organismIdentificationEvent"})
     public OrganismIdentificatonObservationsBean getOrganismIdentificationEvent() {

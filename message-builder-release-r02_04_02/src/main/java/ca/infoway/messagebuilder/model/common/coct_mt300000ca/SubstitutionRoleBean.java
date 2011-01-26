@@ -11,14 +11,24 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>Who did the substitution</p>
+ * <p><p>Who did the substitution</p></p>
  */
 @Hl7PartTypeMapping({"COCT_MT300000CA.SubstitutionRole"})
 public class SubstitutionRoleBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20100603L;
+    private static final long serialVersionUID = 20110126L;
     private II personWhoDidTheSubstitution = new IIImpl();
 
+
+    /**
+     * <p>Person who did the substitution</p>
+     * 
+     * <p><p>ID must be that of the patient, ordering provider or 
+     * dispensing provider</p></p>
+     * 
+     * <p><p>Id must be that of the patient, ordering provider or 
+     * dispensing provider.</p></p>
+     */
     @Hl7XmlMapping({"id"})
     public Identifier getPersonWhoDidTheSubstitution() {
         return this.personWhoDidTheSubstitution.getValue();
