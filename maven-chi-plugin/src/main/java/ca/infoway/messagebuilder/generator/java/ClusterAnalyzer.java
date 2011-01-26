@@ -4,19 +4,27 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
-import java.util.HashMap;
+import java.util.Comparator;
 import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.TreeMap;
 
 import ca.infoway.messagebuilder.xml.TypeName;
 
 class ClusterAnalyzer implements ClusterProvider {
 
+	class ComparatorImpl implements Comparator<TypeName> {
+		public int compare(TypeName o1, TypeName o2) {
+			return o1.getName().compareTo(o2.getName());
+		}
+	}
+
 	private static Set<MatchType> VALID_MATCHES = new HashSet<MatchType>(
 			Arrays.asList(MatchType.EXACT, MatchType.MINOR_DIFFERENCE));
-	private Map<TypeName,Cluster> clusters = Collections.synchronizedMap(new HashMap<TypeName,Cluster>());
+	private Map<TypeName,Cluster> clusters = Collections.synchronizedMap(new TreeMap<TypeName,Cluster>(new ComparatorImpl()));
 
 	void cluster(SimplifiableType type, SimplifiableType otherType) {
 		Cluster cluster = this.clusters.get(type.getTypeName());
@@ -43,7 +51,7 @@ class ClusterAnalyzer implements ClusterProvider {
 	}
 	
 	public Collection<Cluster> getClusters() {
-		return new HashSet<Cluster>(this.clusters.values());
+		return new LinkedHashSet<Cluster>(this.clusters.values());
 	}
 	
 	void analyze(Collection<SimplifiableType> types) {
