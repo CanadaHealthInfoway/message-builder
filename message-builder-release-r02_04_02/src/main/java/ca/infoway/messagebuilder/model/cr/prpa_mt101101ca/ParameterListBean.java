@@ -12,20 +12,43 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>Entry Point</p>
+ * <p><p>either a Public or Business Identifier must be 
+ * supplied to support this Query</p></p>
  * 
- * <p>either a Public or Business Identifier must be supplied 
- * to support this Query</p>
+ * <p><p>Entry Point</p></p>
  */
 @Hl7PartTypeMapping({"PRPA_MT101101CA.ParameterList"})
 @Hl7RootType
 public class ParameterListBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20100603L;
+    private static final long serialVersionUID = 20110126L;
     private II clientHealthcareIdentificationNumber = new IIImpl();
-    private II clientIDPubValue = new IIImpl();
+    private II clientIDBusValue = new IIImpl();
 
-    @Hl7XmlMapping({"clientIDBus/value"})
+
+    /**
+     * <p>Client Healthcare Identification Number</p>
+     * 
+     * <p><p>This identification attribute supports capture of a 
+     * healthcare identifier specific to the client. This 
+     * identifier may be assigned jurisdictionally or by care 
+     * facility.</p></p>
+     * 
+     * <p><p>Mandatory attribute supports unique identification of 
+     * the client and is a public identifier. E.G. Provincial 
+     * Health Care Number</p></p>
+     * 
+     * <p><p>At least 1 client identifier must be present in the 
+     * message</p><p>Text constraint exists on the model to support 
+     * non mandatory requirements either a Public or Business 
+     * Identifier must be supplied to support this Query.</p></p>
+     * 
+     * <p><p>At least 1 client identifier must be present in the 
+     * message</p><p>Text constraint exists on the model to support 
+     * non mandatory requirements either a Public or Business 
+     * Identifier must be supplied to support this Query.</p></p>
+     */
+    @Hl7XmlMapping({"clientIDPub/value"})
     public Identifier getClientHealthcareIdentificationNumber() {
         return this.clientHealthcareIdentificationNumber.getValue();
     }
@@ -33,12 +56,35 @@ public class ParameterListBean extends MessagePartBean {
         this.clientHealthcareIdentificationNumber.setValue(clientHealthcareIdentificationNumber);
     }
 
-    @Hl7XmlMapping({"clientIDPub/value"})
-    public Identifier getClientIDPubValue() {
-        return this.clientIDPubValue.getValue();
+
+    /**
+     * <p>Client Healthcare Identification Number</p>
+     * 
+     * <p><p>This identification attribute supports capture of a 
+     * healthcare identifier specific to the client. This 
+     * identifier may be assigned jurisdictionally or by care 
+     * facility.</p></p>
+     * 
+     * <p><p>Mandatory attribute supports unique identification of 
+     * the client and is a public identifier. E.G. Internal 
+     * Business ID</p></p>
+     * 
+     * <p><p>At least 1 client identifier must be present in the 
+     * message</p><p>Text constraint exists on the model to support 
+     * non mandatory requirements either a Public or Business 
+     * Identifier must be supplied to support this Query.</p></p>
+     * 
+     * <p><p>At least 1 client identifier must be present in the 
+     * message</p><p>Text constraint exists on the model to support 
+     * non mandatory requirements either a Public or Business 
+     * Identifier must be supplied to support this Query.</p></p>
+     */
+    @Hl7XmlMapping({"clientIDBus/value"})
+    public Identifier getClientIDBusValue() {
+        return this.clientIDBusValue.getValue();
     }
-    public void setClientIDPubValue(Identifier clientIDPubValue) {
-        this.clientIDPubValue.setValue(clientIDPubValue);
+    public void setClientIDBusValue(Identifier clientIDBusValue) {
+        this.clientIDBusValue.setValue(clientIDBusValue);
     }
 
 }

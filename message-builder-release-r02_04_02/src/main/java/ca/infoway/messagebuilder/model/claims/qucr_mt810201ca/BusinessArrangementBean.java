@@ -13,14 +13,20 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 /**
  * <p>Business Arrangement</p>
  * 
- * <p>Business arrangement for payment purposes.</p>
+ * <p><p>Business arrangement for payment purposes.</p></p>
  */
 @Hl7PartTypeMapping({"QUCR_MT810201CA.AdjudResultsFinancialContract"})
 public class BusinessArrangementBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20100603L;
+    private static final long serialVersionUID = 20110126L;
     private II businessArrangementID = new IIImpl();
 
+
+    /**
+     * <p>Business Arrangement ID</p>
+     * 
+     * <p><p>Business arrangement identifier</p></p>
+     */
     @Hl7XmlMapping({"id"})
     public Identifier getBusinessArrangementID() {
         return this.businessArrangementID.getValue();

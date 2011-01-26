@@ -15,17 +15,10 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PRPA_MT101103CA.MothersMaidenName"})
 public class MothersMaidenNameBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20100603L;
-    private PN motherSMaidenName = new PNImpl();
+    private static final long serialVersionUID = 20110126L;
     private ST semanticsText = new STImpl();
+    private PN motherSMaidenName = new PNImpl();
 
-    @Hl7XmlMapping({"value"})
-    public PersonName getMotherSMaidenName() {
-        return this.motherSMaidenName.getValue();
-    }
-    public void setMotherSMaidenName(PersonName motherSMaidenName) {
-        this.motherSMaidenName.setValue(motherSMaidenName);
-    }
 
     @Hl7XmlMapping({"semanticsText"})
     public String getSemanticsText() {
@@ -33,6 +26,32 @@ public class MothersMaidenNameBean extends MessagePartBean {
     }
     public void setSemanticsText(String semanticsText) {
         this.semanticsText.setValue(semanticsText);
+    }
+
+
+    /**
+     * <p>Mother's Maiden Name</p>
+     * 
+     * <p><p>This query parameter is the maiden name of the focal 
+     * person's mother.</p></p>
+     * 
+     * <p><p>It is included as a parameter because it is a common 
+     * attribute for confirming the identity of persons in some 
+     * person registries.</p></p>
+     * 
+     * <p><p>This parameter does not map to a single RIM attribute, 
+     * instead, in RIM terms Mother's maiden name is the person 
+     * name part of &quot;family&quot; with an 
+     * EntityNamePartQualifier of &quot;birth&quot; for the person 
+     * who is the player in a PersonalRelationship of type of 
+     * &quot;mother&quot; to the focal person.</p></p>
+     */
+    @Hl7XmlMapping({"value"})
+    public PersonName getMotherSMaidenName() {
+        return this.motherSMaidenName.getValue();
+    }
+    public void setMotherSMaidenName(PersonName motherSMaidenName) {
+        this.motherSMaidenName.setValue(motherSMaidenName);
     }
 
 }

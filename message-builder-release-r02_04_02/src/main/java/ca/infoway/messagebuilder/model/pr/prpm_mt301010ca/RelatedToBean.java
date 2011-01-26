@@ -14,28 +14,21 @@ import java.util.Date;
 
 
 /**
- * <p>For relating one role to another.</p>
+ * <p><p>For relating one role to another.</p></p>
  */
 @Hl7PartTypeMapping({"PRPM_MT301010CA.RelatedTo"})
 public class RelatedToBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20100603L;
+    private static final long serialVersionUID = 20110126L;
+    private RoleChoice roleChoice;
     private IVL<TS, Interval<Date>> relationshipEffectiveDateAndTime = new IVLImpl<TS, Interval<Date>>();
-    private RoleChoiceBean roleChoice;
 
-    @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getRelationshipEffectiveDateAndTime() {
-        return this.relationshipEffectiveDateAndTime.getValue();
-    }
-    public void setRelationshipEffectiveDateAndTime(Interval<Date> relationshipEffectiveDateAndTime) {
-        this.relationshipEffectiveDateAndTime.setValue(relationshipEffectiveDateAndTime);
-    }
 
     @Hl7XmlMapping({"roleChoice"})
-    public RoleChoiceBean getRoleChoice() {
+    public RoleChoice getRoleChoice() {
         return this.roleChoice;
     }
-    public void setRoleChoice(RoleChoiceBean roleChoice) {
+    public void setRoleChoice(RoleChoice roleChoice) {
         this.roleChoice = roleChoice;
     }
 
@@ -58,6 +51,22 @@ public class RelatedToBean extends MessagePartBean {
     }
     public boolean hasRoleChoiceAsHealthCareProvider() {
         return (this.roleChoice instanceof HealthcareProviderBean);
+    }
+
+
+    /**
+     * <p>Relationship Effective Date and Time</p>
+     * 
+     * <p><p>Effective date and time of the role relationships.</p></p>
+     * 
+     * <p><p>Required</p></p>
+     */
+    @Hl7XmlMapping({"effectiveTime"})
+    public Interval<Date> getRelationshipEffectiveDateAndTime() {
+        return this.relationshipEffectiveDateAndTime.getValue();
+    }
+    public void setRelationshipEffectiveDateAndTime(Interval<Date> relationshipEffectiveDateAndTime) {
+        this.relationshipEffectiveDateAndTime.setValue(relationshipEffectiveDateAndTime);
     }
 
 }

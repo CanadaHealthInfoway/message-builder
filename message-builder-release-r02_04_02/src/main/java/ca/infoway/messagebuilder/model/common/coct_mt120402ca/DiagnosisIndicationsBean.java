@@ -15,18 +15,27 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 /**
  * <p>Diagnosis Indications</p>
  * 
- * <p>Describes diagnosis-related indications</p>
+ * <p><p>Describes diagnosis-related indications</p></p>
  * 
- * <p>Allows separation of conditions from symptoms from other 
- * forms of indication.</p>
+ * <p><p>Allows separation of conditions from symptoms from 
+ * other forms of indication.</p></p>
  */
 @Hl7PartTypeMapping({"COCT_MT120402CA.ObservationProblem"})
-public class DiagnosisIndicationsBean extends MessagePartBean implements IndicationsBean {
+public class DiagnosisIndicationsBean extends MessagePartBean implements Indications {
 
-    private static final long serialVersionUID = 20100603L;
+    private static final long serialVersionUID = 20110126L;
     private CV problemType = new CVImpl();
     private CD problemCode = new CDImpl();
 
+
+    /**
+     * <p>Problem Type</p>
+     * 
+     * <p><p>Identifies the type of problem described.</p></p>
+     * 
+     * <p><p>Identifies this measurement as a type of diagnosis and 
+     * is therefore mandatory.</p></p>
+     */
     @Hl7XmlMapping({"code"})
     public Code getProblemType() {
         return (Code) this.problemType.getValue();
@@ -35,6 +44,17 @@ public class DiagnosisIndicationsBean extends MessagePartBean implements Indicat
         this.problemType.setValue(problemType);
     }
 
+
+    /**
+     * <p>A:Problem Code</p>
+     * 
+     * <p><p>A coded form of the problem that is the reason for the 
+     * current action.</p></p>
+     * 
+     * <p></p></p>
+     * 
+     * <p></p></p>
+     */
     @Hl7XmlMapping({"value"})
     public Code getProblemCode() {
         return (Code) this.problemCode.getValue();

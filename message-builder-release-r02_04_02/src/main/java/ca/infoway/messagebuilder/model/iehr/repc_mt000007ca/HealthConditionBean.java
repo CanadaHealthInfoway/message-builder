@@ -27,19 +27,18 @@ import ca.infoway.messagebuilder.domainvalue.ActStatus;
 import ca.infoway.messagebuilder.domainvalue.DiagnosisValue;
 import ca.infoway.messagebuilder.domainvalue.x_BasicConfidentialityKind;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.common.coct_mt011001ca.CareCompositionsBean;
-import ca.infoway.messagebuilder.model.common.coct_mt090108ca.HealthcareWorkerBean;
-import ca.infoway.messagebuilder.model.common.coct_mt090310ca.EHRRepositoryBean;
 import ca.infoway.messagebuilder.model.common.coct_mt090508ca.HealthcareOrganizationBean;
 import ca.infoway.messagebuilder.model.common.coct_mt910108ca.RelatedPersonBean;
-import ca.infoway.messagebuilder.model.common.coct_mt911107ca.ActingPersonBean;
-import ca.infoway.messagebuilder.model.iehr.comt_mt111111ca.SHRBean;
-import ca.infoway.messagebuilder.model.merged.AnnotatedBy_1Bean;
-import ca.infoway.messagebuilder.model.merged.ControlActEvent_3Bean;
-import ca.infoway.messagebuilder.model.merged.NewConditionBean;
-import ca.infoway.messagebuilder.model.merged.OldConditionBean;
-import ca.infoway.messagebuilder.model.merged.Patient_1Bean;
-import ca.infoway.messagebuilder.model.merged.ServiceDeliveryLocation_2Bean;
+import ca.infoway.messagebuilder.model.common.merged.ActingPerson;
+import ca.infoway.messagebuilder.model.common.merged.EHRRepositoryBean;
+import ca.infoway.messagebuilder.model.common.merged.HealthcareWorkerBean;
+import ca.infoway.messagebuilder.model.common.merged.Patient_2Bean;
+import ca.infoway.messagebuilder.model.common.merged.ServiceLocationBean;
+import ca.infoway.messagebuilder.model.iehr.merged.AllergyIntoleranceStatusChangesBean;
+import ca.infoway.messagebuilder.model.iehr.merged.NewConditionBean;
+import ca.infoway.messagebuilder.model.iehr.merged.OldConditionBean;
+import ca.infoway.messagebuilder.model.merged.CareCompositionsBean;
+import ca.infoway.messagebuilder.model.merged.ChangedByBean;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -50,38 +49,99 @@ import java.util.Set;
 /**
  * <p>Health Condition</p>
  * 
- * <p>A record of a patient's health condition, as tracked over 
- * time. Examples include diseases, disabilities, pregnancy, 
- * lactation and other clinical conditions of interest.</p>
+ * <p><p>A record of a patient's health condition, as tracked 
+ * over time. Examples include diseases, disabilities, 
+ * pregnancy, lactation and other clinical conditions of 
+ * interest.</p><p>Also known as &quot;Problem&quot; (from a 
+ * 'problem list').</p></p>
  * 
- * <p>Also known as "Problem" (from a 'problem list').</p>
+ * <p><p>A record of a patient's health condition, as tracked 
+ * over time. Examples include diseases, disabilities, 
+ * pregnancy, lactation and other clinical conditions of 
+ * interest.</p><p>Also known as &quot;Problem&quot; (from a 
+ * 'problem list').</p></p>
  * 
- * <p>Necessary component of a person's overall profile. Helps 
- * with contraindication checking.</p>
+ * <p><p>Necessary component of a person's overall profile. 
+ * Helps with contraindication checking.</p></p>
  */
 @Hl7PartTypeMapping({"REPC_MT000007CA.ConditionEvent"})
 @Hl7RootType
-public class HealthConditionBean extends MessagePartBean implements SHRBean {
+public class HealthConditionBean extends MessagePartBean implements ca.infoway.messagebuilder.model.iehr.comt_mt111111ca.SHR {
 
-    private static final long serialVersionUID = 20100603L;
+    private static final long serialVersionUID = 20110126L;
+    private ChangedByBean author;
+    private ActingPerson informantActingPerson;
     private II conditionIdentifier = new IIImpl();
     private CV conditionType = new CVImpl();
+    private ca.infoway.messagebuilder.model.common.coct_mt911108ca.ActingPerson responsiblePartyActingPerson;
+    private EHRRepositoryBean custodian2AssignedDevice;
     private BL refutedIndicator = new BLImpl();
-    private CS conditionStatus = new CSImpl();
-    private IVL<TS, Interval<Date>> conditionTimePeriod = new IVLImpl<TS, Interval<Date>>();
     private SET<CV, Code> conditionMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);
     private CD condition = new CDImpl();
-    private ca.infoway.messagebuilder.model.common.coct_mt911108ca.ActingPersonBean responsiblePartyActingPerson;
-    private AnnotatedBy_1Bean author;
-    private ActingPersonBean informantActingPerson;
-    private ServiceDeliveryLocation_2Bean custodian1ServiceDeliveryLocation;
-    private EHRRepositoryBean custodian2AssignedDevice;
+    private ServiceLocationBean custodian1ServiceDeliveryLocation;
+    private CS conditionStatus = new CSImpl();
+    private BL subjectOf2AnnotationIndicator = new BLImpl();
+    private IVL<TS, Interval<Date>> conditionTimePeriod = new IVLImpl<TS, Interval<Date>>();
+    private List<CareCompositionsBean> componentOfPatientCareProvisionEvent = new ArrayList<CareCompositionsBean>();
+    private AllergyIntoleranceStatusChangesBean subjectOf1ControlActEvent;
     private List<OldConditionBean> predecessorOldCondition = new ArrayList<OldConditionBean>();
     private NewConditionBean successorNewCondition;
-    private ControlActEvent_3Bean subjectOf1ControlActEvent;
-    private BL subjectOf2AnnotationIndicator = new BLImpl(false);
-    private List<CareCompositionsBean> componentOfPatientCareProvisionEvent = new ArrayList<CareCompositionsBean>();
 
+
+    @Hl7XmlMapping({"author"})
+    public ChangedByBean getAuthor() {
+        return this.author;
+    }
+    public void setAuthor(ChangedByBean author) {
+        this.author = author;
+    }
+
+
+    @Hl7XmlMapping({"informant/actingPerson"})
+    public ActingPerson getInformantActingPerson() {
+        return this.informantActingPerson;
+    }
+    public void setInformantActingPerson(ActingPerson informantActingPerson) {
+        this.informantActingPerson = informantActingPerson;
+    }
+
+    public HealthcareWorkerBean getInformantActingPersonAsAssignedEntity1() {
+        return this.informantActingPerson instanceof HealthcareWorkerBean ? (HealthcareWorkerBean) this.informantActingPerson : null;
+    }
+    public boolean hasInformantActingPersonAsAssignedEntity1() {
+        return (this.informantActingPerson instanceof HealthcareWorkerBean);
+    }
+
+    public HealthcareOrganizationBean getInformantActingPersonAsAssignedEntity2() {
+        return this.informantActingPerson instanceof HealthcareOrganizationBean ? (HealthcareOrganizationBean) this.informantActingPerson : null;
+    }
+    public boolean hasInformantActingPersonAsAssignedEntity2() {
+        return (this.informantActingPerson instanceof HealthcareOrganizationBean);
+    }
+
+    public Patient_2Bean getInformantActingPersonAsPatient() {
+        return this.informantActingPerson instanceof Patient_2Bean ? (Patient_2Bean) this.informantActingPerson : null;
+    }
+    public boolean hasInformantActingPersonAsPatient() {
+        return (this.informantActingPerson instanceof Patient_2Bean);
+    }
+
+
+    /**
+     * <p>A:Condition Identifier</p>
+     * 
+     * <p></p><p>The identifier applies to this 
+     * &quot;instance&quot; of the condition. For example, multiple 
+     * pregnancies would each be treated as distinct conditions, 
+     * each with a unique id.</p></p>
+     * 
+     * <p></p><p>The identifier applies to this 
+     * &quot;instance&quot; of the condition. For example, multiple 
+     * pregnancies would each be treated as distinct conditions, 
+     * each with a unique id.</p></p>
+     * 
+     * <p></p></p>
+     */
     @Hl7XmlMapping({"id"})
     public Identifier getConditionIdentifier() {
         return this.conditionIdentifier.getValue();
@@ -90,6 +150,24 @@ public class HealthConditionBean extends MessagePartBean implements SHRBean {
         this.conditionIdentifier.setValue(conditionIdentifier);
     }
 
+
+    /**
+     * <p>B: Condition Type</p>
+     * 
+     * <p><p>Code is fixed DX if not using SNOMED;</p></p>
+     * 
+     * <p><p>Designates the concept in DiagnosisValue as a 
+     * Diagnosis</p></p>
+     * 
+     * <p></p><p>Since all diagnosis concepts can be represented in 
+     * a single field, this domain is a fixed value</p></p>
+     * 
+     * <p></p><p>Since all diagnosis concepts can be represented in 
+     * a single field, this domain is a fixed value</p></p>
+     * 
+     * <p></p><p>Since all diagnosis concepts can be represented in 
+     * a single field, this domain is a fixed value</p></p>
+     */
     @Hl7XmlMapping({"code"})
     public Code getConditionType() {
         return (Code) this.conditionType.getValue();
@@ -98,48 +176,12 @@ public class HealthConditionBean extends MessagePartBean implements SHRBean {
         this.conditionType.setValue(conditionType);
     }
 
-    @Hl7XmlMapping({"negationInd"})
-    public Boolean getRefutedIndicator() {
-        return this.refutedIndicator.getValue();
-    }
-    public void setRefutedIndicator(Boolean refutedIndicator) {
-        this.refutedIndicator.setValue(refutedIndicator);
-    }
-
-    @Hl7XmlMapping({"statusCode"})
-    public ActStatus getConditionStatus() {
-        return (ActStatus) this.conditionStatus.getValue();
-    }
-    public void setConditionStatus(ActStatus conditionStatus) {
-        this.conditionStatus.setValue(conditionStatus);
-    }
-
-    @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getConditionTimePeriod() {
-        return this.conditionTimePeriod.getValue();
-    }
-    public void setConditionTimePeriod(Interval<Date> conditionTimePeriod) {
-        this.conditionTimePeriod.setValue(conditionTimePeriod);
-    }
-
-    @Hl7XmlMapping({"confidentialityCode"})
-    public Set<x_BasicConfidentialityKind> getConditionMaskingIndicators() {
-        return this.conditionMaskingIndicators.rawSet(x_BasicConfidentialityKind.class);
-    }
-
-    @Hl7XmlMapping({"value"})
-    public DiagnosisValue getCondition() {
-        return (DiagnosisValue) this.condition.getValue();
-    }
-    public void setCondition(DiagnosisValue condition) {
-        this.condition.setValue(condition);
-    }
 
     @Hl7XmlMapping({"responsibleParty/actingPerson"})
-    public ca.infoway.messagebuilder.model.common.coct_mt911108ca.ActingPersonBean getResponsiblePartyActingPerson() {
+    public ca.infoway.messagebuilder.model.common.coct_mt911108ca.ActingPerson getResponsiblePartyActingPerson() {
         return this.responsiblePartyActingPerson;
     }
-    public void setResponsiblePartyActingPerson(ca.infoway.messagebuilder.model.common.coct_mt911108ca.ActingPersonBean responsiblePartyActingPerson) {
+    public void setResponsiblePartyActingPerson(ca.infoway.messagebuilder.model.common.coct_mt911108ca.ActingPerson responsiblePartyActingPerson) {
         this.responsiblePartyActingPerson = responsiblePartyActingPerson;
     }
 
@@ -164,50 +206,6 @@ public class HealthConditionBean extends MessagePartBean implements SHRBean {
         return (this.responsiblePartyActingPerson instanceof RelatedPersonBean);
     }
 
-    @Hl7XmlMapping({"author"})
-    public AnnotatedBy_1Bean getAuthor() {
-        return this.author;
-    }
-    public void setAuthor(AnnotatedBy_1Bean author) {
-        this.author = author;
-    }
-
-    @Hl7XmlMapping({"informant/actingPerson"})
-    public ActingPersonBean getInformantActingPerson() {
-        return this.informantActingPerson;
-    }
-    public void setInformantActingPerson(ActingPersonBean informantActingPerson) {
-        this.informantActingPerson = informantActingPerson;
-    }
-
-    public HealthcareWorkerBean getInformantActingPersonAsAssignedEntity1() {
-        return this.informantActingPerson instanceof HealthcareWorkerBean ? (HealthcareWorkerBean) this.informantActingPerson : null;
-    }
-    public boolean hasInformantActingPersonAsAssignedEntity1() {
-        return (this.informantActingPerson instanceof HealthcareWorkerBean);
-    }
-
-    public HealthcareOrganizationBean getInformantActingPersonAsAssignedEntity2() {
-        return this.informantActingPerson instanceof HealthcareOrganizationBean ? (HealthcareOrganizationBean) this.informantActingPerson : null;
-    }
-    public boolean hasInformantActingPersonAsAssignedEntity2() {
-        return (this.informantActingPerson instanceof HealthcareOrganizationBean);
-    }
-
-    public Patient_1Bean getInformantActingPersonAsPatient() {
-        return this.informantActingPerson instanceof Patient_1Bean ? (Patient_1Bean) this.informantActingPerson : null;
-    }
-    public boolean hasInformantActingPersonAsPatient() {
-        return (this.informantActingPerson instanceof Patient_1Bean);
-    }
-
-    @Hl7XmlMapping({"custodian1/serviceDeliveryLocation"})
-    public ServiceDeliveryLocation_2Bean getCustodian1ServiceDeliveryLocation() {
-        return this.custodian1ServiceDeliveryLocation;
-    }
-    public void setCustodian1ServiceDeliveryLocation(ServiceDeliveryLocation_2Bean custodian1ServiceDeliveryLocation) {
-        this.custodian1ServiceDeliveryLocation = custodian1ServiceDeliveryLocation;
-    }
 
     @Hl7XmlMapping({"custodian2/assignedDevice"})
     public EHRRepositoryBean getCustodian2AssignedDevice() {
@@ -217,26 +215,143 @@ public class HealthConditionBean extends MessagePartBean implements SHRBean {
         this.custodian2AssignedDevice = custodian2AssignedDevice;
     }
 
-    @Hl7XmlMapping({"predecessor/oldCondition"})
-    public List<OldConditionBean> getPredecessorOldCondition() {
-        return this.predecessorOldCondition;
+
+    /**
+     * <p>E: Refuted Indicator</p>
+     * 
+     * <p></p></p>
+     * 
+     * <p></p></p>
+     * 
+     * <p></p></p>
+     */
+    @Hl7XmlMapping({"negationInd"})
+    public Boolean getRefutedIndicator() {
+        return this.refutedIndicator.getValue();
+    }
+    public void setRefutedIndicator(Boolean refutedIndicator) {
+        this.refutedIndicator.setValue(refutedIndicator);
     }
 
-    @Hl7XmlMapping({"successor/newCondition"})
-    public NewConditionBean getSuccessorNewCondition() {
-        return this.successorNewCondition;
-    }
-    public void setSuccessorNewCondition(NewConditionBean successorNewCondition) {
-        this.successorNewCondition = successorNewCondition;
+
+    /**
+     * <p>F: Condition Masking Indicators</p>
+     * 
+     * <p></p></p>
+     * 
+     * <p></p></p>
+     * 
+     * <p></p></p>
+     * 
+     * <p></p></p>
+     */
+    @Hl7XmlMapping({"confidentialityCode"})
+    public Set<x_BasicConfidentialityKind> getConditionMaskingIndicators() {
+        return this.conditionMaskingIndicators.rawSet(x_BasicConfidentialityKind.class);
     }
 
-    @Hl7XmlMapping({"subjectOf1/controlActEvent"})
-    public ControlActEvent_3Bean getSubjectOf1ControlActEvent() {
-        return this.subjectOf1ControlActEvent;
+
+    /**
+     * <p>K:Condition</p>
+     * 
+     * <p><p>A code indicating the specific condition. E.g. 
+     * Hypertension, Pregnancy.</p></p>
+     * 
+     * <p></p></p>
+     * 
+     * <p></p></p>
+     * 
+     * <p></p></p>
+     */
+    @Hl7XmlMapping({"value"})
+    public DiagnosisValue getCondition() {
+        return (DiagnosisValue) this.condition.getValue();
     }
-    public void setSubjectOf1ControlActEvent(ControlActEvent_3Bean subjectOf1ControlActEvent) {
-        this.subjectOf1ControlActEvent = subjectOf1ControlActEvent;
+    public void setCondition(DiagnosisValue condition) {
+        this.condition.setValue(condition);
     }
+
+
+    @Hl7XmlMapping({"custodian1/serviceDeliveryLocation"})
+    public ServiceLocationBean getCustodian1ServiceDeliveryLocation() {
+        return this.custodian1ServiceDeliveryLocation;
+    }
+    public void setCustodian1ServiceDeliveryLocation(ServiceLocationBean custodian1ServiceDeliveryLocation) {
+        this.custodian1ServiceDeliveryLocation = custodian1ServiceDeliveryLocation;
+    }
+
+
+    /**
+     * <p>C:Condition Status</p>
+     * 
+     * <p></p><p>Indicates whether the condition is still being 
+     * monitored as relevant to the patient's health ('active') or 
+     * whether the condition is no longer considered a relevant 
+     * 'problem' ('completed'). It may also be 'obsolete' in 
+     * circumstances where the record has been replaced.</p><p>Note 
+     * that a problem may be considered 'active' even if the 
+     * underlying condition is no longer affecting the patient. For 
+     * example, for a patient who was recently pregnant, the 
+     * pregnancy has ended, but the pregnancy would still be an 
+     * 'active' condition record because of it's ongoing impact on 
+     * the patient's healthcare situation.</p><p>To convey the 
+     * actual clinical status of the condition, use SNOMED 
+     * post-coordination in the Condition attribute.</p></p>
+     * 
+     * <p></p><p>Indicates whether the condition is still being 
+     * monitored as relevant to the patient's health ('active') or 
+     * whether the condition is no longer considered a relevant 
+     * 'problem' ('completed'). It may also be 'obsolete' in 
+     * circumstances where the record has been replaced.</p><p>Note 
+     * that a problem may be considered 'active' even if the 
+     * underlying condition is no longer affecting the patient. For 
+     * example, for a patient who was recently pregnant, the 
+     * pregnancy has ended, but the pregnancy would still be an 
+     * 'active' condition record because of it's ongoing impact on 
+     * the patient's healthcare situation.</p><p>To convey the 
+     * actual clinical status of the condition, use SNOMED 
+     * post-coordination in the Condition attribute.</p></p>
+     * 
+     * <p></p><p>Indicates whether the condition is still being 
+     * monitored as relevant to the patient's health ('active') or 
+     * whether the condition is no longer considered a relevant 
+     * 'problem' ('completed'). It may also be 'obsolete' in 
+     * circumstances where the record has been replaced.</p><p>Note 
+     * that a problem may be considered 'active' even if the 
+     * underlying condition is no longer affecting the patient. For 
+     * example, for a patient who was recently pregnant, the 
+     * pregnancy has ended, but the pregnancy would still be an 
+     * 'active' condition record because of it's ongoing impact on 
+     * the patient's healthcare situation.</p><p>To convey the 
+     * actual clinical status of the condition, use SNOMED 
+     * post-coordination in the Condition attribute.</p></p>
+     * 
+     * <p></p><p>Indicates whether the condition is still being 
+     * monitored as relevant to the patient's health ('active') or 
+     * whether the condition is no longer considered a relevant 
+     * 'problem' ('completed'). It may also be 'obsolete' in 
+     * circumstances where the record has been replaced.</p><p>Note 
+     * that a problem may be considered 'active' even if the 
+     * underlying condition is no longer affecting the patient. For 
+     * example, for a patient who was recently pregnant, the 
+     * pregnancy has ended, but the pregnancy would still be an 
+     * 'active' condition record because of it's ongoing impact on 
+     * the patient's healthcare situation.</p><p>To convey the 
+     * actual clinical status of the condition, use SNOMED 
+     * post-coordination in the Condition attribute.</p></p>
+     * 
+     * <p></p></p>
+     * 
+     * <p></p></p>
+     */
+    @Hl7XmlMapping({"statusCode"})
+    public ActStatus getConditionStatus() {
+        return (ActStatus) this.conditionStatus.getValue();
+    }
+    public void setConditionStatus(ActStatus conditionStatus) {
+        this.conditionStatus.setValue(conditionStatus);
+    }
+
 
     @Hl7XmlMapping({"subjectOf2/annotationIndicator"})
     public Boolean getSubjectOf2AnnotationIndicator() {
@@ -246,9 +361,69 @@ public class HealthConditionBean extends MessagePartBean implements SHRBean {
         this.subjectOf2AnnotationIndicator.setValue(subjectOf2AnnotationIndicator);
     }
 
+
+    /**
+     * <p>G: Condition Time Period</p>
+     * 
+     * <p><p>The date on which the condition first began and when 
+     * it ended.</p><p>For ongoing conditions such as chronic 
+     * diseases, the upper boundary may be unknown.</p><p>For 
+     * transient conditions such as pregnancy, lactation, etc; the 
+     * upper boundary of the period would usually be specified to 
+     * signify the end of the condition.</p></p>
+     * 
+     * <p><p>The date on which the condition first began and when 
+     * it ended.</p><p>For ongoing conditions such as chronic 
+     * diseases, the upper boundary may be unknown.</p><p>For 
+     * transient conditions such as pregnancy, lactation, etc; the 
+     * upper boundary of the period would usually be specified to 
+     * signify the end of the condition.</p></p>
+     * 
+     * <p><p>The date on which the condition first began and when 
+     * it ended.</p><p>For ongoing conditions such as chronic 
+     * diseases, the upper boundary may be unknown.</p><p>For 
+     * transient conditions such as pregnancy, lactation, etc; the 
+     * upper boundary of the period would usually be specified to 
+     * signify the end of the condition.</p></p>
+     * 
+     * <p></p></p>
+     */
+    @Hl7XmlMapping({"effectiveTime"})
+    public Interval<Date> getConditionTimePeriod() {
+        return this.conditionTimePeriod.getValue();
+    }
+    public void setConditionTimePeriod(Interval<Date> conditionTimePeriod) {
+        this.conditionTimePeriod.setValue(conditionTimePeriod);
+    }
+
+
     @Hl7XmlMapping({"componentOf/patientCareProvisionEvent"})
     public List<CareCompositionsBean> getComponentOfPatientCareProvisionEvent() {
         return this.componentOfPatientCareProvisionEvent;
+    }
+
+
+    @Hl7XmlMapping({"subjectOf1/controlActEvent"})
+    public AllergyIntoleranceStatusChangesBean getSubjectOf1ControlActEvent() {
+        return this.subjectOf1ControlActEvent;
+    }
+    public void setSubjectOf1ControlActEvent(AllergyIntoleranceStatusChangesBean subjectOf1ControlActEvent) {
+        this.subjectOf1ControlActEvent = subjectOf1ControlActEvent;
+    }
+
+
+    @Hl7XmlMapping({"predecessor/oldCondition"})
+    public List<OldConditionBean> getPredecessorOldCondition() {
+        return this.predecessorOldCondition;
+    }
+
+
+    @Hl7XmlMapping({"successor/newCondition"})
+    public NewConditionBean getSuccessorNewCondition() {
+        return this.successorNewCondition;
+    }
+    public void setSuccessorNewCondition(NewConditionBean successorNewCondition) {
+        this.successorNewCondition = successorNewCondition;
     }
 
 }

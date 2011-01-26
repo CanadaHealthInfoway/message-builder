@@ -15,24 +15,52 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PRPA_MT202317CA.Place"})
 public class PlaceBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20100603L;
-    private CV locationPlaceType = new CVImpl();
+    private static final long serialVersionUID = 20110126L;
     private BL locationMobileIndicator = new BLImpl();
+    private CV locationPlaceType = new CVImpl();
 
-    @Hl7XmlMapping({"code"})
-    public ServiceDeliveryLocationPlaceType getLocationPlaceType() {
-        return (ServiceDeliveryLocationPlaceType) this.locationPlaceType.getValue();
-    }
-    public void setLocationPlaceType(ServiceDeliveryLocationPlaceType locationPlaceType) {
-        this.locationPlaceType.setValue(locationPlaceType);
-    }
 
+    /**
+     * <p>F:Location Mobile Indicator</p>
+     * 
+     * <p><p>An indication of whether a place has the capability to 
+     * move from one location to another. Example: air and ground 
+     * ambulances, mobile clinics.</p></p>
+     * 
+     * <p><p>Allows flagging that the location does not have a 
+     * fixed physical location.</p><p>This element must always be 
+     * known and is therefore mandatory.</p></p>
+     * 
+     * <p><p>Allows flagging that the location does not have a 
+     * fixed physical location.</p><p>This element must always be 
+     * known and is therefore mandatory.</p></p>
+     */
     @Hl7XmlMapping({"mobileInd"})
     public Boolean getLocationMobileIndicator() {
         return this.locationMobileIndicator.getValue();
     }
     public void setLocationMobileIndicator(Boolean locationMobileIndicator) {
         this.locationMobileIndicator.setValue(locationMobileIndicator);
+    }
+
+
+    /**
+     * <p>E:Location Place Type</p>
+     * 
+     * <p><p>Distinguishes different levels of location 
+     * granularity. E.g. Campus, building, floor, ward, room, 
+     * bed.</p></p>
+     * 
+     * <p><p>Used for searching, as well as for understanding what 
+     * is meant by a particular location and is therefore 
+     * mandatory.</p></p>
+     */
+    @Hl7XmlMapping({"code"})
+    public ServiceDeliveryLocationPlaceType getLocationPlaceType() {
+        return (ServiceDeliveryLocationPlaceType) this.locationPlaceType.getValue();
+    }
+    public void setLocationPlaceType(ServiceDeliveryLocationPlaceType locationPlaceType) {
+        this.locationPlaceType.setValue(locationPlaceType);
     }
 
 }

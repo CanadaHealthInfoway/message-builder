@@ -10,8 +10,9 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"FICR_MT510201CA.Reason2"})
 public class Reason2Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20100603L;
+    private static final long serialVersionUID = 20110126L;
     private AdjudicatedInvoiceElementGroupBean adjudicatedInvoiceElementGroup;
+
 
     @Hl7XmlMapping({"adjudicatedInvoiceElementGroup"})
     public AdjudicatedInvoiceElementGroupBean getAdjudicatedInvoiceElementGroup() {

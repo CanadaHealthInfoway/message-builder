@@ -5,15 +5,12 @@ import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
 import ca.infoway.messagebuilder.datatype.AD;
 import ca.infoway.messagebuilder.datatype.CV;
-import ca.infoway.messagebuilder.datatype.PN;
 import ca.infoway.messagebuilder.datatype.SET;
 import ca.infoway.messagebuilder.datatype.TEL;
 import ca.infoway.messagebuilder.datatype.impl.ADImpl;
 import ca.infoway.messagebuilder.datatype.impl.CVImpl;
-import ca.infoway.messagebuilder.datatype.impl.PNImpl;
 import ca.infoway.messagebuilder.datatype.impl.SETImpl;
 import ca.infoway.messagebuilder.datatype.impl.TELImpl;
-import ca.infoway.messagebuilder.datatype.lang.PersonName;
 import ca.infoway.messagebuilder.datatype.lang.PostalAddress;
 import ca.infoway.messagebuilder.datatype.lang.TelecommunicationAddress;
 import ca.infoway.messagebuilder.domainvalue.AdministrativeContactRoleType;
@@ -22,28 +19,65 @@ import java.util.Set;
 
 
 
-@Hl7PartTypeMapping({"COCT_MT050303CA.ContactParty","PRPA_MT202301CA.ContactParty","PRPA_MT202302CA.ContactParty","PRPA_MT202303CA.ContactParty"})
+/**
+ * <p>ContactPoints</p>
+ * 
+ * <p>PRPA_MT202302CA.ContactParty: Contact Points</p>
+ * 
+ * <p><p>At least one of addr or telecom must be supplied.</p></p>
+ * 
+ * <p><p>Administrative contacts within a location, allowing 
+ * for communication with various departments or areas.</p></p>
+ * 
+ * <p><p>One of the most common reasons for looking up a 
+ * service delivery location is to find contact information for 
+ * the location.</p></p>
+ * 
+ * <p>PRPA_MT202301CA.ContactParty: Contact Points</p>
+ * 
+ * <p><p>At least one of addr or telecom must be supplied.</p></p>
+ * 
+ * <p><p>Administrative contacts within a location, allowing 
+ * for communication with various departments or areas.</p></p>
+ * 
+ * <p><p>One of the most common reasons for looking up a 
+ * service delivery location is to find contact information for 
+ * the location.</p></p>
+ * 
+ * <p>PRPA_MT202303CA.ContactParty: Contact Points</p>
+ * 
+ * <p><p>At least one of addr or telecom must be supplied.</p></p>
+ * 
+ * <p><p>Administrative contacts within a location, allowing 
+ * for communication with various departments or areas.</p></p>
+ * 
+ * <p><p>One of the most common reasons for looking up a 
+ * service delivery location is to find contact information for 
+ * the location.</p></p>
+ */
+@Hl7PartTypeMapping({"PRPA_MT202301CA.ContactParty","PRPA_MT202302CA.ContactParty","PRPA_MT202303CA.ContactParty"})
 public class ContactPointsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20100603L;
-    private AD ownerAddress = new ADImpl();
-    private SET<TEL, TelecommunicationAddress> ownerPhonesAndEmails = new SETImpl<TEL, TelecommunicationAddress>(TELImpl.class);
+    private static final long serialVersionUID = 20110126L;
     private CV contactType = new CVImpl();
-    private PN ownerName = new PNImpl();
+    private SET<TEL, TelecommunicationAddress> contactPhoneNumberAndEmails = new SETImpl<TEL, TelecommunicationAddress>(TELImpl.class);
+    private AD contactAddress = new ADImpl();
 
-    @Hl7XmlMapping({"addr"})
-    public PostalAddress getOwnerAddress() {
-        return this.ownerAddress.getValue();
-    }
-    public void setOwnerAddress(PostalAddress ownerAddress) {
-        this.ownerAddress.setValue(ownerAddress);
-    }
 
-    @Hl7XmlMapping({"telecom"})
-    public Set<TelecommunicationAddress> getOwnerPhonesAndEmails() {
-        return this.ownerPhonesAndEmails.rawSet();
-    }
-
+    /**
+     * <p>ContactType</p>
+     * 
+     * <p>A: Contact Type</p>
+     * 
+     * <p><p>Identifies the general purpose for which this contact 
+     * information is appropriate. E.g. Admitting, billing, 
+     * after-hours, etc.</p></p>
+     * 
+     * <p><p>Helps the user to know which set of contact 
+     * information should be used in a particular circumstance. 
+     * This is a key differentiator of each contact point, and is 
+     * therefore mandatory.</p></p>
+     */
     @Hl7XmlMapping({"code"})
     public AdministrativeContactRoleType getContactType() {
         return (AdministrativeContactRoleType) this.contactType.getValue();
@@ -52,12 +86,39 @@ public class ContactPointsBean extends MessagePartBean {
         this.contactType.setValue(contactType);
     }
 
-    @Hl7XmlMapping({"contactPerson/name"})
-    public PersonName getOwnerName() {
-        return this.ownerName.getValue();
+
+    /**
+     * <p>ContactPhoneNumberAndEmails</p>
+     * 
+     * <p>C: Contact Phone Number and Emails</p>
+     * 
+     * <p><p>Information used to communicate with the location by 
+     * phone, fax or e-mail.</p></p>
+     * 
+     * <p><p>Used for more immediate contact requirements</p></p>
+     */
+    @Hl7XmlMapping({"telecom"})
+    public Set<TelecommunicationAddress> getContactPhoneNumberAndEmails() {
+        return this.contactPhoneNumberAndEmails.rawSet();
     }
-    public void setOwnerName(PersonName ownerName) {
-        this.ownerName.setValue(ownerName);
+
+
+    /**
+     * <p>ContactAddress</p>
+     * 
+     * <p>B: Contact Address</p>
+     * 
+     * <p><p>Provides a mailing address for the location</p></p>
+     * 
+     * <p><p>Used when communicating by post. Physical addresses 
+     * may also be used for courier-type deliveries.</p></p>
+     */
+    @Hl7XmlMapping({"addr"})
+    public PostalAddress getContactAddress() {
+        return this.contactAddress.getValue();
+    }
+    public void setContactAddress(PostalAddress contactAddress) {
+        this.contactAddress.setValue(contactAddress);
     }
 
 }

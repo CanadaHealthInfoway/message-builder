@@ -19,38 +19,35 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 /**
  * <p>Language of Communication</p>
  * 
- * <p>Information about what language(s) should be used to 
+ * <p><p>Information about what language(s) should be used to 
  * communicate with the focal person can be sent in the 
- * LanguageCommunication class.</p>
+ * LanguageCommunication class.</p></p>
  * 
- * <p>Supports the business requirement to identify languages 
- * used by client for the purposes of communication</p>
+ * <p><p>Supports the business requirement to identify 
+ * languages used by client for the purposes of 
+ * communication</p></p>
  */
 @Hl7PartTypeMapping({"PRPM_MT309000CA.LanguageCommunication"})
 public class LanguageOfCommunicationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20100603L;
-    private CE languageOfCommunicationCode = new CEImpl();
-    private CV languageOfCommunicationSkillsCode = new CVImpl();
+    private static final long serialVersionUID = 20110126L;
     private CV languageOfCommunicationProficiencyLevelCode = new CVImpl();
     private BL languageOfCommunicationPreferenceIndicator = new BLImpl();
+    private CV languageOfCommunicationSkillsCode = new CVImpl();
+    private CE languageOfCommunicationCode = new CEImpl();
 
-    @Hl7XmlMapping({"languageCode"})
-    public HumanLanguage getLanguageOfCommunicationCode() {
-        return (HumanLanguage) this.languageOfCommunicationCode.getValue();
-    }
-    public void setLanguageOfCommunicationCode(HumanLanguage languageOfCommunicationCode) {
-        this.languageOfCommunicationCode.setValue(languageOfCommunicationCode);
-    }
 
-    @Hl7XmlMapping({"modeCode"})
-    public LanguageAbilityMode getLanguageOfCommunicationSkillsCode() {
-        return (LanguageAbilityMode) this.languageOfCommunicationSkillsCode.getValue();
-    }
-    public void setLanguageOfCommunicationSkillsCode(LanguageAbilityMode languageOfCommunicationSkillsCode) {
-        this.languageOfCommunicationSkillsCode.setValue(languageOfCommunicationSkillsCode);
-    }
-
+    /**
+     * <p>Language of Communication Proficiency Level Code</p>
+     * 
+     * <p><p>Indicates the proficiency level at which healthcare 
+     * provider is able to communicate in the indicated language of 
+     * communication</p></p>
+     * 
+     * <p><p>Required attribute provides additional information 
+     * about the healthcare provider's communication skills in a 
+     * given language</p></p>
+     */
     @Hl7XmlMapping({"proficiencyLevelCode"})
     public LanguageAbilityProficiency getLanguageOfCommunicationProficiencyLevelCode() {
         return (LanguageAbilityProficiency) this.languageOfCommunicationProficiencyLevelCode.getValue();
@@ -59,12 +56,60 @@ public class LanguageOfCommunicationBean extends MessagePartBean {
         this.languageOfCommunicationProficiencyLevelCode.setValue(languageOfCommunicationProficiencyLevelCode);
     }
 
+
+    /**
+     * <p>Language of Communication Preference Indicator</p>
+     * 
+     * <p><p>Indicates the preferred language for all 
+     * communications.</p></p>
+     * 
+     * <p><p>Required attribute that supports the business 
+     * requirement to indicate the preferred language for all 
+     * communications.</p></p>
+     */
     @Hl7XmlMapping({"preferenceInd"})
     public Boolean getLanguageOfCommunicationPreferenceIndicator() {
         return this.languageOfCommunicationPreferenceIndicator.getValue();
     }
     public void setLanguageOfCommunicationPreferenceIndicator(Boolean languageOfCommunicationPreferenceIndicator) {
         this.languageOfCommunicationPreferenceIndicator.setValue(languageOfCommunicationPreferenceIndicator);
+    }
+
+
+    /**
+     * <p>Language of Communication Skills Code</p>
+     * 
+     * <p><p>Indicates the healthcare provider's ability to 
+     * communicate in the indicated language i.e. written, spoken, 
+     * read</p></p>
+     * 
+     * <p><p>Required attribute provides additional information 
+     * about the healthcare provider's communication skills in a 
+     * given language</p></p>
+     */
+    @Hl7XmlMapping({"modeCode"})
+    public LanguageAbilityMode getLanguageOfCommunicationSkillsCode() {
+        return (LanguageAbilityMode) this.languageOfCommunicationSkillsCode.getValue();
+    }
+    public void setLanguageOfCommunicationSkillsCode(LanguageAbilityMode languageOfCommunicationSkillsCode) {
+        this.languageOfCommunicationSkillsCode.setValue(languageOfCommunicationSkillsCode);
+    }
+
+
+    /**
+     * <p>Language of Communication Code</p>
+     * 
+     * <p><p>A code indicating the language of communication</p></p>
+     * 
+     * <p><p>Mandatory attribute conveying the expected language 
+     * message elements are to be transmitted in</p></p>
+     */
+    @Hl7XmlMapping({"languageCode"})
+    public HumanLanguage getLanguageOfCommunicationCode() {
+        return (HumanLanguage) this.languageOfCommunicationCode.getValue();
+    }
+    public void setLanguageOfCommunicationCode(HumanLanguage languageOfCommunicationCode) {
+        this.languageOfCommunicationCode.setValue(languageOfCommunicationCode);
     }
 
 }

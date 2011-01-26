@@ -26,15 +26,14 @@ import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.domainvalue.SubjectReaction;
 import ca.infoway.messagebuilder.domainvalue.x_BasicConfidentialityKind;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.common.coct_mt011001ca.CareCompositionsBean;
-import ca.infoway.messagebuilder.model.common.coct_mt090108ca.HealthcareWorkerBean;
-import ca.infoway.messagebuilder.model.iehr.comt_mt111111ca.SHRBean;
+import ca.infoway.messagebuilder.model.common.merged.HealthcareWorkerBean;
+import ca.infoway.messagebuilder.model.iehr.merged.ReportedByBean;
+import ca.infoway.messagebuilder.model.iehr.merged.ReportedReactionsBean;
 import ca.infoway.messagebuilder.model.merged.AllergyIntoleranceSeverityLevelBean;
-import ca.infoway.messagebuilder.model.merged.AnnotatedBy_1Bean;
-import ca.infoway.messagebuilder.model.merged.CausalityAssessment_1Bean;
-import ca.infoway.messagebuilder.model.merged.HasNotesBean;
+import ca.infoway.messagebuilder.model.merged.CareCompositionsBean;
+import ca.infoway.messagebuilder.model.merged.IncludesBean;
 import ca.infoway.messagebuilder.model.merged.OccurredAtBean;
-import ca.infoway.messagebuilder.model.merged.ReportedByBean;
+import ca.infoway.messagebuilder.model.merged.RefusedByBean;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -45,36 +44,47 @@ import java.util.Set;
 /**
  * <p>Reported Reaction</p>
  * 
- * <p>This is a record of an adverse reaction considered 
- * relevant to the patient's clinical record.</p>
+ * <p><p>This is a record of an adverse reaction considered 
+ * relevant to the patient's clinical record.</p></p>
  * 
- * <p>Useful in tracking reactions when it is not known 
+ * <p><p>Useful in tracking reactions when it is not known 
  * precisely what product they are associated with and whether 
  * the reaction is due to an allergy or intolerance, a drug 
  * interaction or some other cause. Effectively gives a 'heads 
- * up' to clinicians using the drug or combination of drugs.</p>
+ * up' to clinicians using the drug or combination of 
+ * drugs.</p></p>
  */
 @Hl7PartTypeMapping({"REPC_MT000006CA.ReactionObservationEvent"})
 @Hl7RootType
-public class ReportedReactionBean extends MessagePartBean implements SHRBean {
+public class ReportedReactionBean extends MessagePartBean implements ca.infoway.messagebuilder.model.iehr.comt_mt111111ca.SHR {
 
-    private static final long serialVersionUID = 20100603L;
+    private static final long serialVersionUID = 20110126L;
     private II reactionRecordId = new IIImpl();
     private CD diagnosisType = new CDImpl();
-    private ST description = new STImpl();
-    private IVL<TS, Interval<Date>> reactionOnsetDate = new IVLImpl<TS, Interval<Date>>();
-    private SET<CV, Code> adverseReactionMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);
-    private CV reaction = new CVImpl();
     private HealthcareWorkerBean responsiblePartyAssignedEntity;
-    private AnnotatedBy_1Bean author;
+    private SET<CV, Code> adverseReactionMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);
+    private ST description = new STImpl();
+    private CV reaction = new CVImpl();
     private ReportedByBean informant;
-    private OccurredAtBean location;
-    private List<HasNotesBean> subjectOf1 = new ArrayList<HasNotesBean>();
-    private BL subjectOf2AnnotationIndicator = new BLImpl(false);
-    private List<CausalityAssessment_1Bean> subjectOf3CausalityAssessment = new ArrayList<CausalityAssessment_1Bean>();
-    private AllergyIntoleranceSeverityLevelBean subjectOf4SeverityObservation;
+    private RefusedByBean author;
+    private BL subjectOf2AnnotationIndicator = new BLImpl();
+    private IVL<TS, Interval<Date>> reactionOnsetDate = new IVLImpl<TS, Interval<Date>>();
+    private List<IncludesBean> subjectOf1 = new ArrayList<IncludesBean>();
     private List<CareCompositionsBean> componentOfPatientCareProvisionEvent = new ArrayList<CareCompositionsBean>();
+    private OccurredAtBean location;
+    private List<ReportedReactionsBean> subjectOf3CausalityAssessment = new ArrayList<ReportedReactionsBean>();
+    private AllergyIntoleranceSeverityLevelBean subjectOf4SeverityObservation;
 
+
+    /**
+     * <p>C:Reaction Record Id</p>
+     * 
+     * <p><p>An identifier assigned to the record of the adverse 
+     * reaction.</p></p>
+     * 
+     * <p><p>Uniquely identifies the specific reaction record and 
+     * is therefore mandatory.</p></p>
+     */
     @Hl7XmlMapping({"id"})
     public Identifier getReactionRecordId() {
         return this.reactionRecordId.getValue();
@@ -83,6 +93,21 @@ public class ReportedReactionBean extends MessagePartBean implements SHRBean {
         this.reactionRecordId.setValue(reactionRecordId);
     }
 
+
+    /**
+     * <p>Diagnosis Type</p>
+     * 
+     * <p><p>Code is fixed to DX if not using SNOMED</p></p>
+     * 
+     * <p><p>Indicates the type of diagnosis being captured.</p></p>
+     * 
+     * <p><p>Indicates that the observation is actually a diagnosis 
+     * and is therefore mandatory. The datatype is CD to support 
+     * SNOMED post-coordination.</p></p>
+     * 
+     * <p><p>If using SNOMED, this will contain the diagnosis. 
+     * Otherwise it will be a fixed value of 'DX'.</p></p>
+     */
     @Hl7XmlMapping({"code"})
     public Code getDiagnosisType() {
         return (Code) this.diagnosisType.getValue();
@@ -91,34 +116,6 @@ public class ReportedReactionBean extends MessagePartBean implements SHRBean {
         this.diagnosisType.setValue(diagnosisType);
     }
 
-    @Hl7XmlMapping({"text"})
-    public String getDescription() {
-        return this.description.getValue();
-    }
-    public void setDescription(String description) {
-        this.description.setValue(description);
-    }
-
-    @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getReactionOnsetDate() {
-        return this.reactionOnsetDate.getValue();
-    }
-    public void setReactionOnsetDate(Interval<Date> reactionOnsetDate) {
-        this.reactionOnsetDate.setValue(reactionOnsetDate);
-    }
-
-    @Hl7XmlMapping({"confidentialityCode"})
-    public Set<x_BasicConfidentialityKind> getAdverseReactionMaskingIndicators() {
-        return this.adverseReactionMaskingIndicators.rawSet(x_BasicConfidentialityKind.class);
-    }
-
-    @Hl7XmlMapping({"value"})
-    public SubjectReaction getReaction() {
-        return (SubjectReaction) this.reaction.getValue();
-    }
-    public void setReaction(SubjectReaction reaction) {
-        this.reaction.setValue(reaction);
-    }
 
     @Hl7XmlMapping({"responsibleParty/assignedEntity"})
     public HealthcareWorkerBean getResponsiblePartyAssignedEntity() {
@@ -128,13 +125,117 @@ public class ReportedReactionBean extends MessagePartBean implements SHRBean {
         this.responsiblePartyAssignedEntity = responsiblePartyAssignedEntity;
     }
 
-    @Hl7XmlMapping({"author"})
-    public AnnotatedBy_1Bean getAuthor() {
-        return this.author;
+
+    /**
+     * <p>G:Adverse Reaction Masking Indicators</p>
+     * 
+     * <p><p>Communicates the desire of the patient to restrict 
+     * access to this Health Condition record. Provides support for 
+     * additional confidentiality constraint, giving patients a 
+     * level of control over their information. Methods for 
+     * accessing masked event records will be governed by each 
+     * jurisdiction (e.g. court orders, shared secret/consent, 
+     * etc.). Can also be used to communicate that the information 
+     * is deemed to be sensitive and should not be communicated or 
+     * exposed to the patient (at least without the guidance of the 
+     * authoring or other responsible healthcare provider). Valid 
+     * values are: 'normal' (denotes 'Not Masked'); 'restricted' 
+     * (denotes 'Masked'); '''very restricted''' (denotes '''Masked 
+     * by Regulation'''); and 'taboo' (denotes 'patient 
+     * restricted'). The default is 'normal' signifying 'Not 
+     * Masked'. Either or both of the other codes can be asserted 
+     * to indicate masking by the patient from providers or masking 
+     * by a provider from the patient, respectively. 'normal' 
+     * should never be asserted with one of the other codes.</p></p>
+     * 
+     * <p><p>Allows the patient to have discrete control over 
+     * access to their adverse reaction data.</p><p>Taboo allows 
+     * the provider to request restricted access to patient or 
+     * their care giver.</p><p>Constraint: Can'''t have both normal 
+     * and one of the other codes simultaneously.</p><p>The 
+     * attribute is required because even if a jurisdiction doesn't 
+     * support masking on the way in, it will need to need to 
+     * communicate masked data returned from other 
+     * jurisdictions.</p></p>
+     * 
+     * <p><p>Allows the patient to have discrete control over 
+     * access to their adverse reaction data.</p><p>Taboo allows 
+     * the provider to request restricted access to patient or 
+     * their care giver.</p><p>Constraint: Can'''t have both normal 
+     * and one of the other codes simultaneously.</p><p>The 
+     * attribute is required because even if a jurisdiction doesn't 
+     * support masking on the way in, it will need to need to 
+     * communicate masked data returned from other 
+     * jurisdictions.</p></p>
+     * 
+     * <p><p>Allows the patient to have discrete control over 
+     * access to their adverse reaction data.</p><p>Taboo allows 
+     * the provider to request restricted access to patient or 
+     * their care giver.</p><p>Constraint: Can'''t have both normal 
+     * and one of the other codes simultaneously.</p><p>The 
+     * attribute is required because even if a jurisdiction doesn't 
+     * support masking on the way in, it will need to need to 
+     * communicate masked data returned from other 
+     * jurisdictions.</p></p>
+     * 
+     * <p><p>Allows the patient to have discrete control over 
+     * access to their adverse reaction data.</p><p>Taboo allows 
+     * the provider to request restricted access to patient or 
+     * their care giver.</p><p>Constraint: Can'''t have both normal 
+     * and one of the other codes simultaneously.</p><p>The 
+     * attribute is required because even if a jurisdiction doesn't 
+     * support masking on the way in, it will need to need to 
+     * communicate masked data returned from other 
+     * jurisdictions.</p></p>
+     */
+    @Hl7XmlMapping({"confidentialityCode"})
+    public Set<x_BasicConfidentialityKind> getAdverseReactionMaskingIndicators() {
+        return this.adverseReactionMaskingIndicators.rawSet(x_BasicConfidentialityKind.class);
     }
-    public void setAuthor(AnnotatedBy_1Bean author) {
-        this.author = author;
+
+
+    /**
+     * <p>G:Description</p>
+     * 
+     * <p><p>A free form description of the reaction.</p></p>
+     * 
+     * <p><p>Allows for flexibility in the recording and reporting 
+     * of the reaction.</p></p>
+     */
+    @Hl7XmlMapping({"text"})
+    public String getDescription() {
+        return this.description.getValue();
     }
+    public void setDescription(String description) {
+        this.description.setValue(description);
+    }
+
+
+    /**
+     * <p>B:Reaction</p>
+     * 
+     * <p><p>Value is mandatory if not using SNOMED</p></p>
+     * 
+     * <p><p>Specifies the kind of reaction, as experienced by the 
+     * patient.</p></p>
+     * 
+     * <p><p>B.1</p></p>
+     * 
+     * <p><p>Ensures consistency in tracking and categorizing the 
+     * reaction type. Helps ensure that only proper allergies are 
+     * categorized as allergy. The attribute is optional because it 
+     * will not be used for SNOMED. The attribute is CWE because 
+     * not all possible types of reactions are expressible by coded 
+     * values.</p></p>
+     */
+    @Hl7XmlMapping({"value"})
+    public SubjectReaction getReaction() {
+        return (SubjectReaction) this.reaction.getValue();
+    }
+    public void setReaction(SubjectReaction reaction) {
+        this.reaction.setValue(reaction);
+    }
+
 
     @Hl7XmlMapping({"informant"})
     public ReportedByBean getInformant() {
@@ -144,18 +245,15 @@ public class ReportedReactionBean extends MessagePartBean implements SHRBean {
         this.informant = informant;
     }
 
-    @Hl7XmlMapping({"location"})
-    public OccurredAtBean getLocation() {
-        return this.location;
+
+    @Hl7XmlMapping({"author"})
+    public RefusedByBean getAuthor() {
+        return this.author;
     }
-    public void setLocation(OccurredAtBean location) {
-        this.location = location;
+    public void setAuthor(RefusedByBean author) {
+        this.author = author;
     }
 
-    @Hl7XmlMapping({"subjectOf1"})
-    public List<HasNotesBean> getSubjectOf1() {
-        return this.subjectOf1;
-    }
 
     @Hl7XmlMapping({"subjectOf2/annotationIndicator"})
     public Boolean getSubjectOf2AnnotationIndicator() {
@@ -165,10 +263,51 @@ public class ReportedReactionBean extends MessagePartBean implements SHRBean {
         this.subjectOf2AnnotationIndicator.setValue(subjectOf2AnnotationIndicator);
     }
 
+
+    /**
+     * <p>F:Reaction Onset Date</p>
+     * 
+     * <p><p>The date on which the reaction occurrence began.</p></p>
+     * 
+     * <p><p>Indicates when evidence of the condition first 
+     * appeared. May also provide information on the duration of 
+     * the reaction.</p></p>
+     */
+    @Hl7XmlMapping({"effectiveTime"})
+    public Interval<Date> getReactionOnsetDate() {
+        return this.reactionOnsetDate.getValue();
+    }
+    public void setReactionOnsetDate(Interval<Date> reactionOnsetDate) {
+        this.reactionOnsetDate.setValue(reactionOnsetDate);
+    }
+
+
+    @Hl7XmlMapping({"subjectOf1"})
+    public List<IncludesBean> getSubjectOf1() {
+        return this.subjectOf1;
+    }
+
+
+    @Hl7XmlMapping({"componentOf/patientCareProvisionEvent"})
+    public List<CareCompositionsBean> getComponentOfPatientCareProvisionEvent() {
+        return this.componentOfPatientCareProvisionEvent;
+    }
+
+
+    @Hl7XmlMapping({"location"})
+    public OccurredAtBean getLocation() {
+        return this.location;
+    }
+    public void setLocation(OccurredAtBean location) {
+        this.location = location;
+    }
+
+
     @Hl7XmlMapping({"subjectOf3/causalityAssessment"})
-    public List<CausalityAssessment_1Bean> getSubjectOf3CausalityAssessment() {
+    public List<ReportedReactionsBean> getSubjectOf3CausalityAssessment() {
         return this.subjectOf3CausalityAssessment;
     }
+
 
     @Hl7XmlMapping({"subjectOf4/severityObservation"})
     public AllergyIntoleranceSeverityLevelBean getSubjectOf4SeverityObservation() {
@@ -176,11 +315,6 @@ public class ReportedReactionBean extends MessagePartBean implements SHRBean {
     }
     public void setSubjectOf4SeverityObservation(AllergyIntoleranceSeverityLevelBean subjectOf4SeverityObservation) {
         this.subjectOf4SeverityObservation = subjectOf4SeverityObservation;
-    }
-
-    @Hl7XmlMapping({"componentOf/patientCareProvisionEvent"})
-    public List<CareCompositionsBean> getComponentOfPatientCareProvisionEvent() {
-        return this.componentOfPatientCareProvisionEvent;
     }
 
 }

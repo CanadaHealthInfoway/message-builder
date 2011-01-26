@@ -29,28 +29,26 @@ import java.util.Set;
 /**
  * <p>Report Section Observation</p>
  * 
- * <p>Any report sections reported at the header or report 
- * level (not specific to a specimen or diagnosis).</p>
+ * <p><p>Any report sections reported at the header or report 
+ * level (not specific to a specimen or diagnosis).</p></p>
  */
 @Hl7PartTypeMapping({"POLB_MT004200CA.ReportLevelObservationEvent"})
 public class ReportSectionObservationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20100603L;
-    private II sectionIdentifier = new IIImpl();
+    private static final long serialVersionUID = 20110126L;
     private CD reportSectionObservationType = new CDImpl();
-    private ST noteType = new STImpl();
+    private II sectionIdentifier = new IIImpl();
     private TS reportSectionObservationDateTime = new TSImpl();
     private SET<CV, Code> resultMaskingIndicator = new SETImpl<CV, Code>(CVImpl.class);
+    private ST noteType = new STImpl();
     private ANY<Object> reportSectionObservationValue = new ANYImpl<Object>();
 
-    @Hl7XmlMapping({"id"})
-    public Identifier getSectionIdentifier() {
-        return this.sectionIdentifier.getValue();
-    }
-    public void setSectionIdentifier(Identifier sectionIdentifier) {
-        this.sectionIdentifier.setValue(sectionIdentifier);
-    }
 
+    /**
+     * <p>Report Section Observation Type</p>
+     * 
+     * <p><p>Specifies the type of report section.</p></p>
+     */
     @Hl7XmlMapping({"code"})
     public Code getReportSectionObservationType() {
         return (Code) this.reportSectionObservationType.getValue();
@@ -59,14 +57,28 @@ public class ReportSectionObservationBean extends MessagePartBean {
         this.reportSectionObservationType.setValue(reportSectionObservationType);
     }
 
-    @Hl7XmlMapping({"text"})
-    public String getNoteType() {
-        return this.noteType.getValue();
+
+    /**
+     * <p>Section Identifier</p>
+     * 
+     * <p><p>Unique identifier for a section of the report at the 
+     * ObservationReport level.</p></p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Identifier getSectionIdentifier() {
+        return this.sectionIdentifier.getValue();
     }
-    public void setNoteType(String noteType) {
-        this.noteType.setValue(noteType);
+    public void setSectionIdentifier(Identifier sectionIdentifier) {
+        this.sectionIdentifier.setValue(sectionIdentifier);
     }
 
+
+    /**
+     * <p>Report Section Observation Date/Time</p>
+     * 
+     * <p><p>The date/time this report section was 
+     * &quot;reported&quot;.</p></p>
+     */
     @Hl7XmlMapping({"effectiveTime"})
     public Date getReportSectionObservationDateTime() {
         return this.reportSectionObservationDateTime.getValue();
@@ -75,11 +87,38 @@ public class ReportSectionObservationBean extends MessagePartBean {
         this.reportSectionObservationDateTime.setValue(reportSectionObservationDateTime);
     }
 
+
+    /**
+     * <p>Result Masking Indicator</p>
+     */
     @Hl7XmlMapping({"confidentialityCode"})
     public Set<x_BasicConfidentialityKind> getResultMaskingIndicator() {
         return this.resultMaskingIndicator.rawSet(x_BasicConfidentialityKind.class);
     }
 
+
+    /**
+     * <p>Note Type</p>
+     * 
+     * <p><p>Type of comment or note.</p></p>
+     */
+    @Hl7XmlMapping({"text"})
+    public String getNoteType() {
+        return this.noteType.getValue();
+    }
+    public void setNoteType(String noteType) {
+        this.noteType.setValue(noteType);
+    }
+
+
+    /**
+     * <p>Report Section Observation Value</p>
+     * 
+     * <p><p>The report section values - usually this is 
+     * text-based. If a coded value applies, values must be 
+     * selected from the SectionHeadingObservationValue Concept 
+     * Domain.</p></p>
+     */
     @Hl7XmlMapping({"value"})
     public Object getReportSectionObservationValue() {
         return this.reportSectionObservationValue.getValue();

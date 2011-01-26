@@ -14,8 +14,8 @@ import ca.infoway.messagebuilder.datatype.impl.TSImpl;
 import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.domainvalue.ActStatus;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.merged.ResultStatusProcessStepBean;
-import ca.infoway.messagebuilder.model.merged.WasPerformedByBean;
+import ca.infoway.messagebuilder.model.lab.merged.ResultStatusProcessStepBean;
+import ca.infoway.messagebuilder.model.lab.merged.WasPerformedByBean;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -25,32 +25,30 @@ import java.util.List;
 /**
  * <p>Specimen Observation Cluster</p>
  * 
- * <p>This act groups all the communicated objects for one or 
- * more isolate(s) including any antibiotic sensitivity tests 
- * all performed on those isolate(s). Typically the isolate 
- * determines the sensitivities to run.</p>
+ * <p><p>This act groups all the communicated objects for one 
+ * or more isolate(s) including any antibiotic sensitivity 
+ * tests all performed on those isolate(s). Typically the 
+ * isolate determines the sensitivities to run.</p></p>
  */
 @Hl7PartTypeMapping({"POLB_MT004100CA.SpecimenObservationCluster"})
 public class SpecimenObservationClusterBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20100603L;
-    private ST clusterComment = new STImpl();
+    private static final long serialVersionUID = 20110126L;
     private CS clusterStatus = new CSImpl();
-    private IVL<TS, Interval<Date>> clusterEffectiveTime = new IVLImpl<TS, Interval<Date>>();
-    private List<WasPerformedByBean> performer = new ArrayList<WasPerformedByBean>();
-    private List<IsolateObservationsBean> component1IsolateObservationEvent = new ArrayList<IsolateObservationsBean>();
-    private HasComponentBean component2;
-    private List<SensitivityBatteryBean> component3SensitivityBattery = new ArrayList<SensitivityBatteryBean>();
     private ResultStatusProcessStepBean subjectOfResultStatusProcessStep;
+    private HasComponentBean component2;
+    private IVL<TS, Interval<Date>> clusterEffectiveTime = new IVLImpl<TS, Interval<Date>>();
+    private List<SensitivityBatteryBean> component3SensitivityBattery = new ArrayList<SensitivityBatteryBean>();
+    private List<WasPerformedByBean> performer = new ArrayList<WasPerformedByBean>();
+    private ST clusterComment = new STImpl();
+    private List<IsolateObservationsBean> component1IsolateObservationEvent = new ArrayList<IsolateObservationsBean>();
 
-    @Hl7XmlMapping({"text"})
-    public String getClusterComment() {
-        return this.clusterComment.getValue();
-    }
-    public void setClusterComment(String clusterComment) {
-        this.clusterComment.setValue(clusterComment);
-    }
 
+    /**
+     * <p>Cluster Status</p>
+     * 
+     * <p><p>Status associated with the isolate cluster.</p></p>
+     */
     @Hl7XmlMapping({"statusCode"})
     public ActStatus getClusterStatus() {
         return (ActStatus) this.clusterStatus.getValue();
@@ -59,23 +57,15 @@ public class SpecimenObservationClusterBean extends MessagePartBean {
         this.clusterStatus.setValue(clusterStatus);
     }
 
-    @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getClusterEffectiveTime() {
-        return this.clusterEffectiveTime.getValue();
+
+    @Hl7XmlMapping({"subjectOf/resultStatusProcessStep"})
+    public ResultStatusProcessStepBean getSubjectOfResultStatusProcessStep() {
+        return this.subjectOfResultStatusProcessStep;
     }
-    public void setClusterEffectiveTime(Interval<Date> clusterEffectiveTime) {
-        this.clusterEffectiveTime.setValue(clusterEffectiveTime);
+    public void setSubjectOfResultStatusProcessStep(ResultStatusProcessStepBean subjectOfResultStatusProcessStep) {
+        this.subjectOfResultStatusProcessStep = subjectOfResultStatusProcessStep;
     }
 
-    @Hl7XmlMapping({"performer"})
-    public List<WasPerformedByBean> getPerformer() {
-        return this.performer;
-    }
-
-    @Hl7XmlMapping({"component1/isolateObservationEvent"})
-    public List<IsolateObservationsBean> getComponent1IsolateObservationEvent() {
-        return this.component1IsolateObservationEvent;
-    }
 
     @Hl7XmlMapping({"component2"})
     public HasComponentBean getComponent2() {
@@ -85,17 +75,51 @@ public class SpecimenObservationClusterBean extends MessagePartBean {
         this.component2 = component2;
     }
 
+
+    /**
+     * <p>Cluster Effective Time</p>
+     * 
+     * <p><p>Effective time associated with the Isolate 
+     * Cluster.</p></p>
+     */
+    @Hl7XmlMapping({"effectiveTime"})
+    public Interval<Date> getClusterEffectiveTime() {
+        return this.clusterEffectiveTime.getValue();
+    }
+    public void setClusterEffectiveTime(Interval<Date> clusterEffectiveTime) {
+        this.clusterEffectiveTime.setValue(clusterEffectiveTime);
+    }
+
+
     @Hl7XmlMapping({"component3/sensitivityBattery"})
     public List<SensitivityBatteryBean> getComponent3SensitivityBattery() {
         return this.component3SensitivityBattery;
     }
 
-    @Hl7XmlMapping({"subjectOf/resultStatusProcessStep"})
-    public ResultStatusProcessStepBean getSubjectOfResultStatusProcessStep() {
-        return this.subjectOfResultStatusProcessStep;
+
+    @Hl7XmlMapping({"performer"})
+    public List<WasPerformedByBean> getPerformer() {
+        return this.performer;
     }
-    public void setSubjectOfResultStatusProcessStep(ResultStatusProcessStepBean subjectOfResultStatusProcessStep) {
-        this.subjectOfResultStatusProcessStep = subjectOfResultStatusProcessStep;
+
+
+    /**
+     * <p>Cluster Comment</p>
+     * 
+     * <p><p>Comments associated with the Isolate Cluster.</p></p>
+     */
+    @Hl7XmlMapping({"text"})
+    public String getClusterComment() {
+        return this.clusterComment.getValue();
+    }
+    public void setClusterComment(String clusterComment) {
+        this.clusterComment.setValue(clusterComment);
+    }
+
+
+    @Hl7XmlMapping({"component1/isolateObservationEvent"})
+    public List<IsolateObservationsBean> getComponent1IsolateObservationEvent() {
+        return this.component1IsolateObservationEvent;
     }
 
 }

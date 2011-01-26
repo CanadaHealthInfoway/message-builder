@@ -13,17 +13,23 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 /**
  * <p>Payee Relationship Role</p>
  * 
- * <p>Indicates whether payee is Person or Organisation</p>
+ * <p><p>Indicates whether payee is Person or Organisation</p></p>
  * 
- * <p>Covered Party/Patient is the scoper of this role, but is 
- * not necessary in this CMET</p>
+ * <p><p>Covered Party/Patient is the scoper of this role, but 
+ * is not necessary in this CMET</p></p>
  */
 @Hl7PartTypeMapping({"COCT_MT110200CA.Role"})
 public class PayeeRelationshipRoleBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20100603L;
+    private static final long serialVersionUID = 20110126L;
     private CS accountPayeePolicyRelationshipRole = new CSImpl();
 
+
+    /**
+     * <p>Account Payee Policy Relationship Role</p>
+     * 
+     * <p><p>Invoice Adjudication Results</p></p>
+     */
     @Hl7XmlMapping({"classCode"})
     public Code getAccountPayeePolicyRelationshipRole() {
         return (Code) this.accountPayeePolicyRelationshipRole.getValue();

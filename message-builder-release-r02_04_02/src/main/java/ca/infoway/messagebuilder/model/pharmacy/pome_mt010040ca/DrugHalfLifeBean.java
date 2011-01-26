@@ -13,18 +13,35 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 /**
  * <p>Drug Half-Life</p>
  * 
- * <p>Specification of the length of time a particular drug 
- * remains in the body (as active)</p>
+ * <p><p>Specification of the length of time a particular drug 
+ * remains in the body (as active)</p></p>
  * 
- * <p>Impacts contraindication checking for drugs no longer 
- * being taken by patients.</p>
+ * <p><p>Impacts contraindication checking for drugs no longer 
+ * being taken by patients.</p></p>
  */
 @Hl7PartTypeMapping({"POME_MT010040CA.HalfLife"})
 public class DrugHalfLifeBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20100603L;
+    private static final long serialVersionUID = 20110126L;
     private PQ halfLifePeriod = new PQImpl();
 
+
+    /**
+     * <p>Half-Life Period</p>
+     * 
+     * <p><p>Different drugs are absorbed and degraded by the body 
+     * at different rates. The half-life indicates the length of 
+     * time necessary for a human body to degrade the drug to half 
+     * its original potency. The actual time-period will vary from 
+     * person to person based on mass, renal function, liver 
+     * function, route of administration and other factors</p></p>
+     * 
+     * <p><p>Depending on the half-life, a drug may remain present 
+     * and active in a patient's system long after they cease 
+     * taking it. Understanding this time period is essential to 
+     * appropriate dosing, and also to identifying when to include 
+     * medications in drug-drug interaction checking.</p></p>
+     */
     @Hl7XmlMapping({"value"})
     public PhysicalQuantity getHalfLifePeriod() {
         return this.halfLifePeriod.getValue();

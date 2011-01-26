@@ -14,14 +14,16 @@ import ca.infoway.messagebuilder.datatype.impl.STImpl;
 import ca.infoway.messagebuilder.domainvalue.ReferralDocumentType;
 import ca.infoway.messagebuilder.domainvalue.x_BasicConfidentialityKind;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.common.coct_mt011001ca.CareCompositionsBean;
-import ca.infoway.messagebuilder.model.common.coct_mt090108ca.HealthcareWorkerBean;
 import ca.infoway.messagebuilder.model.common.coct_mt090508ca.HealthcareOrganizationBean;
 import ca.infoway.messagebuilder.model.common.coct_mt910108ca.RelatedPersonBean;
-import ca.infoway.messagebuilder.model.common.coct_mt911108ca.ActingPersonBean;
-import ca.infoway.messagebuilder.model.merged.HasNotesBean;
-import ca.infoway.messagebuilder.model.merged.OldClinicalDocumentEventBean;
-import ca.infoway.messagebuilder.model.merged.RecipientsBean;
+import ca.infoway.messagebuilder.model.common.coct_mt911108ca.ActingPerson;
+import ca.infoway.messagebuilder.model.common.merged.HealthcareWorkerBean;
+import ca.infoway.messagebuilder.model.common.merged.ServiceLocationBean;
+import ca.infoway.messagebuilder.model.iehr.merged.OldClinicalDocumentEventBean;
+import ca.infoway.messagebuilder.model.iehr.merged.Recipients;
+import ca.infoway.messagebuilder.model.iehr.merged.RequestedByBean;
+import ca.infoway.messagebuilder.model.merged.CareCompositionsBean;
+import ca.infoway.messagebuilder.model.merged.IncludesBean;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -32,44 +34,48 @@ import java.util.Set;
 @Hl7RootType
 public class DocumentBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20100603L;
-    private CV documentCategory = new CVImpl();
-    private ST documentTitle = new STImpl();
-    private SET<CV, Code> documentMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);
-    private ActingPersonBean responsiblePartyActingPerson;
-    private AuthorBean author;
-    private List<RecipientsBean> primaryInformationRecipientRecipients = new ArrayList<RecipientsBean>();
-    private List<OldClinicalDocumentEventBean> predecessorOldClinicalDocumentEvent = new ArrayList<OldClinicalDocumentEventBean>();
+    private static final long serialVersionUID = 20110126L;
     private SectionBean componentStructuredBodyComponentSection;
-    private HasNotesBean subjectOf;
+    private RequestedByBean author;
+    private List<OldClinicalDocumentEventBean> predecessorOldClinicalDocumentEvent = new ArrayList<OldClinicalDocumentEventBean>();
+    private ActingPerson responsiblePartyActingPerson;
+    private CV documentCategory = new CVImpl();
+    private IncludesBean subjectOf;
     private List<CareCompositionsBean> componentOfPatientCareProvisionEvent = new ArrayList<CareCompositionsBean>();
+    private SET<CV, Code> documentMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);
+    private ST documentTitle = new STImpl();
+    private List<Recipients> primaryInformationRecipientRecipients = new ArrayList<Recipients>();
 
-    @Hl7XmlMapping({"code"})
-    public ReferralDocumentType getDocumentCategory() {
-        return (ReferralDocumentType) this.documentCategory.getValue();
-    }
-    public void setDocumentCategory(ReferralDocumentType documentCategory) {
-        this.documentCategory.setValue(documentCategory);
-    }
 
-    @Hl7XmlMapping({"title"})
-    public String getDocumentTitle() {
-        return this.documentTitle.getValue();
+    @Hl7XmlMapping({"component/structuredBody/component/section"})
+    public SectionBean getComponentStructuredBodyComponentSection() {
+        return this.componentStructuredBodyComponentSection;
     }
-    public void setDocumentTitle(String documentTitle) {
-        this.documentTitle.setValue(documentTitle);
+    public void setComponentStructuredBodyComponentSection(SectionBean componentStructuredBodyComponentSection) {
+        this.componentStructuredBodyComponentSection = componentStructuredBodyComponentSection;
     }
 
-    @Hl7XmlMapping({"confidentialityCode"})
-    public Set<x_BasicConfidentialityKind> getDocumentMaskingIndicators() {
-        return this.documentMaskingIndicators.rawSet(x_BasicConfidentialityKind.class);
+
+    @Hl7XmlMapping({"author"})
+    public RequestedByBean getAuthor() {
+        return this.author;
     }
+    public void setAuthor(RequestedByBean author) {
+        this.author = author;
+    }
+
+
+    @Hl7XmlMapping({"predecessor/oldClinicalDocumentEvent"})
+    public List<OldClinicalDocumentEventBean> getPredecessorOldClinicalDocumentEvent() {
+        return this.predecessorOldClinicalDocumentEvent;
+    }
+
 
     @Hl7XmlMapping({"responsibleParty/actingPerson"})
-    public ActingPersonBean getResponsiblePartyActingPerson() {
+    public ActingPerson getResponsiblePartyActingPerson() {
         return this.responsiblePartyActingPerson;
     }
-    public void setResponsiblePartyActingPerson(ActingPersonBean responsiblePartyActingPerson) {
+    public void setResponsiblePartyActingPerson(ActingPerson responsiblePartyActingPerson) {
         this.responsiblePartyActingPerson = responsiblePartyActingPerson;
     }
 
@@ -94,43 +100,58 @@ public class DocumentBean extends MessagePartBean {
         return (this.responsiblePartyActingPerson instanceof RelatedPersonBean);
     }
 
-    @Hl7XmlMapping({"author"})
-    public AuthorBean getAuthor() {
-        return this.author;
+
+    /**
+     * <p>B: Document Category</p>
+     */
+    @Hl7XmlMapping({"code"})
+    public ReferralDocumentType getDocumentCategory() {
+        return (ReferralDocumentType) this.documentCategory.getValue();
     }
-    public void setAuthor(AuthorBean author) {
-        this.author = author;
+    public void setDocumentCategory(ReferralDocumentType documentCategory) {
+        this.documentCategory.setValue(documentCategory);
     }
 
-    @Hl7XmlMapping({"primaryInformationRecipient/recipients"})
-    public List<RecipientsBean> getPrimaryInformationRecipientRecipients() {
-        return this.primaryInformationRecipientRecipients;
-    }
-
-    @Hl7XmlMapping({"predecessor/oldClinicalDocumentEvent"})
-    public List<OldClinicalDocumentEventBean> getPredecessorOldClinicalDocumentEvent() {
-        return this.predecessorOldClinicalDocumentEvent;
-    }
-
-    @Hl7XmlMapping({"component/structuredBody/component/section"})
-    public SectionBean getComponentStructuredBodyComponentSection() {
-        return this.componentStructuredBodyComponentSection;
-    }
-    public void setComponentStructuredBodyComponentSection(SectionBean componentStructuredBodyComponentSection) {
-        this.componentStructuredBodyComponentSection = componentStructuredBodyComponentSection;
-    }
 
     @Hl7XmlMapping({"subjectOf"})
-    public HasNotesBean getSubjectOf() {
+    public IncludesBean getSubjectOf() {
         return this.subjectOf;
     }
-    public void setSubjectOf(HasNotesBean subjectOf) {
+    public void setSubjectOf(IncludesBean subjectOf) {
         this.subjectOf = subjectOf;
     }
+
 
     @Hl7XmlMapping({"componentOf/patientCareProvisionEvent"})
     public List<CareCompositionsBean> getComponentOfPatientCareProvisionEvent() {
         return this.componentOfPatientCareProvisionEvent;
+    }
+
+
+    /**
+     * <p>E: Document Masking Indicators</p>
+     */
+    @Hl7XmlMapping({"confidentialityCode"})
+    public Set<x_BasicConfidentialityKind> getDocumentMaskingIndicators() {
+        return this.documentMaskingIndicators.rawSet(x_BasicConfidentialityKind.class);
+    }
+
+
+    /**
+     * <p>J: Document Title</p>
+     */
+    @Hl7XmlMapping({"title"})
+    public String getDocumentTitle() {
+        return this.documentTitle.getValue();
+    }
+    public void setDocumentTitle(String documentTitle) {
+        this.documentTitle.setValue(documentTitle);
+    }
+
+
+    @Hl7XmlMapping({"primaryInformationRecipient/recipients"})
+    public List<Recipients> getPrimaryInformationRecipientRecipients() {
+        return this.primaryInformationRecipientRecipients;
     }
 
 }

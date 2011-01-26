@@ -3,16 +3,16 @@ package ca.infoway.messagebuilder.model.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.claims.qucr_mt810201ca.AdjudicatedResultsGroupBean;
-import ca.infoway.messagebuilder.model.common.mcci_mt002300ca.HL7MessageBean;
-import ca.infoway.messagebuilder.model.common.quqi_mt120008ca.TriggerEventBean;
-import ca.infoway.messagebuilder.model.merged.ParameterList_3Bean;
+import ca.infoway.messagebuilder.model.claims.merged.AdjudicatedResultsGroupBean;
+import ca.infoway.messagebuilder.model.claims.merged.ParameterList_2Bean;
+import ca.infoway.messagebuilder.model.common.merged.HL7Message_1Bean;
+import ca.infoway.messagebuilder.model.common.merged.TriggerEvent_6Bean;
 
 
 
 @Hl7PartTypeMapping({"QUCR_IN810102CA"})
-public class SOFAPaymentAdviceQueryResponseRxBean extends HL7MessageBean<TriggerEventBean<AdjudicatedResultsGroupBean,ParameterList_3Bean>> implements InteractionBean {
+public class SOFAPaymentAdviceQueryResponseRxBean extends HL7Message_1Bean<TriggerEvent_6Bean<AdjudicatedResultsGroupBean,ParameterList_2Bean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20100603L;
+    private static final long serialVersionUID = 20110126L;
 
 }

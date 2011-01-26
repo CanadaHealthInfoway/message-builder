@@ -13,14 +13,20 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 /**
  * <p>Device playing the Sending Application Role</p>
  * 
- * <p>Device playing the Sending Application Role</p>
+ * <p><p>Device playing the Sending Application Role</p></p>
  */
 @Hl7PartTypeMapping({"QUCR_MT810201CA.AdjudResultsSendingAppRole"})
 public class DevicePlayingTheSendingApplicationRoleBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20100603L;
+    private static final long serialVersionUID = 20110126L;
     private II sendingApplicationIdentifier = new IIImpl();
 
+
+    /**
+     * <p>Sending application identifier</p>
+     * 
+     * <p><p>Sending application identifier</p></p>
+     */
     @Hl7XmlMapping({"playingAdjudResultsSendingAppDevice/id"})
     public Identifier getSendingApplicationIdentifier() {
         return this.sendingApplicationIdentifier.getValue();

@@ -14,18 +14,28 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 /**
  * <p>Condition History Query Parameters</p>
  * 
- * <p>Defines the set of parameters that may be used to filter 
- * the query response</p>
+ * <p><p>Defines the set of parameters that may be used to 
+ * filter the query response</p></p>
  * 
- * <p>Root class for query definition</p>
+ * <p><p>Root class for query definition</p></p>
  */
 @Hl7PartTypeMapping({"REPC_MT000019CA.ParameterList"})
 @Hl7RootType
 public class ConditionHistoryQueryParametersBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20100603L;
+    private static final long serialVersionUID = 20110126L;
     private II allergyIntoleranceIdentifier = new IIImpl();
 
+
+    /**
+     * <p>F:Allergy Intolerance Identifier</p>
+     * 
+     * <p><p>Identifier of the Allergy Intolerance record to be 
+     * retrieved.</p></p>
+     * 
+     * <p><p>Identifies the specific allergy intolerance record to 
+     * retrieve and is therefore mandatory.</p></p>
+     */
     @Hl7XmlMapping({"allergyIntoleranceID/value"})
     public Identifier getAllergyIntoleranceIdentifier() {
         return this.allergyIntoleranceIdentifier.getValue();

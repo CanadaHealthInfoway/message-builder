@@ -23,37 +23,31 @@ import java.util.Date;
 /**
  * <p>Patient Forecast Query Parameters</p>
  * 
- * <p>Defines the set of parameters that may be used to filter 
- * the query response.</p>
+ * <p><p>Defines the set of parameters that may be used to 
+ * filter the query response.</p></p>
  * 
- * <p>Root class for query.</p>
+ * <p><p>Root class for query.</p></p>
  */
 @Hl7PartTypeMapping({"POIZ_MT070010CA.ParameterList"})
 @Hl7RootType
 public class PatientForecastQueryParametersBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20100603L;
-    private CV patientGender = new CVImpl();
-    private II patientIdentifier = new IIImpl();
+    private static final long serialVersionUID = 20110126L;
     private PN patientName = new PNImpl();
+    private II patientIdentifier = new IIImpl();
+    private CV patientGender = new CVImpl();
     private TS patientBirthDate = new TSImpl();
 
-    @Hl7XmlMapping({"patientGender/value"})
-    public AdministrativeGender getPatientGender() {
-        return (AdministrativeGender) this.patientGender.getValue();
-    }
-    public void setPatientGender(AdministrativeGender patientGender) {
-        this.patientGender.setValue(patientGender);
-    }
 
-    @Hl7XmlMapping({"patientID/value"})
-    public Identifier getPatientIdentifier() {
-        return this.patientIdentifier.getValue();
-    }
-    public void setPatientIdentifier(Identifier patientIdentifier) {
-        this.patientIdentifier.setValue(patientIdentifier);
-    }
-
+    /**
+     * <p>Patient Name</p>
+     * 
+     * <p><p>The name of the patient who is the subject of the 
+     * patient forecast query.</p></p>
+     * 
+     * <p><p>This information is used to confirm the patient id. As 
+     * a result, this attribute is required.</p></p>
+     */
     @Hl7XmlMapping({"patientName/value"})
     public PersonName getPatientName() {
         return this.patientName.getValue();
@@ -62,6 +56,54 @@ public class PatientForecastQueryParametersBean extends MessagePartBean {
         this.patientName.setValue(patientName);
     }
 
+
+    /**
+     * <p>Patient Identifier</p>
+     * 
+     * <p><p>Identifier of the patient who is the subject of the 
+     * patient forecast query. Filter the result set to include 
+     * only those records pertaining to the patient with this 
+     * Id.</p></p>
+     * 
+     * <p><p>Allows filtering of result set by patient ID. This is 
+     * the key parameter and must always be present. As a result, 
+     * this attribute is mandatory.</p></p>
+     */
+    @Hl7XmlMapping({"patientID/value"})
+    public Identifier getPatientIdentifier() {
+        return this.patientIdentifier.getValue();
+    }
+    public void setPatientIdentifier(Identifier patientIdentifier) {
+        this.patientIdentifier.setValue(patientIdentifier);
+    }
+
+
+    /**
+     * <p>Patient Gender</p>
+     * 
+     * <p><p>Indicates the gender (sex) of the patient.</p></p>
+     * 
+     * <p><p>Used to confirm the identity of the patient for the 
+     * query. As a result, this attribute is required.</p></p>
+     */
+    @Hl7XmlMapping({"patientGender/value"})
+    public AdministrativeGender getPatientGender() {
+        return (AdministrativeGender) this.patientGender.getValue();
+    }
+    public void setPatientGender(AdministrativeGender patientGender) {
+        this.patientGender.setValue(patientGender);
+    }
+
+
+    /**
+     * <p>Patient Birth Date</p>
+     * 
+     * <p><p>Indicates the date on which the patient was born.</p></p>
+     * 
+     * <p><p>Use to confirm identity of the patient for the query. 
+     * Full dates must be specified. As a result, this attribute is 
+     * required.</p></p>
+     */
     @Hl7XmlMapping({"patientBirthDate/value"})
     public Date getPatientBirthDate() {
         return this.patientBirthDate.getValue();

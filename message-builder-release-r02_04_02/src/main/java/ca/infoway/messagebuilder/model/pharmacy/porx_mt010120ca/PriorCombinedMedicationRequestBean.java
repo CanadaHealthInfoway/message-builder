@@ -14,32 +14,69 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p>Links the current order to a previous order</p>
+ * <p><p>Links the current order to a previous order</p></p>
  * 
- * <p>Links prescriptions into a 'chain', allowing easier 
- * monitoring.</p>
+ * <p><p>Links prescriptions into a 'chain', allowing easier 
+ * monitoring.</p></p>
  */
 @Hl7PartTypeMapping({"PORX_MT010120CA.PriorCombinedMedicationRequest"})
 public class PriorCombinedMedicationRequestBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20100603L;
-    private II previousPrescriptionOrderNumber = new IIImpl();
+    private static final long serialVersionUID = 20110126L;
     private CV prescriptionType = new CVImpl();
+    private II previousPrescriptionOrderNumber = new IIImpl();
 
-    @Hl7XmlMapping({"id"})
-    public Identifier getPreviousPrescriptionOrderNumber() {
-        return this.previousPrescriptionOrderNumber.getValue();
-    }
-    public void setPreviousPrescriptionOrderNumber(Identifier previousPrescriptionOrderNumber) {
-        this.previousPrescriptionOrderNumber.setValue(previousPrescriptionOrderNumber);
-    }
 
+    /**
+     * <p>Prescription type</p>
+     * 
+     * <p><p>It signifies the type of prescription (same as it is 
+     * on the prescription pointed to by the Previous Prescription 
+     * Order Number )</p></p>
+     * 
+     * <p><p>This allows for instant identification of the type of 
+     * prescription being replaced/renewed, etc; and is therefore 
+     * mandatory.</p></p>
+     */
     @Hl7XmlMapping({"code"})
     public Code getPrescriptionType() {
         return (Code) this.prescriptionType.getValue();
     }
     public void setPrescriptionType(Code prescriptionType) {
         this.prescriptionType.setValue(prescriptionType);
+    }
+
+
+    /**
+     * <p>B:Previous Prescription Order Number</p>
+     * 
+     * <p><p>A reference to a previous prescription which the 
+     * current prescription replaces.</p></p>
+     * 
+     * <p><p>Allows a prescription renewal (this prescription) to 
+     * note the previous prescription id that was 
+     * renewed;</p><p>Allows tracking a therapy across multiple 
+     * renewal prescriptions.</p><p>As this is the direct link to 
+     * the previous prescription, it is Mandatory.</p></p>
+     * 
+     * <p><p>Allows a prescription renewal (this prescription) to 
+     * note the previous prescription id that was 
+     * renewed;</p><p>Allows tracking a therapy across multiple 
+     * renewal prescriptions.</p><p>As this is the direct link to 
+     * the previous prescription, it is Mandatory.</p></p>
+     * 
+     * <p><p>Allows a prescription renewal (this prescription) to 
+     * note the previous prescription id that was 
+     * renewed;</p><p>Allows tracking a therapy across multiple 
+     * renewal prescriptions.</p><p>As this is the direct link to 
+     * the previous prescription, it is Mandatory.</p></p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Identifier getPreviousPrescriptionOrderNumber() {
+        return this.previousPrescriptionOrderNumber.getValue();
+    }
+    public void setPreviousPrescriptionOrderNumber(Identifier previousPrescriptionOrderNumber) {
+        this.previousPrescriptionOrderNumber.setValue(previousPrescriptionOrderNumber);
     }
 
 }

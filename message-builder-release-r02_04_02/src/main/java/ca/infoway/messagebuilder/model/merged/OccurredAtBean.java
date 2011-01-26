@@ -12,26 +12,726 @@ import ca.infoway.messagebuilder.datatype.impl.TSImpl;
 import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.domainvalue.x_SubstitutionConditionNoneOrUnconditional;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import ca.infoway.messagebuilder.model.common.merged.ServiceLocationBean;
 import java.util.Date;
 
 
 
-@Hl7PartTypeMapping({"COCT_MT260010CA.Location","COCT_MT260020CA.Location","COCT_MT260030CA.Location","COMT_MT300003CA.Location","POIZ_MT030050CA.Location","POIZ_MT030060CA.Location","POIZ_MT060150CA.Location","PORX_MT010110CA.Location2","PORX_MT010120CA.Location2","PORX_MT010140CA.Location","PORX_MT030040CA.Location","PORX_MT030040CA.Location2","PORX_MT060010CA.Location","PORX_MT060020CA.Location","PORX_MT060040CA.Location","PORX_MT060040CA.Location2","PORX_MT060040CA.Location3","PORX_MT060040CA.Location4","PORX_MT060060CA.Location","PORX_MT060060CA.Location2","PORX_MT060090CA.Location","PORX_MT060100CA.Location","PORX_MT060160CA.Location","PORX_MT060160CA.Location2","PORX_MT060160CA.Location3","PORX_MT060160CA.Location4","PORX_MT060160CA.Location5","PORX_MT060190CA.Location","PORX_MT060190CA.Location2","PORX_MT060190CA.Location3","PORX_MT060190CA.Location4","PORX_MT060210CA.Location2","PORX_MT060340CA.Location","PORX_MT060340CA.Location2","PORX_MT060340CA.Location3","PORX_MT060340CA.Location4","REPC_MT000005CA.Location","REPC_MT000006CA.Location","REPC_MT000009CA.Location","REPC_MT210001CA.Location3","REPC_MT210002CA.Location3","REPC_MT210003CA.Location3","REPC_MT220001CA.Location2","REPC_MT220002CA.Location2","REPC_MT220003CA.Location2","REPC_MT230001CA.Location","REPC_MT230002CA.Location","REPC_MT230003CA.Location","REPC_MT410001CA.Location","REPC_MT410003CA.Location","REPC_MT420001CA.Location","REPC_MT420003CA.Location","REPC_MT500001CA.Location","REPC_MT500002CA.Location","REPC_MT500003CA.Location","REPC_MT500004CA.Location","REPC_MT610001CA.Location","REPC_MT610002CA.Location"})
+/**
+ * <p>COMT_MT300003CA.Location: *c:recorded at</p>
+ * 
+ * <p><p>Indicates the facility/location where the patient note 
+ * was recorded.</p></p>
+ * 
+ * <p><p>Important for performing follow-up and is therefore 
+ * mandatory.</p></p>
+ * 
+ * <p>PORX_MT060060CA.Location2: *c:targeted to pharmacy</p>
+ * 
+ * <p><p>Indicates the pharmacy to which the prescription has 
+ * been directed or which has currently assumed responsibility 
+ * for dispensing the prescription.</p></p>
+ * 
+ * <p><p>Allows prescriptions to be directed on the request of 
+ * the patient or by legal requirement. Also allows indication 
+ * of which pharmacy is the current 'custodian' of the 
+ * prescription.</p><p>This should always be known or should 
+ * have an explicit null flavor of 'NA' (non-assigned) or 'UNK' 
+ * (paper prescription). Thus the association is 
+ * 'populated'.</p></p>
+ * 
+ * <p><p>Allows prescriptions to be directed on the request of 
+ * the patient or by legal requirement. Also allows indication 
+ * of which pharmacy is the current 'custodian' of the 
+ * prescription.</p><p>This should always be known or should 
+ * have an explicit null flavor of 'NA' (non-assigned) or 'UNK' 
+ * (paper prescription). Thus the association is 
+ * 'populated'.</p></p>
+ * 
+ * <p>REPC_MT230001CA.Location: i:occurred at</p>
+ * 
+ * <p><p>This identifies the location where the actual clinical 
+ * event (observation or discharge/care) occurred. E.g. 
+ * Patient's residence, clinic, work site, etc. It only needs 
+ * to be specified when the occurrence location differs from 
+ * the official record location. For referral report, it 
+ * indicates the location where the referred service is to be 
+ * performed.</p></p>
+ * 
+ * <p><p>The site of the actual event provides context for 
+ * interpreting the record. In some cases, it may also provide 
+ * follow-up information</p></p>
+ * 
+ * <p>PORX_MT030040CA.Location2: *c:targeted to pharmacy</p>
+ * 
+ * <p><p>Indicates the pharmacy to which the prescription has 
+ * been directed or which has currently assumed responsibility 
+ * for dispensing the prescription.</p></p>
+ * 
+ * <p><p>Allows prescriptions to be directed on the request of 
+ * the patient or by legal requirement. Also allows indication 
+ * of which pharmacy is the current 'custodian' of the 
+ * prescription.</p><p>This should always be known or should 
+ * have an explicit null flavor of 'NA' (non-assigned) or 'UNK' 
+ * (paper prescription). Thus the association is 
+ * 'populated'.</p></p>
+ * 
+ * <p><p>Allows prescriptions to be directed on the request of 
+ * the patient or by legal requirement. Also allows indication 
+ * of which pharmacy is the current 'custodian' of the 
+ * prescription.</p><p>This should always be known or should 
+ * have an explicit null flavor of 'NA' (non-assigned) or 'UNK' 
+ * (paper prescription). Thus the association is 
+ * 'populated'.</p></p>
+ * 
+ * <p>REPC_MT500003CA.Location: h:occurred at</p>
+ * 
+ * <p><p>Must not be specified when Care Composition Type is 
+ * 'Condition-based'</p></p>
+ * 
+ * <p></p><p>In circumstances where number of locations 
+ * involved is greater than the limit supported by the message, 
+ * multiple encounters should be used.</p></p>
+ * 
+ * <p></p><p>In circumstances where number of locations 
+ * involved is greater than the limit supported by the message, 
+ * multiple encounters should be used.</p></p>
+ * 
+ * <p></p><p>Multiple repetitions are allowed for telehealth 
+ * and other remote encounters.</p></p>
+ * 
+ * <p></p><p>Multiple repetitions are allowed for telehealth 
+ * and other remote encounters.</p></p>
+ * 
+ * <p>REPC_MT230003CA.Location: i:occurred at</p>
+ * 
+ * <p><p>This identifies the location where the actual clinical 
+ * event (observation or discharge/care) occurred. E.g. 
+ * Patient's residence, clinic, work site, etc. It only needs 
+ * to be specified when the occurrence location differs from 
+ * the official record location. For referral report, it 
+ * indicates the location where the referred service is to be 
+ * performed.</p></p>
+ * 
+ * <p><p>The site of the actual event provides context for 
+ * interpreting the record. In some cases, it may also provide 
+ * follow-up information</p></p>
+ * 
+ * <p>REPC_MT220002CA.Location2: i:occurred at</p>
+ * 
+ * <p><p>This identifies the location where the actual 
+ * discharge/care event occurred. E.g. Patient's residence, 
+ * clinic, work site, hospital, etc. It only needs to be 
+ * specified when the occurrence location differs from the 
+ * official record location.</p><p>The site of the actual event 
+ * provides context for interpreting the record. In some cases, 
+ * it may also provide follow-up information</p></p>
+ * 
+ * <p><p>This identifies the location where the actual 
+ * discharge/care event occurred. E.g. Patient's residence, 
+ * clinic, work site, hospital, etc. It only needs to be 
+ * specified when the occurrence location differs from the 
+ * official record location.</p><p>The site of the actual event 
+ * provides context for interpreting the record. In some cases, 
+ * it may also provide follow-up information</p></p>
+ * 
+ * <p><p>The site of the actual event provides context for 
+ * interpreting the record. In some cases, it may also provide 
+ * follow-up information</p></p>
+ * 
+ * <p>PORX_MT060160CA.Location: *d:dispensed from</p>
+ * 
+ * <p><p>Indicates the facility/location where the dispensing 
+ * was performed.</p></p>
+ * 
+ * <p><p>Important for performing follow-up and therefore 
+ * mandatory.</p></p>
+ * 
+ * <p>REPC_MT230002CA.Location: i:occurred at</p>
+ * 
+ * <p><p>This identifies the location where the actual clinical 
+ * event (observation or discharge/care) occurred. E.g. 
+ * Patient's residence, clinic, work site, etc. It only needs 
+ * to be specified when the occurrence location differs from 
+ * the official record location. For referral report, it 
+ * indicates the location where the referred service is to be 
+ * performed.</p></p>
+ * 
+ * <p><p>The site of the actual event provides context for 
+ * interpreting the record. In some cases, it may also provide 
+ * follow-up information</p></p>
+ * 
+ * <p>REPC_MT000005CA.Location: *i:recorded at</p>
+ * 
+ * <p><p>Indicates the service delivery location where the 
+ * allergy was recorded.</p></p>
+ * 
+ * <p><p>Indicates where records are likely kept for follow-up. 
+ * May also be useful in understanding the context in which the 
+ * allergy/intolerance was recorded. The location of entry 
+ * should always be known, and is therefore mandatory.</p></p>
+ * 
+ * <p>REPC_MT210003CA.Location3: v:referred to</p>
+ * 
+ * <p><p>Indicates the service Delivery Location where the 
+ * referral service is targeted to be preformed.</p><p>The 
+ * target site of the referral service provides context for 
+ * interpreting the record. In some cases, it may also provide 
+ * follow-up information</p></p>
+ * 
+ * <p><p>Indicates the service Delivery Location where the 
+ * referral service is targeted to be preformed.</p><p>The 
+ * target site of the referral service provides context for 
+ * interpreting the record. In some cases, it may also provide 
+ * follow-up information</p></p>
+ * 
+ * <p><p>If the referral was targeted to a service delivery 
+ * location then the identity of the location must be 
+ * known.</p></p>
+ * 
+ * <p>PORX_MT010110CA.Location2: *c:targeted to pharmacy</p>
+ * 
+ * <p><p>Indicates the pharmacy to which the prescription has 
+ * been directed or which has currently assumed responsibility 
+ * for dispensing the prescription.</p></p>
+ * 
+ * <p><p>Allows prescriptions to be directed on the request of 
+ * the patient or by legal requirement. Also allows indication 
+ * of which pharmacy is the current 'custodian' of the 
+ * prescription.</p><p>This should always be known or should 
+ * have an explicit null flavor of 'NA' (non-assigned) or 'UNK' 
+ * (paper prescription). Thus the association is 
+ * 'populated'.</p></p>
+ * 
+ * <p><p>Allows prescriptions to be directed on the request of 
+ * the patient or by legal requirement. Also allows indication 
+ * of which pharmacy is the current 'custodian' of the 
+ * prescription.</p><p>This should always be known or should 
+ * have an explicit null flavor of 'NA' (non-assigned) or 'UNK' 
+ * (paper prescription). Thus the association is 
+ * 'populated'.</p></p>
+ * 
+ * <p>REPC_MT000006CA.Location: *i:recorded at</p>
+ * 
+ * <p><p>Indicates the service delivery location where the 
+ * adverse reaction was recorded.</p></p>
+ * 
+ * <p><p>Indicates where records are likely kept for follow-up. 
+ * May also be useful in understanding the context in which the 
+ * adverse reaction was recorded. The location of entry should 
+ * always be known, and is therefore mandatory.</p></p>
+ * 
+ * <p>PORX_MT060100CA.Location: *dispensed from</p>
+ * 
+ * <p><p>Identification of the service delivery location where 
+ * the medication was dispensed.</p></p>
+ * 
+ * <p><p>Used for follow-up communication on the dispensed 
+ * product, and therefore mandatory.</p></p>
+ * 
+ * <p>PORX_MT060160CA.Location5: *c:targeted to pharmacy</p>
+ * 
+ * <p><p>Indicates the pharmacy to which the prescription has 
+ * been directed or which has currently assumed responsibility 
+ * for dispensing the prescription.</p></p>
+ * 
+ * <p><p>Allows prescriptions to be directed on the request of 
+ * the patient or by legal requirement. Also allows indication 
+ * of which pharmacy is the current 'custodian' of the 
+ * prescription.</p><p>This should always be known or should 
+ * have an explicit null flavor of 'NA' (non-assigned) or 'UNK' 
+ * (paper prescription). Thus the association is 
+ * 'populated'.</p></p>
+ * 
+ * <p><p>Allows prescriptions to be directed on the request of 
+ * the patient or by legal requirement. Also allows indication 
+ * of which pharmacy is the current 'custodian' of the 
+ * prescription.</p><p>This should always be known or should 
+ * have an explicit null flavor of 'NA' (non-assigned) or 'UNK' 
+ * (paper prescription). Thus the association is 
+ * 'populated'.</p></p>
+ * 
+ * <p>REPC_MT210002CA.Location3: v:referred to</p>
+ * 
+ * <p><p>Indicates the service Delivery Location where the 
+ * referral service is targeted to be preformed.</p><p>The 
+ * target site of the referral service provides context for 
+ * interpreting the record. In some cases, it may also provide 
+ * follow-up information</p></p>
+ * 
+ * <p><p>Indicates the service Delivery Location where the 
+ * referral service is targeted to be preformed.</p><p>The 
+ * target site of the referral service provides context for 
+ * interpreting the record. In some cases, it may also provide 
+ * follow-up information</p></p>
+ * 
+ * <p><p>If the referral was targeted to a service delivery 
+ * location then the identity of the location must be 
+ * known.</p></p>
+ * 
+ * <p>PORX_MT060160CA.Location4: *refused at</p>
+ * 
+ * <p><p>Identifies the location where the refusal occurred</p></p>
+ * 
+ * <p><p>Allows follow-up and traceability of the 
+ * refusal.</p><p>Association is mandatory as the dispensing 
+ * facility refusing the fill must be known.</p></p>
+ * 
+ * <p><p>Allows follow-up and traceability of the 
+ * refusal.</p><p>Association is mandatory as the dispensing 
+ * facility refusing the fill must be known.</p></p>
+ * 
+ * <p>REPC_MT500002CA.Location: h:occurred at</p>
+ * 
+ * <p><p>Must not be specified when Care Composition Type is 
+ * 'Condition-based'</p></p>
+ * 
+ * <p></p><p>In circumstances where number of locations 
+ * involved is greater than the limit supported by the message, 
+ * multiple encounters should be used.</p></p>
+ * 
+ * <p></p><p>In circumstances where number of locations 
+ * involved is greater than the limit supported by the message, 
+ * multiple encounters should be used.</p></p>
+ * 
+ * <p></p><p>Multiple repetitions are allowed for telehealth 
+ * and other remote encounters.</p></p>
+ * 
+ * <p></p><p>Multiple repetitions are allowed for telehealth 
+ * and other remote encounters.</p></p>
+ * 
+ * <p>PORX_MT060010CA.Location: *d:dispensed from</p>
+ * 
+ * <p><p>Indicates the facility/location where the dispensing 
+ * was performed.</p></p>
+ * 
+ * <p><p>Important for performing follow-up and therefore 
+ * mandatory.</p></p>
+ * 
+ * <p>PORX_MT060160CA.Location3: *prescribed at</p>
+ * 
+ * <p><p>Indicates the clinic or facility which originally 
+ * issued the prescription.</p></p>
+ * 
+ * <p><p>Identifies where paper records are likely located for 
+ * follow-up. This is marked as 'populated' because it won't 
+ * always be known for 'inferred prescriptions.</p></p>
+ * 
+ * <p>REPC_MT500004CA.Location: h:occurred at</p>
+ * 
+ * <p><p>Must not be specified when Care Composition Type is 
+ * 'Condition-based'</p></p>
+ * 
+ * <p></p><p>In circumstances where number of locations 
+ * involved is greater than the limit supported by the message, 
+ * multiple encounters should be used.</p></p>
+ * 
+ * <p></p><p>In circumstances where number of locations 
+ * involved is greater than the limit supported by the message, 
+ * multiple encounters should be used.</p></p>
+ * 
+ * <p></p><p>Multiple repetitions are allowed for telehealth 
+ * and other remote encounters.</p></p>
+ * 
+ * <p></p><p>Multiple repetitions are allowed for telehealth 
+ * and other remote encounters.</p></p>
+ * 
+ * <p>PORX_MT060160CA.Location2: *recorded at</p>
+ * 
+ * <p><p>Indicates the facility/location where the other active 
+ * medication was recorded.</p></p>
+ * 
+ * <p><p>Important for performing follow-up and is therefore 
+ * mandatory.</p></p>
+ * 
+ * <p>COCT_MT260010CA.Location: *b:dispensed at</p>
+ * 
+ * <p><p>Indicates the facility where the dispense event was 
+ * performed</p></p>
+ * 
+ * <p><p>A_DetectedMedicationIssue</p></p>
+ * 
+ * <p><p>Used for contacting the pharmacy or pharmacist 
+ * involved in the dispense.</p><p>The association is marked as 
+ * populated because it may be masked.</p></p>
+ * 
+ * <p><p>Used for contacting the pharmacy or pharmacist 
+ * involved in the dispense.</p><p>The association is marked as 
+ * populated because it may be masked.</p></p>
+ * 
+ * <p>COCT_MT260030CA.Location: *b:dispensed at</p>
+ * 
+ * <p><p>Indicates the facility where the dispense event was 
+ * performed</p></p>
+ * 
+ * <p><p>A_DetectedMedicationIssue</p></p>
+ * 
+ * <p><p>Used for contacting the pharmacy or pharmacist 
+ * involved in the dispense.</p><p>The association is marked as 
+ * populated because it may be masked.</p></p>
+ * 
+ * <p><p>Used for contacting the pharmacy or pharmacist 
+ * involved in the dispense.</p><p>The association is marked as 
+ * populated because it may be masked.</p></p>
+ * 
+ * <p>PORX_MT030040CA.Location: *refused at</p>
+ * 
+ * <p><p>Identifies the location where the refusal occurred</p></p>
+ * 
+ * <p><p>Allows follow-up and traceability of the refusal and 
+ * is therefore mandatory</p></p>
+ * 
+ * <p>REPC_MT220003CA.Location2: i:occurred at</p>
+ * 
+ * <p><p>This identifies the location where the actual 
+ * discharge/care event occurred. E.g. Patient's residence, 
+ * clinic, work site, hospital, etc. It only needs to be 
+ * specified when the occurrence location differs from the 
+ * official record location.</p><p>The site of the actual event 
+ * provides context for interpreting the record. In some cases, 
+ * it may also provide follow-up information</p></p>
+ * 
+ * <p><p>This identifies the location where the actual 
+ * discharge/care event occurred. E.g. Patient's residence, 
+ * clinic, work site, hospital, etc. It only needs to be 
+ * specified when the occurrence location differs from the 
+ * official record location.</p><p>The site of the actual event 
+ * provides context for interpreting the record. In some cases, 
+ * it may also provide follow-up information</p></p>
+ * 
+ * <p><p>The site of the actual event provides context for 
+ * interpreting the record. In some cases, it may also provide 
+ * follow-up information</p></p>
+ * 
+ * <p>PORX_MT010140CA.Location: *to be dispensed at</p>
+ * 
+ * <p><p>Indicates the pharmacy to which the prescription is to 
+ * be assigned.</p></p>
+ * 
+ * <p><p>Allows the prescription to be transferred to another 
+ * pharmacy or back to the DIS. The association is marked as 
+ * 'populated' because a specific null flavor is needed if no 
+ * facility is identified</p></p>
+ * 
+ * <p><p>Use N/A for prescriptions controlled by the DIS and 
+ * Unknown for prescriptions being transferred to paper.</p></p>
+ * 
+ * <p>REPC_MT420001CA.Location: *g:occurred at''</p>
+ * 
+ * <p></p></p>
+ * 
+ * <p></p></p>
+ * 
+ * <p>PORX_MT060190CA.Location2: *recorded at</p>
+ * 
+ * <p><p>Identification of the service delivery location where 
+ * the other active medication was recorded</p></p>
+ * 
+ * <p><p>Used for follow-up communication on the dispensed 
+ * product, and therefore mandatory.</p></p>
+ * 
+ * <p>PORX_MT060190CA.Location4: *prescribed at</p>
+ * 
+ * <p><p>Indicates the clinic or facility which originally 
+ * issued the prescription.</p></p>
+ * 
+ * <p><p>Identifies where paper records are likely located for 
+ * follow-up. This is marked as 'populated' because it won't 
+ * always be known for 'inferred prescriptions.</p></p>
+ * 
+ * <p>PORX_MT060190CA.Location3: *c:targeted to pharmacy</p>
+ * 
+ * <p><p>Indicates the pharmacy to which the prescription has 
+ * been directed or which has currently assumed responsibility 
+ * for dispensing the prescription.</p></p>
+ * 
+ * <p><p>Allows prescriptions to be directed on the request of 
+ * the patient or by legal requirement. Also allows indication 
+ * of which pharmacy is the current 'custodian' of the 
+ * prescription.</p><p>This should always be known or should 
+ * have an explicit null flavor of 'NA' (non-assigned) or 'UNK' 
+ * (paper prescription). Thus the association is 
+ * 'populated'.</p></p>
+ * 
+ * <p><p>Allows prescriptions to be directed on the request of 
+ * the patient or by legal requirement. Also allows indication 
+ * of which pharmacy is the current 'custodian' of the 
+ * prescription.</p><p>This should always be known or should 
+ * have an explicit null flavor of 'NA' (non-assigned) or 'UNK' 
+ * (paper prescription). Thus the association is 
+ * 'populated'.</p></p>
+ * 
+ * <p>REPC_MT420003CA.Location: *g:occurred at''</p>
+ * 
+ * <p></p></p>
+ * 
+ * <p></p></p>
+ * 
+ * <p>REPC_MT610001CA.Location: g:occurred at</p>
+ * 
+ * <p></p></p>
+ * 
+ * <p></p></p>
+ * 
+ * <p>PORX_MT060340CA.Location: *d:dispensed from Service 
+ * Delivery Location</p>
+ * 
+ * <p><p>Indicates the facility/location where the dispensing 
+ * was performed.</p></p>
+ * 
+ * <p><p>Important for performing follow-up and therefore 
+ * mandatory.</p></p>
+ * 
+ * <p>REPC_MT000009CA.Location: *i:recorded at</p>
+ * 
+ * <p><p>Indicates the service delivery location where the 
+ * allergy was recorded.</p></p>
+ * 
+ * <p><p>Indicates where records are likely kept for follow-up. 
+ * May also be useful in understanding the context in which the 
+ * allergy/intolerance was recorded. The location of entry 
+ * should always be known, and is therefore mandatory.</p></p>
+ * 
+ * <p>REPC_MT500001CA.Location: h:occurred at</p>
+ * 
+ * <p><p>Must not be specified when Care Composition Type is 
+ * 'Condition-based'</p></p>
+ * 
+ * <p></p><p>In circumstances where number of locations 
+ * involved is greater than the limit supported by the message, 
+ * multiple encounters should be used.</p></p>
+ * 
+ * <p></p><p>In circumstances where number of locations 
+ * involved is greater than the limit supported by the message, 
+ * multiple encounters should be used.</p></p>
+ * 
+ * <p></p><p>Multiple repetitions are allowed for telehealth 
+ * and other remote encounters.</p></p>
+ * 
+ * <p></p><p>Multiple repetitions are allowed for telehealth 
+ * and other remote encounters.</p></p>
+ * 
+ * <p>POIZ_MT030060CA.Location: (no business name)</p>
+ * 
+ * <p><p>The service delivery location where the immunization 
+ * event occurred.</p></p>
+ * 
+ * <p><p>Needed to communicating where immunization events 
+ * occurred. Service delivery location may not always be known, 
+ * but is expected in most circumstances. As a result, this 
+ * association is populated.</p></p>
+ * 
+ * <p>REPC_MT410001CA.Location: *g:occurred at''</p>
+ * 
+ * <p></p></p>
+ * 
+ * <p></p></p>
+ * 
+ * <p>PORX_MT010120CA.Location2: *c:targeted to pharmacy</p>
+ * 
+ * <p><p>Indicates the pharmacy to which the prescription has 
+ * been directed or which has currently assumed responsibility 
+ * for dispensing the prescription.</p></p>
+ * 
+ * <p><p>Allows prescriptions to be directed on the request of 
+ * the patient or by legal requirement. Also allows indication 
+ * of which pharmacy is the current 'custodian' of the 
+ * prescription.</p><p>This should always be known or should 
+ * have an explicit null flavor of 'NA' (non-assigned) or 'UNK' 
+ * (paper prescription). Thus the association is 
+ * 'populated'.</p></p>
+ * 
+ * <p><p>Allows prescriptions to be directed on the request of 
+ * the patient or by legal requirement. Also allows indication 
+ * of which pharmacy is the current 'custodian' of the 
+ * prescription.</p><p>This should always be known or should 
+ * have an explicit null flavor of 'NA' (non-assigned) or 'UNK' 
+ * (paper prescription). Thus the association is 
+ * 'populated'.</p></p>
+ * 
+ * <p>PORX_MT060020CA.Location: *dispensed from</p>
+ * 
+ * <p><p>Identification of the service delivery location where 
+ * the device was dispensed.</p></p>
+ * 
+ * <p><p>Used for follow-up communication on the dispensed 
+ * product, and therefore mandatory.</p></p>
+ * 
+ * <p>PORX_MT060210CA.Location2: *c:recorded at</p>
+ * 
+ * <p><p>Indicates the facility/location where the other 
+ * medication was recorded.</p></p>
+ * 
+ * <p><p>Important for performing follow-up and is therefore 
+ * mandatory.</p></p>
+ * 
+ * <p>REPC_MT220001CA.Location2: i:occurred at</p>
+ * 
+ * <p><p>This identifies the location where the actual 
+ * discharge/care event occurred. E.g. Patient's residence, 
+ * clinic, work site, hospital, etc. It only needs to be 
+ * specified when the occurrence location differs from the 
+ * official record location.</p><p>The site of the actual event 
+ * provides context for interpreting the record. In some cases, 
+ * it may also provide follow-up information</p></p>
+ * 
+ * <p><p>This identifies the location where the actual 
+ * discharge/care event occurred. E.g. Patient's residence, 
+ * clinic, work site, hospital, etc. It only needs to be 
+ * specified when the occurrence location differs from the 
+ * official record location.</p><p>The site of the actual event 
+ * provides context for interpreting the record. In some cases, 
+ * it may also provide follow-up information</p></p>
+ * 
+ * <p><p>The site of the actual event provides context for 
+ * interpreting the record. In some cases, it may also provide 
+ * follow-up information</p></p>
+ * 
+ * <p>PORX_MT060090CA.Location: *d:dispensed from Service 
+ * Delivery Location</p>
+ * 
+ * <p><p>Indicates the facility/location where the dispensing 
+ * was performed.</p></p>
+ * 
+ * <p><p>Important for performing follow-up and therefore 
+ * mandatory.</p></p>
+ * 
+ * <p>REPC_MT610002CA.Location: g:occurred at</p>
+ * 
+ * <p></p></p>
+ * 
+ * <p></p></p>
+ * 
+ * <p>PORX_MT060040CA.Location2: *refused at</p>
+ * 
+ * <p><p>Identifies the location where the refusal occurred</p></p>
+ * 
+ * <p><p>Allows follow-up and traceability of the refusal and 
+ * is therefore mandatory</p></p>
+ * 
+ * <p>PORX_MT060040CA.Location4: c:targeted to pharmacy</p>
+ * 
+ * <p><p>Indicates the pharmacy to which the prescription has 
+ * been directed or which has currently assumed responsibility 
+ * for dispensing the prescription.</p></p>
+ * 
+ * <p><p>Allows prescriptions to be directed on the request of 
+ * the patient or by legal requirement. Also allows indication 
+ * of which pharmacy is the current 'custodian' of the 
+ * prescription.</p></p>
+ * 
+ * <p>PORX_MT060040CA.Location3: *c:prescribed at</p>
+ * 
+ * <p><p>Indicates the clinic or facility which originally 
+ * issued the prescription.</p></p>
+ * 
+ * <p><p>Identifies where paper records are likely located for 
+ * follow-up. This is marked as 'populated' because it won't 
+ * always be known for 'inferred prescriptions.</p></p>
+ * 
+ * <p>PORX_MT060340CA.Location4: *c:targeted to pharmacy</p>
+ * 
+ * <p><p>Indicates the pharmacy to which the prescription has 
+ * been directed or which has currently assumed responsibility 
+ * for dispensing the prescription.</p></p>
+ * 
+ * <p><p>Allows prescriptions to be directed on the request of 
+ * the patient or by legal requirement. Also allows indication 
+ * of which pharmacy is the current 'custodian' of the 
+ * prescription.</p><p>This should always be known or should 
+ * have an explicit null flavor of 'NA' (non-assigned) or 'UNK' 
+ * (paper prescription). Thus the association is 
+ * 'populated'.</p></p>
+ * 
+ * <p><p>Allows prescriptions to be directed on the request of 
+ * the patient or by legal requirement. Also allows indication 
+ * of which pharmacy is the current 'custodian' of the 
+ * prescription.</p><p>This should always be known or should 
+ * have an explicit null flavor of 'NA' (non-assigned) or 'UNK' 
+ * (paper prescription). Thus the association is 
+ * 'populated'.</p></p>
+ * 
+ * <p>PORX_MT060040CA.Location: *d:dispensed from</p>
+ * 
+ * <p><p>Indicates the facility/location where the dispensing 
+ * was performed.</p></p>
+ * 
+ * <p><p>Important for performing follow-up and therefore 
+ * mandatory.</p></p>
+ * 
+ * <p>PORX_MT060340CA.Location2: *refused at</p>
+ * 
+ * <p><p>Identifies the location where the refusal occurred</p></p>
+ * 
+ * <p><p>Allows follow-up and traceability of the refusal and 
+ * is therefore mandatory</p></p>
+ * 
+ * <p>PORX_MT060340CA.Location3: *prescribed at</p>
+ * 
+ * <p><p>Indicates the clinic or facility which originally 
+ * issued the prescription.</p></p>
+ * 
+ * <p><p>Identifies where paper records are likely located for 
+ * follow-up. This is marked as 'populated' because it won't 
+ * always be known for 'inferred prescriptions.</p></p>
+ */
+@Hl7PartTypeMapping({"COCT_MT011001CA.Location","COCT_MT260010CA.Location","COCT_MT260020CA.Location","COCT_MT260030CA.Location","COMT_MT300003CA.Location","POIZ_MT030050CA.Location","POIZ_MT030060CA.Location","POIZ_MT060150CA.Location","PORX_MT010110CA.Location2","PORX_MT010120CA.Location2","PORX_MT010140CA.Location","PORX_MT030040CA.Location","PORX_MT030040CA.Location2","PORX_MT060010CA.Location","PORX_MT060020CA.Location","PORX_MT060040CA.Location","PORX_MT060040CA.Location2","PORX_MT060040CA.Location3","PORX_MT060040CA.Location4","PORX_MT060060CA.Location","PORX_MT060060CA.Location2","PORX_MT060090CA.Location","PORX_MT060100CA.Location","PORX_MT060160CA.Location","PORX_MT060160CA.Location2","PORX_MT060160CA.Location3","PORX_MT060160CA.Location4","PORX_MT060160CA.Location5","PORX_MT060190CA.Location","PORX_MT060190CA.Location2","PORX_MT060190CA.Location3","PORX_MT060190CA.Location4","PORX_MT060210CA.Location2","PORX_MT060340CA.Location","PORX_MT060340CA.Location2","PORX_MT060340CA.Location3","PORX_MT060340CA.Location4","REPC_MT000005CA.Location","REPC_MT000006CA.Location","REPC_MT000009CA.Location","REPC_MT210001CA.Location3","REPC_MT210002CA.Location3","REPC_MT210003CA.Location3","REPC_MT220001CA.Location2","REPC_MT220002CA.Location2","REPC_MT220003CA.Location2","REPC_MT230001CA.Location","REPC_MT230002CA.Location","REPC_MT230003CA.Location","REPC_MT410001CA.Location","REPC_MT410003CA.Location","REPC_MT420001CA.Location","REPC_MT420003CA.Location","REPC_MT500001CA.Location","REPC_MT500002CA.Location","REPC_MT500003CA.Location","REPC_MT500004CA.Location","REPC_MT610001CA.Location","REPC_MT610002CA.Location"})
 public class OccurredAtBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20100603L;
-    private ServiceDeliveryLocation_2Bean serviceDeliveryLocation;
+    private static final long serialVersionUID = 20110126L;
+    private ServiceLocationBean serviceDeliveryLocation;
     private IVL<TS, Interval<Date>> toBePickedUpWhen = new IVLImpl<TS, Interval<Date>>();
-    private CV dispenseFacilityNotAssignableIndicator = new CVImpl();
+    private CV substitutionConditionCode = new CVImpl();
+
 
     @Hl7XmlMapping({"serviceDeliveryLocation"})
-    public ServiceDeliveryLocation_2Bean getServiceDeliveryLocation() {
+    public ServiceLocationBean getServiceDeliveryLocation() {
         return this.serviceDeliveryLocation;
     }
-    public void setServiceDeliveryLocation(ServiceDeliveryLocation_2Bean serviceDeliveryLocation) {
+    public void setServiceDeliveryLocation(ServiceLocationBean serviceDeliveryLocation) {
         this.serviceDeliveryLocation = serviceDeliveryLocation;
     }
 
+
+    /**
+     * <p>ToBePickedUpWhen</p>
+     * 
+     * <p>To be picked up when</p>
+     * 
+     * <p><p>The date and time on which the dispense is expected to 
+     * be picked up.</p></p>
+     * 
+     * <p><p>Allows a prescriber to indicate to the targeted 
+     * pharmacy, when patient will be expecting to pick up the 
+     * dispensed medication.</p></p>
+     * 
+     * <p>to be picked up when</p>
+     * 
+     * <p><p>The date and time on which the dispense is expected to 
+     * be picked up.</p></p>
+     * 
+     * <p><p>Allows a prescriber to indicate to the targeted 
+     * pharmacy, when patient will be expecting to pick up the 
+     * dispensed device.</p></p>
+     * 
+     * <p>to be picked up when</p>
+     * 
+     * <p><p>The date and time on which the dispense is expected to 
+     * be picked up.</p></p>
+     * 
+     * <p><p>Allows a prescriber to indicate to the targeted 
+     * pharmacy, when patient will be expecting to pick up the 
+     * dispensed medication.</p></p>
+     * 
+     * <p>To be picked up when</p>
+     * 
+     * <p><p>The date and time on which the dispense is expected to 
+     * be picked up.</p></p>
+     * 
+     * <p><p>Allows a prescriber to indicate to the targeted 
+     * pharmacy, when patient will be expecting to pick up the 
+     * dispensed device.</p></p>
+     */
     @Hl7XmlMapping({"time"})
     public Interval<Date> getToBePickedUpWhen() {
         return this.toBePickedUpWhen.getValue();
@@ -40,12 +740,113 @@ public class OccurredAtBean extends MessagePartBean {
         this.toBePickedUpWhen.setValue(toBePickedUpWhen);
     }
 
+
+    /**
+     * <p>Assigned Facility Not Reassignable Indicator</p>
+     * 
+     * <p><p>Indicates whether a dispenser to whom the prescription 
+     * is targeted is a mandated or patient-preferred pharmacy.</p></p>
+     * 
+     * <p><p>Influences whether the prescription may be transferred 
+     * to a service delivery location other than the targeted 
+     * dispenser.</p></p>
+     * 
+     * <p>Dispense Facility Not Assignable Indicator</p>
+     * 
+     * <p><p>Indicates a 'hard' or 'soft' assignment of dispensing 
+     * priviledged to the targetted facility.</p><p>'Hard' 
+     * assignment (mandated facility) indicates that the 
+     * prescription can be dispensed only at that 
+     * facility.</p><p>'Soft' assignment (usually as a patient 
+     * directive) indicates that the prescription may be dispensed 
+     * at facilities other than the targeted facility.</p></p>
+     * 
+     * <p><p>Indicates a 'hard' or 'soft' assignment of dispensing 
+     * priviledged to the targetted facility.</p><p>'Hard' 
+     * assignment (mandated facility) indicates that the 
+     * prescription can be dispensed only at that 
+     * facility.</p><p>'Soft' assignment (usually as a patient 
+     * directive) indicates that the prescription may be dispensed 
+     * at facilities other than the targeted facility.</p></p>
+     * 
+     * <p><p>Indicates a 'hard' or 'soft' assignment of dispensing 
+     * priviledged to the targetted facility.</p><p>'Hard' 
+     * assignment (mandated facility) indicates that the 
+     * prescription can be dispensed only at that 
+     * facility.</p><p>'Soft' assignment (usually as a patient 
+     * directive) indicates that the prescription may be dispensed 
+     * at facilities other than the targeted facility.</p></p>
+     * 
+     * <p><p>Influences whether the prescription may be transferred 
+     * to a service delivery location other than the targeted 
+     * dispenser.</p></p>
+     * 
+     * <p>Dispense Facility Not Assignable Indicator</p>
+     * 
+     * <p><p>Indicates a 'hard' or 'soft' assignment of dispensing 
+     * priviledged to the targeted facility.</p><p>'Hard' 
+     * assignment (mandated facility) indicates that the 
+     * prescription can be dispensed only at that 
+     * facility.</p><p>'Soft' assignment (usually as a patient 
+     * directive) indicates that the prescription may be dispensed 
+     * at facilities other than the targeted facility.</p></p>
+     * 
+     * <p><p>Indicates a 'hard' or 'soft' assignment of dispensing 
+     * priviledged to the targeted facility.</p><p>'Hard' 
+     * assignment (mandated facility) indicates that the 
+     * prescription can be dispensed only at that 
+     * facility.</p><p>'Soft' assignment (usually as a patient 
+     * directive) indicates that the prescription may be dispensed 
+     * at facilities other than the targeted facility.</p></p>
+     * 
+     * <p><p>Indicates a 'hard' or 'soft' assignment of dispensing 
+     * priviledged to the targeted facility.</p><p>'Hard' 
+     * assignment (mandated facility) indicates that the 
+     * prescription can be dispensed only at that 
+     * facility.</p><p>'Soft' assignment (usually as a patient 
+     * directive) indicates that the prescription may be dispensed 
+     * at facilities other than the targeted facility.</p></p>
+     * 
+     * <p><p>Influences whether the prescription may be transferred 
+     * to a service delivery location other than the targeted 
+     * dispenser.</p></p>
+     * 
+     * <p>Dispense Facility Not Reassignable</p>
+     * 
+     * <p><p>Indicates a 'hard' or 'soft' assignment of dispensing 
+     * priviledged to the targetted facility.</p><p>'Hard' 
+     * assignment (mandated facility) indicates that the 
+     * prescription can be dispensed only at that 
+     * facility.</p><p>'Soft' assignment (usually as a patient 
+     * directive) indicates that the prescription may be dispensed 
+     * at facilities other than the targeted facility.</p></p>
+     * 
+     * <p><p>Indicates a 'hard' or 'soft' assignment of dispensing 
+     * priviledged to the targetted facility.</p><p>'Hard' 
+     * assignment (mandated facility) indicates that the 
+     * prescription can be dispensed only at that 
+     * facility.</p><p>'Soft' assignment (usually as a patient 
+     * directive) indicates that the prescription may be dispensed 
+     * at facilities other than the targeted facility.</p></p>
+     * 
+     * <p><p>Indicates a 'hard' or 'soft' assignment of dispensing 
+     * priviledged to the targetted facility.</p><p>'Hard' 
+     * assignment (mandated facility) indicates that the 
+     * prescription can be dispensed only at that 
+     * facility.</p><p>'Soft' assignment (usually as a patient 
+     * directive) indicates that the prescription may be dispensed 
+     * at facilities other than the targeted facility.</p></p>
+     * 
+     * <p><p>Influences whether the prescription may be transferred 
+     * to a service delivery location other than the targeted 
+     * dispenser.</p></p>
+     */
     @Hl7XmlMapping({"substitutionConditionCode"})
-    public x_SubstitutionConditionNoneOrUnconditional getDispenseFacilityNotAssignableIndicator() {
-        return (x_SubstitutionConditionNoneOrUnconditional) this.dispenseFacilityNotAssignableIndicator.getValue();
+    public x_SubstitutionConditionNoneOrUnconditional getSubstitutionConditionCode() {
+        return (x_SubstitutionConditionNoneOrUnconditional) this.substitutionConditionCode.getValue();
     }
-    public void setDispenseFacilityNotAssignableIndicator(x_SubstitutionConditionNoneOrUnconditional dispenseFacilityNotAssignableIndicator) {
-        this.dispenseFacilityNotAssignableIndicator.setValue(dispenseFacilityNotAssignableIndicator);
+    public void setSubstitutionConditionCode(x_SubstitutionConditionNoneOrUnconditional substitutionConditionCode) {
+        this.substitutionConditionCode.setValue(substitutionConditionCode);
     }
 
 }

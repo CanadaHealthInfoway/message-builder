@@ -19,19 +19,15 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"FICR_MT500201CA.ParentOrGuardianRole"})
 public class ParentOrGuardianRoleBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20100603L;
-    private II idOfParent = new IIImpl();
+    private static final long serialVersionUID = 20110126L;
     private CV parentOrGuardianRelationshipToPatient = new CVImpl();
+    private II idOfParent = new IIImpl();
     private PN nameOfParentOrGuardian = new PNImpl();
 
-    @Hl7XmlMapping({"id"})
-    public Identifier getIdOfParent() {
-        return this.idOfParent.getValue();
-    }
-    public void setIdOfParent(Identifier idOfParent) {
-        this.idOfParent.setValue(idOfParent);
-    }
 
+    /**
+     * <p>Parent or Guardian Relationship to patient</p>
+     */
     @Hl7XmlMapping({"code"})
     public PersonalRelationshipRoleType getParentOrGuardianRelationshipToPatient() {
         return (PersonalRelationshipRoleType) this.parentOrGuardianRelationshipToPatient.getValue();
@@ -40,6 +36,22 @@ public class ParentOrGuardianRoleBean extends MessagePartBean {
         this.parentOrGuardianRelationshipToPatient.setValue(parentOrGuardianRelationshipToPatient);
     }
 
+
+    /**
+     * <p>Id of parent</p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Identifier getIdOfParent() {
+        return this.idOfParent.getValue();
+    }
+    public void setIdOfParent(Identifier idOfParent) {
+        this.idOfParent.setValue(idOfParent);
+    }
+
+
+    /**
+     * <p>Name of Parent or Guardian</p>
+     */
     @Hl7XmlMapping({"relationshipHolder/name"})
     public PersonName getNameOfParentOrGuardian() {
         return this.nameOfParentOrGuardian.getValue();
