@@ -439,6 +439,11 @@ class DefinitionToResultConverter {
 				// skip it
 			} else {
 				MessagePart messagePart = simplifiableType.getMessagePart();
+				if (messagePart.getDocumentation() != null) {
+					if(!isEmpty(messagePart.getDocumentation().getAnnotations())) {
+						type.setTypeDocumentation(new TypeDocumentation(messagePart.getDocumentation()));
+					}
+				}
 				if (simplifiableType.isMerged()) {
 					Type mergedType = createMergedType(simplifiableType, type);
 					
@@ -447,11 +452,6 @@ class DefinitionToResultConverter {
 					}
 				} else {
 					type.setCategory(simplifiableType.getCategory());
-					if (messagePart.getDocumentation() != null) {
-						if(!isEmpty(messagePart.getDocumentation().getAnnotations())) {
-							type.setTypeDocumentation(new TypeDocumentation(messagePart.getDocumentation()));
-						}
-					}
 					type.setAbstract(messagePart.isAbstract());
 					result.addType(type);
 				}
@@ -468,11 +468,17 @@ class DefinitionToResultConverter {
 		}
 		Type mergedType = this.types.get(mergedTypeName.getName());
 		mergedType.getMergedTypes().add(type);
+
+		List<Type> typeList = new ArrayList<Type>();
+		Set<NamedType> mergedTypes = mergedType.getMergedTypes();
+		for (NamedType namedType : mergedTypes) {
+			typeList.add((Type) namedType);
+		}
 		
-		// TM - TODO: how to merge business name/documentation? 
-		//            (wasn't being done in pre-refactor merge code)
-		// mergedType.setBusinessName(businessName);
-		// mergedType.setTypeDocumentation(description);
+		// this will re-calculate the merged docs every time a new type is merged in
+		MergedDocumentation mergedDocumentation = new MergedDocumentation(typeList);
+		mergedType.setBusinessName(mergedDocumentation.getBusinessName());
+		mergedType.setTypeDocumentation(new TypeDocumentation(mergedDocumentation));
 		
 		MessagePart messagePart = simplifiableType.getMessagePart();
 		if (messagePart.isAbstract()) {

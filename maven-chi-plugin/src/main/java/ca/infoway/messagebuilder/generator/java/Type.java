@@ -222,7 +222,7 @@ public class Type implements RenderedType, NamedType {
 		return this.languageSpecificName;
 	}
 	/**
-	 * <p>Return the tempoarary name that was assigned during the case 3 simplification 
+	 * <p>Return the temporary name that was assigned during the case 3 simplification 
 	 * process.  
 	 * 
 	 * <p>The presence or absence of a value in this field does not indicate that the 
