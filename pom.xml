@@ -299,9 +299,13 @@
 			        <configuration>
 			          <finalName>message-builder</finalName>
 			          <outputDirectory>target/assembly-directory</outputDirectory>
-    			          <descriptorRefs>
+    			          <!-- descriptorRefs>
 				    <descriptorRef>project</descriptorRef>
-			          </descriptorRefs>
+			          </descriptorRefs -->
+				  <descriptors>
+				    <descriptor>./etc/assembly-descriptor-chi.xml</descriptor>
+				    <descriptor>./etc/assembly-descriptor-dev.xml</descriptor>
+				  </descriptors>
 			        </configuration>
 		      </plugin>
 
