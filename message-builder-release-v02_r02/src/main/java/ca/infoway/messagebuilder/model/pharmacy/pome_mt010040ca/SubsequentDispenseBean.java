@@ -16,9 +16,20 @@ import java.util.Date;
 @Hl7PartTypeMapping({"POME_MT010040CA.SubsequentDispense"})
 public class SubsequentDispenseBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20100614L;
+    private static final long serialVersionUID = 20110127L;
     private IVL<TS, Interval<Date>> refillPeriod = new IVLImpl<TS, Interval<Date>>();
 
+
+    /**
+     * <p>Refill period</p>
+     * 
+     * <p><p>The interval within which subsequent dispensing can be 
+     * made against a prescription, after the first/initial 
+     * fill.</p></p>
+     * 
+     * <p><p>Certain prescribers have time limitations or certain 
+     * drugs must be filled in a finite period of time.</p></p>
+     */
     @Hl7XmlMapping({"effectiveTime"})
     public Interval<Date> getRefillPeriod() {
         return this.refillPeriod.getValue();

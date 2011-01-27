@@ -16,22 +16,53 @@ import java.util.Date;
 /**
  * <p>Drug Validity Period</p>
  * 
- * <p>Defines upper limits for period in which a prescribed 
+ * <p><p>Defines upper limits for period in which a prescribed 
  * drug may be dispensed. Although an attempt will be made to 
  * obtain and define panCanadian validity periods for drug, it 
  * is possible that drug validity periods wii be 
- * jurisdiction-specific</p>
+ * jurisdiction-specific</p></p>
  * 
- * <p>Allows for business rules regarding dispenses against a 
- * prescription. Controlled and monitored drugs have shorter 
- * prescription lifespans that other drugs.</p>
+ * <p><p>Allows for business rules regarding dispenses against 
+ * a prescription. Controlled and monitored drugs have shorter 
+ * prescription lifespans that other drugs.</p></p>
  */
 @Hl7PartTypeMapping({"POME_MT010040CA.InitialDispense"})
 public class DrugValidityPeriodBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20100614L;
+    private static final long serialVersionUID = 20110127L;
     private IVL<TS, Interval<Date>> firstFillPeriod = new IVLImpl<TS, Interval<Date>>();
 
+
+    /**
+     * <p>First Fill Period</p>
+     * 
+     * <p><p>The period within which the prescribed drug has to be 
+     * dispensed for the first time.</p><p>This is usually 
+     * jurisdiction-specific, and for the most part, it is set at 
+     * the drug class level.</p><p>For instance, the first fill 
+     * period of validity for narcotic drugs is 3 days in most 
+     * jurisdiction, where as it is between 18 and 24 months for 
+     * other non-controlled drugs.</p></p>
+     * 
+     * <p><p>The period within which the prescribed drug has to be 
+     * dispensed for the first time.</p><p>This is usually 
+     * jurisdiction-specific, and for the most part, it is set at 
+     * the drug class level.</p><p>For instance, the first fill 
+     * period of validity for narcotic drugs is 3 days in most 
+     * jurisdiction, where as it is between 18 and 24 months for 
+     * other non-controlled drugs.</p></p>
+     * 
+     * <p><p>The period within which the prescribed drug has to be 
+     * dispensed for the first time.</p><p>This is usually 
+     * jurisdiction-specific, and for the most part, it is set at 
+     * the drug class level.</p><p>For instance, the first fill 
+     * period of validity for narcotic drugs is 3 days in most 
+     * jurisdiction, where as it is between 18 and 24 months for 
+     * other non-controlled drugs.</p></p>
+     * 
+     * <p><p>Certain prescribers have time limitations or certain 
+     * drugs must be filled in a finite period of time.</p></p>
+     */
     @Hl7XmlMapping({"effectiveTime"})
     public Interval<Date> getFirstFillPeriod() {
         return this.firstFillPeriod.getValue();

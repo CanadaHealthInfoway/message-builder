@@ -21,35 +21,50 @@ import java.util.Set;
 /**
  * <p>Other IDs Non Healthcare Identifiers</p>
  * 
- * <p>Identifiers used for the focal person by other 
+ * <p><p>Identifiers used for the focal person by other 
  * organizations are sent in the OtherIDs class. The other 
- * organization can be sent in the E_Organization Entity Class</p>
+ * organization can be sent in the E_Organization Entity 
+ * Class</p></p>
  * 
- * <p>Provides the ability to capture additional client 
- * identifiers that are not healthcare specific</p>
+ * <p><p>Provides the ability to capture additional client 
+ * identifiers that are not healthcare specific</p></p>
  */
 @Hl7PartTypeMapping({"PRPA_MT101102CA.OtherIDs"})
 public class OtherIDsNonHealthcareIdentifiersBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20100614L;
+    private static final long serialVersionUID = 20110127L;
+    private ST nonHealthcareOrganizationName = new STImpl();
+    private II nonHealthcareOrganizationIdentifier = new IIImpl();
     private SET<II, Identifier> nonHealthcareIdentification = new SETImpl<II, Identifier>(IIImpl.class);
     private CV nonHealthcareIdentificationCode = new CVImpl();
-    private II nonHealthcareOrganizationIdentifier = new IIImpl();
-    private ST nonHealthcareOrganizationName = new STImpl();
 
-    @Hl7XmlMapping({"id"})
-    public Set<Identifier> getNonHealthcareIdentification() {
-        return this.nonHealthcareIdentification.rawSet();
+
+    /**
+     * <p>NonHealthcare Organization Name</p>
+     * 
+     * <p><p>A name for the non-healthcare organization</p></p>
+     * 
+     * <p><p>Populated attribute supports the identification of the 
+     * organization assigning the identifier to the client</p></p>
+     */
+    @Hl7XmlMapping({"scopingIdOrganization/name"})
+    public String getNonHealthcareOrganizationName() {
+        return this.nonHealthcareOrganizationName.getValue();
+    }
+    public void setNonHealthcareOrganizationName(String nonHealthcareOrganizationName) {
+        this.nonHealthcareOrganizationName.setValue(nonHealthcareOrganizationName);
     }
 
-    @Hl7XmlMapping({"code"})
-    public OtherIDsRoleCode getNonHealthcareIdentificationCode() {
-        return (OtherIDsRoleCode) this.nonHealthcareIdentificationCode.getValue();
-    }
-    public void setNonHealthcareIdentificationCode(OtherIDsRoleCode nonHealthcareIdentificationCode) {
-        this.nonHealthcareIdentificationCode.setValue(nonHealthcareIdentificationCode);
-    }
 
+    /**
+     * <p>NonHealthcare Organization Identifier</p>
+     * 
+     * <p><p>Unique identifier for the organization that assigned 
+     * the non-healthcare identifier for the client.</p></p>
+     * 
+     * <p><p>Mandatory attribute supports the identification of the 
+     * organization assigning the identifier to the client</p></p>
+     */
     @Hl7XmlMapping({"scopingIdOrganization/id"})
     public Identifier getNonHealthcareOrganizationIdentifier() {
         return this.nonHealthcareOrganizationIdentifier.getValue();
@@ -58,12 +73,38 @@ public class OtherIDsNonHealthcareIdentifiersBean extends MessagePartBean {
         this.nonHealthcareOrganizationIdentifier.setValue(nonHealthcareOrganizationIdentifier);
     }
 
-    @Hl7XmlMapping({"scopingIdOrganization/name"})
-    public String getNonHealthcareOrganizationName() {
-        return this.nonHealthcareOrganizationName.getValue();
+
+    /**
+     * <p>NonHealthcare Identification</p>
+     * 
+     * <p><p>Other non-healthcare identifiers for the Client (e.g. 
+     * Drivers License, RCMP, DND, Social Insurance Number)</p></p>
+     * 
+     * <p><p>Populated attribute supports the identification of the 
+     * client</p></p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Set<Identifier> getNonHealthcareIdentification() {
+        return this.nonHealthcareIdentification.rawSet();
     }
-    public void setNonHealthcareOrganizationName(String nonHealthcareOrganizationName) {
-        this.nonHealthcareOrganizationName.setValue(nonHealthcareOrganizationName);
+
+
+    /**
+     * <p>NonHealthcare Identification Code</p>
+     * 
+     * <p><p>A pan Canadian code further specifying the kind of 
+     * Role such as Drivers License, RCMP, DND, Social Insurance 
+     * Number</p></p>
+     * 
+     * <p><p>Populated attribute supports the identification of the 
+     * client</p></p>
+     */
+    @Hl7XmlMapping({"code"})
+    public OtherIDsRoleCode getNonHealthcareIdentificationCode() {
+        return (OtherIDsRoleCode) this.nonHealthcareIdentificationCode.getValue();
+    }
+    public void setNonHealthcareIdentificationCode(OtherIDsRoleCode nonHealthcareIdentificationCode) {
+        this.nonHealthcareIdentificationCode.setValue(nonHealthcareIdentificationCode);
     }
 
 }

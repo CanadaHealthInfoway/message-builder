@@ -3,20 +3,15 @@ package ca.infoway.messagebuilder.model.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.common.mcci_mt002100ca.HL7MessageBean;
-import ca.infoway.messagebuilder.model.common.mfmi_mt700716ca.TriggerEventBean;
-import ca.infoway.messagebuilder.model.merged.IdentifiedPersonBean;
+import ca.infoway.messagebuilder.model.common.merged.HL7Message_1Bean;
+import ca.infoway.messagebuilder.model.common.merged.TriggerEvent_3Bean;
+import ca.infoway.messagebuilder.model.cr.prpa_mt101001ca.IdentifiedClientBean;
 
 
 
-/**
- * <p>This interaction occurs after a new person is added to a 
- * person registry. An informer sends to a tracker a copy of 
- * the new person record.</p>
- */
 @Hl7PartTypeMapping({"PRPA_IN101001CA"})
-public class NewPersonAddedBean extends HL7MessageBean<TriggerEventBean<IdentifiedPersonBean>> implements InteractionBean {
+public class NewPersonAddedBean extends HL7Message_1Bean<TriggerEvent_3Bean<IdentifiedClientBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20100614L;
+    private static final long serialVersionUID = 20110127L;
 
 }

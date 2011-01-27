@@ -3,18 +3,13 @@ package ca.infoway.messagebuilder.model.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.common.mcci_mt002200ca.HL7MessageBean;
+import ca.infoway.messagebuilder.model.common.merged.HL7Message_2Bean;
 
 
 
-/**
- * <p>Returns an indication of the number and priority of 
- * outstanding interactions (if any) on the application's poll 
- * queue.</p>
- */
 @Hl7PartTypeMapping({"MCCI_IN102003CA"})
-public class ReturnPollQueueStatusBean extends HL7MessageBean implements InteractionBean {
+public class ReturnPollQueueStatusBean extends HL7Message_2Bean implements InteractionBean {
 
-    private static final long serialVersionUID = 20100614L;
+    private static final long serialVersionUID = 20110127L;
 
 }

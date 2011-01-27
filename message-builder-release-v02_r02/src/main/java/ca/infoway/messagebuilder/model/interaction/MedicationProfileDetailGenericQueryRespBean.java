@@ -3,22 +3,16 @@ package ca.infoway.messagebuilder.model.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.common.mcci_mt002300ca.HL7MessageBean;
-import ca.infoway.messagebuilder.model.common.quqi_mt120006ca.TriggerEventBean;
-import ca.infoway.messagebuilder.model.pharmacy.porx_mt060160ca.MedicationRecordBean;
-import ca.infoway.messagebuilder.model.pharmacy.porx_mt060180ca.MedicationProfileGenericQueryParametersBean;
+import ca.infoway.messagebuilder.model.common.merged.HL7Message_1Bean;
+import ca.infoway.messagebuilder.model.common.merged.TriggerEvent_5Bean;
+import ca.infoway.messagebuilder.model.pharmacy.merged.GenericQueryParametersBean;
+import ca.infoway.messagebuilder.model.pharmacy.merged.MedicationRecord;
 
 
 
-/**
- * <p>Returns detailed information about a patient's 
- * prescriptions, dispenses and other medications for a 
- * specific patient filtered by a variety of criteria, 
- * including id, drug, indication, date, etc.</p>
- */
 @Hl7PartTypeMapping({"PORX_IN060360CA"})
-public class MedicationProfileDetailGenericQueryRespBean extends HL7MessageBean<TriggerEventBean<MedicationRecordBean,MedicationProfileGenericQueryParametersBean>> implements InteractionBean {
+public class MedicationProfileDetailGenericQueryRespBean extends HL7Message_1Bean<TriggerEvent_5Bean<MedicationRecord,GenericQueryParametersBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20100614L;
+    private static final long serialVersionUID = 20110127L;
 
 }

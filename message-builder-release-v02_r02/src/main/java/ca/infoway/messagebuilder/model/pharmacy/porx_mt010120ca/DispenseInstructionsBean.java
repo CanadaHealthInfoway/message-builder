@@ -9,9 +9,9 @@ import ca.infoway.messagebuilder.datatype.impl.IVLImpl;
 import ca.infoway.messagebuilder.datatype.impl.TSImpl;
 import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import ca.infoway.messagebuilder.model.common.merged.RelatedPersonBean;
+import ca.infoway.messagebuilder.model.merged.CreatedAtBean;
 import ca.infoway.messagebuilder.model.merged.DispenseShipToLocationBean;
-import ca.infoway.messagebuilder.model.merged.RelatedPersonBean;
-import ca.infoway.messagebuilder.model.merged.TargetedToPharmacyBean;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -21,24 +21,71 @@ import java.util.List;
 /**
  * <p>Dispense Instructions</p>
  * 
- * <p>Specification of how the prescribed medication is to be 
- * dispensed to the patient. Dispensed instruction information 
- * includes the quantity to be dispensed, how often the 
- * quantity is to be dispensed, etc.</p>
+ * <p><p>Specification of how the prescribed medication is to 
+ * be dispensed to the patient. Dispensed instruction 
+ * information includes the quantity to be dispensed, how often 
+ * the quantity is to be dispensed, etc.</p></p>
  * 
- * <p>Sets the parameters within which the dispenser must 
- * operate in dispensing the medication to the patient.</p>
+ * <p><p>Sets the parameters within which the dispenser must 
+ * operate in dispensing the medication to the patient.</p></p>
  */
 @Hl7PartTypeMapping({"PORX_MT010120CA.SupplyRequest"})
 public class DispenseInstructionsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20100614L;
-    private IVL<TS, Interval<Date>> dispensingAllowedPeriod = new IVLImpl<TS, Interval<Date>>();
-    private List<RelatedPersonBean> receiverPersonalRelationship = new ArrayList<RelatedPersonBean>();
-    private TargetedToPharmacyBean location;
-    private List<ComponentBean> component = new ArrayList<ComponentBean>();
+    private static final long serialVersionUID = 20110127L;
     private DispenseShipToLocationBean destinationServiceDeliveryLocation;
+    private IVL<TS, Interval<Date>> dispensingAllowedPeriod = new IVLImpl<TS, Interval<Date>>();
+    private List<DrugDispenseInstructionsBean> componentSupplyRequestItem = new ArrayList<DrugDispenseInstructionsBean>();
+    private CreatedAtBean location;
+    private List<RelatedPersonBean> receiverPersonalRelationship = new ArrayList<RelatedPersonBean>();
 
+
+    @Hl7XmlMapping({"destination/serviceDeliveryLocation"})
+    public DispenseShipToLocationBean getDestinationServiceDeliveryLocation() {
+        return this.destinationServiceDeliveryLocation;
+    }
+    public void setDestinationServiceDeliveryLocation(DispenseShipToLocationBean destinationServiceDeliveryLocation) {
+        this.destinationServiceDeliveryLocation = destinationServiceDeliveryLocation;
+    }
+
+
+    /**
+     * <p>A:Dispensing Allowed Period</p>
+     * 
+     * <p><p>This indicates the validity period of a prescription 
+     * (stale dating the Prescription).</p><p>It reflects the 
+     * prescriber perspective for the validity of the prescription. 
+     * Dispenses must not be made against the prescription outside 
+     * of this period. The lower-bound of the Prescription 
+     * Effective Period signifies the earliest date that the 
+     * prescription can be filled for the first time. If an 
+     * upper-bound is not specified then the Prescription is 
+     * open-ended or will default to a stale-date based on 
+     * regulations.</p></p>
+     * 
+     * <p><p>This indicates the validity period of a prescription 
+     * (stale dating the Prescription).</p><p>It reflects the 
+     * prescriber perspective for the validity of the prescription. 
+     * Dispenses must not be made against the prescription outside 
+     * of this period. The lower-bound of the Prescription 
+     * Effective Period signifies the earliest date that the 
+     * prescription can be filled for the first time. If an 
+     * upper-bound is not specified then the Prescription is 
+     * open-ended or will default to a stale-date based on 
+     * regulations.</p></p>
+     * 
+     * <p><p>Indicates when the Prescription becomes valid, and 
+     * when it ceases to be a dispensable Prescription.</p><p>Some 
+     * jurisdictions place a 'stale date' on prescriptions that 
+     * cause them to become invalid a certain amount of time after 
+     * they are written. This time may vary by medication.</p></p>
+     * 
+     * <p><p>Indicates when the Prescription becomes valid, and 
+     * when it ceases to be a dispensable Prescription.</p><p>Some 
+     * jurisdictions place a 'stale date' on prescriptions that 
+     * cause them to become invalid a certain amount of time after 
+     * they are written. This time may vary by medication.</p></p>
+     */
     @Hl7XmlMapping({"effectiveTime"})
     public Interval<Date> getDispensingAllowedPeriod() {
         return this.dispensingAllowedPeriod.getValue();
@@ -47,30 +94,25 @@ public class DispenseInstructionsBean extends MessagePartBean {
         this.dispensingAllowedPeriod.setValue(dispensingAllowedPeriod);
     }
 
-    @Hl7XmlMapping({"receiver/personalRelationship"})
-    public List<RelatedPersonBean> getReceiverPersonalRelationship() {
-        return this.receiverPersonalRelationship;
+
+    @Hl7XmlMapping({"component/supplyRequestItem"})
+    public List<DrugDispenseInstructionsBean> getComponentSupplyRequestItem() {
+        return this.componentSupplyRequestItem;
     }
 
+
     @Hl7XmlMapping({"location"})
-    public TargetedToPharmacyBean getLocation() {
+    public CreatedAtBean getLocation() {
         return this.location;
     }
-    public void setLocation(TargetedToPharmacyBean location) {
+    public void setLocation(CreatedAtBean location) {
         this.location = location;
     }
 
-    @Hl7XmlMapping({"component"})
-    public List<ComponentBean> getComponent() {
-        return this.component;
-    }
 
-    @Hl7XmlMapping({"destination/serviceDeliveryLocation"})
-    public DispenseShipToLocationBean getDestinationServiceDeliveryLocation() {
-        return this.destinationServiceDeliveryLocation;
-    }
-    public void setDestinationServiceDeliveryLocation(DispenseShipToLocationBean destinationServiceDeliveryLocation) {
-        this.destinationServiceDeliveryLocation = destinationServiceDeliveryLocation;
+    @Hl7XmlMapping({"receiver/personalRelationship"})
+    public List<RelatedPersonBean> getReceiverPersonalRelationship() {
+        return this.receiverPersonalRelationship;
     }
 
 }

@@ -3,21 +3,16 @@ package ca.infoway.messagebuilder.model.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.common.mcci_mt002300ca.HL7MessageBean;
+import ca.infoway.messagebuilder.model.common.merged.HL7Message_1Bean;
 import ca.infoway.messagebuilder.model.common.mfmi_mt700746ca.TriggerEventBean;
 import ca.infoway.messagebuilder.model.pr.prpm_mt306010ca.ParameterListBean;
-import ca.infoway.messagebuilder.model.pr.prpm_mt306011ca.RoleChoiceBean;
+import ca.infoway.messagebuilder.model.pr.prpm_mt306011ca.RoleChoice;
 
 
 
-/**
- * <p>This interaction is used to respond to an Provider 
- * Details Query interaction and will contain the requested 
- * records from the provider registry system.</p>
- */
 @Hl7PartTypeMapping({"PRPM_IN306011CA"})
-public class ProviderDetailsQueryResponseBean extends HL7MessageBean<TriggerEventBean<ParameterListBean,RoleChoiceBean>> implements InteractionBean {
+public class ProviderDetailsQueryResponseBean extends HL7Message_1Bean<TriggerEventBean<ParameterListBean,RoleChoice>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20100614L;
+    private static final long serialVersionUID = 20110127L;
 
 }

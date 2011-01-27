@@ -3,20 +3,15 @@ package ca.infoway.messagebuilder.model.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.common.mcci_mt002100ca.HL7MessageBean;
-import ca.infoway.messagebuilder.model.common.quqi_mt020000ca.TriggerEventBean;
-import ca.infoway.messagebuilder.model.pharmacy.porx_mt060240ca.UnfilledPrescriptionQueryParametersBean;
+import ca.infoway.messagebuilder.model.common.merged.HL7Message_1Bean;
+import ca.infoway.messagebuilder.model.common.merged.TriggerEvent_4Bean;
+import ca.infoway.messagebuilder.model.pharmacy.merged.UnfilledPrescriptionQueryParametersBean;
 
 
 
-/**
- * <p>Requests retrieval of basic information about all 
- * prescriptions provided to a single patient which have not 
- * yet been dispensed, optionally filtered by date and status.</p>
- */
 @Hl7PartTypeMapping({"PORX_IN060490CA"})
-public class UnfilledPrescriptionsQueryBean extends HL7MessageBean<TriggerEventBean<UnfilledPrescriptionQueryParametersBean>> implements InteractionBean {
+public class UnfilledPrescriptionsQueryBean extends HL7Message_1Bean<TriggerEvent_4Bean<UnfilledPrescriptionQueryParametersBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20100614L;
+    private static final long serialVersionUID = 20110127L;
 
 }

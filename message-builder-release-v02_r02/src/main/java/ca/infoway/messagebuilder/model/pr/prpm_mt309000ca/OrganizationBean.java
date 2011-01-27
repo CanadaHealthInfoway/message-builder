@@ -10,17 +10,19 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 /**
  * <p>Organization</p>
  * 
- * <p>The scoping organization for the specified role class</p>
+ * <p><p>The scoping organization for the specified role 
+ * class</p></p>
  * 
- * <p>Supports the requirement to supply additional information 
- * regarding the assigning Organization of the specified 
- * RoleClass</p>
+ * <p><p>Supports the requirement to supply additional 
+ * information regarding the assigning Organization of the 
+ * specified RoleClass</p></p>
  */
 @Hl7PartTypeMapping({"PRPM_MT309000CA.Organization"})
 public class OrganizationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20100614L;
+    private static final long serialVersionUID = 20110127L;
     private TerritorialAuthorityBean territorialAuthority;
+
 
     @Hl7XmlMapping({"territorialAuthority"})
     public TerritorialAuthorityBean getTerritorialAuthority() {
