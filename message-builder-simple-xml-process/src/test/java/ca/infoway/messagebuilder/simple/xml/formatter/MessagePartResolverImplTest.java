@@ -6,7 +6,7 @@ import static org.junit.Assert.assertNotNull;
 import org.junit.Test;
 
 import ca.infoway.messagebuilder.SpecificationVersion;
-import ca.infoway.messagebuilder.model.merged.SenderBean;
+import ca.infoway.messagebuilder.model.common.merged.SenderBean;
 
 public class MessagePartResolverImplTest {
 	

@@ -13,8 +13,8 @@ import org.junit.runner.RunWith;
 import ca.infoway.messagebuilder.datatype.ANY;
 import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
+import ca.infoway.messagebuilder.model.common.merged.SenderBean;
 import ca.infoway.messagebuilder.model.interaction.FindCandidatesQueryBean;
-import ca.infoway.messagebuilder.model.merged.SenderBean;
 import ca.infoway.messagebuilder.simple.xml.SimpleXmlParseContext;
 import ca.infoway.messagebuilder.simple.xml.SimpleXmlParser;
 

@@ -30,7 +30,7 @@ import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.TelecommunicationAddress;
 import ca.infoway.messagebuilder.domainvalue.AcknowledgementDetailCode;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.merged.ErrorsOrWarningsBean;
+import ca.infoway.messagebuilder.model.common.merged.ErrorsOrWarningsBean;
 import ca.infoway.messagebuilder.schema.XmlSchemas;
 import ca.infoway.messagebuilder.simple.xml.SimpleXmlFormatter;
 import ca.infoway.messagebuilder.util.xml.DocumentFactory;
