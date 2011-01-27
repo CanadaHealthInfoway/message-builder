@@ -47,12 +47,6 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
-			<groupId>ca.infoway.messagebuilder</groupId>
-			<artifactId>message-builder-release-v02_r02</artifactId>
-			<version>${project.version}</version>
-			<scope>test</scope>
-		</dependency>		
-		<dependency>
 		    <groupId>com.google.collections</groupId>
 		    <artifactId>google-collections</artifactId>
 		</dependency>
