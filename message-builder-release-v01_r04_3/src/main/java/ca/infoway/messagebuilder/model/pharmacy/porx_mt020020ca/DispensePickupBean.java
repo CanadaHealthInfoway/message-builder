@@ -9,43 +9,28 @@ import ca.infoway.messagebuilder.datatype.impl.IIImpl;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.common.coct_mt040205ca.ResponsiblePersonBean;
-import ca.infoway.messagebuilder.model.merged.Patient_1Bean;
+import ca.infoway.messagebuilder.model.common.merged.PatientBean;
 
 
 
-/**
- * <p>Dispense Pickup</p>
- * 
- * <p>Captures information about what prescription was picked 
- * up and who received it.</p>
- * 
- * <p>The root class for the message. The time of pickup is 
- * specified on the ControlAct wrapper.</p>
- */
 @Hl7PartTypeMapping({"PORX_MT020020CA.SupplyEvent"})
 @Hl7RootType
 public class DispensePickupBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20100614L;
-    private II dispenseId = new IIImpl();
-    private Patient_1Bean subjectPatient;
+    private static final long serialVersionUID = 20110127L;
+    private PatientBean subjectPatient;
     private ResponsiblePersonBean receiverResponsibleParty;
+    private II dispenseId = new IIImpl();
 
-    @Hl7XmlMapping({"id"})
-    public Identifier getDispenseId() {
-        return this.dispenseId.getValue();
-    }
-    public void setDispenseId(Identifier dispenseId) {
-        this.dispenseId.setValue(dispenseId);
-    }
 
     @Hl7XmlMapping({"subject/patient"})
-    public Patient_1Bean getSubjectPatient() {
+    public PatientBean getSubjectPatient() {
         return this.subjectPatient;
     }
-    public void setSubjectPatient(Patient_1Bean subjectPatient) {
+    public void setSubjectPatient(PatientBean subjectPatient) {
         this.subjectPatient = subjectPatient;
     }
+
 
     @Hl7XmlMapping({"receiver/responsibleParty"})
     public ResponsiblePersonBean getReceiverResponsibleParty() {
@@ -53,6 +38,18 @@ public class DispensePickupBean extends MessagePartBean {
     }
     public void setReceiverResponsibleParty(ResponsiblePersonBean receiverResponsibleParty) {
         this.receiverResponsibleParty = receiverResponsibleParty;
+    }
+
+
+    /**
+     * <p>Dispense Id</p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Identifier getDispenseId() {
+        return this.dispenseId.getValue();
+    }
+    public void setDispenseId(Identifier dispenseId) {
+        this.dispenseId.setValue(dispenseId);
     }
 
 }

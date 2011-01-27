@@ -3,20 +3,16 @@ package ca.infoway.messagebuilder.model.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.common.mcci_mt000300ca.HL7MessageBean;
+import ca.infoway.messagebuilder.model.common.merged.HL7Message_1Bean;
 import ca.infoway.messagebuilder.model.common.quqi_mt120000ca.TriggerEventBean;
-import ca.infoway.messagebuilder.model.pharmacy.porx_mt060010ca.DispenseBean;
-import ca.infoway.messagebuilder.model.pharmacy.porx_mt060360ca.GenericQueryParametersBean;
+import ca.infoway.messagebuilder.model.merged.GenericQueryParametersBean;
+import ca.infoway.messagebuilder.model.pharmacy.merged.DeviceDispense_1Bean;
 
 
 
-/**
- * <p>Returns detailed information about a single identified 
- * device dispense event.</p>
- */
 @Hl7PartTypeMapping({"PORX_IN060060CA"})
-public class DevicePrescriptionDispenseDetailQueryResponseBean extends HL7MessageBean<TriggerEventBean<DispenseBean,GenericQueryParametersBean>> implements InteractionBean {
+public class DevicePrescriptionDispenseDetailQueryResponseBean extends HL7Message_1Bean<TriggerEventBean<DeviceDispense_1Bean,GenericQueryParametersBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20100614L;
+    private static final long serialVersionUID = 20110127L;
 
 }

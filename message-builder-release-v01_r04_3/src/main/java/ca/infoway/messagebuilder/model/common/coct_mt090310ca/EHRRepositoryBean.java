@@ -13,31 +13,31 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 
-/**
- * <p>EHR Repository</p>
- * 
- * <p>Identification of the EHR infostructure responsible for 
- * the storage and management of the record</p>
- * 
- * <p>Provides context about the record and its management.</p>
- */
 @Hl7PartTypeMapping({"COCT_MT090310CA.AssignedDevice"})
 @Hl7RootType
 public class EHRRepositoryBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20100614L;
-    private ST repositoryJurisdictionName = new STImpl();
-    private ST repositoryName = new STImpl();
+    private static final long serialVersionUID = 20110127L;
     private TEL repositoryURL = new TELImpl();
+    private ST repositoryName = new STImpl();
+    private ST repositoryJurisdictionName = new STImpl();
 
-    @Hl7XmlMapping({"representedRepositoryJurisdiction/name"})
-    public String getRepositoryJurisdictionName() {
-        return this.repositoryJurisdictionName.getValue();
+
+    /**
+     * <p>Repository URL</p>
+     */
+    @Hl7XmlMapping({"assignedRepositoryLocation/telecom"})
+    public TelecommunicationAddress getRepositoryURL() {
+        return this.repositoryURL.getValue();
     }
-    public void setRepositoryJurisdictionName(String repositoryJurisdictionName) {
-        this.repositoryJurisdictionName.setValue(repositoryJurisdictionName);
+    public void setRepositoryURL(TelecommunicationAddress repositoryURL) {
+        this.repositoryURL.setValue(repositoryURL);
     }
 
+
+    /**
+     * <p>Repository Name</p>
+     */
     @Hl7XmlMapping({"assignedRepositoryLocation/name"})
     public String getRepositoryName() {
         return this.repositoryName.getValue();
@@ -46,12 +46,16 @@ public class EHRRepositoryBean extends MessagePartBean {
         this.repositoryName.setValue(repositoryName);
     }
 
-    @Hl7XmlMapping({"assignedRepositoryLocation/telecom"})
-    public TelecommunicationAddress getRepositoryURL() {
-        return this.repositoryURL.getValue();
+
+    /**
+     * <p>Repository Jurisdiction Name</p>
+     */
+    @Hl7XmlMapping({"representedRepositoryJurisdiction/name"})
+    public String getRepositoryJurisdictionName() {
+        return this.repositoryJurisdictionName.getValue();
     }
-    public void setRepositoryURL(TelecommunicationAddress repositoryURL) {
-        this.repositoryURL.setValue(repositoryURL);
+    public void setRepositoryJurisdictionName(String repositoryJurisdictionName) {
+        this.repositoryJurisdictionName.setValue(repositoryJurisdictionName);
     }
 
 }

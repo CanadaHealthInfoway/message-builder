@@ -8,41 +8,39 @@ import ca.infoway.messagebuilder.datatype.II;
 import ca.infoway.messagebuilder.datatype.impl.IIImpl;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.merged.ReferencedRecordBean;
 
 
 
-/**
- * <p>Prescription Dispense Response</p>
- * 
- * <p>Represents the information returned when a dispense has 
- * been accepted</p>
- * 
- * <p>Allows communication of the identifiers assigned to the 
- * dispense and the prescription by the DIS.</p>
- */
 @Hl7PartTypeMapping({"PORX_MT020030CA.SupplyEvent"})
 @Hl7RootType
 public class PrescriptionDispenseResponseBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20100614L;
+    private static final long serialVersionUID = 20110127L;
+    private II prescriptionOrderNumber = new IIImpl();
     private II dispenseIdentifier = new IIImpl();
-    private ReferencedRecordBean inFulfillmentOfActRequest;
 
+
+    /**
+     * <p>A:Prescription Order Number</p>
+     */
+    @Hl7XmlMapping({"inFulfillmentOf/actRequest/id"})
+    public Identifier getPrescriptionOrderNumber() {
+        return this.prescriptionOrderNumber.getValue();
+    }
+    public void setPrescriptionOrderNumber(Identifier prescriptionOrderNumber) {
+        this.prescriptionOrderNumber.setValue(prescriptionOrderNumber);
+    }
+
+
+    /**
+     * <p>Dispense Identifier</p>
+     */
     @Hl7XmlMapping({"id"})
     public Identifier getDispenseIdentifier() {
         return this.dispenseIdentifier.getValue();
     }
     public void setDispenseIdentifier(Identifier dispenseIdentifier) {
         this.dispenseIdentifier.setValue(dispenseIdentifier);
-    }
-
-    @Hl7XmlMapping({"inFulfillmentOf/actRequest"})
-    public ReferencedRecordBean getInFulfillmentOfActRequest() {
-        return this.inFulfillmentOfActRequest;
-    }
-    public void setInFulfillmentOfActRequest(ReferencedRecordBean inFulfillmentOfActRequest) {
-        this.inFulfillmentOfActRequest = inFulfillmentOfActRequest;
     }
 
 }

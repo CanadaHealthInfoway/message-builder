@@ -9,43 +9,22 @@ import ca.infoway.messagebuilder.datatype.impl.CVImpl;
 import ca.infoway.messagebuilder.datatype.impl.STImpl;
 import ca.infoway.messagebuilder.domainvalue.ActMonitoringProtocolCode;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.merged.AssignedEntityBean;
+import ca.infoway.messagebuilder.model.pharmacy.merged.AssignedEntity3Bean;
 
 
 
-/**
- * <p>Monitoring Programs</p>
- * 
- * <p>A system of additional business rules, documentation or 
- * reporting associated with a particular drug or group of 
- * drugs. These are typically instituted to detect potential 
- * abuse, or to monitor prescribing and/or dispensing patterns 
- * of a sensitive class of medications. Examples include 
- * triplicate programs, antibiotic monitoring programs, etc.</p>
- * 
- * <p>Allows association of additional business requirements 
- * with a particular drug</p>
- * 
- * <p>DrugProduct.triplicate</p>
- * 
- * <p>Prescription.triplicate</p>
- */
 @Hl7PartTypeMapping({"POME_MT010040CA.MonitoringProgram"})
 public class MonitoringProgramsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20100614L;
-    private CV programType = new CVImpl();
+    private static final long serialVersionUID = 20110127L;
     private ST programName = new STImpl();
-    private AssignedEntityBean custodianAssignedEntity;
+    private AssignedEntity3Bean custodianAssignedEntity;
+    private CV programType = new CVImpl();
 
-    @Hl7XmlMapping({"code"})
-    public ActMonitoringProtocolCode getProgramType() {
-        return (ActMonitoringProtocolCode) this.programType.getValue();
-    }
-    public void setProgramType(ActMonitoringProtocolCode programType) {
-        this.programType.setValue(programType);
-    }
 
+    /**
+     * <p>Program Name</p>
+     */
     @Hl7XmlMapping({"title"})
     public String getProgramName() {
         return this.programName.getValue();
@@ -54,12 +33,25 @@ public class MonitoringProgramsBean extends MessagePartBean {
         this.programName.setValue(programName);
     }
 
+
     @Hl7XmlMapping({"custodian/assignedEntity"})
-    public AssignedEntityBean getCustodianAssignedEntity() {
+    public AssignedEntity3Bean getCustodianAssignedEntity() {
         return this.custodianAssignedEntity;
     }
-    public void setCustodianAssignedEntity(AssignedEntityBean custodianAssignedEntity) {
+    public void setCustodianAssignedEntity(AssignedEntity3Bean custodianAssignedEntity) {
         this.custodianAssignedEntity = custodianAssignedEntity;
+    }
+
+
+    /**
+     * <p>Program Type</p>
+     */
+    @Hl7XmlMapping({"code"})
+    public ActMonitoringProtocolCode getProgramType() {
+        return (ActMonitoringProtocolCode) this.programType.getValue();
+    }
+    public void setProgramType(ActMonitoringProtocolCode programType) {
+        this.programType.setValue(programType);
     }
 
 }

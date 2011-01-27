@@ -17,50 +17,63 @@ import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
 import ca.infoway.messagebuilder.domainvalue.ActCode;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.common.coct_mt220200ca.DrugProductBean;
-import ca.infoway.messagebuilder.model.merged.NotesBean;
-import ca.infoway.messagebuilder.model.merged.SupplyOrderBean;
+import ca.infoway.messagebuilder.model.merged.CommentBean;
+import ca.infoway.messagebuilder.model.pharmacy.merged.SupplyOrderBean;
 import java.util.Date;
 
 
 
-/**
- * <p>Office Supply</p>
- * 
- * <p>This is the detailed information about a medication being 
- * supplied for office use.</p>
- * 
- * <p>Allows for tracking of medications supplied to an office.</p>
- */
 @Hl7PartTypeMapping({"PORX_MT020050CA.SupplyEvent"})
 @Hl7RootType
 public class OfficeSupplyBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20100614L;
-    private II localDispenseID = new IIImpl();
-    private CV dispenseType = new CVImpl();
-    private TS supplyDate = new TSImpl();
-    private PQ suppliedQuantity = new PQImpl();
-    private DrugProductBean productMedication;
+    private static final long serialVersionUID = 20110127L;
+    private CommentBean subjectOfAnnotation;
     private II shipToFacilityId = new IIImpl();
+    private PQ suppliedQuantity = new PQImpl();
+    private TS supplyDate = new TSImpl();
+    private CV dispenseType = new CVImpl();
+    private DrugProductBean productMedication;
     private SupplyOrderBean fulfillmentSupplyRequest;
-    private NotesBean subjectOfAnnotation;
+    private II localDispenseID = new IIImpl();
 
-    @Hl7XmlMapping({"id"})
-    public Identifier getLocalDispenseID() {
-        return this.localDispenseID.getValue();
-    }
-    public void setLocalDispenseID(Identifier localDispenseID) {
-        this.localDispenseID.setValue(localDispenseID);
-    }
 
-    @Hl7XmlMapping({"code"})
-    public ActCode getDispenseType() {
-        return (ActCode) this.dispenseType.getValue();
+    @Hl7XmlMapping({"subjectOf/annotation"})
+    public CommentBean getSubjectOfAnnotation() {
+        return this.subjectOfAnnotation;
     }
-    public void setDispenseType(ActCode dispenseType) {
-        this.dispenseType.setValue(dispenseType);
+    public void setSubjectOfAnnotation(CommentBean subjectOfAnnotation) {
+        this.subjectOfAnnotation = subjectOfAnnotation;
     }
 
+
+    /**
+     * <p>C:Ship-to Facility Id</p>
+     */
+    @Hl7XmlMapping({"destination/serviceDeliveryLocation/id"})
+    public Identifier getShipToFacilityId() {
+        return this.shipToFacilityId.getValue();
+    }
+    public void setShipToFacilityId(Identifier shipToFacilityId) {
+        this.shipToFacilityId.setValue(shipToFacilityId);
+    }
+
+
+    /**
+     * <p>B:Supplied Quantity</p>
+     */
+    @Hl7XmlMapping({"quantity"})
+    public PhysicalQuantity getSuppliedQuantity() {
+        return this.suppliedQuantity.getValue();
+    }
+    public void setSuppliedQuantity(PhysicalQuantity suppliedQuantity) {
+        this.suppliedQuantity.setValue(suppliedQuantity);
+    }
+
+
+    /**
+     * <p>A:Supply Date</p>
+     */
     @Hl7XmlMapping({"effectiveTime"})
     public Date getSupplyDate() {
         return this.supplyDate.getValue();
@@ -69,13 +82,18 @@ public class OfficeSupplyBean extends MessagePartBean {
         this.supplyDate.setValue(supplyDate);
     }
 
-    @Hl7XmlMapping({"quantity"})
-    public PhysicalQuantity getSuppliedQuantity() {
-        return this.suppliedQuantity.getValue();
+
+    /**
+     * <p>Dispense Type</p>
+     */
+    @Hl7XmlMapping({"code"})
+    public ActCode getDispenseType() {
+        return (ActCode) this.dispenseType.getValue();
     }
-    public void setSuppliedQuantity(PhysicalQuantity suppliedQuantity) {
-        this.suppliedQuantity.setValue(suppliedQuantity);
+    public void setDispenseType(ActCode dispenseType) {
+        this.dispenseType.setValue(dispenseType);
     }
+
 
     @Hl7XmlMapping({"product/medication"})
     public DrugProductBean getProductMedication() {
@@ -85,13 +103,6 @@ public class OfficeSupplyBean extends MessagePartBean {
         this.productMedication = productMedication;
     }
 
-    @Hl7XmlMapping({"destination/serviceDeliveryLocation/id"})
-    public Identifier getShipToFacilityId() {
-        return this.shipToFacilityId.getValue();
-    }
-    public void setShipToFacilityId(Identifier shipToFacilityId) {
-        this.shipToFacilityId.setValue(shipToFacilityId);
-    }
 
     @Hl7XmlMapping({"fulfillment/supplyRequest"})
     public SupplyOrderBean getFulfillmentSupplyRequest() {
@@ -101,12 +112,16 @@ public class OfficeSupplyBean extends MessagePartBean {
         this.fulfillmentSupplyRequest = fulfillmentSupplyRequest;
     }
 
-    @Hl7XmlMapping({"subjectOf/annotation"})
-    public NotesBean getSubjectOfAnnotation() {
-        return this.subjectOfAnnotation;
+
+    /**
+     * <p>A:Local Dispense ID</p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Identifier getLocalDispenseID() {
+        return this.localDispenseID.getValue();
     }
-    public void setSubjectOfAnnotation(NotesBean subjectOfAnnotation) {
-        this.subjectOfAnnotation = subjectOfAnnotation;
+    public void setLocalDispenseID(Identifier localDispenseID) {
+        this.localDispenseID.setValue(localDispenseID);
     }
 
 }

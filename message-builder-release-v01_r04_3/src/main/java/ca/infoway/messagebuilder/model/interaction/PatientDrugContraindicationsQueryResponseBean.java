@@ -3,16 +3,16 @@ package ca.infoway.messagebuilder.model.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.common.mcci_mt000300ca.HL7MessageBean;
+import ca.infoway.messagebuilder.model.common.merged.HL7Message_1Bean;
 import ca.infoway.messagebuilder.model.common.quqi_mt120000ca.TriggerEventBean;
-import ca.infoway.messagebuilder.model.merged.GenericQueryParametersBean;
-import ca.infoway.messagebuilder.model.pharmacy.porx_mt980020ca.IssuesBean;
+import ca.infoway.messagebuilder.model.pharmacy.merged.IssuesBean;
+import ca.infoway.messagebuilder.model.pharmacy.porx_mt050020ca.GenericQueryParametersBean;
 
 
 
 @Hl7PartTypeMapping({"PORX_IN050040CA"})
-public class PatientDrugContraindicationsQueryResponseBean extends HL7MessageBean<TriggerEventBean<IssuesBean,GenericQueryParametersBean>> implements InteractionBean {
+public class PatientDrugContraindicationsQueryResponseBean extends HL7Message_1Bean<TriggerEventBean<IssuesBean,GenericQueryParametersBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20100614L;
+    private static final long serialVersionUID = 20110127L;
 
 }

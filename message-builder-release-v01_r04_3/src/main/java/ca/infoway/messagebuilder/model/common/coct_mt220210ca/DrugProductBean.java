@@ -20,67 +20,32 @@ import ca.infoway.messagebuilder.domainvalue.OrderableDrugForm;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.merged.DispensedInBean;
 import ca.infoway.messagebuilder.model.merged.DrugContainsBean;
-import ca.infoway.messagebuilder.model.merged.ManufacturedByBean;
-import ca.infoway.messagebuilder.model.pharmacy.porx_mt980040ca.MedicationBean;
+import ca.infoway.messagebuilder.model.merged.ManufacturerBean;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 
 
-/**
- * <p>Drug Product</p>
- * 
- * <p>A pharmaceutical product to be supplied and/or 
- * administered to a patient. Encompasses manufactured drug 
- * products, generic classifications, prescription medications, 
- * over-the-counter medications and recreational drugs.</p>
- * 
- * <p>Allows drugs to be clearly described and referenced. Also 
- * allows searching for and examining information about 
- * medications that can be or are being used by a patient.</p>
- * 
- * <p>A_BillablePharmacyDispense</p>
- */
 @Hl7PartTypeMapping({"COCT_MT220210CA.Medication"})
 @Hl7RootType
-public class DrugProductBean extends MessagePartBean implements MedicationBean {
+public class DrugProductBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pharmacy.porx_mt980040ca.Medication {
 
-    private static final long serialVersionUID = 20100614L;
-    private CE drugCode = new CEImpl();
+    private static final long serialVersionUID = 20110127L;
+    private CV drugForm = new CVImpl();
     private ST drugName = new STImpl();
     private ST drugDescription = new STImpl();
-    private CV drugForm = new CVImpl();
-    private ST drugLotNumber = new STImpl();
     private IVL<TS, Interval<Date>> drugExpiryDate = new IVLImpl<TS, Interval<Date>>();
     private DispensedInBean playerAsContent;
+    private ManufacturerBean playerAsManufacturedProductManufacturer;
     private List<DrugContainsBean> playerIngredient = new ArrayList<DrugContainsBean>();
-    private ManufacturedByBean playerAsManufacturedProduct;
+    private CE drugCode = new CEImpl();
+    private ST drugLotNumber = new STImpl();
 
-    @Hl7XmlMapping({"player/code"})
-    public ManufacturedDrug getDrugCode() {
-        return (ManufacturedDrug) this.drugCode.getValue();
-    }
-    public void setDrugCode(ManufacturedDrug drugCode) {
-        this.drugCode.setValue(drugCode);
-    }
 
-    @Hl7XmlMapping({"player/name"})
-    public String getDrugName() {
-        return this.drugName.getValue();
-    }
-    public void setDrugName(String drugName) {
-        this.drugName.setValue(drugName);
-    }
-
-    @Hl7XmlMapping({"player/desc"})
-    public String getDrugDescription() {
-        return this.drugDescription.getValue();
-    }
-    public void setDrugDescription(String drugDescription) {
-        this.drugDescription.setValue(drugDescription);
-    }
-
+    /**
+     * <p>D:Drug Form</p>
+     */
     @Hl7XmlMapping({"player/formCode"})
     public OrderableDrugForm getDrugForm() {
         return (OrderableDrugForm) this.drugForm.getValue();
@@ -89,14 +54,34 @@ public class DrugProductBean extends MessagePartBean implements MedicationBean {
         this.drugForm.setValue(drugForm);
     }
 
-    @Hl7XmlMapping({"player/lotNumberText"})
-    public String getDrugLotNumber() {
-        return this.drugLotNumber.getValue();
+
+    /**
+     * <p>B:Drug Name</p>
+     */
+    @Hl7XmlMapping({"player/name"})
+    public String getDrugName() {
+        return this.drugName.getValue();
     }
-    public void setDrugLotNumber(String drugLotNumber) {
-        this.drugLotNumber.setValue(drugLotNumber);
+    public void setDrugName(String drugName) {
+        this.drugName.setValue(drugName);
     }
 
+
+    /**
+     * <p>C:Drug Description</p>
+     */
+    @Hl7XmlMapping({"player/desc"})
+    public String getDrugDescription() {
+        return this.drugDescription.getValue();
+    }
+    public void setDrugDescription(String drugDescription) {
+        this.drugDescription.setValue(drugDescription);
+    }
+
+
+    /**
+     * <p>F:Drug Expiry Date</p>
+     */
     @Hl7XmlMapping({"player/expirationTime"})
     public Interval<Date> getDrugExpiryDate() {
         return this.drugExpiryDate.getValue();
@@ -104,6 +89,7 @@ public class DrugProductBean extends MessagePartBean implements MedicationBean {
     public void setDrugExpiryDate(Interval<Date> drugExpiryDate) {
         this.drugExpiryDate.setValue(drugExpiryDate);
     }
+
 
     @Hl7XmlMapping({"player/asContent"})
     public DispensedInBean getPlayerAsContent() {
@@ -113,17 +99,43 @@ public class DrugProductBean extends MessagePartBean implements MedicationBean {
         this.playerAsContent = playerAsContent;
     }
 
+
+    @Hl7XmlMapping({"player/asManufacturedProduct/manufacturer"})
+    public ManufacturerBean getPlayerAsManufacturedProductManufacturer() {
+        return this.playerAsManufacturedProductManufacturer;
+    }
+    public void setPlayerAsManufacturedProductManufacturer(ManufacturerBean playerAsManufacturedProductManufacturer) {
+        this.playerAsManufacturedProductManufacturer = playerAsManufacturedProductManufacturer;
+    }
+
+
     @Hl7XmlMapping({"player/ingredient"})
     public List<DrugContainsBean> getPlayerIngredient() {
         return this.playerIngredient;
     }
 
-    @Hl7XmlMapping({"player/asManufacturedProduct"})
-    public ManufacturedByBean getPlayerAsManufacturedProduct() {
-        return this.playerAsManufacturedProduct;
+
+    /**
+     * <p>A:Drug Code</p>
+     */
+    @Hl7XmlMapping({"player/code"})
+    public ManufacturedDrug getDrugCode() {
+        return (ManufacturedDrug) this.drugCode.getValue();
     }
-    public void setPlayerAsManufacturedProduct(ManufacturedByBean playerAsManufacturedProduct) {
-        this.playerAsManufacturedProduct = playerAsManufacturedProduct;
+    public void setDrugCode(ManufacturedDrug drugCode) {
+        this.drugCode.setValue(drugCode);
+    }
+
+
+    /**
+     * <p>E:Drug Lot Number</p>
+     */
+    @Hl7XmlMapping({"player/lotNumberText"})
+    public String getDrugLotNumber() {
+        return this.drugLotNumber.getValue();
+    }
+    public void setDrugLotNumber(String drugLotNumber) {
+        this.drugLotNumber.setValue(drugLotNumber);
     }
 
 }

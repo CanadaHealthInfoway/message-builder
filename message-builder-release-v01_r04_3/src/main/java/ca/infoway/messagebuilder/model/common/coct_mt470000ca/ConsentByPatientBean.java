@@ -6,18 +6,9 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 
-/**
- * <p>Consent By Patient</p>
- * 
- * <p>Indicates that the consent or keyword has been provided 
- * by the patient themselves (rather than a representative.)</p>
- * 
- * <p>Distinguishing whether consent is granted by the patient 
- * or a representative can be important for audit purposes.</p>
- */
 @Hl7PartTypeMapping({"COCT_MT470000CA.Patient"})
-public class ConsentByPatientBean extends MessagePartBean implements ConsenterBean {
+public class ConsentByPatientBean extends MessagePartBean implements ca.infoway.messagebuilder.model.merged.Consenter {
 
-    private static final long serialVersionUID = 20100614L;
+    private static final long serialVersionUID = 20110127L;
 
 }

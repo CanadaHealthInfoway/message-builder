@@ -3,57 +3,59 @@ package ca.infoway.messagebuilder.model.pharmacy.pome_mt010040ca;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
+import ca.infoway.messagebuilder.datatype.ST;
+import ca.infoway.messagebuilder.datatype.impl.STImpl;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.merged.AssignedEntityBean;
-import ca.infoway.messagebuilder.model.merged.PrescribedBecauseOfBean;
 import ca.infoway.messagebuilder.model.pharmacy.porx_mt980040ca.AdministrationInstructionsBean;
+import ca.infoway.messagebuilder.model.pharmacy.porx_mt980050ca.DiagnosisIndicationsBean;
+import ca.infoway.messagebuilder.model.pharmacy.porx_mt980050ca.Indications;
+import ca.infoway.messagebuilder.model.pharmacy.porx_mt980050ca.OtherIndicationsBean;
+import ca.infoway.messagebuilder.model.pharmacy.porx_mt980050ca.SymptomIndicationsBean;
 import java.util.ArrayList;
 import java.util.List;
 
 
 
-/**
- * <p>Recommended Administration Instructions</p>
- * 
- * <p>This comprises the route of administration, 
- * maximum/minimum daily dose, and overall use instructions for 
- * the drug.</p>
- * 
- * <p>Gives guidance to prescribers on how the drug might 
- * be/should be used</p>
- */
 @Hl7PartTypeMapping({"POME_MT010040CA.AdministrationGuideline"})
 public class RecommendedAdministrationInstructionsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20100614L;
-    private List<AdministrationInstructionsBean> optionDosageInstruction = new ArrayList<AdministrationInstructionsBean>();
-    private List<PrescribedBecauseOfBean> reason = new ArrayList<PrescribedBecauseOfBean>();
+    private static final long serialVersionUID = 20110127L;
     private List<PatientCharacteristicsBean> preconditionObservationEventCriterion = new ArrayList<PatientCharacteristicsBean>();
-    private AssignedEntityBean authorAssignedEntity;
+    private List<AdministrationInstructionsBean> optionDosageInstruction = new ArrayList<AdministrationInstructionsBean>();
+    private ST recommendingAuthorityName = new STImpl();
+    private List<Indications> reasonIndications = new ArrayList<Indications>();
     private PatientBean subjectPatient;
 
-    @Hl7XmlMapping({"option/dosageInstruction"})
-    public List<AdministrationInstructionsBean> getOptionDosageInstruction() {
-        return this.optionDosageInstruction;
-    }
-
-    @Hl7XmlMapping({"reason"})
-    public List<PrescribedBecauseOfBean> getReason() {
-        return this.reason;
-    }
 
     @Hl7XmlMapping({"precondition/observationEventCriterion"})
     public List<PatientCharacteristicsBean> getPreconditionObservationEventCriterion() {
         return this.preconditionObservationEventCriterion;
     }
 
-    @Hl7XmlMapping({"author/assignedEntity"})
-    public AssignedEntityBean getAuthorAssignedEntity() {
-        return this.authorAssignedEntity;
+
+    @Hl7XmlMapping({"option/dosageInstruction"})
+    public List<AdministrationInstructionsBean> getOptionDosageInstruction() {
+        return this.optionDosageInstruction;
     }
-    public void setAuthorAssignedEntity(AssignedEntityBean authorAssignedEntity) {
-        this.authorAssignedEntity = authorAssignedEntity;
+
+
+    /**
+     * <p>Recommending Authority Name</p>
+     */
+    @Hl7XmlMapping({"author/assignedEntity/assignedOrganization/name"})
+    public String getRecommendingAuthorityName() {
+        return this.recommendingAuthorityName.getValue();
     }
+    public void setRecommendingAuthorityName(String recommendingAuthorityName) {
+        this.recommendingAuthorityName.setValue(recommendingAuthorityName);
+    }
+
+
+    @Hl7XmlMapping({"reason/indications"})
+    public List<Indications> getReasonIndications() {
+        return this.reasonIndications;
+    }
+
 
     @Hl7XmlMapping({"subject/patient"})
     public PatientBean getSubjectPatient() {
