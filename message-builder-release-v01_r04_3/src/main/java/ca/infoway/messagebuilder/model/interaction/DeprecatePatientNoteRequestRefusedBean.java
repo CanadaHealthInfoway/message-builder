@@ -3,19 +3,15 @@ package ca.infoway.messagebuilder.model.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.common.mcai_mt700220ca.TriggerEventBean;
-import ca.infoway.messagebuilder.model.common.mcci_mt000300ca.HL7MessageBean;
-import ca.infoway.messagebuilder.model.merged.ReferencedRecordBean;
+import ca.infoway.messagebuilder.model.common.merged.HL7Message_1Bean;
+import ca.infoway.messagebuilder.model.common.merged.TriggerEvent_2Bean;
+import ca.infoway.messagebuilder.model.pharmacy.merged.ReferencedRecordBean;
 
 
 
-/**
- * <p>Indicates that the request to mark the specified patient 
- * annotation as no longer applicable has been refused.</p>
- */
 @Hl7PartTypeMapping({"COMT_IN300103CA"})
-public class DeprecatePatientNoteRequestRefusedBean extends HL7MessageBean<TriggerEventBean<ReferencedRecordBean>> implements InteractionBean {
+public class DeprecatePatientNoteRequestRefusedBean extends HL7Message_1Bean<TriggerEvent_2Bean<ReferencedRecordBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20100614L;
+    private static final long serialVersionUID = 20110127L;
 
 }

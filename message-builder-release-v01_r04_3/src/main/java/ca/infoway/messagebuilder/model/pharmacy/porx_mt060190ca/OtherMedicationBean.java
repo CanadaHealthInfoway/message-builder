@@ -3,12 +3,14 @@ package ca.infoway.messagebuilder.model.pharmacy.porx_mt060190ca;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
+import ca.infoway.messagebuilder.datatype.BL;
 import ca.infoway.messagebuilder.datatype.CD;
 import ca.infoway.messagebuilder.datatype.CS;
 import ca.infoway.messagebuilder.datatype.CV;
 import ca.infoway.messagebuilder.datatype.II;
 import ca.infoway.messagebuilder.datatype.IVL;
 import ca.infoway.messagebuilder.datatype.TS;
+import ca.infoway.messagebuilder.datatype.impl.BLImpl;
 import ca.infoway.messagebuilder.datatype.impl.CDImpl;
 import ca.infoway.messagebuilder.datatype.impl.CSImpl;
 import ca.infoway.messagebuilder.datatype.impl.CVImpl;
@@ -24,136 +26,40 @@ import ca.infoway.messagebuilder.domainvalue.x_VeryBasicConfidentialityKind;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.common.coct_mt090107ca.ProviderBean;
 import ca.infoway.messagebuilder.model.common.coct_mt220110ca.DrugProductBean;
-import ca.infoway.messagebuilder.model.merged.AnnotationIndicatorBean;
-import ca.infoway.messagebuilder.model.merged.DetectedIssueIndicatorBean;
-import ca.infoway.messagebuilder.model.merged.Patient_1Bean;
+import ca.infoway.messagebuilder.model.common.merged.PatientBean;
 import ca.infoway.messagebuilder.model.merged.RecordedAtBean;
 import ca.infoway.messagebuilder.model.merged.RefusedByBean;
 import java.util.Date;
 
 
 
-/**
- * <p>Other Medication</p>
- * 
- * <p>A record of a medication the patient is believed to be 
- * taking, but for which an electronic order does not exist. 
- * "Other medications" include any drug product deemed relevant 
- * to the patient's drug profile, but which was not 
- * specifically ordered by a prescriber in a DIS-enabled 
- * jurisdiction. Examples include over-the counter medications 
- * that were not specifically ordered, herbal remedies, and 
- * recreational drugs. Prescription drugs that the patient may 
- * be taking but was not prescribed on the EHR (e.g. 
- * institutionally administered or out-of-jurisdiction 
- * prescriptions) will also be recorded here.</p>
- * 
- * <p>Necessary component of a person's overall medication 
- * profile. Allows DUR checking against a more complete drug 
- * profile.</p>
- * 
- * <p>routeCode must not be used when code is SNOMED and is 
- * mandatory otherwise</p>
- * 
- * <p>Status can only be '''ACTIVE''' or '''COMPLETED'''</p>
- */
 @Hl7PartTypeMapping({"PORX_MT060190CA.OtherMedication"})
-public class OtherMedicationBean extends MessagePartBean implements MedicationRecordBean {
+public class OtherMedicationBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pharmacy.merged.MedicationRecord {
 
-    private static final long serialVersionUID = 20100614L;
-    private II otherMedicationRecordNumber = new IIImpl();
-    private CD otherMedicationType = new CDImpl();
-    private CS otherMedicationStatus = new CSImpl();
-    private IVL<TS, Interval<Date>> drugActivePeriod = new IVLImpl<TS, Interval<Date>>();
-    private CV otherMedicationMaskingIndicator = new CVImpl();
-    private CV routeOfAdministration = new CVImpl();
-    private Patient_1Bean subjectPatient;
-    private DrugProductBean consumableMedication;
-    private ProviderBean responsiblePartyAssignedPerson;
-    private RefusedByBean author;
+    private static final long serialVersionUID = 20110127L;
+    private PatientBean subjectPatient;
     private RecordedAtBean location;
-    private DetectedIssueIndicatorBean subjectOf1DetectedIssueIndicator;
-    private AnnotationIndicatorBean subjectOf2AnnotationIndicator;
+    private BL subjectOf1DetectedIssueIndicator = new BLImpl();
+    private BL subjectOf2AnnotationIndicator = new BLImpl();
+    private CD otherMedicationType = new CDImpl();
+    private IVL<TS, Interval<Date>> drugActivePeriod = new IVLImpl<TS, Interval<Date>>();
+    private II otherMedicationRecordNumber = new IIImpl();
+    private CV routeOfAdministration = new CVImpl();
+    private ProviderBean responsiblePartyAssignedPerson;
+    private CV otherMedicationMaskingIndicator = new CVImpl();
+    private CS otherMedicationStatus = new CSImpl();
+    private RefusedByBean author;
+    private DrugProductBean consumableMedication;
 
-    @Hl7XmlMapping({"id"})
-    public Identifier getOtherMedicationRecordNumber() {
-        return this.otherMedicationRecordNumber.getValue();
-    }
-    public void setOtherMedicationRecordNumber(Identifier otherMedicationRecordNumber) {
-        this.otherMedicationRecordNumber.setValue(otherMedicationRecordNumber);
-    }
-
-    @Hl7XmlMapping({"code"})
-    public ActCode getOtherMedicationType() {
-        return (ActCode) this.otherMedicationType.getValue();
-    }
-    public void setOtherMedicationType(ActCode otherMedicationType) {
-        this.otherMedicationType.setValue(otherMedicationType);
-    }
-
-    @Hl7XmlMapping({"statusCode"})
-    public ActStatus getOtherMedicationStatus() {
-        return (ActStatus) this.otherMedicationStatus.getValue();
-    }
-    public void setOtherMedicationStatus(ActStatus otherMedicationStatus) {
-        this.otherMedicationStatus.setValue(otherMedicationStatus);
-    }
-
-    @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getDrugActivePeriod() {
-        return this.drugActivePeriod.getValue();
-    }
-    public void setDrugActivePeriod(Interval<Date> drugActivePeriod) {
-        this.drugActivePeriod.setValue(drugActivePeriod);
-    }
-
-    @Hl7XmlMapping({"confidentialityCode"})
-    public x_VeryBasicConfidentialityKind getOtherMedicationMaskingIndicator() {
-        return (x_VeryBasicConfidentialityKind) this.otherMedicationMaskingIndicator.getValue();
-    }
-    public void setOtherMedicationMaskingIndicator(x_VeryBasicConfidentialityKind otherMedicationMaskingIndicator) {
-        this.otherMedicationMaskingIndicator.setValue(otherMedicationMaskingIndicator);
-    }
-
-    @Hl7XmlMapping({"routeCode"})
-    public RouteOfAdministration getRouteOfAdministration() {
-        return (RouteOfAdministration) this.routeOfAdministration.getValue();
-    }
-    public void setRouteOfAdministration(RouteOfAdministration routeOfAdministration) {
-        this.routeOfAdministration.setValue(routeOfAdministration);
-    }
 
     @Hl7XmlMapping({"subject/patient"})
-    public Patient_1Bean getSubjectPatient() {
+    public PatientBean getSubjectPatient() {
         return this.subjectPatient;
     }
-    public void setSubjectPatient(Patient_1Bean subjectPatient) {
+    public void setSubjectPatient(PatientBean subjectPatient) {
         this.subjectPatient = subjectPatient;
     }
 
-    @Hl7XmlMapping({"consumable/medication"})
-    public DrugProductBean getConsumableMedication() {
-        return this.consumableMedication;
-    }
-    public void setConsumableMedication(DrugProductBean consumableMedication) {
-        this.consumableMedication = consumableMedication;
-    }
-
-    @Hl7XmlMapping({"responsibleParty/assignedPerson"})
-    public ProviderBean getResponsiblePartyAssignedPerson() {
-        return this.responsiblePartyAssignedPerson;
-    }
-    public void setResponsiblePartyAssignedPerson(ProviderBean responsiblePartyAssignedPerson) {
-        this.responsiblePartyAssignedPerson = responsiblePartyAssignedPerson;
-    }
-
-    @Hl7XmlMapping({"author"})
-    public RefusedByBean getAuthor() {
-        return this.author;
-    }
-    public void setAuthor(RefusedByBean author) {
-        this.author = author;
-    }
 
     @Hl7XmlMapping({"location"})
     public RecordedAtBean getLocation() {
@@ -163,20 +69,121 @@ public class OtherMedicationBean extends MessagePartBean implements MedicationRe
         this.location = location;
     }
 
+
     @Hl7XmlMapping({"subjectOf1/detectedIssueIndicator"})
-    public DetectedIssueIndicatorBean getSubjectOf1DetectedIssueIndicator() {
-        return this.subjectOf1DetectedIssueIndicator;
+    public Boolean getSubjectOf1DetectedIssueIndicator() {
+        return this.subjectOf1DetectedIssueIndicator.getValue();
     }
-    public void setSubjectOf1DetectedIssueIndicator(DetectedIssueIndicatorBean subjectOf1DetectedIssueIndicator) {
-        this.subjectOf1DetectedIssueIndicator = subjectOf1DetectedIssueIndicator;
+    public void setSubjectOf1DetectedIssueIndicator(Boolean subjectOf1DetectedIssueIndicator) {
+        this.subjectOf1DetectedIssueIndicator.setValue(subjectOf1DetectedIssueIndicator);
     }
 
+
     @Hl7XmlMapping({"subjectOf2/annotationIndicator"})
-    public AnnotationIndicatorBean getSubjectOf2AnnotationIndicator() {
-        return this.subjectOf2AnnotationIndicator;
+    public Boolean getSubjectOf2AnnotationIndicator() {
+        return this.subjectOf2AnnotationIndicator.getValue();
     }
-    public void setSubjectOf2AnnotationIndicator(AnnotationIndicatorBean subjectOf2AnnotationIndicator) {
-        this.subjectOf2AnnotationIndicator = subjectOf2AnnotationIndicator;
+    public void setSubjectOf2AnnotationIndicator(Boolean subjectOf2AnnotationIndicator) {
+        this.subjectOf2AnnotationIndicator.setValue(subjectOf2AnnotationIndicator);
+    }
+
+
+    /**
+     * <p>Other Medication Type</p>
+     */
+    @Hl7XmlMapping({"code"})
+    public ActCode getOtherMedicationType() {
+        return (ActCode) this.otherMedicationType.getValue();
+    }
+    public void setOtherMedicationType(ActCode otherMedicationType) {
+        this.otherMedicationType.setValue(otherMedicationType);
+    }
+
+
+    /**
+     * <p>C:Drug Active Period</p>
+     */
+    @Hl7XmlMapping({"effectiveTime"})
+    public Interval<Date> getDrugActivePeriod() {
+        return this.drugActivePeriod.getValue();
+    }
+    public void setDrugActivePeriod(Interval<Date> drugActivePeriod) {
+        this.drugActivePeriod.setValue(drugActivePeriod);
+    }
+
+
+    /**
+     * <p>A:Other Medication Record Number</p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Identifier getOtherMedicationRecordNumber() {
+        return this.otherMedicationRecordNumber.getValue();
+    }
+    public void setOtherMedicationRecordNumber(Identifier otherMedicationRecordNumber) {
+        this.otherMedicationRecordNumber.setValue(otherMedicationRecordNumber);
+    }
+
+
+    /**
+     * <p>E:Route of Administration</p>
+     */
+    @Hl7XmlMapping({"routeCode"})
+    public RouteOfAdministration getRouteOfAdministration() {
+        return (RouteOfAdministration) this.routeOfAdministration.getValue();
+    }
+    public void setRouteOfAdministration(RouteOfAdministration routeOfAdministration) {
+        this.routeOfAdministration.setValue(routeOfAdministration);
+    }
+
+
+    @Hl7XmlMapping({"responsibleParty/assignedPerson"})
+    public ProviderBean getResponsiblePartyAssignedPerson() {
+        return this.responsiblePartyAssignedPerson;
+    }
+    public void setResponsiblePartyAssignedPerson(ProviderBean responsiblePartyAssignedPerson) {
+        this.responsiblePartyAssignedPerson = responsiblePartyAssignedPerson;
+    }
+
+
+    /**
+     * <p>D:Other Medication Masking Indicator</p>
+     */
+    @Hl7XmlMapping({"confidentialityCode"})
+    public x_VeryBasicConfidentialityKind getOtherMedicationMaskingIndicator() {
+        return (x_VeryBasicConfidentialityKind) this.otherMedicationMaskingIndicator.getValue();
+    }
+    public void setOtherMedicationMaskingIndicator(x_VeryBasicConfidentialityKind otherMedicationMaskingIndicator) {
+        this.otherMedicationMaskingIndicator.setValue(otherMedicationMaskingIndicator);
+    }
+
+
+    /**
+     * <p>B:Other Medication Status</p>
+     */
+    @Hl7XmlMapping({"statusCode"})
+    public ActStatus getOtherMedicationStatus() {
+        return (ActStatus) this.otherMedicationStatus.getValue();
+    }
+    public void setOtherMedicationStatus(ActStatus otherMedicationStatus) {
+        this.otherMedicationStatus.setValue(otherMedicationStatus);
+    }
+
+
+    @Hl7XmlMapping({"author"})
+    public RefusedByBean getAuthor() {
+        return this.author;
+    }
+    public void setAuthor(RefusedByBean author) {
+        this.author = author;
+    }
+
+
+    @Hl7XmlMapping({"consumable/medication"})
+    public DrugProductBean getConsumableMedication() {
+        return this.consumableMedication;
+    }
+    public void setConsumableMedication(DrugProductBean consumableMedication) {
+        this.consumableMedication = consumableMedication;
     }
 
 }

@@ -26,177 +26,64 @@ import ca.infoway.messagebuilder.domainvalue.x_VeryBasicConfidentialityKind;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.common.coct_mt090107ca.ProviderBean;
 import ca.infoway.messagebuilder.model.common.coct_mt220210ca.DrugProductBean;
-import ca.infoway.messagebuilder.model.merged.AdverseReactionObservationEventBean;
-import ca.infoway.messagebuilder.model.merged.AnnotationIndicatorBean;
-import ca.infoway.messagebuilder.model.merged.DetectedIssueIndicatorBean;
-import ca.infoway.messagebuilder.model.merged.InformationSourceRoleBean;
-import ca.infoway.messagebuilder.model.merged.NotesBean;
-import ca.infoway.messagebuilder.model.merged.PartOfBean;
-import ca.infoway.messagebuilder.model.merged.Patient_1Bean;
+import ca.infoway.messagebuilder.model.common.merged.PatientBean;
+import ca.infoway.messagebuilder.model.immunization.merged.InformationSourceRoleBean;
+import ca.infoway.messagebuilder.model.immunization.merged.PartOfBean;
+import ca.infoway.messagebuilder.model.merged.CommentBean;
 import ca.infoway.messagebuilder.model.merged.RecordedAtBean;
 import ca.infoway.messagebuilder.model.merged.RefusedByBean;
-import ca.infoway.messagebuilder.model.pharmacy.porx_mt980030ca.IssuesBean;
+import ca.infoway.messagebuilder.model.pharmacy.merged.IssuesBean;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 
 
-/**
- * <p>Immunizations</p>
- * 
- * <p>A record of a patient's immunizations.</p>
- * 
- * <p>Necessary component of a person's overall medication 
- * profile. Helps deal with outbreaks and also drug 
- * contraindication checking.</p>
- * 
- * <p>approachSite must be required if not using SNOMED</p>
- * 
- * <p>Route must be requires if not using SNOMED</p>
- * 
- * <p>If immunization was not refused, then refusal reason must 
- * not be specified otherwise field should be treated as 
- * populated.</p>
- */
 @Hl7PartTypeMapping({"POIZ_MT060150CA.Immunization"})
 @Hl7RootType
 public class ImmunizationsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20100614L;
-    private II immunizationRecordId = new IIImpl();
-    private CD immunizationType = new CDImpl();
-    private BL notImmunized = new BLImpl();
-    private TS immunizationDate = new TSImpl();
-    private CV immunizationMaskingIndicator = new CVImpl();
-    private CV immunizationRefusalReason = new CVImpl();
-    private CV routeOfAdministration = new CVImpl();
-    private CV administrationSite = new CVImpl();
-    private PQ quantityAdministered = new PQImpl();
-    private Patient_1Bean subjectPatient;
-    private DrugProductBean consumableMedication;
-    private ProviderBean responsiblePartyAssignedPerson;
-    private RefusedByBean author;
-    private InformationSourceRoleBean informantInformationSourceRole;
+    private static final long serialVersionUID = 20110127L;
+    private BL causeAdverseReactionObservationEvent = new BLImpl();
+    private PatientBean subjectPatient;
     private RecordedAtBean location;
-    private PartOfBean inFulfillmentOf;
+    private InformationSourceRoleBean informantInformationSourceRole;
+    private BL subjectOf3DetectedIssueIndicator = new BLImpl();
+    private CD immunizationType = new CDImpl();
+    private TS immunizationDate = new TSImpl();
+    private II immunizationRecordId = new IIImpl();
+    private CV routeOfAdministration = new CVImpl();
+    private ProviderBean responsiblePartyAssignedPerson;
+    private CV immunizationMaskingIndicator = new CVImpl();
+    private List<CommentBean> subjectOf2Annotation = new ArrayList<CommentBean>();
     private List<IssuesBean> subjectOf1DetectedIssueEvent = new ArrayList<IssuesBean>();
-    private List<NotesBean> subjectOf2Annotation = new ArrayList<NotesBean>();
-    private DetectedIssueIndicatorBean subjectOf3DetectedIssueIndicator;
-    private AnnotationIndicatorBean subjectOf4AnnotationIndicator;
-    private AdverseReactionObservationEventBean causeAdverseReactionObservationEvent;
+    private RefusedByBean author;
+    private BL subjectOf4AnnotationIndicator = new BLImpl();
+    private BL notImmunized = new BLImpl();
+    private PartOfBean inFulfillmentOf;
+    private CV administrationSite = new CVImpl();
+    private CV immunizationRefusalReason = new CVImpl();
+    private DrugProductBean consumableMedication;
+    private PQ quantityAdministered = new PQImpl();
 
-    @Hl7XmlMapping({"id"})
-    public Identifier getImmunizationRecordId() {
-        return this.immunizationRecordId.getValue();
-    }
-    public void setImmunizationRecordId(Identifier immunizationRecordId) {
-        this.immunizationRecordId.setValue(immunizationRecordId);
-    }
 
-    @Hl7XmlMapping({"code"})
-    public ActCode getImmunizationType() {
-        return (ActCode) this.immunizationType.getValue();
+    @Hl7XmlMapping({"cause/adverseReactionObservationEvent"})
+    public Boolean getCauseAdverseReactionObservationEvent() {
+        return this.causeAdverseReactionObservationEvent.getValue();
     }
-    public void setImmunizationType(ActCode immunizationType) {
-        this.immunizationType.setValue(immunizationType);
+    public void setCauseAdverseReactionObservationEvent(Boolean causeAdverseReactionObservationEvent) {
+        this.causeAdverseReactionObservationEvent.setValue(causeAdverseReactionObservationEvent);
     }
 
-    @Hl7XmlMapping({"negationInd"})
-    public Boolean getNotImmunized() {
-        return this.notImmunized.getValue();
-    }
-    public void setNotImmunized(Boolean notImmunized) {
-        this.notImmunized.setValue(notImmunized);
-    }
-
-    @Hl7XmlMapping({"effectiveTime"})
-    public Date getImmunizationDate() {
-        return this.immunizationDate.getValue();
-    }
-    public void setImmunizationDate(Date immunizationDate) {
-        this.immunizationDate.setValue(immunizationDate);
-    }
-
-    @Hl7XmlMapping({"confidentialityCode"})
-    public x_VeryBasicConfidentialityKind getImmunizationMaskingIndicator() {
-        return (x_VeryBasicConfidentialityKind) this.immunizationMaskingIndicator.getValue();
-    }
-    public void setImmunizationMaskingIndicator(x_VeryBasicConfidentialityKind immunizationMaskingIndicator) {
-        this.immunizationMaskingIndicator.setValue(immunizationMaskingIndicator);
-    }
-
-    @Hl7XmlMapping({"reasonCode"})
-    public ActNoImmunizationReason getImmunizationRefusalReason() {
-        return (ActNoImmunizationReason) this.immunizationRefusalReason.getValue();
-    }
-    public void setImmunizationRefusalReason(ActNoImmunizationReason immunizationRefusalReason) {
-        this.immunizationRefusalReason.setValue(immunizationRefusalReason);
-    }
-
-    @Hl7XmlMapping({"routeCode"})
-    public RouteOfAdministration getRouteOfAdministration() {
-        return (RouteOfAdministration) this.routeOfAdministration.getValue();
-    }
-    public void setRouteOfAdministration(RouteOfAdministration routeOfAdministration) {
-        this.routeOfAdministration.setValue(routeOfAdministration);
-    }
-
-    @Hl7XmlMapping({"approachSiteCode"})
-    public HumanSubstanceAdministrationSite getAdministrationSite() {
-        return (HumanSubstanceAdministrationSite) this.administrationSite.getValue();
-    }
-    public void setAdministrationSite(HumanSubstanceAdministrationSite administrationSite) {
-        this.administrationSite.setValue(administrationSite);
-    }
-
-    @Hl7XmlMapping({"doseQuantity"})
-    public PhysicalQuantity getQuantityAdministered() {
-        return this.quantityAdministered.getValue();
-    }
-    public void setQuantityAdministered(PhysicalQuantity quantityAdministered) {
-        this.quantityAdministered.setValue(quantityAdministered);
-    }
 
     @Hl7XmlMapping({"subject/patient"})
-    public Patient_1Bean getSubjectPatient() {
+    public PatientBean getSubjectPatient() {
         return this.subjectPatient;
     }
-    public void setSubjectPatient(Patient_1Bean subjectPatient) {
+    public void setSubjectPatient(PatientBean subjectPatient) {
         this.subjectPatient = subjectPatient;
     }
 
-    @Hl7XmlMapping({"consumable/medication"})
-    public DrugProductBean getConsumableMedication() {
-        return this.consumableMedication;
-    }
-    public void setConsumableMedication(DrugProductBean consumableMedication) {
-        this.consumableMedication = consumableMedication;
-    }
-
-    @Hl7XmlMapping({"responsibleParty/assignedPerson"})
-    public ProviderBean getResponsiblePartyAssignedPerson() {
-        return this.responsiblePartyAssignedPerson;
-    }
-    public void setResponsiblePartyAssignedPerson(ProviderBean responsiblePartyAssignedPerson) {
-        this.responsiblePartyAssignedPerson = responsiblePartyAssignedPerson;
-    }
-
-    @Hl7XmlMapping({"author"})
-    public RefusedByBean getAuthor() {
-        return this.author;
-    }
-    public void setAuthor(RefusedByBean author) {
-        this.author = author;
-    }
-
-    @Hl7XmlMapping({"informant/informationSourceRole"})
-    public InformationSourceRoleBean getInformantInformationSourceRole() {
-        return this.informantInformationSourceRole;
-    }
-    public void setInformantInformationSourceRole(InformationSourceRoleBean informantInformationSourceRole) {
-        this.informantInformationSourceRole = informantInformationSourceRole;
-    }
 
     @Hl7XmlMapping({"location"})
     public RecordedAtBean getLocation() {
@@ -206,6 +93,136 @@ public class ImmunizationsBean extends MessagePartBean {
         this.location = location;
     }
 
+
+    @Hl7XmlMapping({"informant/informationSourceRole"})
+    public InformationSourceRoleBean getInformantInformationSourceRole() {
+        return this.informantInformationSourceRole;
+    }
+    public void setInformantInformationSourceRole(InformationSourceRoleBean informantInformationSourceRole) {
+        this.informantInformationSourceRole = informantInformationSourceRole;
+    }
+
+
+    @Hl7XmlMapping({"subjectOf3/detectedIssueIndicator"})
+    public Boolean getSubjectOf3DetectedIssueIndicator() {
+        return this.subjectOf3DetectedIssueIndicator.getValue();
+    }
+    public void setSubjectOf3DetectedIssueIndicator(Boolean subjectOf3DetectedIssueIndicator) {
+        this.subjectOf3DetectedIssueIndicator.setValue(subjectOf3DetectedIssueIndicator);
+    }
+
+
+    /**
+     * <p>Immunization Type</p>
+     */
+    @Hl7XmlMapping({"code"})
+    public ActCode getImmunizationType() {
+        return (ActCode) this.immunizationType.getValue();
+    }
+    public void setImmunizationType(ActCode immunizationType) {
+        this.immunizationType.setValue(immunizationType);
+    }
+
+
+    /**
+     * <p>C:Immunization Date</p>
+     */
+    @Hl7XmlMapping({"effectiveTime"})
+    public Date getImmunizationDate() {
+        return this.immunizationDate.getValue();
+    }
+    public void setImmunizationDate(Date immunizationDate) {
+        this.immunizationDate.setValue(immunizationDate);
+    }
+
+
+    /**
+     * <p>A:Immunization Record Id</p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Identifier getImmunizationRecordId() {
+        return this.immunizationRecordId.getValue();
+    }
+    public void setImmunizationRecordId(Identifier immunizationRecordId) {
+        this.immunizationRecordId.setValue(immunizationRecordId);
+    }
+
+
+    /**
+     * <p>E:Route of Administration</p>
+     */
+    @Hl7XmlMapping({"routeCode"})
+    public RouteOfAdministration getRouteOfAdministration() {
+        return (RouteOfAdministration) this.routeOfAdministration.getValue();
+    }
+    public void setRouteOfAdministration(RouteOfAdministration routeOfAdministration) {
+        this.routeOfAdministration.setValue(routeOfAdministration);
+    }
+
+
+    @Hl7XmlMapping({"responsibleParty/assignedPerson"})
+    public ProviderBean getResponsiblePartyAssignedPerson() {
+        return this.responsiblePartyAssignedPerson;
+    }
+    public void setResponsiblePartyAssignedPerson(ProviderBean responsiblePartyAssignedPerson) {
+        this.responsiblePartyAssignedPerson = responsiblePartyAssignedPerson;
+    }
+
+
+    /**
+     * <p>D:Immunization Masking Indicator</p>
+     */
+    @Hl7XmlMapping({"confidentialityCode"})
+    public x_VeryBasicConfidentialityKind getImmunizationMaskingIndicator() {
+        return (x_VeryBasicConfidentialityKind) this.immunizationMaskingIndicator.getValue();
+    }
+    public void setImmunizationMaskingIndicator(x_VeryBasicConfidentialityKind immunizationMaskingIndicator) {
+        this.immunizationMaskingIndicator.setValue(immunizationMaskingIndicator);
+    }
+
+
+    @Hl7XmlMapping({"subjectOf2/annotation"})
+    public List<CommentBean> getSubjectOf2Annotation() {
+        return this.subjectOf2Annotation;
+    }
+
+
+    @Hl7XmlMapping({"subjectOf1/detectedIssueEvent"})
+    public List<IssuesBean> getSubjectOf1DetectedIssueEvent() {
+        return this.subjectOf1DetectedIssueEvent;
+    }
+
+
+    @Hl7XmlMapping({"author"})
+    public RefusedByBean getAuthor() {
+        return this.author;
+    }
+    public void setAuthor(RefusedByBean author) {
+        this.author = author;
+    }
+
+
+    @Hl7XmlMapping({"subjectOf4/annotationIndicator"})
+    public Boolean getSubjectOf4AnnotationIndicator() {
+        return this.subjectOf4AnnotationIndicator.getValue();
+    }
+    public void setSubjectOf4AnnotationIndicator(Boolean subjectOf4AnnotationIndicator) {
+        this.subjectOf4AnnotationIndicator.setValue(subjectOf4AnnotationIndicator);
+    }
+
+
+    /**
+     * <p>Not Immunized?</p>
+     */
+    @Hl7XmlMapping({"negationInd"})
+    public Boolean getNotImmunized() {
+        return this.notImmunized.getValue();
+    }
+    public void setNotImmunized(Boolean notImmunized) {
+        this.notImmunized.setValue(notImmunized);
+    }
+
+
     @Hl7XmlMapping({"inFulfillmentOf"})
     public PartOfBean getInFulfillmentOf() {
         return this.inFulfillmentOf;
@@ -214,38 +231,49 @@ public class ImmunizationsBean extends MessagePartBean {
         this.inFulfillmentOf = inFulfillmentOf;
     }
 
-    @Hl7XmlMapping({"subjectOf1/detectedIssueEvent"})
-    public List<IssuesBean> getSubjectOf1DetectedIssueEvent() {
-        return this.subjectOf1DetectedIssueEvent;
+
+    /**
+     * <p>Administration Site</p>
+     */
+    @Hl7XmlMapping({"approachSiteCode"})
+    public HumanSubstanceAdministrationSite getAdministrationSite() {
+        return (HumanSubstanceAdministrationSite) this.administrationSite.getValue();
+    }
+    public void setAdministrationSite(HumanSubstanceAdministrationSite administrationSite) {
+        this.administrationSite.setValue(administrationSite);
     }
 
-    @Hl7XmlMapping({"subjectOf2/annotation"})
-    public List<NotesBean> getSubjectOf2Annotation() {
-        return this.subjectOf2Annotation;
+
+    /**
+     * <p>Immunization Refusal Reason</p>
+     */
+    @Hl7XmlMapping({"reasonCode"})
+    public ActNoImmunizationReason getImmunizationRefusalReason() {
+        return (ActNoImmunizationReason) this.immunizationRefusalReason.getValue();
+    }
+    public void setImmunizationRefusalReason(ActNoImmunizationReason immunizationRefusalReason) {
+        this.immunizationRefusalReason.setValue(immunizationRefusalReason);
     }
 
-    @Hl7XmlMapping({"subjectOf3/detectedIssueIndicator"})
-    public DetectedIssueIndicatorBean getSubjectOf3DetectedIssueIndicator() {
-        return this.subjectOf3DetectedIssueIndicator;
+
+    @Hl7XmlMapping({"consumable/medication"})
+    public DrugProductBean getConsumableMedication() {
+        return this.consumableMedication;
     }
-    public void setSubjectOf3DetectedIssueIndicator(DetectedIssueIndicatorBean subjectOf3DetectedIssueIndicator) {
-        this.subjectOf3DetectedIssueIndicator = subjectOf3DetectedIssueIndicator;
+    public void setConsumableMedication(DrugProductBean consumableMedication) {
+        this.consumableMedication = consumableMedication;
     }
 
-    @Hl7XmlMapping({"subjectOf4/annotationIndicator"})
-    public AnnotationIndicatorBean getSubjectOf4AnnotationIndicator() {
-        return this.subjectOf4AnnotationIndicator;
-    }
-    public void setSubjectOf4AnnotationIndicator(AnnotationIndicatorBean subjectOf4AnnotationIndicator) {
-        this.subjectOf4AnnotationIndicator = subjectOf4AnnotationIndicator;
-    }
 
-    @Hl7XmlMapping({"cause/adverseReactionObservationEvent"})
-    public AdverseReactionObservationEventBean getCauseAdverseReactionObservationEvent() {
-        return this.causeAdverseReactionObservationEvent;
+    /**
+     * <p>Quantity Administered</p>
+     */
+    @Hl7XmlMapping({"doseQuantity"})
+    public PhysicalQuantity getQuantityAdministered() {
+        return this.quantityAdministered.getValue();
     }
-    public void setCauseAdverseReactionObservationEvent(AdverseReactionObservationEventBean causeAdverseReactionObservationEvent) {
-        this.causeAdverseReactionObservationEvent = causeAdverseReactionObservationEvent;
+    public void setQuantityAdministered(PhysicalQuantity quantityAdministered) {
+        this.quantityAdministered.setValue(quantityAdministered);
     }
 
 }

@@ -13,9 +13,13 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PORX_MT010110CA.PriorDeviceRequest"})
 public class PriorDeviceRequestBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20100614L;
+    private static final long serialVersionUID = 20110127L;
     private II previousPrescriptionOrderNumber = new IIImpl();
 
+
+    /**
+     * <p>B:Previous Prescription Order Number</p>
+     */
     @Hl7XmlMapping({"id"})
     public Identifier getPreviousPrescriptionOrderNumber() {
         return this.previousPrescriptionOrderNumber.getValue();

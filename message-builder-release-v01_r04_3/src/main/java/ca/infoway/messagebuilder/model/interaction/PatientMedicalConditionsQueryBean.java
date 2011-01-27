@@ -3,15 +3,15 @@ package ca.infoway.messagebuilder.model.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.common.mcci_mt000100ca.HL7MessageBean;
+import ca.infoway.messagebuilder.model.common.merged.HL7Message_1Bean;
 import ca.infoway.messagebuilder.model.common.quqi_mt020000ca.TriggerEventBean;
-import ca.infoway.messagebuilder.model.iehr.repc_mt000015ca.MedicalConditionsQueryParametersBean;
+import ca.infoway.messagebuilder.model.merged.GenericQueryParametersBean;
 
 
 
 @Hl7PartTypeMapping({"REPC_IN000023CA"})
-public class PatientMedicalConditionsQueryBean extends HL7MessageBean<TriggerEventBean<MedicalConditionsQueryParametersBean>> implements InteractionBean {
+public class PatientMedicalConditionsQueryBean extends HL7Message_1Bean<TriggerEventBean<GenericQueryParametersBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20100614L;
+    private static final long serialVersionUID = 20110127L;
 
 }

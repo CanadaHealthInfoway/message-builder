@@ -14,64 +14,45 @@ import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.domainvalue.ControlActReason;
 import ca.infoway.messagebuilder.domainvalue.HL7TriggerEventCode;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.merged.QueryDefinitionBean;
-import ca.infoway.messagebuilder.model.pharmacy.porx_mt980030ca.IssuesBean;
+import ca.infoway.messagebuilder.model.common.merged.QueryDefinitionBean;
+import ca.infoway.messagebuilder.model.common.merged.RefersToBean;
+import ca.infoway.messagebuilder.model.pharmacy.merged.IssuesBean;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 
 
-/**
- * <p>Trigger Event</p>
- * 
- * <p>Identifies the action that resulted in this message being 
- * sent.</p>
- * 
- * <p>There may be constraints on the usage of the reasonCode 
- * attribute in the definition of the interaction or the 
- * trigger events which are conveyed with this wrapper.</p>
- * 
- * <p>Key to understanding what action a message represents.</p>
- */
 @Hl7PartTypeMapping({"QUQI_MT120000CA.ControlActEvent"})
 @Hl7RootType
 public class TriggerEventBean<ACT,PL> extends MessagePartBean {
 
-    private static final long serialVersionUID = 20100614L;
-    private II eventIdentifier = new IIImpl();
-    private CV eventType = new CVImpl();
-    private TS eventEffectivePeriod = new TSImpl();
-    private CV eventReason = new CVImpl();
-    private List<ACT> subjectAct = new ArrayList<ACT>();
+    private static final long serialVersionUID = 20110127L;
     private List<IssuesBean> subjectOfDetectedIssueEvent = new ArrayList<IssuesBean>();
+    private List<RefersToBean<ACT>> subject = new ArrayList<RefersToBean<ACT>>();
+    private CV eventReason = new CVImpl();
+    private TS eventEffectivePeriod = new TSImpl();
+    private CV eventType = new CVImpl();
     private QueryResponseInformationBean queryAck;
     private QueryDefinitionBean<PL> queryByParameter;
+    private II eventIdentifier = new IIImpl();
 
-    @Hl7XmlMapping({"id"})
-    public Identifier getEventIdentifier() {
-        return this.eventIdentifier.getValue();
-    }
-    public void setEventIdentifier(Identifier eventIdentifier) {
-        this.eventIdentifier.setValue(eventIdentifier);
-    }
 
-    @Hl7XmlMapping({"code"})
-    public HL7TriggerEventCode getEventType() {
-        return (HL7TriggerEventCode) this.eventType.getValue();
-    }
-    public void setEventType(HL7TriggerEventCode eventType) {
-        this.eventType.setValue(eventType);
+    @Hl7XmlMapping({"subjectOf/detectedIssueEvent"})
+    public List<IssuesBean> getSubjectOfDetectedIssueEvent() {
+        return this.subjectOfDetectedIssueEvent;
     }
 
-    @Hl7XmlMapping({"effectiveTime"})
-    public Date getEventEffectivePeriod() {
-        return this.eventEffectivePeriod.getValue();
-    }
-    public void setEventEffectivePeriod(Date eventEffectivePeriod) {
-        this.eventEffectivePeriod.setValue(eventEffectivePeriod);
+
+    @Hl7XmlMapping({"subject"})
+    public List<RefersToBean<ACT>> getSubject() {
+        return this.subject;
     }
 
+
+    /**
+     * <p>E:Event Reason</p>
+     */
     @Hl7XmlMapping({"reasonCode"})
     public ControlActReason getEventReason() {
         return (ControlActReason) this.eventReason.getValue();
@@ -80,15 +61,30 @@ public class TriggerEventBean<ACT,PL> extends MessagePartBean {
         this.eventReason.setValue(eventReason);
     }
 
-    @Hl7XmlMapping({"subject/act"})
-    public List<ACT> getSubjectAct() {
-        return this.subjectAct;
+
+    /**
+     * <p>C:Event Effective Period</p>
+     */
+    @Hl7XmlMapping({"effectiveTime"})
+    public Date getEventEffectivePeriod() {
+        return this.eventEffectivePeriod.getValue();
+    }
+    public void setEventEffectivePeriod(Date eventEffectivePeriod) {
+        this.eventEffectivePeriod.setValue(eventEffectivePeriod);
     }
 
-    @Hl7XmlMapping({"subjectOf/detectedIssueEvent"})
-    public List<IssuesBean> getSubjectOfDetectedIssueEvent() {
-        return this.subjectOfDetectedIssueEvent;
+
+    /**
+     * <p>A:Event Type</p>
+     */
+    @Hl7XmlMapping({"code"})
+    public HL7TriggerEventCode getEventType() {
+        return (HL7TriggerEventCode) this.eventType.getValue();
     }
+    public void setEventType(HL7TriggerEventCode eventType) {
+        this.eventType.setValue(eventType);
+    }
+
 
     @Hl7XmlMapping({"queryAck"})
     public QueryResponseInformationBean getQueryAck() {
@@ -98,12 +94,25 @@ public class TriggerEventBean<ACT,PL> extends MessagePartBean {
         this.queryAck = queryAck;
     }
 
+
     @Hl7XmlMapping({"queryByParameter"})
     public QueryDefinitionBean<PL> getQueryByParameter() {
         return this.queryByParameter;
     }
     public void setQueryByParameter(QueryDefinitionBean<PL> queryByParameter) {
         this.queryByParameter = queryByParameter;
+    }
+
+
+    /**
+     * <p>B:Event Identifier</p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Identifier getEventIdentifier() {
+        return this.eventIdentifier.getValue();
+    }
+    public void setEventIdentifier(Identifier eventIdentifier) {
+        this.eventIdentifier.setValue(eventIdentifier);
     }
 
 }

@@ -13,38 +13,39 @@ import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.domainvalue.ActStatus;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.common.coct_mt040205ca.ResponsiblePersonBean;
-import ca.infoway.messagebuilder.model.merged.DispenseShipToLocationBean;
 import ca.infoway.messagebuilder.model.merged.RecordedAtBean;
+import ca.infoway.messagebuilder.model.pharmacy.merged.Component3Bean;
+import ca.infoway.messagebuilder.model.pharmacy.merged.DispenseShipToLocationBean;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 
 
-/**
- * <p>Dispense Instructions</p>
- * 
- * <p>Specification of how the prescribed medication is to be 
- * dispensed to the patient. Dispensed instruction information 
- * includes the quantity to be dispensed, how often the 
- * quantity is to be dispensed, etc.</p>
- * 
- * <p>Sets the parameters within which the dispenser must 
- * operate in dispensing the medication to the patient.</p>
- * 
- * <p>A_BillablePharmacyDispense</p>
- */
 @Hl7PartTypeMapping({"PORX_MT060340CA.SupplyRequest"})
 public class DispenseInstructionsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20100614L;
+    private static final long serialVersionUID = 20110127L;
+    private DispenseShipToLocationBean destinationServiceDeliveryLocation;
     private CS prescriptionDispensableIndicator = new CSImpl();
-    private IVL<TS, Interval<Date>> dispensingAllowedPeriod = new IVLImpl<TS, Interval<Date>>();
-    private List<ResponsiblePersonBean> receiverResponsibleParty = new ArrayList<ResponsiblePersonBean>();
     private RecordedAtBean location;
     private List<Component3Bean> component = new ArrayList<Component3Bean>();
-    private DispenseShipToLocationBean destinationServiceDeliveryLocation;
+    private IVL<TS, Interval<Date>> dispensingAllowedPeriod = new IVLImpl<TS, Interval<Date>>();
+    private List<ResponsiblePersonBean> receiverResponsibleParty = new ArrayList<ResponsiblePersonBean>();
 
+
+    @Hl7XmlMapping({"destination/serviceDeliveryLocation"})
+    public DispenseShipToLocationBean getDestinationServiceDeliveryLocation() {
+        return this.destinationServiceDeliveryLocation;
+    }
+    public void setDestinationServiceDeliveryLocation(DispenseShipToLocationBean destinationServiceDeliveryLocation) {
+        this.destinationServiceDeliveryLocation = destinationServiceDeliveryLocation;
+    }
+
+
+    /**
+     * <p>Prescription Dispensable Indicator</p>
+     */
     @Hl7XmlMapping({"statusCode"})
     public ActStatus getPrescriptionDispensableIndicator() {
         return (ActStatus) this.prescriptionDispensableIndicator.getValue();
@@ -53,18 +54,6 @@ public class DispenseInstructionsBean extends MessagePartBean {
         this.prescriptionDispensableIndicator.setValue(prescriptionDispensableIndicator);
     }
 
-    @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getDispensingAllowedPeriod() {
-        return this.dispensingAllowedPeriod.getValue();
-    }
-    public void setDispensingAllowedPeriod(Interval<Date> dispensingAllowedPeriod) {
-        this.dispensingAllowedPeriod.setValue(dispensingAllowedPeriod);
-    }
-
-    @Hl7XmlMapping({"receiver/responsibleParty"})
-    public List<ResponsiblePersonBean> getReceiverResponsibleParty() {
-        return this.receiverResponsibleParty;
-    }
 
     @Hl7XmlMapping({"location"})
     public RecordedAtBean getLocation() {
@@ -74,17 +63,28 @@ public class DispenseInstructionsBean extends MessagePartBean {
         this.location = location;
     }
 
+
     @Hl7XmlMapping({"component"})
     public List<Component3Bean> getComponent() {
         return this.component;
     }
 
-    @Hl7XmlMapping({"destination/serviceDeliveryLocation"})
-    public DispenseShipToLocationBean getDestinationServiceDeliveryLocation() {
-        return this.destinationServiceDeliveryLocation;
+
+    /**
+     * <p>A:Dispensing Allowed Period</p>
+     */
+    @Hl7XmlMapping({"effectiveTime"})
+    public Interval<Date> getDispensingAllowedPeriod() {
+        return this.dispensingAllowedPeriod.getValue();
     }
-    public void setDestinationServiceDeliveryLocation(DispenseShipToLocationBean destinationServiceDeliveryLocation) {
-        this.destinationServiceDeliveryLocation = destinationServiceDeliveryLocation;
+    public void setDispensingAllowedPeriod(Interval<Date> dispensingAllowedPeriod) {
+        this.dispensingAllowedPeriod.setValue(dispensingAllowedPeriod);
+    }
+
+
+    @Hl7XmlMapping({"receiver/responsibleParty"})
+    public List<ResponsiblePersonBean> getReceiverResponsibleParty() {
+        return this.receiverResponsibleParty;
     }
 
 }

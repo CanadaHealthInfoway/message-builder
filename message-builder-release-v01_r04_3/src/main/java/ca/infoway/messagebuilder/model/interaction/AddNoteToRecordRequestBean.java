@@ -3,19 +3,15 @@ package ca.infoway.messagebuilder.model.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.common.mcai_mt700210ca.TriggerEventBean;
-import ca.infoway.messagebuilder.model.common.mcci_mt000100ca.HL7MessageBean;
-import ca.infoway.messagebuilder.model.merged.NotesBean;
+import ca.infoway.messagebuilder.model.common.merged.HL7Message_1Bean;
+import ca.infoway.messagebuilder.model.common.merged.TriggerEvent_1Bean;
+import ca.infoway.messagebuilder.model.merged.CommentBean;
 
 
 
-/**
- * <p>Requests that the specified annotation be recorded 
- * against a particular record.</p>
- */
 @Hl7PartTypeMapping({"COMT_IN301001CA"})
-public class AddNoteToRecordRequestBean extends HL7MessageBean<TriggerEventBean<NotesBean>> implements InteractionBean {
+public class AddNoteToRecordRequestBean extends HL7Message_1Bean<TriggerEvent_1Bean<CommentBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20100614L;
+    private static final long serialVersionUID = 20110127L;
 
 }
