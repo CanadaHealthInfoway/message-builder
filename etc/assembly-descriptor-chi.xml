@@ -1,5 +1,5 @@
 <assembly>
-    <id>chi-${project.version}</id>
+    <id>chi-only-${project.version}</id>
     <formats>
         <format>zip</format>
     </formats>
@@ -317,6 +317,20 @@
           <include>**/*-sources.jar</include>
         </includes>
         <outputDirectory>source</outputDirectory>
+      </fileSet>
+      <fileSet>
+        <directory>./</directory>
+        <includes>
+          <include>pom.xml</include>
+        </includes>
+        <outputDirectory>etc</outputDirectory>
+      </fileSet>
+      <fileSet>
+        <directory>etc</directory>
+        <includes>
+          <include>**/*</include>
+        </includes>
+        <outputDirectory>etc</outputDirectory>
       </fileSet>
     </fileSets>
 </assembly>
