@@ -30,7 +30,7 @@ import ca.infoway.messagebuilder.model.pr.merged.ServiceDeliveryLocationBean;
 @Hl7PartTypeMapping({"PRPM_MT306011CA.InformRequest"})
 public class InformRequestBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
+    private static final long serialVersionUID = 20110127L;
     private Choice indirectTargetChoice;
     private CD informRequestCode = new CDImpl();
     private ServiceDeliveryLocationBean subjectServiceDeliveryLocation;

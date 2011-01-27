@@ -44,7 +44,7 @@ import ca.infoway.messagebuilder.model.merged.UnderwriterBean;
 @Hl7PartTypeMapping({"PORX_MT010110CA.Coverage","PORX_MT010120CA.Coverage","PORX_MT060040CA.Coverage"})
 public class CoverageExtensions_1Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
+    private static final long serialVersionUID = 20110127L;
     private UnderwriterBean authorUnderwriter;
     private II coverageExtensionId = new IIImpl();
     private CS extensionGrantedIndicator = new CSImpl();

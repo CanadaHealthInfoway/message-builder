@@ -18,11 +18,29 @@ import java.util.List;
 @Hl7PartTypeMapping({"REPC_MT210001CA.Section"})
 public class SectionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
-    private DocumentContent component1DocumentContent;
-    private ED<EncapsulatedData> documentOverviewContent = new EDImpl<EncapsulatedData>();
-    private List<ReferenceBean> component3Reference = new ArrayList<ReferenceBean>();
+    private static final long serialVersionUID = 20110127L;
     private List<DocumentSectionsBean> component2SubSection = new ArrayList<DocumentSectionsBean>();
+    private ED<EncapsulatedData> documentOverviewContent = new EDImpl<EncapsulatedData>();
+    private DocumentContent component1DocumentContent;
+    private List<ReferenceBean> component3Reference = new ArrayList<ReferenceBean>();
+
+
+    @Hl7XmlMapping({"component2/subSection"})
+    public List<DocumentSectionsBean> getComponent2SubSection() {
+        return this.component2SubSection;
+    }
+
+
+    /**
+     * <p>M: Document Overview Content</p>
+     */
+    @Hl7XmlMapping({"text"})
+    public EncapsulatedData getDocumentOverviewContent() {
+        return this.documentOverviewContent.getValue();
+    }
+    public void setDocumentOverviewContent(EncapsulatedData documentOverviewContent) {
+        this.documentOverviewContent.setValue(documentOverviewContent);
+    }
 
 
     @Hl7XmlMapping({"component1/documentContent"})
@@ -41,27 +59,9 @@ public class SectionBean extends MessagePartBean {
     }
 
 
-    /**
-     * <p>M: Document Overview Content</p>
-     */
-    @Hl7XmlMapping({"text"})
-    public EncapsulatedData getDocumentOverviewContent() {
-        return this.documentOverviewContent.getValue();
-    }
-    public void setDocumentOverviewContent(EncapsulatedData documentOverviewContent) {
-        this.documentOverviewContent.setValue(documentOverviewContent);
-    }
-
-
     @Hl7XmlMapping({"component3/reference"})
     public List<ReferenceBean> getComponent3Reference() {
         return this.component3Reference;
-    }
-
-
-    @Hl7XmlMapping({"component2/subSection"})
-    public List<DocumentSectionsBean> getComponent2SubSection() {
-        return this.component2SubSection;
     }
 
 }

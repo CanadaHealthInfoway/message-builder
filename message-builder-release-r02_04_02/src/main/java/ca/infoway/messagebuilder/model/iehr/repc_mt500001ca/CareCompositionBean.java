@@ -106,64 +106,49 @@ import java.util.Set;
 @Hl7RootType
 public class CareCompositionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
-    private ActingPerson informantActingPerson;
-    private Request_1Bean inFulfillmentOfActRequest;
+    private static final long serialVersionUID = 20110127L;
+    private List<OccurredAtBean> location = new ArrayList<OccurredAtBean>();
+    private CS careCompositionStatus = new CSImpl();
     private CV careCompositionType = new CVImpl();
+    private List<CareCompositionsBean> componentOfPatientCareProvisionEvent = new ArrayList<CareCompositionsBean>();
+    private IncludesBean subjectOf;
+    private List<PatientBean> subject2Patient = new ArrayList<PatientBean>();
+    private List<ActEventBean> component1ActEvent = new ArrayList<ActEventBean>();
+    private SET<CV, Code> careCompositionMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);
+    private List<ca.infoway.messagebuilder.model.common.coct_mt911108ca.ActingPerson> performerActingPerson = new ArrayList<ca.infoway.messagebuilder.model.common.coct_mt911108ca.ActingPerson>();
     private BL refutedIndicator = new BLImpl();
     private SpecimenRoleBean subject1Specimen;
-    private SET<CV, Code> careCompositionMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);
+    private Request_1Bean inFulfillmentOfActRequest;
     private List<BecauseOfBean> reason = new ArrayList<BecauseOfBean>();
-    private List<OldPatientCareProvisionEventBean> predecessorOldPatientCareProvisionEvent = new ArrayList<OldPatientCareProvisionEventBean>();
-    private List<ca.infoway.messagebuilder.model.common.coct_mt911108ca.ActingPerson> performerActingPerson = new ArrayList<ca.infoway.messagebuilder.model.common.coct_mt911108ca.ActingPerson>();
-    private CS careCompositionStatus = new CSImpl();
-    private List<PatientBean> subject2Patient = new ArrayList<PatientBean>();
-    private ca.infoway.messagebuilder.model.common.coct_mt911108ca.ActingPerson dischargerActingPerson;
-    private IncludesBean subjectOf;
-    private IVL<TS, Interval<Date>> careCompositionPeriod = new IVLImpl<TS, Interval<Date>>();
-    private List<CareCompositionsBean> componentOfPatientCareProvisionEvent = new ArrayList<CareCompositionsBean>();
-    private List<OccurredAtBean> location = new ArrayList<OccurredAtBean>();
-    private List<ActEventBean> component1ActEvent = new ArrayList<ActEventBean>();
-    private List<DischargeDiagnosisBean> outcomeDiagnosisEvent = new ArrayList<DischargeDiagnosisBean>();
+    private ActingPerson informantActingPerson;
     private List<ParticipantGroupingsBean> component2PatientCareProvisionEventPortion = new ArrayList<ParticipantGroupingsBean>();
+    private List<OldPatientCareProvisionEventBean> predecessorOldPatientCareProvisionEvent = new ArrayList<OldPatientCareProvisionEventBean>();
+    private List<DischargeDiagnosisBean> outcomeDiagnosisEvent = new ArrayList<DischargeDiagnosisBean>();
+    private ca.infoway.messagebuilder.model.common.coct_mt911108ca.ActingPerson dischargerActingPerson;
+    private IVL<TS, Interval<Date>> careCompositionPeriod = new IVLImpl<TS, Interval<Date>>();
 
 
-    @Hl7XmlMapping({"informant/actingPerson"})
-    public ActingPerson getInformantActingPerson() {
-        return this.informantActingPerson;
-    }
-    public void setInformantActingPerson(ActingPerson informantActingPerson) {
-        this.informantActingPerson = informantActingPerson;
-    }
-
-    public HealthcareWorkerBean getInformantActingPersonAsAssignedEntity1() {
-        return this.informantActingPerson instanceof HealthcareWorkerBean ? (HealthcareWorkerBean) this.informantActingPerson : null;
-    }
-    public boolean hasInformantActingPersonAsAssignedEntity1() {
-        return (this.informantActingPerson instanceof HealthcareWorkerBean);
-    }
-
-    public HealthcareOrganizationBean getInformantActingPersonAsAssignedEntity2() {
-        return this.informantActingPerson instanceof HealthcareOrganizationBean ? (HealthcareOrganizationBean) this.informantActingPerson : null;
-    }
-    public boolean hasInformantActingPersonAsAssignedEntity2() {
-        return (this.informantActingPerson instanceof HealthcareOrganizationBean);
-    }
-
-    public Patient_2Bean getInformantActingPersonAsPatient() {
-        return this.informantActingPerson instanceof Patient_2Bean ? (Patient_2Bean) this.informantActingPerson : null;
-    }
-    public boolean hasInformantActingPersonAsPatient() {
-        return (this.informantActingPerson instanceof Patient_2Bean);
+    @Hl7XmlMapping({"location"})
+    public List<OccurredAtBean> getLocation() {
+        return this.location;
     }
 
 
-    @Hl7XmlMapping({"inFulfillmentOf/actRequest"})
-    public Request_1Bean getInFulfillmentOfActRequest() {
-        return this.inFulfillmentOfActRequest;
+    /**
+     * <p>C: Care Composition Status</p>
+     * 
+     * <p></p></p>
+     * 
+     * <p></p></p>
+     * 
+     * <p></p></p>
+     */
+    @Hl7XmlMapping({"statusCode"})
+    public ActStatus getCareCompositionStatus() {
+        return (ActStatus) this.careCompositionStatus.getValue();
     }
-    public void setInFulfillmentOfActRequest(Request_1Bean inFulfillmentOfActRequest) {
-        this.inFulfillmentOfActRequest = inFulfillmentOfActRequest;
+    public void setCareCompositionStatus(ActStatus careCompositionStatus) {
+        this.careCompositionStatus.setValue(careCompositionStatus);
     }
 
 
@@ -288,34 +273,30 @@ public class CareCompositionBean extends MessagePartBean {
     }
 
 
-    /**
-     * <p>D:Refuted Indicator</p>
-     * 
-     * <p><p>Refuted Indicator cannot be specified unless Care 
-     * Composition Type is Encounter or a specialization 
-     * there-of.</p></p>
-     * 
-     * <p></p></p>
-     * 
-     * <p></p></p>
-     * 
-     * <p></p></p>
-     */
-    @Hl7XmlMapping({"negationInd"})
-    public Boolean getRefutedIndicator() {
-        return this.refutedIndicator.getValue();
-    }
-    public void setRefutedIndicator(Boolean refutedIndicator) {
-        this.refutedIndicator.setValue(refutedIndicator);
+    @Hl7XmlMapping({"componentOf/patientCareProvisionEvent"})
+    public List<CareCompositionsBean> getComponentOfPatientCareProvisionEvent() {
+        return this.componentOfPatientCareProvisionEvent;
     }
 
 
-    @Hl7XmlMapping({"subject1/specimen"})
-    public SpecimenRoleBean getSubject1Specimen() {
-        return this.subject1Specimen;
+    @Hl7XmlMapping({"subjectOf"})
+    public IncludesBean getSubjectOf() {
+        return this.subjectOf;
     }
-    public void setSubject1Specimen(SpecimenRoleBean subject1Specimen) {
-        this.subject1Specimen = subject1Specimen;
+    public void setSubjectOf(IncludesBean subjectOf) {
+        this.subjectOf = subjectOf;
+    }
+
+
+    @Hl7XmlMapping({"subject2/patient"})
+    public List<PatientBean> getSubject2Patient() {
+        return this.subject2Patient;
+    }
+
+
+    @Hl7XmlMapping({"component1/actEvent"})
+    public List<ActEventBean> getComponent1ActEvent() {
+        return this.component1ActEvent;
     }
 
 
@@ -360,9 +341,91 @@ public class CareCompositionBean extends MessagePartBean {
     }
 
 
+    @Hl7XmlMapping({"performer/actingPerson"})
+    public List<ca.infoway.messagebuilder.model.common.coct_mt911108ca.ActingPerson> getPerformerActingPerson() {
+        return this.performerActingPerson;
+    }
+
+
+    /**
+     * <p>D:Refuted Indicator</p>
+     * 
+     * <p><p>Refuted Indicator cannot be specified unless Care 
+     * Composition Type is Encounter or a specialization 
+     * there-of.</p></p>
+     * 
+     * <p></p></p>
+     * 
+     * <p></p></p>
+     * 
+     * <p></p></p>
+     */
+    @Hl7XmlMapping({"negationInd"})
+    public Boolean getRefutedIndicator() {
+        return this.refutedIndicator.getValue();
+    }
+    public void setRefutedIndicator(Boolean refutedIndicator) {
+        this.refutedIndicator.setValue(refutedIndicator);
+    }
+
+
+    @Hl7XmlMapping({"subject1/specimen"})
+    public SpecimenRoleBean getSubject1Specimen() {
+        return this.subject1Specimen;
+    }
+    public void setSubject1Specimen(SpecimenRoleBean subject1Specimen) {
+        this.subject1Specimen = subject1Specimen;
+    }
+
+
+    @Hl7XmlMapping({"inFulfillmentOf/actRequest"})
+    public Request_1Bean getInFulfillmentOfActRequest() {
+        return this.inFulfillmentOfActRequest;
+    }
+    public void setInFulfillmentOfActRequest(Request_1Bean inFulfillmentOfActRequest) {
+        this.inFulfillmentOfActRequest = inFulfillmentOfActRequest;
+    }
+
+
     @Hl7XmlMapping({"reason"})
     public List<BecauseOfBean> getReason() {
         return this.reason;
+    }
+
+
+    @Hl7XmlMapping({"informant/actingPerson"})
+    public ActingPerson getInformantActingPerson() {
+        return this.informantActingPerson;
+    }
+    public void setInformantActingPerson(ActingPerson informantActingPerson) {
+        this.informantActingPerson = informantActingPerson;
+    }
+
+    public HealthcareWorkerBean getInformantActingPersonAsAssignedEntity1() {
+        return this.informantActingPerson instanceof HealthcareWorkerBean ? (HealthcareWorkerBean) this.informantActingPerson : null;
+    }
+    public boolean hasInformantActingPersonAsAssignedEntity1() {
+        return (this.informantActingPerson instanceof HealthcareWorkerBean);
+    }
+
+    public HealthcareOrganizationBean getInformantActingPersonAsAssignedEntity2() {
+        return this.informantActingPerson instanceof HealthcareOrganizationBean ? (HealthcareOrganizationBean) this.informantActingPerson : null;
+    }
+    public boolean hasInformantActingPersonAsAssignedEntity2() {
+        return (this.informantActingPerson instanceof HealthcareOrganizationBean);
+    }
+
+    public Patient_2Bean getInformantActingPersonAsPatient() {
+        return this.informantActingPerson instanceof Patient_2Bean ? (Patient_2Bean) this.informantActingPerson : null;
+    }
+    public boolean hasInformantActingPersonAsPatient() {
+        return (this.informantActingPerson instanceof Patient_2Bean);
+    }
+
+
+    @Hl7XmlMapping({"component2/patientCareProvisionEventPortion"})
+    public List<ParticipantGroupingsBean> getComponent2PatientCareProvisionEventPortion() {
+        return this.component2PatientCareProvisionEventPortion;
     }
 
 
@@ -372,33 +435,9 @@ public class CareCompositionBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"performer/actingPerson"})
-    public List<ca.infoway.messagebuilder.model.common.coct_mt911108ca.ActingPerson> getPerformerActingPerson() {
-        return this.performerActingPerson;
-    }
-
-
-    /**
-     * <p>C: Care Composition Status</p>
-     * 
-     * <p></p></p>
-     * 
-     * <p></p></p>
-     * 
-     * <p></p></p>
-     */
-    @Hl7XmlMapping({"statusCode"})
-    public ActStatus getCareCompositionStatus() {
-        return (ActStatus) this.careCompositionStatus.getValue();
-    }
-    public void setCareCompositionStatus(ActStatus careCompositionStatus) {
-        this.careCompositionStatus.setValue(careCompositionStatus);
-    }
-
-
-    @Hl7XmlMapping({"subject2/patient"})
-    public List<PatientBean> getSubject2Patient() {
-        return this.subject2Patient;
+    @Hl7XmlMapping({"outcome/diagnosisEvent"})
+    public List<DischargeDiagnosisBean> getOutcomeDiagnosisEvent() {
+        return this.outcomeDiagnosisEvent;
     }
 
 
@@ -429,15 +468,6 @@ public class CareCompositionBean extends MessagePartBean {
     }
     public boolean hasDischargerActingPersonAsPersonalRelationship() {
         return (this.dischargerActingPerson instanceof RelatedPersonBean);
-    }
-
-
-    @Hl7XmlMapping({"subjectOf"})
-    public IncludesBean getSubjectOf() {
-        return this.subjectOf;
-    }
-    public void setSubjectOf(IncludesBean subjectOf) {
-        this.subjectOf = subjectOf;
     }
 
 
@@ -482,36 +512,6 @@ public class CareCompositionBean extends MessagePartBean {
     }
     public void setCareCompositionPeriod(Interval<Date> careCompositionPeriod) {
         this.careCompositionPeriod.setValue(careCompositionPeriod);
-    }
-
-
-    @Hl7XmlMapping({"componentOf/patientCareProvisionEvent"})
-    public List<CareCompositionsBean> getComponentOfPatientCareProvisionEvent() {
-        return this.componentOfPatientCareProvisionEvent;
-    }
-
-
-    @Hl7XmlMapping({"location"})
-    public List<OccurredAtBean> getLocation() {
-        return this.location;
-    }
-
-
-    @Hl7XmlMapping({"component1/actEvent"})
-    public List<ActEventBean> getComponent1ActEvent() {
-        return this.component1ActEvent;
-    }
-
-
-    @Hl7XmlMapping({"outcome/diagnosisEvent"})
-    public List<DischargeDiagnosisBean> getOutcomeDiagnosisEvent() {
-        return this.outcomeDiagnosisEvent;
-    }
-
-
-    @Hl7XmlMapping({"component2/patientCareProvisionEventPortion"})
-    public List<ParticipantGroupingsBean> getComponent2PatientCareProvisionEventPortion() {
-        return this.component2PatientCareProvisionEventPortion;
     }
 
 }

@@ -23,7 +23,7 @@ import ca.infoway.messagebuilder.model.merged.Choice;
 @Hl7PartTypeMapping({"POIZ_MT030050CA.Reason","POIZ_MT030060CA.Reason","POIZ_MT060150CA.Reason"})
 public class ReasonBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
+    private static final long serialVersionUID = 20110127L;
     private Choice choice;
 
 

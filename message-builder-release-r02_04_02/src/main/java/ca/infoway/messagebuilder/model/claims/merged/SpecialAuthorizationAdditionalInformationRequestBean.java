@@ -17,10 +17,10 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7RootType
 public class SpecialAuthorizationAdditionalInformationRequestBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
+    private static final long serialVersionUID = 20110127L;
     private SpecialAuthorizationRequestBean referenceSpecialAuthorizationRequest;
-    private II additionalInformationRequestID = new IIImpl();
     private ST additionalInformationQuestion = new STImpl();
+    private II additionalInformationRequestID = new IIImpl();
 
 
     @Hl7XmlMapping({"reference/specialAuthorizationRequest"})
@@ -29,20 +29,6 @@ public class SpecialAuthorizationAdditionalInformationRequestBean extends Messag
     }
     public void setReferenceSpecialAuthorizationRequest(SpecialAuthorizationRequestBean referenceSpecialAuthorizationRequest) {
         this.referenceSpecialAuthorizationRequest = referenceSpecialAuthorizationRequest;
-    }
-
-
-    /**
-     * <p>AdditionalInformationRequestID</p>
-     * 
-     * <p>Additional Information Request ID</p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Identifier getAdditionalInformationRequestID() {
-        return this.additionalInformationRequestID.getValue();
-    }
-    public void setAdditionalInformationRequestID(Identifier additionalInformationRequestID) {
-        this.additionalInformationRequestID.setValue(additionalInformationRequestID);
     }
 
 
@@ -57,6 +43,20 @@ public class SpecialAuthorizationAdditionalInformationRequestBean extends Messag
     }
     public void setAdditionalInformationQuestion(String additionalInformationQuestion) {
         this.additionalInformationQuestion.setValue(additionalInformationQuestion);
+    }
+
+
+    /**
+     * <p>AdditionalInformationRequestID</p>
+     * 
+     * <p>Additional Information Request ID</p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Identifier getAdditionalInformationRequestID() {
+        return this.additionalInformationRequestID.getValue();
+    }
+    public void setAdditionalInformationRequestID(Identifier additionalInformationRequestID) {
+        this.additionalInformationRequestID.setValue(additionalInformationRequestID);
     }
 
 }

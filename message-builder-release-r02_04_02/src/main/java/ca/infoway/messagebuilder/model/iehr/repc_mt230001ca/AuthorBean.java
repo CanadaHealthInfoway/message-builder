@@ -20,34 +20,10 @@ import java.util.Date;
 @Hl7PartTypeMapping({"REPC_MT230001CA.Author"})
 public class AuthorBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
-    private CE attestedIndicator = new CEImpl();
-    private TS authoredDatetime = new TSImpl();
+    private static final long serialVersionUID = 20110127L;
     private ActingPerson actingPerson;
-
-
-    /**
-     * <p>K: Attested Indicator</p>
-     */
-    @Hl7XmlMapping({"signatureCode"})
-    public ParticipationSignature getAttestedIndicator() {
-        return (ParticipationSignature) this.attestedIndicator.getValue();
-    }
-    public void setAttestedIndicator(ParticipationSignature attestedIndicator) {
-        this.attestedIndicator.setValue(attestedIndicator);
-    }
-
-
-    /**
-     * <p>X: Authored Datetime</p>
-     */
-    @Hl7XmlMapping({"time"})
-    public Date getAuthoredDatetime() {
-        return this.authoredDatetime.getValue();
-    }
-    public void setAuthoredDatetime(Date authoredDatetime) {
-        this.authoredDatetime.setValue(authoredDatetime);
-    }
+    private TS authoredDatetime = new TSImpl();
+    private CE attestedIndicator = new CEImpl();
 
 
     @Hl7XmlMapping({"actingPerson"})
@@ -77,6 +53,30 @@ public class AuthorBean extends MessagePartBean {
     }
     public boolean hasActingPersonAsPersonalRelationship() {
         return (this.actingPerson instanceof RelatedPersonBean);
+    }
+
+
+    /**
+     * <p>X: Authored Datetime</p>
+     */
+    @Hl7XmlMapping({"time"})
+    public Date getAuthoredDatetime() {
+        return this.authoredDatetime.getValue();
+    }
+    public void setAuthoredDatetime(Date authoredDatetime) {
+        this.authoredDatetime.setValue(authoredDatetime);
+    }
+
+
+    /**
+     * <p>K: Attested Indicator</p>
+     */
+    @Hl7XmlMapping({"signatureCode"})
+    public ParticipationSignature getAttestedIndicator() {
+        return (ParticipationSignature) this.attestedIndicator.getValue();
+    }
+    public void setAttestedIndicator(ParticipationSignature attestedIndicator) {
+        this.attestedIndicator.setValue(attestedIndicator);
     }
 
 }

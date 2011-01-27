@@ -36,13 +36,19 @@ import java.util.List;
 @Hl7RootType
 public class PaymentIntentBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
+    private static final long serialVersionUID = 20110127L;
+    private List<AdjudicatorBillingTaxAccountBean> pertinentInformationAdjudicatorBillingTaxAccount = new ArrayList<AdjudicatorBillingTaxAccountBean>();
     private List<PaymentIntentReasonBean> reasonOf = new ArrayList<PaymentIntentReasonBean>();
     private PayeeAccountBean creditAccount;
     private TS paymentIntentDateTime = new TSImpl();
-    private AccountBean debitAccount;
     private MO amt = new MOImpl();
-    private List<AdjudicatorBillingTaxAccountBean> pertinentInformationAdjudicatorBillingTaxAccount = new ArrayList<AdjudicatorBillingTaxAccountBean>();
+    private AccountBean debitAccount;
+
+
+    @Hl7XmlMapping({"pertinentInformation/adjudicatorBillingTaxAccount"})
+    public List<AdjudicatorBillingTaxAccountBean> getPertinentInformationAdjudicatorBillingTaxAccount() {
+        return this.pertinentInformationAdjudicatorBillingTaxAccount;
+    }
 
 
     @Hl7XmlMapping({"reasonOf"})
@@ -86,15 +92,6 @@ public class PaymentIntentBean extends MessagePartBean {
     }
     public void setPaymentIntentDateTime(Date paymentIntentDateTime) {
         this.paymentIntentDateTime.setValue(paymentIntentDateTime);
-    }
-
-
-    @Hl7XmlMapping({"debit/account"})
-    public AccountBean getDebitAccount() {
-        return this.debitAccount;
-    }
-    public void setDebitAccount(AccountBean debitAccount) {
-        this.debitAccount = debitAccount;
     }
 
 
@@ -144,9 +141,12 @@ public class PaymentIntentBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"pertinentInformation/adjudicatorBillingTaxAccount"})
-    public List<AdjudicatorBillingTaxAccountBean> getPertinentInformationAdjudicatorBillingTaxAccount() {
-        return this.pertinentInformationAdjudicatorBillingTaxAccount;
+    @Hl7XmlMapping({"debit/account"})
+    public AccountBean getDebitAccount() {
+        return this.debitAccount;
+    }
+    public void setDebitAccount(AccountBean debitAccount) {
+        this.debitAccount = debitAccount;
     }
 
 }

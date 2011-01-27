@@ -35,12 +35,64 @@ import java.util.Set;
 @Hl7RootType
 public class ImmunizationQueryParametersBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
+    private static final long serialVersionUID = 20110127L;
+    private TS patientBirthDate = new TSImpl();
+    private CV patientGender = new CVImpl();
+    private SET<II, Identifier> patientIdentifiers = new SETImpl<II, Identifier>(IIImpl.class);
     private II immunizationEventID = new IIImpl();
     private PN patientName = new PNImpl();
-    private SET<II, Identifier> patientIdentifiers = new SETImpl<II, Identifier>(IIImpl.class);
-    private CV patientGender = new CVImpl();
-    private TS patientBirthDate = new TSImpl();
+
+
+    /**
+     * <p>E:Patient Birth Date</p>
+     * 
+     * <p><p>Indicates the date on which the patient was born.</p></p>
+     * 
+     * <p><p>Use to confirm identity of the patient for the query. 
+     * As a result, this attribute is required.</p></p>
+     */
+    @Hl7XmlMapping({"patientBirthDate/value"})
+    public Date getPatientBirthDate() {
+        return this.patientBirthDate.getValue();
+    }
+    public void setPatientBirthDate(Date patientBirthDate) {
+        this.patientBirthDate.setValue(patientBirthDate);
+    }
+
+
+    /**
+     * <p>D:Patient Gender</p>
+     * 
+     * <p><p>Indicates the gender (sex) of the patient.</p></p>
+     * 
+     * <p><p>Used to confirm the identity of the patient for the 
+     * query. As a result, this attribute is required.</p></p>
+     */
+    @Hl7XmlMapping({"patientGender/value"})
+    public AdministrativeGender getPatientGender() {
+        return (AdministrativeGender) this.patientGender.getValue();
+    }
+    public void setPatientGender(AdministrativeGender patientGender) {
+        this.patientGender.setValue(patientGender);
+    }
+
+
+    /**
+     * <p>B:Patient Identifiers</p>
+     * 
+     * <p><p>Identifier of the patient who is the subject of the 
+     * patient immunization query. Filter the result set to include 
+     * only those records pertaining to the patient with this 
+     * Id.</p></p>
+     * 
+     * <p><p>Allows filtering of result set by patient ID. This 
+     * information is used to verify the record. As a result, this 
+     * attribute is required.</p></p>
+     */
+    @Hl7XmlMapping({"patientID/value"})
+    public Set<Identifier> getPatientIdentifiers() {
+        return this.patientIdentifiers.rawSet();
+    }
 
 
     /**
@@ -87,58 +139,6 @@ public class ImmunizationQueryParametersBean extends MessagePartBean {
     }
     public void setPatientName(PersonName patientName) {
         this.patientName.setValue(patientName);
-    }
-
-
-    /**
-     * <p>B:Patient Identifiers</p>
-     * 
-     * <p><p>Identifier of the patient who is the subject of the 
-     * patient immunization query. Filter the result set to include 
-     * only those records pertaining to the patient with this 
-     * Id.</p></p>
-     * 
-     * <p><p>Allows filtering of result set by patient ID. This 
-     * information is used to verify the record. As a result, this 
-     * attribute is required.</p></p>
-     */
-    @Hl7XmlMapping({"patientID/value"})
-    public Set<Identifier> getPatientIdentifiers() {
-        return this.patientIdentifiers.rawSet();
-    }
-
-
-    /**
-     * <p>D:Patient Gender</p>
-     * 
-     * <p><p>Indicates the gender (sex) of the patient.</p></p>
-     * 
-     * <p><p>Used to confirm the identity of the patient for the 
-     * query. As a result, this attribute is required.</p></p>
-     */
-    @Hl7XmlMapping({"patientGender/value"})
-    public AdministrativeGender getPatientGender() {
-        return (AdministrativeGender) this.patientGender.getValue();
-    }
-    public void setPatientGender(AdministrativeGender patientGender) {
-        this.patientGender.setValue(patientGender);
-    }
-
-
-    /**
-     * <p>E:Patient Birth Date</p>
-     * 
-     * <p><p>Indicates the date on which the patient was born.</p></p>
-     * 
-     * <p><p>Use to confirm identity of the patient for the query. 
-     * As a result, this attribute is required.</p></p>
-     */
-    @Hl7XmlMapping({"patientBirthDate/value"})
-    public Date getPatientBirthDate() {
-        return this.patientBirthDate.getValue();
-    }
-    public void setPatientBirthDate(Date patientBirthDate) {
-        this.patientBirthDate.setValue(patientBirthDate);
     }
 
 }

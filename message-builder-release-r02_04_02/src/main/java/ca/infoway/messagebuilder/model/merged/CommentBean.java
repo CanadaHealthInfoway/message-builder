@@ -49,14 +49,14 @@ import java.util.Set;
 @Hl7RootType
 public class CommentBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
+    private static final long serialVersionUID = 20110127L;
     private CV patientNoteCategory = new CVImpl();
-    private SET<CV, Code> restrictedPatientAccess = new SETImpl<CV, Code>(CVImpl.class);
     private ST text = new STImpl();
-    private II patientNoteId = new IIImpl();
-    private HealthcareWorkerBean responsiblePartyAssignedEntity;
+    private SET<CV, Code> restrictedPatientAccess = new SETImpl<CV, Code>(CVImpl.class);
     private OccurredAtBean location;
     private AnnotatedByBean author;
+    private II patientNoteId = new IIImpl();
+    private HealthcareWorkerBean responsiblePartyAssignedEntity;
     private II recordId = new IIImpl();
     private CV writtenIn = new CVImpl();
 
@@ -94,6 +94,28 @@ public class CommentBean extends MessagePartBean {
     }
     public void setPatientNoteCategory(ActPatientAnnotationCode patientNoteCategory) {
         this.patientNoteCategory.setValue(patientNoteCategory);
+    }
+
+
+    /**
+     * <p>C:Annotation Text</p>
+     * 
+     * <p>C:Patient Note Text</p>
+     * 
+     * <p><p>Free textual description of the patient note.</p></p>
+     * 
+     * <p><p>Allows a provider to attach comments to a patient as a 
+     * whole or to the patient's profile (such as medication, lab. 
+     * DI, etc). This attribute is mandatory because there's no 
+     * point in having a patient note unless there's actually 
+     * content in the note.</p></p>
+     */
+    @Hl7XmlMapping({"text"})
+    public String getText() {
+        return this.text.getValue();
+    }
+    public void setText(String text) {
+        this.text.setValue(text);
     }
 
 
@@ -190,25 +212,21 @@ public class CommentBean extends MessagePartBean {
     }
 
 
-    /**
-     * <p>C:Annotation Text</p>
-     * 
-     * <p>C:Patient Note Text</p>
-     * 
-     * <p><p>Free textual description of the patient note.</p></p>
-     * 
-     * <p><p>Allows a provider to attach comments to a patient as a 
-     * whole or to the patient's profile (such as medication, lab. 
-     * DI, etc). This attribute is mandatory because there's no 
-     * point in having a patient note unless there's actually 
-     * content in the note.</p></p>
-     */
-    @Hl7XmlMapping({"text"})
-    public String getText() {
-        return this.text.getValue();
+    @Hl7XmlMapping({"location"})
+    public OccurredAtBean getLocation() {
+        return this.location;
     }
-    public void setText(String text) {
-        this.text.setValue(text);
+    public void setLocation(OccurredAtBean location) {
+        this.location = location;
+    }
+
+
+    @Hl7XmlMapping({"author"})
+    public AnnotatedByBean getAuthor() {
+        return this.author;
+    }
+    public void setAuthor(AnnotatedByBean author) {
+        this.author = author;
     }
 
 
@@ -244,24 +262,6 @@ public class CommentBean extends MessagePartBean {
     }
     public void setResponsiblePartyAssignedEntity(HealthcareWorkerBean responsiblePartyAssignedEntity) {
         this.responsiblePartyAssignedEntity = responsiblePartyAssignedEntity;
-    }
-
-
-    @Hl7XmlMapping({"location"})
-    public OccurredAtBean getLocation() {
-        return this.location;
-    }
-    public void setLocation(OccurredAtBean location) {
-        this.location = location;
-    }
-
-
-    @Hl7XmlMapping({"author"})
-    public AnnotatedByBean getAuthor() {
-        return this.author;
-    }
-    public void setAuthor(AnnotatedByBean author) {
-        this.author = author;
     }
 
 

@@ -52,17 +52,17 @@ import java.util.Set;
 @Hl7PartTypeMapping({"COCT_MT260010CA.SubstanceAdministration","COCT_MT260020CA.SubstanceAdministration","FICR_MT400001CA.SubstanceAdministration","FICR_MT400003CA.SubstanceAdministration","FICR_MT400004CA.SubstanceAdministration","FICR_MT490101CA.SubstanceAdministration","FICR_MT490102CA.SubstanceAdministration"})
 public class ActiveMedicationBean extends MessagePartBean implements ca.infoway.messagebuilder.model.common.merged.CausalActs, ca.infoway.messagebuilder.model.claims.merged.SpecialAuthorizationChoice {
 
-    private static final long serialVersionUID = 20110126L;
+    private static final long serialVersionUID = 20110127L;
     private PQ doseQuantity = new PQImpl();
     private MedicationBean directTargetMedication;
     private MedicineBean directTargetMedicationAdministerableMedicine;
     private CS activeMedicationStatus = new CSImpl();
     private CD administrationType = new CDImpl();
     private II activeMedicationRecordNumber = new IIImpl();
-    private IVL<TS, Interval<Date>> activeMedicationTimeRange = new IVLImpl<TS, Interval<Date>>();
     private DrugProductBean consumableMedication;
     private SET<CV, Code> activeMedicationMaskingIndicator = new SETImpl<CV, Code>(CVImpl.class);
     private CS otherMedicationIndicator = new CSImpl();
+    private IVL<TS, Interval<Date>> activeMedicationTimeRange = new IVLImpl<TS, Interval<Date>>();
 
 
     /**
@@ -213,30 +213,6 @@ public class ActiveMedicationBean extends MessagePartBean implements ca.infoway.
     }
 
 
-    /**
-     * <p>ActiveMedicationTimeRange</p>
-     * 
-     * <p>C:Active Medication Time-range</p>
-     * 
-     * <p><p>The date and time during which the patient is expected 
-     * to be taking the drug which triggered the issue.</p></p>
-     * 
-     * <p><p>Requested Duration</p></p>
-     * 
-     * <p><p>Allows the provider to evaluate '''duplicate 
-     * therapy''' and similar timing-based issues.</p></p>
-     * 
-     * <p>C:Active Medication Time-range</p>
-     */
-    @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getActiveMedicationTimeRange() {
-        return this.activeMedicationTimeRange.getValue();
-    }
-    public void setActiveMedicationTimeRange(Interval<Date> activeMedicationTimeRange) {
-        this.activeMedicationTimeRange.setValue(activeMedicationTimeRange);
-    }
-
-
     @Hl7XmlMapping({"consumable/medication"})
     public DrugProductBean getConsumableMedication() {
         return this.consumableMedication;
@@ -292,6 +268,30 @@ public class ActiveMedicationBean extends MessagePartBean implements ca.infoway.
     }
     public void setOtherMedicationIndicator(x_ActMoodRequestEvent otherMedicationIndicator) {
         this.otherMedicationIndicator.setValue(otherMedicationIndicator);
+    }
+
+
+    /**
+     * <p>ActiveMedicationTimeRange</p>
+     * 
+     * <p>C:Active Medication Time-range</p>
+     * 
+     * <p><p>The date and time during which the patient is expected 
+     * to be taking the drug which triggered the issue.</p></p>
+     * 
+     * <p><p>Requested Duration</p></p>
+     * 
+     * <p><p>Allows the provider to evaluate '''duplicate 
+     * therapy''' and similar timing-based issues.</p></p>
+     * 
+     * <p>C:Active Medication Time-range</p>
+     */
+    @Hl7XmlMapping({"effectiveTime"})
+    public Interval<Date> getActiveMedicationTimeRange() {
+        return this.activeMedicationTimeRange.getValue();
+    }
+    public void setActiveMedicationTimeRange(Interval<Date> activeMedicationTimeRange) {
+        this.activeMedicationTimeRange.setValue(activeMedicationTimeRange);
     }
 
 }

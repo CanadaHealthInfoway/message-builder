@@ -32,61 +32,12 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PORX_MT010120CA.SupplyRequestItem"})
 public class DrugDispenseInstructionsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
-    private SubsequentSupplyRequestBean component1SubsequentSupplyRequest;
-    private DrugProductBean productMedication;
-    private PQ totalPrescribedQuantity = new PQImpl();
+    private static final long serialVersionUID = 20110127L;
     private IVL<TS, Interval<Date>> totalDaysSupply = new IVLImpl<TS, Interval<Date>>();
+    private PQ totalPrescribedQuantity = new PQImpl();
+    private SubsequentSupplyRequestBean component1SubsequentSupplyRequest;
     private FirstFillBean component2InitialSupplyRequest;
-
-
-    @Hl7XmlMapping({"component1/subsequentSupplyRequest"})
-    public SubsequentSupplyRequestBean getComponent1SubsequentSupplyRequest() {
-        return this.component1SubsequentSupplyRequest;
-    }
-    public void setComponent1SubsequentSupplyRequest(SubsequentSupplyRequestBean component1SubsequentSupplyRequest) {
-        this.component1SubsequentSupplyRequest = component1SubsequentSupplyRequest;
-    }
-
-
-    @Hl7XmlMapping({"product/medication"})
-    public DrugProductBean getProductMedication() {
-        return this.productMedication;
-    }
-    public void setProductMedication(DrugProductBean productMedication) {
-        this.productMedication = productMedication;
-    }
-
-
-    /**
-     * <p>B:Total Prescribed Quantity</p>
-     * 
-     * <p><p>The overall amount of amount medication to be 
-     * dispensed under this prescription. Includes any first fills 
-     * (trials, aligning quantities), the initial standard fill 
-     * plus all refills.</p></p>
-     * 
-     * <p><p>Sets upper limit for medication to be dispensed. Can 
-     * be used to verify the intention of the prescriber with 
-     * respect to the overall medication. Used for comparison when 
-     * determining whether additional quantity may be dispensed in 
-     * the context of a part-fill prescription.</p><p>Narcotics 
-     * must always be specified as a total.</p></p>
-     * 
-     * <p><p>Sets upper limit for medication to be dispensed. Can 
-     * be used to verify the intention of the prescriber with 
-     * respect to the overall medication. Used for comparison when 
-     * determining whether additional quantity may be dispensed in 
-     * the context of a part-fill prescription.</p><p>Narcotics 
-     * must always be specified as a total.</p></p>
-     */
-    @Hl7XmlMapping({"quantity"})
-    public PhysicalQuantity getTotalPrescribedQuantity() {
-        return this.totalPrescribedQuantity.getValue();
-    }
-    public void setTotalPrescribedQuantity(PhysicalQuantity totalPrescribedQuantity) {
-        this.totalPrescribedQuantity.setValue(totalPrescribedQuantity);
-    }
+    private DrugProductBean productMedication;
 
 
     /**
@@ -123,12 +74,61 @@ public class DrugDispenseInstructionsBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>B:Total Prescribed Quantity</p>
+     * 
+     * <p><p>The overall amount of amount medication to be 
+     * dispensed under this prescription. Includes any first fills 
+     * (trials, aligning quantities), the initial standard fill 
+     * plus all refills.</p></p>
+     * 
+     * <p><p>Sets upper limit for medication to be dispensed. Can 
+     * be used to verify the intention of the prescriber with 
+     * respect to the overall medication. Used for comparison when 
+     * determining whether additional quantity may be dispensed in 
+     * the context of a part-fill prescription.</p><p>Narcotics 
+     * must always be specified as a total.</p></p>
+     * 
+     * <p><p>Sets upper limit for medication to be dispensed. Can 
+     * be used to verify the intention of the prescriber with 
+     * respect to the overall medication. Used for comparison when 
+     * determining whether additional quantity may be dispensed in 
+     * the context of a part-fill prescription.</p><p>Narcotics 
+     * must always be specified as a total.</p></p>
+     */
+    @Hl7XmlMapping({"quantity"})
+    public PhysicalQuantity getTotalPrescribedQuantity() {
+        return this.totalPrescribedQuantity.getValue();
+    }
+    public void setTotalPrescribedQuantity(PhysicalQuantity totalPrescribedQuantity) {
+        this.totalPrescribedQuantity.setValue(totalPrescribedQuantity);
+    }
+
+
+    @Hl7XmlMapping({"component1/subsequentSupplyRequest"})
+    public SubsequentSupplyRequestBean getComponent1SubsequentSupplyRequest() {
+        return this.component1SubsequentSupplyRequest;
+    }
+    public void setComponent1SubsequentSupplyRequest(SubsequentSupplyRequestBean component1SubsequentSupplyRequest) {
+        this.component1SubsequentSupplyRequest = component1SubsequentSupplyRequest;
+    }
+
+
     @Hl7XmlMapping({"component2/initialSupplyRequest"})
     public FirstFillBean getComponent2InitialSupplyRequest() {
         return this.component2InitialSupplyRequest;
     }
     public void setComponent2InitialSupplyRequest(FirstFillBean component2InitialSupplyRequest) {
         this.component2InitialSupplyRequest = component2InitialSupplyRequest;
+    }
+
+
+    @Hl7XmlMapping({"product/medication"})
+    public DrugProductBean getProductMedication() {
+        return this.productMedication;
+    }
+    public void setProductMedication(DrugProductBean productMedication) {
+        this.productMedication = productMedication;
     }
 
 }

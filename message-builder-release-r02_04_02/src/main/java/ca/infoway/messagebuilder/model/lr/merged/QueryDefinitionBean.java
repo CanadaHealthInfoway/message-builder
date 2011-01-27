@@ -62,22 +62,116 @@ import java.util.Date;
 @Hl7RootType
 public class QueryDefinitionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
+    private static final long serialVersionUID = 20110127L;
+    private II protocolIds = new IIImpl();
+    private CV locationServiceTypes = new CVImpl();
+    private CD recordTypes = new CDImpl();
+    private AD address = new ADImpl();
     private TS updatedSinceDateTime = new TSImpl();
     private II eHRRepositoryId = new IIImpl();
-    private II responsibleOrganizationId = new IIImpl();
-    private ST nameContains = new STImpl();
     private BL locationMobileIndicator = new BLImpl();
+    private II responsibleOrganizationId = new IIImpl();
+    private II regionIds = new IIImpl();
+    private CS recordStatuses = new CSImpl();
     private CV locationPlaceType = new CVImpl();
     private PQ searchRadius = new PQImpl();
-    private CV locationServiceTypes = new CVImpl();
-    private II regionIds = new IIImpl();
-    private II protocolIds = new IIImpl();
-    private AD address = new ADImpl();
+    private ST nameContains = new STImpl();
     private AD nearAddress = new ADImpl();
-    private CS recordStatuses = new CSImpl();
-    private CD recordTypes = new CDImpl();
     private II recordIds = new IIImpl();
+
+
+    /**
+     * <p>ProtocolIds</p>
+     * 
+     * <p>ZI: Protocol Ids</p>
+     * 
+     * <p><p>Filters the records retrieved to only include those 
+     * associated with the specified protocols. If unspecified, no 
+     * filter is applied.</p></p>
+     * 
+     * <p><p>Allows retrieving records associated with a particular 
+     * protocol. Useful in clinical studies and other 
+     * research.</p><p>The element is optional because support for 
+     * protocols is not deemed a neccesity for many healthcare 
+     * providers.</p></p>
+     * 
+     * <p><p>Allows retrieving records associated with a particular 
+     * protocol. Useful in clinical studies and other 
+     * research.</p><p>The element is optional because support for 
+     * protocols is not deemed a neccesity for many healthcare 
+     * providers.</p></p>
+     */
+    @Hl7XmlMapping({"protocolId/value"})
+    public Identifier getProtocolIds() {
+        return this.protocolIds.getValue();
+    }
+    public void setProtocolIds(Identifier protocolIds) {
+        this.protocolIds.setValue(protocolIds);
+    }
+
+
+    /**
+     * <p>LocationServiceTypes</p>
+     * 
+     * <p>ZB: Location Service Types</p>
+     * 
+     * <p></p></p>
+     * 
+     * <p></p></p>
+     * 
+     * <p><p>Allows searching for facilities able to deliver 
+     * certain services or groups of services.</p></p>
+     */
+    @Hl7XmlMapping({"locationServiceType/value"})
+    public ActServiceDeliveryLocationService getLocationServiceTypes() {
+        return (ActServiceDeliveryLocationService) this.locationServiceTypes.getValue();
+    }
+    public void setLocationServiceTypes(ActServiceDeliveryLocationService locationServiceTypes) {
+        this.locationServiceTypes.setValue(locationServiceTypes);
+    }
+
+
+    /**
+     * <p>RecordTypes</p>
+     * 
+     * <p>H:Record Types</p>
+     * 
+     * <p></p></p>
+     * 
+     * <p></p></p>
+     * 
+     * <p></p></p>
+     * 
+     * <p></p></p>
+     */
+    @Hl7XmlMapping({"recordType/value"})
+    public ServiceDeliveryLocationRoleType getRecordTypes() {
+        return (ServiceDeliveryLocationRoleType) this.recordTypes.getValue();
+    }
+    public void setRecordTypes(ServiceDeliveryLocationRoleType recordTypes) {
+        this.recordTypes.setValue(recordTypes);
+    }
+
+
+    /**
+     * <p>Address</p>
+     * 
+     * <p>ZE: Address</p>
+     * 
+     * <p><p>If specified, filters the returned location records to 
+     * those in the specified province/territory or 
+     * municipality.</p></p>
+     * 
+     * <p><p>Allows filtering the physical location of the 
+     * facility.</p></p>
+     */
+    @Hl7XmlMapping({"address/value"})
+    public PostalAddress getAddress() {
+        return this.address.getValue();
+    }
+    public void setAddress(PostalAddress address) {
+        this.address.setValue(address);
+    }
 
 
     /**
@@ -124,6 +218,27 @@ public class QueryDefinitionBean extends MessagePartBean {
 
 
     /**
+     * <p>LocationMobileIndicator</p>
+     * 
+     * <p>ZC: Location Mobile Indicator</p>
+     * 
+     * <p><p>If specified, filters the returned location records to 
+     * either those which are mobile or non-mobile. If unspecified, 
+     * no filter is applied.</p></p>
+     * 
+     * <p><p>Allows restricting to either mobile or non-mobile 
+     * locations.</p></p>
+     */
+    @Hl7XmlMapping({"locationMobileIndicator/value"})
+    public Boolean getLocationMobileIndicator() {
+        return this.locationMobileIndicator.getValue();
+    }
+    public void setLocationMobileIndicator(Boolean locationMobileIndicator) {
+        this.locationMobileIndicator.setValue(locationMobileIndicator);
+    }
+
+
+    /**
      * <p>ResponsibleOrganizationId</p>
      * 
      * <p>ZH: Responsible Organization Id</p>
@@ -145,51 +260,44 @@ public class QueryDefinitionBean extends MessagePartBean {
 
 
     /**
-     * <p>NameContains</p>
+     * <p>RegionIds</p>
      * 
-     * <p>Z: Name Contains</p>
+     * <p>ZD: Region Ids</p>
      * 
-     * <p><p>Filters the returned location records to only include 
-     * those whose name includes the specified string. If 
-     * unspecified, no filter is applied.</p></p>
+     * <p><p>If specified, filters the returned location records to 
+     * those which are part of the specified 'region'.</p></p>
      * 
-     * <p><p>Allows searching by name.</p><p>Note: Searches should 
-     * be case-insensitive and should ignore punctuation and 
-     * spacing. Some implementations may perform 
-     * &quot;sounds-like&quot; searches.</p></p>
-     * 
-     * <p><p>Allows searching by name.</p><p>Note: Searches should 
-     * be case-insensitive and should ignore punctuation and 
-     * spacing. Some implementations may perform 
-     * &quot;sounds-like&quot; searches.</p></p>
+     * <p><p>Allows restricting the retrieved locations to those 
+     * associated with a particular health region.</p></p>
      */
-    @Hl7XmlMapping({"nameContains/value"})
-    public String getNameContains() {
-        return this.nameContains.getValue();
+    @Hl7XmlMapping({"regionId/value"})
+    public Identifier getRegionIds() {
+        return this.regionIds.getValue();
     }
-    public void setNameContains(String nameContains) {
-        this.nameContains.setValue(nameContains);
+    public void setRegionIds(Identifier regionIds) {
+        this.regionIds.setValue(regionIds);
     }
 
 
     /**
-     * <p>LocationMobileIndicator</p>
+     * <p>RecordStatuses</p>
      * 
-     * <p>ZC: Location Mobile Indicator</p>
+     * <p>I: Record Statuses</p>
      * 
-     * <p><p>If specified, filters the returned location records to 
-     * either those which are mobile or non-mobile. If unspecified, 
-     * no filter is applied.</p></p>
+     * <p><p>Filters the set of records to be retrieved to only 
+     * include those with the identified status(s). If no values 
+     * are specified, no filter will be applied.</p></p>
      * 
-     * <p><p>Allows restricting to either mobile or non-mobile 
-     * locations.</p></p>
+     * <p><p>Allows constraining the status of records to be 
+     * retrieved. Multiple repetitions are present to allow 
+     * selection of multiple statuses with a single query.</p></p>
      */
-    @Hl7XmlMapping({"locationMobileIndicator/value"})
-    public Boolean getLocationMobileIndicator() {
-        return this.locationMobileIndicator.getValue();
+    @Hl7XmlMapping({"recordStatus/value"})
+    public ServiceDeliveryRoleStatus getRecordStatuses() {
+        return (ServiceDeliveryRoleStatus) this.recordStatuses.getValue();
     }
-    public void setLocationMobileIndicator(Boolean locationMobileIndicator) {
-        this.locationMobileIndicator.setValue(locationMobileIndicator);
+    public void setRecordStatuses(ServiceDeliveryRoleStatus recordStatuses) {
+        this.recordStatuses.setValue(recordStatuses);
     }
 
 
@@ -237,94 +345,30 @@ public class QueryDefinitionBean extends MessagePartBean {
 
 
     /**
-     * <p>LocationServiceTypes</p>
+     * <p>NameContains</p>
      * 
-     * <p>ZB: Location Service Types</p>
+     * <p>Z: Name Contains</p>
      * 
-     * <p></p></p>
+     * <p><p>Filters the returned location records to only include 
+     * those whose name includes the specified string. If 
+     * unspecified, no filter is applied.</p></p>
      * 
-     * <p></p></p>
+     * <p><p>Allows searching by name.</p><p>Note: Searches should 
+     * be case-insensitive and should ignore punctuation and 
+     * spacing. Some implementations may perform 
+     * &quot;sounds-like&quot; searches.</p></p>
      * 
-     * <p><p>Allows searching for facilities able to deliver 
-     * certain services or groups of services.</p></p>
+     * <p><p>Allows searching by name.</p><p>Note: Searches should 
+     * be case-insensitive and should ignore punctuation and 
+     * spacing. Some implementations may perform 
+     * &quot;sounds-like&quot; searches.</p></p>
      */
-    @Hl7XmlMapping({"locationServiceType/value"})
-    public ActServiceDeliveryLocationService getLocationServiceTypes() {
-        return (ActServiceDeliveryLocationService) this.locationServiceTypes.getValue();
+    @Hl7XmlMapping({"nameContains/value"})
+    public String getNameContains() {
+        return this.nameContains.getValue();
     }
-    public void setLocationServiceTypes(ActServiceDeliveryLocationService locationServiceTypes) {
-        this.locationServiceTypes.setValue(locationServiceTypes);
-    }
-
-
-    /**
-     * <p>RegionIds</p>
-     * 
-     * <p>ZD: Region Ids</p>
-     * 
-     * <p><p>If specified, filters the returned location records to 
-     * those which are part of the specified 'region'.</p></p>
-     * 
-     * <p><p>Allows restricting the retrieved locations to those 
-     * associated with a particular health region.</p></p>
-     */
-    @Hl7XmlMapping({"regionId/value"})
-    public Identifier getRegionIds() {
-        return this.regionIds.getValue();
-    }
-    public void setRegionIds(Identifier regionIds) {
-        this.regionIds.setValue(regionIds);
-    }
-
-
-    /**
-     * <p>ProtocolIds</p>
-     * 
-     * <p>ZI: Protocol Ids</p>
-     * 
-     * <p><p>Filters the records retrieved to only include those 
-     * associated with the specified protocols. If unspecified, no 
-     * filter is applied.</p></p>
-     * 
-     * <p><p>Allows retrieving records associated with a particular 
-     * protocol. Useful in clinical studies and other 
-     * research.</p><p>The element is optional because support for 
-     * protocols is not deemed a neccesity for many healthcare 
-     * providers.</p></p>
-     * 
-     * <p><p>Allows retrieving records associated with a particular 
-     * protocol. Useful in clinical studies and other 
-     * research.</p><p>The element is optional because support for 
-     * protocols is not deemed a neccesity for many healthcare 
-     * providers.</p></p>
-     */
-    @Hl7XmlMapping({"protocolId/value"})
-    public Identifier getProtocolIds() {
-        return this.protocolIds.getValue();
-    }
-    public void setProtocolIds(Identifier protocolIds) {
-        this.protocolIds.setValue(protocolIds);
-    }
-
-
-    /**
-     * <p>Address</p>
-     * 
-     * <p>ZE: Address</p>
-     * 
-     * <p><p>If specified, filters the returned location records to 
-     * those in the specified province/territory or 
-     * municipality.</p></p>
-     * 
-     * <p><p>Allows filtering the physical location of the 
-     * facility.</p></p>
-     */
-    @Hl7XmlMapping({"address/value"})
-    public PostalAddress getAddress() {
-        return this.address.getValue();
-    }
-    public void setAddress(PostalAddress address) {
-        this.address.setValue(address);
+    public void setNameContains(String nameContains) {
+        this.nameContains.setValue(nameContains);
     }
 
 
@@ -346,50 +390,6 @@ public class QueryDefinitionBean extends MessagePartBean {
     }
     public void setNearAddress(PostalAddress nearAddress) {
         this.nearAddress.setValue(nearAddress);
-    }
-
-
-    /**
-     * <p>RecordStatuses</p>
-     * 
-     * <p>I: Record Statuses</p>
-     * 
-     * <p><p>Filters the set of records to be retrieved to only 
-     * include those with the identified status(s). If no values 
-     * are specified, no filter will be applied.</p></p>
-     * 
-     * <p><p>Allows constraining the status of records to be 
-     * retrieved. Multiple repetitions are present to allow 
-     * selection of multiple statuses with a single query.</p></p>
-     */
-    @Hl7XmlMapping({"recordStatus/value"})
-    public ServiceDeliveryRoleStatus getRecordStatuses() {
-        return (ServiceDeliveryRoleStatus) this.recordStatuses.getValue();
-    }
-    public void setRecordStatuses(ServiceDeliveryRoleStatus recordStatuses) {
-        this.recordStatuses.setValue(recordStatuses);
-    }
-
-
-    /**
-     * <p>RecordTypes</p>
-     * 
-     * <p>H:Record Types</p>
-     * 
-     * <p></p></p>
-     * 
-     * <p></p></p>
-     * 
-     * <p></p></p>
-     * 
-     * <p></p></p>
-     */
-    @Hl7XmlMapping({"recordType/value"})
-    public ServiceDeliveryLocationRoleType getRecordTypes() {
-        return (ServiceDeliveryLocationRoleType) this.recordTypes.getValue();
-    }
-    public void setRecordTypes(ServiceDeliveryLocationRoleType recordTypes) {
-        this.recordTypes.setValue(recordTypes);
     }
 
 

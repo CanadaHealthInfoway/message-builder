@@ -49,10 +49,10 @@ import java.util.List;
 @Hl7PartTypeMapping({"COCT_MT260010CA.SubstanceAdministrationEventCriterion","COCT_MT260020CA.SubstanceAdministrationEventCriterion","COCT_MT260030CA.SubstanceAdministrationEventCriterion"})
 public class RecommendedDosageBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
+    private static final long serialVersionUID = 20110127L;
     private URG<PQ, PhysicalQuantity> dosageRange = new URGImpl<PQ, PhysicalQuantity>();
-    private IVL<TS, Interval<Date>> doseDuration = new IVLImpl<TS, Interval<Date>>();
     private List<DosagePreconditionsBean> componentObservationEventCriterion = new ArrayList<DosagePreconditionsBean>();
+    private IVL<TS, Interval<Date>> doseDuration = new IVLImpl<TS, Interval<Date>>();
 
 
     /**
@@ -86,6 +86,12 @@ public class RecommendedDosageBean extends MessagePartBean {
     }
 
 
+    @Hl7XmlMapping({"component/observationEventCriterion"})
+    public List<DosagePreconditionsBean> getComponentObservationEventCriterion() {
+        return this.componentObservationEventCriterion;
+    }
+
+
     /**
      * <p>DoseDuration</p>
      * 
@@ -106,12 +112,6 @@ public class RecommendedDosageBean extends MessagePartBean {
     }
     public void setDoseDuration(Interval<Date> doseDuration) {
         this.doseDuration.setValue(doseDuration);
-    }
-
-
-    @Hl7XmlMapping({"component/observationEventCriterion"})
-    public List<DosagePreconditionsBean> getComponentObservationEventCriterion() {
-        return this.componentObservationEventCriterion;
     }
 
 }

@@ -31,21 +31,21 @@ import java.util.Date;
 @Hl7RootType
 public class ParameterList_1Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
+    private static final long serialVersionUID = 20110127L;
     private II specialAuthorizationRequestID = new IIImpl();
-    private II policyIdentifier = new IIImpl();
-    private PN coveredPartyNameValue = new PNImpl();
-    private TS coveredPartyBirthdate = new TSImpl();
     private CV coveredPartyGenderValue = new CVImpl();
-    private CV approvedDrugCode = new CVImpl();
-    private II authorID = new IIImpl();
-    private CV requestedDeviceCode = new CVImpl();
-    private CV approvedDeviceCode = new CVImpl();
+    private PN coveredPartyNameValue = new PNImpl();
+    private II policyIdentifier = new IIImpl();
+    private TS coveredPartyBirthdate = new TSImpl();
+    private CV requestedDrugCode = new CVImpl();
     private CV specialAuthorizationRequestType = new CVImpl();
     private CV specialAuthorizationStatus = new CVImpl();
-    private IVL<TS, Interval<Date>> specialAuthorizationExpiryDateRange = new IVLImpl<TS, Interval<Date>>();
-    private CV requestedDrugCode = new CVImpl();
+    private CV requestedDeviceCode = new CVImpl();
     private PN authorName = new PNImpl();
+    private IVL<TS, Interval<Date>> specialAuthorizationExpiryDateRange = new IVLImpl<TS, Interval<Date>>();
+    private CV approvedDeviceCode = new CVImpl();
+    private CV approvedDrugCode = new CVImpl();
+    private II authorID = new IIImpl();
 
 
     /**
@@ -59,48 +59,6 @@ public class ParameterList_1Bean extends MessagePartBean {
     }
     public void setSpecialAuthorizationRequestID(Identifier specialAuthorizationRequestID) {
         this.specialAuthorizationRequestID.setValue(specialAuthorizationRequestID);
-    }
-
-
-    /**
-     * <p>PolicyIdentifier</p>
-     * 
-     * <p>Policy Identifier</p>
-     */
-    @Hl7XmlMapping({"policyIdentifier/value"})
-    public Identifier getPolicyIdentifier() {
-        return this.policyIdentifier.getValue();
-    }
-    public void setPolicyIdentifier(Identifier policyIdentifier) {
-        this.policyIdentifier.setValue(policyIdentifier);
-    }
-
-
-    /**
-     * <p>Covered Party Name</p>
-     * 
-     * <p>Covered Party (Patient) Name</p>
-     */
-    @Hl7XmlMapping({"coveredPartyName/value"})
-    public PersonName getCoveredPartyNameValue() {
-        return this.coveredPartyNameValue.getValue();
-    }
-    public void setCoveredPartyNameValue(PersonName coveredPartyNameValue) {
-        this.coveredPartyNameValue.setValue(coveredPartyNameValue);
-    }
-
-
-    /**
-     * <p>CoveredPartyBirthdate</p>
-     * 
-     * <p>Covered Party Birthdate</p>
-     */
-    @Hl7XmlMapping({"coveredPartyDOB/value"})
-    public Date getCoveredPartyBirthdate() {
-        return this.coveredPartyBirthdate.getValue();
-    }
-    public void setCoveredPartyBirthdate(Date coveredPartyBirthdate) {
-        this.coveredPartyBirthdate.setValue(coveredPartyBirthdate);
     }
 
 
@@ -119,58 +77,58 @@ public class ParameterList_1Bean extends MessagePartBean {
 
 
     /**
-     * <p>ApprovedDrugCode</p>
+     * <p>Covered Party Name</p>
      * 
-     * <p>Approved Drug Code</p>
+     * <p>Covered Party (Patient) Name</p>
      */
-    @Hl7XmlMapping({"approvedDrugCode/value"})
-    public ClinicalDrug getApprovedDrugCode() {
-        return (ClinicalDrug) this.approvedDrugCode.getValue();
+    @Hl7XmlMapping({"coveredPartyName/value"})
+    public PersonName getCoveredPartyNameValue() {
+        return this.coveredPartyNameValue.getValue();
     }
-    public void setApprovedDrugCode(ClinicalDrug approvedDrugCode) {
-        this.approvedDrugCode.setValue(approvedDrugCode);
+    public void setCoveredPartyNameValue(PersonName coveredPartyNameValue) {
+        this.coveredPartyNameValue.setValue(coveredPartyNameValue);
     }
 
 
     /**
-     * <p>AuthorID</p>
+     * <p>PolicyIdentifier</p>
      * 
-     * <p>Author ID</p>
+     * <p>Policy Identifier</p>
      */
-    @Hl7XmlMapping({"authorID/id"})
-    public Identifier getAuthorID() {
-        return this.authorID.getValue();
+    @Hl7XmlMapping({"policyIdentifier/value"})
+    public Identifier getPolicyIdentifier() {
+        return this.policyIdentifier.getValue();
     }
-    public void setAuthorID(Identifier authorID) {
-        this.authorID.setValue(authorID);
+    public void setPolicyIdentifier(Identifier policyIdentifier) {
+        this.policyIdentifier.setValue(policyIdentifier);
     }
 
 
     /**
-     * <p>RequestedDeviceCode</p>
+     * <p>CoveredPartyBirthdate</p>
      * 
-     * <p>Requested Device Code</p>
+     * <p>Covered Party Birthdate</p>
      */
-    @Hl7XmlMapping({"requestedDeviceCode/value"})
-    public ClinicalDeviceEntity getRequestedDeviceCode() {
-        return (ClinicalDeviceEntity) this.requestedDeviceCode.getValue();
+    @Hl7XmlMapping({"coveredPartyDOB/value"})
+    public Date getCoveredPartyBirthdate() {
+        return this.coveredPartyBirthdate.getValue();
     }
-    public void setRequestedDeviceCode(ClinicalDeviceEntity requestedDeviceCode) {
-        this.requestedDeviceCode.setValue(requestedDeviceCode);
+    public void setCoveredPartyBirthdate(Date coveredPartyBirthdate) {
+        this.coveredPartyBirthdate.setValue(coveredPartyBirthdate);
     }
 
 
     /**
-     * <p>ApprovedDeviceCode</p>
+     * <p>RequestedDrugCode</p>
      * 
-     * <p>Approved Device Code</p>
+     * <p>Requested Drug Code</p>
      */
-    @Hl7XmlMapping({"approvedDeviceCode/value"})
-    public ClinicalDeviceEntity getApprovedDeviceCode() {
-        return (ClinicalDeviceEntity) this.approvedDeviceCode.getValue();
+    @Hl7XmlMapping({"requestedDrugCode/value"})
+    public ClinicalDrug getRequestedDrugCode() {
+        return (ClinicalDrug) this.requestedDrugCode.getValue();
     }
-    public void setApprovedDeviceCode(ClinicalDeviceEntity approvedDeviceCode) {
-        this.approvedDeviceCode.setValue(approvedDeviceCode);
+    public void setRequestedDrugCode(ClinicalDrug requestedDrugCode) {
+        this.requestedDrugCode.setValue(requestedDrugCode);
     }
 
 
@@ -203,30 +161,16 @@ public class ParameterList_1Bean extends MessagePartBean {
 
 
     /**
-     * <p>SpecialAuthorizationExpiryDateRange</p>
+     * <p>RequestedDeviceCode</p>
      * 
-     * <p>Special Authorization Expiry Date Range</p>
+     * <p>Requested Device Code</p>
      */
-    @Hl7XmlMapping({"expiryDateRange/value"})
-    public Interval<Date> getSpecialAuthorizationExpiryDateRange() {
-        return this.specialAuthorizationExpiryDateRange.getValue();
+    @Hl7XmlMapping({"requestedDeviceCode/value"})
+    public ClinicalDeviceEntity getRequestedDeviceCode() {
+        return (ClinicalDeviceEntity) this.requestedDeviceCode.getValue();
     }
-    public void setSpecialAuthorizationExpiryDateRange(Interval<Date> specialAuthorizationExpiryDateRange) {
-        this.specialAuthorizationExpiryDateRange.setValue(specialAuthorizationExpiryDateRange);
-    }
-
-
-    /**
-     * <p>RequestedDrugCode</p>
-     * 
-     * <p>Requested Drug Code</p>
-     */
-    @Hl7XmlMapping({"requestedDrugCode/value"})
-    public ClinicalDrug getRequestedDrugCode() {
-        return (ClinicalDrug) this.requestedDrugCode.getValue();
-    }
-    public void setRequestedDrugCode(ClinicalDrug requestedDrugCode) {
-        this.requestedDrugCode.setValue(requestedDrugCode);
+    public void setRequestedDeviceCode(ClinicalDeviceEntity requestedDeviceCode) {
+        this.requestedDeviceCode.setValue(requestedDeviceCode);
     }
 
 
@@ -241,6 +185,62 @@ public class ParameterList_1Bean extends MessagePartBean {
     }
     public void setAuthorName(PersonName authorName) {
         this.authorName.setValue(authorName);
+    }
+
+
+    /**
+     * <p>SpecialAuthorizationExpiryDateRange</p>
+     * 
+     * <p>Special Authorization Expiry Date Range</p>
+     */
+    @Hl7XmlMapping({"expiryDateRange/value"})
+    public Interval<Date> getSpecialAuthorizationExpiryDateRange() {
+        return this.specialAuthorizationExpiryDateRange.getValue();
+    }
+    public void setSpecialAuthorizationExpiryDateRange(Interval<Date> specialAuthorizationExpiryDateRange) {
+        this.specialAuthorizationExpiryDateRange.setValue(specialAuthorizationExpiryDateRange);
+    }
+
+
+    /**
+     * <p>ApprovedDeviceCode</p>
+     * 
+     * <p>Approved Device Code</p>
+     */
+    @Hl7XmlMapping({"approvedDeviceCode/value"})
+    public ClinicalDeviceEntity getApprovedDeviceCode() {
+        return (ClinicalDeviceEntity) this.approvedDeviceCode.getValue();
+    }
+    public void setApprovedDeviceCode(ClinicalDeviceEntity approvedDeviceCode) {
+        this.approvedDeviceCode.setValue(approvedDeviceCode);
+    }
+
+
+    /**
+     * <p>ApprovedDrugCode</p>
+     * 
+     * <p>Approved Drug Code</p>
+     */
+    @Hl7XmlMapping({"approvedDrugCode/value"})
+    public ClinicalDrug getApprovedDrugCode() {
+        return (ClinicalDrug) this.approvedDrugCode.getValue();
+    }
+    public void setApprovedDrugCode(ClinicalDrug approvedDrugCode) {
+        this.approvedDrugCode.setValue(approvedDrugCode);
+    }
+
+
+    /**
+     * <p>AuthorID</p>
+     * 
+     * <p>Author ID</p>
+     */
+    @Hl7XmlMapping({"authorID/id"})
+    public Identifier getAuthorID() {
+        return this.authorID.getValue();
+    }
+    public void setAuthorID(Identifier authorID) {
+        this.authorID.setValue(authorID);
     }
 
 }

@@ -62,56 +62,42 @@ import java.util.Set;
 @Hl7PartTypeMapping({"POLB_MT004200CA.SectionLevelObservationEvent"})
 public class DiagnosisOrInterpretationObservationBean extends MessagePartBean implements ObservationChoice {
 
-    private static final long serialVersionUID = 20110126L;
-    private List<RoleChoice> receiverRoleChoice = new ArrayList<RoleChoice>();
-    private HealthcareOrganizationBean primaryInformationRecipientAssignedEntity;
-    private SET<II, Identifier> sectionIdentifier = new SETImpl<II, Identifier>(IIImpl.class);
+    private static final long serialVersionUID = 20110127L;
+    private CS observationStatus = new CSImpl();
     private CD sectionType = new CDImpl();
+    private List<IncludesBean> subjectOf2 = new ArrayList<IncludesBean>();
+    private List<RoleChoice> receiverRoleChoice = new ArrayList<RoleChoice>();
+    private ST sectionText = new STImpl();
     private SET<CV, Code> resultMaskingIndicator = new SETImpl<CV, Code>(CVImpl.class);
+    private List<ReportSectionSpecimenBean> specimen = new ArrayList<ReportSectionSpecimenBean>();
+    private ResultStatusProcessStepBean subjectOf3ResultStatusProcessStep;
     private List<WasPerformedByBean> performer = new ArrayList<WasPerformedByBean>();
     private List<FulfillmentChoice> inFulfillmentOfFulfillmentChoice = new ArrayList<FulfillmentChoice>();
-    private List<ObservationChoice> component4ObservationChoice = new ArrayList<ObservationChoice>();
-    private ST sectionText = new STImpl();
-    private OutbreakBean pertinentInformation1OutbreakEvent;
     private ANY<Object> sectionValue = new ANYImpl<Object>();
-    private List<ReportSectionSpecimenBean> specimen = new ArrayList<ReportSectionSpecimenBean>();
-    private VersionInformationBean subjectOf1ControlActEvent;
-    private List<ReportSectionObservationBean> component3ReportLevelObservationEvent = new ArrayList<ReportSectionObservationBean>();
-    private CS observationStatus = new CSImpl();
-    private ResultStatusProcessStepBean subjectOf3ResultStatusProcessStep;
-    private List<IncludesBean> subjectOf2 = new ArrayList<IncludesBean>();
-    private TS sectionReportedDateTime = new TSImpl();
-    private List<SupportingClinicalInformationBean> pertinentInformation2SupportingClinicalObservationEvent = new ArrayList<SupportingClinicalInformationBean>();
     private List<ReportableHealthIndicatorBean> component1ReportableTestIndicator = new ArrayList<ReportableHealthIndicatorBean>();
+    private List<ObservationChoice> component4ObservationChoice = new ArrayList<ObservationChoice>();
+    private OutbreakBean pertinentInformation1OutbreakEvent;
+    private List<ReportSectionObservationBean> component3ReportLevelObservationEvent = new ArrayList<ReportSectionObservationBean>();
+    private SET<II, Identifier> sectionIdentifier = new SETImpl<II, Identifier>(IIImpl.class);
     private ResultSortKeyBean component2ResultSortKey;
-
-
-    @Hl7XmlMapping({"receiver/roleChoice"})
-    public List<RoleChoice> getReceiverRoleChoice() {
-        return this.receiverRoleChoice;
-    }
-
-
-    @Hl7XmlMapping({"primaryInformationRecipient/assignedEntity"})
-    public HealthcareOrganizationBean getPrimaryInformationRecipientAssignedEntity() {
-        return this.primaryInformationRecipientAssignedEntity;
-    }
-    public void setPrimaryInformationRecipientAssignedEntity(HealthcareOrganizationBean primaryInformationRecipientAssignedEntity) {
-        this.primaryInformationRecipientAssignedEntity = primaryInformationRecipientAssignedEntity;
-    }
+    private VersionInformationBean subjectOf1ControlActEvent;
+    private HealthcareOrganizationBean primaryInformationRecipientAssignedEntity;
+    private List<SupportingClinicalInformationBean> pertinentInformation2SupportingClinicalObservationEvent = new ArrayList<SupportingClinicalInformationBean>();
+    private TS sectionReportedDateTime = new TSImpl();
 
 
     /**
-     * <p>Section Identifier</p>
+     * <p>Observation Status</p>
      * 
-     * <p><p>Unique to identify this section of the report.</p></p>
-     * 
-     * <p><p>A unique identifier is mandatory for all updates to 
-     * any object.</p></p>
+     * <p><p>Status associated with the Section Level 
+     * Observation.</p></p>
      */
-    @Hl7XmlMapping({"id"})
-    public Set<Identifier> getSectionIdentifier() {
-        return this.sectionIdentifier.rawSet();
+    @Hl7XmlMapping({"statusCode"})
+    public ActStatus getObservationStatus() {
+        return (ActStatus) this.observationStatus.getValue();
+    }
+    public void setObservationStatus(ActStatus observationStatus) {
+        this.observationStatus.setValue(observationStatus);
     }
 
 
@@ -131,6 +117,34 @@ public class DiagnosisOrInterpretationObservationBean extends MessagePartBean im
     }
     public void setSectionType(Code sectionType) {
         this.sectionType.setValue(sectionType);
+    }
+
+
+    @Hl7XmlMapping({"subjectOf2"})
+    public List<IncludesBean> getSubjectOf2() {
+        return this.subjectOf2;
+    }
+
+
+    @Hl7XmlMapping({"receiver/roleChoice"})
+    public List<RoleChoice> getReceiverRoleChoice() {
+        return this.receiverRoleChoice;
+    }
+
+
+    /**
+     * <p>Section Text</p>
+     * 
+     * <p><p>Used when the value attribute is not text-based 
+     * (coded, for instance) and additional text information is 
+     * required to be captured and communicated.</p></p>
+     */
+    @Hl7XmlMapping({"text"})
+    public String getSectionText() {
+        return this.sectionText.getValue();
+    }
+    public void setSectionText(String sectionText) {
+        this.sectionText.setValue(sectionText);
     }
 
 
@@ -155,6 +169,21 @@ public class DiagnosisOrInterpretationObservationBean extends MessagePartBean im
     }
 
 
+    @Hl7XmlMapping({"specimen"})
+    public List<ReportSectionSpecimenBean> getSpecimen() {
+        return this.specimen;
+    }
+
+
+    @Hl7XmlMapping({"subjectOf3/resultStatusProcessStep"})
+    public ResultStatusProcessStepBean getSubjectOf3ResultStatusProcessStep() {
+        return this.subjectOf3ResultStatusProcessStep;
+    }
+    public void setSubjectOf3ResultStatusProcessStep(ResultStatusProcessStepBean subjectOf3ResultStatusProcessStep) {
+        this.subjectOf3ResultStatusProcessStep = subjectOf3ResultStatusProcessStep;
+    }
+
+
     @Hl7XmlMapping({"performer"})
     public List<WasPerformedByBean> getPerformer() {
         return this.performer;
@@ -164,37 +193,6 @@ public class DiagnosisOrInterpretationObservationBean extends MessagePartBean im
     @Hl7XmlMapping({"inFulfillmentOf/fulfillmentChoice"})
     public List<FulfillmentChoice> getInFulfillmentOfFulfillmentChoice() {
         return this.inFulfillmentOfFulfillmentChoice;
-    }
-
-
-    @Hl7XmlMapping({"component4/observationChoice"})
-    public List<ObservationChoice> getComponent4ObservationChoice() {
-        return this.component4ObservationChoice;
-    }
-
-
-    /**
-     * <p>Section Text</p>
-     * 
-     * <p><p>Used when the value attribute is not text-based 
-     * (coded, for instance) and additional text information is 
-     * required to be captured and communicated.</p></p>
-     */
-    @Hl7XmlMapping({"text"})
-    public String getSectionText() {
-        return this.sectionText.getValue();
-    }
-    public void setSectionText(String sectionText) {
-        this.sectionText.setValue(sectionText);
-    }
-
-
-    @Hl7XmlMapping({"pertinentInformation1/outbreakEvent"})
-    public OutbreakBean getPertinentInformation1OutbreakEvent() {
-        return this.pertinentInformation1OutbreakEvent;
-    }
-    public void setPertinentInformation1OutbreakEvent(OutbreakBean pertinentInformation1OutbreakEvent) {
-        this.pertinentInformation1OutbreakEvent = pertinentInformation1OutbreakEvent;
     }
 
 
@@ -215,9 +213,53 @@ public class DiagnosisOrInterpretationObservationBean extends MessagePartBean im
     }
 
 
-    @Hl7XmlMapping({"specimen"})
-    public List<ReportSectionSpecimenBean> getSpecimen() {
-        return this.specimen;
+    @Hl7XmlMapping({"component1/reportableTestIndicator"})
+    public List<ReportableHealthIndicatorBean> getComponent1ReportableTestIndicator() {
+        return this.component1ReportableTestIndicator;
+    }
+
+
+    @Hl7XmlMapping({"component4/observationChoice"})
+    public List<ObservationChoice> getComponent4ObservationChoice() {
+        return this.component4ObservationChoice;
+    }
+
+
+    @Hl7XmlMapping({"pertinentInformation1/outbreakEvent"})
+    public OutbreakBean getPertinentInformation1OutbreakEvent() {
+        return this.pertinentInformation1OutbreakEvent;
+    }
+    public void setPertinentInformation1OutbreakEvent(OutbreakBean pertinentInformation1OutbreakEvent) {
+        this.pertinentInformation1OutbreakEvent = pertinentInformation1OutbreakEvent;
+    }
+
+
+    @Hl7XmlMapping({"component3/reportLevelObservationEvent"})
+    public List<ReportSectionObservationBean> getComponent3ReportLevelObservationEvent() {
+        return this.component3ReportLevelObservationEvent;
+    }
+
+
+    /**
+     * <p>Section Identifier</p>
+     * 
+     * <p><p>Unique to identify this section of the report.</p></p>
+     * 
+     * <p><p>A unique identifier is mandatory for all updates to 
+     * any object.</p></p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Set<Identifier> getSectionIdentifier() {
+        return this.sectionIdentifier.rawSet();
+    }
+
+
+    @Hl7XmlMapping({"component2/resultSortKey"})
+    public ResultSortKeyBean getComponent2ResultSortKey() {
+        return this.component2ResultSortKey;
+    }
+    public void setComponent2ResultSortKey(ResultSortKeyBean component2ResultSortKey) {
+        this.component2ResultSortKey = component2ResultSortKey;
     }
 
 
@@ -230,39 +272,18 @@ public class DiagnosisOrInterpretationObservationBean extends MessagePartBean im
     }
 
 
-    @Hl7XmlMapping({"component3/reportLevelObservationEvent"})
-    public List<ReportSectionObservationBean> getComponent3ReportLevelObservationEvent() {
-        return this.component3ReportLevelObservationEvent;
+    @Hl7XmlMapping({"primaryInformationRecipient/assignedEntity"})
+    public HealthcareOrganizationBean getPrimaryInformationRecipientAssignedEntity() {
+        return this.primaryInformationRecipientAssignedEntity;
+    }
+    public void setPrimaryInformationRecipientAssignedEntity(HealthcareOrganizationBean primaryInformationRecipientAssignedEntity) {
+        this.primaryInformationRecipientAssignedEntity = primaryInformationRecipientAssignedEntity;
     }
 
 
-    /**
-     * <p>Observation Status</p>
-     * 
-     * <p><p>Status associated with the Section Level 
-     * Observation.</p></p>
-     */
-    @Hl7XmlMapping({"statusCode"})
-    public ActStatus getObservationStatus() {
-        return (ActStatus) this.observationStatus.getValue();
-    }
-    public void setObservationStatus(ActStatus observationStatus) {
-        this.observationStatus.setValue(observationStatus);
-    }
-
-
-    @Hl7XmlMapping({"subjectOf3/resultStatusProcessStep"})
-    public ResultStatusProcessStepBean getSubjectOf3ResultStatusProcessStep() {
-        return this.subjectOf3ResultStatusProcessStep;
-    }
-    public void setSubjectOf3ResultStatusProcessStep(ResultStatusProcessStepBean subjectOf3ResultStatusProcessStep) {
-        this.subjectOf3ResultStatusProcessStep = subjectOf3ResultStatusProcessStep;
-    }
-
-
-    @Hl7XmlMapping({"subjectOf2"})
-    public List<IncludesBean> getSubjectOf2() {
-        return this.subjectOf2;
+    @Hl7XmlMapping({"pertinentInformation2/supportingClinicalObservationEvent"})
+    public List<SupportingClinicalInformationBean> getPertinentInformation2SupportingClinicalObservationEvent() {
+        return this.pertinentInformation2SupportingClinicalObservationEvent;
     }
 
 
@@ -278,27 +299,6 @@ public class DiagnosisOrInterpretationObservationBean extends MessagePartBean im
     }
     public void setSectionReportedDateTime(Date sectionReportedDateTime) {
         this.sectionReportedDateTime.setValue(sectionReportedDateTime);
-    }
-
-
-    @Hl7XmlMapping({"pertinentInformation2/supportingClinicalObservationEvent"})
-    public List<SupportingClinicalInformationBean> getPertinentInformation2SupportingClinicalObservationEvent() {
-        return this.pertinentInformation2SupportingClinicalObservationEvent;
-    }
-
-
-    @Hl7XmlMapping({"component1/reportableTestIndicator"})
-    public List<ReportableHealthIndicatorBean> getComponent1ReportableTestIndicator() {
-        return this.component1ReportableTestIndicator;
-    }
-
-
-    @Hl7XmlMapping({"component2/resultSortKey"})
-    public ResultSortKeyBean getComponent2ResultSortKey() {
-        return this.component2ResultSortKey;
-    }
-    public void setComponent2ResultSortKey(ResultSortKeyBean component2ResultSortKey) {
-        this.component2ResultSortKey = component2ResultSortKey;
     }
 
 }

@@ -14,23 +14,9 @@ import ca.infoway.messagebuilder.model.merged.ActiveMedicationBean;
 @Hl7PartTypeMapping({"FICR_MT400001CA.Subject3","FICR_MT400003CA.Subject","FICR_MT400003CA.Subject3","FICR_MT400004CA.Subject","FICR_MT400004CA.Subject3","FICR_MT490101CA.Subject3","FICR_MT490102CA.Subject3","FICR_MT490102CA.Subject4"})
 public class Subject3Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
-    private BL includesExcludesProduct = new BLImpl();
+    private static final long serialVersionUID = 20110127L;
     private SpecialAuthorizationChoice specialAuthorizationChoice;
-
-
-    /**
-     * <p>IncludesExcludesProduct</p>
-     * 
-     * <p>Includes / Excludes Product</p>
-     */
-    @Hl7XmlMapping({"negationInd"})
-    public Boolean getIncludesExcludesProduct() {
-        return this.includesExcludesProduct.getValue();
-    }
-    public void setIncludesExcludesProduct(Boolean includesExcludesProduct) {
-        this.includesExcludesProduct.setValue(includesExcludesProduct);
-    }
+    private BL includesExcludesProduct = new BLImpl();
 
 
     @Hl7XmlMapping({"specialAuthorizationChoice"})
@@ -53,6 +39,20 @@ public class Subject3Bean extends MessagePartBean {
     }
     public boolean hasSpecialAuthorizationChoiceAsDevicePassThru() {
         return (this.specialAuthorizationChoice instanceof DevicePassThruBean);
+    }
+
+
+    /**
+     * <p>IncludesExcludesProduct</p>
+     * 
+     * <p>Includes / Excludes Product</p>
+     */
+    @Hl7XmlMapping({"negationInd"})
+    public Boolean getIncludesExcludesProduct() {
+        return this.includesExcludesProduct.getValue();
+    }
+    public void setIncludesExcludesProduct(Boolean includesExcludesProduct) {
+        this.includesExcludesProduct.setValue(includesExcludesProduct);
     }
 
 }

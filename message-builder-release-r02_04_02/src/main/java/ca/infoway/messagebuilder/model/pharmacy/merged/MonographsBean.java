@@ -45,14 +45,43 @@ import java.util.Date;
 @Hl7RootType
 public class MonographsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
+    private static final long serialVersionUID = 20110127L;
+    private CV writtenIn = new CVImpl();
     private CV code = new CVImpl();
-    private II id = new IIImpl();
-    private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private AssignedEntity3Bean authorAssignedEntity;
     private ED<EncapsulatedData> monographContent = new EDImpl<EncapsulatedData>();
-    private CV writtenIn = new CVImpl();
+    private II id = new IIImpl();
+    private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private ED<EncapsulatedData> medicationDocumentContentLanguage = new EDImpl<EncapsulatedData>();
+
+
+    /**
+     * <p>WrittenIn</p>
+     * 
+     * <p>Written in</p>
+     * 
+     * <p><p>A coded value denoting the language in which the 
+     * monograph is written.</p></p>
+     * 
+     * <p><p>Allows providers to request or display monographs in 
+     * the language of their choice.</p><p>This attribute is marked 
+     * as 'populated' because the language of the monograph must 
+     * always be known/available or a null flavor must be 
+     * specified.</p></p>
+     * 
+     * <p><p>Allows providers to request or display monographs in 
+     * the language of their choice.</p><p>This attribute is marked 
+     * as 'populated' because the language of the monograph must 
+     * always be known/available or a null flavor must be 
+     * specified.</p></p>
+     */
+    @Hl7XmlMapping({"languageCode"})
+    public HumanLanguage getWrittenIn() {
+        return (HumanLanguage) this.writtenIn.getValue();
+    }
+    public void setWrittenIn(HumanLanguage writtenIn) {
+        this.writtenIn.setValue(writtenIn);
+    }
 
 
     /**
@@ -90,6 +119,37 @@ public class MonographsBean extends MessagePartBean {
     }
     public void setCode(ActMedicationDocumentCode code) {
         this.code.setValue(code);
+    }
+
+
+    @Hl7XmlMapping({"author/assignedEntity"})
+    public AssignedEntity3Bean getAuthorAssignedEntity() {
+        return this.authorAssignedEntity;
+    }
+    public void setAuthorAssignedEntity(AssignedEntity3Bean authorAssignedEntity) {
+        this.authorAssignedEntity = authorAssignedEntity;
+    }
+
+
+    /**
+     * <p>MonographContent</p>
+     * 
+     * <p>Monograph Content</p>
+     * 
+     * <p><p>Includes either the full-blown content of the 
+     * monograph (as a PDF, HTML or HL7 CDA document), or provides 
+     * a reference to where the monograph can be accessed on the 
+     * network via HTTP or FTP</p></p>
+     * 
+     * <p><p>Allows delivery of the monograph information to the 
+     * provider either embedded or by reference</p></p>
+     */
+    @Hl7XmlMapping({"text"})
+    public EncapsulatedData getMonographContent() {
+        return this.monographContent.getValue();
+    }
+    public void setMonographContent(EncapsulatedData monographContent) {
+        this.monographContent.setValue(monographContent);
     }
 
 
@@ -179,66 +239,6 @@ public class MonographsBean extends MessagePartBean {
     }
     public void setEffectiveTime(Interval<Date> effectiveTime) {
         this.effectiveTime.setValue(effectiveTime);
-    }
-
-
-    @Hl7XmlMapping({"author/assignedEntity"})
-    public AssignedEntity3Bean getAuthorAssignedEntity() {
-        return this.authorAssignedEntity;
-    }
-    public void setAuthorAssignedEntity(AssignedEntity3Bean authorAssignedEntity) {
-        this.authorAssignedEntity = authorAssignedEntity;
-    }
-
-
-    /**
-     * <p>MonographContent</p>
-     * 
-     * <p>Monograph Content</p>
-     * 
-     * <p><p>Includes either the full-blown content of the 
-     * monograph (as a PDF, HTML or HL7 CDA document), or provides 
-     * a reference to where the monograph can be accessed on the 
-     * network via HTTP or FTP</p></p>
-     * 
-     * <p><p>Allows delivery of the monograph information to the 
-     * provider either embedded or by reference</p></p>
-     */
-    @Hl7XmlMapping({"text"})
-    public EncapsulatedData getMonographContent() {
-        return this.monographContent.getValue();
-    }
-    public void setMonographContent(EncapsulatedData monographContent) {
-        this.monographContent.setValue(monographContent);
-    }
-
-
-    /**
-     * <p>WrittenIn</p>
-     * 
-     * <p>Written in</p>
-     * 
-     * <p><p>A coded value denoting the language in which the 
-     * monograph is written.</p></p>
-     * 
-     * <p><p>Allows providers to request or display monographs in 
-     * the language of their choice.</p><p>This attribute is marked 
-     * as 'populated' because the language of the monograph must 
-     * always be known/available or a null flavor must be 
-     * specified.</p></p>
-     * 
-     * <p><p>Allows providers to request or display monographs in 
-     * the language of their choice.</p><p>This attribute is marked 
-     * as 'populated' because the language of the monograph must 
-     * always be known/available or a null flavor must be 
-     * specified.</p></p>
-     */
-    @Hl7XmlMapping({"languageCode"})
-    public HumanLanguage getWrittenIn() {
-        return (HumanLanguage) this.writtenIn.getValue();
-    }
-    public void setWrittenIn(HumanLanguage writtenIn) {
-        this.writtenIn.setValue(writtenIn);
     }
 
 

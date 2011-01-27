@@ -49,11 +49,34 @@ import java.util.Set;
 @Hl7PartTypeMapping({"COCT_MT260010CA.ObservationMeasurableEvent","COCT_MT260020CA.ObservationMeasurableEvent","COCT_MT260030CA.ObservationMeasurableEvent"})
 public class PatientMeasurableObservationsBean extends MessagePartBean implements CausalActs {
 
-    private static final long serialVersionUID = 20110126L;
+    private static final long serialVersionUID = 20110127L;
+    private PQ observationValue = new PQImpl();
     private CD observationType = new CDImpl();
     private II observationIdentifier = new IIImpl();
     private SET<CV, Code> confidentialityCode = new SETImpl<CV, Code>(CVImpl.class);
-    private PQ observationValue = new PQImpl();
+
+
+    /**
+     * <p>ObservationValue</p>
+     * 
+     * <p>C:Observation Value</p>
+     * 
+     * <p><p>Denotes a specific measurable observation made about a 
+     * person that might have trigger the clinical issue 
+     * detection.</p></p>
+     * 
+     * <p><p>Provides unambiguous reference to the related 
+     * measurable observation.</p></p>
+     * 
+     * <p>C:Observation Value</p>
+     */
+    @Hl7XmlMapping({"value"})
+    public PhysicalQuantity getObservationValue() {
+        return this.observationValue.getValue();
+    }
+    public void setObservationValue(PhysicalQuantity observationValue) {
+        this.observationValue.setValue(observationValue);
+    }
 
 
     /**
@@ -156,29 +179,6 @@ public class PatientMeasurableObservationsBean extends MessagePartBean implement
     @Hl7XmlMapping({"confidentialityCode"})
     public Set<x_BasicConfidentialityKind> getConfidentialityCode() {
         return this.confidentialityCode.rawSet(x_BasicConfidentialityKind.class);
-    }
-
-
-    /**
-     * <p>ObservationValue</p>
-     * 
-     * <p>C:Observation Value</p>
-     * 
-     * <p><p>Denotes a specific measurable observation made about a 
-     * person that might have trigger the clinical issue 
-     * detection.</p></p>
-     * 
-     * <p><p>Provides unambiguous reference to the related 
-     * measurable observation.</p></p>
-     * 
-     * <p>C:Observation Value</p>
-     */
-    @Hl7XmlMapping({"value"})
-    public PhysicalQuantity getObservationValue() {
-        return this.observationValue.getValue();
-    }
-    public void setObservationValue(PhysicalQuantity observationValue) {
-        this.observationValue.setValue(observationValue);
     }
 
 }

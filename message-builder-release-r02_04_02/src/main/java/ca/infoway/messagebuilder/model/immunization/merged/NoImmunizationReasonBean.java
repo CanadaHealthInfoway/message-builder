@@ -24,9 +24,33 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"POIZ_MT030050CA.NoImmunizationReason","POIZ_MT030060CA.NoImmunizationReason","POIZ_MT060150CA.NoImmunizationReason"})
 public class NoImmunizationReasonBean extends MessagePartBean implements ca.infoway.messagebuilder.model.merged.Choice {
 
-    private static final long serialVersionUID = 20110126L;
-    private CV immunizationRefusalReason = new CVImpl();
+    private static final long serialVersionUID = 20110127L;
     private ST immunizationRefusalReasonText = new STImpl();
+    private CV immunizationRefusalReason = new CVImpl();
+
+
+    /**
+     * <p>ImmunizationRefusalReasonText</p>
+     * 
+     * <p>Immunization Refusal Reason Text</p>
+     * 
+     * <p>Immunization Refusal Reason Text</p>
+     * 
+     * <p><p>A textual or multimedia description (or reference to a 
+     * description) of the reason.</p></p>
+     * 
+     * <p><p>Provides additional context and description relating 
+     * to the reason for not immunizing. Not all implementations 
+     * will support text. As a result, this attribute is 
+     * optional.</p></p>
+     */
+    @Hl7XmlMapping({"text"})
+    public String getImmunizationRefusalReasonText() {
+        return this.immunizationRefusalReasonText.getValue();
+    }
+    public void setImmunizationRefusalReasonText(String immunizationRefusalReasonText) {
+        this.immunizationRefusalReasonText.setValue(immunizationRefusalReasonText);
+    }
 
 
     /**
@@ -57,30 +81,6 @@ public class NoImmunizationReasonBean extends MessagePartBean implements ca.info
     }
     public void setImmunizationRefusalReason(ActNoImmunizationReason immunizationRefusalReason) {
         this.immunizationRefusalReason.setValue(immunizationRefusalReason);
-    }
-
-
-    /**
-     * <p>ImmunizationRefusalReasonText</p>
-     * 
-     * <p>Immunization Refusal Reason Text</p>
-     * 
-     * <p>Immunization Refusal Reason Text</p>
-     * 
-     * <p><p>A textual or multimedia description (or reference to a 
-     * description) of the reason.</p></p>
-     * 
-     * <p><p>Provides additional context and description relating 
-     * to the reason for not immunizing. Not all implementations 
-     * will support text. As a result, this attribute is 
-     * optional.</p></p>
-     */
-    @Hl7XmlMapping({"text"})
-    public String getImmunizationRefusalReasonText() {
-        return this.immunizationRefusalReasonText.getValue();
-    }
-    public void setImmunizationRefusalReasonText(String immunizationRefusalReasonText) {
-        this.immunizationRefusalReasonText.setValue(immunizationRefusalReasonText);
     }
 
 }

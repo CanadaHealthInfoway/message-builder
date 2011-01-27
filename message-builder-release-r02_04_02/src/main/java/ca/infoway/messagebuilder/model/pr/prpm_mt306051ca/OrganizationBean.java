@@ -25,26 +25,18 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PRPM_MT306051CA.Organization"})
 public class OrganizationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
-    private II organizationId = new IIImpl();
-    private ST issuingRepresentingQualificationGrantingOrganizationNameS = new STImpl();
+    private static final long serialVersionUID = 20110127L;
     private TerritorialAuthorityBean territorialAuthority;
+    private ST issuingRepresentingQualificationGrantingOrganizationNameS = new STImpl();
+    private II organizationId = new IIImpl();
 
 
-    /**
-     * <p>Organization Id</p>
-     * 
-     * <p><p>The unique identifier of the Organization.</p></p>
-     * 
-     * <p><p>Required attribute supports the validation and 
-     * identification of the healthcare provider</p></p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Identifier getOrganizationId() {
-        return this.organizationId.getValue();
+    @Hl7XmlMapping({"territorialAuthority"})
+    public TerritorialAuthorityBean getTerritorialAuthority() {
+        return this.territorialAuthority;
     }
-    public void setOrganizationId(Identifier organizationId) {
-        this.organizationId.setValue(organizationId);
+    public void setTerritorialAuthority(TerritorialAuthorityBean territorialAuthority) {
+        this.territorialAuthority = territorialAuthority;
     }
 
 
@@ -92,12 +84,20 @@ public class OrganizationBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"territorialAuthority"})
-    public TerritorialAuthorityBean getTerritorialAuthority() {
-        return this.territorialAuthority;
+    /**
+     * <p>Organization Id</p>
+     * 
+     * <p><p>The unique identifier of the Organization.</p></p>
+     * 
+     * <p><p>Required attribute supports the validation and 
+     * identification of the healthcare provider</p></p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Identifier getOrganizationId() {
+        return this.organizationId.getValue();
     }
-    public void setTerritorialAuthority(TerritorialAuthorityBean territorialAuthority) {
-        this.territorialAuthority = territorialAuthority;
+    public void setOrganizationId(Identifier organizationId) {
+        this.organizationId.setValue(organizationId);
     }
 
 }

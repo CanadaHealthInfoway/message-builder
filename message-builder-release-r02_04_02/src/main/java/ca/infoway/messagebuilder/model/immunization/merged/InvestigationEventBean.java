@@ -64,11 +64,11 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"POIZ_MT030050CA.InvestigationEvent","POIZ_MT030060CA.InvestigationEvent","POIZ_MT060150CA.InvestigationEvent","POIZ_MT061150CA.InvestigationEvent"})
 public class InvestigationEventBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
+    private static final long serialVersionUID = 20110127L;
     private CS reportStatus = new CSImpl();
     private CV reportType = new CVImpl();
-    private II adverseEventReportID = new IIImpl();
     private ST text = new STImpl();
+    private II adverseEventReportID = new IIImpl();
 
 
     /**
@@ -113,29 +113,6 @@ public class InvestigationEventBean extends MessagePartBean {
 
 
     /**
-     * <p>AdverseEventReportID</p>
-     * 
-     * <p>Adverse Event Report ID</p>
-     * 
-     * <p><p>Identifier associated with the Adverse Event Report. 
-     * An example would be the unique episode number assigned to 
-     * the Report of Adverse Events Following Immunization 
-     * (AEFI).</p></p>
-     * 
-     * <p><p>Provides reference to the Adverse Event Report in the 
-     * case that follow up is needed. However, this ID may not 
-     * always be known.</p></p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Identifier getAdverseEventReportID() {
-        return this.adverseEventReportID.getValue();
-    }
-    public void setAdverseEventReportID(Identifier adverseEventReportID) {
-        this.adverseEventReportID.setValue(adverseEventReportID);
-    }
-
-
-    /**
      * <p>Adverse Event ReportText</p>
      * 
      * <p><p>Textual description of the Adverse Event Following 
@@ -169,6 +146,29 @@ public class InvestigationEventBean extends MessagePartBean {
     }
     public void setText(String text) {
         this.text.setValue(text);
+    }
+
+
+    /**
+     * <p>AdverseEventReportID</p>
+     * 
+     * <p>Adverse Event Report ID</p>
+     * 
+     * <p><p>Identifier associated with the Adverse Event Report. 
+     * An example would be the unique episode number assigned to 
+     * the Report of Adverse Events Following Immunization 
+     * (AEFI).</p></p>
+     * 
+     * <p><p>Provides reference to the Adverse Event Report in the 
+     * case that follow up is needed. However, this ID may not 
+     * always be known.</p></p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Identifier getAdverseEventReportID() {
+        return this.adverseEventReportID.getValue();
+    }
+    public void setAdverseEventReportID(Identifier adverseEventReportID) {
+        this.adverseEventReportID.setValue(adverseEventReportID);
     }
 
 }

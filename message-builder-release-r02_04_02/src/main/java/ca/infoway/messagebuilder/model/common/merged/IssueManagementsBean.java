@@ -68,10 +68,10 @@ import ca.infoway.messagebuilder.model.merged.PrescribedByBean;
 @Hl7PartTypeMapping({"COCT_MT260010CA.DetectedIssueManagement","COCT_MT260012CA.DetectedIssueManagement","COCT_MT260020CA.DetectedIssueManagement","COCT_MT260022CA.DetectedIssueManagement","COCT_MT260030CA.DetectedIssueManagement"})
 public class IssueManagementsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
+    private static final long serialVersionUID = 20110127L;
     private CV managementType = new CVImpl();
-    private ST managementDescription = new STImpl();
     private PrescribedByBean author;
+    private ST managementDescription = new STImpl();
 
 
     /**
@@ -282,6 +282,15 @@ public class IssueManagementsBean extends MessagePartBean {
     }
 
 
+    @Hl7XmlMapping({"author"})
+    public PrescribedByBean getAuthor() {
+        return this.author;
+    }
+    public void setAuthor(PrescribedByBean author) {
+        this.author = author;
+    }
+
+
     /**
      * <p>ManagementDescription</p>
      * 
@@ -301,15 +310,6 @@ public class IssueManagementsBean extends MessagePartBean {
     }
     public void setManagementDescription(String managementDescription) {
         this.managementDescription.setValue(managementDescription);
-    }
-
-
-    @Hl7XmlMapping({"author"})
-    public PrescribedByBean getAuthor() {
-        return this.author;
-    }
-    public void setAuthor(PrescribedByBean author) {
-        this.author = author;
     }
 
 }

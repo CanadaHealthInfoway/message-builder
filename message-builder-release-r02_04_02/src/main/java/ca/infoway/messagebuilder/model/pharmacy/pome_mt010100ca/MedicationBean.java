@@ -44,27 +44,18 @@ import java.util.Set;
 @Hl7RootType
 public class MedicationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
-    private DrugCostBean subjectOf1PotentialCharge;
+    private static final long serialVersionUID = 20110127L;
     private List<AppearanceCharacteristicsBean> subjectOf2Characteristic = new ArrayList<AppearanceCharacteristicsBean>();
     private DispensedInBean administerableMedicineAsContent;
-    private CS regulatoryStatusCode = new CSImpl();
-    private ST description = new STImpl();
-    private ManufacturerBean administerableMedicineAsManufacturedProductManufacturer;
-    private CV drugCode = new CVImpl();
     private SET<TN, TrivialName> drugNames = new SETImpl<TN, TrivialName>(TNImpl.class);
-    private List<GroupedWithinBean> administerableMedicineAsSpecializedKind = new ArrayList<GroupedWithinBean>();
-    private List<DrugContainsBean> administerableMedicineIngredient = new ArrayList<DrugContainsBean>();
+    private CV drugCode = new CVImpl();
     private CV drugForm = new CVImpl();
-
-
-    @Hl7XmlMapping({"subjectOf1/potentialCharge"})
-    public DrugCostBean getSubjectOf1PotentialCharge() {
-        return this.subjectOf1PotentialCharge;
-    }
-    public void setSubjectOf1PotentialCharge(DrugCostBean subjectOf1PotentialCharge) {
-        this.subjectOf1PotentialCharge = subjectOf1PotentialCharge;
-    }
+    private ST description = new STImpl();
+    private CS regulatoryStatusCode = new CSImpl();
+    private List<DrugContainsBean> administerableMedicineIngredient = new ArrayList<DrugContainsBean>();
+    private List<GroupedWithinBean> administerableMedicineAsSpecializedKind = new ArrayList<GroupedWithinBean>();
+    private ManufacturerBean administerableMedicineAsManufacturedProductManufacturer;
+    private DrugCostBean subjectOf1PotentialCharge;
 
 
     @Hl7XmlMapping({"subjectOf2/characteristic"})
@@ -83,50 +74,21 @@ public class MedicationBean extends MessagePartBean {
 
 
     /**
-     * <p>Regulatory Status Code</p>
+     * <p>B:Drug Names</p>
      * 
-     * <p><p>Indicates whether the drug is approved for use in 
-     * Canada or not. (active = approved for use; pending or 
-     * terminated = not approved for use)</p></p>
+     * <p><p>The name assigned to a drug.</p></p>
      * 
-     * <p><p>Allows providers to evaluate the validity of the 
-     * medication for use in Canada.</p></p>
+     * <p><p>Names are used for human reference communication, to 
+     * allow selection from dropdowns and for local searching. Up 
+     * to two names are supported: a 'search name' which is fully 
+     * formed with no abbreviations, and a 'display name' which may 
+     * contain abbreviations to fit within a smaller area on the 
+     * screen. Because names are the one attribute that exist for 
+     * all attributes, this element is mandatory.</p></p>
      */
-    @Hl7XmlMapping({"administerableMedicine/asRegulatedProduct/statusCode"})
-    public RoleStatusNormal getRegulatoryStatusCode() {
-        return (RoleStatusNormal) this.regulatoryStatusCode.getValue();
-    }
-    public void setRegulatoryStatusCode(RoleStatusNormal regulatoryStatusCode) {
-        this.regulatoryStatusCode.setValue(regulatoryStatusCode);
-    }
-
-
-    /**
-     * <p>Description</p>
-     * 
-     * <p><p>A free form textual description of a drug. This 
-     * usually is only recorded for custom compounds, providing 
-     * instructions on the composition and creation of the 
-     * compound.</p></p>
-     * 
-     * <p><p>Allows description of compound ingredients and/or 
-     * recipe in free text form.</p></p>
-     */
-    @Hl7XmlMapping({"administerableMedicine/desc"})
-    public String getDescription() {
-        return this.description.getValue();
-    }
-    public void setDescription(String description) {
-        this.description.setValue(description);
-    }
-
-
-    @Hl7XmlMapping({"administerableMedicine/asManufacturedProduct/manufacturer"})
-    public ManufacturerBean getAdministerableMedicineAsManufacturedProductManufacturer() {
-        return this.administerableMedicineAsManufacturedProductManufacturer;
-    }
-    public void setAdministerableMedicineAsManufacturedProductManufacturer(ManufacturerBean administerableMedicineAsManufacturedProductManufacturer) {
-        this.administerableMedicineAsManufacturedProductManufacturer = administerableMedicineAsManufacturedProductManufacturer;
+    @Hl7XmlMapping({"administerableMedicine/name"})
+    public Set<TrivialName> getDrugNames() {
+        return this.drugNames.rawSet();
     }
 
 
@@ -155,37 +117,6 @@ public class MedicationBean extends MessagePartBean {
 
 
     /**
-     * <p>B:Drug Names</p>
-     * 
-     * <p><p>The name assigned to a drug.</p></p>
-     * 
-     * <p><p>Names are used for human reference communication, to 
-     * allow selection from dropdowns and for local searching. Up 
-     * to two names are supported: a 'search name' which is fully 
-     * formed with no abbreviations, and a 'display name' which may 
-     * contain abbreviations to fit within a smaller area on the 
-     * screen. Because names are the one attribute that exist for 
-     * all attributes, this element is mandatory.</p></p>
-     */
-    @Hl7XmlMapping({"administerableMedicine/name"})
-    public Set<TrivialName> getDrugNames() {
-        return this.drugNames.rawSet();
-    }
-
-
-    @Hl7XmlMapping({"administerableMedicine/asSpecializedKind"})
-    public List<GroupedWithinBean> getAdministerableMedicineAsSpecializedKind() {
-        return this.administerableMedicineAsSpecializedKind;
-    }
-
-
-    @Hl7XmlMapping({"administerableMedicine/ingredient"})
-    public List<DrugContainsBean> getAdministerableMedicineIngredient() {
-        return this.administerableMedicineIngredient;
-    }
-
-
-    /**
      * <p>D:Drug Form</p>
      * 
      * <p><p>Indicates the form in which the drug product must be, 
@@ -201,6 +132,75 @@ public class MedicationBean extends MessagePartBean {
     }
     public void setDrugForm(OrderableDrugForm drugForm) {
         this.drugForm.setValue(drugForm);
+    }
+
+
+    /**
+     * <p>Description</p>
+     * 
+     * <p><p>A free form textual description of a drug. This 
+     * usually is only recorded for custom compounds, providing 
+     * instructions on the composition and creation of the 
+     * compound.</p></p>
+     * 
+     * <p><p>Allows description of compound ingredients and/or 
+     * recipe in free text form.</p></p>
+     */
+    @Hl7XmlMapping({"administerableMedicine/desc"})
+    public String getDescription() {
+        return this.description.getValue();
+    }
+    public void setDescription(String description) {
+        this.description.setValue(description);
+    }
+
+
+    /**
+     * <p>Regulatory Status Code</p>
+     * 
+     * <p><p>Indicates whether the drug is approved for use in 
+     * Canada or not. (active = approved for use; pending or 
+     * terminated = not approved for use)</p></p>
+     * 
+     * <p><p>Allows providers to evaluate the validity of the 
+     * medication for use in Canada.</p></p>
+     */
+    @Hl7XmlMapping({"administerableMedicine/asRegulatedProduct/statusCode"})
+    public RoleStatusNormal getRegulatoryStatusCode() {
+        return (RoleStatusNormal) this.regulatoryStatusCode.getValue();
+    }
+    public void setRegulatoryStatusCode(RoleStatusNormal regulatoryStatusCode) {
+        this.regulatoryStatusCode.setValue(regulatoryStatusCode);
+    }
+
+
+    @Hl7XmlMapping({"administerableMedicine/ingredient"})
+    public List<DrugContainsBean> getAdministerableMedicineIngredient() {
+        return this.administerableMedicineIngredient;
+    }
+
+
+    @Hl7XmlMapping({"administerableMedicine/asSpecializedKind"})
+    public List<GroupedWithinBean> getAdministerableMedicineAsSpecializedKind() {
+        return this.administerableMedicineAsSpecializedKind;
+    }
+
+
+    @Hl7XmlMapping({"administerableMedicine/asManufacturedProduct/manufacturer"})
+    public ManufacturerBean getAdministerableMedicineAsManufacturedProductManufacturer() {
+        return this.administerableMedicineAsManufacturedProductManufacturer;
+    }
+    public void setAdministerableMedicineAsManufacturedProductManufacturer(ManufacturerBean administerableMedicineAsManufacturedProductManufacturer) {
+        this.administerableMedicineAsManufacturedProductManufacturer = administerableMedicineAsManufacturedProductManufacturer;
+    }
+
+
+    @Hl7XmlMapping({"subjectOf1/potentialCharge"})
+    public DrugCostBean getSubjectOf1PotentialCharge() {
+        return this.subjectOf1PotentialCharge;
+    }
+    public void setSubjectOf1PotentialCharge(DrugCostBean subjectOf1PotentialCharge) {
+        this.subjectOf1PotentialCharge = subjectOf1PotentialCharge;
     }
 
 }

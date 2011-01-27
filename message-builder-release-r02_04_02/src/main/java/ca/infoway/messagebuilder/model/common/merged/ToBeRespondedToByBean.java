@@ -67,33 +67,9 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"MCCI_MT002100CA.RespondTo","MCCI_MT002200CA.RespondTo","MCCI_MT002300CA.RespondTo","MCCI_MT102001CA.RespondTo"})
 public class ToBeRespondedToByBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
-    private TEL respondToNetworkAddress = new TELImpl();
+    private static final long serialVersionUID = 20110127L;
     private II respondToApplicationIdentifier = new IIImpl();
-
-
-    /**
-     * <p>RespondToNetworkAddress</p>
-     * 
-     * <p>KB:Respond to Network Address</p>
-     * 
-     * <p><p>Indicates the address to send acknowledgments of this 
-     * message to.</p></p>
-     * 
-     * <p><p>soap:Header\wsa:ReplyTo</p></p>
-     * 
-     * <p><p>Needed when the address to respond to is different 
-     * than that of the sender. This is optional because not all 
-     * environments require network addresses. It is required when 
-     * communicating using SOAP.</p></p>
-     */
-    @Hl7XmlMapping({"telecom"})
-    public TelecommunicationAddress getRespondToNetworkAddress() {
-        return this.respondToNetworkAddress.getValue();
-    }
-    public void setRespondToNetworkAddress(TelecommunicationAddress respondToNetworkAddress) {
-        this.respondToNetworkAddress.setValue(respondToNetworkAddress);
-    }
+    private TEL respondToNetworkAddress = new TELImpl();
 
 
     /**
@@ -118,6 +94,30 @@ public class ToBeRespondedToByBean extends MessagePartBean {
     }
     public void setRespondToApplicationIdentifier(Identifier respondToApplicationIdentifier) {
         this.respondToApplicationIdentifier.setValue(respondToApplicationIdentifier);
+    }
+
+
+    /**
+     * <p>RespondToNetworkAddress</p>
+     * 
+     * <p>KB:Respond to Network Address</p>
+     * 
+     * <p><p>Indicates the address to send acknowledgments of this 
+     * message to.</p></p>
+     * 
+     * <p><p>soap:Header\wsa:ReplyTo</p></p>
+     * 
+     * <p><p>Needed when the address to respond to is different 
+     * than that of the sender. This is optional because not all 
+     * environments require network addresses. It is required when 
+     * communicating using SOAP.</p></p>
+     */
+    @Hl7XmlMapping({"telecom"})
+    public TelecommunicationAddress getRespondToNetworkAddress() {
+        return this.respondToNetworkAddress.getValue();
+    }
+    public void setRespondToNetworkAddress(TelecommunicationAddress respondToNetworkAddress) {
+        this.respondToNetworkAddress.setValue(respondToNetworkAddress);
     }
 
 }

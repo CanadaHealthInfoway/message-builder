@@ -27,21 +27,57 @@ import java.util.List;
 @Hl7RootType
 public class MedicationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
-    private List<MonographsBean> subjectOf1Document = new ArrayList<MonographsBean>();
-    private DrugCostBean subjectOf4PotentialCharge;
+    private static final long serialVersionUID = 20110127L;
     private DispenseInformationBean productOf1DispenseGuidelines;
-    private List<FormulariesBean> productOf2PotentialSupply = new ArrayList<FormulariesBean>();
-    private List<AppearanceCharacteristicsBean> subjectOf3Characteristic = new ArrayList<AppearanceCharacteristicsBean>();
-    private DrugHalfLifeBean subjectOf5HalfLife;
+    private List<MonographsBean> subjectOf1Document = new ArrayList<MonographsBean>();
     private List<RecommendedAdministrationInstructionsBean> consumedInAdministrationGuideline = new ArrayList<RecommendedAdministrationInstructionsBean>();
-    private List<MonitoringProgramsBean> subjectOf2MonitoringProgram = new ArrayList<MonitoringProgramsBean>();
+    private List<AppearanceCharacteristicsBean> subjectOf3Characteristic = new ArrayList<AppearanceCharacteristicsBean>();
     private DrugOrCompoundBean administerableMedicine;
+    private List<FormulariesBean> productOf2PotentialSupply = new ArrayList<FormulariesBean>();
+    private DrugCostBean subjectOf4PotentialCharge;
+    private DrugHalfLifeBean subjectOf5HalfLife;
+    private List<MonitoringProgramsBean> subjectOf2MonitoringProgram = new ArrayList<MonitoringProgramsBean>();
+
+
+    @Hl7XmlMapping({"productOf1/dispenseGuidelines"})
+    public DispenseInformationBean getProductOf1DispenseGuidelines() {
+        return this.productOf1DispenseGuidelines;
+    }
+    public void setProductOf1DispenseGuidelines(DispenseInformationBean productOf1DispenseGuidelines) {
+        this.productOf1DispenseGuidelines = productOf1DispenseGuidelines;
+    }
 
 
     @Hl7XmlMapping({"subjectOf1/document"})
     public List<MonographsBean> getSubjectOf1Document() {
         return this.subjectOf1Document;
+    }
+
+
+    @Hl7XmlMapping({"consumedIn/administrationGuideline"})
+    public List<RecommendedAdministrationInstructionsBean> getConsumedInAdministrationGuideline() {
+        return this.consumedInAdministrationGuideline;
+    }
+
+
+    @Hl7XmlMapping({"subjectOf3/characteristic"})
+    public List<AppearanceCharacteristicsBean> getSubjectOf3Characteristic() {
+        return this.subjectOf3Characteristic;
+    }
+
+
+    @Hl7XmlMapping({"administerableMedicine"})
+    public DrugOrCompoundBean getAdministerableMedicine() {
+        return this.administerableMedicine;
+    }
+    public void setAdministerableMedicine(DrugOrCompoundBean administerableMedicine) {
+        this.administerableMedicine = administerableMedicine;
+    }
+
+
+    @Hl7XmlMapping({"productOf2/potentialSupply"})
+    public List<FormulariesBean> getProductOf2PotentialSupply() {
+        return this.productOf2PotentialSupply;
     }
 
 
@@ -54,27 +90,6 @@ public class MedicationBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"productOf1/dispenseGuidelines"})
-    public DispenseInformationBean getProductOf1DispenseGuidelines() {
-        return this.productOf1DispenseGuidelines;
-    }
-    public void setProductOf1DispenseGuidelines(DispenseInformationBean productOf1DispenseGuidelines) {
-        this.productOf1DispenseGuidelines = productOf1DispenseGuidelines;
-    }
-
-
-    @Hl7XmlMapping({"productOf2/potentialSupply"})
-    public List<FormulariesBean> getProductOf2PotentialSupply() {
-        return this.productOf2PotentialSupply;
-    }
-
-
-    @Hl7XmlMapping({"subjectOf3/characteristic"})
-    public List<AppearanceCharacteristicsBean> getSubjectOf3Characteristic() {
-        return this.subjectOf3Characteristic;
-    }
-
-
     @Hl7XmlMapping({"subjectOf5/halfLife"})
     public DrugHalfLifeBean getSubjectOf5HalfLife() {
         return this.subjectOf5HalfLife;
@@ -84,24 +99,9 @@ public class MedicationBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"consumedIn/administrationGuideline"})
-    public List<RecommendedAdministrationInstructionsBean> getConsumedInAdministrationGuideline() {
-        return this.consumedInAdministrationGuideline;
-    }
-
-
     @Hl7XmlMapping({"subjectOf2/monitoringProgram"})
     public List<MonitoringProgramsBean> getSubjectOf2MonitoringProgram() {
         return this.subjectOf2MonitoringProgram;
-    }
-
-
-    @Hl7XmlMapping({"administerableMedicine"})
-    public DrugOrCompoundBean getAdministerableMedicine() {
-        return this.administerableMedicine;
-    }
-    public void setAdministerableMedicine(DrugOrCompoundBean administerableMedicine) {
-        this.administerableMedicine = administerableMedicine;
     }
 
 }

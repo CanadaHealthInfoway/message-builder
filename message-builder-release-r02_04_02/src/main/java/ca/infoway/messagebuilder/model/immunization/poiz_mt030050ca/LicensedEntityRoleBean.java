@@ -13,7 +13,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"POIZ_MT030050CA.LicensedEntityRole"})
 public class LicensedEntityRoleBean extends MessagePartBean implements ca.infoway.messagebuilder.model.immunization.merged.InformationSourceChoice {
 
-    private static final long serialVersionUID = 20110126L;
+    private static final long serialVersionUID = 20110127L;
     private CV licensedEntityType = new CVImpl();
 
 

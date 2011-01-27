@@ -43,14 +43,23 @@ import java.util.Set;
 @Hl7PartTypeMapping({"COCT_MT260010CA.SupplyEvent","COCT_MT260020CA.SupplyEvent"})
 public class DispenseBean extends MessagePartBean implements CausalActs {
 
-    private static final long serialVersionUID = 20110126L;
+    private static final long serialVersionUID = 20110127L;
+    private OccurredAtBean location;
     private CS dispenseStatus = new CSImpl();
     private II prescriptionDispenseNumber = new IIImpl();
-    private IVL<TS, Interval<Date>> dispensedDate = new IVLImpl<TS, Interval<Date>>();
-    private OccurredAtBean location;
     private SET<CV, Code> confidentialityCode = new SETImpl<CV, Code>(CVImpl.class);
     private DispensedBean product;
+    private IVL<TS, Interval<Date>> dispensedDate = new IVLImpl<TS, Interval<Date>>();
     private SET<II, Identifier> prescriptionOrderNumber = new SETImpl<II, Identifier>(IIImpl.class);
+
+
+    @Hl7XmlMapping({"location"})
+    public OccurredAtBean getLocation() {
+        return this.location;
+    }
+    public void setLocation(OccurredAtBean location) {
+        this.location = location;
+    }
 
 
     /**
@@ -104,6 +113,38 @@ public class DispenseBean extends MessagePartBean implements CausalActs {
 
 
     /**
+     * <p>C:Dispense Masking Indicator</p>
+     * 
+     * <p><p>An indication of sensitivity surrounding the related 
+     * drug, and thus defines the required sensitivity for the 
+     * detected issue.</p></p>
+     * 
+     * <p><p>Conveys the patient's wishes relating to the 
+     * sensitivity of the drug information.</p><p>The attribute is 
+     * optional because not all systems will support masking.</p></p>
+     * 
+     * <p><p>Conveys the patient's wishes relating to the 
+     * sensitivity of the drug information.</p><p>The attribute is 
+     * optional because not all systems will support masking.</p></p>
+     * 
+     * <p>C:Dispense Masked Indicator</p>
+     */
+    @Hl7XmlMapping({"confidentialityCode"})
+    public Set<x_BasicConfidentialityKind> getConfidentialityCode() {
+        return this.confidentialityCode.rawSet(x_BasicConfidentialityKind.class);
+    }
+
+
+    @Hl7XmlMapping({"product"})
+    public DispensedBean getProduct() {
+        return this.product;
+    }
+    public void setProduct(DispensedBean product) {
+        this.product = product;
+    }
+
+
+    /**
      * <p>DispensedDate</p>
      * 
      * <p>B:Dispensed Date</p>
@@ -133,47 +174,6 @@ public class DispenseBean extends MessagePartBean implements CausalActs {
     }
     public void setDispensedDate(Interval<Date> dispensedDate) {
         this.dispensedDate.setValue(dispensedDate);
-    }
-
-
-    @Hl7XmlMapping({"location"})
-    public OccurredAtBean getLocation() {
-        return this.location;
-    }
-    public void setLocation(OccurredAtBean location) {
-        this.location = location;
-    }
-
-
-    /**
-     * <p>C:Dispense Masking Indicator</p>
-     * 
-     * <p><p>An indication of sensitivity surrounding the related 
-     * drug, and thus defines the required sensitivity for the 
-     * detected issue.</p></p>
-     * 
-     * <p><p>Conveys the patient's wishes relating to the 
-     * sensitivity of the drug information.</p><p>The attribute is 
-     * optional because not all systems will support masking.</p></p>
-     * 
-     * <p><p>Conveys the patient's wishes relating to the 
-     * sensitivity of the drug information.</p><p>The attribute is 
-     * optional because not all systems will support masking.</p></p>
-     * 
-     * <p>C:Dispense Masked Indicator</p>
-     */
-    @Hl7XmlMapping({"confidentialityCode"})
-    public Set<x_BasicConfidentialityKind> getConfidentialityCode() {
-        return this.confidentialityCode.rawSet(x_BasicConfidentialityKind.class);
-    }
-
-
-    @Hl7XmlMapping({"product"})
-    public DispensedBean getProduct() {
-        return this.product;
-    }
-    public void setProduct(DispensedBean product) {
-        this.product = product;
     }
 
 

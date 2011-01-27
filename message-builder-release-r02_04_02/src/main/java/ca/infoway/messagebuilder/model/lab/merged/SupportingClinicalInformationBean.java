@@ -88,57 +88,9 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"POLB_MT001000CA.SupportingClinicalObservationEvent","POLB_MT001001CA.SupportingClinicalObservationEvent","POLB_MT001010CA.SupportingClinicalObservationEvent","POLB_MT001999CA.SupportingClinicalObservationEvent","POLB_MT002000CA.SupportingClinicalObservationEvent","POLB_MT004000CA.SupportingClinicalObservationEvent","POLB_MT004100CA.SupportingClinicalObservationEvent1","POLB_MT004100CA.SupportingClinicalObservationEvent2","POLB_MT004200CA.SupportingClinicalObservationEvent1"})
 public class SupportingClinicalInformationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
-    private CD supportingClinicalObservationCode = new CDImpl();
+    private static final long serialVersionUID = 20110127L;
     private ANY<Object> supportingClinicalObservationValue = new ANYImpl<Object>();
-
-
-    /**
-     * <p>SupportingClinicalObservationCode</p>
-     * 
-     * <p>Supporting Clinical Observation Code</p>
-     * 
-     * <p><p>Code used describe this act to communicate information 
-     * at the report level (as opposed to at the culture, isolate, 
-     * or sensitivity level). This includes drugs taken.</p></p>
-     * 
-     * <p><p>When a coded value applies, values must be selected 
-     * from the SupportingClinicalInformationValue Concept 
-     * Domain.</p></p>
-     * 
-     * <p><p>Used to describe the type of information in this 
-     * observation event.</p></p>
-     * 
-     * <p>L:Supporting Clinical Observation Code</p>
-     * 
-     * <p><p>Describes the type of supporting clinical 
-     * information.</p></p>
-     * 
-     * <p><p>Used to include that clinical information pertinent to 
-     * the performance of the requested test(s).</p></p>
-     * 
-     * <p>Supporting Clinical Observation Code</p>
-     * 
-     * <p><p>Code used to describe this observation as supporting 
-     * clinical information.</p></p>
-     * 
-     * <p><p>Used to describe the type of information in this 
-     * observation event.</p></p>
-     * 
-     * <p>Supporting Clinical Observation Code</p>
-     * 
-     * <p><p>The type of supporting information being communicated 
-     * with this result.</p></p>
-     * 
-     * <p>Supporting Clinical Observation Code</p>
-     */
-    @Hl7XmlMapping({"code"})
-    public Code getSupportingClinicalObservationCode() {
-        return (Code) this.supportingClinicalObservationCode.getValue();
-    }
-    public void setSupportingClinicalObservationCode(Code supportingClinicalObservationCode) {
-        this.supportingClinicalObservationCode.setValue(supportingClinicalObservationCode);
-    }
+    private CD supportingClinicalObservationCode = new CDImpl();
 
 
     /**
@@ -213,6 +165,54 @@ public class SupportingClinicalInformationBean extends MessagePartBean {
     }
     public void setSupportingClinicalObservationValue(Object supportingClinicalObservationValue) {
         this.supportingClinicalObservationValue.setValue(supportingClinicalObservationValue);
+    }
+
+
+    /**
+     * <p>SupportingClinicalObservationCode</p>
+     * 
+     * <p>Supporting Clinical Observation Code</p>
+     * 
+     * <p><p>Code used describe this act to communicate information 
+     * at the report level (as opposed to at the culture, isolate, 
+     * or sensitivity level). This includes drugs taken.</p></p>
+     * 
+     * <p><p>When a coded value applies, values must be selected 
+     * from the SupportingClinicalInformationValue Concept 
+     * Domain.</p></p>
+     * 
+     * <p><p>Used to describe the type of information in this 
+     * observation event.</p></p>
+     * 
+     * <p>L:Supporting Clinical Observation Code</p>
+     * 
+     * <p><p>Describes the type of supporting clinical 
+     * information.</p></p>
+     * 
+     * <p><p>Used to include that clinical information pertinent to 
+     * the performance of the requested test(s).</p></p>
+     * 
+     * <p>Supporting Clinical Observation Code</p>
+     * 
+     * <p><p>Code used to describe this observation as supporting 
+     * clinical information.</p></p>
+     * 
+     * <p><p>Used to describe the type of information in this 
+     * observation event.</p></p>
+     * 
+     * <p>Supporting Clinical Observation Code</p>
+     * 
+     * <p><p>The type of supporting information being communicated 
+     * with this result.</p></p>
+     * 
+     * <p>Supporting Clinical Observation Code</p>
+     */
+    @Hl7XmlMapping({"code"})
+    public Code getSupportingClinicalObservationCode() {
+        return (Code) this.supportingClinicalObservationCode.getValue();
+    }
+    public void setSupportingClinicalObservationCode(Code supportingClinicalObservationCode) {
+        this.supportingClinicalObservationCode.setValue(supportingClinicalObservationCode);
     }
 
 }

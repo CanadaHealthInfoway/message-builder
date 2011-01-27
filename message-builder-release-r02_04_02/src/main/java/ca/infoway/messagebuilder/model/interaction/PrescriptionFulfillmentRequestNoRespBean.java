@@ -12,6 +12,6 @@ import ca.infoway.messagebuilder.model.pharmacy.porx_mt010120ca.PrescriptionBean
 @Hl7PartTypeMapping({"PORX_IN010650CA"})
 public class PrescriptionFulfillmentRequestNoRespBean extends HL7Message_1Bean<TriggerEvent_1Bean<PrescriptionBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20110126L;
+    private static final long serialVersionUID = 20110127L;
 
 }

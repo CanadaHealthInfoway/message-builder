@@ -55,10 +55,10 @@ import java.util.Set;
 @Hl7PartTypeMapping({"PRPA_MT202301CA.ServiceDefinition","PRPA_MT202302CA.ServiceDefinition","PRPA_MT202303CA.ServiceDefinition"})
 public class AvailableServicesBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
+    private static final long serialVersionUID = 20110127L;
     private CS serviceAvailability = new CSImpl();
-    private SET<PIVL, PeriodicIntervalTime> serviceAvailabilityTime = new SETImpl<PIVL, PeriodicIntervalTime>(PIVLImpl.class);
     private CV serviceType = new CVImpl();
+    private SET<PIVL, PeriodicIntervalTime> serviceAvailabilityTime = new SETImpl<PIVL, PeriodicIntervalTime>(PIVLImpl.class);
 
 
     /**
@@ -94,6 +94,26 @@ public class AvailableServicesBean extends MessagePartBean {
 
 
     /**
+     * <p>ServiceType</p>
+     * 
+     * <p>A: Service Type</p>
+     * 
+     * <p><p>Describes the kind of health-related service being 
+     * offered.</p></p>
+     * 
+     * <p><p>This is the attribute that defines what the service is 
+     * and is therefore mandatory.</p></p>
+     */
+    @Hl7XmlMapping({"code"})
+    public ActServiceDeliveryLocationService getServiceType() {
+        return (ActServiceDeliveryLocationService) this.serviceType.getValue();
+    }
+    public void setServiceType(ActServiceDeliveryLocationService serviceType) {
+        this.serviceType.setValue(serviceType);
+    }
+
+
+    /**
      * <p>ServiceAvailabilityTime</p>
      * 
      * <p>C: Service Availability Time</p>
@@ -112,26 +132,6 @@ public class AvailableServicesBean extends MessagePartBean {
     @Hl7XmlMapping({"activityTime"})
     public Set<PeriodicIntervalTime> getServiceAvailabilityTime() {
         return this.serviceAvailabilityTime.rawSet();
-    }
-
-
-    /**
-     * <p>ServiceType</p>
-     * 
-     * <p>A: Service Type</p>
-     * 
-     * <p><p>Describes the kind of health-related service being 
-     * offered.</p></p>
-     * 
-     * <p><p>This is the attribute that defines what the service is 
-     * and is therefore mandatory.</p></p>
-     */
-    @Hl7XmlMapping({"code"})
-    public ActServiceDeliveryLocationService getServiceType() {
-        return (ActServiceDeliveryLocationService) this.serviceType.getValue();
-    }
-    public void setServiceType(ActServiceDeliveryLocationService serviceType) {
-        this.serviceType.setValue(serviceType);
     }
 
 }

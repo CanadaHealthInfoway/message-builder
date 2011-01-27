@@ -54,13 +54,37 @@ import java.util.List;
 @Hl7PartTypeMapping({"REPC_MT230001CA.Observation","REPC_MT230002CA.Observation","REPC_MT230003CA.Observation"})
 public class ClinicalObservationDocumentBean extends MessagePartBean implements DocumentContent_3, ca.infoway.messagebuilder.model.iehr.repc_mt230001ca.DocumentContent {
 
-    private static final long serialVersionUID = 20110126L;
-    private CD clinicalObservationDocumentType = new CDImpl();
-    private IVL<TS, Interval<Date>> clinicalObservationDocumentTimeRange = new IVLImpl<TS, Interval<Date>>();
+    private static final long serialVersionUID = 20110127L;
     private OccurredAtBean location;
-    private ActEventBean subjectActEvent;
     private List<BecauseOfBean> reason = new ArrayList<BecauseOfBean>();
     private Request_2Bean inFulfillmentOfActRequest;
+    private CD clinicalObservationDocumentType = new CDImpl();
+    private IVL<TS, Interval<Date>> clinicalObservationDocumentTimeRange = new IVLImpl<TS, Interval<Date>>();
+    private ActEventBean subjectActEvent;
+
+
+    @Hl7XmlMapping({"location"})
+    public OccurredAtBean getLocation() {
+        return this.location;
+    }
+    public void setLocation(OccurredAtBean location) {
+        this.location = location;
+    }
+
+
+    @Hl7XmlMapping({"reason"})
+    public List<BecauseOfBean> getReason() {
+        return this.reason;
+    }
+
+
+    @Hl7XmlMapping({"inFulfillmentOf/actRequest"})
+    public Request_2Bean getInFulfillmentOfActRequest() {
+        return this.inFulfillmentOfActRequest;
+    }
+    public void setInFulfillmentOfActRequest(Request_2Bean inFulfillmentOfActRequest) {
+        this.inFulfillmentOfActRequest = inFulfillmentOfActRequest;
+    }
 
 
     /**
@@ -111,36 +135,12 @@ public class ClinicalObservationDocumentBean extends MessagePartBean implements 
     }
 
 
-    @Hl7XmlMapping({"location"})
-    public OccurredAtBean getLocation() {
-        return this.location;
-    }
-    public void setLocation(OccurredAtBean location) {
-        this.location = location;
-    }
-
-
     @Hl7XmlMapping({"subject/actEvent"})
     public ActEventBean getSubjectActEvent() {
         return this.subjectActEvent;
     }
     public void setSubjectActEvent(ActEventBean subjectActEvent) {
         this.subjectActEvent = subjectActEvent;
-    }
-
-
-    @Hl7XmlMapping({"reason"})
-    public List<BecauseOfBean> getReason() {
-        return this.reason;
-    }
-
-
-    @Hl7XmlMapping({"inFulfillmentOf/actRequest"})
-    public Request_2Bean getInFulfillmentOfActRequest() {
-        return this.inFulfillmentOfActRequest;
-    }
-    public void setInFulfillmentOfActRequest(Request_2Bean inFulfillmentOfActRequest) {
-        this.inFulfillmentOfActRequest = inFulfillmentOfActRequest;
     }
 
 }

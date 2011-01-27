@@ -24,7 +24,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"COCT_MT300000CA.SupplyOrder"})
 public class OriginalPrescriptionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
+    private static final long serialVersionUID = 20110127L;
     private INT numberOfRefills1 = new INTImpl();
     private IVL<TS, Interval<Date>> lastAllowedDispense = new IVLImpl<TS, Interval<Date>>();
 

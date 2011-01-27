@@ -68,10 +68,16 @@ import java.util.List;
 @Hl7PartTypeMapping({"PRPM_MT306011CA.ActDefinitionOrEvent","PRPM_MT309000CA.ActDefinitionOrEvent"})
 public class ActDefinitionOrEventName_2Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
-    private IVL<TS, Interval<Date>> actDefinitionOrEventNameEffectiveTime = new IVLImpl<TS, Interval<Date>>();
+    private static final long serialVersionUID = 20110127L;
     private List<LocationBean> location = new ArrayList<LocationBean>();
+    private IVL<TS, Interval<Date>> actDefinitionOrEventNameEffectiveTime = new IVLImpl<TS, Interval<Date>>();
     private List<SequelToBean> sequel = new ArrayList<SequelToBean>();
+
+
+    @Hl7XmlMapping({"location"})
+    public List<LocationBean> getLocation() {
+        return this.location;
+    }
 
 
     /**
@@ -90,12 +96,6 @@ public class ActDefinitionOrEventName_2Bean extends MessagePartBean {
     }
     public void setActDefinitionOrEventNameEffectiveTime(Interval<Date> actDefinitionOrEventNameEffectiveTime) {
         this.actDefinitionOrEventNameEffectiveTime.setValue(actDefinitionOrEventNameEffectiveTime);
-    }
-
-
-    @Hl7XmlMapping({"location"})
-    public List<LocationBean> getLocation() {
-        return this.location;
     }
 
 

@@ -36,74 +36,13 @@ import java.util.List;
 @Hl7RootType
 public class ParameterListBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
-    private List<II> careCompositionIDs = new ArrayList<II>();
-    private IVL<TS, Interval<Date>> amendedInTimeRange = new IVLImpl<TS, Interval<Date>>();
+    private static final long serialVersionUID = 20110127L;
     private IVL<TS, Interval<Date>> administrationEffectivePeriod = new IVLImpl<TS, Interval<Date>>();
-    private List<CV> careCompositionTypes = new ArrayList<CV>();
     private BL mostRecentByDrugIndicator = new BLImpl();
     private CV issueFilterCode = new CVImpl();
-
-
-    /**
-     * <p>Care Composition IDs</p>
-     * 
-     * <p><p>Desc: Filters the records retrieved to only include 
-     * those associated with the specified encounter, episode or 
-     * care event. If unspecified, no filter is 
-     * applied.</p><p>Note: When matching on care composition id, 
-     * systems should also retrieve records with a fulfillment id 
-     * to requisitions associated with the care composition. E.g. 
-     * When retrieving records associated with an encounter which 
-     * includes a referral, the retrieved records should also 
-     * include the care summary created in fulfillment of the 
-     * referral.</p></p>
-     * 
-     * <p><p>Desc: Filters the records retrieved to only include 
-     * those associated with the specified encounter, episode or 
-     * care event. If unspecified, no filter is 
-     * applied.</p><p>Note: When matching on care composition id, 
-     * systems should also retrieve records with a fulfillment id 
-     * to requisitions associated with the care composition. E.g. 
-     * When retrieving records associated with an encounter which 
-     * includes a referral, the retrieved records should also 
-     * include the care summary created in fulfillment of the 
-     * referral.</p></p>
-     * 
-     * <p><p>Allows retrieving all records associated with an 
-     * encounter, episode or care event.</p></p>
-     */
-    @Hl7XmlMapping({"careCompositionID/value"})
-    public List<Identifier> getCareCompositionIDs() {
-        return new RawListWrapper<II, Identifier>(careCompositionIDs, IIImpl.class);
-    }
-
-
-    /**
-     * <p>Amended in Time Range</p>
-     * 
-     * <p><p>Indicates that the returned records should be filtered 
-     * to only include those which have been amended in some way 
-     * (had status changed, been annotated, prescription was 
-     * dispensed, etc.) within the indicated time-period. This will 
-     * commonly be used to &quot;retrieve everything that has been 
-     * amended since xxx&quot;.</p></p>
-     * 
-     * <p><p>Allows the requester to specify the event period of 
-     * interest for the retrieval of medication 
-     * records.</p><p>Useful for constraining run-away queries.</p></p>
-     * 
-     * <p><p>Allows the requester to specify the event period of 
-     * interest for the retrieval of medication 
-     * records.</p><p>Useful for constraining run-away queries.</p></p>
-     */
-    @Hl7XmlMapping({"amendedInTimeRange/value"})
-    public Interval<Date> getAmendedInTimeRange() {
-        return this.amendedInTimeRange.getValue();
-    }
-    public void setAmendedInTimeRange(Interval<Date> amendedInTimeRange) {
-        this.amendedInTimeRange.setValue(amendedInTimeRange);
-    }
+    private IVL<TS, Interval<Date>> amendedInTimeRange = new IVLImpl<TS, Interval<Date>>();
+    private List<II> careCompositionIDs = new ArrayList<II>();
+    private List<CV> careCompositionTypes = new ArrayList<CV>();
 
 
     /**
@@ -137,24 +76,6 @@ public class ParameterListBean extends MessagePartBean {
     }
     public void setAdministrationEffectivePeriod(Interval<Date> administrationEffectivePeriod) {
         this.administrationEffectivePeriod.setValue(administrationEffectivePeriod);
-    }
-
-
-    /**
-     * <p>Care Composition Types</p>
-     * 
-     * <p><p>Filters the records retrieved to only include those 
-     * associated with the specified 'kind' of encounter, episode 
-     * or care event. If unspecified, no filter is applied.</p></p>
-     * 
-     * <p><p>Allows retrieving all records associated with a 
-     * particular type of encounter, episode or care event. 
-     * E.g.Orthopedic Clinic Encounter, ER encounter, Walk-in 
-     * encounter, etc.</p></p>
-     */
-    @Hl7XmlMapping({"careCompositionType/value"})
-    public List<ActCareEventType> getCareCompositionTypes() {
-        return new RawListWrapper<CV, ActCareEventType>(careCompositionTypes, CVImpl.class);
     }
 
 
@@ -213,6 +134,85 @@ public class ParameterListBean extends MessagePartBean {
     }
     public void setIssueFilterCode(IssueFilterCode issueFilterCode) {
         this.issueFilterCode.setValue(issueFilterCode);
+    }
+
+
+    /**
+     * <p>Amended in Time Range</p>
+     * 
+     * <p><p>Indicates that the returned records should be filtered 
+     * to only include those which have been amended in some way 
+     * (had status changed, been annotated, prescription was 
+     * dispensed, etc.) within the indicated time-period. This will 
+     * commonly be used to &quot;retrieve everything that has been 
+     * amended since xxx&quot;.</p></p>
+     * 
+     * <p><p>Allows the requester to specify the event period of 
+     * interest for the retrieval of medication 
+     * records.</p><p>Useful for constraining run-away queries.</p></p>
+     * 
+     * <p><p>Allows the requester to specify the event period of 
+     * interest for the retrieval of medication 
+     * records.</p><p>Useful for constraining run-away queries.</p></p>
+     */
+    @Hl7XmlMapping({"amendedInTimeRange/value"})
+    public Interval<Date> getAmendedInTimeRange() {
+        return this.amendedInTimeRange.getValue();
+    }
+    public void setAmendedInTimeRange(Interval<Date> amendedInTimeRange) {
+        this.amendedInTimeRange.setValue(amendedInTimeRange);
+    }
+
+
+    /**
+     * <p>Care Composition IDs</p>
+     * 
+     * <p><p>Desc: Filters the records retrieved to only include 
+     * those associated with the specified encounter, episode or 
+     * care event. If unspecified, no filter is 
+     * applied.</p><p>Note: When matching on care composition id, 
+     * systems should also retrieve records with a fulfillment id 
+     * to requisitions associated with the care composition. E.g. 
+     * When retrieving records associated with an encounter which 
+     * includes a referral, the retrieved records should also 
+     * include the care summary created in fulfillment of the 
+     * referral.</p></p>
+     * 
+     * <p><p>Desc: Filters the records retrieved to only include 
+     * those associated with the specified encounter, episode or 
+     * care event. If unspecified, no filter is 
+     * applied.</p><p>Note: When matching on care composition id, 
+     * systems should also retrieve records with a fulfillment id 
+     * to requisitions associated with the care composition. E.g. 
+     * When retrieving records associated with an encounter which 
+     * includes a referral, the retrieved records should also 
+     * include the care summary created in fulfillment of the 
+     * referral.</p></p>
+     * 
+     * <p><p>Allows retrieving all records associated with an 
+     * encounter, episode or care event.</p></p>
+     */
+    @Hl7XmlMapping({"careCompositionID/value"})
+    public List<Identifier> getCareCompositionIDs() {
+        return new RawListWrapper<II, Identifier>(careCompositionIDs, IIImpl.class);
+    }
+
+
+    /**
+     * <p>Care Composition Types</p>
+     * 
+     * <p><p>Filters the records retrieved to only include those 
+     * associated with the specified 'kind' of encounter, episode 
+     * or care event. If unspecified, no filter is applied.</p></p>
+     * 
+     * <p><p>Allows retrieving all records associated with a 
+     * particular type of encounter, episode or care event. 
+     * E.g.Orthopedic Clinic Encounter, ER encounter, Walk-in 
+     * encounter, etc.</p></p>
+     */
+    @Hl7XmlMapping({"careCompositionType/value"})
+    public List<ActCareEventType> getCareCompositionTypes() {
+        return new RawListWrapper<CV, ActCareEventType>(careCompositionTypes, CVImpl.class);
     }
 
 }

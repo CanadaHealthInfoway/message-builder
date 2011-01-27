@@ -46,9 +46,29 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"REPC_MT220001CA.ConditionEvent","REPC_MT220002CA.ConditionEvent","REPC_MT220003CA.ConditionEvent"})
 public class DischargeDiagnosesBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
-    private CD dischargeDiagnosisType = new CDImpl();
+    private static final long serialVersionUID = 20110127L;
     private CV diagnosisCode = new CVImpl();
+    private CD dischargeDiagnosisType = new CDImpl();
+
+
+    /**
+     * <p>DiagnosisCode</p>
+     * 
+     * <p>B:Diagnosis Code</p>
+     * 
+     * <p><p>Identifies the actual discharge diagnosis.</p></p>
+     * 
+     * <p></p></p>
+     * 
+     * <p></p></p>
+     */
+    @Hl7XmlMapping({"value"})
+    public DiagnosisValue getDiagnosisCode() {
+        return (DiagnosisValue) this.diagnosisCode.getValue();
+    }
+    public void setDiagnosisCode(DiagnosisValue diagnosisCode) {
+        this.diagnosisCode.setValue(diagnosisCode);
+    }
 
 
     /**
@@ -75,26 +95,6 @@ public class DischargeDiagnosesBean extends MessagePartBean {
     }
     public void setDischargeDiagnosisType(Code dischargeDiagnosisType) {
         this.dischargeDiagnosisType.setValue(dischargeDiagnosisType);
-    }
-
-
-    /**
-     * <p>DiagnosisCode</p>
-     * 
-     * <p>B:Diagnosis Code</p>
-     * 
-     * <p><p>Identifies the actual discharge diagnosis.</p></p>
-     * 
-     * <p></p></p>
-     * 
-     * <p></p></p>
-     */
-    @Hl7XmlMapping({"value"})
-    public DiagnosisValue getDiagnosisCode() {
-        return (DiagnosisValue) this.diagnosisCode.getValue();
-    }
-    public void setDiagnosisCode(DiagnosisValue diagnosisCode) {
-        this.diagnosisCode.setValue(diagnosisCode);
     }
 
 }

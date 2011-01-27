@@ -45,10 +45,32 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"POIZ_MT030050CA.HealthDocument","POIZ_MT030060CA.HealthDocument","POIZ_MT060150CA.HealthDocument"})
 public class HealthDocumentBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
+    private static final long serialVersionUID = 20110127L;
+    private ED<EncapsulatedData> healthDocumentText = new EDImpl<EncapsulatedData>();
     private II healthDocumentID = new IIImpl();
     private ST healthDocumentTitle = new STImpl();
-    private ED<EncapsulatedData> healthDocumentText = new EDImpl<EncapsulatedData>();
+
+
+    /**
+     * <p>HealthDocumentText</p>
+     * 
+     * <p>Health Document Text</p>
+     * 
+     * <p><p>Contains the body of the health document that is the 
+     * basis of the immunization information.</p></p>
+     * 
+     * <p><p>Useful for identifying the Health Document that is the 
+     * basis of historical immunization information. Not all 
+     * implementations will support this concept so this attribute 
+     * is optional.</p></p>
+     */
+    @Hl7XmlMapping({"text"})
+    public EncapsulatedData getHealthDocumentText() {
+        return this.healthDocumentText.getValue();
+    }
+    public void setHealthDocumentText(EncapsulatedData healthDocumentText) {
+        this.healthDocumentText.setValue(healthDocumentText);
+    }
 
 
     /**
@@ -90,28 +112,6 @@ public class HealthDocumentBean extends MessagePartBean {
     }
     public void setHealthDocumentTitle(String healthDocumentTitle) {
         this.healthDocumentTitle.setValue(healthDocumentTitle);
-    }
-
-
-    /**
-     * <p>HealthDocumentText</p>
-     * 
-     * <p>Health Document Text</p>
-     * 
-     * <p><p>Contains the body of the health document that is the 
-     * basis of the immunization information.</p></p>
-     * 
-     * <p><p>Useful for identifying the Health Document that is the 
-     * basis of historical immunization information. Not all 
-     * implementations will support this concept so this attribute 
-     * is optional.</p></p>
-     */
-    @Hl7XmlMapping({"text"})
-    public EncapsulatedData getHealthDocumentText() {
-        return this.healthDocumentText.getValue();
-    }
-    public void setHealthDocumentText(EncapsulatedData healthDocumentText) {
-        this.healthDocumentText.setValue(healthDocumentText);
     }
 
 }

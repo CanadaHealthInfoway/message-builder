@@ -54,18 +54,88 @@ import java.util.Set;
 @Hl7RootType
 public class AdministrationInstructionsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
-    private CV routeCode = new CVImpl();
-    private SET<CV, Code> administrationSites = new SETImpl<CV, Code>(CVImpl.class);
+    private static final long serialVersionUID = 20110127L;
     private CD dosageType = new CDImpl();
-    private IVL<TS, Interval<Date>> administrationPeriod = new IVLImpl<TS, Interval<Date>>();
-    private List<ConsistsOfBean> component2 = new ArrayList<ConsistsOfBean>();
-    private ST renderedDosageInstruction = new STImpl();
-    private AdditionalSIGInstructionBean component1SupplementalInstruction;
+    private SET<CV, Code> administrationSites = new SETImpl<CV, Code>(CVImpl.class);
     private SET<RTO<PhysicalQuantity, PhysicalQuantity>, Ratio<PhysicalQuantity, PhysicalQuantity>> maximumDailyWeeklyDoses = new SETImpl<RTO<PhysicalQuantity, PhysicalQuantity>, Ratio<PhysicalQuantity, PhysicalQuantity>>(RTOImpl.class);
-    private CS dosageUsageContext = new CSImpl();
+    private CV routeCode = new CVImpl();
+    private ST renderedDosageInstruction = new STImpl();
     private CV dosageUnit = new CVImpl();
     private Medication consumableMedication1;
+    private AdditionalSIGInstructionBean component1SupplementalInstruction;
+    private CS dosageUsageContext = new CSImpl();
+    private IVL<TS, Interval<Date>> administrationPeriod = new IVLImpl<TS, Interval<Date>>();
+    private List<ConsistsOfBean> component2 = new ArrayList<ConsistsOfBean>();
+
+
+    /**
+     * <p>Dosage Type</p>
+     * 
+     * <p><p>Distinguishes types of dosage.</p></p>
+     * 
+     * <p><p>Distinguishes between types of dosage administration 
+     * and is therefore mandatory. Datatype is CD to allow for 
+     * SNOMED codes.</p></p>
+     * 
+     * <p><p>For SNOMED this will pre-coordinate route, body site 
+     * and potentially drug. For non-SNOMED, this will be a fixed 
+     * value of DRUG.</p></p>
+     */
+    @Hl7XmlMapping({"code"})
+    public Code getDosageType() {
+        return (Code) this.dosageType.getValue();
+    }
+    public void setDosageType(Code dosageType) {
+        this.dosageType.setValue(dosageType);
+    }
+
+
+    /**
+     * <p>Administration Sites</p>
+     * 
+     * <p><p>A value denoting the body area where the medicine 
+     * should be administered. E.g. 'Right Elbow', 'Left Ear'. When 
+     * multiples sites are specified they should be treated as 
+     * 'AND'.</p></p>
+     * 
+     * <p><p>Allows specificity when a drug can potentially be 
+     * applied to different parts of the patien's body. Multiple 
+     * repetitions are used when the product should be administered 
+     * to multiple parts of the body. CWE is used because using a 
+     * code system is not essential for understanding or analyzing 
+     * the prescription. The attribute is optional because it can 
+     * be pre-coordinated with SubstanceAdministration.code when 
+     * using SNOMED.</p></p>
+     */
+    @Hl7XmlMapping({"approachSiteCode"})
+    public Set<HumanSubstanceAdministrationSite> getAdministrationSites() {
+        return this.administrationSites.rawSet(HumanSubstanceAdministrationSite.class);
+    }
+
+
+    /**
+     * <p>D:Maximum Daily/Weekly Doses</p>
+     * 
+     * <p><p>The maximum amount of the dispensed medication to be 
+     * administered to the patient in a 24-hr period (doses per 
+     * day) or in a 7 day period (doses per week).</p></p>
+     * 
+     * <p><p>ZPB3.5(denominator=1D)</p></p>
+     * 
+     * <p><p>Sets an upper boundary for the quantity of the drug to 
+     * be administered over a specified period of time. 
+     * Particularly useful for PRN medications.</p></p>
+     * 
+     * <p><p>This field can only capture maximum doses based on 
+     * explicit time periods. Dosage maximums based on other 
+     * constraints such as patient lifetime, menstrual cycles must 
+     * be recorded using additional dosage instruction 
+     * comments.</p></p>
+     */
+    @Hl7XmlMapping({"maxDoseQuantity"})
+    public Set<Ratio<PhysicalQuantity, PhysicalQuantity>> getMaximumDailyWeeklyDoses() {
+        return this.maximumDailyWeeklyDoses.rawSet();
+    }
 
 
     /**
@@ -96,112 +166,6 @@ public class AdministrationInstructionsBean extends MessagePartBean {
     }
     public void setRouteCode(RouteOfAdministration routeCode) {
         this.routeCode.setValue(routeCode);
-    }
-
-
-    /**
-     * <p>Administration Sites</p>
-     * 
-     * <p><p>A value denoting the body area where the medicine 
-     * should be administered. E.g. 'Right Elbow', 'Left Ear'. When 
-     * multiples sites are specified they should be treated as 
-     * 'AND'.</p></p>
-     * 
-     * <p><p>Allows specificity when a drug can potentially be 
-     * applied to different parts of the patien's body. Multiple 
-     * repetitions are used when the product should be administered 
-     * to multiple parts of the body. CWE is used because using a 
-     * code system is not essential for understanding or analyzing 
-     * the prescription. The attribute is optional because it can 
-     * be pre-coordinated with SubstanceAdministration.code when 
-     * using SNOMED.</p></p>
-     */
-    @Hl7XmlMapping({"approachSiteCode"})
-    public Set<HumanSubstanceAdministrationSite> getAdministrationSites() {
-        return this.administrationSites.rawSet(HumanSubstanceAdministrationSite.class);
-    }
-
-
-    /**
-     * <p>Dosage Type</p>
-     * 
-     * <p><p>Distinguishes types of dosage.</p></p>
-     * 
-     * <p><p>Distinguishes between types of dosage administration 
-     * and is therefore mandatory. Datatype is CD to allow for 
-     * SNOMED codes.</p></p>
-     * 
-     * <p><p>For SNOMED this will pre-coordinate route, body site 
-     * and potentially drug. For non-SNOMED, this will be a fixed 
-     * value of DRUG.</p></p>
-     */
-    @Hl7XmlMapping({"code"})
-    public Code getDosageType() {
-        return (Code) this.dosageType.getValue();
-    }
-    public void setDosageType(Code dosageType) {
-        this.dosageType.setValue(dosageType);
-    }
-
-
-    /**
-     * <p>A:Administration Period</p>
-     * 
-     * <p><p>The time period (begin and end dates) within which the 
-     * dispensed medication is to be completely administered to/by 
-     * the patient. May differ from date prescription was 
-     * issued.</p></p>
-     * 
-     * <p><p>Prescription.Admin istrationStartDate 
-     * (Low)</p><p>Prescription.Admin istrationStopDate 
-     * (High)</p><p>DispensedItem.expectedStartDate</p></p>
-     * 
-     * <p><p>Prescription.Admin istrationStartDate 
-     * (Low)</p><p>Prescription.Admin istrationStopDate 
-     * (High)</p><p>DispensedItem.expectedStartDate</p></p>
-     * 
-     * <p><p>Prescription.Admin istrationStartDate 
-     * (Low)</p><p>Prescription.Admin istrationStopDate 
-     * (High)</p><p>DispensedItem.expectedStartDate</p></p>
-     * 
-     * <p><p>Indicates the overall time boundaries in which the 
-     * person is expected to take the drug. Denotes the reference 
-     * point for calculating expected exhaustion date and quantity 
-     * on hand.</p><p>Facilitates compliance checking.</p><p>Note: 
-     * TID may be interpreted differently based on situation (e.g. 
-     * based on schedules of a facility).</p></p>
-     * 
-     * <p><p>Indicates the overall time boundaries in which the 
-     * person is expected to take the drug. Denotes the reference 
-     * point for calculating expected exhaustion date and quantity 
-     * on hand.</p><p>Facilitates compliance checking.</p><p>Note: 
-     * TID may be interpreted differently based on situation (e.g. 
-     * based on schedules of a facility).</p></p>
-     * 
-     * <p><p>Indicates the overall time boundaries in which the 
-     * person is expected to take the drug. Denotes the reference 
-     * point for calculating expected exhaustion date and quantity 
-     * on hand.</p><p>Facilitates compliance checking.</p><p>Note: 
-     * TID may be interpreted differently based on situation (e.g. 
-     * based on schedules of a facility).</p></p>
-     * 
-     * <p><p>Frequently only the duration (width) component is 
-     * specified. E.g. 100mg tid for 10 days. In that case, the 
-     * start date is presumed to be the date the prescription was 
-     * written</p></p>
-     */
-    @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getAdministrationPeriod() {
-        return this.administrationPeriod.getValue();
-    }
-    public void setAdministrationPeriod(Interval<Date> administrationPeriod) {
-        this.administrationPeriod.setValue(administrationPeriod);
-    }
-
-
-    @Hl7XmlMapping({"component2"})
-    public List<ConsistsOfBean> getComponent2() {
-        return this.component2;
     }
 
 
@@ -252,88 +216,6 @@ public class AdministrationInstructionsBean extends MessagePartBean {
     }
     public void setRenderedDosageInstruction(String renderedDosageInstruction) {
         this.renderedDosageInstruction.setValue(renderedDosageInstruction);
-    }
-
-
-    @Hl7XmlMapping({"component1/supplementalInstruction"})
-    public AdditionalSIGInstructionBean getComponent1SupplementalInstruction() {
-        return this.component1SupplementalInstruction;
-    }
-    public void setComponent1SupplementalInstruction(AdditionalSIGInstructionBean component1SupplementalInstruction) {
-        this.component1SupplementalInstruction = component1SupplementalInstruction;
-    }
-
-
-    /**
-     * <p>D:Maximum Daily/Weekly Doses</p>
-     * 
-     * <p><p>The maximum amount of the dispensed medication to be 
-     * administered to the patient in a 24-hr period (doses per 
-     * day) or in a 7 day period (doses per week).</p></p>
-     * 
-     * <p><p>ZPB3.5(denominator=1D)</p></p>
-     * 
-     * <p><p>Sets an upper boundary for the quantity of the drug to 
-     * be administered over a specified period of time. 
-     * Particularly useful for PRN medications.</p></p>
-     * 
-     * <p><p>This field can only capture maximum doses based on 
-     * explicit time periods. Dosage maximums based on other 
-     * constraints such as patient lifetime, menstrual cycles must 
-     * be recorded using additional dosage instruction 
-     * comments.</p></p>
-     */
-    @Hl7XmlMapping({"maxDoseQuantity"})
-    public Set<Ratio<PhysicalQuantity, PhysicalQuantity>> getMaximumDailyWeeklyDoses() {
-        return this.maximumDailyWeeklyDoses.rawSet();
-    }
-
-
-    /**
-     * <p>Dosage Usage Context</p>
-     * 
-     * <p><p>- moodCode must be DEFN for drug definitions (such as 
-     * monographs) - moodCode must be RQO for orders; - moodCode 
-     * must be EVN for dispenses and recording of other 
-     * medications</p></p>
-     * 
-     * <p><p>Indicates the context of the 
-     * administration.</p><p>moodCode = RQO, for administration 
-     * instruction on orders</p><p>moodCode = EVN, for 
-     * administration instruction on dispenses</p><p>moodCode = 
-     * DEF, for administration instruction on medication definition 
-     * documents/references (typically, monographs).</p></p>
-     * 
-     * <p><p>Indicates the context of the 
-     * administration.</p><p>moodCode = RQO, for administration 
-     * instruction on orders</p><p>moodCode = EVN, for 
-     * administration instruction on dispenses</p><p>moodCode = 
-     * DEF, for administration instruction on medication definition 
-     * documents/references (typically, monographs).</p></p>
-     * 
-     * <p><p>Indicates the context of the 
-     * administration.</p><p>moodCode = RQO, for administration 
-     * instruction on orders</p><p>moodCode = EVN, for 
-     * administration instruction on dispenses</p><p>moodCode = 
-     * DEF, for administration instruction on medication definition 
-     * documents/references (typically, monographs).</p></p>
-     * 
-     * <p><p>Indicates the context of the 
-     * administration.</p><p>moodCode = RQO, for administration 
-     * instruction on orders</p><p>moodCode = EVN, for 
-     * administration instruction on dispenses</p><p>moodCode = 
-     * DEF, for administration instruction on medication definition 
-     * documents/references (typically, monographs).</p></p>
-     * 
-     * <p><p>Puts the class in context, and is therefore 
-     * mandatory.</p></p>
-     */
-    @Hl7XmlMapping({"moodCode"})
-    public x_ActMoodDefEvnRqo getDosageUsageContext() {
-        return (x_ActMoodDefEvnRqo) this.dosageUsageContext.getValue();
-    }
-    public void setDosageUsageContext(x_ActMoodDefEvnRqo dosageUsageContext) {
-        this.dosageUsageContext.setValue(dosageUsageContext);
     }
 
 
@@ -396,6 +278,124 @@ public class AdministrationInstructionsBean extends MessagePartBean {
     }
     public boolean hasConsumableMedication1AsMedication4() {
         return (this.consumableMedication1 instanceof ca.infoway.messagebuilder.model.common.coct_mt220210ca.DrugProductBean);
+    }
+
+
+    @Hl7XmlMapping({"component1/supplementalInstruction"})
+    public AdditionalSIGInstructionBean getComponent1SupplementalInstruction() {
+        return this.component1SupplementalInstruction;
+    }
+    public void setComponent1SupplementalInstruction(AdditionalSIGInstructionBean component1SupplementalInstruction) {
+        this.component1SupplementalInstruction = component1SupplementalInstruction;
+    }
+
+
+    /**
+     * <p>Dosage Usage Context</p>
+     * 
+     * <p><p>- moodCode must be DEFN for drug definitions (such as 
+     * monographs) - moodCode must be RQO for orders; - moodCode 
+     * must be EVN for dispenses and recording of other 
+     * medications</p></p>
+     * 
+     * <p><p>Indicates the context of the 
+     * administration.</p><p>moodCode = RQO, for administration 
+     * instruction on orders</p><p>moodCode = EVN, for 
+     * administration instruction on dispenses</p><p>moodCode = 
+     * DEF, for administration instruction on medication definition 
+     * documents/references (typically, monographs).</p></p>
+     * 
+     * <p><p>Indicates the context of the 
+     * administration.</p><p>moodCode = RQO, for administration 
+     * instruction on orders</p><p>moodCode = EVN, for 
+     * administration instruction on dispenses</p><p>moodCode = 
+     * DEF, for administration instruction on medication definition 
+     * documents/references (typically, monographs).</p></p>
+     * 
+     * <p><p>Indicates the context of the 
+     * administration.</p><p>moodCode = RQO, for administration 
+     * instruction on orders</p><p>moodCode = EVN, for 
+     * administration instruction on dispenses</p><p>moodCode = 
+     * DEF, for administration instruction on medication definition 
+     * documents/references (typically, monographs).</p></p>
+     * 
+     * <p><p>Indicates the context of the 
+     * administration.</p><p>moodCode = RQO, for administration 
+     * instruction on orders</p><p>moodCode = EVN, for 
+     * administration instruction on dispenses</p><p>moodCode = 
+     * DEF, for administration instruction on medication definition 
+     * documents/references (typically, monographs).</p></p>
+     * 
+     * <p><p>Puts the class in context, and is therefore 
+     * mandatory.</p></p>
+     */
+    @Hl7XmlMapping({"moodCode"})
+    public x_ActMoodDefEvnRqo getDosageUsageContext() {
+        return (x_ActMoodDefEvnRqo) this.dosageUsageContext.getValue();
+    }
+    public void setDosageUsageContext(x_ActMoodDefEvnRqo dosageUsageContext) {
+        this.dosageUsageContext.setValue(dosageUsageContext);
+    }
+
+
+    /**
+     * <p>A:Administration Period</p>
+     * 
+     * <p><p>The time period (begin and end dates) within which the 
+     * dispensed medication is to be completely administered to/by 
+     * the patient. May differ from date prescription was 
+     * issued.</p></p>
+     * 
+     * <p><p>Prescription.Admin istrationStartDate 
+     * (Low)</p><p>Prescription.Admin istrationStopDate 
+     * (High)</p><p>DispensedItem.expectedStartDate</p></p>
+     * 
+     * <p><p>Prescription.Admin istrationStartDate 
+     * (Low)</p><p>Prescription.Admin istrationStopDate 
+     * (High)</p><p>DispensedItem.expectedStartDate</p></p>
+     * 
+     * <p><p>Prescription.Admin istrationStartDate 
+     * (Low)</p><p>Prescription.Admin istrationStopDate 
+     * (High)</p><p>DispensedItem.expectedStartDate</p></p>
+     * 
+     * <p><p>Indicates the overall time boundaries in which the 
+     * person is expected to take the drug. Denotes the reference 
+     * point for calculating expected exhaustion date and quantity 
+     * on hand.</p><p>Facilitates compliance checking.</p><p>Note: 
+     * TID may be interpreted differently based on situation (e.g. 
+     * based on schedules of a facility).</p></p>
+     * 
+     * <p><p>Indicates the overall time boundaries in which the 
+     * person is expected to take the drug. Denotes the reference 
+     * point for calculating expected exhaustion date and quantity 
+     * on hand.</p><p>Facilitates compliance checking.</p><p>Note: 
+     * TID may be interpreted differently based on situation (e.g. 
+     * based on schedules of a facility).</p></p>
+     * 
+     * <p><p>Indicates the overall time boundaries in which the 
+     * person is expected to take the drug. Denotes the reference 
+     * point for calculating expected exhaustion date and quantity 
+     * on hand.</p><p>Facilitates compliance checking.</p><p>Note: 
+     * TID may be interpreted differently based on situation (e.g. 
+     * based on schedules of a facility).</p></p>
+     * 
+     * <p><p>Frequently only the duration (width) component is 
+     * specified. E.g. 100mg tid for 10 days. In that case, the 
+     * start date is presumed to be the date the prescription was 
+     * written</p></p>
+     */
+    @Hl7XmlMapping({"effectiveTime"})
+    public Interval<Date> getAdministrationPeriod() {
+        return this.administrationPeriod.getValue();
+    }
+    public void setAdministrationPeriod(Interval<Date> administrationPeriod) {
+        this.administrationPeriod.setValue(administrationPeriod);
+    }
+
+
+    @Hl7XmlMapping({"component2"})
+    public List<ConsistsOfBean> getComponent2() {
+        return this.component2;
     }
 
 }

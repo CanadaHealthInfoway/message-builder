@@ -39,21 +39,81 @@ import java.util.Set;
 @Hl7PartTypeMapping({"POLB_MT001001CA.PlacerGroup"})
 public class PlacerGroupBean extends MessagePartBean implements RequestChoice {
 
-    private static final long serialVersionUID = 20110126L;
-    private II placerGroupIdentifier = new IIImpl();
-    private List<HealthcareWorkerBean> verifierAssignedEntity = new ArrayList<HealthcareWorkerBean>();
-    private SET<CV, Code> placerGroupMaskingIndicator = new SETImpl<CV, Code>(CVImpl.class);
-    private VersionInformationBean subjectOf2ControlActEvent;
-    private List<RequestChoice> component4RequestChoice = new ArrayList<RequestChoice>();
-    private List<IncludesBean> subjectOf1 = new ArrayList<IncludesBean>();
+    private static final long serialVersionUID = 20110127L;
     private List<CareCompositionsBean> componentOf2PatientCareProvisionEvent = new ArrayList<CareCompositionsBean>();
+    private List<IncludesBean> subjectOf1 = new ArrayList<IncludesBean>();
+    private SET<CV, Code> placerGroupMaskingIndicator = new SETImpl<CV, Code>(CVImpl.class);
+    private List<RequestChoice> component4RequestChoice = new ArrayList<RequestChoice>();
     private ParentTestBean occurrenceOfActParentPointer;
-    private LabInitiatedOrderIndicatorBean component1LabInitiatedOrderIndicator;
+    private List<HealthcareWorkerBean> verifierAssignedEntity = new ArrayList<HealthcareWorkerBean>();
     private List<RecipientChoice> informationRecipientRecipientChoice = new ArrayList<RecipientChoice>();
-    private ReferralRedirectIndicatorBean component2ReferralRedirectIndicator;
-    private List<SupportingClinicalInformationBean> pertinentInformationSupportingClinicalObservationEvent = new ArrayList<SupportingClinicalInformationBean>();
-    private PriorTestRequestBean componentOf1PriorActRequest;
+    private II placerGroupIdentifier = new IIImpl();
     private OrderSortKeyBean component3RequestSortKey;
+    private VersionInformationBean subjectOf2ControlActEvent;
+    private List<SupportingClinicalInformationBean> pertinentInformationSupportingClinicalObservationEvent = new ArrayList<SupportingClinicalInformationBean>();
+    private LabInitiatedOrderIndicatorBean component1LabInitiatedOrderIndicator;
+    private ReferralRedirectIndicatorBean component2ReferralRedirectIndicator;
+    private PriorTestRequestBean componentOf1PriorActRequest;
+
+
+    @Hl7XmlMapping({"componentOf2/patientCareProvisionEvent"})
+    public List<CareCompositionsBean> getComponentOf2PatientCareProvisionEvent() {
+        return this.componentOf2PatientCareProvisionEvent;
+    }
+
+
+    @Hl7XmlMapping({"subjectOf1"})
+    public List<IncludesBean> getSubjectOf1() {
+        return this.subjectOf1;
+    }
+
+
+    /**
+     * <p>B:Placer Group Masking Indicator</p>
+     * 
+     * <p><p>Any piece of information is potentially subject to 
+     * 'masking', restricting it's availability from providers who 
+     * have not been specifically authorized. Additionally, some 
+     * clinical data requires the ability to mark as &quot;not for 
+     * direct disclosure to patient&quot;. The values in this 
+     * attribute enable the above masking to be represented and 
+     * messaged.</p></p>
+     * 
+     * <p><p>This code allows for privacy control by patients as 
+     * well as flagged for 'not for disclosure to patient' by care 
+     * providers.</p></p>
+     */
+    @Hl7XmlMapping({"confidentialityCode"})
+    public Set<x_BasicConfidentialityKind> getPlacerGroupMaskingIndicator() {
+        return this.placerGroupMaskingIndicator.rawSet(x_BasicConfidentialityKind.class);
+    }
+
+
+    @Hl7XmlMapping({"component4/requestChoice"})
+    public List<RequestChoice> getComponent4RequestChoice() {
+        return this.component4RequestChoice;
+    }
+
+
+    @Hl7XmlMapping({"occurrenceOf/actParentPointer"})
+    public ParentTestBean getOccurrenceOfActParentPointer() {
+        return this.occurrenceOfActParentPointer;
+    }
+    public void setOccurrenceOfActParentPointer(ParentTestBean occurrenceOfActParentPointer) {
+        this.occurrenceOfActParentPointer = occurrenceOfActParentPointer;
+    }
+
+
+    @Hl7XmlMapping({"verifier/assignedEntity"})
+    public List<HealthcareWorkerBean> getVerifierAssignedEntity() {
+        return this.verifierAssignedEntity;
+    }
+
+
+    @Hl7XmlMapping({"informationRecipient/recipientChoice"})
+    public List<RecipientChoice> getInformationRecipientRecipientChoice() {
+        return this.informationRecipientRecipientChoice;
+    }
 
 
     /**
@@ -83,30 +143,12 @@ public class PlacerGroupBean extends MessagePartBean implements RequestChoice {
     }
 
 
-    @Hl7XmlMapping({"verifier/assignedEntity"})
-    public List<HealthcareWorkerBean> getVerifierAssignedEntity() {
-        return this.verifierAssignedEntity;
+    @Hl7XmlMapping({"component3/requestSortKey"})
+    public OrderSortKeyBean getComponent3RequestSortKey() {
+        return this.component3RequestSortKey;
     }
-
-
-    /**
-     * <p>B:Placer Group Masking Indicator</p>
-     * 
-     * <p><p>Any piece of information is potentially subject to 
-     * 'masking', restricting it's availability from providers who 
-     * have not been specifically authorized. Additionally, some 
-     * clinical data requires the ability to mark as &quot;not for 
-     * direct disclosure to patient&quot;. The values in this 
-     * attribute enable the above masking to be represented and 
-     * messaged.</p></p>
-     * 
-     * <p><p>This code allows for privacy control by patients as 
-     * well as flagged for 'not for disclosure to patient' by care 
-     * providers.</p></p>
-     */
-    @Hl7XmlMapping({"confidentialityCode"})
-    public Set<x_BasicConfidentialityKind> getPlacerGroupMaskingIndicator() {
-        return this.placerGroupMaskingIndicator.rawSet(x_BasicConfidentialityKind.class);
+    public void setComponent3RequestSortKey(OrderSortKeyBean component3RequestSortKey) {
+        this.component3RequestSortKey = component3RequestSortKey;
     }
 
 
@@ -119,30 +161,9 @@ public class PlacerGroupBean extends MessagePartBean implements RequestChoice {
     }
 
 
-    @Hl7XmlMapping({"component4/requestChoice"})
-    public List<RequestChoice> getComponent4RequestChoice() {
-        return this.component4RequestChoice;
-    }
-
-
-    @Hl7XmlMapping({"subjectOf1"})
-    public List<IncludesBean> getSubjectOf1() {
-        return this.subjectOf1;
-    }
-
-
-    @Hl7XmlMapping({"componentOf2/patientCareProvisionEvent"})
-    public List<CareCompositionsBean> getComponentOf2PatientCareProvisionEvent() {
-        return this.componentOf2PatientCareProvisionEvent;
-    }
-
-
-    @Hl7XmlMapping({"occurrenceOf/actParentPointer"})
-    public ParentTestBean getOccurrenceOfActParentPointer() {
-        return this.occurrenceOfActParentPointer;
-    }
-    public void setOccurrenceOfActParentPointer(ParentTestBean occurrenceOfActParentPointer) {
-        this.occurrenceOfActParentPointer = occurrenceOfActParentPointer;
+    @Hl7XmlMapping({"pertinentInformation/supportingClinicalObservationEvent"})
+    public List<SupportingClinicalInformationBean> getPertinentInformationSupportingClinicalObservationEvent() {
+        return this.pertinentInformationSupportingClinicalObservationEvent;
     }
 
 
@@ -155,12 +176,6 @@ public class PlacerGroupBean extends MessagePartBean implements RequestChoice {
     }
 
 
-    @Hl7XmlMapping({"informationRecipient/recipientChoice"})
-    public List<RecipientChoice> getInformationRecipientRecipientChoice() {
-        return this.informationRecipientRecipientChoice;
-    }
-
-
     @Hl7XmlMapping({"component2/referralRedirectIndicator"})
     public ReferralRedirectIndicatorBean getComponent2ReferralRedirectIndicator() {
         return this.component2ReferralRedirectIndicator;
@@ -170,27 +185,12 @@ public class PlacerGroupBean extends MessagePartBean implements RequestChoice {
     }
 
 
-    @Hl7XmlMapping({"pertinentInformation/supportingClinicalObservationEvent"})
-    public List<SupportingClinicalInformationBean> getPertinentInformationSupportingClinicalObservationEvent() {
-        return this.pertinentInformationSupportingClinicalObservationEvent;
-    }
-
-
     @Hl7XmlMapping({"componentOf1/priorActRequest"})
     public PriorTestRequestBean getComponentOf1PriorActRequest() {
         return this.componentOf1PriorActRequest;
     }
     public void setComponentOf1PriorActRequest(PriorTestRequestBean componentOf1PriorActRequest) {
         this.componentOf1PriorActRequest = componentOf1PriorActRequest;
-    }
-
-
-    @Hl7XmlMapping({"component3/requestSortKey"})
-    public OrderSortKeyBean getComponent3RequestSortKey() {
-        return this.component3RequestSortKey;
-    }
-    public void setComponent3RequestSortKey(OrderSortKeyBean component3RequestSortKey) {
-        this.component3RequestSortKey = component3RequestSortKey;
     }
 
 }

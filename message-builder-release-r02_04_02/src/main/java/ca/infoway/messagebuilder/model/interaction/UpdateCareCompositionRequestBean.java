@@ -12,6 +12,6 @@ import ca.infoway.messagebuilder.model.iehr.merged.CareCompositionBean;
 @Hl7PartTypeMapping({"REPC_IN000073CA"})
 public class UpdateCareCompositionRequestBean extends HL7Message_1Bean<TriggerEvent_1Bean<CareCompositionBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20110126L;
+    private static final long serialVersionUID = 20110127L;
 
 }

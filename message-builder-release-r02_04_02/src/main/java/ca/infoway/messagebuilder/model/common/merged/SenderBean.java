@@ -24,39 +24,15 @@ import java.util.Date;
 @Hl7PartTypeMapping({"MCCI_MT002100CA.Sender","MCCI_MT002200CA.Sender","MCCI_MT002300CA.Sender","MCCI_MT102001CA.Sender"})
 public class SenderBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
-    private TEL sendingNetworkAddress = new TELImpl();
+    private static final long serialVersionUID = 20110127L;
     private IVL<TS, Interval<Date>> sendingApplicationVersionDate = new IVLImpl<TS, Interval<Date>>();
-    private ST sendingApplicationConfigurationInformation = new STImpl();
-    private II sendingApplicationIdentifier = new IIImpl();
-    private ST sendingSoftwareVersionNumber = new STImpl();
     private ST sendingApplicationName = new STImpl();
+    private II sendingApplicationIdentifier = new IIImpl();
+    private ST sendingApplicationConfigurationInformation = new STImpl();
+    private ST sendingSoftwareVersionNumber = new STImpl();
     private ST sendingApplicationSoftwareName = new STImpl();
     private II sendingOrganizationIdentifier = new IIImpl();
-
-
-    /**
-     * <p>SendingNetworkAddress</p>
-     * 
-     * <p>IB:Sending Network Address</p>
-     * 
-     * <p><p>The network address of the application which sent the 
-     * message.</p></p>
-     * 
-     * <p><p>soap:Header\wsa:From</p></p>
-     * 
-     * <p><p>May be important for sender validation. Usually also 
-     * the address to which responses are sent. This is optional 
-     * because not all environments require network addresses. It 
-     * is mandatory when communicating using SOAP.</p></p>
-     */
-    @Hl7XmlMapping({"telecom"})
-    public TelecommunicationAddress getSendingNetworkAddress() {
-        return this.sendingNetworkAddress.getValue();
-    }
-    public void setSendingNetworkAddress(TelecommunicationAddress sendingNetworkAddress) {
-        this.sendingNetworkAddress.setValue(sendingNetworkAddress);
-    }
+    private TEL sendingNetworkAddress = new TELImpl();
 
 
     /**
@@ -80,23 +56,21 @@ public class SenderBean extends MessagePartBean {
 
 
     /**
-     * <p>SendingApplicationConfigurationInformation</p>
+     * <p>SendingApplicationName</p>
      * 
-     * <p>II:Sending Application Configuration Information</p>
+     * <p>IE:Sending Application Name</p>
      * 
-     * <p><p>Provides additional information about the 
-     * configuration of the sending application. Useful when 
-     * debugging.</p></p>
+     * <p><p>This is the name associated with the system or 
+     * application sending the message.</p></p>
      * 
-     * <p><p>Provides additional information that may assist in 
-     * debugging interactions.</p></p>
+     * <p><p>Provides useful information when debugging.</p></p>
      */
-    @Hl7XmlMapping({"device/desc"})
-    public String getSendingApplicationConfigurationInformation() {
-        return this.sendingApplicationConfigurationInformation.getValue();
+    @Hl7XmlMapping({"device/name"})
+    public String getSendingApplicationName() {
+        return this.sendingApplicationName.getValue();
     }
-    public void setSendingApplicationConfigurationInformation(String sendingApplicationConfigurationInformation) {
-        this.sendingApplicationConfigurationInformation.setValue(sendingApplicationConfigurationInformation);
+    public void setSendingApplicationName(String sendingApplicationName) {
+        this.sendingApplicationName.setValue(sendingApplicationName);
     }
 
 
@@ -135,6 +109,27 @@ public class SenderBean extends MessagePartBean {
 
 
     /**
+     * <p>SendingApplicationConfigurationInformation</p>
+     * 
+     * <p>II:Sending Application Configuration Information</p>
+     * 
+     * <p><p>Provides additional information about the 
+     * configuration of the sending application. Useful when 
+     * debugging.</p></p>
+     * 
+     * <p><p>Provides additional information that may assist in 
+     * debugging interactions.</p></p>
+     */
+    @Hl7XmlMapping({"device/desc"})
+    public String getSendingApplicationConfigurationInformation() {
+        return this.sendingApplicationConfigurationInformation.getValue();
+    }
+    public void setSendingApplicationConfigurationInformation(String sendingApplicationConfigurationInformation) {
+        this.sendingApplicationConfigurationInformation.setValue(sendingApplicationConfigurationInformation);
+    }
+
+
+    /**
      * <p>SendingSoftwareVersionNumber</p>
      * 
      * <p>IG:Sending Software Version Number</p>
@@ -151,25 +146,6 @@ public class SenderBean extends MessagePartBean {
     }
     public void setSendingSoftwareVersionNumber(String sendingSoftwareVersionNumber) {
         this.sendingSoftwareVersionNumber.setValue(sendingSoftwareVersionNumber);
-    }
-
-
-    /**
-     * <p>SendingApplicationName</p>
-     * 
-     * <p>IE:Sending Application Name</p>
-     * 
-     * <p><p>This is the name associated with the system or 
-     * application sending the message.</p></p>
-     * 
-     * <p><p>Provides useful information when debugging.</p></p>
-     */
-    @Hl7XmlMapping({"device/name"})
-    public String getSendingApplicationName() {
-        return this.sendingApplicationName.getValue();
-    }
-    public void setSendingApplicationName(String sendingApplicationName) {
-        this.sendingApplicationName.setValue(sendingApplicationName);
     }
 
 
@@ -219,6 +195,30 @@ public class SenderBean extends MessagePartBean {
     }
     public void setSendingOrganizationIdentifier(Identifier sendingOrganizationIdentifier) {
         this.sendingOrganizationIdentifier.setValue(sendingOrganizationIdentifier);
+    }
+
+
+    /**
+     * <p>SendingNetworkAddress</p>
+     * 
+     * <p>IB:Sending Network Address</p>
+     * 
+     * <p><p>The network address of the application which sent the 
+     * message.</p></p>
+     * 
+     * <p><p>soap:Header\wsa:From</p></p>
+     * 
+     * <p><p>May be important for sender validation. Usually also 
+     * the address to which responses are sent. This is optional 
+     * because not all environments require network addresses. It 
+     * is mandatory when communicating using SOAP.</p></p>
+     */
+    @Hl7XmlMapping({"telecom"})
+    public TelecommunicationAddress getSendingNetworkAddress() {
+        return this.sendingNetworkAddress.getValue();
+    }
+    public void setSendingNetworkAddress(TelecommunicationAddress sendingNetworkAddress) {
+        this.sendingNetworkAddress.setValue(sendingNetworkAddress);
     }
 
 }

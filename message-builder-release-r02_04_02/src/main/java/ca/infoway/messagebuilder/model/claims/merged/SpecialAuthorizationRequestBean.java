@@ -39,23 +39,23 @@ import java.util.Set;
 @Hl7RootType
 public class SpecialAuthorizationRequestBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
+    private static final long serialVersionUID = 20110127L;
     private CS requestStatus = new CSImpl();
-    private Subject3Bean subject;
     private CV specialAuthorizationRequestType = new CVImpl();
-    private II specialAuthorizationRequestID = new IIImpl();
-    private HealthcareWorkerBean authorAssignedEntity;
     private SpecialAuthorizationBean fulfillmentSpecialAuthorization;
+    private HealthcareWorkerBean authorAssignedEntity;
+    private Subject3Bean subject;
+    private II specialAuthorizationRequestID = new IIImpl();
+    private ContactPartyBean callBackContactContactParty;
     private PolicyOrAccount_1Bean coveragePolicyOrAccount;
     private List<IncludesBean> subjectOf = new ArrayList<IncludesBean>();
-    private FormRoleBean directTargetFormRole;
-    private IVL<TS, Interval<Date>> specialAuthorizationRequestEffectiveDate = new IVLImpl<TS, Interval<Date>>();
-    private List<HealthDocumentAttachment_1Bean> pertinentInformationHealthDocumentAttachment = new ArrayList<HealthDocumentAttachment_1Bean>();
-    private SpecialAuthorizationRequestCrossReferenceBean predecessorSpecialAuthorizationRequestCrossReference;
-    private ContactPartyBean callBackContactContactParty;
-    private SET<CV, Code> confidentialityRestrictionS = new SETImpl<CV, Code>(CVImpl.class);
     private List<SpecialAuthorizationCriteriaBean> supportSpecialAuthorizationCriteria = new ArrayList<SpecialAuthorizationCriteriaBean>();
+    private FormRoleBean directTargetFormRole;
+    private SET<CV, Code> confidentialityRestrictionS = new SETImpl<CV, Code>(CVImpl.class);
     private CV specialAuthorizationPriorityCode = new CVImpl();
+    private List<HealthDocumentAttachment_1Bean> pertinentInformationHealthDocumentAttachment = new ArrayList<HealthDocumentAttachment_1Bean>();
+    private IVL<TS, Interval<Date>> specialAuthorizationRequestEffectiveDate = new IVLImpl<TS, Interval<Date>>();
+    private SpecialAuthorizationRequestCrossReferenceBean predecessorSpecialAuthorizationRequestCrossReference;
     private List<Subject5Bean> subject1 = new ArrayList<Subject5Bean>();
     private SpecialAuthorizationAdditionalInformationRequestBean referenceSpecialAuthorizationAdditionalInformationRequest;
 
@@ -74,20 +74,6 @@ public class SpecialAuthorizationRequestBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"subject","subject2"})
-    @Hl7MapByPartTypes({
-        @Hl7MapByPartType(name="subject", type="FICR_MT400001CA.Subject3"),
-        @Hl7MapByPartType(name="subject", type="FICR_MT400003CA.Subject3"),
-        @Hl7MapByPartType(name="subject", type="FICR_MT400004CA.Subject3"),
-        @Hl7MapByPartType(name="subject2", type="FICR_MT490101CA.Subject3")})
-    public Subject3Bean getSubject() {
-        return this.subject;
-    }
-    public void setSubject(Subject3Bean subject) {
-        this.subject = subject;
-    }
-
-
     /**
      * <p>SpecialAuthorizationRequestType</p>
      * 
@@ -99,6 +85,38 @@ public class SpecialAuthorizationRequestBean extends MessagePartBean {
     }
     public void setSpecialAuthorizationRequestType(Code specialAuthorizationRequestType) {
         this.specialAuthorizationRequestType.setValue(specialAuthorizationRequestType);
+    }
+
+
+    @Hl7XmlMapping({"fulfillment/specialAuthorization"})
+    public SpecialAuthorizationBean getFulfillmentSpecialAuthorization() {
+        return this.fulfillmentSpecialAuthorization;
+    }
+    public void setFulfillmentSpecialAuthorization(SpecialAuthorizationBean fulfillmentSpecialAuthorization) {
+        this.fulfillmentSpecialAuthorization = fulfillmentSpecialAuthorization;
+    }
+
+
+    @Hl7XmlMapping({"author/assignedEntity"})
+    public HealthcareWorkerBean getAuthorAssignedEntity() {
+        return this.authorAssignedEntity;
+    }
+    public void setAuthorAssignedEntity(HealthcareWorkerBean authorAssignedEntity) {
+        this.authorAssignedEntity = authorAssignedEntity;
+    }
+
+
+    @Hl7XmlMapping({"subject","subject2"})
+    @Hl7MapByPartTypes({
+        @Hl7MapByPartType(name="subject", type="FICR_MT400001CA.Subject3"),
+        @Hl7MapByPartType(name="subject", type="FICR_MT400003CA.Subject3"),
+        @Hl7MapByPartType(name="subject", type="FICR_MT400004CA.Subject3"),
+        @Hl7MapByPartType(name="subject2", type="FICR_MT490101CA.Subject3")})
+    public Subject3Bean getSubject() {
+        return this.subject;
+    }
+    public void setSubject(Subject3Bean subject) {
+        this.subject = subject;
     }
 
 
@@ -116,21 +134,12 @@ public class SpecialAuthorizationRequestBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"author/assignedEntity"})
-    public HealthcareWorkerBean getAuthorAssignedEntity() {
-        return this.authorAssignedEntity;
+    @Hl7XmlMapping({"callBackContact/contactParty"})
+    public ContactPartyBean getCallBackContactContactParty() {
+        return this.callBackContactContactParty;
     }
-    public void setAuthorAssignedEntity(HealthcareWorkerBean authorAssignedEntity) {
-        this.authorAssignedEntity = authorAssignedEntity;
-    }
-
-
-    @Hl7XmlMapping({"fulfillment/specialAuthorization"})
-    public SpecialAuthorizationBean getFulfillmentSpecialAuthorization() {
-        return this.fulfillmentSpecialAuthorization;
-    }
-    public void setFulfillmentSpecialAuthorization(SpecialAuthorizationBean fulfillmentSpecialAuthorization) {
-        this.fulfillmentSpecialAuthorization = fulfillmentSpecialAuthorization;
+    public void setCallBackContactContactParty(ContactPartyBean callBackContactContactParty) {
+        this.callBackContactContactParty = callBackContactContactParty;
     }
 
 
@@ -149,12 +158,49 @@ public class SpecialAuthorizationRequestBean extends MessagePartBean {
     }
 
 
+    @Hl7XmlMapping({"support/specialAuthorizationCriteria"})
+    public List<SpecialAuthorizationCriteriaBean> getSupportSpecialAuthorizationCriteria() {
+        return this.supportSpecialAuthorizationCriteria;
+    }
+
+
     @Hl7XmlMapping({"directTarget/formRole"})
     public FormRoleBean getDirectTargetFormRole() {
         return this.directTargetFormRole;
     }
     public void setDirectTargetFormRole(FormRoleBean directTargetFormRole) {
         this.directTargetFormRole = directTargetFormRole;
+    }
+
+
+    /**
+     * <p>ConfidentialityRestrictionS</p>
+     * 
+     * <p>Confidentiality Restriction(s</p>
+     */
+    @Hl7XmlMapping({"confidentialityCode"})
+    public Set<x_BasicConfidentialityKind> getConfidentialityRestrictionS() {
+        return this.confidentialityRestrictionS.rawSet(x_BasicConfidentialityKind.class);
+    }
+
+
+    /**
+     * <p>SpecialAuthorizationPriorityCode</p>
+     * 
+     * <p>Special Authorization Priority Code</p>
+     */
+    @Hl7XmlMapping({"priorityCode"})
+    public ActPriority getSpecialAuthorizationPriorityCode() {
+        return (ActPriority) this.specialAuthorizationPriorityCode.getValue();
+    }
+    public void setSpecialAuthorizationPriorityCode(ActPriority specialAuthorizationPriorityCode) {
+        this.specialAuthorizationPriorityCode.setValue(specialAuthorizationPriorityCode);
+    }
+
+
+    @Hl7XmlMapping({"pertinentInformation/healthDocumentAttachment"})
+    public List<HealthDocumentAttachment_1Bean> getPertinentInformationHealthDocumentAttachment() {
+        return this.pertinentInformationHealthDocumentAttachment;
     }
 
 
@@ -172,58 +218,12 @@ public class SpecialAuthorizationRequestBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"pertinentInformation/healthDocumentAttachment"})
-    public List<HealthDocumentAttachment_1Bean> getPertinentInformationHealthDocumentAttachment() {
-        return this.pertinentInformationHealthDocumentAttachment;
-    }
-
-
     @Hl7XmlMapping({"predecessor/specialAuthorizationRequestCrossReference"})
     public SpecialAuthorizationRequestCrossReferenceBean getPredecessorSpecialAuthorizationRequestCrossReference() {
         return this.predecessorSpecialAuthorizationRequestCrossReference;
     }
     public void setPredecessorSpecialAuthorizationRequestCrossReference(SpecialAuthorizationRequestCrossReferenceBean predecessorSpecialAuthorizationRequestCrossReference) {
         this.predecessorSpecialAuthorizationRequestCrossReference = predecessorSpecialAuthorizationRequestCrossReference;
-    }
-
-
-    @Hl7XmlMapping({"callBackContact/contactParty"})
-    public ContactPartyBean getCallBackContactContactParty() {
-        return this.callBackContactContactParty;
-    }
-    public void setCallBackContactContactParty(ContactPartyBean callBackContactContactParty) {
-        this.callBackContactContactParty = callBackContactContactParty;
-    }
-
-
-    /**
-     * <p>ConfidentialityRestrictionS</p>
-     * 
-     * <p>Confidentiality Restriction(s</p>
-     */
-    @Hl7XmlMapping({"confidentialityCode"})
-    public Set<x_BasicConfidentialityKind> getConfidentialityRestrictionS() {
-        return this.confidentialityRestrictionS.rawSet(x_BasicConfidentialityKind.class);
-    }
-
-
-    @Hl7XmlMapping({"support/specialAuthorizationCriteria"})
-    public List<SpecialAuthorizationCriteriaBean> getSupportSpecialAuthorizationCriteria() {
-        return this.supportSpecialAuthorizationCriteria;
-    }
-
-
-    /**
-     * <p>SpecialAuthorizationPriorityCode</p>
-     * 
-     * <p>Special Authorization Priority Code</p>
-     */
-    @Hl7XmlMapping({"priorityCode"})
-    public ActPriority getSpecialAuthorizationPriorityCode() {
-        return (ActPriority) this.specialAuthorizationPriorityCode.getValue();
-    }
-    public void setSpecialAuthorizationPriorityCode(ActPriority specialAuthorizationPriorityCode) {
-        this.specialAuthorizationPriorityCode.setValue(specialAuthorizationPriorityCode);
     }
 
 

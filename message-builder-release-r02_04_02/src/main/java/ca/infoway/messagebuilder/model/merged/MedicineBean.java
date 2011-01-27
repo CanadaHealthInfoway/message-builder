@@ -16,25 +16,25 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"FICR_MT400001CA.Medicine","FICR_MT400003CA.Medicine","FICR_MT400004CA.Medicine","FICR_MT490101CA.Medicine"})
 public class MedicineBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
-    private ST drugDescription = new STImpl();
-    private CV drugCode = new CVImpl();
+    private static final long serialVersionUID = 20110127L;
     private ST drugName = new STImpl();
+    private CV drugCode = new CVImpl();
     private CV drugForm = new CVImpl();
+    private ST drugDescription = new STImpl();
     private DrugContainsBean ingredient;
 
 
     /**
-     * <p>DrugDescription</p>
+     * <p>DrugName</p>
      * 
-     * <p>Drug Description</p>
+     * <p>Drug Name</p>
      */
-    @Hl7XmlMapping({"desc"})
-    public String getDrugDescription() {
-        return this.drugDescription.getValue();
+    @Hl7XmlMapping({"name"})
+    public String getDrugName() {
+        return this.drugName.getValue();
     }
-    public void setDrugDescription(String drugDescription) {
-        this.drugDescription.setValue(drugDescription);
+    public void setDrugName(String drugName) {
+        this.drugName.setValue(drugName);
     }
 
 
@@ -49,20 +49,6 @@ public class MedicineBean extends MessagePartBean {
     }
     public void setDrugCode(ClinicalDrug drugCode) {
         this.drugCode.setValue(drugCode);
-    }
-
-
-    /**
-     * <p>DrugName</p>
-     * 
-     * <p>Drug Name</p>
-     */
-    @Hl7XmlMapping({"name"})
-    public String getDrugName() {
-        return this.drugName.getValue();
-    }
-    public void setDrugName(String drugName) {
-        this.drugName.setValue(drugName);
     }
 
 
@@ -82,6 +68,20 @@ public class MedicineBean extends MessagePartBean {
     }
     public void setDrugForm(OrderableDrugForm drugForm) {
         this.drugForm.setValue(drugForm);
+    }
+
+
+    /**
+     * <p>DrugDescription</p>
+     * 
+     * <p>Drug Description</p>
+     */
+    @Hl7XmlMapping({"desc"})
+    public String getDrugDescription() {
+        return this.drugDescription.getValue();
+    }
+    public void setDrugDescription(String drugDescription) {
+        this.drugDescription.setValue(drugDescription);
     }
 
 

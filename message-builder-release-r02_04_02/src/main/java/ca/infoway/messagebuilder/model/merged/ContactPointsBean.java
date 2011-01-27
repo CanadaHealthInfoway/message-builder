@@ -58,10 +58,29 @@ import java.util.Set;
 @Hl7PartTypeMapping({"PRPA_MT202301CA.ContactParty","PRPA_MT202302CA.ContactParty","PRPA_MT202303CA.ContactParty"})
 public class ContactPointsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
+    private static final long serialVersionUID = 20110127L;
+    private AD contactAddress = new ADImpl();
     private CV contactType = new CVImpl();
     private SET<TEL, TelecommunicationAddress> contactPhoneNumberAndEmails = new SETImpl<TEL, TelecommunicationAddress>(TELImpl.class);
-    private AD contactAddress = new ADImpl();
+
+
+    /**
+     * <p>ContactAddress</p>
+     * 
+     * <p>B: Contact Address</p>
+     * 
+     * <p><p>Provides a mailing address for the location</p></p>
+     * 
+     * <p><p>Used when communicating by post. Physical addresses 
+     * may also be used for courier-type deliveries.</p></p>
+     */
+    @Hl7XmlMapping({"addr"})
+    public PostalAddress getContactAddress() {
+        return this.contactAddress.getValue();
+    }
+    public void setContactAddress(PostalAddress contactAddress) {
+        this.contactAddress.setValue(contactAddress);
+    }
 
 
     /**
@@ -100,25 +119,6 @@ public class ContactPointsBean extends MessagePartBean {
     @Hl7XmlMapping({"telecom"})
     public Set<TelecommunicationAddress> getContactPhoneNumberAndEmails() {
         return this.contactPhoneNumberAndEmails.rawSet();
-    }
-
-
-    /**
-     * <p>ContactAddress</p>
-     * 
-     * <p>B: Contact Address</p>
-     * 
-     * <p><p>Provides a mailing address for the location</p></p>
-     * 
-     * <p><p>Used when communicating by post. Physical addresses 
-     * may also be used for courier-type deliveries.</p></p>
-     */
-    @Hl7XmlMapping({"addr"})
-    public PostalAddress getContactAddress() {
-        return this.contactAddress.getValue();
-    }
-    public void setContactAddress(PostalAddress contactAddress) {
-        this.contactAddress.setValue(contactAddress);
     }
 
 }

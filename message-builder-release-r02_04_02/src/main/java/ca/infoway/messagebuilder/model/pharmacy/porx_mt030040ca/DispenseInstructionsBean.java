@@ -28,10 +28,19 @@ import ca.infoway.messagebuilder.model.merged.OccurredAtBean;
 @Hl7PartTypeMapping({"PORX_MT030040CA.SupplyRequest"})
 public class DispenseInstructionsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
-    private CS prescriptionDispenseIndicator = new CSImpl();
+    private static final long serialVersionUID = 20110127L;
     private OccurredAtBean location;
+    private CS prescriptionDispenseIndicator = new CSImpl();
     private PQ totalPrescribedQuantity = new PQImpl();
+
+
+    @Hl7XmlMapping({"location"})
+    public OccurredAtBean getLocation() {
+        return this.location;
+    }
+    public void setLocation(OccurredAtBean location) {
+        this.location = location;
+    }
 
 
     /**
@@ -59,15 +68,6 @@ public class DispenseInstructionsBean extends MessagePartBean {
     }
     public void setPrescriptionDispenseIndicator(ActStatus prescriptionDispenseIndicator) {
         this.prescriptionDispenseIndicator.setValue(prescriptionDispenseIndicator);
-    }
-
-
-    @Hl7XmlMapping({"location"})
-    public OccurredAtBean getLocation() {
-        return this.location;
-    }
-    public void setLocation(OccurredAtBean location) {
-        this.location = location;
     }
 
 

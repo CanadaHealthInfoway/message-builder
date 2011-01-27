@@ -42,9 +42,18 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PORX_MT060160CA.Component2","PORX_MT060340CA.Component2"})
 public class NotEligibleForTrialBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
-    private BL notEligibleForTrial = new BLImpl();
+    private static final long serialVersionUID = 20110127L;
     private BL trialSupplyPermission = new BLImpl(false);
+    private BL notEligibleForTrial = new BLImpl();
+
+
+    @Hl7XmlMapping({"trialSupplyPermission"})
+    public Boolean getTrialSupplyPermission() {
+        return this.trialSupplyPermission.getValue();
+    }
+    public void setTrialSupplyPermission(Boolean trialSupplyPermission) {
+        this.trialSupplyPermission.setValue(trialSupplyPermission);
+    }
 
 
     /**
@@ -112,15 +121,6 @@ public class NotEligibleForTrialBean extends MessagePartBean {
     }
     public void setNotEligibleForTrial(Boolean notEligibleForTrial) {
         this.notEligibleForTrial.setValue(notEligibleForTrial);
-    }
-
-
-    @Hl7XmlMapping({"trialSupplyPermission"})
-    public Boolean getTrialSupplyPermission() {
-        return this.trialSupplyPermission.getValue();
-    }
-    public void setTrialSupplyPermission(Boolean trialSupplyPermission) {
-        this.trialSupplyPermission.setValue(trialSupplyPermission);
     }
 
 }

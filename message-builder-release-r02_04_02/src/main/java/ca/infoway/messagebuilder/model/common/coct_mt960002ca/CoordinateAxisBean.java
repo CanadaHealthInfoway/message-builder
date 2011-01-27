@@ -24,9 +24,29 @@ import java.math.BigDecimal;
 @Hl7PartTypeMapping({"COCT_MT960002CA.PositionCoordinate"})
 public class CoordinateAxisBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
-    private CV coordinateAxisType = new CVImpl();
+    private static final long serialVersionUID = 20110127L;
     private REAL coordinateAxisValue = new REALImpl();
+    private CV coordinateAxisType = new CVImpl();
+
+
+    /**
+     * <p>Coordinate Axis Value</p>
+     * 
+     * <p><p>Denotes the individual coordinate value as a a 
+     * physical quantity. For example, lot number, range number, 
+     * latitude, etc.</p></p>
+     * 
+     * <p><p>Actually expresses the location along the axis. 
+     * Because unknown axis positions can simply be omitted, this 
+     * attribute is mandatory.</p></p>
+     */
+    @Hl7XmlMapping({"value"})
+    public BigDecimal getCoordinateAxisValue() {
+        return this.coordinateAxisValue.getValue();
+    }
+    public void setCoordinateAxisValue(BigDecimal coordinateAxisValue) {
+        this.coordinateAxisValue.setValue(coordinateAxisValue);
+    }
 
 
     /**
@@ -53,26 +73,6 @@ public class CoordinateAxisBean extends MessagePartBean {
     }
     public void setCoordinateAxisType(Code coordinateAxisType) {
         this.coordinateAxisType.setValue(coordinateAxisType);
-    }
-
-
-    /**
-     * <p>Coordinate Axis Value</p>
-     * 
-     * <p><p>Denotes the individual coordinate value as a a 
-     * physical quantity. For example, lot number, range number, 
-     * latitude, etc.</p></p>
-     * 
-     * <p><p>Actually expresses the location along the axis. 
-     * Because unknown axis positions can simply be omitted, this 
-     * attribute is mandatory.</p></p>
-     */
-    @Hl7XmlMapping({"value"})
-    public BigDecimal getCoordinateAxisValue() {
-        return this.coordinateAxisValue.getValue();
-    }
-    public void setCoordinateAxisValue(BigDecimal coordinateAxisValue) {
-        this.coordinateAxisValue.setValue(coordinateAxisValue);
     }
 
 }

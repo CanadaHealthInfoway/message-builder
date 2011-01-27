@@ -86,27 +86,50 @@ import java.util.Set;
 @Hl7RootType
 public class HealthConditionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
+    private static final long serialVersionUID = 20110127L;
+    private CD condition = new CDImpl();
     private CS conditionStatus = new CSImpl();
     private ActingPerson informantActingPerson;
     private CV conditionType = new CVImpl();
-    private SET<II, Identifier> conditionIdentifier = new SETImpl<II, Identifier>(IIImpl.class);
-    private IVL<TS, Interval<Date>> conditionTimePeriod = new IVLImpl<TS, Interval<Date>>();
     private List<CareCompositionsBean> componentOfPatientCareProvisionEvent = new ArrayList<CareCompositionsBean>();
+    private SET<II, Identifier> conditionIdentifier = new SETImpl<II, Identifier>(IIImpl.class);
     private SET<CV, Code> conditionMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);
-    private CD condition = new CDImpl();
-    private ChangedByBean author;
-    private ca.infoway.messagebuilder.model.common.coct_mt911108ca.ActingPerson responsiblePartyActingPerson;
+    private IVL<TS, Interval<Date>> conditionTimePeriod = new IVLImpl<TS, Interval<Date>>();
     private EHRRepositoryBean custodian2AssignedDevice;
-    private BL refutedIndicator = new BLImpl();
-    private VersionInformationBean subjectOf3ControlActEvent;
-    private HealthConditionBean replacementOfConditionEvent;
+    private ca.infoway.messagebuilder.model.common.coct_mt911108ca.ActingPerson responsiblePartyActingPerson;
     private ServiceLocationBean custodian1ServiceDeliveryLocation;
-    private BL subjectOf4AnnotationIndicator = new BLImpl();
     private List<IncludesBean> subjectOf2 = new ArrayList<IncludesBean>();
+    private BL subjectOf4AnnotationIndicator = new BLImpl();
+    private BL refutedIndicator = new BLImpl();
     private AllergyIntoleranceStatusChangesBean subjectOf1ControlActEvent;
     private List<OldConditionBean> predecessorOldCondition = new ArrayList<OldConditionBean>();
     private NewConditionBean successorNewCondition;
+    private HealthConditionBean replacementOfConditionEvent;
+    private VersionInformationBean subjectOf3ControlActEvent;
+    private ChangedByBean author;
+
+
+    /**
+     * <p>Condition</p>
+     * 
+     * <p>K:Condition</p>
+     * 
+     * <p><p>A code indicating the specific condition. E.g. 
+     * Hypertension, Pregnancy.</p></p>
+     * 
+     * <p></p></p>
+     * 
+     * <p></p></p>
+     * 
+     * <p></p></p>
+     */
+    @Hl7XmlMapping({"value"})
+    public DiagnosisValue getCondition() {
+        return (DiagnosisValue) this.condition.getValue();
+    }
+    public void setCondition(DiagnosisValue condition) {
+        this.condition.setValue(condition);
+    }
 
 
     /**
@@ -241,6 +264,12 @@ public class HealthConditionBean extends MessagePartBean {
     }
 
 
+    @Hl7XmlMapping({"componentOf/patientCareProvisionEvent"})
+    public List<CareCompositionsBean> getComponentOfPatientCareProvisionEvent() {
+        return this.componentOfPatientCareProvisionEvent;
+    }
+
+
     /**
      * <p>ConditionIdentifier</p>
      * 
@@ -261,6 +290,25 @@ public class HealthConditionBean extends MessagePartBean {
     @Hl7XmlMapping({"id"})
     public Set<Identifier> getConditionIdentifier() {
         return this.conditionIdentifier.rawSet();
+    }
+
+
+    /**
+     * <p>ConditionMaskingIndicators</p>
+     * 
+     * <p>F: Condition Masking Indicators</p>
+     * 
+     * <p></p></p>
+     * 
+     * <p></p></p>
+     * 
+     * <p></p></p>
+     * 
+     * <p></p></p>
+     */
+    @Hl7XmlMapping({"confidentialityCode"})
+    public Set<x_BasicConfidentialityKind> getConditionMaskingIndicators() {
+        return this.conditionMaskingIndicators.rawSet(x_BasicConfidentialityKind.class);
     }
 
 
@@ -301,60 +349,12 @@ public class HealthConditionBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"componentOf/patientCareProvisionEvent"})
-    public List<CareCompositionsBean> getComponentOfPatientCareProvisionEvent() {
-        return this.componentOfPatientCareProvisionEvent;
+    @Hl7XmlMapping({"custodian2/assignedDevice"})
+    public EHRRepositoryBean getCustodian2AssignedDevice() {
+        return this.custodian2AssignedDevice;
     }
-
-
-    /**
-     * <p>ConditionMaskingIndicators</p>
-     * 
-     * <p>F: Condition Masking Indicators</p>
-     * 
-     * <p></p></p>
-     * 
-     * <p></p></p>
-     * 
-     * <p></p></p>
-     * 
-     * <p></p></p>
-     */
-    @Hl7XmlMapping({"confidentialityCode"})
-    public Set<x_BasicConfidentialityKind> getConditionMaskingIndicators() {
-        return this.conditionMaskingIndicators.rawSet(x_BasicConfidentialityKind.class);
-    }
-
-
-    /**
-     * <p>Condition</p>
-     * 
-     * <p>K:Condition</p>
-     * 
-     * <p><p>A code indicating the specific condition. E.g. 
-     * Hypertension, Pregnancy.</p></p>
-     * 
-     * <p></p></p>
-     * 
-     * <p></p></p>
-     * 
-     * <p></p></p>
-     */
-    @Hl7XmlMapping({"value"})
-    public DiagnosisValue getCondition() {
-        return (DiagnosisValue) this.condition.getValue();
-    }
-    public void setCondition(DiagnosisValue condition) {
-        this.condition.setValue(condition);
-    }
-
-
-    @Hl7XmlMapping({"author"})
-    public ChangedByBean getAuthor() {
-        return this.author;
-    }
-    public void setAuthor(ChangedByBean author) {
-        this.author = author;
+    public void setCustodian2AssignedDevice(EHRRepositoryBean custodian2AssignedDevice) {
+        this.custodian2AssignedDevice = custodian2AssignedDevice;
     }
 
 
@@ -388,12 +388,27 @@ public class HealthConditionBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"custodian2/assignedDevice"})
-    public EHRRepositoryBean getCustodian2AssignedDevice() {
-        return this.custodian2AssignedDevice;
+    @Hl7XmlMapping({"custodian1/serviceDeliveryLocation"})
+    public ServiceLocationBean getCustodian1ServiceDeliveryLocation() {
+        return this.custodian1ServiceDeliveryLocation;
     }
-    public void setCustodian2AssignedDevice(EHRRepositoryBean custodian2AssignedDevice) {
-        this.custodian2AssignedDevice = custodian2AssignedDevice;
+    public void setCustodian1ServiceDeliveryLocation(ServiceLocationBean custodian1ServiceDeliveryLocation) {
+        this.custodian1ServiceDeliveryLocation = custodian1ServiceDeliveryLocation;
+    }
+
+
+    @Hl7XmlMapping({"subjectOf2"})
+    public List<IncludesBean> getSubjectOf2() {
+        return this.subjectOf2;
+    }
+
+
+    @Hl7XmlMapping({"subjectOf4/annotationIndicator"})
+    public Boolean getSubjectOf4AnnotationIndicator() {
+        return this.subjectOf4AnnotationIndicator.getValue();
+    }
+    public void setSubjectOf4AnnotationIndicator(Boolean subjectOf4AnnotationIndicator) {
+        this.subjectOf4AnnotationIndicator.setValue(subjectOf4AnnotationIndicator);
     }
 
 
@@ -414,48 +429,6 @@ public class HealthConditionBean extends MessagePartBean {
     }
     public void setRefutedIndicator(Boolean refutedIndicator) {
         this.refutedIndicator.setValue(refutedIndicator);
-    }
-
-
-    @Hl7XmlMapping({"subjectOf3/controlActEvent"})
-    public VersionInformationBean getSubjectOf3ControlActEvent() {
-        return this.subjectOf3ControlActEvent;
-    }
-    public void setSubjectOf3ControlActEvent(VersionInformationBean subjectOf3ControlActEvent) {
-        this.subjectOf3ControlActEvent = subjectOf3ControlActEvent;
-    }
-
-
-    @Hl7XmlMapping({"replacementOf/conditionEvent"})
-    public HealthConditionBean getReplacementOfConditionEvent() {
-        return this.replacementOfConditionEvent;
-    }
-    public void setReplacementOfConditionEvent(HealthConditionBean replacementOfConditionEvent) {
-        this.replacementOfConditionEvent = replacementOfConditionEvent;
-    }
-
-
-    @Hl7XmlMapping({"custodian1/serviceDeliveryLocation"})
-    public ServiceLocationBean getCustodian1ServiceDeliveryLocation() {
-        return this.custodian1ServiceDeliveryLocation;
-    }
-    public void setCustodian1ServiceDeliveryLocation(ServiceLocationBean custodian1ServiceDeliveryLocation) {
-        this.custodian1ServiceDeliveryLocation = custodian1ServiceDeliveryLocation;
-    }
-
-
-    @Hl7XmlMapping({"subjectOf4/annotationIndicator"})
-    public Boolean getSubjectOf4AnnotationIndicator() {
-        return this.subjectOf4AnnotationIndicator.getValue();
-    }
-    public void setSubjectOf4AnnotationIndicator(Boolean subjectOf4AnnotationIndicator) {
-        this.subjectOf4AnnotationIndicator.setValue(subjectOf4AnnotationIndicator);
-    }
-
-
-    @Hl7XmlMapping({"subjectOf2"})
-    public List<IncludesBean> getSubjectOf2() {
-        return this.subjectOf2;
     }
 
 
@@ -480,6 +453,33 @@ public class HealthConditionBean extends MessagePartBean {
     }
     public void setSuccessorNewCondition(NewConditionBean successorNewCondition) {
         this.successorNewCondition = successorNewCondition;
+    }
+
+
+    @Hl7XmlMapping({"replacementOf/conditionEvent"})
+    public HealthConditionBean getReplacementOfConditionEvent() {
+        return this.replacementOfConditionEvent;
+    }
+    public void setReplacementOfConditionEvent(HealthConditionBean replacementOfConditionEvent) {
+        this.replacementOfConditionEvent = replacementOfConditionEvent;
+    }
+
+
+    @Hl7XmlMapping({"subjectOf3/controlActEvent"})
+    public VersionInformationBean getSubjectOf3ControlActEvent() {
+        return this.subjectOf3ControlActEvent;
+    }
+    public void setSubjectOf3ControlActEvent(VersionInformationBean subjectOf3ControlActEvent) {
+        this.subjectOf3ControlActEvent = subjectOf3ControlActEvent;
+    }
+
+
+    @Hl7XmlMapping({"author"})
+    public ChangedByBean getAuthor() {
+        return this.author;
+    }
+    public void setAuthor(ChangedByBean author) {
+        this.author = author;
     }
 
 }

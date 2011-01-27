@@ -25,28 +25,13 @@ import ca.infoway.messagebuilder.model.merged.AdjudicatedResultOutcomeBean;
 @Hl7PartTypeMapping({"COCT_MT680000CA.AdjudicatedInvoiceElementDetail"})
 public class InvoiceElementDetailBean extends MessagePartBean implements AdjudicatedInvoiceElementChoice {
 
-    private static final long serialVersionUID = 20110126L;
-    private MO invoiceElementAmountBilled = new MOImpl();
+    private static final long serialVersionUID = 20110127L;
     private CV productServiceCode = new CVImpl();
+    private RTO<Money, PhysicalQuantity> pricePerUnit = new RTOImpl<Money, PhysicalQuantity>();
     private PQ quantityPerUnit = new PQImpl();
+    private MO invoiceElementAmountBilled = new MOImpl();
     private INT multiplierForTaxes = new INTImpl();
     private AdjudicatedResultOutcomeBean outcomeOf;
-    private RTO<Money, PhysicalQuantity> pricePerUnit = new RTOImpl<Money, PhysicalQuantity>();
-
-
-    /**
-     * <p>Invoice Element Amount billed</p>
-     * 
-     * <p><p>= unit_qty * unit_price_amt * factor_nbr * points_nbr. 
-     * E.g. $150 CAD</p></p>
-     */
-    @Hl7XmlMapping({"netAmt"})
-    public Money getInvoiceElementAmountBilled() {
-        return this.invoiceElementAmountBilled.getValue();
-    }
-    public void setInvoiceElementAmountBilled(Money invoiceElementAmountBilled) {
-        this.invoiceElementAmountBilled.setValue(invoiceElementAmountBilled);
-    }
 
 
     /**
@@ -69,6 +54,20 @@ public class InvoiceElementDetailBean extends MessagePartBean implements Adjudic
 
 
     /**
+     * <p>Price Per Unit</p>
+     * 
+     * <p><p>e.g. $50 CAD/ 1 {box}</p></p>
+     */
+    @Hl7XmlMapping({"unitPriceAmt"})
+    public Ratio<Money, PhysicalQuantity> getPricePerUnit() {
+        return this.pricePerUnit.getValue();
+    }
+    public void setPricePerUnit(Ratio<Money, PhysicalQuantity> pricePerUnit) {
+        this.pricePerUnit.setValue(pricePerUnit);
+    }
+
+
+    /**
      * <p>Quantity per Unit</p>
      * 
      * <p><p>e.g. 3 {boxes}</p></p>
@@ -79,6 +78,21 @@ public class InvoiceElementDetailBean extends MessagePartBean implements Adjudic
     }
     public void setQuantityPerUnit(PhysicalQuantity quantityPerUnit) {
         this.quantityPerUnit.setValue(quantityPerUnit);
+    }
+
+
+    /**
+     * <p>Invoice Element Amount billed</p>
+     * 
+     * <p><p>= unit_qty * unit_price_amt * factor_nbr * points_nbr. 
+     * E.g. $150 CAD</p></p>
+     */
+    @Hl7XmlMapping({"netAmt"})
+    public Money getInvoiceElementAmountBilled() {
+        return this.invoiceElementAmountBilled.getValue();
+    }
+    public void setInvoiceElementAmountBilled(Money invoiceElementAmountBilled) {
+        this.invoiceElementAmountBilled.setValue(invoiceElementAmountBilled);
     }
 
 
@@ -103,20 +117,6 @@ public class InvoiceElementDetailBean extends MessagePartBean implements Adjudic
     }
     public void setOutcomeOf(AdjudicatedResultOutcomeBean outcomeOf) {
         this.outcomeOf = outcomeOf;
-    }
-
-
-    /**
-     * <p>Price Per Unit</p>
-     * 
-     * <p><p>e.g. $50 CAD/ 1 {box}</p></p>
-     */
-    @Hl7XmlMapping({"unitPriceAmt"})
-    public Ratio<Money, PhysicalQuantity> getPricePerUnit() {
-        return this.pricePerUnit.getValue();
-    }
-    public void setPricePerUnit(Ratio<Money, PhysicalQuantity> pricePerUnit) {
-        this.pricePerUnit.setValue(pricePerUnit);
     }
 
 }

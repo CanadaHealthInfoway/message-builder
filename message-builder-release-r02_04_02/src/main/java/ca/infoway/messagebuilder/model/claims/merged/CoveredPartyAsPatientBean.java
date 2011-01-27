@@ -254,12 +254,12 @@ import java.util.List;
 @Hl7PartTypeMapping({"FICR_MT500201CA.CoveredPartyAsPatient","FICR_MT510201CA.CoveredPartyAsPatient","FICR_MT600201CA.CoveredPartyAsPatient","FICR_MT610201CA.CoveredPartyAsPatient"})
 public class CoveredPartyAsPatientBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
+    private static final long serialVersionUID = 20110127L;
     private CV code = new CVImpl();
     private II coveredPartyIdentifier = new IIImpl();
     private RelatedPersonBean indirectAuthorityPersonalRelationship;
-    private CoveredPartyAsPatientChoice coveredPartyAsPatientChoice;
     private List<SubjectBean> subjectOf = new ArrayList<SubjectBean>();
+    private CoveredPartyAsPatientChoice coveredPartyAsPatientChoice;
 
 
     /**
@@ -301,6 +301,12 @@ public class CoveredPartyAsPatientBean extends MessagePartBean {
     }
 
 
+    @Hl7XmlMapping({"subjectOf"})
+    public List<SubjectBean> getSubjectOf() {
+        return this.subjectOf;
+    }
+
+
     @Hl7XmlMapping({"coveredPartyAsPatientChoice"})
     public CoveredPartyAsPatientChoice getCoveredPartyAsPatientChoice() {
         return this.coveredPartyAsPatientChoice;
@@ -321,12 +327,6 @@ public class CoveredPartyAsPatientBean extends MessagePartBean {
     }
     public boolean hasCoveredPartyAsPatientChoiceAsCoveredPartyAsPatientAnimal() {
         return (this.coveredPartyAsPatientChoice instanceof CoveredPartyAsPatientAnimalBean);
-    }
-
-
-    @Hl7XmlMapping({"subjectOf"})
-    public List<SubjectBean> getSubjectOf() {
-        return this.subjectOf;
     }
 
 }

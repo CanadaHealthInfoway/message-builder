@@ -45,13 +45,22 @@ import java.util.List;
 @Hl7RootType
 public class CareCompositionsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
-    private CV careCompositionType = new CVImpl();
-    private II id = new IIImpl();
-    private IVL<TS, Interval<Date>> careCompositionEffectiveDate = new IVLImpl<TS, Interval<Date>>();
+    private static final long serialVersionUID = 20110127L;
     private OccurredAtBean location;
+    private CV careCompositionType = new CVImpl();
     private List<Assignees> attenderAssignees = new ArrayList<Assignees>();
+    private II id = new IIImpl();
     private List<Assignees> admitterAssignees = new ArrayList<Assignees>();
+    private IVL<TS, Interval<Date>> careCompositionEffectiveDate = new IVLImpl<TS, Interval<Date>>();
+
+
+    @Hl7XmlMapping({"location"})
+    public OccurredAtBean getLocation() {
+        return this.location;
+    }
+    public void setLocation(OccurredAtBean location) {
+        this.location = location;
+    }
 
 
     /**
@@ -82,6 +91,12 @@ public class CareCompositionsBean extends MessagePartBean {
     }
     public void setCareCompositionType(ActCareEventType careCompositionType) {
         this.careCompositionType.setValue(careCompositionType);
+    }
+
+
+    @Hl7XmlMapping({"attender/assignees"})
+    public List<Assignees> getAttenderAssignees() {
+        return this.attenderAssignees;
     }
 
 
@@ -119,6 +134,12 @@ public class CareCompositionsBean extends MessagePartBean {
     }
 
 
+    @Hl7XmlMapping({"admitter/assignees"})
+    public List<Assignees> getAdmitterAssignees() {
+        return this.admitterAssignees;
+    }
+
+
     /**
      * <p>CareCompositionEffectiveDate</p>
      * 
@@ -130,27 +151,6 @@ public class CareCompositionsBean extends MessagePartBean {
     }
     public void setCareCompositionEffectiveDate(Interval<Date> careCompositionEffectiveDate) {
         this.careCompositionEffectiveDate.setValue(careCompositionEffectiveDate);
-    }
-
-
-    @Hl7XmlMapping({"location"})
-    public OccurredAtBean getLocation() {
-        return this.location;
-    }
-    public void setLocation(OccurredAtBean location) {
-        this.location = location;
-    }
-
-
-    @Hl7XmlMapping({"attender/assignees"})
-    public List<Assignees> getAttenderAssignees() {
-        return this.attenderAssignees;
-    }
-
-
-    @Hl7XmlMapping({"admitter/assignees"})
-    public List<Assignees> getAdmitterAssignees() {
-        return this.admitterAssignees;
     }
 
 }

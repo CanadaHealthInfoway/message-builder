@@ -18,18 +18,9 @@ import ca.infoway.messagebuilder.model.claims.merged.AdjudicationResultRequiredA
 @Hl7PartTypeMapping({"FICR_MT510201CA.Trigger1"})
 public class Trigger1Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
-    private BL negationInd = new BLImpl();
+    private static final long serialVersionUID = 20110127L;
     private AdjudicationResultRequiredActBean adjudicationResultRequiredAct;
-
-
-    @Hl7XmlMapping({"negationInd"})
-    public Boolean getNegationInd() {
-        return this.negationInd.getValue();
-    }
-    public void setNegationInd(Boolean negationInd) {
-        this.negationInd.setValue(negationInd);
-    }
+    private BL negationInd = new BLImpl();
 
 
     @Hl7XmlMapping({"adjudicationResultRequiredAct"})
@@ -38,6 +29,15 @@ public class Trigger1Bean extends MessagePartBean {
     }
     public void setAdjudicationResultRequiredAct(AdjudicationResultRequiredActBean adjudicationResultRequiredAct) {
         this.adjudicationResultRequiredAct = adjudicationResultRequiredAct;
+    }
+
+
+    @Hl7XmlMapping({"negationInd"})
+    public Boolean getNegationInd() {
+        return this.negationInd.getValue();
+    }
+    public void setNegationInd(Boolean negationInd) {
+        this.negationInd.setValue(negationInd);
     }
 
 }

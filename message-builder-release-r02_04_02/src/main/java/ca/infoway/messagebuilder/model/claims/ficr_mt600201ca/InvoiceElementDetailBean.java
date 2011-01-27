@@ -41,26 +41,14 @@ import java.util.List;
 @Hl7PartTypeMapping({"FICR_MT600201CA.InvoiceElementDetail"})
 public class InvoiceElementDetailBean extends MessagePartBean implements InvoiceElementChoice {
 
-    private static final long serialVersionUID = 20110126L;
-    private MO submittedInvoiceLineAmount = new MOImpl();
+    private static final long serialVersionUID = 20110127L;
     private CV submittedProductServiceCode = new CVImpl();
-    private II submittedInvoiceLineIdentifier = new IIImpl();
+    private RTO<Money, PhysicalQuantity> submittedUnitAmountPrice = new RTOImpl<Money, PhysicalQuantity>();
     private PQ submittedUnitQuantity = new PQImpl();
+    private II submittedInvoiceLineIdentifier = new IIImpl();
+    private MO submittedInvoiceLineAmount = new MOImpl();
     private REAL multiplierEG007 = new REALImpl();
     private List<A_BillableActChoice> reasonOfBillableActChoice = new ArrayList<A_BillableActChoice>();
-    private RTO<Money, PhysicalQuantity> submittedUnitAmountPrice = new RTOImpl<Money, PhysicalQuantity>();
-
-
-    /**
-     * <p>Submitted Invoice Line Amount</p>
-     */
-    @Hl7XmlMapping({"netAmt"})
-    public Money getSubmittedInvoiceLineAmount() {
-        return this.submittedInvoiceLineAmount.getValue();
-    }
-    public void setSubmittedInvoiceLineAmount(Money submittedInvoiceLineAmount) {
-        this.submittedInvoiceLineAmount.setValue(submittedInvoiceLineAmount);
-    }
 
 
     /**
@@ -76,14 +64,14 @@ public class InvoiceElementDetailBean extends MessagePartBean implements Invoice
 
 
     /**
-     * <p>Submitted Invoice Line Identifier</p>
+     * <p>Submitted Unit Amount Price</p>
      */
-    @Hl7XmlMapping({"id"})
-    public Identifier getSubmittedInvoiceLineIdentifier() {
-        return this.submittedInvoiceLineIdentifier.getValue();
+    @Hl7XmlMapping({"unitPriceAmt"})
+    public Ratio<Money, PhysicalQuantity> getSubmittedUnitAmountPrice() {
+        return this.submittedUnitAmountPrice.getValue();
     }
-    public void setSubmittedInvoiceLineIdentifier(Identifier submittedInvoiceLineIdentifier) {
-        this.submittedInvoiceLineIdentifier.setValue(submittedInvoiceLineIdentifier);
+    public void setSubmittedUnitAmountPrice(Ratio<Money, PhysicalQuantity> submittedUnitAmountPrice) {
+        this.submittedUnitAmountPrice.setValue(submittedUnitAmountPrice);
     }
 
 
@@ -100,6 +88,30 @@ public class InvoiceElementDetailBean extends MessagePartBean implements Invoice
 
 
     /**
+     * <p>Submitted Invoice Line Identifier</p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Identifier getSubmittedInvoiceLineIdentifier() {
+        return this.submittedInvoiceLineIdentifier.getValue();
+    }
+    public void setSubmittedInvoiceLineIdentifier(Identifier submittedInvoiceLineIdentifier) {
+        this.submittedInvoiceLineIdentifier.setValue(submittedInvoiceLineIdentifier);
+    }
+
+
+    /**
+     * <p>Submitted Invoice Line Amount</p>
+     */
+    @Hl7XmlMapping({"netAmt"})
+    public Money getSubmittedInvoiceLineAmount() {
+        return this.submittedInvoiceLineAmount.getValue();
+    }
+    public void setSubmittedInvoiceLineAmount(Money submittedInvoiceLineAmount) {
+        this.submittedInvoiceLineAmount.setValue(submittedInvoiceLineAmount);
+    }
+
+
+    /**
      * <p>Multiplier, e.g. 0.07</p>
      */
     @Hl7XmlMapping({"factorNumber"})
@@ -111,18 +123,6 @@ public class InvoiceElementDetailBean extends MessagePartBean implements Invoice
     @Hl7XmlMapping({"reasonOf/billableActChoice"})
     public List<A_BillableActChoice> getReasonOfBillableActChoice() {
         return this.reasonOfBillableActChoice;
-    }
-
-
-    /**
-     * <p>Submitted Unit Amount Price</p>
-     */
-    @Hl7XmlMapping({"unitPriceAmt"})
-    public Ratio<Money, PhysicalQuantity> getSubmittedUnitAmountPrice() {
-        return this.submittedUnitAmountPrice.getValue();
-    }
-    public void setSubmittedUnitAmountPrice(Ratio<Money, PhysicalQuantity> submittedUnitAmountPrice) {
-        this.submittedUnitAmountPrice.setValue(submittedUnitAmountPrice);
     }
 
 }

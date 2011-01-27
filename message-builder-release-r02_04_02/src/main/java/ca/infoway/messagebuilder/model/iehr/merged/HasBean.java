@@ -63,7 +63,7 @@ import java.util.Set;
 @Hl7PartTypeMapping({"REPC_MT500001CA.Participant","REPC_MT500002CA.Participant","REPC_MT500004CA.Participant"})
 public class HasBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
+    private static final long serialVersionUID = 20110127L;
     private II participantIdReference = new IIImpl();
     private SET<CV, Code> participantConfidentialities = new SETImpl<CV, Code>(CVImpl.class);
     private CV participationMechanism = new CVImpl();

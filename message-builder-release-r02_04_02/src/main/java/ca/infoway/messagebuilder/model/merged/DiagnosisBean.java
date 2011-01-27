@@ -55,10 +55,38 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COCT_MT290000CA.Diagnosis","COCT_MT490000CA.Diagnosis","COMT_MT400001CA.Diagnosis"})
 public class DiagnosisBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
+    private static final long serialVersionUID = 20110127L;
+    private CV value = new CVImpl();
     private CV code = new CVImpl();
     private ST diagnosisDescription = new STImpl();
-    private CV value = new CVImpl();
+
+
+    /**
+     * <p>Diagnosis Value</p>
+     * 
+     * <p><p>Diagnosis Code eg. ICD-10-CA code.</p></p>
+     * 
+     * <p>B:Diagnosis</p>
+     * 
+     * <p><p>The diagnosis whose associated records should be 
+     * masked.</p></p>
+     * 
+     * <p><p>Allows masking of all records (prescriptions, 
+     * dispenses, encounters, lab tests, etc.) associated with the 
+     * specified diagnosis. This element is optional because it is 
+     * not used for SNOMED.</p></p>
+     * 
+     * <p>Diagnosis Value</p>
+     * 
+     * <p><p>coded Value denoting diagnosis</p></p>
+     */
+    @Hl7XmlMapping({"value"})
+    public DiagnosisValue getValue() {
+        return (DiagnosisValue) this.value.getValue();
+    }
+    public void setValue(DiagnosisValue value) {
+        this.value.setValue(value);
+    }
 
 
     /**
@@ -106,34 +134,6 @@ public class DiagnosisBean extends MessagePartBean {
     }
     public void setDiagnosisDescription(String diagnosisDescription) {
         this.diagnosisDescription.setValue(diagnosisDescription);
-    }
-
-
-    /**
-     * <p>Diagnosis Value</p>
-     * 
-     * <p><p>Diagnosis Code eg. ICD-10-CA code.</p></p>
-     * 
-     * <p>B:Diagnosis</p>
-     * 
-     * <p><p>The diagnosis whose associated records should be 
-     * masked.</p></p>
-     * 
-     * <p><p>Allows masking of all records (prescriptions, 
-     * dispenses, encounters, lab tests, etc.) associated with the 
-     * specified diagnosis. This element is optional because it is 
-     * not used for SNOMED.</p></p>
-     * 
-     * <p>Diagnosis Value</p>
-     * 
-     * <p><p>coded Value denoting diagnosis</p></p>
-     */
-    @Hl7XmlMapping({"value"})
-    public DiagnosisValue getValue() {
-        return (DiagnosisValue) this.value.getValue();
-    }
-    public void setValue(DiagnosisValue value) {
-        this.value.setValue(value);
     }
 
 }

@@ -35,34 +35,11 @@ import java.util.List;
 @Hl7RootType
 public class TypeOfSummaryBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
-    private MO summaryPeriodAmt = new MOImpl();
+    private static final long serialVersionUID = 20110127L;
     private CD typeOfSummary = new CDImpl();
-    private IVL<TS, Interval<Date>> summaryPeriodDateRange = new IVLImpl<TS, Interval<Date>>();
     private List<AdjudicationResultIdentifierBean> referenceAdjudicatedInvoiceElementGroup = new ArrayList<AdjudicationResultIdentifierBean>();
-
-
-    /**
-     * <p>Summary Period Amt</p>
-     * 
-     * <p><p>The AdjudResultsGroup.netAmt must equal the sum of all 
-     * immediate children AdjudResultsGroup.netAmt</p></p>
-     * 
-     * <p><p>Summary Period Amt</p></p>
-     * 
-     * <p><p>On SOFA Summary, this could be used to specify the 
-     * amount that will be included in the Payment Advice. In this 
-     * situation, it should equal the net effect of all 
-     * AdjudResultsGroupSummaryData elements that would appear in 
-     * the Payment Advice.</p></p>
-     */
-    @Hl7XmlMapping({"netAmt"})
-    public Money getSummaryPeriodAmt() {
-        return this.summaryPeriodAmt.getValue();
-    }
-    public void setSummaryPeriodAmt(Money summaryPeriodAmt) {
-        this.summaryPeriodAmt.setValue(summaryPeriodAmt);
-    }
+    private MO summaryPeriodAmt = new MOImpl();
+    private IVL<TS, Interval<Date>> summaryPeriodDateRange = new IVLImpl<TS, Interval<Date>>();
 
 
     /**
@@ -124,6 +101,35 @@ public class TypeOfSummaryBean extends MessagePartBean {
     }
 
 
+    @Hl7XmlMapping({"reference/adjudicatedInvoiceElementGroup"})
+    public List<AdjudicationResultIdentifierBean> getReferenceAdjudicatedInvoiceElementGroup() {
+        return this.referenceAdjudicatedInvoiceElementGroup;
+    }
+
+
+    /**
+     * <p>Summary Period Amt</p>
+     * 
+     * <p><p>The AdjudResultsGroup.netAmt must equal the sum of all 
+     * immediate children AdjudResultsGroup.netAmt</p></p>
+     * 
+     * <p><p>Summary Period Amt</p></p>
+     * 
+     * <p><p>On SOFA Summary, this could be used to specify the 
+     * amount that will be included in the Payment Advice. In this 
+     * situation, it should equal the net effect of all 
+     * AdjudResultsGroupSummaryData elements that would appear in 
+     * the Payment Advice.</p></p>
+     */
+    @Hl7XmlMapping({"netAmt"})
+    public Money getSummaryPeriodAmt() {
+        return this.summaryPeriodAmt.getValue();
+    }
+    public void setSummaryPeriodAmt(Money summaryPeriodAmt) {
+        this.summaryPeriodAmt.setValue(summaryPeriodAmt);
+    }
+
+
     /**
      * <p>Summary period date range</p>
      * 
@@ -143,12 +149,6 @@ public class TypeOfSummaryBean extends MessagePartBean {
     }
     public void setSummaryPeriodDateRange(Interval<Date> summaryPeriodDateRange) {
         this.summaryPeriodDateRange.setValue(summaryPeriodDateRange);
-    }
-
-
-    @Hl7XmlMapping({"reference/adjudicatedInvoiceElementGroup"})
-    public List<AdjudicationResultIdentifierBean> getReferenceAdjudicatedInvoiceElementGroup() {
-        return this.referenceAdjudicatedInvoiceElementGroup;
     }
 
 }

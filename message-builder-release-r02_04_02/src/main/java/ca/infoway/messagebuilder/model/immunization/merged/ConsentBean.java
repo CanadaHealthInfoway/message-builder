@@ -28,63 +28,33 @@ import java.util.Date;
 @Hl7PartTypeMapping({"POIZ_MT030050CA.Consent","POIZ_MT030060CA.Consent","POIZ_MT060150CA.Consent"})
 public class ConsentBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
-    private ConsentGivenToBean receiver;
-    private II consentID = new IIImpl();
-    private IVL<TS, Interval<Date>> consentEffectiveAndEndTime = new IVLImpl<TS, Interval<Date>>();
-    private BL consentWitheldIndicator = new BLImpl();
-    private Consenter responsiblePartyConsenter;
+    private static final long serialVersionUID = 20110127L;
     private CE consentMethod = new CEImpl();
-
-
-    @Hl7XmlMapping({"receiver"})
-    public ConsentGivenToBean getReceiver() {
-        return this.receiver;
-    }
-    public void setReceiver(ConsentGivenToBean receiver) {
-        this.receiver = receiver;
-    }
+    private Consenter responsiblePartyConsenter;
+    private II consentID = new IIImpl();
+    private BL consentWitheldIndicator = new BLImpl();
+    private ConsentGivenToBean receiver;
+    private IVL<TS, Interval<Date>> consentEffectiveAndEndTime = new IVLImpl<TS, Interval<Date>>();
 
 
     /**
-     * <p>ConsentID</p>
+     * <p>ConsentMethod</p>
      * 
-     * <p>Consent ID</p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Identifier getConsentID() {
-        return this.consentID.getValue();
-    }
-    public void setConsentID(Identifier consentID) {
-        this.consentID.setValue(consentID);
-    }
-
-
-    /**
-     * <p>ConsentEffectiveAndEndTime</p>
+     * <p>Consent Method</p>
      * 
-     * <p>Consent Effective and End Time</p>
-     */
-    @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getConsentEffectiveAndEndTime() {
-        return this.consentEffectiveAndEndTime.getValue();
-    }
-    public void setConsentEffectiveAndEndTime(Interval<Date> consentEffectiveAndEndTime) {
-        this.consentEffectiveAndEndTime.setValue(consentEffectiveAndEndTime);
-    }
-
-
-    /**
-     * <p>ConsentWitheldIndicator</p>
+     * <p>Consent Method</p>
      * 
-     * <p>Consent witheld indicator</p>
+     * <p><p>Describes the method in which consent was given.</p></p>
+     * 
+     * <p><p>Allows for explicit communication of how consent was 
+     * given (e.g. verbal, written, etc.)</p></p>
      */
-    @Hl7XmlMapping({"negationInd"})
-    public Boolean getConsentWitheldIndicator() {
-        return this.consentWitheldIndicator.getValue();
+    @Hl7XmlMapping({"responsibleParty/modeCode"})
+    public ParticipationMode getConsentMethod() {
+        return (ParticipationMode) this.consentMethod.getValue();
     }
-    public void setConsentWitheldIndicator(Boolean consentWitheldIndicator) {
-        this.consentWitheldIndicator.setValue(consentWitheldIndicator);
+    public void setConsentMethod(ParticipationMode consentMethod) {
+        this.consentMethod.setValue(consentMethod);
     }
 
 
@@ -112,23 +82,53 @@ public class ConsentBean extends MessagePartBean {
 
 
     /**
-     * <p>ConsentMethod</p>
+     * <p>ConsentID</p>
      * 
-     * <p>Consent Method</p>
-     * 
-     * <p>Consent Method</p>
-     * 
-     * <p><p>Describes the method in which consent was given.</p></p>
-     * 
-     * <p><p>Allows for explicit communication of how consent was 
-     * given (e.g. verbal, written, etc.)</p></p>
+     * <p>Consent ID</p>
      */
-    @Hl7XmlMapping({"responsibleParty/modeCode"})
-    public ParticipationMode getConsentMethod() {
-        return (ParticipationMode) this.consentMethod.getValue();
+    @Hl7XmlMapping({"id"})
+    public Identifier getConsentID() {
+        return this.consentID.getValue();
     }
-    public void setConsentMethod(ParticipationMode consentMethod) {
-        this.consentMethod.setValue(consentMethod);
+    public void setConsentID(Identifier consentID) {
+        this.consentID.setValue(consentID);
+    }
+
+
+    /**
+     * <p>ConsentWitheldIndicator</p>
+     * 
+     * <p>Consent witheld indicator</p>
+     */
+    @Hl7XmlMapping({"negationInd"})
+    public Boolean getConsentWitheldIndicator() {
+        return this.consentWitheldIndicator.getValue();
+    }
+    public void setConsentWitheldIndicator(Boolean consentWitheldIndicator) {
+        this.consentWitheldIndicator.setValue(consentWitheldIndicator);
+    }
+
+
+    @Hl7XmlMapping({"receiver"})
+    public ConsentGivenToBean getReceiver() {
+        return this.receiver;
+    }
+    public void setReceiver(ConsentGivenToBean receiver) {
+        this.receiver = receiver;
+    }
+
+
+    /**
+     * <p>ConsentEffectiveAndEndTime</p>
+     * 
+     * <p>Consent Effective and End Time</p>
+     */
+    @Hl7XmlMapping({"effectiveTime"})
+    public Interval<Date> getConsentEffectiveAndEndTime() {
+        return this.consentEffectiveAndEndTime.getValue();
+    }
+    public void setConsentEffectiveAndEndTime(Interval<Date> consentEffectiveAndEndTime) {
+        this.consentEffectiveAndEndTime.setValue(consentEffectiveAndEndTime);
     }
 
 }

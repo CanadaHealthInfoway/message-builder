@@ -30,19 +30,10 @@ import ca.infoway.messagebuilder.model.pharmacy.merged.AssignedEntity3Bean;
 @Hl7PartTypeMapping({"POME_MT010040CA.PotentialSupply"})
 public class FormulariesBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
-    private AssignedEntity3Bean performerAssignedEntity;
+    private static final long serialVersionUID = 20110127L;
     private II formularyId = new IIImpl();
     private ST formularyName = new STImpl();
-
-
-    @Hl7XmlMapping({"performer/assignedEntity"})
-    public AssignedEntity3Bean getPerformerAssignedEntity() {
-        return this.performerAssignedEntity;
-    }
-    public void setPerformerAssignedEntity(AssignedEntity3Bean performerAssignedEntity) {
-        this.performerAssignedEntity = performerAssignedEntity;
-    }
+    private AssignedEntity3Bean performerAssignedEntity;
 
 
     /**
@@ -76,6 +67,15 @@ public class FormulariesBean extends MessagePartBean {
     }
     public void setFormularyName(String formularyName) {
         this.formularyName.setValue(formularyName);
+    }
+
+
+    @Hl7XmlMapping({"performer/assignedEntity"})
+    public AssignedEntity3Bean getPerformerAssignedEntity() {
+        return this.performerAssignedEntity;
+    }
+    public void setPerformerAssignedEntity(AssignedEntity3Bean performerAssignedEntity) {
+        this.performerAssignedEntity = performerAssignedEntity;
     }
 
 }

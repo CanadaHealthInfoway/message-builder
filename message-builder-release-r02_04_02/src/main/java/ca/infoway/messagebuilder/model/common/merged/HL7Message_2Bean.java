@@ -47,21 +47,48 @@ import java.util.List;
 @Hl7RootType
 public class HL7Message_2Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
-    private CS desiredAcknowledgmentType = new CSImpl();
-    private ToBeRespondedToByBean respondTo;
-    private II interactionType = new IIImpl();
-    private TS messageTimestamp = new TSImpl();
-    private II messageIdentifier = new IIImpl();
-    private CS processingCode = new CSImpl();
+    private static final long serialVersionUID = 20110127L;
     private SenderBean sender;
     private LIST<II, Identifier> conformanceProfileIdentifiers = new LISTImpl<II, Identifier>(IIImpl.class);
+    private CS desiredAcknowledgmentType = new CSImpl();
     private CS responseType = new CSImpl();
-    private List<RoutingInstructionLinesBean> attentionLine = new ArrayList<RoutingInstructionLinesBean>();
+    private II interactionType = new IIImpl();
+    private TS messageTimestamp = new TSImpl();
+    private CS processingCode = new CSImpl();
     private ST securityToken = new STImpl();
+    private II messageIdentifier = new IIImpl();
+    private ToBeRespondedToByBean respondTo;
+    private List<RoutingInstructionLinesBean> attentionLine = new ArrayList<RoutingInstructionLinesBean>();
     private ReceiverBean receiver;
-    private AcknowledgementBean acknowledgement;
     private CS processingMode = new CSImpl();
+    private AcknowledgementBean acknowledgement;
+
+
+    @Hl7XmlMapping({"sender"})
+    public SenderBean getSender() {
+        return this.sender;
+    }
+    public void setSender(SenderBean sender) {
+        this.sender = sender;
+    }
+
+
+    /**
+     * <p>ConformanceProfileIdentifiers</p>
+     * 
+     * <p>F:Conformance Profile Identifiers</p>
+     * 
+     * <p><p>Identifies the conformance profile(s) this message 
+     * complies with.</p></p>
+     * 
+     * <p><p>Indicates any additional validation that may be 
+     * appropriate. Also influences what extensions can be 
+     * processed.</p></p>
+     */
+    @Hl7XmlMapping({"profileId"})
+    public List<Identifier> getConformanceProfileIdentifiers() {
+        return this.conformanceProfileIdentifiers.rawList();
+    }
 
 
     /**
@@ -89,12 +116,28 @@ public class HL7Message_2Bean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"respondTo"})
-    public ToBeRespondedToByBean getRespondTo() {
-        return this.respondTo;
+    /**
+     * <p>ResponseType</p>
+     * 
+     * <p>DA: Response Type</p>
+     * 
+     * <p><p>Identifies whether the response is desired immediately 
+     * (as a direct acknowledgement), on a deferred basis (as a 
+     * subsequent independent interaction) or via queue using 
+     * polling.</p></p>
+     * 
+     * <p><p>soap:Header\wsa:Action (after the second underscore, 
+     * if any, '''D''' otherwise)</p></p>
+     * 
+     * <p><p>Essential to determining receiver behavior and 
+     * therefore mandatory.</p></p>
+     */
+    @Hl7XmlMapping({"responseModeCode"})
+    public ResponseMode getResponseType() {
+        return (ResponseMode) this.responseType.getValue();
     }
-    public void setRespondTo(ToBeRespondedToByBean respondTo) {
-        this.respondTo = respondTo;
+    public void setResponseType(ResponseMode responseType) {
+        this.responseType.setValue(responseType);
     }
 
 
@@ -145,28 +188,6 @@ public class HL7Message_2Bean extends MessagePartBean {
 
 
     /**
-     * <p>MessageIdentifier</p>
-     * 
-     * <p>A:Message Identifier</p>
-     * 
-     * <p><p>A unique identifier for the message.</p></p>
-     * 
-     * <p><p>soap:Header\wsa:MessageID</p></p>
-     * 
-     * <p><p>Allows detection of duplicate messages, and allows 
-     * tying acknowledgments to the message they are acknowledging. 
-     * The attribute is therefore mandatory.</p></p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Identifier getMessageIdentifier() {
-        return this.messageIdentifier.getValue();
-    }
-    public void setMessageIdentifier(Identifier messageIdentifier) {
-        this.messageIdentifier.setValue(messageIdentifier);
-    }
-
-
-    /**
      * <p>ProcessingCode</p>
      * 
      * <p>DB:Processing Code</p>
@@ -186,64 +207,6 @@ public class HL7Message_2Bean extends MessagePartBean {
     }
     public void setProcessingCode(ProcessingID processingCode) {
         this.processingCode.setValue(processingCode);
-    }
-
-
-    @Hl7XmlMapping({"sender"})
-    public SenderBean getSender() {
-        return this.sender;
-    }
-    public void setSender(SenderBean sender) {
-        this.sender = sender;
-    }
-
-
-    /**
-     * <p>ConformanceProfileIdentifiers</p>
-     * 
-     * <p>F:Conformance Profile Identifiers</p>
-     * 
-     * <p><p>Identifies the conformance profile(s) this message 
-     * complies with.</p></p>
-     * 
-     * <p><p>Indicates any additional validation that may be 
-     * appropriate. Also influences what extensions can be 
-     * processed.</p></p>
-     */
-    @Hl7XmlMapping({"profileId"})
-    public List<Identifier> getConformanceProfileIdentifiers() {
-        return this.conformanceProfileIdentifiers.rawList();
-    }
-
-
-    /**
-     * <p>ResponseType</p>
-     * 
-     * <p>DA: Response Type</p>
-     * 
-     * <p><p>Identifies whether the response is desired immediately 
-     * (as a direct acknowledgement), on a deferred basis (as a 
-     * subsequent independent interaction) or via queue using 
-     * polling.</p></p>
-     * 
-     * <p><p>soap:Header\wsa:Action (after the second underscore, 
-     * if any, '''D''' otherwise)</p></p>
-     * 
-     * <p><p>Essential to determining receiver behavior and 
-     * therefore mandatory.</p></p>
-     */
-    @Hl7XmlMapping({"responseModeCode"})
-    public ResponseMode getResponseType() {
-        return (ResponseMode) this.responseType.getValue();
-    }
-    public void setResponseType(ResponseMode responseType) {
-        this.responseType.setValue(responseType);
-    }
-
-
-    @Hl7XmlMapping({"attentionLine"})
-    public List<RoutingInstructionLinesBean> getAttentionLine() {
-        return this.attentionLine;
     }
 
 
@@ -270,21 +233,49 @@ public class HL7Message_2Bean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>MessageIdentifier</p>
+     * 
+     * <p>A:Message Identifier</p>
+     * 
+     * <p><p>A unique identifier for the message.</p></p>
+     * 
+     * <p><p>soap:Header\wsa:MessageID</p></p>
+     * 
+     * <p><p>Allows detection of duplicate messages, and allows 
+     * tying acknowledgments to the message they are acknowledging. 
+     * The attribute is therefore mandatory.</p></p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Identifier getMessageIdentifier() {
+        return this.messageIdentifier.getValue();
+    }
+    public void setMessageIdentifier(Identifier messageIdentifier) {
+        this.messageIdentifier.setValue(messageIdentifier);
+    }
+
+
+    @Hl7XmlMapping({"respondTo"})
+    public ToBeRespondedToByBean getRespondTo() {
+        return this.respondTo;
+    }
+    public void setRespondTo(ToBeRespondedToByBean respondTo) {
+        this.respondTo = respondTo;
+    }
+
+
+    @Hl7XmlMapping({"attentionLine"})
+    public List<RoutingInstructionLinesBean> getAttentionLine() {
+        return this.attentionLine;
+    }
+
+
     @Hl7XmlMapping({"receiver"})
     public ReceiverBean getReceiver() {
         return this.receiver;
     }
     public void setReceiver(ReceiverBean receiver) {
         this.receiver = receiver;
-    }
-
-
-    @Hl7XmlMapping({"acknowledgement"})
-    public AcknowledgementBean getAcknowledgement() {
-        return this.acknowledgement;
-    }
-    public void setAcknowledgement(AcknowledgementBean acknowledgement) {
-        this.acknowledgement = acknowledgement;
     }
 
 
@@ -307,6 +298,15 @@ public class HL7Message_2Bean extends MessagePartBean {
     }
     public void setProcessingMode(ProcessingMode processingMode) {
         this.processingMode.setValue(processingMode);
+    }
+
+
+    @Hl7XmlMapping({"acknowledgement"})
+    public AcknowledgementBean getAcknowledgement() {
+        return this.acknowledgement;
+    }
+    public void setAcknowledgement(AcknowledgementBean acknowledgement) {
+        this.acknowledgement = acknowledgement;
     }
 
 }

@@ -18,23 +18,20 @@ import ca.infoway.messagebuilder.model.claims.merged.PolicyHolderBean;
 @Hl7PartTypeMapping({"FICR_MT490102CA.PolicyOrAccount"})
 public class PolicyOrAccountBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
-    private II carrierIdentifier = new IIImpl();
-    private CV policyType = new CVImpl();
-    private II policyIdentifier = new IIImpl();
+    private static final long serialVersionUID = 20110127L;
     private PolicyHolderBean holderPolicyHolder;
+    private CV policyType = new CVImpl();
+    private II carrierIdentifier = new IIImpl();
+    private II policyIdentifier = new IIImpl();
     private CoveredPartyBean beneficiaryCoveredParty;
 
 
-    /**
-     * <p>Carrier Identifier</p>
-     */
-    @Hl7XmlMapping({"author/underwriter/id"})
-    public Identifier getCarrierIdentifier() {
-        return this.carrierIdentifier.getValue();
+    @Hl7XmlMapping({"holder/policyHolder"})
+    public PolicyHolderBean getHolderPolicyHolder() {
+        return this.holderPolicyHolder;
     }
-    public void setCarrierIdentifier(Identifier carrierIdentifier) {
-        this.carrierIdentifier.setValue(carrierIdentifier);
+    public void setHolderPolicyHolder(PolicyHolderBean holderPolicyHolder) {
+        this.holderPolicyHolder = holderPolicyHolder;
     }
 
 
@@ -51,6 +48,18 @@ public class PolicyOrAccountBean extends MessagePartBean {
 
 
     /**
+     * <p>Carrier Identifier</p>
+     */
+    @Hl7XmlMapping({"author/underwriter/id"})
+    public Identifier getCarrierIdentifier() {
+        return this.carrierIdentifier.getValue();
+    }
+    public void setCarrierIdentifier(Identifier carrierIdentifier) {
+        this.carrierIdentifier.setValue(carrierIdentifier);
+    }
+
+
+    /**
      * <p>Policy Identifier</p>
      */
     @Hl7XmlMapping({"id"})
@@ -59,15 +68,6 @@ public class PolicyOrAccountBean extends MessagePartBean {
     }
     public void setPolicyIdentifier(Identifier policyIdentifier) {
         this.policyIdentifier.setValue(policyIdentifier);
-    }
-
-
-    @Hl7XmlMapping({"holder/policyHolder"})
-    public PolicyHolderBean getHolderPolicyHolder() {
-        return this.holderPolicyHolder;
-    }
-    public void setHolderPolicyHolder(PolicyHolderBean holderPolicyHolder) {
-        this.holderPolicyHolder = holderPolicyHolder;
     }
 
 

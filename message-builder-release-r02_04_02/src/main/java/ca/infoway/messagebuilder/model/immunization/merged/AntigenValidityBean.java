@@ -58,9 +58,30 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"POIZ_MT030050CA.AntigenValidity","POIZ_MT030060CA.AntigenValidity","POIZ_MT060150CA.AntigenValidity","POIZ_MT061150CA.AntigenValidity"})
 public class AntigenValidityBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
-    private CV invalidAntigenReasonCode = new CVImpl();
+    private static final long serialVersionUID = 20110127L;
     private BL antigenValidityIndicator = new BLImpl();
+    private CV invalidAntigenReasonCode = new CVImpl();
+
+
+    /**
+     * <p>AntigenValidityIndicator</p>
+     * 
+     * <p>Antigen Validity Indicator</p>
+     * 
+     * <p><p>Represents the validity (i.e. valid/not valid) of a 
+     * particular administration of an antigen.</p></p>
+     * 
+     * <p><p>Allows for an immunization registry to tell providers 
+     * that a particular antigen administration was or was not a 
+     * valid administration.</p></p>
+     */
+    @Hl7XmlMapping({"value"})
+    public Boolean getAntigenValidityIndicator() {
+        return this.antigenValidityIndicator.getValue();
+    }
+    public void setAntigenValidityIndicator(Boolean antigenValidityIndicator) {
+        this.antigenValidityIndicator.setValue(antigenValidityIndicator);
+    }
 
 
     /**
@@ -85,27 +106,6 @@ public class AntigenValidityBean extends MessagePartBean {
     }
     public void setInvalidAntigenReasonCode(Code invalidAntigenReasonCode) {
         this.invalidAntigenReasonCode.setValue(invalidAntigenReasonCode);
-    }
-
-
-    /**
-     * <p>AntigenValidityIndicator</p>
-     * 
-     * <p>Antigen Validity Indicator</p>
-     * 
-     * <p><p>Represents the validity (i.e. valid/not valid) of a 
-     * particular administration of an antigen.</p></p>
-     * 
-     * <p><p>Allows for an immunization registry to tell providers 
-     * that a particular antigen administration was or was not a 
-     * valid administration.</p></p>
-     */
-    @Hl7XmlMapping({"value"})
-    public Boolean getAntigenValidityIndicator() {
-        return this.antigenValidityIndicator.getValue();
-    }
-    public void setAntigenValidityIndicator(Boolean antigenValidityIndicator) {
-        this.antigenValidityIndicator.setValue(antigenValidityIndicator);
     }
 
 }

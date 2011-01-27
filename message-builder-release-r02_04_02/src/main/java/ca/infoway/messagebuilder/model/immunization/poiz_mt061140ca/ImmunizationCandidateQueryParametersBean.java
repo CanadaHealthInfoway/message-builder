@@ -41,63 +41,55 @@ import java.util.List;
 @Hl7RootType
 public class ImmunizationCandidateQueryParametersBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
-    private List<II> serviceDeliveryLocations = new ArrayList<II>();
-    private CV vaccineCode = new CVImpl();
-    private IVL<TS, Interval<Date>> immunizationPeriod = new IVLImpl<TS, Interval<Date>>();
-    private ST postalCode = new STImpl();
-    private PN patientName = new PNImpl();
-    private List<PatientIDBean> patientID = new ArrayList<PatientIDBean>();
-    private IVL<TS, Interval<Date>> patientBirthDateRange = new IVLImpl<TS, Interval<Date>>();
+    private static final long serialVersionUID = 20110127L;
     private CV patientGender = new CVImpl();
+    private IVL<TS, Interval<Date>> patientBirthDateRange = new IVLImpl<TS, Interval<Date>>();
+    private List<PatientIDBean> patientID = new ArrayList<PatientIDBean>();
+    private IVL<TS, Interval<Date>> immunizationPeriod = new IVLImpl<TS, Interval<Date>>();
+    private List<II> serviceDeliveryLocations = new ArrayList<II>();
+    private ST postalCode = new STImpl();
+    private CV vaccineCode = new CVImpl();
+    private PN patientName = new PNImpl();
 
 
     /**
-     * <p>H:Service Delivery Locations</p>
+     * <p>C:Patient Gender</p>
      * 
-     * <p><p>Indicates that the returned records should be filtered 
-     * to only include those immunizations that occurred at an 
-     * identified service delivery location</p></p>
+     * <p><p>Indicates the gender (sex) of the patient.</p></p>
      * 
-     * <p><p>Allows the requester to specify the service delivery 
-     * location of interest for the retrieval of immunization 
-     * records.</p><p>Useful for constraining run-away queries. As 
-     * a result, this parameter is required.</p></p>
-     * 
-     * <p><p>Allows the requester to specify the service delivery 
-     * location of interest for the retrieval of immunization 
-     * records.</p><p>Useful for constraining run-away queries. As 
-     * a result, this parameter is required.</p></p>
+     * <p><p>Used to confirm the identity of the patient for the 
+     * query. As a result, this parameter is required.</p></p>
      */
-    @Hl7XmlMapping({"serviceDeliveryLocation/value"})
-    public List<Identifier> getServiceDeliveryLocations() {
-        return new RawListWrapper<II, Identifier>(serviceDeliveryLocations, IIImpl.class);
+    @Hl7XmlMapping({"patientGender/value"})
+    public AdministrativeGender getPatientGender() {
+        return (AdministrativeGender) this.patientGender.getValue();
+    }
+    public void setPatientGender(AdministrativeGender patientGender) {
+        this.patientGender.setValue(patientGender);
     }
 
 
     /**
-     * <p>E:Vaccine Code</p>
+     * <p>D:Patient Birth Date Range</p>
      * 
-     * <p><p>A coded value indicating a specific vaccine to be used 
-     * in searching for patient immunization record.</p><p>The 
-     * result set will be filtered to only include immunization 
-     * records involving the specific vaccine code</p></p>
+     * <p><p>Indicates the range of on which the patient was 
+     * born.</p></p>
      * 
-     * <p><p>A coded value indicating a specific vaccine to be used 
-     * in searching for patient immunization record.</p><p>The 
-     * result set will be filtered to only include immunization 
-     * records involving the specific vaccine code</p></p>
-     * 
-     * <p><p>Allows for finer sub-set of immunization records to be 
-     * retrieved based on the vaccine code used in the 
-     * immunization. As a result, this parameter is required.</p></p>
+     * <p><p>Use to confirm identity of the patient for the query. 
+     * As a result, this parameter is required.</p></p>
      */
-    @Hl7XmlMapping({"vaccineCode/value"})
-    public ClinicalDrug getVaccineCode() {
-        return (ClinicalDrug) this.vaccineCode.getValue();
+    @Hl7XmlMapping({"patientBirthDate/value"})
+    public Interval<Date> getPatientBirthDateRange() {
+        return this.patientBirthDateRange.getValue();
     }
-    public void setVaccineCode(ClinicalDrug vaccineCode) {
-        this.vaccineCode.setValue(vaccineCode);
+    public void setPatientBirthDateRange(Interval<Date> patientBirthDateRange) {
+        this.patientBirthDateRange.setValue(patientBirthDateRange);
+    }
+
+
+    @Hl7XmlMapping({"patientID"})
+    public List<PatientIDBean> getPatientID() {
+        return this.patientID;
     }
 
 
@@ -129,6 +121,29 @@ public class ImmunizationCandidateQueryParametersBean extends MessagePartBean {
 
 
     /**
+     * <p>H:Service Delivery Locations</p>
+     * 
+     * <p><p>Indicates that the returned records should be filtered 
+     * to only include those immunizations that occurred at an 
+     * identified service delivery location</p></p>
+     * 
+     * <p><p>Allows the requester to specify the service delivery 
+     * location of interest for the retrieval of immunization 
+     * records.</p><p>Useful for constraining run-away queries. As 
+     * a result, this parameter is required.</p></p>
+     * 
+     * <p><p>Allows the requester to specify the service delivery 
+     * location of interest for the retrieval of immunization 
+     * records.</p><p>Useful for constraining run-away queries. As 
+     * a result, this parameter is required.</p></p>
+     */
+    @Hl7XmlMapping({"serviceDeliveryLocation/value"})
+    public List<Identifier> getServiceDeliveryLocations() {
+        return new RawListWrapper<II, Identifier>(serviceDeliveryLocations, IIImpl.class);
+    }
+
+
+    /**
      * <p>I:Postal Code</p>
      * 
      * <p><p>Indicates that the returned records should be filtered 
@@ -151,6 +166,32 @@ public class ImmunizationCandidateQueryParametersBean extends MessagePartBean {
     }
     public void setPostalCode(String postalCode) {
         this.postalCode.setValue(postalCode);
+    }
+
+
+    /**
+     * <p>E:Vaccine Code</p>
+     * 
+     * <p><p>A coded value indicating a specific vaccine to be used 
+     * in searching for patient immunization record.</p><p>The 
+     * result set will be filtered to only include immunization 
+     * records involving the specific vaccine code</p></p>
+     * 
+     * <p><p>A coded value indicating a specific vaccine to be used 
+     * in searching for patient immunization record.</p><p>The 
+     * result set will be filtered to only include immunization 
+     * records involving the specific vaccine code</p></p>
+     * 
+     * <p><p>Allows for finer sub-set of immunization records to be 
+     * retrieved based on the vaccine code used in the 
+     * immunization. As a result, this parameter is required.</p></p>
+     */
+    @Hl7XmlMapping({"vaccineCode/value"})
+    public ClinicalDrug getVaccineCode() {
+        return (ClinicalDrug) this.vaccineCode.getValue();
+    }
+    public void setVaccineCode(ClinicalDrug vaccineCode) {
+        this.vaccineCode.setValue(vaccineCode);
     }
 
 
@@ -180,47 +221,6 @@ public class ImmunizationCandidateQueryParametersBean extends MessagePartBean {
     }
     public void setPatientName(PersonName patientName) {
         this.patientName.setValue(patientName);
-    }
-
-
-    @Hl7XmlMapping({"patientID"})
-    public List<PatientIDBean> getPatientID() {
-        return this.patientID;
-    }
-
-
-    /**
-     * <p>D:Patient Birth Date Range</p>
-     * 
-     * <p><p>Indicates the range of on which the patient was 
-     * born.</p></p>
-     * 
-     * <p><p>Use to confirm identity of the patient for the query. 
-     * As a result, this parameter is required.</p></p>
-     */
-    @Hl7XmlMapping({"patientBirthDate/value"})
-    public Interval<Date> getPatientBirthDateRange() {
-        return this.patientBirthDateRange.getValue();
-    }
-    public void setPatientBirthDateRange(Interval<Date> patientBirthDateRange) {
-        this.patientBirthDateRange.setValue(patientBirthDateRange);
-    }
-
-
-    /**
-     * <p>C:Patient Gender</p>
-     * 
-     * <p><p>Indicates the gender (sex) of the patient.</p></p>
-     * 
-     * <p><p>Used to confirm the identity of the patient for the 
-     * query. As a result, this parameter is required.</p></p>
-     */
-    @Hl7XmlMapping({"patientGender/value"})
-    public AdministrativeGender getPatientGender() {
-        return (AdministrativeGender) this.patientGender.getValue();
-    }
-    public void setPatientGender(AdministrativeGender patientGender) {
-        this.patientGender.setValue(patientGender);
     }
 
 }

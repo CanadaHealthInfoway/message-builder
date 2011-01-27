@@ -48,23 +48,9 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"POIZ_MT030050CA.PatientImmunizationObservations","POIZ_MT030060CA.PatientImmunizationObservations","POIZ_MT060150CA.PatientImmunizationObservations"})
 public class PatientImmunizationObservationsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
-    private CV patientImmunizationObservationType = new CVImpl();
+    private static final long serialVersionUID = 20110127L;
     private ANY<Object> patientImmunizationObservationValue = new ANYImpl<Object>();
-
-
-    /**
-     * <p>PatientImmunizationObservationType</p>
-     * 
-     * <p>Patient Immunization Observation Type</p>
-     */
-    @Hl7XmlMapping({"code"})
-    public Code getPatientImmunizationObservationType() {
-        return (Code) this.patientImmunizationObservationType.getValue();
-    }
-    public void setPatientImmunizationObservationType(Code patientImmunizationObservationType) {
-        this.patientImmunizationObservationType.setValue(patientImmunizationObservationType);
-    }
+    private CV patientImmunizationObservationType = new CVImpl();
 
 
     /**
@@ -84,6 +70,20 @@ public class PatientImmunizationObservationsBean extends MessagePartBean {
     }
     public void setPatientImmunizationObservationValue(Object patientImmunizationObservationValue) {
         this.patientImmunizationObservationValue.setValue(patientImmunizationObservationValue);
+    }
+
+
+    /**
+     * <p>PatientImmunizationObservationType</p>
+     * 
+     * <p>Patient Immunization Observation Type</p>
+     */
+    @Hl7XmlMapping({"code"})
+    public Code getPatientImmunizationObservationType() {
+        return (Code) this.patientImmunizationObservationType.getValue();
+    }
+    public void setPatientImmunizationObservationType(Code patientImmunizationObservationType) {
+        this.patientImmunizationObservationType.setValue(patientImmunizationObservationType);
     }
 
 }

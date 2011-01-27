@@ -52,11 +52,31 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PRPA_MT202301CA.SubLocation","PRPA_MT202302CA.SubLocation","PRPA_MT202303CA.SubLocation"})
 public class SubLocationsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
+    private static final long serialVersionUID = 20110127L;
+    private ST locationName = new STImpl();
     private CV subLocationType = new CVImpl();
     private II subLocationIdentifier = new IIImpl();
-    private ST locationName = new STImpl();
     private CV subLocationPlaceType = new CVImpl();
+
+
+    /**
+     * <p>LocationName</p>
+     * 
+     * <p>Location Name</p>
+     * 
+     * <p><p>A descriptive name for the sub-location.</p></p>
+     * 
+     * <p><p>Provides a human-readable label for the location and 
+     * is therefore mandatory. In general, names of sub-locations 
+     * will be unique within their containing location.</p></p>
+     */
+    @Hl7XmlMapping({"name"})
+    public String getLocationName() {
+        return this.locationName.getValue();
+    }
+    public void setLocationName(String locationName) {
+        this.locationName.setValue(locationName);
+    }
 
 
     /**
@@ -100,26 +120,6 @@ public class SubLocationsBean extends MessagePartBean {
     }
     public void setSubLocationIdentifier(Identifier subLocationIdentifier) {
         this.subLocationIdentifier.setValue(subLocationIdentifier);
-    }
-
-
-    /**
-     * <p>LocationName</p>
-     * 
-     * <p>Location Name</p>
-     * 
-     * <p><p>A descriptive name for the sub-location.</p></p>
-     * 
-     * <p><p>Provides a human-readable label for the location and 
-     * is therefore mandatory. In general, names of sub-locations 
-     * will be unique within their containing location.</p></p>
-     */
-    @Hl7XmlMapping({"name"})
-    public String getLocationName() {
-        return this.locationName.getValue();
-    }
-    public void setLocationName(String locationName) {
-        this.locationName.setValue(locationName);
     }
 
 

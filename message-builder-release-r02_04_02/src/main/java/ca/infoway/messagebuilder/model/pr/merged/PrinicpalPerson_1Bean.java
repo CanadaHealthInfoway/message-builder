@@ -53,34 +53,53 @@ import java.util.List;
 @Hl7PartTypeMapping({"PRPM_MT301010CA.PrincipalPerson","PRPM_MT303010CA.PrincipalPerson"})
 public class PrinicpalPerson_1Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
-    private BL principalPersonDeceasedIndicator = new BLImpl();
+    private static final long serialVersionUID = 20110127L;
+    private List<LanguageCommunicationBean> languageCommunication = new ArrayList<LanguageCommunicationBean>();
+    private LIST<PN, PersonName> principalPersonName = new LISTImpl<PN, PersonName>(PNImpl.class);
     private II principalPersonAggregateIdentifier = new IIImpl();
     private AD birthplaceAddress = new ADImpl();
-    private LIST<PN, PersonName> principalPersonName = new LISTImpl<PN, PersonName>(PNImpl.class);
-    private TS principalPersonDateOfBirth = new TSImpl();
-    private List<LanguageCommunicationBean> languageCommunication = new ArrayList<LanguageCommunicationBean>();
-    private TS principalPersonDeceasedDate = new TSImpl();
     private CV principalPersonGender = new CVImpl();
+    private BL principalPersonDeceasedIndicator = new BLImpl();
+    private TS principalPersonDateOfBirth = new TSImpl();
+    private TS principalPersonDeceasedDate = new TSImpl();
+
+
+    @Hl7XmlMapping({"languageCommunication"})
+    public List<LanguageCommunicationBean> getLanguageCommunication() {
+        return this.languageCommunication;
+    }
 
 
     /**
-     * <p>PrincipalPersonDeceasedIndicator</p>
+     * <p>PrincipalPersonName</p>
      * 
-     * <p>Principal Person Deceased Indicator</p>
+     * <p>Principal Person Name</p>
      * 
-     * <p><p>An indication that the principal person is 
-     * deceased.</p></p>
+     * <p><p>The person'''s name independent of any role they may 
+     * play.</p></p>
+     * 
+     * <p><p>13, STF:3; ROL:4:2-7,10,16,21</p></p>
      * 
      * <p><p>Required attribute supports the identification of the 
      * healthcare provider</p></p>
+     * 
+     * <p><p>If Principal Person is included in the message, then 
+     * Prinicpal Person Name Must Exist.</p></p>
+     * 
+     * <p>Principal Person Name</p>
+     * 
+     * <p><p>The person'''s name independent of any role they may 
+     * play.</p></p>
+     * 
+     * <p><p>Required attribute supports the identification of the 
+     * healthcare provider</p></p>
+     * 
+     * <p><p>If Principal Person is included in the message, then 
+     * Person Name Must Exist.</p></p>
      */
-    @Hl7XmlMapping({"deceasedInd"})
-    public Boolean getPrincipalPersonDeceasedIndicator() {
-        return this.principalPersonDeceasedIndicator.getValue();
-    }
-    public void setPrincipalPersonDeceasedIndicator(Boolean principalPersonDeceasedIndicator) {
-        this.principalPersonDeceasedIndicator.setValue(principalPersonDeceasedIndicator);
+    @Hl7XmlMapping({"name"})
+    public List<PersonName> getPrincipalPersonName() {
+        return this.principalPersonName.rawList();
     }
 
 
@@ -128,94 +147,6 @@ public class PrinicpalPerson_1Bean extends MessagePartBean {
 
 
     /**
-     * <p>PrincipalPersonName</p>
-     * 
-     * <p>Principal Person Name</p>
-     * 
-     * <p><p>The person'''s name independent of any role they may 
-     * play.</p></p>
-     * 
-     * <p><p>13, STF:3; ROL:4:2-7,10,16,21</p></p>
-     * 
-     * <p><p>Required attribute supports the identification of the 
-     * healthcare provider</p></p>
-     * 
-     * <p><p>If Principal Person is included in the message, then 
-     * Prinicpal Person Name Must Exist.</p></p>
-     * 
-     * <p>Principal Person Name</p>
-     * 
-     * <p><p>The person'''s name independent of any role they may 
-     * play.</p></p>
-     * 
-     * <p><p>Required attribute supports the identification of the 
-     * healthcare provider</p></p>
-     * 
-     * <p><p>If Principal Person is included in the message, then 
-     * Person Name Must Exist.</p></p>
-     */
-    @Hl7XmlMapping({"name"})
-    public List<PersonName> getPrincipalPersonName() {
-        return this.principalPersonName.rawList();
-    }
-
-
-    /**
-     * <p>PrincipalPersonDateOfBirth</p>
-     * 
-     * <p>Principal Person Date of Birth</p>
-     * 
-     * <p><p>The principal person'''s date of birth.</p></p>
-     * 
-     * <p><p>Populated attribute supports the identification of the 
-     * healthcare provider</p></p>
-     * 
-     * <p><p>If Principal Person is included in the message, then 
-     * Prinicpal Person Date of Birth is Expected to Exist.</p></p>
-     */
-    @Hl7XmlMapping({"birthTime"})
-    public Date getPrincipalPersonDateOfBirth() {
-        return this.principalPersonDateOfBirth.getValue();
-    }
-    public void setPrincipalPersonDateOfBirth(Date principalPersonDateOfBirth) {
-        this.principalPersonDateOfBirth.setValue(principalPersonDateOfBirth);
-    }
-
-
-    @Hl7XmlMapping({"languageCommunication"})
-    public List<LanguageCommunicationBean> getLanguageCommunication() {
-        return this.languageCommunication;
-    }
-
-
-    /**
-     * <p>PrincipalPersonDeceasedDate</p>
-     * 
-     * <p>Principal Person Deceased Date</p>
-     * 
-     * <p><p>The date and time that a healthcare provider's death 
-     * occurred.</p></p>
-     * 
-     * <p><p>Attribute supports verification of death from official 
-     * source such as Vital Statistics.</p><p>Optional attribute in 
-     * order to meet jurisdictional legislation which does not 
-     * allow the sharing of this information.</p></p>
-     * 
-     * <p><p>Attribute supports verification of death from official 
-     * source such as Vital Statistics.</p><p>Optional attribute in 
-     * order to meet jurisdictional legislation which does not 
-     * allow the sharing of this information.</p></p>
-     */
-    @Hl7XmlMapping({"deceasedTime"})
-    public Date getPrincipalPersonDeceasedDate() {
-        return this.principalPersonDeceasedDate.getValue();
-    }
-    public void setPrincipalPersonDeceasedDate(Date principalPersonDeceasedDate) {
-        this.principalPersonDeceasedDate.setValue(principalPersonDeceasedDate);
-    }
-
-
-    /**
      * <p>PrincipalPersonGender</p>
      * 
      * <p>Principal Person Gender</p>
@@ -246,6 +177,75 @@ public class PrinicpalPerson_1Bean extends MessagePartBean {
     }
     public void setPrincipalPersonGender(AdministrativeGender principalPersonGender) {
         this.principalPersonGender.setValue(principalPersonGender);
+    }
+
+
+    /**
+     * <p>PrincipalPersonDeceasedIndicator</p>
+     * 
+     * <p>Principal Person Deceased Indicator</p>
+     * 
+     * <p><p>An indication that the principal person is 
+     * deceased.</p></p>
+     * 
+     * <p><p>Required attribute supports the identification of the 
+     * healthcare provider</p></p>
+     */
+    @Hl7XmlMapping({"deceasedInd"})
+    public Boolean getPrincipalPersonDeceasedIndicator() {
+        return this.principalPersonDeceasedIndicator.getValue();
+    }
+    public void setPrincipalPersonDeceasedIndicator(Boolean principalPersonDeceasedIndicator) {
+        this.principalPersonDeceasedIndicator.setValue(principalPersonDeceasedIndicator);
+    }
+
+
+    /**
+     * <p>PrincipalPersonDateOfBirth</p>
+     * 
+     * <p>Principal Person Date of Birth</p>
+     * 
+     * <p><p>The principal person'''s date of birth.</p></p>
+     * 
+     * <p><p>Populated attribute supports the identification of the 
+     * healthcare provider</p></p>
+     * 
+     * <p><p>If Principal Person is included in the message, then 
+     * Prinicpal Person Date of Birth is Expected to Exist.</p></p>
+     */
+    @Hl7XmlMapping({"birthTime"})
+    public Date getPrincipalPersonDateOfBirth() {
+        return this.principalPersonDateOfBirth.getValue();
+    }
+    public void setPrincipalPersonDateOfBirth(Date principalPersonDateOfBirth) {
+        this.principalPersonDateOfBirth.setValue(principalPersonDateOfBirth);
+    }
+
+
+    /**
+     * <p>PrincipalPersonDeceasedDate</p>
+     * 
+     * <p>Principal Person Deceased Date</p>
+     * 
+     * <p><p>The date and time that a healthcare provider's death 
+     * occurred.</p></p>
+     * 
+     * <p><p>Attribute supports verification of death from official 
+     * source such as Vital Statistics.</p><p>Optional attribute in 
+     * order to meet jurisdictional legislation which does not 
+     * allow the sharing of this information.</p></p>
+     * 
+     * <p><p>Attribute supports verification of death from official 
+     * source such as Vital Statistics.</p><p>Optional attribute in 
+     * order to meet jurisdictional legislation which does not 
+     * allow the sharing of this information.</p></p>
+     */
+    @Hl7XmlMapping({"deceasedTime"})
+    public Date getPrincipalPersonDeceasedDate() {
+        return this.principalPersonDeceasedDate.getValue();
+    }
+    public void setPrincipalPersonDeceasedDate(Date principalPersonDeceasedDate) {
+        this.principalPersonDeceasedDate.setValue(principalPersonDeceasedDate);
     }
 
 }

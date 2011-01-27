@@ -27,7 +27,7 @@ import ca.infoway.messagebuilder.model.claims.ficr_mt510201ca.FormRoleBean;
 @Hl7PartTypeMapping({"FICR_MT510201CA.AdjudicationResultRequiredAct","FICR_MT610201CA.AdjudicationResultRequiredAct"})
 public class AdjudicationResultRequiredActBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
+    private static final long serialVersionUID = 20110127L;
     private CV requiredActionType = new CVImpl();
     private FormRoleBean directTargetFormRole;
 

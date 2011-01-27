@@ -55,30 +55,9 @@ import java.math.BigDecimal;
 @Hl7PartTypeMapping({"PRPA_MT101102CA.ObservationEvent","PRPA_MT101104CA.ObservationEvent","PRPA_MT101106CA.ObservationEvent"})
 public class ConfidenceValueBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
-    private CV probabilityMatchCode = new CVImpl();
+    private static final long serialVersionUID = 20110127L;
     private REAL confidenceValue = new REALImpl();
-
-
-    /**
-     * <p>ProbabilityMatchCode</p>
-     * 
-     * <p>*Probability Match Code</p>
-     * 
-     * <p><p>Supports the business requirement to identify type of 
-     * confidence matching used i.e. the code would be the name for 
-     * the algorithm for the confidence value</p></p>
-     * 
-     * <p><p>Mandatory attribute supports confident identification 
-     * of intended client</p></p>
-     */
-    @Hl7XmlMapping({"code"})
-    public ObservationQueryMatchType getProbabilityMatchCode() {
-        return (ObservationQueryMatchType) this.probabilityMatchCode.getValue();
-    }
-    public void setProbabilityMatchCode(ObservationQueryMatchType probabilityMatchCode) {
-        this.probabilityMatchCode.setValue(probabilityMatchCode);
-    }
+    private CV probabilityMatchCode = new CVImpl();
 
 
     /**
@@ -99,6 +78,27 @@ public class ConfidenceValueBean extends MessagePartBean {
     }
     public void setConfidenceValue(BigDecimal confidenceValue) {
         this.confidenceValue.setValue(confidenceValue);
+    }
+
+
+    /**
+     * <p>ProbabilityMatchCode</p>
+     * 
+     * <p>*Probability Match Code</p>
+     * 
+     * <p><p>Supports the business requirement to identify type of 
+     * confidence matching used i.e. the code would be the name for 
+     * the algorithm for the confidence value</p></p>
+     * 
+     * <p><p>Mandatory attribute supports confident identification 
+     * of intended client</p></p>
+     */
+    @Hl7XmlMapping({"code"})
+    public ObservationQueryMatchType getProbabilityMatchCode() {
+        return (ObservationQueryMatchType) this.probabilityMatchCode.getValue();
+    }
+    public void setProbabilityMatchCode(ObservationQueryMatchType probabilityMatchCode) {
+        this.probabilityMatchCode.setValue(probabilityMatchCode);
     }
 
 }

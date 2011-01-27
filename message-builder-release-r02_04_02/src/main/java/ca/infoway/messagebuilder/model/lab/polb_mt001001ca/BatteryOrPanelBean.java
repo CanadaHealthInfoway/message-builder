@@ -54,117 +54,25 @@ import java.util.Set;
 @Hl7PartTypeMapping({"POLB_MT001001CA.BatteryRequest"})
 public class BatteryOrPanelBean extends MessagePartBean implements RequestChoice {
 
-    private static final long serialVersionUID = 20110126L;
-    private II batteryIdentifier = new IIImpl();
-    private CD batteryType = new CDImpl();
-    private List<HealthcareWorkerBean> verifierAssignedEntity = new ArrayList<HealthcareWorkerBean>();
-    private SET<CV, Code> batteryMaskingIndicator = new SETImpl<CV, Code>(CVImpl.class);
-    private VersionInformationBean subjectOf2ControlActEvent;
-    private CV batteryPriorityCode = new CVImpl();
+    private static final long serialVersionUID = 20110127L;
     private CS batteryStatus = new CSImpl();
-    private List<IncludesBean> subjectOf1 = new ArrayList<IncludesBean>();
-    private LIST<GTS, GeneralTimingSpecification> batteryRequestTimeSpecification = new LISTImpl<GTS, GeneralTimingSpecification>(GTSImpl.class);
-    private List<RequestChoice> component4RequestChoice = new ArrayList<RequestChoice>();
+    private CD batteryType = new CDImpl();
     private List<CareCompositionsBean> componentOf2PatientCareProvisionEvent = new ArrayList<CareCompositionsBean>();
+    private List<IncludesBean> subjectOf1 = new ArrayList<IncludesBean>();
+    private SET<CV, Code> batteryMaskingIndicator = new SETImpl<CV, Code>(CVImpl.class);
+    private List<RequestChoice> component4RequestChoice = new ArrayList<RequestChoice>();
     private ParentTestBean occurrenceOfActParentPointer;
-    private LabInitiatedOrderIndicatorBean component1LabInitiatedOrderIndicator;
+    private List<HealthcareWorkerBean> verifierAssignedEntity = new ArrayList<HealthcareWorkerBean>();
     private List<RecipientChoice> informationRecipientRecipientChoice = new ArrayList<RecipientChoice>();
-    private ReferralRedirectIndicatorBean component2ReferralRedirectIndicator;
-    private List<SupportingClinicalInformationBean> pertinentInformationSupportingClinicalObservationEvent = new ArrayList<SupportingClinicalInformationBean>();
-    private PriorTestRequestBean componentOf1PriorActRequest;
+    private II batteryIdentifier = new IIImpl();
+    private VersionInformationBean subjectOf2ControlActEvent;
     private OrderSortKeyBean component3RequestSortKey;
-
-
-    /**
-     * <p>Q:Battery Identifier</p>
-     * 
-     * <p><p>Uniquely identifies this panel or battery.</p></p>
-     * 
-     * <p><p>Mandatory for create, revise, cancel, and nullify 
-     * actions.</p></p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Identifier getBatteryIdentifier() {
-        return this.batteryIdentifier.getValue();
-    }
-    public void setBatteryIdentifier(Identifier batteryIdentifier) {
-        this.batteryIdentifier.setValue(batteryIdentifier);
-    }
-
-
-    /**
-     * <p>R:Battery Type</p>
-     * 
-     * <p><p>The type of battery or the &quot;code&quot; for this 
-     * battery or panel. The value set bound to this attribute is a 
-     * list of LOINC codes pulled from the pan-Canadian Laboratory 
-     * Observation Code Database (pCLOCD). Only those records 
-     * flagged as orderable or &quot;both&quot; in the pCLOCD can 
-     * be used.</p></p>
-     * 
-     * <p><p>Used to categorize and specify the type of battery to 
-     * be performed.</p></p>
-     */
-    @Hl7XmlMapping({"code"})
-    public ObservationOrderableLabType getBatteryType() {
-        return (ObservationOrderableLabType) this.batteryType.getValue();
-    }
-    public void setBatteryType(ObservationOrderableLabType batteryType) {
-        this.batteryType.setValue(batteryType);
-    }
-
-
-    @Hl7XmlMapping({"verifier/assignedEntity"})
-    public List<HealthcareWorkerBean> getVerifierAssignedEntity() {
-        return this.verifierAssignedEntity;
-    }
-
-
-    /**
-     * <p>V:Battery Masking Indicator</p>
-     * 
-     * <p><p>Any piece of information is potentially subject to 
-     * 'masking', restricting it's availability from providers who 
-     * have not been specifically authorized. Additionally, some 
-     * clinical data requires the ability to mark as &quot;not for 
-     * direct disclosure to patient&quot;. The values in this 
-     * attribute enable the above masking to be represented and 
-     * messaged.</p></p>
-     * 
-     * <p><p>This code allows for privacy control by patients as 
-     * well as flagged for 'not for disclosure to patient' by care 
-     * providers.</p></p>
-     */
-    @Hl7XmlMapping({"confidentialityCode"})
-    public Set<x_BasicConfidentialityKind> getBatteryMaskingIndicator() {
-        return this.batteryMaskingIndicator.rawSet(x_BasicConfidentialityKind.class);
-    }
-
-
-    @Hl7XmlMapping({"subjectOf2/controlActEvent"})
-    public VersionInformationBean getSubjectOf2ControlActEvent() {
-        return this.subjectOf2ControlActEvent;
-    }
-    public void setSubjectOf2ControlActEvent(VersionInformationBean subjectOf2ControlActEvent) {
-        this.subjectOf2ControlActEvent = subjectOf2ControlActEvent;
-    }
-
-
-    /**
-     * <p>U:Battery Priority Code</p>
-     * 
-     * <p><p>Priority code associated with a specific test.</p></p>
-     * 
-     * <p><p>Communicates requested test priority (e.g. routine, 
-     * stat, etc.)</p></p>
-     */
-    @Hl7XmlMapping({"priorityCode"})
-    public ActPriority getBatteryPriorityCode() {
-        return (ActPriority) this.batteryPriorityCode.getValue();
-    }
-    public void setBatteryPriorityCode(ActPriority batteryPriorityCode) {
-        this.batteryPriorityCode.setValue(batteryPriorityCode);
-    }
+    private CV batteryPriorityCode = new CVImpl();
+    private List<SupportingClinicalInformationBean> pertinentInformationSupportingClinicalObservationEvent = new ArrayList<SupportingClinicalInformationBean>();
+    private LabInitiatedOrderIndicatorBean component1LabInitiatedOrderIndicator;
+    private ReferralRedirectIndicatorBean component2ReferralRedirectIndicator;
+    private PriorTestRequestBean componentOf1PriorActRequest;
+    private LIST<GTS, GeneralTimingSpecification> batteryRequestTimeSpecification = new LISTImpl<GTS, GeneralTimingSpecification>(GTSImpl.class);
 
 
     /**
@@ -192,9 +100,170 @@ public class BatteryOrPanelBean extends MessagePartBean implements RequestChoice
     }
 
 
+    /**
+     * <p>R:Battery Type</p>
+     * 
+     * <p><p>The type of battery or the &quot;code&quot; for this 
+     * battery or panel. The value set bound to this attribute is a 
+     * list of LOINC codes pulled from the pan-Canadian Laboratory 
+     * Observation Code Database (pCLOCD). Only those records 
+     * flagged as orderable or &quot;both&quot; in the pCLOCD can 
+     * be used.</p></p>
+     * 
+     * <p><p>Used to categorize and specify the type of battery to 
+     * be performed.</p></p>
+     */
+    @Hl7XmlMapping({"code"})
+    public ObservationOrderableLabType getBatteryType() {
+        return (ObservationOrderableLabType) this.batteryType.getValue();
+    }
+    public void setBatteryType(ObservationOrderableLabType batteryType) {
+        this.batteryType.setValue(batteryType);
+    }
+
+
+    @Hl7XmlMapping({"componentOf2/patientCareProvisionEvent"})
+    public List<CareCompositionsBean> getComponentOf2PatientCareProvisionEvent() {
+        return this.componentOf2PatientCareProvisionEvent;
+    }
+
+
     @Hl7XmlMapping({"subjectOf1"})
     public List<IncludesBean> getSubjectOf1() {
         return this.subjectOf1;
+    }
+
+
+    /**
+     * <p>V:Battery Masking Indicator</p>
+     * 
+     * <p><p>Any piece of information is potentially subject to 
+     * 'masking', restricting it's availability from providers who 
+     * have not been specifically authorized. Additionally, some 
+     * clinical data requires the ability to mark as &quot;not for 
+     * direct disclosure to patient&quot;. The values in this 
+     * attribute enable the above masking to be represented and 
+     * messaged.</p></p>
+     * 
+     * <p><p>This code allows for privacy control by patients as 
+     * well as flagged for 'not for disclosure to patient' by care 
+     * providers.</p></p>
+     */
+    @Hl7XmlMapping({"confidentialityCode"})
+    public Set<x_BasicConfidentialityKind> getBatteryMaskingIndicator() {
+        return this.batteryMaskingIndicator.rawSet(x_BasicConfidentialityKind.class);
+    }
+
+
+    @Hl7XmlMapping({"component4/requestChoice"})
+    public List<RequestChoice> getComponent4RequestChoice() {
+        return this.component4RequestChoice;
+    }
+
+
+    @Hl7XmlMapping({"occurrenceOf/actParentPointer"})
+    public ParentTestBean getOccurrenceOfActParentPointer() {
+        return this.occurrenceOfActParentPointer;
+    }
+    public void setOccurrenceOfActParentPointer(ParentTestBean occurrenceOfActParentPointer) {
+        this.occurrenceOfActParentPointer = occurrenceOfActParentPointer;
+    }
+
+
+    @Hl7XmlMapping({"verifier/assignedEntity"})
+    public List<HealthcareWorkerBean> getVerifierAssignedEntity() {
+        return this.verifierAssignedEntity;
+    }
+
+
+    @Hl7XmlMapping({"informationRecipient/recipientChoice"})
+    public List<RecipientChoice> getInformationRecipientRecipientChoice() {
+        return this.informationRecipientRecipientChoice;
+    }
+
+
+    /**
+     * <p>Q:Battery Identifier</p>
+     * 
+     * <p><p>Uniquely identifies this panel or battery.</p></p>
+     * 
+     * <p><p>Mandatory for create, revise, cancel, and nullify 
+     * actions.</p></p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Identifier getBatteryIdentifier() {
+        return this.batteryIdentifier.getValue();
+    }
+    public void setBatteryIdentifier(Identifier batteryIdentifier) {
+        this.batteryIdentifier.setValue(batteryIdentifier);
+    }
+
+
+    @Hl7XmlMapping({"subjectOf2/controlActEvent"})
+    public VersionInformationBean getSubjectOf2ControlActEvent() {
+        return this.subjectOf2ControlActEvent;
+    }
+    public void setSubjectOf2ControlActEvent(VersionInformationBean subjectOf2ControlActEvent) {
+        this.subjectOf2ControlActEvent = subjectOf2ControlActEvent;
+    }
+
+
+    @Hl7XmlMapping({"component3/requestSortKey"})
+    public OrderSortKeyBean getComponent3RequestSortKey() {
+        return this.component3RequestSortKey;
+    }
+    public void setComponent3RequestSortKey(OrderSortKeyBean component3RequestSortKey) {
+        this.component3RequestSortKey = component3RequestSortKey;
+    }
+
+
+    /**
+     * <p>U:Battery Priority Code</p>
+     * 
+     * <p><p>Priority code associated with a specific test.</p></p>
+     * 
+     * <p><p>Communicates requested test priority (e.g. routine, 
+     * stat, etc.)</p></p>
+     */
+    @Hl7XmlMapping({"priorityCode"})
+    public ActPriority getBatteryPriorityCode() {
+        return (ActPriority) this.batteryPriorityCode.getValue();
+    }
+    public void setBatteryPriorityCode(ActPriority batteryPriorityCode) {
+        this.batteryPriorityCode.setValue(batteryPriorityCode);
+    }
+
+
+    @Hl7XmlMapping({"pertinentInformation/supportingClinicalObservationEvent"})
+    public List<SupportingClinicalInformationBean> getPertinentInformationSupportingClinicalObservationEvent() {
+        return this.pertinentInformationSupportingClinicalObservationEvent;
+    }
+
+
+    @Hl7XmlMapping({"component1/labInitiatedOrderIndicator"})
+    public LabInitiatedOrderIndicatorBean getComponent1LabInitiatedOrderIndicator() {
+        return this.component1LabInitiatedOrderIndicator;
+    }
+    public void setComponent1LabInitiatedOrderIndicator(LabInitiatedOrderIndicatorBean component1LabInitiatedOrderIndicator) {
+        this.component1LabInitiatedOrderIndicator = component1LabInitiatedOrderIndicator;
+    }
+
+
+    @Hl7XmlMapping({"component2/referralRedirectIndicator"})
+    public ReferralRedirectIndicatorBean getComponent2ReferralRedirectIndicator() {
+        return this.component2ReferralRedirectIndicator;
+    }
+    public void setComponent2ReferralRedirectIndicator(ReferralRedirectIndicatorBean component2ReferralRedirectIndicator) {
+        this.component2ReferralRedirectIndicator = component2ReferralRedirectIndicator;
+    }
+
+
+    @Hl7XmlMapping({"componentOf1/priorActRequest"})
+    public PriorTestRequestBean getComponentOf1PriorActRequest() {
+        return this.componentOf1PriorActRequest;
+    }
+    public void setComponentOf1PriorActRequest(PriorTestRequestBean componentOf1PriorActRequest) {
+        this.componentOf1PriorActRequest = componentOf1PriorActRequest;
     }
 
 
@@ -213,75 +282,6 @@ public class BatteryOrPanelBean extends MessagePartBean implements RequestChoice
     @Hl7XmlMapping({"effectiveTime"})
     public List<GeneralTimingSpecification> getBatteryRequestTimeSpecification() {
         return this.batteryRequestTimeSpecification.rawList();
-    }
-
-
-    @Hl7XmlMapping({"component4/requestChoice"})
-    public List<RequestChoice> getComponent4RequestChoice() {
-        return this.component4RequestChoice;
-    }
-
-
-    @Hl7XmlMapping({"componentOf2/patientCareProvisionEvent"})
-    public List<CareCompositionsBean> getComponentOf2PatientCareProvisionEvent() {
-        return this.componentOf2PatientCareProvisionEvent;
-    }
-
-
-    @Hl7XmlMapping({"occurrenceOf/actParentPointer"})
-    public ParentTestBean getOccurrenceOfActParentPointer() {
-        return this.occurrenceOfActParentPointer;
-    }
-    public void setOccurrenceOfActParentPointer(ParentTestBean occurrenceOfActParentPointer) {
-        this.occurrenceOfActParentPointer = occurrenceOfActParentPointer;
-    }
-
-
-    @Hl7XmlMapping({"component1/labInitiatedOrderIndicator"})
-    public LabInitiatedOrderIndicatorBean getComponent1LabInitiatedOrderIndicator() {
-        return this.component1LabInitiatedOrderIndicator;
-    }
-    public void setComponent1LabInitiatedOrderIndicator(LabInitiatedOrderIndicatorBean component1LabInitiatedOrderIndicator) {
-        this.component1LabInitiatedOrderIndicator = component1LabInitiatedOrderIndicator;
-    }
-
-
-    @Hl7XmlMapping({"informationRecipient/recipientChoice"})
-    public List<RecipientChoice> getInformationRecipientRecipientChoice() {
-        return this.informationRecipientRecipientChoice;
-    }
-
-
-    @Hl7XmlMapping({"component2/referralRedirectIndicator"})
-    public ReferralRedirectIndicatorBean getComponent2ReferralRedirectIndicator() {
-        return this.component2ReferralRedirectIndicator;
-    }
-    public void setComponent2ReferralRedirectIndicator(ReferralRedirectIndicatorBean component2ReferralRedirectIndicator) {
-        this.component2ReferralRedirectIndicator = component2ReferralRedirectIndicator;
-    }
-
-
-    @Hl7XmlMapping({"pertinentInformation/supportingClinicalObservationEvent"})
-    public List<SupportingClinicalInformationBean> getPertinentInformationSupportingClinicalObservationEvent() {
-        return this.pertinentInformationSupportingClinicalObservationEvent;
-    }
-
-
-    @Hl7XmlMapping({"componentOf1/priorActRequest"})
-    public PriorTestRequestBean getComponentOf1PriorActRequest() {
-        return this.componentOf1PriorActRequest;
-    }
-    public void setComponentOf1PriorActRequest(PriorTestRequestBean componentOf1PriorActRequest) {
-        this.componentOf1PriorActRequest = componentOf1PriorActRequest;
-    }
-
-
-    @Hl7XmlMapping({"component3/requestSortKey"})
-    public OrderSortKeyBean getComponent3RequestSortKey() {
-        return this.component3RequestSortKey;
-    }
-    public void setComponent3RequestSortKey(OrderSortKeyBean component3RequestSortKey) {
-        this.component3RequestSortKey = component3RequestSortKey;
     }
 
 }

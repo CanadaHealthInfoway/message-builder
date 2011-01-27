@@ -15,10 +15,24 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"FICR_MT400001CA.SpecialAuthorizationCriteria","FICR_MT490103CA.SpecialAuthorizationCriteria"})
 public class SpecialAuthorizationCriteriaBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
+    private static final long serialVersionUID = 20110127L;
+    private ST generalSupportingInformationValue = new STImpl();
     private CV generalSupportingInformationType = new CVImpl();
     private ST text = new STImpl();
-    private ST generalSupportingInformationValue = new STImpl();
+
+
+    /**
+     * <p>GeneralSupportingInformationValue</p>
+     * 
+     * <p>General Supporting Information Value</p>
+     */
+    @Hl7XmlMapping({"value"})
+    public String getGeneralSupportingInformationValue() {
+        return this.generalSupportingInformationValue.getValue();
+    }
+    public void setGeneralSupportingInformationValue(String generalSupportingInformationValue) {
+        this.generalSupportingInformationValue.setValue(generalSupportingInformationValue);
+    }
 
 
     /**
@@ -46,20 +60,6 @@ public class SpecialAuthorizationCriteriaBean extends MessagePartBean {
     }
     public void setText(String text) {
         this.text.setValue(text);
-    }
-
-
-    /**
-     * <p>GeneralSupportingInformationValue</p>
-     * 
-     * <p>General Supporting Information Value</p>
-     */
-    @Hl7XmlMapping({"value"})
-    public String getGeneralSupportingInformationValue() {
-        return this.generalSupportingInformationValue.getValue();
-    }
-    public void setGeneralSupportingInformationValue(String generalSupportingInformationValue) {
-        this.generalSupportingInformationValue.setValue(generalSupportingInformationValue);
     }
 
 }

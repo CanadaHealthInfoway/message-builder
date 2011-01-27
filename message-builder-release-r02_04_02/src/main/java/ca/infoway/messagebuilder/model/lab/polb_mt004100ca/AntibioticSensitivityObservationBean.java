@@ -40,15 +40,31 @@ import java.util.List;
 @Hl7PartTypeMapping({"POLB_MT004100CA.SensitivityObservationEvent"})
 public class AntibioticSensitivityObservationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
+    private static final long serialVersionUID = 20110127L;
+    private ST sensitivityValue = new STImpl();
     private CS sensitivityStatus = new CSImpl();
-    private ResultStatusProcessStepBean subjectOf2ResultStatusProcessStep;
-    private CV sensitivityValueInterpretation = new CVImpl();
     private CD sensitivityTestCode = new CDImpl();
     private List<IncludesBean> subjectOf1 = new ArrayList<IncludesBean>();
-    private IVL<TS, Interval<Date>> sensitivityTestDateTimeRange = new IVLImpl<TS, Interval<Date>>();
     private ST sensitivityText = new STImpl();
-    private ST sensitivityValue = new STImpl();
+    private CV sensitivityValueInterpretation = new CVImpl();
+    private ResultStatusProcessStepBean subjectOf2ResultStatusProcessStep;
+    private IVL<TS, Interval<Date>> sensitivityTestDateTimeRange = new IVLImpl<TS, Interval<Date>>();
+
+
+    /**
+     * <p>Sensitivity Value</p>
+     * 
+     * <p><p>Any numeric or quantitative result. Interpretation 
+     * values are coded and communicated using the 
+     * interpretationCode attribute.</p></p>
+     */
+    @Hl7XmlMapping({"value"})
+    public String getSensitivityValue() {
+        return this.sensitivityValue.getValue();
+    }
+    public void setSensitivityValue(String sensitivityValue) {
+        this.sensitivityValue.setValue(sensitivityValue);
+    }
 
 
     /**
@@ -62,30 +78,6 @@ public class AntibioticSensitivityObservationBean extends MessagePartBean {
     }
     public void setSensitivityStatus(ActStatus sensitivityStatus) {
         this.sensitivityStatus.setValue(sensitivityStatus);
-    }
-
-
-    @Hl7XmlMapping({"subjectOf2/resultStatusProcessStep"})
-    public ResultStatusProcessStepBean getSubjectOf2ResultStatusProcessStep() {
-        return this.subjectOf2ResultStatusProcessStep;
-    }
-    public void setSubjectOf2ResultStatusProcessStep(ResultStatusProcessStepBean subjectOf2ResultStatusProcessStep) {
-        this.subjectOf2ResultStatusProcessStep = subjectOf2ResultStatusProcessStep;
-    }
-
-
-    /**
-     * <p>Sensitivity Value Interpretation</p>
-     * 
-     * <p><p>The result interpretation value of the sensitivity 
-     * testing.</p></p>
-     */
-    @Hl7XmlMapping({"interpretationCode"})
-    public ObservationInterpretationSusceptibility getSensitivityValueInterpretation() {
-        return (ObservationInterpretationSusceptibility) this.sensitivityValueInterpretation.getValue();
-    }
-    public void setSensitivityValueInterpretation(ObservationInterpretationSusceptibility sensitivityValueInterpretation) {
-        this.sensitivityValueInterpretation.setValue(sensitivityValueInterpretation);
     }
 
 
@@ -111,21 +103,6 @@ public class AntibioticSensitivityObservationBean extends MessagePartBean {
 
 
     /**
-     * <p>Sensitivity Test Date/time Range</p>
-     * 
-     * <p><p>The date/time interval over which the sensitivity test 
-     * was performed.</p></p>
-     */
-    @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getSensitivityTestDateTimeRange() {
-        return this.sensitivityTestDateTimeRange.getValue();
-    }
-    public void setSensitivityTestDateTimeRange(Interval<Date> sensitivityTestDateTimeRange) {
-        this.sensitivityTestDateTimeRange.setValue(sensitivityTestDateTimeRange);
-    }
-
-
-    /**
      * <p>Sensitivity Text</p>
      * 
      * <p><p>This observation is coded using LOINC. If any coded 
@@ -146,18 +123,41 @@ public class AntibioticSensitivityObservationBean extends MessagePartBean {
 
 
     /**
-     * <p>Sensitivity Value</p>
+     * <p>Sensitivity Value Interpretation</p>
      * 
-     * <p><p>Any numeric or quantitative result. Interpretation 
-     * values are coded and communicated using the 
-     * interpretationCode attribute.</p></p>
+     * <p><p>The result interpretation value of the sensitivity 
+     * testing.</p></p>
      */
-    @Hl7XmlMapping({"value"})
-    public String getSensitivityValue() {
-        return this.sensitivityValue.getValue();
+    @Hl7XmlMapping({"interpretationCode"})
+    public ObservationInterpretationSusceptibility getSensitivityValueInterpretation() {
+        return (ObservationInterpretationSusceptibility) this.sensitivityValueInterpretation.getValue();
     }
-    public void setSensitivityValue(String sensitivityValue) {
-        this.sensitivityValue.setValue(sensitivityValue);
+    public void setSensitivityValueInterpretation(ObservationInterpretationSusceptibility sensitivityValueInterpretation) {
+        this.sensitivityValueInterpretation.setValue(sensitivityValueInterpretation);
+    }
+
+
+    @Hl7XmlMapping({"subjectOf2/resultStatusProcessStep"})
+    public ResultStatusProcessStepBean getSubjectOf2ResultStatusProcessStep() {
+        return this.subjectOf2ResultStatusProcessStep;
+    }
+    public void setSubjectOf2ResultStatusProcessStep(ResultStatusProcessStepBean subjectOf2ResultStatusProcessStep) {
+        this.subjectOf2ResultStatusProcessStep = subjectOf2ResultStatusProcessStep;
+    }
+
+
+    /**
+     * <p>Sensitivity Test Date/time Range</p>
+     * 
+     * <p><p>The date/time interval over which the sensitivity test 
+     * was performed.</p></p>
+     */
+    @Hl7XmlMapping({"effectiveTime"})
+    public Interval<Date> getSensitivityTestDateTimeRange() {
+        return this.sensitivityTestDateTimeRange.getValue();
+    }
+    public void setSensitivityTestDateTimeRange(Interval<Date> sensitivityTestDateTimeRange) {
+        this.sensitivityTestDateTimeRange.setValue(sensitivityTestDateTimeRange);
     }
 
 }

@@ -23,11 +23,32 @@ import ca.infoway.messagebuilder.model.claims.merged.CoveredPartyAsPatientBean;
 @Hl7PartTypeMapping({"FICR_MT510201CA.PolicyOrAccount"})
 public class PolicyOrAccountBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
+    private static final long serialVersionUID = 20110127L;
+    private CoveredPartyAsPatientBean beneficiaryCoveredPartyAsPatient;
+    private II carrierId = new IIImpl();
     private CV policyType = new CVImpl();
     private II policyIdentifier = new IIImpl();
-    private II carrierId = new IIImpl();
-    private CoveredPartyAsPatientBean beneficiaryCoveredPartyAsPatient;
+
+
+    @Hl7XmlMapping({"beneficiary/coveredPartyAsPatient"})
+    public CoveredPartyAsPatientBean getBeneficiaryCoveredPartyAsPatient() {
+        return this.beneficiaryCoveredPartyAsPatient;
+    }
+    public void setBeneficiaryCoveredPartyAsPatient(CoveredPartyAsPatientBean beneficiaryCoveredPartyAsPatient) {
+        this.beneficiaryCoveredPartyAsPatient = beneficiaryCoveredPartyAsPatient;
+    }
+
+
+    /**
+     * <p>Carrier Id</p>
+     */
+    @Hl7XmlMapping({"author/carrierRole/id"})
+    public Identifier getCarrierId() {
+        return this.carrierId.getValue();
+    }
+    public void setCarrierId(Identifier carrierId) {
+        this.carrierId.setValue(carrierId);
+    }
 
 
     /**
@@ -51,27 +72,6 @@ public class PolicyOrAccountBean extends MessagePartBean {
     }
     public void setPolicyIdentifier(Identifier policyIdentifier) {
         this.policyIdentifier.setValue(policyIdentifier);
-    }
-
-
-    /**
-     * <p>Carrier Id</p>
-     */
-    @Hl7XmlMapping({"author/carrierRole/id"})
-    public Identifier getCarrierId() {
-        return this.carrierId.getValue();
-    }
-    public void setCarrierId(Identifier carrierId) {
-        this.carrierId.setValue(carrierId);
-    }
-
-
-    @Hl7XmlMapping({"beneficiary/coveredPartyAsPatient"})
-    public CoveredPartyAsPatientBean getBeneficiaryCoveredPartyAsPatient() {
-        return this.beneficiaryCoveredPartyAsPatient;
-    }
-    public void setBeneficiaryCoveredPartyAsPatient(CoveredPartyAsPatientBean beneficiaryCoveredPartyAsPatient) {
-        this.beneficiaryCoveredPartyAsPatient = beneficiaryCoveredPartyAsPatient;
     }
 
 }

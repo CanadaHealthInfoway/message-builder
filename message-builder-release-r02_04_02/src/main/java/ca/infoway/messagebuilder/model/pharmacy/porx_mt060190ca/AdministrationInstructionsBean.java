@@ -15,7 +15,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PORX_MT060190CA.AdministrationInstructions"})
 public class AdministrationInstructionsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
+    private static final long serialVersionUID = 20110127L;
     private CD medicationType = new CDImpl();
     private ST renderedDosageInstruction = new STImpl();
 

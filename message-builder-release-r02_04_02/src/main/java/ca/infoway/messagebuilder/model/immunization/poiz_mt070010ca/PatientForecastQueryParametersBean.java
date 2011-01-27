@@ -32,28 +32,45 @@ import java.util.Date;
 @Hl7RootType
 public class PatientForecastQueryParametersBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
-    private PN patientName = new PNImpl();
-    private II patientIdentifier = new IIImpl();
-    private CV patientGender = new CVImpl();
+    private static final long serialVersionUID = 20110127L;
     private TS patientBirthDate = new TSImpl();
+    private CV patientGender = new CVImpl();
+    private II patientIdentifier = new IIImpl();
+    private PN patientName = new PNImpl();
 
 
     /**
-     * <p>Patient Name</p>
+     * <p>Patient Birth Date</p>
      * 
-     * <p><p>The name of the patient who is the subject of the 
-     * patient forecast query.</p></p>
+     * <p><p>Indicates the date on which the patient was born.</p></p>
      * 
-     * <p><p>This information is used to confirm the patient id. As 
-     * a result, this attribute is required.</p></p>
+     * <p><p>Use to confirm identity of the patient for the query. 
+     * Full dates must be specified. As a result, this attribute is 
+     * required.</p></p>
      */
-    @Hl7XmlMapping({"patientName/value"})
-    public PersonName getPatientName() {
-        return this.patientName.getValue();
+    @Hl7XmlMapping({"patientBirthDate/value"})
+    public Date getPatientBirthDate() {
+        return this.patientBirthDate.getValue();
     }
-    public void setPatientName(PersonName patientName) {
-        this.patientName.setValue(patientName);
+    public void setPatientBirthDate(Date patientBirthDate) {
+        this.patientBirthDate.setValue(patientBirthDate);
+    }
+
+
+    /**
+     * <p>Patient Gender</p>
+     * 
+     * <p><p>Indicates the gender (sex) of the patient.</p></p>
+     * 
+     * <p><p>Used to confirm the identity of the patient for the 
+     * query. As a result, this attribute is required.</p></p>
+     */
+    @Hl7XmlMapping({"patientGender/value"})
+    public AdministrativeGender getPatientGender() {
+        return (AdministrativeGender) this.patientGender.getValue();
+    }
+    public void setPatientGender(AdministrativeGender patientGender) {
+        this.patientGender.setValue(patientGender);
     }
 
 
@@ -79,37 +96,20 @@ public class PatientForecastQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>Patient Gender</p>
+     * <p>Patient Name</p>
      * 
-     * <p><p>Indicates the gender (sex) of the patient.</p></p>
+     * <p><p>The name of the patient who is the subject of the 
+     * patient forecast query.</p></p>
      * 
-     * <p><p>Used to confirm the identity of the patient for the 
-     * query. As a result, this attribute is required.</p></p>
+     * <p><p>This information is used to confirm the patient id. As 
+     * a result, this attribute is required.</p></p>
      */
-    @Hl7XmlMapping({"patientGender/value"})
-    public AdministrativeGender getPatientGender() {
-        return (AdministrativeGender) this.patientGender.getValue();
+    @Hl7XmlMapping({"patientName/value"})
+    public PersonName getPatientName() {
+        return this.patientName.getValue();
     }
-    public void setPatientGender(AdministrativeGender patientGender) {
-        this.patientGender.setValue(patientGender);
-    }
-
-
-    /**
-     * <p>Patient Birth Date</p>
-     * 
-     * <p><p>Indicates the date on which the patient was born.</p></p>
-     * 
-     * <p><p>Use to confirm identity of the patient for the query. 
-     * Full dates must be specified. As a result, this attribute is 
-     * required.</p></p>
-     */
-    @Hl7XmlMapping({"patientBirthDate/value"})
-    public Date getPatientBirthDate() {
-        return this.patientBirthDate.getValue();
-    }
-    public void setPatientBirthDate(Date patientBirthDate) {
-        this.patientBirthDate.setValue(patientBirthDate);
+    public void setPatientName(PersonName patientName) {
+        this.patientName.setValue(patientName);
     }
 
 }

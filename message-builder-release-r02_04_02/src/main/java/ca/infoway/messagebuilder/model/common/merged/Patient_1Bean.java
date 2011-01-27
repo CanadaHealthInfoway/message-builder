@@ -57,13 +57,13 @@ import java.util.Set;
 @Hl7RootType
 public class Patient_1Bean extends MessagePartBean implements ca.infoway.messagebuilder.model.merged.Patient {
 
-    private static final long serialVersionUID = 20110126L;
+    private static final long serialVersionUID = 20110127L;
     private SET<II, Identifier> patientIdentifier = new SETImpl<II, Identifier>(IIImpl.class);
+    private AD patientAddress = new ADImpl();
+    private PatientIdentifyingCharacteristicsBean subjectOfIdentifyingCharacteristicsObservationEvent;
     private ActingPersonBean patientPerson;
     private LIST<TEL, TelecommunicationAddress> patientContactPhoneAndEMails = new LISTImpl<TEL, TelecommunicationAddress>(TELImpl.class);
-    private PatientIdentifyingCharacteristicsBean subjectOfIdentifyingCharacteristicsObservationEvent;
     private ST patientHealthCardVersionCode = new STImpl();
-    private AD patientAddress = new ADImpl();
 
 
     /**
@@ -215,6 +215,29 @@ public class Patient_1Bean extends MessagePartBean implements ca.infoway.message
     }
 
 
+    /**
+     * <p>PatientAddress</p>
+     * 
+     * <p>E:Patient Address</p>
+     */
+    @Hl7XmlMapping({"addr"})
+    public PostalAddress getPatientAddress() {
+        return this.patientAddress.getValue();
+    }
+    public void setPatientAddress(PostalAddress patientAddress) {
+        this.patientAddress.setValue(patientAddress);
+    }
+
+
+    @Hl7XmlMapping({"subjectOf/identifyingCharacteristicsObservationEvent"})
+    public PatientIdentifyingCharacteristicsBean getSubjectOfIdentifyingCharacteristicsObservationEvent() {
+        return this.subjectOfIdentifyingCharacteristicsObservationEvent;
+    }
+    public void setSubjectOfIdentifyingCharacteristicsObservationEvent(PatientIdentifyingCharacteristicsBean subjectOfIdentifyingCharacteristicsObservationEvent) {
+        this.subjectOfIdentifyingCharacteristicsObservationEvent = subjectOfIdentifyingCharacteristicsObservationEvent;
+    }
+
+
     @Hl7XmlMapping({"patientPerson"})
     public ActingPersonBean getPatientPerson() {
         return this.patientPerson;
@@ -235,15 +258,6 @@ public class Patient_1Bean extends MessagePartBean implements ca.infoway.message
     }
 
 
-    @Hl7XmlMapping({"subjectOf/identifyingCharacteristicsObservationEvent"})
-    public PatientIdentifyingCharacteristicsBean getSubjectOfIdentifyingCharacteristicsObservationEvent() {
-        return this.subjectOfIdentifyingCharacteristicsObservationEvent;
-    }
-    public void setSubjectOfIdentifyingCharacteristicsObservationEvent(PatientIdentifyingCharacteristicsBean subjectOfIdentifyingCharacteristicsObservationEvent) {
-        this.subjectOfIdentifyingCharacteristicsObservationEvent = subjectOfIdentifyingCharacteristicsObservationEvent;
-    }
-
-
     /**
      * <p>PatientHealthCardVersionCode</p>
      * 
@@ -255,20 +269,6 @@ public class Patient_1Bean extends MessagePartBean implements ca.infoway.message
     }
     public void setPatientHealthCardVersionCode(String patientHealthCardVersionCode) {
         this.patientHealthCardVersionCode.setValue(patientHealthCardVersionCode);
-    }
-
-
-    /**
-     * <p>PatientAddress</p>
-     * 
-     * <p>E:Patient Address</p>
-     */
-    @Hl7XmlMapping({"addr"})
-    public PostalAddress getPatientAddress() {
-        return this.patientAddress.getValue();
-    }
-    public void setPatientAddress(PostalAddress patientAddress) {
-        this.patientAddress.setValue(patientAddress);
     }
 
 }

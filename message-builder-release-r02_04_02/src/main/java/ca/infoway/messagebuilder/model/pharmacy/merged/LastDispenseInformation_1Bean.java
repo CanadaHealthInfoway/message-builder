@@ -58,30 +58,9 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PORX_MT030040CA.SupplyEventLastSummary","PORX_MT060160CA.SupplyEventLastSummary","PORX_MT060190CA.SupplyEventLastSummary","PORX_MT060340CA.SupplyEventLastSummary"})
 public class LastDispenseInformation_1Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
-    private IVL<TS, Interval<Date>> lastDispensePickupDate = new IVLImpl<TS, Interval<Date>>();
+    private static final long serialVersionUID = 20110127L;
     private PQ quantity = new PQImpl();
-
-
-    /**
-     * <p>LastDispensePickupDate</p>
-     * 
-     * <p>Last Dispense Pickup Date</p>
-     * 
-     * <p><p>Indicates the most recent date on which a dispense on 
-     * the prescription was picked up.</p></p>
-     * 
-     * <p><p>Useful in determining when a prescription will next 
-     * need to be dispensed. Also provides an indication of 
-     * compliance.</p></p>
-     */
-    @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getLastDispensePickupDate() {
-        return this.lastDispensePickupDate.getValue();
-    }
-    public void setLastDispensePickupDate(Interval<Date> lastDispensePickupDate) {
-        this.lastDispensePickupDate.setValue(lastDispensePickupDate);
-    }
+    private IVL<TS, Interval<Date>> lastDispensePickupDate = new IVLImpl<TS, Interval<Date>>();
 
 
     /**
@@ -159,6 +138,27 @@ public class LastDispenseInformation_1Bean extends MessagePartBean {
     }
     public void setQuantity(PhysicalQuantity quantity) {
         this.quantity.setValue(quantity);
+    }
+
+
+    /**
+     * <p>LastDispensePickupDate</p>
+     * 
+     * <p>Last Dispense Pickup Date</p>
+     * 
+     * <p><p>Indicates the most recent date on which a dispense on 
+     * the prescription was picked up.</p></p>
+     * 
+     * <p><p>Useful in determining when a prescription will next 
+     * need to be dispensed. Also provides an indication of 
+     * compliance.</p></p>
+     */
+    @Hl7XmlMapping({"effectiveTime"})
+    public Interval<Date> getLastDispensePickupDate() {
+        return this.lastDispensePickupDate.getValue();
+    }
+    public void setLastDispensePickupDate(Interval<Date> lastDispensePickupDate) {
+        this.lastDispensePickupDate.setValue(lastDispensePickupDate);
     }
 
 }

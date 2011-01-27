@@ -25,23 +25,23 @@ import java.util.List;
 @Hl7PartTypeMapping({"FICR_MT490102CA.SpecialAuthorization"})
 public class SpecialAuthorizationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
-    private PolicyOrAccountBean coveragePolicyOrAccount;
+    private static final long serialVersionUID = 20110127L;
+    private MaximumLimitsBean limitation2MaximumLimits;
     private CS specialAuthorizationStatus = new CSImpl();
-    private List<Subject3Bean> subject = new ArrayList<Subject3Bean>();
     private List<IncludesBean> subjectOf = new ArrayList<IncludesBean>();
     private HealthcareOrganizationBean authorAssignedEntity;
-    private IVL<TS, Interval<Date>> specialAuthorizationEffectiveDate = new IVLImpl<TS, Interval<Date>>();
-    private MaximumLimitsBean limitation2MaximumLimits;
+    private PolicyOrAccountBean coveragePolicyOrAccount;
     private RemainingLimitsBean limitation1RemainingLimits;
+    private List<Subject3Bean> subject = new ArrayList<Subject3Bean>();
+    private IVL<TS, Interval<Date>> specialAuthorizationEffectiveDate = new IVLImpl<TS, Interval<Date>>();
 
 
-    @Hl7XmlMapping({"coverage/policyOrAccount"})
-    public PolicyOrAccountBean getCoveragePolicyOrAccount() {
-        return this.coveragePolicyOrAccount;
+    @Hl7XmlMapping({"limitation2/maximumLimits"})
+    public MaximumLimitsBean getLimitation2MaximumLimits() {
+        return this.limitation2MaximumLimits;
     }
-    public void setCoveragePolicyOrAccount(PolicyOrAccountBean coveragePolicyOrAccount) {
-        this.coveragePolicyOrAccount = coveragePolicyOrAccount;
+    public void setLimitation2MaximumLimits(MaximumLimitsBean limitation2MaximumLimits) {
+        this.limitation2MaximumLimits = limitation2MaximumLimits;
     }
 
 
@@ -54,12 +54,6 @@ public class SpecialAuthorizationBean extends MessagePartBean {
     }
     public void setSpecialAuthorizationStatus(ActStatus specialAuthorizationStatus) {
         this.specialAuthorizationStatus.setValue(specialAuthorizationStatus);
-    }
-
-
-    @Hl7XmlMapping({"subject"})
-    public List<Subject3Bean> getSubject() {
-        return this.subject;
     }
 
 
@@ -78,24 +72,12 @@ public class SpecialAuthorizationBean extends MessagePartBean {
     }
 
 
-    /**
-     * <p>Special Authorization Effective Date</p>
-     */
-    @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getSpecialAuthorizationEffectiveDate() {
-        return this.specialAuthorizationEffectiveDate.getValue();
+    @Hl7XmlMapping({"coverage/policyOrAccount"})
+    public PolicyOrAccountBean getCoveragePolicyOrAccount() {
+        return this.coveragePolicyOrAccount;
     }
-    public void setSpecialAuthorizationEffectiveDate(Interval<Date> specialAuthorizationEffectiveDate) {
-        this.specialAuthorizationEffectiveDate.setValue(specialAuthorizationEffectiveDate);
-    }
-
-
-    @Hl7XmlMapping({"limitation2/maximumLimits"})
-    public MaximumLimitsBean getLimitation2MaximumLimits() {
-        return this.limitation2MaximumLimits;
-    }
-    public void setLimitation2MaximumLimits(MaximumLimitsBean limitation2MaximumLimits) {
-        this.limitation2MaximumLimits = limitation2MaximumLimits;
+    public void setCoveragePolicyOrAccount(PolicyOrAccountBean coveragePolicyOrAccount) {
+        this.coveragePolicyOrAccount = coveragePolicyOrAccount;
     }
 
 
@@ -105,6 +87,24 @@ public class SpecialAuthorizationBean extends MessagePartBean {
     }
     public void setLimitation1RemainingLimits(RemainingLimitsBean limitation1RemainingLimits) {
         this.limitation1RemainingLimits = limitation1RemainingLimits;
+    }
+
+
+    @Hl7XmlMapping({"subject"})
+    public List<Subject3Bean> getSubject() {
+        return this.subject;
+    }
+
+
+    /**
+     * <p>Special Authorization Effective Date</p>
+     */
+    @Hl7XmlMapping({"effectiveTime"})
+    public Interval<Date> getSpecialAuthorizationEffectiveDate() {
+        return this.specialAuthorizationEffectiveDate.getValue();
+    }
+    public void setSpecialAuthorizationEffectiveDate(Interval<Date> specialAuthorizationEffectiveDate) {
+        this.specialAuthorizationEffectiveDate.setValue(specialAuthorizationEffectiveDate);
     }
 
 }

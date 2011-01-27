@@ -23,12 +23,35 @@ import java.util.List;
 @Hl7PartTypeMapping({"MCCI_MT002200CA.Acknowledgement","MCCI_MT002300CA.Acknowledgement"})
 public class AcknowledgementBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
+    private static final long serialVersionUID = 20110127L;
+    private II acknowledgedMessageId = new IIImpl();
     private INT numberOfWaitingMessages = new INTImpl();
     private CS acknowledgementCode = new CSImpl();
-    private List<ErrorsOrWarningsBean> acknowledgementDetail = new ArrayList<ErrorsOrWarningsBean>();
-    private II acknowledgedMessageId = new IIImpl();
     private CV messageWaitingPriority = new CVImpl();
+    private List<ErrorsOrWarningsBean> acknowledgementDetail = new ArrayList<ErrorsOrWarningsBean>();
+
+
+    /**
+     * <p>AcknowledgedMessageId</p>
+     * 
+     * <p>BA:Acknowledged Message Id</p>
+     * 
+     * <p><p>References the identifier of the message this current 
+     * message is acknowledging.</p></p>
+     * 
+     * <p><p>soap:Header\wsa:RelatesTo</p></p>
+     * 
+     * <p><p>Provides the necessary link to complete a conversation 
+     * for systems using communication technologies which are not 
+     * conversational. This attribute is therefore mandatory.</p></p>
+     */
+    @Hl7XmlMapping({"targetMessage/id"})
+    public Identifier getAcknowledgedMessageId() {
+        return this.acknowledgedMessageId.getValue();
+    }
+    public void setAcknowledgedMessageId(Identifier acknowledgedMessageId) {
+        this.acknowledgedMessageId.setValue(acknowledgedMessageId);
+    }
 
 
     /**
@@ -73,35 +96,6 @@ public class AcknowledgementBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"acknowledgementDetail"})
-    public List<ErrorsOrWarningsBean> getAcknowledgementDetail() {
-        return this.acknowledgementDetail;
-    }
-
-
-    /**
-     * <p>AcknowledgedMessageId</p>
-     * 
-     * <p>BA:Acknowledged Message Id</p>
-     * 
-     * <p><p>References the identifier of the message this current 
-     * message is acknowledging.</p></p>
-     * 
-     * <p><p>soap:Header\wsa:RelatesTo</p></p>
-     * 
-     * <p><p>Provides the necessary link to complete a conversation 
-     * for systems using communication technologies which are not 
-     * conversational. This attribute is therefore mandatory.</p></p>
-     */
-    @Hl7XmlMapping({"targetMessage/id"})
-    public Identifier getAcknowledgedMessageId() {
-        return this.acknowledgedMessageId.getValue();
-    }
-    public void setAcknowledgedMessageId(Identifier acknowledgedMessageId) {
-        this.acknowledgedMessageId.setValue(acknowledgedMessageId);
-    }
-
-
     /**
      * <p>MessageWaitingPriority</p>
      * 
@@ -122,6 +116,12 @@ public class AcknowledgementBean extends MessagePartBean {
     }
     public void setMessageWaitingPriority(MessageWaitingPriority messageWaitingPriority) {
         this.messageWaitingPriority.setValue(messageWaitingPriority);
+    }
+
+
+    @Hl7XmlMapping({"acknowledgementDetail"})
+    public List<ErrorsOrWarningsBean> getAcknowledgementDetail() {
+        return this.acknowledgementDetail;
     }
 
 }

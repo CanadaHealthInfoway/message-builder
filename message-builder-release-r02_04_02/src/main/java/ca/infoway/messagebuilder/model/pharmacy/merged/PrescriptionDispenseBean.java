@@ -49,21 +49,62 @@ import java.util.Set;
 @Hl7RootType
 public class PrescriptionDispenseBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
-    private II prescriptionDispenseNumber = new IIImpl();
-    private IncludesBean subjectOf;
-    private SET<CV, Code> prescriptionMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);
+    private static final long serialVersionUID = 20110127L;
     private DispenseDetailsBean componentSupplyEvent;
-    private ProcedureRequestBean component1ProcedureRequest;
-    private PrescriptionReferenceBean inFulfillmentOfDeviceRequest;
     private AnimalPatientBean subjectPatient;
+    private IncludesBean subjectOf;
+    private PrescriptionReferenceBean inFulfillmentOfDeviceRequest;
+    private II prescriptionDispenseNumber = new IIImpl();
+    private ProcedureRequestBean component1ProcedureRequest;
+    private SET<CV, Code> prescriptionMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);
+    private SupplyOrderBean fulfillmentSupplyRequest;
+    private OccurredAtBean location;
     private CS dispenseStatus = new CSImpl();
     private BL subjectOf2AnnotationIndicator = new BLImpl();
-    private HealthcareWorkerBean responsiblePartyAssignedEntity;
-    private OccurredAtBean location;
-    private BL subjectOf1DetectedIssueIndicator = new BLImpl();
-    private SupplyOrderBean fulfillmentSupplyRequest;
     private HealthcareWorkerBean performerAssignedEntity;
+    private BL subjectOf1DetectedIssueIndicator = new BLImpl();
+    private HealthcareWorkerBean responsiblePartyAssignedEntity;
+
+
+    @Hl7XmlMapping({"component/supplyEvent","component2/supplyEvent"})
+    @Hl7MapByPartTypes({
+        @Hl7MapByPartType(name="component", type="PORX_MT060020CA.Component2"),
+        @Hl7MapByPartType(name="component/supplyEvent", type="PORX_MT060020CA.SupplyEvent"),
+        @Hl7MapByPartType(name="component2", type="PORX_MT020060CA.Component"),
+        @Hl7MapByPartType(name="component2/supplyEvent", type="PORX_MT020060CA.SupplyEvent")})
+    public DispenseDetailsBean getComponentSupplyEvent() {
+        return this.componentSupplyEvent;
+    }
+    public void setComponentSupplyEvent(DispenseDetailsBean componentSupplyEvent) {
+        this.componentSupplyEvent = componentSupplyEvent;
+    }
+
+
+    @Hl7XmlMapping({"subject/patient"})
+    public AnimalPatientBean getSubjectPatient() {
+        return this.subjectPatient;
+    }
+    public void setSubjectPatient(AnimalPatientBean subjectPatient) {
+        this.subjectPatient = subjectPatient;
+    }
+
+
+    @Hl7XmlMapping({"subjectOf"})
+    public IncludesBean getSubjectOf() {
+        return this.subjectOf;
+    }
+    public void setSubjectOf(IncludesBean subjectOf) {
+        this.subjectOf = subjectOf;
+    }
+
+
+    @Hl7XmlMapping({"inFulfillmentOf/deviceRequest"})
+    public PrescriptionReferenceBean getInFulfillmentOfDeviceRequest() {
+        return this.inFulfillmentOfDeviceRequest;
+    }
+    public void setInFulfillmentOfDeviceRequest(PrescriptionReferenceBean inFulfillmentOfDeviceRequest) {
+        this.inFulfillmentOfDeviceRequest = inFulfillmentOfDeviceRequest;
+    }
 
 
     /**
@@ -109,12 +150,12 @@ public class PrescriptionDispenseBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"subjectOf"})
-    public IncludesBean getSubjectOf() {
-        return this.subjectOf;
+    @Hl7XmlMapping({"component1/procedureRequest"})
+    public ProcedureRequestBean getComponent1ProcedureRequest() {
+        return this.component1ProcedureRequest;
     }
-    public void setSubjectOf(IncludesBean subjectOf) {
-        this.subjectOf = subjectOf;
+    public void setComponent1ProcedureRequest(ProcedureRequestBean component1ProcedureRequest) {
+        this.component1ProcedureRequest = component1ProcedureRequest;
     }
 
 
@@ -346,44 +387,21 @@ public class PrescriptionDispenseBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"component/supplyEvent","component2/supplyEvent"})
-    @Hl7MapByPartTypes({
-        @Hl7MapByPartType(name="component", type="PORX_MT060020CA.Component2"),
-        @Hl7MapByPartType(name="component/supplyEvent", type="PORX_MT060020CA.SupplyEvent"),
-        @Hl7MapByPartType(name="component2", type="PORX_MT020060CA.Component"),
-        @Hl7MapByPartType(name="component2/supplyEvent", type="PORX_MT020060CA.SupplyEvent")})
-    public DispenseDetailsBean getComponentSupplyEvent() {
-        return this.componentSupplyEvent;
+    @Hl7XmlMapping({"fulfillment/supplyRequest"})
+    public SupplyOrderBean getFulfillmentSupplyRequest() {
+        return this.fulfillmentSupplyRequest;
     }
-    public void setComponentSupplyEvent(DispenseDetailsBean componentSupplyEvent) {
-        this.componentSupplyEvent = componentSupplyEvent;
+    public void setFulfillmentSupplyRequest(SupplyOrderBean fulfillmentSupplyRequest) {
+        this.fulfillmentSupplyRequest = fulfillmentSupplyRequest;
     }
 
 
-    @Hl7XmlMapping({"component1/procedureRequest"})
-    public ProcedureRequestBean getComponent1ProcedureRequest() {
-        return this.component1ProcedureRequest;
+    @Hl7XmlMapping({"location"})
+    public OccurredAtBean getLocation() {
+        return this.location;
     }
-    public void setComponent1ProcedureRequest(ProcedureRequestBean component1ProcedureRequest) {
-        this.component1ProcedureRequest = component1ProcedureRequest;
-    }
-
-
-    @Hl7XmlMapping({"inFulfillmentOf/deviceRequest"})
-    public PrescriptionReferenceBean getInFulfillmentOfDeviceRequest() {
-        return this.inFulfillmentOfDeviceRequest;
-    }
-    public void setInFulfillmentOfDeviceRequest(PrescriptionReferenceBean inFulfillmentOfDeviceRequest) {
-        this.inFulfillmentOfDeviceRequest = inFulfillmentOfDeviceRequest;
-    }
-
-
-    @Hl7XmlMapping({"subject/patient"})
-    public AnimalPatientBean getSubjectPatient() {
-        return this.subjectPatient;
-    }
-    public void setSubjectPatient(AnimalPatientBean subjectPatient) {
-        this.subjectPatient = subjectPatient;
+    public void setLocation(OccurredAtBean location) {
+        this.location = location;
     }
 
 
@@ -421,21 +439,12 @@ public class PrescriptionDispenseBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"responsibleParty/assignedEntity"})
-    public HealthcareWorkerBean getResponsiblePartyAssignedEntity() {
-        return this.responsiblePartyAssignedEntity;
+    @Hl7XmlMapping({"performer/assignedEntity"})
+    public HealthcareWorkerBean getPerformerAssignedEntity() {
+        return this.performerAssignedEntity;
     }
-    public void setResponsiblePartyAssignedEntity(HealthcareWorkerBean responsiblePartyAssignedEntity) {
-        this.responsiblePartyAssignedEntity = responsiblePartyAssignedEntity;
-    }
-
-
-    @Hl7XmlMapping({"location"})
-    public OccurredAtBean getLocation() {
-        return this.location;
-    }
-    public void setLocation(OccurredAtBean location) {
-        this.location = location;
+    public void setPerformerAssignedEntity(HealthcareWorkerBean performerAssignedEntity) {
+        this.performerAssignedEntity = performerAssignedEntity;
     }
 
 
@@ -448,21 +457,12 @@ public class PrescriptionDispenseBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"fulfillment/supplyRequest"})
-    public SupplyOrderBean getFulfillmentSupplyRequest() {
-        return this.fulfillmentSupplyRequest;
+    @Hl7XmlMapping({"responsibleParty/assignedEntity"})
+    public HealthcareWorkerBean getResponsiblePartyAssignedEntity() {
+        return this.responsiblePartyAssignedEntity;
     }
-    public void setFulfillmentSupplyRequest(SupplyOrderBean fulfillmentSupplyRequest) {
-        this.fulfillmentSupplyRequest = fulfillmentSupplyRequest;
-    }
-
-
-    @Hl7XmlMapping({"performer/assignedEntity"})
-    public HealthcareWorkerBean getPerformerAssignedEntity() {
-        return this.performerAssignedEntity;
-    }
-    public void setPerformerAssignedEntity(HealthcareWorkerBean performerAssignedEntity) {
-        this.performerAssignedEntity = performerAssignedEntity;
+    public void setResponsiblePartyAssignedEntity(HealthcareWorkerBean responsiblePartyAssignedEntity) {
+        this.responsiblePartyAssignedEntity = responsiblePartyAssignedEntity;
     }
 
 }

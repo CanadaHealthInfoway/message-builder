@@ -78,46 +78,20 @@ import java.util.List;
 @Hl7RootType
 public class AdjudicatedResultsGroupBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
-    private II adjudicatedResultsGroupID = new IIImpl();
+    private static final long serialVersionUID = 20110127L;
     private CV code = new CVImpl();
-    private CarrierOrThirdPartyAdministratorBean authorAdjudResultsCarrierRole;
-    private List<SummaryDetailsBean> summaryAdjudResultsGroupSummaryData = new ArrayList<SummaryDetailsBean>();
-    private BusinessArrangementBean referenceAdjudResultsFinancialContract;
-    private MO netAmt = new MOImpl();
-    private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
-    private List<AdjudicatedResultsGroupBean> componentAdjudResultsGroup = new ArrayList<AdjudicatedResultsGroupBean>();
-    private DevicePlayingTheSendingApplicationRoleBean deviceAdjudResultsSendingAppRole;
     private AccountBean debitAccount;
-    private ServiceLocationBean locationServiceDeliveryLocation;
-    private PayeeAccountBean creditAccount;
+    private DevicePlayingTheSendingApplicationRoleBean deviceAdjudResultsSendingAppRole;
     private ProviderIDBean performerAdjudResultsProviderRole;
-
-
-    /**
-     * <p>AdjudicatedResultsGroupID</p>
-     * 
-     * <p>Adjudicated Results Group ID</p>
-     * 
-     * <p>Adjudicated Results Group ID</p>
-     * 
-     * <p><p>ID of Results Group</p></p>
-     * 
-     * <p><p>If specified on a Payment Advice Summary, can be used 
-     * to request additional detail with a Payment Advice Query 
-     * message</p></p>
-     * 
-     * <p><p>(If specified on a Payment Advice Summary, can be used 
-     * to request additional detail with a Payment Advice Query 
-     * message</p></p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Identifier getAdjudicatedResultsGroupID() {
-        return this.adjudicatedResultsGroupID.getValue();
-    }
-    public void setAdjudicatedResultsGroupID(Identifier adjudicatedResultsGroupID) {
-        this.adjudicatedResultsGroupID.setValue(adjudicatedResultsGroupID);
-    }
+    private List<SummaryDetailsBean> summaryAdjudResultsGroupSummaryData = new ArrayList<SummaryDetailsBean>();
+    private MO netAmt = new MOImpl();
+    private CarrierOrThirdPartyAdministratorBean authorAdjudResultsCarrierRole;
+    private BusinessArrangementBean referenceAdjudResultsFinancialContract;
+    private ServiceLocationBean locationServiceDeliveryLocation;
+    private List<AdjudicatedResultsGroupBean> componentAdjudResultsGroup = new ArrayList<AdjudicatedResultsGroupBean>();
+    private II adjudicatedResultsGroupID = new IIImpl();
+    private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
+    private PayeeAccountBean creditAccount;
 
 
     /**
@@ -217,27 +191,36 @@ public class AdjudicatedResultsGroupBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"author/adjudResultsCarrierRole"})
-    public CarrierOrThirdPartyAdministratorBean getAuthorAdjudResultsCarrierRole() {
-        return this.authorAdjudResultsCarrierRole;
+    @Hl7XmlMapping({"debit/account"})
+    public AccountBean getDebitAccount() {
+        return this.debitAccount;
     }
-    public void setAuthorAdjudResultsCarrierRole(CarrierOrThirdPartyAdministratorBean authorAdjudResultsCarrierRole) {
-        this.authorAdjudResultsCarrierRole = authorAdjudResultsCarrierRole;
+    public void setDebitAccount(AccountBean debitAccount) {
+        this.debitAccount = debitAccount;
+    }
+
+
+    @Hl7XmlMapping({"device/adjudResultsSendingAppRole"})
+    public DevicePlayingTheSendingApplicationRoleBean getDeviceAdjudResultsSendingAppRole() {
+        return this.deviceAdjudResultsSendingAppRole;
+    }
+    public void setDeviceAdjudResultsSendingAppRole(DevicePlayingTheSendingApplicationRoleBean deviceAdjudResultsSendingAppRole) {
+        this.deviceAdjudResultsSendingAppRole = deviceAdjudResultsSendingAppRole;
+    }
+
+
+    @Hl7XmlMapping({"performer/adjudResultsProviderRole"})
+    public ProviderIDBean getPerformerAdjudResultsProviderRole() {
+        return this.performerAdjudResultsProviderRole;
+    }
+    public void setPerformerAdjudResultsProviderRole(ProviderIDBean performerAdjudResultsProviderRole) {
+        this.performerAdjudResultsProviderRole = performerAdjudResultsProviderRole;
     }
 
 
     @Hl7XmlMapping({"summary/adjudResultsGroupSummaryData"})
     public List<SummaryDetailsBean> getSummaryAdjudResultsGroupSummaryData() {
         return this.summaryAdjudResultsGroupSummaryData;
-    }
-
-
-    @Hl7XmlMapping({"reference/adjudResultsFinancialContract"})
-    public BusinessArrangementBean getReferenceAdjudResultsFinancialContract() {
-        return this.referenceAdjudResultsFinancialContract;
-    }
-    public void setReferenceAdjudResultsFinancialContract(BusinessArrangementBean referenceAdjudResultsFinancialContract) {
-        this.referenceAdjudResultsFinancialContract = referenceAdjudResultsFinancialContract;
     }
 
 
@@ -280,6 +263,65 @@ public class AdjudicatedResultsGroupBean extends MessagePartBean {
     }
 
 
+    @Hl7XmlMapping({"author/adjudResultsCarrierRole"})
+    public CarrierOrThirdPartyAdministratorBean getAuthorAdjudResultsCarrierRole() {
+        return this.authorAdjudResultsCarrierRole;
+    }
+    public void setAuthorAdjudResultsCarrierRole(CarrierOrThirdPartyAdministratorBean authorAdjudResultsCarrierRole) {
+        this.authorAdjudResultsCarrierRole = authorAdjudResultsCarrierRole;
+    }
+
+
+    @Hl7XmlMapping({"reference/adjudResultsFinancialContract"})
+    public BusinessArrangementBean getReferenceAdjudResultsFinancialContract() {
+        return this.referenceAdjudResultsFinancialContract;
+    }
+    public void setReferenceAdjudResultsFinancialContract(BusinessArrangementBean referenceAdjudResultsFinancialContract) {
+        this.referenceAdjudResultsFinancialContract = referenceAdjudResultsFinancialContract;
+    }
+
+
+    @Hl7XmlMapping({"location/serviceDeliveryLocation"})
+    public ServiceLocationBean getLocationServiceDeliveryLocation() {
+        return this.locationServiceDeliveryLocation;
+    }
+    public void setLocationServiceDeliveryLocation(ServiceLocationBean locationServiceDeliveryLocation) {
+        this.locationServiceDeliveryLocation = locationServiceDeliveryLocation;
+    }
+
+
+    @Hl7XmlMapping({"component/adjudResultsGroup"})
+    public List<AdjudicatedResultsGroupBean> getComponentAdjudResultsGroup() {
+        return this.componentAdjudResultsGroup;
+    }
+
+
+    /**
+     * <p>AdjudicatedResultsGroupID</p>
+     * 
+     * <p>Adjudicated Results Group ID</p>
+     * 
+     * <p>Adjudicated Results Group ID</p>
+     * 
+     * <p><p>ID of Results Group</p></p>
+     * 
+     * <p><p>If specified on a Payment Advice Summary, can be used 
+     * to request additional detail with a Payment Advice Query 
+     * message</p></p>
+     * 
+     * <p><p>(If specified on a Payment Advice Summary, can be used 
+     * to request additional detail with a Payment Advice Query 
+     * message</p></p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Identifier getAdjudicatedResultsGroupID() {
+        return this.adjudicatedResultsGroupID.getValue();
+    }
+    public void setAdjudicatedResultsGroupID(Identifier adjudicatedResultsGroupID) {
+        this.adjudicatedResultsGroupID.setValue(adjudicatedResultsGroupID);
+    }
+
+
     /**
      * <p>Summary Period Date Range</p>
      * 
@@ -306,54 +348,12 @@ public class AdjudicatedResultsGroupBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"component/adjudResultsGroup"})
-    public List<AdjudicatedResultsGroupBean> getComponentAdjudResultsGroup() {
-        return this.componentAdjudResultsGroup;
-    }
-
-
-    @Hl7XmlMapping({"device/adjudResultsSendingAppRole"})
-    public DevicePlayingTheSendingApplicationRoleBean getDeviceAdjudResultsSendingAppRole() {
-        return this.deviceAdjudResultsSendingAppRole;
-    }
-    public void setDeviceAdjudResultsSendingAppRole(DevicePlayingTheSendingApplicationRoleBean deviceAdjudResultsSendingAppRole) {
-        this.deviceAdjudResultsSendingAppRole = deviceAdjudResultsSendingAppRole;
-    }
-
-
-    @Hl7XmlMapping({"debit/account"})
-    public AccountBean getDebitAccount() {
-        return this.debitAccount;
-    }
-    public void setDebitAccount(AccountBean debitAccount) {
-        this.debitAccount = debitAccount;
-    }
-
-
-    @Hl7XmlMapping({"location/serviceDeliveryLocation"})
-    public ServiceLocationBean getLocationServiceDeliveryLocation() {
-        return this.locationServiceDeliveryLocation;
-    }
-    public void setLocationServiceDeliveryLocation(ServiceLocationBean locationServiceDeliveryLocation) {
-        this.locationServiceDeliveryLocation = locationServiceDeliveryLocation;
-    }
-
-
     @Hl7XmlMapping({"credit/account"})
     public PayeeAccountBean getCreditAccount() {
         return this.creditAccount;
     }
     public void setCreditAccount(PayeeAccountBean creditAccount) {
         this.creditAccount = creditAccount;
-    }
-
-
-    @Hl7XmlMapping({"performer/adjudResultsProviderRole"})
-    public ProviderIDBean getPerformerAdjudResultsProviderRole() {
-        return this.performerAdjudResultsProviderRole;
-    }
-    public void setPerformerAdjudResultsProviderRole(ProviderIDBean performerAdjudResultsProviderRole) {
-        this.performerAdjudResultsProviderRole = performerAdjudResultsProviderRole;
     }
 
 }

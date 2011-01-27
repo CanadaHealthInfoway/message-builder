@@ -45,13 +45,49 @@ import ca.infoway.messagebuilder.model.common.coct_mt490000ca.ManufacturedMateri
 @Hl7PartTypeMapping({"COCT_MT290000CA.ManufacturedProduct","COCT_MT490000CA.ManufacturedProduct"})
 public class ManufacturedProductBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
+    private static final long serialVersionUID = 20110127L;
+    private ST manufacturerManufacturedProductOrganizationName = new STImpl();
+    private TEL manufacturerManufacturedProductOrganizationTelecom = new TELImpl();
     private CV code = new CVImpl();
     private II id = new IIImpl();
-    private TEL manufacturerManufacturedProductOrganizationTelecom = new TELImpl();
-    private ST manufacturerManufacturedProductOrganizationName = new STImpl();
     private ManufacturedMaterialKindBean manufacturedMaterialKind;
     private CD productNumber = new CDImpl();
+
+
+    /**
+     * <p>Manufacturer Name</p>
+     * 
+     * <p><p>Name of manufacturer.</p></p>
+     * 
+     * <p>Organisation Name</p>
+     * 
+     * <p><p>Manufacturer Name</p></p>
+     */
+    @Hl7XmlMapping({"manufacturerManufacturedProductOrganization/name"})
+    public String getManufacturerManufacturedProductOrganizationName() {
+        return this.manufacturerManufacturedProductOrganizationName.getValue();
+    }
+    public void setManufacturerManufacturedProductOrganizationName(String manufacturerManufacturedProductOrganizationName) {
+        this.manufacturerManufacturedProductOrganizationName.setValue(manufacturerManufacturedProductOrganizationName);
+    }
+
+
+    /**
+     * <p>Manufacturer Telecom</p>
+     * 
+     * <p><p>Telephone no. for manufacturer</p></p>
+     * 
+     * <p>Organisation telephone/email</p>
+     * 
+     * <p><p>Organisation telephone/email</p></p>
+     */
+    @Hl7XmlMapping({"manufacturerManufacturedProductOrganization/telecom"})
+    public TelecommunicationAddress getManufacturerManufacturedProductOrganizationTelecom() {
+        return this.manufacturerManufacturedProductOrganizationTelecom.getValue();
+    }
+    public void setManufacturerManufacturedProductOrganizationTelecom(TelecommunicationAddress manufacturerManufacturedProductOrganizationTelecom) {
+        this.manufacturerManufacturedProductOrganizationTelecom.setValue(manufacturerManufacturedProductOrganizationTelecom);
+    }
 
 
     /**
@@ -88,42 +124,6 @@ public class ManufacturedProductBean extends MessagePartBean {
     }
     public void setId(Identifier id) {
         this.id.setValue(id);
-    }
-
-
-    /**
-     * <p>Manufacturer Telecom</p>
-     * 
-     * <p><p>Telephone no. for manufacturer</p></p>
-     * 
-     * <p>Organisation telephone/email</p>
-     * 
-     * <p><p>Organisation telephone/email</p></p>
-     */
-    @Hl7XmlMapping({"manufacturerManufacturedProductOrganization/telecom"})
-    public TelecommunicationAddress getManufacturerManufacturedProductOrganizationTelecom() {
-        return this.manufacturerManufacturedProductOrganizationTelecom.getValue();
-    }
-    public void setManufacturerManufacturedProductOrganizationTelecom(TelecommunicationAddress manufacturerManufacturedProductOrganizationTelecom) {
-        this.manufacturerManufacturedProductOrganizationTelecom.setValue(manufacturerManufacturedProductOrganizationTelecom);
-    }
-
-
-    /**
-     * <p>Manufacturer Name</p>
-     * 
-     * <p><p>Name of manufacturer.</p></p>
-     * 
-     * <p>Organisation Name</p>
-     * 
-     * <p><p>Manufacturer Name</p></p>
-     */
-    @Hl7XmlMapping({"manufacturerManufacturedProductOrganization/name"})
-    public String getManufacturerManufacturedProductOrganizationName() {
-        return this.manufacturerManufacturedProductOrganizationName.getValue();
-    }
-    public void setManufacturerManufacturedProductOrganizationName(String manufacturerManufacturedProductOrganizationName) {
-        this.manufacturerManufacturedProductOrganizationName.setValue(manufacturerManufacturedProductOrganizationName);
     }
 
 

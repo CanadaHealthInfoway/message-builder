@@ -33,27 +33,15 @@ import java.util.Set;
 @Hl7PartTypeMapping({"FICR_MT510201CA.AdjudicatedInvoiceElementDetail"})
 public class AdjudicatedInvoiceElementDetailBean extends MessagePartBean implements AdjudicatedInvoiceElementChoice {
 
-    private static final long serialVersionUID = 20110126L;
-    private MO adjudicatedLineAmount = new MOImpl();
+    private static final long serialVersionUID = 20110127L;
     private CV adjudicatedProductServiceCode = new CVImpl();
-    private SET<II, Identifier> adjudicatedInvoiceElementIdentifier = new SETImpl<II, Identifier>(IIImpl.class);
+    private RTO<Money, PhysicalQuantity> adjudicatedUnitPrice = new RTOImpl<Money, PhysicalQuantity>();
     private PQ adjudicatedUnitQuantity = new PQImpl();
+    private SET<II, Identifier> adjudicatedInvoiceElementIdentifier = new SETImpl<II, Identifier>(IIImpl.class);
+    private AllowableBean reference1Allowable;
+    private MO adjudicatedLineAmount = new MOImpl();
     private REAL multiplierEG007 = new REALImpl();
     private AdjudicationResultBean outcomeOfAdjudicationResult;
-    private RTO<Money, PhysicalQuantity> adjudicatedUnitPrice = new RTOImpl<Money, PhysicalQuantity>();
-    private AllowableBean reference1Allowable;
-
-
-    /**
-     * <p>Adjudicated Line Amount</p>
-     */
-    @Hl7XmlMapping({"netAmt"})
-    public Money getAdjudicatedLineAmount() {
-        return this.adjudicatedLineAmount.getValue();
-    }
-    public void setAdjudicatedLineAmount(Money adjudicatedLineAmount) {
-        this.adjudicatedLineAmount.setValue(adjudicatedLineAmount);
-    }
 
 
     /**
@@ -69,11 +57,14 @@ public class AdjudicatedInvoiceElementDetailBean extends MessagePartBean impleme
 
 
     /**
-     * <p>Adjudicated Invoice Element Identifier</p>
+     * <p>Adjudicated Unit Price</p>
      */
-    @Hl7XmlMapping({"id"})
-    public Set<Identifier> getAdjudicatedInvoiceElementIdentifier() {
-        return this.adjudicatedInvoiceElementIdentifier.rawSet();
+    @Hl7XmlMapping({"unitPriceAmt"})
+    public Ratio<Money, PhysicalQuantity> getAdjudicatedUnitPrice() {
+        return this.adjudicatedUnitPrice.getValue();
+    }
+    public void setAdjudicatedUnitPrice(Ratio<Money, PhysicalQuantity> adjudicatedUnitPrice) {
+        this.adjudicatedUnitPrice.setValue(adjudicatedUnitPrice);
     }
 
 
@@ -86,6 +77,36 @@ public class AdjudicatedInvoiceElementDetailBean extends MessagePartBean impleme
     }
     public void setAdjudicatedUnitQuantity(PhysicalQuantity adjudicatedUnitQuantity) {
         this.adjudicatedUnitQuantity.setValue(adjudicatedUnitQuantity);
+    }
+
+
+    /**
+     * <p>Adjudicated Invoice Element Identifier</p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Set<Identifier> getAdjudicatedInvoiceElementIdentifier() {
+        return this.adjudicatedInvoiceElementIdentifier.rawSet();
+    }
+
+
+    @Hl7XmlMapping({"reference1/allowable"})
+    public AllowableBean getReference1Allowable() {
+        return this.reference1Allowable;
+    }
+    public void setReference1Allowable(AllowableBean reference1Allowable) {
+        this.reference1Allowable = reference1Allowable;
+    }
+
+
+    /**
+     * <p>Adjudicated Line Amount</p>
+     */
+    @Hl7XmlMapping({"netAmt"})
+    public Money getAdjudicatedLineAmount() {
+        return this.adjudicatedLineAmount.getValue();
+    }
+    public void setAdjudicatedLineAmount(Money adjudicatedLineAmount) {
+        this.adjudicatedLineAmount.setValue(adjudicatedLineAmount);
     }
 
 
@@ -104,27 +125,6 @@ public class AdjudicatedInvoiceElementDetailBean extends MessagePartBean impleme
     }
     public void setOutcomeOfAdjudicationResult(AdjudicationResultBean outcomeOfAdjudicationResult) {
         this.outcomeOfAdjudicationResult = outcomeOfAdjudicationResult;
-    }
-
-
-    /**
-     * <p>Adjudicated Unit Price</p>
-     */
-    @Hl7XmlMapping({"unitPriceAmt"})
-    public Ratio<Money, PhysicalQuantity> getAdjudicatedUnitPrice() {
-        return this.adjudicatedUnitPrice.getValue();
-    }
-    public void setAdjudicatedUnitPrice(Ratio<Money, PhysicalQuantity> adjudicatedUnitPrice) {
-        this.adjudicatedUnitPrice.setValue(adjudicatedUnitPrice);
-    }
-
-
-    @Hl7XmlMapping({"reference1/allowable"})
-    public AllowableBean getReference1Allowable() {
-        return this.reference1Allowable;
-    }
-    public void setReference1Allowable(AllowableBean reference1Allowable) {
-        this.reference1Allowable = reference1Allowable;
     }
 
 }

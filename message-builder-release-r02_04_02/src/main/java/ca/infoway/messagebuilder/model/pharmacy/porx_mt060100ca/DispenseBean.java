@@ -42,26 +42,53 @@ import java.util.Set;
 @Hl7RootType
 public class DispenseBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
-    private PrescribedAdminidtrationInstructionBean component2AdministrationInstructions;
+    private static final long serialVersionUID = 20110127L;
+    private OccurredAtBean location;
+    private BL subjectOf1DetectedIssueIndicator = new BLImpl();
+    private SubstanceAdministrationRequestBean fulfillmentSubstanceAdministrationRequest;
+    private SupplyEventBean component1SupplyEvent;
     private CS dispenseStatus = new CSImpl();
     private BL subjectOf2AnnotationIndicator = new BLImpl();
-    private II prescriptionDispenseNumber = new IIImpl();
-    private HealthcareWorkerBean responsiblePartyAssignedEntity;
-    private OccurredAtBean location;
-    private SET<CV, Code> prescriptionMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);
-    private BL subjectOf1DetectedIssueIndicator = new BLImpl();
-    private SupplyEventBean component1SupplyEvent;
     private HealthcareWorkerBean performerAssignedEntity;
-    private SubstanceAdministrationRequestBean fulfillmentSubstanceAdministrationRequest;
+    private II prescriptionDispenseNumber = new IIImpl();
+    private PrescribedAdminidtrationInstructionBean component2AdministrationInstructions;
+    private SET<CV, Code> prescriptionMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);
+    private HealthcareWorkerBean responsiblePartyAssignedEntity;
 
 
-    @Hl7XmlMapping({"component2/administrationInstructions"})
-    public PrescribedAdminidtrationInstructionBean getComponent2AdministrationInstructions() {
-        return this.component2AdministrationInstructions;
+    @Hl7XmlMapping({"location"})
+    public OccurredAtBean getLocation() {
+        return this.location;
     }
-    public void setComponent2AdministrationInstructions(PrescribedAdminidtrationInstructionBean component2AdministrationInstructions) {
-        this.component2AdministrationInstructions = component2AdministrationInstructions;
+    public void setLocation(OccurredAtBean location) {
+        this.location = location;
+    }
+
+
+    @Hl7XmlMapping({"subjectOf1/detectedIssueIndicator"})
+    public Boolean getSubjectOf1DetectedIssueIndicator() {
+        return this.subjectOf1DetectedIssueIndicator.getValue();
+    }
+    public void setSubjectOf1DetectedIssueIndicator(Boolean subjectOf1DetectedIssueIndicator) {
+        this.subjectOf1DetectedIssueIndicator.setValue(subjectOf1DetectedIssueIndicator);
+    }
+
+
+    @Hl7XmlMapping({"fulfillment/substanceAdministrationRequest"})
+    public SubstanceAdministrationRequestBean getFulfillmentSubstanceAdministrationRequest() {
+        return this.fulfillmentSubstanceAdministrationRequest;
+    }
+    public void setFulfillmentSubstanceAdministrationRequest(SubstanceAdministrationRequestBean fulfillmentSubstanceAdministrationRequest) {
+        this.fulfillmentSubstanceAdministrationRequest = fulfillmentSubstanceAdministrationRequest;
+    }
+
+
+    @Hl7XmlMapping({"component1/supplyEvent"})
+    public SupplyEventBean getComponent1SupplyEvent() {
+        return this.component1SupplyEvent;
+    }
+    public void setComponent1SupplyEvent(SupplyEventBean component1SupplyEvent) {
+        this.component1SupplyEvent = component1SupplyEvent;
     }
 
 
@@ -93,6 +120,15 @@ public class DispenseBean extends MessagePartBean {
     }
 
 
+    @Hl7XmlMapping({"performer/assignedEntity"})
+    public HealthcareWorkerBean getPerformerAssignedEntity() {
+        return this.performerAssignedEntity;
+    }
+    public void setPerformerAssignedEntity(HealthcareWorkerBean performerAssignedEntity) {
+        this.performerAssignedEntity = performerAssignedEntity;
+    }
+
+
     /**
      * <p>A:Prescription Dispense Number</p>
      * 
@@ -120,21 +156,12 @@ public class DispenseBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"responsibleParty/assignedEntity"})
-    public HealthcareWorkerBean getResponsiblePartyAssignedEntity() {
-        return this.responsiblePartyAssignedEntity;
+    @Hl7XmlMapping({"component2/administrationInstructions"})
+    public PrescribedAdminidtrationInstructionBean getComponent2AdministrationInstructions() {
+        return this.component2AdministrationInstructions;
     }
-    public void setResponsiblePartyAssignedEntity(HealthcareWorkerBean responsiblePartyAssignedEntity) {
-        this.responsiblePartyAssignedEntity = responsiblePartyAssignedEntity;
-    }
-
-
-    @Hl7XmlMapping({"location"})
-    public OccurredAtBean getLocation() {
-        return this.location;
-    }
-    public void setLocation(OccurredAtBean location) {
-        this.location = location;
+    public void setComponent2AdministrationInstructions(PrescribedAdminidtrationInstructionBean component2AdministrationInstructions) {
+        this.component2AdministrationInstructions = component2AdministrationInstructions;
     }
 
 
@@ -243,39 +270,12 @@ public class DispenseBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"subjectOf1/detectedIssueIndicator"})
-    public Boolean getSubjectOf1DetectedIssueIndicator() {
-        return this.subjectOf1DetectedIssueIndicator.getValue();
+    @Hl7XmlMapping({"responsibleParty/assignedEntity"})
+    public HealthcareWorkerBean getResponsiblePartyAssignedEntity() {
+        return this.responsiblePartyAssignedEntity;
     }
-    public void setSubjectOf1DetectedIssueIndicator(Boolean subjectOf1DetectedIssueIndicator) {
-        this.subjectOf1DetectedIssueIndicator.setValue(subjectOf1DetectedIssueIndicator);
-    }
-
-
-    @Hl7XmlMapping({"component1/supplyEvent"})
-    public SupplyEventBean getComponent1SupplyEvent() {
-        return this.component1SupplyEvent;
-    }
-    public void setComponent1SupplyEvent(SupplyEventBean component1SupplyEvent) {
-        this.component1SupplyEvent = component1SupplyEvent;
-    }
-
-
-    @Hl7XmlMapping({"performer/assignedEntity"})
-    public HealthcareWorkerBean getPerformerAssignedEntity() {
-        return this.performerAssignedEntity;
-    }
-    public void setPerformerAssignedEntity(HealthcareWorkerBean performerAssignedEntity) {
-        this.performerAssignedEntity = performerAssignedEntity;
-    }
-
-
-    @Hl7XmlMapping({"fulfillment/substanceAdministrationRequest"})
-    public SubstanceAdministrationRequestBean getFulfillmentSubstanceAdministrationRequest() {
-        return this.fulfillmentSubstanceAdministrationRequest;
-    }
-    public void setFulfillmentSubstanceAdministrationRequest(SubstanceAdministrationRequestBean fulfillmentSubstanceAdministrationRequest) {
-        this.fulfillmentSubstanceAdministrationRequest = fulfillmentSubstanceAdministrationRequest;
+    public void setResponsiblePartyAssignedEntity(HealthcareWorkerBean responsiblePartyAssignedEntity) {
+        this.responsiblePartyAssignedEntity = responsiblePartyAssignedEntity;
     }
 
 }

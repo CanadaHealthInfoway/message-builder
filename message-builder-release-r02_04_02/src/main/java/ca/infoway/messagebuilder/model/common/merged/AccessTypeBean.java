@@ -33,7 +33,7 @@ import ca.infoway.messagebuilder.model.merged.ConsentGivenToBean;
 @Hl7PartTypeMapping({"COCT_MT470002CA.InformDefinition","COCT_MT470012CA.InformDefinition"})
 public class AccessTypeBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
+    private static final long serialVersionUID = 20110127L;
     private ConsentGivenToBean receiver;
     private CV consentInformationTypes = new CVImpl();
 

@@ -44,34 +44,96 @@ import java.util.Date;
 @Hl7RootType
 public class ParameterListBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
-    private BL includeNullifiedOrdersIndicator = new BLImpl();
-    private BL includeHistoryIndicator = new BLImpl();
-    private II orderingProviderIdentifier = new IIImpl();
-    private CS orderStatusValue = new CSImpl();
-    private BL includeResultsIndicator = new BLImpl();
-    private CD orderTestCode = new CDImpl();
-    private IVL<TS, Interval<Date>> observationAvailabilityEffectiveTimeRange = new IVLImpl<TS, Interval<Date>>();
-    private II patientID = new IIImpl();
-    private TS patientDOB = new TSImpl();
-    private II placerOrderNumber = new IIImpl();
+    private static final long serialVersionUID = 20110127L;
     private IVL<TS, Interval<Date>> orderEntryEffectiveTimeRange = new IVLImpl<TS, Interval<Date>>();
+    private II orderingProviderIdentifier = new IIImpl();
+    private II placerOrderNumber = new IIImpl();
     private PN patientName = new PNImpl();
+    private BL includeHistoryIndicator = new BLImpl();
+    private TS patientDOB = new TSImpl();
     private CV patientGender = new CVImpl();
+    private BL includeResultsIndicator = new BLImpl();
+    private CS orderStatusValue = new CSImpl();
+    private IVL<TS, Interval<Date>> observationAvailabilityEffectiveTimeRange = new IVLImpl<TS, Interval<Date>>();
+    private BL includeNullifiedOrdersIndicator = new BLImpl();
+    private II patientID = new IIImpl();
+    private CD orderTestCode = new CDImpl();
 
 
     /**
-     * <p>Include Nullified Orders Indicator</p>
+     * <p>Order Entry Effective Time Range</p>
      * 
-     * <p><p>Indicates whether or not to include nullified orders. 
-     * True=include records, the default is false</p></p>
+     * <p><p>Filters the set of records to be retrieved to those 
+     * which the order entry date/time for the patient within the 
+     * time boundaries specified. Either the lower bound or upper 
+     * bound or both would be specified. If no value is specified, 
+     * no filter will be applied. If there is any overlap between 
+     * the specified time-range and the order entry date/time, the 
+     * record will be returned.</p></p>
+     * 
+     * <p><p>Allows constraining the retrieved records to those 
+     * applicable at a particular time.</p></p>
      */
-    @Hl7XmlMapping({"includeNullifiedIndicator/value"})
-    public Boolean getIncludeNullifiedOrdersIndicator() {
-        return this.includeNullifiedOrdersIndicator.getValue();
+    @Hl7XmlMapping({"orderEnteredDateTimeRange/value"})
+    public Interval<Date> getOrderEntryEffectiveTimeRange() {
+        return this.orderEntryEffectiveTimeRange.getValue();
     }
-    public void setIncludeNullifiedOrdersIndicator(Boolean includeNullifiedOrdersIndicator) {
-        this.includeNullifiedOrdersIndicator.setValue(includeNullifiedOrdersIndicator);
+    public void setOrderEntryEffectiveTimeRange(Interval<Date> orderEntryEffectiveTimeRange) {
+        this.orderEntryEffectiveTimeRange.setValue(orderEntryEffectiveTimeRange);
+    }
+
+
+    /**
+     * <p>Ordering Provider Identifier</p>
+     * 
+     * <p><p>Select only those records for this ordering 
+     * provider.</p></p>
+     * 
+     * <p><p>Allows constraining the retrieved records to those 
+     * applicable for a specific ordering provider.</p></p>
+     */
+    @Hl7XmlMapping({"orderingProvider/value"})
+    public Identifier getOrderingProviderIdentifier() {
+        return this.orderingProviderIdentifier.getValue();
+    }
+    public void setOrderingProviderIdentifier(Identifier orderingProviderIdentifier) {
+        this.orderingProviderIdentifier.setValue(orderingProviderIdentifier);
+    }
+
+
+    /**
+     * <p>Placer Order Number</p>
+     * 
+     * <p><p>Must contain a value assigned by the order-placing 
+     * organization that uniquely identifies the test for query 
+     * selection.</p></p>
+     * 
+     * <p><p>Allows constraining the retrieved records by 
+     * identifier.</p></p>
+     */
+    @Hl7XmlMapping({"placerOrderNumber/value"})
+    public Identifier getPlacerOrderNumber() {
+        return this.placerOrderNumber.getValue();
+    }
+    public void setPlacerOrderNumber(Identifier placerOrderNumber) {
+        this.placerOrderNumber.setValue(placerOrderNumber);
+    }
+
+
+    /**
+     * <p>Patient Name</p>
+     * 
+     * <p><p>Name for the patient.</p></p>
+     * 
+     * <p><p>Used to verify patient identity (a check against the 
+     * patient id parameter).</p></p>
+     */
+    @Hl7XmlMapping({"patientName/value"})
+    public PersonName getPatientName() {
+        return this.patientName.getValue();
+    }
+    public void setPatientName(PersonName patientName) {
+        this.patientName.setValue(patientName);
     }
 
 
@@ -96,40 +158,36 @@ public class ParameterListBean extends MessagePartBean {
 
 
     /**
-     * <p>Ordering Provider Identifier</p>
+     * <p>Patient DOB</p>
      * 
-     * <p><p>Select only those records for this ordering 
-     * provider.</p></p>
+     * <p><p>Patient's date of birth.</p></p>
      * 
-     * <p><p>Allows constraining the retrieved records to those 
-     * applicable for a specific ordering provider.</p></p>
+     * <p><p>Used to verify patient identity (a check against the 
+     * patient id parameter).</p></p>
      */
-    @Hl7XmlMapping({"orderingProvider/value"})
-    public Identifier getOrderingProviderIdentifier() {
-        return this.orderingProviderIdentifier.getValue();
+    @Hl7XmlMapping({"patientDateofBirth/value"})
+    public Date getPatientDOB() {
+        return this.patientDOB.getValue();
     }
-    public void setOrderingProviderIdentifier(Identifier orderingProviderIdentifier) {
-        this.orderingProviderIdentifier.setValue(orderingProviderIdentifier);
+    public void setPatientDOB(Date patientDOB) {
+        this.patientDOB.setValue(patientDOB);
     }
 
 
     /**
-     * <p>Order Status Value</p>
+     * <p>Patient Gender</p>
      * 
-     * <p><p>Communicates the status of the order.</p></p>
+     * <p><p>Patient's administrative gender (sex) code.</p></p>
      * 
-     * <p><p>Allows for the selection of only &quot;active&quot; 
-     * orders or &quot;completed&quot; orders.</p></p>
+     * <p><p>Used to verify patient identity (a check against the 
+     * patient id parameter).</p></p>
      */
-    @Hl7XmlMapping({"batteryRequestStatus/value","observationRequestStatus/value"})
-    @Hl7MapByPartTypes({
-        @Hl7MapByPartType(name="batteryRequestStatus", type="POLB_MT330000CA.BatteryRequestStatus"),
-        @Hl7MapByPartType(name="observationRequestStatus", type="POLB_MT330000CA.ObservationRequestStatus")})
-    public ActStatus getOrderStatusValue() {
-        return (ActStatus) this.orderStatusValue.getValue();
+    @Hl7XmlMapping({"patientGender/value"})
+    public AdministrativeGender getPatientGender() {
+        return (AdministrativeGender) this.patientGender.getValue();
     }
-    public void setOrderStatusValue(ActStatus orderStatusValue) {
-        this.orderStatusValue.setValue(orderStatusValue);
+    public void setPatientGender(AdministrativeGender patientGender) {
+        this.patientGender.setValue(patientGender);
     }
 
 
@@ -150,19 +208,22 @@ public class ParameterListBean extends MessagePartBean {
 
 
     /**
-     * <p>Order Test Code</p>
+     * <p>Order Status Value</p>
      * 
-     * <p><p>The code to describe the type of test requested to be 
-     * performed.</p></p>
+     * <p><p>Communicates the status of the order.</p></p>
      * 
-     * <p><p>Identifies the specific test to perform.</p></p>
+     * <p><p>Allows for the selection of only &quot;active&quot; 
+     * orders or &quot;completed&quot; orders.</p></p>
      */
-    @Hl7XmlMapping({"orderTestCode/value"})
-    public ObservationOrderableLabType getOrderTestCode() {
-        return (ObservationOrderableLabType) this.orderTestCode.getValue();
+    @Hl7XmlMapping({"batteryRequestStatus/value","observationRequestStatus/value"})
+    @Hl7MapByPartTypes({
+        @Hl7MapByPartType(name="batteryRequestStatus", type="POLB_MT330000CA.BatteryRequestStatus"),
+        @Hl7MapByPartType(name="observationRequestStatus", type="POLB_MT330000CA.ObservationRequestStatus")})
+    public ActStatus getOrderStatusValue() {
+        return (ActStatus) this.orderStatusValue.getValue();
     }
-    public void setOrderTestCode(ObservationOrderableLabType orderTestCode) {
-        this.orderTestCode.setValue(orderTestCode);
+    public void setOrderStatusValue(ActStatus orderStatusValue) {
+        this.orderStatusValue.setValue(orderStatusValue);
     }
 
 
@@ -190,6 +251,21 @@ public class ParameterListBean extends MessagePartBean {
 
 
     /**
+     * <p>Include Nullified Orders Indicator</p>
+     * 
+     * <p><p>Indicates whether or not to include nullified orders. 
+     * True=include records, the default is false</p></p>
+     */
+    @Hl7XmlMapping({"includeNullifiedIndicator/value"})
+    public Boolean getIncludeNullifiedOrdersIndicator() {
+        return this.includeNullifiedOrdersIndicator.getValue();
+    }
+    public void setIncludeNullifiedOrdersIndicator(Boolean includeNullifiedOrdersIndicator) {
+        this.includeNullifiedOrdersIndicator.setValue(includeNullifiedOrdersIndicator);
+    }
+
+
+    /**
      * <p>Patient ID</p>
      * 
      * <p><p>A globally unique identifier for the patient whose 
@@ -208,95 +284,19 @@ public class ParameterListBean extends MessagePartBean {
 
 
     /**
-     * <p>Patient DOB</p>
+     * <p>Order Test Code</p>
      * 
-     * <p><p>Patient's date of birth.</p></p>
+     * <p><p>The code to describe the type of test requested to be 
+     * performed.</p></p>
      * 
-     * <p><p>Used to verify patient identity (a check against the 
-     * patient id parameter).</p></p>
+     * <p><p>Identifies the specific test to perform.</p></p>
      */
-    @Hl7XmlMapping({"patientDateofBirth/value"})
-    public Date getPatientDOB() {
-        return this.patientDOB.getValue();
+    @Hl7XmlMapping({"orderTestCode/value"})
+    public ObservationOrderableLabType getOrderTestCode() {
+        return (ObservationOrderableLabType) this.orderTestCode.getValue();
     }
-    public void setPatientDOB(Date patientDOB) {
-        this.patientDOB.setValue(patientDOB);
-    }
-
-
-    /**
-     * <p>Placer Order Number</p>
-     * 
-     * <p><p>Must contain a value assigned by the order-placing 
-     * organization that uniquely identifies the test for query 
-     * selection.</p></p>
-     * 
-     * <p><p>Allows constraining the retrieved records by 
-     * identifier.</p></p>
-     */
-    @Hl7XmlMapping({"placerOrderNumber/value"})
-    public Identifier getPlacerOrderNumber() {
-        return this.placerOrderNumber.getValue();
-    }
-    public void setPlacerOrderNumber(Identifier placerOrderNumber) {
-        this.placerOrderNumber.setValue(placerOrderNumber);
-    }
-
-
-    /**
-     * <p>Order Entry Effective Time Range</p>
-     * 
-     * <p><p>Filters the set of records to be retrieved to those 
-     * which the order entry date/time for the patient within the 
-     * time boundaries specified. Either the lower bound or upper 
-     * bound or both would be specified. If no value is specified, 
-     * no filter will be applied. If there is any overlap between 
-     * the specified time-range and the order entry date/time, the 
-     * record will be returned.</p></p>
-     * 
-     * <p><p>Allows constraining the retrieved records to those 
-     * applicable at a particular time.</p></p>
-     */
-    @Hl7XmlMapping({"orderEnteredDateTimeRange/value"})
-    public Interval<Date> getOrderEntryEffectiveTimeRange() {
-        return this.orderEntryEffectiveTimeRange.getValue();
-    }
-    public void setOrderEntryEffectiveTimeRange(Interval<Date> orderEntryEffectiveTimeRange) {
-        this.orderEntryEffectiveTimeRange.setValue(orderEntryEffectiveTimeRange);
-    }
-
-
-    /**
-     * <p>Patient Name</p>
-     * 
-     * <p><p>Name for the patient.</p></p>
-     * 
-     * <p><p>Used to verify patient identity (a check against the 
-     * patient id parameter).</p></p>
-     */
-    @Hl7XmlMapping({"patientName/value"})
-    public PersonName getPatientName() {
-        return this.patientName.getValue();
-    }
-    public void setPatientName(PersonName patientName) {
-        this.patientName.setValue(patientName);
-    }
-
-
-    /**
-     * <p>Patient Gender</p>
-     * 
-     * <p><p>Patient's administrative gender (sex) code.</p></p>
-     * 
-     * <p><p>Used to verify patient identity (a check against the 
-     * patient id parameter).</p></p>
-     */
-    @Hl7XmlMapping({"patientGender/value"})
-    public AdministrativeGender getPatientGender() {
-        return (AdministrativeGender) this.patientGender.getValue();
-    }
-    public void setPatientGender(AdministrativeGender patientGender) {
-        this.patientGender.setValue(patientGender);
+    public void setOrderTestCode(ObservationOrderableLabType orderTestCode) {
+        this.orderTestCode.setValue(orderTestCode);
     }
 
 }

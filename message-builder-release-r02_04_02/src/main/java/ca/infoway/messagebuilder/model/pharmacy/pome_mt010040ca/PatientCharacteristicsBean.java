@@ -30,10 +30,40 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"POME_MT010040CA.ObservationEventCriterion"})
 public class PatientCharacteristicsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
+    private static final long serialVersionUID = 20110127L;
+    private IVL<PQ, Interval<PhysicalQuantity>> patientCharacteristicValue = new IVLImpl<PQ, Interval<PhysicalQuantity>>();
     private CV patientCharacteristicType = new CVImpl();
     private BL excludeCharacteristic = new BLImpl();
-    private IVL<PQ, Interval<PhysicalQuantity>> patientCharacteristicValue = new IVLImpl<PQ, Interval<PhysicalQuantity>>();
+
+
+    /**
+     * <p>Patient Characteristic Value</p>
+     * 
+     * <p><p>Value should be mandatory if not using SNOMED</p></p>
+     * 
+     * <p><p>Indicates the specific value or range of values of the 
+     * characteristic a patient should have for the dosage to be 
+     * appropriate.</p></p>
+     * 
+     * <p><p>Allows comparison to actual patient characteristics to 
+     * see if the dosage is applicable. In some circumstances, the 
+     * specific range may not be known, thus the field is 
+     * &quot;populated&quot;</p><p>Example: This dosage 
+     * specification applies to people over 60 pounds&quot;.</p></p>
+     * 
+     * <p><p>Allows comparison to actual patient characteristics to 
+     * see if the dosage is applicable. In some circumstances, the 
+     * specific range may not be known, thus the field is 
+     * &quot;populated&quot;</p><p>Example: This dosage 
+     * specification applies to people over 60 pounds&quot;.</p></p>
+     */
+    @Hl7XmlMapping({"value"})
+    public Interval<PhysicalQuantity> getPatientCharacteristicValue() {
+        return this.patientCharacteristicValue.getValue();
+    }
+    public void setPatientCharacteristicValue(Interval<PhysicalQuantity> patientCharacteristicValue) {
+        this.patientCharacteristicValue.setValue(patientCharacteristicValue);
+    }
 
 
     /**
@@ -81,36 +111,6 @@ public class PatientCharacteristicsBean extends MessagePartBean {
     }
     public void setExcludeCharacteristic(Boolean excludeCharacteristic) {
         this.excludeCharacteristic.setValue(excludeCharacteristic);
-    }
-
-
-    /**
-     * <p>Patient Characteristic Value</p>
-     * 
-     * <p><p>Value should be mandatory if not using SNOMED</p></p>
-     * 
-     * <p><p>Indicates the specific value or range of values of the 
-     * characteristic a patient should have for the dosage to be 
-     * appropriate.</p></p>
-     * 
-     * <p><p>Allows comparison to actual patient characteristics to 
-     * see if the dosage is applicable. In some circumstances, the 
-     * specific range may not be known, thus the field is 
-     * &quot;populated&quot;</p><p>Example: This dosage 
-     * specification applies to people over 60 pounds&quot;.</p></p>
-     * 
-     * <p><p>Allows comparison to actual patient characteristics to 
-     * see if the dosage is applicable. In some circumstances, the 
-     * specific range may not be known, thus the field is 
-     * &quot;populated&quot;</p><p>Example: This dosage 
-     * specification applies to people over 60 pounds&quot;.</p></p>
-     */
-    @Hl7XmlMapping({"value"})
-    public Interval<PhysicalQuantity> getPatientCharacteristicValue() {
-        return this.patientCharacteristicValue.getValue();
-    }
-    public void setPatientCharacteristicValue(Interval<PhysicalQuantity> patientCharacteristicValue) {
-        this.patientCharacteristicValue.setValue(patientCharacteristicValue);
     }
 
 }

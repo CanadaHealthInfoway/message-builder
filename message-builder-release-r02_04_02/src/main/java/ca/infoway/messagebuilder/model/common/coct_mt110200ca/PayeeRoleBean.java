@@ -40,7 +40,7 @@ import java.util.Set;
 @Hl7PartTypeMapping({"COCT_MT110200CA.PayeeRole"})
 public class PayeeRoleBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
+    private static final long serialVersionUID = 20110127L;
     private SET<II, Identifier> payeeIdentifier = new SETImpl<II, Identifier>(IIImpl.class);
     private PayeeChoice payeeChoice;
 

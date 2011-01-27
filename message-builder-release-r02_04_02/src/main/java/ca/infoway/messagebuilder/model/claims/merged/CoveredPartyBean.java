@@ -32,67 +32,14 @@ import java.util.Set;
 @Hl7PartTypeMapping({"FICR_MT400001CA.CoveredParty","FICR_MT400003CA.CoveredParty","FICR_MT400004CA.CoveredParty","FICR_MT490101CA.CoveredParty","FICR_MT490102CA.CoveredParty"})
 public class CoveredPartyBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
-    private SET<PN, PersonName> coveredPartyPatientNameS = new SETImpl<PN, PersonName>(PNImpl.class);
-    private TS coveredPartyPatientDateOfBirth = new TSImpl();
-    private AD coveredPartyPatientAddress = new ADImpl();
-    private CV coveredPartyPatientGender = new CVImpl();
+    private static final long serialVersionUID = 20110127L;
     private CV relationshipToPolicyHolder = new CVImpl();
     private II coveredPartyIdentifier = new IIImpl();
     private List<RelatedPersonBean> indirectAuthorityPersonalRelationship = new ArrayList<RelatedPersonBean>();
-
-
-    /**
-     * <p>CoveredPartyPatientNameS</p>
-     * 
-     * <p>Covered Party (Patient) Name(s</p>
-     */
-    @Hl7XmlMapping({"coveredPartyAsPatientPerson/name"})
-    public Set<PersonName> getCoveredPartyPatientNameS() {
-        return this.coveredPartyPatientNameS.rawSet();
-    }
-
-
-    /**
-     * <p>CoveredPartyPatientDateOfBirth</p>
-     * 
-     * <p>Covered Party (Patient) Date of Birth</p>
-     */
-    @Hl7XmlMapping({"coveredPartyAsPatientPerson/birthTime"})
-    public Date getCoveredPartyPatientDateOfBirth() {
-        return this.coveredPartyPatientDateOfBirth.getValue();
-    }
-    public void setCoveredPartyPatientDateOfBirth(Date coveredPartyPatientDateOfBirth) {
-        this.coveredPartyPatientDateOfBirth.setValue(coveredPartyPatientDateOfBirth);
-    }
-
-
-    /**
-     * <p>CoveredPartyPatientAddress</p>
-     * 
-     * <p>Covered Party (Patient) Address</p>
-     */
-    @Hl7XmlMapping({"coveredPartyAsPatientPerson/addr"})
-    public PostalAddress getCoveredPartyPatientAddress() {
-        return this.coveredPartyPatientAddress.getValue();
-    }
-    public void setCoveredPartyPatientAddress(PostalAddress coveredPartyPatientAddress) {
-        this.coveredPartyPatientAddress.setValue(coveredPartyPatientAddress);
-    }
-
-
-    /**
-     * <p>CoveredPartyPatientGender</p>
-     * 
-     * <p>Covered Party (Patient) Gender</p>
-     */
-    @Hl7XmlMapping({"coveredPartyAsPatientPerson/administrativeGenderCode"})
-    public AdministrativeGender getCoveredPartyPatientGender() {
-        return (AdministrativeGender) this.coveredPartyPatientGender.getValue();
-    }
-    public void setCoveredPartyPatientGender(AdministrativeGender coveredPartyPatientGender) {
-        this.coveredPartyPatientGender.setValue(coveredPartyPatientGender);
-    }
+    private AD coveredPartyPatientAddress = new ADImpl();
+    private SET<PN, PersonName> coveredPartyPatientNameS = new SETImpl<PN, PersonName>(PNImpl.class);
+    private CV coveredPartyPatientGender = new CVImpl();
+    private TS coveredPartyPatientDateOfBirth = new TSImpl();
 
 
     /**
@@ -126,6 +73,59 @@ public class CoveredPartyBean extends MessagePartBean {
     @Hl7XmlMapping({"indirectAuthority/personalRelationship"})
     public List<RelatedPersonBean> getIndirectAuthorityPersonalRelationship() {
         return this.indirectAuthorityPersonalRelationship;
+    }
+
+
+    /**
+     * <p>CoveredPartyPatientAddress</p>
+     * 
+     * <p>Covered Party (Patient) Address</p>
+     */
+    @Hl7XmlMapping({"coveredPartyAsPatientPerson/addr"})
+    public PostalAddress getCoveredPartyPatientAddress() {
+        return this.coveredPartyPatientAddress.getValue();
+    }
+    public void setCoveredPartyPatientAddress(PostalAddress coveredPartyPatientAddress) {
+        this.coveredPartyPatientAddress.setValue(coveredPartyPatientAddress);
+    }
+
+
+    /**
+     * <p>CoveredPartyPatientNameS</p>
+     * 
+     * <p>Covered Party (Patient) Name(s</p>
+     */
+    @Hl7XmlMapping({"coveredPartyAsPatientPerson/name"})
+    public Set<PersonName> getCoveredPartyPatientNameS() {
+        return this.coveredPartyPatientNameS.rawSet();
+    }
+
+
+    /**
+     * <p>CoveredPartyPatientGender</p>
+     * 
+     * <p>Covered Party (Patient) Gender</p>
+     */
+    @Hl7XmlMapping({"coveredPartyAsPatientPerson/administrativeGenderCode"})
+    public AdministrativeGender getCoveredPartyPatientGender() {
+        return (AdministrativeGender) this.coveredPartyPatientGender.getValue();
+    }
+    public void setCoveredPartyPatientGender(AdministrativeGender coveredPartyPatientGender) {
+        this.coveredPartyPatientGender.setValue(coveredPartyPatientGender);
+    }
+
+
+    /**
+     * <p>CoveredPartyPatientDateOfBirth</p>
+     * 
+     * <p>Covered Party (Patient) Date of Birth</p>
+     */
+    @Hl7XmlMapping({"coveredPartyAsPatientPerson/birthTime"})
+    public Date getCoveredPartyPatientDateOfBirth() {
+        return this.coveredPartyPatientDateOfBirth.getValue();
+    }
+    public void setCoveredPartyPatientDateOfBirth(Date coveredPartyPatientDateOfBirth) {
+        this.coveredPartyPatientDateOfBirth.setValue(coveredPartyPatientDateOfBirth);
     }
 
 }

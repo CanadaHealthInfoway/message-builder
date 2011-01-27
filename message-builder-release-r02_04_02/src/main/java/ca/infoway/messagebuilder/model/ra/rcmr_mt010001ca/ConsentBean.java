@@ -56,24 +56,15 @@ import java.util.Date;
 @Hl7RootType
 public class ConsentBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
-    private ConsentedToByBean author1;
+    private static final long serialVersionUID = 20110127L;
     private CV consentType = new CVImpl();
+    private ConsentedToByBean author1;
+    private PrescribedByBean author2;
     private II consentFormNumber = new IIImpl();
-    private IVL<TS, Interval<Date>> consentEffectiveAndEndTime = new IVLImpl<TS, Interval<Date>>();
     private BL consentRefusedIndicator = new BLImpl();
     private InformationAccessBean componentPermissionToInform;
+    private IVL<TS, Interval<Date>> consentEffectiveAndEndTime = new IVLImpl<TS, Interval<Date>>();
     private CV consentOverrideReason = new CVImpl();
-    private PrescribedByBean author2;
-
-
-    @Hl7XmlMapping({"author1"})
-    public ConsentedToByBean getAuthor1() {
-        return this.author1;
-    }
-    public void setAuthor1(ConsentedToByBean author1) {
-        this.author1 = author1;
-    }
 
 
     /**
@@ -94,6 +85,24 @@ public class ConsentBean extends MessagePartBean {
     }
 
 
+    @Hl7XmlMapping({"author1"})
+    public ConsentedToByBean getAuthor1() {
+        return this.author1;
+    }
+    public void setAuthor1(ConsentedToByBean author1) {
+        this.author1 = author1;
+    }
+
+
+    @Hl7XmlMapping({"author2"})
+    public PrescribedByBean getAuthor2() {
+        return this.author2;
+    }
+    public void setAuthor2(PrescribedByBean author2) {
+        this.author2 = author2;
+    }
+
+
     /**
      * <p>D:Consent Form Number</p>
      * 
@@ -109,24 +118,6 @@ public class ConsentBean extends MessagePartBean {
     }
     public void setConsentFormNumber(Identifier consentFormNumber) {
         this.consentFormNumber.setValue(consentFormNumber);
-    }
-
-
-    /**
-     * <p>C:Consent Effective and End Time</p>
-     * 
-     * <p><p>Indicates the time that the consent will expire. 'Low' 
-     * is effective time and 'High' is end time.</p></p>
-     * 
-     * <p><p>Most consents are not open-ended, to ensure the 
-     * patient retains a level of control</p></p>
-     */
-    @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getConsentEffectiveAndEndTime() {
-        return this.consentEffectiveAndEndTime.getValue();
-    }
-    public void setConsentEffectiveAndEndTime(Interval<Date> consentEffectiveAndEndTime) {
-        this.consentEffectiveAndEndTime.setValue(consentEffectiveAndEndTime);
     }
 
 
@@ -173,6 +164,24 @@ public class ConsentBean extends MessagePartBean {
 
 
     /**
+     * <p>C:Consent Effective and End Time</p>
+     * 
+     * <p><p>Indicates the time that the consent will expire. 'Low' 
+     * is effective time and 'High' is end time.</p></p>
+     * 
+     * <p><p>Most consents are not open-ended, to ensure the 
+     * patient retains a level of control</p></p>
+     */
+    @Hl7XmlMapping({"effectiveTime"})
+    public Interval<Date> getConsentEffectiveAndEndTime() {
+        return this.consentEffectiveAndEndTime.getValue();
+    }
+    public void setConsentEffectiveAndEndTime(Interval<Date> consentEffectiveAndEndTime) {
+        this.consentEffectiveAndEndTime.setValue(consentEffectiveAndEndTime);
+    }
+
+
+    /**
      * <p>E:Consent Override Reason</p>
      * 
      * <p><p>Indicates a reason for overriding a patient's consent 
@@ -186,15 +195,6 @@ public class ConsentBean extends MessagePartBean {
     }
     public void setConsentOverrideReason(Code consentOverrideReason) {
         this.consentOverrideReason.setValue(consentOverrideReason);
-    }
-
-
-    @Hl7XmlMapping({"author2"})
-    public PrescribedByBean getAuthor2() {
-        return this.author2;
-    }
-    public void setAuthor2(PrescribedByBean author2) {
-        this.author2 = author2;
     }
 
 }

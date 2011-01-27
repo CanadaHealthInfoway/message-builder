@@ -38,30 +38,11 @@ import java.util.Set;
 @Hl7RootType
 public class HealthcareOrganizationBean extends MessagePartBean implements ca.infoway.messagebuilder.model.lab.merged.RecipientChoice, ca.infoway.messagebuilder.model.common.merged.ActingPerson, ca.infoway.messagebuilder.model.merged.RoleChoice, ca.infoway.messagebuilder.model.common.coct_mt911108ca.ActingPerson {
 
-    private static final long serialVersionUID = 20110126L;
-    private II organizationIdentifier = new IIImpl();
+    private static final long serialVersionUID = 20110127L;
     private ST organizationName = new STImpl();
     private CV organizationType = new CVImpl();
     private SET<TEL, TelecommunicationAddress> organizationPhoneAndEmails = new SETImpl<TEL, TelecommunicationAddress>(TELImpl.class);
-
-
-    /**
-     * <p>E: Organization identifier</p>
-     * 
-     * <p><p>A unique identifier for the organization</p></p>
-     * 
-     * <p><p>Allows the organization to be referenced when 
-     * determining privileges and for drill-downs to retrieve 
-     * additional information. Because of its importance, the 
-     * attribute is mandatory.</p></p>
-     */
-    @Hl7XmlMapping({"representedOrganization/id"})
-    public Identifier getOrganizationIdentifier() {
-        return this.organizationIdentifier.getValue();
-    }
-    public void setOrganizationIdentifier(Identifier organizationIdentifier) {
-        this.organizationIdentifier.setValue(organizationIdentifier);
-    }
+    private II organizationIdentifier = new IIImpl();
 
 
     /**
@@ -114,6 +95,25 @@ public class HealthcareOrganizationBean extends MessagePartBean implements ca.in
     @Hl7XmlMapping({"representedOrganization/assignedOrganization/telecom"})
     public Set<TelecommunicationAddress> getOrganizationPhoneAndEmails() {
         return this.organizationPhoneAndEmails.rawSet();
+    }
+
+
+    /**
+     * <p>E: Organization identifier</p>
+     * 
+     * <p><p>A unique identifier for the organization</p></p>
+     * 
+     * <p><p>Allows the organization to be referenced when 
+     * determining privileges and for drill-downs to retrieve 
+     * additional information. Because of its importance, the 
+     * attribute is mandatory.</p></p>
+     */
+    @Hl7XmlMapping({"representedOrganization/id"})
+    public Identifier getOrganizationIdentifier() {
+        return this.organizationIdentifier.getValue();
+    }
+    public void setOrganizationIdentifier(Identifier organizationIdentifier) {
+        this.organizationIdentifier.setValue(organizationIdentifier);
     }
 
 }

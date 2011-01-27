@@ -22,28 +22,9 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PORX_MT010110CA.SupplementalFillInformation","PORX_MT060040CA.SupplementalFillInformation"})
 public class SupplementalFillInformationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
-    private INT numberOfFills = new INTImpl();
+    private static final long serialVersionUID = 20110127L;
     private INT fillQuantity = new INTImpl();
-
-
-    /**
-     * <p>NumberOfFills</p>
-     * 
-     * <p>Number of Fills</p>
-     * 
-     * <p><p>Allows the prescriber to specify the number of fills 
-     * authorized by this prescription.</p></p>
-     * 
-     * <p><p>A prescription can authorize multiple fills.</p></p>
-     */
-    @Hl7XmlMapping({"repeatNumber"})
-    public Integer getNumberOfFills() {
-        return this.numberOfFills.getValue();
-    }
-    public void setNumberOfFills(Integer numberOfFills) {
-        this.numberOfFills.setValue(numberOfFills);
-    }
+    private INT numberOfFills = new INTImpl();
 
 
     /**
@@ -62,6 +43,25 @@ public class SupplementalFillInformationBean extends MessagePartBean {
     }
     public void setFillQuantity(Integer fillQuantity) {
         this.fillQuantity.setValue(fillQuantity);
+    }
+
+
+    /**
+     * <p>NumberOfFills</p>
+     * 
+     * <p>Number of Fills</p>
+     * 
+     * <p><p>Allows the prescriber to specify the number of fills 
+     * authorized by this prescription.</p></p>
+     * 
+     * <p><p>A prescription can authorize multiple fills.</p></p>
+     */
+    @Hl7XmlMapping({"repeatNumber"})
+    public Integer getNumberOfFills() {
+        return this.numberOfFills.getValue();
+    }
+    public void setNumberOfFills(Integer numberOfFills) {
+        this.numberOfFills.setValue(numberOfFills);
     }
 
 }

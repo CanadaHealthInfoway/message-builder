@@ -28,11 +28,30 @@ import java.util.Date;
 @Hl7PartTypeMapping({"POIZ_MT070020CA.ImmunizationForecast"})
 public class ImmunizationForecastBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
-    private IVL<TS, Interval<Date>> eligibilityPeriod = new IVLImpl<TS, Interval<Date>>();
+    private static final long serialVersionUID = 20110127L;
     private CV immunizationStatus = new CVImpl();
-    private CV immunizingAgentCode = new CVImpl();
+    private IVL<TS, Interval<Date>> eligibilityPeriod = new IVLImpl<TS, Interval<Date>>();
     private INT doseNumber = new INTImpl();
+    private CV immunizingAgentCode = new CVImpl();
+
+
+    /**
+     * <p>Immunization Status</p>
+     * 
+     * <p><p>Used to represent the patient's status with respect to 
+     * their immunization schedule.</p></p>
+     * 
+     * <p><p>Needed to indicate to a provider if a patient is up to 
+     * date with their immunizations according to the schedule and 
+     * is therefore mandatory.</p></p>
+     */
+    @Hl7XmlMapping({"subject/forecastStatus/code"})
+    public Code getImmunizationStatus() {
+        return (Code) this.immunizationStatus.getValue();
+    }
+    public void setImmunizationStatus(Code immunizationStatus) {
+        this.immunizationStatus.setValue(immunizationStatus);
+    }
 
 
     /**
@@ -60,21 +79,22 @@ public class ImmunizationForecastBean extends MessagePartBean {
 
 
     /**
-     * <p>Immunization Status</p>
+     * <p>Dose Number</p>
      * 
-     * <p><p>Used to represent the patient's status with respect to 
-     * their immunization schedule.</p></p>
+     * <p><p>Indicates whether the forecasted event is the initial 
+     * immunization (Dose Number = 1) or a specific booster (Dose 
+     * Number = 2 means first booster, 3 means second booster, 
+     * etc.).</p></p>
      * 
-     * <p><p>Needed to indicate to a provider if a patient is up to 
-     * date with their immunizations according to the schedule and 
-     * is therefore mandatory.</p></p>
+     * <p><p>Used to provide additional context to the immunization 
+     * forecast.</p></p>
      */
-    @Hl7XmlMapping({"subject/forecastStatus/code"})
-    public Code getImmunizationStatus() {
-        return (Code) this.immunizationStatus.getValue();
+    @Hl7XmlMapping({"consumable/sequenceNumber"})
+    public Integer getDoseNumber() {
+        return this.doseNumber.getValue();
     }
-    public void setImmunizationStatus(Code immunizationStatus) {
-        this.immunizationStatus.setValue(immunizationStatus);
+    public void setDoseNumber(Integer doseNumber) {
+        this.doseNumber.setValue(doseNumber);
     }
 
 
@@ -94,26 +114,6 @@ public class ImmunizationForecastBean extends MessagePartBean {
     }
     public void setImmunizingAgentCode(ClinicalDrug immunizingAgentCode) {
         this.immunizingAgentCode.setValue(immunizingAgentCode);
-    }
-
-
-    /**
-     * <p>Dose Number</p>
-     * 
-     * <p><p>Indicates whether the forecasted event is the initial 
-     * immunization (Dose Number = 1) or a specific booster (Dose 
-     * Number = 2 means first booster, 3 means second booster, 
-     * etc.).</p></p>
-     * 
-     * <p><p>Used to provide additional context to the immunization 
-     * forecast.</p></p>
-     */
-    @Hl7XmlMapping({"consumable/sequenceNumber"})
-    public Integer getDoseNumber() {
-        return this.doseNumber.getValue();
-    }
-    public void setDoseNumber(Integer doseNumber) {
-        this.doseNumber.setValue(doseNumber);
     }
 
 }

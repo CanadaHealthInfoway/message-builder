@@ -63,11 +63,57 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"POIZ_MT030050CA.Performer","POIZ_MT030060CA.Performer","POIZ_MT060150CA.Performer","REPC_MT210001CA.Performer","REPC_MT210002CA.Performer","REPC_MT210003CA.Performer"})
 public class AdministeredByBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
-    private ED<String> digitalSignature = new EDImpl<String>();
+    private static final long serialVersionUID = 20110127L;
     private CV signatureCode = new CVImpl();
-    private HealthcareWorkerBean assignedEntity;
     private CV signingMethod = new CVImpl();
+    private ED<String> digitalSignature = new EDImpl<String>();
+    private HealthcareWorkerBean assignedEntity;
+
+
+    /**
+     * <p>SignatureCode</p>
+     * 
+     * <p>Signature Code</p>
+     * 
+     * <p><p>A code specifying whether and how the participant has 
+     * attested his participation through a signature and or 
+     * whether such a signature is needed.</p></p>
+     * 
+     * <p><p>Allows for communicating whether a the provider has 
+     * digitally signed their signature. Strong, trusted 
+     * authentication of the submitting author is sufficient to 
+     * remove the need for digital signatures. As a result, this 
+     * attribute is optional.</p></p>
+     */
+    @Hl7XmlMapping({"signatureCode"})
+    public ParticipationSignature getSignatureCode() {
+        return (ParticipationSignature) this.signatureCode.getValue();
+    }
+    public void setSignatureCode(ParticipationSignature signatureCode) {
+        this.signatureCode.setValue(signatureCode);
+    }
+
+
+    /**
+     * <p>SigningMethod</p>
+     * 
+     * <p>Signing method</p>
+     * 
+     * <p><p>A code specifying the modality by which the original 
+     * information was presented.</p></p>
+     * 
+     * <p><p>Used to specify whether the information was initially 
+     * provided verbally, (hand-)written, or electronically. As not 
+     * all implementations will need to communication this 
+     * information, this attribute is optional.</p></p>
+     */
+    @Hl7XmlMapping({"modeCode"})
+    public ParticipationMode getSigningMethod() {
+        return (ParticipationMode) this.signingMethod.getValue();
+    }
+    public void setSigningMethod(ParticipationMode signingMethod) {
+        this.signingMethod.setValue(signingMethod);
+    }
 
 
     /**
@@ -95,58 +141,12 @@ public class AdministeredByBean extends MessagePartBean {
     }
 
 
-    /**
-     * <p>SignatureCode</p>
-     * 
-     * <p>Signature Code</p>
-     * 
-     * <p><p>A code specifying whether and how the participant has 
-     * attested his participation through a signature and or 
-     * whether such a signature is needed.</p></p>
-     * 
-     * <p><p>Allows for communicating whether a the provider has 
-     * digitally signed their signature. Strong, trusted 
-     * authentication of the submitting author is sufficient to 
-     * remove the need for digital signatures. As a result, this 
-     * attribute is optional.</p></p>
-     */
-    @Hl7XmlMapping({"signatureCode"})
-    public ParticipationSignature getSignatureCode() {
-        return (ParticipationSignature) this.signatureCode.getValue();
-    }
-    public void setSignatureCode(ParticipationSignature signatureCode) {
-        this.signatureCode.setValue(signatureCode);
-    }
-
-
     @Hl7XmlMapping({"assignedEntity"})
     public HealthcareWorkerBean getAssignedEntity() {
         return this.assignedEntity;
     }
     public void setAssignedEntity(HealthcareWorkerBean assignedEntity) {
         this.assignedEntity = assignedEntity;
-    }
-
-
-    /**
-     * <p>SigningMethod</p>
-     * 
-     * <p>Signing method</p>
-     * 
-     * <p><p>A code specifying the modality by which the original 
-     * information was presented.</p></p>
-     * 
-     * <p><p>Used to specify whether the information was initially 
-     * provided verbally, (hand-)written, or electronically. As not 
-     * all implementations will need to communication this 
-     * information, this attribute is optional.</p></p>
-     */
-    @Hl7XmlMapping({"modeCode"})
-    public ParticipationMode getSigningMethod() {
-        return (ParticipationMode) this.signingMethod.getValue();
-    }
-    public void setSigningMethod(ParticipationMode signingMethod) {
-        this.signingMethod.setValue(signingMethod);
     }
 
 }

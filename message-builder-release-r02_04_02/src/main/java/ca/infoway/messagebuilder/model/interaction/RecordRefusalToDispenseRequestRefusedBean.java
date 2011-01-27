@@ -12,6 +12,6 @@ import ca.infoway.messagebuilder.model.merged.ActRequestBean;
 @Hl7PartTypeMapping({"PORX_IN010080CA"})
 public class RecordRefusalToDispenseRequestRefusedBean extends HL7Message_1Bean<TriggerEvent_1Bean<ActRequestBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20110126L;
+    private static final long serialVersionUID = 20110127L;
 
 }

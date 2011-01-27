@@ -23,23 +23,14 @@ import java.util.List;
 @Hl7PartTypeMapping({"FICR_MT400003CA.SpecialAuthorization","FICR_MT400004CA.SpecialAuthorization","FICR_MT490101CA.SpecialAuthorization"})
 public class SpecialAuthorizationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
-    private PolicyOrAccount_1Bean coveragePolicyOrAccount;
+    private static final long serialVersionUID = 20110127L;
     private CS specialAuthorizationStatus = new CSImpl();
+    private PolicyOrAccount_1Bean coveragePolicyOrAccount;
     private HealthcareOrganizationBean authorAssignedEntity;
     private IVL<TS, Interval<Date>> specialAuthorizationEffectiveDate = new IVLImpl<TS, Interval<Date>>();
-    private List<Subject3Bean> subject = new ArrayList<Subject3Bean>();
-    private List<IncludesBean> subjectOf = new ArrayList<IncludesBean>();
     private MaximumLimitsBean limitationMaximumLimits;
-
-
-    @Hl7XmlMapping({"coverage/policyOrAccount"})
-    public PolicyOrAccount_1Bean getCoveragePolicyOrAccount() {
-        return this.coveragePolicyOrAccount;
-    }
-    public void setCoveragePolicyOrAccount(PolicyOrAccount_1Bean coveragePolicyOrAccount) {
-        this.coveragePolicyOrAccount = coveragePolicyOrAccount;
-    }
+    private List<IncludesBean> subjectOf = new ArrayList<IncludesBean>();
+    private List<Subject3Bean> subject = new ArrayList<Subject3Bean>();
 
 
     /**
@@ -53,6 +44,15 @@ public class SpecialAuthorizationBean extends MessagePartBean {
     }
     public void setSpecialAuthorizationStatus(ActStatus specialAuthorizationStatus) {
         this.specialAuthorizationStatus.setValue(specialAuthorizationStatus);
+    }
+
+
+    @Hl7XmlMapping({"coverage/policyOrAccount"})
+    public PolicyOrAccount_1Bean getCoveragePolicyOrAccount() {
+        return this.coveragePolicyOrAccount;
+    }
+    public void setCoveragePolicyOrAccount(PolicyOrAccount_1Bean coveragePolicyOrAccount) {
+        this.coveragePolicyOrAccount = coveragePolicyOrAccount;
     }
 
 
@@ -79,9 +79,12 @@ public class SpecialAuthorizationBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"subject"})
-    public List<Subject3Bean> getSubject() {
-        return this.subject;
+    @Hl7XmlMapping({"limitation/maximumLimits"})
+    public MaximumLimitsBean getLimitationMaximumLimits() {
+        return this.limitationMaximumLimits;
+    }
+    public void setLimitationMaximumLimits(MaximumLimitsBean limitationMaximumLimits) {
+        this.limitationMaximumLimits = limitationMaximumLimits;
     }
 
 
@@ -91,12 +94,9 @@ public class SpecialAuthorizationBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"limitation/maximumLimits"})
-    public MaximumLimitsBean getLimitationMaximumLimits() {
-        return this.limitationMaximumLimits;
-    }
-    public void setLimitationMaximumLimits(MaximumLimitsBean limitationMaximumLimits) {
-        this.limitationMaximumLimits = limitationMaximumLimits;
+    @Hl7XmlMapping({"subject"})
+    public List<Subject3Bean> getSubject() {
+        return this.subject;
     }
 
 }

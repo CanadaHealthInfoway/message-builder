@@ -17,7 +17,7 @@ import java.util.List;
 @Hl7PartTypeMapping({"PRPA_MT202301CA.Place","PRPA_MT202302CA.Place","PRPA_MT202303CA.Place"})
 public class PlaceBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
+    private static final long serialVersionUID = 20110127L;
     private List<HasBean> asIdentifiedLocation = new ArrayList<HasBean>();
     private BL locationMobileIndicator = new BLImpl();
     private CV locationPlaceType = new CVImpl();

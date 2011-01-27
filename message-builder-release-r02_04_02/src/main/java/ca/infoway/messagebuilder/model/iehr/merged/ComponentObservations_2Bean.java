@@ -34,67 +34,9 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"REPC_MT420001CA.SubObservationEvent","REPC_MT420003CA.SubObservationEvent"})
 public class ComponentObservations_2Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
-    private CD componentObservationType = new CDImpl();
+    private static final long serialVersionUID = 20110127L;
     private CD componentObservationValue = new CDImpl();
-
-
-    /**
-     * <p>ComponentObservationType</p>
-     * 
-     * <p>Q: Component Observation Type</p>
-     * 
-     * <p><p>Identifies the type of sub-observation being 
-     * made.</p><p>APGAR skin color score, etc.</p></p>
-     * 
-     * <p><p>Identifies the type of sub-observation being 
-     * made.</p><p>APGAR skin color score, etc.</p></p>
-     * 
-     * <p></p></p>
-     * 
-     * <p></p></p>
-     * 
-     * <p></p></p>
-     * 
-     * <p></p></p>
-     * 
-     * <p><p>EPHS: need fixed value for 
-     * &quot;COMPLICATIONS&quot;</p><p>EPHS:need fixed value for 
-     * IMMUNIZATION VACCINE; VALID IMMUNIZATION DOSES 
-     * RECEIVED;IMMUNIZATION DOSES NEEDED;ADDITIONAL 
-     * COMPLICATION;CAUSE OF DEATH;OTHER COMPLICATION; RISK FACTOR 
-     * CATEGORY;RISK FACTOR FREQUENCY; RISK FACTOR 
-     * COMMENT;</p><p>EPHS: need fixed value for OUTBREAK 
-     * COMPLICATION AGGREGATE COUNT; OUTBREAK SIGN AND SYMPTOM 
-     * UNIDENTIFIED AGGREGATE COUNT</p></p>
-     * 
-     * <p><p>EPHS: need fixed value for 
-     * &quot;COMPLICATIONS&quot;</p><p>EPHS:need fixed value for 
-     * IMMUNIZATION VACCINE; VALID IMMUNIZATION DOSES 
-     * RECEIVED;IMMUNIZATION DOSES NEEDED;ADDITIONAL 
-     * COMPLICATION;CAUSE OF DEATH;OTHER COMPLICATION; RISK FACTOR 
-     * CATEGORY;RISK FACTOR FREQUENCY; RISK FACTOR 
-     * COMMENT;</p><p>EPHS: need fixed value for OUTBREAK 
-     * COMPLICATION AGGREGATE COUNT; OUTBREAK SIGN AND SYMPTOM 
-     * UNIDENTIFIED AGGREGATE COUNT</p></p>
-     * 
-     * <p><p>EPHS: need fixed value for 
-     * &quot;COMPLICATIONS&quot;</p><p>EPHS:need fixed value for 
-     * IMMUNIZATION VACCINE; VALID IMMUNIZATION DOSES 
-     * RECEIVED;IMMUNIZATION DOSES NEEDED;ADDITIONAL 
-     * COMPLICATION;CAUSE OF DEATH;OTHER COMPLICATION; RISK FACTOR 
-     * CATEGORY;RISK FACTOR FREQUENCY; RISK FACTOR 
-     * COMMENT;</p><p>EPHS: need fixed value for OUTBREAK 
-     * COMPLICATION AGGREGATE COUNT; OUTBREAK SIGN AND SYMPTOM 
-     * UNIDENTIFIED AGGREGATE COUNT</p></p>
-     */
-    @Hl7XmlMapping({"code"})
-    public Code getComponentObservationType() {
-        return (Code) this.componentObservationType.getValue();
-    }
-    public void setComponentObservationType(Code componentObservationType) {
-        this.componentObservationType.setValue(componentObservationType);
-    }
+    private CD componentObservationType = new CDImpl();
 
 
     /**
@@ -176,6 +118,64 @@ public class ComponentObservations_2Bean extends MessagePartBean {
     }
     public void setComponentObservationValue(Code componentObservationValue) {
         this.componentObservationValue.setValue(componentObservationValue);
+    }
+
+
+    /**
+     * <p>ComponentObservationType</p>
+     * 
+     * <p>Q: Component Observation Type</p>
+     * 
+     * <p><p>Identifies the type of sub-observation being 
+     * made.</p><p>APGAR skin color score, etc.</p></p>
+     * 
+     * <p><p>Identifies the type of sub-observation being 
+     * made.</p><p>APGAR skin color score, etc.</p></p>
+     * 
+     * <p></p></p>
+     * 
+     * <p></p></p>
+     * 
+     * <p></p></p>
+     * 
+     * <p></p></p>
+     * 
+     * <p><p>EPHS: need fixed value for 
+     * &quot;COMPLICATIONS&quot;</p><p>EPHS:need fixed value for 
+     * IMMUNIZATION VACCINE; VALID IMMUNIZATION DOSES 
+     * RECEIVED;IMMUNIZATION DOSES NEEDED;ADDITIONAL 
+     * COMPLICATION;CAUSE OF DEATH;OTHER COMPLICATION; RISK FACTOR 
+     * CATEGORY;RISK FACTOR FREQUENCY; RISK FACTOR 
+     * COMMENT;</p><p>EPHS: need fixed value for OUTBREAK 
+     * COMPLICATION AGGREGATE COUNT; OUTBREAK SIGN AND SYMPTOM 
+     * UNIDENTIFIED AGGREGATE COUNT</p></p>
+     * 
+     * <p><p>EPHS: need fixed value for 
+     * &quot;COMPLICATIONS&quot;</p><p>EPHS:need fixed value for 
+     * IMMUNIZATION VACCINE; VALID IMMUNIZATION DOSES 
+     * RECEIVED;IMMUNIZATION DOSES NEEDED;ADDITIONAL 
+     * COMPLICATION;CAUSE OF DEATH;OTHER COMPLICATION; RISK FACTOR 
+     * CATEGORY;RISK FACTOR FREQUENCY; RISK FACTOR 
+     * COMMENT;</p><p>EPHS: need fixed value for OUTBREAK 
+     * COMPLICATION AGGREGATE COUNT; OUTBREAK SIGN AND SYMPTOM 
+     * UNIDENTIFIED AGGREGATE COUNT</p></p>
+     * 
+     * <p><p>EPHS: need fixed value for 
+     * &quot;COMPLICATIONS&quot;</p><p>EPHS:need fixed value for 
+     * IMMUNIZATION VACCINE; VALID IMMUNIZATION DOSES 
+     * RECEIVED;IMMUNIZATION DOSES NEEDED;ADDITIONAL 
+     * COMPLICATION;CAUSE OF DEATH;OTHER COMPLICATION; RISK FACTOR 
+     * CATEGORY;RISK FACTOR FREQUENCY; RISK FACTOR 
+     * COMMENT;</p><p>EPHS: need fixed value for OUTBREAK 
+     * COMPLICATION AGGREGATE COUNT; OUTBREAK SIGN AND SYMPTOM 
+     * UNIDENTIFIED AGGREGATE COUNT</p></p>
+     */
+    @Hl7XmlMapping({"code"})
+    public Code getComponentObservationType() {
+        return (Code) this.componentObservationType.getValue();
+    }
+    public void setComponentObservationType(Code componentObservationType) {
+        this.componentObservationType.setValue(componentObservationType);
     }
 
 }

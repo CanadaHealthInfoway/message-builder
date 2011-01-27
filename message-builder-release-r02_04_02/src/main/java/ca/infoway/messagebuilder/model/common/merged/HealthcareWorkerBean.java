@@ -56,16 +56,16 @@ import java.util.Set;
  */
 @Hl7PartTypeMapping({"COCT_MT090102CA.AssignedEntity","COCT_MT090108CA.AssignedEntity","COCT_MT260010CA.AssignedEntity","COCT_MT260020CA.AssignedEntity","COCT_MT260030CA.AssignedEntity"})
 @Hl7RootType
-public class HealthcareWorkerBean extends MessagePartBean implements ca.infoway.messagebuilder.model.lab.merged.RecipientChoice, ca.infoway.messagebuilder.model.iehr.merged.Party, ca.infoway.messagebuilder.model.merged.Recipient, ca.infoway.messagebuilder.model.pharmacy.merged.ChangedBy, ca.infoway.messagebuilder.model.common.coct_mt080100ca.PerformerChoice, ActingPerson, AuthorPerson, ca.infoway.messagebuilder.model.merged.RoleChoice, ca.infoway.messagebuilder.model.merged.Choice, EntererChoice, ca.infoway.messagebuilder.model.common.coct_mt011001ca.Assignees, ca.infoway.messagebuilder.model.common.coct_mt911108ca.ActingPerson {
+public class HealthcareWorkerBean extends MessagePartBean implements ca.infoway.messagebuilder.model.iehr.merged.Party, ca.infoway.messagebuilder.model.common.coct_mt080100ca.PerformerChoice, ca.infoway.messagebuilder.model.lab.merged.RecipientChoice, ca.infoway.messagebuilder.model.merged.Choice, ActingPerson, AuthorPerson, ca.infoway.messagebuilder.model.merged.RoleChoice, EntererChoice, ca.infoway.messagebuilder.model.merged.Recipient, ca.infoway.messagebuilder.model.common.coct_mt011001ca.Assignees, ca.infoway.messagebuilder.model.common.coct_mt911108ca.ActingPerson, ca.infoway.messagebuilder.model.pharmacy.merged.ChangedBy {
 
-    private static final long serialVersionUID = 20110126L;
+    private static final long serialVersionUID = 20110127L;
     private ST assignedOrganizationName = new STImpl();
-    private II organizationIdentifier = new IIImpl();
+    private CV healthcareWorkerType = new CVImpl();
+    private ActingPersonBean assignedPerson;
+    private SET<II, Identifier> healthcareWorkerIdentifier = new SETImpl<II, Identifier>(IIImpl.class);
     private CV organizationType = new CVImpl();
     private SET<TEL, TelecommunicationAddress> organizationPhoneAndEmails = new SETImpl<TEL, TelecommunicationAddress>(TELImpl.class);
-    private CV healthcareWorkerType = new CVImpl();
-    private SET<II, Identifier> healthcareWorkerIdentifier = new SETImpl<II, Identifier>(IIImpl.class);
-    private ActingPersonBean assignedPerson;
+    private II organizationIdentifier = new IIImpl();
     private SET<TEL, TelecommunicationAddress> healthcareWorkerPhoneAndEmails = new SETImpl<TEL, TelecommunicationAddress>(TELImpl.class);
 
 
@@ -117,32 +117,60 @@ public class HealthcareWorkerBean extends MessagePartBean implements ca.infoway.
 
 
     /**
-     * <p>OrganizationIdentifier</p>
+     * <p>HealthcareWorkerType</p>
      * 
-     * <p>D: Organization identifier</p>
+     * <p>B: Healthcare Worker Type</p>
      * 
-     * <p><p>A unique identifier for the organization</p></p>
+     * <p><p>Indicates the &quot;kind&quot; of healthcare 
+     * participant, such as &quot;physician&quot;, 
+     * &quot;dentist&quot;, &quot;lab technician&quot;, 
+     * &quot;receptionist&quot;, etc.</p></p>
      * 
-     * <p><p>Allows the organization to be referenced when 
-     * determining privileges and for drill-downs to retrieve 
-     * additional information. Because of its importance, the 
-     * attribute is mandatory.</p></p>
-     * 
-     * <p>F: Organization identifier</p>
-     * 
-     * <p><p>A unique identifier for the organization</p></p>
-     * 
-     * <p><p>Allows the organization to be referenced when 
-     * determining privileges and for drill-downs to retrieve 
-     * additional information. Because of its importance, the 
-     * attribute is mandatory.</p></p>
+     * <p><p>Provides context around the actions of the participant 
+     * and is therefore mandatory.</p></p>
      */
-    @Hl7XmlMapping({"representedOrganization/id"})
-    public Identifier getOrganizationIdentifier() {
-        return this.organizationIdentifier.getValue();
+    @Hl7XmlMapping({"code"})
+    public HealthcareProviderRoleType getHealthcareWorkerType() {
+        return (HealthcareProviderRoleType) this.healthcareWorkerType.getValue();
     }
-    public void setOrganizationIdentifier(Identifier organizationIdentifier) {
-        this.organizationIdentifier.setValue(organizationIdentifier);
+    public void setHealthcareWorkerType(HealthcareProviderRoleType healthcareWorkerType) {
+        this.healthcareWorkerType.setValue(healthcareWorkerType);
+    }
+
+
+    @Hl7XmlMapping({"assignedPerson"})
+    public ActingPersonBean getAssignedPerson() {
+        return this.assignedPerson;
+    }
+    public void setAssignedPerson(ActingPersonBean assignedPerson) {
+        this.assignedPerson = assignedPerson;
+    }
+
+
+    /**
+     * <p>HealthcareWorkerIdentifier</p>
+     * 
+     * <p>A:Healthcare Worker Identifier</p>
+     * 
+     * <p><p>Unique identifier the person involved in the 
+     * action.</p></p>
+     * 
+     * <p><p>Allows unique identification of the person which can 
+     * be critical for authentication, permissions, drill-down and 
+     * traceability and is therefore mandatory.</p></p>
+     * 
+     * <p>A: Healthcare Worker Identifier</p>
+     * 
+     * <p><p>Unique identifier the person involved in the 
+     * action.</p></p>
+     * 
+     * <p><p>Allows unique identification of the person which can 
+     * be critical for authentication, permissions, drill-down and 
+     * traceability and is therefore mandatory.</p></p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Set<Identifier> getHealthcareWorkerIdentifier() {
+        return this.healthcareWorkerIdentifier.rawSet();
     }
 
 
@@ -186,60 +214,32 @@ public class HealthcareWorkerBean extends MessagePartBean implements ca.infoway.
 
 
     /**
-     * <p>HealthcareWorkerType</p>
+     * <p>OrganizationIdentifier</p>
      * 
-     * <p>B: Healthcare Worker Type</p>
+     * <p>D: Organization identifier</p>
      * 
-     * <p><p>Indicates the &quot;kind&quot; of healthcare 
-     * participant, such as &quot;physician&quot;, 
-     * &quot;dentist&quot;, &quot;lab technician&quot;, 
-     * &quot;receptionist&quot;, etc.</p></p>
+     * <p><p>A unique identifier for the organization</p></p>
      * 
-     * <p><p>Provides context around the actions of the participant 
-     * and is therefore mandatory.</p></p>
+     * <p><p>Allows the organization to be referenced when 
+     * determining privileges and for drill-downs to retrieve 
+     * additional information. Because of its importance, the 
+     * attribute is mandatory.</p></p>
+     * 
+     * <p>F: Organization identifier</p>
+     * 
+     * <p><p>A unique identifier for the organization</p></p>
+     * 
+     * <p><p>Allows the organization to be referenced when 
+     * determining privileges and for drill-downs to retrieve 
+     * additional information. Because of its importance, the 
+     * attribute is mandatory.</p></p>
      */
-    @Hl7XmlMapping({"code"})
-    public HealthcareProviderRoleType getHealthcareWorkerType() {
-        return (HealthcareProviderRoleType) this.healthcareWorkerType.getValue();
+    @Hl7XmlMapping({"representedOrganization/id"})
+    public Identifier getOrganizationIdentifier() {
+        return this.organizationIdentifier.getValue();
     }
-    public void setHealthcareWorkerType(HealthcareProviderRoleType healthcareWorkerType) {
-        this.healthcareWorkerType.setValue(healthcareWorkerType);
-    }
-
-
-    /**
-     * <p>HealthcareWorkerIdentifier</p>
-     * 
-     * <p>A:Healthcare Worker Identifier</p>
-     * 
-     * <p><p>Unique identifier the person involved in the 
-     * action.</p></p>
-     * 
-     * <p><p>Allows unique identification of the person which can 
-     * be critical for authentication, permissions, drill-down and 
-     * traceability and is therefore mandatory.</p></p>
-     * 
-     * <p>A: Healthcare Worker Identifier</p>
-     * 
-     * <p><p>Unique identifier the person involved in the 
-     * action.</p></p>
-     * 
-     * <p><p>Allows unique identification of the person which can 
-     * be critical for authentication, permissions, drill-down and 
-     * traceability and is therefore mandatory.</p></p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Set<Identifier> getHealthcareWorkerIdentifier() {
-        return this.healthcareWorkerIdentifier.rawSet();
-    }
-
-
-    @Hl7XmlMapping({"assignedPerson"})
-    public ActingPersonBean getAssignedPerson() {
-        return this.assignedPerson;
-    }
-    public void setAssignedPerson(ActingPersonBean assignedPerson) {
-        this.assignedPerson = assignedPerson;
+    public void setOrganizationIdentifier(Identifier organizationIdentifier) {
+        this.organizationIdentifier.setValue(organizationIdentifier);
     }
 
 

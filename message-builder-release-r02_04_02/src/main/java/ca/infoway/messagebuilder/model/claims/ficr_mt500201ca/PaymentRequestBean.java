@@ -33,32 +33,14 @@ import java.util.Set;
 @Hl7RootType
 public class PaymentRequestBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
-    private ContactPartyBean primaryPerformerContactParty;
-    private SET<II, Identifier> invoiceIdentifier = new SETImpl<II, Identifier>(IIImpl.class);
+    private static final long serialVersionUID = 20110127L;
     private PayeeAccountBean creditAccount;
     private AccountBean debitAccount;
+    private SET<II, Identifier> invoiceIdentifier = new SETImpl<II, Identifier>(IIImpl.class);
+    private List<ProviderBillingTaxAccountBean> pertinentInformationProviderBillingTaxAccount = new ArrayList<ProviderBillingTaxAccountBean>();
     private MO totalBilledAmount = new MOImpl();
     private List<InvoiceElementChoice> reasonOfInvoiceElementChoice = new ArrayList<InvoiceElementChoice>();
-    private List<ProviderBillingTaxAccountBean> pertinentInformationProviderBillingTaxAccount = new ArrayList<ProviderBillingTaxAccountBean>();
-
-
-    @Hl7XmlMapping({"primaryPerformer/contactParty"})
-    public ContactPartyBean getPrimaryPerformerContactParty() {
-        return this.primaryPerformerContactParty;
-    }
-    public void setPrimaryPerformerContactParty(ContactPartyBean primaryPerformerContactParty) {
-        this.primaryPerformerContactParty = primaryPerformerContactParty;
-    }
-
-
-    /**
-     * <p>Invoice Identifier</p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Set<Identifier> getInvoiceIdentifier() {
-        return this.invoiceIdentifier.rawSet();
-    }
+    private ContactPartyBean primaryPerformerContactParty;
 
 
     @Hl7XmlMapping({"credit/account"})
@@ -80,6 +62,21 @@ public class PaymentRequestBean extends MessagePartBean {
 
 
     /**
+     * <p>Invoice Identifier</p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Set<Identifier> getInvoiceIdentifier() {
+        return this.invoiceIdentifier.rawSet();
+    }
+
+
+    @Hl7XmlMapping({"pertinentInformation/providerBillingTaxAccount"})
+    public List<ProviderBillingTaxAccountBean> getPertinentInformationProviderBillingTaxAccount() {
+        return this.pertinentInformationProviderBillingTaxAccount;
+    }
+
+
+    /**
      * <p>Total Billed Amount</p>
      */
     @Hl7XmlMapping({"amt"})
@@ -97,9 +94,12 @@ public class PaymentRequestBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"pertinentInformation/providerBillingTaxAccount"})
-    public List<ProviderBillingTaxAccountBean> getPertinentInformationProviderBillingTaxAccount() {
-        return this.pertinentInformationProviderBillingTaxAccount;
+    @Hl7XmlMapping({"primaryPerformer/contactParty"})
+    public ContactPartyBean getPrimaryPerformerContactParty() {
+        return this.primaryPerformerContactParty;
+    }
+    public void setPrimaryPerformerContactParty(ContactPartyBean primaryPerformerContactParty) {
+        this.primaryPerformerContactParty = primaryPerformerContactParty;
     }
 
 }

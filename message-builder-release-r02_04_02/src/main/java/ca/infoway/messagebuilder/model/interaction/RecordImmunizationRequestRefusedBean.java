@@ -11,6 +11,6 @@ import ca.infoway.messagebuilder.model.common.merged.TriggerEvent_2Bean;
 @Hl7PartTypeMapping({"POIZ_IN010040CA"})
 public class RecordImmunizationRequestRefusedBean extends HL7Message_1Bean<TriggerEvent_2Bean> implements InteractionBean {
 
-    private static final long serialVersionUID = 20110126L;
+    private static final long serialVersionUID = 20110127L;
 
 }

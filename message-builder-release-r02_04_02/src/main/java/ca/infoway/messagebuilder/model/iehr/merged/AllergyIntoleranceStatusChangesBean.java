@@ -43,12 +43,12 @@ import java.util.Date;
 @Hl7PartTypeMapping({"REPC_MT000007CA.ControlActEvent","REPC_MT000009CA.ControlActEvent","REPC_MT000010CA.ControlActEvent"})
 public class AllergyIntoleranceStatusChangesBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
+    private static final long serialVersionUID = 20110127L;
     private ChangedByBean author;
     private CV reasonCode = new CVImpl();
     private CV allergyIntoleranceStatusChangeType = new CVImpl();
-    private HealthcareWorkerBean responsiblePartyAssignedEntity;
     private TS allergyIntoleranceStatusChangeEffectiveDate = new TSImpl();
+    private HealthcareWorkerBean responsiblePartyAssignedEntity;
 
 
     @Hl7XmlMapping({"author"})
@@ -108,15 +108,6 @@ public class AllergyIntoleranceStatusChangesBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"responsibleParty/assignedEntity"})
-    public HealthcareWorkerBean getResponsiblePartyAssignedEntity() {
-        return this.responsiblePartyAssignedEntity;
-    }
-    public void setResponsiblePartyAssignedEntity(HealthcareWorkerBean responsiblePartyAssignedEntity) {
-        this.responsiblePartyAssignedEntity = responsiblePartyAssignedEntity;
-    }
-
-
     /**
      * <p>AllergyIntoleranceStatusChangeEffectiveDate</p>
      * 
@@ -135,6 +126,15 @@ public class AllergyIntoleranceStatusChangesBean extends MessagePartBean {
     }
     public void setAllergyIntoleranceStatusChangeEffectiveDate(Date allergyIntoleranceStatusChangeEffectiveDate) {
         this.allergyIntoleranceStatusChangeEffectiveDate.setValue(allergyIntoleranceStatusChangeEffectiveDate);
+    }
+
+
+    @Hl7XmlMapping({"responsibleParty/assignedEntity"})
+    public HealthcareWorkerBean getResponsiblePartyAssignedEntity() {
+        return this.responsiblePartyAssignedEntity;
+    }
+    public void setResponsiblePartyAssignedEntity(HealthcareWorkerBean responsiblePartyAssignedEntity) {
+        this.responsiblePartyAssignedEntity = responsiblePartyAssignedEntity;
     }
 
 }

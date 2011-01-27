@@ -49,18 +49,33 @@ import java.util.List;
 @Hl7PartTypeMapping({"PRPM_MT303010CA.HealthCareProvider"})
 public class HealthcareProviderBean extends MessagePartBean implements ca.infoway.messagebuilder.model.merged.Choice, RoleChoice {
 
-    private static final long serialVersionUID = 20110126L;
-    private CS healthcareProviderRoleStatusCode = new CSImpl();
-    private CV healthcareProviderRoleType = new CVImpl();
-    private II healthcareProviderRoleIdentification = new IIImpl();
-    private List<PrivilegeBean> responsibleForPrivilege = new ArrayList<PrivilegeBean>();
-    private IVL<TS, Interval<Date>> healthcareProviderRoleEffectiveDate = new IVLImpl<TS, Interval<Date>>();
-    private LIST<TEL, TelecommunicationAddress> healthcareProviderRoleTelecom = new LISTImpl<TEL, TelecommunicationAddress>(TELImpl.class);
-    private LIST<PN, PersonName> healthcareProviderRoleName = new LISTImpl<PN, PersonName>(PNImpl.class);
-    private PrinicpalPerson_1Bean healthCarePrincipalPerson;
+    private static final long serialVersionUID = 20110127L;
     private LIST<AD, PostalAddress> healthcareProviderRoleAddress = new LISTImpl<AD, PostalAddress>(ADImpl.class);
+    private CS healthcareProviderRoleStatusCode = new CSImpl();
+    private LIST<PN, PersonName> healthcareProviderRoleName = new LISTImpl<PN, PersonName>(PNImpl.class);
     private OrganizationBean issuingOrganization;
+    private CV healthcareProviderRoleType = new CVImpl();
+    private PrinicpalPerson_1Bean healthCarePrincipalPerson;
+    private List<PrivilegeBean> responsibleForPrivilege = new ArrayList<PrivilegeBean>();
+    private II healthcareProviderRoleIdentification = new IIImpl();
     private List<RelatedToBean> relatedTo = new ArrayList<RelatedToBean>();
+    private LIST<TEL, TelecommunicationAddress> healthcareProviderRoleTelecom = new LISTImpl<TEL, TelecommunicationAddress>(TELImpl.class);
+    private IVL<TS, Interval<Date>> healthcareProviderRoleEffectiveDate = new IVLImpl<TS, Interval<Date>>();
+
+
+    /**
+     * <p>Healthcare Provider Role Address</p>
+     * 
+     * <p><p>The address for the provider when playing the role of 
+     * healthcare provider.</p></p>
+     * 
+     * <p><p>Required attribute supports the identification of the 
+     * healthcare provider</p></p>
+     */
+    @Hl7XmlMapping({"addr"})
+    public List<PostalAddress> getHealthcareProviderRoleAddress() {
+        return this.healthcareProviderRoleAddress.rawList();
+    }
 
 
     /**
@@ -82,6 +97,30 @@ public class HealthcareProviderBean extends MessagePartBean implements ca.infowa
 
 
     /**
+     * <p>Healthcare Provider Role Name</p>
+     * 
+     * <p><p>The provider'''s name pertaining to the specific 
+     * healthcare provider role.</p></p>
+     * 
+     * <p><p>Required attribute supports the identification of the 
+     * healthcare provider</p></p>
+     */
+    @Hl7XmlMapping({"name"})
+    public List<PersonName> getHealthcareProviderRoleName() {
+        return this.healthcareProviderRoleName.rawList();
+    }
+
+
+    @Hl7XmlMapping({"issuingOrganization"})
+    public OrganizationBean getIssuingOrganization() {
+        return this.issuingOrganization;
+    }
+    public void setIssuingOrganization(OrganizationBean issuingOrganization) {
+        this.issuingOrganization = issuingOrganization;
+    }
+
+
+    /**
      * <p>Healthcare Provider Role Type</p>
      * 
      * <p><p>The code identifying the specific healthcare provider 
@@ -96,6 +135,21 @@ public class HealthcareProviderBean extends MessagePartBean implements ca.infowa
     }
     public void setHealthcareProviderRoleType(HealthcareProviderRoleType healthcareProviderRoleType) {
         this.healthcareProviderRoleType.setValue(healthcareProviderRoleType);
+    }
+
+
+    @Hl7XmlMapping({"healthCarePrincipalPerson"})
+    public PrinicpalPerson_1Bean getHealthCarePrincipalPerson() {
+        return this.healthCarePrincipalPerson;
+    }
+    public void setHealthCarePrincipalPerson(PrinicpalPerson_1Bean healthCarePrincipalPerson) {
+        this.healthCarePrincipalPerson = healthCarePrincipalPerson;
+    }
+
+
+    @Hl7XmlMapping({"responsibleFor/privilege"})
+    public List<PrivilegeBean> getResponsibleForPrivilege() {
+        return this.responsibleForPrivilege;
     }
 
 
@@ -117,27 +171,9 @@ public class HealthcareProviderBean extends MessagePartBean implements ca.infowa
     }
 
 
-    @Hl7XmlMapping({"responsibleFor/privilege"})
-    public List<PrivilegeBean> getResponsibleForPrivilege() {
-        return this.responsibleForPrivilege;
-    }
-
-
-    /**
-     * <p>Healthcare Provider Role Effective Date</p>
-     * 
-     * <p><p>The effective date of the provider in the healthcare 
-     * provider role.</p></p>
-     * 
-     * <p><p>Mandatory attribute supports the identification of the 
-     * healthcare provider</p></p>
-     */
-    @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getHealthcareProviderRoleEffectiveDate() {
-        return this.healthcareProviderRoleEffectiveDate.getValue();
-    }
-    public void setHealthcareProviderRoleEffectiveDate(Interval<Date> healthcareProviderRoleEffectiveDate) {
-        this.healthcareProviderRoleEffectiveDate.setValue(healthcareProviderRoleEffectiveDate);
+    @Hl7XmlMapping({"relatedTo"})
+    public List<RelatedToBean> getRelatedTo() {
+        return this.relatedTo;
     }
 
 
@@ -157,56 +193,20 @@ public class HealthcareProviderBean extends MessagePartBean implements ca.infowa
 
 
     /**
-     * <p>Healthcare Provider Role Name</p>
+     * <p>Healthcare Provider Role Effective Date</p>
      * 
-     * <p><p>The provider'''s name pertaining to the specific 
-     * healthcare provider role.</p></p>
+     * <p><p>The effective date of the provider in the healthcare 
+     * provider role.</p></p>
      * 
-     * <p><p>Required attribute supports the identification of the 
+     * <p><p>Mandatory attribute supports the identification of the 
      * healthcare provider</p></p>
      */
-    @Hl7XmlMapping({"name"})
-    public List<PersonName> getHealthcareProviderRoleName() {
-        return this.healthcareProviderRoleName.rawList();
+    @Hl7XmlMapping({"effectiveTime"})
+    public Interval<Date> getHealthcareProviderRoleEffectiveDate() {
+        return this.healthcareProviderRoleEffectiveDate.getValue();
     }
-
-
-    @Hl7XmlMapping({"healthCarePrincipalPerson"})
-    public PrinicpalPerson_1Bean getHealthCarePrincipalPerson() {
-        return this.healthCarePrincipalPerson;
-    }
-    public void setHealthCarePrincipalPerson(PrinicpalPerson_1Bean healthCarePrincipalPerson) {
-        this.healthCarePrincipalPerson = healthCarePrincipalPerson;
-    }
-
-
-    /**
-     * <p>Healthcare Provider Role Address</p>
-     * 
-     * <p><p>The address for the provider when playing the role of 
-     * healthcare provider.</p></p>
-     * 
-     * <p><p>Required attribute supports the identification of the 
-     * healthcare provider</p></p>
-     */
-    @Hl7XmlMapping({"addr"})
-    public List<PostalAddress> getHealthcareProviderRoleAddress() {
-        return this.healthcareProviderRoleAddress.rawList();
-    }
-
-
-    @Hl7XmlMapping({"issuingOrganization"})
-    public OrganizationBean getIssuingOrganization() {
-        return this.issuingOrganization;
-    }
-    public void setIssuingOrganization(OrganizationBean issuingOrganization) {
-        this.issuingOrganization = issuingOrganization;
-    }
-
-
-    @Hl7XmlMapping({"relatedTo"})
-    public List<RelatedToBean> getRelatedTo() {
-        return this.relatedTo;
+    public void setHealthcareProviderRoleEffectiveDate(Interval<Date> healthcareProviderRoleEffectiveDate) {
+        this.healthcareProviderRoleEffectiveDate.setValue(healthcareProviderRoleEffectiveDate);
     }
 
 }

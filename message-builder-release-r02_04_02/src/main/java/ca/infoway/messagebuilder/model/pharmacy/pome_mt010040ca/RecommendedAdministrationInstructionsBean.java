@@ -26,12 +26,18 @@ import java.util.List;
 @Hl7PartTypeMapping({"POME_MT010040CA.AdministrationGuideline"})
 public class RecommendedAdministrationInstructionsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
-    private PatientBean subjectPatient;
-    private ST recommendingAuthorityName = new STImpl();
-    private List<PatientCharacteristicsBean> preconditionObservationEventCriterion = new ArrayList<PatientCharacteristicsBean>();
-    private List<AdministrationInstructionsBean> optionDosageInstruction = new ArrayList<AdministrationInstructionsBean>();
+    private static final long serialVersionUID = 20110127L;
     private List<BecauseOfBean> reason = new ArrayList<BecauseOfBean>();
+    private PatientBean subjectPatient;
+    private List<AdministrationInstructionsBean> optionDosageInstruction = new ArrayList<AdministrationInstructionsBean>();
+    private List<PatientCharacteristicsBean> preconditionObservationEventCriterion = new ArrayList<PatientCharacteristicsBean>();
+    private ST recommendingAuthorityName = new STImpl();
+
+
+    @Hl7XmlMapping({"reason"})
+    public List<BecauseOfBean> getReason() {
+        return this.reason;
+    }
 
 
     @Hl7XmlMapping({"subject/patient"})
@@ -40,6 +46,18 @@ public class RecommendedAdministrationInstructionsBean extends MessagePartBean {
     }
     public void setSubjectPatient(PatientBean subjectPatient) {
         this.subjectPatient = subjectPatient;
+    }
+
+
+    @Hl7XmlMapping({"option/dosageInstruction"})
+    public List<AdministrationInstructionsBean> getOptionDosageInstruction() {
+        return this.optionDosageInstruction;
+    }
+
+
+    @Hl7XmlMapping({"precondition/observationEventCriterion"})
+    public List<PatientCharacteristicsBean> getPreconditionObservationEventCriterion() {
+        return this.preconditionObservationEventCriterion;
     }
 
 
@@ -59,24 +77,6 @@ public class RecommendedAdministrationInstructionsBean extends MessagePartBean {
     }
     public void setRecommendingAuthorityName(String recommendingAuthorityName) {
         this.recommendingAuthorityName.setValue(recommendingAuthorityName);
-    }
-
-
-    @Hl7XmlMapping({"precondition/observationEventCriterion"})
-    public List<PatientCharacteristicsBean> getPreconditionObservationEventCriterion() {
-        return this.preconditionObservationEventCriterion;
-    }
-
-
-    @Hl7XmlMapping({"option/dosageInstruction"})
-    public List<AdministrationInstructionsBean> getOptionDosageInstruction() {
-        return this.optionDosageInstruction;
-    }
-
-
-    @Hl7XmlMapping({"reason"})
-    public List<BecauseOfBean> getReason() {
-        return this.reason;
     }
 
 }

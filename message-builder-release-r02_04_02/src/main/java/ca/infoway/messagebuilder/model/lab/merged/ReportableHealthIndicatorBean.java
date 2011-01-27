@@ -38,9 +38,36 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"POLB_MT004000CA.ReportableTestIndicator","POLB_MT004100CA.ReportableTestIndicator","POLB_MT004200CA.ReportableTestIndicator"})
 public class ReportableHealthIndicatorBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
-    private CD observationTypeReportableIndicator = new CDImpl();
+    private static final long serialVersionUID = 20110127L;
     private BL reportableIndicator = new BLImpl();
+    private CD observationTypeReportableIndicator = new CDImpl();
+
+
+    /**
+     * <p>ReportableIndicator</p>
+     * 
+     * <p>Reportable Indicator</p>
+     * 
+     * <p><p>Report test and test results to another entity.</p></p>
+     * 
+     * <p>Reportable Indicator</p>
+     * 
+     * <p><p>This boolean value set whether this result is 
+     * reportable. True=reportable, false=not reportable.</p></p>
+     * 
+     * <p>Reportable Indicator</p>
+     * 
+     * <p><p>This boolean value set whether this result is 
+     * reportable to another agency, study, panel, authority, etc. 
+     * True=reportable, false=not reportable.</p></p>
+     */
+    @Hl7XmlMapping({"value"})
+    public Boolean getReportableIndicator() {
+        return this.reportableIndicator.getValue();
+    }
+    public void setReportableIndicator(Boolean reportableIndicator) {
+        this.reportableIndicator.setValue(reportableIndicator);
+    }
 
 
     /**
@@ -69,33 +96,6 @@ public class ReportableHealthIndicatorBean extends MessagePartBean {
     }
     public void setObservationTypeReportableIndicator(Code observationTypeReportableIndicator) {
         this.observationTypeReportableIndicator.setValue(observationTypeReportableIndicator);
-    }
-
-
-    /**
-     * <p>ReportableIndicator</p>
-     * 
-     * <p>Reportable Indicator</p>
-     * 
-     * <p><p>Report test and test results to another entity.</p></p>
-     * 
-     * <p>Reportable Indicator</p>
-     * 
-     * <p><p>This boolean value set whether this result is 
-     * reportable. True=reportable, false=not reportable.</p></p>
-     * 
-     * <p>Reportable Indicator</p>
-     * 
-     * <p><p>This boolean value set whether this result is 
-     * reportable to another agency, study, panel, authority, etc. 
-     * True=reportable, false=not reportable.</p></p>
-     */
-    @Hl7XmlMapping({"value"})
-    public Boolean getReportableIndicator() {
-        return this.reportableIndicator.getValue();
-    }
-    public void setReportableIndicator(Boolean reportableIndicator) {
-        this.reportableIndicator.setValue(reportableIndicator);
     }
 
 }

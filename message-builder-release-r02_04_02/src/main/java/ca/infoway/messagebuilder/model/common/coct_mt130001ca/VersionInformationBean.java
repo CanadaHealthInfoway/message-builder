@@ -39,12 +39,12 @@ import java.util.Date;
 @Hl7RootType
 public class VersionInformationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
+    private static final long serialVersionUID = 20110127L;
     private CV changeType = new CVImpl();
+    private ActingPerson authorActingPerson;
+    private TS changeDatetime = new TSImpl();
     private II changeIdentifier = new IIImpl();
     private IVL<TS, Interval<Date>> changeEffectiveDateAndEndDate = new IVLImpl<TS, Interval<Date>>();
-    private TS changeDatetime = new TSImpl();
-    private ActingPerson authorActingPerson;
     private CV changeReason = new CVImpl();
 
 
@@ -62,6 +62,57 @@ public class VersionInformationBean extends MessagePartBean {
     }
     public void setChangeType(HL7TriggerEventCode changeType) {
         this.changeType.setValue(changeType);
+    }
+
+
+    @Hl7XmlMapping({"author/actingPerson"})
+    public ActingPerson getAuthorActingPerson() {
+        return this.authorActingPerson;
+    }
+    public void setAuthorActingPerson(ActingPerson authorActingPerson) {
+        this.authorActingPerson = authorActingPerson;
+    }
+
+    public HealthcareWorkerBean getAuthorActingPersonAsAssignedEntity1() {
+        return this.authorActingPerson instanceof HealthcareWorkerBean ? (HealthcareWorkerBean) this.authorActingPerson : null;
+    }
+    public boolean hasAuthorActingPersonAsAssignedEntity1() {
+        return (this.authorActingPerson instanceof HealthcareWorkerBean);
+    }
+
+    public HealthcareOrganizationBean getAuthorActingPersonAsAssignedEntity2() {
+        return this.authorActingPerson instanceof HealthcareOrganizationBean ? (HealthcareOrganizationBean) this.authorActingPerson : null;
+    }
+    public boolean hasAuthorActingPersonAsAssignedEntity2() {
+        return (this.authorActingPerson instanceof HealthcareOrganizationBean);
+    }
+
+    public RelatedPersonBean getAuthorActingPersonAsPersonalRelationship() {
+        return this.authorActingPerson instanceof RelatedPersonBean ? (RelatedPersonBean) this.authorActingPerson : null;
+    }
+    public boolean hasAuthorActingPersonAsPersonalRelationship() {
+        return (this.authorActingPerson instanceof RelatedPersonBean);
+    }
+
+
+    /**
+     * <p>Change Datetime</p>
+     * 
+     * <p><p>The date on which the change was made. Note that this 
+     * may be earlier or occassionally later than when the change 
+     * is actually effective.</p></p>
+     * 
+     * <p><p>Gives other providers the frame of reference in 
+     * evaluating any post-change issues with the event. Also used 
+     * for sorting and audit purposes. Time of change is always 
+     * known and thus the attribute is mandatory.</p></p>
+     */
+    @Hl7XmlMapping({"author/time"})
+    public Date getChangeDatetime() {
+        return this.changeDatetime.getValue();
+    }
+    public void setChangeDatetime(Date changeDatetime) {
+        this.changeDatetime.setValue(changeDatetime);
     }
 
 
@@ -102,57 +153,6 @@ public class VersionInformationBean extends MessagePartBean {
     }
     public void setChangeEffectiveDateAndEndDate(Interval<Date> changeEffectiveDateAndEndDate) {
         this.changeEffectiveDateAndEndDate.setValue(changeEffectiveDateAndEndDate);
-    }
-
-
-    /**
-     * <p>Change Datetime</p>
-     * 
-     * <p><p>The date on which the change was made. Note that this 
-     * may be earlier or occassionally later than when the change 
-     * is actually effective.</p></p>
-     * 
-     * <p><p>Gives other providers the frame of reference in 
-     * evaluating any post-change issues with the event. Also used 
-     * for sorting and audit purposes. Time of change is always 
-     * known and thus the attribute is mandatory.</p></p>
-     */
-    @Hl7XmlMapping({"author/time"})
-    public Date getChangeDatetime() {
-        return this.changeDatetime.getValue();
-    }
-    public void setChangeDatetime(Date changeDatetime) {
-        this.changeDatetime.setValue(changeDatetime);
-    }
-
-
-    @Hl7XmlMapping({"author/actingPerson"})
-    public ActingPerson getAuthorActingPerson() {
-        return this.authorActingPerson;
-    }
-    public void setAuthorActingPerson(ActingPerson authorActingPerson) {
-        this.authorActingPerson = authorActingPerson;
-    }
-
-    public HealthcareWorkerBean getAuthorActingPersonAsAssignedEntity1() {
-        return this.authorActingPerson instanceof HealthcareWorkerBean ? (HealthcareWorkerBean) this.authorActingPerson : null;
-    }
-    public boolean hasAuthorActingPersonAsAssignedEntity1() {
-        return (this.authorActingPerson instanceof HealthcareWorkerBean);
-    }
-
-    public HealthcareOrganizationBean getAuthorActingPersonAsAssignedEntity2() {
-        return this.authorActingPerson instanceof HealthcareOrganizationBean ? (HealthcareOrganizationBean) this.authorActingPerson : null;
-    }
-    public boolean hasAuthorActingPersonAsAssignedEntity2() {
-        return (this.authorActingPerson instanceof HealthcareOrganizationBean);
-    }
-
-    public RelatedPersonBean getAuthorActingPersonAsPersonalRelationship() {
-        return this.authorActingPerson instanceof RelatedPersonBean ? (RelatedPersonBean) this.authorActingPerson : null;
-    }
-    public boolean hasAuthorActingPersonAsPersonalRelationship() {
-        return (this.authorActingPerson instanceof RelatedPersonBean);
     }
 
 

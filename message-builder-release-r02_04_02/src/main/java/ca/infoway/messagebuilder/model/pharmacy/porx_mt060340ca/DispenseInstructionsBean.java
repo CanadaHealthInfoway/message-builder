@@ -36,13 +36,28 @@ import java.util.List;
 @Hl7PartTypeMapping({"PORX_MT060340CA.SupplyRequest"})
 public class DispenseInstructionsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
+    private static final long serialVersionUID = 20110127L;
+    private OccurredAtBean location;
+    private List<Component3Bean> component = new ArrayList<Component3Bean>();
     private CS prescriptionDispensableIndicator = new CSImpl();
     private DispenseShipToLocationBean destinationServiceDeliveryLocation;
     private List<RelatedPersonBean> receiverPersonalRelationship = new ArrayList<RelatedPersonBean>();
     private IVL<TS, Interval<Date>> dispensingAllowedPeriod = new IVLImpl<TS, Interval<Date>>();
-    private OccurredAtBean location;
-    private List<Component3Bean> component = new ArrayList<Component3Bean>();
+
+
+    @Hl7XmlMapping({"location"})
+    public OccurredAtBean getLocation() {
+        return this.location;
+    }
+    public void setLocation(OccurredAtBean location) {
+        this.location = location;
+    }
+
+
+    @Hl7XmlMapping({"component"})
+    public List<Component3Bean> getComponent() {
+        return this.component;
+    }
 
 
     /**
@@ -113,21 +128,6 @@ public class DispenseInstructionsBean extends MessagePartBean {
     }
     public void setDispensingAllowedPeriod(Interval<Date> dispensingAllowedPeriod) {
         this.dispensingAllowedPeriod.setValue(dispensingAllowedPeriod);
-    }
-
-
-    @Hl7XmlMapping({"location"})
-    public OccurredAtBean getLocation() {
-        return this.location;
-    }
-    public void setLocation(OccurredAtBean location) {
-        this.location = location;
-    }
-
-
-    @Hl7XmlMapping({"component"})
-    public List<Component3Bean> getComponent() {
-        return this.component;
     }
 
 }

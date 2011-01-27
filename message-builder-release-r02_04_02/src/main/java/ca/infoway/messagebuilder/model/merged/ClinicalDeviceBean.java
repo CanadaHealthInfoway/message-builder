@@ -15,23 +15,23 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"FICR_MT400001CA.ClinicalDevice","FICR_MT400003CA.ClinicalDevice","FICR_MT400004CA.ClinicalDevice","FICR_MT490101CA.ClinicalDevice","FICR_MT490102CA.ClinicalDevice"})
 public class ClinicalDeviceBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
-    private ST deviceDescription = new STImpl();
-    private CV deviceCode = new CVImpl();
+    private static final long serialVersionUID = 20110127L;
     private ST deviceName = new STImpl();
+    private CV deviceCode = new CVImpl();
+    private ST deviceDescription = new STImpl();
 
 
     /**
-     * <p>DeviceDescription</p>
+     * <p>DeviceName</p>
      * 
-     * <p>Device Description</p>
+     * <p>Device Name</p>
      */
-    @Hl7XmlMapping({"desc"})
-    public String getDeviceDescription() {
-        return this.deviceDescription.getValue();
+    @Hl7XmlMapping({"name"})
+    public String getDeviceName() {
+        return this.deviceName.getValue();
     }
-    public void setDeviceDescription(String deviceDescription) {
-        this.deviceDescription.setValue(deviceDescription);
+    public void setDeviceName(String deviceName) {
+        this.deviceName.setValue(deviceName);
     }
 
 
@@ -50,16 +50,16 @@ public class ClinicalDeviceBean extends MessagePartBean {
 
 
     /**
-     * <p>DeviceName</p>
+     * <p>DeviceDescription</p>
      * 
-     * <p>Device Name</p>
+     * <p>Device Description</p>
      */
-    @Hl7XmlMapping({"name"})
-    public String getDeviceName() {
-        return this.deviceName.getValue();
+    @Hl7XmlMapping({"desc"})
+    public String getDeviceDescription() {
+        return this.deviceDescription.getValue();
     }
-    public void setDeviceName(String deviceName) {
-        this.deviceName.setValue(deviceName);
+    public void setDeviceDescription(String deviceDescription) {
+        this.deviceDescription.setValue(deviceDescription);
     }
 
 }

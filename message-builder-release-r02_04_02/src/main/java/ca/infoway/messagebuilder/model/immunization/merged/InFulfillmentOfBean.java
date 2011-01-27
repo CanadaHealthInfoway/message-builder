@@ -23,9 +23,18 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"POIZ_MT030050CA.InFulfillmentOf","POIZ_MT030060CA.InFulfillmentOf","POIZ_MT060150CA.InFulfillmentOf"})
 public class InFulfillmentOfBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
-    private INT doseNumber = new INTImpl();
+    private static final long serialVersionUID = 20110127L;
     private BL immunizationPlan = new BLImpl(false);
+    private INT doseNumber = new INTImpl();
+
+
+    @Hl7XmlMapping({"immunizationPlan"})
+    public Boolean getImmunizationPlan() {
+        return this.immunizationPlan.getValue();
+    }
+    public void setImmunizationPlan(Boolean immunizationPlan) {
+        this.immunizationPlan.setValue(immunizationPlan);
+    }
 
 
     /**
@@ -48,15 +57,6 @@ public class InFulfillmentOfBean extends MessagePartBean {
     }
     public void setDoseNumber(Integer doseNumber) {
         this.doseNumber.setValue(doseNumber);
-    }
-
-
-    @Hl7XmlMapping({"immunizationPlan"})
-    public Boolean getImmunizationPlan() {
-        return this.immunizationPlan.getValue();
-    }
-    public void setImmunizationPlan(Boolean immunizationPlan) {
-        this.immunizationPlan.setValue(immunizationPlan);
     }
 
 }

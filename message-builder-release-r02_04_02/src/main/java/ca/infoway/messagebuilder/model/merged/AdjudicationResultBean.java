@@ -25,10 +25,10 @@ import java.util.List;
 @Hl7PartTypeMapping({"COCT_MT680000CA.AdjudicationResult","FICR_MT610201CA.AdjudicationResult"})
 public class AdjudicationResultBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
+    private static final long serialVersionUID = 20110127L;
     private List<AdjudicationResultReferenceBean> reference = new ArrayList<AdjudicationResultReferenceBean>();
-    private CV code = new CVImpl();
     private List<AdjudicationCodeChoice> pertinentInformationAdjudicationCodeChoice = new ArrayList<AdjudicationCodeChoice>();
+    private CV code = new CVImpl();
     private List<IssuesBean> reasonOfDetectedIssueEvent = new ArrayList<IssuesBean>();
     private List<AdjudicationResultRequiredActBean> triggerAdjudicationResultRequiredAct = new ArrayList<AdjudicationResultRequiredActBean>();
 
@@ -36,6 +36,12 @@ public class AdjudicationResultBean extends MessagePartBean {
     @Hl7XmlMapping({"reference"})
     public List<AdjudicationResultReferenceBean> getReference() {
         return this.reference;
+    }
+
+
+    @Hl7XmlMapping({"pertinentInformation/adjudicationCodeChoice"})
+    public List<AdjudicationCodeChoice> getPertinentInformationAdjudicationCodeChoice() {
+        return this.pertinentInformationAdjudicationCodeChoice;
     }
 
 
@@ -53,12 +59,6 @@ public class AdjudicationResultBean extends MessagePartBean {
     }
     public void setCode(Code code) {
         this.code.setValue(code);
-    }
-
-
-    @Hl7XmlMapping({"pertinentInformation/adjudicationCodeChoice"})
-    public List<AdjudicationCodeChoice> getPertinentInformationAdjudicationCodeChoice() {
-        return this.pertinentInformationAdjudicationCodeChoice;
     }
 
 

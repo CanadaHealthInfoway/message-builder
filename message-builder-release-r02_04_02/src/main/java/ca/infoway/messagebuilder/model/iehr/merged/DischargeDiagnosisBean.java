@@ -47,31 +47,9 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"REPC_MT500001CA.DiagnosisEvent","REPC_MT500002CA.DiagnosisEvent","REPC_MT500003CA.DiagnosisEvent","REPC_MT500004CA.DiagnosisEvent"})
 public class DischargeDiagnosisBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
-    private CD diagnosisType = new CDImpl();
+    private static final long serialVersionUID = 20110127L;
     private CV diagnosisCode = new CVImpl();
-
-
-    /**
-     * <p>DiagnosisType</p>
-     * 
-     * <p>A:Diagnosis Type</p>
-     * 
-     * <p><p>Code is fixed to DX if not using SNOMED</p></p>
-     * 
-     * <p><p>Identifies the type of diagnosis</p></p>
-     * 
-     * <p></p></p>
-     * 
-     * <p></p></p>
-     */
-    @Hl7XmlMapping({"code"})
-    public Code getDiagnosisType() {
-        return (Code) this.diagnosisType.getValue();
-    }
-    public void setDiagnosisType(Code diagnosisType) {
-        this.diagnosisType.setValue(diagnosisType);
-    }
+    private CD diagnosisType = new CDImpl();
 
 
     /**
@@ -93,6 +71,28 @@ public class DischargeDiagnosisBean extends MessagePartBean {
     }
     public void setDiagnosisCode(DiagnosisValue diagnosisCode) {
         this.diagnosisCode.setValue(diagnosisCode);
+    }
+
+
+    /**
+     * <p>DiagnosisType</p>
+     * 
+     * <p>A:Diagnosis Type</p>
+     * 
+     * <p><p>Code is fixed to DX if not using SNOMED</p></p>
+     * 
+     * <p><p>Identifies the type of diagnosis</p></p>
+     * 
+     * <p></p></p>
+     * 
+     * <p></p></p>
+     */
+    @Hl7XmlMapping({"code"})
+    public Code getDiagnosisType() {
+        return (Code) this.diagnosisType.getValue();
+    }
+    public void setDiagnosisType(Code diagnosisType) {
+        this.diagnosisType.setValue(diagnosisType);
     }
 
 }

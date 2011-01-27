@@ -27,13 +27,25 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COCT_MT110200CA.PayeePerson"})
 public class PayeePersonBean extends MessagePartBean implements PayeeChoice {
 
-    private static final long serialVersionUID = 20110126L;
+    private static final long serialVersionUID = 20110127L;
+    private AD payeeAddress = new ADImpl();
     private PN payeeName = new PNImpl();
     private PayeeRelationshipRoleBean asRole;
+    private CV payeePersonLanguage = new CVImpl();
     private BL preferredLanguageIndicator = new BLImpl();
     private CV languageOfCommunication = new CVImpl();
-    private CV payeePersonLanguage = new CVImpl();
-    private AD payeeAddress = new ADImpl();
+
+
+    /**
+     * <p>payee address</p>
+     */
+    @Hl7XmlMapping({"addr"})
+    public PostalAddress getPayeeAddress() {
+        return this.payeeAddress.getValue();
+    }
+    public void setPayeeAddress(PostalAddress payeeAddress) {
+        this.payeeAddress.setValue(payeeAddress);
+    }
 
 
     /**
@@ -56,6 +68,18 @@ public class PayeePersonBean extends MessagePartBean implements PayeeChoice {
     }
     public void setAsRole(PayeeRelationshipRoleBean asRole) {
         this.asRole = asRole;
+    }
+
+
+    /**
+     * <p>Payee Person Language</p>
+     */
+    @Hl7XmlMapping({"payeeLanguage/languageCode"})
+    public HumanLanguage getPayeePersonLanguage() {
+        return (HumanLanguage) this.payeePersonLanguage.getValue();
+    }
+    public void setPayeePersonLanguage(HumanLanguage payeePersonLanguage) {
+        this.payeePersonLanguage.setValue(payeePersonLanguage);
     }
 
 
@@ -83,30 +107,6 @@ public class PayeePersonBean extends MessagePartBean implements PayeeChoice {
     }
     public void setLanguageOfCommunication(LanguageAbilityMode languageOfCommunication) {
         this.languageOfCommunication.setValue(languageOfCommunication);
-    }
-
-
-    /**
-     * <p>Payee Person Language</p>
-     */
-    @Hl7XmlMapping({"payeeLanguage/languageCode"})
-    public HumanLanguage getPayeePersonLanguage() {
-        return (HumanLanguage) this.payeePersonLanguage.getValue();
-    }
-    public void setPayeePersonLanguage(HumanLanguage payeePersonLanguage) {
-        this.payeePersonLanguage.setValue(payeePersonLanguage);
-    }
-
-
-    /**
-     * <p>payee address</p>
-     */
-    @Hl7XmlMapping({"addr"})
-    public PostalAddress getPayeeAddress() {
-        return this.payeeAddress.getValue();
-    }
-    public void setPayeeAddress(PostalAddress payeeAddress) {
-        this.payeeAddress.setValue(payeeAddress);
     }
 
 }
