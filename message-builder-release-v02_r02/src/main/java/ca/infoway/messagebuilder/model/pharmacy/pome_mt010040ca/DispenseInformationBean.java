@@ -10,29 +10,22 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 /**
  * <p>Dispense Information</p>
  * 
- * <p>Indicates how the drug should be supplied and/or who can 
- * dispense it.</p>
+ * <p><p>At least one of the 2 components of SupplyDefinition3 
+ * First Fill Period or Refill Period must be specified.</p></p>
  * 
- * <p>Needed to understand limits on how dispenses can be 
- * performed.</p>
+ * <p><p>Indicates how the drug should be supplied and/or who 
+ * can dispense it.</p></p>
  * 
- * <p>At least one of the 2 components of SupplyDefinition3 
- * First Fill Period or Refill Period must be specified.</p>
+ * <p><p>Needed to understand limits on how dispenses can be 
+ * performed.</p></p>
  */
 @Hl7PartTypeMapping({"POME_MT010040CA.DispenseGuidelines"})
 public class DispenseInformationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20100614L;
-    private DrugValidityPeriodBean component2InitialDispense;
+    private static final long serialVersionUID = 20110127L;
     private SubsequentDispenseBean component1SubsequentDispense;
+    private DrugValidityPeriodBean component2InitialDispense;
 
-    @Hl7XmlMapping({"component2/initialDispense"})
-    public DrugValidityPeriodBean getComponent2InitialDispense() {
-        return this.component2InitialDispense;
-    }
-    public void setComponent2InitialDispense(DrugValidityPeriodBean component2InitialDispense) {
-        this.component2InitialDispense = component2InitialDispense;
-    }
 
     @Hl7XmlMapping({"component1/subsequentDispense"})
     public SubsequentDispenseBean getComponent1SubsequentDispense() {
@@ -40,6 +33,15 @@ public class DispenseInformationBean extends MessagePartBean {
     }
     public void setComponent1SubsequentDispense(SubsequentDispenseBean component1SubsequentDispense) {
         this.component1SubsequentDispense = component1SubsequentDispense;
+    }
+
+
+    @Hl7XmlMapping({"component2/initialDispense"})
+    public DrugValidityPeriodBean getComponent2InitialDispense() {
+        return this.component2InitialDispense;
+    }
+    public void setComponent2InitialDispense(DrugValidityPeriodBean component2InitialDispense) {
+        this.component2InitialDispense = component2InitialDispense;
     }
 
 }

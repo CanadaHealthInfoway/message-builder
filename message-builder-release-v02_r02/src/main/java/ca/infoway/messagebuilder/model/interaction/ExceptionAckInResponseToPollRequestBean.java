@@ -3,19 +3,13 @@ package ca.infoway.messagebuilder.model.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.common.mcci_mt002200ca.HL7MessageBean;
+import ca.infoway.messagebuilder.model.common.merged.HL7Message_2Bean;
 
 
 
-/**
- * <p>Communication level acknowledgement indicating exception 
- * as to why message payload not returned by poll request that 
- * has been received. Note: This interaction is invoked, where 
- * appropriate, as a receiver responsibility.</p>
- */
 @Hl7PartTypeMapping({"MCCI_IN100005CA"})
-public class ExceptionAckInResponseToPollRequestBean extends HL7MessageBean implements InteractionBean {
+public class ExceptionAckInResponseToPollRequestBean extends HL7Message_2Bean implements InteractionBean {
 
-    private static final long serialVersionUID = 20100614L;
+    private static final long serialVersionUID = 20110127L;
 
 }

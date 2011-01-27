@@ -3,19 +3,15 @@ package ca.infoway.messagebuilder.model.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.common.mcai_mt700212ca.TriggerEventBean;
-import ca.infoway.messagebuilder.model.common.mcci_mt002100ca.HL7MessageBean;
-import ca.infoway.messagebuilder.model.pharmacy.porx_mt020050ca.OfficeSupplyBean;
+import ca.infoway.messagebuilder.model.common.merged.HL7Message_1Bean;
+import ca.infoway.messagebuilder.model.common.merged.TriggerEvent_1Bean;
+import ca.infoway.messagebuilder.model.pharmacy.merged.PrescriptionDispenseResponseBean;
 
 
 
-/**
- * <p>Requests that a bulk supply of a medication to a facility 
- * be recorded.</p>
- */
 @Hl7PartTypeMapping({"PORX_IN020210CA"})
-public class RecordSupplyEventWardStockRequestBean extends HL7MessageBean<TriggerEventBean<OfficeSupplyBean>> implements InteractionBean {
+public class RecordSupplyEventWardStockRequestBean extends HL7Message_1Bean<TriggerEvent_1Bean<PrescriptionDispenseResponseBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20100614L;
+    private static final long serialVersionUID = 20110127L;
 
 }

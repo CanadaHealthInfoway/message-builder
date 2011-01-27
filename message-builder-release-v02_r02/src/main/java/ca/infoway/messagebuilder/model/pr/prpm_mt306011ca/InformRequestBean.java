@@ -15,73 +15,37 @@ import ca.infoway.messagebuilder.domainvalue.ActMood;
 import ca.infoway.messagebuilder.domainvalue.ParticipationMode;
 import ca.infoway.messagebuilder.domainvalue.ParticipationType;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import ca.infoway.messagebuilder.model.merged.Choice;
+import ca.infoway.messagebuilder.model.pr.merged.ServiceDeliveryLocationBean;
 
 
 
 /**
  * <p>Inform Request</p>
  * 
- * <p>A record of something that is being done, has been done, 
- * can be done, or is intended or requested to be done.</p>
+ * <p><p>A record of something that is being done, has been 
+ * done, can be done, or is intended or requested to be 
+ * done.</p></p>
  * 
- * <p>Acts are the pivot of the RIM; all domain information and 
- * processes are represented primarily in Acts. Any profession 
- * or business, including healthcare, is primarily constituted 
- * of intentional and occasionally non-intentional actions, 
- * performed and recorded by responsible actors. An 
- * Act-instance is a record of such an action.</p>
+ * <p><p>Acts are the pivot of the RIM; all domain information 
+ * and processes are represented primarily in Acts. Any 
+ * profession or business, including healthcare, is primarily 
+ * constituted of intentional and occasionally non-intentional 
+ * actions, performed and recorded by responsible actors. An 
+ * Act-instance is a record of such an action.</p></p>
  */
 @Hl7PartTypeMapping({"PRPM_MT306011CA.InformRequest"})
 public class InformRequestBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20100614L;
-    private CS classCode = new CSImpl();
-    private CS moodCode = new CSImpl();
-    private CD informRequestCode = new CDImpl();
-    private CS indirectTargetTypeCode = new CSImpl();
-    private ChoiceBean indirectTargetChoice;
+    private static final long serialVersionUID = 20110127L;
     private CE subjectModeCode = new CEImpl();
     private ServiceDeliveryLocationBean subjectServiceDeliveryLocation;
+    private CD informRequestCode = new CDImpl();
+    private Choice indirectTargetChoice;
+    private CS indirectTargetTypeCode = new CSImpl();
+    private CS classCode = new CSImpl();
+    private CS moodCode = new CSImpl();
 
-    @Hl7XmlMapping({"classCode"})
-    public ActClass getClassCode() {
-        return (ActClass) this.classCode.getValue();
-    }
-    public void setClassCode(ActClass classCode) {
-        this.classCode.setValue(classCode);
-    }
-
-    @Hl7XmlMapping({"moodCode"})
-    public ActMood getMoodCode() {
-        return (ActMood) this.moodCode.getValue();
-    }
-    public void setMoodCode(ActMood moodCode) {
-        this.moodCode.setValue(moodCode);
-    }
-
-    @Hl7XmlMapping({"code"})
-    public ActCode getInformRequestCode() {
-        return (ActCode) this.informRequestCode.getValue();
-    }
-    public void setInformRequestCode(ActCode informRequestCode) {
-        this.informRequestCode.setValue(informRequestCode);
-    }
-
-    @Hl7XmlMapping({"indirectTarget/typeCode"})
-    public ParticipationType getIndirectTargetTypeCode() {
-        return (ParticipationType) this.indirectTargetTypeCode.getValue();
-    }
-    public void setIndirectTargetTypeCode(ParticipationType indirectTargetTypeCode) {
-        this.indirectTargetTypeCode.setValue(indirectTargetTypeCode);
-    }
-
-    @Hl7XmlMapping({"indirectTarget/choice"})
-    public ChoiceBean getIndirectTargetChoice() {
-        return this.indirectTargetChoice;
-    }
-    public void setIndirectTargetChoice(ChoiceBean indirectTargetChoice) {
-        this.indirectTargetChoice = indirectTargetChoice;
-    }
 
     @Hl7XmlMapping({"subject/modeCode"})
     public ParticipationMode getSubjectModeCode() {
@@ -91,12 +55,83 @@ public class InformRequestBean extends MessagePartBean {
         this.subjectModeCode.setValue(subjectModeCode);
     }
 
+
     @Hl7XmlMapping({"subject/serviceDeliveryLocation"})
     public ServiceDeliveryLocationBean getSubjectServiceDeliveryLocation() {
         return this.subjectServiceDeliveryLocation;
     }
     public void setSubjectServiceDeliveryLocation(ServiceDeliveryLocationBean subjectServiceDeliveryLocation) {
         this.subjectServiceDeliveryLocation = subjectServiceDeliveryLocation;
+    }
+
+
+    /**
+     * <p>Inform Request Code</p>
+     * 
+     * <p><p>A code specifying the particular kind of Act that the 
+     * Act-instance represents within its class. Ex. Document 
+     * Type</p></p>
+     * 
+     * <p><p>Populated attribute supports the business requirement 
+     * to provide coded information about the Act being 
+     * described</p></p>
+     */
+    @Hl7XmlMapping({"code"})
+    public ActCode getInformRequestCode() {
+        return (ActCode) this.informRequestCode.getValue();
+    }
+    public void setInformRequestCode(ActCode informRequestCode) {
+        this.informRequestCode.setValue(informRequestCode);
+    }
+
+
+    @Hl7XmlMapping({"indirectTarget/choice"})
+    public Choice getIndirectTargetChoice() {
+        return this.indirectTargetChoice;
+    }
+    public void setIndirectTargetChoice(Choice indirectTargetChoice) {
+        this.indirectTargetChoice = indirectTargetChoice;
+    }
+
+    public RoleChoice getIndirectTargetChoiceAsServiceDeliveryLocation() {
+        return this.indirectTargetChoice instanceof RoleChoice ? (RoleChoice) this.indirectTargetChoice : null;
+    }
+    public boolean hasIndirectTargetChoiceAsServiceDeliveryLocation() {
+        return (this.indirectTargetChoice instanceof RoleChoice);
+    }
+
+    public HealthcareProviderBean getIndirectTargetChoiceAsHealthCareProvider() {
+        return this.indirectTargetChoice instanceof HealthcareProviderBean ? (HealthcareProviderBean) this.indirectTargetChoice : null;
+    }
+    public boolean hasIndirectTargetChoiceAsHealthCareProvider() {
+        return (this.indirectTargetChoice instanceof HealthcareProviderBean);
+    }
+
+
+    @Hl7XmlMapping({"indirectTarget/typeCode"})
+    public ParticipationType getIndirectTargetTypeCode() {
+        return (ParticipationType) this.indirectTargetTypeCode.getValue();
+    }
+    public void setIndirectTargetTypeCode(ParticipationType indirectTargetTypeCode) {
+        this.indirectTargetTypeCode.setValue(indirectTargetTypeCode);
+    }
+
+
+    @Hl7XmlMapping({"classCode"})
+    public ActClass getClassCode() {
+        return (ActClass) this.classCode.getValue();
+    }
+    public void setClassCode(ActClass classCode) {
+        this.classCode.setValue(classCode);
+    }
+
+
+    @Hl7XmlMapping({"moodCode"})
+    public ActMood getMoodCode() {
+        return (ActMood) this.moodCode.getValue();
+    }
+    public void setMoodCode(ActMood moodCode) {
+        this.moodCode.setValue(moodCode);
     }
 
 }

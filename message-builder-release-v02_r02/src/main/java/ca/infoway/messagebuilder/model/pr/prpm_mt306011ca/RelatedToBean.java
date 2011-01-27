@@ -19,18 +19,11 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PRPM_MT306011CA.RelatedTo"})
 public class RelatedToBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20100614L;
-    private CS typeCode = new CSImpl();
+    private static final long serialVersionUID = 20110127L;
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
-    private RoleChoiceBean roleChoice;
+    private CS typeCode = new CSImpl();
+    private RoleChoice roleChoice;
 
-    @Hl7XmlMapping({"typeCode"})
-    public RoleLinkType getTypeCode() {
-        return (RoleLinkType) this.typeCode.getValue();
-    }
-    public void setTypeCode(RoleLinkType typeCode) {
-        this.typeCode.setValue(typeCode);
-    }
 
     @Hl7XmlMapping({"effectiveTime"})
     public Interval<Date> getEffectiveTime() {
@@ -40,12 +33,43 @@ public class RelatedToBean extends MessagePartBean {
         this.effectiveTime.setValue(effectiveTime);
     }
 
+
+    @Hl7XmlMapping({"typeCode"})
+    public RoleLinkType getTypeCode() {
+        return (RoleLinkType) this.typeCode.getValue();
+    }
+    public void setTypeCode(RoleLinkType typeCode) {
+        this.typeCode.setValue(typeCode);
+    }
+
+
     @Hl7XmlMapping({"roleChoice"})
-    public RoleChoiceBean getRoleChoice() {
+    public RoleChoice getRoleChoice() {
         return this.roleChoice;
     }
-    public void setRoleChoice(RoleChoiceBean roleChoice) {
+    public void setRoleChoice(RoleChoice roleChoice) {
         this.roleChoice = roleChoice;
+    }
+
+    public AssignedEntityBean getRoleChoiceAsAssignedEntity() {
+        return this.roleChoice instanceof AssignedEntityBean ? (AssignedEntityBean) this.roleChoice : null;
+    }
+    public boolean hasRoleChoiceAsAssignedEntity() {
+        return (this.roleChoice instanceof AssignedEntityBean);
+    }
+
+    public QualifiedEntityBean getRoleChoiceAsQualifiedEntity() {
+        return this.roleChoice instanceof QualifiedEntityBean ? (QualifiedEntityBean) this.roleChoice : null;
+    }
+    public boolean hasRoleChoiceAsQualifiedEntity() {
+        return (this.roleChoice instanceof QualifiedEntityBean);
+    }
+
+    public HealthcareProviderBean getRoleChoiceAsHealthCareProvider() {
+        return this.roleChoice instanceof HealthcareProviderBean ? (HealthcareProviderBean) this.roleChoice : null;
+    }
+    public boolean hasRoleChoiceAsHealthCareProvider() {
+        return (this.roleChoice instanceof HealthcareProviderBean);
     }
 
 }

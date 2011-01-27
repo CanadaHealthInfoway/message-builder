@@ -33,56 +33,34 @@ import java.util.List;
 @Hl7RootType
 public class ParameterListBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20100614L;
-    private CV principalPersonGender = new CVImpl();
-    private List<II> clientHealthcareIdentificationNumberAndOrNonHealthcareIdentification = new ArrayList<II>();
-    private DeceasedIndicatorBean deceasedIndicator;
-    private DeceasedTimeBean deceasedTime;
-    private LanguageCodeBean languageCode;
-    private MultipleBirthIndicatorBean multipleBirthIndicator;
-    private MultipleBirthOrderNumberBean multipleBirthOrderNumber;
+    private static final long serialVersionUID = 20110127L;
     private List<AD> clientAddress = new ArrayList<AD>();
-    private TS clientDateOfBirth = new TSImpl();
-    private List<PN> clientName = new ArrayList<PN>();
+    private MultipleBirthIndicatorBean multipleBirthIndicator;
+    private LanguageCodeBean languageCode;
+    private DeceasedIndicatorBean deceasedIndicator;
+    private MultipleBirthOrderNumberBean multipleBirthOrderNumber;
+    private List<II> clientHealthcareIdentificationNumberAndOrNonHealthcareIdentification = new ArrayList<II>();
     private List<TEL> clientTelecom = new ArrayList<TEL>();
     private PersonalRelationshipCodeBean personalRelationshipCode;
+    private CV clientGender = new CVImpl();
+    private List<PN> clientName = new ArrayList<PN>();
+    private DeceasedTimeBean deceasedTime;
+    private TS clientDateOfBirth = new TSImpl();
 
-    @Hl7XmlMapping({"administrativeGender/value"})
-    public AdministrativeGender getPrincipalPersonGender() {
-        return (AdministrativeGender) this.principalPersonGender.getValue();
-    }
-    public void setPrincipalPersonGender(AdministrativeGender principalPersonGender) {
-        this.principalPersonGender.setValue(principalPersonGender);
-    }
 
-    @Hl7XmlMapping({"clientId/value"})
-    public List<Identifier> getClientHealthcareIdentificationNumberAndOrNonHealthcareIdentification() {
-        return new RawListWrapper<II, Identifier>(clientHealthcareIdentificationNumberAndOrNonHealthcareIdentification, IIImpl.class);
-    }
-
-    @Hl7XmlMapping({"deceasedIndicator"})
-    public DeceasedIndicatorBean getDeceasedIndicator() {
-        return this.deceasedIndicator;
-    }
-    public void setDeceasedIndicator(DeceasedIndicatorBean deceasedIndicator) {
-        this.deceasedIndicator = deceasedIndicator;
+    /**
+     * <p>Client Address</p>
+     * 
+     * <p><p>Address(es) of the Client</p></p>
+     * 
+     * <p><p>Mandatory attribute supports the identification of the 
+     * client</p></p>
+     */
+    @Hl7XmlMapping({"personAddress/value"})
+    public List<PostalAddress> getClientAddress() {
+        return new RawListWrapper<AD, PostalAddress>(clientAddress, ADImpl.class);
     }
 
-    @Hl7XmlMapping({"deceasedTime"})
-    public DeceasedTimeBean getDeceasedTime() {
-        return this.deceasedTime;
-    }
-    public void setDeceasedTime(DeceasedTimeBean deceasedTime) {
-        this.deceasedTime = deceasedTime;
-    }
-
-    @Hl7XmlMapping({"languageCode"})
-    public LanguageCodeBean getLanguageCode() {
-        return this.languageCode;
-    }
-    public void setLanguageCode(LanguageCodeBean languageCode) {
-        this.languageCode = languageCode;
-    }
 
     @Hl7XmlMapping({"multipleBirthIndicator"})
     public MultipleBirthIndicatorBean getMultipleBirthIndicator() {
@@ -92,6 +70,25 @@ public class ParameterListBean extends MessagePartBean {
         this.multipleBirthIndicator = multipleBirthIndicator;
     }
 
+
+    @Hl7XmlMapping({"languageCode"})
+    public LanguageCodeBean getLanguageCode() {
+        return this.languageCode;
+    }
+    public void setLanguageCode(LanguageCodeBean languageCode) {
+        this.languageCode = languageCode;
+    }
+
+
+    @Hl7XmlMapping({"deceasedIndicator"})
+    public DeceasedIndicatorBean getDeceasedIndicator() {
+        return this.deceasedIndicator;
+    }
+    public void setDeceasedIndicator(DeceasedIndicatorBean deceasedIndicator) {
+        this.deceasedIndicator = deceasedIndicator;
+    }
+
+
     @Hl7XmlMapping({"multipleBirthOrderNumber"})
     public MultipleBirthOrderNumberBean getMultipleBirthOrderNumber() {
         return this.multipleBirthOrderNumber;
@@ -100,28 +97,37 @@ public class ParameterListBean extends MessagePartBean {
         this.multipleBirthOrderNumber = multipleBirthOrderNumber;
     }
 
-    @Hl7XmlMapping({"personAddress/value"})
-    public List<PostalAddress> getClientAddress() {
-        return new RawListWrapper<AD, PostalAddress>(clientAddress, ADImpl.class);
+
+    /**
+     * <p>Identification</p>
+     * 
+     * <p><p>Healthcare identiers may be assigned jurisdictionally 
+     * or by care facility and/or non-healthcare identifiers for 
+     * the Client (e.g. Passport, SIN, DND, DIAND, Drivers 
+     * License)</p></p>
+     * 
+     * <p><p>Mandatory attribute supports the identification of the 
+     * client</p></p>
+     */
+    @Hl7XmlMapping({"clientId/value"})
+    public List<Identifier> getClientHealthcareIdentificationNumberAndOrNonHealthcareIdentification() {
+        return new RawListWrapper<II, Identifier>(clientHealthcareIdentificationNumberAndOrNonHealthcareIdentification, IIImpl.class);
     }
 
-    @Hl7XmlMapping({"personBirthtime/value"})
-    public Date getClientDateOfBirth() {
-        return this.clientDateOfBirth.getValue();
-    }
-    public void setClientDateOfBirth(Date clientDateOfBirth) {
-        this.clientDateOfBirth.setValue(clientDateOfBirth);
-    }
 
-    @Hl7XmlMapping({"personName/value"})
-    public List<PersonName> getClientName() {
-        return new RawListWrapper<PN, PersonName>(clientName, PNImpl.class);
-    }
-
+    /**
+     * <p>Client Telecom</p>
+     * 
+     * <p><p>Provides information about telecom</p></p>
+     * 
+     * <p><p>Mandatory attribute supports the identification of the 
+     * client</p></p>
+     */
     @Hl7XmlMapping({"personTelecom/value"})
     public List<TelecommunicationAddress> getClientTelecom() {
         return new RawListWrapper<TEL, TelecommunicationAddress>(clientTelecom, TELImpl.class);
     }
+
 
     @Hl7XmlMapping({"personalRelationshipCode"})
     public PersonalRelationshipCodeBean getPersonalRelationshipCode() {
@@ -129,6 +135,66 @@ public class ParameterListBean extends MessagePartBean {
     }
     public void setPersonalRelationshipCode(PersonalRelationshipCodeBean personalRelationshipCode) {
         this.personalRelationshipCode = personalRelationshipCode;
+    }
+
+
+    /**
+     * <p>Client Gender</p>
+     * 
+     * <p><p>Gender of the Client, this is not to be confused with 
+     * Clinical Gender of a client. Administrative Gender is 
+     * typically restricted to Male (M), Female (F) or Unknown 
+     * (U)</p></p>
+     * 
+     * <p><p>Mandatory attribute supports the identification of the 
+     * client</p></p>
+     */
+    @Hl7XmlMapping({"administrativeGender/value"})
+    public AdministrativeGender getClientGender() {
+        return (AdministrativeGender) this.clientGender.getValue();
+    }
+    public void setClientGender(AdministrativeGender clientGender) {
+        this.clientGender.setValue(clientGender);
+    }
+
+
+    /**
+     * <p>Client Name</p>
+     * 
+     * <p><p>Name(s) for the Client</p></p>
+     * 
+     * <p><p>Mandatory attribute supports the identification of the 
+     * client</p></p>
+     */
+    @Hl7XmlMapping({"personName/value"})
+    public List<PersonName> getClientName() {
+        return new RawListWrapper<PN, PersonName>(clientName, PNImpl.class);
+    }
+
+
+    @Hl7XmlMapping({"deceasedTime"})
+    public DeceasedTimeBean getDeceasedTime() {
+        return this.deceasedTime;
+    }
+    public void setDeceasedTime(DeceasedTimeBean deceasedTime) {
+        this.deceasedTime = deceasedTime;
+    }
+
+
+    /**
+     * <p>Client Date of Birth</p>
+     * 
+     * <p><p>Date of birth of the Client</p></p>
+     * 
+     * <p><p>Mandatory attribute supports the identification of the 
+     * client</p></p>
+     */
+    @Hl7XmlMapping({"personBirthtime/value"})
+    public Date getClientDateOfBirth() {
+        return this.clientDateOfBirth.getValue();
+    }
+    public void setClientDateOfBirth(Date clientDateOfBirth) {
+        this.clientDateOfBirth.setValue(clientDateOfBirth);
     }
 
 }

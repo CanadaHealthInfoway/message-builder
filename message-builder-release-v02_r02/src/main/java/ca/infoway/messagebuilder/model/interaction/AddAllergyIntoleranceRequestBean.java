@@ -3,19 +3,15 @@ package ca.infoway.messagebuilder.model.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.common.mcai_mt700210ca.TriggerEventBean;
-import ca.infoway.messagebuilder.model.common.mcci_mt002100ca.HL7MessageBean;
-import ca.infoway.messagebuilder.model.merged.AllergyIntoleranceBean;
+import ca.infoway.messagebuilder.model.common.merged.HL7Message_1Bean;
+import ca.infoway.messagebuilder.model.common.merged.TriggerEvent_1Bean;
+import ca.infoway.messagebuilder.model.iehr.merged.AllergyIntoleranceBean;
 
 
 
-/**
- * <p>Requests that a new allergy or intolerance record be 
- * recorded against the specified patient.</p>
- */
 @Hl7PartTypeMapping({"REPC_IN000012CA"})
-public class AddAllergyIntoleranceRequestBean extends HL7MessageBean<TriggerEventBean<AllergyIntoleranceBean>> implements InteractionBean {
+public class AddAllergyIntoleranceRequestBean extends HL7Message_1Bean<TriggerEvent_1Bean<AllergyIntoleranceBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20100614L;
+    private static final long serialVersionUID = 20110127L;
 
 }

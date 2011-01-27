@@ -6,17 +6,157 @@ import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
 import ca.infoway.messagebuilder.datatype.TS;
 import ca.infoway.messagebuilder.datatype.impl.TSImpl;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.common.coct_mt090108ca.HealthcareWorkerBean;
+import ca.infoway.messagebuilder.model.common.merged.HealthcareWorkerBean;
 import java.util.Date;
 
 
 
-@Hl7PartTypeMapping({"PORX_MT020060CA.Author","PORX_MT020070CA.Author","PORX_MT030040CA.Author","PORX_MT060010CA.Author5","PORX_MT060040CA.Author","PORX_MT060060CA.Author","PORX_MT060090CA.Author5","PORX_MT060160CA.Author","PORX_MT060160CA.Author5","PORX_MT060190CA.Author","PORX_MT060190CA.Author3","PORX_MT060210CA.Author","PORX_MT060340CA.Author"})
+/**
+ * <p>PORX_MT060210CA.Author: *b:recorded by</p>
+ * 
+ * <p><p>Indicates the identity of the provider who recorded 
+ * the other medication information.</p></p>
+ * 
+ * <p><p>Allows other providers to enquire about the 
+ * authenticity of the content of the other medication record 
+ * and is therefore mandatory.</p></p>
+ * 
+ * <p>PORX_MT060160CA.Author5: *refused by</p>
+ * 
+ * <p><p>Indicates who refused to fulfill the prescription</p></p>
+ * 
+ * <p><p>Allows follow-up and traceability of the 
+ * refusal.</p><p>Association is mandatory as the provider 
+ * refusing the fill must be known.</p></p>
+ * 
+ * <p><p>Allows follow-up and traceability of the 
+ * refusal.</p><p>Association is mandatory as the provider 
+ * refusing the fill must be known.</p></p>
+ * 
+ * <p>PORX_MT020070CA.Author: bc:prescribed by</p>
+ * 
+ * <p><p>The person who prescribed the medication.</p></p>
+ * 
+ * <p><p>Used to create an 'inferred' prescription if an 
+ * electronic prescription does not already exist in the 
+ * EHR.</p></p>
+ * 
+ * <p>PORX_MT060190CA.Author: *recorded by</p>
+ * 
+ * <p><p>Indicates the provider who recorded the &quot;other 
+ * active medication&quot;.</p></p>
+ * 
+ * <p><p>Useful for follow-up and audit purposes, and therefore 
+ * mandatory.</p></p>
+ * 
+ * <p>PORX_MT060190CA.Author3: *refused by</p>
+ * 
+ * <p><p>Indicates who refused to fulfill the prescription</p></p>
+ * 
+ * <p><p>Allows follow-up and traceability of the refusal and 
+ * is therefore mandatory</p></p>
+ * 
+ * <p>PORX_MT030040CA.Author: *refused by</p>
+ * 
+ * <p><p>Indicates who refused to fulfill the prescription</p></p>
+ * 
+ * <p><p>Allows follow-up and traceability of the refusal and 
+ * is therefore mandatory.</p></p>
+ * 
+ * <p>PORX_MT060090CA.Author5: *prescribed by</p>
+ * 
+ * <p><p>Indicates the prescriber of the prescription.</p></p>
+ * 
+ * <p><p>The prescriber is a key piece of legal information 
+ * which must be conveyed and is therefore mandatory.</p></p>
+ * 
+ * <p>PORX_MT060160CA.Author: *created by</p>
+ * 
+ * <p><p>Identifies the provider responsible for capturing the 
+ * Other Medication record</p></p>
+ * 
+ * <p><p>Provides traceability as well as contact information 
+ * for follow-up and is therefore mandatory.</p></p>
+ * 
+ * <p>REPC_MT000009CA.Author: *f:authored by</p>
+ * 
+ * <p><p>Identifies the provider who reported the allergy or 
+ * intolerance.</p></p>
+ * 
+ * <p><p>Identifies responsibility for accuracy and relevance 
+ * of the information. This association reflects primary 
+ * responsibility, and is therefore mandatory.</p></p>
+ * 
+ * <p>PORX_MT060340CA.Author: *refused by</p>
+ * 
+ * <p><p>Indicates who refused to fulfill the prescription</p></p>
+ * 
+ * <p><p>Allows follow-up and traceability of the 
+ * refusal.</p><p>Association is mandatory as the provider 
+ * refusing the fill must be known.</p></p>
+ * 
+ * <p><p>Allows follow-up and traceability of the 
+ * refusal.</p><p>Association is mandatory as the provider 
+ * refusing the fill must be known.</p></p>
+ * 
+ * <p>PORX_MT060060CA.Author: *refused by</p>
+ * 
+ * <p><p>Indicates who refused to fulfill the prescription</p></p>
+ * 
+ * <p><p>Allows follow-up and traceability of the refusal and 
+ * is therefore mandatory</p></p>
+ * 
+ * <p>PORX_MT060040CA.Author: *refused by</p>
+ * 
+ * <p><p>Indicates who refused to fulfill the prescription</p></p>
+ * 
+ * <p><p>Allows follow-up and traceability of the 
+ * refusal.</p><p>Association is mandatory as the provider 
+ * refusing the fill must be known.</p></p>
+ * 
+ * <p><p>Allows follow-up and traceability of the 
+ * refusal.</p><p>Association is mandatory as the provider 
+ * refusing the fill must be known.</p></p>
+ * 
+ * <p>REPC_MT000005CA.Author: *f:authored by</p>
+ * 
+ * <p><p>Identifies the provider who reported the allergy or 
+ * intolerance.</p></p>
+ * 
+ * <p><p>Identifies responsibility for accuracy and relevance 
+ * of the information. This association reflects primary 
+ * responsibility, and is therefore mandatory.</p></p>
+ * 
+ * <p>PORX_MT060010CA.Author5: *prescribed by</p>
+ * 
+ * <p><p>Indicates the prescriber of the prescription.</p></p>
+ * 
+ * <p><p>The prescriber is a key piece of legal information 
+ * which must be conveyed and is therefore mandatory.</p></p>
+ * 
+ * <p>REPC_MT000006CA.Author: *f:authored by</p>
+ * 
+ * <p><p>Identifies the provider who reported the reaction.</p></p>
+ * 
+ * <p><p>Identifies responsibility for accuracy and relevance 
+ * of the information. This association reflects primary 
+ * responsibility, and is therefore mandatory.</p></p>
+ * 
+ * <p>PORX_MT020060CA.Author: bc:prescribed by</p>
+ * 
+ * <p><p>The person who prescribed the device.</p></p>
+ * 
+ * <p><p>Used to create an 'inferred' prescription if an 
+ * electronic prescription does not already exist in the 
+ * EHR.</p></p>
+ */
+@Hl7PartTypeMapping({"PORX_MT020060CA.Author","PORX_MT020070CA.Author","PORX_MT030040CA.Author","PORX_MT060010CA.Author5","PORX_MT060040CA.Author","PORX_MT060060CA.Author","PORX_MT060090CA.Author5","PORX_MT060160CA.Author","PORX_MT060160CA.Author5","PORX_MT060190CA.Author","PORX_MT060190CA.Author3","PORX_MT060210CA.Author","PORX_MT060340CA.Author","REPC_MT000005CA.Author","REPC_MT000006CA.Author","REPC_MT000009CA.Author"})
 public class RefusedByBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20100614L;
+    private static final long serialVersionUID = 20110127L;
     private HealthcareWorkerBean assignedEntity;
-    private TS prescriptionOrderDate = new TSImpl();
+    private TS time = new TSImpl();
+
 
     @Hl7XmlMapping({"assignedEntity"})
     public HealthcareWorkerBean getAssignedEntity() {
@@ -26,12 +166,95 @@ public class RefusedByBean extends MessagePartBean {
         this.assignedEntity = assignedEntity;
     }
 
+
+    /**
+     * <p>Prescription Order Date</p>
+     * 
+     * <p><p>The calendar date on which the device was prescribed. 
+     * This may differ from the date on which the prescription 
+     * becomes effective. E.g. A prescription created today may not 
+     * be valid to be dispensed or used for two weeks.</p></p>
+     * 
+     * <p><p>Indicates when the action was performed, and may 
+     * influence expiry dates for the order.</p><p>The attribute is 
+     * populated because the creation date of the prescription 
+     * shall always be known or absent for a reason.</p></p>
+     * 
+     * <p><p>Indicates when the action was performed, and may 
+     * influence expiry dates for the order.</p><p>The attribute is 
+     * populated because the creation date of the prescription 
+     * shall always be known or absent for a reason.</p></p>
+     * 
+     * <p>Create Timestamp</p>
+     * 
+     * <p><p>The date and time on which the adverse reaction record 
+     * was created.</p></p>
+     * 
+     * <p><p>Identifies timing of adverse reaction for sorting and 
+     * for audit purposes. Attribute is populated because the 
+     * source of the data may not be through the 'record common 
+     * observation' interaction.</p></p>
+     * 
+     * <p>Create Timestamp</p>
+     * 
+     * <p><p>The date and time on which the allergy/intolerance 
+     * record was created.</p></p>
+     * 
+     * <p><p>Identifies timing of allergy/intolerance for sorting 
+     * and for audit purposes. Attribute is populated because the 
+     * source of the data may not be through the 'record 
+     * allergy/intolerance' interaction.</p></p>
+     * 
+     * <p>Prescription Order Date</p>
+     * 
+     * <p><p>The date at which the drug was prescribed. This may 
+     * differ from the date on which the prescription becomes 
+     * effective. E.g. A prescription created today may not be 
+     * valid to be dispensed or administered for two weeks.</p></p>
+     * 
+     * <p><p>Indicates when the action was performed, and may 
+     * influence expiry dates for the order.</p><p>The attribute is 
+     * populated because the creation date of the prescription 
+     * shall always be known or absent for a reason.</p></p>
+     * 
+     * <p><p>Indicates when the action was performed, and may 
+     * influence expiry dates for the order.</p><p>The attribute is 
+     * populated because the creation date of the prescription 
+     * shall always be known or absent for a reason.</p></p>
+     * 
+     * <p>Create Timestamp</p>
+     * 
+     * <p><p>The date and time on which the allergy/intolerance 
+     * record was created.</p></p>
+     * 
+     * <p><p>Identifies timing of allergy/intolerance for sorting 
+     * and for audit purposes. Attribute is populated because the 
+     * source of the data may not be through the 'record common 
+     * observation' interaction.</p></p>
+     * 
+     * <p>Prescription Order Date</p>
+     * 
+     * <p><p>The date at which the device was prescribed. This may 
+     * differ from the date on which the prescription becomes 
+     * effective. E.g. A prescription created today may not be 
+     * valid to be dispensed or used for two weeks.</p></p>
+     * 
+     * <p><p>Indicates when the action was performed, and may 
+     * influence expiry dates for the order.</p><p>The attribute is 
+     * populated because the creation date of the prescription 
+     * shall always be known or absent for a reason.</p></p>
+     * 
+     * <p><p>Indicates when the action was performed, and may 
+     * influence expiry dates for the order.</p><p>The attribute is 
+     * populated because the creation date of the prescription 
+     * shall always be known or absent for a reason.</p></p>
+     */
     @Hl7XmlMapping({"time"})
-    public Date getPrescriptionOrderDate() {
-        return this.prescriptionOrderDate.getValue();
+    public Date getTime() {
+        return this.time.getValue();
     }
-    public void setPrescriptionOrderDate(Date prescriptionOrderDate) {
-        this.prescriptionOrderDate.setValue(prescriptionOrderDate);
+    public void setTime(Date time) {
+        this.time.setValue(time);
     }
 
 }
