@@ -4,35 +4,38 @@ package ca.infoway.messagebuilder.model.claims.ficr_mt610201ca;
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import ca.infoway.messagebuilder.model.claims.merged.AdjudicatedInvoiceElementLineItemBean;
+import ca.infoway.messagebuilder.model.claims.merged.AdjudicationResultIdentifierBean;
 
 
 
-/**
- * <p>Component Invoice element</p>
- * 
- * <p>Levels of nesting cannot be specified, as the maximum 
- * cardinality only applies to immediate children of this act, 
- * not the levels of nesting.</p>
- * 
- * <p>Note: Levels of nesting cannot be specified, as the 
- * maximum cardinality only applies to immediate children of 
- * this act, not the levels of nesting.</p>
- * 
- * <p>At most 5 levels of recursion, with '''n''' children at 
- * each level. Root level counts as level 1.</p>
- */
 @Hl7PartTypeMapping({"FICR_MT610201CA.AdjudicatedInvoiceElementComponent"})
 public class ComponentInvoiceElementBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20100615L;
-    private AdjudicatedInvoiceElementChoiceBean adjudicatedInvoiceElementChoice;
+    private static final long serialVersionUID = 20110127L;
+    private AdjudicatedInvoiceElementChoice adjudicatedInvoiceElementChoice;
+
 
     @Hl7XmlMapping({"adjudicatedInvoiceElementChoice"})
-    public AdjudicatedInvoiceElementChoiceBean getAdjudicatedInvoiceElementChoice() {
+    public AdjudicatedInvoiceElementChoice getAdjudicatedInvoiceElementChoice() {
         return this.adjudicatedInvoiceElementChoice;
     }
-    public void setAdjudicatedInvoiceElementChoice(AdjudicatedInvoiceElementChoiceBean adjudicatedInvoiceElementChoice) {
+    public void setAdjudicatedInvoiceElementChoice(AdjudicatedInvoiceElementChoice adjudicatedInvoiceElementChoice) {
         this.adjudicatedInvoiceElementChoice = adjudicatedInvoiceElementChoice;
+    }
+
+    public AdjudicationResultIdentifierBean getAdjudicatedInvoiceElementChoiceAsAdjudicatedInvoiceElementGroup() {
+        return this.adjudicatedInvoiceElementChoice instanceof AdjudicationResultIdentifierBean ? (AdjudicationResultIdentifierBean) this.adjudicatedInvoiceElementChoice : null;
+    }
+    public boolean hasAdjudicatedInvoiceElementChoiceAsAdjudicatedInvoiceElementGroup() {
+        return (this.adjudicatedInvoiceElementChoice instanceof AdjudicationResultIdentifierBean);
+    }
+
+    public AdjudicatedInvoiceElementLineItemBean getAdjudicatedInvoiceElementChoiceAsAdjudicatedInvoiceElementDetail() {
+        return this.adjudicatedInvoiceElementChoice instanceof AdjudicatedInvoiceElementLineItemBean ? (AdjudicatedInvoiceElementLineItemBean) this.adjudicatedInvoiceElementChoice : null;
+    }
+    public boolean hasAdjudicatedInvoiceElementChoiceAsAdjudicatedInvoiceElementDetail() {
+        return (this.adjudicatedInvoiceElementChoice instanceof AdjudicatedInvoiceElementLineItemBean);
     }
 
 }

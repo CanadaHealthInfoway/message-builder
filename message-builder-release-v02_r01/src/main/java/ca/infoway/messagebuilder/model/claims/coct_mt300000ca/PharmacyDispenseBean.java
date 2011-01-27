@@ -19,84 +19,30 @@ import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
 import ca.infoway.messagebuilder.domainvalue.ActPharmacySupplyType;
 import ca.infoway.messagebuilder.domainvalue.x_ActMoodIntentEvent;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.claims.coct_mt280001ca.A_BillableActChoiceBean;
+import ca.infoway.messagebuilder.model.claims.merged.PatientEncounterBean;
 import ca.infoway.messagebuilder.model.merged.DrugDispensedInBean;
-import ca.infoway.messagebuilder.model.merged.ServiceDeliveryLocation_2Bean;
+import ca.infoway.messagebuilder.model.merged.ServiceLocationBean;
 import java.util.Date;
 
 
 
-/**
- * <p>Pharmacy Dispense</p>
- * 
- * <p>Patient classes are not referenced in the billable acts, 
- * as they are noted in the parent model (e.g. Invoice message) 
- * as the CoveredPartyAsPatient</p>
- */
 @Hl7PartTypeMapping({"COCT_MT300000CA.SupplyEvent"})
 @Hl7RootType
-public class PharmacyDispenseBean extends MessagePartBean implements A_BillableActChoiceBean {
+public class PharmacyDispenseBean extends MessagePartBean implements ca.infoway.messagebuilder.model.claims.coct_mt280001ca.A_BillableActChoice {
 
-    private static final long serialVersionUID = 20100615L;
-    private CS moodCode = new CSImpl();
-    private CV typeOfDispense = new CVImpl();
+    private static final long serialVersionUID = 20110127L;
+    private PharmacistRoleBean performerPharmacistRole;
+    private DrugDispensedInBean productContent;
+    private ServiceLocationBean originServiceDeliveryLocation;
+    private DispenseInstructionsBean pertinentInformation;
     private TS dispenseTime = new TSImpl();
+    private PatientEncounterBean componentOfPatientEncounter;
     private PQ totalDispensed = new PQImpl();
     private IVL<TS, Interval<Date>> dispensedDaysSupply = new IVLImpl<TS, Interval<Date>>();
-    private DrugDispensedInBean productContent;
-    private PharmacistRoleBean performerPharmacistRole;
-    private ServiceDeliveryLocation_2Bean originServiceDeliveryLocation;
-    private ServiceDeliveryLocation_2Bean destinationServiceDeliveryLocation;
-    private DispenseInstructionsBean pertinentInformation;
-    private PatientEncounterBean componentOfPatientEncounter;
+    private CV typeOfDispense = new CVImpl();
+    private CS moodCode = new CSImpl();
+    private ServiceLocationBean destinationServiceDeliveryLocation;
 
-    @Hl7XmlMapping({"moodCode"})
-    public x_ActMoodIntentEvent getMoodCode() {
-        return (x_ActMoodIntentEvent) this.moodCode.getValue();
-    }
-    public void setMoodCode(x_ActMoodIntentEvent moodCode) {
-        this.moodCode.setValue(moodCode);
-    }
-
-    @Hl7XmlMapping({"code"})
-    public ActPharmacySupplyType getTypeOfDispense() {
-        return (ActPharmacySupplyType) this.typeOfDispense.getValue();
-    }
-    public void setTypeOfDispense(ActPharmacySupplyType typeOfDispense) {
-        this.typeOfDispense.setValue(typeOfDispense);
-    }
-
-    @Hl7XmlMapping({"effectiveTime"})
-    public Date getDispenseTime() {
-        return this.dispenseTime.getValue();
-    }
-    public void setDispenseTime(Date dispenseTime) {
-        this.dispenseTime.setValue(dispenseTime);
-    }
-
-    @Hl7XmlMapping({"quantity"})
-    public PhysicalQuantity getTotalDispensed() {
-        return this.totalDispensed.getValue();
-    }
-    public void setTotalDispensed(PhysicalQuantity totalDispensed) {
-        this.totalDispensed.setValue(totalDispensed);
-    }
-
-    @Hl7XmlMapping({"expectedUseTime"})
-    public Interval<Date> getDispensedDaysSupply() {
-        return this.dispensedDaysSupply.getValue();
-    }
-    public void setDispensedDaysSupply(Interval<Date> dispensedDaysSupply) {
-        this.dispensedDaysSupply.setValue(dispensedDaysSupply);
-    }
-
-    @Hl7XmlMapping({"product/content"})
-    public DrugDispensedInBean getProductContent() {
-        return this.productContent;
-    }
-    public void setProductContent(DrugDispensedInBean productContent) {
-        this.productContent = productContent;
-    }
 
     @Hl7XmlMapping({"performer/pharmacistRole"})
     public PharmacistRoleBean getPerformerPharmacistRole() {
@@ -106,21 +52,24 @@ public class PharmacyDispenseBean extends MessagePartBean implements A_BillableA
         this.performerPharmacistRole = performerPharmacistRole;
     }
 
+
+    @Hl7XmlMapping({"product/content"})
+    public DrugDispensedInBean getProductContent() {
+        return this.productContent;
+    }
+    public void setProductContent(DrugDispensedInBean productContent) {
+        this.productContent = productContent;
+    }
+
+
     @Hl7XmlMapping({"origin/serviceDeliveryLocation"})
-    public ServiceDeliveryLocation_2Bean getOriginServiceDeliveryLocation() {
+    public ServiceLocationBean getOriginServiceDeliveryLocation() {
         return this.originServiceDeliveryLocation;
     }
-    public void setOriginServiceDeliveryLocation(ServiceDeliveryLocation_2Bean originServiceDeliveryLocation) {
+    public void setOriginServiceDeliveryLocation(ServiceLocationBean originServiceDeliveryLocation) {
         this.originServiceDeliveryLocation = originServiceDeliveryLocation;
     }
 
-    @Hl7XmlMapping({"destination/serviceDeliveryLocation"})
-    public ServiceDeliveryLocation_2Bean getDestinationServiceDeliveryLocation() {
-        return this.destinationServiceDeliveryLocation;
-    }
-    public void setDestinationServiceDeliveryLocation(ServiceDeliveryLocation_2Bean destinationServiceDeliveryLocation) {
-        this.destinationServiceDeliveryLocation = destinationServiceDeliveryLocation;
-    }
 
     @Hl7XmlMapping({"pertinentInformation"})
     public DispenseInstructionsBean getPertinentInformation() {
@@ -130,12 +79,79 @@ public class PharmacyDispenseBean extends MessagePartBean implements A_BillableA
         this.pertinentInformation = pertinentInformation;
     }
 
+
+    /**
+     * <p>Dispense Time</p>
+     */
+    @Hl7XmlMapping({"effectiveTime"})
+    public Date getDispenseTime() {
+        return this.dispenseTime.getValue();
+    }
+    public void setDispenseTime(Date dispenseTime) {
+        this.dispenseTime.setValue(dispenseTime);
+    }
+
+
     @Hl7XmlMapping({"componentOf/patientEncounter"})
     public PatientEncounterBean getComponentOfPatientEncounter() {
         return this.componentOfPatientEncounter;
     }
     public void setComponentOfPatientEncounter(PatientEncounterBean componentOfPatientEncounter) {
         this.componentOfPatientEncounter = componentOfPatientEncounter;
+    }
+
+
+    /**
+     * <p>Total Dispensed</p>
+     */
+    @Hl7XmlMapping({"quantity"})
+    public PhysicalQuantity getTotalDispensed() {
+        return this.totalDispensed.getValue();
+    }
+    public void setTotalDispensed(PhysicalQuantity totalDispensed) {
+        this.totalDispensed.setValue(totalDispensed);
+    }
+
+
+    /**
+     * <p>Dispensed Days Supply</p>
+     */
+    @Hl7XmlMapping({"expectedUseTime"})
+    public Interval<Date> getDispensedDaysSupply() {
+        return this.dispensedDaysSupply.getValue();
+    }
+    public void setDispensedDaysSupply(Interval<Date> dispensedDaysSupply) {
+        this.dispensedDaysSupply.setValue(dispensedDaysSupply);
+    }
+
+
+    /**
+     * <p>Type of Dispense</p>
+     */
+    @Hl7XmlMapping({"code"})
+    public ActPharmacySupplyType getTypeOfDispense() {
+        return (ActPharmacySupplyType) this.typeOfDispense.getValue();
+    }
+    public void setTypeOfDispense(ActPharmacySupplyType typeOfDispense) {
+        this.typeOfDispense.setValue(typeOfDispense);
+    }
+
+
+    @Hl7XmlMapping({"moodCode"})
+    public x_ActMoodIntentEvent getMoodCode() {
+        return (x_ActMoodIntentEvent) this.moodCode.getValue();
+    }
+    public void setMoodCode(x_ActMoodIntentEvent moodCode) {
+        this.moodCode.setValue(moodCode);
+    }
+
+
+    @Hl7XmlMapping({"destination/serviceDeliveryLocation"})
+    public ServiceLocationBean getDestinationServiceDeliveryLocation() {
+        return this.destinationServiceDeliveryLocation;
+    }
+    public void setDestinationServiceDeliveryLocation(ServiceLocationBean destinationServiceDeliveryLocation) {
+        this.destinationServiceDeliveryLocation = destinationServiceDeliveryLocation;
     }
 
 }

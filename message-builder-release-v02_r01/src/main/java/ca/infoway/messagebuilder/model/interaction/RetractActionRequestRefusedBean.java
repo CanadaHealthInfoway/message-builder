@@ -3,20 +3,15 @@ package ca.infoway.messagebuilder.model.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.common.mcai_mt700226ca.TriggerEventBean;
-import ca.infoway.messagebuilder.model.common.mcci_mt002300ca.HL7MessageBean;
-import ca.infoway.messagebuilder.model.merged.ReferencedRecordBean;
+import ca.infoway.messagebuilder.model.common.merged.HL7Message_1Bean;
+import ca.infoway.messagebuilder.model.common.merged.ReferencedRecordBean;
+import ca.infoway.messagebuilder.model.common.merged.TriggerEvent_1Bean;
 
 
 
-/**
- * <p>Indicates that the request to nullify an identified 
- * ControlAct has been denied, leaving the original event in 
- * force.</p>
- */
 @Hl7PartTypeMapping({"COMT_IN600003CA"})
-public class RetractActionRequestRefusedBean extends HL7MessageBean<TriggerEventBean<ReferencedRecordBean>> implements InteractionBean {
+public class RetractActionRequestRefusedBean extends HL7Message_1Bean<TriggerEvent_1Bean<ReferencedRecordBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20100615L;
+    private static final long serialVersionUID = 20110127L;
 
 }

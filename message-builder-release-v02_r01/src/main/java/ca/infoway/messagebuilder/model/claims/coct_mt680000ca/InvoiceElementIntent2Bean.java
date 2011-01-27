@@ -21,43 +21,16 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 
-/**
- * <p>Domain for InvoiceElementDetail.code is 
- * GenericBillableItemModifier</p>
- */
 @Hl7PartTypeMapping({"COCT_MT680000CA.InvoiceElementIntent2"})
-public class InvoiceElementIntent2Bean extends MessagePartBean implements InvoiceElementChoiceBean {
+public class InvoiceElementIntent2Bean extends MessagePartBean implements InvoiceElementChoice {
 
-    private static final long serialVersionUID = 20100615L;
-    private CV code = new CVImpl();
-    private PQ unitQuantity = new PQImpl();
-    private RTO<Money, PhysicalQuantity> unitPriceAmt = new RTOImpl<Money, PhysicalQuantity>();
+    private static final long serialVersionUID = 20110127L;
     private MO netAmt = new MOImpl();
+    private PQ unitQuantity = new PQImpl();
     private INT factorNumber = new INTImpl();
+    private CV code = new CVImpl();
+    private RTO<Money, PhysicalQuantity> unitPriceAmt = new RTOImpl<Money, PhysicalQuantity>();
 
-    @Hl7XmlMapping({"code"})
-    public Code getCode() {
-        return (Code) this.code.getValue();
-    }
-    public void setCode(Code code) {
-        this.code.setValue(code);
-    }
-
-    @Hl7XmlMapping({"unitQuantity"})
-    public PhysicalQuantity getUnitQuantity() {
-        return this.unitQuantity.getValue();
-    }
-    public void setUnitQuantity(PhysicalQuantity unitQuantity) {
-        this.unitQuantity.setValue(unitQuantity);
-    }
-
-    @Hl7XmlMapping({"unitPriceAmt"})
-    public Ratio<Money, PhysicalQuantity> getUnitPriceAmt() {
-        return this.unitPriceAmt.getValue();
-    }
-    public void setUnitPriceAmt(Ratio<Money, PhysicalQuantity> unitPriceAmt) {
-        this.unitPriceAmt.setValue(unitPriceAmt);
-    }
 
     @Hl7XmlMapping({"netAmt"})
     public Money getNetAmt() {
@@ -67,12 +40,40 @@ public class InvoiceElementIntent2Bean extends MessagePartBean implements Invoic
         this.netAmt.setValue(netAmt);
     }
 
+
+    @Hl7XmlMapping({"unitQuantity"})
+    public PhysicalQuantity getUnitQuantity() {
+        return this.unitQuantity.getValue();
+    }
+    public void setUnitQuantity(PhysicalQuantity unitQuantity) {
+        this.unitQuantity.setValue(unitQuantity);
+    }
+
+
     @Hl7XmlMapping({"factorNumber"})
     public Integer getFactorNumber() {
         return this.factorNumber.getValue();
     }
     public void setFactorNumber(Integer factorNumber) {
         this.factorNumber.setValue(factorNumber);
+    }
+
+
+    @Hl7XmlMapping({"code"})
+    public Code getCode() {
+        return (Code) this.code.getValue();
+    }
+    public void setCode(Code code) {
+        this.code.setValue(code);
+    }
+
+
+    @Hl7XmlMapping({"unitPriceAmt"})
+    public Ratio<Money, PhysicalQuantity> getUnitPriceAmt() {
+        return this.unitPriceAmt.getValue();
+    }
+    public void setUnitPriceAmt(Ratio<Money, PhysicalQuantity> unitPriceAmt) {
+        this.unitPriceAmt.setValue(unitPriceAmt);
     }
 
 }

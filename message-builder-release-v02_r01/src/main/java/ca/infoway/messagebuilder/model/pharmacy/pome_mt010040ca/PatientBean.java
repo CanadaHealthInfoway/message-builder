@@ -10,21 +10,16 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 
-/**
- * <p>Patient</p>
- * 
- * <p>Indicates the type of patient for whom the dosage 
- * instruction applies.</p>
- * 
- * <p>Important for qualifying and filtering dosage 
- * specifications.</p>
- */
 @Hl7PartTypeMapping({"POME_MT010040CA.Patient"})
 public class PatientBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20100615L;
+    private static final long serialVersionUID = 20110127L;
     private CV patientGender = new CVImpl();
 
+
+    /**
+     * <p>Patient Gender</p>
+     */
     @Hl7XmlMapping({"patientLivingSubjectKind/administrativeGenderCode"})
     public AdministrativeGender getPatientGender() {
         return (AdministrativeGender) this.patientGender.getValue();

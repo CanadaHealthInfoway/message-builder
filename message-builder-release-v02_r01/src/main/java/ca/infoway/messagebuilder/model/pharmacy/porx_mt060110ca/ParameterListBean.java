@@ -19,30 +19,20 @@ import java.util.Date;
 
 
 
-/**
- * <p>Defines the set of parameters that may be used to filter 
- * the query response.</p>
- * 
- * <p>Root class for query definition</p>
- */
 @Hl7PartTypeMapping({"PORX_MT060110CA.ParameterList"})
 @Hl7RootType
 public class ParameterListBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20100615L;
-    private IVL<TS, Interval<Date>> administrationEffectivePeriod = new IVLImpl<TS, Interval<Date>>();
+    private static final long serialVersionUID = 20110127L;
     private CV issueFilterCode = new CVImpl();
-    private BL mostRecentByDrugIndicator = new BLImpl();
+    private IVL<TS, Interval<Date>> administrationEffectivePeriod = new IVLImpl<TS, Interval<Date>>();
     private BL mostRecentDispenseForEachRxIndicator = new BLImpl();
+    private BL mostRecentByDrugIndicator = new BLImpl();
 
-    @Hl7XmlMapping({"administrationEffectivePeriod/value"})
-    public Interval<Date> getAdministrationEffectivePeriod() {
-        return this.administrationEffectivePeriod.getValue();
-    }
-    public void setAdministrationEffectivePeriod(Interval<Date> administrationEffectivePeriod) {
-        this.administrationEffectivePeriod.setValue(administrationEffectivePeriod);
-    }
 
+    /**
+     * <p>Issue Filter Code</p>
+     */
     @Hl7XmlMapping({"issueFilterCode/value"})
     public IssueFilterCode getIssueFilterCode() {
         return (IssueFilterCode) this.issueFilterCode.getValue();
@@ -51,20 +41,40 @@ public class ParameterListBean extends MessagePartBean {
         this.issueFilterCode.setValue(issueFilterCode);
     }
 
-    @Hl7XmlMapping({"mostRecentByDrugIndicator/value"})
-    public Boolean getMostRecentByDrugIndicator() {
-        return this.mostRecentByDrugIndicator.getValue();
+
+    /**
+     * <p>D:Administration Effective Period</p>
+     */
+    @Hl7XmlMapping({"administrationEffectivePeriod/value"})
+    public Interval<Date> getAdministrationEffectivePeriod() {
+        return this.administrationEffectivePeriod.getValue();
     }
-    public void setMostRecentByDrugIndicator(Boolean mostRecentByDrugIndicator) {
-        this.mostRecentByDrugIndicator.setValue(mostRecentByDrugIndicator);
+    public void setAdministrationEffectivePeriod(Interval<Date> administrationEffectivePeriod) {
+        this.administrationEffectivePeriod.setValue(administrationEffectivePeriod);
     }
 
+
+    /**
+     * <p>Most Recent Dispense for each Rx Indicator</p>
+     */
     @Hl7XmlMapping({"mostRecentDispenseForEachRxIndicator/value"})
     public Boolean getMostRecentDispenseForEachRxIndicator() {
         return this.mostRecentDispenseForEachRxIndicator.getValue();
     }
     public void setMostRecentDispenseForEachRxIndicator(Boolean mostRecentDispenseForEachRxIndicator) {
         this.mostRecentDispenseForEachRxIndicator.setValue(mostRecentDispenseForEachRxIndicator);
+    }
+
+
+    /**
+     * <p>Most Recent By Drug Indicator</p>
+     */
+    @Hl7XmlMapping({"mostRecentByDrugIndicator/value"})
+    public Boolean getMostRecentByDrugIndicator() {
+        return this.mostRecentByDrugIndicator.getValue();
+    }
+    public void setMostRecentByDrugIndicator(Boolean mostRecentByDrugIndicator) {
+        this.mostRecentByDrugIndicator.setValue(mostRecentByDrugIndicator);
     }
 
 }

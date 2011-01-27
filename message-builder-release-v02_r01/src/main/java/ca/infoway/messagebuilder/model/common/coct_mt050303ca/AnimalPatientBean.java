@@ -22,35 +22,20 @@ import java.util.Set;
 
 
 
-/**
- * <p>Animal Patient</p>
- * 
- * <p>An animal that is receiving or may receive healthcare 
- * services.</p>
- * 
- * <p>Used when animal services are attached to a human patient 
- * record. E.g. narcotics prescribed for a pet may be attached 
- * to the owner's record for monitoring of abuse.</p>
- */
 @Hl7PartTypeMapping({"COCT_MT050303CA.Patient"})
 @Hl7RootType
 public class AnimalPatientBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20100615L;
-    private ST animalName = new STImpl();
+    private static final long serialVersionUID = 20110127L;
     private AD ownerAddress = new ADImpl();
-    private SET<TEL, TelecommunicationAddress> ownerPhonesAndEmails = new SETImpl<TEL, TelecommunicationAddress>(TELImpl.class);
     private PN ownerName = new PNImpl();
-    private TEL contactPersonTelephoneOrEmailDetails = new TELImpl();
+    private SET<TEL, TelecommunicationAddress> ownerPhonesAndEmails = new SETImpl<TEL, TelecommunicationAddress>(TELImpl.class);
+    private ST animalName = new STImpl();
 
-    @Hl7XmlMapping({"patientNonPersonLivingSubject/name"})
-    public String getAnimalName() {
-        return this.animalName.getValue();
-    }
-    public void setAnimalName(String animalName) {
-        this.animalName.setValue(animalName);
-    }
 
+    /**
+     * <p>Owner address</p>
+     */
     @Hl7XmlMapping({"patientNonPersonLivingSubject/contactParty/addr"})
     public PostalAddress getOwnerAddress() {
         return this.ownerAddress.getValue();
@@ -59,11 +44,10 @@ public class AnimalPatientBean extends MessagePartBean {
         this.ownerAddress.setValue(ownerAddress);
     }
 
-    @Hl7XmlMapping({"patientNonPersonLivingSubject/contactParty/telecom"})
-    public Set<TelecommunicationAddress> getOwnerPhonesAndEmails() {
-        return this.ownerPhonesAndEmails.rawSet();
-    }
 
+    /**
+     * <p>Owner Name</p>
+     */
     @Hl7XmlMapping({"patientNonPersonLivingSubject/contactParty/contactPerson/name"})
     public PersonName getOwnerName() {
         return this.ownerName.getValue();
@@ -72,12 +56,25 @@ public class AnimalPatientBean extends MessagePartBean {
         this.ownerName.setValue(ownerName);
     }
 
-    @Hl7XmlMapping({"patientNonPersonLivingSubject/contactParty/contactPerson/telecom"})
-    public TelecommunicationAddress getContactPersonTelephoneOrEmailDetails() {
-        return this.contactPersonTelephoneOrEmailDetails.getValue();
+
+    /**
+     * <p>Owner Phones and Emails</p>
+     */
+    @Hl7XmlMapping({"patientNonPersonLivingSubject/contactParty/telecom"})
+    public Set<TelecommunicationAddress> getOwnerPhonesAndEmails() {
+        return this.ownerPhonesAndEmails.rawSet();
     }
-    public void setContactPersonTelephoneOrEmailDetails(TelecommunicationAddress contactPersonTelephoneOrEmailDetails) {
-        this.contactPersonTelephoneOrEmailDetails.setValue(contactPersonTelephoneOrEmailDetails);
+
+
+    /**
+     * <p>B:Animal name</p>
+     */
+    @Hl7XmlMapping({"patientNonPersonLivingSubject/name"})
+    public String getAnimalName() {
+        return this.animalName.getValue();
+    }
+    public void setAnimalName(String animalName) {
+        this.animalName.setValue(animalName);
     }
 
 }

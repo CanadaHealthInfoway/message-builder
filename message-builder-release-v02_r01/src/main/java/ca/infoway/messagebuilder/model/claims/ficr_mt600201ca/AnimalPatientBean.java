@@ -9,19 +9,16 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 
-/**
- * <p>Animal Patient</p>
- * 
- * <p>Animal Patient</p>
- * 
- * <p>Used when invoice is for animal patient.</p>
- */
 @Hl7PartTypeMapping({"FICR_MT600201CA.CoveredPartyAsPatientAnimal"})
-public class AnimalPatientBean extends MessagePartBean implements CoveredPartyAsPatientChoiceBean {
+public class AnimalPatientBean extends MessagePartBean implements CoveredPartyAsPatientChoice {
 
-    private static final long serialVersionUID = 20100615L;
+    private static final long serialVersionUID = 20110127L;
     private ST nameOfTheAnimal = new STImpl();
 
+
+    /**
+     * <p>Name of the animal</p>
+     */
     @Hl7XmlMapping({"name"})
     public String getNameOfTheAnimal() {
         return this.nameOfTheAnimal.getValue();

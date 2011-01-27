@@ -26,60 +26,24 @@ import java.util.List;
 
 
 
-/**
- * <p>Defines the set of parameters that may be used to filter 
- * the query response.</p>
- * 
- * <p>Root class for query definition</p>
- */
 @Hl7PartTypeMapping({"PORX_MT060220CA.ParameterList"})
 @Hl7RootType
 public class ParameterListBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20100615L;
-    private IVL<TS, Interval<Date>> administrationEffectivePeriod = new IVLImpl<TS, Interval<Date>>();
-    private IVL<TS, Interval<Date>> amendedInTimeRange = new IVLImpl<TS, Interval<Date>>();
-    private List<II> careCompositionIDs = new ArrayList<II>();
-    private List<CV> careCompositionTypes = new ArrayList<CV>();
-    private BL includeIssuesIndicator = new BLImpl();
+    private static final long serialVersionUID = 20110127L;
     private BL includeNotesIndicator = new BLImpl();
-    private CV issueFilterCode = new CVImpl();
     private II otherMedicationRecordId = new IIImpl();
+    private CV issueFilterCode = new CVImpl();
+    private BL includeIssuesIndicator = new BLImpl();
+    private IVL<TS, Interval<Date>> administrationEffectivePeriod = new IVLImpl<TS, Interval<Date>>();
+    private List<II> careCompositionIDs = new ArrayList<II>();
+    private IVL<TS, Interval<Date>> amendedInTimeRange = new IVLImpl<TS, Interval<Date>>();
+    private List<CV> careCompositionTypes = new ArrayList<CV>();
 
-    @Hl7XmlMapping({"administrationEffectivePeriod/value"})
-    public Interval<Date> getAdministrationEffectivePeriod() {
-        return this.administrationEffectivePeriod.getValue();
-    }
-    public void setAdministrationEffectivePeriod(Interval<Date> administrationEffectivePeriod) {
-        this.administrationEffectivePeriod.setValue(administrationEffectivePeriod);
-    }
 
-    @Hl7XmlMapping({"amendedInTimeRange/value"})
-    public Interval<Date> getAmendedInTimeRange() {
-        return this.amendedInTimeRange.getValue();
-    }
-    public void setAmendedInTimeRange(Interval<Date> amendedInTimeRange) {
-        this.amendedInTimeRange.setValue(amendedInTimeRange);
-    }
-
-    @Hl7XmlMapping({"careCompositionID/value"})
-    public List<Identifier> getCareCompositionIDs() {
-        return new RawListWrapper<II, Identifier>(careCompositionIDs, IIImpl.class);
-    }
-
-    @Hl7XmlMapping({"careCompositionType/value"})
-    public List<ActCareEventType> getCareCompositionTypes() {
-        return new RawListWrapper<CV, ActCareEventType>(careCompositionTypes, CVImpl.class);
-    }
-
-    @Hl7XmlMapping({"includeIssuesIndicator/value"})
-    public Boolean getIncludeIssuesIndicator() {
-        return this.includeIssuesIndicator.getValue();
-    }
-    public void setIncludeIssuesIndicator(Boolean includeIssuesIndicator) {
-        this.includeIssuesIndicator.setValue(includeIssuesIndicator);
-    }
-
+    /**
+     * <p>Include Notes Indicator</p>
+     */
     @Hl7XmlMapping({"includeNotesIndicator/value"})
     public Boolean getIncludeNotesIndicator() {
         return this.includeNotesIndicator.getValue();
@@ -88,6 +52,22 @@ public class ParameterListBean extends MessagePartBean {
         this.includeNotesIndicator.setValue(includeNotesIndicator);
     }
 
+
+    /**
+     * <p>E:Other Medication Record Id</p>
+     */
+    @Hl7XmlMapping({"otherMedicationRecordId/value"})
+    public Identifier getOtherMedicationRecordId() {
+        return this.otherMedicationRecordId.getValue();
+    }
+    public void setOtherMedicationRecordId(Identifier otherMedicationRecordId) {
+        this.otherMedicationRecordId.setValue(otherMedicationRecordId);
+    }
+
+
+    /**
+     * <p>Issue Filter Code</p>
+     */
     @Hl7XmlMapping({"issueFilterCode/value"})
     public IssueFilterCode getIssueFilterCode() {
         return (IssueFilterCode) this.issueFilterCode.getValue();
@@ -96,12 +76,58 @@ public class ParameterListBean extends MessagePartBean {
         this.issueFilterCode.setValue(issueFilterCode);
     }
 
-    @Hl7XmlMapping({"otherMedicationRecordId/value"})
-    public Identifier getOtherMedicationRecordId() {
-        return this.otherMedicationRecordId.getValue();
+
+    /**
+     * <p>Include Issues Indicator</p>
+     */
+    @Hl7XmlMapping({"includeIssuesIndicator/value"})
+    public Boolean getIncludeIssuesIndicator() {
+        return this.includeIssuesIndicator.getValue();
     }
-    public void setOtherMedicationRecordId(Identifier otherMedicationRecordId) {
-        this.otherMedicationRecordId.setValue(otherMedicationRecordId);
+    public void setIncludeIssuesIndicator(Boolean includeIssuesIndicator) {
+        this.includeIssuesIndicator.setValue(includeIssuesIndicator);
+    }
+
+
+    /**
+     * <p>Administration Effective Period</p>
+     */
+    @Hl7XmlMapping({"administrationEffectivePeriod/value"})
+    public Interval<Date> getAdministrationEffectivePeriod() {
+        return this.administrationEffectivePeriod.getValue();
+    }
+    public void setAdministrationEffectivePeriod(Interval<Date> administrationEffectivePeriod) {
+        this.administrationEffectivePeriod.setValue(administrationEffectivePeriod);
+    }
+
+
+    /**
+     * <p>Care Composition IDs</p>
+     */
+    @Hl7XmlMapping({"careCompositionID/value"})
+    public List<Identifier> getCareCompositionIDs() {
+        return new RawListWrapper<II, Identifier>(careCompositionIDs, IIImpl.class);
+    }
+
+
+    /**
+     * <p>Amended in Time Range</p>
+     */
+    @Hl7XmlMapping({"amendedInTimeRange/value"})
+    public Interval<Date> getAmendedInTimeRange() {
+        return this.amendedInTimeRange.getValue();
+    }
+    public void setAmendedInTimeRange(Interval<Date> amendedInTimeRange) {
+        this.amendedInTimeRange.setValue(amendedInTimeRange);
+    }
+
+
+    /**
+     * <p>Care Composition Types</p>
+     */
+    @Hl7XmlMapping({"careCompositionType/value"})
+    public List<ActCareEventType> getCareCompositionTypes() {
+        return new RawListWrapper<CV, ActCareEventType>(careCompositionTypes, CVImpl.class);
     }
 
 }

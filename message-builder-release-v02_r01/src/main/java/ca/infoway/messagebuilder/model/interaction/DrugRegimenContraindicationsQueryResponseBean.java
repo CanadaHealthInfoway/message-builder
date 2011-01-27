@@ -3,22 +3,16 @@ package ca.infoway.messagebuilder.model.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.common.coct_mt260020ca.IssuesBean;
-import ca.infoway.messagebuilder.model.common.mcci_mt002300ca.HL7MessageBean;
-import ca.infoway.messagebuilder.model.common.quqi_mt120008ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.common.merged.HL7Message_1Bean;
+import ca.infoway.messagebuilder.model.common.merged.TriggerEvent_5Bean;
+import ca.infoway.messagebuilder.model.merged.IssuesBean;
 import ca.infoway.messagebuilder.model.pharmacy.porx_mt050010ca.GenericQueryParametersBean;
 
 
 
-/**
- * <p>Indicates the contraindications (if any) associated with 
- * a set of medications. Only includes drug-drug and duplicate 
- * therapy contraindications because that's all that is 
- * deducible based on a list of medications.</p>
- */
 @Hl7PartTypeMapping({"PORX_IN050020CA"})
-public class DrugRegimenContraindicationsQueryResponseBean extends HL7MessageBean<TriggerEventBean<IssuesBean,GenericQueryParametersBean>> implements InteractionBean {
+public class DrugRegimenContraindicationsQueryResponseBean extends HL7Message_1Bean<TriggerEvent_5Bean<IssuesBean,GenericQueryParametersBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20100615L;
+    private static final long serialVersionUID = 20110127L;
 
 }

@@ -17,43 +17,22 @@ import java.util.Date;
 
 
 
-/**
- * <p>Either a AdjudResultsGroup.ID (which implies date, payee, 
- * payor) or date, payee, payor needs to be specified.</p>
- * 
- * <p>At least one parameter item must be specified.</p>
- */
 @Hl7PartTypeMapping({"QUCR_MT820201CA.ParameterList"})
 @Hl7RootType
 public class ParameterListBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20100615L;
-    private TS adjudResultsGroupAuthorTimeValue = new TSImpl();
-    private II adjudResultsGroupIdValue = new IIImpl();
+    private static final long serialVersionUID = 20110127L;
     private II financialContractIdValue = new IIImpl();
     private II insuranceCarrierRoleIdValue = new IIImpl();
-    private CV invoiceElementGroupCodeValue = new CVImpl();
     private II locationIdValue = new IIImpl();
-    private II payeeIdValue = new IIImpl();
+    private CV invoiceElementGroupCodeValue = new CVImpl();
+    private TS adjudResultsGroupAuthorTimeValue = new TSImpl();
     private II payorIdValue = new IIImpl();
     private II providerID = new IIImpl();
+    private II payeeIdValue = new IIImpl();
+    private II adjudResultsGroupIdValue = new IIImpl();
     private II sendingApplicationIdValue = new IIImpl();
 
-    @Hl7XmlMapping({"adjudResultsGroupAuthorTime/value"})
-    public Date getAdjudResultsGroupAuthorTimeValue() {
-        return this.adjudResultsGroupAuthorTimeValue.getValue();
-    }
-    public void setAdjudResultsGroupAuthorTimeValue(Date adjudResultsGroupAuthorTimeValue) {
-        this.adjudResultsGroupAuthorTimeValue.setValue(adjudResultsGroupAuthorTimeValue);
-    }
-
-    @Hl7XmlMapping({"adjudResultsGroupId/value"})
-    public Identifier getAdjudResultsGroupIdValue() {
-        return this.adjudResultsGroupIdValue.getValue();
-    }
-    public void setAdjudResultsGroupIdValue(Identifier adjudResultsGroupIdValue) {
-        this.adjudResultsGroupIdValue.setValue(adjudResultsGroupIdValue);
-    }
 
     @Hl7XmlMapping({"financialContractId/value"})
     public Identifier getFinancialContractIdValue() {
@@ -63,6 +42,7 @@ public class ParameterListBean extends MessagePartBean {
         this.financialContractIdValue.setValue(financialContractIdValue);
     }
 
+
     @Hl7XmlMapping({"insuranceCarrierRoleId/value"})
     public Identifier getInsuranceCarrierRoleIdValue() {
         return this.insuranceCarrierRoleIdValue.getValue();
@@ -71,13 +51,6 @@ public class ParameterListBean extends MessagePartBean {
         this.insuranceCarrierRoleIdValue.setValue(insuranceCarrierRoleIdValue);
     }
 
-    @Hl7XmlMapping({"invoiceElementGroupCode/value"})
-    public Code getInvoiceElementGroupCodeValue() {
-        return (Code) this.invoiceElementGroupCodeValue.getValue();
-    }
-    public void setInvoiceElementGroupCodeValue(Code invoiceElementGroupCodeValue) {
-        this.invoiceElementGroupCodeValue.setValue(invoiceElementGroupCodeValue);
-    }
 
     @Hl7XmlMapping({"locationId/value"})
     public Identifier getLocationIdValue() {
@@ -87,13 +60,24 @@ public class ParameterListBean extends MessagePartBean {
         this.locationIdValue.setValue(locationIdValue);
     }
 
-    @Hl7XmlMapping({"payeeId/value"})
-    public Identifier getPayeeIdValue() {
-        return this.payeeIdValue.getValue();
+
+    @Hl7XmlMapping({"invoiceElementGroupCode/value"})
+    public Code getInvoiceElementGroupCodeValue() {
+        return (Code) this.invoiceElementGroupCodeValue.getValue();
     }
-    public void setPayeeIdValue(Identifier payeeIdValue) {
-        this.payeeIdValue.setValue(payeeIdValue);
+    public void setInvoiceElementGroupCodeValue(Code invoiceElementGroupCodeValue) {
+        this.invoiceElementGroupCodeValue.setValue(invoiceElementGroupCodeValue);
     }
+
+
+    @Hl7XmlMapping({"adjudResultsGroupAuthorTime/value"})
+    public Date getAdjudResultsGroupAuthorTimeValue() {
+        return this.adjudResultsGroupAuthorTimeValue.getValue();
+    }
+    public void setAdjudResultsGroupAuthorTimeValue(Date adjudResultsGroupAuthorTimeValue) {
+        this.adjudResultsGroupAuthorTimeValue.setValue(adjudResultsGroupAuthorTimeValue);
+    }
+
 
     @Hl7XmlMapping({"payorId/value"})
     public Identifier getPayorIdValue() {
@@ -103,6 +87,10 @@ public class ParameterListBean extends MessagePartBean {
         this.payorIdValue.setValue(payorIdValue);
     }
 
+
+    /**
+     * <p>Provider ID</p>
+     */
     @Hl7XmlMapping({"providerId/value"})
     public Identifier getProviderID() {
         return this.providerID.getValue();
@@ -110,6 +98,25 @@ public class ParameterListBean extends MessagePartBean {
     public void setProviderID(Identifier providerID) {
         this.providerID.setValue(providerID);
     }
+
+
+    @Hl7XmlMapping({"payeeId/value"})
+    public Identifier getPayeeIdValue() {
+        return this.payeeIdValue.getValue();
+    }
+    public void setPayeeIdValue(Identifier payeeIdValue) {
+        this.payeeIdValue.setValue(payeeIdValue);
+    }
+
+
+    @Hl7XmlMapping({"adjudResultsGroupId/value"})
+    public Identifier getAdjudResultsGroupIdValue() {
+        return this.adjudResultsGroupIdValue.getValue();
+    }
+    public void setAdjudResultsGroupIdValue(Identifier adjudResultsGroupIdValue) {
+        this.adjudResultsGroupIdValue.setValue(adjudResultsGroupIdValue);
+    }
+
 
     @Hl7XmlMapping({"sendingApplicationId/value"})
     public Identifier getSendingApplicationIdValue() {

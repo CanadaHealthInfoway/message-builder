@@ -13,9 +13,13 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PRPA_MT101103CA.LanguageCode"})
 public class LanguageCodeBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20100615L;
+    private static final long serialVersionUID = 20110127L;
     private CV languageOfCommunicationCode = new CVImpl();
 
+
+    /**
+     * <p>Language of Communication Code</p>
+     */
     @Hl7XmlMapping({"value"})
     public QueryParameterValue getLanguageOfCommunicationCode() {
         return (QueryParameterValue) this.languageOfCommunicationCode.getValue();

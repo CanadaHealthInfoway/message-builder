@@ -21,61 +21,34 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 
-/**
- * <p>Structured Dosage Lines</p>
- * 
- * <p>This information, along with the order/sequence of the 
- * dosage lines, constitutes the details of a structured dosage 
- * instruction.</p>
- * 
- * <p>Enables SIG instructions to be discretely specified. 
- * Also, supports scaling doses and parallel dose 
- * specification.</p>
- * 
- * <p>- moodCode must be DEFN for drug definitions (such as 
- * monographs) - moodCode must be RQO for orders; - moodCode 
- * must be EVN for dispenses and recording of other medications</p>
- * 
- * <p>Either an Ad-hoc Dosage Line or (Dosage Timing/Frequency 
- * + Dosage Range + possibly Dosage Rate) may be specified t 
- * one time }</p>
- */
 @Hl7PartTypeMapping({"COCT_MT270010CA.DosageLine"})
 public class StructuredDosageLinesBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20100615L;
-    private CS dosageUsageContext = new CSImpl();
+    private static final long serialVersionUID = 20110127L;
+    private URG<PQ, PhysicalQuantity> dosageRate = new URGImpl<PQ, PhysicalQuantity>();
+    private URG<PQ, PhysicalQuantity> dosageRange = new URGImpl<PQ, PhysicalQuantity>();
     private ST adHocDosageInstruction = new STImpl();
     private GTS dosageTimingFrequency = new GTSImpl();
-    private URG<PQ, PhysicalQuantity> dosageRange = new URGImpl<PQ, PhysicalQuantity>();
-    private URG<PQ, PhysicalQuantity> dosageRate = new URGImpl<PQ, PhysicalQuantity>();
-    private AdministrationPreconditionBean triggerActEventCriterion;
     private AdditionalSIGInstructionBean componentSupplementalInstruction;
+    private AdministrationPreconditionBean triggerActEventCriterion;
+    private CS dosageUsageContext = new CSImpl();
 
-    @Hl7XmlMapping({"moodCode"})
-    public x_ActMoodDefEvnRqo getDosageUsageContext() {
-        return (x_ActMoodDefEvnRqo) this.dosageUsageContext.getValue();
-    }
-    public void setDosageUsageContext(x_ActMoodDefEvnRqo dosageUsageContext) {
-        this.dosageUsageContext.setValue(dosageUsageContext);
-    }
 
-    @Hl7XmlMapping({"text"})
-    public String getAdHocDosageInstruction() {
-        return this.adHocDosageInstruction.getValue();
+    /**
+     * <p>E:Dosage Rate</p>
+     */
+    @Hl7XmlMapping({"rateQuantity"})
+    public UncertainRange<PhysicalQuantity> getDosageRate() {
+        return this.dosageRate.getValue();
     }
-    public void setAdHocDosageInstruction(String adHocDosageInstruction) {
-        this.adHocDosageInstruction.setValue(adHocDosageInstruction);
+    public void setDosageRate(UncertainRange<PhysicalQuantity> dosageRate) {
+        this.dosageRate.setValue(dosageRate);
     }
 
-    @Hl7XmlMapping({"effectiveTime"})
-    public GeneralTimingSpecification getDosageTimingFrequency() {
-        return this.dosageTimingFrequency.getValue();
-    }
-    public void setDosageTimingFrequency(GeneralTimingSpecification dosageTimingFrequency) {
-        this.dosageTimingFrequency.setValue(dosageTimingFrequency);
-    }
 
+    /**
+     * <p>D:Dosage Range</p>
+     */
     @Hl7XmlMapping({"doseQuantity"})
     public UncertainRange<PhysicalQuantity> getDosageRange() {
         return this.dosageRange.getValue();
@@ -84,13 +57,39 @@ public class StructuredDosageLinesBean extends MessagePartBean {
         this.dosageRange.setValue(dosageRange);
     }
 
-    @Hl7XmlMapping({"rateQuantity"})
-    public UncertainRange<PhysicalQuantity> getDosageRate() {
-        return this.dosageRate.getValue();
+
+    /**
+     * <p>C:Ad-hoc Dosage Instruction</p>
+     */
+    @Hl7XmlMapping({"text"})
+    public String getAdHocDosageInstruction() {
+        return this.adHocDosageInstruction.getValue();
     }
-    public void setDosageRate(UncertainRange<PhysicalQuantity> dosageRate) {
-        this.dosageRate.setValue(dosageRate);
+    public void setAdHocDosageInstruction(String adHocDosageInstruction) {
+        this.adHocDosageInstruction.setValue(adHocDosageInstruction);
     }
+
+
+    /**
+     * <p>C:Dosage Timing/Frequency</p>
+     */
+    @Hl7XmlMapping({"effectiveTime"})
+    public GeneralTimingSpecification getDosageTimingFrequency() {
+        return this.dosageTimingFrequency.getValue();
+    }
+    public void setDosageTimingFrequency(GeneralTimingSpecification dosageTimingFrequency) {
+        this.dosageTimingFrequency.setValue(dosageTimingFrequency);
+    }
+
+
+    @Hl7XmlMapping({"component/supplementalInstruction"})
+    public AdditionalSIGInstructionBean getComponentSupplementalInstruction() {
+        return this.componentSupplementalInstruction;
+    }
+    public void setComponentSupplementalInstruction(AdditionalSIGInstructionBean componentSupplementalInstruction) {
+        this.componentSupplementalInstruction = componentSupplementalInstruction;
+    }
+
 
     @Hl7XmlMapping({"trigger/actEventCriterion"})
     public AdministrationPreconditionBean getTriggerActEventCriterion() {
@@ -100,12 +99,16 @@ public class StructuredDosageLinesBean extends MessagePartBean {
         this.triggerActEventCriterion = triggerActEventCriterion;
     }
 
-    @Hl7XmlMapping({"component/supplementalInstruction"})
-    public AdditionalSIGInstructionBean getComponentSupplementalInstruction() {
-        return this.componentSupplementalInstruction;
+
+    /**
+     * <p>Dosage Usage Context</p>
+     */
+    @Hl7XmlMapping({"moodCode"})
+    public x_ActMoodDefEvnRqo getDosageUsageContext() {
+        return (x_ActMoodDefEvnRqo) this.dosageUsageContext.getValue();
     }
-    public void setComponentSupplementalInstruction(AdditionalSIGInstructionBean componentSupplementalInstruction) {
-        this.componentSupplementalInstruction = componentSupplementalInstruction;
+    public void setDosageUsageContext(x_ActMoodDefEvnRqo dosageUsageContext) {
+        this.dosageUsageContext.setValue(dosageUsageContext);
     }
 
 }

@@ -9,32 +9,31 @@ import ca.infoway.messagebuilder.datatype.impl.IIImpl;
 import ca.infoway.messagebuilder.datatype.impl.STImpl;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.merged.AssignedEntityBean;
+import ca.infoway.messagebuilder.model.merged.HealthcareWorkerBean;
 
 
 
-/**
- * <p>Formularies</p>
- * 
- * <p>List of drugs available from (or carried by) a particular 
- * organization. For example, University Hospital formulary, 
- * East Side Long Term Care formulary, Alberta Blue Cross 
- * formulary</p>
- * 
- * <p>Used to ascertain/ensure what drugs can be 
- * prescribed/dispensed within a specific jurisdiction or which 
- * will be covered by a patient's insurance.</p>
- * 
- * <p>At least One of Id or Title must be specified</p>
- */
 @Hl7PartTypeMapping({"POME_MT010040CA.PotentialSupply"})
 public class FormulariesBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20100615L;
+    private static final long serialVersionUID = 20110127L;
+    private HealthcareWorkerBean performerAssignedEntity;
     private II formularyId = new IIImpl();
     private ST formularyName = new STImpl();
-    private AssignedEntityBean performerAssignedEntity;
 
+
+    @Hl7XmlMapping({"performer/assignedEntity"})
+    public HealthcareWorkerBean getPerformerAssignedEntity() {
+        return this.performerAssignedEntity;
+    }
+    public void setPerformerAssignedEntity(HealthcareWorkerBean performerAssignedEntity) {
+        this.performerAssignedEntity = performerAssignedEntity;
+    }
+
+
+    /**
+     * <p>Formulary Id</p>
+     */
     @Hl7XmlMapping({"id"})
     public Identifier getFormularyId() {
         return this.formularyId.getValue();
@@ -43,20 +42,16 @@ public class FormulariesBean extends MessagePartBean {
         this.formularyId.setValue(formularyId);
     }
 
+
+    /**
+     * <p>Formulary Name</p>
+     */
     @Hl7XmlMapping({"title"})
     public String getFormularyName() {
         return this.formularyName.getValue();
     }
     public void setFormularyName(String formularyName) {
         this.formularyName.setValue(formularyName);
-    }
-
-    @Hl7XmlMapping({"performer/assignedEntity"})
-    public AssignedEntityBean getPerformerAssignedEntity() {
-        return this.performerAssignedEntity;
-    }
-    public void setPerformerAssignedEntity(AssignedEntityBean performerAssignedEntity) {
-        this.performerAssignedEntity = performerAssignedEntity;
     }
 
 }

@@ -15,21 +15,26 @@ import java.util.List;
 @Hl7PartTypeMapping({"QUCR_MT830201CA.AdjudicationResult"})
 public class ResultOfAdjudicationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20100615L;
-    private II adjudicationID = new IIImpl();
+    private static final long serialVersionUID = 20110127L;
     private List<AdjudicationResultReferenceBean> reference = new ArrayList<AdjudicationResultReferenceBean>();
+    private II adjudicationID = new IIImpl();
 
+
+    @Hl7XmlMapping({"reference"})
+    public List<AdjudicationResultReferenceBean> getReference() {
+        return this.reference;
+    }
+
+
+    /**
+     * <p>Adjudication ID</p>
+     */
     @Hl7XmlMapping({"id"})
     public Identifier getAdjudicationID() {
         return this.adjudicationID.getValue();
     }
     public void setAdjudicationID(Identifier adjudicationID) {
         this.adjudicationID.setValue(adjudicationID);
-    }
-
-    @Hl7XmlMapping({"reference"})
-    public List<AdjudicationResultReferenceBean> getReference() {
-        return this.reference;
     }
 
 }

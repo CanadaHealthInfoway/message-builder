@@ -4,24 +4,62 @@ package ca.infoway.messagebuilder.model.merged;
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
 import ca.infoway.messagebuilder.datatype.II;
+import ca.infoway.messagebuilder.datatype.ST;
 import ca.infoway.messagebuilder.datatype.impl.IIImpl;
+import ca.infoway.messagebuilder.datatype.impl.STImpl;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 
-@Hl7PartTypeMapping({"COCT_MT680000CA.CarrierRole","FICR_MT600201CA.CarrierRole","FICR_MT610201CA.CarrierRole"})
+@Hl7PartTypeMapping({"FICR_MT600201CA.CarrierRole","FICR_MT610201CA.CarrierRole","PORX_MT060160CA.CarrierRole","PORX_MT060340CA.CarrierRole"})
 public class CarrierRoleBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20100615L;
-    private II carrierID = new IIImpl();
+    private static final long serialVersionUID = 20110127L;
+    private II id = new IIImpl();
+    private ST payorName = new STImpl();
+    private ST underwritingOrganizationName = new STImpl();
 
+
+    /**
+     * <p>Carrier ID</p>
+     * 
+     * <p>Payor Identifier</p>
+     */
     @Hl7XmlMapping({"id"})
-    public Identifier getCarrierID() {
-        return this.carrierID.getValue();
+    public Identifier getId() {
+        return this.id.getValue();
     }
-    public void setCarrierID(Identifier carrierID) {
-        this.carrierID.setValue(carrierID);
+    public void setId(Identifier id) {
+        this.id.setValue(id);
+    }
+
+
+    /**
+     * <p>PayorName</p>
+     * 
+     * <p>Payor Name</p>
+     */
+    @Hl7XmlMapping({"underwritingCarrierOrganization/name"})
+    public String getPayorName() {
+        return this.payorName.getValue();
+    }
+    public void setPayorName(String payorName) {
+        this.payorName.setValue(payorName);
+    }
+
+
+    /**
+     * <p>PayorName</p>
+     * 
+     * <p>Payor Name</p>
+     */
+    @Hl7XmlMapping({"underwritingOrganization/name"})
+    public String getUnderwritingOrganizationName() {
+        return this.underwritingOrganizationName.getValue();
+    }
+    public void setUnderwritingOrganizationName(String underwritingOrganizationName) {
+        this.underwritingOrganizationName.setValue(underwritingOrganizationName);
     }
 
 }

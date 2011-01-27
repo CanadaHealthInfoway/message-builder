@@ -4,18 +4,14 @@ package ca.infoway.messagebuilder.model.interaction;
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
 import ca.infoway.messagebuilder.model.claims.ficr_mt600201ca.InvoiceIdentifierBean;
-import ca.infoway.messagebuilder.model.common.mcai_mt700211ca.TriggerEventBean;
-import ca.infoway.messagebuilder.model.common.mcci_mt002100ca.HL7MessageBean;
+import ca.infoway.messagebuilder.model.common.merged.HL7Message_1Bean;
+import ca.infoway.messagebuilder.model.common.merged.TriggerEvent_1Bean;
 
 
 
-/**
- * <p>The sender sends an Invoice Adjudication Request message 
- * for Pharmacy services and/or products.</p>
- */
 @Hl7PartTypeMapping({"FICR_IN600102CA"})
-public class InvoiceRequestRxBean extends HL7MessageBean<TriggerEventBean<InvoiceIdentifierBean>> implements InteractionBean {
+public class InvoiceRequestRxBean extends HL7Message_1Bean<TriggerEvent_1Bean<InvoiceIdentifierBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20100615L;
+    private static final long serialVersionUID = 20110127L;
 
 }

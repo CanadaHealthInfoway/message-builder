@@ -21,10 +21,11 @@ import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.domainvalue.x_ActMoodIntentEvent;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.claims.coct_mt280001ca.A_BillableActChoiceBean;
-import ca.infoway.messagebuilder.model.merged.DiagnosisInformationBean;
-import ca.infoway.messagebuilder.model.merged.HealthCareProviderBean;
-import ca.infoway.messagebuilder.model.merged.ServiceDeliveryLocation_2Bean;
+import ca.infoway.messagebuilder.model.claims.merged.DiagnosisInformationBean;
+import ca.infoway.messagebuilder.model.claims.merged.HealthCareProviderBean;
+import ca.infoway.messagebuilder.model.claims.merged.ManufacturedProductBean;
+import ca.infoway.messagebuilder.model.claims.merged.PatientEncounterBean;
+import ca.infoway.messagebuilder.model.merged.ServiceLocationBean;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -32,72 +33,32 @@ import java.util.Set;
 
 
 
-/**
- * <p>Patient classes are not referenced in the billable acts, 
- * as they are noted in the parent model (e.g. Invoice message) 
- * as the CoveredPartyAsPatient</p>
- */
 @Hl7PartTypeMapping({"COCT_MT290000CA.BillableClinicalService"})
 @Hl7RootType
-public class BillableClinicalServiceBean extends MessagePartBean implements A_BillableActChoiceBean {
+public class BillableClinicalServiceBean extends MessagePartBean implements ca.infoway.messagebuilder.model.claims.coct_mt280001ca.A_BillableActChoice {
 
-    private static final long serialVersionUID = 20100615L;
-    private CS moodCode = new CSImpl();
-    private II serviceEventID = new IIImpl();
-    private CV procedureCode = new CVImpl();
-    private IVL<TS, Interval<Date>> durationDateTimeOfOccurrence = new IVLImpl<TS, Interval<Date>>();
+    private static final long serialVersionUID = 20110127L;
     private SET<CV, Code> reasonCode = new SETImpl<CV, Code>(CVImpl.class);
-    private List<ManufacturedProductBean> productManufacturedProduct = new ArrayList<ManufacturedProductBean>();
     private HealthCareProviderBean performerHealthCareProvider;
-    private HealthCareProviderBean secondaryPerformerHealthCareProvider;
-    private HealthCareProviderBean referrerHealthCareProvider;
+    private List<ManufacturedProductBean> productManufacturedProduct = new ArrayList<ManufacturedProductBean>();
+    private IVL<TS, Interval<Date>> durationDateTimeOfOccurrence = new IVLImpl<TS, Interval<Date>>();
     private HealthCareProviderBean consultantHealthCareProvider;
-    private ServiceDeliveryLocation_2Bean locationServiceDeliveryLocation;
-    private List<AccidentInformationBean> pertinentInformation1 = new ArrayList<AccidentInformationBean>();
     private PatientEncounterBean pertinentInformation2PatientEncounter;
+    private II serviceEventID = new IIImpl();
+    private CS moodCode = new CSImpl();
+    private HealthCareProviderBean referrerHealthCareProvider;
     private List<DiagnosisInformationBean> pertinentInformation3 = new ArrayList<DiagnosisInformationBean>();
+    private HealthCareProviderBean secondaryPerformerHealthCareProvider;
+    private ServiceLocationBean locationServiceDeliveryLocation;
+    private CV procedureCode = new CVImpl();
+    private List<AccidentInformationBean> pertinentInformation1 = new ArrayList<AccidentInformationBean>();
 
-    @Hl7XmlMapping({"moodCode"})
-    public x_ActMoodIntentEvent getMoodCode() {
-        return (x_ActMoodIntentEvent) this.moodCode.getValue();
-    }
-    public void setMoodCode(x_ActMoodIntentEvent moodCode) {
-        this.moodCode.setValue(moodCode);
-    }
-
-    @Hl7XmlMapping({"id"})
-    public Identifier getServiceEventID() {
-        return this.serviceEventID.getValue();
-    }
-    public void setServiceEventID(Identifier serviceEventID) {
-        this.serviceEventID.setValue(serviceEventID);
-    }
-
-    @Hl7XmlMapping({"code"})
-    public Code getProcedureCode() {
-        return (Code) this.procedureCode.getValue();
-    }
-    public void setProcedureCode(Code procedureCode) {
-        this.procedureCode.setValue(procedureCode);
-    }
-
-    @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getDurationDateTimeOfOccurrence() {
-        return this.durationDateTimeOfOccurrence.getValue();
-    }
-    public void setDurationDateTimeOfOccurrence(Interval<Date> durationDateTimeOfOccurrence) {
-        this.durationDateTimeOfOccurrence.setValue(durationDateTimeOfOccurrence);
-    }
 
     @Hl7XmlMapping({"reasonCode"})
     public Set<Code> getReasonCode() {
         return this.reasonCode.rawSet(Code.class);
     }
 
-    @Hl7XmlMapping({"product/manufacturedProduct"})
-    public List<ManufacturedProductBean> getProductManufacturedProduct() {
-        return this.productManufacturedProduct;
-    }
 
     @Hl7XmlMapping({"performer/healthCareProvider"})
     public HealthCareProviderBean getPerformerHealthCareProvider() {
@@ -107,21 +68,24 @@ public class BillableClinicalServiceBean extends MessagePartBean implements A_Bi
         this.performerHealthCareProvider = performerHealthCareProvider;
     }
 
-    @Hl7XmlMapping({"secondaryPerformer/healthCareProvider"})
-    public HealthCareProviderBean getSecondaryPerformerHealthCareProvider() {
-        return this.secondaryPerformerHealthCareProvider;
-    }
-    public void setSecondaryPerformerHealthCareProvider(HealthCareProviderBean secondaryPerformerHealthCareProvider) {
-        this.secondaryPerformerHealthCareProvider = secondaryPerformerHealthCareProvider;
+
+    @Hl7XmlMapping({"product/manufacturedProduct"})
+    public List<ManufacturedProductBean> getProductManufacturedProduct() {
+        return this.productManufacturedProduct;
     }
 
-    @Hl7XmlMapping({"referrer/healthCareProvider"})
-    public HealthCareProviderBean getReferrerHealthCareProvider() {
-        return this.referrerHealthCareProvider;
+
+    /**
+     * <p>Duration, date/time of occurrence</p>
+     */
+    @Hl7XmlMapping({"effectiveTime"})
+    public Interval<Date> getDurationDateTimeOfOccurrence() {
+        return this.durationDateTimeOfOccurrence.getValue();
     }
-    public void setReferrerHealthCareProvider(HealthCareProviderBean referrerHealthCareProvider) {
-        this.referrerHealthCareProvider = referrerHealthCareProvider;
+    public void setDurationDateTimeOfOccurrence(Interval<Date> durationDateTimeOfOccurrence) {
+        this.durationDateTimeOfOccurrence.setValue(durationDateTimeOfOccurrence);
     }
+
 
     @Hl7XmlMapping({"consultant/healthCareProvider"})
     public HealthCareProviderBean getConsultantHealthCareProvider() {
@@ -131,18 +95,6 @@ public class BillableClinicalServiceBean extends MessagePartBean implements A_Bi
         this.consultantHealthCareProvider = consultantHealthCareProvider;
     }
 
-    @Hl7XmlMapping({"location/serviceDeliveryLocation"})
-    public ServiceDeliveryLocation_2Bean getLocationServiceDeliveryLocation() {
-        return this.locationServiceDeliveryLocation;
-    }
-    public void setLocationServiceDeliveryLocation(ServiceDeliveryLocation_2Bean locationServiceDeliveryLocation) {
-        this.locationServiceDeliveryLocation = locationServiceDeliveryLocation;
-    }
-
-    @Hl7XmlMapping({"pertinentInformation1"})
-    public List<AccidentInformationBean> getPertinentInformation1() {
-        return this.pertinentInformation1;
-    }
 
     @Hl7XmlMapping({"pertinentInformation2/patientEncounter"})
     public PatientEncounterBean getPertinentInformation2PatientEncounter() {
@@ -152,9 +104,76 @@ public class BillableClinicalServiceBean extends MessagePartBean implements A_Bi
         this.pertinentInformation2PatientEncounter = pertinentInformation2PatientEncounter;
     }
 
+
+    /**
+     * <p>Service event ID</p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Identifier getServiceEventID() {
+        return this.serviceEventID.getValue();
+    }
+    public void setServiceEventID(Identifier serviceEventID) {
+        this.serviceEventID.setValue(serviceEventID);
+    }
+
+
+    @Hl7XmlMapping({"moodCode"})
+    public x_ActMoodIntentEvent getMoodCode() {
+        return (x_ActMoodIntentEvent) this.moodCode.getValue();
+    }
+    public void setMoodCode(x_ActMoodIntentEvent moodCode) {
+        this.moodCode.setValue(moodCode);
+    }
+
+
+    @Hl7XmlMapping({"referrer/healthCareProvider"})
+    public HealthCareProviderBean getReferrerHealthCareProvider() {
+        return this.referrerHealthCareProvider;
+    }
+    public void setReferrerHealthCareProvider(HealthCareProviderBean referrerHealthCareProvider) {
+        this.referrerHealthCareProvider = referrerHealthCareProvider;
+    }
+
+
     @Hl7XmlMapping({"pertinentInformation3"})
     public List<DiagnosisInformationBean> getPertinentInformation3() {
         return this.pertinentInformation3;
+    }
+
+
+    @Hl7XmlMapping({"secondaryPerformer/healthCareProvider"})
+    public HealthCareProviderBean getSecondaryPerformerHealthCareProvider() {
+        return this.secondaryPerformerHealthCareProvider;
+    }
+    public void setSecondaryPerformerHealthCareProvider(HealthCareProviderBean secondaryPerformerHealthCareProvider) {
+        this.secondaryPerformerHealthCareProvider = secondaryPerformerHealthCareProvider;
+    }
+
+
+    @Hl7XmlMapping({"location/serviceDeliveryLocation"})
+    public ServiceLocationBean getLocationServiceDeliveryLocation() {
+        return this.locationServiceDeliveryLocation;
+    }
+    public void setLocationServiceDeliveryLocation(ServiceLocationBean locationServiceDeliveryLocation) {
+        this.locationServiceDeliveryLocation = locationServiceDeliveryLocation;
+    }
+
+
+    /**
+     * <p>Procedure code</p>
+     */
+    @Hl7XmlMapping({"code"})
+    public Code getProcedureCode() {
+        return (Code) this.procedureCode.getValue();
+    }
+    public void setProcedureCode(Code procedureCode) {
+        this.procedureCode.setValue(procedureCode);
+    }
+
+
+    @Hl7XmlMapping({"pertinentInformation1"})
+    public List<AccidentInformationBean> getPertinentInformation1() {
+        return this.pertinentInformation1;
     }
 
 }

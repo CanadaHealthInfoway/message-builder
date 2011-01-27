@@ -18,56 +18,26 @@ import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.domainvalue.ActStatus;
 import ca.infoway.messagebuilder.domainvalue.x_VeryBasicConfidentialityKind;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.merged.TargetedToPharmacyBean;
+import ca.infoway.messagebuilder.model.merged.CreatedAtBean;
 import java.util.Date;
 
 
 
-/**
- * <p>Dispense</p>
- * 
- * <p>Indicates a particular dispense event that resulted in 
- * the issue.</p>
- * 
- * <p>Used when the issue pertains to the supply of the drug 
- * rather than the drug itself. E.g. Duplicate pharmacy, refill 
- * too soon, etc.</p>
- */
 @Hl7PartTypeMapping({"COCT_MT260030CA.SupplyEvent"})
-public class DispenseBean extends MessagePartBean implements CausalActsBean {
+public class DispenseBean extends MessagePartBean implements ca.infoway.messagebuilder.model.common.merged.CausalActs {
 
-    private static final long serialVersionUID = 20100615L;
-    private II prescriptionDispenseNumber = new IIImpl();
+    private static final long serialVersionUID = 20110127L;
+    private CV dispenseMaskingIndicator = new CVImpl();
     private CS dispenseStatus = new CSImpl();
     private IVL<TS, Interval<Date>> dispensedDate = new IVLImpl<TS, Interval<Date>>();
-    private CV dispenseMaskingIndicator = new CVImpl();
+    private CreatedAtBean location;
+    private II prescriptionDispenseNumber = new IIImpl();
     private DispensedBean product;
-    private TargetedToPharmacyBean location;
 
-    @Hl7XmlMapping({"id"})
-    public Identifier getPrescriptionDispenseNumber() {
-        return this.prescriptionDispenseNumber.getValue();
-    }
-    public void setPrescriptionDispenseNumber(Identifier prescriptionDispenseNumber) {
-        this.prescriptionDispenseNumber.setValue(prescriptionDispenseNumber);
-    }
 
-    @Hl7XmlMapping({"statusCode"})
-    public ActStatus getDispenseStatus() {
-        return (ActStatus) this.dispenseStatus.getValue();
-    }
-    public void setDispenseStatus(ActStatus dispenseStatus) {
-        this.dispenseStatus.setValue(dispenseStatus);
-    }
-
-    @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getDispensedDate() {
-        return this.dispensedDate.getValue();
-    }
-    public void setDispensedDate(Interval<Date> dispensedDate) {
-        this.dispensedDate.setValue(dispensedDate);
-    }
-
+    /**
+     * <p>C:Dispense Masking Indicator</p>
+     */
     @Hl7XmlMapping({"confidentialityCode"})
     public x_VeryBasicConfidentialityKind getDispenseMaskingIndicator() {
         return (x_VeryBasicConfidentialityKind) this.dispenseMaskingIndicator.getValue();
@@ -76,20 +46,58 @@ public class DispenseBean extends MessagePartBean implements CausalActsBean {
         this.dispenseMaskingIndicator.setValue(dispenseMaskingIndicator);
     }
 
+
+    /**
+     * <p>B:Dispense Status</p>
+     */
+    @Hl7XmlMapping({"statusCode"})
+    public ActStatus getDispenseStatus() {
+        return (ActStatus) this.dispenseStatus.getValue();
+    }
+    public void setDispenseStatus(ActStatus dispenseStatus) {
+        this.dispenseStatus.setValue(dispenseStatus);
+    }
+
+
+    /**
+     * <p>B:Dispensed Date</p>
+     */
+    @Hl7XmlMapping({"effectiveTime"})
+    public Interval<Date> getDispensedDate() {
+        return this.dispensedDate.getValue();
+    }
+    public void setDispensedDate(Interval<Date> dispensedDate) {
+        this.dispensedDate.setValue(dispensedDate);
+    }
+
+
+    @Hl7XmlMapping({"location"})
+    public CreatedAtBean getLocation() {
+        return this.location;
+    }
+    public void setLocation(CreatedAtBean location) {
+        this.location = location;
+    }
+
+
+    /**
+     * <p>A:Prescription Dispense Number</p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Identifier getPrescriptionDispenseNumber() {
+        return this.prescriptionDispenseNumber.getValue();
+    }
+    public void setPrescriptionDispenseNumber(Identifier prescriptionDispenseNumber) {
+        this.prescriptionDispenseNumber.setValue(prescriptionDispenseNumber);
+    }
+
+
     @Hl7XmlMapping({"product"})
     public DispensedBean getProduct() {
         return this.product;
     }
     public void setProduct(DispensedBean product) {
         this.product = product;
-    }
-
-    @Hl7XmlMapping({"location"})
-    public TargetedToPharmacyBean getLocation() {
-        return this.location;
-    }
-    public void setLocation(TargetedToPharmacyBean location) {
-        this.location = location;
     }
 
 }
