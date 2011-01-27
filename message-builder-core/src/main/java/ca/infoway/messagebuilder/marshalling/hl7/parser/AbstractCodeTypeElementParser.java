@@ -20,7 +20,7 @@ import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelTransformationException;
 import ca.infoway.messagebuilder.util.xml.NodeUtil;
 
-public abstract class AbstractCodeTypeElementParser extends AbstractSingleElementParser<Code> {
+abstract class AbstractCodeTypeElementParser extends AbstractSingleElementParser<Code> {
 
     @Override
 	public BareANY parse(ParseContext context, Node node, XmlToModelResult xmlToJavaResult) throws XmlToModelTransformationException {

@@ -140,7 +140,7 @@ public class CvElementParserTest extends MarshallingTestCase {
 				node, this.xmlJavaResult);
 		
 		assertFalse("valid", this.xmlJavaResult.isValid());
-		assertNotNull("original text", cv.getOriginalText());  // preserve what we can, even if an error is logged
+		assertNotNull(cv.getOriginalText());  // preserve what we can, even if an eror is logged
 		assertNull("empty node returns null", cv.getValue());
 	}
 	
@@ -153,7 +153,7 @@ public class CvElementParserTest extends MarshallingTestCase {
 		
 		assertTrue("valid", this.xmlJavaResult.isValid());
 		assertTrue(this.xmlJavaResult.getHl7Errors().isEmpty());
-		assertNotNull("original text", cv.getOriginalText());
+		assertNotNull(cv.getOriginalText());
 		assertNull("returns null value", cv.getValue());
 	}
 	

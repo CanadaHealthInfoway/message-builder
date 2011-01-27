@@ -70,7 +70,7 @@ public class BagEnElementParserTest extends ParserTestCase {
 		assertNotNull("null", list);
 		assertEquals("size", 1, list.size());
 		
-		PN firstName = hl7List.getValue().iterator().next();
+		ANY firstName = (ANY) CollectionUtils.get(hl7List.getValue(), 0);
 		assertTrue("null", firstName.isNull());
 	}
 }

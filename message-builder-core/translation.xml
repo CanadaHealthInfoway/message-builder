@@ -34,11 +34,9 @@
 				<arg value="-cp" /><arg file="${target.dir}/dependencies/commons-collections-3.2.1.jar"/>
 				<arg value="-cp" /><arg file="${target.dir}/dependencies/commons-logging-1.1.1.jar"/>
 				<arg value="-cp" /><arg file="${target.dir}/dependencies/jmock-junit4-2.5.1.jar"/>
-				<arg value="-cp" /><arg file="${target.dir}/dependencies/junitUtils-1.1.2cr2.jar"/>
+				<arg value="-cp" /><arg file="${target.dir}/dependencies/junitUtils-1.0cr6-SNAPSHOT.jar"/>
 				<arg value="-cp" /><arg file="${target.dir}/dependencies/simple-xml-2.2.jar"/>
-				<arg value="-cp" /><arg file="${target.dir}/dependencies/message-builder-util-1.1.2cr2.jar"/>				
-				<arg value="-cp" /><arg file="${target.dir}/dependencies/message-builder-xml-1.1.2cr2-tests.jar"/>				
-				<arg value="-cp" /><arg file="${target.dir}/dependencies/message-builder-xml-1.1.2cr2.jar"/>				
+				<arg value="-cp" /><arg file="${target.dir}/dependencies/message-builder-xml-1.1.2.jar"/>				
 				<!-- Sharpen options are defined in a separate file -->
 				<arg value="@translation-all-options" />
 			</args>

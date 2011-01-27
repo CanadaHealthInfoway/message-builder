@@ -346,8 +346,6 @@
 					</tagBase>
 					<!-- See http://jira.codehaus.org/browse/SCM-406 -->
 					<remoteTagging>true</remoteTagging>
-                    			<preparationGoals>clean install</preparationGoals>
-
 				</configuration>
 			</plugin>
 		</plugins>
