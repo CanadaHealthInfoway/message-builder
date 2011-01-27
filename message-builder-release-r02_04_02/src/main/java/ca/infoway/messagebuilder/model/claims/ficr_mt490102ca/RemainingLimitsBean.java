@@ -21,21 +21,21 @@ import java.util.Date;
 @Hl7PartTypeMapping({"FICR_MT490102CA.RemainingLimits"})
 public class RemainingLimitsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
-    private INT remainingFillsPermitted = new INTImpl();
-    private PQ remainingQuantitySupply = new PQImpl();
+    private static final long serialVersionUID = 20110127L;
     private IVL<TS, Interval<Date>> remainingDaysSupply = new IVLImpl<TS, Interval<Date>>();
+    private PQ remainingQuantitySupply = new PQImpl();
+    private INT remainingFillsPermitted = new INTImpl();
 
 
     /**
-     * <p>Remaining Fills Permitted</p>
+     * <p>Remaining Days Supply</p>
      */
-    @Hl7XmlMapping({"repeatNumber"})
-    public Integer getRemainingFillsPermitted() {
-        return this.remainingFillsPermitted.getValue();
+    @Hl7XmlMapping({"expectedUseTime"})
+    public Interval<Date> getRemainingDaysSupply() {
+        return this.remainingDaysSupply.getValue();
     }
-    public void setRemainingFillsPermitted(Integer remainingFillsPermitted) {
-        this.remainingFillsPermitted.setValue(remainingFillsPermitted);
+    public void setRemainingDaysSupply(Interval<Date> remainingDaysSupply) {
+        this.remainingDaysSupply.setValue(remainingDaysSupply);
     }
 
 
@@ -52,14 +52,14 @@ public class RemainingLimitsBean extends MessagePartBean {
 
 
     /**
-     * <p>Remaining Days Supply</p>
+     * <p>Remaining Fills Permitted</p>
      */
-    @Hl7XmlMapping({"expectedUseTime"})
-    public Interval<Date> getRemainingDaysSupply() {
-        return this.remainingDaysSupply.getValue();
+    @Hl7XmlMapping({"repeatNumber"})
+    public Integer getRemainingFillsPermitted() {
+        return this.remainingFillsPermitted.getValue();
     }
-    public void setRemainingDaysSupply(Interval<Date> remainingDaysSupply) {
-        this.remainingDaysSupply.setValue(remainingDaysSupply);
+    public void setRemainingFillsPermitted(Integer remainingFillsPermitted) {
+        this.remainingFillsPermitted.setValue(remainingFillsPermitted);
     }
 
 }

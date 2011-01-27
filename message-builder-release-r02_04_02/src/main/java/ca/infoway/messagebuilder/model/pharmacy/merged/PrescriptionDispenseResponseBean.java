@@ -54,16 +54,44 @@ import java.util.Set;
 @Hl7RootType
 public class PrescriptionDispenseResponseBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
-    private II id = new IIImpl();
+    private static final long serialVersionUID = 20110127L;
     private SET<II, Identifier> prescriptionOrderNumber = new SETImpl<II, Identifier>(IIImpl.class);
+    private II id = new IIImpl();
     private RelatedPersonBean receiverPersonalRelationship;
-    private IncludesBean subjectOf;
-    private TS supplyDate = new TSImpl();
-    private ServiceDeliveryLocationBean destinationServiceDeliveryLocation;
     private SupplyOrderBean fulfillmentSupplyRequest;
+    private ServiceDeliveryLocationBean destinationServiceDeliveryLocation;
+    private IncludesBean subjectOf;
     private PQ suppliedQuantity = new PQImpl();
     private DispensedBean product;
+    private TS supplyDate = new TSImpl();
+
+
+    /**
+     * <p>PrescriptionOrderNumber</p>
+     * 
+     * <p>A:Prescription Order Number</p>
+     * 
+     * <p><p>This is an identifier assigned to a specific 
+     * medication order. The number remains constant across the 
+     * lifetime of the order, regardless of the number of providers 
+     * or pharmacies involved in fulfilling the order.</p></p>
+     * 
+     * <p><p>Allows prescriptions to be uniquely referenced. 
+     * Multiple identifiers are allowed to support assigning of 
+     * prescription ids by the prescriber, EHR, and potentially by 
+     * pharmacies.</p><p>The ID is mandatory to allow every 
+     * prescription record to be uniquely identified.</p></p>
+     * 
+     * <p><p>Allows prescriptions to be uniquely referenced. 
+     * Multiple identifiers are allowed to support assigning of 
+     * prescription ids by the prescriber, EHR, and potentially by 
+     * pharmacies.</p><p>The ID is mandatory to allow every 
+     * prescription record to be uniquely identified.</p></p>
+     */
+    @Hl7XmlMapping({"inFulfillmentOf/actRequest/id"})
+    public Set<Identifier> getPrescriptionOrderNumber() {
+        return this.prescriptionOrderNumber.rawSet();
+    }
 
 
     /**
@@ -102,34 +130,6 @@ public class PrescriptionDispenseResponseBean extends MessagePartBean {
     }
 
 
-    /**
-     * <p>PrescriptionOrderNumber</p>
-     * 
-     * <p>A:Prescription Order Number</p>
-     * 
-     * <p><p>This is an identifier assigned to a specific 
-     * medication order. The number remains constant across the 
-     * lifetime of the order, regardless of the number of providers 
-     * or pharmacies involved in fulfilling the order.</p></p>
-     * 
-     * <p><p>Allows prescriptions to be uniquely referenced. 
-     * Multiple identifiers are allowed to support assigning of 
-     * prescription ids by the prescriber, EHR, and potentially by 
-     * pharmacies.</p><p>The ID is mandatory to allow every 
-     * prescription record to be uniquely identified.</p></p>
-     * 
-     * <p><p>Allows prescriptions to be uniquely referenced. 
-     * Multiple identifiers are allowed to support assigning of 
-     * prescription ids by the prescriber, EHR, and potentially by 
-     * pharmacies.</p><p>The ID is mandatory to allow every 
-     * prescription record to be uniquely identified.</p></p>
-     */
-    @Hl7XmlMapping({"inFulfillmentOf/actRequest/id"})
-    public Set<Identifier> getPrescriptionOrderNumber() {
-        return this.prescriptionOrderNumber.rawSet();
-    }
-
-
     @Hl7XmlMapping({"receiver/personalRelationship"})
     public RelatedPersonBean getReceiverPersonalRelationship() {
         return this.receiverPersonalRelationship;
@@ -139,37 +139,12 @@ public class PrescriptionDispenseResponseBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"subjectOf"})
-    public IncludesBean getSubjectOf() {
-        return this.subjectOf;
+    @Hl7XmlMapping({"fulfillment/supplyRequest"})
+    public SupplyOrderBean getFulfillmentSupplyRequest() {
+        return this.fulfillmentSupplyRequest;
     }
-    public void setSubjectOf(IncludesBean subjectOf) {
-        this.subjectOf = subjectOf;
-    }
-
-
-    /**
-     * <p>SupplyDate</p>
-     * 
-     * <p>A:Supply Date</p>
-     * 
-     * <p><p>Represents the date medication was supplied.</p></p>
-     * 
-     * <p><p>Needed for audit purposes.</p><p>Because the supply 
-     * date is always known, the attribute is mandatory.</p></p>
-     * 
-     * <p><p>Needed for audit purposes.</p><p>Because the supply 
-     * date is always known, the attribute is mandatory.</p></p>
-     * 
-     * <p><p>Must be able to post date a dispense (enter 
-     * retroactively) e.g. system failure</p></p>
-     */
-    @Hl7XmlMapping({"effectiveTime"})
-    public Date getSupplyDate() {
-        return this.supplyDate.getValue();
-    }
-    public void setSupplyDate(Date supplyDate) {
-        this.supplyDate.setValue(supplyDate);
+    public void setFulfillmentSupplyRequest(SupplyOrderBean fulfillmentSupplyRequest) {
+        this.fulfillmentSupplyRequest = fulfillmentSupplyRequest;
     }
 
 
@@ -182,12 +157,12 @@ public class PrescriptionDispenseResponseBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"fulfillment/supplyRequest"})
-    public SupplyOrderBean getFulfillmentSupplyRequest() {
-        return this.fulfillmentSupplyRequest;
+    @Hl7XmlMapping({"subjectOf"})
+    public IncludesBean getSubjectOf() {
+        return this.subjectOf;
     }
-    public void setFulfillmentSupplyRequest(SupplyOrderBean fulfillmentSupplyRequest) {
-        this.fulfillmentSupplyRequest = fulfillmentSupplyRequest;
+    public void setSubjectOf(IncludesBean subjectOf) {
+        this.subjectOf = subjectOf;
     }
 
 
@@ -218,6 +193,31 @@ public class PrescriptionDispenseResponseBean extends MessagePartBean {
     }
     public void setProduct(DispensedBean product) {
         this.product = product;
+    }
+
+
+    /**
+     * <p>SupplyDate</p>
+     * 
+     * <p>A:Supply Date</p>
+     * 
+     * <p><p>Represents the date medication was supplied.</p></p>
+     * 
+     * <p><p>Needed for audit purposes.</p><p>Because the supply 
+     * date is always known, the attribute is mandatory.</p></p>
+     * 
+     * <p><p>Needed for audit purposes.</p><p>Because the supply 
+     * date is always known, the attribute is mandatory.</p></p>
+     * 
+     * <p><p>Must be able to post date a dispense (enter 
+     * retroactively) e.g. system failure</p></p>
+     */
+    @Hl7XmlMapping({"effectiveTime"})
+    public Date getSupplyDate() {
+        return this.supplyDate.getValue();
+    }
+    public void setSupplyDate(Date supplyDate) {
+        this.supplyDate.setValue(supplyDate);
     }
 
 }

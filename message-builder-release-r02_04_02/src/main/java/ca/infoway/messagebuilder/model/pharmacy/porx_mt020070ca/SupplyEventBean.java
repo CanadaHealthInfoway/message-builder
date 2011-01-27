@@ -26,14 +26,14 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PORX_MT020070CA.SupplyEvent"})
 public class SupplyEventBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
+    private static final long serialVersionUID = 20110127L;
     private DispenseShipToLocationBean destinationServiceDeliveryLocation;
-    private CV dispenseType = new CVImpl();
-    private INT numberOfRemainingFills = new INTImpl();
-    private IVL<TS, Interval<Date>> dispenseProcessingAndPickupDate = new IVLImpl<TS, Interval<Date>>();
-    private PQ dispensedQuantity = new PQImpl();
     private IVL<TS, Interval<Date>> dispensedDaysSupply = new IVLImpl<TS, Interval<Date>>();
+    private CV dispenseType = new CVImpl();
+    private PQ dispensedQuantity = new PQImpl();
+    private INT numberOfRemainingFills = new INTImpl();
     private DispensedBean product;
+    private IVL<TS, Interval<Date>> dispenseProcessingAndPickupDate = new IVLImpl<TS, Interval<Date>>();
 
 
     @Hl7XmlMapping({"destination/serviceDeliveryLocation"})
@@ -42,6 +42,28 @@ public class SupplyEventBean extends MessagePartBean {
     }
     public void setDestinationServiceDeliveryLocation(DispenseShipToLocationBean destinationServiceDeliveryLocation) {
         this.destinationServiceDeliveryLocation = destinationServiceDeliveryLocation;
+    }
+
+
+    /**
+     * <p>Dispensed Days Supply</p>
+     * 
+     * <p><p>The number of days that the dispensed quantity is 
+     * expected to last.</p></p>
+     * 
+     * <p><p>Useful in monitoring patient compliance. May also be 
+     * useful in determining and managing certain contraindications 
+     * ('Fill-Too-Soon', 'Fill-Too-Late', and 'Duration of 
+     * Therapy'). Because 'Days Supply' may be necessary to compute 
+     * total dispensed quantity, it is made a 'populated' 
+     * field.</p></p>
+     */
+    @Hl7XmlMapping({"expectedUseTime"})
+    public Interval<Date> getDispensedDaysSupply() {
+        return this.dispensedDaysSupply.getValue();
+    }
+    public void setDispensedDaysSupply(Interval<Date> dispensedDaysSupply) {
+        this.dispensedDaysSupply.setValue(dispensedDaysSupply);
     }
 
 
@@ -66,6 +88,26 @@ public class SupplyEventBean extends MessagePartBean {
 
 
     /**
+     * <p>Dispensed Quantity</p>
+     * 
+     * <p><p>The amount of medication that has been dispensed. 
+     * Includes unit of measure.</p></p>
+     * 
+     * <p><p>Critical in understanding the patient's medication 
+     * profile, both past and current, This is also mandatory to 
+     * allow determination of the amount that remains to be 
+     * dispensed against the prescription.</p></p>
+     */
+    @Hl7XmlMapping({"quantity"})
+    public PhysicalQuantity getDispensedQuantity() {
+        return this.dispensedQuantity.getValue();
+    }
+    public void setDispensedQuantity(PhysicalQuantity dispensedQuantity) {
+        this.dispensedQuantity.setValue(dispensedQuantity);
+    }
+
+
+    /**
      * <p>Number of remaining fills</p>
      * 
      * <p><p>Indicates the number or remaining fills, if any, for 
@@ -80,6 +122,15 @@ public class SupplyEventBean extends MessagePartBean {
     }
     public void setNumberOfRemainingFills(Integer numberOfRemainingFills) {
         this.numberOfRemainingFills.setValue(numberOfRemainingFills);
+    }
+
+
+    @Hl7XmlMapping({"product"})
+    public DispensedBean getProduct() {
+        return this.product;
+    }
+    public void setProduct(DispensedBean product) {
+        this.product = product;
     }
 
 
@@ -108,57 +159,6 @@ public class SupplyEventBean extends MessagePartBean {
     }
     public void setDispenseProcessingAndPickupDate(Interval<Date> dispenseProcessingAndPickupDate) {
         this.dispenseProcessingAndPickupDate.setValue(dispenseProcessingAndPickupDate);
-    }
-
-
-    /**
-     * <p>Dispensed Quantity</p>
-     * 
-     * <p><p>The amount of medication that has been dispensed. 
-     * Includes unit of measure.</p></p>
-     * 
-     * <p><p>Critical in understanding the patient's medication 
-     * profile, both past and current, This is also mandatory to 
-     * allow determination of the amount that remains to be 
-     * dispensed against the prescription.</p></p>
-     */
-    @Hl7XmlMapping({"quantity"})
-    public PhysicalQuantity getDispensedQuantity() {
-        return this.dispensedQuantity.getValue();
-    }
-    public void setDispensedQuantity(PhysicalQuantity dispensedQuantity) {
-        this.dispensedQuantity.setValue(dispensedQuantity);
-    }
-
-
-    /**
-     * <p>Dispensed Days Supply</p>
-     * 
-     * <p><p>The number of days that the dispensed quantity is 
-     * expected to last.</p></p>
-     * 
-     * <p><p>Useful in monitoring patient compliance. May also be 
-     * useful in determining and managing certain contraindications 
-     * ('Fill-Too-Soon', 'Fill-Too-Late', and 'Duration of 
-     * Therapy'). Because 'Days Supply' may be necessary to compute 
-     * total dispensed quantity, it is made a 'populated' 
-     * field.</p></p>
-     */
-    @Hl7XmlMapping({"expectedUseTime"})
-    public Interval<Date> getDispensedDaysSupply() {
-        return this.dispensedDaysSupply.getValue();
-    }
-    public void setDispensedDaysSupply(Interval<Date> dispensedDaysSupply) {
-        this.dispensedDaysSupply.setValue(dispensedDaysSupply);
-    }
-
-
-    @Hl7XmlMapping({"product"})
-    public DispensedBean getProduct() {
-        return this.product;
-    }
-    public void setProduct(DispensedBean product) {
-        this.product = product;
     }
 
 }

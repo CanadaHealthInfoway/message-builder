@@ -42,14 +42,31 @@ import java.util.List;
 @Hl7PartTypeMapping({"POLB_MT004100CA.CultureObservationEvent"})
 public class CultureObservationsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
+    private static final long serialVersionUID = 20110127L;
+    private ANY<Object> cultureObservationValue = new ANYImpl<Object>();
     private CS cultureObservationStatus = new CSImpl();
-    private ResultStatusProcessStepBean subjectOf2ResultStatusProcessStep;
     private CD cultureObservationType = new CDImpl();
     private List<IncludesBean> subjectOf1 = new ArrayList<IncludesBean>();
-    private IVL<TS, Interval<Date>> cultureObservationDateTime = new IVLImpl<TS, Interval<Date>>();
     private ST cultureObservationComment = new STImpl();
-    private ANY<Object> cultureObservationValue = new ANYImpl<Object>();
+    private ResultStatusProcessStepBean subjectOf2ResultStatusProcessStep;
+    private IVL<TS, Interval<Date>> cultureObservationDateTime = new IVLImpl<TS, Interval<Date>>();
+
+
+    /**
+     * <p>Culture Observation Value</p>
+     * 
+     * <p><p>The result value of this culture observation e.g. the 
+     * number value associated with a protein measurement, etc. 
+     * When a coded value applies, values must be selected from the 
+     * CultureObservationValue Concept Domain.</p></p>
+     */
+    @Hl7XmlMapping({"value"})
+    public Object getCultureObservationValue() {
+        return this.cultureObservationValue.getValue();
+    }
+    public void setCultureObservationValue(Object cultureObservationValue) {
+        this.cultureObservationValue.setValue(cultureObservationValue);
+    }
 
 
     /**
@@ -63,15 +80,6 @@ public class CultureObservationsBean extends MessagePartBean {
     }
     public void setCultureObservationStatus(ActStatus cultureObservationStatus) {
         this.cultureObservationStatus.setValue(cultureObservationStatus);
-    }
-
-
-    @Hl7XmlMapping({"subjectOf2/resultStatusProcessStep"})
-    public ResultStatusProcessStepBean getSubjectOf2ResultStatusProcessStep() {
-        return this.subjectOf2ResultStatusProcessStep;
-    }
-    public void setSubjectOf2ResultStatusProcessStep(ResultStatusProcessStepBean subjectOf2ResultStatusProcessStep) {
-        this.subjectOf2ResultStatusProcessStep = subjectOf2ResultStatusProcessStep;
     }
 
 
@@ -97,21 +105,6 @@ public class CultureObservationsBean extends MessagePartBean {
 
 
     /**
-     * <p>Culture Observation Date/Time</p>
-     * 
-     * <p><p>The date/time interval when this culture observation 
-     * took place.</p></p>
-     */
-    @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getCultureObservationDateTime() {
-        return this.cultureObservationDateTime.getValue();
-    }
-    public void setCultureObservationDateTime(Interval<Date> cultureObservationDateTime) {
-        this.cultureObservationDateTime.setValue(cultureObservationDateTime);
-    }
-
-
-    /**
      * <p>Culture Observation Comment</p>
      * 
      * <p><p>Comments associated with the Culture Observation.</p></p>
@@ -125,20 +118,27 @@ public class CultureObservationsBean extends MessagePartBean {
     }
 
 
-    /**
-     * <p>Culture Observation Value</p>
-     * 
-     * <p><p>The result value of this culture observation e.g. the 
-     * number value associated with a protein measurement, etc. 
-     * When a coded value applies, values must be selected from the 
-     * CultureObservationValue Concept Domain.</p></p>
-     */
-    @Hl7XmlMapping({"value"})
-    public Object getCultureObservationValue() {
-        return this.cultureObservationValue.getValue();
+    @Hl7XmlMapping({"subjectOf2/resultStatusProcessStep"})
+    public ResultStatusProcessStepBean getSubjectOf2ResultStatusProcessStep() {
+        return this.subjectOf2ResultStatusProcessStep;
     }
-    public void setCultureObservationValue(Object cultureObservationValue) {
-        this.cultureObservationValue.setValue(cultureObservationValue);
+    public void setSubjectOf2ResultStatusProcessStep(ResultStatusProcessStepBean subjectOf2ResultStatusProcessStep) {
+        this.subjectOf2ResultStatusProcessStep = subjectOf2ResultStatusProcessStep;
+    }
+
+
+    /**
+     * <p>Culture Observation Date/Time</p>
+     * 
+     * <p><p>The date/time interval when this culture observation 
+     * took place.</p></p>
+     */
+    @Hl7XmlMapping({"effectiveTime"})
+    public Interval<Date> getCultureObservationDateTime() {
+        return this.cultureObservationDateTime.getValue();
+    }
+    public void setCultureObservationDateTime(Interval<Date> cultureObservationDateTime) {
+        this.cultureObservationDateTime.setValue(cultureObservationDateTime);
     }
 
 }

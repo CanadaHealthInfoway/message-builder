@@ -74,23 +74,14 @@ import java.util.Set;
 @Hl7PartTypeMapping({"PORX_MT020060CA.DeviceRequest","PORX_MT020070CA.SubstanceAdministrationRequest","PORX_MT060010CA.SupplyRequest","PORX_MT060090CA.SubstanceAdministrationRequest"})
 public class PrescriptionReferenceBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
-    private RefusedByBean author;
+    private static final long serialVersionUID = 20110127L;
     private CV prescriptionType = new CVImpl();
-    private SET<II, Identifier> prescriptionOrderNumber = new SETImpl<II, Identifier>(IIImpl.class);
-    private HealthcareWorkerBean responsiblePartyAssignedEntity;
     private Component2Bean component;
+    private RefusedByBean author;
+    private SET<II, Identifier> prescriptionOrderNumber = new SETImpl<II, Identifier>(IIImpl.class);
     private ClassifiesBean component1;
+    private HealthcareWorkerBean responsiblePartyAssignedEntity;
     private CS prescriptionStatus = new CSImpl();
-
-
-    @Hl7XmlMapping({"author"})
-    public RefusedByBean getAuthor() {
-        return this.author;
-    }
-    public void setAuthor(RefusedByBean author) {
-        this.author = author;
-    }
 
 
     /**
@@ -118,6 +109,27 @@ public class PrescriptionReferenceBean extends MessagePartBean {
     }
     public void setPrescriptionType(Code prescriptionType) {
         this.prescriptionType.setValue(prescriptionType);
+    }
+
+
+    @Hl7XmlMapping({"component","component2"})
+    @Hl7MapByPartTypes({
+        @Hl7MapByPartType(name="component", type="PORX_MT020060CA.Component2"),
+        @Hl7MapByPartType(name="component2", type="PORX_MT020070CA.Component2")})
+    public Component2Bean getComponent() {
+        return this.component;
+    }
+    public void setComponent(Component2Bean component) {
+        this.component = component;
+    }
+
+
+    @Hl7XmlMapping({"author"})
+    public RefusedByBean getAuthor() {
+        return this.author;
+    }
+    public void setAuthor(RefusedByBean author) {
+        this.author = author;
     }
 
 
@@ -194,33 +206,21 @@ public class PrescriptionReferenceBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"responsibleParty/assignedEntity"})
-    public HealthcareWorkerBean getResponsiblePartyAssignedEntity() {
-        return this.responsiblePartyAssignedEntity;
-    }
-    public void setResponsiblePartyAssignedEntity(HealthcareWorkerBean responsiblePartyAssignedEntity) {
-        this.responsiblePartyAssignedEntity = responsiblePartyAssignedEntity;
-    }
-
-
-    @Hl7XmlMapping({"component","component2"})
-    @Hl7MapByPartTypes({
-        @Hl7MapByPartType(name="component", type="PORX_MT020060CA.Component2"),
-        @Hl7MapByPartType(name="component2", type="PORX_MT020070CA.Component2")})
-    public Component2Bean getComponent() {
-        return this.component;
-    }
-    public void setComponent(Component2Bean component) {
-        this.component = component;
-    }
-
-
     @Hl7XmlMapping({"component1"})
     public ClassifiesBean getComponent1() {
         return this.component1;
     }
     public void setComponent1(ClassifiesBean component1) {
         this.component1 = component1;
+    }
+
+
+    @Hl7XmlMapping({"responsibleParty/assignedEntity"})
+    public HealthcareWorkerBean getResponsiblePartyAssignedEntity() {
+        return this.responsiblePartyAssignedEntity;
+    }
+    public void setResponsiblePartyAssignedEntity(HealthcareWorkerBean responsiblePartyAssignedEntity) {
+        this.responsiblePartyAssignedEntity = responsiblePartyAssignedEntity;
     }
 
 

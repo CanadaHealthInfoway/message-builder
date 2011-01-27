@@ -19,7 +19,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"POLB_MT004100CA.ActPromise"})
 public class FillerOrderBean extends MessagePartBean implements ca.infoway.messagebuilder.model.lab.merged.FulfillmentChoice {
 
-    private static final long serialVersionUID = 20110126L;
+    private static final long serialVersionUID = 20110127L;
     private II fillerOrderNumber = new IIImpl();
 
 

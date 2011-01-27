@@ -32,35 +32,35 @@ public interface ObservationChoice extends ca.infoway.messagebuilder.model.lab.p
 
     public List<RoleChoice> getReceiverRoleChoice();
 
-    public HealthcareOrganizationBean getPrimaryInformationRecipientAssignedEntity();
-    public void setPrimaryInformationRecipientAssignedEntity(HealthcareOrganizationBean primaryInformationRecipientAssignedEntity);
+    public List<IncludesBean> getSubjectOf2();
+
+    public List<ReportSectionSpecimenBean> getSpecimen();
+
+    public ResultStatusProcessStepBean getSubjectOf3ResultStatusProcessStep();
+    public void setSubjectOf3ResultStatusProcessStep(ResultStatusProcessStepBean subjectOf3ResultStatusProcessStep);
 
     public List<WasPerformedByBean> getPerformer();
 
     public List<FulfillmentChoice> getInFulfillmentOfFulfillmentChoice();
+
+    public List<ReportableHealthIndicatorBean> getComponent1ReportableTestIndicator();
 
     public OutbreakBean getPertinentInformation1OutbreakEvent();
     public void setPertinentInformation1OutbreakEvent(OutbreakBean pertinentInformation1OutbreakEvent);
 
     public List<ObservationChoice> getComponent4ObservationChoice();
 
-    public List<ReportSectionSpecimenBean> getSpecimen();
-
     public List<ReportSectionObservationBean> getComponent3ReportLevelObservationEvent();
+
+    public ResultSortKeyBean getComponent2ResultSortKey();
+    public void setComponent2ResultSortKey(ResultSortKeyBean component2ResultSortKey);
 
     public VersionInformationBean getSubjectOf1ControlActEvent();
     public void setSubjectOf1ControlActEvent(VersionInformationBean subjectOf1ControlActEvent);
 
-    public ResultStatusProcessStepBean getSubjectOf3ResultStatusProcessStep();
-    public void setSubjectOf3ResultStatusProcessStep(ResultStatusProcessStepBean subjectOf3ResultStatusProcessStep);
-
-    public List<IncludesBean> getSubjectOf2();
+    public HealthcareOrganizationBean getPrimaryInformationRecipientAssignedEntity();
+    public void setPrimaryInformationRecipientAssignedEntity(HealthcareOrganizationBean primaryInformationRecipientAssignedEntity);
 
     public List<SupportingClinicalInformationBean> getPertinentInformation2SupportingClinicalObservationEvent();
-
-    public List<ReportableHealthIndicatorBean> getComponent1ReportableTestIndicator();
-
-    public ResultSortKeyBean getComponent2ResultSortKey();
-    public void setComponent2ResultSortKey(ResultSortKeyBean component2ResultSortKey);
 
 }

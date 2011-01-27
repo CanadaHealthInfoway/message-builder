@@ -25,25 +25,10 @@ import java.util.List;
 @Hl7PartTypeMapping({"POLB_MT004000CA.InterpretationRange"})
 public class ReferenceRangeBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
-    private CV referenceRangeInterpretationType = new CVImpl();
+    private static final long serialVersionUID = 20110127L;
     private ANY<Object> referenceRangeValue = new ANYImpl<Object>();
+    private CV referenceRangeInterpretationType = new CVImpl();
     private List<ReferenceRangeCriteriaBean> preconditionObservationEventCriterion = new ArrayList<ReferenceRangeCriteriaBean>();
-
-
-    /**
-     * <p>Reference Range Interpretation Type</p>
-     * 
-     * <p><p>Describes the type of range e.g. normal, high, 
-     * etc.</p></p>
-     */
-    @Hl7XmlMapping({"interpretationCode"})
-    public ObservationInterpretation getReferenceRangeInterpretationType() {
-        return (ObservationInterpretation) this.referenceRangeInterpretationType.getValue();
-    }
-    public void setReferenceRangeInterpretationType(ObservationInterpretation referenceRangeInterpretationType) {
-        this.referenceRangeInterpretationType.setValue(referenceRangeInterpretationType);
-    }
 
 
     /**
@@ -62,6 +47,21 @@ public class ReferenceRangeBean extends MessagePartBean {
     }
     public void setReferenceRangeValue(Object referenceRangeValue) {
         this.referenceRangeValue.setValue(referenceRangeValue);
+    }
+
+
+    /**
+     * <p>Reference Range Interpretation Type</p>
+     * 
+     * <p><p>Describes the type of range e.g. normal, high, 
+     * etc.</p></p>
+     */
+    @Hl7XmlMapping({"interpretationCode"})
+    public ObservationInterpretation getReferenceRangeInterpretationType() {
+        return (ObservationInterpretation) this.referenceRangeInterpretationType.getValue();
+    }
+    public void setReferenceRangeInterpretationType(ObservationInterpretation referenceRangeInterpretationType) {
+        this.referenceRangeInterpretationType.setValue(referenceRangeInterpretationType);
     }
 
 

@@ -17,36 +17,12 @@ import ca.infoway.messagebuilder.model.merged.DrugContainsBean;
 @Hl7PartTypeMapping({"FICR_MT490102CA.Medication"})
 public class MedicationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
-    private ST drugDescription = new STImpl();
-    private CV drugCode = new CVImpl();
+    private static final long serialVersionUID = 20110127L;
     private ST drugName = new STImpl();
-    private DrugContainsBean administerableMedicineIngredient;
+    private CV drugCode = new CVImpl();
     private CV drugForm = new CVImpl();
-
-
-    /**
-     * <p>Drug Description</p>
-     */
-    @Hl7XmlMapping({"administerableMedicine/desc"})
-    public String getDrugDescription() {
-        return this.drugDescription.getValue();
-    }
-    public void setDrugDescription(String drugDescription) {
-        this.drugDescription.setValue(drugDescription);
-    }
-
-
-    /**
-     * <p>Drug Code</p>
-     */
-    @Hl7XmlMapping({"administerableMedicine/code"})
-    public ClinicalDrug getDrugCode() {
-        return (ClinicalDrug) this.drugCode.getValue();
-    }
-    public void setDrugCode(ClinicalDrug drugCode) {
-        this.drugCode.setValue(drugCode);
-    }
+    private ST drugDescription = new STImpl();
+    private DrugContainsBean administerableMedicineIngredient;
 
 
     /**
@@ -61,12 +37,15 @@ public class MedicationBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"administerableMedicine/ingredient"})
-    public DrugContainsBean getAdministerableMedicineIngredient() {
-        return this.administerableMedicineIngredient;
+    /**
+     * <p>Drug Code</p>
+     */
+    @Hl7XmlMapping({"administerableMedicine/code"})
+    public ClinicalDrug getDrugCode() {
+        return (ClinicalDrug) this.drugCode.getValue();
     }
-    public void setAdministerableMedicineIngredient(DrugContainsBean administerableMedicineIngredient) {
-        this.administerableMedicineIngredient = administerableMedicineIngredient;
+    public void setDrugCode(ClinicalDrug drugCode) {
+        this.drugCode.setValue(drugCode);
     }
 
 
@@ -84,6 +63,27 @@ public class MedicationBean extends MessagePartBean {
     }
     public void setDrugForm(OrderableDrugForm drugForm) {
         this.drugForm.setValue(drugForm);
+    }
+
+
+    /**
+     * <p>Drug Description</p>
+     */
+    @Hl7XmlMapping({"administerableMedicine/desc"})
+    public String getDrugDescription() {
+        return this.drugDescription.getValue();
+    }
+    public void setDrugDescription(String drugDescription) {
+        this.drugDescription.setValue(drugDescription);
+    }
+
+
+    @Hl7XmlMapping({"administerableMedicine/ingredient"})
+    public DrugContainsBean getAdministerableMedicineIngredient() {
+        return this.administerableMedicineIngredient;
+    }
+    public void setAdministerableMedicineIngredient(DrugContainsBean administerableMedicineIngredient) {
+        this.administerableMedicineIngredient = administerableMedicineIngredient;
     }
 
 }

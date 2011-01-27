@@ -34,52 +34,12 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7RootType
 public class DeviceProductBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
-    private ST deviceDescription = new STImpl();
-    private CV deviceCode = new CVImpl();
+    private static final long serialVersionUID = 20110127L;
     private ST deviceName = new STImpl();
-    private BL manufacturedClinicalDeviceAsContentContainerPackagedDevice = new BLImpl();
+    private CV deviceCode = new CVImpl();
+    private ST deviceDescription = new STImpl();
     private INT devicePackageQuantity = new INTImpl();
-
-
-    /**
-     * <p>C:Device Description</p>
-     * 
-     * <p><p>A free form textual description of a device and its 
-     * characteristics (e.g. size, shape, etc.). This is used when 
-     * additional information must be conveyed that is not apparent 
-     * by just specifying code and name.</p></p>
-     * 
-     * <p><p>Allows description of characteristics of the device 
-     * not necessarily conveyed by the code or name.</p></p>
-     */
-    @Hl7XmlMapping({"manufacturedClinicalDevice/desc"})
-    public String getDeviceDescription() {
-        return this.deviceDescription.getValue();
-    }
-    public void setDeviceDescription(String deviceDescription) {
-        this.deviceDescription.setValue(deviceDescription);
-    }
-
-
-    /**
-     * <p>A:Device Code</p>
-     * 
-     * <p><p>An identifier for a type of device.</p></p>
-     * 
-     * <p><p>Used to ensure clear communication by uniquely 
-     * identifying a particular device product when prescribing or 
-     * dispensing. This attribute is only marked as 'populated' 
-     * because some devices will not have codes associated with 
-     * them.</p></p>
-     */
-    @Hl7XmlMapping({"manufacturedClinicalDevice/code"})
-    public Code getDeviceCode() {
-        return (Code) this.deviceCode.getValue();
-    }
-    public void setDeviceCode(Code deviceCode) {
-        this.deviceCode.setValue(deviceCode);
-    }
+    private BL manufacturedClinicalDeviceAsContentContainerPackagedDevice = new BLImpl();
 
 
     /**
@@ -104,12 +64,43 @@ public class DeviceProductBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"manufacturedClinicalDevice/asContent/containerPackagedDevice"})
-    public Boolean getManufacturedClinicalDeviceAsContentContainerPackagedDevice() {
-        return this.manufacturedClinicalDeviceAsContentContainerPackagedDevice.getValue();
+    /**
+     * <p>A:Device Code</p>
+     * 
+     * <p><p>An identifier for a type of device.</p></p>
+     * 
+     * <p><p>Used to ensure clear communication by uniquely 
+     * identifying a particular device product when prescribing or 
+     * dispensing. This attribute is only marked as 'populated' 
+     * because some devices will not have codes associated with 
+     * them.</p></p>
+     */
+    @Hl7XmlMapping({"manufacturedClinicalDevice/code"})
+    public Code getDeviceCode() {
+        return (Code) this.deviceCode.getValue();
     }
-    public void setManufacturedClinicalDeviceAsContentContainerPackagedDevice(Boolean manufacturedClinicalDeviceAsContentContainerPackagedDevice) {
-        this.manufacturedClinicalDeviceAsContentContainerPackagedDevice.setValue(manufacturedClinicalDeviceAsContentContainerPackagedDevice);
+    public void setDeviceCode(Code deviceCode) {
+        this.deviceCode.setValue(deviceCode);
+    }
+
+
+    /**
+     * <p>C:Device Description</p>
+     * 
+     * <p><p>A free form textual description of a device and its 
+     * characteristics (e.g. size, shape, etc.). This is used when 
+     * additional information must be conveyed that is not apparent 
+     * by just specifying code and name.</p></p>
+     * 
+     * <p><p>Allows description of characteristics of the device 
+     * not necessarily conveyed by the code or name.</p></p>
+     */
+    @Hl7XmlMapping({"manufacturedClinicalDevice/desc"})
+    public String getDeviceDescription() {
+        return this.deviceDescription.getValue();
+    }
+    public void setDeviceDescription(String deviceDescription) {
+        this.deviceDescription.setValue(deviceDescription);
     }
 
 
@@ -137,6 +128,15 @@ public class DeviceProductBean extends MessagePartBean {
     }
     public void setDevicePackageQuantity(Integer devicePackageQuantity) {
         this.devicePackageQuantity.setValue(devicePackageQuantity);
+    }
+
+
+    @Hl7XmlMapping({"manufacturedClinicalDevice/asContent/containerPackagedDevice"})
+    public Boolean getManufacturedClinicalDeviceAsContentContainerPackagedDevice() {
+        return this.manufacturedClinicalDeviceAsContentContainerPackagedDevice.getValue();
+    }
+    public void setManufacturedClinicalDeviceAsContentContainerPackagedDevice(Boolean manufacturedClinicalDeviceAsContentContainerPackagedDevice) {
+        this.manufacturedClinicalDeviceAsContentContainerPackagedDevice.setValue(manufacturedClinicalDeviceAsContentContainerPackagedDevice);
     }
 
 }

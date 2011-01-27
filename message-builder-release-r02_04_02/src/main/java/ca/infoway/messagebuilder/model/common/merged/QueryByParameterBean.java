@@ -34,28 +34,13 @@ import java.util.List;
 @Hl7PartTypeMapping({"MFMI_MT700746CA.QueryByParameter","MFMI_MT700751CA.QueryByParameter","QUQI_MT020000CA.QueryByParameter","QUQI_MT020002CA.QueryByParameter","QUQI_MT120006CA.QueryByParameter","QUQI_MT120008CA.QueryByParameter"})
 public class QueryByParameterBean<PL> extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
-    private PL parameterList;
-    private List<SortControlBean> sortControl = new ArrayList<SortControlBean>();
+    private static final long serialVersionUID = 20110127L;
     private CS expeditedQueryIndicator = new CSImpl();
+    private II queryIdentifier = new IIImpl();
+    private List<SortControlBean> sortControl = new ArrayList<SortControlBean>();
     private INT queryLimit = new INTImpl();
     private CV queryLimitType = new CVImpl();
-    private II queryIdentifier = new IIImpl();
-
-
-    @Hl7XmlMapping({"parameterList"})
-    public PL getParameterList() {
-        return this.parameterList;
-    }
-    public void setParameterList(PL parameterList) {
-        this.parameterList = parameterList;
-    }
-
-
-    @Hl7XmlMapping({"sortControl"})
-    public List<SortControlBean> getSortControl() {
-        return this.sortControl;
-    }
+    private PL parameterList;
 
 
     /**
@@ -95,6 +80,31 @@ public class QueryByParameterBean<PL> extends MessagePartBean {
     }
     public void setExpeditedQueryIndicator(ResponseModality expeditedQueryIndicator) {
         this.expeditedQueryIndicator.setValue(expeditedQueryIndicator);
+    }
+
+
+    /**
+     * <p>QueryIdentifier</p>
+     * 
+     * <p>H:Query Identifier</p>
+     * 
+     * <p><p>Unique number for this particular query.</p></p>
+     * 
+     * <p><p>Needed to allow continuation of queries and linking of 
+     * query requests and responses and therefore mandatory.</p></p>
+     */
+    @Hl7XmlMapping({"queryId"})
+    public Identifier getQueryIdentifier() {
+        return this.queryIdentifier.getValue();
+    }
+    public void setQueryIdentifier(Identifier queryIdentifier) {
+        this.queryIdentifier.setValue(queryIdentifier);
+    }
+
+
+    @Hl7XmlMapping({"sortControl"})
+    public List<SortControlBean> getSortControl() {
+        return this.sortControl;
     }
 
 
@@ -158,22 +168,12 @@ public class QueryByParameterBean<PL> extends MessagePartBean {
     }
 
 
-    /**
-     * <p>QueryIdentifier</p>
-     * 
-     * <p>H:Query Identifier</p>
-     * 
-     * <p><p>Unique number for this particular query.</p></p>
-     * 
-     * <p><p>Needed to allow continuation of queries and linking of 
-     * query requests and responses and therefore mandatory.</p></p>
-     */
-    @Hl7XmlMapping({"queryId"})
-    public Identifier getQueryIdentifier() {
-        return this.queryIdentifier.getValue();
+    @Hl7XmlMapping({"parameterList"})
+    public PL getParameterList() {
+        return this.parameterList;
     }
-    public void setQueryIdentifier(Identifier queryIdentifier) {
-        this.queryIdentifier.setValue(queryIdentifier);
+    public void setParameterList(PL parameterList) {
+        this.parameterList = parameterList;
     }
 
 }

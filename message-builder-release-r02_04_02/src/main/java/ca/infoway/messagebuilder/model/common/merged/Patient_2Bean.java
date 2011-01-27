@@ -52,517 +52,13 @@ import java.util.Set;
  */
 @Hl7PartTypeMapping({"COCT_MT050207CA.Patient","COCT_MT050208CA.Patient"})
 @Hl7RootType
-public class Patient_2Bean extends MessagePartBean implements ca.infoway.messagebuilder.model.merged.Patient, ActingPerson {
+public class Patient_2Bean extends MessagePartBean implements ActingPerson, ca.infoway.messagebuilder.model.merged.Patient {
 
-    private static final long serialVersionUID = 20110126L;
-    private SET<II, Identifier> patientIdentifier = new SETImpl<II, Identifier>(IIImpl.class);
-    private ActingPersonBean patientPerson;
-    private LIST<TEL, TelecommunicationAddress> patientContactPhoneAndEMails = new LISTImpl<TEL, TelecommunicationAddress>(TELImpl.class);
+    private static final long serialVersionUID = 20110127L;
     private AD patientContactAddress = new ADImpl();
-
-
-    /**
-     * <p>PatientIdentifier</p>
-     * 
-     * <p>A:Patient Identifier</p>
-     * 
-     * <p><p>Unique identifier assigned to a person, possibly by a 
-     * local system or some other non-client-registry 
-     * identifier.</p></p>
-     * 
-     * <p><p>C39 (Extension)</p><p>PTT.050.01 
-     * (Extension)</p><p>PTT.050.02 
-     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
-     * (Extension)</p><p>Patient.331-CX 
-     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
-     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
-     * (Root)</p><p>Person.PHN (Extension)</p></p>
-     * 
-     * <p><p>C39 (Extension)</p><p>PTT.050.01 
-     * (Extension)</p><p>PTT.050.02 
-     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
-     * (Extension)</p><p>Patient.331-CX 
-     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
-     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
-     * (Root)</p><p>Person.PHN (Extension)</p></p>
-     * 
-     * <p><p>C39 (Extension)</p><p>PTT.050.01 
-     * (Extension)</p><p>PTT.050.02 
-     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
-     * (Extension)</p><p>Patient.331-CX 
-     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
-     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
-     * (Root)</p><p>Person.PHN (Extension)</p></p>
-     * 
-     * <p><p>C39 (Extension)</p><p>PTT.050.01 
-     * (Extension)</p><p>PTT.050.02 
-     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
-     * (Extension)</p><p>Patient.331-CX 
-     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
-     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
-     * (Root)</p><p>Person.PHN (Extension)</p></p>
-     * 
-     * <p><p>C39 (Extension)</p><p>PTT.050.01 
-     * (Extension)</p><p>PTT.050.02 
-     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
-     * (Extension)</p><p>Patient.331-CX 
-     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
-     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
-     * (Root)</p><p>Person.PHN (Extension)</p></p>
-     * 
-     * <p><p>C39 (Extension)</p><p>PTT.050.01 
-     * (Extension)</p><p>PTT.050.02 
-     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
-     * (Extension)</p><p>Patient.331-CX 
-     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
-     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
-     * (Root)</p><p>Person.PHN (Extension)</p></p>
-     * 
-     * <p><p>C39 (Extension)</p><p>PTT.050.01 
-     * (Extension)</p><p>PTT.050.02 
-     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
-     * (Extension)</p><p>Patient.331-CX 
-     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
-     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
-     * (Root)</p><p>Person.PHN (Extension)</p></p>
-     * 
-     * <p><p>C39 (Extension)</p><p>PTT.050.01 
-     * (Extension)</p><p>PTT.050.02 
-     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
-     * (Extension)</p><p>Patient.331-CX 
-     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
-     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
-     * (Root)</p><p>Person.PHN (Extension)</p></p>
-     * 
-     * <p><p>C39 (Extension)</p><p>PTT.050.01 
-     * (Extension)</p><p>PTT.050.02 
-     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
-     * (Extension)</p><p>Patient.331-CX 
-     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
-     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
-     * (Root)</p><p>Person.PHN (Extension)</p></p>
-     * 
-     * <p><p>C39 (Extension)</p><p>PTT.050.01 
-     * (Extension)</p><p>PTT.050.02 
-     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
-     * (Extension)</p><p>Patient.331-CX 
-     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
-     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
-     * (Root)</p><p>Person.PHN (Extension)</p></p>
-     * 
-     * <p><p>C39 (Extension)</p><p>PTT.050.01 
-     * (Extension)</p><p>PTT.050.02 
-     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
-     * (Extension)</p><p>Patient.331-CX 
-     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
-     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
-     * (Root)</p><p>Person.PHN (Extension)</p></p>
-     * 
-     * <p><p>C39 (Extension)</p><p>PTT.050.01 
-     * (Extension)</p><p>PTT.050.02 
-     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
-     * (Extension)</p><p>Patient.331-CX 
-     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
-     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
-     * (Root)</p><p>Person.PHN (Extension)</p></p>
-     * 
-     * <p><p>C39 (Extension)</p><p>PTT.050.01 
-     * (Extension)</p><p>PTT.050.02 
-     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
-     * (Extension)</p><p>Patient.331-CX 
-     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
-     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
-     * (Root)</p><p>Person.PHN (Extension)</p></p>
-     * 
-     * <p><p>C39 (Extension)</p><p>PTT.050.01 
-     * (Extension)</p><p>PTT.050.02 
-     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
-     * (Extension)</p><p>Patient.331-CX 
-     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
-     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
-     * (Root)</p><p>Person.PHN (Extension)</p></p>
-     * 
-     * <p><p>C39 (Extension)</p><p>PTT.050.01 
-     * (Extension)</p><p>PTT.050.02 
-     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
-     * (Extension)</p><p>Patient.331-CX 
-     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
-     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
-     * (Root)</p><p>Person.PHN (Extension)</p></p>
-     * 
-     * <p><p>Allows a patient to be referred to unambiguously. 
-     * Because this CMET deals with patients not confirmable 
-     * against a client registry, it's possible that no identifier 
-     * will be known and therefore the attribute is only 
-     * 'populated'. The cardinality of patient identifiers is up to 
-     * 3 based on the use case to support communication of a local 
-     * and jurisdictional identifier along with the national 
-     * identifier.</p></p>
-     * 
-     * <p>A:Patient Identifier</p>
-     * 
-     * <p><p>Unique identifier assigned to a person by Federal, 
-     * Provincial and Territorial jurisdiction for the purposes of 
-     * uniquely identifying the person within the EHR.</p><p>The 
-     * EHR will define which identifier to use within a 
-     * jurisdiction.</p></p>
-     * 
-     * <p><p>Unique identifier assigned to a person by Federal, 
-     * Provincial and Territorial jurisdiction for the purposes of 
-     * uniquely identifying the person within the EHR.</p><p>The 
-     * EHR will define which identifier to use within a 
-     * jurisdiction.</p></p>
-     * 
-     * <p><p>C39 (Extension)</p><p>PTT.050.01 
-     * (Extension)</p><p>PTT.050.02 
-     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
-     * (Extension)</p><p>Patient.331-CX 
-     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
-     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
-     * (Root)</p><p>Person.PHN (Extension)</p></p>
-     * 
-     * <p><p>C39 (Extension)</p><p>PTT.050.01 
-     * (Extension)</p><p>PTT.050.02 
-     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
-     * (Extension)</p><p>Patient.331-CX 
-     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
-     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
-     * (Root)</p><p>Person.PHN (Extension)</p></p>
-     * 
-     * <p><p>C39 (Extension)</p><p>PTT.050.01 
-     * (Extension)</p><p>PTT.050.02 
-     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
-     * (Extension)</p><p>Patient.331-CX 
-     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
-     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
-     * (Root)</p><p>Person.PHN (Extension)</p></p>
-     * 
-     * <p><p>C39 (Extension)</p><p>PTT.050.01 
-     * (Extension)</p><p>PTT.050.02 
-     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
-     * (Extension)</p><p>Patient.331-CX 
-     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
-     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
-     * (Root)</p><p>Person.PHN (Extension)</p></p>
-     * 
-     * <p><p>C39 (Extension)</p><p>PTT.050.01 
-     * (Extension)</p><p>PTT.050.02 
-     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
-     * (Extension)</p><p>Patient.331-CX 
-     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
-     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
-     * (Root)</p><p>Person.PHN (Extension)</p></p>
-     * 
-     * <p><p>C39 (Extension)</p><p>PTT.050.01 
-     * (Extension)</p><p>PTT.050.02 
-     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
-     * (Extension)</p><p>Patient.331-CX 
-     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
-     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
-     * (Root)</p><p>Person.PHN (Extension)</p></p>
-     * 
-     * <p><p>C39 (Extension)</p><p>PTT.050.01 
-     * (Extension)</p><p>PTT.050.02 
-     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
-     * (Extension)</p><p>Patient.331-CX 
-     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
-     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
-     * (Root)</p><p>Person.PHN (Extension)</p></p>
-     * 
-     * <p><p>C39 (Extension)</p><p>PTT.050.01 
-     * (Extension)</p><p>PTT.050.02 
-     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
-     * (Extension)</p><p>Patient.331-CX 
-     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
-     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
-     * (Root)</p><p>Person.PHN (Extension)</p></p>
-     * 
-     * <p><p>C39 (Extension)</p><p>PTT.050.01 
-     * (Extension)</p><p>PTT.050.02 
-     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
-     * (Extension)</p><p>Patient.331-CX 
-     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
-     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
-     * (Root)</p><p>Person.PHN (Extension)</p></p>
-     * 
-     * <p><p>C39 (Extension)</p><p>PTT.050.01 
-     * (Extension)</p><p>PTT.050.02 
-     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
-     * (Extension)</p><p>Patient.331-CX 
-     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
-     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
-     * (Root)</p><p>Person.PHN (Extension)</p></p>
-     * 
-     * <p><p>C39 (Extension)</p><p>PTT.050.01 
-     * (Extension)</p><p>PTT.050.02 
-     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
-     * (Extension)</p><p>Patient.331-CX 
-     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
-     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
-     * (Root)</p><p>Person.PHN (Extension)</p></p>
-     * 
-     * <p><p>C39 (Extension)</p><p>PTT.050.01 
-     * (Extension)</p><p>PTT.050.02 
-     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
-     * (Extension)</p><p>Patient.331-CX 
-     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
-     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
-     * (Root)</p><p>Person.PHN (Extension)</p></p>
-     * 
-     * <p><p>C39 (Extension)</p><p>PTT.050.01 
-     * (Extension)</p><p>PTT.050.02 
-     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
-     * (Extension)</p><p>Patient.331-CX 
-     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
-     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
-     * (Root)</p><p>Person.PHN (Extension)</p></p>
-     * 
-     * <p><p>C39 (Extension)</p><p>PTT.050.01 
-     * (Extension)</p><p>PTT.050.02 
-     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
-     * (Extension)</p><p>Patient.331-CX 
-     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
-     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
-     * (Root)</p><p>Person.PHN (Extension)</p></p>
-     * 
-     * <p><p>C39 (Extension)</p><p>PTT.050.01 
-     * (Extension)</p><p>PTT.050.02 
-     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
-     * (Extension)</p><p>Patient.331-CX 
-     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
-     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
-     * (Root)</p><p>Person.PHN (Extension)</p></p>
-     * 
-     * <p><p>Allows a patient to be referred to unambiguously. 
-     * Because this is the principal mechanism for identifying 
-     * patients to computer systems, the attribute is mandatory. 
-     * The cardinality of patient identifiers is up to 3 based on 
-     * the use case to support communication of a local and 
-     * jurisdictional identifier along with the national 
-     * identifier.</p></p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Set<Identifier> getPatientIdentifier() {
-        return this.patientIdentifier.rawSet();
-    }
-
-
-    @Hl7XmlMapping({"patientPerson"})
-    public ActingPersonBean getPatientPerson() {
-        return this.patientPerson;
-    }
-    public void setPatientPerson(ActingPersonBean patientPerson) {
-        this.patientPerson = patientPerson;
-    }
-
-
-    /**
-     * <p>PatientContactPhoneAndEMails</p>
-     * 
-     * <p>D:Patient Contact Phone and E-mails</p>
-     * 
-     * <p><p>Telephone, fax and/or e-mail addresses intended as the 
-     * principal means of contact for the patient.</p></p>
-     * 
-     * <p><p>ZPA1.1 (Use and/or URL.scheme)</p><p>ZPA1.2 
-     * (usablePeriod (IVL&lt;TS&gt;).low) BC:ZPA1.3 (url.address - 
-     * as per RFC2396)</p><p>ZPA1.4 (url.address - as per 
-     * RFC2396)</p><p>ZPA1.5 (usablePeriod 
-     * (IVL&lt;TS&gt;).high)</p><p>PTT.070-01</p><p>PTT.070-02</p><p>D99.03 
-     * (url.address - as per 
-     * RFC2396)</p><p>patient.326-CQ</p><p>PID.13</p><p>PID.14</p></p>
-     * 
-     * <p><p>ZPA1.1 (Use and/or URL.scheme)</p><p>ZPA1.2 
-     * (usablePeriod (IVL&lt;TS&gt;).low) BC:ZPA1.3 (url.address - 
-     * as per RFC2396)</p><p>ZPA1.4 (url.address - as per 
-     * RFC2396)</p><p>ZPA1.5 (usablePeriod 
-     * (IVL&lt;TS&gt;).high)</p><p>PTT.070-01</p><p>PTT.070-02</p><p>D99.03 
-     * (url.address - as per 
-     * RFC2396)</p><p>patient.326-CQ</p><p>PID.13</p><p>PID.14</p></p>
-     * 
-     * <p><p>ZPA1.1 (Use and/or URL.scheme)</p><p>ZPA1.2 
-     * (usablePeriod (IVL&lt;TS&gt;).low) BC:ZPA1.3 (url.address - 
-     * as per RFC2396)</p><p>ZPA1.4 (url.address - as per 
-     * RFC2396)</p><p>ZPA1.5 (usablePeriod 
-     * (IVL&lt;TS&gt;).high)</p><p>PTT.070-01</p><p>PTT.070-02</p><p>D99.03 
-     * (url.address - as per 
-     * RFC2396)</p><p>patient.326-CQ</p><p>PID.13</p><p>PID.14</p></p>
-     * 
-     * <p><p>ZPA1.1 (Use and/or URL.scheme)</p><p>ZPA1.2 
-     * (usablePeriod (IVL&lt;TS&gt;).low) BC:ZPA1.3 (url.address - 
-     * as per RFC2396)</p><p>ZPA1.4 (url.address - as per 
-     * RFC2396)</p><p>ZPA1.5 (usablePeriod 
-     * (IVL&lt;TS&gt;).high)</p><p>PTT.070-01</p><p>PTT.070-02</p><p>D99.03 
-     * (url.address - as per 
-     * RFC2396)</p><p>patient.326-CQ</p><p>PID.13</p><p>PID.14</p></p>
-     * 
-     * <p><p>ZPA1.1 (Use and/or URL.scheme)</p><p>ZPA1.2 
-     * (usablePeriod (IVL&lt;TS&gt;).low) BC:ZPA1.3 (url.address - 
-     * as per RFC2396)</p><p>ZPA1.4 (url.address - as per 
-     * RFC2396)</p><p>ZPA1.5 (usablePeriod 
-     * (IVL&lt;TS&gt;).high)</p><p>PTT.070-01</p><p>PTT.070-02</p><p>D99.03 
-     * (url.address - as per 
-     * RFC2396)</p><p>patient.326-CQ</p><p>PID.13</p><p>PID.14</p></p>
-     * 
-     * <p><p>ZPA1.1 (Use and/or URL.scheme)</p><p>ZPA1.2 
-     * (usablePeriod (IVL&lt;TS&gt;).low) BC:ZPA1.3 (url.address - 
-     * as per RFC2396)</p><p>ZPA1.4 (url.address - as per 
-     * RFC2396)</p><p>ZPA1.5 (usablePeriod 
-     * (IVL&lt;TS&gt;).high)</p><p>PTT.070-01</p><p>PTT.070-02</p><p>D99.03 
-     * (url.address - as per 
-     * RFC2396)</p><p>patient.326-CQ</p><p>PID.13</p><p>PID.14</p></p>
-     * 
-     * <p><p>ZPA1.1 (Use and/or URL.scheme)</p><p>ZPA1.2 
-     * (usablePeriod (IVL&lt;TS&gt;).low) BC:ZPA1.3 (url.address - 
-     * as per RFC2396)</p><p>ZPA1.4 (url.address - as per 
-     * RFC2396)</p><p>ZPA1.5 (usablePeriod 
-     * (IVL&lt;TS&gt;).high)</p><p>PTT.070-01</p><p>PTT.070-02</p><p>D99.03 
-     * (url.address - as per 
-     * RFC2396)</p><p>patient.326-CQ</p><p>PID.13</p><p>PID.14</p></p>
-     * 
-     * <p><p>ZPA1.1 (Use and/or URL.scheme)</p><p>ZPA1.2 
-     * (usablePeriod (IVL&lt;TS&gt;).low) BC:ZPA1.3 (url.address - 
-     * as per RFC2396)</p><p>ZPA1.4 (url.address - as per 
-     * RFC2396)</p><p>ZPA1.5 (usablePeriod 
-     * (IVL&lt;TS&gt;).high)</p><p>PTT.070-01</p><p>PTT.070-02</p><p>D99.03 
-     * (url.address - as per 
-     * RFC2396)</p><p>patient.326-CQ</p><p>PID.13</p><p>PID.14</p></p>
-     * 
-     * <p><p>ZPA1.1 (Use and/or URL.scheme)</p><p>ZPA1.2 
-     * (usablePeriod (IVL&lt;TS&gt;).low) BC:ZPA1.3 (url.address - 
-     * as per RFC2396)</p><p>ZPA1.4 (url.address - as per 
-     * RFC2396)</p><p>ZPA1.5 (usablePeriod 
-     * (IVL&lt;TS&gt;).high)</p><p>PTT.070-01</p><p>PTT.070-02</p><p>D99.03 
-     * (url.address - as per 
-     * RFC2396)</p><p>patient.326-CQ</p><p>PID.13</p><p>PID.14</p></p>
-     * 
-     * <p><p>ZPA1.1 (Use and/or URL.scheme)</p><p>ZPA1.2 
-     * (usablePeriod (IVL&lt;TS&gt;).low) BC:ZPA1.3 (url.address - 
-     * as per RFC2396)</p><p>ZPA1.4 (url.address - as per 
-     * RFC2396)</p><p>ZPA1.5 (usablePeriod 
-     * (IVL&lt;TS&gt;).high)</p><p>PTT.070-01</p><p>PTT.070-02</p><p>D99.03 
-     * (url.address - as per 
-     * RFC2396)</p><p>patient.326-CQ</p><p>PID.13</p><p>PID.14</p></p>
-     * 
-     * <p><p>Provides basic contact information for the 
-     * patient.</p><p>Important for following up with patient but 
-     * not always available, and therefore only marked as 
-     * 'populated'.</p></p>
-     * 
-     * <p><p>Provides basic contact information for the 
-     * patient.</p><p>Important for following up with patient but 
-     * not always available, and therefore only marked as 
-     * 'populated'.</p></p>
-     * 
-     * <p><p>Contact information specific to the patient for a 
-     * particular action (prescription, lab test, etc.) will be 
-     * conveyed as part of the payload.</p></p>
-     * 
-     * <p>D:Patient Contact Phone and E-mails</p>
-     * 
-     * <p><p>Telephone, fax and/or e-mail addresses intended as the 
-     * principal means of contact for the patient.</p></p>
-     * 
-     * <p><p>ZPA1.1 (Use and/or URL.scheme)</p><p>ZPA1.2 
-     * (usablePeriod (IVL&lt;TS&gt;).low) BC:ZPA1.3 (url.address - 
-     * as per RFC2396)</p><p>ZPA1.4 (url.address - as per 
-     * RFC2396)</p><p>ZPA1.5 (usablePeriod 
-     * (IVL&lt;TS&gt;).high)</p><p>PTT.070-01</p><p>PTT.070-02</p><p>D99.03 
-     * (url.address - as per 
-     * RFC2396)</p><p>patient.326-CQ</p><p>PID.13</p><p>PID.14</p></p>
-     * 
-     * <p><p>ZPA1.1 (Use and/or URL.scheme)</p><p>ZPA1.2 
-     * (usablePeriod (IVL&lt;TS&gt;).low) BC:ZPA1.3 (url.address - 
-     * as per RFC2396)</p><p>ZPA1.4 (url.address - as per 
-     * RFC2396)</p><p>ZPA1.5 (usablePeriod 
-     * (IVL&lt;TS&gt;).high)</p><p>PTT.070-01</p><p>PTT.070-02</p><p>D99.03 
-     * (url.address - as per 
-     * RFC2396)</p><p>patient.326-CQ</p><p>PID.13</p><p>PID.14</p></p>
-     * 
-     * <p><p>ZPA1.1 (Use and/or URL.scheme)</p><p>ZPA1.2 
-     * (usablePeriod (IVL&lt;TS&gt;).low) BC:ZPA1.3 (url.address - 
-     * as per RFC2396)</p><p>ZPA1.4 (url.address - as per 
-     * RFC2396)</p><p>ZPA1.5 (usablePeriod 
-     * (IVL&lt;TS&gt;).high)</p><p>PTT.070-01</p><p>PTT.070-02</p><p>D99.03 
-     * (url.address - as per 
-     * RFC2396)</p><p>patient.326-CQ</p><p>PID.13</p><p>PID.14</p></p>
-     * 
-     * <p><p>ZPA1.1 (Use and/or URL.scheme)</p><p>ZPA1.2 
-     * (usablePeriod (IVL&lt;TS&gt;).low) BC:ZPA1.3 (url.address - 
-     * as per RFC2396)</p><p>ZPA1.4 (url.address - as per 
-     * RFC2396)</p><p>ZPA1.5 (usablePeriod 
-     * (IVL&lt;TS&gt;).high)</p><p>PTT.070-01</p><p>PTT.070-02</p><p>D99.03 
-     * (url.address - as per 
-     * RFC2396)</p><p>patient.326-CQ</p><p>PID.13</p><p>PID.14</p></p>
-     * 
-     * <p><p>ZPA1.1 (Use and/or URL.scheme)</p><p>ZPA1.2 
-     * (usablePeriod (IVL&lt;TS&gt;).low) BC:ZPA1.3 (url.address - 
-     * as per RFC2396)</p><p>ZPA1.4 (url.address - as per 
-     * RFC2396)</p><p>ZPA1.5 (usablePeriod 
-     * (IVL&lt;TS&gt;).high)</p><p>PTT.070-01</p><p>PTT.070-02</p><p>D99.03 
-     * (url.address - as per 
-     * RFC2396)</p><p>patient.326-CQ</p><p>PID.13</p><p>PID.14</p></p>
-     * 
-     * <p><p>ZPA1.1 (Use and/or URL.scheme)</p><p>ZPA1.2 
-     * (usablePeriod (IVL&lt;TS&gt;).low) BC:ZPA1.3 (url.address - 
-     * as per RFC2396)</p><p>ZPA1.4 (url.address - as per 
-     * RFC2396)</p><p>ZPA1.5 (usablePeriod 
-     * (IVL&lt;TS&gt;).high)</p><p>PTT.070-01</p><p>PTT.070-02</p><p>D99.03 
-     * (url.address - as per 
-     * RFC2396)</p><p>patient.326-CQ</p><p>PID.13</p><p>PID.14</p></p>
-     * 
-     * <p><p>ZPA1.1 (Use and/or URL.scheme)</p><p>ZPA1.2 
-     * (usablePeriod (IVL&lt;TS&gt;).low) BC:ZPA1.3 (url.address - 
-     * as per RFC2396)</p><p>ZPA1.4 (url.address - as per 
-     * RFC2396)</p><p>ZPA1.5 (usablePeriod 
-     * (IVL&lt;TS&gt;).high)</p><p>PTT.070-01</p><p>PTT.070-02</p><p>D99.03 
-     * (url.address - as per 
-     * RFC2396)</p><p>patient.326-CQ</p><p>PID.13</p><p>PID.14</p></p>
-     * 
-     * <p><p>ZPA1.1 (Use and/or URL.scheme)</p><p>ZPA1.2 
-     * (usablePeriod (IVL&lt;TS&gt;).low) BC:ZPA1.3 (url.address - 
-     * as per RFC2396)</p><p>ZPA1.4 (url.address - as per 
-     * RFC2396)</p><p>ZPA1.5 (usablePeriod 
-     * (IVL&lt;TS&gt;).high)</p><p>PTT.070-01</p><p>PTT.070-02</p><p>D99.03 
-     * (url.address - as per 
-     * RFC2396)</p><p>patient.326-CQ</p><p>PID.13</p><p>PID.14</p></p>
-     * 
-     * <p><p>ZPA1.1 (Use and/or URL.scheme)</p><p>ZPA1.2 
-     * (usablePeriod (IVL&lt;TS&gt;).low) BC:ZPA1.3 (url.address - 
-     * as per RFC2396)</p><p>ZPA1.4 (url.address - as per 
-     * RFC2396)</p><p>ZPA1.5 (usablePeriod 
-     * (IVL&lt;TS&gt;).high)</p><p>PTT.070-01</p><p>PTT.070-02</p><p>D99.03 
-     * (url.address - as per 
-     * RFC2396)</p><p>patient.326-CQ</p><p>PID.13</p><p>PID.14</p></p>
-     * 
-     * <p><p>ZPA1.1 (Use and/or URL.scheme)</p><p>ZPA1.2 
-     * (usablePeriod (IVL&lt;TS&gt;).low) BC:ZPA1.3 (url.address - 
-     * as per RFC2396)</p><p>ZPA1.4 (url.address - as per 
-     * RFC2396)</p><p>ZPA1.5 (usablePeriod 
-     * (IVL&lt;TS&gt;).high)</p><p>PTT.070-01</p><p>PTT.070-02</p><p>D99.03 
-     * (url.address - as per 
-     * RFC2396)</p><p>patient.326-CQ</p><p>PID.13</p><p>PID.14</p></p>
-     * 
-     * <p><p>Provides basic contact information for the patient 
-     * avoiding the need to separately query the client 
-     * registry.</p><p>Important for following up with patient but 
-     * not always available, and therefore only marked as 
-     * 'populated'.</p></p>
-     * 
-     * <p><p>Provides basic contact information for the patient 
-     * avoiding the need to separately query the client 
-     * registry.</p><p>Important for following up with patient but 
-     * not always available, and therefore only marked as 
-     * 'populated'.</p></p>
-     * 
-     * <p><p>Contact information specific to the patient for a 
-     * particular action (prescription, lab test, etc.) will be 
-     * conveyed as part of the payload.</p></p>
-     */
-    @Hl7XmlMapping({"telecom"})
-    public List<TelecommunicationAddress> getPatientContactPhoneAndEMails() {
-        return this.patientContactPhoneAndEMails.rawList();
-    }
+    private ActingPersonBean patientPerson;
+    private SET<II, Identifier> patientIdentifier = new SETImpl<II, Identifier>(IIImpl.class);
+    private LIST<TEL, TelecommunicationAddress> patientContactPhoneAndEMails = new LISTImpl<TEL, TelecommunicationAddress>(TELImpl.class);
 
 
     /**
@@ -1841,6 +1337,510 @@ public class Patient_2Bean extends MessagePartBean implements ca.infoway.message
     }
     public void setPatientContactAddress(PostalAddress patientContactAddress) {
         this.patientContactAddress.setValue(patientContactAddress);
+    }
+
+
+    @Hl7XmlMapping({"patientPerson"})
+    public ActingPersonBean getPatientPerson() {
+        return this.patientPerson;
+    }
+    public void setPatientPerson(ActingPersonBean patientPerson) {
+        this.patientPerson = patientPerson;
+    }
+
+
+    /**
+     * <p>PatientIdentifier</p>
+     * 
+     * <p>A:Patient Identifier</p>
+     * 
+     * <p><p>Unique identifier assigned to a person, possibly by a 
+     * local system or some other non-client-registry 
+     * identifier.</p></p>
+     * 
+     * <p><p>C39 (Extension)</p><p>PTT.050.01 
+     * (Extension)</p><p>PTT.050.02 
+     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
+     * (Extension)</p><p>Patient.331-CX 
+     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
+     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
+     * (Root)</p><p>Person.PHN (Extension)</p></p>
+     * 
+     * <p><p>C39 (Extension)</p><p>PTT.050.01 
+     * (Extension)</p><p>PTT.050.02 
+     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
+     * (Extension)</p><p>Patient.331-CX 
+     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
+     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
+     * (Root)</p><p>Person.PHN (Extension)</p></p>
+     * 
+     * <p><p>C39 (Extension)</p><p>PTT.050.01 
+     * (Extension)</p><p>PTT.050.02 
+     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
+     * (Extension)</p><p>Patient.331-CX 
+     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
+     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
+     * (Root)</p><p>Person.PHN (Extension)</p></p>
+     * 
+     * <p><p>C39 (Extension)</p><p>PTT.050.01 
+     * (Extension)</p><p>PTT.050.02 
+     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
+     * (Extension)</p><p>Patient.331-CX 
+     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
+     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
+     * (Root)</p><p>Person.PHN (Extension)</p></p>
+     * 
+     * <p><p>C39 (Extension)</p><p>PTT.050.01 
+     * (Extension)</p><p>PTT.050.02 
+     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
+     * (Extension)</p><p>Patient.331-CX 
+     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
+     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
+     * (Root)</p><p>Person.PHN (Extension)</p></p>
+     * 
+     * <p><p>C39 (Extension)</p><p>PTT.050.01 
+     * (Extension)</p><p>PTT.050.02 
+     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
+     * (Extension)</p><p>Patient.331-CX 
+     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
+     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
+     * (Root)</p><p>Person.PHN (Extension)</p></p>
+     * 
+     * <p><p>C39 (Extension)</p><p>PTT.050.01 
+     * (Extension)</p><p>PTT.050.02 
+     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
+     * (Extension)</p><p>Patient.331-CX 
+     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
+     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
+     * (Root)</p><p>Person.PHN (Extension)</p></p>
+     * 
+     * <p><p>C39 (Extension)</p><p>PTT.050.01 
+     * (Extension)</p><p>PTT.050.02 
+     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
+     * (Extension)</p><p>Patient.331-CX 
+     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
+     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
+     * (Root)</p><p>Person.PHN (Extension)</p></p>
+     * 
+     * <p><p>C39 (Extension)</p><p>PTT.050.01 
+     * (Extension)</p><p>PTT.050.02 
+     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
+     * (Extension)</p><p>Patient.331-CX 
+     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
+     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
+     * (Root)</p><p>Person.PHN (Extension)</p></p>
+     * 
+     * <p><p>C39 (Extension)</p><p>PTT.050.01 
+     * (Extension)</p><p>PTT.050.02 
+     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
+     * (Extension)</p><p>Patient.331-CX 
+     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
+     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
+     * (Root)</p><p>Person.PHN (Extension)</p></p>
+     * 
+     * <p><p>C39 (Extension)</p><p>PTT.050.01 
+     * (Extension)</p><p>PTT.050.02 
+     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
+     * (Extension)</p><p>Patient.331-CX 
+     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
+     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
+     * (Root)</p><p>Person.PHN (Extension)</p></p>
+     * 
+     * <p><p>C39 (Extension)</p><p>PTT.050.01 
+     * (Extension)</p><p>PTT.050.02 
+     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
+     * (Extension)</p><p>Patient.331-CX 
+     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
+     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
+     * (Root)</p><p>Person.PHN (Extension)</p></p>
+     * 
+     * <p><p>C39 (Extension)</p><p>PTT.050.01 
+     * (Extension)</p><p>PTT.050.02 
+     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
+     * (Extension)</p><p>Patient.331-CX 
+     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
+     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
+     * (Root)</p><p>Person.PHN (Extension)</p></p>
+     * 
+     * <p><p>C39 (Extension)</p><p>PTT.050.01 
+     * (Extension)</p><p>PTT.050.02 
+     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
+     * (Extension)</p><p>Patient.331-CX 
+     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
+     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
+     * (Root)</p><p>Person.PHN (Extension)</p></p>
+     * 
+     * <p><p>C39 (Extension)</p><p>PTT.050.01 
+     * (Extension)</p><p>PTT.050.02 
+     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
+     * (Extension)</p><p>Patient.331-CX 
+     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
+     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
+     * (Root)</p><p>Person.PHN (Extension)</p></p>
+     * 
+     * <p><p>Allows a patient to be referred to unambiguously. 
+     * Because this CMET deals with patients not confirmable 
+     * against a client registry, it's possible that no identifier 
+     * will be known and therefore the attribute is only 
+     * 'populated'. The cardinality of patient identifiers is up to 
+     * 3 based on the use case to support communication of a local 
+     * and jurisdictional identifier along with the national 
+     * identifier.</p></p>
+     * 
+     * <p>A:Patient Identifier</p>
+     * 
+     * <p><p>Unique identifier assigned to a person by Federal, 
+     * Provincial and Territorial jurisdiction for the purposes of 
+     * uniquely identifying the person within the EHR.</p><p>The 
+     * EHR will define which identifier to use within a 
+     * jurisdiction.</p></p>
+     * 
+     * <p><p>Unique identifier assigned to a person by Federal, 
+     * Provincial and Territorial jurisdiction for the purposes of 
+     * uniquely identifying the person within the EHR.</p><p>The 
+     * EHR will define which identifier to use within a 
+     * jurisdiction.</p></p>
+     * 
+     * <p><p>C39 (Extension)</p><p>PTT.050.01 
+     * (Extension)</p><p>PTT.050.02 
+     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
+     * (Extension)</p><p>Patient.331-CX 
+     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
+     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
+     * (Root)</p><p>Person.PHN (Extension)</p></p>
+     * 
+     * <p><p>C39 (Extension)</p><p>PTT.050.01 
+     * (Extension)</p><p>PTT.050.02 
+     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
+     * (Extension)</p><p>Patient.331-CX 
+     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
+     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
+     * (Root)</p><p>Person.PHN (Extension)</p></p>
+     * 
+     * <p><p>C39 (Extension)</p><p>PTT.050.01 
+     * (Extension)</p><p>PTT.050.02 
+     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
+     * (Extension)</p><p>Patient.331-CX 
+     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
+     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
+     * (Root)</p><p>Person.PHN (Extension)</p></p>
+     * 
+     * <p><p>C39 (Extension)</p><p>PTT.050.01 
+     * (Extension)</p><p>PTT.050.02 
+     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
+     * (Extension)</p><p>Patient.331-CX 
+     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
+     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
+     * (Root)</p><p>Person.PHN (Extension)</p></p>
+     * 
+     * <p><p>C39 (Extension)</p><p>PTT.050.01 
+     * (Extension)</p><p>PTT.050.02 
+     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
+     * (Extension)</p><p>Patient.331-CX 
+     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
+     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
+     * (Root)</p><p>Person.PHN (Extension)</p></p>
+     * 
+     * <p><p>C39 (Extension)</p><p>PTT.050.01 
+     * (Extension)</p><p>PTT.050.02 
+     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
+     * (Extension)</p><p>Patient.331-CX 
+     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
+     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
+     * (Root)</p><p>Person.PHN (Extension)</p></p>
+     * 
+     * <p><p>C39 (Extension)</p><p>PTT.050.01 
+     * (Extension)</p><p>PTT.050.02 
+     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
+     * (Extension)</p><p>Patient.331-CX 
+     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
+     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
+     * (Root)</p><p>Person.PHN (Extension)</p></p>
+     * 
+     * <p><p>C39 (Extension)</p><p>PTT.050.01 
+     * (Extension)</p><p>PTT.050.02 
+     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
+     * (Extension)</p><p>Patient.331-CX 
+     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
+     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
+     * (Root)</p><p>Person.PHN (Extension)</p></p>
+     * 
+     * <p><p>C39 (Extension)</p><p>PTT.050.01 
+     * (Extension)</p><p>PTT.050.02 
+     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
+     * (Extension)</p><p>Patient.331-CX 
+     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
+     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
+     * (Root)</p><p>Person.PHN (Extension)</p></p>
+     * 
+     * <p><p>C39 (Extension)</p><p>PTT.050.01 
+     * (Extension)</p><p>PTT.050.02 
+     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
+     * (Extension)</p><p>Patient.331-CX 
+     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
+     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
+     * (Root)</p><p>Person.PHN (Extension)</p></p>
+     * 
+     * <p><p>C39 (Extension)</p><p>PTT.050.01 
+     * (Extension)</p><p>PTT.050.02 
+     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
+     * (Extension)</p><p>Patient.331-CX 
+     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
+     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
+     * (Root)</p><p>Person.PHN (Extension)</p></p>
+     * 
+     * <p><p>C39 (Extension)</p><p>PTT.050.01 
+     * (Extension)</p><p>PTT.050.02 
+     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
+     * (Extension)</p><p>Patient.331-CX 
+     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
+     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
+     * (Root)</p><p>Person.PHN (Extension)</p></p>
+     * 
+     * <p><p>C39 (Extension)</p><p>PTT.050.01 
+     * (Extension)</p><p>PTT.050.02 
+     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
+     * (Extension)</p><p>Patient.331-CX 
+     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
+     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
+     * (Root)</p><p>Person.PHN (Extension)</p></p>
+     * 
+     * <p><p>C39 (Extension)</p><p>PTT.050.01 
+     * (Extension)</p><p>PTT.050.02 
+     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
+     * (Extension)</p><p>Patient.331-CX 
+     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
+     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
+     * (Root)</p><p>Person.PHN (Extension)</p></p>
+     * 
+     * <p><p>C39 (Extension)</p><p>PTT.050.01 
+     * (Extension)</p><p>PTT.050.02 
+     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
+     * (Extension)</p><p>Patient.331-CX 
+     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
+     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
+     * (Root)</p><p>Person.PHN (Extension)</p></p>
+     * 
+     * <p><p>Allows a patient to be referred to unambiguously. 
+     * Because this is the principal mechanism for identifying 
+     * patients to computer systems, the attribute is mandatory. 
+     * The cardinality of patient identifiers is up to 3 based on 
+     * the use case to support communication of a local and 
+     * jurisdictional identifier along with the national 
+     * identifier.</p></p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Set<Identifier> getPatientIdentifier() {
+        return this.patientIdentifier.rawSet();
+    }
+
+
+    /**
+     * <p>PatientContactPhoneAndEMails</p>
+     * 
+     * <p>D:Patient Contact Phone and E-mails</p>
+     * 
+     * <p><p>Telephone, fax and/or e-mail addresses intended as the 
+     * principal means of contact for the patient.</p></p>
+     * 
+     * <p><p>ZPA1.1 (Use and/or URL.scheme)</p><p>ZPA1.2 
+     * (usablePeriod (IVL&lt;TS&gt;).low) BC:ZPA1.3 (url.address - 
+     * as per RFC2396)</p><p>ZPA1.4 (url.address - as per 
+     * RFC2396)</p><p>ZPA1.5 (usablePeriod 
+     * (IVL&lt;TS&gt;).high)</p><p>PTT.070-01</p><p>PTT.070-02</p><p>D99.03 
+     * (url.address - as per 
+     * RFC2396)</p><p>patient.326-CQ</p><p>PID.13</p><p>PID.14</p></p>
+     * 
+     * <p><p>ZPA1.1 (Use and/or URL.scheme)</p><p>ZPA1.2 
+     * (usablePeriod (IVL&lt;TS&gt;).low) BC:ZPA1.3 (url.address - 
+     * as per RFC2396)</p><p>ZPA1.4 (url.address - as per 
+     * RFC2396)</p><p>ZPA1.5 (usablePeriod 
+     * (IVL&lt;TS&gt;).high)</p><p>PTT.070-01</p><p>PTT.070-02</p><p>D99.03 
+     * (url.address - as per 
+     * RFC2396)</p><p>patient.326-CQ</p><p>PID.13</p><p>PID.14</p></p>
+     * 
+     * <p><p>ZPA1.1 (Use and/or URL.scheme)</p><p>ZPA1.2 
+     * (usablePeriod (IVL&lt;TS&gt;).low) BC:ZPA1.3 (url.address - 
+     * as per RFC2396)</p><p>ZPA1.4 (url.address - as per 
+     * RFC2396)</p><p>ZPA1.5 (usablePeriod 
+     * (IVL&lt;TS&gt;).high)</p><p>PTT.070-01</p><p>PTT.070-02</p><p>D99.03 
+     * (url.address - as per 
+     * RFC2396)</p><p>patient.326-CQ</p><p>PID.13</p><p>PID.14</p></p>
+     * 
+     * <p><p>ZPA1.1 (Use and/or URL.scheme)</p><p>ZPA1.2 
+     * (usablePeriod (IVL&lt;TS&gt;).low) BC:ZPA1.3 (url.address - 
+     * as per RFC2396)</p><p>ZPA1.4 (url.address - as per 
+     * RFC2396)</p><p>ZPA1.5 (usablePeriod 
+     * (IVL&lt;TS&gt;).high)</p><p>PTT.070-01</p><p>PTT.070-02</p><p>D99.03 
+     * (url.address - as per 
+     * RFC2396)</p><p>patient.326-CQ</p><p>PID.13</p><p>PID.14</p></p>
+     * 
+     * <p><p>ZPA1.1 (Use and/or URL.scheme)</p><p>ZPA1.2 
+     * (usablePeriod (IVL&lt;TS&gt;).low) BC:ZPA1.3 (url.address - 
+     * as per RFC2396)</p><p>ZPA1.4 (url.address - as per 
+     * RFC2396)</p><p>ZPA1.5 (usablePeriod 
+     * (IVL&lt;TS&gt;).high)</p><p>PTT.070-01</p><p>PTT.070-02</p><p>D99.03 
+     * (url.address - as per 
+     * RFC2396)</p><p>patient.326-CQ</p><p>PID.13</p><p>PID.14</p></p>
+     * 
+     * <p><p>ZPA1.1 (Use and/or URL.scheme)</p><p>ZPA1.2 
+     * (usablePeriod (IVL&lt;TS&gt;).low) BC:ZPA1.3 (url.address - 
+     * as per RFC2396)</p><p>ZPA1.4 (url.address - as per 
+     * RFC2396)</p><p>ZPA1.5 (usablePeriod 
+     * (IVL&lt;TS&gt;).high)</p><p>PTT.070-01</p><p>PTT.070-02</p><p>D99.03 
+     * (url.address - as per 
+     * RFC2396)</p><p>patient.326-CQ</p><p>PID.13</p><p>PID.14</p></p>
+     * 
+     * <p><p>ZPA1.1 (Use and/or URL.scheme)</p><p>ZPA1.2 
+     * (usablePeriod (IVL&lt;TS&gt;).low) BC:ZPA1.3 (url.address - 
+     * as per RFC2396)</p><p>ZPA1.4 (url.address - as per 
+     * RFC2396)</p><p>ZPA1.5 (usablePeriod 
+     * (IVL&lt;TS&gt;).high)</p><p>PTT.070-01</p><p>PTT.070-02</p><p>D99.03 
+     * (url.address - as per 
+     * RFC2396)</p><p>patient.326-CQ</p><p>PID.13</p><p>PID.14</p></p>
+     * 
+     * <p><p>ZPA1.1 (Use and/or URL.scheme)</p><p>ZPA1.2 
+     * (usablePeriod (IVL&lt;TS&gt;).low) BC:ZPA1.3 (url.address - 
+     * as per RFC2396)</p><p>ZPA1.4 (url.address - as per 
+     * RFC2396)</p><p>ZPA1.5 (usablePeriod 
+     * (IVL&lt;TS&gt;).high)</p><p>PTT.070-01</p><p>PTT.070-02</p><p>D99.03 
+     * (url.address - as per 
+     * RFC2396)</p><p>patient.326-CQ</p><p>PID.13</p><p>PID.14</p></p>
+     * 
+     * <p><p>ZPA1.1 (Use and/or URL.scheme)</p><p>ZPA1.2 
+     * (usablePeriod (IVL&lt;TS&gt;).low) BC:ZPA1.3 (url.address - 
+     * as per RFC2396)</p><p>ZPA1.4 (url.address - as per 
+     * RFC2396)</p><p>ZPA1.5 (usablePeriod 
+     * (IVL&lt;TS&gt;).high)</p><p>PTT.070-01</p><p>PTT.070-02</p><p>D99.03 
+     * (url.address - as per 
+     * RFC2396)</p><p>patient.326-CQ</p><p>PID.13</p><p>PID.14</p></p>
+     * 
+     * <p><p>ZPA1.1 (Use and/or URL.scheme)</p><p>ZPA1.2 
+     * (usablePeriod (IVL&lt;TS&gt;).low) BC:ZPA1.3 (url.address - 
+     * as per RFC2396)</p><p>ZPA1.4 (url.address - as per 
+     * RFC2396)</p><p>ZPA1.5 (usablePeriod 
+     * (IVL&lt;TS&gt;).high)</p><p>PTT.070-01</p><p>PTT.070-02</p><p>D99.03 
+     * (url.address - as per 
+     * RFC2396)</p><p>patient.326-CQ</p><p>PID.13</p><p>PID.14</p></p>
+     * 
+     * <p><p>Provides basic contact information for the 
+     * patient.</p><p>Important for following up with patient but 
+     * not always available, and therefore only marked as 
+     * 'populated'.</p></p>
+     * 
+     * <p><p>Provides basic contact information for the 
+     * patient.</p><p>Important for following up with patient but 
+     * not always available, and therefore only marked as 
+     * 'populated'.</p></p>
+     * 
+     * <p><p>Contact information specific to the patient for a 
+     * particular action (prescription, lab test, etc.) will be 
+     * conveyed as part of the payload.</p></p>
+     * 
+     * <p>D:Patient Contact Phone and E-mails</p>
+     * 
+     * <p><p>Telephone, fax and/or e-mail addresses intended as the 
+     * principal means of contact for the patient.</p></p>
+     * 
+     * <p><p>ZPA1.1 (Use and/or URL.scheme)</p><p>ZPA1.2 
+     * (usablePeriod (IVL&lt;TS&gt;).low) BC:ZPA1.3 (url.address - 
+     * as per RFC2396)</p><p>ZPA1.4 (url.address - as per 
+     * RFC2396)</p><p>ZPA1.5 (usablePeriod 
+     * (IVL&lt;TS&gt;).high)</p><p>PTT.070-01</p><p>PTT.070-02</p><p>D99.03 
+     * (url.address - as per 
+     * RFC2396)</p><p>patient.326-CQ</p><p>PID.13</p><p>PID.14</p></p>
+     * 
+     * <p><p>ZPA1.1 (Use and/or URL.scheme)</p><p>ZPA1.2 
+     * (usablePeriod (IVL&lt;TS&gt;).low) BC:ZPA1.3 (url.address - 
+     * as per RFC2396)</p><p>ZPA1.4 (url.address - as per 
+     * RFC2396)</p><p>ZPA1.5 (usablePeriod 
+     * (IVL&lt;TS&gt;).high)</p><p>PTT.070-01</p><p>PTT.070-02</p><p>D99.03 
+     * (url.address - as per 
+     * RFC2396)</p><p>patient.326-CQ</p><p>PID.13</p><p>PID.14</p></p>
+     * 
+     * <p><p>ZPA1.1 (Use and/or URL.scheme)</p><p>ZPA1.2 
+     * (usablePeriod (IVL&lt;TS&gt;).low) BC:ZPA1.3 (url.address - 
+     * as per RFC2396)</p><p>ZPA1.4 (url.address - as per 
+     * RFC2396)</p><p>ZPA1.5 (usablePeriod 
+     * (IVL&lt;TS&gt;).high)</p><p>PTT.070-01</p><p>PTT.070-02</p><p>D99.03 
+     * (url.address - as per 
+     * RFC2396)</p><p>patient.326-CQ</p><p>PID.13</p><p>PID.14</p></p>
+     * 
+     * <p><p>ZPA1.1 (Use and/or URL.scheme)</p><p>ZPA1.2 
+     * (usablePeriod (IVL&lt;TS&gt;).low) BC:ZPA1.3 (url.address - 
+     * as per RFC2396)</p><p>ZPA1.4 (url.address - as per 
+     * RFC2396)</p><p>ZPA1.5 (usablePeriod 
+     * (IVL&lt;TS&gt;).high)</p><p>PTT.070-01</p><p>PTT.070-02</p><p>D99.03 
+     * (url.address - as per 
+     * RFC2396)</p><p>patient.326-CQ</p><p>PID.13</p><p>PID.14</p></p>
+     * 
+     * <p><p>ZPA1.1 (Use and/or URL.scheme)</p><p>ZPA1.2 
+     * (usablePeriod (IVL&lt;TS&gt;).low) BC:ZPA1.3 (url.address - 
+     * as per RFC2396)</p><p>ZPA1.4 (url.address - as per 
+     * RFC2396)</p><p>ZPA1.5 (usablePeriod 
+     * (IVL&lt;TS&gt;).high)</p><p>PTT.070-01</p><p>PTT.070-02</p><p>D99.03 
+     * (url.address - as per 
+     * RFC2396)</p><p>patient.326-CQ</p><p>PID.13</p><p>PID.14</p></p>
+     * 
+     * <p><p>ZPA1.1 (Use and/or URL.scheme)</p><p>ZPA1.2 
+     * (usablePeriod (IVL&lt;TS&gt;).low) BC:ZPA1.3 (url.address - 
+     * as per RFC2396)</p><p>ZPA1.4 (url.address - as per 
+     * RFC2396)</p><p>ZPA1.5 (usablePeriod 
+     * (IVL&lt;TS&gt;).high)</p><p>PTT.070-01</p><p>PTT.070-02</p><p>D99.03 
+     * (url.address - as per 
+     * RFC2396)</p><p>patient.326-CQ</p><p>PID.13</p><p>PID.14</p></p>
+     * 
+     * <p><p>ZPA1.1 (Use and/or URL.scheme)</p><p>ZPA1.2 
+     * (usablePeriod (IVL&lt;TS&gt;).low) BC:ZPA1.3 (url.address - 
+     * as per RFC2396)</p><p>ZPA1.4 (url.address - as per 
+     * RFC2396)</p><p>ZPA1.5 (usablePeriod 
+     * (IVL&lt;TS&gt;).high)</p><p>PTT.070-01</p><p>PTT.070-02</p><p>D99.03 
+     * (url.address - as per 
+     * RFC2396)</p><p>patient.326-CQ</p><p>PID.13</p><p>PID.14</p></p>
+     * 
+     * <p><p>ZPA1.1 (Use and/or URL.scheme)</p><p>ZPA1.2 
+     * (usablePeriod (IVL&lt;TS&gt;).low) BC:ZPA1.3 (url.address - 
+     * as per RFC2396)</p><p>ZPA1.4 (url.address - as per 
+     * RFC2396)</p><p>ZPA1.5 (usablePeriod 
+     * (IVL&lt;TS&gt;).high)</p><p>PTT.070-01</p><p>PTT.070-02</p><p>D99.03 
+     * (url.address - as per 
+     * RFC2396)</p><p>patient.326-CQ</p><p>PID.13</p><p>PID.14</p></p>
+     * 
+     * <p><p>ZPA1.1 (Use and/or URL.scheme)</p><p>ZPA1.2 
+     * (usablePeriod (IVL&lt;TS&gt;).low) BC:ZPA1.3 (url.address - 
+     * as per RFC2396)</p><p>ZPA1.4 (url.address - as per 
+     * RFC2396)</p><p>ZPA1.5 (usablePeriod 
+     * (IVL&lt;TS&gt;).high)</p><p>PTT.070-01</p><p>PTT.070-02</p><p>D99.03 
+     * (url.address - as per 
+     * RFC2396)</p><p>patient.326-CQ</p><p>PID.13</p><p>PID.14</p></p>
+     * 
+     * <p><p>ZPA1.1 (Use and/or URL.scheme)</p><p>ZPA1.2 
+     * (usablePeriod (IVL&lt;TS&gt;).low) BC:ZPA1.3 (url.address - 
+     * as per RFC2396)</p><p>ZPA1.4 (url.address - as per 
+     * RFC2396)</p><p>ZPA1.5 (usablePeriod 
+     * (IVL&lt;TS&gt;).high)</p><p>PTT.070-01</p><p>PTT.070-02</p><p>D99.03 
+     * (url.address - as per 
+     * RFC2396)</p><p>patient.326-CQ</p><p>PID.13</p><p>PID.14</p></p>
+     * 
+     * <p><p>Provides basic contact information for the patient 
+     * avoiding the need to separately query the client 
+     * registry.</p><p>Important for following up with patient but 
+     * not always available, and therefore only marked as 
+     * 'populated'.</p></p>
+     * 
+     * <p><p>Provides basic contact information for the patient 
+     * avoiding the need to separately query the client 
+     * registry.</p><p>Important for following up with patient but 
+     * not always available, and therefore only marked as 
+     * 'populated'.</p></p>
+     * 
+     * <p><p>Contact information specific to the patient for a 
+     * particular action (prescription, lab test, etc.) will be 
+     * conveyed as part of the payload.</p></p>
+     */
+    @Hl7XmlMapping({"telecom"})
+    public List<TelecommunicationAddress> getPatientContactPhoneAndEMails() {
+        return this.patientContactPhoneAndEMails.rawList();
     }
 
 }

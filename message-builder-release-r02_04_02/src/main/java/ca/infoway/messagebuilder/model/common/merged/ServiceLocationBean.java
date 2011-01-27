@@ -71,15 +71,15 @@ import java.util.Set;
  */
 @Hl7PartTypeMapping({"COCT_MT011001CA.ServiceDeliveryLocation","COCT_MT240003CA.ServiceDeliveryLocation","COCT_MT240007CA.ServiceDeliveryLocation"})
 @Hl7RootType
-public class ServiceLocationBean extends MessagePartBean implements ca.infoway.messagebuilder.model.merged.Recipient, ca.infoway.messagebuilder.model.iehr.merged.Recipients {
+public class ServiceLocationBean extends MessagePartBean implements ca.infoway.messagebuilder.model.iehr.merged.Recipients, ca.infoway.messagebuilder.model.merged.Recipient {
 
-    private static final long serialVersionUID = 20110126L;
+    private static final long serialVersionUID = 20110127L;
     private ST serviceLocationName = new STImpl();
+    private AD serviceLocationAddress = new ADImpl();
     private CV serviceLocationType = new CVImpl();
     private II serviceLocationIdentifier = new IIImpl();
-    private SET<TEL, TelecommunicationAddress> serviceLocationPhonesAndEMails = new SETImpl<TEL, TelecommunicationAddress>(TELImpl.class);
-    private AD serviceLocationAddress = new ADImpl();
     private List<GeographicCoordinatesBean> subjectOfPosition = new ArrayList<GeographicCoordinatesBean>();
+    private SET<TEL, TelecommunicationAddress> serviceLocationPhonesAndEMails = new SETImpl<TEL, TelecommunicationAddress>(TELImpl.class);
 
 
     /**
@@ -107,6 +107,35 @@ public class ServiceLocationBean extends MessagePartBean implements ca.infoway.m
     }
     public void setServiceLocationName(String serviceLocationName) {
         this.serviceLocationName.setValue(serviceLocationName);
+    }
+
+
+    /**
+     * <p>ServiceLocationAddress</p>
+     * 
+     * <p>D:Service Location Address</p>
+     * 
+     * <p><p>The information by which a service location may be 
+     * contacted either physically or by mail.</p></p>
+     * 
+     * <p><p>Identifies the physical location of a service location 
+     * and also allows for the location to be contacted.</p><p>The 
+     * address is marked as 'populated' because it is considered a 
+     * critical piece of information about the facility, but may 
+     * not always be available or meaningful.</p></p>
+     * 
+     * <p><p>Identifies the physical location of a service location 
+     * and also allows for the location to be contacted.</p><p>The 
+     * address is marked as 'populated' because it is considered a 
+     * critical piece of information about the facility, but may 
+     * not always be available or meaningful.</p></p>
+     */
+    @Hl7XmlMapping({"addr"})
+    public PostalAddress getServiceLocationAddress() {
+        return this.serviceLocationAddress.getValue();
+    }
+    public void setServiceLocationAddress(PostalAddress serviceLocationAddress) {
+        this.serviceLocationAddress.setValue(serviceLocationAddress);
     }
 
 
@@ -222,6 +251,12 @@ public class ServiceLocationBean extends MessagePartBean implements ca.infoway.m
     }
 
 
+    @Hl7XmlMapping({"subjectOf/position"})
+    public List<GeographicCoordinatesBean> getSubjectOfPosition() {
+        return this.subjectOfPosition;
+    }
+
+
     /**
      * <p>ServiceLocationPhonesAndEMails</p>
      * 
@@ -237,41 +272,6 @@ public class ServiceLocationBean extends MessagePartBean implements ca.infoway.m
     @Hl7XmlMapping({"telecom"})
     public Set<TelecommunicationAddress> getServiceLocationPhonesAndEMails() {
         return this.serviceLocationPhonesAndEMails.rawSet();
-    }
-
-
-    /**
-     * <p>ServiceLocationAddress</p>
-     * 
-     * <p>D:Service Location Address</p>
-     * 
-     * <p><p>The information by which a service location may be 
-     * contacted either physically or by mail.</p></p>
-     * 
-     * <p><p>Identifies the physical location of a service location 
-     * and also allows for the location to be contacted.</p><p>The 
-     * address is marked as 'populated' because it is considered a 
-     * critical piece of information about the facility, but may 
-     * not always be available or meaningful.</p></p>
-     * 
-     * <p><p>Identifies the physical location of a service location 
-     * and also allows for the location to be contacted.</p><p>The 
-     * address is marked as 'populated' because it is considered a 
-     * critical piece of information about the facility, but may 
-     * not always be available or meaningful.</p></p>
-     */
-    @Hl7XmlMapping({"addr"})
-    public PostalAddress getServiceLocationAddress() {
-        return this.serviceLocationAddress.getValue();
-    }
-    public void setServiceLocationAddress(PostalAddress serviceLocationAddress) {
-        this.serviceLocationAddress.setValue(serviceLocationAddress);
-    }
-
-
-    @Hl7XmlMapping({"subjectOf/position"})
-    public List<GeographicCoordinatesBean> getSubjectOfPosition() {
-        return this.subjectOfPosition;
     }
 
 }

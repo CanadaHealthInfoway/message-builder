@@ -28,9 +28,15 @@ import java.util.List;
 @Hl7RootType
 public class GeographicCoordinatesBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
-    private CV coordinateSystem = new CVImpl();
+    private static final long serialVersionUID = 20110127L;
     private List<CoordinateAxisBean> componentPositionCoordinate = new ArrayList<CoordinateAxisBean>();
+    private CV coordinateSystem = new CVImpl();
+
+
+    @Hl7XmlMapping({"component/positionCoordinate"})
+    public List<CoordinateAxisBean> getComponentPositionCoordinate() {
+        return this.componentPositionCoordinate;
+    }
 
 
     /**
@@ -48,12 +54,6 @@ public class GeographicCoordinatesBean extends MessagePartBean {
     }
     public void setCoordinateSystem(Code coordinateSystem) {
         this.coordinateSystem.setValue(coordinateSystem);
-    }
-
-
-    @Hl7XmlMapping({"component/positionCoordinate"})
-    public List<CoordinateAxisBean> getComponentPositionCoordinate() {
-        return this.componentPositionCoordinate;
     }
 
 }

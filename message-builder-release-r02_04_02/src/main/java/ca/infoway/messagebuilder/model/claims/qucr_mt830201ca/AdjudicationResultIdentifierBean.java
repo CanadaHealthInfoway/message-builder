@@ -34,43 +34,15 @@ import java.util.Date;
 @Hl7PartTypeMapping({"QUCR_MT830201CA.AdjudicatedInvoiceElementGroup"})
 public class AdjudicationResultIdentifierBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
-    private AdjudicatedResultOutcomeBean outcomeOf;
-    private MO paidAmount = new MOImpl();
+    private static final long serialVersionUID = 20110127L;
     private CV invoiceType = new CVImpl();
-    private II adjudicationResultIdentifier = new IIImpl();
-    private AdjudicatorIdBean authorAdjudicatorRole;
-    private CS contextControlCode = new CSImpl();
+    private AdjudicatedResultOutcomeBean outcomeOf;
     private TS adjudicationDateTime = new TSImpl();
     private CV eOBCommunicationMethod = new CVImpl();
-
-
-    @Hl7XmlMapping({"outcomeOf"})
-    public AdjudicatedResultOutcomeBean getOutcomeOf() {
-        return this.outcomeOf;
-    }
-    public void setOutcomeOf(AdjudicatedResultOutcomeBean outcomeOf) {
-        this.outcomeOf = outcomeOf;
-    }
-
-
-    /**
-     * <p>Paid Amount</p>
-     * 
-     * <p><p>Grand total of all SOFA observations contained in this 
-     * summary</p></p>
-     * 
-     * <p><p>For Coverage Extension Results, this is typically not 
-     * specified, as dollar limits are noted as information 
-     * codes.</p></p>
-     */
-    @Hl7XmlMapping({"netAmt"})
-    public Money getPaidAmount() {
-        return this.paidAmount.getValue();
-    }
-    public void setPaidAmount(Money paidAmount) {
-        this.paidAmount.setValue(paidAmount);
-    }
+    private AdjudicatorIdBean authorAdjudicatorRole;
+    private CS contextControlCode = new CSImpl();
+    private II adjudicationResultIdentifier = new IIImpl();
+    private MO paidAmount = new MOImpl();
 
 
     /**
@@ -124,42 +96,12 @@ public class AdjudicationResultIdentifierBean extends MessagePartBean {
     }
 
 
-    /**
-     * <p>Adjudication Result Identifier</p>
-     * 
-     * <p><p>May include data centre and sequence numbers</p></p>
-     * 
-     * <p><p>Technique to identify that the EOB was not electronic 
-     * (manual) is through the participation mode code for the 
-     * adjudicator.</p></p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Identifier getAdjudicationResultIdentifier() {
-        return this.adjudicationResultIdentifier.getValue();
+    @Hl7XmlMapping({"outcomeOf"})
+    public AdjudicatedResultOutcomeBean getOutcomeOf() {
+        return this.outcomeOf;
     }
-    public void setAdjudicationResultIdentifier(Identifier adjudicationResultIdentifier) {
-        this.adjudicationResultIdentifier.setValue(adjudicationResultIdentifier);
-    }
-
-
-    @Hl7XmlMapping({"author/adjudicatorRole"})
-    public AdjudicatorIdBean getAuthorAdjudicatorRole() {
-        return this.authorAdjudicatorRole;
-    }
-    public void setAuthorAdjudicatorRole(AdjudicatorIdBean authorAdjudicatorRole) {
-        this.authorAdjudicatorRole = authorAdjudicatorRole;
-    }
-
-
-    /**
-     * <p>Context Control code</p>
-     */
-    @Hl7XmlMapping({"author/contextControlCode"})
-    public ContextControl getContextControlCode() {
-        return (ContextControl) this.contextControlCode.getValue();
-    }
-    public void setContextControlCode(ContextControl contextControlCode) {
-        this.contextControlCode.setValue(contextControlCode);
+    public void setOutcomeOf(AdjudicatedResultOutcomeBean outcomeOf) {
+        this.outcomeOf = outcomeOf;
     }
 
 
@@ -209,6 +151,64 @@ public class AdjudicationResultIdentifierBean extends MessagePartBean {
     }
     public void setEOBCommunicationMethod(ParticipationMode eOBCommunicationMethod) {
         this.eOBCommunicationMethod.setValue(eOBCommunicationMethod);
+    }
+
+
+    @Hl7XmlMapping({"author/adjudicatorRole"})
+    public AdjudicatorIdBean getAuthorAdjudicatorRole() {
+        return this.authorAdjudicatorRole;
+    }
+    public void setAuthorAdjudicatorRole(AdjudicatorIdBean authorAdjudicatorRole) {
+        this.authorAdjudicatorRole = authorAdjudicatorRole;
+    }
+
+
+    /**
+     * <p>Context Control code</p>
+     */
+    @Hl7XmlMapping({"author/contextControlCode"})
+    public ContextControl getContextControlCode() {
+        return (ContextControl) this.contextControlCode.getValue();
+    }
+    public void setContextControlCode(ContextControl contextControlCode) {
+        this.contextControlCode.setValue(contextControlCode);
+    }
+
+
+    /**
+     * <p>Adjudication Result Identifier</p>
+     * 
+     * <p><p>May include data centre and sequence numbers</p></p>
+     * 
+     * <p><p>Technique to identify that the EOB was not electronic 
+     * (manual) is through the participation mode code for the 
+     * adjudicator.</p></p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Identifier getAdjudicationResultIdentifier() {
+        return this.adjudicationResultIdentifier.getValue();
+    }
+    public void setAdjudicationResultIdentifier(Identifier adjudicationResultIdentifier) {
+        this.adjudicationResultIdentifier.setValue(adjudicationResultIdentifier);
+    }
+
+
+    /**
+     * <p>Paid Amount</p>
+     * 
+     * <p><p>Grand total of all SOFA observations contained in this 
+     * summary</p></p>
+     * 
+     * <p><p>For Coverage Extension Results, this is typically not 
+     * specified, as dollar limits are noted as information 
+     * codes.</p></p>
+     */
+    @Hl7XmlMapping({"netAmt"})
+    public Money getPaidAmount() {
+        return this.paidAmount.getValue();
+    }
+    public void setPaidAmount(Money paidAmount) {
+        this.paidAmount.setValue(paidAmount);
     }
 
 }

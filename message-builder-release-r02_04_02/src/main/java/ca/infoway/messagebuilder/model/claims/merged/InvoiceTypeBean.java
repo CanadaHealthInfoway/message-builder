@@ -43,18 +43,18 @@ import java.util.List;
 @Hl7RootType
 public class InvoiceTypeBean extends MessagePartBean implements ca.infoway.messagebuilder.model.claims.ficr_mt600201ca.InvoiceElementChoice, ca.infoway.messagebuilder.model.merged.InvoiceElementChoice {
 
-    private static final long serialVersionUID = 20110126L;
+    private static final long serialVersionUID = 20110127L;
     private II id = new IIImpl();
-    private MO invoiceSubTotal = new MOImpl();
     private CV invoiceType = new CVImpl();
-    private FinancialContractBean inFulfillmentOfFinancialContract;
-    private List<PolicyOrAccount_2Bean> coveragePolicyOrAccount = new ArrayList<PolicyOrAccount_2Bean>();
-    private List<AdjudicatedInvoiceElementGroupBean> referenceAdjudicatedInvoiceElementGroup = new ArrayList<AdjudicatedInvoiceElementGroupBean>();
-    private IVL<TS, Interval<Date>> timePeriodForInvoice = new IVLImpl<TS, Interval<Date>>();
-    private List<InvoiceElementCrossReferenceBean> predecessorInvoiceElementCrossReference = new ArrayList<InvoiceElementCrossReferenceBean>();
+    private MO invoiceSubTotal = new MOImpl();
     private List<InvoiceElementOverrideBean> triggerForInvoiceElementOverride = new ArrayList<InvoiceElementOverrideBean>();
-    private List<InvoiceElementComponentBean> component = new ArrayList<InvoiceElementComponentBean>();
+    private List<AdjudicatedInvoiceElementGroupBean> referenceAdjudicatedInvoiceElementGroup = new ArrayList<AdjudicatedInvoiceElementGroupBean>();
+    private FinancialContractBean inFulfillmentOfFinancialContract;
     private List<HealthDocumentAttachment_2Bean> pertinentInformationHealthDocumentAttachment = new ArrayList<HealthDocumentAttachment_2Bean>();
+    private IVL<TS, Interval<Date>> timePeriodForInvoice = new IVLImpl<TS, Interval<Date>>();
+    private List<PolicyOrAccount_2Bean> coveragePolicyOrAccount = new ArrayList<PolicyOrAccount_2Bean>();
+    private List<InvoiceElementComponentBean> component = new ArrayList<InvoiceElementComponentBean>();
+    private List<InvoiceElementCrossReferenceBean> predecessorInvoiceElementCrossReference = new ArrayList<InvoiceElementCrossReferenceBean>();
     private List<A_BillableActChoice> reasonOfBillableActChoice = new ArrayList<A_BillableActChoice>();
 
 
@@ -131,38 +131,6 @@ public class InvoiceTypeBean extends MessagePartBean implements ca.infoway.messa
 
 
     /**
-     * <p>InvoiceSubTotal</p>
-     * 
-     * <p>Invoice Sub-total</p>
-     * 
-     * <p>Invoice SubTotal</p>
-     * 
-     * <p>Invoice sub-total</p>
-     * 
-     * <p><p>Invoice sub-total - This is the sum of the Submitted 
-     * Invoice Line amounts; Identifies the total monetary amount 
-     * billed for the invoice element.</p></p>
-     * 
-     * <p><p>For Cancel Request: This would serve as a cross-check 
-     * for the Adjudicator for the Invoice Grouping that is being 
-     * cancelled.</p><p>Attribute cannot be mandatory as it may not 
-     * be present for a Coverage Extension Request.</p></p>
-     * 
-     * <p><p>For Cancel Request: This would serve as a cross-check 
-     * for the Adjudicator for the Invoice Grouping that is being 
-     * cancelled.</p><p>Attribute cannot be mandatory as it may not 
-     * be present for a Coverage Extension Request.</p></p>
-     */
-    @Hl7XmlMapping({"netAmt"})
-    public Money getInvoiceSubTotal() {
-        return this.invoiceSubTotal.getValue();
-    }
-    public void setInvoiceSubTotal(Money invoiceSubTotal) {
-        this.invoiceSubTotal.setValue(invoiceSubTotal);
-    }
-
-
-    /**
      * <p>InvoiceType</p>
      * 
      * <p>Invoice Type</p>
@@ -214,6 +182,50 @@ public class InvoiceTypeBean extends MessagePartBean implements ca.infoway.messa
     }
 
 
+    /**
+     * <p>InvoiceSubTotal</p>
+     * 
+     * <p>Invoice Sub-total</p>
+     * 
+     * <p>Invoice SubTotal</p>
+     * 
+     * <p>Invoice sub-total</p>
+     * 
+     * <p><p>Invoice sub-total - This is the sum of the Submitted 
+     * Invoice Line amounts; Identifies the total monetary amount 
+     * billed for the invoice element.</p></p>
+     * 
+     * <p><p>For Cancel Request: This would serve as a cross-check 
+     * for the Adjudicator for the Invoice Grouping that is being 
+     * cancelled.</p><p>Attribute cannot be mandatory as it may not 
+     * be present for a Coverage Extension Request.</p></p>
+     * 
+     * <p><p>For Cancel Request: This would serve as a cross-check 
+     * for the Adjudicator for the Invoice Grouping that is being 
+     * cancelled.</p><p>Attribute cannot be mandatory as it may not 
+     * be present for a Coverage Extension Request.</p></p>
+     */
+    @Hl7XmlMapping({"netAmt"})
+    public Money getInvoiceSubTotal() {
+        return this.invoiceSubTotal.getValue();
+    }
+    public void setInvoiceSubTotal(Money invoiceSubTotal) {
+        this.invoiceSubTotal.setValue(invoiceSubTotal);
+    }
+
+
+    @Hl7XmlMapping({"triggerFor/invoiceElementOverride"})
+    public List<InvoiceElementOverrideBean> getTriggerForInvoiceElementOverride() {
+        return this.triggerForInvoiceElementOverride;
+    }
+
+
+    @Hl7XmlMapping({"reference/adjudicatedInvoiceElementGroup"})
+    public List<AdjudicatedInvoiceElementGroupBean> getReferenceAdjudicatedInvoiceElementGroup() {
+        return this.referenceAdjudicatedInvoiceElementGroup;
+    }
+
+
     @Hl7XmlMapping({"inFulfillmentOf/financialContract"})
     public FinancialContractBean getInFulfillmentOfFinancialContract() {
         return this.inFulfillmentOfFinancialContract;
@@ -223,15 +235,9 @@ public class InvoiceTypeBean extends MessagePartBean implements ca.infoway.messa
     }
 
 
-    @Hl7XmlMapping({"coverage/policyOrAccount"})
-    public List<PolicyOrAccount_2Bean> getCoveragePolicyOrAccount() {
-        return this.coveragePolicyOrAccount;
-    }
-
-
-    @Hl7XmlMapping({"reference/adjudicatedInvoiceElementGroup"})
-    public List<AdjudicatedInvoiceElementGroupBean> getReferenceAdjudicatedInvoiceElementGroup() {
-        return this.referenceAdjudicatedInvoiceElementGroup;
+    @Hl7XmlMapping({"pertinentInformation/healthDocumentAttachment"})
+    public List<HealthDocumentAttachment_2Bean> getPertinentInformationHealthDocumentAttachment() {
+        return this.pertinentInformationHealthDocumentAttachment;
     }
 
 
@@ -249,15 +255,9 @@ public class InvoiceTypeBean extends MessagePartBean implements ca.infoway.messa
     }
 
 
-    @Hl7XmlMapping({"predecessor/invoiceElementCrossReference"})
-    public List<InvoiceElementCrossReferenceBean> getPredecessorInvoiceElementCrossReference() {
-        return this.predecessorInvoiceElementCrossReference;
-    }
-
-
-    @Hl7XmlMapping({"triggerFor/invoiceElementOverride"})
-    public List<InvoiceElementOverrideBean> getTriggerForInvoiceElementOverride() {
-        return this.triggerForInvoiceElementOverride;
+    @Hl7XmlMapping({"coverage/policyOrAccount"})
+    public List<PolicyOrAccount_2Bean> getCoveragePolicyOrAccount() {
+        return this.coveragePolicyOrAccount;
     }
 
 
@@ -267,9 +267,9 @@ public class InvoiceTypeBean extends MessagePartBean implements ca.infoway.messa
     }
 
 
-    @Hl7XmlMapping({"pertinentInformation/healthDocumentAttachment"})
-    public List<HealthDocumentAttachment_2Bean> getPertinentInformationHealthDocumentAttachment() {
-        return this.pertinentInformationHealthDocumentAttachment;
+    @Hl7XmlMapping({"predecessor/invoiceElementCrossReference"})
+    public List<InvoiceElementCrossReferenceBean> getPredecessorInvoiceElementCrossReference() {
+        return this.predecessorInvoiceElementCrossReference;
     }
 
 

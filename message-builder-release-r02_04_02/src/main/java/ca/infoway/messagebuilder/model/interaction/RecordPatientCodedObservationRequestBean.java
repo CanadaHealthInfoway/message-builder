@@ -12,6 +12,6 @@ import ca.infoway.messagebuilder.model.iehr.merged.CodedObservationBean;
 @Hl7PartTypeMapping({"REPC_IN000064CA"})
 public class RecordPatientCodedObservationRequestBean extends HL7Message_1Bean<TriggerEvent_1Bean<CodedObservationBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20110126L;
+    private static final long serialVersionUID = 20110127L;
 
 }

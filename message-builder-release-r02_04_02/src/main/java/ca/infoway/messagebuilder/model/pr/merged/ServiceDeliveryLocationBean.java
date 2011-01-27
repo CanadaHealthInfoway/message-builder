@@ -101,13 +101,13 @@ import java.util.Set;
 @Hl7PartTypeMapping({"PRPM_MT306011CA.ServiceDeliveryLocation","PRPM_MT309000CA.ServiceDeliveryLocation"})
 public class ServiceDeliveryLocationBean extends MessagePartBean implements ca.infoway.messagebuilder.model.merged.Choice {
 
-    private static final long serialVersionUID = 20110126L;
+    private static final long serialVersionUID = 20110127L;
     private ST serviceDeliveryLocationName = new STImpl();
+    private LIST<AD, PostalAddress> serviceDeliveryLocationAddress = new LISTImpl<AD, PostalAddress>(ADImpl.class);
     private CV serviceDeliveryLocationType = new CVImpl();
     private SET<II, Identifier> serviceDeliveryLocationIdentifier = new SETImpl<II, Identifier>(IIImpl.class);
-    private IVL<TS, Interval<Date>> serviceDeliveryLocationEffectiveDate = new IVLImpl<TS, Interval<Date>>();
     private LIST<TEL, TelecommunicationAddress> serviceDeliveryLocationTelecom = new LISTImpl<TEL, TelecommunicationAddress>(TELImpl.class);
-    private LIST<AD, PostalAddress> serviceDeliveryLocationAddress = new LISTImpl<AD, PostalAddress>(ADImpl.class);
+    private IVL<TS, Interval<Date>> serviceDeliveryLocationEffectiveDate = new IVLImpl<TS, Interval<Date>>();
 
 
     /**
@@ -126,6 +126,22 @@ public class ServiceDeliveryLocationBean extends MessagePartBean implements ca.i
     }
     public void setServiceDeliveryLocationName(String serviceDeliveryLocationName) {
         this.serviceDeliveryLocationName.setValue(serviceDeliveryLocationName);
+    }
+
+
+    /**
+     * <p>ServiceDeliveryLocationAddress</p>
+     * 
+     * <p>Service Delivery Location Address</p>
+     * 
+     * <p><p>Address of the specific service delivery location</p></p>
+     * 
+     * <p><p>Required attribute supports the validation and 
+     * identification of the service delivery location</p></p>
+     */
+    @Hl7XmlMapping({"addr"})
+    public List<PostalAddress> getServiceDeliveryLocationAddress() {
+        return this.serviceDeliveryLocationAddress.rawList();
     }
 
 
@@ -175,26 +191,6 @@ public class ServiceDeliveryLocationBean extends MessagePartBean implements ca.i
 
 
     /**
-     * <p>ServiceDeliveryLocationEffectiveDate</p>
-     * 
-     * <p>Service Delivery Location Effective Date</p>
-     * 
-     * <p><p>Effective date of the specific service delivery 
-     * location</p></p>
-     * 
-     * <p><p>Required attribute supports the validation and 
-     * identification of the service delivery location</p></p>
-     */
-    @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getServiceDeliveryLocationEffectiveDate() {
-        return this.serviceDeliveryLocationEffectiveDate.getValue();
-    }
-    public void setServiceDeliveryLocationEffectiveDate(Interval<Date> serviceDeliveryLocationEffectiveDate) {
-        this.serviceDeliveryLocationEffectiveDate.setValue(serviceDeliveryLocationEffectiveDate);
-    }
-
-
-    /**
      * <p>ServiceDeliveryLocationTelecom</p>
      * 
      * <p>Service Delivery Location Telecom</p>
@@ -212,18 +208,22 @@ public class ServiceDeliveryLocationBean extends MessagePartBean implements ca.i
 
 
     /**
-     * <p>ServiceDeliveryLocationAddress</p>
+     * <p>ServiceDeliveryLocationEffectiveDate</p>
      * 
-     * <p>Service Delivery Location Address</p>
+     * <p>Service Delivery Location Effective Date</p>
      * 
-     * <p><p>Address of the specific service delivery location</p></p>
+     * <p><p>Effective date of the specific service delivery 
+     * location</p></p>
      * 
      * <p><p>Required attribute supports the validation and 
      * identification of the service delivery location</p></p>
      */
-    @Hl7XmlMapping({"addr"})
-    public List<PostalAddress> getServiceDeliveryLocationAddress() {
-        return this.serviceDeliveryLocationAddress.rawList();
+    @Hl7XmlMapping({"effectiveTime"})
+    public Interval<Date> getServiceDeliveryLocationEffectiveDate() {
+        return this.serviceDeliveryLocationEffectiveDate.getValue();
+    }
+    public void setServiceDeliveryLocationEffectiveDate(Interval<Date> serviceDeliveryLocationEffectiveDate) {
+        this.serviceDeliveryLocationEffectiveDate.setValue(serviceDeliveryLocationEffectiveDate);
     }
 
 }

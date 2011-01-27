@@ -16,12 +16,35 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"FICR_MT400001CA.PolicyOrAccount","FICR_MT400003CA.PolicyOrAccount","FICR_MT400004CA.PolicyOrAccount","FICR_MT490101CA.PolicyOrAccount"})
 public class PolicyOrAccount_1Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
+    private static final long serialVersionUID = 20110127L;
+    private PolicyHolderBean holderPolicyHolder;
+    private II carrierIdentifier = new IIImpl();
     private CV policyType = new CVImpl();
     private II id = new IIImpl();
-    private PolicyHolderBean holderPolicyHolder;
     private CoveredPartyBean beneficiaryCoveredParty;
-    private II carrierIdentifier = new IIImpl();
+
+
+    @Hl7XmlMapping({"holder/policyHolder"})
+    public PolicyHolderBean getHolderPolicyHolder() {
+        return this.holderPolicyHolder;
+    }
+    public void setHolderPolicyHolder(PolicyHolderBean holderPolicyHolder) {
+        this.holderPolicyHolder = holderPolicyHolder;
+    }
+
+
+    /**
+     * <p>CarrierIdentifier</p>
+     * 
+     * <p>Carrier Identifier</p>
+     */
+    @Hl7XmlMapping({"author/carrierRole/id"})
+    public Identifier getCarrierIdentifier() {
+        return this.carrierIdentifier.getValue();
+    }
+    public void setCarrierIdentifier(Identifier carrierIdentifier) {
+        this.carrierIdentifier.setValue(carrierIdentifier);
+    }
 
 
     /**
@@ -52,35 +75,12 @@ public class PolicyOrAccount_1Bean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"holder/policyHolder"})
-    public PolicyHolderBean getHolderPolicyHolder() {
-        return this.holderPolicyHolder;
-    }
-    public void setHolderPolicyHolder(PolicyHolderBean holderPolicyHolder) {
-        this.holderPolicyHolder = holderPolicyHolder;
-    }
-
-
     @Hl7XmlMapping({"beneficiary/coveredParty"})
     public CoveredPartyBean getBeneficiaryCoveredParty() {
         return this.beneficiaryCoveredParty;
     }
     public void setBeneficiaryCoveredParty(CoveredPartyBean beneficiaryCoveredParty) {
         this.beneficiaryCoveredParty = beneficiaryCoveredParty;
-    }
-
-
-    /**
-     * <p>CarrierIdentifier</p>
-     * 
-     * <p>Carrier Identifier</p>
-     */
-    @Hl7XmlMapping({"author/carrierRole/id"})
-    public Identifier getCarrierIdentifier() {
-        return this.carrierIdentifier.getValue();
-    }
-    public void setCarrierIdentifier(Identifier carrierIdentifier) {
-        this.carrierIdentifier.setValue(carrierIdentifier);
     }
 
 }

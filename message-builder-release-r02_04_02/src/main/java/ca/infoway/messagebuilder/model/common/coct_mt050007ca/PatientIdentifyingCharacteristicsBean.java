@@ -24,27 +24,9 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COCT_MT050007CA.IdentifyingCharacteristicsObservationEvent"})
 public class PatientIdentifyingCharacteristicsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
-    private CV identifyingCharacteristicsObservationType = new CVImpl();
+    private static final long serialVersionUID = 20110127L;
     private ST patientCharacteristicsText = new STImpl();
-
-
-    /**
-     * <p>Identifying Characteristics Observation Type</p>
-     * 
-     * <p><p>Describes the observation type.</p></p>
-     * 
-     * <p><p>Used to categorize this observation event. For this 
-     * model, the observation is a description of patient 
-     * characteristics used for identification.</p></p>
-     */
-    @Hl7XmlMapping({"code"})
-    public PatientCharacteristicObservationType getIdentifyingCharacteristicsObservationType() {
-        return (PatientCharacteristicObservationType) this.identifyingCharacteristicsObservationType.getValue();
-    }
-    public void setIdentifyingCharacteristicsObservationType(PatientCharacteristicObservationType identifyingCharacteristicsObservationType) {
-        this.identifyingCharacteristicsObservationType.setValue(identifyingCharacteristicsObservationType);
-    }
+    private CV identifyingCharacteristicsObservationType = new CVImpl();
 
 
     /**
@@ -66,6 +48,24 @@ public class PatientIdentifyingCharacteristicsBean extends MessagePartBean {
     }
     public void setPatientCharacteristicsText(String patientCharacteristicsText) {
         this.patientCharacteristicsText.setValue(patientCharacteristicsText);
+    }
+
+
+    /**
+     * <p>Identifying Characteristics Observation Type</p>
+     * 
+     * <p><p>Describes the observation type.</p></p>
+     * 
+     * <p><p>Used to categorize this observation event. For this 
+     * model, the observation is a description of patient 
+     * characteristics used for identification.</p></p>
+     */
+    @Hl7XmlMapping({"code"})
+    public PatientCharacteristicObservationType getIdentifyingCharacteristicsObservationType() {
+        return (PatientCharacteristicObservationType) this.identifyingCharacteristicsObservationType.getValue();
+    }
+    public void setIdentifyingCharacteristicsObservationType(PatientCharacteristicObservationType identifyingCharacteristicsObservationType) {
+        this.identifyingCharacteristicsObservationType.setValue(identifyingCharacteristicsObservationType);
     }
 
 }

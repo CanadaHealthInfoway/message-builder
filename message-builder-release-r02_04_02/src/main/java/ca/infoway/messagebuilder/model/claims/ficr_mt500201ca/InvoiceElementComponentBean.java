@@ -22,7 +22,7 @@ import ca.infoway.messagebuilder.model.claims.merged.InvoiceElementGroupBean;
 @Hl7PartTypeMapping({"FICR_MT500201CA.InvoiceElementComponent"})
 public class InvoiceElementComponentBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
+    private static final long serialVersionUID = 20110127L;
     private INT invoiceElementSequenceNumber = new INTImpl();
     private InvoiceElementChoice invoiceElementChoice;
 

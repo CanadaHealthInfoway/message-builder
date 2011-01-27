@@ -46,11 +46,98 @@ import java.util.Set;
 @Hl7PartTypeMapping({"COCT_MT260010CA.ObservationCodedEvent","COCT_MT260020CA.ObservationCodedEvent","COCT_MT260030CA.ObservationCodedEvent"})
 public class PatientCodedObservationsBean extends MessagePartBean implements CausalActs {
 
-    private static final long serialVersionUID = 20110126L;
+    private static final long serialVersionUID = 20110127L;
+    private CV observationValue = new CVImpl();
     private CD observationType = new CDImpl();
     private II observationIdentifier = new IIImpl();
     private SET<CV, Code> confidentialityCode = new SETImpl<CV, Code>(CVImpl.class);
-    private CV observationValue = new CVImpl();
+
+
+    /**
+     * <p>ObservationValue</p>
+     * 
+     * <p>C:Observation Value</p>
+     * 
+     * <p>C:Observation Value</p>
+     * 
+     * <p><p>Denotes a specific coded observation made about a 
+     * person that might have trigger the clinical issue 
+     * detection.</p></p>
+     * 
+     * <p><p>Containdication.allergenGroupName (PrintName) 
+     * PIN:Contraindications.drugAllergy (Inferred from Code System 
+     * - if it is a DIN it is probably a 
+     * drug)</p><p>Contraindication.indicationDescription</p><p>ZDU.7.1 
+     * (Code System)</p><p>ZDU.7.2 (mnemonic)</p><p>ZDU.8.2 (Code 
+     * System)</p><p>ZDU.8.3 (mnemonic)</p><p>ZDU.8.1 (Print 
+     * Name)</p><p>Disease Code</p></p>
+     * 
+     * <p><p>Containdication.allergenGroupName (PrintName) 
+     * PIN:Contraindications.drugAllergy (Inferred from Code System 
+     * - if it is a DIN it is probably a 
+     * drug)</p><p>Contraindication.indicationDescription</p><p>ZDU.7.1 
+     * (Code System)</p><p>ZDU.7.2 (mnemonic)</p><p>ZDU.8.2 (Code 
+     * System)</p><p>ZDU.8.3 (mnemonic)</p><p>ZDU.8.1 (Print 
+     * Name)</p><p>Disease Code</p></p>
+     * 
+     * <p><p>Containdication.allergenGroupName (PrintName) 
+     * PIN:Contraindications.drugAllergy (Inferred from Code System 
+     * - if it is a DIN it is probably a 
+     * drug)</p><p>Contraindication.indicationDescription</p><p>ZDU.7.1 
+     * (Code System)</p><p>ZDU.7.2 (mnemonic)</p><p>ZDU.8.2 (Code 
+     * System)</p><p>ZDU.8.3 (mnemonic)</p><p>ZDU.8.1 (Print 
+     * Name)</p><p>Disease Code</p></p>
+     * 
+     * <p><p>Containdication.allergenGroupName (PrintName) 
+     * PIN:Contraindications.drugAllergy (Inferred from Code System 
+     * - if it is a DIN it is probably a 
+     * drug)</p><p>Contraindication.indicationDescription</p><p>ZDU.7.1 
+     * (Code System)</p><p>ZDU.7.2 (mnemonic)</p><p>ZDU.8.2 (Code 
+     * System)</p><p>ZDU.8.3 (mnemonic)</p><p>ZDU.8.1 (Print 
+     * Name)</p><p>Disease Code</p></p>
+     * 
+     * <p><p>Containdication.allergenGroupName (PrintName) 
+     * PIN:Contraindications.drugAllergy (Inferred from Code System 
+     * - if it is a DIN it is probably a 
+     * drug)</p><p>Contraindication.indicationDescription</p><p>ZDU.7.1 
+     * (Code System)</p><p>ZDU.7.2 (mnemonic)</p><p>ZDU.8.2 (Code 
+     * System)</p><p>ZDU.8.3 (mnemonic)</p><p>ZDU.8.1 (Print 
+     * Name)</p><p>Disease Code</p></p>
+     * 
+     * <p><p>Containdication.allergenGroupName (PrintName) 
+     * PIN:Contraindications.drugAllergy (Inferred from Code System 
+     * - if it is a DIN it is probably a 
+     * drug)</p><p>Contraindication.indicationDescription</p><p>ZDU.7.1 
+     * (Code System)</p><p>ZDU.7.2 (mnemonic)</p><p>ZDU.8.2 (Code 
+     * System)</p><p>ZDU.8.3 (mnemonic)</p><p>ZDU.8.1 (Print 
+     * Name)</p><p>Disease Code</p></p>
+     * 
+     * <p><p>Containdication.allergenGroupName (PrintName) 
+     * PIN:Contraindications.drugAllergy (Inferred from Code System 
+     * - if it is a DIN it is probably a 
+     * drug)</p><p>Contraindication.indicationDescription</p><p>ZDU.7.1 
+     * (Code System)</p><p>ZDU.7.2 (mnemonic)</p><p>ZDU.8.2 (Code 
+     * System)</p><p>ZDU.8.3 (mnemonic)</p><p>ZDU.8.1 (Print 
+     * Name)</p><p>Disease Code</p></p>
+     * 
+     * <p><p>Containdication.allergenGroupName (PrintName) 
+     * PIN:Contraindications.drugAllergy (Inferred from Code System 
+     * - if it is a DIN it is probably a 
+     * drug)</p><p>Contraindication.indicationDescription</p><p>ZDU.7.1 
+     * (Code System)</p><p>ZDU.7.2 (mnemonic)</p><p>ZDU.8.2 (Code 
+     * System)</p><p>ZDU.8.3 (mnemonic)</p><p>ZDU.8.1 (Print 
+     * Name)</p><p>Disease Code</p></p>
+     * 
+     * <p><p>Provides unambiguous reference to the related coded 
+     * observation.</p></p>
+     */
+    @Hl7XmlMapping({"value"})
+    public IssueTriggerObservationValue getObservationValue() {
+        return (IssueTriggerObservationValue) this.observationValue.getValue();
+    }
+    public void setObservationValue(IssueTriggerObservationValue observationValue) {
+        this.observationValue.setValue(observationValue);
+    }
 
 
     /**
@@ -146,93 +233,6 @@ public class PatientCodedObservationsBean extends MessagePartBean implements Cau
     @Hl7XmlMapping({"confidentialityCode"})
     public Set<x_BasicConfidentialityKind> getConfidentialityCode() {
         return this.confidentialityCode.rawSet(x_BasicConfidentialityKind.class);
-    }
-
-
-    /**
-     * <p>ObservationValue</p>
-     * 
-     * <p>C:Observation Value</p>
-     * 
-     * <p>C:Observation Value</p>
-     * 
-     * <p><p>Denotes a specific coded observation made about a 
-     * person that might have trigger the clinical issue 
-     * detection.</p></p>
-     * 
-     * <p><p>Containdication.allergenGroupName (PrintName) 
-     * PIN:Contraindications.drugAllergy (Inferred from Code System 
-     * - if it is a DIN it is probably a 
-     * drug)</p><p>Contraindication.indicationDescription</p><p>ZDU.7.1 
-     * (Code System)</p><p>ZDU.7.2 (mnemonic)</p><p>ZDU.8.2 (Code 
-     * System)</p><p>ZDU.8.3 (mnemonic)</p><p>ZDU.8.1 (Print 
-     * Name)</p><p>Disease Code</p></p>
-     * 
-     * <p><p>Containdication.allergenGroupName (PrintName) 
-     * PIN:Contraindications.drugAllergy (Inferred from Code System 
-     * - if it is a DIN it is probably a 
-     * drug)</p><p>Contraindication.indicationDescription</p><p>ZDU.7.1 
-     * (Code System)</p><p>ZDU.7.2 (mnemonic)</p><p>ZDU.8.2 (Code 
-     * System)</p><p>ZDU.8.3 (mnemonic)</p><p>ZDU.8.1 (Print 
-     * Name)</p><p>Disease Code</p></p>
-     * 
-     * <p><p>Containdication.allergenGroupName (PrintName) 
-     * PIN:Contraindications.drugAllergy (Inferred from Code System 
-     * - if it is a DIN it is probably a 
-     * drug)</p><p>Contraindication.indicationDescription</p><p>ZDU.7.1 
-     * (Code System)</p><p>ZDU.7.2 (mnemonic)</p><p>ZDU.8.2 (Code 
-     * System)</p><p>ZDU.8.3 (mnemonic)</p><p>ZDU.8.1 (Print 
-     * Name)</p><p>Disease Code</p></p>
-     * 
-     * <p><p>Containdication.allergenGroupName (PrintName) 
-     * PIN:Contraindications.drugAllergy (Inferred from Code System 
-     * - if it is a DIN it is probably a 
-     * drug)</p><p>Contraindication.indicationDescription</p><p>ZDU.7.1 
-     * (Code System)</p><p>ZDU.7.2 (mnemonic)</p><p>ZDU.8.2 (Code 
-     * System)</p><p>ZDU.8.3 (mnemonic)</p><p>ZDU.8.1 (Print 
-     * Name)</p><p>Disease Code</p></p>
-     * 
-     * <p><p>Containdication.allergenGroupName (PrintName) 
-     * PIN:Contraindications.drugAllergy (Inferred from Code System 
-     * - if it is a DIN it is probably a 
-     * drug)</p><p>Contraindication.indicationDescription</p><p>ZDU.7.1 
-     * (Code System)</p><p>ZDU.7.2 (mnemonic)</p><p>ZDU.8.2 (Code 
-     * System)</p><p>ZDU.8.3 (mnemonic)</p><p>ZDU.8.1 (Print 
-     * Name)</p><p>Disease Code</p></p>
-     * 
-     * <p><p>Containdication.allergenGroupName (PrintName) 
-     * PIN:Contraindications.drugAllergy (Inferred from Code System 
-     * - if it is a DIN it is probably a 
-     * drug)</p><p>Contraindication.indicationDescription</p><p>ZDU.7.1 
-     * (Code System)</p><p>ZDU.7.2 (mnemonic)</p><p>ZDU.8.2 (Code 
-     * System)</p><p>ZDU.8.3 (mnemonic)</p><p>ZDU.8.1 (Print 
-     * Name)</p><p>Disease Code</p></p>
-     * 
-     * <p><p>Containdication.allergenGroupName (PrintName) 
-     * PIN:Contraindications.drugAllergy (Inferred from Code System 
-     * - if it is a DIN it is probably a 
-     * drug)</p><p>Contraindication.indicationDescription</p><p>ZDU.7.1 
-     * (Code System)</p><p>ZDU.7.2 (mnemonic)</p><p>ZDU.8.2 (Code 
-     * System)</p><p>ZDU.8.3 (mnemonic)</p><p>ZDU.8.1 (Print 
-     * Name)</p><p>Disease Code</p></p>
-     * 
-     * <p><p>Containdication.allergenGroupName (PrintName) 
-     * PIN:Contraindications.drugAllergy (Inferred from Code System 
-     * - if it is a DIN it is probably a 
-     * drug)</p><p>Contraindication.indicationDescription</p><p>ZDU.7.1 
-     * (Code System)</p><p>ZDU.7.2 (mnemonic)</p><p>ZDU.8.2 (Code 
-     * System)</p><p>ZDU.8.3 (mnemonic)</p><p>ZDU.8.1 (Print 
-     * Name)</p><p>Disease Code</p></p>
-     * 
-     * <p><p>Provides unambiguous reference to the related coded 
-     * observation.</p></p>
-     */
-    @Hl7XmlMapping({"value"})
-    public IssueTriggerObservationValue getObservationValue() {
-        return (IssueTriggerObservationValue) this.observationValue.getValue();
-    }
-    public void setObservationValue(IssueTriggerObservationValue observationValue) {
-        this.observationValue.setValue(observationValue);
     }
 
 }

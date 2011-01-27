@@ -37,41 +37,17 @@ import java.util.List;
 @Hl7PartTypeMapping({"COCT_MT080100CA.SpecimenCollectionProcedureEvent"})
 public class SpecimenCollectionProcedureBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
+    private static final long serialVersionUID = 20110127L;
     private List<IncludesBean> subjectOf = new ArrayList<IncludesBean>();
-    private IVL<TS, Interval<Date>> specimenCollectionDateTime = new IVLImpl<TS, Interval<Date>>();
     private CV specimenCollectionProcedureMethod = new CVImpl();
     private ST specimenCollectionText = new STImpl();
     private List<PerformerChoice> performerPerformerChoice = new ArrayList<PerformerChoice>();
+    private IVL<TS, Interval<Date>> specimenCollectionDateTime = new IVLImpl<TS, Interval<Date>>();
 
 
     @Hl7XmlMapping({"subjectOf"})
     public List<IncludesBean> getSubjectOf() {
         return this.subjectOf;
-    }
-
-
-    /**
-     * <p>E:Specimen Collection Date/Time</p>
-     * 
-     * <p><p>The date/time the specimen was collected. This can be 
-     * a date/time interval (start - stop).</p><p>The time may not 
-     * always be known, but a date should always be entered.</p></p>
-     * 
-     * <p><p>The date/time the specimen was collected. This can be 
-     * a date/time interval (start - stop).</p><p>The time may not 
-     * always be known, but a date should always be entered.</p></p>
-     * 
-     * <p><p>The specimen collection date/time is relevant to the 
-     * testing and resulting outcome of that specimen for some 
-     * laboratory tests.</p></p>
-     */
-    @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getSpecimenCollectionDateTime() {
-        return this.specimenCollectionDateTime.getValue();
-    }
-    public void setSpecimenCollectionDateTime(Interval<Date> specimenCollectionDateTime) {
-        this.specimenCollectionDateTime.setValue(specimenCollectionDateTime);
     }
 
 
@@ -121,6 +97,30 @@ public class SpecimenCollectionProcedureBean extends MessagePartBean {
     @Hl7XmlMapping({"performer/performerChoice"})
     public List<PerformerChoice> getPerformerPerformerChoice() {
         return this.performerPerformerChoice;
+    }
+
+
+    /**
+     * <p>E:Specimen Collection Date/Time</p>
+     * 
+     * <p><p>The date/time the specimen was collected. This can be 
+     * a date/time interval (start - stop).</p><p>The time may not 
+     * always be known, but a date should always be entered.</p></p>
+     * 
+     * <p><p>The date/time the specimen was collected. This can be 
+     * a date/time interval (start - stop).</p><p>The time may not 
+     * always be known, but a date should always be entered.</p></p>
+     * 
+     * <p><p>The specimen collection date/time is relevant to the 
+     * testing and resulting outcome of that specimen for some 
+     * laboratory tests.</p></p>
+     */
+    @Hl7XmlMapping({"effectiveTime"})
+    public Interval<Date> getSpecimenCollectionDateTime() {
+        return this.specimenCollectionDateTime.getValue();
+    }
+    public void setSpecimenCollectionDateTime(Interval<Date> specimenCollectionDateTime) {
+        this.specimenCollectionDateTime.setValue(specimenCollectionDateTime);
     }
 
 }

@@ -47,22 +47,40 @@ import java.util.List;
 @Hl7RootType
 public class HL7Message_1Bean<CAE> extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
-    private CS desiredAcknowledgmentType = new CSImpl();
-    private ToBeRespondedToByBean respondTo;
-    private II messageIdentifier = new IIImpl();
-    private TS messageTimestamp = new TSImpl();
-    private AcknowledgementBean acknowledgement;
+    private static final long serialVersionUID = 20110127L;
     private LIST<II, Identifier> conformanceProfileIdentifiers = new LISTImpl<II, Identifier>(IIImpl.class);
-    private ST securityToken = new STImpl();
+    private CS desiredAcknowledgmentType = new CSImpl();
     private CAE controlActEvent;
-    private II interactionType = new IIImpl();
-    private CS processingCode = new CSImpl();
+    private AcknowledgementBean acknowledgement;
     private SenderBean sender;
     private CS responseType = new CSImpl();
+    private TS messageTimestamp = new TSImpl();
+    private II interactionType = new IIImpl();
+    private CS processingCode = new CSImpl();
+    private ST securityToken = new STImpl();
+    private II messageIdentifier = new IIImpl();
+    private ToBeRespondedToByBean respondTo;
     private List<RoutingInstructionLinesBean> attentionLine = new ArrayList<RoutingInstructionLinesBean>();
     private ReceiverBean receiver;
     private CS processingMode = new CSImpl();
+
+
+    /**
+     * <p>ConformanceProfileIdentifiers</p>
+     * 
+     * <p>F:Conformance Profile Identifiers</p>
+     * 
+     * <p><p>Identifies the conformance profile(s) this message 
+     * complies with.</p></p>
+     * 
+     * <p><p>Indicates any additional validation that may be 
+     * appropriate. Also influences what extensions can be 
+     * processed.</p></p>
+     */
+    @Hl7XmlMapping({"profileId"})
+    public List<Identifier> getConformanceProfileIdentifiers() {
+        return this.conformanceProfileIdentifiers.rawList();
+    }
 
 
     /**
@@ -90,34 +108,68 @@ public class HL7Message_1Bean<CAE> extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"respondTo"})
-    public ToBeRespondedToByBean getRespondTo() {
-        return this.respondTo;
+    @Hl7XmlMapping({"controlActEvent"})
+    public CAE getControlActEvent() {
+        return this.controlActEvent;
     }
-    public void setRespondTo(ToBeRespondedToByBean respondTo) {
-        this.respondTo = respondTo;
+    public void setControlActEvent(CAE controlActEvent) {
+        this.controlActEvent = controlActEvent;
+    }
+
+
+    @Hl7XmlMapping({"acknowledgement"})
+    public AcknowledgementBean getAcknowledgement() {
+        return this.acknowledgement;
+    }
+    public void setAcknowledgement(AcknowledgementBean acknowledgement) {
+        this.acknowledgement = acknowledgement;
+    }
+
+
+    @Hl7XmlMapping({"sender"})
+    public SenderBean getSender() {
+        return this.sender;
+    }
+    public void setSender(SenderBean sender) {
+        this.sender = sender;
     }
 
 
     /**
-     * <p>MessageIdentifier</p>
+     * <p>ResponseType</p>
      * 
-     * <p>A:Message Identifier</p>
+     * <p>DA: Response Type</p>
      * 
-     * <p><p>A unique identifier for the message.</p></p>
+     * <p><p>Identifies whether the response is desired immediately 
+     * (as a direct acknowledgement), on a deferred basis (as a 
+     * subsequent independent interaction) or via queue using 
+     * polling.</p></p>
      * 
-     * <p><p>soap:Header\wsa:MessageID</p></p>
+     * <p><p>soap:Header\wsa:Action (after the second underscore, 
+     * if any, '''D''' otherwise)</p></p>
      * 
-     * <p><p>Allows detection of duplicate messages, and allows 
-     * tying acknowledgments to the message they are acknowledging. 
-     * The attribute is therefore mandatory.</p></p>
+     * <p><p>Essential to determining receiver behavior and 
+     * therefore mandatory.</p></p>
+     * 
+     * <p>DA: Response Type</p>
+     * 
+     * <p><p>Identifies whether the application level response is 
+     * desired immediately (as a direct acknowledgement), on a 
+     * deferred basis (as a subsequent independent interaction) or 
+     * via queue using polling.</p></p>
+     * 
+     * <p><p>soap:Header\wsa:Action (after the second underscore, 
+     * if any, '''D''' otherwise)</p></p>
+     * 
+     * <p><p>Essential to determining receiver behavior and 
+     * therefore mandatory.</p></p>
      */
-    @Hl7XmlMapping({"id"})
-    public Identifier getMessageIdentifier() {
-        return this.messageIdentifier.getValue();
+    @Hl7XmlMapping({"responseModeCode"})
+    public ResponseMode getResponseType() {
+        return (ResponseMode) this.responseType.getValue();
     }
-    public void setMessageIdentifier(Identifier messageIdentifier) {
-        this.messageIdentifier.setValue(messageIdentifier);
+    public void setResponseType(ResponseMode responseType) {
+        this.responseType.setValue(responseType);
     }
 
 
@@ -140,65 +192,6 @@ public class HL7Message_1Bean<CAE> extends MessagePartBean {
     }
     public void setMessageTimestamp(Date messageTimestamp) {
         this.messageTimestamp.setValue(messageTimestamp);
-    }
-
-
-    @Hl7XmlMapping({"acknowledgement"})
-    public AcknowledgementBean getAcknowledgement() {
-        return this.acknowledgement;
-    }
-    public void setAcknowledgement(AcknowledgementBean acknowledgement) {
-        this.acknowledgement = acknowledgement;
-    }
-
-
-    /**
-     * <p>ConformanceProfileIdentifiers</p>
-     * 
-     * <p>F:Conformance Profile Identifiers</p>
-     * 
-     * <p><p>Identifies the conformance profile(s) this message 
-     * complies with.</p></p>
-     * 
-     * <p><p>Indicates any additional validation that may be 
-     * appropriate. Also influences what extensions can be 
-     * processed.</p></p>
-     */
-    @Hl7XmlMapping({"profileId"})
-    public List<Identifier> getConformanceProfileIdentifiers() {
-        return this.conformanceProfileIdentifiers.rawList();
-    }
-
-
-    /**
-     * <p>SecurityToken</p>
-     * 
-     * <p>H:Security Token</p>
-     * 
-     * <p><p>A locally-defined field used to maintain a session, 
-     * identify a user, and/or perform some other function related 
-     * to authenticating the message source.</p></p>
-     * 
-     * <p><p>Allows jurisdictions and applications to communicate 
-     * authentication and session information. The attribute is 
-     * optional because not all jurisdictions will require this 
-     * capability.</p></p>
-     */
-    @Hl7XmlMapping({"securityText"})
-    public String getSecurityToken() {
-        return this.securityToken.getValue();
-    }
-    public void setSecurityToken(String securityToken) {
-        this.securityToken.setValue(securityToken);
-    }
-
-
-    @Hl7XmlMapping({"controlActEvent"})
-    public CAE getControlActEvent() {
-        return this.controlActEvent;
-    }
-    public void setControlActEvent(CAE controlActEvent) {
-        this.controlActEvent = controlActEvent;
     }
 
 
@@ -249,50 +242,57 @@ public class HL7Message_1Bean<CAE> extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"sender"})
-    public SenderBean getSender() {
-        return this.sender;
+    /**
+     * <p>SecurityToken</p>
+     * 
+     * <p>H:Security Token</p>
+     * 
+     * <p><p>A locally-defined field used to maintain a session, 
+     * identify a user, and/or perform some other function related 
+     * to authenticating the message source.</p></p>
+     * 
+     * <p><p>Allows jurisdictions and applications to communicate 
+     * authentication and session information. The attribute is 
+     * optional because not all jurisdictions will require this 
+     * capability.</p></p>
+     */
+    @Hl7XmlMapping({"securityText"})
+    public String getSecurityToken() {
+        return this.securityToken.getValue();
     }
-    public void setSender(SenderBean sender) {
-        this.sender = sender;
+    public void setSecurityToken(String securityToken) {
+        this.securityToken.setValue(securityToken);
     }
 
 
     /**
-     * <p>ResponseType</p>
+     * <p>MessageIdentifier</p>
      * 
-     * <p>DA: Response Type</p>
+     * <p>A:Message Identifier</p>
      * 
-     * <p><p>Identifies whether the response is desired immediately 
-     * (as a direct acknowledgement), on a deferred basis (as a 
-     * subsequent independent interaction) or via queue using 
-     * polling.</p></p>
+     * <p><p>A unique identifier for the message.</p></p>
      * 
-     * <p><p>soap:Header\wsa:Action (after the second underscore, 
-     * if any, '''D''' otherwise)</p></p>
+     * <p><p>soap:Header\wsa:MessageID</p></p>
      * 
-     * <p><p>Essential to determining receiver behavior and 
-     * therefore mandatory.</p></p>
-     * 
-     * <p>DA: Response Type</p>
-     * 
-     * <p><p>Identifies whether the application level response is 
-     * desired immediately (as a direct acknowledgement), on a 
-     * deferred basis (as a subsequent independent interaction) or 
-     * via queue using polling.</p></p>
-     * 
-     * <p><p>soap:Header\wsa:Action (after the second underscore, 
-     * if any, '''D''' otherwise)</p></p>
-     * 
-     * <p><p>Essential to determining receiver behavior and 
-     * therefore mandatory.</p></p>
+     * <p><p>Allows detection of duplicate messages, and allows 
+     * tying acknowledgments to the message they are acknowledging. 
+     * The attribute is therefore mandatory.</p></p>
      */
-    @Hl7XmlMapping({"responseModeCode"})
-    public ResponseMode getResponseType() {
-        return (ResponseMode) this.responseType.getValue();
+    @Hl7XmlMapping({"id"})
+    public Identifier getMessageIdentifier() {
+        return this.messageIdentifier.getValue();
     }
-    public void setResponseType(ResponseMode responseType) {
-        this.responseType.setValue(responseType);
+    public void setMessageIdentifier(Identifier messageIdentifier) {
+        this.messageIdentifier.setValue(messageIdentifier);
+    }
+
+
+    @Hl7XmlMapping({"respondTo"})
+    public ToBeRespondedToByBean getRespondTo() {
+        return this.respondTo;
+    }
+    public void setRespondTo(ToBeRespondedToByBean respondTo) {
+        this.respondTo = respondTo;
     }
 
 

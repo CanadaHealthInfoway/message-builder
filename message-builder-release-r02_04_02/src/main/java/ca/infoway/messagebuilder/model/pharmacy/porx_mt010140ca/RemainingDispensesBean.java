@@ -23,18 +23,9 @@ import ca.infoway.messagebuilder.model.common.coct_mt220100ca.DrugProductBean;
 @Hl7PartTypeMapping({"PORX_MT010140CA.SupplyEvent"})
 public class RemainingDispensesBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
-    private DrugProductBean productMedication;
+    private static final long serialVersionUID = 20110127L;
     private PQ remainingQuantity = new PQImpl();
-
-
-    @Hl7XmlMapping({"product/medication"})
-    public DrugProductBean getProductMedication() {
-        return this.productMedication;
-    }
-    public void setProductMedication(DrugProductBean productMedication) {
-        this.productMedication = productMedication;
-    }
+    private DrugProductBean productMedication;
 
 
     /**
@@ -58,6 +49,15 @@ public class RemainingDispensesBean extends MessagePartBean {
     }
     public void setRemainingQuantity(PhysicalQuantity remainingQuantity) {
         this.remainingQuantity.setValue(remainingQuantity);
+    }
+
+
+    @Hl7XmlMapping({"product/medication"})
+    public DrugProductBean getProductMedication() {
+        return this.productMedication;
+    }
+    public void setProductMedication(DrugProductBean productMedication) {
+        this.productMedication = productMedication;
     }
 
 }

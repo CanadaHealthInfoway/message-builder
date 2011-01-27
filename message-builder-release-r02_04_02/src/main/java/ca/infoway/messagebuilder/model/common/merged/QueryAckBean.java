@@ -18,32 +18,31 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"MFMI_MT700746CA.QueryAck","QUQI_MT120006CA.QueryAck","QUQI_MT120008CA.QueryAck"})
 public class QueryAckBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
-    private INT totalMatchingRows = new INTImpl();
-    private CS queryStatus = new CSImpl();
+    private static final long serialVersionUID = 20110127L;
     private INT remainingRows = new INTImpl();
-    private INT returnedRows = new INTImpl();
+    private CS queryStatus = new CSImpl();
     private II queryResponseIdentifier = new IIImpl();
+    private INT totalMatchingRows = new INTImpl();
+    private INT returnedRows = new INTImpl();
 
 
     /**
-     * <p>TotalMatchingRows</p>
+     * <p>RemainingRows</p>
      * 
-     * <p>J:Total Matching Rows</p>
+     * <p>L:Remaining Rows</p>
      * 
-     * <p><p>Identifies the total number of rows identified that 
-     * matched the query.</p></p>
+     * <p><p>Indicates the number of rows that still exist after 
+     * the last row returned in this response.</p></p>
      * 
-     * <p><p>Indicates the overall size of the result-set and is 
-     * therefore mandatory. Particularly useful when only part of 
-     * the result set is actually returned.</p></p>
+     * <p><p>Identifies how much data remains to be queried and is 
+     * therefore mandatory.</p></p>
      */
-    @Hl7XmlMapping({"resultTotalQuantity"})
-    public Integer getTotalMatchingRows() {
-        return this.totalMatchingRows.getValue();
+    @Hl7XmlMapping({"resultRemainingQuantity"})
+    public Integer getRemainingRows() {
+        return this.remainingRows.getValue();
     }
-    public void setTotalMatchingRows(Integer totalMatchingRows) {
-        this.totalMatchingRows.setValue(totalMatchingRows);
+    public void setRemainingRows(Integer remainingRows) {
+        this.remainingRows.setValue(remainingRows);
     }
 
 
@@ -67,22 +66,43 @@ public class QueryAckBean extends MessagePartBean {
 
 
     /**
-     * <p>RemainingRows</p>
+     * <p>QueryResponseIdentifier</p>
      * 
-     * <p>L:Remaining Rows</p>
+     * <p>H:Query Response Identifier</p>
      * 
-     * <p><p>Indicates the number of rows that still exist after 
-     * the last row returned in this response.</p></p>
+     * <p><p>Identifies the query being acknowledged</p></p>
      * 
-     * <p><p>Identifies how much data remains to be queried and is 
-     * therefore mandatory.</p></p>
+     * <p><p>Allows linking of a response back to the request that 
+     * triggered it and is therefore mandatory. Particularly useful 
+     * when responses are deferred or queued.</p></p>
      */
-    @Hl7XmlMapping({"resultRemainingQuantity"})
-    public Integer getRemainingRows() {
-        return this.remainingRows.getValue();
+    @Hl7XmlMapping({"queryId"})
+    public Identifier getQueryResponseIdentifier() {
+        return this.queryResponseIdentifier.getValue();
     }
-    public void setRemainingRows(Integer remainingRows) {
-        this.remainingRows.setValue(remainingRows);
+    public void setQueryResponseIdentifier(Identifier queryResponseIdentifier) {
+        this.queryResponseIdentifier.setValue(queryResponseIdentifier);
+    }
+
+
+    /**
+     * <p>TotalMatchingRows</p>
+     * 
+     * <p>J:Total Matching Rows</p>
+     * 
+     * <p><p>Identifies the total number of rows identified that 
+     * matched the query.</p></p>
+     * 
+     * <p><p>Indicates the overall size of the result-set and is 
+     * therefore mandatory. Particularly useful when only part of 
+     * the result set is actually returned.</p></p>
+     */
+    @Hl7XmlMapping({"resultTotalQuantity"})
+    public Integer getTotalMatchingRows() {
+        return this.totalMatchingRows.getValue();
+    }
+    public void setTotalMatchingRows(Integer totalMatchingRows) {
+        this.totalMatchingRows.setValue(totalMatchingRows);
     }
 
 
@@ -111,26 +131,6 @@ public class QueryAckBean extends MessagePartBean {
     }
     public void setReturnedRows(Integer returnedRows) {
         this.returnedRows.setValue(returnedRows);
-    }
-
-
-    /**
-     * <p>QueryResponseIdentifier</p>
-     * 
-     * <p>H:Query Response Identifier</p>
-     * 
-     * <p><p>Identifies the query being acknowledged</p></p>
-     * 
-     * <p><p>Allows linking of a response back to the request that 
-     * triggered it and is therefore mandatory. Particularly useful 
-     * when responses are deferred or queued.</p></p>
-     */
-    @Hl7XmlMapping({"queryId"})
-    public Identifier getQueryResponseIdentifier() {
-        return this.queryResponseIdentifier.getValue();
-    }
-    public void setQueryResponseIdentifier(Identifier queryResponseIdentifier) {
-        this.queryResponseIdentifier.setValue(queryResponseIdentifier);
     }
 
 }

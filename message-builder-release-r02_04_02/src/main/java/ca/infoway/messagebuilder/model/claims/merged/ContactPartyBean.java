@@ -26,12 +26,12 @@ import java.util.Set;
 @Hl7PartTypeMapping({"FICR_MT400001CA.ContactParty","FICR_MT500201CA.ContactParty","FICR_MT600201CA.ContactParty"})
 public class ContactPartyBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
+    private static final long serialVersionUID = 20110127L;
     private CV code = new CVImpl();
     private II administrativeContactID = new IIImpl();
     private ContactPersonBean contactPerson;
-    private SET<TEL, TelecommunicationAddress> callBackContactPersonTelecom = new SETImpl<TEL, TelecommunicationAddress>(TELImpl.class);
     private PN callBackContactPersonName = new PNImpl();
+    private SET<TEL, TelecommunicationAddress> callBackContactPersonTelecom = new SETImpl<TEL, TelecommunicationAddress>(TELImpl.class);
 
 
     /**
@@ -72,17 +72,6 @@ public class ContactPartyBean extends MessagePartBean {
 
 
     /**
-     * <p>CallBackContactPersonTelecom</p>
-     * 
-     * <p>Call Back Contact Person Telecom</p>
-     */
-    @Hl7XmlMapping({"contactCallBackPerson/telecom"})
-    public Set<TelecommunicationAddress> getCallBackContactPersonTelecom() {
-        return this.callBackContactPersonTelecom.rawSet();
-    }
-
-
-    /**
      * <p>CallBackContactPersonName</p>
      * 
      * <p>Call Back Contact Person Name</p>
@@ -93,6 +82,17 @@ public class ContactPartyBean extends MessagePartBean {
     }
     public void setCallBackContactPersonName(PersonName callBackContactPersonName) {
         this.callBackContactPersonName.setValue(callBackContactPersonName);
+    }
+
+
+    /**
+     * <p>CallBackContactPersonTelecom</p>
+     * 
+     * <p>Call Back Contact Person Telecom</p>
+     */
+    @Hl7XmlMapping({"contactCallBackPerson/telecom"})
+    public Set<TelecommunicationAddress> getCallBackContactPersonTelecom() {
+        return this.callBackContactPersonTelecom.rawSet();
     }
 
 }

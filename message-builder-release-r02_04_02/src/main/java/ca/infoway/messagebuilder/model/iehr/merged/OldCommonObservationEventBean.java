@@ -13,7 +13,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"REPC_MT410001CA.OldCommonObservationEvent","REPC_MT410003CA.OldCommonObservationEvent","REPC_MT420001CA.OldCommonObservationEvent","REPC_MT420003CA.OldCommonObservationEvent"})
 public class OldCommonObservationEventBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
+    private static final long serialVersionUID = 20110127L;
     private II replacesRecordIds = new IIImpl();
 
 

@@ -12,6 +12,6 @@ import ca.infoway.messagebuilder.model.iehr.repc_mt220004ca.QueryDefinitionBean;
 @Hl7PartTypeMapping({"REPC_IN000086CA"})
 public class PatientDischargeCareSummariesQueryBean extends HL7Message_1Bean<TriggerEvent_5Bean<QueryDefinitionBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20110126L;
+    private static final long serialVersionUID = 20110127L;
 
 }

@@ -29,39 +29,15 @@ import java.util.Date;
 @Hl7PartTypeMapping({"FICR_MT600201CA.CoveredPartyAsPatientPerson"})
 public class CoveredPartyAsPatientPersonBean extends MessagePartBean implements ca.infoway.messagebuilder.model.claims.merged.CoveredPartyAsPatientChoice {
 
-    private static final long serialVersionUID = 20110126L;
-    private INT personMultipleBirthOrderNumber = new INTImpl();
-    private PN patientName = new PNImpl();
+    private static final long serialVersionUID = 20110127L;
     private CE parentOrGuardianRelationshipToPatient = new CEImpl();
     private II idOfParent = new IIImpl();
     private PN nameOfParentOrGuardian = new PNImpl();
-    private TS personDateOfBirth = new TSImpl();
+    private PN patientName = new PNImpl();
+    private INT personMultipleBirthOrderNumber = new INTImpl();
     private BL personMultipleBirthIndicator = new BLImpl();
     private CV personGender = new CVImpl();
-
-
-    /**
-     * <p>Person multiple birth order number</p>
-     */
-    @Hl7XmlMapping({"multipleBirthOrderNumber"})
-    public Integer getPersonMultipleBirthOrderNumber() {
-        return this.personMultipleBirthOrderNumber.getValue();
-    }
-    public void setPersonMultipleBirthOrderNumber(Integer personMultipleBirthOrderNumber) {
-        this.personMultipleBirthOrderNumber.setValue(personMultipleBirthOrderNumber);
-    }
-
-
-    /**
-     * <p>Patient Name</p>
-     */
-    @Hl7XmlMapping({"name"})
-    public PersonName getPatientName() {
-        return this.patientName.getValue();
-    }
-    public void setPatientName(PersonName patientName) {
-        this.patientName.setValue(patientName);
-    }
+    private TS personDateOfBirth = new TSImpl();
 
 
     /**
@@ -101,14 +77,26 @@ public class CoveredPartyAsPatientPersonBean extends MessagePartBean implements 
 
 
     /**
-     * <p>Person Date of birth</p>
+     * <p>Patient Name</p>
      */
-    @Hl7XmlMapping({"birthTime"})
-    public Date getPersonDateOfBirth() {
-        return this.personDateOfBirth.getValue();
+    @Hl7XmlMapping({"name"})
+    public PersonName getPatientName() {
+        return this.patientName.getValue();
     }
-    public void setPersonDateOfBirth(Date personDateOfBirth) {
-        this.personDateOfBirth.setValue(personDateOfBirth);
+    public void setPatientName(PersonName patientName) {
+        this.patientName.setValue(patientName);
+    }
+
+
+    /**
+     * <p>Person multiple birth order number</p>
+     */
+    @Hl7XmlMapping({"multipleBirthOrderNumber"})
+    public Integer getPersonMultipleBirthOrderNumber() {
+        return this.personMultipleBirthOrderNumber.getValue();
+    }
+    public void setPersonMultipleBirthOrderNumber(Integer personMultipleBirthOrderNumber) {
+        this.personMultipleBirthOrderNumber.setValue(personMultipleBirthOrderNumber);
     }
 
 
@@ -133,6 +121,18 @@ public class CoveredPartyAsPatientPersonBean extends MessagePartBean implements 
     }
     public void setPersonGender(AdministrativeGender personGender) {
         this.personGender.setValue(personGender);
+    }
+
+
+    /**
+     * <p>Person Date of birth</p>
+     */
+    @Hl7XmlMapping({"birthTime"})
+    public Date getPersonDateOfBirth() {
+        return this.personDateOfBirth.getValue();
+    }
+    public void setPersonDateOfBirth(Date personDateOfBirth) {
+        this.personDateOfBirth.setValue(personDateOfBirth);
     }
 
 }

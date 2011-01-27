@@ -36,60 +36,11 @@ import java.util.Set;
 @Hl7RootType
 public class AnimalPatientBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
-    private SET<TEL, TelecommunicationAddress> ownerPhonesAndEmails = new SETImpl<TEL, TelecommunicationAddress>(TELImpl.class);
-    private PN ownerName = new PNImpl();
-    private AD ownerAddress = new ADImpl();
+    private static final long serialVersionUID = 20110127L;
     private ST animalName = new STImpl();
-
-
-    /**
-     * <p>Owner Phones and Emails</p>
-     * 
-     * <p><p>The phone number(s) and email address(s) by which the 
-     * owner may be contacted.</p></p>
-     * 
-     * <p><p>Used to contact the owner or contact person</p></p>
-     */
-    @Hl7XmlMapping({"patientNonPersonLivingSubject/contactParty/telecom"})
-    public Set<TelecommunicationAddress> getOwnerPhonesAndEmails() {
-        return this.ownerPhonesAndEmails.rawSet();
-    }
-
-
-    /**
-     * <p>Owner Name</p>
-     * 
-     * <p><p>The name by which the owner person is known</p></p>
-     * 
-     * <p><p>Used when contacting or addressing the owner person. 
-     * Because this will be the principle means of identifying the 
-     * owner person, it is mandatory.</p></p>
-     */
-    @Hl7XmlMapping({"patientNonPersonLivingSubject/contactParty/contactPerson/name"})
-    public PersonName getOwnerName() {
-        return this.ownerName.getValue();
-    }
-    public void setOwnerName(PersonName ownerName) {
-        this.ownerName.setValue(ownerName);
-    }
-
-
-    /**
-     * <p>Owner address</p>
-     * 
-     * <p><p>The mail and/or physical address associated with the 
-     * owner or contact person for the animal.</p></p>
-     * 
-     * <p><p>Used to contact the owner or contact person</p></p>
-     */
-    @Hl7XmlMapping({"patientNonPersonLivingSubject/contactParty/addr"})
-    public PostalAddress getOwnerAddress() {
-        return this.ownerAddress.getValue();
-    }
-    public void setOwnerAddress(PostalAddress ownerAddress) {
-        this.ownerAddress.setValue(ownerAddress);
-    }
+    private AD ownerAddress = new ADImpl();
+    private PN ownerName = new PNImpl();
+    private SET<TEL, TelecommunicationAddress> ownerPhonesAndEmails = new SETImpl<TEL, TelecommunicationAddress>(TELImpl.class);
 
 
     /**
@@ -558,6 +509,55 @@ public class AnimalPatientBean extends MessagePartBean {
     }
     public void setAnimalName(String animalName) {
         this.animalName.setValue(animalName);
+    }
+
+
+    /**
+     * <p>Owner address</p>
+     * 
+     * <p><p>The mail and/or physical address associated with the 
+     * owner or contact person for the animal.</p></p>
+     * 
+     * <p><p>Used to contact the owner or contact person</p></p>
+     */
+    @Hl7XmlMapping({"patientNonPersonLivingSubject/contactParty/addr"})
+    public PostalAddress getOwnerAddress() {
+        return this.ownerAddress.getValue();
+    }
+    public void setOwnerAddress(PostalAddress ownerAddress) {
+        this.ownerAddress.setValue(ownerAddress);
+    }
+
+
+    /**
+     * <p>Owner Name</p>
+     * 
+     * <p><p>The name by which the owner person is known</p></p>
+     * 
+     * <p><p>Used when contacting or addressing the owner person. 
+     * Because this will be the principle means of identifying the 
+     * owner person, it is mandatory.</p></p>
+     */
+    @Hl7XmlMapping({"patientNonPersonLivingSubject/contactParty/contactPerson/name"})
+    public PersonName getOwnerName() {
+        return this.ownerName.getValue();
+    }
+    public void setOwnerName(PersonName ownerName) {
+        this.ownerName.setValue(ownerName);
+    }
+
+
+    /**
+     * <p>Owner Phones and Emails</p>
+     * 
+     * <p><p>The phone number(s) and email address(s) by which the 
+     * owner may be contacted.</p></p>
+     * 
+     * <p><p>Used to contact the owner or contact person</p></p>
+     */
+    @Hl7XmlMapping({"patientNonPersonLivingSubject/contactParty/telecom"})
+    public Set<TelecommunicationAddress> getOwnerPhonesAndEmails() {
+        return this.ownerPhonesAndEmails.rawSet();
     }
 
 }

@@ -39,30 +39,9 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PORX_MT060040CA.SupplyEventPastSummary","PORX_MT060060CA.SupplyEventPastSummary"})
 public class PreviousDispenseInformation_2Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
-    private INT numberOfFillsMadeAgainstRx = new INTImpl();
+    private static final long serialVersionUID = 20110127L;
     private INT totalSuppliedAmount = new INTImpl();
-
-
-    /**
-     * <p>NumberOfFillsMadeAgainstRx</p>
-     * 
-     * <p>A:Number of Fills Made Against Rx</p>
-     * 
-     * <p><p>Indicates the number of dispense events performed 
-     * against the prescription to date, including trial, partial 
-     * and complete fills.</p></p>
-     * 
-     * <p><p>Useful in tracking the progress of a prescription in 
-     * prescription.</p></p>
-     */
-    @Hl7XmlMapping({"repeatNumber"})
-    public Integer getNumberOfFillsMadeAgainstRx() {
-        return this.numberOfFillsMadeAgainstRx.getValue();
-    }
-    public void setNumberOfFillsMadeAgainstRx(Integer numberOfFillsMadeAgainstRx) {
-        this.numberOfFillsMadeAgainstRx.setValue(numberOfFillsMadeAgainstRx);
-    }
+    private INT numberOfFillsMadeAgainstRx = new INTImpl();
 
 
     /**
@@ -89,6 +68,27 @@ public class PreviousDispenseInformation_2Bean extends MessagePartBean {
     }
     public void setTotalSuppliedAmount(Integer totalSuppliedAmount) {
         this.totalSuppliedAmount.setValue(totalSuppliedAmount);
+    }
+
+
+    /**
+     * <p>NumberOfFillsMadeAgainstRx</p>
+     * 
+     * <p>A:Number of Fills Made Against Rx</p>
+     * 
+     * <p><p>Indicates the number of dispense events performed 
+     * against the prescription to date, including trial, partial 
+     * and complete fills.</p></p>
+     * 
+     * <p><p>Useful in tracking the progress of a prescription in 
+     * prescription.</p></p>
+     */
+    @Hl7XmlMapping({"repeatNumber"})
+    public Integer getNumberOfFillsMadeAgainstRx() {
+        return this.numberOfFillsMadeAgainstRx.getValue();
+    }
+    public void setNumberOfFillsMadeAgainstRx(Integer numberOfFillsMadeAgainstRx) {
+        this.numberOfFillsMadeAgainstRx.setValue(numberOfFillsMadeAgainstRx);
     }
 
 }

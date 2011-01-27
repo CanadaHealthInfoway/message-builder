@@ -50,28 +50,109 @@ import java.util.List;
 @Hl7RootType
 public class QueryDefinitionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
+    private static final long serialVersionUID = 20110127L;
+    private List<II> protocolIds = new ArrayList<II>();
+    private List<CD> recordTypes = new ArrayList<CD>();
+    private List<CS> recordStatuses = new ArrayList<CS>();
+    private List<CV> eventCategories = new ArrayList<CV>();
     private TS updatedSinceDateTime = new TSImpl();
     private II eHRRepositoryId = new IIImpl();
-    private II requestingProviderId = new IIImpl();
-    private List<CV> eventCategories = new ArrayList<CV>();
-    private CV responsibleProviderType = new CVImpl();
-    private II responsibleProviderId = new IIImpl();
-    private List<CD> healthConditions = new ArrayList<CD>();
-    private List<CD> recordTypes = new ArrayList<CD>();
-    private List<II> careCompositionIds = new ArrayList<II>();
-    private CD indication = new CDImpl();
-    private List<CV> careCompositionTypes = new ArrayList<CV>();
     private BL mostRecentByTypeIndicator = new BLImpl();
-    private II requestId = new IIImpl();
-    private II eventLocationId = new IIImpl();
-    private List<II> protocolIds = new ArrayList<II>();
-    private List<CS> recordStatuses = new ArrayList<CS>();
+    private CD indication = new CDImpl();
+    private II recipientProviderId = new IIImpl();
     private BL attestedIndicator = new BLImpl();
     private II recipientLocationId = new IIImpl();
+    private II eventLocationId = new IIImpl();
     private CV eventLocationType = new CVImpl();
-    private II recipientProviderId = new IIImpl();
+    private List<CD> healthConditions = new ArrayList<CD>();
+    private II responsibleProviderId = new IIImpl();
+    private List<II> careCompositionIds = new ArrayList<II>();
+    private CV responsibleProviderType = new CVImpl();
     private IVL<TS, Interval<Date>> effectiveDateRange = new IVLImpl<TS, Interval<Date>>();
+    private II requestingProviderId = new IIImpl();
+    private II requestId = new IIImpl();
+    private List<CV> careCompositionTypes = new ArrayList<CV>();
+
+
+    /**
+     * <p>ZI: Protocol Ids</p>
+     * 
+     * <p><p>Filters the records retrieved to only include those 
+     * associated with the specified protocols. If unspecified, no 
+     * filter is applied.</p></p>
+     * 
+     * <p><p>Allows retrieving records associated with a particular 
+     * protocol. Useful in clinical studies and other 
+     * research.</p><p>The element is optional because support for 
+     * protocols is not deemed a neccesity for many healthcare 
+     * providers.</p></p>
+     * 
+     * <p><p>Allows retrieving records associated with a particular 
+     * protocol. Useful in clinical studies and other 
+     * research.</p><p>The element is optional because support for 
+     * protocols is not deemed a neccesity for many healthcare 
+     * providers.</p></p>
+     */
+    @Hl7XmlMapping({"protocolId/value"})
+    public List<Identifier> getProtocolIds() {
+        return new RawListWrapper<II, Identifier>(protocolIds, IIImpl.class);
+    }
+
+
+    /**
+     * <p>H:Record Types</p>
+     * 
+     * <p></p></p>
+     * 
+     * <p></p></p>
+     * 
+     * <p></p></p>
+     * 
+     * <p></p></p>
+     */
+    @Hl7XmlMapping({"recordType/value"})
+    public List<ClinicalReportObservationType> getRecordTypes() {
+        return new RawListWrapper<CD, ClinicalReportObservationType>(recordTypes, CDImpl.class);
+    }
+
+
+    /**
+     * <p>I: Record Statuses</p>
+     * 
+     * <p><p>Filters the set of records to be retrieved to only 
+     * include those with the identified status(s). If no values 
+     * are specified, no filter will be applied.</p></p>
+     * 
+     * <p><p>Allows constraining the status of records to be 
+     * retrieved. Multiple repetitions are present to allow 
+     * selection of multiple statuses with a single query.</p></p>
+     */
+    @Hl7XmlMapping({"recordStatus/value"})
+    public List<ActStatus> getRecordStatuses() {
+        return new RawListWrapper<CS, ActStatus>(recordStatuses, CSImpl.class);
+    }
+
+
+    /**
+     * <p>ZJ: Event Categories</p>
+     * 
+     * <p><p>If specified, filters the returned records to those 
+     * having the specified category. E.g. 
+     * &quot;Allergy/Intolerance&quot;, &quot;Measured 
+     * Observation&quot;, &quot;Cognitive Procedure&quot;. 
+     * (Contrast this with &quot;Type&quot; which would allow 
+     * searching for &quot;Drug Allergies&quot;, &quot;Patient 
+     * Weight&quot; and &quot;Smoking Cessation 
+     * Counseling&quot;.)</p></p>
+     * 
+     * <p><p>Allows filtering responses based on higher level 
+     * categorization. Multiple repetitions are supported to allow 
+     * for multiple categories to be returned.</p></p>
+     */
+    @Hl7XmlMapping({"eventCategory/value"})
+    public List<ClinicalReportDocumentType> getEventCategories() {
+        return new RawListWrapper<CV, ClinicalReportDocumentType>(eventCategories, CVImpl.class);
+    }
 
 
     /**
@@ -114,147 +195,26 @@ public class QueryDefinitionBean extends MessagePartBean {
 
 
     /**
-     * <p>N: Requesting Provider Id</p>
+     * <p>V: Most Recent By Type Indicator</p>
      * 
-     * <p><p>Filters the records retrieved to only include those 
-     * whose creation/performance were requested by the identified 
-     * provider. If unspecified, no filter is applied.</p></p>
+     * <p><p>If true, indicates that only the most recent records 
+     * of a given type or category should be retrieved. I.e. If 
+     * there are 10 records of the same kind, only the most recent 
+     * one would be returned. If false, all occurrences will be 
+     * returned.</p></p>
      * 
-     * <p><p>Allows a provider to see the results of any requests 
-     * they may have made.</p></p>
+     * <p><p>Provides a mechanism of getting a quick overview of 
+     * the types of events that have occurred without needing to 
+     * look at all occurrences. The attribute is mandatory because 
+     * it must be known whether to return the most recent or all 
+     * records.</p></p>
      */
-    @Hl7XmlMapping({"requestingProviderId/value"})
-    public Identifier getRequestingProviderId() {
-        return this.requestingProviderId.getValue();
+    @Hl7XmlMapping({"mostRecentByTypeIndicator/value"})
+    public Boolean getMostRecentByTypeIndicator() {
+        return this.mostRecentByTypeIndicator.getValue();
     }
-    public void setRequestingProviderId(Identifier requestingProviderId) {
-        this.requestingProviderId.setValue(requestingProviderId);
-    }
-
-
-    /**
-     * <p>ZJ: Event Categories</p>
-     * 
-     * <p><p>If specified, filters the returned records to those 
-     * having the specified category. E.g. 
-     * &quot;Allergy/Intolerance&quot;, &quot;Measured 
-     * Observation&quot;, &quot;Cognitive Procedure&quot;. 
-     * (Contrast this with &quot;Type&quot; which would allow 
-     * searching for &quot;Drug Allergies&quot;, &quot;Patient 
-     * Weight&quot; and &quot;Smoking Cessation 
-     * Counseling&quot;.)</p></p>
-     * 
-     * <p><p>Allows filtering responses based on higher level 
-     * categorization. Multiple repetitions are supported to allow 
-     * for multiple categories to be returned.</p></p>
-     */
-    @Hl7XmlMapping({"eventCategory/value"})
-    public List<ClinicalReportDocumentType> getEventCategories() {
-        return new RawListWrapper<CV, ClinicalReportDocumentType>(eventCategories, CVImpl.class);
-    }
-
-
-    /**
-     * <p>M: Responsible Provider Type</p>
-     * 
-     * <p></p></p>
-     * 
-     * <p></p></p>
-     * 
-     * <p><p>Allows retrieving those records in which a particular 
-     * kind of provider has a vested interest.</p></p>
-     */
-    @Hl7XmlMapping({"responsibleProviderType/value"})
-    public HealthcareProviderRoleType getResponsibleProviderType() {
-        return (HealthcareProviderRoleType) this.responsibleProviderType.getValue();
-    }
-    public void setResponsibleProviderType(HealthcareProviderRoleType responsibleProviderType) {
-        this.responsibleProviderType.setValue(responsibleProviderType);
-    }
-
-
-    /**
-     * <p>L: Responsible Provider Id</p>
-     * 
-     * <p><p>Filters the records retrieved to only include those 
-     * where the identified provider was the author, supervisor or 
-     * performer. If unspecified, no filter is applied.</p></p>
-     * 
-     * <p><p>Allows retrieving those records in which a particular 
-     * provider has a vested interest.</p></p>
-     */
-    @Hl7XmlMapping({"responsibleProviderId/value"})
-    public Identifier getResponsibleProviderId() {
-        return this.responsibleProviderId.getValue();
-    }
-    public void setResponsibleProviderId(Identifier responsibleProviderId) {
-        this.responsibleProviderId.setValue(responsibleProviderId);
-    }
-
-
-    /**
-     * <p>T: Health Conditions</p>
-     * 
-     * <p></p></p>
-     * 
-     * <p></p></p>
-     * 
-     * <p></p></p>
-     * 
-     * <p></p></p>
-     */
-    @Hl7XmlMapping({"healthCondition/value"})
-    public List<ActHealthConditionType> getHealthConditions() {
-        return new RawListWrapper<CD, ActHealthConditionType>(healthConditions, CDImpl.class);
-    }
-
-
-    /**
-     * <p>H:Record Types</p>
-     * 
-     * <p></p></p>
-     * 
-     * <p></p></p>
-     * 
-     * <p></p></p>
-     * 
-     * <p></p></p>
-     */
-    @Hl7XmlMapping({"recordType/value"})
-    public List<ClinicalReportObservationType> getRecordTypes() {
-        return new RawListWrapper<CD, ClinicalReportObservationType>(recordTypes, CDImpl.class);
-    }
-
-
-    /**
-     * <p>R: Care Composition Ids</p>
-     * 
-     * <p><p>Filters the records retrieved to only include those 
-     * associated with the specified encounter, episode or care 
-     * event. If unspecified, no filter is applied.</p><p>Note: 
-     * When matching on care composition id, systems should also 
-     * retrieve records with a fulfillment id to requisitions 
-     * associated with the care composition. E.g. When retrieving 
-     * records associated with an encounter which includes a 
-     * referral, the retrieved records should also include the care 
-     * summary created in fulfillment of the referral.</p></p>
-     * 
-     * <p><p>Filters the records retrieved to only include those 
-     * associated with the specified encounter, episode or care 
-     * event. If unspecified, no filter is applied.</p><p>Note: 
-     * When matching on care composition id, systems should also 
-     * retrieve records with a fulfillment id to requisitions 
-     * associated with the care composition. E.g. When retrieving 
-     * records associated with an encounter which includes a 
-     * referral, the retrieved records should also include the care 
-     * summary created in fulfillment of the referral.</p></p>
-     * 
-     * <p><p>Allows retrieving all records associated with an 
-     * encounter, episode or care event.</p></p>
-     */
-    @Hl7XmlMapping({"careCompositionId/value"})
-    public List<Identifier> getCareCompositionIds() {
-        return new RawListWrapper<II, Identifier>(careCompositionIds, IIImpl.class);
+    public void setMostRecentByTypeIndicator(Boolean mostRecentByTypeIndicator) {
+        this.mostRecentByTypeIndicator.setValue(mostRecentByTypeIndicator);
     }
 
 
@@ -293,129 +253,22 @@ public class QueryDefinitionBean extends MessagePartBean {
 
 
     /**
-     * <p>S: Care Composition Types</p>
+     * <p>ZN: Recipient Provider Id</p>
      * 
-     * <p></p></p>
+     * <p><p>If specified, filters the returned documents to only 
+     * include those which were targeted to the specified provider. 
+     * If not specified, no filter is applied</p></p>
      * 
-     * <p></p></p>
-     * 
-     * <p><p>Allows retrieving all records associated with a 
-     * particular type of encounter, episode or care event. 
-     * E.g.Orthopedic Clinic Encounter, ER encounter, Walk-in 
-     * encounter, etc.</p></p>
+     * <p><p>Allows retrieval of all documents sent to a particular 
+     * provider. E.g. &quot;Find all documents targeted to 
+     * me&quot;</p></p>
      */
-    @Hl7XmlMapping({"careCompositionType/value"})
-    public List<ActCareEventType> getCareCompositionTypes() {
-        return new RawListWrapper<CV, ActCareEventType>(careCompositionTypes, CVImpl.class);
+    @Hl7XmlMapping({"recipientProviderId/value"})
+    public Identifier getRecipientProviderId() {
+        return this.recipientProviderId.getValue();
     }
-
-
-    /**
-     * <p>V: Most Recent By Type Indicator</p>
-     * 
-     * <p><p>If true, indicates that only the most recent records 
-     * of a given type or category should be retrieved. I.e. If 
-     * there are 10 records of the same kind, only the most recent 
-     * one would be returned. If false, all occurrences will be 
-     * returned.</p></p>
-     * 
-     * <p><p>Provides a mechanism of getting a quick overview of 
-     * the types of events that have occurred without needing to 
-     * look at all occurrences. The attribute is mandatory because 
-     * it must be known whether to return the most recent or all 
-     * records.</p></p>
-     */
-    @Hl7XmlMapping({"mostRecentByTypeIndicator/value"})
-    public Boolean getMostRecentByTypeIndicator() {
-        return this.mostRecentByTypeIndicator.getValue();
-    }
-    public void setMostRecentByTypeIndicator(Boolean mostRecentByTypeIndicator) {
-        this.mostRecentByTypeIndicator.setValue(mostRecentByTypeIndicator);
-    }
-
-
-    /**
-     * <p>ZL: Request Id</p>
-     * 
-     * <p><p>If specified, filters the returned records to only 
-     * include those which are in fulfillment of the specified 
-     * request record. If unspecified, no filter is applied.</p></p>
-     * 
-     * <p><p>Allows retrieving records in fulfillment of a 
-     * particular request.</p></p>
-     */
-    @Hl7XmlMapping({"requestId/value"})
-    public Identifier getRequestId() {
-        return this.requestId.getValue();
-    }
-    public void setRequestId(Identifier requestId) {
-        this.requestId.setValue(requestId);
-    }
-
-
-    /**
-     * <p>O: Event Location Id</p>
-     * 
-     * <p><p>Filters the records retrieved to only include those 
-     * records which are officially associated with and/or were 
-     * performed by a particular facility. I.e. It will return 
-     * records where either the &quot;Service Location&quot; or the 
-     * &quot;Record Location&quot; has the specified location id. 
-     * Records associated with &quot;sub-locations&quot; (e.g. 
-     * departments, wards) will be returned when searching by the 
-     * larger location (e.g. hospital).</p></p>
-     * 
-     * <p><p>Allows retrieving those records associated with a 
-     * particular facility.</p></p>
-     */
-    @Hl7XmlMapping({"eventLocationId/value"})
-    public Identifier getEventLocationId() {
-        return this.eventLocationId.getValue();
-    }
-    public void setEventLocationId(Identifier eventLocationId) {
-        this.eventLocationId.setValue(eventLocationId);
-    }
-
-
-    /**
-     * <p>ZI: Protocol Ids</p>
-     * 
-     * <p><p>Filters the records retrieved to only include those 
-     * associated with the specified protocols. If unspecified, no 
-     * filter is applied.</p></p>
-     * 
-     * <p><p>Allows retrieving records associated with a particular 
-     * protocol. Useful in clinical studies and other 
-     * research.</p><p>The element is optional because support for 
-     * protocols is not deemed a neccesity for many healthcare 
-     * providers.</p></p>
-     * 
-     * <p><p>Allows retrieving records associated with a particular 
-     * protocol. Useful in clinical studies and other 
-     * research.</p><p>The element is optional because support for 
-     * protocols is not deemed a neccesity for many healthcare 
-     * providers.</p></p>
-     */
-    @Hl7XmlMapping({"protocolId/value"})
-    public List<Identifier> getProtocolIds() {
-        return new RawListWrapper<II, Identifier>(protocolIds, IIImpl.class);
-    }
-
-
-    /**
-     * <p>I: Record Statuses</p>
-     * 
-     * <p><p>Filters the set of records to be retrieved to only 
-     * include those with the identified status(s). If no values 
-     * are specified, no filter will be applied.</p></p>
-     * 
-     * <p><p>Allows constraining the status of records to be 
-     * retrieved. Multiple repetitions are present to allow 
-     * selection of multiple statuses with a single query.</p></p>
-     */
-    @Hl7XmlMapping({"recordStatus/value"})
-    public List<ActStatus> getRecordStatuses() {
-        return new RawListWrapper<CS, ActStatus>(recordStatuses, CSImpl.class);
+    public void setRecipientProviderId(Identifier recipientProviderId) {
+        this.recipientProviderId.setValue(recipientProviderId);
     }
 
 
@@ -466,6 +319,30 @@ public class QueryDefinitionBean extends MessagePartBean {
 
 
     /**
+     * <p>O: Event Location Id</p>
+     * 
+     * <p><p>Filters the records retrieved to only include those 
+     * records which are officially associated with and/or were 
+     * performed by a particular facility. I.e. It will return 
+     * records where either the &quot;Service Location&quot; or the 
+     * &quot;Record Location&quot; has the specified location id. 
+     * Records associated with &quot;sub-locations&quot; (e.g. 
+     * departments, wards) will be returned when searching by the 
+     * larger location (e.g. hospital).</p></p>
+     * 
+     * <p><p>Allows retrieving those records associated with a 
+     * particular facility.</p></p>
+     */
+    @Hl7XmlMapping({"eventLocationId/value"})
+    public Identifier getEventLocationId() {
+        return this.eventLocationId.getValue();
+    }
+    public void setEventLocationId(Identifier eventLocationId) {
+        this.eventLocationId.setValue(eventLocationId);
+    }
+
+
+    /**
      * <p>P: Event Location Type</p>
      * 
      * <p></p></p>
@@ -486,22 +363,89 @@ public class QueryDefinitionBean extends MessagePartBean {
 
 
     /**
-     * <p>ZN: Recipient Provider Id</p>
+     * <p>T: Health Conditions</p>
      * 
-     * <p><p>If specified, filters the returned documents to only 
-     * include those which were targeted to the specified provider. 
-     * If not specified, no filter is applied</p></p>
+     * <p></p></p>
      * 
-     * <p><p>Allows retrieval of all documents sent to a particular 
-     * provider. E.g. &quot;Find all documents targeted to 
-     * me&quot;</p></p>
+     * <p></p></p>
+     * 
+     * <p></p></p>
+     * 
+     * <p></p></p>
      */
-    @Hl7XmlMapping({"recipientProviderId/value"})
-    public Identifier getRecipientProviderId() {
-        return this.recipientProviderId.getValue();
+    @Hl7XmlMapping({"healthCondition/value"})
+    public List<ActHealthConditionType> getHealthConditions() {
+        return new RawListWrapper<CD, ActHealthConditionType>(healthConditions, CDImpl.class);
     }
-    public void setRecipientProviderId(Identifier recipientProviderId) {
-        this.recipientProviderId.setValue(recipientProviderId);
+
+
+    /**
+     * <p>L: Responsible Provider Id</p>
+     * 
+     * <p><p>Filters the records retrieved to only include those 
+     * where the identified provider was the author, supervisor or 
+     * performer. If unspecified, no filter is applied.</p></p>
+     * 
+     * <p><p>Allows retrieving those records in which a particular 
+     * provider has a vested interest.</p></p>
+     */
+    @Hl7XmlMapping({"responsibleProviderId/value"})
+    public Identifier getResponsibleProviderId() {
+        return this.responsibleProviderId.getValue();
+    }
+    public void setResponsibleProviderId(Identifier responsibleProviderId) {
+        this.responsibleProviderId.setValue(responsibleProviderId);
+    }
+
+
+    /**
+     * <p>R: Care Composition Ids</p>
+     * 
+     * <p><p>Filters the records retrieved to only include those 
+     * associated with the specified encounter, episode or care 
+     * event. If unspecified, no filter is applied.</p><p>Note: 
+     * When matching on care composition id, systems should also 
+     * retrieve records with a fulfillment id to requisitions 
+     * associated with the care composition. E.g. When retrieving 
+     * records associated with an encounter which includes a 
+     * referral, the retrieved records should also include the care 
+     * summary created in fulfillment of the referral.</p></p>
+     * 
+     * <p><p>Filters the records retrieved to only include those 
+     * associated with the specified encounter, episode or care 
+     * event. If unspecified, no filter is applied.</p><p>Note: 
+     * When matching on care composition id, systems should also 
+     * retrieve records with a fulfillment id to requisitions 
+     * associated with the care composition. E.g. When retrieving 
+     * records associated with an encounter which includes a 
+     * referral, the retrieved records should also include the care 
+     * summary created in fulfillment of the referral.</p></p>
+     * 
+     * <p><p>Allows retrieving all records associated with an 
+     * encounter, episode or care event.</p></p>
+     */
+    @Hl7XmlMapping({"careCompositionId/value"})
+    public List<Identifier> getCareCompositionIds() {
+        return new RawListWrapper<II, Identifier>(careCompositionIds, IIImpl.class);
+    }
+
+
+    /**
+     * <p>M: Responsible Provider Type</p>
+     * 
+     * <p></p></p>
+     * 
+     * <p></p></p>
+     * 
+     * <p><p>Allows retrieving those records in which a particular 
+     * kind of provider has a vested interest.</p></p>
+     */
+    @Hl7XmlMapping({"responsibleProviderType/value"})
+    public HealthcareProviderRoleType getResponsibleProviderType() {
+        return (HealthcareProviderRoleType) this.responsibleProviderType.getValue();
+    }
+    public void setResponsibleProviderType(HealthcareProviderRoleType responsibleProviderType) {
+        this.responsibleProviderType.setValue(responsibleProviderType);
     }
 
 
@@ -528,6 +472,62 @@ public class QueryDefinitionBean extends MessagePartBean {
     }
     public void setEffectiveDateRange(Interval<Date> effectiveDateRange) {
         this.effectiveDateRange.setValue(effectiveDateRange);
+    }
+
+
+    /**
+     * <p>N: Requesting Provider Id</p>
+     * 
+     * <p><p>Filters the records retrieved to only include those 
+     * whose creation/performance were requested by the identified 
+     * provider. If unspecified, no filter is applied.</p></p>
+     * 
+     * <p><p>Allows a provider to see the results of any requests 
+     * they may have made.</p></p>
+     */
+    @Hl7XmlMapping({"requestingProviderId/value"})
+    public Identifier getRequestingProviderId() {
+        return this.requestingProviderId.getValue();
+    }
+    public void setRequestingProviderId(Identifier requestingProviderId) {
+        this.requestingProviderId.setValue(requestingProviderId);
+    }
+
+
+    /**
+     * <p>ZL: Request Id</p>
+     * 
+     * <p><p>If specified, filters the returned records to only 
+     * include those which are in fulfillment of the specified 
+     * request record. If unspecified, no filter is applied.</p></p>
+     * 
+     * <p><p>Allows retrieving records in fulfillment of a 
+     * particular request.</p></p>
+     */
+    @Hl7XmlMapping({"requestId/value"})
+    public Identifier getRequestId() {
+        return this.requestId.getValue();
+    }
+    public void setRequestId(Identifier requestId) {
+        this.requestId.setValue(requestId);
+    }
+
+
+    /**
+     * <p>S: Care Composition Types</p>
+     * 
+     * <p></p></p>
+     * 
+     * <p></p></p>
+     * 
+     * <p><p>Allows retrieving all records associated with a 
+     * particular type of encounter, episode or care event. 
+     * E.g.Orthopedic Clinic Encounter, ER encounter, Walk-in 
+     * encounter, etc.</p></p>
+     */
+    @Hl7XmlMapping({"careCompositionType/value"})
+    public List<ActCareEventType> getCareCompositionTypes() {
+        return new RawListWrapper<CV, ActCareEventType>(careCompositionTypes, CVImpl.class);
     }
 
 }

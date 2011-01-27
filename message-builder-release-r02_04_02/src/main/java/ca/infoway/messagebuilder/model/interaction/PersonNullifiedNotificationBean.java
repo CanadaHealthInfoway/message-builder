@@ -12,6 +12,6 @@ import ca.infoway.messagebuilder.model.merged.OtherSpecimenIdentificationsBean;
 @Hl7PartTypeMapping({"PRPA_IN101999CA"})
 public class PersonNullifiedNotificationBean extends HL7Message_1Bean<TriggerEvent_4Bean<OtherSpecimenIdentificationsBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20110126L;
+    private static final long serialVersionUID = 20110127L;
 
 }

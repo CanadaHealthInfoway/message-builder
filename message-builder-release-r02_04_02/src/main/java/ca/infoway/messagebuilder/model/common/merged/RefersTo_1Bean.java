@@ -337,9 +337,18 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"MCAI_MT700210CA.Subject2","MCAI_MT700211CA.Subject2","MCAI_MT700212CA.Subject2","MCAI_MT700216CA.Subject2","MCAI_MT700217CA.Subject2","MCAI_MT700218CA.Subject2","MCAI_MT700220CA.Subject2","MCAI_MT700221CA.Subject2","MCAI_MT700222CA.Subject2","MCAI_MT700226CA.Subject2","MCAI_MT700227CA.Subject2","MCAI_MT700228CA.Subject2","QUQI_MT120006CA.Subject2","QUQI_MT120008CA.Subject2"})
 public class RefersTo_1Bean<ACT> extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
-    private BL cascadeResponsibilityIndicator = new BLImpl();
+    private static final long serialVersionUID = 20110127L;
     private ACT act;
+    private BL cascadeResponsibilityIndicator = new BLImpl();
+
+
+    @Hl7XmlMapping({"act"})
+    public ACT getAct() {
+        return this.act;
+    }
+    public void setAct(ACT act) {
+        this.act = act;
+    }
 
 
     /**
@@ -578,15 +587,6 @@ public class RefersTo_1Bean<ACT> extends MessagePartBean {
     }
     public void setCascadeResponsibilityIndicator(Boolean cascadeResponsibilityIndicator) {
         this.cascadeResponsibilityIndicator.setValue(cascadeResponsibilityIndicator);
-    }
-
-
-    @Hl7XmlMapping({"act"})
-    public ACT getAct() {
-        return this.act;
-    }
-    public void setAct(ACT act) {
-        this.act = act;
     }
 
 }

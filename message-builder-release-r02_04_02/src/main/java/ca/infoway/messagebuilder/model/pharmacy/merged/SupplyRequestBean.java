@@ -45,12 +45,21 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PORX_MT020060CA.SupplyRequest2","PORX_MT020070CA.SupplyRequest","PORX_MT060190CA.SupplyRequest"})
 public class SupplyRequestBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
-    private CS prescriptionDispensableIndicator = new CSImpl();
+    private static final long serialVersionUID = 20110127L;
     private OccurredAtBean location;
+    private CS prescriptionDispensableIndicator = new CSImpl();
     private PQ totalPrescribedQuantity = new PQImpl();
-    private INT numberOfAuthorizedFills = new INTImpl();
     private IVL<TS, Interval<Date>> totalDaysSupply = new IVLImpl<TS, Interval<Date>>();
+    private INT numberOfAuthorizedFills = new INTImpl();
+
+
+    @Hl7XmlMapping({"location"})
+    public OccurredAtBean getLocation() {
+        return this.location;
+    }
+    public void setLocation(OccurredAtBean location) {
+        this.location = location;
+    }
 
 
     /**
@@ -82,15 +91,6 @@ public class SupplyRequestBean extends MessagePartBean {
     }
     public void setPrescriptionDispensableIndicator(ActStatus prescriptionDispensableIndicator) {
         this.prescriptionDispensableIndicator.setValue(prescriptionDispensableIndicator);
-    }
-
-
-    @Hl7XmlMapping({"location"})
-    public OccurredAtBean getLocation() {
-        return this.location;
-    }
-    public void setLocation(OccurredAtBean location) {
-        this.location = location;
     }
 
 
@@ -143,25 +143,6 @@ public class SupplyRequestBean extends MessagePartBean {
 
 
     /**
-     * <p>NumberOfAuthorizedFills</p>
-     * 
-     * <p>Number of Authorized Fills</p>
-     * 
-     * <p><p>Records the total number of fills authorized</p></p>
-     * 
-     * <p><p>Regulation prevents this number from being calculated 
-     * in some jurisdictions.</p></p>
-     */
-    @Hl7XmlMapping({"repeatNumber"})
-    public Integer getNumberOfAuthorizedFills() {
-        return this.numberOfAuthorizedFills.getValue();
-    }
-    public void setNumberOfAuthorizedFills(Integer numberOfAuthorizedFills) {
-        this.numberOfAuthorizedFills.setValue(numberOfAuthorizedFills);
-    }
-
-
-    /**
      * <p>TotalDaysSupply</p>
      * 
      * <p>Total Days Supply</p>
@@ -199,6 +180,25 @@ public class SupplyRequestBean extends MessagePartBean {
     }
     public void setTotalDaysSupply(Interval<Date> totalDaysSupply) {
         this.totalDaysSupply.setValue(totalDaysSupply);
+    }
+
+
+    /**
+     * <p>NumberOfAuthorizedFills</p>
+     * 
+     * <p>Number of Authorized Fills</p>
+     * 
+     * <p><p>Records the total number of fills authorized</p></p>
+     * 
+     * <p><p>Regulation prevents this number from being calculated 
+     * in some jurisdictions.</p></p>
+     */
+    @Hl7XmlMapping({"repeatNumber"})
+    public Integer getNumberOfAuthorizedFills() {
+        return this.numberOfAuthorizedFills.getValue();
+    }
+    public void setNumberOfAuthorizedFills(Integer numberOfAuthorizedFills) {
+        this.numberOfAuthorizedFills.setValue(numberOfAuthorizedFills);
     }
 
 }

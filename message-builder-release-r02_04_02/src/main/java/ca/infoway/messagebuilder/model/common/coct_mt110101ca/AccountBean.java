@@ -21,7 +21,7 @@ import java.util.Set;
 @Hl7RootType
 public class AccountBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
+    private static final long serialVersionUID = 20110127L;
     private SET<II, Identifier> payorIdentifier = new SETImpl<II, Identifier>(IIImpl.class);
 
 

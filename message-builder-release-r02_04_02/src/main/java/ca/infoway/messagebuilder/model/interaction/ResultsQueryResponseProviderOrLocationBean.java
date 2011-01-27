@@ -13,6 +13,6 @@ import ca.infoway.messagebuilder.model.lab.polb_mt004999ca.ResultInstancePayload
 @Hl7PartTypeMapping({"POLB_IN364006CA"})
 public class ResultsQueryResponseProviderOrLocationBean extends HL7Message_1Bean<TriggerEvent_6Bean<ResultInstancePayloadChoice,ParameterListBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20110126L;
+    private static final long serialVersionUID = 20110127L;
 
 }

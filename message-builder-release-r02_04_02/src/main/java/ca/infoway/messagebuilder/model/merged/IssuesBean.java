@@ -131,22 +131,22 @@ import java.util.Set;
 @Hl7RootType
 public class IssuesBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
-    private List<CausalActs> subjectCausalActs = new ArrayList<CausalActs>();
+    private static final long serialVersionUID = 20110127L;
+    private List<IssueManagementsBean> mitigatedByDetectedIssueManagement = new ArrayList<IssueManagementsBean>();
     private CV issueType = new CVImpl();
+    private ST text = new STImpl();
+    private CV issuePriority = new CVImpl();
+    private List<CausalActs> subjectCausalActs = new ArrayList<CausalActs>();
     private SET<ST, String> messageIssueLocation = new SETImpl<ST, String>(STImpl.class);
     private IssueDescriptionBean instantiationDetectedIssueDefinition;
-    private ST text = new STImpl();
-    private List<IssueManagementsBean> mitigatedByDetectedIssueManagement = new ArrayList<IssueManagementsBean>();
-    private CV issuePriority = new CVImpl();
     private CV severityCode = new CVImpl();
     private BL triggerForActRequest = new BLImpl();
     private BL subjectOf1StorageIntent = new BLImpl();
 
 
-    @Hl7XmlMapping({"subject/causalActs"})
-    public List<CausalActs> getSubjectCausalActs() {
-        return this.subjectCausalActs;
+    @Hl7XmlMapping({"mitigatedBy/detectedIssueManagement"})
+    public List<IssueManagementsBean> getMitigatedByDetectedIssueManagement() {
+        return this.mitigatedByDetectedIssueManagement;
     }
 
 
@@ -872,42 +872,6 @@ public class IssuesBean extends MessagePartBean {
 
 
     /**
-     * <p>MessageIssueLocation</p>
-     * 
-     * <p>Message Issue Location</p>
-     * 
-     * <p><p>Used to identify XPath references that indicate which 
-     * attributes from the message instance were involved in the 
-     * issue.</p></p>
-     * 
-     * <p>Message Issue Location</p>
-     * 
-     * <p><p>Used to identify XPath referencesthat indicate which 
-     * attributes in a message instance were involved in the 
-     * issue.</p></p>
-     * 
-     * <p>Message Issue Location</p>
-     * 
-     * <p><p>Used to identify XPath references that indicate which 
-     * attributes in a message instance were involved in the 
-     * issue.</p></p>
-     */
-    @Hl7XmlMapping({"targetSiteCode"})
-    public Set<String> getMessageIssueLocation() {
-        return this.messageIssueLocation.rawSet();
-    }
-
-
-    @Hl7XmlMapping({"instantiation/detectedIssueDefinition"})
-    public IssueDescriptionBean getInstantiationDetectedIssueDefinition() {
-        return this.instantiationDetectedIssueDefinition;
-    }
-    public void setInstantiationDetectedIssueDefinition(IssueDescriptionBean instantiationDetectedIssueDefinition) {
-        this.instantiationDetectedIssueDefinition = instantiationDetectedIssueDefinition;
-    }
-
-
-    /**
      * <p>Issue Comment</p>
      * 
      * <p><p>A free form textual description regarding the issue. 
@@ -971,12 +935,6 @@ public class IssuesBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"mitigatedBy/detectedIssueManagement"})
-    public List<IssueManagementsBean> getMitigatedByDetectedIssueManagement() {
-        return this.mitigatedByDetectedIssueManagement;
-    }
-
-
     /**
      * <p>IssuePriority</p>
      * 
@@ -1000,6 +958,48 @@ public class IssuesBean extends MessagePartBean {
     }
     public void setIssuePriority(ActIssuePriority issuePriority) {
         this.issuePriority.setValue(issuePriority);
+    }
+
+
+    @Hl7XmlMapping({"subject/causalActs"})
+    public List<CausalActs> getSubjectCausalActs() {
+        return this.subjectCausalActs;
+    }
+
+
+    /**
+     * <p>MessageIssueLocation</p>
+     * 
+     * <p>Message Issue Location</p>
+     * 
+     * <p><p>Used to identify XPath references that indicate which 
+     * attributes from the message instance were involved in the 
+     * issue.</p></p>
+     * 
+     * <p>Message Issue Location</p>
+     * 
+     * <p><p>Used to identify XPath referencesthat indicate which 
+     * attributes in a message instance were involved in the 
+     * issue.</p></p>
+     * 
+     * <p>Message Issue Location</p>
+     * 
+     * <p><p>Used to identify XPath references that indicate which 
+     * attributes in a message instance were involved in the 
+     * issue.</p></p>
+     */
+    @Hl7XmlMapping({"targetSiteCode"})
+    public Set<String> getMessageIssueLocation() {
+        return this.messageIssueLocation.rawSet();
+    }
+
+
+    @Hl7XmlMapping({"instantiation/detectedIssueDefinition"})
+    public IssueDescriptionBean getInstantiationDetectedIssueDefinition() {
+        return this.instantiationDetectedIssueDefinition;
+    }
+    public void setInstantiationDetectedIssueDefinition(IssueDescriptionBean instantiationDetectedIssueDefinition) {
+        this.instantiationDetectedIssueDefinition = instantiationDetectedIssueDefinition;
     }
 
 

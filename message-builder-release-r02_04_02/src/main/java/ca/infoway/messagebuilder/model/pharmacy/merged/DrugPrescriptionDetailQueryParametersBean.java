@@ -39,53 +39,36 @@ import java.util.Set;
 @Hl7RootType
 public class DrugPrescriptionDetailQueryParametersBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
-    private II careCompositionIDs = new IIImpl();
+    private static final long serialVersionUID = 20110127L;
+    private SET<II, Identifier> prescriptionOrderNumber = new SETImpl<II, Identifier>(IIImpl.class);
     private BL includeEventHistoryIndicator = new BLImpl();
     private BL includeIssuesIndicator = new BLImpl();
-    private CV careCompositionTypes = new CVImpl();
-    private SET<II, Identifier> prescriptionOrderNumber = new SETImpl<II, Identifier>(IIImpl.class);
     private BL includeNotesIndicator = new BLImpl();
     private BL includePendingChangesIndicator = new BLImpl();
+    private II careCompositionIDs = new IIImpl();
+    private CV careCompositionTypes = new CVImpl();
     private II prescriptionDispenseNumber = new IIImpl();
 
 
     /**
-     * <p>CareCompositionIDs</p>
+     * <p>PrescriptionOrderNumber</p>
      * 
-     * <p>Care Composition IDs</p>
+     * <p>Prescription order Number</p>
      * 
-     * <p><p>Desc: Filters the records retrieved to only include 
-     * those associated with the specified encounter, episode or 
-     * care event. If unspecified, no filter is 
-     * applied.</p><p>Note: When matching on care composition id, 
-     * systems should also retrieve records with a fulfillment id 
-     * to requisitions associated with the care composition. E.g. 
-     * When retrieving records associated with an encounter which 
-     * includes a referral, the retrieved records should also 
-     * include the care summary created in fulfillment of the 
-     * referral.</p></p>
+     * <p><p>Identifier of the prescription for which detailed 
+     * information is required.</p><p>The result set will be 
+     * filtered to only the specific prescription.</p></p>
      * 
-     * <p><p>Desc: Filters the records retrieved to only include 
-     * those associated with the specified encounter, episode or 
-     * care event. If unspecified, no filter is 
-     * applied.</p><p>Note: When matching on care composition id, 
-     * systems should also retrieve records with a fulfillment id 
-     * to requisitions associated with the care composition. E.g. 
-     * When retrieving records associated with an encounter which 
-     * includes a referral, the retrieved records should also 
-     * include the care summary created in fulfillment of the 
-     * referral.</p></p>
+     * <p><p>Identifier of the prescription for which detailed 
+     * information is required.</p><p>The result set will be 
+     * filtered to only the specific prescription.</p></p>
      * 
-     * <p><p>Allows retrieving all records associated with an 
-     * encounter, episode or care event.</p></p>
+     * <p><p>Identifies the prescription that is to be retrieved, 
+     * and is therefore mandatory.</p></p>
      */
-    @Hl7XmlMapping({"careCompositionID/value"})
-    public Identifier getCareCompositionIDs() {
-        return this.careCompositionIDs.getValue();
-    }
-    public void setCareCompositionIDs(Identifier careCompositionIDs) {
-        this.careCompositionIDs.setValue(careCompositionIDs);
+    @Hl7XmlMapping({"prescriptionOrderNumber/value"})
+    public Set<Identifier> getPrescriptionOrderNumber() {
+        return this.prescriptionOrderNumber.rawSet();
     }
 
 
@@ -173,51 +156,6 @@ public class DrugPrescriptionDetailQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>CareCompositionTypes</p>
-     * 
-     * <p>Care Composition Types</p>
-     * 
-     * <p><p>Filters the records retrieved to only include those 
-     * associated with the specified 'kind' of encounter, episode 
-     * or care event. If unspecified, no filter is applied.</p></p>
-     * 
-     * <p><p>Allows retrieving all records associated with a 
-     * particular type of encounter, episode or care event. 
-     * E.g.Orthopedic Clinic Encounter, ER encounter, Walk-in 
-     * encounter, etc.</p></p>
-     */
-    @Hl7XmlMapping({"careCompositionType/value"})
-    public ActCareEventType getCareCompositionTypes() {
-        return (ActCareEventType) this.careCompositionTypes.getValue();
-    }
-    public void setCareCompositionTypes(ActCareEventType careCompositionTypes) {
-        this.careCompositionTypes.setValue(careCompositionTypes);
-    }
-
-
-    /**
-     * <p>PrescriptionOrderNumber</p>
-     * 
-     * <p>Prescription order Number</p>
-     * 
-     * <p><p>Identifier of the prescription for which detailed 
-     * information is required.</p><p>The result set will be 
-     * filtered to only the specific prescription.</p></p>
-     * 
-     * <p><p>Identifier of the prescription for which detailed 
-     * information is required.</p><p>The result set will be 
-     * filtered to only the specific prescription.</p></p>
-     * 
-     * <p><p>Identifies the prescription that is to be retrieved, 
-     * and is therefore mandatory.</p></p>
-     */
-    @Hl7XmlMapping({"prescriptionOrderNumber/value"})
-    public Set<Identifier> getPrescriptionOrderNumber() {
-        return this.prescriptionOrderNumber.rawSet();
-    }
-
-
-    /**
      * <p>IncludeNotesIndicator</p>
      * 
      * <p>Include Notes Indicator</p>
@@ -293,6 +231,68 @@ public class DrugPrescriptionDetailQueryParametersBean extends MessagePartBean {
     }
     public void setIncludePendingChangesIndicator(Boolean includePendingChangesIndicator) {
         this.includePendingChangesIndicator.setValue(includePendingChangesIndicator);
+    }
+
+
+    /**
+     * <p>CareCompositionIDs</p>
+     * 
+     * <p>Care Composition IDs</p>
+     * 
+     * <p><p>Desc: Filters the records retrieved to only include 
+     * those associated with the specified encounter, episode or 
+     * care event. If unspecified, no filter is 
+     * applied.</p><p>Note: When matching on care composition id, 
+     * systems should also retrieve records with a fulfillment id 
+     * to requisitions associated with the care composition. E.g. 
+     * When retrieving records associated with an encounter which 
+     * includes a referral, the retrieved records should also 
+     * include the care summary created in fulfillment of the 
+     * referral.</p></p>
+     * 
+     * <p><p>Desc: Filters the records retrieved to only include 
+     * those associated with the specified encounter, episode or 
+     * care event. If unspecified, no filter is 
+     * applied.</p><p>Note: When matching on care composition id, 
+     * systems should also retrieve records with a fulfillment id 
+     * to requisitions associated with the care composition. E.g. 
+     * When retrieving records associated with an encounter which 
+     * includes a referral, the retrieved records should also 
+     * include the care summary created in fulfillment of the 
+     * referral.</p></p>
+     * 
+     * <p><p>Allows retrieving all records associated with an 
+     * encounter, episode or care event.</p></p>
+     */
+    @Hl7XmlMapping({"careCompositionID/value"})
+    public Identifier getCareCompositionIDs() {
+        return this.careCompositionIDs.getValue();
+    }
+    public void setCareCompositionIDs(Identifier careCompositionIDs) {
+        this.careCompositionIDs.setValue(careCompositionIDs);
+    }
+
+
+    /**
+     * <p>CareCompositionTypes</p>
+     * 
+     * <p>Care Composition Types</p>
+     * 
+     * <p><p>Filters the records retrieved to only include those 
+     * associated with the specified 'kind' of encounter, episode 
+     * or care event. If unspecified, no filter is applied.</p></p>
+     * 
+     * <p><p>Allows retrieving all records associated with a 
+     * particular type of encounter, episode or care event. 
+     * E.g.Orthopedic Clinic Encounter, ER encounter, Walk-in 
+     * encounter, etc.</p></p>
+     */
+    @Hl7XmlMapping({"careCompositionType/value"})
+    public ActCareEventType getCareCompositionTypes() {
+        return (ActCareEventType) this.careCompositionTypes.getValue();
+    }
+    public void setCareCompositionTypes(ActCareEventType careCompositionTypes) {
+        this.careCompositionTypes.setValue(careCompositionTypes);
     }
 
 

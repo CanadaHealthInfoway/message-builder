@@ -76,15 +76,9 @@ import java.util.List;
 @Hl7PartTypeMapping({"REPC_MT500001CA.PatientCareProvisionEventPortion","REPC_MT500002CA.PatientCareProvisionEventPortion","REPC_MT500004CA.PatientCareProvisionEventPortion"})
 public class ParticipantGroupingsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
-    private List<HasBean> participant = new ArrayList<HasBean>();
+    private static final long serialVersionUID = 20110127L;
     private CreatedAtBean location;
-
-
-    @Hl7XmlMapping({"participant"})
-    public List<HasBean> getParticipant() {
-        return this.participant;
-    }
+    private List<HasBean> participant = new ArrayList<HasBean>();
 
 
     @Hl7XmlMapping({"location"})
@@ -93,6 +87,12 @@ public class ParticipantGroupingsBean extends MessagePartBean {
     }
     public void setLocation(CreatedAtBean location) {
         this.location = location;
+    }
+
+
+    @Hl7XmlMapping({"participant"})
+    public List<HasBean> getParticipant() {
+        return this.participant;
     }
 
 }

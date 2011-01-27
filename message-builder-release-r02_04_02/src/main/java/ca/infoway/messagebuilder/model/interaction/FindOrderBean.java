@@ -12,6 +12,6 @@ import ca.infoway.messagebuilder.model.lab.polb_mt330000ca.ParameterListBean;
 @Hl7PartTypeMapping({"POLB_IN351000CA"})
 public class FindOrderBean extends HL7Message_1Bean<TriggerEvent_5Bean<ParameterListBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20110126L;
+    private static final long serialVersionUID = 20110127L;
 
 }

@@ -32,12 +32,12 @@ import java.util.List;
 @Hl7PartTypeMapping({"POLB_MT004100CA.OrganismIdentificationEvent"})
 public class OrganismIdentificatonObservationsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
+    private static final long serialVersionUID = 20110127L;
     private CS organsimIdentificationObservationStatus = new CSImpl();
-    private ResultStatusProcessStepBean subjectOf2ResultStatusProcessStep;
-    private IsolateParticipationBean specimen;
     private CD organismIdentificationType = new CDImpl();
     private List<IncludesBean> subjectOf1 = new ArrayList<IncludesBean>();
+    private IsolateParticipationBean specimen;
+    private ResultStatusProcessStepBean subjectOf2ResultStatusProcessStep;
     private IVL<TS, Interval<Date>> organismObservationEffectiveTime = new IVLImpl<TS, Interval<Date>>();
 
 
@@ -53,24 +53,6 @@ public class OrganismIdentificatonObservationsBean extends MessagePartBean {
     }
     public void setOrgansimIdentificationObservationStatus(ActStatus organsimIdentificationObservationStatus) {
         this.organsimIdentificationObservationStatus.setValue(organsimIdentificationObservationStatus);
-    }
-
-
-    @Hl7XmlMapping({"subjectOf2/resultStatusProcessStep"})
-    public ResultStatusProcessStepBean getSubjectOf2ResultStatusProcessStep() {
-        return this.subjectOf2ResultStatusProcessStep;
-    }
-    public void setSubjectOf2ResultStatusProcessStep(ResultStatusProcessStepBean subjectOf2ResultStatusProcessStep) {
-        this.subjectOf2ResultStatusProcessStep = subjectOf2ResultStatusProcessStep;
-    }
-
-
-    @Hl7XmlMapping({"specimen"})
-    public IsolateParticipationBean getSpecimen() {
-        return this.specimen;
-    }
-    public void setSpecimen(IsolateParticipationBean specimen) {
-        this.specimen = specimen;
     }
 
 
@@ -93,6 +75,24 @@ public class OrganismIdentificatonObservationsBean extends MessagePartBean {
     @Hl7XmlMapping({"subjectOf1"})
     public List<IncludesBean> getSubjectOf1() {
         return this.subjectOf1;
+    }
+
+
+    @Hl7XmlMapping({"specimen"})
+    public IsolateParticipationBean getSpecimen() {
+        return this.specimen;
+    }
+    public void setSpecimen(IsolateParticipationBean specimen) {
+        this.specimen = specimen;
+    }
+
+
+    @Hl7XmlMapping({"subjectOf2/resultStatusProcessStep"})
+    public ResultStatusProcessStepBean getSubjectOf2ResultStatusProcessStep() {
+        return this.subjectOf2ResultStatusProcessStep;
+    }
+    public void setSubjectOf2ResultStatusProcessStep(ResultStatusProcessStepBean subjectOf2ResultStatusProcessStep) {
+        this.subjectOf2ResultStatusProcessStep = subjectOf2ResultStatusProcessStep;
     }
 
 

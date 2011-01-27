@@ -15,29 +15,10 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"FICR_MT500201CA.CarrierRole","FICR_MT600201CA.CarrierRole","FICR_MT610201CA.CarrierRole","PORX_MT060160CA.CarrierRole","PORX_MT060340CA.CarrierRole"})
 public class CarrierRoleBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
-    private ST payorName = new STImpl();
+    private static final long serialVersionUID = 20110127L;
     private II id = new IIImpl();
+    private ST payorName = new STImpl();
     private ST underwritingOrganizationName = new STImpl();
-
-
-    /**
-     * <p>PayorName</p>
-     * 
-     * <p>Payor Name</p>
-     * 
-     * <p><p>The name of the organization responsible for issuing 
-     * the coverage extension.</p></p>
-     * 
-     * <p><p>Mandatory for display purposes.</p></p>
-     */
-    @Hl7XmlMapping({"underwritingCarrierOrganization/name"})
-    public String getPayorName() {
-        return this.payorName.getValue();
-    }
-    public void setPayorName(String payorName) {
-        this.payorName.setValue(payorName);
-    }
 
 
     /**
@@ -58,6 +39,25 @@ public class CarrierRoleBean extends MessagePartBean {
     }
     public void setId(Identifier id) {
         this.id.setValue(id);
+    }
+
+
+    /**
+     * <p>PayorName</p>
+     * 
+     * <p>Payor Name</p>
+     * 
+     * <p><p>The name of the organization responsible for issuing 
+     * the coverage extension.</p></p>
+     * 
+     * <p><p>Mandatory for display purposes.</p></p>
+     */
+    @Hl7XmlMapping({"underwritingCarrierOrganization/name"})
+    public String getPayorName() {
+        return this.payorName.getValue();
+    }
+    public void setPayorName(String payorName) {
+        this.payorName.setValue(payorName);
     }
 
 

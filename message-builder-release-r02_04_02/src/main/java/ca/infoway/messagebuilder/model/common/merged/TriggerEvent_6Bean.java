@@ -64,24 +64,47 @@ import java.util.List;
 @Hl7RootType
 public class TriggerEvent_6Bean<ACT,PL> extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
-    private List<IssuesBean> subjectOf1DetectedIssueEvent = new ArrayList<IssuesBean>();
+    private static final long serialVersionUID = 20110127L;
+    private List<RefersTo_1Bean<ACT>> subject = new ArrayList<RefersTo_1Bean<ACT>>();
+    private QueryByParameterBean<PL> queryByParameter;
+    private CE messageLanguage = new CEImpl();
     private CV eventType = new CVImpl();
     private II eventIdentifier = new IIImpl();
-    private IVL<TS, Interval<Date>> eventEffectivePeriod = new IVLImpl<TS, Interval<Date>>();
-    private QueryByParameterBean<PL> queryByParameter;
-    private List<RefersTo_1Bean<ACT>> subject = new ArrayList<RefersTo_1Bean<ACT>>();
-    private CV eventReason = new CVImpl();
+    private List<IssuesBean> subjectOf1DetectedIssueEvent = new ArrayList<IssuesBean>();
     private ConsentBean subjectOf2ConsentEvent;
     private QueryAckBean queryAck;
-    private CE messageLanguage = new CEImpl();
-    private List<CareCompositionsBean> componentOfPatientCareProvisionEvent = new ArrayList<CareCompositionsBean>();
+    private IVL<TS, Interval<Date>> eventEffectivePeriod = new IVLImpl<TS, Interval<Date>>();
+    private CV eventReason = new CVImpl();
     private Patient recordTargetPatient1;
+    private List<CareCompositionsBean> componentOfPatientCareProvisionEvent = new ArrayList<CareCompositionsBean>();
 
 
-    @Hl7XmlMapping({"subjectOf1/detectedIssueEvent"})
-    public List<IssuesBean> getSubjectOf1DetectedIssueEvent() {
-        return this.subjectOf1DetectedIssueEvent;
+    @Hl7XmlMapping({"subject"})
+    public List<RefersTo_1Bean<ACT>> getSubject() {
+        return this.subject;
+    }
+
+
+    @Hl7XmlMapping({"queryByParameter"})
+    public QueryByParameterBean<PL> getQueryByParameter() {
+        return this.queryByParameter;
+    }
+    public void setQueryByParameter(QueryByParameterBean<PL> queryByParameter) {
+        this.queryByParameter = queryByParameter;
+    }
+
+
+    /**
+     * <p>MessageLanguage</p>
+     * 
+     * <p>Message Language</p>
+     */
+    @Hl7XmlMapping({"languageCode"})
+    public HumanLanguage getMessageLanguage() {
+        return (HumanLanguage) this.messageLanguage.getValue();
+    }
+    public void setMessageLanguage(HumanLanguage messageLanguage) {
+        this.messageLanguage.setValue(messageLanguage);
     }
 
 
@@ -132,6 +155,30 @@ public class TriggerEvent_6Bean<ACT,PL> extends MessagePartBean {
     }
 
 
+    @Hl7XmlMapping({"subjectOf1/detectedIssueEvent"})
+    public List<IssuesBean> getSubjectOf1DetectedIssueEvent() {
+        return this.subjectOf1DetectedIssueEvent;
+    }
+
+
+    @Hl7XmlMapping({"subjectOf2/consentEvent"})
+    public ConsentBean getSubjectOf2ConsentEvent() {
+        return this.subjectOf2ConsentEvent;
+    }
+    public void setSubjectOf2ConsentEvent(ConsentBean subjectOf2ConsentEvent) {
+        this.subjectOf2ConsentEvent = subjectOf2ConsentEvent;
+    }
+
+
+    @Hl7XmlMapping({"queryAck"})
+    public QueryAckBean getQueryAck() {
+        return this.queryAck;
+    }
+    public void setQueryAck(QueryAckBean queryAck) {
+        this.queryAck = queryAck;
+    }
+
+
     /**
      * <p>EventEffectivePeriod</p>
      * 
@@ -152,21 +199,6 @@ public class TriggerEvent_6Bean<ACT,PL> extends MessagePartBean {
     }
     public void setEventEffectivePeriod(Interval<Date> eventEffectivePeriod) {
         this.eventEffectivePeriod.setValue(eventEffectivePeriod);
-    }
-
-
-    @Hl7XmlMapping({"queryByParameter"})
-    public QueryByParameterBean<PL> getQueryByParameter() {
-        return this.queryByParameter;
-    }
-    public void setQueryByParameter(QueryByParameterBean<PL> queryByParameter) {
-        this.queryByParameter = queryByParameter;
-    }
-
-
-    @Hl7XmlMapping({"subject"})
-    public List<RefersTo_1Bean<ACT>> getSubject() {
-        return this.subject;
     }
 
 
@@ -193,44 +225,6 @@ public class TriggerEvent_6Bean<ACT,PL> extends MessagePartBean {
     }
     public void setEventReason(ControlActReason eventReason) {
         this.eventReason.setValue(eventReason);
-    }
-
-
-    @Hl7XmlMapping({"subjectOf2/consentEvent"})
-    public ConsentBean getSubjectOf2ConsentEvent() {
-        return this.subjectOf2ConsentEvent;
-    }
-    public void setSubjectOf2ConsentEvent(ConsentBean subjectOf2ConsentEvent) {
-        this.subjectOf2ConsentEvent = subjectOf2ConsentEvent;
-    }
-
-
-    @Hl7XmlMapping({"queryAck"})
-    public QueryAckBean getQueryAck() {
-        return this.queryAck;
-    }
-    public void setQueryAck(QueryAckBean queryAck) {
-        this.queryAck = queryAck;
-    }
-
-
-    /**
-     * <p>MessageLanguage</p>
-     * 
-     * <p>Message Language</p>
-     */
-    @Hl7XmlMapping({"languageCode"})
-    public HumanLanguage getMessageLanguage() {
-        return (HumanLanguage) this.messageLanguage.getValue();
-    }
-    public void setMessageLanguage(HumanLanguage messageLanguage) {
-        this.messageLanguage.setValue(messageLanguage);
-    }
-
-
-    @Hl7XmlMapping({"componentOf/patientCareProvisionEvent"})
-    public List<CareCompositionsBean> getComponentOfPatientCareProvisionEvent() {
-        return this.componentOfPatientCareProvisionEvent;
     }
 
 
@@ -261,6 +255,12 @@ public class TriggerEvent_6Bean<ACT,PL> extends MessagePartBean {
     }
     public boolean hasRecordTargetPatient1AsPatient3() {
         return (this.recordTargetPatient1 instanceof Patient_1Bean);
+    }
+
+
+    @Hl7XmlMapping({"componentOf/patientCareProvisionEvent"})
+    public List<CareCompositionsBean> getComponentOfPatientCareProvisionEvent() {
+        return this.componentOfPatientCareProvisionEvent;
     }
 
 }

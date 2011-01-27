@@ -59,7 +59,7 @@ import java.util.Set;
 @Hl7RootType
 public class ActRequestBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
+    private static final long serialVersionUID = 20110127L;
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
     private BL preconditionVerificationEventCriterion = new BLImpl();
 

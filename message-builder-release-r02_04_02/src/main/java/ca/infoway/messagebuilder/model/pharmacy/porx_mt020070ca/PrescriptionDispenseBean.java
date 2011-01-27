@@ -38,20 +38,47 @@ import java.util.Set;
 @Hl7RootType
 public class PrescriptionDispenseBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
-    private List<AdministrationInstructionsBean> component2DosageInstruction = new ArrayList<AdministrationInstructionsBean>();
-    private II localDispenseId = new IIImpl();
+    private static final long serialVersionUID = 20110127L;
+    private AnimalPatientBean subjectPatient;
     private IncludesBean subjectOf;
+    private List<AdministrationInstructionsBean> component2DosageInstruction = new ArrayList<AdministrationInstructionsBean>();
+    private PrescriptionReferenceBean inFulfillmentOfSubstanceAdministrationRequest;
+    private II localDispenseId = new IIImpl();
     private SET<CV, Code> prescriptionMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);
     private SupplyEventBean component3SupplyEvent;
     private SubstitutionBean component1SubstitutionMade;
-    private PrescriptionReferenceBean inFulfillmentOfSubstanceAdministrationRequest;
-    private AnimalPatientBean subjectPatient;
+
+
+    @Hl7XmlMapping({"subject/patient"})
+    public AnimalPatientBean getSubjectPatient() {
+        return this.subjectPatient;
+    }
+    public void setSubjectPatient(AnimalPatientBean subjectPatient) {
+        this.subjectPatient = subjectPatient;
+    }
+
+
+    @Hl7XmlMapping({"subjectOf"})
+    public IncludesBean getSubjectOf() {
+        return this.subjectOf;
+    }
+    public void setSubjectOf(IncludesBean subjectOf) {
+        this.subjectOf = subjectOf;
+    }
 
 
     @Hl7XmlMapping({"component2/dosageInstruction"})
     public List<AdministrationInstructionsBean> getComponent2DosageInstruction() {
         return this.component2DosageInstruction;
+    }
+
+
+    @Hl7XmlMapping({"inFulfillmentOf/substanceAdministrationRequest"})
+    public PrescriptionReferenceBean getInFulfillmentOfSubstanceAdministrationRequest() {
+        return this.inFulfillmentOfSubstanceAdministrationRequest;
+    }
+    public void setInFulfillmentOfSubstanceAdministrationRequest(PrescriptionReferenceBean inFulfillmentOfSubstanceAdministrationRequest) {
+        this.inFulfillmentOfSubstanceAdministrationRequest = inFulfillmentOfSubstanceAdministrationRequest;
     }
 
 
@@ -69,15 +96,6 @@ public class PrescriptionDispenseBean extends MessagePartBean {
     }
     public void setLocalDispenseId(Identifier localDispenseId) {
         this.localDispenseId.setValue(localDispenseId);
-    }
-
-
-    @Hl7XmlMapping({"subjectOf"})
-    public IncludesBean getSubjectOf() {
-        return this.subjectOf;
-    }
-    public void setSubjectOf(IncludesBean subjectOf) {
-        this.subjectOf = subjectOf;
     }
 
 
@@ -206,24 +224,6 @@ public class PrescriptionDispenseBean extends MessagePartBean {
     }
     public void setComponent1SubstitutionMade(SubstitutionBean component1SubstitutionMade) {
         this.component1SubstitutionMade = component1SubstitutionMade;
-    }
-
-
-    @Hl7XmlMapping({"inFulfillmentOf/substanceAdministrationRequest"})
-    public PrescriptionReferenceBean getInFulfillmentOfSubstanceAdministrationRequest() {
-        return this.inFulfillmentOfSubstanceAdministrationRequest;
-    }
-    public void setInFulfillmentOfSubstanceAdministrationRequest(PrescriptionReferenceBean inFulfillmentOfSubstanceAdministrationRequest) {
-        this.inFulfillmentOfSubstanceAdministrationRequest = inFulfillmentOfSubstanceAdministrationRequest;
-    }
-
-
-    @Hl7XmlMapping({"subject/patient"})
-    public AnimalPatientBean getSubjectPatient() {
-        return this.subjectPatient;
-    }
-    public void setSubjectPatient(AnimalPatientBean subjectPatient) {
-        this.subjectPatient = subjectPatient;
     }
 
 }

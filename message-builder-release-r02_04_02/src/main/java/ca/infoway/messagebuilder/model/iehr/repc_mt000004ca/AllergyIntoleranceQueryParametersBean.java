@@ -42,14 +42,101 @@ import java.util.List;
 @Hl7RootType
 public class AllergyIntoleranceQueryParametersBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
-    private List<II> careCompositionIDs = new ArrayList<II>();
+    private static final long serialVersionUID = 20110127L;
     private IVL<TS, Interval<Date>> allergyIntoleranceChangePeriod = new IVLImpl<TS, Interval<Date>>();
-    private CD allergyIntoleranceType = new CDImpl();
-    private List<CV> careCompositionTypes = new ArrayList<CV>();
-    private BL includeNotesIndicator = new BLImpl();
     private CV reaction = new CVImpl();
+    private CD allergyIntoleranceType = new CDImpl();
+    private BL includeNotesIndicator = new BLImpl();
+    private List<II> careCompositionIDs = new ArrayList<II>();
     private CV allergyIntoleranceStatus = new CVImpl();
+    private List<CV> careCompositionTypes = new ArrayList<CV>();
+
+
+    /**
+     * <p>F:Allergy/Intolerance Change Period</p>
+     * 
+     * <p><p>Filters the query response to only include 
+     * allergy/intolerance records which have been created or 
+     * modified within the date-range specified.</p></p>
+     * 
+     * <p><p>Useful in retrieving incremental changes to the 
+     * patient's record.</p></p>
+     */
+    @Hl7XmlMapping({"alllergyIntoleranceChangePeriod/value"})
+    public Interval<Date> getAllergyIntoleranceChangePeriod() {
+        return this.allergyIntoleranceChangePeriod.getValue();
+    }
+    public void setAllergyIntoleranceChangePeriod(Interval<Date> allergyIntoleranceChangePeriod) {
+        this.allergyIntoleranceChangePeriod.setValue(allergyIntoleranceChangePeriod);
+    }
+
+
+    /**
+     * <p>I:Reaction</p>
+     * 
+     * <p><p>A coded value denoting a specific reaction. E.g. Code 
+     * for 'rash'. The result set will be filtered to include only 
+     * those allergy records or intolerance records pertaining to 
+     * the specified reaction.</p></p>
+     * 
+     * <p><p>Allows allergy/intolerance records to be selectively 
+     * searched and retrieved.</p></p>
+     */
+    @Hl7XmlMapping({"reactionType/value"})
+    public SubjectReaction getReaction() {
+        return (SubjectReaction) this.reaction.getValue();
+    }
+    public void setReaction(SubjectReaction reaction) {
+        this.reaction.setValue(reaction);
+    }
+
+
+    /**
+     * <p>H:Allergy/Intolerance Type</p>
+     * 
+     * <p><p>A coded value indicating whether to return an allergy 
+     * record or an intolerance record. The result set will be 
+     * filtered to include only allergy records or intolerance 
+     * records accordingly.</p></p>
+     * 
+     * <p><p>Allows allergy/intolerance records to be selectively 
+     * searched and retrieved.</p></p>
+     */
+    @Hl7XmlMapping({"allergyIntoleranceType/value"})
+    public ObservationIntoleranceType getAllergyIntoleranceType() {
+        return (ObservationIntoleranceType) this.allergyIntoleranceType.getValue();
+    }
+    public void setAllergyIntoleranceType(ObservationIntoleranceType allergyIntoleranceType) {
+        this.allergyIntoleranceType.setValue(allergyIntoleranceType);
+    }
+
+
+    /**
+     * <p>Include Notes Indicator</p>
+     * 
+     * <p><p>Indicates whether or not notes attached to the 
+     * allergy/intolerance records are to be returned along with 
+     * the detailed information.</p></p>
+     * 
+     * <p><p>Allows for the flexibility of omitting/including notes 
+     * in the retrieval of information for allergy/intolerance 
+     * data.</p><p>Because the attribute is boolean, it must 
+     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
+     * mandatory.</p></p>
+     * 
+     * <p><p>Allows for the flexibility of omitting/including notes 
+     * in the retrieval of information for allergy/intolerance 
+     * data.</p><p>Because the attribute is boolean, it must 
+     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
+     * mandatory.</p></p>
+     */
+    @Hl7XmlMapping({"includeNotesIndicator/value"})
+    public Boolean getIncludeNotesIndicator() {
+        return this.includeNotesIndicator.getValue();
+    }
+    public void setIncludeNotesIndicator(Boolean includeNotesIndicator) {
+        this.includeNotesIndicator.setValue(includeNotesIndicator);
+    }
 
 
     /**
@@ -85,41 +172,23 @@ public class AllergyIntoleranceQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>F:Allergy/Intolerance Change Period</p>
+     * <p>G:Allergy/Intolerance Status</p>
      * 
-     * <p><p>Filters the query response to only include 
-     * allergy/intolerance records which have been created or 
-     * modified within the date-range specified.</p></p>
+     * <p><p>Indicates that the result set should be filtered to 
+     * include only those allergy/intolerance records for the 
+     * specified status. Valid statuses include: ACTIVE or 
+     * COMPLETE.</p></p>
      * 
-     * <p><p>Useful in retrieving incremental changes to the 
-     * patient's record.</p></p>
+     * <p><p>Allows for the selective retrieval of 
+     * allergy/intolerance records based on the status of the 
+     * record.</p></p>
      */
-    @Hl7XmlMapping({"alllergyIntoleranceChangePeriod/value"})
-    public Interval<Date> getAllergyIntoleranceChangePeriod() {
-        return this.allergyIntoleranceChangePeriod.getValue();
+    @Hl7XmlMapping({"allergyIntoleranceStatus/value"})
+    public ActStatus getAllergyIntoleranceStatus() {
+        return (ActStatus) this.allergyIntoleranceStatus.getValue();
     }
-    public void setAllergyIntoleranceChangePeriod(Interval<Date> allergyIntoleranceChangePeriod) {
-        this.allergyIntoleranceChangePeriod.setValue(allergyIntoleranceChangePeriod);
-    }
-
-
-    /**
-     * <p>H:Allergy/Intolerance Type</p>
-     * 
-     * <p><p>A coded value indicating whether to return an allergy 
-     * record or an intolerance record. The result set will be 
-     * filtered to include only allergy records or intolerance 
-     * records accordingly.</p></p>
-     * 
-     * <p><p>Allows allergy/intolerance records to be selectively 
-     * searched and retrieved.</p></p>
-     */
-    @Hl7XmlMapping({"allergyIntoleranceType/value"})
-    public ObservationIntoleranceType getAllergyIntoleranceType() {
-        return (ObservationIntoleranceType) this.allergyIntoleranceType.getValue();
-    }
-    public void setAllergyIntoleranceType(ObservationIntoleranceType allergyIntoleranceType) {
-        this.allergyIntoleranceType.setValue(allergyIntoleranceType);
+    public void setAllergyIntoleranceStatus(ActStatus allergyIntoleranceStatus) {
+        this.allergyIntoleranceStatus.setValue(allergyIntoleranceStatus);
     }
 
 
@@ -138,75 +207,6 @@ public class AllergyIntoleranceQueryParametersBean extends MessagePartBean {
     @Hl7XmlMapping({"careCompositionType/value"})
     public List<ActCareEventType> getCareCompositionTypes() {
         return new RawListWrapper<CV, ActCareEventType>(careCompositionTypes, CVImpl.class);
-    }
-
-
-    /**
-     * <p>Include Notes Indicator</p>
-     * 
-     * <p><p>Indicates whether or not notes attached to the 
-     * allergy/intolerance records are to be returned along with 
-     * the detailed information.</p></p>
-     * 
-     * <p><p>Allows for the flexibility of omitting/including notes 
-     * in the retrieval of information for allergy/intolerance 
-     * data.</p><p>Because the attribute is boolean, it must 
-     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
-     * mandatory.</p></p>
-     * 
-     * <p><p>Allows for the flexibility of omitting/including notes 
-     * in the retrieval of information for allergy/intolerance 
-     * data.</p><p>Because the attribute is boolean, it must 
-     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
-     * mandatory.</p></p>
-     */
-    @Hl7XmlMapping({"includeNotesIndicator/value"})
-    public Boolean getIncludeNotesIndicator() {
-        return this.includeNotesIndicator.getValue();
-    }
-    public void setIncludeNotesIndicator(Boolean includeNotesIndicator) {
-        this.includeNotesIndicator.setValue(includeNotesIndicator);
-    }
-
-
-    /**
-     * <p>I:Reaction</p>
-     * 
-     * <p><p>A coded value denoting a specific reaction. E.g. Code 
-     * for 'rash'. The result set will be filtered to include only 
-     * those allergy records or intolerance records pertaining to 
-     * the specified reaction.</p></p>
-     * 
-     * <p><p>Allows allergy/intolerance records to be selectively 
-     * searched and retrieved.</p></p>
-     */
-    @Hl7XmlMapping({"reactionType/value"})
-    public SubjectReaction getReaction() {
-        return (SubjectReaction) this.reaction.getValue();
-    }
-    public void setReaction(SubjectReaction reaction) {
-        this.reaction.setValue(reaction);
-    }
-
-
-    /**
-     * <p>G:Allergy/Intolerance Status</p>
-     * 
-     * <p><p>Indicates that the result set should be filtered to 
-     * include only those allergy/intolerance records for the 
-     * specified status. Valid statuses include: ACTIVE or 
-     * COMPLETE.</p></p>
-     * 
-     * <p><p>Allows for the selective retrieval of 
-     * allergy/intolerance records based on the status of the 
-     * record.</p></p>
-     */
-    @Hl7XmlMapping({"allergyIntoleranceStatus/value"})
-    public ActStatus getAllergyIntoleranceStatus() {
-        return (ActStatus) this.allergyIntoleranceStatus.getValue();
-    }
-    public void setAllergyIntoleranceStatus(ActStatus allergyIntoleranceStatus) {
-        this.allergyIntoleranceStatus.setValue(allergyIntoleranceStatus);
     }
 
 }

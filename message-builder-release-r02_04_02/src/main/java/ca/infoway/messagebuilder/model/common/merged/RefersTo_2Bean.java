@@ -57,11 +57,38 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"MFMI_MT700711CA.Subject2","MFMI_MT700716CA.Subject2"})
 public class RefersTo_2Bean<RR> extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
-    private BL cascadeResponsibilityIndicator = new BLImpl();
+    private static final long serialVersionUID = 20110127L;
     private EHRRepositoryBean registrationRequestCustodianAssignedDevice;
-    private PriorRegistrationEventBean registrationRequestReplacementOfPriorRegistration;
     private RegisteredItemBean<RR> registrationRequestSubject;
+    private PriorRegistrationEventBean registrationRequestReplacementOfPriorRegistration;
+    private BL cascadeResponsibilityIndicator = new BLImpl();
+
+
+    @Hl7XmlMapping({"registrationRequest/custodian/assignedDevice"})
+    public EHRRepositoryBean getRegistrationRequestCustodianAssignedDevice() {
+        return this.registrationRequestCustodianAssignedDevice;
+    }
+    public void setRegistrationRequestCustodianAssignedDevice(EHRRepositoryBean registrationRequestCustodianAssignedDevice) {
+        this.registrationRequestCustodianAssignedDevice = registrationRequestCustodianAssignedDevice;
+    }
+
+
+    @Hl7XmlMapping({"registrationRequest/subject"})
+    public RegisteredItemBean<RR> getRegistrationRequestSubject() {
+        return this.registrationRequestSubject;
+    }
+    public void setRegistrationRequestSubject(RegisteredItemBean<RR> registrationRequestSubject) {
+        this.registrationRequestSubject = registrationRequestSubject;
+    }
+
+
+    @Hl7XmlMapping({"registrationRequest/replacementOf/priorRegistration"})
+    public PriorRegistrationEventBean getRegistrationRequestReplacementOfPriorRegistration() {
+        return this.registrationRequestReplacementOfPriorRegistration;
+    }
+    public void setRegistrationRequestReplacementOfPriorRegistration(PriorRegistrationEventBean registrationRequestReplacementOfPriorRegistration) {
+        this.registrationRequestReplacementOfPriorRegistration = registrationRequestReplacementOfPriorRegistration;
+    }
 
 
     /**
@@ -124,33 +151,6 @@ public class RefersTo_2Bean<RR> extends MessagePartBean {
     }
     public void setCascadeResponsibilityIndicator(Boolean cascadeResponsibilityIndicator) {
         this.cascadeResponsibilityIndicator.setValue(cascadeResponsibilityIndicator);
-    }
-
-
-    @Hl7XmlMapping({"registrationRequest/custodian/assignedDevice"})
-    public EHRRepositoryBean getRegistrationRequestCustodianAssignedDevice() {
-        return this.registrationRequestCustodianAssignedDevice;
-    }
-    public void setRegistrationRequestCustodianAssignedDevice(EHRRepositoryBean registrationRequestCustodianAssignedDevice) {
-        this.registrationRequestCustodianAssignedDevice = registrationRequestCustodianAssignedDevice;
-    }
-
-
-    @Hl7XmlMapping({"registrationRequest/replacementOf/priorRegistration"})
-    public PriorRegistrationEventBean getRegistrationRequestReplacementOfPriorRegistration() {
-        return this.registrationRequestReplacementOfPriorRegistration;
-    }
-    public void setRegistrationRequestReplacementOfPriorRegistration(PriorRegistrationEventBean registrationRequestReplacementOfPriorRegistration) {
-        this.registrationRequestReplacementOfPriorRegistration = registrationRequestReplacementOfPriorRegistration;
-    }
-
-
-    @Hl7XmlMapping({"registrationRequest/subject"})
-    public RegisteredItemBean<RR> getRegistrationRequestSubject() {
-        return this.registrationRequestSubject;
-    }
-    public void setRegistrationRequestSubject(RegisteredItemBean<RR> registrationRequestSubject) {
-        this.registrationRequestSubject = registrationRequestSubject;
     }
 
 }

@@ -395,36 +395,9 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"MCAI_MT700210CA.AuthorizationToken","MCAI_MT700211CA.AuthorizationToken","MCAI_MT700212CA.AuthorizationToken","MCAI_MT700220CA.AuthorizationToken","MCAI_MT700221CA.AuthorizationToken","MCAI_MT700222CA.AuthorizationToken","MCAI_MT700230CA.AuthorizationToken","MCAI_MT700231CA.AuthorizationToken","MCAI_MT700232CA.AuthorizationToken","MFMI_MT700711CA.AuthorizationToken","MFMI_MT700751CA.AuthorizationToken","QUQI_MT020000CA.AuthorizationToken","QUQI_MT020002CA.AuthorizationToken"})
 public class AuthenticationTokenBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
-    private II authorizationTokenAsId = new IIImpl();
+    private static final long serialVersionUID = 20110127L;
     private ST authorizationToken = new STImpl();
-
-
-    /**
-     * <p>AuthorizationTokenAsId</p>
-     * 
-     * <p>Authorization Token as Id</p>
-     * 
-     * <p><p>An authorization token expressed as a GUID.</p><p>The 
-     * Authorization token may represent the concepts of author, 
-     * data enterer, supervisor (responsible party), responsible 
-     * location and/or data entry location.</p></p>
-     * 
-     * <p><p>An authorization token expressed as a GUID.</p><p>The 
-     * Authorization token may represent the concepts of author, 
-     * data enterer, supervisor (responsible party), responsible 
-     * location and/or data entry location.</p></p>
-     * 
-     * <p><p>GUIDs are an effective way of conveying a temporary 
-     * authentication token</p></p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Identifier getAuthorizationTokenAsId() {
-        return this.authorizationTokenAsId.getValue();
-    }
-    public void setAuthorizationTokenAsId(Identifier authorizationTokenAsId) {
-        this.authorizationTokenAsId.setValue(authorizationTokenAsId);
-    }
+    private II authorizationTokenAsId = new IIImpl();
 
 
     /**
@@ -451,6 +424,33 @@ public class AuthenticationTokenBean extends MessagePartBean {
     }
     public void setAuthorizationToken(String authorizationToken) {
         this.authorizationToken.setValue(authorizationToken);
+    }
+
+
+    /**
+     * <p>AuthorizationTokenAsId</p>
+     * 
+     * <p>Authorization Token as Id</p>
+     * 
+     * <p><p>An authorization token expressed as a GUID.</p><p>The 
+     * Authorization token may represent the concepts of author, 
+     * data enterer, supervisor (responsible party), responsible 
+     * location and/or data entry location.</p></p>
+     * 
+     * <p><p>An authorization token expressed as a GUID.</p><p>The 
+     * Authorization token may represent the concepts of author, 
+     * data enterer, supervisor (responsible party), responsible 
+     * location and/or data entry location.</p></p>
+     * 
+     * <p><p>GUIDs are an effective way of conveying a temporary 
+     * authentication token</p></p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Identifier getAuthorizationTokenAsId() {
+        return this.authorizationTokenAsId.getValue();
+    }
+    public void setAuthorizationTokenAsId(Identifier authorizationTokenAsId) {
+        this.authorizationTokenAsId.setValue(authorizationTokenAsId);
     }
 
 }

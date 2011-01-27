@@ -50,69 +50,47 @@ import java.util.Set;
 @Hl7RootType
 public class PrescriptionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
-    private II prescriptionNumber = new IIImpl();
-    private CV prescriptionType = new CVImpl();
-    private SET<CV, Code> prescriptionMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);
-    private List<BecauseOfBean> reason = new ArrayList<BecauseOfBean>();
-    private List<CoverageExtensions_1Bean> coverageCoverage = new ArrayList<CoverageExtensions_1Bean>();
-    private BL preconditionVerificationEventCriterion = new BLImpl();
-    private ClassifiesBean componentOf;
-    private PriorCombinedMedicationRequestBean predecessorPriorCombinedMedicationRequest;
+    private static final long serialVersionUID = 20110127L;
     private CS prescriptionStatus = new CSImpl();
-    private Component2Bean component2;
+    private CV prescriptionType = new CVImpl();
     private IncludesBean subjectOf2;
-    private ca.infoway.messagebuilder.model.pharmacy.porx_mt010120ca.IncludesBean component3;
-    private DrugProductBean directTargetMedication;
-    private List<AdministrationInstructionsBean> component1DosageInstruction = new ArrayList<AdministrationInstructionsBean>();
-    private List<ProtocolsBean> definitionSubstanceAdministrationDefinition = new ArrayList<ProtocolsBean>();
-    private AllowedSubstitutionBean subjectOf1SubstitutionPermission;
     private List<PrescriptionPatientMeasurementsBean> pertinentInformationQuantityObservationEvent = new ArrayList<PrescriptionPatientMeasurementsBean>();
+    private List<CoverageExtensions_1Bean> coverageCoverage = new ArrayList<CoverageExtensions_1Bean>();
+    private AllowedSubstitutionBean subjectOf1SubstitutionPermission;
+    private SET<CV, Code> prescriptionMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);
+    private ClassifiesBean componentOf;
+    private BL preconditionVerificationEventCriterion = new BLImpl();
+    private List<BecauseOfBean> reason = new ArrayList<BecauseOfBean>();
+    private PriorCombinedMedicationRequestBean predecessorPriorCombinedMedicationRequest;
+    private II prescriptionNumber = new IIImpl();
+    private DrugProductBean directTargetMedication;
+    private List<ProtocolsBean> definitionSubstanceAdministrationDefinition = new ArrayList<ProtocolsBean>();
+    private Component2Bean component2;
+    private List<AdministrationInstructionsBean> component1DosageInstruction = new ArrayList<AdministrationInstructionsBean>();
+    private ca.infoway.messagebuilder.model.pharmacy.porx_mt010120ca.IncludesBean component3;
 
 
     /**
-     * <p>A:Prescription Number</p>
+     * <p>C:Prescription Status</p>
      * 
-     * <p><p>Id should not be specified if the order is being sent 
-     * by prescriber; Id is mandatory if the order is being sent by 
-     * the DIS</p></p>
+     * <p><p>This denotes the state of the prescription in the 
+     * lifecycle of the prescription. Valid statuses are: new, 
+     * active, suspended, aborted, completed, obsolete and 
+     * nullified. Use 'new' when submitting a clinical 
+     * pre-determination. Use 'active' when registering a new 
+     * prescription or converting a predetermination into a valid 
+     * prescription.</p></p>
      * 
-     * <p><p>The Prescription Order Number is a globally unique 
-     * number assigned to a prescription by the EHR/DIS 
-     * irrespective of the source of the order</p><p>It is created 
-     * by the EHR/DIS once the prescription has passed all edits 
-     * and validation.</p></p>
-     * 
-     * <p><p>The Prescription Order Number is a globally unique 
-     * number assigned to a prescription by the EHR/DIS 
-     * irrespective of the source of the order</p><p>It is created 
-     * by the EHR/DIS once the prescription has passed all edits 
-     * and validation.</p></p>
-     * 
-     * <p><p>Allows for the situations where the order is 
-     * originating from the DIS.</p><p>Allows prescriptions to be 
-     * uniquely referenced.</p><p>Because this attribute is not 
-     * used for prescriptions originating from a prescriber system, 
-     * the element is optional.</p></p>
-     * 
-     * <p><p>Allows for the situations where the order is 
-     * originating from the DIS.</p><p>Allows prescriptions to be 
-     * uniquely referenced.</p><p>Because this attribute is not 
-     * used for prescriptions originating from a prescriber system, 
-     * the element is optional.</p></p>
-     * 
-     * <p><p>Allows for the situations where the order is 
-     * originating from the DIS.</p><p>Allows prescriptions to be 
-     * uniquely referenced.</p><p>Because this attribute is not 
-     * used for prescriptions originating from a prescriber system, 
-     * the element is optional.</p></p>
+     * <p><p>Indicates what actions are allowed to be performed 
+     * against a prescription. This is a mandatory field because 
+     * every prescription needs to be in some state.</p></p>
      */
-    @Hl7XmlMapping({"id"})
-    public Identifier getPrescriptionNumber() {
-        return this.prescriptionNumber.getValue();
+    @Hl7XmlMapping({"statusCode"})
+    public ActStatus getPrescriptionStatus() {
+        return (ActStatus) this.prescriptionStatus.getValue();
     }
-    public void setPrescriptionNumber(Identifier prescriptionNumber) {
-        this.prescriptionNumber.setValue(prescriptionNumber);
+    public void setPrescriptionStatus(ActStatus prescriptionStatus) {
+        this.prescriptionStatus.setValue(prescriptionStatus);
     }
 
 
@@ -132,6 +110,36 @@ public class PrescriptionBean extends MessagePartBean {
     }
     public void setPrescriptionType(Code prescriptionType) {
         this.prescriptionType.setValue(prescriptionType);
+    }
+
+
+    @Hl7XmlMapping({"subjectOf2"})
+    public IncludesBean getSubjectOf2() {
+        return this.subjectOf2;
+    }
+    public void setSubjectOf2(IncludesBean subjectOf2) {
+        this.subjectOf2 = subjectOf2;
+    }
+
+
+    @Hl7XmlMapping({"pertinentInformation/quantityObservationEvent"})
+    public List<PrescriptionPatientMeasurementsBean> getPertinentInformationQuantityObservationEvent() {
+        return this.pertinentInformationQuantityObservationEvent;
+    }
+
+
+    @Hl7XmlMapping({"coverage/coverage"})
+    public List<CoverageExtensions_1Bean> getCoverageCoverage() {
+        return this.coverageCoverage;
+    }
+
+
+    @Hl7XmlMapping({"subjectOf1/substitutionPermission"})
+    public AllowedSubstitutionBean getSubjectOf1SubstitutionPermission() {
+        return this.subjectOf1SubstitutionPermission;
+    }
+    public void setSubjectOf1SubstitutionPermission(AllowedSubstitutionBean subjectOf1SubstitutionPermission) {
+        this.subjectOf1SubstitutionPermission = subjectOf1SubstitutionPermission;
     }
 
 
@@ -209,15 +217,12 @@ public class PrescriptionBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"reason"})
-    public List<BecauseOfBean> getReason() {
-        return this.reason;
+    @Hl7XmlMapping({"componentOf"})
+    public ClassifiesBean getComponentOf() {
+        return this.componentOf;
     }
-
-
-    @Hl7XmlMapping({"coverage/coverage"})
-    public List<CoverageExtensions_1Bean> getCoverageCoverage() {
-        return this.coverageCoverage;
+    public void setComponentOf(ClassifiesBean componentOf) {
+        this.componentOf = componentOf;
     }
 
 
@@ -230,12 +235,9 @@ public class PrescriptionBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"componentOf"})
-    public ClassifiesBean getComponentOf() {
-        return this.componentOf;
-    }
-    public void setComponentOf(ClassifiesBean componentOf) {
-        this.componentOf = componentOf;
+    @Hl7XmlMapping({"reason"})
+    public List<BecauseOfBean> getReason() {
+        return this.reason;
     }
 
 
@@ -249,53 +251,48 @@ public class PrescriptionBean extends MessagePartBean {
 
 
     /**
-     * <p>C:Prescription Status</p>
+     * <p>A:Prescription Number</p>
      * 
-     * <p><p>This denotes the state of the prescription in the 
-     * lifecycle of the prescription. Valid statuses are: new, 
-     * active, suspended, aborted, completed, obsolete and 
-     * nullified. Use 'new' when submitting a clinical 
-     * pre-determination. Use 'active' when registering a new 
-     * prescription or converting a predetermination into a valid 
-     * prescription.</p></p>
+     * <p><p>Id should not be specified if the order is being sent 
+     * by prescriber; Id is mandatory if the order is being sent by 
+     * the DIS</p></p>
      * 
-     * <p><p>Indicates what actions are allowed to be performed 
-     * against a prescription. This is a mandatory field because 
-     * every prescription needs to be in some state.</p></p>
+     * <p><p>The Prescription Order Number is a globally unique 
+     * number assigned to a prescription by the EHR/DIS 
+     * irrespective of the source of the order</p><p>It is created 
+     * by the EHR/DIS once the prescription has passed all edits 
+     * and validation.</p></p>
+     * 
+     * <p><p>The Prescription Order Number is a globally unique 
+     * number assigned to a prescription by the EHR/DIS 
+     * irrespective of the source of the order</p><p>It is created 
+     * by the EHR/DIS once the prescription has passed all edits 
+     * and validation.</p></p>
+     * 
+     * <p><p>Allows for the situations where the order is 
+     * originating from the DIS.</p><p>Allows prescriptions to be 
+     * uniquely referenced.</p><p>Because this attribute is not 
+     * used for prescriptions originating from a prescriber system, 
+     * the element is optional.</p></p>
+     * 
+     * <p><p>Allows for the situations where the order is 
+     * originating from the DIS.</p><p>Allows prescriptions to be 
+     * uniquely referenced.</p><p>Because this attribute is not 
+     * used for prescriptions originating from a prescriber system, 
+     * the element is optional.</p></p>
+     * 
+     * <p><p>Allows for the situations where the order is 
+     * originating from the DIS.</p><p>Allows prescriptions to be 
+     * uniquely referenced.</p><p>Because this attribute is not 
+     * used for prescriptions originating from a prescriber system, 
+     * the element is optional.</p></p>
      */
-    @Hl7XmlMapping({"statusCode"})
-    public ActStatus getPrescriptionStatus() {
-        return (ActStatus) this.prescriptionStatus.getValue();
+    @Hl7XmlMapping({"id"})
+    public Identifier getPrescriptionNumber() {
+        return this.prescriptionNumber.getValue();
     }
-    public void setPrescriptionStatus(ActStatus prescriptionStatus) {
-        this.prescriptionStatus.setValue(prescriptionStatus);
-    }
-
-
-    @Hl7XmlMapping({"component2"})
-    public Component2Bean getComponent2() {
-        return this.component2;
-    }
-    public void setComponent2(Component2Bean component2) {
-        this.component2 = component2;
-    }
-
-
-    @Hl7XmlMapping({"subjectOf2"})
-    public IncludesBean getSubjectOf2() {
-        return this.subjectOf2;
-    }
-    public void setSubjectOf2(IncludesBean subjectOf2) {
-        this.subjectOf2 = subjectOf2;
-    }
-
-
-    @Hl7XmlMapping({"component3"})
-    public ca.infoway.messagebuilder.model.pharmacy.porx_mt010120ca.IncludesBean getComponent3() {
-        return this.component3;
-    }
-    public void setComponent3(ca.infoway.messagebuilder.model.pharmacy.porx_mt010120ca.IncludesBean component3) {
-        this.component3 = component3;
+    public void setPrescriptionNumber(Identifier prescriptionNumber) {
+        this.prescriptionNumber.setValue(prescriptionNumber);
     }
 
 
@@ -308,30 +305,33 @@ public class PrescriptionBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"component1/dosageInstruction"})
-    public List<AdministrationInstructionsBean> getComponent1DosageInstruction() {
-        return this.component1DosageInstruction;
-    }
-
-
     @Hl7XmlMapping({"definition/substanceAdministrationDefinition"})
     public List<ProtocolsBean> getDefinitionSubstanceAdministrationDefinition() {
         return this.definitionSubstanceAdministrationDefinition;
     }
 
 
-    @Hl7XmlMapping({"subjectOf1/substitutionPermission"})
-    public AllowedSubstitutionBean getSubjectOf1SubstitutionPermission() {
-        return this.subjectOf1SubstitutionPermission;
+    @Hl7XmlMapping({"component2"})
+    public Component2Bean getComponent2() {
+        return this.component2;
     }
-    public void setSubjectOf1SubstitutionPermission(AllowedSubstitutionBean subjectOf1SubstitutionPermission) {
-        this.subjectOf1SubstitutionPermission = subjectOf1SubstitutionPermission;
+    public void setComponent2(Component2Bean component2) {
+        this.component2 = component2;
     }
 
 
-    @Hl7XmlMapping({"pertinentInformation/quantityObservationEvent"})
-    public List<PrescriptionPatientMeasurementsBean> getPertinentInformationQuantityObservationEvent() {
-        return this.pertinentInformationQuantityObservationEvent;
+    @Hl7XmlMapping({"component1/dosageInstruction"})
+    public List<AdministrationInstructionsBean> getComponent1DosageInstruction() {
+        return this.component1DosageInstruction;
+    }
+
+
+    @Hl7XmlMapping({"component3"})
+    public ca.infoway.messagebuilder.model.pharmacy.porx_mt010120ca.IncludesBean getComponent3() {
+        return this.component3;
+    }
+    public void setComponent3(ca.infoway.messagebuilder.model.pharmacy.porx_mt010120ca.IncludesBean component3) {
+        this.component3 = component3;
     }
 
 }

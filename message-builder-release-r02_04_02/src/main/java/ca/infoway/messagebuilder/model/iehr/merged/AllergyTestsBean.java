@@ -63,11 +63,47 @@ import java.util.Date;
 @Hl7PartTypeMapping({"REPC_MT000001CA.AllergyTestEvent","REPC_MT000005CA.AllergyTestEvent","REPC_MT000009CA.AllergyTestEvent","REPC_MT000013CA.AllergyTestEvent"})
 public class AllergyTestsBean extends MessagePartBean implements Records {
 
-    private static final long serialVersionUID = 20110126L;
+    private static final long serialVersionUID = 20110127L;
+    private CV allergyTestResult = new CVImpl();
     private CD allergyTestType = new CDImpl();
     private II allergyTestRecordId = new IIImpl();
     private TS allergyTestDate = new TSImpl();
-    private CV allergyTestResult = new CVImpl();
+
+
+    /**
+     * <p>AllergyTestResult</p>
+     * 
+     * <p>C:Allergy Test Result</p>
+     * 
+     * <p><p>Value is required if not using SNOMED</p></p>
+     * 
+     * <p><p>A code indicating result of the allergy test.</p></p>
+     * 
+     * <p><p>Allows other providers to evaluate the test. There is 
+     * no point in associating an allergy test with unknown results 
+     * with an allergy or intolerance however the element is 
+     * optional because this information may be post-coordinated in 
+     * the 'code' attribute using SNOMED.</p></p>
+     * 
+     * <p>C:Allergy Test Result</p>
+     * 
+     * <p><p>Value is mandatory if not using SNOMED</p></p>
+     * 
+     * <p><p>A code indicating result of the allergy test.</p></p>
+     * 
+     * <p><p>Allows other providers to evaluate the test. There is 
+     * no point in associating an allergy test with unknown results 
+     * with an allergy or intolerance however the element is 
+     * optional because this information may be post-coordinated in 
+     * the 'code' attribute using SNOMED.</p></p>
+     */
+    @Hl7XmlMapping({"value"})
+    public AllergyTestValue getAllergyTestResult() {
+        return (AllergyTestValue) this.allergyTestResult.getValue();
+    }
+    public void setAllergyTestResult(AllergyTestValue allergyTestResult) {
+        this.allergyTestResult.setValue(allergyTestResult);
+    }
 
 
     /**
@@ -138,42 +174,6 @@ public class AllergyTestsBean extends MessagePartBean implements Records {
     }
     public void setAllergyTestDate(Date allergyTestDate) {
         this.allergyTestDate.setValue(allergyTestDate);
-    }
-
-
-    /**
-     * <p>AllergyTestResult</p>
-     * 
-     * <p>C:Allergy Test Result</p>
-     * 
-     * <p><p>Value is required if not using SNOMED</p></p>
-     * 
-     * <p><p>A code indicating result of the allergy test.</p></p>
-     * 
-     * <p><p>Allows other providers to evaluate the test. There is 
-     * no point in associating an allergy test with unknown results 
-     * with an allergy or intolerance however the element is 
-     * optional because this information may be post-coordinated in 
-     * the 'code' attribute using SNOMED.</p></p>
-     * 
-     * <p>C:Allergy Test Result</p>
-     * 
-     * <p><p>Value is mandatory if not using SNOMED</p></p>
-     * 
-     * <p><p>A code indicating result of the allergy test.</p></p>
-     * 
-     * <p><p>Allows other providers to evaluate the test. There is 
-     * no point in associating an allergy test with unknown results 
-     * with an allergy or intolerance however the element is 
-     * optional because this information may be post-coordinated in 
-     * the 'code' attribute using SNOMED.</p></p>
-     */
-    @Hl7XmlMapping({"value"})
-    public AllergyTestValue getAllergyTestResult() {
-        return (AllergyTestValue) this.allergyTestResult.getValue();
-    }
-    public void setAllergyTestResult(AllergyTestValue allergyTestResult) {
-        this.allergyTestResult.setValue(allergyTestResult);
     }
 
 }

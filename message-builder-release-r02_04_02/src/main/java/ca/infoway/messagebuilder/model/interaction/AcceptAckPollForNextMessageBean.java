@@ -10,6 +10,6 @@ import ca.infoway.messagebuilder.model.common.merged.HL7Message_2Bean;
 @Hl7PartTypeMapping({"MCCI_IN100004CA"})
 public class AcceptAckPollForNextMessageBean extends HL7Message_2Bean implements InteractionBean {
 
-    private static final long serialVersionUID = 20110126L;
+    private static final long serialVersionUID = 20110127L;
 
 }

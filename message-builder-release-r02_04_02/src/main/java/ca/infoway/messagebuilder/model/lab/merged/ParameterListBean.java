@@ -51,48 +51,26 @@ import java.util.Date;
 @Hl7RootType
 public class ParameterListBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
-    private CV assignedPatientLocationType = new CVImpl();
+    private static final long serialVersionUID = 20110127L;
     private BL includeHistoryIndicator = new BLImpl();
-    private II orderingProviderIdentfier = new IIImpl();
+    private CV assignedPatientLocationType = new CVImpl();
     private II resultCopiesToIdentfier = new IIImpl();
     private IVL<TS, Interval<Date>> observationAvailabilityDateTimeRangeValue = new IVLImpl<TS, Interval<Date>>();
     private IVL<TS, Interval<Date>> jLISReceivedEffectiveTimeRange = new IVLImpl<TS, Interval<Date>>();
+    private II orderingProviderIdentfier = new IIImpl();
+    private II batteryIdentifier = new IIImpl();
+    private II observationReportIdentifier = new IIImpl();
     private IVL<TS, Interval<Date>> specimenReceivedEffectiveTimeRange = new IVLImpl<TS, Interval<Date>>();
-    private BL includeNullifiedResultsIndicator = new BLImpl();
-    private IVL<TS, Interval<Date>> observationEffectiveTimeRange = new IVLImpl<TS, Interval<Date>>();
+    private PN patientName = new PNImpl();
+    private TS patientDOB = new TSImpl();
+    private CV patientGender = new CVImpl();
+    private IVL<TS, Interval<Date>> specimenCollectionEffectiveTimeRange = new IVLImpl<TS, Interval<Date>>();
     private CD resultCode = new CDImpl();
+    private IVL<TS, Interval<Date>> observationEffectiveTimeRange = new IVLImpl<TS, Interval<Date>>();
+    private BL includeNullifiedResultsIndicator = new BLImpl();
+    private II patientId = new IIImpl();
     private II observationIdentifier = new IIImpl();
     private CD orderTestCode = new CDImpl();
-    private II observationReportIdentifier = new IIImpl();
-    private II patientId = new IIImpl();
-    private II batteryIdentifier = new IIImpl();
-    private TS patientDOB = new TSImpl();
-    private IVL<TS, Interval<Date>> specimenCollectionEffectiveTimeRange = new IVLImpl<TS, Interval<Date>>();
-    private PN patientName = new PNImpl();
-    private CV patientGender = new CVImpl();
-
-
-    /**
-     * <p>AssignedPatientLocationType</p>
-     * 
-     * <p>Assigned Patient Location Type</p>
-     * 
-     * <p><p>Filters the set of records to be retrieved to those 
-     * patients seen at a particular location type e.g. nursing 
-     * home, nurse station, clinic department, etc.</p></p>
-     * 
-     * <p><p>Allows constraining the retrieved records to those 
-     * patients seen at a location type (nursing station, clinic 
-     * department, etc).</p></p>
-     */
-    @Hl7XmlMapping({"assignedPatientLocation/value"})
-    public ServiceDeliveryLocationRoleType getAssignedPatientLocationType() {
-        return (ServiceDeliveryLocationRoleType) this.assignedPatientLocationType.getValue();
-    }
-    public void setAssignedPatientLocationType(ServiceDeliveryLocationRoleType assignedPatientLocationType) {
-        this.assignedPatientLocationType.setValue(assignedPatientLocationType);
-    }
 
 
     /**
@@ -126,22 +104,24 @@ public class ParameterListBean extends MessagePartBean {
 
 
     /**
-     * <p>OrderingProviderIdentfier</p>
+     * <p>AssignedPatientLocationType</p>
      * 
-     * <p>Ordering Provider Identfier</p>
+     * <p>Assigned Patient Location Type</p>
      * 
      * <p><p>Filters the set of records to be retrieved to those 
-     * ordered by a specific provider.</p></p>
+     * patients seen at a particular location type e.g. nursing 
+     * home, nurse station, clinic department, etc.</p></p>
      * 
      * <p><p>Allows constraining the retrieved records to those 
-     * applicable for a particular provider.</p></p>
+     * patients seen at a location type (nursing station, clinic 
+     * department, etc).</p></p>
      */
-    @Hl7XmlMapping({"orderingProvider/value"})
-    public Identifier getOrderingProviderIdentfier() {
-        return this.orderingProviderIdentfier.getValue();
+    @Hl7XmlMapping({"assignedPatientLocation/value"})
+    public ServiceDeliveryLocationRoleType getAssignedPatientLocationType() {
+        return (ServiceDeliveryLocationRoleType) this.assignedPatientLocationType.getValue();
     }
-    public void setOrderingProviderIdentfier(Identifier orderingProviderIdentfier) {
-        this.orderingProviderIdentfier.setValue(orderingProviderIdentfier);
+    public void setAssignedPatientLocationType(ServiceDeliveryLocationRoleType assignedPatientLocationType) {
+        this.assignedPatientLocationType.setValue(assignedPatientLocationType);
     }
 
 
@@ -228,6 +208,67 @@ public class ParameterListBean extends MessagePartBean {
 
 
     /**
+     * <p>OrderingProviderIdentfier</p>
+     * 
+     * <p>Ordering Provider Identfier</p>
+     * 
+     * <p><p>Filters the set of records to be retrieved to those 
+     * ordered by a specific provider.</p></p>
+     * 
+     * <p><p>Allows constraining the retrieved records to those 
+     * applicable for a particular provider.</p></p>
+     */
+    @Hl7XmlMapping({"orderingProvider/value"})
+    public Identifier getOrderingProviderIdentfier() {
+        return this.orderingProviderIdentfier.getValue();
+    }
+    public void setOrderingProviderIdentfier(Identifier orderingProviderIdentfier) {
+        this.orderingProviderIdentfier.setValue(orderingProviderIdentfier);
+    }
+
+
+    /**
+     * <p>BatteryIdentifier</p>
+     * 
+     * <p>Battery Identifier</p>
+     * 
+     * <p><p>Contains an identifier assigned by a lab filling 
+     * organization that uniquely identifies the battery event 
+     * (result component) for query selection.</p></p>
+     * 
+     * <p><p>Allows constraining the retrieved records by 
+     * identifier.</p></p>
+     */
+    @Hl7XmlMapping({"batteryIdentifier/value"})
+    public Identifier getBatteryIdentifier() {
+        return this.batteryIdentifier.getValue();
+    }
+    public void setBatteryIdentifier(Identifier batteryIdentifier) {
+        this.batteryIdentifier.setValue(batteryIdentifier);
+    }
+
+
+    /**
+     * <p>ObservationReportIdentifier</p>
+     * 
+     * <p>Observation Report Identifier</p>
+     * 
+     * <p><p>Contains an identifier for the Observation Report for 
+     * query selection.</p></p>
+     * 
+     * <p><p>Allows constraining the retrieved records by 
+     * identifier.</p></p>
+     */
+    @Hl7XmlMapping({"observationReportIdentifier/value"})
+    public Identifier getObservationReportIdentifier() {
+        return this.observationReportIdentifier.getValue();
+    }
+    public void setObservationReportIdentifier(Identifier observationReportIdentifier) {
+        this.observationReportIdentifier.setValue(observationReportIdentifier);
+    }
+
+
+    /**
      * <p>SpecimenReceivedEffectiveTimeRange</p>
      * 
      * <p>Specimen Received Effective Time Range</p>
@@ -253,22 +294,103 @@ public class ParameterListBean extends MessagePartBean {
 
 
     /**
-     * <p>IncludeNullifiedResultsIndicator</p>
+     * <p>PatientName</p>
      * 
-     * <p>Include Nullified Results Indicator</p>
+     * <p>Patient Name</p>
      * 
-     * <p><p>Indicates whether or not to include nullified orders. 
-     * True=include records, the default is false</p></p>
+     * <p><p>Name for the patient.</p></p>
      * 
-     * <p><p>Historical (version) records including nullified 
-     * records are usable for audit, quality assurance, etc.</p></p>
+     * <p><p>Used to verify patient identity (a check against the 
+     * patient id parameter).</p></p>
      */
-    @Hl7XmlMapping({"includeNullifiedIndicator/value"})
-    public Boolean getIncludeNullifiedResultsIndicator() {
-        return this.includeNullifiedResultsIndicator.getValue();
+    @Hl7XmlMapping({"patientName/value"})
+    public PersonName getPatientName() {
+        return this.patientName.getValue();
     }
-    public void setIncludeNullifiedResultsIndicator(Boolean includeNullifiedResultsIndicator) {
-        this.includeNullifiedResultsIndicator.setValue(includeNullifiedResultsIndicator);
+    public void setPatientName(PersonName patientName) {
+        this.patientName.setValue(patientName);
+    }
+
+
+    /**
+     * <p>PatientDOB</p>
+     * 
+     * <p>Patient DOB</p>
+     * 
+     * <p><p>Patient's date of birth.</p></p>
+     * 
+     * <p><p>Used to verify patient identity (a check against the 
+     * patient id parameter).</p></p>
+     */
+    @Hl7XmlMapping({"patientDateofBirth/value"})
+    public Date getPatientDOB() {
+        return this.patientDOB.getValue();
+    }
+    public void setPatientDOB(Date patientDOB) {
+        this.patientDOB.setValue(patientDOB);
+    }
+
+
+    /**
+     * <p>PatientGender</p>
+     * 
+     * <p>Patient Gender</p>
+     * 
+     * <p><p>Administrative gender of the patient.</p></p>
+     * 
+     * <p><p>Used to verify patient identity (a check against the 
+     * patient id parameter).</p></p>
+     */
+    @Hl7XmlMapping({"patientGender/value"})
+    public AdministrativeGender getPatientGender() {
+        return (AdministrativeGender) this.patientGender.getValue();
+    }
+    public void setPatientGender(AdministrativeGender patientGender) {
+        this.patientGender.setValue(patientGender);
+    }
+
+
+    /**
+     * <p>SpecimenCollectionEffectiveTimeRange</p>
+     * 
+     * <p>Specimen Collection Effective Time Range</p>
+     * 
+     * <p><p>Filters the set of records to be retrieved to those 
+     * which the specimen collection date/time for the patient 
+     * within the time boundaries specified. Either the lower bound 
+     * or upper bound or both would be specified. If no value is 
+     * specified, no filter will be applied. If there is any 
+     * overlap between the specified time-range and the specimen 
+     * collection date/time, the record will be returned.</p></p>
+     * 
+     * <p><p>Allows constraining the retrieved records to those 
+     * applicable at a particular time.</p></p>
+     */
+    @Hl7XmlMapping({"specimenCollectedDateTimeRange/value"})
+    public Interval<Date> getSpecimenCollectionEffectiveTimeRange() {
+        return this.specimenCollectionEffectiveTimeRange.getValue();
+    }
+    public void setSpecimenCollectionEffectiveTimeRange(Interval<Date> specimenCollectionEffectiveTimeRange) {
+        this.specimenCollectionEffectiveTimeRange.setValue(specimenCollectionEffectiveTimeRange);
+    }
+
+
+    /**
+     * <p>ResultCode</p>
+     * 
+     * <p>Result Code</p>
+     * 
+     * <p><p>The code to describe the type of lab test (analyte) 
+     * performed.</p></p>
+     * 
+     * <p><p>Identifies the specific test peformed.</p></p>
+     */
+    @Hl7XmlMapping({"observationCode/value"})
+    public Code getResultCode() {
+        return (Code) this.resultCode.getValue();
+    }
+    public void setResultCode(Code resultCode) {
+        this.resultCode.setValue(resultCode);
     }
 
 
@@ -298,21 +420,42 @@ public class ParameterListBean extends MessagePartBean {
 
 
     /**
-     * <p>ResultCode</p>
+     * <p>IncludeNullifiedResultsIndicator</p>
      * 
-     * <p>Result Code</p>
+     * <p>Include Nullified Results Indicator</p>
      * 
-     * <p><p>The code to describe the type of lab test (analyte) 
-     * performed.</p></p>
+     * <p><p>Indicates whether or not to include nullified orders. 
+     * True=include records, the default is false</p></p>
      * 
-     * <p><p>Identifies the specific test peformed.</p></p>
+     * <p><p>Historical (version) records including nullified 
+     * records are usable for audit, quality assurance, etc.</p></p>
      */
-    @Hl7XmlMapping({"observationCode/value"})
-    public Code getResultCode() {
-        return (Code) this.resultCode.getValue();
+    @Hl7XmlMapping({"includeNullifiedIndicator/value"})
+    public Boolean getIncludeNullifiedResultsIndicator() {
+        return this.includeNullifiedResultsIndicator.getValue();
     }
-    public void setResultCode(Code resultCode) {
-        this.resultCode.setValue(resultCode);
+    public void setIncludeNullifiedResultsIndicator(Boolean includeNullifiedResultsIndicator) {
+        this.includeNullifiedResultsIndicator.setValue(includeNullifiedResultsIndicator);
+    }
+
+
+    /**
+     * <p>PatientId</p>
+     * 
+     * <p>Patient Id</p>
+     * 
+     * <p><p>A globally unique identifier for the patient whose 
+     * information is to be retrieved.</p></p>
+     * 
+     * <p><p>Identifies the patient whose information is to be 
+     * retrieved.</p></p>
+     */
+    @Hl7XmlMapping({"patientID/value"})
+    public Identifier getPatientId() {
+        return this.patientId.getValue();
+    }
+    public void setPatientId(Identifier patientId) {
+        this.patientId.setValue(patientId);
     }
 
 
@@ -353,149 +496,6 @@ public class ParameterListBean extends MessagePartBean {
     }
     public void setOrderTestCode(ObservationOrderableLabType orderTestCode) {
         this.orderTestCode.setValue(orderTestCode);
-    }
-
-
-    /**
-     * <p>ObservationReportIdentifier</p>
-     * 
-     * <p>Observation Report Identifier</p>
-     * 
-     * <p><p>Contains an identifier for the Observation Report for 
-     * query selection.</p></p>
-     * 
-     * <p><p>Allows constraining the retrieved records by 
-     * identifier.</p></p>
-     */
-    @Hl7XmlMapping({"observationReportIdentifier/value"})
-    public Identifier getObservationReportIdentifier() {
-        return this.observationReportIdentifier.getValue();
-    }
-    public void setObservationReportIdentifier(Identifier observationReportIdentifier) {
-        this.observationReportIdentifier.setValue(observationReportIdentifier);
-    }
-
-
-    /**
-     * <p>PatientId</p>
-     * 
-     * <p>Patient Id</p>
-     * 
-     * <p><p>A globally unique identifier for the patient whose 
-     * information is to be retrieved.</p></p>
-     * 
-     * <p><p>Identifies the patient whose information is to be 
-     * retrieved.</p></p>
-     */
-    @Hl7XmlMapping({"patientID/value"})
-    public Identifier getPatientId() {
-        return this.patientId.getValue();
-    }
-    public void setPatientId(Identifier patientId) {
-        this.patientId.setValue(patientId);
-    }
-
-
-    /**
-     * <p>BatteryIdentifier</p>
-     * 
-     * <p>Battery Identifier</p>
-     * 
-     * <p><p>Contains an identifier assigned by a lab filling 
-     * organization that uniquely identifies the battery event 
-     * (result component) for query selection.</p></p>
-     * 
-     * <p><p>Allows constraining the retrieved records by 
-     * identifier.</p></p>
-     */
-    @Hl7XmlMapping({"batteryIdentifier/value"})
-    public Identifier getBatteryIdentifier() {
-        return this.batteryIdentifier.getValue();
-    }
-    public void setBatteryIdentifier(Identifier batteryIdentifier) {
-        this.batteryIdentifier.setValue(batteryIdentifier);
-    }
-
-
-    /**
-     * <p>PatientDOB</p>
-     * 
-     * <p>Patient DOB</p>
-     * 
-     * <p><p>Patient's date of birth.</p></p>
-     * 
-     * <p><p>Used to verify patient identity (a check against the 
-     * patient id parameter).</p></p>
-     */
-    @Hl7XmlMapping({"patientDateofBirth/value"})
-    public Date getPatientDOB() {
-        return this.patientDOB.getValue();
-    }
-    public void setPatientDOB(Date patientDOB) {
-        this.patientDOB.setValue(patientDOB);
-    }
-
-
-    /**
-     * <p>SpecimenCollectionEffectiveTimeRange</p>
-     * 
-     * <p>Specimen Collection Effective Time Range</p>
-     * 
-     * <p><p>Filters the set of records to be retrieved to those 
-     * which the specimen collection date/time for the patient 
-     * within the time boundaries specified. Either the lower bound 
-     * or upper bound or both would be specified. If no value is 
-     * specified, no filter will be applied. If there is any 
-     * overlap between the specified time-range and the specimen 
-     * collection date/time, the record will be returned.</p></p>
-     * 
-     * <p><p>Allows constraining the retrieved records to those 
-     * applicable at a particular time.</p></p>
-     */
-    @Hl7XmlMapping({"specimenCollectedDateTimeRange/value"})
-    public Interval<Date> getSpecimenCollectionEffectiveTimeRange() {
-        return this.specimenCollectionEffectiveTimeRange.getValue();
-    }
-    public void setSpecimenCollectionEffectiveTimeRange(Interval<Date> specimenCollectionEffectiveTimeRange) {
-        this.specimenCollectionEffectiveTimeRange.setValue(specimenCollectionEffectiveTimeRange);
-    }
-
-
-    /**
-     * <p>PatientName</p>
-     * 
-     * <p>Patient Name</p>
-     * 
-     * <p><p>Name for the patient.</p></p>
-     * 
-     * <p><p>Used to verify patient identity (a check against the 
-     * patient id parameter).</p></p>
-     */
-    @Hl7XmlMapping({"patientName/value"})
-    public PersonName getPatientName() {
-        return this.patientName.getValue();
-    }
-    public void setPatientName(PersonName patientName) {
-        this.patientName.setValue(patientName);
-    }
-
-
-    /**
-     * <p>PatientGender</p>
-     * 
-     * <p>Patient Gender</p>
-     * 
-     * <p><p>Administrative gender of the patient.</p></p>
-     * 
-     * <p><p>Used to verify patient identity (a check against the 
-     * patient id parameter).</p></p>
-     */
-    @Hl7XmlMapping({"patientGender/value"})
-    public AdministrativeGender getPatientGender() {
-        return (AdministrativeGender) this.patientGender.getValue();
-    }
-    public void setPatientGender(AdministrativeGender patientGender) {
-        this.patientGender.setValue(patientGender);
     }
 
 }

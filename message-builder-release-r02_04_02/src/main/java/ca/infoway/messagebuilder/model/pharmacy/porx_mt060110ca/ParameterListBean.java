@@ -29,11 +29,11 @@ import java.util.Date;
 @Hl7RootType
 public class ParameterListBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
+    private static final long serialVersionUID = 20110127L;
     private IVL<TS, Interval<Date>> administrationEffectivePeriod = new IVLImpl<TS, Interval<Date>>();
-    private BL mostRecentDispenseForEachRxIndicator = new BLImpl();
     private BL mostRecentByDrugIndicator = new BLImpl();
     private CV issueFilterCode = new CVImpl();
+    private BL mostRecentDispenseForEachRxIndicator = new BLImpl();
 
 
     /**
@@ -67,54 +67,6 @@ public class ParameterListBean extends MessagePartBean {
     }
     public void setAdministrationEffectivePeriod(Interval<Date> administrationEffectivePeriod) {
         this.administrationEffectivePeriod.setValue(administrationEffectivePeriod);
-    }
-
-
-    /**
-     * <p>Most Recent Dispense for each Rx Indicator</p>
-     * 
-     * <p><p>Indicates whether or not prescription dispenses 
-     * returned on a query should be limited to only the most 
-     * recent dispense for a prescription order.</p><p>Allows for 
-     * the returning of at most one prescription dispense record 
-     * per a prescription.</p><p>The default is 'TRUE' indicating 
-     * that retrieval should be for only the most recent dispense 
-     * for a prescription is to be included in a query result.</p></p>
-     * 
-     * <p><p>Indicates whether or not prescription dispenses 
-     * returned on a query should be limited to only the most 
-     * recent dispense for a prescription order.</p><p>Allows for 
-     * the returning of at most one prescription dispense record 
-     * per a prescription.</p><p>The default is 'TRUE' indicating 
-     * that retrieval should be for only the most recent dispense 
-     * for a prescription is to be included in a query result.</p></p>
-     * 
-     * <p><p>Indicates whether or not prescription dispenses 
-     * returned on a query should be limited to only the most 
-     * recent dispense for a prescription order.</p><p>Allows for 
-     * the returning of at most one prescription dispense record 
-     * per a prescription.</p><p>The default is 'TRUE' indicating 
-     * that retrieval should be for only the most recent dispense 
-     * for a prescription is to be included in a query result.</p></p>
-     * 
-     * <p><p>Helps to trim down volume of query response by 
-     * eliminating multiple prescription dispenses for the same 
-     * prescription order.</p><p>Because this is a boolean 
-     * attribute whose value must be known to evaluate the query, 
-     * the attribute is mandatory.</p></p>
-     * 
-     * <p><p>Helps to trim down volume of query response by 
-     * eliminating multiple prescription dispenses for the same 
-     * prescription order.</p><p>Because this is a boolean 
-     * attribute whose value must be known to evaluate the query, 
-     * the attribute is mandatory.</p></p>
-     */
-    @Hl7XmlMapping({"mostRecentDispenseForEachRxIndicator/value"})
-    public Boolean getMostRecentDispenseForEachRxIndicator() {
-        return this.mostRecentDispenseForEachRxIndicator.getValue();
-    }
-    public void setMostRecentDispenseForEachRxIndicator(Boolean mostRecentDispenseForEachRxIndicator) {
-        this.mostRecentDispenseForEachRxIndicator.setValue(mostRecentDispenseForEachRxIndicator);
     }
 
 
@@ -173,6 +125,54 @@ public class ParameterListBean extends MessagePartBean {
     }
     public void setIssueFilterCode(IssueFilterCode issueFilterCode) {
         this.issueFilterCode.setValue(issueFilterCode);
+    }
+
+
+    /**
+     * <p>Most Recent Dispense for each Rx Indicator</p>
+     * 
+     * <p><p>Indicates whether or not prescription dispenses 
+     * returned on a query should be limited to only the most 
+     * recent dispense for a prescription order.</p><p>Allows for 
+     * the returning of at most one prescription dispense record 
+     * per a prescription.</p><p>The default is 'TRUE' indicating 
+     * that retrieval should be for only the most recent dispense 
+     * for a prescription is to be included in a query result.</p></p>
+     * 
+     * <p><p>Indicates whether or not prescription dispenses 
+     * returned on a query should be limited to only the most 
+     * recent dispense for a prescription order.</p><p>Allows for 
+     * the returning of at most one prescription dispense record 
+     * per a prescription.</p><p>The default is 'TRUE' indicating 
+     * that retrieval should be for only the most recent dispense 
+     * for a prescription is to be included in a query result.</p></p>
+     * 
+     * <p><p>Indicates whether or not prescription dispenses 
+     * returned on a query should be limited to only the most 
+     * recent dispense for a prescription order.</p><p>Allows for 
+     * the returning of at most one prescription dispense record 
+     * per a prescription.</p><p>The default is 'TRUE' indicating 
+     * that retrieval should be for only the most recent dispense 
+     * for a prescription is to be included in a query result.</p></p>
+     * 
+     * <p><p>Helps to trim down volume of query response by 
+     * eliminating multiple prescription dispenses for the same 
+     * prescription order.</p><p>Because this is a boolean 
+     * attribute whose value must be known to evaluate the query, 
+     * the attribute is mandatory.</p></p>
+     * 
+     * <p><p>Helps to trim down volume of query response by 
+     * eliminating multiple prescription dispenses for the same 
+     * prescription order.</p><p>Because this is a boolean 
+     * attribute whose value must be known to evaluate the query, 
+     * the attribute is mandatory.</p></p>
+     */
+    @Hl7XmlMapping({"mostRecentDispenseForEachRxIndicator/value"})
+    public Boolean getMostRecentDispenseForEachRxIndicator() {
+        return this.mostRecentDispenseForEachRxIndicator.getValue();
+    }
+    public void setMostRecentDispenseForEachRxIndicator(Boolean mostRecentDispenseForEachRxIndicator) {
+        this.mostRecentDispenseForEachRxIndicator.setValue(mostRecentDispenseForEachRxIndicator);
     }
 
 }

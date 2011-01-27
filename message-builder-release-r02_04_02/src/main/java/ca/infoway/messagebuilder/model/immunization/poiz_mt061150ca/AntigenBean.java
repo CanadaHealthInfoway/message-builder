@@ -27,11 +27,11 @@ import ca.infoway.messagebuilder.model.immunization.merged.AntigenValidityBean;
 @Hl7PartTypeMapping({"POIZ_MT061150CA.Antigen"})
 public class AntigenBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
+    private static final long serialVersionUID = 20110127L;
     private INT antigenCountValue = new INTImpl();
     private AntigenValidityBean asHealthChartSubjectOf1AntigenValidity;
-    private CV antigenCode = new CVImpl();
     private ST antigenName = new STImpl();
+    private CV antigenCode = new CVImpl();
 
 
     /**
@@ -61,6 +61,24 @@ public class AntigenBean extends MessagePartBean {
 
 
     /**
+     * <p>Antigen Name</p>
+     * 
+     * <p><p>The name of the antigen contained within a 
+     * vaccine.</p></p>
+     * 
+     * <p><p>Used for communication between and display to 
+     * providers.</p></p>
+     */
+    @Hl7XmlMapping({"name"})
+    public String getAntigenName() {
+        return this.antigenName.getValue();
+    }
+    public void setAntigenName(String antigenName) {
+        this.antigenName.setValue(antigenName);
+    }
+
+
+    /**
      * <p>Antigen Code</p>
      * 
      * <p><p>The unique code used to identify the antigen.</p></p>
@@ -81,24 +99,6 @@ public class AntigenBean extends MessagePartBean {
     }
     public void setAntigenCode(ClinicalDrug antigenCode) {
         this.antigenCode.setValue(antigenCode);
-    }
-
-
-    /**
-     * <p>Antigen Name</p>
-     * 
-     * <p><p>The name of the antigen contained within a 
-     * vaccine.</p></p>
-     * 
-     * <p><p>Used for communication between and display to 
-     * providers.</p></p>
-     */
-    @Hl7XmlMapping({"name"})
-    public String getAntigenName() {
-        return this.antigenName.getValue();
-    }
-    public void setAntigenName(String antigenName) {
-        this.antigenName.setValue(antigenName);
     }
 
 }

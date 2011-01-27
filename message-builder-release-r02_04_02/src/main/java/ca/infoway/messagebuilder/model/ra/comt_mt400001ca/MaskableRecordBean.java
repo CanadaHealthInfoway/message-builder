@@ -33,12 +33,21 @@ import java.util.Set;
 @Hl7RootType
 public class MaskableRecordBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
-    private CV recordType = new CVImpl();
-    private II recordIdentifier = new IIImpl();
-    private RoleBean directTargetRole;
-    private SET<CV, Code> maskedIndicator = new SETImpl<CV, Code>(CVImpl.class);
+    private static final long serialVersionUID = 20110127L;
     private DiagnosisBean reasonDiagnosis;
+    private CV recordType = new CVImpl();
+    private RoleBean directTargetRole;
+    private II recordIdentifier = new IIImpl();
+    private SET<CV, Code> maskedIndicator = new SETImpl<CV, Code>(CVImpl.class);
+
+
+    @Hl7XmlMapping({"reason/diagnosis"})
+    public DiagnosisBean getReasonDiagnosis() {
+        return this.reasonDiagnosis;
+    }
+    public void setReasonDiagnosis(DiagnosisBean reasonDiagnosis) {
+        this.reasonDiagnosis = reasonDiagnosis;
+    }
 
 
     /**
@@ -57,6 +66,15 @@ public class MaskableRecordBean extends MessagePartBean {
     }
     public void setRecordType(ActInformationCategoryCode recordType) {
         this.recordType.setValue(recordType);
+    }
+
+
+    @Hl7XmlMapping({"directTarget/role"})
+    public RoleBean getDirectTargetRole() {
+        return this.directTargetRole;
+    }
+    public void setDirectTargetRole(RoleBean directTargetRole) {
+        this.directTargetRole = directTargetRole;
     }
 
 
@@ -84,15 +102,6 @@ public class MaskableRecordBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"directTarget/role"})
-    public RoleBean getDirectTargetRole() {
-        return this.directTargetRole;
-    }
-    public void setDirectTargetRole(RoleBean directTargetRole) {
-        this.directTargetRole = directTargetRole;
-    }
-
-
     /**
      * <p>A:Masked Indicator</p>
      * 
@@ -107,15 +116,6 @@ public class MaskableRecordBean extends MessagePartBean {
     @Hl7XmlMapping({"confidentialityCode"})
     public Set<x_BasicConfidentialityKind> getMaskedIndicator() {
         return this.maskedIndicator.rawSet(x_BasicConfidentialityKind.class);
-    }
-
-
-    @Hl7XmlMapping({"reason/diagnosis"})
-    public DiagnosisBean getReasonDiagnosis() {
-        return this.reasonDiagnosis;
-    }
-    public void setReasonDiagnosis(DiagnosisBean reasonDiagnosis) {
-        this.reasonDiagnosis = reasonDiagnosis;
     }
 
 }

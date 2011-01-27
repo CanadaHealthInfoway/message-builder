@@ -49,10 +49,10 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PORX_MT020070CA.SubstitutionMade","PORX_MT060090CA.SubstitutionMade","PORX_MT060160CA.SubstitutionMade","PORX_MT060340CA.SubstitutionMade"})
 public class SubstitutionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
+    private static final long serialVersionUID = 20110127L;
     private CV substitutionCode = new CVImpl();
-    private CV reasonCode = new CVImpl();
     private AgentBean responsiblePartyAgent;
+    private CV reasonCode = new CVImpl();
 
 
     /**
@@ -73,6 +73,15 @@ public class SubstitutionBean extends MessagePartBean {
     }
     public void setSubstitutionCode(ActSubstanceAdminSubstitutionCode substitutionCode) {
         this.substitutionCode.setValue(substitutionCode);
+    }
+
+
+    @Hl7XmlMapping({"responsibleParty/agent"})
+    public AgentBean getResponsiblePartyAgent() {
+        return this.responsiblePartyAgent;
+    }
+    public void setResponsiblePartyAgent(AgentBean responsiblePartyAgent) {
+        this.responsiblePartyAgent = responsiblePartyAgent;
     }
 
 
@@ -112,15 +121,6 @@ public class SubstitutionBean extends MessagePartBean {
     }
     public void setReasonCode(SubstanceAdminSubstitutionReason reasonCode) {
         this.reasonCode.setValue(reasonCode);
-    }
-
-
-    @Hl7XmlMapping({"responsibleParty/agent"})
-    public AgentBean getResponsiblePartyAgent() {
-        return this.responsiblePartyAgent;
-    }
-    public void setResponsiblePartyAgent(AgentBean responsiblePartyAgent) {
-        this.responsiblePartyAgent = responsiblePartyAgent;
     }
 
 }

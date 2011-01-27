@@ -31,11 +31,20 @@ import java.util.Set;
  */
 @Hl7PartTypeMapping({"COCT_MT050202CA.Patient"})
 @Hl7RootType
-public class PatientBean extends MessagePartBean implements ca.infoway.messagebuilder.model.iehr.merged.Party, ca.infoway.messagebuilder.model.common.coct_mt470012ca.SubjectChoice, ca.infoway.messagebuilder.model.merged.Patient, ca.infoway.messagebuilder.model.merged.Choice {
+public class PatientBean extends MessagePartBean implements ca.infoway.messagebuilder.model.iehr.merged.Party, ca.infoway.messagebuilder.model.common.coct_mt470012ca.SubjectChoice, ca.infoway.messagebuilder.model.merged.Choice, ca.infoway.messagebuilder.model.merged.Patient {
 
-    private static final long serialVersionUID = 20110126L;
-    private SET<II, Identifier> patientIdentifier = new SETImpl<II, Identifier>(IIImpl.class);
+    private static final long serialVersionUID = 20110127L;
     private ActingPersonBean patientPerson;
+    private SET<II, Identifier> patientIdentifier = new SETImpl<II, Identifier>(IIImpl.class);
+
+
+    @Hl7XmlMapping({"patientPerson"})
+    public ActingPersonBean getPatientPerson() {
+        return this.patientPerson;
+    }
+    public void setPatientPerson(ActingPersonBean patientPerson) {
+        this.patientPerson = patientPerson;
+    }
 
 
     /**
@@ -186,15 +195,6 @@ public class PatientBean extends MessagePartBean implements ca.infoway.messagebu
     @Hl7XmlMapping({"id"})
     public Set<Identifier> getPatientIdentifier() {
         return this.patientIdentifier.rawSet();
-    }
-
-
-    @Hl7XmlMapping({"patientPerson"})
-    public ActingPersonBean getPatientPerson() {
-        return this.patientPerson;
-    }
-    public void setPatientPerson(ActingPersonBean patientPerson) {
-        this.patientPerson = patientPerson;
     }
 
 }

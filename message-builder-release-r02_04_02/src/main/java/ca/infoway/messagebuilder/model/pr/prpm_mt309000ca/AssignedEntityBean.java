@@ -45,15 +45,30 @@ import java.util.Set;
 @Hl7PartTypeMapping({"PRPM_MT309000CA.AssignedEntity"})
 public class AssignedEntityBean extends MessagePartBean implements RoleChoice {
 
-    private static final long serialVersionUID = 20110126L;
-    private CV functionalRoleType = new CVImpl();
-    private SET<II, Identifier> functionalRoleIdentifier = new SETImpl<II, Identifier>(IIImpl.class);
-    private List<PrivilegeBean> responsibleForPrivilege = new ArrayList<PrivilegeBean>();
-    private List<RoleChoice> relatedToRoleChoice = new ArrayList<RoleChoice>();
+    private static final long serialVersionUID = 20110127L;
     private LIST<PN, PersonName> functionalRoleName = new LISTImpl<PN, PersonName>(PNImpl.class);
-    private List<ActDefinitionOrEventName_2Bean> performanceActDefinitionOrEvent = new ArrayList<ActDefinitionOrEventName_2Bean>();
+    private CV functionalRoleType = new CVImpl();
+    private List<PrivilegeBean> responsibleForPrivilege = new ArrayList<PrivilegeBean>();
     private OrganizationBean representedOrganization;
+    private SET<II, Identifier> functionalRoleIdentifier = new SETImpl<II, Identifier>(IIImpl.class);
+    private List<RoleChoice> relatedToRoleChoice = new ArrayList<RoleChoice>();
+    private List<ActDefinitionOrEventName_2Bean> performanceActDefinitionOrEvent = new ArrayList<ActDefinitionOrEventName_2Bean>();
     private PrinicpalPersonBean assignedPrincipalPerson;
+
+
+    /**
+     * <p>Functional Role Name</p>
+     * 
+     * <p><p>The provider'''s name pertaining to the specific 
+     * functional role.</p></p>
+     * 
+     * <p><p>Required attribute supports the identification of the 
+     * healthcare provider</p></p>
+     */
+    @Hl7XmlMapping({"name"})
+    public List<PersonName> getFunctionalRoleName() {
+        return this.functionalRoleName.rawList();
+    }
 
 
     /**
@@ -73,6 +88,21 @@ public class AssignedEntityBean extends MessagePartBean implements RoleChoice {
     }
 
 
+    @Hl7XmlMapping({"responsibleFor/privilege"})
+    public List<PrivilegeBean> getResponsibleForPrivilege() {
+        return this.responsibleForPrivilege;
+    }
+
+
+    @Hl7XmlMapping({"representedOrganization"})
+    public OrganizationBean getRepresentedOrganization() {
+        return this.representedOrganization;
+    }
+    public void setRepresentedOrganization(OrganizationBean representedOrganization) {
+        this.representedOrganization = representedOrganization;
+    }
+
+
     /**
      * <p>Functional Role Identifier</p>
      * 
@@ -88,45 +118,15 @@ public class AssignedEntityBean extends MessagePartBean implements RoleChoice {
     }
 
 
-    @Hl7XmlMapping({"responsibleFor/privilege"})
-    public List<PrivilegeBean> getResponsibleForPrivilege() {
-        return this.responsibleForPrivilege;
-    }
-
-
     @Hl7XmlMapping({"relatedTo/roleChoice"})
     public List<RoleChoice> getRelatedToRoleChoice() {
         return this.relatedToRoleChoice;
     }
 
 
-    /**
-     * <p>Functional Role Name</p>
-     * 
-     * <p><p>The provider'''s name pertaining to the specific 
-     * functional role.</p></p>
-     * 
-     * <p><p>Required attribute supports the identification of the 
-     * healthcare provider</p></p>
-     */
-    @Hl7XmlMapping({"name"})
-    public List<PersonName> getFunctionalRoleName() {
-        return this.functionalRoleName.rawList();
-    }
-
-
     @Hl7XmlMapping({"performance/actDefinitionOrEvent"})
     public List<ActDefinitionOrEventName_2Bean> getPerformanceActDefinitionOrEvent() {
         return this.performanceActDefinitionOrEvent;
-    }
-
-
-    @Hl7XmlMapping({"representedOrganization"})
-    public OrganizationBean getRepresentedOrganization() {
-        return this.representedOrganization;
-    }
-    public void setRepresentedOrganization(OrganizationBean representedOrganization) {
-        this.representedOrganization = representedOrganization;
     }
 
 

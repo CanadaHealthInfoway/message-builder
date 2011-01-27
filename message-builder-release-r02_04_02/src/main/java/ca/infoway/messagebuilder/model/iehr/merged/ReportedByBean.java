@@ -90,40 +90,10 @@ import java.util.Date;
 @Hl7PartTypeMapping({"REPC_MT000001CA.Informant","REPC_MT000002CA.Informant","REPC_MT000005CA.Informant","REPC_MT000006CA.Informant","REPC_MT000009CA.Informant","REPC_MT000012CA.Informant","REPC_MT000013CA.Informant"})
 public class ReportedByBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
-    private Party party;
+    private static final long serialVersionUID = 20110127L;
     private TS time = new TSImpl();
+    private Party party;
     private Choice choice;
-
-
-    @Hl7XmlMapping({"party"})
-    public Party getParty() {
-        return this.party;
-    }
-    public void setParty(Party party) {
-        this.party = party;
-    }
-
-    public PatientBean getPartyAsPatient() {
-        return this.party instanceof PatientBean ? (PatientBean) this.party : null;
-    }
-    public boolean hasPartyAsPatient() {
-        return (this.party instanceof PatientBean);
-    }
-
-    public RelatedPersonBean getPartyAsPersonalRelationship() {
-        return this.party instanceof RelatedPersonBean ? (RelatedPersonBean) this.party : null;
-    }
-    public boolean hasPartyAsPersonalRelationship() {
-        return (this.party instanceof RelatedPersonBean);
-    }
-
-    public HealthcareWorkerBean getPartyAsAssignedEntity() {
-        return this.party instanceof HealthcareWorkerBean ? (HealthcareWorkerBean) this.party : null;
-    }
-    public boolean hasPartyAsAssignedEntity() {
-        return (this.party instanceof HealthcareWorkerBean);
-    }
 
 
     /**
@@ -169,6 +139,36 @@ public class ReportedByBean extends MessagePartBean {
     }
     public void setTime(Date time) {
         this.time.setValue(time);
+    }
+
+
+    @Hl7XmlMapping({"party"})
+    public Party getParty() {
+        return this.party;
+    }
+    public void setParty(Party party) {
+        this.party = party;
+    }
+
+    public PatientBean getPartyAsPatient() {
+        return this.party instanceof PatientBean ? (PatientBean) this.party : null;
+    }
+    public boolean hasPartyAsPatient() {
+        return (this.party instanceof PatientBean);
+    }
+
+    public RelatedPersonBean getPartyAsPersonalRelationship() {
+        return this.party instanceof RelatedPersonBean ? (RelatedPersonBean) this.party : null;
+    }
+    public boolean hasPartyAsPersonalRelationship() {
+        return (this.party instanceof RelatedPersonBean);
+    }
+
+    public HealthcareWorkerBean getPartyAsAssignedEntity() {
+        return this.party instanceof HealthcareWorkerBean ? (HealthcareWorkerBean) this.party : null;
+    }
+    public boolean hasPartyAsAssignedEntity() {
+        return (this.party instanceof HealthcareWorkerBean);
     }
 
 

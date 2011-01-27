@@ -43,7 +43,7 @@ import ca.infoway.messagebuilder.model.pr.prpm_mt303010ca.RoleChoice;
 @Hl7PartTypeMapping({"PRPM_MT301010CA.InformRequest","PRPM_MT303010CA.InformRequest"})
 public class InformRequestBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
+    private static final long serialVersionUID = 20110127L;
     private Choice indirectTargetChoice;
     private CV informRequestCode = new CVImpl();
     private ServiceDeliveryLocationBean subjectServiceDeliveryLocation;

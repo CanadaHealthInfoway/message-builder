@@ -59,10 +59,24 @@ import java.util.Set;
 @Hl7PartTypeMapping({"FICR_MT500201CA.HealthDocumentAttachment","FICR_MT600201CA.HealthDocumentAttachment"})
 public class HealthDocumentAttachment_2Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
+    private static final long serialVersionUID = 20110127L;
+    private ED<EncapsulatedData> attachmentContent = new EDImpl<EncapsulatedData>();
     private CV attachmentType = new CVImpl();
     private SET<II, Identifier> attachmentIdentifier = new SETImpl<II, Identifier>(IIImpl.class);
-    private ED<EncapsulatedData> attachmentContent = new EDImpl<EncapsulatedData>();
+
+
+    /**
+     * <p>AttachmentContent</p>
+     * 
+     * <p>Attachment content</p>
+     */
+    @Hl7XmlMapping({"value"})
+    public EncapsulatedData getAttachmentContent() {
+        return this.attachmentContent.getValue();
+    }
+    public void setAttachmentContent(EncapsulatedData attachmentContent) {
+        this.attachmentContent.setValue(attachmentContent);
+    }
 
 
     /**
@@ -93,20 +107,6 @@ public class HealthDocumentAttachment_2Bean extends MessagePartBean {
     @Hl7XmlMapping({"id"})
     public Set<Identifier> getAttachmentIdentifier() {
         return this.attachmentIdentifier.rawSet();
-    }
-
-
-    /**
-     * <p>AttachmentContent</p>
-     * 
-     * <p>Attachment content</p>
-     */
-    @Hl7XmlMapping({"value"})
-    public EncapsulatedData getAttachmentContent() {
-        return this.attachmentContent.getValue();
-    }
-    public void setAttachmentContent(EncapsulatedData attachmentContent) {
-        this.attachmentContent.setValue(attachmentContent);
     }
 
 }

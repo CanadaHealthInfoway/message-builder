@@ -54,21 +54,68 @@ import java.util.List;
 @Hl7RootType
 public class TriggerEventBean<PL> extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
-    private CreatedBy_2Bean author;
-    private II eventIdentifier = new IIImpl();
-    private CV eventType = new CVImpl();
-    private HealthcareWorkerBean responsiblePartyAssignedEntity;
+    private static final long serialVersionUID = 20110127L;
     private ServiceDeliveryLocationBean dataEntryLocationServiceDeliveryLocation;
-    private EntererChoice dataEntererEntererChoice;
-    private List<IssuesBean> subjectOf2DetectedIssueEvent = new ArrayList<IssuesBean>();
-    private IVL<TS, Interval<Date>> eventEffectivePeriod = new IVLImpl<TS, Interval<Date>>();
-    private QueryByParameterBean<PL> queryByParameter;
-    private CreatedAtBean location;
-    private CV eventReason = new CVImpl();
-    private AuthenticationTokenBean pertinentInformationAuthorizationToken;
-    private ConsentBean subjectOf1ConsentEvent;
     private CE messageLanguage = new CEImpl();
+    private CreatedAtBean location;
+    private CV eventType = new CVImpl();
+    private CreatedBy_2Bean author;
+    private QueryByParameterBean<PL> queryByParameter;
+    private EntererChoice dataEntererEntererChoice;
+    private II eventIdentifier = new IIImpl();
+    private AuthenticationTokenBean pertinentInformationAuthorizationToken;
+    private List<IssuesBean> subjectOf2DetectedIssueEvent = new ArrayList<IssuesBean>();
+    private ConsentBean subjectOf1ConsentEvent;
+    private IVL<TS, Interval<Date>> eventEffectivePeriod = new IVLImpl<TS, Interval<Date>>();
+    private CV eventReason = new CVImpl();
+    private HealthcareWorkerBean responsiblePartyAssignedEntity;
+
+
+    @Hl7XmlMapping({"dataEntryLocation/serviceDeliveryLocation"})
+    public ServiceDeliveryLocationBean getDataEntryLocationServiceDeliveryLocation() {
+        return this.dataEntryLocationServiceDeliveryLocation;
+    }
+    public void setDataEntryLocationServiceDeliveryLocation(ServiceDeliveryLocationBean dataEntryLocationServiceDeliveryLocation) {
+        this.dataEntryLocationServiceDeliveryLocation = dataEntryLocationServiceDeliveryLocation;
+    }
+
+
+    /**
+     * <p>Message Language</p>
+     */
+    @Hl7XmlMapping({"languageCode"})
+    public HumanLanguage getMessageLanguage() {
+        return (HumanLanguage) this.messageLanguage.getValue();
+    }
+    public void setMessageLanguage(HumanLanguage messageLanguage) {
+        this.messageLanguage.setValue(messageLanguage);
+    }
+
+
+    @Hl7XmlMapping({"location"})
+    public CreatedAtBean getLocation() {
+        return this.location;
+    }
+    public void setLocation(CreatedAtBean location) {
+        this.location = location;
+    }
+
+
+    /**
+     * <p>A:Event Type</p>
+     * 
+     * <p><p>Identifies the trigger event that occurred.</p></p>
+     * 
+     * <p><p>This is mandatory because it is essential to 
+     * understanding the meaning of the event.</p></p>
+     */
+    @Hl7XmlMapping({"code"})
+    public HL7TriggerEventCode getEventType() {
+        return (HL7TriggerEventCode) this.eventType.getValue();
+    }
+    public void setEventType(HL7TriggerEventCode eventType) {
+        this.eventType.setValue(eventType);
+    }
 
 
     @Hl7XmlMapping({"author"})
@@ -77,6 +124,38 @@ public class TriggerEventBean<PL> extends MessagePartBean {
     }
     public void setAuthor(CreatedBy_2Bean author) {
         this.author = author;
+    }
+
+
+    @Hl7XmlMapping({"queryByParameter"})
+    public QueryByParameterBean<PL> getQueryByParameter() {
+        return this.queryByParameter;
+    }
+    public void setQueryByParameter(QueryByParameterBean<PL> queryByParameter) {
+        this.queryByParameter = queryByParameter;
+    }
+
+
+    @Hl7XmlMapping({"dataEnterer/entererChoice"})
+    public EntererChoice getDataEntererEntererChoice() {
+        return this.dataEntererEntererChoice;
+    }
+    public void setDataEntererEntererChoice(EntererChoice dataEntererEntererChoice) {
+        this.dataEntererEntererChoice = dataEntererEntererChoice;
+    }
+
+    public HealthcareWorkerBean getDataEntererEntererChoiceAsAssignedEntity1() {
+        return this.dataEntererEntererChoice instanceof HealthcareWorkerBean ? (HealthcareWorkerBean) this.dataEntererEntererChoice : null;
+    }
+    public boolean hasDataEntererEntererChoiceAsAssignedEntity1() {
+        return (this.dataEntererEntererChoice instanceof HealthcareWorkerBean);
+    }
+
+    public HealthcareOrganizationBean getDataEntererEntererChoiceAsAssignedEntity2() {
+        return this.dataEntererEntererChoice instanceof HealthcareOrganizationBean ? (HealthcareOrganizationBean) this.dataEntererEntererChoice : null;
+    }
+    public boolean hasDataEntererEntererChoiceAsAssignedEntity2() {
+        return (this.dataEntererEntererChoice instanceof HealthcareOrganizationBean);
     }
 
 
@@ -106,67 +185,27 @@ public class TriggerEventBean<PL> extends MessagePartBean {
     }
 
 
-    /**
-     * <p>A:Event Type</p>
-     * 
-     * <p><p>Identifies the trigger event that occurred.</p></p>
-     * 
-     * <p><p>This is mandatory because it is essential to 
-     * understanding the meaning of the event.</p></p>
-     */
-    @Hl7XmlMapping({"code"})
-    public HL7TriggerEventCode getEventType() {
-        return (HL7TriggerEventCode) this.eventType.getValue();
+    @Hl7XmlMapping({"pertinentInformation/authorizationToken"})
+    public AuthenticationTokenBean getPertinentInformationAuthorizationToken() {
+        return this.pertinentInformationAuthorizationToken;
     }
-    public void setEventType(HL7TriggerEventCode eventType) {
-        this.eventType.setValue(eventType);
-    }
-
-
-    @Hl7XmlMapping({"responsibleParty/assignedEntity"})
-    public HealthcareWorkerBean getResponsiblePartyAssignedEntity() {
-        return this.responsiblePartyAssignedEntity;
-    }
-    public void setResponsiblePartyAssignedEntity(HealthcareWorkerBean responsiblePartyAssignedEntity) {
-        this.responsiblePartyAssignedEntity = responsiblePartyAssignedEntity;
-    }
-
-
-    @Hl7XmlMapping({"dataEntryLocation/serviceDeliveryLocation"})
-    public ServiceDeliveryLocationBean getDataEntryLocationServiceDeliveryLocation() {
-        return this.dataEntryLocationServiceDeliveryLocation;
-    }
-    public void setDataEntryLocationServiceDeliveryLocation(ServiceDeliveryLocationBean dataEntryLocationServiceDeliveryLocation) {
-        this.dataEntryLocationServiceDeliveryLocation = dataEntryLocationServiceDeliveryLocation;
-    }
-
-
-    @Hl7XmlMapping({"dataEnterer/entererChoice"})
-    public EntererChoice getDataEntererEntererChoice() {
-        return this.dataEntererEntererChoice;
-    }
-    public void setDataEntererEntererChoice(EntererChoice dataEntererEntererChoice) {
-        this.dataEntererEntererChoice = dataEntererEntererChoice;
-    }
-
-    public HealthcareWorkerBean getDataEntererEntererChoiceAsAssignedEntity1() {
-        return this.dataEntererEntererChoice instanceof HealthcareWorkerBean ? (HealthcareWorkerBean) this.dataEntererEntererChoice : null;
-    }
-    public boolean hasDataEntererEntererChoiceAsAssignedEntity1() {
-        return (this.dataEntererEntererChoice instanceof HealthcareWorkerBean);
-    }
-
-    public HealthcareOrganizationBean getDataEntererEntererChoiceAsAssignedEntity2() {
-        return this.dataEntererEntererChoice instanceof HealthcareOrganizationBean ? (HealthcareOrganizationBean) this.dataEntererEntererChoice : null;
-    }
-    public boolean hasDataEntererEntererChoiceAsAssignedEntity2() {
-        return (this.dataEntererEntererChoice instanceof HealthcareOrganizationBean);
+    public void setPertinentInformationAuthorizationToken(AuthenticationTokenBean pertinentInformationAuthorizationToken) {
+        this.pertinentInformationAuthorizationToken = pertinentInformationAuthorizationToken;
     }
 
 
     @Hl7XmlMapping({"subjectOf2/detectedIssueEvent"})
     public List<IssuesBean> getSubjectOf2DetectedIssueEvent() {
         return this.subjectOf2DetectedIssueEvent;
+    }
+
+
+    @Hl7XmlMapping({"subjectOf1/consentEvent"})
+    public ConsentBean getSubjectOf1ConsentEvent() {
+        return this.subjectOf1ConsentEvent;
+    }
+    public void setSubjectOf1ConsentEvent(ConsentBean subjectOf1ConsentEvent) {
+        this.subjectOf1ConsentEvent = subjectOf1ConsentEvent;
     }
 
 
@@ -188,24 +227,6 @@ public class TriggerEventBean<PL> extends MessagePartBean {
     }
     public void setEventEffectivePeriod(Interval<Date> eventEffectivePeriod) {
         this.eventEffectivePeriod.setValue(eventEffectivePeriod);
-    }
-
-
-    @Hl7XmlMapping({"queryByParameter"})
-    public QueryByParameterBean<PL> getQueryByParameter() {
-        return this.queryByParameter;
-    }
-    public void setQueryByParameter(QueryByParameterBean<PL> queryByParameter) {
-        this.queryByParameter = queryByParameter;
-    }
-
-
-    @Hl7XmlMapping({"location"})
-    public CreatedAtBean getLocation() {
-        return this.location;
-    }
-    public void setLocation(CreatedAtBean location) {
-        this.location = location;
     }
 
 
@@ -233,33 +254,12 @@ public class TriggerEventBean<PL> extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"pertinentInformation/authorizationToken"})
-    public AuthenticationTokenBean getPertinentInformationAuthorizationToken() {
-        return this.pertinentInformationAuthorizationToken;
+    @Hl7XmlMapping({"responsibleParty/assignedEntity"})
+    public HealthcareWorkerBean getResponsiblePartyAssignedEntity() {
+        return this.responsiblePartyAssignedEntity;
     }
-    public void setPertinentInformationAuthorizationToken(AuthenticationTokenBean pertinentInformationAuthorizationToken) {
-        this.pertinentInformationAuthorizationToken = pertinentInformationAuthorizationToken;
-    }
-
-
-    @Hl7XmlMapping({"subjectOf1/consentEvent"})
-    public ConsentBean getSubjectOf1ConsentEvent() {
-        return this.subjectOf1ConsentEvent;
-    }
-    public void setSubjectOf1ConsentEvent(ConsentBean subjectOf1ConsentEvent) {
-        this.subjectOf1ConsentEvent = subjectOf1ConsentEvent;
-    }
-
-
-    /**
-     * <p>Message Language</p>
-     */
-    @Hl7XmlMapping({"languageCode"})
-    public HumanLanguage getMessageLanguage() {
-        return (HumanLanguage) this.messageLanguage.getValue();
-    }
-    public void setMessageLanguage(HumanLanguage messageLanguage) {
-        this.messageLanguage.setValue(messageLanguage);
+    public void setResponsiblePartyAssignedEntity(HealthcareWorkerBean responsiblePartyAssignedEntity) {
+        this.responsiblePartyAssignedEntity = responsiblePartyAssignedEntity;
     }
 
 }

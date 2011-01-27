@@ -83,16 +83,16 @@ import java.util.Set;
 @Hl7RootType
 public class OtherMedicationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
+    private static final long serialVersionUID = 20110127L;
     private CS statusCode = new CSImpl();
-    private CV routeCode = new CVImpl();
     private CD otherMedicationType = new CDImpl();
+    private CV routeCode = new CVImpl();
     private SET<II, Identifier> otherMedicationId = new SETImpl<II, Identifier>(IIImpl.class);
-    private IVL<TS, Interval<Date>> drugActivePeriod = new IVLImpl<TS, Interval<Date>>();
     private SET<CV, Code> otherMedicationMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);
-    private List<AdministrationInstructionsBean> componentDosageInstruction = new ArrayList<AdministrationInstructionsBean>();
+    private IVL<TS, Interval<Date>> drugActivePeriod = new IVLImpl<TS, Interval<Date>>();
     private IncludesBean subjectOf;
     private DrugProductBean consumableMedication;
+    private List<AdministrationInstructionsBean> componentDosageInstruction = new ArrayList<AdministrationInstructionsBean>();
 
 
     /**
@@ -162,6 +162,35 @@ public class OtherMedicationBean extends MessagePartBean {
 
 
     /**
+     * <p>OtherMedicationType</p>
+     * 
+     * <p>Other Medication Type</p>
+     * 
+     * <p><p>Must be 'DRUG' unless using SNOMED</p></p>
+     * 
+     * <p><p>Indicates that the record is a drug administration 
+     * rather than an immunization or other type of administration. 
+     * For SNOMED, may also include route, drug and other 
+     * information.</p></p>
+     * 
+     * <p><p>Needed to convey the meaning of this class and is 
+     * therefore mandatory.</p><p>The element allows 'CD' to 
+     * provide support for SNOMED.</p></p>
+     * 
+     * <p><p>Needed to convey the meaning of this class and is 
+     * therefore mandatory.</p><p>The element allows 'CD' to 
+     * provide support for SNOMED.</p></p>
+     */
+    @Hl7XmlMapping({"code"})
+    public Code getOtherMedicationType() {
+        return (Code) this.otherMedicationType.getValue();
+    }
+    public void setOtherMedicationType(Code otherMedicationType) {
+        this.otherMedicationType.setValue(otherMedicationType);
+    }
+
+
+    /**
      * <p>F:Route of Administration</p>
      * 
      * <p><p>routeCode must not be used when code is SNOMED and is 
@@ -198,35 +227,6 @@ public class OtherMedicationBean extends MessagePartBean {
 
 
     /**
-     * <p>OtherMedicationType</p>
-     * 
-     * <p>Other Medication Type</p>
-     * 
-     * <p><p>Must be 'DRUG' unless using SNOMED</p></p>
-     * 
-     * <p><p>Indicates that the record is a drug administration 
-     * rather than an immunization or other type of administration. 
-     * For SNOMED, may also include route, drug and other 
-     * information.</p></p>
-     * 
-     * <p><p>Needed to convey the meaning of this class and is 
-     * therefore mandatory.</p><p>The element allows 'CD' to 
-     * provide support for SNOMED.</p></p>
-     * 
-     * <p><p>Needed to convey the meaning of this class and is 
-     * therefore mandatory.</p><p>The element allows 'CD' to 
-     * provide support for SNOMED.</p></p>
-     */
-    @Hl7XmlMapping({"code"})
-    public Code getOtherMedicationType() {
-        return (Code) this.otherMedicationType.getValue();
-    }
-    public void setOtherMedicationType(Code otherMedicationType) {
-        this.otherMedicationType.setValue(otherMedicationType);
-    }
-
-
-    /**
      * <p>OtherMedicationId</p>
      * 
      * <p>A:Other Medication Id</p>
@@ -240,38 +240,6 @@ public class OtherMedicationBean extends MessagePartBean {
     @Hl7XmlMapping({"id"})
     public Set<Identifier> getOtherMedicationId() {
         return this.otherMedicationId.rawSet();
-    }
-
-
-    /**
-     * <p>DrugActivePeriod</p>
-     * 
-     * <p>C:Drug Active Period</p>
-     * 
-     * <p><p>The new period in which the active medication is 
-     * deemed to be active.</p></p>
-     * 
-     * <p><p>Allows the drug active period information to be 
-     * changed.</p></p>
-     * 
-     * <p>d:Drug Active Period</p>
-     * 
-     * <p><p>Indicates the time-period in which the patient has 
-     * been taking or is expected to be taking the medication.</p></p>
-     * 
-     * <p><p>Used to help determine whether the medication is 
-     * currently active. Because this information won't always be 
-     * available, the attribute is marked as 'populated'.</p></p>
-     * 
-     * <p><p>Either the start or end or both can be null if they 
-     * are not known.</p></p>
-     */
-    @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getDrugActivePeriod() {
-        return this.drugActivePeriod.getValue();
-    }
-    public void setDrugActivePeriod(Interval<Date> drugActivePeriod) {
-        this.drugActivePeriod.setValue(drugActivePeriod);
     }
 
 
@@ -440,9 +408,35 @@ public class OtherMedicationBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"component/dosageInstruction"})
-    public List<AdministrationInstructionsBean> getComponentDosageInstruction() {
-        return this.componentDosageInstruction;
+    /**
+     * <p>DrugActivePeriod</p>
+     * 
+     * <p>C:Drug Active Period</p>
+     * 
+     * <p><p>The new period in which the active medication is 
+     * deemed to be active.</p></p>
+     * 
+     * <p><p>Allows the drug active period information to be 
+     * changed.</p></p>
+     * 
+     * <p>d:Drug Active Period</p>
+     * 
+     * <p><p>Indicates the time-period in which the patient has 
+     * been taking or is expected to be taking the medication.</p></p>
+     * 
+     * <p><p>Used to help determine whether the medication is 
+     * currently active. Because this information won't always be 
+     * available, the attribute is marked as 'populated'.</p></p>
+     * 
+     * <p><p>Either the start or end or both can be null if they 
+     * are not known.</p></p>
+     */
+    @Hl7XmlMapping({"effectiveTime"})
+    public Interval<Date> getDrugActivePeriod() {
+        return this.drugActivePeriod.getValue();
+    }
+    public void setDrugActivePeriod(Interval<Date> drugActivePeriod) {
+        this.drugActivePeriod.setValue(drugActivePeriod);
     }
 
 
@@ -461,6 +455,12 @@ public class OtherMedicationBean extends MessagePartBean {
     }
     public void setConsumableMedication(DrugProductBean consumableMedication) {
         this.consumableMedication = consumableMedication;
+    }
+
+
+    @Hl7XmlMapping({"component/dosageInstruction"})
+    public List<AdministrationInstructionsBean> getComponentDosageInstruction() {
+        return this.componentDosageInstruction;
     }
 
 }

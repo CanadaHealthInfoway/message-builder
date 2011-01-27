@@ -24,27 +24,12 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COCT_MT680000CA.InvoiceElementIntent2"})
 public class InvoiceElementIntent2Bean extends MessagePartBean implements ca.infoway.messagebuilder.model.merged.InvoiceElementChoice {
 
-    private static final long serialVersionUID = 20110126L;
-    private MO totalAmountBilledForLineItemElements = new MOImpl();
+    private static final long serialVersionUID = 20110127L;
     private CV genericServiceCodes = new CVImpl();
-    private PQ unitQuantity = new PQImpl();
-    private INT factorNumber = new INTImpl();
     private RTO<Money, PhysicalQuantity> pricePerUnit = new RTOImpl<Money, PhysicalQuantity>();
-
-
-    /**
-     * <p>Total amount billed for line item/elements.</p>
-     * 
-     * <p><p>(= unit_qty * unit_price_amt * factor_nbr * 
-     * points_nbr. E.g. $150 CAD</p></p>
-     */
-    @Hl7XmlMapping({"netAmt"})
-    public Money getTotalAmountBilledForLineItemElements() {
-        return this.totalAmountBilledForLineItemElements.getValue();
-    }
-    public void setTotalAmountBilledForLineItemElements(Money totalAmountBilledForLineItemElements) {
-        this.totalAmountBilledForLineItemElements.setValue(totalAmountBilledForLineItemElements);
-    }
+    private PQ unitQuantity = new PQImpl();
+    private MO totalAmountBilledForLineItemElements = new MOImpl();
+    private INT factorNumber = new INTImpl();
 
 
     /**
@@ -67,6 +52,20 @@ public class InvoiceElementIntent2Bean extends MessagePartBean implements ca.inf
 
 
     /**
+     * <p>Price per unit</p>
+     * 
+     * <p><p>e.g. $50 CAD/ 1 {box}</p></p>
+     */
+    @Hl7XmlMapping({"unitPriceAmt"})
+    public Ratio<Money, PhysicalQuantity> getPricePerUnit() {
+        return this.pricePerUnit.getValue();
+    }
+    public void setPricePerUnit(Ratio<Money, PhysicalQuantity> pricePerUnit) {
+        this.pricePerUnit.setValue(pricePerUnit);
+    }
+
+
+    /**
      * <p>Unit Quantity</p>
      * 
      * <p><p>e.g. 3 {boxes}</p></p>
@@ -77,6 +76,21 @@ public class InvoiceElementIntent2Bean extends MessagePartBean implements ca.inf
     }
     public void setUnitQuantity(PhysicalQuantity unitQuantity) {
         this.unitQuantity.setValue(unitQuantity);
+    }
+
+
+    /**
+     * <p>Total amount billed for line item/elements.</p>
+     * 
+     * <p><p>(= unit_qty * unit_price_amt * factor_nbr * 
+     * points_nbr. E.g. $150 CAD</p></p>
+     */
+    @Hl7XmlMapping({"netAmt"})
+    public Money getTotalAmountBilledForLineItemElements() {
+        return this.totalAmountBilledForLineItemElements.getValue();
+    }
+    public void setTotalAmountBilledForLineItemElements(Money totalAmountBilledForLineItemElements) {
+        this.totalAmountBilledForLineItemElements.setValue(totalAmountBilledForLineItemElements);
     }
 
 
@@ -92,20 +106,6 @@ public class InvoiceElementIntent2Bean extends MessagePartBean implements ca.inf
     }
     public void setFactorNumber(Integer factorNumber) {
         this.factorNumber.setValue(factorNumber);
-    }
-
-
-    /**
-     * <p>Price per unit</p>
-     * 
-     * <p><p>e.g. $50 CAD/ 1 {box}</p></p>
-     */
-    @Hl7XmlMapping({"unitPriceAmt"})
-    public Ratio<Money, PhysicalQuantity> getPricePerUnit() {
-        return this.pricePerUnit.getValue();
-    }
-    public void setPricePerUnit(Ratio<Money, PhysicalQuantity> pricePerUnit) {
-        this.pricePerUnit.setValue(pricePerUnit);
     }
 
 }

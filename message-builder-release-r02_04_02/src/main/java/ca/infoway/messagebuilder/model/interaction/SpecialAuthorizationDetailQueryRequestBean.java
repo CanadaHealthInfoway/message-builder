@@ -12,6 +12,6 @@ import ca.infoway.messagebuilder.model.common.merged.TriggerEvent_5Bean;
 @Hl7PartTypeMapping({"FICR_IN404003CA"})
 public class SpecialAuthorizationDetailQueryRequestBean extends HL7Message_1Bean<TriggerEvent_5Bean<ParameterList_1Bean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20110126L;
+    private static final long serialVersionUID = 20110127L;
 
 }

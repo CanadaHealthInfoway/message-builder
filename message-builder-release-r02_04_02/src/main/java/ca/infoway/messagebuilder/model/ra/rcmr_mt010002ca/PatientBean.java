@@ -18,6 +18,6 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"RCMR_MT010002CA.Patient"})
 public class PatientBean extends MessagePartBean implements ca.infoway.messagebuilder.model.merged.Consenter {
 
-    private static final long serialVersionUID = 20110126L;
+    private static final long serialVersionUID = 20110127L;
 
 }

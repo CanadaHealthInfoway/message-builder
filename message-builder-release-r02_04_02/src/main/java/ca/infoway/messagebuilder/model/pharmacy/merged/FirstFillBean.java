@@ -49,10 +49,62 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PORX_MT010120CA.InitialSupplyRequest","PORX_MT060160CA.InitialSupplyRequest","PORX_MT060340CA.InitialSupplyRequest"})
 public class FirstFillBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
-    private IVL<TS, Interval<Date>> firstFillExpiryDate = new IVLImpl<TS, Interval<Date>>();
-    private PQ firstFillQuantity = new PQImpl();
+    private static final long serialVersionUID = 20110127L;
     private IVL<TS, Interval<Date>> firstFillDaysSupply = new IVLImpl<TS, Interval<Date>>();
+    private PQ firstFillQuantity = new PQImpl();
+    private IVL<TS, Interval<Date>> firstFillExpiryDate = new IVLImpl<TS, Interval<Date>>();
+
+
+    /**
+     * <p>FirstFillDaysSupply</p>
+     * 
+     * <p>First Fill Days Supply</p>
+     * 
+     * <p><p>The number of days that the first fill is expected to 
+     * last, if the patient is compliant with the dispensing of the 
+     * first fill and with administration of the prescription.</p></p>
+     * 
+     * <p><p>Used when the prescriber cannot or does not wish to 
+     * calculate the quantity necessary to last for the trial or 
+     * synchronization time.</p></p>
+     */
+    @Hl7XmlMapping({"expectedUseTime"})
+    public Interval<Date> getFirstFillDaysSupply() {
+        return this.firstFillDaysSupply.getValue();
+    }
+    public void setFirstFillDaysSupply(Interval<Date> firstFillDaysSupply) {
+        this.firstFillDaysSupply.setValue(firstFillDaysSupply);
+    }
+
+
+    /**
+     * <p>FirstFillQuantity</p>
+     * 
+     * <p>First Fill Quantity</p>
+     * 
+     * <p><p>The quantity of medication to be dispensed the first 
+     * time the prescription is dispensed against.</p></p>
+     * 
+     * <p><p>Allows a limited quantity to be dispensed for a trial 
+     * or for a synchronizing dose.</p></p>
+     * 
+     * <p>First Fill Quantity</p>
+     * 
+     * <p><p>The quantity of medication to be dispensed the first 
+     * time the prescription is dispensed against.</p></p>
+     * 
+     * <p><p>Prescription.coordinatingAmount</p></p>
+     * 
+     * <p><p>Allows a limited quantity to be dispensed for a trial 
+     * or for a synchronizing dose.</p></p>
+     */
+    @Hl7XmlMapping({"quantity"})
+    public PhysicalQuantity getFirstFillQuantity() {
+        return this.firstFillQuantity.getValue();
+    }
+    public void setFirstFillQuantity(PhysicalQuantity firstFillQuantity) {
+        this.firstFillQuantity.setValue(firstFillQuantity);
+    }
 
 
     /**
@@ -106,58 +158,6 @@ public class FirstFillBean extends MessagePartBean {
     }
     public void setFirstFillExpiryDate(Interval<Date> firstFillExpiryDate) {
         this.firstFillExpiryDate.setValue(firstFillExpiryDate);
-    }
-
-
-    /**
-     * <p>FirstFillQuantity</p>
-     * 
-     * <p>First Fill Quantity</p>
-     * 
-     * <p><p>The quantity of medication to be dispensed the first 
-     * time the prescription is dispensed against.</p></p>
-     * 
-     * <p><p>Allows a limited quantity to be dispensed for a trial 
-     * or for a synchronizing dose.</p></p>
-     * 
-     * <p>First Fill Quantity</p>
-     * 
-     * <p><p>The quantity of medication to be dispensed the first 
-     * time the prescription is dispensed against.</p></p>
-     * 
-     * <p><p>Prescription.coordinatingAmount</p></p>
-     * 
-     * <p><p>Allows a limited quantity to be dispensed for a trial 
-     * or for a synchronizing dose.</p></p>
-     */
-    @Hl7XmlMapping({"quantity"})
-    public PhysicalQuantity getFirstFillQuantity() {
-        return this.firstFillQuantity.getValue();
-    }
-    public void setFirstFillQuantity(PhysicalQuantity firstFillQuantity) {
-        this.firstFillQuantity.setValue(firstFillQuantity);
-    }
-
-
-    /**
-     * <p>FirstFillDaysSupply</p>
-     * 
-     * <p>First Fill Days Supply</p>
-     * 
-     * <p><p>The number of days that the first fill is expected to 
-     * last, if the patient is compliant with the dispensing of the 
-     * first fill and with administration of the prescription.</p></p>
-     * 
-     * <p><p>Used when the prescriber cannot or does not wish to 
-     * calculate the quantity necessary to last for the trial or 
-     * synchronization time.</p></p>
-     */
-    @Hl7XmlMapping({"expectedUseTime"})
-    public Interval<Date> getFirstFillDaysSupply() {
-        return this.firstFillDaysSupply.getValue();
-    }
-    public void setFirstFillDaysSupply(Interval<Date> firstFillDaysSupply) {
-        this.firstFillDaysSupply.setValue(firstFillDaysSupply);
     }
 
 }

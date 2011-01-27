@@ -12,6 +12,6 @@ import ca.infoway.messagebuilder.model.merged.ActRequestBean;
 @Hl7PartTypeMapping({"PRPA_IN202018CA"})
 public class UpdateServiceDeliveryLocationAcceptedBean extends HL7Message_1Bean<TriggerEvent_4Bean<ActRequestBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20110126L;
+    private static final long serialVersionUID = 20110127L;
 
 }

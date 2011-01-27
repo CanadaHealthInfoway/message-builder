@@ -34,20 +34,11 @@ import java.util.Set;
 @Hl7PartTypeMapping({"PRPM_MT306051CA.QualifiedEntity"})
 public class QualifiedEntityBean extends MessagePartBean implements ca.infoway.messagebuilder.model.merged.RoleChoice {
 
-    private static final long serialVersionUID = 20110126L;
-    private PrinicpalPerson_2Bean qualifiedPrincipalPerson;
+    private static final long serialVersionUID = 20110127L;
     private CV expertiseOrCredentialsRoleType = new CVImpl();
+    private PrinicpalPerson_2Bean qualifiedPrincipalPerson;
     private SET<II, Identifier> expertiseOrCredentialsRoleIdentifier = new SETImpl<II, Identifier>(IIImpl.class);
     private OrganizationBean qualificationGrantingOrganization;
-
-
-    @Hl7XmlMapping({"qualifiedPrincipalPerson"})
-    public PrinicpalPerson_2Bean getQualifiedPrincipalPerson() {
-        return this.qualifiedPrincipalPerson;
-    }
-    public void setQualifiedPrincipalPerson(PrinicpalPerson_2Bean qualifiedPrincipalPerson) {
-        this.qualifiedPrincipalPerson = qualifiedPrincipalPerson;
-    }
 
 
     /**
@@ -69,6 +60,15 @@ public class QualifiedEntityBean extends MessagePartBean implements ca.infoway.m
     }
     public void setExpertiseOrCredentialsRoleType(QualifiedRoleType expertiseOrCredentialsRoleType) {
         this.expertiseOrCredentialsRoleType.setValue(expertiseOrCredentialsRoleType);
+    }
+
+
+    @Hl7XmlMapping({"qualifiedPrincipalPerson"})
+    public PrinicpalPerson_2Bean getQualifiedPrincipalPerson() {
+        return this.qualifiedPrincipalPerson;
+    }
+    public void setQualifiedPrincipalPerson(PrinicpalPerson_2Bean qualifiedPrincipalPerson) {
+        this.qualifiedPrincipalPerson = qualifiedPrincipalPerson;
     }
 
 

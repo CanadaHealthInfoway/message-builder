@@ -31,38 +31,38 @@ import java.util.List;
 @Hl7RootType
 public interface ResultChoice extends ca.infoway.messagebuilder.model.lab.polb_mt004999ca.ResultInstancePayloadChoice, ca.infoway.messagebuilder.model.lab.polb_mt001999ca.ResultChoice {
 
+    public List<ResultChoice> getComponent3ResultChoice();
+
+    public Patient_1Bean getRecordTargetPatient();
+    public void setRecordTargetPatient(Patient_1Bean recordTargetPatient);
+
     public List<RoleChoice> getReceiverRoleChoice();
+
+    public List<IncludesBean> getSubjectOf2();
 
     public RecipientChoice getPrimaryInformationRecipientRecipientChoice();
     public void setPrimaryInformationRecipientRecipientChoice(RecipientChoice primaryInformationRecipientRecipientChoice);
+
+    public List<ReportSectionSpecimenBean> getSpecimen();
+
+    public ResultStatusProcessStepBean getSubjectOf3ResultStatusProcessStep();
+    public void setSubjectOf3ResultStatusProcessStep(ResultStatusProcessStepBean subjectOf3ResultStatusProcessStep);
 
     public List<RoleChoice> getPerformerRoleChoice();
 
     public List<FulfillmentChoice> getInFulfillmentOfFulfillmentChoice();
 
+    public List<ReportableHealthIndicatorBean> getComponent2ReportableTestIndicator();
+
     public OutbreakBean getPertinentInformation1OutbreakEvent();
     public void setPertinentInformation1OutbreakEvent(OutbreakBean pertinentInformation1OutbreakEvent);
 
-    public List<ResultChoice> getComponent3ResultChoice();
-
-    public List<ReportSectionSpecimenBean> getSpecimen();
+    public ResultSortKeyBean getComponent1ResultSortKey();
+    public void setComponent1ResultSortKey(ResultSortKeyBean component1ResultSortKey);
 
     public VersionInformationBean getSubjectOf1ControlActEvent();
     public void setSubjectOf1ControlActEvent(VersionInformationBean subjectOf1ControlActEvent);
 
-    public ResultStatusProcessStepBean getSubjectOf3ResultStatusProcessStep();
-    public void setSubjectOf3ResultStatusProcessStep(ResultStatusProcessStepBean subjectOf3ResultStatusProcessStep);
-
-    public Patient_1Bean getRecordTargetPatient();
-    public void setRecordTargetPatient(Patient_1Bean recordTargetPatient);
-
-    public List<IncludesBean> getSubjectOf2();
-
     public List<SupportingClinicalInformationBean> getPertinentInformation2SupportingClinicalObservationEvent();
-
-    public List<ReportableHealthIndicatorBean> getComponent2ReportableTestIndicator();
-
-    public ResultSortKeyBean getComponent1ResultSortKey();
-    public void setComponent1ResultSortKey(ResultSortKeyBean component1ResultSortKey);
 
 }

@@ -58,39 +58,30 @@ import java.util.Set;
 @Hl7RootType
 public class ReportedReactionBean extends MessagePartBean implements ca.infoway.messagebuilder.model.iehr.comt_mt111111ca.SHR {
 
-    private static final long serialVersionUID = 20110126L;
-    private II reactionRecordId = new IIImpl();
-    private CD diagnosisType = new CDImpl();
-    private HealthcareWorkerBean responsiblePartyAssignedEntity;
-    private SET<CV, Code> adverseReactionMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);
-    private ST description = new STImpl();
-    private CV reaction = new CVImpl();
-    private ReportedByBean informant;
-    private RefusedByBean author;
-    private BL subjectOf2AnnotationIndicator = new BLImpl();
-    private IVL<TS, Interval<Date>> reactionOnsetDate = new IVLImpl<TS, Interval<Date>>();
-    private List<IncludesBean> subjectOf1 = new ArrayList<IncludesBean>();
-    private List<CareCompositionsBean> componentOfPatientCareProvisionEvent = new ArrayList<CareCompositionsBean>();
+    private static final long serialVersionUID = 20110127L;
     private OccurredAtBean location;
+    private CD diagnosisType = new CDImpl();
+    private List<CareCompositionsBean> componentOfPatientCareProvisionEvent = new ArrayList<CareCompositionsBean>();
+    private List<IncludesBean> subjectOf1 = new ArrayList<IncludesBean>();
+    private BL subjectOf2AnnotationIndicator = new BLImpl();
+    private ST description = new STImpl();
+    private RefusedByBean author;
+    private SET<CV, Code> adverseReactionMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);
     private List<ReportedReactionsBean> subjectOf3CausalityAssessment = new ArrayList<ReportedReactionsBean>();
+    private ReportedByBean informant;
+    private CV reaction = new CVImpl();
+    private II reactionRecordId = new IIImpl();
+    private IVL<TS, Interval<Date>> reactionOnsetDate = new IVLImpl<TS, Interval<Date>>();
     private AllergyIntoleranceSeverityLevelBean subjectOf4SeverityObservation;
+    private HealthcareWorkerBean responsiblePartyAssignedEntity;
 
 
-    /**
-     * <p>C:Reaction Record Id</p>
-     * 
-     * <p><p>An identifier assigned to the record of the adverse 
-     * reaction.</p></p>
-     * 
-     * <p><p>Uniquely identifies the specific reaction record and 
-     * is therefore mandatory.</p></p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Identifier getReactionRecordId() {
-        return this.reactionRecordId.getValue();
+    @Hl7XmlMapping({"location"})
+    public OccurredAtBean getLocation() {
+        return this.location;
     }
-    public void setReactionRecordId(Identifier reactionRecordId) {
-        this.reactionRecordId.setValue(reactionRecordId);
+    public void setLocation(OccurredAtBean location) {
+        this.location = location;
     }
 
 
@@ -117,12 +108,50 @@ public class ReportedReactionBean extends MessagePartBean implements ca.infoway.
     }
 
 
-    @Hl7XmlMapping({"responsibleParty/assignedEntity"})
-    public HealthcareWorkerBean getResponsiblePartyAssignedEntity() {
-        return this.responsiblePartyAssignedEntity;
+    @Hl7XmlMapping({"componentOf/patientCareProvisionEvent"})
+    public List<CareCompositionsBean> getComponentOfPatientCareProvisionEvent() {
+        return this.componentOfPatientCareProvisionEvent;
     }
-    public void setResponsiblePartyAssignedEntity(HealthcareWorkerBean responsiblePartyAssignedEntity) {
-        this.responsiblePartyAssignedEntity = responsiblePartyAssignedEntity;
+
+
+    @Hl7XmlMapping({"subjectOf1"})
+    public List<IncludesBean> getSubjectOf1() {
+        return this.subjectOf1;
+    }
+
+
+    @Hl7XmlMapping({"subjectOf2/annotationIndicator"})
+    public Boolean getSubjectOf2AnnotationIndicator() {
+        return this.subjectOf2AnnotationIndicator.getValue();
+    }
+    public void setSubjectOf2AnnotationIndicator(Boolean subjectOf2AnnotationIndicator) {
+        this.subjectOf2AnnotationIndicator.setValue(subjectOf2AnnotationIndicator);
+    }
+
+
+    /**
+     * <p>G:Description</p>
+     * 
+     * <p><p>A free form description of the reaction.</p></p>
+     * 
+     * <p><p>Allows for flexibility in the recording and reporting 
+     * of the reaction.</p></p>
+     */
+    @Hl7XmlMapping({"text"})
+    public String getDescription() {
+        return this.description.getValue();
+    }
+    public void setDescription(String description) {
+        this.description.setValue(description);
+    }
+
+
+    @Hl7XmlMapping({"author"})
+    public RefusedByBean getAuthor() {
+        return this.author;
+    }
+    public void setAuthor(RefusedByBean author) {
+        this.author = author;
     }
 
 
@@ -194,20 +223,18 @@ public class ReportedReactionBean extends MessagePartBean implements ca.infoway.
     }
 
 
-    /**
-     * <p>G:Description</p>
-     * 
-     * <p><p>A free form description of the reaction.</p></p>
-     * 
-     * <p><p>Allows for flexibility in the recording and reporting 
-     * of the reaction.</p></p>
-     */
-    @Hl7XmlMapping({"text"})
-    public String getDescription() {
-        return this.description.getValue();
+    @Hl7XmlMapping({"subjectOf3/causalityAssessment"})
+    public List<ReportedReactionsBean> getSubjectOf3CausalityAssessment() {
+        return this.subjectOf3CausalityAssessment;
     }
-    public void setDescription(String description) {
-        this.description.setValue(description);
+
+
+    @Hl7XmlMapping({"informant"})
+    public ReportedByBean getInformant() {
+        return this.informant;
+    }
+    public void setInformant(ReportedByBean informant) {
+        this.informant = informant;
     }
 
 
@@ -237,30 +264,21 @@ public class ReportedReactionBean extends MessagePartBean implements ca.infoway.
     }
 
 
-    @Hl7XmlMapping({"informant"})
-    public ReportedByBean getInformant() {
-        return this.informant;
+    /**
+     * <p>C:Reaction Record Id</p>
+     * 
+     * <p><p>An identifier assigned to the record of the adverse 
+     * reaction.</p></p>
+     * 
+     * <p><p>Uniquely identifies the specific reaction record and 
+     * is therefore mandatory.</p></p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Identifier getReactionRecordId() {
+        return this.reactionRecordId.getValue();
     }
-    public void setInformant(ReportedByBean informant) {
-        this.informant = informant;
-    }
-
-
-    @Hl7XmlMapping({"author"})
-    public RefusedByBean getAuthor() {
-        return this.author;
-    }
-    public void setAuthor(RefusedByBean author) {
-        this.author = author;
-    }
-
-
-    @Hl7XmlMapping({"subjectOf2/annotationIndicator"})
-    public Boolean getSubjectOf2AnnotationIndicator() {
-        return this.subjectOf2AnnotationIndicator.getValue();
-    }
-    public void setSubjectOf2AnnotationIndicator(Boolean subjectOf2AnnotationIndicator) {
-        this.subjectOf2AnnotationIndicator.setValue(subjectOf2AnnotationIndicator);
+    public void setReactionRecordId(Identifier reactionRecordId) {
+        this.reactionRecordId.setValue(reactionRecordId);
     }
 
 
@@ -282,39 +300,21 @@ public class ReportedReactionBean extends MessagePartBean implements ca.infoway.
     }
 
 
-    @Hl7XmlMapping({"subjectOf1"})
-    public List<IncludesBean> getSubjectOf1() {
-        return this.subjectOf1;
-    }
-
-
-    @Hl7XmlMapping({"componentOf/patientCareProvisionEvent"})
-    public List<CareCompositionsBean> getComponentOfPatientCareProvisionEvent() {
-        return this.componentOfPatientCareProvisionEvent;
-    }
-
-
-    @Hl7XmlMapping({"location"})
-    public OccurredAtBean getLocation() {
-        return this.location;
-    }
-    public void setLocation(OccurredAtBean location) {
-        this.location = location;
-    }
-
-
-    @Hl7XmlMapping({"subjectOf3/causalityAssessment"})
-    public List<ReportedReactionsBean> getSubjectOf3CausalityAssessment() {
-        return this.subjectOf3CausalityAssessment;
-    }
-
-
     @Hl7XmlMapping({"subjectOf4/severityObservation"})
     public AllergyIntoleranceSeverityLevelBean getSubjectOf4SeverityObservation() {
         return this.subjectOf4SeverityObservation;
     }
     public void setSubjectOf4SeverityObservation(AllergyIntoleranceSeverityLevelBean subjectOf4SeverityObservation) {
         this.subjectOf4SeverityObservation = subjectOf4SeverityObservation;
+    }
+
+
+    @Hl7XmlMapping({"responsibleParty/assignedEntity"})
+    public HealthcareWorkerBean getResponsiblePartyAssignedEntity() {
+        return this.responsiblePartyAssignedEntity;
+    }
+    public void setResponsiblePartyAssignedEntity(HealthcareWorkerBean responsiblePartyAssignedEntity) {
+        this.responsiblePartyAssignedEntity = responsiblePartyAssignedEntity;
     }
 
 }

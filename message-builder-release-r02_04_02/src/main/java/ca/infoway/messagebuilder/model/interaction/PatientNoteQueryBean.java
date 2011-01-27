@@ -12,6 +12,6 @@ import ca.infoway.messagebuilder.model.iehr.comt_mt300002ca.GenericQueryParamete
 @Hl7PartTypeMapping({"COMT_IN300201CA"})
 public class PatientNoteQueryBean extends HL7Message_1Bean<TriggerEvent_5Bean<GenericQueryParametersBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20110126L;
+    private static final long serialVersionUID = 20110127L;
 
 }

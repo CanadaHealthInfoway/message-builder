@@ -39,39 +39,9 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PORX_MT060040CA.SupplyEventLastSummary","PORX_MT060060CA.SupplyEventLastSummary"})
 public class LastDispenseInformation_2Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
-    private IVL<TS, Interval<Date>> lastDispensePickupDate = new IVLImpl<TS, Interval<Date>>();
+    private static final long serialVersionUID = 20110127L;
     private INT lastQuantityDispensed = new INTImpl();
-
-
-    /**
-     * <p>LastDispensePickupDate</p>
-     * 
-     * <p>A:Last Dispense Pickup Date</p>
-     * 
-     * <p><p>Indicates the most recent date on which a dispense on 
-     * the prescription was picked up.</p></p>
-     * 
-     * <p><p>Useful in determining when a prescription will next 
-     * need to be dispensed. Also provides an indication of 
-     * compliance.</p></p>
-     * 
-     * <p>Last Dispense Pickup Date</p>
-     * 
-     * <p><p>Indicates the most recent date on which a dispense on 
-     * the prescription was picked up.</p></p>
-     * 
-     * <p><p>Useful in determining when a prescription will next 
-     * need to be dispensed. Also provides an indication of 
-     * compliance.</p></p>
-     */
-    @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getLastDispensePickupDate() {
-        return this.lastDispensePickupDate.getValue();
-    }
-    public void setLastDispensePickupDate(Interval<Date> lastDispensePickupDate) {
-        this.lastDispensePickupDate.setValue(lastDispensePickupDate);
-    }
+    private IVL<TS, Interval<Date>> lastDispensePickupDate = new IVLImpl<TS, Interval<Date>>();
 
 
     /**
@@ -115,6 +85,36 @@ public class LastDispenseInformation_2Bean extends MessagePartBean {
     }
     public void setLastQuantityDispensed(Integer lastQuantityDispensed) {
         this.lastQuantityDispensed.setValue(lastQuantityDispensed);
+    }
+
+
+    /**
+     * <p>LastDispensePickupDate</p>
+     * 
+     * <p>A:Last Dispense Pickup Date</p>
+     * 
+     * <p><p>Indicates the most recent date on which a dispense on 
+     * the prescription was picked up.</p></p>
+     * 
+     * <p><p>Useful in determining when a prescription will next 
+     * need to be dispensed. Also provides an indication of 
+     * compliance.</p></p>
+     * 
+     * <p>Last Dispense Pickup Date</p>
+     * 
+     * <p><p>Indicates the most recent date on which a dispense on 
+     * the prescription was picked up.</p></p>
+     * 
+     * <p><p>Useful in determining when a prescription will next 
+     * need to be dispensed. Also provides an indication of 
+     * compliance.</p></p>
+     */
+    @Hl7XmlMapping({"effectiveTime"})
+    public Interval<Date> getLastDispensePickupDate() {
+        return this.lastDispensePickupDate.getValue();
+    }
+    public void setLastDispensePickupDate(Interval<Date> lastDispensePickupDate) {
+        this.lastDispensePickupDate.setValue(lastDispensePickupDate);
     }
 
 }

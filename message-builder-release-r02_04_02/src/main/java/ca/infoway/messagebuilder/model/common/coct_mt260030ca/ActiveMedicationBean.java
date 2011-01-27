@@ -48,44 +48,15 @@ import java.util.Set;
 @Hl7PartTypeMapping({"COCT_MT260030CA.SubstanceAdministration"})
 public class ActiveMedicationBean extends MessagePartBean implements ca.infoway.messagebuilder.model.common.merged.CausalActs {
 
-    private static final long serialVersionUID = 20110126L;
-    private PQ activeMedicationDoseQuantity = new PQImpl();
+    private static final long serialVersionUID = 20110127L;
     private CS activeMedicationStatus = new CSImpl();
     private CD administrationType = new CDImpl();
+    private PQ activeMedicationDoseQuantity = new PQImpl();
+    private DrugProductBean consumableMedication;
     private II activeMedicationRecordNumber = new IIImpl();
-    private IVL<TS, Interval<Date>> activeMedicationTimeRange = new IVLImpl<TS, Interval<Date>>();
     private SET<CV, Code> activeMedicationMaskingIndicator = new SETImpl<CV, Code>(CVImpl.class);
     private CS otherMedicationIndicator = new CSImpl();
-    private DrugProductBean consumableMedication;
-
-
-    /**
-     * <p>D:Active Medication Dose Quantity</p>
-     * 
-     * <p><p>The amount of medication administered to the 
-     * patient</p></p>
-     * 
-     * <p><p>Requested Dosage 
-     * Level</p><p>ZPS.12</p><p>ZDU.4.4</p><p>Contraindication.dosageAmount</p></p>
-     * 
-     * <p><p>Requested Dosage 
-     * Level</p><p>ZPS.12</p><p>ZDU.4.4</p><p>Contraindication.dosageAmount</p></p>
-     * 
-     * <p><p>Requested Dosage 
-     * Level</p><p>ZPS.12</p><p>ZDU.4.4</p><p>Contraindication.dosageAmount</p></p>
-     * 
-     * <p><p>Requested Dosage 
-     * Level</p><p>ZPS.12</p><p>ZDU.4.4</p><p>Contraindication.dosageAmount</p></p>
-     * 
-     * <p><p>Used in Low Dose/High Dose issues.</p></p>
-     */
-    @Hl7XmlMapping({"doseQuantity"})
-    public PhysicalQuantity getActiveMedicationDoseQuantity() {
-        return this.activeMedicationDoseQuantity.getValue();
-    }
-    public void setActiveMedicationDoseQuantity(PhysicalQuantity activeMedicationDoseQuantity) {
-        this.activeMedicationDoseQuantity.setValue(activeMedicationDoseQuantity);
-    }
+    private IVL<TS, Interval<Date>> activeMedicationTimeRange = new IVLImpl<TS, Interval<Date>>();
 
 
     /**
@@ -138,6 +109,44 @@ public class ActiveMedicationBean extends MessagePartBean implements ca.infoway.
 
 
     /**
+     * <p>D:Active Medication Dose Quantity</p>
+     * 
+     * <p><p>The amount of medication administered to the 
+     * patient</p></p>
+     * 
+     * <p><p>Requested Dosage 
+     * Level</p><p>ZPS.12</p><p>ZDU.4.4</p><p>Contraindication.dosageAmount</p></p>
+     * 
+     * <p><p>Requested Dosage 
+     * Level</p><p>ZPS.12</p><p>ZDU.4.4</p><p>Contraindication.dosageAmount</p></p>
+     * 
+     * <p><p>Requested Dosage 
+     * Level</p><p>ZPS.12</p><p>ZDU.4.4</p><p>Contraindication.dosageAmount</p></p>
+     * 
+     * <p><p>Requested Dosage 
+     * Level</p><p>ZPS.12</p><p>ZDU.4.4</p><p>Contraindication.dosageAmount</p></p>
+     * 
+     * <p><p>Used in Low Dose/High Dose issues.</p></p>
+     */
+    @Hl7XmlMapping({"doseQuantity"})
+    public PhysicalQuantity getActiveMedicationDoseQuantity() {
+        return this.activeMedicationDoseQuantity.getValue();
+    }
+    public void setActiveMedicationDoseQuantity(PhysicalQuantity activeMedicationDoseQuantity) {
+        this.activeMedicationDoseQuantity.setValue(activeMedicationDoseQuantity);
+    }
+
+
+    @Hl7XmlMapping({"consumable/medication"})
+    public DrugProductBean getConsumableMedication() {
+        return this.consumableMedication;
+    }
+    public void setConsumableMedication(DrugProductBean consumableMedication) {
+        this.consumableMedication = consumableMedication;
+    }
+
+
+    /**
      * <p>A:Active Medication Record Number</p>
      * 
      * <p><p>Unique identifier of the prescription or other 
@@ -170,26 +179,6 @@ public class ActiveMedicationBean extends MessagePartBean implements ca.infoway.
     }
     public void setActiveMedicationRecordNumber(Identifier activeMedicationRecordNumber) {
         this.activeMedicationRecordNumber.setValue(activeMedicationRecordNumber);
-    }
-
-
-    /**
-     * <p>C:Active Medication Time-range</p>
-     * 
-     * <p><p>The date and time during which the patient is expected 
-     * to be taking the drug which triggered the issue.</p></p>
-     * 
-     * <p><p>Requested Duration</p></p>
-     * 
-     * <p><p>Allows the provider to evaluate 'duplicate therapy' 
-     * and similar timing-based issues.</p></p>
-     */
-    @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getActiveMedicationTimeRange() {
-        return this.activeMedicationTimeRange.getValue();
-    }
-    public void setActiveMedicationTimeRange(Interval<Date> activeMedicationTimeRange) {
-        this.activeMedicationTimeRange.setValue(activeMedicationTimeRange);
     }
 
 
@@ -234,12 +223,23 @@ public class ActiveMedicationBean extends MessagePartBean implements ca.infoway.
     }
 
 
-    @Hl7XmlMapping({"consumable/medication"})
-    public DrugProductBean getConsumableMedication() {
-        return this.consumableMedication;
+    /**
+     * <p>C:Active Medication Time-range</p>
+     * 
+     * <p><p>The date and time during which the patient is expected 
+     * to be taking the drug which triggered the issue.</p></p>
+     * 
+     * <p><p>Requested Duration</p></p>
+     * 
+     * <p><p>Allows the provider to evaluate 'duplicate therapy' 
+     * and similar timing-based issues.</p></p>
+     */
+    @Hl7XmlMapping({"effectiveTime"})
+    public Interval<Date> getActiveMedicationTimeRange() {
+        return this.activeMedicationTimeRange.getValue();
     }
-    public void setConsumableMedication(DrugProductBean consumableMedication) {
-        this.consumableMedication = consumableMedication;
+    public void setActiveMedicationTimeRange(Interval<Date> activeMedicationTimeRange) {
+        this.activeMedicationTimeRange.setValue(activeMedicationTimeRange);
     }
 
 }

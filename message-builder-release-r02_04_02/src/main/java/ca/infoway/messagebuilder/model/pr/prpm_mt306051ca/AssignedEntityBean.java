@@ -43,20 +43,26 @@ import java.util.Set;
 @Hl7PartTypeMapping({"PRPM_MT306051CA.AssignedEntity"})
 public class AssignedEntityBean extends MessagePartBean implements ca.infoway.messagebuilder.model.merged.RoleChoice {
 
-    private static final long serialVersionUID = 20110126L;
-    private PrinicpalPerson_2Bean assignedPrincipalPerson;
+    private static final long serialVersionUID = 20110127L;
+    private LIST<PN, PersonName> functionalRoleName = new LISTImpl<PN, PersonName>(PNImpl.class);
     private CV functionalRoleType = new CVImpl();
+    private PrinicpalPerson_2Bean assignedPrincipalPerson;
     private SET<II, Identifier> functionalRoleIdentifier = new SETImpl<II, Identifier>(IIImpl.class);
     private OrganizationBean representedOrganization;
-    private LIST<PN, PersonName> functionalRoleName = new LISTImpl<PN, PersonName>(PNImpl.class);
 
 
-    @Hl7XmlMapping({"assignedPrincipalPerson"})
-    public PrinicpalPerson_2Bean getAssignedPrincipalPerson() {
-        return this.assignedPrincipalPerson;
-    }
-    public void setAssignedPrincipalPerson(PrinicpalPerson_2Bean assignedPrincipalPerson) {
-        this.assignedPrincipalPerson = assignedPrincipalPerson;
+    /**
+     * <p>Functional Role Name</p>
+     * 
+     * <p><p>The provider'''s name pertaining to the specific 
+     * functional role.</p></p>
+     * 
+     * <p><p>Required attribute supports the identification of the 
+     * healthcare provider</p></p>
+     */
+    @Hl7XmlMapping({"name"})
+    public List<PersonName> getFunctionalRoleName() {
+        return this.functionalRoleName.rawList();
     }
 
 
@@ -74,6 +80,15 @@ public class AssignedEntityBean extends MessagePartBean implements ca.infoway.me
     }
     public void setFunctionalRoleType(AssignedRoleType functionalRoleType) {
         this.functionalRoleType.setValue(functionalRoleType);
+    }
+
+
+    @Hl7XmlMapping({"assignedPrincipalPerson"})
+    public PrinicpalPerson_2Bean getAssignedPrincipalPerson() {
+        return this.assignedPrincipalPerson;
+    }
+    public void setAssignedPrincipalPerson(PrinicpalPerson_2Bean assignedPrincipalPerson) {
+        this.assignedPrincipalPerson = assignedPrincipalPerson;
     }
 
 
@@ -98,21 +113,6 @@ public class AssignedEntityBean extends MessagePartBean implements ca.infoway.me
     }
     public void setRepresentedOrganization(OrganizationBean representedOrganization) {
         this.representedOrganization = representedOrganization;
-    }
-
-
-    /**
-     * <p>Functional Role Name</p>
-     * 
-     * <p><p>The provider'''s name pertaining to the specific 
-     * functional role.</p></p>
-     * 
-     * <p><p>Required attribute supports the identification of the 
-     * healthcare provider</p></p>
-     */
-    @Hl7XmlMapping({"name"})
-    public List<PersonName> getFunctionalRoleName() {
-        return this.functionalRoleName.rawList();
     }
 
 }

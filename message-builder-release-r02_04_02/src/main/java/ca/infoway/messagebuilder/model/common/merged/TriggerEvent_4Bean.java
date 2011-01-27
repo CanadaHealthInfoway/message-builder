@@ -60,19 +60,27 @@ import java.util.List;
 @Hl7RootType
 public class TriggerEvent_4Bean<RR> extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
-    private List<IssuesBean> subjectOfDetectedIssueEvent = new ArrayList<IssuesBean>();
+    private static final long serialVersionUID = 20110127L;
+    private CE messageLanguage = new CEImpl();
     private CV eventType = new CVImpl();
     private II eventIdentifier = new IIImpl();
+    private List<IssuesBean> subjectOfDetectedIssueEvent = new ArrayList<IssuesBean>();
+    private RefersTo_3Bean<RR> subject;
     private IVL<TS, Interval<Date>> eventEffectivePeriod = new IVLImpl<TS, Interval<Date>>();
     private CV eventReason = new CVImpl();
-    private RefersTo_3Bean<RR> subject;
-    private CE messageLanguage = new CEImpl();
 
 
-    @Hl7XmlMapping({"subjectOf/detectedIssueEvent"})
-    public List<IssuesBean> getSubjectOfDetectedIssueEvent() {
-        return this.subjectOfDetectedIssueEvent;
+    /**
+     * <p>MessageLanguage</p>
+     * 
+     * <p>Message Language</p>
+     */
+    @Hl7XmlMapping({"languageCode"})
+    public HumanLanguage getMessageLanguage() {
+        return (HumanLanguage) this.messageLanguage.getValue();
+    }
+    public void setMessageLanguage(HumanLanguage messageLanguage) {
+        this.messageLanguage.setValue(messageLanguage);
     }
 
 
@@ -123,6 +131,21 @@ public class TriggerEvent_4Bean<RR> extends MessagePartBean {
     }
 
 
+    @Hl7XmlMapping({"subjectOf/detectedIssueEvent"})
+    public List<IssuesBean> getSubjectOfDetectedIssueEvent() {
+        return this.subjectOfDetectedIssueEvent;
+    }
+
+
+    @Hl7XmlMapping({"subject"})
+    public RefersTo_3Bean<RR> getSubject() {
+        return this.subject;
+    }
+    public void setSubject(RefersTo_3Bean<RR> subject) {
+        this.subject = subject;
+    }
+
+
     /**
      * <p>EventEffectivePeriod</p>
      * 
@@ -169,29 +192,6 @@ public class TriggerEvent_4Bean<RR> extends MessagePartBean {
     }
     public void setEventReason(ControlActReason eventReason) {
         this.eventReason.setValue(eventReason);
-    }
-
-
-    @Hl7XmlMapping({"subject"})
-    public RefersTo_3Bean<RR> getSubject() {
-        return this.subject;
-    }
-    public void setSubject(RefersTo_3Bean<RR> subject) {
-        this.subject = subject;
-    }
-
-
-    /**
-     * <p>MessageLanguage</p>
-     * 
-     * <p>Message Language</p>
-     */
-    @Hl7XmlMapping({"languageCode"})
-    public HumanLanguage getMessageLanguage() {
-        return (HumanLanguage) this.messageLanguage.getValue();
-    }
-    public void setMessageLanguage(HumanLanguage messageLanguage) {
-        this.messageLanguage.setValue(messageLanguage);
     }
 
 }

@@ -49,113 +49,24 @@ import java.util.Set;
 @Hl7PartTypeMapping({"POLB_MT002000CA.BatteryPromise"})
 public class BatteryPromiseBean extends MessagePartBean implements PromiseChoice {
 
-    private static final long serialVersionUID = 20110126L;
-    private List<RoleChoice> receiverRoleChoice = new ArrayList<RoleChoice>();
-    private HealthcareOrganizationBean primaryInformationRecipientAssignedEntity;
-    private II batteryPromiseIdentifier = new IIImpl();
-    private CD typeOfBatteryPromise = new CDImpl();
-    private List<RoleChoice> performerRoleChoice = new ArrayList<RoleChoice>();
-    private SET<CV, Code> batteryPromiseConfidentiality = new SETImpl<CV, Code>(CVImpl.class);
-    private List<FulfillmentChoice> inFulfillmentOfFulfillmentChoice = new ArrayList<FulfillmentChoice>();
-    private OutbreakBean pertinentInformation1OutbreakEvent;
-    private ReportSectionSpecimenBean specimen;
-    private VersionInformationBean subjectOf1ControlActEvent;
+    private static final long serialVersionUID = 20110127L;
     private List<PromiseChoice> componentPromiseChoice = new ArrayList<PromiseChoice>();
     private CS batteryPromiseStatus = new CSImpl();
-    private ResultStatusProcessStepBean subjectOf3ResultStatusProcessStep;
-    private List<IncludesBean> subjectOf2 = new ArrayList<IncludesBean>();
     private Patient_1Bean recordTargetPatient;
-    private IVL<TS, Interval<Date>> batteryPromiseEffectiveTime = new IVLImpl<TS, Interval<Date>>();
+    private CD typeOfBatteryPromise = new CDImpl();
+    private List<IncludesBean> subjectOf2 = new ArrayList<IncludesBean>();
+    private List<RoleChoice> receiverRoleChoice = new ArrayList<RoleChoice>();
+    private SET<CV, Code> batteryPromiseConfidentiality = new SETImpl<CV, Code>(CVImpl.class);
+    private ReportSectionSpecimenBean specimen;
+    private ResultStatusProcessStepBean subjectOf3ResultStatusProcessStep;
+    private List<RoleChoice> performerRoleChoice = new ArrayList<RoleChoice>();
+    private List<FulfillmentChoice> inFulfillmentOfFulfillmentChoice = new ArrayList<FulfillmentChoice>();
+    private OutbreakBean pertinentInformation1OutbreakEvent;
+    private II batteryPromiseIdentifier = new IIImpl();
+    private VersionInformationBean subjectOf1ControlActEvent;
+    private HealthcareOrganizationBean primaryInformationRecipientAssignedEntity;
     private List<SupportingClinicalInformationBean> pertinentInformation2SupportingClinicalObservationEvent = new ArrayList<SupportingClinicalInformationBean>();
-
-
-    @Hl7XmlMapping({"receiver/roleChoice"})
-    public List<RoleChoice> getReceiverRoleChoice() {
-        return this.receiverRoleChoice;
-    }
-
-
-    @Hl7XmlMapping({"primaryInformationRecipient/assignedEntity"})
-    public HealthcareOrganizationBean getPrimaryInformationRecipientAssignedEntity() {
-        return this.primaryInformationRecipientAssignedEntity;
-    }
-    public void setPrimaryInformationRecipientAssignedEntity(HealthcareOrganizationBean primaryInformationRecipientAssignedEntity) {
-        this.primaryInformationRecipientAssignedEntity = primaryInformationRecipientAssignedEntity;
-    }
-
-
-    /**
-     * <p>Battery Promise Identifier</p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Identifier getBatteryPromiseIdentifier() {
-        return this.batteryPromiseIdentifier.getValue();
-    }
-    public void setBatteryPromiseIdentifier(Identifier batteryPromiseIdentifier) {
-        this.batteryPromiseIdentifier.setValue(batteryPromiseIdentifier);
-    }
-
-
-    /**
-     * <p>Type of Battery Promise</p>
-     * 
-     * <p><p>A code identifying what was ordered by the lab.</p></p>
-     */
-    @Hl7XmlMapping({"code"})
-    public ObservationOrderableLabType getTypeOfBatteryPromise() {
-        return (ObservationOrderableLabType) this.typeOfBatteryPromise.getValue();
-    }
-    public void setTypeOfBatteryPromise(ObservationOrderableLabType typeOfBatteryPromise) {
-        this.typeOfBatteryPromise.setValue(typeOfBatteryPromise);
-    }
-
-
-    @Hl7XmlMapping({"performer/roleChoice"})
-    public List<RoleChoice> getPerformerRoleChoice() {
-        return this.performerRoleChoice;
-    }
-
-
-    /**
-     * <p>Battery Promise Confidentiality</p>
-     */
-    @Hl7XmlMapping({"confidentialityCode"})
-    public Set<x_BasicConfidentialityKind> getBatteryPromiseConfidentiality() {
-        return this.batteryPromiseConfidentiality.rawSet(x_BasicConfidentialityKind.class);
-    }
-
-
-    @Hl7XmlMapping({"inFulfillmentOf/fulfillmentChoice"})
-    public List<FulfillmentChoice> getInFulfillmentOfFulfillmentChoice() {
-        return this.inFulfillmentOfFulfillmentChoice;
-    }
-
-
-    @Hl7XmlMapping({"pertinentInformation1/outbreakEvent"})
-    public OutbreakBean getPertinentInformation1OutbreakEvent() {
-        return this.pertinentInformation1OutbreakEvent;
-    }
-    public void setPertinentInformation1OutbreakEvent(OutbreakBean pertinentInformation1OutbreakEvent) {
-        this.pertinentInformation1OutbreakEvent = pertinentInformation1OutbreakEvent;
-    }
-
-
-    @Hl7XmlMapping({"specimen"})
-    public ReportSectionSpecimenBean getSpecimen() {
-        return this.specimen;
-    }
-    public void setSpecimen(ReportSectionSpecimenBean specimen) {
-        this.specimen = specimen;
-    }
-
-
-    @Hl7XmlMapping({"subjectOf1/controlActEvent"})
-    public VersionInformationBean getSubjectOf1ControlActEvent() {
-        return this.subjectOf1ControlActEvent;
-    }
-    public void setSubjectOf1ControlActEvent(VersionInformationBean subjectOf1ControlActEvent) {
-        this.subjectOf1ControlActEvent = subjectOf1ControlActEvent;
-    }
+    private IVL<TS, Interval<Date>> batteryPromiseEffectiveTime = new IVLImpl<TS, Interval<Date>>();
 
 
     @Hl7XmlMapping({"component/promiseChoice"})
@@ -176,12 +87,26 @@ public class BatteryPromiseBean extends MessagePartBean implements PromiseChoice
     }
 
 
-    @Hl7XmlMapping({"subjectOf3/resultStatusProcessStep"})
-    public ResultStatusProcessStepBean getSubjectOf3ResultStatusProcessStep() {
-        return this.subjectOf3ResultStatusProcessStep;
+    @Hl7XmlMapping({"recordTarget/patient"})
+    public Patient_1Bean getRecordTargetPatient() {
+        return this.recordTargetPatient;
     }
-    public void setSubjectOf3ResultStatusProcessStep(ResultStatusProcessStepBean subjectOf3ResultStatusProcessStep) {
-        this.subjectOf3ResultStatusProcessStep = subjectOf3ResultStatusProcessStep;
+    public void setRecordTargetPatient(Patient_1Bean recordTargetPatient) {
+        this.recordTargetPatient = recordTargetPatient;
+    }
+
+
+    /**
+     * <p>Type of Battery Promise</p>
+     * 
+     * <p><p>A code identifying what was ordered by the lab.</p></p>
+     */
+    @Hl7XmlMapping({"code"})
+    public ObservationOrderableLabType getTypeOfBatteryPromise() {
+        return (ObservationOrderableLabType) this.typeOfBatteryPromise.getValue();
+    }
+    public void setTypeOfBatteryPromise(ObservationOrderableLabType typeOfBatteryPromise) {
+        this.typeOfBatteryPromise.setValue(typeOfBatteryPromise);
     }
 
 
@@ -191,12 +116,93 @@ public class BatteryPromiseBean extends MessagePartBean implements PromiseChoice
     }
 
 
-    @Hl7XmlMapping({"recordTarget/patient"})
-    public Patient_1Bean getRecordTargetPatient() {
-        return this.recordTargetPatient;
+    @Hl7XmlMapping({"receiver/roleChoice"})
+    public List<RoleChoice> getReceiverRoleChoice() {
+        return this.receiverRoleChoice;
     }
-    public void setRecordTargetPatient(Patient_1Bean recordTargetPatient) {
-        this.recordTargetPatient = recordTargetPatient;
+
+
+    /**
+     * <p>Battery Promise Confidentiality</p>
+     */
+    @Hl7XmlMapping({"confidentialityCode"})
+    public Set<x_BasicConfidentialityKind> getBatteryPromiseConfidentiality() {
+        return this.batteryPromiseConfidentiality.rawSet(x_BasicConfidentialityKind.class);
+    }
+
+
+    @Hl7XmlMapping({"specimen"})
+    public ReportSectionSpecimenBean getSpecimen() {
+        return this.specimen;
+    }
+    public void setSpecimen(ReportSectionSpecimenBean specimen) {
+        this.specimen = specimen;
+    }
+
+
+    @Hl7XmlMapping({"subjectOf3/resultStatusProcessStep"})
+    public ResultStatusProcessStepBean getSubjectOf3ResultStatusProcessStep() {
+        return this.subjectOf3ResultStatusProcessStep;
+    }
+    public void setSubjectOf3ResultStatusProcessStep(ResultStatusProcessStepBean subjectOf3ResultStatusProcessStep) {
+        this.subjectOf3ResultStatusProcessStep = subjectOf3ResultStatusProcessStep;
+    }
+
+
+    @Hl7XmlMapping({"performer/roleChoice"})
+    public List<RoleChoice> getPerformerRoleChoice() {
+        return this.performerRoleChoice;
+    }
+
+
+    @Hl7XmlMapping({"inFulfillmentOf/fulfillmentChoice"})
+    public List<FulfillmentChoice> getInFulfillmentOfFulfillmentChoice() {
+        return this.inFulfillmentOfFulfillmentChoice;
+    }
+
+
+    @Hl7XmlMapping({"pertinentInformation1/outbreakEvent"})
+    public OutbreakBean getPertinentInformation1OutbreakEvent() {
+        return this.pertinentInformation1OutbreakEvent;
+    }
+    public void setPertinentInformation1OutbreakEvent(OutbreakBean pertinentInformation1OutbreakEvent) {
+        this.pertinentInformation1OutbreakEvent = pertinentInformation1OutbreakEvent;
+    }
+
+
+    /**
+     * <p>Battery Promise Identifier</p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Identifier getBatteryPromiseIdentifier() {
+        return this.batteryPromiseIdentifier.getValue();
+    }
+    public void setBatteryPromiseIdentifier(Identifier batteryPromiseIdentifier) {
+        this.batteryPromiseIdentifier.setValue(batteryPromiseIdentifier);
+    }
+
+
+    @Hl7XmlMapping({"subjectOf1/controlActEvent"})
+    public VersionInformationBean getSubjectOf1ControlActEvent() {
+        return this.subjectOf1ControlActEvent;
+    }
+    public void setSubjectOf1ControlActEvent(VersionInformationBean subjectOf1ControlActEvent) {
+        this.subjectOf1ControlActEvent = subjectOf1ControlActEvent;
+    }
+
+
+    @Hl7XmlMapping({"primaryInformationRecipient/assignedEntity"})
+    public HealthcareOrganizationBean getPrimaryInformationRecipientAssignedEntity() {
+        return this.primaryInformationRecipientAssignedEntity;
+    }
+    public void setPrimaryInformationRecipientAssignedEntity(HealthcareOrganizationBean primaryInformationRecipientAssignedEntity) {
+        this.primaryInformationRecipientAssignedEntity = primaryInformationRecipientAssignedEntity;
+    }
+
+
+    @Hl7XmlMapping({"pertinentInformation2/supportingClinicalObservationEvent"})
+    public List<SupportingClinicalInformationBean> getPertinentInformation2SupportingClinicalObservationEvent() {
+        return this.pertinentInformation2SupportingClinicalObservationEvent;
     }
 
 
@@ -209,12 +215,6 @@ public class BatteryPromiseBean extends MessagePartBean implements PromiseChoice
     }
     public void setBatteryPromiseEffectiveTime(Interval<Date> batteryPromiseEffectiveTime) {
         this.batteryPromiseEffectiveTime.setValue(batteryPromiseEffectiveTime);
-    }
-
-
-    @Hl7XmlMapping({"pertinentInformation2/supportingClinicalObservationEvent"})
-    public List<SupportingClinicalInformationBean> getPertinentInformation2SupportingClinicalObservationEvent() {
-        return this.pertinentInformation2SupportingClinicalObservationEvent;
     }
 
 }

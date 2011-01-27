@@ -19,24 +19,12 @@ import java.util.List;
 @Hl7PartTypeMapping({"FICR_MT510201CA.AdjudicationResult"})
 public class AdjudicationResultBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
-    private List<Trigger1Bean> trigger = new ArrayList<Trigger1Bean>();
-    private List<AdjudicationCodeChoice> pertinentInformationAdjudicationCodeChoice = new ArrayList<AdjudicationCodeChoice>();
+    private static final long serialVersionUID = 20110127L;
     private CV adjudicationResultsAdjudicationCode = new CVImpl();
+    private List<AdjudicationCodeChoice> pertinentInformationAdjudicationCodeChoice = new ArrayList<AdjudicationCodeChoice>();
     private List<IssuesBean> reasonOfDetectedIssueEvent = new ArrayList<IssuesBean>();
     private List<InvoiceElementChoice> referenceInvoiceElementChoice = new ArrayList<InvoiceElementChoice>();
-
-
-    @Hl7XmlMapping({"trigger"})
-    public List<Trigger1Bean> getTrigger() {
-        return this.trigger;
-    }
-
-
-    @Hl7XmlMapping({"pertinentInformation/adjudicationCodeChoice"})
-    public List<AdjudicationCodeChoice> getPertinentInformationAdjudicationCodeChoice() {
-        return this.pertinentInformationAdjudicationCodeChoice;
-    }
+    private List<Trigger1Bean> trigger = new ArrayList<Trigger1Bean>();
 
 
     /**
@@ -51,6 +39,12 @@ public class AdjudicationResultBean extends MessagePartBean {
     }
 
 
+    @Hl7XmlMapping({"pertinentInformation/adjudicationCodeChoice"})
+    public List<AdjudicationCodeChoice> getPertinentInformationAdjudicationCodeChoice() {
+        return this.pertinentInformationAdjudicationCodeChoice;
+    }
+
+
     @Hl7XmlMapping({"reasonOf/detectedIssueEvent"})
     public List<IssuesBean> getReasonOfDetectedIssueEvent() {
         return this.reasonOfDetectedIssueEvent;
@@ -60,6 +54,12 @@ public class AdjudicationResultBean extends MessagePartBean {
     @Hl7XmlMapping({"reference/invoiceElementChoice"})
     public List<InvoiceElementChoice> getReferenceInvoiceElementChoice() {
         return this.referenceInvoiceElementChoice;
+    }
+
+
+    @Hl7XmlMapping({"trigger"})
+    public List<Trigger1Bean> getTrigger() {
+        return this.trigger;
     }
 
 }

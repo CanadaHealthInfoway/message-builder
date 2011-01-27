@@ -35,7 +35,7 @@ import java.util.Date;
 @Hl7PartTypeMapping({"POIZ_MT030050CA.Informant","POIZ_MT030060CA.Informant","POIZ_MT060150CA.Informant"})
 public class InformantBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
+    private static final long serialVersionUID = 20110127L;
     private InformationSourceChoice informationSourceChoice;
     private IVL<TS, Interval<Date>> dateOfInformation = new IVLImpl<TS, Interval<Date>>();
     private CV informationSourceForm = new CVImpl();

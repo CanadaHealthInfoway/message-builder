@@ -34,13 +34,27 @@ import java.util.List;
 @Hl7PartTypeMapping({"POLB_MT004100CA.IsolateObservationEvent"})
 public class IsolateObservationsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
+    private static final long serialVersionUID = 20110127L;
+    private ST isolateObservationValue = new STImpl();
     private CS isolateObservationStatus = new CSImpl();
-    private ResultStatusProcessStepBean subjectOf2ResultStatusProcessStep;
     private CD isolateObservationType = new CDImpl();
     private List<IncludesBean> subjectOf1 = new ArrayList<IncludesBean>();
+    private ResultStatusProcessStepBean subjectOf2ResultStatusProcessStep;
     private IVL<TS, Interval<Date>> isolateObservationEffectiveTime = new IVLImpl<TS, Interval<Date>>();
-    private ST isolateObservationValue = new STImpl();
+
+
+    /**
+     * <p>Isolate Observation Value</p>
+     * 
+     * <p><p>The value of the isolate observation.</p></p>
+     */
+    @Hl7XmlMapping({"value"})
+    public String getIsolateObservationValue() {
+        return this.isolateObservationValue.getValue();
+    }
+    public void setIsolateObservationValue(String isolateObservationValue) {
+        this.isolateObservationValue.setValue(isolateObservationValue);
+    }
 
 
     /**
@@ -54,15 +68,6 @@ public class IsolateObservationsBean extends MessagePartBean {
     }
     public void setIsolateObservationStatus(ActStatus isolateObservationStatus) {
         this.isolateObservationStatus.setValue(isolateObservationStatus);
-    }
-
-
-    @Hl7XmlMapping({"subjectOf2/resultStatusProcessStep"})
-    public ResultStatusProcessStepBean getSubjectOf2ResultStatusProcessStep() {
-        return this.subjectOf2ResultStatusProcessStep;
-    }
-    public void setSubjectOf2ResultStatusProcessStep(ResultStatusProcessStepBean subjectOf2ResultStatusProcessStep) {
-        this.subjectOf2ResultStatusProcessStep = subjectOf2ResultStatusProcessStep;
     }
 
 
@@ -87,6 +92,15 @@ public class IsolateObservationsBean extends MessagePartBean {
     }
 
 
+    @Hl7XmlMapping({"subjectOf2/resultStatusProcessStep"})
+    public ResultStatusProcessStepBean getSubjectOf2ResultStatusProcessStep() {
+        return this.subjectOf2ResultStatusProcessStep;
+    }
+    public void setSubjectOf2ResultStatusProcessStep(ResultStatusProcessStepBean subjectOf2ResultStatusProcessStep) {
+        this.subjectOf2ResultStatusProcessStep = subjectOf2ResultStatusProcessStep;
+    }
+
+
     /**
      * <p>Isolate Observation Effective Time</p>
      * 
@@ -98,20 +112,6 @@ public class IsolateObservationsBean extends MessagePartBean {
     }
     public void setIsolateObservationEffectiveTime(Interval<Date> isolateObservationEffectiveTime) {
         this.isolateObservationEffectiveTime.setValue(isolateObservationEffectiveTime);
-    }
-
-
-    /**
-     * <p>Isolate Observation Value</p>
-     * 
-     * <p><p>The value of the isolate observation.</p></p>
-     */
-    @Hl7XmlMapping({"value"})
-    public String getIsolateObservationValue() {
-        return this.isolateObservationValue.getValue();
-    }
-    public void setIsolateObservationValue(String isolateObservationValue) {
-        this.isolateObservationValue.setValue(isolateObservationValue);
     }
 
 }

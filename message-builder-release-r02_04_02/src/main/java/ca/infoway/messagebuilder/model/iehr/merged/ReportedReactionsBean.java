@@ -127,16 +127,105 @@ import java.util.Date;
 @Hl7PartTypeMapping({"REPC_MT000001CA.CausalityAssessment","REPC_MT000001CA.ObservationEvent","REPC_MT000002CA.CausalityAssessment","REPC_MT000005CA.CausalityAssessment","REPC_MT000005CA.ObservationEvent","REPC_MT000006CA.CausalityAssessment","REPC_MT000009CA.CausalityAssessment","REPC_MT000009CA.ObservationEvent","REPC_MT000012CA.CausalityAssessment","REPC_MT000013CA.CausalityAssessment","REPC_MT000013CA.ObservationEvent"})
 public class ReportedReactionsBean extends MessagePartBean implements Records {
 
-    private static final long serialVersionUID = 20110126L;
-    private CD code = new CDImpl();
+    private static final long serialVersionUID = 20110127L;
     private CV value = new CVImpl();
+    private CD code = new CDImpl();
     private ExposuresBean startsAfterStartOfExposureEvent;
     private ReportedReactionsBean subjectObservationEvent;
-    private II reactionRecordId = new IIImpl();
-    private IVL<TS, Interval<Date>> reactionOnsetDate = new IVLImpl<TS, Interval<Date>>();
-    private BL noReactionOccurred = new BLImpl();
     private ST description = new STImpl();
+    private II reactionRecordId = new IIImpl();
+    private BL noReactionOccurred = new BLImpl();
+    private IVL<TS, Interval<Date>> reactionOnsetDate = new IVLImpl<TS, Interval<Date>>();
     private AllergyIntoleranceSeverityLevelBean subjectOfSeverityObservation;
+
+
+    /**
+     * <p>Relatedness Assessment</p>
+     * 
+     * <p><p>Value is mandatory and fixed to RELATED if not using 
+     * SNOMED</p></p>
+     * 
+     * <p><p>Indicates whether the reaction is deemed to be related 
+     * to the exposure.</p></p>
+     * 
+     * <p><p>Creates the link between the exposure and the 
+     * reaction. Because the details of the assessment will be 
+     * communicated in the 'code' attribute for SNOMED, this 
+     * element is optional.</p></p>
+     * 
+     * <p><p>This attribute will not be populated if using SNOMED. 
+     * Otherwise it should have a fixed value of 
+     * &quot;RELATED&quot;.</p></p>
+     * 
+     * <p>Relatedness Assessment</p>
+     * 
+     * <p><p>Value is mandatory and fixed to RELATED if not using 
+     * SNOMED.</p></p>
+     * 
+     * <p><p>Indicates whether the reaction is deemed to be related 
+     * to the exposure.</p></p>
+     * 
+     * <p><p>Creates the link between the exposure and the 
+     * reaction. Because the details of the assessment will be 
+     * communicated in the 'code' attribute for SNOMED, this 
+     * element is optional.</p></p>
+     * 
+     * <p><p>This attribute will not be populated if using SNOMED. 
+     * Otherwise it should have a fixed value of 
+     * &quot;RELATED&quot;.</p></p>
+     * 
+     * <p>B:Reaction</p>
+     * 
+     * <p><p>Value is required if not using SNOMED</p></p>
+     * 
+     * <p><p>Specifies the kind of reaction, as experienced by the 
+     * patient.</p></p>
+     * 
+     * <p><p>Ensures consistency in tracking and categorizing the 
+     * reaction type. Helps ensure that only proper allergies are 
+     * categorized as allergy. The attribute is optional because it 
+     * will not be used for SNOMED. The attribute is CWE because 
+     * not all possible types of reactions are expressible by coded 
+     * values.</p></p>
+     * 
+     * <p>Relatedness Assessment</p>
+     * 
+     * <p><p>value is mandatory and fixed to RELATED if not using 
+     * SNOMED</p></p>
+     * 
+     * <p><p>Indicates whether the reaction is deemed to be related 
+     * to the exposure.</p></p>
+     * 
+     * <p><p>Creates the link between the exposure and the 
+     * reaction. Because the details of the assessment will be 
+     * communicated in the 'code' attribute for SNOMED, this 
+     * element is optional.</p></p>
+     * 
+     * <p><p>This attribute will not be populated if using SNOMED. 
+     * Otherwise it should have a fixed value of 
+     * &quot;RELATED&quot;.</p></p>
+     * 
+     * <p>B:Reaction</p>
+     * 
+     * <p><p>Value must be mandatory if not using SNOMED</p></p>
+     * 
+     * <p><p>Specifies the kind of reaction, as experienced by the 
+     * patient.</p></p>
+     * 
+     * <p><p>Ensures consistency in tracking and categorizing the 
+     * reaction type. Helps ensure that only proper allergies are 
+     * categorized as allergy. The attribute is optional because it 
+     * will not be used for SNOMED. The attribute is CWE because 
+     * not all possible types of reactions are expressible by coded 
+     * values.</p></p>
+     */
+    @Hl7XmlMapping({"value"})
+    public SubjectReaction getValue() {
+        return (SubjectReaction) this.value.getValue();
+    }
+    public void setValue(SubjectReaction value) {
+        this.value.setValue(value);
+    }
 
 
     /**
@@ -247,95 +336,6 @@ public class ReportedReactionsBean extends MessagePartBean implements Records {
     }
 
 
-    /**
-     * <p>Relatedness Assessment</p>
-     * 
-     * <p><p>Value is mandatory and fixed to RELATED if not using 
-     * SNOMED</p></p>
-     * 
-     * <p><p>Indicates whether the reaction is deemed to be related 
-     * to the exposure.</p></p>
-     * 
-     * <p><p>Creates the link between the exposure and the 
-     * reaction. Because the details of the assessment will be 
-     * communicated in the 'code' attribute for SNOMED, this 
-     * element is optional.</p></p>
-     * 
-     * <p><p>This attribute will not be populated if using SNOMED. 
-     * Otherwise it should have a fixed value of 
-     * &quot;RELATED&quot;.</p></p>
-     * 
-     * <p>Relatedness Assessment</p>
-     * 
-     * <p><p>Value is mandatory and fixed to RELATED if not using 
-     * SNOMED.</p></p>
-     * 
-     * <p><p>Indicates whether the reaction is deemed to be related 
-     * to the exposure.</p></p>
-     * 
-     * <p><p>Creates the link between the exposure and the 
-     * reaction. Because the details of the assessment will be 
-     * communicated in the 'code' attribute for SNOMED, this 
-     * element is optional.</p></p>
-     * 
-     * <p><p>This attribute will not be populated if using SNOMED. 
-     * Otherwise it should have a fixed value of 
-     * &quot;RELATED&quot;.</p></p>
-     * 
-     * <p>B:Reaction</p>
-     * 
-     * <p><p>Value is required if not using SNOMED</p></p>
-     * 
-     * <p><p>Specifies the kind of reaction, as experienced by the 
-     * patient.</p></p>
-     * 
-     * <p><p>Ensures consistency in tracking and categorizing the 
-     * reaction type. Helps ensure that only proper allergies are 
-     * categorized as allergy. The attribute is optional because it 
-     * will not be used for SNOMED. The attribute is CWE because 
-     * not all possible types of reactions are expressible by coded 
-     * values.</p></p>
-     * 
-     * <p>Relatedness Assessment</p>
-     * 
-     * <p><p>value is mandatory and fixed to RELATED if not using 
-     * SNOMED</p></p>
-     * 
-     * <p><p>Indicates whether the reaction is deemed to be related 
-     * to the exposure.</p></p>
-     * 
-     * <p><p>Creates the link between the exposure and the 
-     * reaction. Because the details of the assessment will be 
-     * communicated in the 'code' attribute for SNOMED, this 
-     * element is optional.</p></p>
-     * 
-     * <p><p>This attribute will not be populated if using SNOMED. 
-     * Otherwise it should have a fixed value of 
-     * &quot;RELATED&quot;.</p></p>
-     * 
-     * <p>B:Reaction</p>
-     * 
-     * <p><p>Value must be mandatory if not using SNOMED</p></p>
-     * 
-     * <p><p>Specifies the kind of reaction, as experienced by the 
-     * patient.</p></p>
-     * 
-     * <p><p>Ensures consistency in tracking and categorizing the 
-     * reaction type. Helps ensure that only proper allergies are 
-     * categorized as allergy. The attribute is optional because it 
-     * will not be used for SNOMED. The attribute is CWE because 
-     * not all possible types of reactions are expressible by coded 
-     * values.</p></p>
-     */
-    @Hl7XmlMapping({"value"})
-    public SubjectReaction getValue() {
-        return (SubjectReaction) this.value.getValue();
-    }
-    public void setValue(SubjectReaction value) {
-        this.value.setValue(value);
-    }
-
-
     @Hl7XmlMapping({"startsAfterStartOf/exposureEvent"})
     public ExposuresBean getStartsAfterStartOfExposureEvent() {
         return this.startsAfterStartOfExposureEvent;
@@ -351,6 +351,25 @@ public class ReportedReactionsBean extends MessagePartBean implements Records {
     }
     public void setSubjectObservationEvent(ReportedReactionsBean subjectObservationEvent) {
         this.subjectObservationEvent = subjectObservationEvent;
+    }
+
+
+    /**
+     * <p>Description</p>
+     * 
+     * <p>G:Description</p>
+     * 
+     * <p><p>A free form description of the reaction.</p></p>
+     * 
+     * <p><p>Allows for flexibility in the recording and reporting 
+     * of the reaction.</p></p>
+     */
+    @Hl7XmlMapping({"text"})
+    public String getDescription() {
+        return this.description.getValue();
+    }
+    public void setDescription(String description) {
+        this.description.setValue(description);
     }
 
 
@@ -371,26 +390,6 @@ public class ReportedReactionsBean extends MessagePartBean implements Records {
     }
     public void setReactionRecordId(Identifier reactionRecordId) {
         this.reactionRecordId.setValue(reactionRecordId);
-    }
-
-
-    /**
-     * <p>ReactionOnsetDate</p>
-     * 
-     * <p>F:Reaction Onset Date</p>
-     * 
-     * <p><p>The date on which the reaction occurrence began.</p></p>
-     * 
-     * <p><p>Indicates when evidence of the condition first 
-     * appeared. May also provide information on the duration of 
-     * the reaction.</p></p>
-     */
-    @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getReactionOnsetDate() {
-        return this.reactionOnsetDate.getValue();
-    }
-    public void setReactionOnsetDate(Interval<Date> reactionOnsetDate) {
-        this.reactionOnsetDate.setValue(reactionOnsetDate);
     }
 
 
@@ -497,21 +496,22 @@ public class ReportedReactionsBean extends MessagePartBean implements Records {
 
 
     /**
-     * <p>Description</p>
+     * <p>ReactionOnsetDate</p>
      * 
-     * <p>G:Description</p>
+     * <p>F:Reaction Onset Date</p>
      * 
-     * <p><p>A free form description of the reaction.</p></p>
+     * <p><p>The date on which the reaction occurrence began.</p></p>
      * 
-     * <p><p>Allows for flexibility in the recording and reporting 
-     * of the reaction.</p></p>
+     * <p><p>Indicates when evidence of the condition first 
+     * appeared. May also provide information on the duration of 
+     * the reaction.</p></p>
      */
-    @Hl7XmlMapping({"text"})
-    public String getDescription() {
-        return this.description.getValue();
+    @Hl7XmlMapping({"effectiveTime"})
+    public Interval<Date> getReactionOnsetDate() {
+        return this.reactionOnsetDate.getValue();
     }
-    public void setDescription(String description) {
-        this.description.setValue(description);
+    public void setReactionOnsetDate(Interval<Date> reactionOnsetDate) {
+        this.reactionOnsetDate.setValue(reactionOnsetDate);
     }
 
 

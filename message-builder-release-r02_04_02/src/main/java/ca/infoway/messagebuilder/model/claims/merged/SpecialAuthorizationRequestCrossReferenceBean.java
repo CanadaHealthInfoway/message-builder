@@ -13,7 +13,7 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"FICR_MT400001CA.SpecialAuthorizationRequestCrossReference","FICR_MT490102CA.SpecialAuthorizationRequestCrossReference"})
 public class SpecialAuthorizationRequestCrossReferenceBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
+    private static final long serialVersionUID = 20110127L;
     private II crossReferenceID = new IIImpl();
 
 

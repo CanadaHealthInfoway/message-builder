@@ -33,30 +33,12 @@ import ca.infoway.messagebuilder.model.merged.PolicyUnderwriterBean;
 @Hl7PartTypeMapping({"FICR_MT500201CA.PolicyOrAccount","FICR_MT600201CA.PolicyOrAccount","FICR_MT610201CA.PolicyOrAccount"})
 public class PolicyOrAccount_2Bean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
-    private PolicyUnderwriterBean author;
-    private CoveredPartyAsPatientBean beneficiaryCoveredPartyAsPatient;
+    private static final long serialVersionUID = 20110127L;
     private CD policyType = new CDImpl();
     private II id = new IIImpl();
+    private CoveredPartyAsPatientBean beneficiaryCoveredPartyAsPatient;
+    private PolicyUnderwriterBean author;
     private PolicyHolderBean holderPolicyHolder;
-
-
-    @Hl7XmlMapping({"author"})
-    public PolicyUnderwriterBean getAuthor() {
-        return this.author;
-    }
-    public void setAuthor(PolicyUnderwriterBean author) {
-        this.author = author;
-    }
-
-
-    @Hl7XmlMapping({"beneficiary/coveredPartyAsPatient"})
-    public CoveredPartyAsPatientBean getBeneficiaryCoveredPartyAsPatient() {
-        return this.beneficiaryCoveredPartyAsPatient;
-    }
-    public void setBeneficiaryCoveredPartyAsPatient(CoveredPartyAsPatientBean beneficiaryCoveredPartyAsPatient) {
-        this.beneficiaryCoveredPartyAsPatient = beneficiaryCoveredPartyAsPatient;
-    }
 
 
     /**
@@ -84,6 +66,24 @@ public class PolicyOrAccount_2Bean extends MessagePartBean {
     }
     public void setId(Identifier id) {
         this.id.setValue(id);
+    }
+
+
+    @Hl7XmlMapping({"beneficiary/coveredPartyAsPatient"})
+    public CoveredPartyAsPatientBean getBeneficiaryCoveredPartyAsPatient() {
+        return this.beneficiaryCoveredPartyAsPatient;
+    }
+    public void setBeneficiaryCoveredPartyAsPatient(CoveredPartyAsPatientBean beneficiaryCoveredPartyAsPatient) {
+        this.beneficiaryCoveredPartyAsPatient = beneficiaryCoveredPartyAsPatient;
+    }
+
+
+    @Hl7XmlMapping({"author"})
+    public PolicyUnderwriterBean getAuthor() {
+        return this.author;
+    }
+    public void setAuthor(PolicyUnderwriterBean author) {
+        this.author = author;
     }
 
 

@@ -23,9 +23,15 @@ import java.util.List;
 @Hl7PartTypeMapping({"POLB_MT004100CA.SensitivityBattery"})
 public class SensitivityBatteryBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
-    private CD sensitivityBatteryType = new CDImpl();
+    private static final long serialVersionUID = 20110127L;
     private List<AntibioticSensitivityObservationBean> componentSensitivityObservationEvent = new ArrayList<AntibioticSensitivityObservationBean>();
+    private CD sensitivityBatteryType = new CDImpl();
+
+
+    @Hl7XmlMapping({"component/sensitivityObservationEvent"})
+    public List<AntibioticSensitivityObservationBean> getComponentSensitivityObservationEvent() {
+        return this.componentSensitivityObservationEvent;
+    }
 
 
     /**
@@ -40,12 +46,6 @@ public class SensitivityBatteryBean extends MessagePartBean {
     }
     public void setSensitivityBatteryType(Code sensitivityBatteryType) {
         this.sensitivityBatteryType.setValue(sensitivityBatteryType);
-    }
-
-
-    @Hl7XmlMapping({"component/sensitivityObservationEvent"})
-    public List<AntibioticSensitivityObservationBean> getComponentSensitivityObservationEvent() {
-        return this.componentSensitivityObservationEvent;
     }
 
 }

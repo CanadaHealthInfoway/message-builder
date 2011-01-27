@@ -72,24 +72,98 @@ import java.util.Set;
 @Hl7RootType
 public class AllergyIntoleranceBean extends MessagePartBean implements ca.infoway.messagebuilder.model.iehr.comt_mt111111ca.SHR {
 
-    private static final long serialVersionUID = 20110126L;
-    private CV confirmedIndicator = new CVImpl();
-    private BL subjectOf3AnnotationIndicator = new BLImpl();
-    private II allergyIntoleranceRecordId = new IIImpl();
-    private CD allergyIntoleranceType = new CDImpl();
-    private BL allergyIntoleranceRefuted = new BLImpl();
-    private HealthcareWorkerBean responsiblePartyAssignedEntity;
-    private SET<CV, Code> allergyIntoleranceMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);
-    private CV agent = new CVImpl();
-    private ReportedByBean informant;
-    private CS allergyIntoleranceStatus = new CSImpl();
-    private RefusedByBean author;
-    private IncludesBean subjectOf1;
-    private TS allergyIntoleranceDate = new TSImpl();
-    private List<CareCompositionsBean> componentOfPatientCareProvisionEvent = new ArrayList<CareCompositionsBean>();
+    private static final long serialVersionUID = 20110127L;
     private OccurredAtBean location;
     private List<Records> supportRecords = new ArrayList<Records>();
+    private CS allergyIntoleranceStatus = new CSImpl();
+    private CD allergyIntoleranceType = new CDImpl();
+    private CV confirmedIndicator = new CVImpl();
+    private List<CareCompositionsBean> componentOfPatientCareProvisionEvent = new ArrayList<CareCompositionsBean>();
+    private IncludesBean subjectOf1;
+    private RefusedByBean author;
+    private SET<CV, Code> allergyIntoleranceMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);
+    private BL allergyIntoleranceRefuted = new BLImpl();
+    private ReportedByBean informant;
+    private CV agent = new CVImpl();
+    private BL subjectOf3AnnotationIndicator = new BLImpl();
+    private II allergyIntoleranceRecordId = new IIImpl();
+    private TS allergyIntoleranceDate = new TSImpl();
     private AllergyIntoleranceSeverityLevelBean subjectOfSeverityObservation;
+    private HealthcareWorkerBean responsiblePartyAssignedEntity;
+
+
+    @Hl7XmlMapping({"location"})
+    public OccurredAtBean getLocation() {
+        return this.location;
+    }
+    public void setLocation(OccurredAtBean location) {
+        this.location = location;
+    }
+
+
+    @Hl7XmlMapping({"support/records"})
+    public List<Records> getSupportRecords() {
+        return this.supportRecords;
+    }
+
+
+    /**
+     * <p>AllergyIntoleranceStatus</p>
+     * 
+     * <p>E:Allergy/Intolerance Status</p>
+     * 
+     * <p><p>A coded value that indicates whether an 
+     * allergy/intolerance is 'active' or 'completed' (indicating 
+     * no longer active).</p></p>
+     * 
+     * <p><p>Allows providers to evaluate the relevance of a 
+     * recorded allergy/intolerance. The status has a default value 
+     * of 'active' and is therefore mandatory.</p></p>
+     * 
+     * <p><p>System must default the status to 'active'.</p></p>
+     * 
+     * <p>E:Allergy/Intolerance Status</p>
+     * 
+     * <p><p>A coded value that indicates whether an 
+     * allergy/intolerance is 'ACTIVE' or 'COMPLETE' (indicating no 
+     * longer active).</p></p>
+     * 
+     * <p><p>Allows providers to evaluate the relevance of a 
+     * recorded allergy/intolerance. The status has a default value 
+     * of 'ACTIVE' and is therefore mandatory.</p></p>
+     * 
+     * <p><p>System must default the status to 'ACTIVE'.</p></p>
+     */
+    @Hl7XmlMapping({"statusCode"})
+    public ActStatus getAllergyIntoleranceStatus() {
+        return (ActStatus) this.allergyIntoleranceStatus.getValue();
+    }
+    public void setAllergyIntoleranceStatus(ActStatus allergyIntoleranceStatus) {
+        this.allergyIntoleranceStatus.setValue(allergyIntoleranceStatus);
+    }
+
+
+    /**
+     * <p>AllergyIntoleranceType</p>
+     * 
+     * <p>A:Allergy/Intolerance Type</p>
+     * 
+     * <p><p>A coded value denoting whether the record pertains to 
+     * an intolerance or a true allergy. (Allergies result from 
+     * immunologic reactions. Intolerances do not.)</p></p>
+     * 
+     * <p><p>Allows for the separation of allergy and intolerance 
+     * records. The type of condition is critical to understanding 
+     * the record and is therefore mandatory. It is expressed as a 
+     * CD to allow for SNOMED post-coordination.</p></p>
+     */
+    @Hl7XmlMapping({"code"})
+    public ObservationIntoleranceType getAllergyIntoleranceType() {
+        return (ObservationIntoleranceType) this.allergyIntoleranceType.getValue();
+    }
+    public void setAllergyIntoleranceType(ObservationIntoleranceType allergyIntoleranceType) {
+        this.allergyIntoleranceType.setValue(allergyIntoleranceType);
+    }
 
 
     /**
@@ -401,120 +475,30 @@ public class AllergyIntoleranceBean extends MessagePartBean implements ca.infowa
     }
 
 
-    @Hl7XmlMapping({"subjectOf3/annotationIndicator"})
-    public Boolean getSubjectOf3AnnotationIndicator() {
-        return this.subjectOf3AnnotationIndicator.getValue();
-    }
-    public void setSubjectOf3AnnotationIndicator(Boolean subjectOf3AnnotationIndicator) {
-        this.subjectOf3AnnotationIndicator.setValue(subjectOf3AnnotationIndicator);
+    @Hl7XmlMapping({"componentOf/patientCareProvisionEvent"})
+    public List<CareCompositionsBean> getComponentOfPatientCareProvisionEvent() {
+        return this.componentOfPatientCareProvisionEvent;
     }
 
 
-    /**
-     * <p>AllergyIntoleranceRecordId</p>
-     * 
-     * <p>D:Allergy/Intolerance Record Id</p>
-     * 
-     * <p><p>Unique identifier for an allergy/intolerance 
-     * record.</p></p>
-     * 
-     * <p><p>Allows for direct referencing of an 
-     * allergy/intolerance record when querying or performing 
-     * updates and is therefore mandatory.</p></p>
-     * 
-     * <p>D:Allergy/Intolerance Record Id</p>
-     * 
-     * <p><p>Unique identifier for an allergy/intolerance 
-     * record.</p></p>
-     * 
-     * <p><p>Indicates the allergy or intolerance record to be 
-     * updated and is therefore mandatory.</p></p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Identifier getAllergyIntoleranceRecordId() {
-        return this.allergyIntoleranceRecordId.getValue();
+    @Hl7XmlMapping({"subjectOf1","subjectOf2"})
+    @Hl7MapByPartTypes({
+        @Hl7MapByPartType(name="subjectOf1", type="REPC_MT000001CA.Subject3"),
+        @Hl7MapByPartType(name="subjectOf2", type="REPC_MT000005CA.Subject4")})
+    public IncludesBean getSubjectOf1() {
+        return this.subjectOf1;
     }
-    public void setAllergyIntoleranceRecordId(Identifier allergyIntoleranceRecordId) {
-        this.allergyIntoleranceRecordId.setValue(allergyIntoleranceRecordId);
+    public void setSubjectOf1(IncludesBean subjectOf1) {
+        this.subjectOf1 = subjectOf1;
     }
 
 
-    /**
-     * <p>AllergyIntoleranceType</p>
-     * 
-     * <p>A:Allergy/Intolerance Type</p>
-     * 
-     * <p><p>A coded value denoting whether the record pertains to 
-     * an intolerance or a true allergy. (Allergies result from 
-     * immunologic reactions. Intolerances do not.)</p></p>
-     * 
-     * <p><p>Allows for the separation of allergy and intolerance 
-     * records. The type of condition is critical to understanding 
-     * the record and is therefore mandatory. It is expressed as a 
-     * CD to allow for SNOMED post-coordination.</p></p>
-     */
-    @Hl7XmlMapping({"code"})
-    public ObservationIntoleranceType getAllergyIntoleranceType() {
-        return (ObservationIntoleranceType) this.allergyIntoleranceType.getValue();
+    @Hl7XmlMapping({"author"})
+    public RefusedByBean getAuthor() {
+        return this.author;
     }
-    public void setAllergyIntoleranceType(ObservationIntoleranceType allergyIntoleranceType) {
-        this.allergyIntoleranceType.setValue(allergyIntoleranceType);
-    }
-
-
-    /**
-     * <p>AllergyIntoleranceRefuted</p>
-     * 
-     * <p>G:Allergy/Intolerance Refuted</p>
-     * 
-     * <p><p>An indication that the allergy/intolerance has been 
-     * refuted. I.e. A clinician has positively determined that the 
-     * patient does not suffer from a particular allergy or 
-     * intolerance.</p></p>
-     * 
-     * <p><p>Allows providers to refute a previously confirmed or 
-     * suspected allergy. The attribute is mandatory because it is 
-     * critical to know whether the record represents the 
-     * refutation or affirmation of an allergy or intolerance.</p></p>
-     * 
-     * <p>G:Allergy/Intolerance Refuted</p>
-     * 
-     * <p><p>An indication that the allergy/intolerance has been 
-     * refuted. I.e. A clinician has positively determined that the 
-     * patient does not suffer from a particular allergy or 
-     * intolerance.</p></p>
-     * 
-     * <p><p>Allows providers to refute a previously confirmed or 
-     * suspected allergy. The attribute is mandatory because it is 
-     * essential to know whether a record is refuted or not.</p></p>
-     * 
-     * <p>G:Allergy/Intolerance Refuted</p>
-     * 
-     * <p><p>An indication that the allergy/intolerance has been 
-     * refuted. I.e. A clinician has positively determined that the 
-     * patient does not suffer from a particular allergy or 
-     * intolerance.</p></p>
-     * 
-     * <p><p>Allows providers to refute a previously confirmed or 
-     * suspected allergy. Because it is essential to know whether 
-     * the allergy or intolerance is being refuted or affirmed, 
-     * this attribute is mandatory.</p></p>
-     */
-    @Hl7XmlMapping({"negationInd"})
-    public Boolean getAllergyIntoleranceRefuted() {
-        return this.allergyIntoleranceRefuted.getValue();
-    }
-    public void setAllergyIntoleranceRefuted(Boolean allergyIntoleranceRefuted) {
-        this.allergyIntoleranceRefuted.setValue(allergyIntoleranceRefuted);
-    }
-
-
-    @Hl7XmlMapping({"responsibleParty/assignedEntity"})
-    public HealthcareWorkerBean getResponsiblePartyAssignedEntity() {
-        return this.responsiblePartyAssignedEntity;
-    }
-    public void setResponsiblePartyAssignedEntity(HealthcareWorkerBean responsiblePartyAssignedEntity) {
-        this.responsiblePartyAssignedEntity = responsiblePartyAssignedEntity;
+    public void setAuthor(RefusedByBean author) {
+        this.author = author;
     }
 
 
@@ -642,6 +626,62 @@ public class AllergyIntoleranceBean extends MessagePartBean implements ca.infowa
 
 
     /**
+     * <p>AllergyIntoleranceRefuted</p>
+     * 
+     * <p>G:Allergy/Intolerance Refuted</p>
+     * 
+     * <p><p>An indication that the allergy/intolerance has been 
+     * refuted. I.e. A clinician has positively determined that the 
+     * patient does not suffer from a particular allergy or 
+     * intolerance.</p></p>
+     * 
+     * <p><p>Allows providers to refute a previously confirmed or 
+     * suspected allergy. The attribute is mandatory because it is 
+     * critical to know whether the record represents the 
+     * refutation or affirmation of an allergy or intolerance.</p></p>
+     * 
+     * <p>G:Allergy/Intolerance Refuted</p>
+     * 
+     * <p><p>An indication that the allergy/intolerance has been 
+     * refuted. I.e. A clinician has positively determined that the 
+     * patient does not suffer from a particular allergy or 
+     * intolerance.</p></p>
+     * 
+     * <p><p>Allows providers to refute a previously confirmed or 
+     * suspected allergy. The attribute is mandatory because it is 
+     * essential to know whether a record is refuted or not.</p></p>
+     * 
+     * <p>G:Allergy/Intolerance Refuted</p>
+     * 
+     * <p><p>An indication that the allergy/intolerance has been 
+     * refuted. I.e. A clinician has positively determined that the 
+     * patient does not suffer from a particular allergy or 
+     * intolerance.</p></p>
+     * 
+     * <p><p>Allows providers to refute a previously confirmed or 
+     * suspected allergy. Because it is essential to know whether 
+     * the allergy or intolerance is being refuted or affirmed, 
+     * this attribute is mandatory.</p></p>
+     */
+    @Hl7XmlMapping({"negationInd"})
+    public Boolean getAllergyIntoleranceRefuted() {
+        return this.allergyIntoleranceRefuted.getValue();
+    }
+    public void setAllergyIntoleranceRefuted(Boolean allergyIntoleranceRefuted) {
+        this.allergyIntoleranceRefuted.setValue(allergyIntoleranceRefuted);
+    }
+
+
+    @Hl7XmlMapping({"informant"})
+    public ReportedByBean getInformant() {
+        return this.informant;
+    }
+    public void setInformant(ReportedByBean informant) {
+        this.informant = informant;
+    }
+
+
+    /**
      * <p>Agent</p>
      * 
      * <p>B:Agent</p>
@@ -675,69 +715,41 @@ public class AllergyIntoleranceBean extends MessagePartBean implements ca.infowa
     }
 
 
-    @Hl7XmlMapping({"informant"})
-    public ReportedByBean getInformant() {
-        return this.informant;
+    @Hl7XmlMapping({"subjectOf3/annotationIndicator"})
+    public Boolean getSubjectOf3AnnotationIndicator() {
+        return this.subjectOf3AnnotationIndicator.getValue();
     }
-    public void setInformant(ReportedByBean informant) {
-        this.informant = informant;
+    public void setSubjectOf3AnnotationIndicator(Boolean subjectOf3AnnotationIndicator) {
+        this.subjectOf3AnnotationIndicator.setValue(subjectOf3AnnotationIndicator);
     }
 
 
     /**
-     * <p>AllergyIntoleranceStatus</p>
+     * <p>AllergyIntoleranceRecordId</p>
      * 
-     * <p>E:Allergy/Intolerance Status</p>
+     * <p>D:Allergy/Intolerance Record Id</p>
      * 
-     * <p><p>A coded value that indicates whether an 
-     * allergy/intolerance is 'active' or 'completed' (indicating 
-     * no longer active).</p></p>
+     * <p><p>Unique identifier for an allergy/intolerance 
+     * record.</p></p>
      * 
-     * <p><p>Allows providers to evaluate the relevance of a 
-     * recorded allergy/intolerance. The status has a default value 
-     * of 'active' and is therefore mandatory.</p></p>
+     * <p><p>Allows for direct referencing of an 
+     * allergy/intolerance record when querying or performing 
+     * updates and is therefore mandatory.</p></p>
      * 
-     * <p><p>System must default the status to 'active'.</p></p>
+     * <p>D:Allergy/Intolerance Record Id</p>
      * 
-     * <p>E:Allergy/Intolerance Status</p>
+     * <p><p>Unique identifier for an allergy/intolerance 
+     * record.</p></p>
      * 
-     * <p><p>A coded value that indicates whether an 
-     * allergy/intolerance is 'ACTIVE' or 'COMPLETE' (indicating no 
-     * longer active).</p></p>
-     * 
-     * <p><p>Allows providers to evaluate the relevance of a 
-     * recorded allergy/intolerance. The status has a default value 
-     * of 'ACTIVE' and is therefore mandatory.</p></p>
-     * 
-     * <p><p>System must default the status to 'ACTIVE'.</p></p>
+     * <p><p>Indicates the allergy or intolerance record to be 
+     * updated and is therefore mandatory.</p></p>
      */
-    @Hl7XmlMapping({"statusCode"})
-    public ActStatus getAllergyIntoleranceStatus() {
-        return (ActStatus) this.allergyIntoleranceStatus.getValue();
+    @Hl7XmlMapping({"id"})
+    public Identifier getAllergyIntoleranceRecordId() {
+        return this.allergyIntoleranceRecordId.getValue();
     }
-    public void setAllergyIntoleranceStatus(ActStatus allergyIntoleranceStatus) {
-        this.allergyIntoleranceStatus.setValue(allergyIntoleranceStatus);
-    }
-
-
-    @Hl7XmlMapping({"author"})
-    public RefusedByBean getAuthor() {
-        return this.author;
-    }
-    public void setAuthor(RefusedByBean author) {
-        this.author = author;
-    }
-
-
-    @Hl7XmlMapping({"subjectOf1","subjectOf2"})
-    @Hl7MapByPartTypes({
-        @Hl7MapByPartType(name="subjectOf1", type="REPC_MT000001CA.Subject3"),
-        @Hl7MapByPartType(name="subjectOf2", type="REPC_MT000005CA.Subject4")})
-    public IncludesBean getSubjectOf1() {
-        return this.subjectOf1;
-    }
-    public void setSubjectOf1(IncludesBean subjectOf1) {
-        this.subjectOf1 = subjectOf1;
+    public void setAllergyIntoleranceRecordId(Identifier allergyIntoleranceRecordId) {
+        this.allergyIntoleranceRecordId.setValue(allergyIntoleranceRecordId);
     }
 
 
@@ -761,27 +773,6 @@ public class AllergyIntoleranceBean extends MessagePartBean implements ca.infowa
     }
 
 
-    @Hl7XmlMapping({"componentOf/patientCareProvisionEvent"})
-    public List<CareCompositionsBean> getComponentOfPatientCareProvisionEvent() {
-        return this.componentOfPatientCareProvisionEvent;
-    }
-
-
-    @Hl7XmlMapping({"location"})
-    public OccurredAtBean getLocation() {
-        return this.location;
-    }
-    public void setLocation(OccurredAtBean location) {
-        this.location = location;
-    }
-
-
-    @Hl7XmlMapping({"support/records"})
-    public List<Records> getSupportRecords() {
-        return this.supportRecords;
-    }
-
-
     @Hl7XmlMapping({"subjectOf/severityObservation","subjectOf1/severityObservation","subjectOf2/severityObservation"})
     @Hl7MapByPartTypes({
         @Hl7MapByPartType(name="subjectOf", type="REPC_MT000013CA.Subject1"),
@@ -795,6 +786,15 @@ public class AllergyIntoleranceBean extends MessagePartBean implements ca.infowa
     }
     public void setSubjectOfSeverityObservation(AllergyIntoleranceSeverityLevelBean subjectOfSeverityObservation) {
         this.subjectOfSeverityObservation = subjectOfSeverityObservation;
+    }
+
+
+    @Hl7XmlMapping({"responsibleParty/assignedEntity"})
+    public HealthcareWorkerBean getResponsiblePartyAssignedEntity() {
+        return this.responsiblePartyAssignedEntity;
+    }
+    public void setResponsiblePartyAssignedEntity(HealthcareWorkerBean responsiblePartyAssignedEntity) {
+        this.responsiblePartyAssignedEntity = responsiblePartyAssignedEntity;
     }
 
 }

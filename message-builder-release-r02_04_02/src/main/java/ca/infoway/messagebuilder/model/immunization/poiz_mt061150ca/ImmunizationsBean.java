@@ -38,17 +38,26 @@ import java.util.Date;
 @Hl7RootType
 public class ImmunizationsBean extends MessagePartBean implements ca.infoway.messagebuilder.model.iehr.comt_mt111111ca.Summary {
 
-    private static final long serialVersionUID = 20110126L;
+    private static final long serialVersionUID = 20110127L;
+    private BL subjectOf2AnnotationIndicator = new BLImpl();
     private CS immunizationEventStatus = new CSImpl();
     private CV uncertaintyCode = new CVImpl();
-    private II immunizationRecordId = new IIImpl();
-    private TS immunizationDate = new TSImpl();
-    private BL notImmunized = new BLImpl();
-    private BL subjectOf1DetectedIssuesIndicator = new BLImpl();
-    private VaccineBean consumableAdministerableMedicineAdministerableVaccine;
-    private InvestigationEventBean causeInvestigationEvent;
-    private BL subjectOf2AnnotationIndicator = new BLImpl();
     private AdministeredToBean subject;
+    private VaccineBean consumableAdministerableMedicineAdministerableVaccine;
+    private II immunizationRecordId = new IIImpl();
+    private BL notImmunized = new BLImpl();
+    private InvestigationEventBean causeInvestigationEvent;
+    private BL subjectOf1DetectedIssuesIndicator = new BLImpl();
+    private TS immunizationDate = new TSImpl();
+
+
+    @Hl7XmlMapping({"subjectOf2/annotationIndicator"})
+    public Boolean getSubjectOf2AnnotationIndicator() {
+        return this.subjectOf2AnnotationIndicator.getValue();
+    }
+    public void setSubjectOf2AnnotationIndicator(Boolean subjectOf2AnnotationIndicator) {
+        this.subjectOf2AnnotationIndicator.setValue(subjectOf2AnnotationIndicator);
+    }
 
 
     /**
@@ -90,6 +99,24 @@ public class ImmunizationsBean extends MessagePartBean implements ca.infoway.mes
     }
 
 
+    @Hl7XmlMapping({"subject"})
+    public AdministeredToBean getSubject() {
+        return this.subject;
+    }
+    public void setSubject(AdministeredToBean subject) {
+        this.subject = subject;
+    }
+
+
+    @Hl7XmlMapping({"consumable/administerableMedicine/administerableVaccine"})
+    public VaccineBean getConsumableAdministerableMedicineAdministerableVaccine() {
+        return this.consumableAdministerableMedicineAdministerableVaccine;
+    }
+    public void setConsumableAdministerableMedicineAdministerableVaccine(VaccineBean consumableAdministerableMedicineAdministerableVaccine) {
+        this.consumableAdministerableMedicineAdministerableVaccine = consumableAdministerableMedicineAdministerableVaccine;
+    }
+
+
     /**
      * <p>A:Immunization Record Id</p>
      * 
@@ -106,25 +133,6 @@ public class ImmunizationsBean extends MessagePartBean implements ca.infoway.mes
     }
     public void setImmunizationRecordId(Identifier immunizationRecordId) {
         this.immunizationRecordId.setValue(immunizationRecordId);
-    }
-
-
-    /**
-     * <p>Immunization Date</p>
-     * 
-     * <p><p>The date the vaccine was administered to the 
-     * patient.</p></p>
-     * 
-     * <p><p>Important information for establishing the validity of 
-     * the immunization records, and therefore mandatory. Also used 
-     * in the scheduling of subsequent immunizations.</p></p>
-     */
-    @Hl7XmlMapping({"effectiveTime"})
-    public Date getImmunizationDate() {
-        return this.immunizationDate.getValue();
-    }
-    public void setImmunizationDate(Date immunizationDate) {
-        this.immunizationDate.setValue(immunizationDate);
     }
 
 
@@ -148,24 +156,6 @@ public class ImmunizationsBean extends MessagePartBean implements ca.infoway.mes
     }
 
 
-    @Hl7XmlMapping({"subjectOf1/detectedIssuesIndicator"})
-    public Boolean getSubjectOf1DetectedIssuesIndicator() {
-        return this.subjectOf1DetectedIssuesIndicator.getValue();
-    }
-    public void setSubjectOf1DetectedIssuesIndicator(Boolean subjectOf1DetectedIssuesIndicator) {
-        this.subjectOf1DetectedIssuesIndicator.setValue(subjectOf1DetectedIssuesIndicator);
-    }
-
-
-    @Hl7XmlMapping({"consumable/administerableMedicine/administerableVaccine"})
-    public VaccineBean getConsumableAdministerableMedicineAdministerableVaccine() {
-        return this.consumableAdministerableMedicineAdministerableVaccine;
-    }
-    public void setConsumableAdministerableMedicineAdministerableVaccine(VaccineBean consumableAdministerableMedicineAdministerableVaccine) {
-        this.consumableAdministerableMedicineAdministerableVaccine = consumableAdministerableMedicineAdministerableVaccine;
-    }
-
-
     @Hl7XmlMapping({"cause/investigationEvent"})
     public InvestigationEventBean getCauseInvestigationEvent() {
         return this.causeInvestigationEvent;
@@ -175,21 +165,31 @@ public class ImmunizationsBean extends MessagePartBean implements ca.infoway.mes
     }
 
 
-    @Hl7XmlMapping({"subjectOf2/annotationIndicator"})
-    public Boolean getSubjectOf2AnnotationIndicator() {
-        return this.subjectOf2AnnotationIndicator.getValue();
+    @Hl7XmlMapping({"subjectOf1/detectedIssuesIndicator"})
+    public Boolean getSubjectOf1DetectedIssuesIndicator() {
+        return this.subjectOf1DetectedIssuesIndicator.getValue();
     }
-    public void setSubjectOf2AnnotationIndicator(Boolean subjectOf2AnnotationIndicator) {
-        this.subjectOf2AnnotationIndicator.setValue(subjectOf2AnnotationIndicator);
+    public void setSubjectOf1DetectedIssuesIndicator(Boolean subjectOf1DetectedIssuesIndicator) {
+        this.subjectOf1DetectedIssuesIndicator.setValue(subjectOf1DetectedIssuesIndicator);
     }
 
 
-    @Hl7XmlMapping({"subject"})
-    public AdministeredToBean getSubject() {
-        return this.subject;
+    /**
+     * <p>Immunization Date</p>
+     * 
+     * <p><p>The date the vaccine was administered to the 
+     * patient.</p></p>
+     * 
+     * <p><p>Important information for establishing the validity of 
+     * the immunization records, and therefore mandatory. Also used 
+     * in the scheduling of subsequent immunizations.</p></p>
+     */
+    @Hl7XmlMapping({"effectiveTime"})
+    public Date getImmunizationDate() {
+        return this.immunizationDate.getValue();
     }
-    public void setSubject(AdministeredToBean subject) {
-        this.subject = subject;
+    public void setImmunizationDate(Date immunizationDate) {
+        this.immunizationDate.setValue(immunizationDate);
     }
 
 }

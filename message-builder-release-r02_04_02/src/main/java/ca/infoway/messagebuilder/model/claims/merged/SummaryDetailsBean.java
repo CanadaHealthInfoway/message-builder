@@ -35,30 +35,9 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"FICR_MT610201CA.AdjudResultsGroupSummaryData","FICR_MT630000CA.AdjudResultsGroupSummaryData","QUCR_MT810201CA.AdjudResultsGroupSummaryData"})
 public class SummaryDetailsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
-    private CV code = new CVImpl();
+    private static final long serialVersionUID = 20110127L;
     private PQ value = new PQImpl();
-
-
-    /**
-     * <p>Summary Information</p>
-     * 
-     * <p>Summary Type Code</p>
-     * 
-     * <p>Summary Period Amt</p>
-     * 
-     * <p><p>Summary Period Amt</p></p>
-     * 
-     * <p><p>(defines the 'categorization'. Only really relevant 
-     * for summaries.</p></p>
-     */
-    @Hl7XmlMapping({"code"})
-    public Code getCode() {
-        return (Code) this.code.getValue();
-    }
-    public void setCode(Code code) {
-        this.code.setValue(code);
-    }
+    private CV code = new CVImpl();
 
 
     /**
@@ -84,6 +63,27 @@ public class SummaryDetailsBean extends MessagePartBean {
     }
     public void setValue(PhysicalQuantity value) {
         this.value.setValue(value);
+    }
+
+
+    /**
+     * <p>Summary Information</p>
+     * 
+     * <p>Summary Type Code</p>
+     * 
+     * <p>Summary Period Amt</p>
+     * 
+     * <p><p>Summary Period Amt</p></p>
+     * 
+     * <p><p>(defines the 'categorization'. Only really relevant 
+     * for summaries.</p></p>
+     */
+    @Hl7XmlMapping({"code"})
+    public Code getCode() {
+        return (Code) this.code.getValue();
+    }
+    public void setCode(Code code) {
+        this.code.setValue(code);
     }
 
 }

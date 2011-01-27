@@ -78,25 +78,16 @@ import java.util.List;
 @Hl7RootType
 public class DispenseInstructionsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
-    private DispenseShipToLocationBean destinationServiceDeliveryLocation;
+    private static final long serialVersionUID = 20110127L;
     private OccurredAtBean location;
-    private INT totalPrescribedQuantity = new INTImpl();
     private IVL<TS, Interval<Date>> totalDaysSupply = new IVLImpl<TS, Interval<Date>>();
+    private DispenseShipToLocationBean destinationServiceDeliveryLocation;
+    private INT totalPrescribedQuantity = new INTImpl();
     private SupplementalFillInformationBean componentSupplementalFillInformation;
-    private BL componentContextConductionInd = new BLImpl();
     private CS componentContextControlCode = new CSImpl();
+    private BL componentContextConductionInd = new BLImpl();
     private List<RemainingDispensesBean> fulfillmentSupplyEvent = new ArrayList<RemainingDispensesBean>();
     private ActRequestBean componentOfActRequest;
-
-
-    @Hl7XmlMapping({"destination/serviceDeliveryLocation"})
-    public DispenseShipToLocationBean getDestinationServiceDeliveryLocation() {
-        return this.destinationServiceDeliveryLocation;
-    }
-    public void setDestinationServiceDeliveryLocation(DispenseShipToLocationBean destinationServiceDeliveryLocation) {
-        this.destinationServiceDeliveryLocation = destinationServiceDeliveryLocation;
-    }
 
 
     @Hl7XmlMapping({"location"})
@@ -105,6 +96,39 @@ public class DispenseInstructionsBean extends MessagePartBean {
     }
     public void setLocation(OccurredAtBean location) {
         this.location = location;
+    }
+
+
+    /**
+     * <p>TotalDaysSupply</p>
+     * 
+     * <p>C:Total Days Supply</p>
+     * 
+     * <p><p>The number of days that the overall prescribed item is 
+     * expected to last, if the patient is compliant with the 
+     * dispensing and use of the prescription.</p></p>
+     * 
+     * <p><p>Used to specify a total authorization as a duration 
+     * rather than a quantity with refills. E.g. dispense 30 at a 
+     * time, refill for 1 year. May also be sent as an estimate of 
+     * the expected overall duration of the prescription based on 
+     * the quantity prescribed.</p></p>
+     */
+    @Hl7XmlMapping({"expectedUseTime"})
+    public Interval<Date> getTotalDaysSupply() {
+        return this.totalDaysSupply.getValue();
+    }
+    public void setTotalDaysSupply(Interval<Date> totalDaysSupply) {
+        this.totalDaysSupply.setValue(totalDaysSupply);
+    }
+
+
+    @Hl7XmlMapping({"destination/serviceDeliveryLocation"})
+    public DispenseShipToLocationBean getDestinationServiceDeliveryLocation() {
+        return this.destinationServiceDeliveryLocation;
+    }
+    public void setDestinationServiceDeliveryLocation(DispenseShipToLocationBean destinationServiceDeliveryLocation) {
+        this.destinationServiceDeliveryLocation = destinationServiceDeliveryLocation;
     }
 
 
@@ -146,30 +170,6 @@ public class DispenseInstructionsBean extends MessagePartBean {
     }
 
 
-    /**
-     * <p>TotalDaysSupply</p>
-     * 
-     * <p>C:Total Days Supply</p>
-     * 
-     * <p><p>The number of days that the overall prescribed item is 
-     * expected to last, if the patient is compliant with the 
-     * dispensing and use of the prescription.</p></p>
-     * 
-     * <p><p>Used to specify a total authorization as a duration 
-     * rather than a quantity with refills. E.g. dispense 30 at a 
-     * time, refill for 1 year. May also be sent as an estimate of 
-     * the expected overall duration of the prescription based on 
-     * the quantity prescribed.</p></p>
-     */
-    @Hl7XmlMapping({"expectedUseTime"})
-    public Interval<Date> getTotalDaysSupply() {
-        return this.totalDaysSupply.getValue();
-    }
-    public void setTotalDaysSupply(Interval<Date> totalDaysSupply) {
-        this.totalDaysSupply.setValue(totalDaysSupply);
-    }
-
-
     @Hl7XmlMapping({"component/supplementalFillInformation"})
     public SupplementalFillInformationBean getComponentSupplementalFillInformation() {
         return this.componentSupplementalFillInformation;
@@ -179,21 +179,21 @@ public class DispenseInstructionsBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"component/contextConductionInd"})
-    public Boolean getComponentContextConductionInd() {
-        return this.componentContextConductionInd.getValue();
-    }
-    public void setComponentContextConductionInd(Boolean componentContextConductionInd) {
-        this.componentContextConductionInd.setValue(componentContextConductionInd);
-    }
-
-
     @Hl7XmlMapping({"component/contextControlCode"})
     public ContextControl getComponentContextControlCode() {
         return (ContextControl) this.componentContextControlCode.getValue();
     }
     public void setComponentContextControlCode(ContextControl componentContextControlCode) {
         this.componentContextControlCode.setValue(componentContextControlCode);
+    }
+
+
+    @Hl7XmlMapping({"component/contextConductionInd"})
+    public Boolean getComponentContextConductionInd() {
+        return this.componentContextConductionInd.getValue();
+    }
+    public void setComponentContextConductionInd(Boolean componentContextConductionInd) {
+        this.componentContextConductionInd.setValue(componentContextConductionInd);
     }
 
 

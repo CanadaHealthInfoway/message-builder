@@ -44,10 +44,10 @@ import ca.infoway.messagebuilder.model.merged.ActingPersonBean;
 @Hl7RootType
 public class RelatedPersonBean extends MessagePartBean implements ca.infoway.messagebuilder.model.common.coct_mt911108ca.ActingPerson {
 
-    private static final long serialVersionUID = 20110126L;
+    private static final long serialVersionUID = 20110127L;
     private CV responsiblePersonType = new CVImpl();
-    private II relatedPersonIdentifier = new IIImpl();
     private ActingPersonBean relationshipHolder;
+    private II relatedPersonIdentifier = new IIImpl();
 
 
     /**
@@ -70,6 +70,15 @@ public class RelatedPersonBean extends MessagePartBean implements ca.infoway.mes
     }
     public void setResponsiblePersonType(x_SimplePersonalRelationship responsiblePersonType) {
         this.responsiblePersonType.setValue(responsiblePersonType);
+    }
+
+
+    @Hl7XmlMapping({"relationshipHolder"})
+    public ActingPersonBean getRelationshipHolder() {
+        return this.relationshipHolder;
+    }
+    public void setRelationshipHolder(ActingPersonBean relationshipHolder) {
+        this.relationshipHolder = relationshipHolder;
     }
 
 
@@ -698,15 +707,6 @@ public class RelatedPersonBean extends MessagePartBean implements ca.infoway.mes
     }
     public void setRelatedPersonIdentifier(Identifier relatedPersonIdentifier) {
         this.relatedPersonIdentifier.setValue(relatedPersonIdentifier);
-    }
-
-
-    @Hl7XmlMapping({"relationshipHolder"})
-    public ActingPersonBean getRelationshipHolder() {
-        return this.relationshipHolder;
-    }
-    public void setRelationshipHolder(ActingPersonBean relationshipHolder) {
-        this.relationshipHolder = relationshipHolder;
     }
 
 }

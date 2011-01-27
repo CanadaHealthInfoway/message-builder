@@ -11,7 +11,7 @@ import ca.infoway.messagebuilder.model.claims.merged.PaymentIntentBean;
 @Hl7PartTypeMapping({"FICR_MT610201CA.AdjudicatedInvoiceElementComponent"})
 public class AdjudicatedInvoiceElementComponentBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
+    private static final long serialVersionUID = 20110127L;
     private AdjudicatedInvoiceElementChoice adjudicatedInvoiceElementChoice;
 
 

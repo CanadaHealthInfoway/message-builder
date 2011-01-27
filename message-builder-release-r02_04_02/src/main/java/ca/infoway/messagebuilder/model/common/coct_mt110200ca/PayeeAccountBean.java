@@ -29,12 +29,12 @@ import java.util.Date;
 @Hl7RootType
 public class PayeeAccountBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
+    private static final long serialVersionUID = 20110127L;
     private CV typeOfAccount = new CVImpl();
+    private PayeeRoleBean holderPayeeRole;
     private II accountID = new IIImpl();
     private TS expiryDateOnCreditCard = new TSImpl();
     private ST nameOnCreditCard = new STImpl();
-    private PayeeRoleBean holderPayeeRole;
 
 
     /**
@@ -46,6 +46,15 @@ public class PayeeAccountBean extends MessagePartBean {
     }
     public void setTypeOfAccount(Code typeOfAccount) {
         this.typeOfAccount.setValue(typeOfAccount);
+    }
+
+
+    @Hl7XmlMapping({"holder/payeeRole"})
+    public PayeeRoleBean getHolderPayeeRole() {
+        return this.holderPayeeRole;
+    }
+    public void setHolderPayeeRole(PayeeRoleBean holderPayeeRole) {
+        this.holderPayeeRole = holderPayeeRole;
     }
 
 
@@ -88,15 +97,6 @@ public class PayeeAccountBean extends MessagePartBean {
     }
     public void setNameOnCreditCard(String nameOnCreditCard) {
         this.nameOnCreditCard.setValue(nameOnCreditCard);
-    }
-
-
-    @Hl7XmlMapping({"holder/payeeRole"})
-    public PayeeRoleBean getHolderPayeeRole() {
-        return this.holderPayeeRole;
-    }
-    public void setHolderPayeeRole(PayeeRoleBean holderPayeeRole) {
-        this.holderPayeeRole = holderPayeeRole;
     }
 
 }

@@ -12,6 +12,6 @@ import ca.infoway.messagebuilder.model.lab.polb_mt001000ca.RequestChoice;
 @Hl7PartTypeMapping({"POLB_IN111100CA"})
 public class OrderFulfillmentRequestBean extends HL7Message_1Bean<TriggerEvent_1Bean<RequestChoice>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20110126L;
+    private static final long serialVersionUID = 20110127L;
 
 }

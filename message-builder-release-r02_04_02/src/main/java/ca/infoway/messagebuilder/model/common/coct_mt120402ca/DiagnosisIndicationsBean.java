@@ -23,26 +23,9 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COCT_MT120402CA.ObservationProblem"})
 public class DiagnosisIndicationsBean extends MessagePartBean implements Indications {
 
-    private static final long serialVersionUID = 20110126L;
-    private CV problemType = new CVImpl();
+    private static final long serialVersionUID = 20110127L;
     private CD problemCode = new CDImpl();
-
-
-    /**
-     * <p>Problem Type</p>
-     * 
-     * <p><p>Identifies the type of problem described.</p></p>
-     * 
-     * <p><p>Identifies this measurement as a type of diagnosis and 
-     * is therefore mandatory.</p></p>
-     */
-    @Hl7XmlMapping({"code"})
-    public Code getProblemType() {
-        return (Code) this.problemType.getValue();
-    }
-    public void setProblemType(Code problemType) {
-        this.problemType.setValue(problemType);
-    }
+    private CV problemType = new CVImpl();
 
 
     /**
@@ -61,6 +44,23 @@ public class DiagnosisIndicationsBean extends MessagePartBean implements Indicat
     }
     public void setProblemCode(Code problemCode) {
         this.problemCode.setValue(problemCode);
+    }
+
+
+    /**
+     * <p>Problem Type</p>
+     * 
+     * <p><p>Identifies the type of problem described.</p></p>
+     * 
+     * <p><p>Identifies this measurement as a type of diagnosis and 
+     * is therefore mandatory.</p></p>
+     */
+    @Hl7XmlMapping({"code"})
+    public Code getProblemType() {
+        return (Code) this.problemType.getValue();
+    }
+    public void setProblemType(Code problemType) {
+        this.problemType.setValue(problemType);
     }
 
 }

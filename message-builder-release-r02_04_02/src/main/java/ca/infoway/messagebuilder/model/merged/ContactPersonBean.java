@@ -16,23 +16,9 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"FICR_MT500201CA.ContactPerson","FICR_MT600201CA.ContactPerson"})
 public class ContactPersonBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
-    private TEL contactPersonTelephoneOrEmailDetails = new TELImpl();
+    private static final long serialVersionUID = 20110127L;
     private PN contactPersonName = new PNImpl();
-
-
-    /**
-     * <p>ContactPersonTelephoneOrEmailDetails</p>
-     * 
-     * <p>contact person telephone or email details</p>
-     */
-    @Hl7XmlMapping({"telecom"})
-    public TelecommunicationAddress getContactPersonTelephoneOrEmailDetails() {
-        return this.contactPersonTelephoneOrEmailDetails.getValue();
-    }
-    public void setContactPersonTelephoneOrEmailDetails(TelecommunicationAddress contactPersonTelephoneOrEmailDetails) {
-        this.contactPersonTelephoneOrEmailDetails.setValue(contactPersonTelephoneOrEmailDetails);
-    }
+    private TEL contactPersonTelephoneOrEmailDetails = new TELImpl();
 
 
     /**
@@ -46,6 +32,20 @@ public class ContactPersonBean extends MessagePartBean {
     }
     public void setContactPersonName(PersonName contactPersonName) {
         this.contactPersonName.setValue(contactPersonName);
+    }
+
+
+    /**
+     * <p>ContactPersonTelephoneOrEmailDetails</p>
+     * 
+     * <p>contact person telephone or email details</p>
+     */
+    @Hl7XmlMapping({"telecom"})
+    public TelecommunicationAddress getContactPersonTelephoneOrEmailDetails() {
+        return this.contactPersonTelephoneOrEmailDetails.getValue();
+    }
+    public void setContactPersonTelephoneOrEmailDetails(TelecommunicationAddress contactPersonTelephoneOrEmailDetails) {
+        this.contactPersonTelephoneOrEmailDetails.setValue(contactPersonTelephoneOrEmailDetails);
     }
 
 }

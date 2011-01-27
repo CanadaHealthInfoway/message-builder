@@ -49,44 +49,47 @@ import java.util.Set;
 @Hl7PartTypeMapping({"POLB_MT001001CA.ObservationRequest"})
 public class ObservationRequestBean extends MessagePartBean implements RequestChoice {
 
-    private static final long serialVersionUID = 20110126L;
-    private II testIdentifier = new IIImpl();
+    private static final long serialVersionUID = 20110127L;
+    private CS testStatus = new CSImpl();
     private CD testCode = new CDImpl();
-    private List<HealthcareWorkerBean> verifierAssignedEntity = new ArrayList<HealthcareWorkerBean>();
+    private List<CareCompositionsBean> componentOf2PatientCareProvisionEvent = new ArrayList<CareCompositionsBean>();
+    private List<IncludesBean> subjectOf1 = new ArrayList<IncludesBean>();
     private SET<CV, Code> testMaskingIndicator = new SETImpl<CV, Code>(CVImpl.class);
+    private List<RequestChoice> component4RequestChoice = new ArrayList<RequestChoice>();
+    private ParentTestBean occurrenceOfActParentPointer;
+    private List<HealthcareWorkerBean> verifierAssignedEntity = new ArrayList<HealthcareWorkerBean>();
+    private List<RecipientChoice> informationRecipientRecipientChoice = new ArrayList<RecipientChoice>();
+    private II testIdentifier = new IIImpl();
     private VersionInformationBean subjectOf2ControlActEvent;
     private CV testPriorityCode = new CVImpl();
-    private TS testRequestAvailabilityTime = new TSImpl();
-    private CS testStatus = new CSImpl();
-    private List<IncludesBean> subjectOf1 = new ArrayList<IncludesBean>();
-    private LIST<GTS, GeneralTimingSpecification> testRequestTimeSpecification = new LISTImpl<GTS, GeneralTimingSpecification>(GTSImpl.class);
-    private List<RequestChoice> component4RequestChoice = new ArrayList<RequestChoice>();
-    private List<CareCompositionsBean> componentOf2PatientCareProvisionEvent = new ArrayList<CareCompositionsBean>();
-    private ParentTestBean occurrenceOfActParentPointer;
-    private LabInitiatedOrderIndicatorBean component1LabInitiatedOrderIndicator;
-    private List<RecipientChoice> informationRecipientRecipientChoice = new ArrayList<RecipientChoice>();
-    private ReferralRedirectIndicatorBean component2ReferralRedirectIndicator;
-    private List<SupportingClinicalInformationBean> pertinentInformationSupportingClinicalObservationEvent = new ArrayList<SupportingClinicalInformationBean>();
-    private PriorTestRequestBean componentOf1PriorActRequest;
     private OrderSortKeyBean component3RequestSortKey;
+    private List<SupportingClinicalInformationBean> pertinentInformationSupportingClinicalObservationEvent = new ArrayList<SupportingClinicalInformationBean>();
+    private LabInitiatedOrderIndicatorBean component1LabInitiatedOrderIndicator;
+    private ReferralRedirectIndicatorBean component2ReferralRedirectIndicator;
+    private PriorTestRequestBean componentOf1PriorActRequest;
+    private LIST<GTS, GeneralTimingSpecification> testRequestTimeSpecification = new LISTImpl<GTS, GeneralTimingSpecification>(GTSImpl.class);
+    private TS testRequestAvailabilityTime = new TSImpl();
 
 
     /**
-     * <p>F:Test Identifier</p>
+     * <p>I:Test Status</p>
      * 
-     * <p><p>Must contain a value assigned by the order-placing 
-     * organization that uniquely identifies this test request 
-     * among all test requests in the receiving application.</p></p>
+     * <p><p>The statusCode represents the &quot;state&quot; of the 
+     * act e.g. active=in progress or not yet started, 
+     * complete=resulted and/or result reported. It is up to the 
+     * order placer to determine when, upon receipt of one or more 
+     * results which fulfill this order, the order is complete.</p></p>
      * 
-     * <p><p>Used to uniquely identify this test. Necessary for 
-     * order revisions and cancellations.</p></p>
+     * <p><p>The statusCode represents the &quot;state&quot; of the 
+     * test e.g. active=in progress or not yet started, 
+     * complete=resulted and/or reported.</p></p>
      */
-    @Hl7XmlMapping({"id"})
-    public Identifier getTestIdentifier() {
-        return this.testIdentifier.getValue();
+    @Hl7XmlMapping({"statusCode"})
+    public ActStatus getTestStatus() {
+        return (ActStatus) this.testStatus.getValue();
     }
-    public void setTestIdentifier(Identifier testIdentifier) {
-        this.testIdentifier.setValue(testIdentifier);
+    public void setTestStatus(ActStatus testStatus) {
+        this.testStatus.setValue(testStatus);
     }
 
 
@@ -110,9 +113,15 @@ public class ObservationRequestBean extends MessagePartBean implements RequestCh
     }
 
 
-    @Hl7XmlMapping({"verifier/assignedEntity"})
-    public List<HealthcareWorkerBean> getVerifierAssignedEntity() {
-        return this.verifierAssignedEntity;
+    @Hl7XmlMapping({"componentOf2/patientCareProvisionEvent"})
+    public List<CareCompositionsBean> getComponentOf2PatientCareProvisionEvent() {
+        return this.componentOf2PatientCareProvisionEvent;
+    }
+
+
+    @Hl7XmlMapping({"subjectOf1"})
+    public List<IncludesBean> getSubjectOf1() {
+        return this.subjectOf1;
     }
 
 
@@ -134,6 +143,52 @@ public class ObservationRequestBean extends MessagePartBean implements RequestCh
     @Hl7XmlMapping({"confidentialityCode"})
     public Set<x_BasicConfidentialityKind> getTestMaskingIndicator() {
         return this.testMaskingIndicator.rawSet(x_BasicConfidentialityKind.class);
+    }
+
+
+    @Hl7XmlMapping({"component4/requestChoice"})
+    public List<RequestChoice> getComponent4RequestChoice() {
+        return this.component4RequestChoice;
+    }
+
+
+    @Hl7XmlMapping({"occurrenceOf/actParentPointer"})
+    public ParentTestBean getOccurrenceOfActParentPointer() {
+        return this.occurrenceOfActParentPointer;
+    }
+    public void setOccurrenceOfActParentPointer(ParentTestBean occurrenceOfActParentPointer) {
+        this.occurrenceOfActParentPointer = occurrenceOfActParentPointer;
+    }
+
+
+    @Hl7XmlMapping({"verifier/assignedEntity"})
+    public List<HealthcareWorkerBean> getVerifierAssignedEntity() {
+        return this.verifierAssignedEntity;
+    }
+
+
+    @Hl7XmlMapping({"informationRecipient/recipientChoice"})
+    public List<RecipientChoice> getInformationRecipientRecipientChoice() {
+        return this.informationRecipientRecipientChoice;
+    }
+
+
+    /**
+     * <p>F:Test Identifier</p>
+     * 
+     * <p><p>Must contain a value assigned by the order-placing 
+     * organization that uniquely identifies this test request 
+     * among all test requests in the receiving application.</p></p>
+     * 
+     * <p><p>Used to uniquely identify this test. Necessary for 
+     * order revisions and cancellations.</p></p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Identifier getTestIdentifier() {
+        return this.testIdentifier.getValue();
+    }
+    public void setTestIdentifier(Identifier testIdentifier) {
+        this.testIdentifier.setValue(testIdentifier);
     }
 
 
@@ -163,52 +218,45 @@ public class ObservationRequestBean extends MessagePartBean implements RequestCh
     }
 
 
-    /**
-     * <p>L:Test Request Availability Time</p>
-     * 
-     * <p><p>The date/time when this order is available.</p></p>
-     * 
-     * <p><p>OLIS needs to be able to communicate the timestamp 
-     * that it assigns to an ObservationRequest (test request) when 
-     * the test request is created, revised, and whenever result 
-     * information is added or revised. 
-     * ObservationRequest.availabilityTime has been determined to 
-     * be the most appropriate field.</p></p>
-     */
-    @Hl7XmlMapping({"availabilityTime"})
-    public Date getTestRequestAvailabilityTime() {
-        return this.testRequestAvailabilityTime.getValue();
+    @Hl7XmlMapping({"component3/requestSortKey"})
+    public OrderSortKeyBean getComponent3RequestSortKey() {
+        return this.component3RequestSortKey;
     }
-    public void setTestRequestAvailabilityTime(Date testRequestAvailabilityTime) {
-        this.testRequestAvailabilityTime.setValue(testRequestAvailabilityTime);
+    public void setComponent3RequestSortKey(OrderSortKeyBean component3RequestSortKey) {
+        this.component3RequestSortKey = component3RequestSortKey;
     }
 
 
-    /**
-     * <p>I:Test Status</p>
-     * 
-     * <p><p>The statusCode represents the &quot;state&quot; of the 
-     * act e.g. active=in progress or not yet started, 
-     * complete=resulted and/or result reported. It is up to the 
-     * order placer to determine when, upon receipt of one or more 
-     * results which fulfill this order, the order is complete.</p></p>
-     * 
-     * <p><p>The statusCode represents the &quot;state&quot; of the 
-     * test e.g. active=in progress or not yet started, 
-     * complete=resulted and/or reported.</p></p>
-     */
-    @Hl7XmlMapping({"statusCode"})
-    public ActStatus getTestStatus() {
-        return (ActStatus) this.testStatus.getValue();
-    }
-    public void setTestStatus(ActStatus testStatus) {
-        this.testStatus.setValue(testStatus);
+    @Hl7XmlMapping({"pertinentInformation/supportingClinicalObservationEvent"})
+    public List<SupportingClinicalInformationBean> getPertinentInformationSupportingClinicalObservationEvent() {
+        return this.pertinentInformationSupportingClinicalObservationEvent;
     }
 
 
-    @Hl7XmlMapping({"subjectOf1"})
-    public List<IncludesBean> getSubjectOf1() {
-        return this.subjectOf1;
+    @Hl7XmlMapping({"component1/labInitiatedOrderIndicator"})
+    public LabInitiatedOrderIndicatorBean getComponent1LabInitiatedOrderIndicator() {
+        return this.component1LabInitiatedOrderIndicator;
+    }
+    public void setComponent1LabInitiatedOrderIndicator(LabInitiatedOrderIndicatorBean component1LabInitiatedOrderIndicator) {
+        this.component1LabInitiatedOrderIndicator = component1LabInitiatedOrderIndicator;
+    }
+
+
+    @Hl7XmlMapping({"component2/referralRedirectIndicator"})
+    public ReferralRedirectIndicatorBean getComponent2ReferralRedirectIndicator() {
+        return this.component2ReferralRedirectIndicator;
+    }
+    public void setComponent2ReferralRedirectIndicator(ReferralRedirectIndicatorBean component2ReferralRedirectIndicator) {
+        this.component2ReferralRedirectIndicator = component2ReferralRedirectIndicator;
+    }
+
+
+    @Hl7XmlMapping({"componentOf1/priorActRequest"})
+    public PriorTestRequestBean getComponentOf1PriorActRequest() {
+        return this.componentOf1PriorActRequest;
+    }
+    public void setComponentOf1PriorActRequest(PriorTestRequestBean componentOf1PriorActRequest) {
+        this.componentOf1PriorActRequest = componentOf1PriorActRequest;
     }
 
 
@@ -230,72 +278,24 @@ public class ObservationRequestBean extends MessagePartBean implements RequestCh
     }
 
 
-    @Hl7XmlMapping({"component4/requestChoice"})
-    public List<RequestChoice> getComponent4RequestChoice() {
-        return this.component4RequestChoice;
+    /**
+     * <p>L:Test Request Availability Time</p>
+     * 
+     * <p><p>The date/time when this order is available.</p></p>
+     * 
+     * <p><p>OLIS needs to be able to communicate the timestamp 
+     * that it assigns to an ObservationRequest (test request) when 
+     * the test request is created, revised, and whenever result 
+     * information is added or revised. 
+     * ObservationRequest.availabilityTime has been determined to 
+     * be the most appropriate field.</p></p>
+     */
+    @Hl7XmlMapping({"availabilityTime"})
+    public Date getTestRequestAvailabilityTime() {
+        return this.testRequestAvailabilityTime.getValue();
     }
-
-
-    @Hl7XmlMapping({"componentOf2/patientCareProvisionEvent"})
-    public List<CareCompositionsBean> getComponentOf2PatientCareProvisionEvent() {
-        return this.componentOf2PatientCareProvisionEvent;
-    }
-
-
-    @Hl7XmlMapping({"occurrenceOf/actParentPointer"})
-    public ParentTestBean getOccurrenceOfActParentPointer() {
-        return this.occurrenceOfActParentPointer;
-    }
-    public void setOccurrenceOfActParentPointer(ParentTestBean occurrenceOfActParentPointer) {
-        this.occurrenceOfActParentPointer = occurrenceOfActParentPointer;
-    }
-
-
-    @Hl7XmlMapping({"component1/labInitiatedOrderIndicator"})
-    public LabInitiatedOrderIndicatorBean getComponent1LabInitiatedOrderIndicator() {
-        return this.component1LabInitiatedOrderIndicator;
-    }
-    public void setComponent1LabInitiatedOrderIndicator(LabInitiatedOrderIndicatorBean component1LabInitiatedOrderIndicator) {
-        this.component1LabInitiatedOrderIndicator = component1LabInitiatedOrderIndicator;
-    }
-
-
-    @Hl7XmlMapping({"informationRecipient/recipientChoice"})
-    public List<RecipientChoice> getInformationRecipientRecipientChoice() {
-        return this.informationRecipientRecipientChoice;
-    }
-
-
-    @Hl7XmlMapping({"component2/referralRedirectIndicator"})
-    public ReferralRedirectIndicatorBean getComponent2ReferralRedirectIndicator() {
-        return this.component2ReferralRedirectIndicator;
-    }
-    public void setComponent2ReferralRedirectIndicator(ReferralRedirectIndicatorBean component2ReferralRedirectIndicator) {
-        this.component2ReferralRedirectIndicator = component2ReferralRedirectIndicator;
-    }
-
-
-    @Hl7XmlMapping({"pertinentInformation/supportingClinicalObservationEvent"})
-    public List<SupportingClinicalInformationBean> getPertinentInformationSupportingClinicalObservationEvent() {
-        return this.pertinentInformationSupportingClinicalObservationEvent;
-    }
-
-
-    @Hl7XmlMapping({"componentOf1/priorActRequest"})
-    public PriorTestRequestBean getComponentOf1PriorActRequest() {
-        return this.componentOf1PriorActRequest;
-    }
-    public void setComponentOf1PriorActRequest(PriorTestRequestBean componentOf1PriorActRequest) {
-        this.componentOf1PriorActRequest = componentOf1PriorActRequest;
-    }
-
-
-    @Hl7XmlMapping({"component3/requestSortKey"})
-    public OrderSortKeyBean getComponent3RequestSortKey() {
-        return this.component3RequestSortKey;
-    }
-    public void setComponent3RequestSortKey(OrderSortKeyBean component3RequestSortKey) {
-        this.component3RequestSortKey = component3RequestSortKey;
+    public void setTestRequestAvailabilityTime(Date testRequestAvailabilityTime) {
+        this.testRequestAvailabilityTime.setValue(testRequestAvailabilityTime);
     }
 
 }

@@ -63,51 +63,39 @@ import java.util.Set;
 @Hl7PartTypeMapping({"POLB_MT004100CA.Culture"})
 public class CultureGrouperObservationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
-    private List<RoleChoice> receiverRoleChoice = new ArrayList<RoleChoice>();
-    private ca.infoway.messagebuilder.model.common.coct_mt090508ca.HealthcareOrganizationBean primaryInformationRecipientAssignedEntity;
-    private SET<II, Identifier> cultureIdentifier = new SETImpl<II, Identifier>(IIImpl.class);
+    private static final long serialVersionUID = 20110127L;
+    private CS cultureStatus = new CSImpl();
     private CD cultureType = new CDImpl();
+    private ca.infoway.messagebuilder.model.common.coct_mt090508ca.HealthcareOrganizationBean primaryInformationRecipientAssignedEntity;
+    private List<IncludesBean> subjectOf2 = new ArrayList<IncludesBean>();
+    private List<RoleChoice> receiverRoleChoice = new ArrayList<RoleChoice>();
     private SET<CV, Code> resultMaskingIndicator = new SETImpl<CV, Code>(CVImpl.class);
+    private ReportSectionSpecimenBean specimen;
+    private ResultStatusProcessStepBean subjectOf3ResultStatusProcessStep;
     private List<WasPerformedByBean> performer = new ArrayList<WasPerformedByBean>();
     private List<FulfillmentChoice> inFulfillmentOfFulfillmentChoice = new ArrayList<FulfillmentChoice>();
-    private OutbreakBean pertinentInformation2OutbreakEvent;
-    private List<CultureObservationsBean> component1CultureObservationEvent = new ArrayList<CultureObservationsBean>();
-    private ReportSectionSpecimenBean specimen;
-    private VersionInformationBean subjectOf1ControlActEvent;
-    private List<HasAComponentBean> component3 = new ArrayList<HasAComponentBean>();
-    private CS cultureStatus = new CSImpl();
-    private ResultStatusProcessStepBean subjectOf3ResultStatusProcessStep;
-    private List<ReportableHealthIndicatorBean> component4ReportableTestIndicator = new ArrayList<ReportableHealthIndicatorBean>();
-    private List<IncludesBean> subjectOf2 = new ArrayList<IncludesBean>();
-    private IVL<TS, Interval<Date>> cultureEffectiveTime = new IVLImpl<TS, Interval<Date>>();
     private ResultSortKeyBean component2ResultSortKey;
+    private List<ReportableHealthIndicatorBean> component4ReportableTestIndicator = new ArrayList<ReportableHealthIndicatorBean>();
+    private OutbreakBean pertinentInformation2OutbreakEvent;
+    private SET<II, Identifier> cultureIdentifier = new SETImpl<II, Identifier>(IIImpl.class);
+    private VersionInformationBean subjectOf1ControlActEvent;
     private List<SupportingClinicalInformationBean> pertinentInformation1SupportingClinicalObservationEvent = new ArrayList<SupportingClinicalInformationBean>();
-
-
-    @Hl7XmlMapping({"receiver/roleChoice"})
-    public List<RoleChoice> getReceiverRoleChoice() {
-        return this.receiverRoleChoice;
-    }
-
-
-    @Hl7XmlMapping({"primaryInformationRecipient/assignedEntity"})
-    public ca.infoway.messagebuilder.model.common.coct_mt090508ca.HealthcareOrganizationBean getPrimaryInformationRecipientAssignedEntity() {
-        return this.primaryInformationRecipientAssignedEntity;
-    }
-    public void setPrimaryInformationRecipientAssignedEntity(ca.infoway.messagebuilder.model.common.coct_mt090508ca.HealthcareOrganizationBean primaryInformationRecipientAssignedEntity) {
-        this.primaryInformationRecipientAssignedEntity = primaryInformationRecipientAssignedEntity;
-    }
+    private List<CultureObservationsBean> component1CultureObservationEvent = new ArrayList<CultureObservationsBean>();
+    private IVL<TS, Interval<Date>> cultureEffectiveTime = new IVLImpl<TS, Interval<Date>>();
+    private List<HasAComponentBean> component3 = new ArrayList<HasAComponentBean>();
 
 
     /**
-     * <p>Culture Identifier</p>
+     * <p>Culture Status</p>
      * 
-     * <p><p>Unique to identify this culture test.</p></p>
+     * <p><p>Status of the Culture.</p></p>
      */
-    @Hl7XmlMapping({"id"})
-    public Set<Identifier> getCultureIdentifier() {
-        return this.cultureIdentifier.rawSet();
+    @Hl7XmlMapping({"statusCode"})
+    public ActStatus getCultureStatus() {
+        return (ActStatus) this.cultureStatus.getValue();
+    }
+    public void setCultureStatus(ActStatus cultureStatus) {
+        this.cultureStatus.setValue(cultureStatus);
     }
 
 
@@ -124,6 +112,27 @@ public class CultureGrouperObservationBean extends MessagePartBean {
     }
     public void setCultureType(Code cultureType) {
         this.cultureType.setValue(cultureType);
+    }
+
+
+    @Hl7XmlMapping({"primaryInformationRecipient/assignedEntity"})
+    public ca.infoway.messagebuilder.model.common.coct_mt090508ca.HealthcareOrganizationBean getPrimaryInformationRecipientAssignedEntity() {
+        return this.primaryInformationRecipientAssignedEntity;
+    }
+    public void setPrimaryInformationRecipientAssignedEntity(ca.infoway.messagebuilder.model.common.coct_mt090508ca.HealthcareOrganizationBean primaryInformationRecipientAssignedEntity) {
+        this.primaryInformationRecipientAssignedEntity = primaryInformationRecipientAssignedEntity;
+    }
+
+
+    @Hl7XmlMapping({"subjectOf2"})
+    public List<IncludesBean> getSubjectOf2() {
+        return this.subjectOf2;
+    }
+
+
+    @Hl7XmlMapping({"receiver/roleChoice"})
+    public List<RoleChoice> getReceiverRoleChoice() {
+        return this.receiverRoleChoice;
     }
 
 
@@ -148,68 +157,12 @@ public class CultureGrouperObservationBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"performer"})
-    public List<WasPerformedByBean> getPerformer() {
-        return this.performer;
-    }
-
-
-    @Hl7XmlMapping({"inFulfillmentOf/fulfillmentChoice"})
-    public List<FulfillmentChoice> getInFulfillmentOfFulfillmentChoice() {
-        return this.inFulfillmentOfFulfillmentChoice;
-    }
-
-
-    @Hl7XmlMapping({"pertinentInformation2/outbreakEvent"})
-    public OutbreakBean getPertinentInformation2OutbreakEvent() {
-        return this.pertinentInformation2OutbreakEvent;
-    }
-    public void setPertinentInformation2OutbreakEvent(OutbreakBean pertinentInformation2OutbreakEvent) {
-        this.pertinentInformation2OutbreakEvent = pertinentInformation2OutbreakEvent;
-    }
-
-
-    @Hl7XmlMapping({"component1/cultureObservationEvent"})
-    public List<CultureObservationsBean> getComponent1CultureObservationEvent() {
-        return this.component1CultureObservationEvent;
-    }
-
-
     @Hl7XmlMapping({"specimen"})
     public ReportSectionSpecimenBean getSpecimen() {
         return this.specimen;
     }
     public void setSpecimen(ReportSectionSpecimenBean specimen) {
         this.specimen = specimen;
-    }
-
-
-    @Hl7XmlMapping({"subjectOf1/controlActEvent"})
-    public VersionInformationBean getSubjectOf1ControlActEvent() {
-        return this.subjectOf1ControlActEvent;
-    }
-    public void setSubjectOf1ControlActEvent(VersionInformationBean subjectOf1ControlActEvent) {
-        this.subjectOf1ControlActEvent = subjectOf1ControlActEvent;
-    }
-
-
-    @Hl7XmlMapping({"component3"})
-    public List<HasAComponentBean> getComponent3() {
-        return this.component3;
-    }
-
-
-    /**
-     * <p>Culture Status</p>
-     * 
-     * <p><p>Status of the Culture.</p></p>
-     */
-    @Hl7XmlMapping({"statusCode"})
-    public ActStatus getCultureStatus() {
-        return (ActStatus) this.cultureStatus.getValue();
-    }
-    public void setCultureStatus(ActStatus cultureStatus) {
-        this.cultureStatus.setValue(cultureStatus);
     }
 
 
@@ -222,15 +175,71 @@ public class CultureGrouperObservationBean extends MessagePartBean {
     }
 
 
+    @Hl7XmlMapping({"performer"})
+    public List<WasPerformedByBean> getPerformer() {
+        return this.performer;
+    }
+
+
+    @Hl7XmlMapping({"inFulfillmentOf/fulfillmentChoice"})
+    public List<FulfillmentChoice> getInFulfillmentOfFulfillmentChoice() {
+        return this.inFulfillmentOfFulfillmentChoice;
+    }
+
+
+    @Hl7XmlMapping({"component2/resultSortKey"})
+    public ResultSortKeyBean getComponent2ResultSortKey() {
+        return this.component2ResultSortKey;
+    }
+    public void setComponent2ResultSortKey(ResultSortKeyBean component2ResultSortKey) {
+        this.component2ResultSortKey = component2ResultSortKey;
+    }
+
+
     @Hl7XmlMapping({"component4/reportableTestIndicator"})
     public List<ReportableHealthIndicatorBean> getComponent4ReportableTestIndicator() {
         return this.component4ReportableTestIndicator;
     }
 
 
-    @Hl7XmlMapping({"subjectOf2"})
-    public List<IncludesBean> getSubjectOf2() {
-        return this.subjectOf2;
+    @Hl7XmlMapping({"pertinentInformation2/outbreakEvent"})
+    public OutbreakBean getPertinentInformation2OutbreakEvent() {
+        return this.pertinentInformation2OutbreakEvent;
+    }
+    public void setPertinentInformation2OutbreakEvent(OutbreakBean pertinentInformation2OutbreakEvent) {
+        this.pertinentInformation2OutbreakEvent = pertinentInformation2OutbreakEvent;
+    }
+
+
+    /**
+     * <p>Culture Identifier</p>
+     * 
+     * <p><p>Unique to identify this culture test.</p></p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Set<Identifier> getCultureIdentifier() {
+        return this.cultureIdentifier.rawSet();
+    }
+
+
+    @Hl7XmlMapping({"subjectOf1/controlActEvent"})
+    public VersionInformationBean getSubjectOf1ControlActEvent() {
+        return this.subjectOf1ControlActEvent;
+    }
+    public void setSubjectOf1ControlActEvent(VersionInformationBean subjectOf1ControlActEvent) {
+        this.subjectOf1ControlActEvent = subjectOf1ControlActEvent;
+    }
+
+
+    @Hl7XmlMapping({"pertinentInformation1/supportingClinicalObservationEvent"})
+    public List<SupportingClinicalInformationBean> getPertinentInformation1SupportingClinicalObservationEvent() {
+        return this.pertinentInformation1SupportingClinicalObservationEvent;
+    }
+
+
+    @Hl7XmlMapping({"component1/cultureObservationEvent"})
+    public List<CultureObservationsBean> getComponent1CultureObservationEvent() {
+        return this.component1CultureObservationEvent;
     }
 
 
@@ -248,18 +257,9 @@ public class CultureGrouperObservationBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"component2/resultSortKey"})
-    public ResultSortKeyBean getComponent2ResultSortKey() {
-        return this.component2ResultSortKey;
-    }
-    public void setComponent2ResultSortKey(ResultSortKeyBean component2ResultSortKey) {
-        this.component2ResultSortKey = component2ResultSortKey;
-    }
-
-
-    @Hl7XmlMapping({"pertinentInformation1/supportingClinicalObservationEvent"})
-    public List<SupportingClinicalInformationBean> getPertinentInformation1SupportingClinicalObservationEvent() {
-        return this.pertinentInformation1SupportingClinicalObservationEvent;
+    @Hl7XmlMapping({"component3"})
+    public List<HasAComponentBean> getComponent3() {
+        return this.component3;
     }
 
 }

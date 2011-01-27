@@ -12,18 +12,9 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COCT_MT290000CA.AccidentInformation"})
 public class AccidentInformationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
-    private AccidentInjuryCodingBean accidentInjuryCoding;
+    private static final long serialVersionUID = 20110127L;
     private INT injuryCodingPriority = new INTImpl();
-
-
-    @Hl7XmlMapping({"accidentInjuryCoding"})
-    public AccidentInjuryCodingBean getAccidentInjuryCoding() {
-        return this.accidentInjuryCoding;
-    }
-    public void setAccidentInjuryCoding(AccidentInjuryCodingBean accidentInjuryCoding) {
-        this.accidentInjuryCoding = accidentInjuryCoding;
-    }
+    private AccidentInjuryCodingBean accidentInjuryCoding;
 
 
     /**
@@ -40,6 +31,15 @@ public class AccidentInformationBean extends MessagePartBean {
     }
     public void setInjuryCodingPriority(Integer injuryCodingPriority) {
         this.injuryCodingPriority.setValue(injuryCodingPriority);
+    }
+
+
+    @Hl7XmlMapping({"accidentInjuryCoding"})
+    public AccidentInjuryCodingBean getAccidentInjuryCoding() {
+        return this.accidentInjuryCoding;
+    }
+    public void setAccidentInjuryCoding(AccidentInjuryCodingBean accidentInjuryCoding) {
+        this.accidentInjuryCoding = accidentInjuryCoding;
     }
 
 }

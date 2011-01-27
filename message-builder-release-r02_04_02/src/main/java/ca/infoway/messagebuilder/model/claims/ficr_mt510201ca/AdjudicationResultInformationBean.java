@@ -16,15 +16,9 @@ import java.util.List;
 @Hl7PartTypeMapping({"FICR_MT510201CA.AdjudicationResultInformation"})
 public class AdjudicationResultInformationBean extends MessagePartBean implements AdjudicationCodeChoice {
 
-    private static final long serialVersionUID = 20110126L;
-    private List<AdjudicationResultRequiredActBean> triggerAdjudicationResultRequiredAct = new ArrayList<AdjudicationResultRequiredActBean>();
+    private static final long serialVersionUID = 20110127L;
     private ED<EncapsulatedData> adjudicatedResultInfo = new EDImpl<EncapsulatedData>();
-
-
-    @Hl7XmlMapping({"trigger/adjudicationResultRequiredAct"})
-    public List<AdjudicationResultRequiredActBean> getTriggerAdjudicationResultRequiredAct() {
-        return this.triggerAdjudicationResultRequiredAct;
-    }
+    private List<AdjudicationResultRequiredActBean> triggerAdjudicationResultRequiredAct = new ArrayList<AdjudicationResultRequiredActBean>();
 
 
     /**
@@ -36,6 +30,12 @@ public class AdjudicationResultInformationBean extends MessagePartBean implement
     }
     public void setAdjudicatedResultInfo(EncapsulatedData adjudicatedResultInfo) {
         this.adjudicatedResultInfo.setValue(adjudicatedResultInfo);
+    }
+
+
+    @Hl7XmlMapping({"trigger/adjudicationResultRequiredAct"})
+    public List<AdjudicationResultRequiredActBean> getTriggerAdjudicationResultRequiredAct() {
+        return this.triggerAdjudicationResultRequiredAct;
     }
 
 }

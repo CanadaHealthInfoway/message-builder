@@ -40,13 +40,22 @@ import java.util.Set;
 @Hl7PartTypeMapping({"COCT_MT260030CA.SupplyEvent"})
 public class DispenseBean extends MessagePartBean implements ca.infoway.messagebuilder.model.common.merged.CausalActs {
 
-    private static final long serialVersionUID = 20110126L;
-    private CS dispenseStatus = new CSImpl();
-    private DispensedBean product;
-    private II prescriptionDispenseNumber = new IIImpl();
-    private IVL<TS, Interval<Date>> dispensedDate = new IVLImpl<TS, Interval<Date>>();
+    private static final long serialVersionUID = 20110127L;
     private OccurredAtBean location;
+    private CS dispenseStatus = new CSImpl();
+    private II prescriptionDispenseNumber = new IIImpl();
+    private DispensedBean product;
     private SET<CV, Code> dispenseMaskingIndicator = new SETImpl<CV, Code>(CVImpl.class);
+    private IVL<TS, Interval<Date>> dispensedDate = new IVLImpl<TS, Interval<Date>>();
+
+
+    @Hl7XmlMapping({"location"})
+    public OccurredAtBean getLocation() {
+        return this.location;
+    }
+    public void setLocation(OccurredAtBean location) {
+        this.location = location;
+    }
 
 
     /**
@@ -72,15 +81,6 @@ public class DispenseBean extends MessagePartBean implements ca.infoway.messageb
     }
 
 
-    @Hl7XmlMapping({"product"})
-    public DispensedBean getProduct() {
-        return this.product;
-    }
-    public void setProduct(DispensedBean product) {
-        this.product = product;
-    }
-
-
     /**
      * <p>A:Prescription Dispense Number</p>
      * 
@@ -97,6 +97,36 @@ public class DispenseBean extends MessagePartBean implements ca.infoway.messageb
     }
     public void setPrescriptionDispenseNumber(Identifier prescriptionDispenseNumber) {
         this.prescriptionDispenseNumber.setValue(prescriptionDispenseNumber);
+    }
+
+
+    @Hl7XmlMapping({"product"})
+    public DispensedBean getProduct() {
+        return this.product;
+    }
+    public void setProduct(DispensedBean product) {
+        this.product = product;
+    }
+
+
+    /**
+     * <p>C:Dispense Masking Indicator</p>
+     * 
+     * <p><p>An indication of sensitivity surrounding the related 
+     * drug, and thus defines the required sensitivity for the 
+     * detected issue.</p></p>
+     * 
+     * <p><p>Conveys the patient's wishes relating to the 
+     * sensitivity of the drug information.</p><p>The attribute is 
+     * optional because not all systems will support masking.</p></p>
+     * 
+     * <p><p>Conveys the patient's wishes relating to the 
+     * sensitivity of the drug information.</p><p>The attribute is 
+     * optional because not all systems will support masking.</p></p>
+     */
+    @Hl7XmlMapping({"confidentialityCode"})
+    public Set<x_BasicConfidentialityKind> getDispenseMaskingIndicator() {
+        return this.dispenseMaskingIndicator.rawSet(x_BasicConfidentialityKind.class);
     }
 
 
@@ -128,36 +158,6 @@ public class DispenseBean extends MessagePartBean implements ca.infoway.messageb
     }
     public void setDispensedDate(Interval<Date> dispensedDate) {
         this.dispensedDate.setValue(dispensedDate);
-    }
-
-
-    @Hl7XmlMapping({"location"})
-    public OccurredAtBean getLocation() {
-        return this.location;
-    }
-    public void setLocation(OccurredAtBean location) {
-        this.location = location;
-    }
-
-
-    /**
-     * <p>C:Dispense Masking Indicator</p>
-     * 
-     * <p><p>An indication of sensitivity surrounding the related 
-     * drug, and thus defines the required sensitivity for the 
-     * detected issue.</p></p>
-     * 
-     * <p><p>Conveys the patient's wishes relating to the 
-     * sensitivity of the drug information.</p><p>The attribute is 
-     * optional because not all systems will support masking.</p></p>
-     * 
-     * <p><p>Conveys the patient's wishes relating to the 
-     * sensitivity of the drug information.</p><p>The attribute is 
-     * optional because not all systems will support masking.</p></p>
-     */
-    @Hl7XmlMapping({"confidentialityCode"})
-    public Set<x_BasicConfidentialityKind> getDispenseMaskingIndicator() {
-        return this.dispenseMaskingIndicator.rawSet(x_BasicConfidentialityKind.class);
     }
 
 }

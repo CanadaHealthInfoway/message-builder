@@ -48,17 +48,23 @@ import java.util.Set;
 @Hl7RootType
 public class ClinicalObservationDocumentBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
-    private ActingPerson informantActingPerson;
+    private static final long serialVersionUID = 20110127L;
     private List<OldClinicalDocumentEventBean> predecessorOldClinicalDocumentEvent = new ArrayList<OldClinicalDocumentEventBean>();
+    private ActingPerson informantActingPerson;
     private CV documentCategory = new CVImpl();
-    private IncludesBean subjectOf;
     private List<CareCompositionsBean> componentOfPatientCareProvisionEvent = new ArrayList<CareCompositionsBean>();
+    private IncludesBean subjectOf;
+    private List<Recipients> primaryInformationRecipientRecipients = new ArrayList<Recipients>();
     private SectionBean componentStructuredBodyComponentSection;
     private SET<CV, Code> documentMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);
-    private ST documentTitle = new STImpl();
     private AuthorBean author;
-    private List<Recipients> primaryInformationRecipientRecipients = new ArrayList<Recipients>();
+    private ST documentTitle = new STImpl();
+
+
+    @Hl7XmlMapping({"predecessor/oldClinicalDocumentEvent"})
+    public List<OldClinicalDocumentEventBean> getPredecessorOldClinicalDocumentEvent() {
+        return this.predecessorOldClinicalDocumentEvent;
+    }
 
 
     @Hl7XmlMapping({"informant/actingPerson"})
@@ -91,12 +97,6 @@ public class ClinicalObservationDocumentBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"predecessor/oldClinicalDocumentEvent"})
-    public List<OldClinicalDocumentEventBean> getPredecessorOldClinicalDocumentEvent() {
-        return this.predecessorOldClinicalDocumentEvent;
-    }
-
-
     /**
      * <p>B: Document Category</p>
      * 
@@ -115,6 +115,12 @@ public class ClinicalObservationDocumentBean extends MessagePartBean {
     }
 
 
+    @Hl7XmlMapping({"componentOf/patientCareProvisionEvent"})
+    public List<CareCompositionsBean> getComponentOfPatientCareProvisionEvent() {
+        return this.componentOfPatientCareProvisionEvent;
+    }
+
+
     @Hl7XmlMapping({"subjectOf"})
     public IncludesBean getSubjectOf() {
         return this.subjectOf;
@@ -124,9 +130,9 @@ public class ClinicalObservationDocumentBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"componentOf/patientCareProvisionEvent"})
-    public List<CareCompositionsBean> getComponentOfPatientCareProvisionEvent() {
-        return this.componentOfPatientCareProvisionEvent;
+    @Hl7XmlMapping({"primaryInformationRecipient/recipients"})
+    public List<Recipients> getPrimaryInformationRecipientRecipients() {
+        return this.primaryInformationRecipientRecipients;
     }
 
 
@@ -156,6 +162,15 @@ public class ClinicalObservationDocumentBean extends MessagePartBean {
     }
 
 
+    @Hl7XmlMapping({"author"})
+    public AuthorBean getAuthor() {
+        return this.author;
+    }
+    public void setAuthor(AuthorBean author) {
+        this.author = author;
+    }
+
+
     /**
      * <p>J: Document Title</p>
      * 
@@ -179,21 +194,6 @@ public class ClinicalObservationDocumentBean extends MessagePartBean {
     }
     public void setDocumentTitle(String documentTitle) {
         this.documentTitle.setValue(documentTitle);
-    }
-
-
-    @Hl7XmlMapping({"author"})
-    public AuthorBean getAuthor() {
-        return this.author;
-    }
-    public void setAuthor(AuthorBean author) {
-        this.author = author;
-    }
-
-
-    @Hl7XmlMapping({"primaryInformationRecipient/recipients"})
-    public List<Recipients> getPrimaryInformationRecipientRecipients() {
-        return this.primaryInformationRecipientRecipients;
     }
 
 }

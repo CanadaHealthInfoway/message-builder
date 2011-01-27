@@ -76,11 +76,50 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PRPA_MT101001CA.OtherIDs","PRPA_MT101002CA.OtherIDs","PRPA_MT101102CA.OtherIDs","PRPA_MT101104CA.OtherIDs","PRPA_MT101106CA.OtherIDs"})
 public class OtherIDsNonHealthcareIdentifiersBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
+    private static final long serialVersionUID = 20110127L;
+    private ST nonHealthcareOrganizationName = new STImpl();
+    private II nonHealthcareOrganizationIdentifier = new IIImpl();
     private CV nonHealthcareIdentificationCode = new CVImpl();
     private II nonHealthcareIdentification = new IIImpl();
-    private II nonHealthcareOrganizationIdentifier = new IIImpl();
-    private ST nonHealthcareOrganizationName = new STImpl();
+
+
+    /**
+     * <p>NonHealthcareOrganizationName</p>
+     * 
+     * <p>NonHealthcare Organization Name</p>
+     * 
+     * <p><p>A name for the non-healthcare organization</p></p>
+     * 
+     * <p><p>Populated attribute supports the identification of the 
+     * organization assigning the identifier to the client</p></p>
+     */
+    @Hl7XmlMapping({"assigningIdOrganization/name"})
+    public String getNonHealthcareOrganizationName() {
+        return this.nonHealthcareOrganizationName.getValue();
+    }
+    public void setNonHealthcareOrganizationName(String nonHealthcareOrganizationName) {
+        this.nonHealthcareOrganizationName.setValue(nonHealthcareOrganizationName);
+    }
+
+
+    /**
+     * <p>NonHealthcareOrganizationIdentifier</p>
+     * 
+     * <p>NonHealthcare Organization Identifier</p>
+     * 
+     * <p><p>Unique identifier for the organization that assigned 
+     * the non-healthcare identifier for the client.</p></p>
+     * 
+     * <p><p>Mandatory attribute supports the identification of the 
+     * organization assigning the identifier to the client</p></p>
+     */
+    @Hl7XmlMapping({"assigningIdOrganization/id"})
+    public Identifier getNonHealthcareOrganizationIdentifier() {
+        return this.nonHealthcareOrganizationIdentifier.getValue();
+    }
+    public void setNonHealthcareOrganizationIdentifier(Identifier nonHealthcareOrganizationIdentifier) {
+        this.nonHealthcareOrganizationIdentifier.setValue(nonHealthcareOrganizationIdentifier);
+    }
 
 
     /**
@@ -137,45 +176,6 @@ public class OtherIDsNonHealthcareIdentifiersBean extends MessagePartBean {
     }
     public void setNonHealthcareIdentification(Identifier nonHealthcareIdentification) {
         this.nonHealthcareIdentification.setValue(nonHealthcareIdentification);
-    }
-
-
-    /**
-     * <p>NonHealthcareOrganizationIdentifier</p>
-     * 
-     * <p>NonHealthcare Organization Identifier</p>
-     * 
-     * <p><p>Unique identifier for the organization that assigned 
-     * the non-healthcare identifier for the client.</p></p>
-     * 
-     * <p><p>Mandatory attribute supports the identification of the 
-     * organization assigning the identifier to the client</p></p>
-     */
-    @Hl7XmlMapping({"assigningIdOrganization/id"})
-    public Identifier getNonHealthcareOrganizationIdentifier() {
-        return this.nonHealthcareOrganizationIdentifier.getValue();
-    }
-    public void setNonHealthcareOrganizationIdentifier(Identifier nonHealthcareOrganizationIdentifier) {
-        this.nonHealthcareOrganizationIdentifier.setValue(nonHealthcareOrganizationIdentifier);
-    }
-
-
-    /**
-     * <p>NonHealthcareOrganizationName</p>
-     * 
-     * <p>NonHealthcare Organization Name</p>
-     * 
-     * <p><p>A name for the non-healthcare organization</p></p>
-     * 
-     * <p><p>Populated attribute supports the identification of the 
-     * organization assigning the identifier to the client</p></p>
-     */
-    @Hl7XmlMapping({"assigningIdOrganization/name"})
-    public String getNonHealthcareOrganizationName() {
-        return this.nonHealthcareOrganizationName.getValue();
-    }
-    public void setNonHealthcareOrganizationName(String nonHealthcareOrganizationName) {
-        this.nonHealthcareOrganizationName.setValue(nonHealthcareOrganizationName);
     }
 
 }

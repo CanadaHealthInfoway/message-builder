@@ -40,11 +40,11 @@ import java.util.Set;
 @Hl7PartTypeMapping({"MCCI_MT002200CA.AcknowledgementDetail","MCCI_MT002300CA.AcknowledgementDetail"})
 public class ErrorsOrWarningsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
+    private static final long serialVersionUID = 20110127L;
     private CV responseCode = new CVImpl();
-    private SET<ST, String> referencedMessageLocations = new SETImpl<ST, String>(STImpl.class);
-    private ST messageDescription = new STImpl();
     private CS messageType = new CSImpl();
+    private ST messageDescription = new STImpl();
+    private SET<ST, String> referencedMessageLocations = new SETImpl<ST, String>(STImpl.class);
 
 
     /**
@@ -87,24 +87,22 @@ public class ErrorsOrWarningsBean extends MessagePartBean {
 
 
     /**
-     * <p>ReferencedMessageLocations</p>
+     * <p>MessageType</p>
      * 
-     * <p>B:Referenced Message Locations</p>
+     * <p>Message type</p>
      * 
-     * <p><p>Indicates the location of the elements within the 
-     * message instance that triggered this error, warning or 
-     * information message.</p></p>
+     * <p><p>Distinguishes between errors, warnings and information 
+     * messages.</p></p>
      * 
-     * <p><p>Allows syntax and other messages to be linked to 
-     * particular fields within the message.</p></p>
-     * 
-     * <p><p>I.e. only the default 'child' axis is permitted, 
-     * occurrence numbers are always specified, and no other 
-     * predicates are permitted.</p></p>
+     * <p><p>Different types of messages have substantially 
+     * different ramifications.</p></p>
      */
-    @Hl7XmlMapping({"location"})
-    public Set<String> getReferencedMessageLocations() {
-        return this.referencedMessageLocations.rawSet();
+    @Hl7XmlMapping({"typeCode"})
+    public AcknowledgementDetailType getMessageType() {
+        return (AcknowledgementDetailType) this.messageType.getValue();
+    }
+    public void setMessageType(AcknowledgementDetailType messageType) {
+        this.messageType.setValue(messageType);
     }
 
 
@@ -131,22 +129,24 @@ public class ErrorsOrWarningsBean extends MessagePartBean {
 
 
     /**
-     * <p>MessageType</p>
+     * <p>ReferencedMessageLocations</p>
      * 
-     * <p>Message type</p>
+     * <p>B:Referenced Message Locations</p>
      * 
-     * <p><p>Distinguishes between errors, warnings and information 
-     * messages.</p></p>
+     * <p><p>Indicates the location of the elements within the 
+     * message instance that triggered this error, warning or 
+     * information message.</p></p>
      * 
-     * <p><p>Different types of messages have substantially 
-     * different ramifications.</p></p>
+     * <p><p>Allows syntax and other messages to be linked to 
+     * particular fields within the message.</p></p>
+     * 
+     * <p><p>I.e. only the default 'child' axis is permitted, 
+     * occurrence numbers are always specified, and no other 
+     * predicates are permitted.</p></p>
      */
-    @Hl7XmlMapping({"typeCode"})
-    public AcknowledgementDetailType getMessageType() {
-        return (AcknowledgementDetailType) this.messageType.getValue();
-    }
-    public void setMessageType(AcknowledgementDetailType messageType) {
-        this.messageType.setValue(messageType);
+    @Hl7XmlMapping({"location"})
+    public Set<String> getReferencedMessageLocations() {
+        return this.referencedMessageLocations.rawSet();
     }
 
 }

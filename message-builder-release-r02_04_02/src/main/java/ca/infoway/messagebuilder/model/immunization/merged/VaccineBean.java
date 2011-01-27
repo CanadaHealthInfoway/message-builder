@@ -61,45 +61,56 @@ import java.util.List;
 @Hl7PartTypeMapping({"POIZ_MT030050CA.Vaccine","POIZ_MT030060CA.Vaccine","POIZ_MT060150CA.Vaccine"})
 public class VaccineBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
+    private static final long serialVersionUID = 20110127L;
+    private ST vaccineLotNumber = new STImpl();
+    private ST vaccineName = new STImpl();
+    private CV vaccineCode = new CVImpl();
+    private List<AntigensBean> ingredientsIngredient = new ArrayList<AntigensBean>();
+    private IVL<TS, Interval<Date>> vaccineExpiryDate = new IVLImpl<TS, Interval<Date>>();
+    private CV drugForm = new CVImpl();
     private ST vaccineDescription = new STImpl();
     private ManufacturerBean asManufacturedProductManufacturer;
-    private CV vaccineCode = new CVImpl();
-    private ST vaccineName = new STImpl();
-    private IVL<TS, Interval<Date>> vaccineExpiryDate = new IVLImpl<TS, Interval<Date>>();
-    private List<AntigensBean> ingredientsIngredient = new ArrayList<AntigensBean>();
-    private ST vaccineLotNumber = new STImpl();
-    private CV drugForm = new CVImpl();
 
 
     /**
-     * <p>VaccineDescription</p>
+     * <p>VaccineLotNumber</p>
      * 
-     * <p>Vaccine Description</p>
+     * <p>Vaccine Lot Number</p>
      * 
-     * <p><p>A free form textual description of a vaccine. This 
-     * usually is only populated for custom compounds, providing 
-     * instructions on the composition and creation of the 
-     * compound.</p></p>
+     * <p><p>Identification of a batch in which a specific 
+     * manufactured drug belongs.</p></p>
      * 
-     * <p><p>Allows description of compound ingredients and/or 
-     * recipe in free text form.</p></p>
+     * <p><p>Useful in tracking for recalls but may not always be 
+     * known (e.g. historical immunization records).</p></p>
      */
-    @Hl7XmlMapping({"desc"})
-    public String getVaccineDescription() {
-        return this.vaccineDescription.getValue();
+    @Hl7XmlMapping({"lotNumberText"})
+    public String getVaccineLotNumber() {
+        return this.vaccineLotNumber.getValue();
     }
-    public void setVaccineDescription(String vaccineDescription) {
-        this.vaccineDescription.setValue(vaccineDescription);
+    public void setVaccineLotNumber(String vaccineLotNumber) {
+        this.vaccineLotNumber.setValue(vaccineLotNumber);
     }
 
 
-    @Hl7XmlMapping({"asManufacturedProduct/manufacturer"})
-    public ManufacturerBean getAsManufacturedProductManufacturer() {
-        return this.asManufacturedProductManufacturer;
+    /**
+     * <p>VaccineName</p>
+     * 
+     * <p>Vaccine Name</p>
+     * 
+     * <p><p>The name assigned to a vaccine.</p></p>
+     * 
+     * <p><p>Names are used for human reference communication, to 
+     * allow selection from dropdowns and for local searching. If a 
+     * code is available, the name acts as a cross-check. If the 
+     * code is not available the name acts as the primary 
+     * identifier. The attribute is therefore mandatory.</p></p>
+     */
+    @Hl7XmlMapping({"name"})
+    public String getVaccineName() {
+        return this.vaccineName.getValue();
     }
-    public void setAsManufacturedProductManufacturer(ManufacturerBean asManufacturedProductManufacturer) {
-        this.asManufacturedProductManufacturer = asManufacturedProductManufacturer;
+    public void setVaccineName(String vaccineName) {
+        this.vaccineName.setValue(vaccineName);
     }
 
 
@@ -128,25 +139,9 @@ public class VaccineBean extends MessagePartBean {
     }
 
 
-    /**
-     * <p>VaccineName</p>
-     * 
-     * <p>Vaccine Name</p>
-     * 
-     * <p><p>The name assigned to a vaccine.</p></p>
-     * 
-     * <p><p>Names are used for human reference communication, to 
-     * allow selection from dropdowns and for local searching. If a 
-     * code is available, the name acts as a cross-check. If the 
-     * code is not available the name acts as the primary 
-     * identifier. The attribute is therefore mandatory.</p></p>
-     */
-    @Hl7XmlMapping({"name"})
-    public String getVaccineName() {
-        return this.vaccineName.getValue();
-    }
-    public void setVaccineName(String vaccineName) {
-        this.vaccineName.setValue(vaccineName);
+    @Hl7XmlMapping({"ingredients/ingredient"})
+    public List<AntigensBean> getIngredientsIngredient() {
+        return this.ingredientsIngredient;
     }
 
 
@@ -180,32 +175,6 @@ public class VaccineBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"ingredients/ingredient"})
-    public List<AntigensBean> getIngredientsIngredient() {
-        return this.ingredientsIngredient;
-    }
-
-
-    /**
-     * <p>VaccineLotNumber</p>
-     * 
-     * <p>Vaccine Lot Number</p>
-     * 
-     * <p><p>Identification of a batch in which a specific 
-     * manufactured drug belongs.</p></p>
-     * 
-     * <p><p>Useful in tracking for recalls but may not always be 
-     * known (e.g. historical immunization records).</p></p>
-     */
-    @Hl7XmlMapping({"lotNumberText"})
-    public String getVaccineLotNumber() {
-        return this.vaccineLotNumber.getValue();
-    }
-    public void setVaccineLotNumber(String vaccineLotNumber) {
-        this.vaccineLotNumber.setValue(vaccineLotNumber);
-    }
-
-
     /**
      * <p>DrugForm</p>
      * 
@@ -227,6 +196,37 @@ public class VaccineBean extends MessagePartBean {
     }
     public void setDrugForm(AdministrableDrugForm drugForm) {
         this.drugForm.setValue(drugForm);
+    }
+
+
+    /**
+     * <p>VaccineDescription</p>
+     * 
+     * <p>Vaccine Description</p>
+     * 
+     * <p><p>A free form textual description of a vaccine. This 
+     * usually is only populated for custom compounds, providing 
+     * instructions on the composition and creation of the 
+     * compound.</p></p>
+     * 
+     * <p><p>Allows description of compound ingredients and/or 
+     * recipe in free text form.</p></p>
+     */
+    @Hl7XmlMapping({"desc"})
+    public String getVaccineDescription() {
+        return this.vaccineDescription.getValue();
+    }
+    public void setVaccineDescription(String vaccineDescription) {
+        this.vaccineDescription.setValue(vaccineDescription);
+    }
+
+
+    @Hl7XmlMapping({"asManufacturedProduct/manufacturer"})
+    public ManufacturerBean getAsManufacturedProductManufacturer() {
+        return this.asManufacturedProductManufacturer;
+    }
+    public void setAsManufacturedProductManufacturer(ManufacturerBean asManufacturedProductManufacturer) {
+        this.asManufacturedProductManufacturer = asManufacturedProductManufacturer;
     }
 
 }

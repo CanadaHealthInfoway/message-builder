@@ -99,16 +99,16 @@ import java.util.Set;
 @Hl7PartTypeMapping({"POIZ_MT030050CA.AssignedEntity","POIZ_MT030060CA.AssignedEntity","POIZ_MT060150CA.AssignedEntity","REPC_MT210001CA.AssignedEntity","REPC_MT210002CA.AssignedEntity","REPC_MT210003CA.AssignedEntity"})
 public class HealthcareWorkerBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
+    private static final long serialVersionUID = 20110127L;
     private CV code = new CVImpl();
-    private II id = new IIImpl();
     private PN providerName = new PNImpl();
+    private II id = new IIImpl();
     private ActingPersonBean assignedPerson;
     private SET<TEL, TelecommunicationAddress> healthcareWorkerPhoneAndEmails = new SETImpl<TEL, TelecommunicationAddress>(TELImpl.class);
-    private II organizationIdentifier = new IIImpl();
     private ST organizationName = new STImpl();
     private CV organizationType = new CVImpl();
     private SET<TEL, TelecommunicationAddress> organizationPhoneAndEmails = new SETImpl<TEL, TelecommunicationAddress>(TELImpl.class);
+    private II organizationIdentifier = new IIImpl();
 
 
     /**
@@ -138,6 +138,29 @@ public class HealthcareWorkerBean extends MessagePartBean {
     }
     public void setCode(HealthcareProviderRoleType code) {
         this.code.setValue(code);
+    }
+
+
+    /**
+     * <p>ProviderName</p>
+     * 
+     * <p>C: Provider Name</p>
+     * 
+     * <p><p>The label by which a provider is known and 
+     * communicated with.</p></p>
+     * 
+     * <p><p>Common way to identify and communicate with a service 
+     * provider in a &quot;human readable&quot; and understood 
+     * format.</p></p>
+     * 
+     * <p>C: Provider Name</p>
+     */
+    @Hl7XmlMapping({"assignedProvider/name"})
+    public PersonName getProviderName() {
+        return this.providerName.getValue();
+    }
+    public void setProviderName(PersonName providerName) {
+        this.providerName.setValue(providerName);
     }
 
 
@@ -183,29 +206,6 @@ public class HealthcareWorkerBean extends MessagePartBean {
     }
 
 
-    /**
-     * <p>ProviderName</p>
-     * 
-     * <p>C: Provider Name</p>
-     * 
-     * <p><p>The label by which a provider is known and 
-     * communicated with.</p></p>
-     * 
-     * <p><p>Common way to identify and communicate with a service 
-     * provider in a &quot;human readable&quot; and understood 
-     * format.</p></p>
-     * 
-     * <p>C: Provider Name</p>
-     */
-    @Hl7XmlMapping({"assignedProvider/name"})
-    public PersonName getProviderName() {
-        return this.providerName.getValue();
-    }
-    public void setProviderName(PersonName providerName) {
-        this.providerName.setValue(providerName);
-    }
-
-
     @Hl7XmlMapping({"assignedPerson"})
     public ActingPersonBean getAssignedPerson() {
         return this.assignedPerson;
@@ -230,27 +230,6 @@ public class HealthcareWorkerBean extends MessagePartBean {
     @Hl7XmlMapping({"telecom"})
     public Set<TelecommunicationAddress> getHealthcareWorkerPhoneAndEmails() {
         return this.healthcareWorkerPhoneAndEmails.rawSet();
-    }
-
-
-    /**
-     * <p>OrganizationIdentifier</p>
-     * 
-     * <p>F: Organization identifier</p>
-     * 
-     * <p><p>A unique identifier for the organization</p></p>
-     * 
-     * <p><p>Allows the organization to be referenced when 
-     * determining privileges and for drill-downs to retrieve 
-     * additional information. Because of its importance, the 
-     * attribute is mandatory.</p></p>
-     */
-    @Hl7XmlMapping({"representedOrganization/id"})
-    public Identifier getOrganizationIdentifier() {
-        return this.organizationIdentifier.getValue();
-    }
-    public void setOrganizationIdentifier(Identifier organizationIdentifier) {
-        this.organizationIdentifier.setValue(organizationIdentifier);
     }
 
 
@@ -310,6 +289,27 @@ public class HealthcareWorkerBean extends MessagePartBean {
     @Hl7XmlMapping({"representedOrganization/assignedOrganization/telecom"})
     public Set<TelecommunicationAddress> getOrganizationPhoneAndEmails() {
         return this.organizationPhoneAndEmails.rawSet();
+    }
+
+
+    /**
+     * <p>OrganizationIdentifier</p>
+     * 
+     * <p>F: Organization identifier</p>
+     * 
+     * <p><p>A unique identifier for the organization</p></p>
+     * 
+     * <p><p>Allows the organization to be referenced when 
+     * determining privileges and for drill-downs to retrieve 
+     * additional information. Because of its importance, the 
+     * attribute is mandatory.</p></p>
+     */
+    @Hl7XmlMapping({"representedOrganization/id"})
+    public Identifier getOrganizationIdentifier() {
+        return this.organizationIdentifier.getValue();
+    }
+    public void setOrganizationIdentifier(Identifier organizationIdentifier) {
+        this.organizationIdentifier.setValue(organizationIdentifier);
     }
 
 }

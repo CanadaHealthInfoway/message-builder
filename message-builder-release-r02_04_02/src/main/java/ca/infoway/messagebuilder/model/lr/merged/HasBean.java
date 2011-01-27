@@ -48,10 +48,33 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PRPA_MT202301CA.IdentifiedLocation","PRPA_MT202302CA.IdentifiedLocation","PRPA_MT202303CA.IdentifiedLocation"})
 public class HasBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
+    private static final long serialVersionUID = 20110127L;
+    private ST identifyingOrganization = new STImpl();
     private CV identifierType = new CVImpl();
     private II identifier = new IIImpl();
-    private ST identifyingOrganization = new STImpl();
+
+
+    /**
+     * <p>IdentifyingOrganization</p>
+     * 
+     * <p>C: Identifying Organization</p>
+     * 
+     * <p><p>This is the name of the organization which issued 
+     * and/or uses the identifier for the location.</p></p>
+     * 
+     * <p><p>Further qualifies how the identifier is intended to be 
+     * used. For example distinguishing a health-region assigned 
+     * identifier from a provincially-assigned identifier. Because 
+     * it is important to understanding the identifier, the 
+     * attribute is mandatory.</p></p>
+     */
+    @Hl7XmlMapping({"assigningIdentifierOrganization/name"})
+    public String getIdentifyingOrganization() {
+        return this.identifyingOrganization.getValue();
+    }
+    public void setIdentifyingOrganization(String identifyingOrganization) {
+        this.identifyingOrganization.setValue(identifyingOrganization);
+    }
 
 
     /**
@@ -94,29 +117,6 @@ public class HasBean extends MessagePartBean {
     }
     public void setIdentifier(Identifier identifier) {
         this.identifier.setValue(identifier);
-    }
-
-
-    /**
-     * <p>IdentifyingOrganization</p>
-     * 
-     * <p>C: Identifying Organization</p>
-     * 
-     * <p><p>This is the name of the organization which issued 
-     * and/or uses the identifier for the location.</p></p>
-     * 
-     * <p><p>Further qualifies how the identifier is intended to be 
-     * used. For example distinguishing a health-region assigned 
-     * identifier from a provincially-assigned identifier. Because 
-     * it is important to understanding the identifier, the 
-     * attribute is mandatory.</p></p>
-     */
-    @Hl7XmlMapping({"assigningIdentifierOrganization/name"})
-    public String getIdentifyingOrganization() {
-        return this.identifyingOrganization.getValue();
-    }
-    public void setIdentifyingOrganization(String identifyingOrganization) {
-        this.identifyingOrganization.setValue(identifyingOrganization);
     }
 
 }

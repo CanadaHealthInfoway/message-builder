@@ -45,10 +45,10 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"POME_MT010040CA.SpecializedKind","POME_MT010100CA.SpecializedKind"})
 public class GroupedWithinBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
+    private static final long serialVersionUID = 20110127L;
     private CV drugCategoryCode = new CVImpl();
-    private CV drugCode = new CVImpl();
     private ST drugName = new STImpl();
+    private CV drugCode = new CVImpl();
 
 
     /**
@@ -68,6 +68,48 @@ public class GroupedWithinBean extends MessagePartBean {
     }
     public void setDrugCategoryCode(MedicationGeneralizationRoleType drugCategoryCode) {
         this.drugCategoryCode.setValue(drugCategoryCode);
+    }
+
+
+    /**
+     * <p>DrugName</p>
+     * 
+     * <p>Drug Name</p>
+     * 
+     * <p><p>The name assigned to the drug at the higher level of 
+     * abstraction.</p></p>
+     * 
+     * <p><p>To display in dropdowns and for local 
+     * searching.</p><p>This attribute is marked as 
+     * &quot;populated&quot; as drug name should be available in 
+     * most cases.</p></p>
+     * 
+     * <p><p>To display in dropdowns and for local 
+     * searching.</p><p>This attribute is marked as 
+     * &quot;populated&quot; as drug name should be available in 
+     * most cases.</p></p>
+     * 
+     * <p>Drug Name</p>
+     * 
+     * <p><p>The name assigned to a drug within a specific drug 
+     * identification scheme.</p></p>
+     * 
+     * <p><p>To display in dropdowns and for local 
+     * searching.</p><p>This attribute is marked as 
+     * &quot;populated&quot; as a drug name should be available in 
+     * most cases.</p></p>
+     * 
+     * <p><p>To display in dropdowns and for local 
+     * searching.</p><p>This attribute is marked as 
+     * &quot;populated&quot; as a drug name should be available in 
+     * most cases.</p></p>
+     */
+    @Hl7XmlMapping({"generalizedMedicineClass/name"})
+    public String getDrugName() {
+        return this.drugName.getValue();
+    }
+    public void setDrugName(String drugName) {
+        this.drugName.setValue(drugName);
     }
 
 
@@ -114,48 +156,6 @@ public class GroupedWithinBean extends MessagePartBean {
     }
     public void setDrugCode(ClinicalDrug drugCode) {
         this.drugCode.setValue(drugCode);
-    }
-
-
-    /**
-     * <p>DrugName</p>
-     * 
-     * <p>Drug Name</p>
-     * 
-     * <p><p>The name assigned to the drug at the higher level of 
-     * abstraction.</p></p>
-     * 
-     * <p><p>To display in dropdowns and for local 
-     * searching.</p><p>This attribute is marked as 
-     * &quot;populated&quot; as drug name should be available in 
-     * most cases.</p></p>
-     * 
-     * <p><p>To display in dropdowns and for local 
-     * searching.</p><p>This attribute is marked as 
-     * &quot;populated&quot; as drug name should be available in 
-     * most cases.</p></p>
-     * 
-     * <p>Drug Name</p>
-     * 
-     * <p><p>The name assigned to a drug within a specific drug 
-     * identification scheme.</p></p>
-     * 
-     * <p><p>To display in dropdowns and for local 
-     * searching.</p><p>This attribute is marked as 
-     * &quot;populated&quot; as a drug name should be available in 
-     * most cases.</p></p>
-     * 
-     * <p><p>To display in dropdowns and for local 
-     * searching.</p><p>This attribute is marked as 
-     * &quot;populated&quot; as a drug name should be available in 
-     * most cases.</p></p>
-     */
-    @Hl7XmlMapping({"generalizedMedicineClass/name"})
-    public String getDrugName() {
-        return this.drugName.getValue();
-    }
-    public void setDrugName(String drugName) {
-        this.drugName.setValue(drugName);
     }
 
 }

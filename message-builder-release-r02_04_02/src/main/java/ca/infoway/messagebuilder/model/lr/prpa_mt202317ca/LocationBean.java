@@ -55,15 +55,55 @@ import java.util.Set;
 @Hl7RootType
 public class LocationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110126L;
+    private static final long serialVersionUID = 20110127L;
+    private AD locationAddress = new ADImpl();
     private CS locationStatus = new CSImpl();
+    private SET<ST, String> locationNames = new SETImpl<ST, String>(STImpl.class);
     private CV locationType = new CVImpl();
     private II locationIdentifier = new IIImpl();
-    private SET<ST, String> locationNames = new SETImpl<ST, String>(STImpl.class);
-    private AD locationAddress = new ADImpl();
+    private PlaceBean location;
     private List<GeographicCoordinatesBean> subjectOfPosition = new ArrayList<GeographicCoordinatesBean>();
     private IndirectAuthorithyOverBean indirectAuthority;
-    private PlaceBean location;
+
+
+    /**
+     * <p>G:Location Address</p>
+     * 
+     * <p><p>Restricted to physical address only</p></p>
+     * 
+     * <p><p>Identifies the physical address for this service 
+     * delivery location, I.e. What is the geographic location of 
+     * the building.</p></p>
+     * 
+     * <p><p>Allows location to be visited. May also be used for 
+     * geographic profiling (e.g. a dispatcher may be looking for 
+     * the closest hospital or ambulance that can help a patient in 
+     * need of emergency care).</p><p>Because a physical address 
+     * may not exist for mobile locations, and may not be 
+     * expressible for non-dedicated locations such as water 
+     * resevoirs, this element is only 'populated'. When no address 
+     * exists, the null flavor should be set to NA.</p></p>
+     * 
+     * <p><p>Allows location to be visited. May also be used for 
+     * geographic profiling (e.g. a dispatcher may be looking for 
+     * the closest hospital or ambulance that can help a patient in 
+     * need of emergency care).</p><p>Because a physical address 
+     * may not exist for mobile locations, and may not be 
+     * expressible for non-dedicated locations such as water 
+     * resevoirs, this element is only 'populated'. When no address 
+     * exists, the null flavor should be set to NA.</p></p>
+     * 
+     * <p><p>For mobile service delivery location, this can either 
+     * be set to the address of the &quot;home&quot; site for the 
+     * mobile unit or can be set to a null flavor of N/A.</p></p>
+     */
+    @Hl7XmlMapping({"addr"})
+    public PostalAddress getLocationAddress() {
+        return this.locationAddress.getValue();
+    }
+    public void setLocationAddress(PostalAddress locationAddress) {
+        this.locationAddress.setValue(locationAddress);
+    }
 
 
     /**
@@ -93,6 +133,32 @@ public class LocationBean extends MessagePartBean {
     }
     public void setLocationStatus(ServiceDeliveryRoleStatus locationStatus) {
         this.locationStatus.setValue(locationStatus);
+    }
+
+
+    /**
+     * <p>D:Location Names</p>
+     * 
+     * <p><p>A textual name for the place where the service is 
+     * provided e.g. Ottawa General Hospital.</p></p>
+     * 
+     * <p><p>Provides a human-readable label for the location. The 
+     * location name is not intended to be parsed or analyzed by 
+     * when processing the record. (E.g. To determine if a location 
+     * is a hospital, look at the location type, don't check the 
+     * name for the word &quot;hospital&quot;.)</p><p>Multiple 
+     * repetitions are allowed to capture historical names</p></p>
+     * 
+     * <p><p>Provides a human-readable label for the location. The 
+     * location name is not intended to be parsed or analyzed by 
+     * when processing the record. (E.g. To determine if a location 
+     * is a hospital, look at the location type, don't check the 
+     * name for the word &quot;hospital&quot;.)</p><p>Multiple 
+     * repetitions are allowed to capture historical names</p></p>
+     */
+    @Hl7XmlMapping({"name"})
+    public Set<String> getLocationNames() {
+        return this.locationNames.rawSet();
     }
 
 
@@ -148,69 +214,12 @@ public class LocationBean extends MessagePartBean {
     }
 
 
-    /**
-     * <p>D:Location Names</p>
-     * 
-     * <p><p>A textual name for the place where the service is 
-     * provided e.g. Ottawa General Hospital.</p></p>
-     * 
-     * <p><p>Provides a human-readable label for the location. The 
-     * location name is not intended to be parsed or analyzed by 
-     * when processing the record. (E.g. To determine if a location 
-     * is a hospital, look at the location type, don't check the 
-     * name for the word &quot;hospital&quot;.)</p><p>Multiple 
-     * repetitions are allowed to capture historical names</p></p>
-     * 
-     * <p><p>Provides a human-readable label for the location. The 
-     * location name is not intended to be parsed or analyzed by 
-     * when processing the record. (E.g. To determine if a location 
-     * is a hospital, look at the location type, don't check the 
-     * name for the word &quot;hospital&quot;.)</p><p>Multiple 
-     * repetitions are allowed to capture historical names</p></p>
-     */
-    @Hl7XmlMapping({"name"})
-    public Set<String> getLocationNames() {
-        return this.locationNames.rawSet();
+    @Hl7XmlMapping({"location"})
+    public PlaceBean getLocation() {
+        return this.location;
     }
-
-
-    /**
-     * <p>G:Location Address</p>
-     * 
-     * <p><p>Restricted to physical address only</p></p>
-     * 
-     * <p><p>Identifies the physical address for this service 
-     * delivery location, I.e. What is the geographic location of 
-     * the building.</p></p>
-     * 
-     * <p><p>Allows location to be visited. May also be used for 
-     * geographic profiling (e.g. a dispatcher may be looking for 
-     * the closest hospital or ambulance that can help a patient in 
-     * need of emergency care).</p><p>Because a physical address 
-     * may not exist for mobile locations, and may not be 
-     * expressible for non-dedicated locations such as water 
-     * resevoirs, this element is only 'populated'. When no address 
-     * exists, the null flavor should be set to NA.</p></p>
-     * 
-     * <p><p>Allows location to be visited. May also be used for 
-     * geographic profiling (e.g. a dispatcher may be looking for 
-     * the closest hospital or ambulance that can help a patient in 
-     * need of emergency care).</p><p>Because a physical address 
-     * may not exist for mobile locations, and may not be 
-     * expressible for non-dedicated locations such as water 
-     * resevoirs, this element is only 'populated'. When no address 
-     * exists, the null flavor should be set to NA.</p></p>
-     * 
-     * <p><p>For mobile service delivery location, this can either 
-     * be set to the address of the &quot;home&quot; site for the 
-     * mobile unit or can be set to a null flavor of N/A.</p></p>
-     */
-    @Hl7XmlMapping({"addr"})
-    public PostalAddress getLocationAddress() {
-        return this.locationAddress.getValue();
-    }
-    public void setLocationAddress(PostalAddress locationAddress) {
-        this.locationAddress.setValue(locationAddress);
+    public void setLocation(PlaceBean location) {
+        this.location = location;
     }
 
 
@@ -226,15 +235,6 @@ public class LocationBean extends MessagePartBean {
     }
     public void setIndirectAuthority(IndirectAuthorithyOverBean indirectAuthority) {
         this.indirectAuthority = indirectAuthority;
-    }
-
-
-    @Hl7XmlMapping({"location"})
-    public PlaceBean getLocation() {
-        return this.location;
-    }
-    public void setLocation(PlaceBean location) {
-        this.location = location;
     }
 
 }
