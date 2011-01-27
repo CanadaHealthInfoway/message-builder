@@ -100,7 +100,7 @@ public class QueryLabTestResultsExample {
 	private static void populateMessageAttributesStandardValues(HL7Message_1Bean<?> message) {
 		message.setMessageIdentifier(new Identifier(UUID.randomUUID().toString()));
 		message.setMessageTimestamp(new GregorianCalendar(2008, JUNE, 25, 14, 16, 10).getTime());
-		message.getConformanceProfileIdentifiers().add(new Identifier("1.2.3.4.5", "profileIdExtension"));
+		message.getConformanceProfileIdentifiers().add(new Identifier("2.16.840.1.113883.2.20.2", "R02.04.02"));
 		message.setProcessingCode(PRODUCTION);
 		message.setProcessingMode(ProcessingMode.CURRENT_PROCESSING);
 		message.setDesiredAcknowledgmentType(ALWAYS);

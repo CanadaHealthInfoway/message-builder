@@ -128,6 +128,7 @@ public class AddAllergyIntoleranceExample {
 
 		controlActEvent.setEventType(ADD_ALLERGY_INTOLERANCE_REQUEST);
 		populateMessageAttributesStandardValues(messageBean);
+		messageBean.getConformanceProfileIdentifiers().add(new Identifier("2.16.840.1.113883.2.20.2", "R02.04.02"));
 		populateRecordControlActStandardValues(controlActEvent);
 
 		// payload

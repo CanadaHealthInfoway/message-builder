@@ -36,6 +36,7 @@ public class FindCandidatesExampleCreator {
 
 		// populate values standard for all messages
 		populateMessageAttributesStandardValues(messageBean);
+		messageBean.getConformanceProfileIdentifiers().add(new Identifier("2.16.840.1.113883.2.20.2", "R02.04.02"));
 		
 		// standard control act initialization for this specific message 
 		initializeQueryControlAct(messageBean);
