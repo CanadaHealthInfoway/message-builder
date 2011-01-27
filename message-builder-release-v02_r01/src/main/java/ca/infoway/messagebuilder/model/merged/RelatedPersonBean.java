@@ -22,39 +22,57 @@ import ca.infoway.messagebuilder.datatype.lang.PostalAddress;
 import ca.infoway.messagebuilder.datatype.lang.TelecommunicationAddress;
 import ca.infoway.messagebuilder.domainvalue.x_SimplePersonalRelationship;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.common.coct_mt120600ca.AssignedPersonBean;
-import ca.infoway.messagebuilder.model.common.coct_mt911102ca.ActingPersonBean;
 import java.util.Set;
 
 
 
-@Hl7PartTypeMapping({"COCT_MT910102CA.PersonalRelationship","COCT_MT910107CA.PersonalRelationship"})
+@Hl7PartTypeMapping({"COCT_MT910102CA.PersonalRelationship","COCT_MT910107CA.PersonalRelationship","FICR_MT600201CA.PersonalRelationship","FICR_MT610201CA.PersonalRelationship"})
 @Hl7RootType
-public class RelatedPersonBean extends MessagePartBean implements PartyBean, ActingPersonBean, AssignedPersonBean, ConsenterBean {
+public class RelatedPersonBean extends MessagePartBean implements ca.infoway.messagebuilder.model.iehr.merged.Party, ca.infoway.messagebuilder.model.si.merged.Consenter, ca.infoway.messagebuilder.model.common.coct_mt120600ca.AssignedPerson, ca.infoway.messagebuilder.model.common.merged.ActingPerson {
 
-    private static final long serialVersionUID = 20100615L;
-    private II relatedPersonIdentifier = new IIImpl();
-    private CV relatedPersonType = new CVImpl();
+    private static final long serialVersionUID = 20110127L;
+    private CV code = new CVImpl();
+    private AD relatedPersonAddress = new ADImpl();
     private PN relatedPersonName = new PNImpl();
     private SET<TEL, TelecommunicationAddress> relatedPersonPhonesAndEmails = new SETImpl<TEL, TelecommunicationAddress>(TELImpl.class);
-    private AD relatedPersonAddress = new ADImpl();
+    private II relatedPersonIdentifier = new IIImpl();
 
-    @Hl7XmlMapping({"id"})
-    public Identifier getRelatedPersonIdentifier() {
-        return this.relatedPersonIdentifier.getValue();
-    }
-    public void setRelatedPersonIdentifier(Identifier relatedPersonIdentifier) {
-        this.relatedPersonIdentifier.setValue(relatedPersonIdentifier);
-    }
 
+    /**
+     * <p>C:Related Person Type</p>
+     * 
+     * <p>Examples are spouse, child</p>
+     * 
+     * <p>C:Responsible Person Type</p>
+     */
     @Hl7XmlMapping({"code"})
-    public x_SimplePersonalRelationship getRelatedPersonType() {
-        return (x_SimplePersonalRelationship) this.relatedPersonType.getValue();
+    public x_SimplePersonalRelationship getCode() {
+        return (x_SimplePersonalRelationship) this.code.getValue();
     }
-    public void setRelatedPersonType(x_SimplePersonalRelationship relatedPersonType) {
-        this.relatedPersonType.setValue(relatedPersonType);
+    public void setCode(x_SimplePersonalRelationship code) {
+        this.code.setValue(code);
     }
 
+
+    /**
+     * <p>RelatedPersonAddress</p>
+     * 
+     * <p>D:Related Person Address</p>
+     */
+    @Hl7XmlMapping({"relationshipHolder/addr"})
+    public PostalAddress getRelatedPersonAddress() {
+        return this.relatedPersonAddress.getValue();
+    }
+    public void setRelatedPersonAddress(PostalAddress relatedPersonAddress) {
+        this.relatedPersonAddress.setValue(relatedPersonAddress);
+    }
+
+
+    /**
+     * <p>RelatedPersonName</p>
+     * 
+     * <p>A:Related Person Name</p>
+     */
     @Hl7XmlMapping({"relationshipHolder/name"})
     public PersonName getRelatedPersonName() {
         return this.relatedPersonName.getValue();
@@ -63,17 +81,29 @@ public class RelatedPersonBean extends MessagePartBean implements PartyBean, Act
         this.relatedPersonName.setValue(relatedPersonName);
     }
 
+
+    /**
+     * <p>RelatedPersonPhonesAndEmails</p>
+     * 
+     * <p>E:Related Person Phones and Emails</p>
+     */
     @Hl7XmlMapping({"relationshipHolder/telecom"})
     public Set<TelecommunicationAddress> getRelatedPersonPhonesAndEmails() {
         return this.relatedPersonPhonesAndEmails.rawSet();
     }
 
-    @Hl7XmlMapping({"relationshipHolder/addr"})
-    public PostalAddress getRelatedPersonAddress() {
-        return this.relatedPersonAddress.getValue();
+
+    /**
+     * <p>RelatedPersonIdentifier</p>
+     * 
+     * <p>B:Related Person Identifier</p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Identifier getRelatedPersonIdentifier() {
+        return this.relatedPersonIdentifier.getValue();
     }
-    public void setRelatedPersonAddress(PostalAddress relatedPersonAddress) {
-        this.relatedPersonAddress.setValue(relatedPersonAddress);
+    public void setRelatedPersonIdentifier(Identifier relatedPersonIdentifier) {
+        this.relatedPersonIdentifier.setValue(relatedPersonIdentifier);
     }
 
 }

@@ -9,17 +9,13 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 
-/**
- * <p>Association is required, 1..1 and not mandatory, as EOB 
- * may have been generated from a non-HL7 EOB and the Provider 
- * s/w will not know the Policy Type to put in the target act.</p>
- */
 @Hl7PartTypeMapping({"COCT_MT680000CA.AdjudicatedInvoiceCoverage"})
 public class AdjudicatedInvoiceCoverageBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20100615L;
+    private static final long serialVersionUID = 20110127L;
     private INT sequenceNumber = new INTImpl();
     private PolicyOrAccountBean policyOrAccount;
+
 
     @Hl7XmlMapping({"sequenceNumber"})
     public Integer getSequenceNumber() {
@@ -28,6 +24,7 @@ public class AdjudicatedInvoiceCoverageBean extends MessagePartBean {
     public void setSequenceNumber(Integer sequenceNumber) {
         this.sequenceNumber.setValue(sequenceNumber);
     }
+
 
     @Hl7XmlMapping({"policyOrAccount"})
     public PolicyOrAccountBean getPolicyOrAccount() {

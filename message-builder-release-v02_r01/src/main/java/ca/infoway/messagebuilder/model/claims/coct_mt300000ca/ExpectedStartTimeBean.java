@@ -15,37 +15,28 @@ import ca.infoway.messagebuilder.datatype.impl.TSImpl;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.common.coct_mt260020ca.IssuesBean;
+import ca.infoway.messagebuilder.model.merged.IssuesBean;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 
 
-/**
- * <p>Expected Start Time</p>
- * 
- * <p>Used effectiveTime for methadone only</p>
- */
 @Hl7PartTypeMapping({"COCT_MT300000CA.SubstanceAdministrationIntent"})
 public class ExpectedStartTimeBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20100615L;
-    private II dispenseID = new IIImpl();
+    private static final long serialVersionUID = 20110127L;
     private IVL<TS, Interval<Date>> substanceAdministrationTime = new IVLImpl<TS, Interval<Date>>();
-    private CV priorityCode = new CVImpl();
-    private List<IssuesBean> subjectOfDetectedIssueEvent = new ArrayList<IssuesBean>();
+    private II dispenseID = new IIImpl();
     private OriginalPrescriptionOrderBean inFulfillmentOfSubstanceAdministrationOrder;
+    private CV priorityCode = new CVImpl();
     private DispenseSubstitutionBean componentSubstitution;
+    private List<IssuesBean> subjectOfDetectedIssueEvent = new ArrayList<IssuesBean>();
 
-    @Hl7XmlMapping({"id"})
-    public Identifier getDispenseID() {
-        return this.dispenseID.getValue();
-    }
-    public void setDispenseID(Identifier dispenseID) {
-        this.dispenseID.setValue(dispenseID);
-    }
 
+    /**
+     * <p>Substance Administration Time</p>
+     */
     @Hl7XmlMapping({"effectiveTime"})
     public Interval<Date> getSubstanceAdministrationTime() {
         return this.substanceAdministrationTime.getValue();
@@ -54,18 +45,18 @@ public class ExpectedStartTimeBean extends MessagePartBean {
         this.substanceAdministrationTime.setValue(substanceAdministrationTime);
     }
 
-    @Hl7XmlMapping({"priorityCode"})
-    public Code getPriorityCode() {
-        return (Code) this.priorityCode.getValue();
+
+    /**
+     * <p>Dispense ID</p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Identifier getDispenseID() {
+        return this.dispenseID.getValue();
     }
-    public void setPriorityCode(Code priorityCode) {
-        this.priorityCode.setValue(priorityCode);
+    public void setDispenseID(Identifier dispenseID) {
+        this.dispenseID.setValue(dispenseID);
     }
 
-    @Hl7XmlMapping({"subjectOf/detectedIssueEvent"})
-    public List<IssuesBean> getSubjectOfDetectedIssueEvent() {
-        return this.subjectOfDetectedIssueEvent;
-    }
 
     @Hl7XmlMapping({"inFulfillmentOf/substanceAdministrationOrder"})
     public OriginalPrescriptionOrderBean getInFulfillmentOfSubstanceAdministrationOrder() {
@@ -75,12 +66,28 @@ public class ExpectedStartTimeBean extends MessagePartBean {
         this.inFulfillmentOfSubstanceAdministrationOrder = inFulfillmentOfSubstanceAdministrationOrder;
     }
 
+
+    @Hl7XmlMapping({"priorityCode"})
+    public Code getPriorityCode() {
+        return (Code) this.priorityCode.getValue();
+    }
+    public void setPriorityCode(Code priorityCode) {
+        this.priorityCode.setValue(priorityCode);
+    }
+
+
     @Hl7XmlMapping({"component/substitution"})
     public DispenseSubstitutionBean getComponentSubstitution() {
         return this.componentSubstitution;
     }
     public void setComponentSubstitution(DispenseSubstitutionBean componentSubstitution) {
         this.componentSubstitution = componentSubstitution;
+    }
+
+
+    @Hl7XmlMapping({"subjectOf/detectedIssueEvent"})
+    public List<IssuesBean> getSubjectOfDetectedIssueEvent() {
+        return this.subjectOfDetectedIssueEvent;
     }
 
 }

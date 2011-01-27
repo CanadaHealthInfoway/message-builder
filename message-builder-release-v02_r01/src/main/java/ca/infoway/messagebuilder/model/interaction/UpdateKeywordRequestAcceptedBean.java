@@ -3,19 +3,14 @@ package ca.infoway.messagebuilder.model.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.common.mcai_mt700236ca.TriggerEventBean;
-import ca.infoway.messagebuilder.model.common.mcci_mt002300ca.HL7MessageBean;
+import ca.infoway.messagebuilder.model.common.merged.HL7Message_1Bean;
+import ca.infoway.messagebuilder.model.common.merged.TriggerEvent_2Bean;
 
 
 
-/**
- * <p>Indicates that the keyword used to control patient access 
- * to a all or a portion of the patient's record has been 
- * successfully revised to the requested value.</p>
- */
 @Hl7PartTypeMapping({"RCMR_IN010004CA"})
-public class UpdateKeywordRequestAcceptedBean extends HL7MessageBean<TriggerEventBean> implements InteractionBean {
+public class UpdateKeywordRequestAcceptedBean extends HL7Message_1Bean<TriggerEvent_2Bean> implements InteractionBean {
 
-    private static final long serialVersionUID = 20100615L;
+    private static final long serialVersionUID = 20110127L;
 
 }

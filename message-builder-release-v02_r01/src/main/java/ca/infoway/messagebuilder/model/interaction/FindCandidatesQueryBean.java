@@ -3,20 +3,15 @@ package ca.infoway.messagebuilder.model.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.common.mcci_mt002100ca.HL7MessageBean;
-import ca.infoway.messagebuilder.model.common.mfmi_mt700751ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.common.merged.HL7Message_1Bean;
+import ca.infoway.messagebuilder.model.common.merged.TriggerEvent_4Bean;
 import ca.infoway.messagebuilder.model.cr.prpa_mt101103ca.ParameterListBean;
 
 
 
-/**
- * <p>This interaction sends a query to a Person Registry 
- * requesting a list of candidates that match a particular set 
- * of person demographics.</p>
- */
 @Hl7PartTypeMapping({"PRPA_IN101103CA"})
-public class FindCandidatesQueryBean extends HL7MessageBean<TriggerEventBean<ParameterListBean>> implements InteractionBean {
+public class FindCandidatesQueryBean extends HL7Message_1Bean<TriggerEvent_4Bean<ParameterListBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20100615L;
+    private static final long serialVersionUID = 20110127L;
 
 }

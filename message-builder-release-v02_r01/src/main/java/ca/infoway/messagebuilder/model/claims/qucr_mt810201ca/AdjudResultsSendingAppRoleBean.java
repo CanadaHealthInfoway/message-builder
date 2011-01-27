@@ -13,8 +13,9 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"QUCR_MT810201CA.AdjudResultsSendingAppRole"})
 public class AdjudResultsSendingAppRoleBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20100615L;
+    private static final long serialVersionUID = 20110127L;
     private II playingAdjudResultsSendingAppDeviceId = new IIImpl();
+
 
     @Hl7XmlMapping({"playingAdjudResultsSendingAppDevice/id"})
     public Identifier getPlayingAdjudResultsSendingAppDeviceId() {

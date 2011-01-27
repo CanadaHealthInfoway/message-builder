@@ -13,9 +13,13 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PRPA_MT101103CA.PersonalRelationshipCode"})
 public class PersonalRelationshipCodeBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20100615L;
+    private static final long serialVersionUID = 20110127L;
     private CV clientNextOfKin = new CVImpl();
 
+
+    /**
+     * <p>Client Next of Kin</p>
+     */
     @Hl7XmlMapping({"value"})
     public QueryParameterValue getClientNextOfKin() {
         return (QueryParameterValue) this.clientNextOfKin.getValue();

@@ -13,23 +13,16 @@ import java.util.Set;
 
 
 
-/**
- * <p>Used to reference a previous act (e.g. billable act) by 
- * including its Act.id. May only be used to reference a 
- * billable act in the SAME message, not for past messages 
- * (this would require adjudicators to keep a lot of history).</p>
- * 
- * <p>Used to reference a previous act (e.g. billable act) by 
- * including its Act.id. May only be used to reference a 
- * billable act in the SAME message, not for past messages 
- * (this would require adjudicators to keep a lot of history).</p>
- */
 @Hl7PartTypeMapping({"COCT_MT280001CA.CrossReference"})
-public class CrossReferenceBean extends MessagePartBean implements A_BillableActChoiceBean {
+public class CrossReferenceBean extends MessagePartBean implements A_BillableActChoice {
 
-    private static final long serialVersionUID = 20100615L;
+    private static final long serialVersionUID = 20110127L;
     private SET<II, Identifier> actId = new SETImpl<II, Identifier>(IIImpl.class);
 
+
+    /**
+     * <p>) (Act.id.</p>
+     */
     @Hl7XmlMapping({"id"})
     public Set<Identifier> getActId() {
         return this.actId.rawSet();

@@ -5,18 +5,30 @@ import ca.infoway.messagebuilder.Code;
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
 import ca.infoway.messagebuilder.datatype.CV;
+import ca.infoway.messagebuilder.datatype.II;
 import ca.infoway.messagebuilder.datatype.impl.CVImpl;
+import ca.infoway.messagebuilder.datatype.impl.IIImpl;
+import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.merged.CarrierRoleBean;
 
 
 
 @Hl7PartTypeMapping({"COCT_MT680000CA.PolicyOrAccount"})
 public class PolicyOrAccountBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20100615L;
+    private static final long serialVersionUID = 20110127L;
+    private II authorCarrierRoleId = new IIImpl();
     private CV code = new CVImpl();
-    private CarrierRoleBean authorCarrierRole;
+
+
+    @Hl7XmlMapping({"author/carrierRole/id"})
+    public Identifier getAuthorCarrierRoleId() {
+        return this.authorCarrierRoleId.getValue();
+    }
+    public void setAuthorCarrierRoleId(Identifier authorCarrierRoleId) {
+        this.authorCarrierRoleId.setValue(authorCarrierRoleId);
+    }
+
 
     @Hl7XmlMapping({"code"})
     public Code getCode() {
@@ -24,14 +36,6 @@ public class PolicyOrAccountBean extends MessagePartBean {
     }
     public void setCode(Code code) {
         this.code.setValue(code);
-    }
-
-    @Hl7XmlMapping({"author/carrierRole"})
-    public CarrierRoleBean getAuthorCarrierRole() {
-        return this.authorCarrierRole;
-    }
-    public void setAuthorCarrierRole(CarrierRoleBean authorCarrierRole) {
-        this.authorCarrierRole = authorCarrierRole;
     }
 
 }

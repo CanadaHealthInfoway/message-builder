@@ -14,19 +14,15 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COCT_MT300000CA.Substitution"})
 public class DispenseSubstitutionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20100615L;
-    private CV substitutionType = new CVImpl();
+    private static final long serialVersionUID = 20110127L;
     private CV substitutionReason = new CVImpl();
     private SubstitutionRoleBean performerSubstitutionRole;
+    private CV substitutionType = new CVImpl();
 
-    @Hl7XmlMapping({"code"})
-    public ActSubstanceAdminSubstitutionCode getSubstitutionType() {
-        return (ActSubstanceAdminSubstitutionCode) this.substitutionType.getValue();
-    }
-    public void setSubstitutionType(ActSubstanceAdminSubstitutionCode substitutionType) {
-        this.substitutionType.setValue(substitutionType);
-    }
 
+    /**
+     * <p>Substitution Reason</p>
+     */
     @Hl7XmlMapping({"reasonCode"})
     public SubstanceAdminSubstitutionReason getSubstitutionReason() {
         return (SubstanceAdminSubstitutionReason) this.substitutionReason.getValue();
@@ -35,12 +31,25 @@ public class DispenseSubstitutionBean extends MessagePartBean {
         this.substitutionReason.setValue(substitutionReason);
     }
 
+
     @Hl7XmlMapping({"performer/substitutionRole"})
     public SubstitutionRoleBean getPerformerSubstitutionRole() {
         return this.performerSubstitutionRole;
     }
     public void setPerformerSubstitutionRole(SubstitutionRoleBean performerSubstitutionRole) {
         this.performerSubstitutionRole = performerSubstitutionRole;
+    }
+
+
+    /**
+     * <p>Substitution Type</p>
+     */
+    @Hl7XmlMapping({"code"})
+    public ActSubstanceAdminSubstitutionCode getSubstitutionType() {
+        return (ActSubstanceAdminSubstitutionCode) this.substitutionType.getValue();
+    }
+    public void setSubstitutionType(ActSubstanceAdminSubstitutionCode substitutionType) {
+        this.substitutionType.setValue(substitutionType);
     }
 
 }

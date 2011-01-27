@@ -4,26 +4,243 @@ package ca.infoway.messagebuilder.model.merged;
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.annotation.Hl7RootType;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
+import ca.infoway.messagebuilder.datatype.BL;
+import ca.infoway.messagebuilder.datatype.CD;
 import ca.infoway.messagebuilder.datatype.CV;
+import ca.infoway.messagebuilder.datatype.II;
+import ca.infoway.messagebuilder.datatype.IVL;
+import ca.infoway.messagebuilder.datatype.TS;
+import ca.infoway.messagebuilder.datatype.impl.BLImpl;
+import ca.infoway.messagebuilder.datatype.impl.CDImpl;
 import ca.infoway.messagebuilder.datatype.impl.CVImpl;
-import ca.infoway.messagebuilder.domainvalue.ClinicalDrug;
+import ca.infoway.messagebuilder.datatype.impl.IIImpl;
+import ca.infoway.messagebuilder.datatype.impl.IVLImpl;
+import ca.infoway.messagebuilder.datatype.impl.TSImpl;
+import ca.infoway.messagebuilder.datatype.lang.Identifier;
+import ca.infoway.messagebuilder.datatype.lang.Interval;
+import ca.infoway.messagebuilder.domainvalue.ActCareEventType;
+import ca.infoway.messagebuilder.domainvalue.ActStatus;
+import ca.infoway.messagebuilder.domainvalue.ObservationIntoleranceType;
+import ca.infoway.messagebuilder.domainvalue.SubjectReaction;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import java.util.Date;
 
 
 
-@Hl7PartTypeMapping({"POME_MT010030CA.ParameterList","PORX_MT050020CA.ParameterList"})
+@Hl7PartTypeMapping({"PORX_MT060280CA.ParameterList","PORX_MT060360CA.ParameterList","REPC_MT000004CA.ParameterList","REPC_MT000016CA.ParameterList"})
 @Hl7RootType
 public class GenericQueryParametersBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20100615L;
-    private CV drugCode = new CVImpl();
+    private static final long serialVersionUID = 20110127L;
+    private BL includeNotesIndicator = new BLImpl();
+    private CV reactionTypeValue = new CVImpl();
+    private IVL<TS, Interval<Date>> reactionPeriod = new IVLImpl<TS, Interval<Date>>();
+    private II careCompositionIDs = new IIImpl();
+    private CV careCompositionTypes = new CVImpl();
+    private BL includePendingChangesIndicator = new BLImpl();
+    private BL includeEventHistoryIndicator = new BLImpl();
+    private BL includeIssuesIndicator = new BLImpl();
+    private IVL<TS, Interval<Date>> amendedInTimeRange = new IVLImpl<TS, Interval<Date>>();
+    private II prescriptionOrderNumber = new IIImpl();
+    private IVL<TS, Interval<Date>> allergyIntoleranceChangePeriod = new IVLImpl<TS, Interval<Date>>();
+    private CD allergyIntoleranceType = new CDImpl();
+    private CV allergyIntoleranceStatus = new CVImpl();
+    private II prescriptionDispenseNumber = new IIImpl();
 
-    @Hl7XmlMapping({"drugCode/value"})
-    public ClinicalDrug getDrugCode() {
-        return (ClinicalDrug) this.drugCode.getValue();
+
+    /**
+     * <p>IncludeNotesIndicator</p>
+     * 
+     * <p>Include Notes Indicator</p>
+     */
+    @Hl7XmlMapping({"includeNotesIndicator/value"})
+    public Boolean getIncludeNotesIndicator() {
+        return this.includeNotesIndicator.getValue();
     }
-    public void setDrugCode(ClinicalDrug drugCode) {
-        this.drugCode.setValue(drugCode);
+    public void setIncludeNotesIndicator(Boolean includeNotesIndicator) {
+        this.includeNotesIndicator.setValue(includeNotesIndicator);
+    }
+
+
+    /**
+     * <p>I:Reaction</p>
+     * 
+     * <p>G:Reaction Type</p>
+     */
+    @Hl7XmlMapping({"reactionType/value"})
+    public SubjectReaction getReactionTypeValue() {
+        return (SubjectReaction) this.reactionTypeValue.getValue();
+    }
+    public void setReactionTypeValue(SubjectReaction reactionTypeValue) {
+        this.reactionTypeValue.setValue(reactionTypeValue);
+    }
+
+
+    /**
+     * <p>ReactionPeriod</p>
+     * 
+     * <p>F:Reaction Period</p>
+     */
+    @Hl7XmlMapping({"reactionPeriod/value"})
+    public Interval<Date> getReactionPeriod() {
+        return this.reactionPeriod.getValue();
+    }
+    public void setReactionPeriod(Interval<Date> reactionPeriod) {
+        this.reactionPeriod.setValue(reactionPeriod);
+    }
+
+
+    /**
+     * <p>CareCompositionIDs</p>
+     * 
+     * <p>Care Composition IDs</p>
+     */
+    @Hl7XmlMapping({"careCompositionID/value"})
+    public Identifier getCareCompositionIDs() {
+        return this.careCompositionIDs.getValue();
+    }
+    public void setCareCompositionIDs(Identifier careCompositionIDs) {
+        this.careCompositionIDs.setValue(careCompositionIDs);
+    }
+
+
+    /**
+     * <p>CareCompositionTypes</p>
+     * 
+     * <p>Care Composition Types</p>
+     */
+    @Hl7XmlMapping({"careCompositionType/value"})
+    public ActCareEventType getCareCompositionTypes() {
+        return (ActCareEventType) this.careCompositionTypes.getValue();
+    }
+    public void setCareCompositionTypes(ActCareEventType careCompositionTypes) {
+        this.careCompositionTypes.setValue(careCompositionTypes);
+    }
+
+
+    /**
+     * <p>IncludePendingChangesIndicator</p>
+     * 
+     * <p>Include Pending Changes Indicator</p>
+     */
+    @Hl7XmlMapping({"includePendingChangesIndicator/value"})
+    public Boolean getIncludePendingChangesIndicator() {
+        return this.includePendingChangesIndicator.getValue();
+    }
+    public void setIncludePendingChangesIndicator(Boolean includePendingChangesIndicator) {
+        this.includePendingChangesIndicator.setValue(includePendingChangesIndicator);
+    }
+
+
+    /**
+     * <p>IncludeEventHistoryIndicator</p>
+     * 
+     * <p>Include Event History Indicator</p>
+     */
+    @Hl7XmlMapping({"includeEventHistoryIndicator/value"})
+    public Boolean getIncludeEventHistoryIndicator() {
+        return this.includeEventHistoryIndicator.getValue();
+    }
+    public void setIncludeEventHistoryIndicator(Boolean includeEventHistoryIndicator) {
+        this.includeEventHistoryIndicator.setValue(includeEventHistoryIndicator);
+    }
+
+
+    /**
+     * <p>IncludeIssuesIndicator</p>
+     * 
+     * <p>Include Issues Indicator</p>
+     */
+    @Hl7XmlMapping({"includeIssuesIndicator/value"})
+    public Boolean getIncludeIssuesIndicator() {
+        return this.includeIssuesIndicator.getValue();
+    }
+    public void setIncludeIssuesIndicator(Boolean includeIssuesIndicator) {
+        this.includeIssuesIndicator.setValue(includeIssuesIndicator);
+    }
+
+
+    /**
+     * <p>AmendedInTimeRange</p>
+     * 
+     * <p>Amended in Time Range</p>
+     */
+    @Hl7XmlMapping({"amendedInTimeRange/value"})
+    public Interval<Date> getAmendedInTimeRange() {
+        return this.amendedInTimeRange.getValue();
+    }
+    public void setAmendedInTimeRange(Interval<Date> amendedInTimeRange) {
+        this.amendedInTimeRange.setValue(amendedInTimeRange);
+    }
+
+
+    /**
+     * <p>PrescriptionOrderNumber</p>
+     * 
+     * <p>Prescription order Number</p>
+     */
+    @Hl7XmlMapping({"prescriptionOrderNumber/value"})
+    public Identifier getPrescriptionOrderNumber() {
+        return this.prescriptionOrderNumber.getValue();
+    }
+    public void setPrescriptionOrderNumber(Identifier prescriptionOrderNumber) {
+        this.prescriptionOrderNumber.setValue(prescriptionOrderNumber);
+    }
+
+
+    /**
+     * <p>AllergyIntoleranceChangePeriod</p>
+     * 
+     * <p>F:Allergy/Intolerance Change Period</p>
+     */
+    @Hl7XmlMapping({"alllergyIntoleranceChangePeriod/value"})
+    public Interval<Date> getAllergyIntoleranceChangePeriod() {
+        return this.allergyIntoleranceChangePeriod.getValue();
+    }
+    public void setAllergyIntoleranceChangePeriod(Interval<Date> allergyIntoleranceChangePeriod) {
+        this.allergyIntoleranceChangePeriod.setValue(allergyIntoleranceChangePeriod);
+    }
+
+
+    /**
+     * <p>AllergyIntoleranceType</p>
+     * 
+     * <p>H:Allergy/Intolerance Type</p>
+     */
+    @Hl7XmlMapping({"allergyIntoleranceType/value"})
+    public ObservationIntoleranceType getAllergyIntoleranceType() {
+        return (ObservationIntoleranceType) this.allergyIntoleranceType.getValue();
+    }
+    public void setAllergyIntoleranceType(ObservationIntoleranceType allergyIntoleranceType) {
+        this.allergyIntoleranceType.setValue(allergyIntoleranceType);
+    }
+
+
+    /**
+     * <p>AllergyIntoleranceStatus</p>
+     * 
+     * <p>G:Allergy/Intolerance Status</p>
+     */
+    @Hl7XmlMapping({"allergyIntoleranceStatus/value"})
+    public ActStatus getAllergyIntoleranceStatus() {
+        return (ActStatus) this.allergyIntoleranceStatus.getValue();
+    }
+    public void setAllergyIntoleranceStatus(ActStatus allergyIntoleranceStatus) {
+        this.allergyIntoleranceStatus.setValue(allergyIntoleranceStatus);
+    }
+
+
+    /**
+     * <p>PrescriptionDispenseNumber</p>
+     * 
+     * <p>D:Prescription Dispense Number</p>
+     */
+    @Hl7XmlMapping({"prescriptionDispenseNumber/value"})
+    public Identifier getPrescriptionDispenseNumber() {
+        return this.prescriptionDispenseNumber.getValue();
+    }
+    public void setPrescriptionDispenseNumber(Identifier prescriptionDispenseNumber) {
+        this.prescriptionDispenseNumber.setValue(prescriptionDispenseNumber);
     }
 
 }

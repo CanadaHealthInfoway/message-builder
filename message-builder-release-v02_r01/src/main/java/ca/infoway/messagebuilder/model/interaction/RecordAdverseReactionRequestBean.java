@@ -3,19 +3,15 @@ package ca.infoway.messagebuilder.model.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.common.mcai_mt700210ca.TriggerEventBean;
-import ca.infoway.messagebuilder.model.common.mcci_mt002100ca.HL7MessageBean;
+import ca.infoway.messagebuilder.model.common.merged.HL7Message_1Bean;
+import ca.infoway.messagebuilder.model.common.merged.TriggerEvent_1Bean;
 import ca.infoway.messagebuilder.model.iehr.repc_mt000002ca.ReportedReactionBean;
 
 
 
-/**
- * <p>Requests that information about an adverse reaction be 
- * recorded against a patient's record.</p>
- */
 @Hl7PartTypeMapping({"REPC_IN000004CA"})
-public class RecordAdverseReactionRequestBean extends HL7MessageBean<TriggerEventBean<ReportedReactionBean>> implements InteractionBean {
+public class RecordAdverseReactionRequestBean extends HL7Message_1Bean<TriggerEvent_1Bean<ReportedReactionBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20100615L;
+    private static final long serialVersionUID = 20110127L;
 
 }

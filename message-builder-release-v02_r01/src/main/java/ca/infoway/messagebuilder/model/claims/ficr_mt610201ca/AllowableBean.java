@@ -13,8 +13,9 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"FICR_MT610201CA.Allowable"})
 public class AllowableBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20100615L;
+    private static final long serialVersionUID = 20110127L;
     private MO netAmt = new MOImpl();
+
 
     @Hl7XmlMapping({"netAmt"})
     public Money getNetAmt() {

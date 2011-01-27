@@ -10,12 +10,18 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 
-@Hl7PartTypeMapping({"COCT_MT260010CA.SeverityObservation","COCT_MT260020CA.SeverityObservation","COCT_MT260030CA.SeverityObservation","REPC_MT000001CA.SeverityObservation","REPC_MT000002CA.SeverityObservation","REPC_MT000005CA.SeverityObservation","REPC_MT000006CA.SeverityObservation","REPC_MT000009CA.SeverityObservation","REPC_MT000012CA.SeverityObservation","REPC_MT000013CA.SeverityObservation"})
+@Hl7PartTypeMapping({"REPC_MT000001CA.SeverityObservation","REPC_MT000002CA.SeverityObservation","REPC_MT000005CA.SeverityObservation","REPC_MT000006CA.SeverityObservation","REPC_MT000009CA.SeverityObservation","REPC_MT000012CA.SeverityObservation","REPC_MT000013CA.SeverityObservation"})
 public class AllergyIntoleranceSeverityLevelBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20100615L;
+    private static final long serialVersionUID = 20110127L;
     private CV severityLevel = new CVImpl();
 
+
+    /**
+     * <p>SeverityLevel</p>
+     * 
+     * <p>C:Severity Level</p>
+     */
     @Hl7XmlMapping({"value"})
     public SeverityObservation getSeverityLevel() {
         return (SeverityObservation) this.severityLevel.getValue();

@@ -4,26 +4,22 @@ package ca.infoway.messagebuilder.model.claims.qucr_mt830201ca;
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import ca.infoway.messagebuilder.model.claims.merged.InvoiceTypeBean;
 
 
 
-/**
- * <p>Multiple references to submitted invoice elements 
- * provides support for code substitution where the number of 
- * submitted fee items is consolidated on the adjudication 
- * results (e.g. 3 items to 1).</p>
- */
 @Hl7PartTypeMapping({"QUCR_MT830201CA.AdjudicationResultReference"})
 public class AdjudicationResultReferenceBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20100615L;
-    private InvoiceGroupingIdentifiersBean invoiceElementGroup;
+    private static final long serialVersionUID = 20110127L;
+    private InvoiceTypeBean invoiceElementGroup;
+
 
     @Hl7XmlMapping({"invoiceElementGroup"})
-    public InvoiceGroupingIdentifiersBean getInvoiceElementGroup() {
+    public InvoiceTypeBean getInvoiceElementGroup() {
         return this.invoiceElementGroup;
     }
-    public void setInvoiceElementGroup(InvoiceGroupingIdentifiersBean invoiceElementGroup) {
+    public void setInvoiceElementGroup(InvoiceTypeBean invoiceElementGroup) {
         this.invoiceElementGroup = invoiceElementGroup;
     }
 

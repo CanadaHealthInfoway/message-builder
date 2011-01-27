@@ -13,24 +13,13 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 
-/**
- * <p>Can be used to specify the appropriate GST number and 
- * other tax numbers.</p>
- */
 @Hl7PartTypeMapping({"FICR_MT610201CA.AdjudicatorBillingTaxAccount"})
 public class AdjudicatorBillingTaxAccountBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20100615L;
-    private II id = new IIImpl();
+    private static final long serialVersionUID = 20110127L;
     private CV code = new CVImpl();
+    private II id = new IIImpl();
 
-    @Hl7XmlMapping({"id"})
-    public Identifier getId() {
-        return this.id.getValue();
-    }
-    public void setId(Identifier id) {
-        this.id.setValue(id);
-    }
 
     @Hl7XmlMapping({"code"})
     public Code getCode() {
@@ -38,6 +27,15 @@ public class AdjudicatorBillingTaxAccountBean extends MessagePartBean {
     }
     public void setCode(Code code) {
         this.code.setValue(code);
+    }
+
+
+    @Hl7XmlMapping({"id"})
+    public Identifier getId() {
+        return this.id.getValue();
+    }
+    public void setId(Identifier id) {
+        this.id.setValue(id);
     }
 
 }

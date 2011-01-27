@@ -10,27 +10,16 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 
-/**
- * <p>Invoice Override details</p>
- * 
- * <p>The reason or rationale for an Invoice Element override.</p>
- * 
- * <p>RxS1: Not permitted for this scenario.</p>
- * 
- * <p>Some overrides will require a text note component to 
- * fully explain the override.</p>
- * 
- * <p>If an adjudicator does not support the override (e.g. 
- * repeated service), the override code should not be ignored. 
- * In other words, the Invoice Grouping will likely be refused 
- * with a message "we don't support this type of override".</p>
- */
 @Hl7PartTypeMapping({"FICR_MT600201CA.InvoiceElementOverride"})
 public class InvoiceOverrideDetailsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20100615L;
+    private static final long serialVersionUID = 20110127L;
     private CV invoiceOverrideCode = new CVImpl();
 
+
+    /**
+     * <p>Invoice override code</p>
+     */
     @Hl7XmlMapping({"code"})
     public Code getInvoiceOverrideCode() {
         return (Code) this.invoiceOverrideCode.getValue();

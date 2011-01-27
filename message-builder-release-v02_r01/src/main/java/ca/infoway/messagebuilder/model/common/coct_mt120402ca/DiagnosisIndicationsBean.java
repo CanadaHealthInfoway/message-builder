@@ -13,35 +13,35 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 
-/**
- * <p>Diagnosis Indications</p>
- * 
- * <p>Describes diagnosis-related indications</p>
- * 
- * <p>Allows separation of conditions from symptoms from other 
- * forms of indication.</p>
- */
 @Hl7PartTypeMapping({"COCT_MT120402CA.ObservationCondition"})
-public class DiagnosisIndicationsBean extends MessagePartBean implements IndicationsBean {
+public class DiagnosisIndicationsBean extends MessagePartBean implements Indications {
 
-    private static final long serialVersionUID = 20100615L;
-    private CV diagnosisType = new CVImpl();
+    private static final long serialVersionUID = 20110127L;
     private CD diagnosisCode = new CDImpl();
+    private CV diagnosisType = new CVImpl();
 
-    @Hl7XmlMapping({"code"})
-    public ActCode getDiagnosisType() {
-        return (ActCode) this.diagnosisType.getValue();
-    }
-    public void setDiagnosisType(ActCode diagnosisType) {
-        this.diagnosisType.setValue(diagnosisType);
-    }
 
+    /**
+     * <p>A:Diagnosis Code</p>
+     */
     @Hl7XmlMapping({"value"})
     public DiagnosisValue getDiagnosisCode() {
         return (DiagnosisValue) this.diagnosisCode.getValue();
     }
     public void setDiagnosisCode(DiagnosisValue diagnosisCode) {
         this.diagnosisCode.setValue(diagnosisCode);
+    }
+
+
+    /**
+     * <p>Diagnosis Type</p>
+     */
+    @Hl7XmlMapping({"code"})
+    public ActCode getDiagnosisType() {
+        return (ActCode) this.diagnosisType.getValue();
+    }
+    public void setDiagnosisType(ActCode diagnosisType) {
+        this.diagnosisType.setValue(diagnosisType);
     }
 
 }

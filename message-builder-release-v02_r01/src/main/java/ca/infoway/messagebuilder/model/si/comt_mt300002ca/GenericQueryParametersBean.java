@@ -11,21 +11,17 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 
-/**
- * <p>Generic Query Parameters</p>
- * 
- * <p>Defines the set of parameters that may be used to filter 
- * the query response.</p>
- * 
- * <p>Root class for query definition</p>
- */
 @Hl7PartTypeMapping({"COMT_MT300002CA.ParameterList"})
 @Hl7RootType
 public class GenericQueryParametersBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20100615L;
+    private static final long serialVersionUID = 20110127L;
     private CV patientNoteCategoryCode = new CVImpl();
 
+
+    /**
+     * <p>Patient Note Category Code</p>
+     */
     @Hl7XmlMapping({"patientNoteCategoryCode/value"})
     public ActPatientAnnotationCode getPatientNoteCategoryCode() {
         return (ActPatientAnnotationCode) this.patientNoteCategoryCode.getValue();

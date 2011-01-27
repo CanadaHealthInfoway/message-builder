@@ -3,20 +3,16 @@ package ca.infoway.messagebuilder.model.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.common.mcci_mt002300ca.HL7MessageBean;
-import ca.infoway.messagebuilder.model.common.quqi_mt120008ca.TriggerEventBean;
-import ca.infoway.messagebuilder.model.pharmacy.pome_mt010090ca.DrugQueryParametersBean;
+import ca.infoway.messagebuilder.model.common.merged.HL7Message_1Bean;
+import ca.infoway.messagebuilder.model.common.merged.TriggerEvent_5Bean;
+import ca.infoway.messagebuilder.model.pharmacy.merged.GenericQueryParametersBean;
 import ca.infoway.messagebuilder.model.pharmacy.pome_mt010100ca.MedicationBean;
 
 
 
-/**
- * <p>Returns a list of basic identifying and descriptive 
- * information about one or more medications.</p>
- */
 @Hl7PartTypeMapping({"POME_IN010080CA"})
-public class DrugSearchQueryResponseBean extends HL7MessageBean<TriggerEventBean<MedicationBean,DrugQueryParametersBean>> implements InteractionBean {
+public class DrugSearchQueryResponseBean extends HL7Message_1Bean<TriggerEvent_5Bean<MedicationBean,GenericQueryParametersBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20100615L;
+    private static final long serialVersionUID = 20110127L;
 
 }

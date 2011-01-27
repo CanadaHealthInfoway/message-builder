@@ -12,9 +12,13 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PRPA_MT101103CA.MultipleBirthOrderNumber"})
 public class MultipleBirthOrderNumberBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20100615L;
+    private static final long serialVersionUID = 20110127L;
     private INT clientMultipleBirthOrderNumber = new INTImpl();
 
+
+    /**
+     * <p>Client Multiple Birth Order Number</p>
+     */
     @Hl7XmlMapping({"value"})
     public Integer getClientMultipleBirthOrderNumber() {
         return this.clientMultipleBirthOrderNumber.getValue();
