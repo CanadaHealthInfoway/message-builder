@@ -11,7 +11,7 @@ import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
 import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelTransformationException;
 import ca.infoway.messagebuilder.schema.XmlSchemas;
 
-abstract class AbstractElementParser implements ElementParser {
+public abstract class AbstractElementParser implements ElementParser {
 
 	protected static final String SPECIALIZATION_TYPE = "specializationType";
 
