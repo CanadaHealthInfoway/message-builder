@@ -102,7 +102,8 @@ public class Mif2XPathHelper extends BaseMifXPathHelper {
 		String domain = getAttribute(element, "./mif2:vocabulary/mif2:code/@codeSystemName");
 		if (StringUtils.isBlank(domain)) {
 			domain = getAttribute(element, "./mif2:vocabulary/mif2:conceptDomain/@name");
-		} else if (StringUtils.isBlank(domain)) {
+		} 
+		if (StringUtils.isBlank(domain)) {
 			domain = getAttribute(element, "./mif2:vocabulary/mif2:valueSet/@name");
 		}
 		return domain;

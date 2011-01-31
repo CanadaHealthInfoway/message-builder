@@ -845,7 +845,7 @@
                              attributeName="responseModeCode"/>
             <mif:type name="CS"/>
             <mif:vocabulary>
-               <mif:conceptDomain name="ResponseMode"/>
+               <mif:valueSet name="ResponseMode" codingStrength="CNE"/>
             </mif:vocabulary>
          </mif:attribute>
          <mif:attribute name="versionCode" sortKey="5" minimumMultiplicity="1" maximumMultiplicity="1"
