@@ -29,6 +29,11 @@ import org.w3c.dom.NodeList;
  * </code>
  * 
  * @author <a href="http://www.intelliware.ca/">Intelliware Development</a>
+ * 
+ * NodeListIterator only used from maven-chi-plugin, so adding to sharpern ignore list 
+ * 
+ * @sharpen.ignore
+ * 
  */
 public class NodeListIterator {
 	

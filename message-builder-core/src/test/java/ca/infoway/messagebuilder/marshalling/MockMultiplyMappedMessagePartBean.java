@@ -5,6 +5,9 @@ import ca.infoway.messagebuilder.annotation.Hl7MapByPartTypes;
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
 
+/**
+ * @sharpen.ignore
+ */
 @Hl7PartTypeMapping("MOCK_MT898989CA")
 public class MockMultiplyMappedMessagePartBean {
 
