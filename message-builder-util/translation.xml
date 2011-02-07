@@ -5,7 +5,7 @@
 	
 	<target name="sharpen" depends="init">
 
-		<property name="project" value="core" />
+		<property name="project" value="util" />
 		<prepare-sharpen-workspace project="${project}" dir="${sharpen.workspace.dir}" />
 
 		<exec dir="." executable="mvn">
@@ -14,55 +14,35 @@
 
 		<sharpen workspace="${sharpen.workspace.dir}" resource="${project}">
 			<args>
-				<arg value="-cp" /><arg file="${target.dir}/dependencies/activation-1.1.jar"/>
-				<arg value="-cp" /><arg file="${target.dir}/dependencies/commons-httpclient-3.1.jar"/>
 				<arg value="-cp" /><arg file="${target.dir}/dependencies/hamcrest-core-1.1.jar"/>
 				<arg value="-cp" /><arg file="${target.dir}/dependencies/jmock-legacy-2.5.1.jar"/>
 				<arg value="-cp" /><arg file="${target.dir}/dependencies/objenesis-1.0.jar"/>
-				<arg value="-cp" /><arg file="${target.dir}/dependencies/stax-1.2.0.jar"/>
 				<arg value="-cp" /><arg file="${target.dir}/dependencies/cglib-nodep-2.1_3.jar"/>
 				<arg value="-cp" /><arg file="${target.dir}/dependencies/commons-io-1.4.jar"/>
 				<arg value="-cp" /><arg file="${target.dir}/dependencies/hamcrest-library-1.1.jar"/>
 				<arg value="-cp" /><arg file="${target.dir}/dependencies/junit-4.7.jar"/>
-				<arg value="-cp" /><arg file="${target.dir}/dependencies/saaj-api-1.3.jar"/>
-				<arg value="-cp" /><arg file="${target.dir}/dependencies/stax-api-1.0.1.jar"/>
-				<arg value="-cp" /><arg file="${target.dir}/dependencies/commons-codec-1.4.jar"/>
 				<arg value="-cp" /><arg file="${target.dir}/dependencies/commons-lang-2.4.jar"/>
 				<arg value="-cp" /><arg file="${target.dir}/dependencies/jmock-2.5.1.jar"/>
 				<arg value="-cp" /><arg file="${target.dir}/dependencies/junit-dep-4.4.jar"/>
-				<arg value="-cp" /><arg file="${target.dir}/dependencies/saaj-impl-1.3.jar"/>
-				<arg value="-cp" /><arg file="${target.dir}/dependencies/commons-collections-3.2.1.jar"/>
-				<arg value="-cp" /><arg file="${target.dir}/dependencies/commons-logging-1.1.1.jar"/>
 				<arg value="-cp" /><arg file="${target.dir}/dependencies/jmock-junit4-2.5.1.jar"/>
-				<arg value="-cp" /><arg file="${target.dir}/dependencies/junitUtils-1.1.2cr2.jar"/>
-				<arg value="-cp" /><arg file="${target.dir}/dependencies/simple-xml-2.2.jar"/>
-				<arg value="-cp" /><arg file="${target.dir}/dependencies/message-builder-util-1.1.2cr2.jar"/>				
-				<arg value="-cp" /><arg file="${target.dir}/dependencies/message-builder-xml-1.1.2cr2-tests.jar"/>				
-				<arg value="-cp" /><arg file="${target.dir}/dependencies/message-builder-xml-1.1.2cr2.jar"/>				
 				<!-- Sharpen options are defined in a separate file -->
 				<arg value="@translation-all-options" />
 			</args>
 		</sharpen>
 
-		<exec dir="${sharpen.workspace.dir}" executable="svn">
-		  <arg line="co"/>
-		  <arg line="--username svn"/>
-		  <arg line="--password svn"/>
-		  <arg line="http://subversion.intelliware.ca/rep/infoway/trunk/mbtdotnet"/>
-		</exec>
-		
-		<copy todir="${sharpen.workspace.dir}/mbtdotnet/core/Main" overwrite="true">
+		<copy todir="${sharpen.workspace.dir}/../../../message-builder-core/target/translation/mbtdotnet/message-builder-util/Main" overwrite="true">
 		  <fileset dir="${sharpen.workspace.dir}/${project}.net/src/main/java">
 		    <include name="**/*.cs" />
 		  </fileset>
 		</copy>
-
-
-		<copy todir="${sharpen.workspace.dir}/mbtdotnet/core/Test" overwrite="true">
+		
+		<!--
+		<copy todir="${sharpen.workspace.dir}/../../../message-builder-core/target/translation/mbtdotnet/message-builder-util/Test" overwrite="true">
 		  <fileset dir="${sharpen.workspace.dir}/${project}.net/src/test/java">
 		    <include name="**/*.cs" />
 		  </fileset>
 		</copy>
+		-->
 
 		<!--
 		<copy-sharpen-output todir="${sharpen.workspace.dir}/${project}.net/Main" fromdir="${sharpen.workspace.dir}/${project}.net/src/main/java" />

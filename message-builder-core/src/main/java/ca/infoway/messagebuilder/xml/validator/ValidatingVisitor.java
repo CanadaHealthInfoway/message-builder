@@ -16,6 +16,7 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 
 import ca.infoway.messagebuilder.Code;
+import ca.infoway.messagebuilder.Typed;
 import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode;
@@ -117,9 +118,9 @@ public class ValidatingVisitor implements MessageVisitor {
 
 	@SuppressWarnings("unchecked")
 	private void validateStructuralAttributeValue(Element base, Attr attr, Relationship relationship) {
-		if (StandardDataType.BL == StandardDataType.getByTypeName(relationship)) {
+		if (StandardDataType.BL == StandardDataType.getByTypeName((Typed) relationship)) {
 			new BlElementParser().parseBooleanValue(this.result, attr.getValue(), base, attr);
-		} else if (StandardDataType.CS == StandardDataType.getByTypeName(relationship)) {
+		} else if (StandardDataType.CS == StandardDataType.getByTypeName((Typed) relationship)) {
 			new CsElementParser().parseCodedSimpleValue(attr.getValue(), (Class<? extends Code>) getReturnType(relationship), base, this.result, attr);
 		} else {
 			this.result.addHl7Error(Hl7Error.createUnknownStructuralTypeError(relationship.getType(), relationship.getName(), base, attr));
@@ -142,7 +143,7 @@ public class ValidatingVisitor implements MessageVisitor {
 				this.result.addHl7Error(Hl7Error.createMissingPopulatedAttributeError(relationship.getName(), base));
 			} else {
 				try {
-					ElementParser parser = ParserRegistry.getInstance().get(relationship);
+					ElementParser parser = ParserRegistry.getInstance().get((Typed) relationship);
 					if (parser != null) {
 						parser.parse(ParseContextImpl.create(relationship, this.version), toNodeList(elements), this.result);
 					} else {

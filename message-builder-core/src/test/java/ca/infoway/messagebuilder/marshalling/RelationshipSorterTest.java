@@ -10,6 +10,9 @@ import ca.infoway.messagebuilder.j5goodies.BeanProperty;
 import ca.infoway.messagebuilder.xml.Cardinality;
 import ca.infoway.messagebuilder.xml.Relationship;
 
+/**
+ * @sharpen.ignore
+ */
 public class RelationshipSorterTest {
 
 	@Test
