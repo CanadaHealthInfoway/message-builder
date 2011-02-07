@@ -169,7 +169,7 @@ class BridgeFactoryImpl implements BridgeFactory {
 			if (relationship.getCardinality().isMultiple() && value instanceof Iterable) {
 				this.log.debug("Association " + Describer.describe(currentMessagePart, relationship) 
 						+ " maps to collection property " + Describer.describe(sorter.getBeanType(), property));
-				return createCollectionOfCompositeBeanBridges(property.getName(), relationship, (Iterable) value, interaction);
+				return createCollectionOfCompositeBeanBridges(property.getName(), relationship, (Iterable<Object>) value, interaction);
 			} else if (context.isIndexed() && property.isCollection()) {
 				this.log.debug("Association " + Describer.describe(currentMessagePart, relationship) 
 						+ " maps to index " + context.getIndex() +  " of collection property " + Describer.describe(sorter.getBeanType(), property));
@@ -187,7 +187,7 @@ class BridgeFactoryImpl implements BridgeFactory {
 				
 				// Bug 13050 - should handle a single cardinality relationship if mapped to a collection
 				if (value instanceof Iterable) {
-					Iterator iterator = ((Iterable) value).iterator();
+					Iterator<Object> iterator = ((Iterable<Object>) value).iterator();
 					value = iterator.hasNext() ? iterator.next() : null;
 				}
 				

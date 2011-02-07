@@ -19,7 +19,7 @@ import ca.infoway.messagebuilder.j5goodies.BeanProperty;
  */
 class RelationshipMap {
 	
-	class Key {
+	static class Key {
 		private final String name;
 		private final String type;
 		Key(NamedAndTyped namedAndTyped) {
