@@ -1,5 +1,5 @@
 <assembly>
-    <id>chi-only-${project.version}</id>
+    <id>custom</id>
     <formats>
         <format>zip</format>
     </formats>
@@ -19,6 +19,9 @@
           </dependencySets>
           <unpack>false</unpack>
           <outputDirectory>core</outputDirectory>
+          <includes>
+            <include>target/*-sources.jar</include>
+          </includes>
         </binaries>
       </moduleSet>
       <moduleSet>
@@ -36,6 +39,9 @@
           </dependencySets>
           <unpack>false</unpack>
           <outputDirectory>core/lib</outputDirectory>
+          <includes>
+            <include>target/*-sources.jar</include>
+          </includes>
         </binaries>
       </moduleSet>
       
@@ -60,6 +66,9 @@
           </dependencySets>
           <unpack>false</unpack>
           <outputDirectory>releases/release-r02_04_02</outputDirectory>
+          <includes>
+            <include>target/*-sources.jar</include>
+          </includes>
         </binaries>
       </moduleSet>
 
@@ -84,6 +93,9 @@
           </dependencySets>
           <unpack>false</unpack>
           <outputDirectory>releases/release-v02_r02</outputDirectory>
+          <includes>
+            <include>target/*-sources.jar</include>
+          </includes>
         </binaries>
       </moduleSet>
 
@@ -108,6 +120,9 @@
           </dependencySets>
           <unpack>false</unpack>
           <outputDirectory>releases/release-v02_r01</outputDirectory>
+          <includes>
+            <include>target/*-sources.jar</include>
+          </includes>
         </binaries>
       </moduleSet>
 
@@ -132,6 +147,9 @@
           </dependencySets>
           <unpack>false</unpack>
           <outputDirectory>releases/release-v01_r04_3</outputDirectory>
+          <includes>
+            <include>target/*-sources.jar</include>
+          </includes>
         </binaries>
       </moduleSet>
 
@@ -156,6 +174,9 @@
           </dependencySets>
           <unpack>false</unpack>
           <outputDirectory>chi</outputDirectory>
+          <includes>
+            <include>target/*-sources.jar</include>
+          </includes>
         </binaries>
       </moduleSet>
 
@@ -318,20 +339,5 @@
         </includes>
         <outputDirectory>source</outputDirectory>
       </fileSet>
-      <fileSet>
-        <directory>./</directory>
-        <includes>
-          <include>pom.xml</include>
-        </includes>
-        <outputDirectory>etc</outputDirectory>
-      </fileSet>
-      <fileSet>
-        <directory>etc</directory>
-        <includes>
-          <include>**/*</include>
-        </includes>
-        <outputDirectory>etc</outputDirectory>
-      </fileSet>
     </fileSets>
 </assembly>
-
