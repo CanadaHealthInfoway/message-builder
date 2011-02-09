@@ -299,9 +299,13 @@
 			        <configuration>
 			          <finalName>message-builder</finalName>
 			          <outputDirectory>target/assembly-directory</outputDirectory>
-					    <descriptorRefs>
-					        <descriptorRef>project</descriptorRef>
-					    </descriptorRefs>
+    			          <!-- descriptorRefs>
+				    <descriptorRef>project</descriptorRef>
+			          </descriptorRefs -->
+				  <descriptors>
+				    <descriptor>./etc/assembly-descriptor-chi.xml</descriptor>
+				    <descriptor>./etc/assembly-descriptor-dev.xml</descriptor>
+				  </descriptors>
 			        </configuration>
 		      </plugin>
 
@@ -335,30 +339,15 @@
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-javadoc-plugin</artifactId>
-				<version>2.7</version>
-				<inherited>false</inherited>
-		        <executions>
-		          <execution>
-		            <goals>
-		              <goal>aggregate-jar</goal>
-		            </goals>
-		            <phase>package</phase>
-		            <configuration>
-		            	<excludePackageNames>ca.infoway.messagebuilder.model:ca.infoway.messagebuilder.junit:ca.infoway.messagebuilder.acceptance:ca.infoway.messagebuilder.messageset:ca.infoway.messagebuilder.marker</excludePackageNames>
-		            </configuration>
-		          </execution>
-		        </executions>
- 			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-release-plugin</artifactId>
-				<version>2.0-beta-9</version>
+				<version>2.1</version>
 				<configuration>
 					<tagBase>http://subversion.intelliware.ca/rep/infoway/tags
 					</tagBase>
 					<!-- See http://jira.codehaus.org/browse/SCM-406 -->
 					<remoteTagging>true</remoteTagging>
+                    			<preparationGoals>clean install</preparationGoals>
+
 				</configuration>
 			</plugin>
 		</plugins>
@@ -390,10 +379,6 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-report-plugin</artifactId>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-javadoc-plugin</artifactId>
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -449,3 +434,4 @@
 		</pluginRepository>
 	</pluginRepositories>
 </project>
+
