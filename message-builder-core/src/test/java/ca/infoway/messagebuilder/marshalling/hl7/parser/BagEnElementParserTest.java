@@ -6,12 +6,10 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.List;
 
-import org.apache.commons.collections.CollectionUtils;
 import org.junit.Test;
 import org.w3c.dom.Node;
 
 import ca.infoway.messagebuilder.SpecificationVersion;
-import ca.infoway.messagebuilder.datatype.ANY;
 import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.LIST;
 import ca.infoway.messagebuilder.datatype.PN;
@@ -70,7 +68,8 @@ public class BagEnElementParserTest extends ParserTestCase {
 		assertNotNull("null", list);
 		assertEquals("size", 1, list.size());
 		
-		PN firstName = hl7List.getValue().iterator().next();
+		List<PN> pnList = (List<PN>) hl7List.getValue();
+		PN firstName = pnList.get(0);
 		assertTrue("null", firstName.isNull());
 	}
 }

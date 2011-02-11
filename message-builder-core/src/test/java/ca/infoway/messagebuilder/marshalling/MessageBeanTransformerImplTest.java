@@ -27,7 +27,7 @@ public class MessageBeanTransformerImplTest {
 	private MessageBeanTransformerImpl transformer;
 	private DocumentFactory factory;
 	
-	private static final String MESSAGE = "ca/infoway/messagebuilder/transport/mohawk/sample/findCandidatesQuery.xml";
+	private static final String MESSAGE = "/ca/infoway/messagebuilder/transport/mohawk/sample/findCandidatesQuery.xml";
 	
 	private static final String UNSUPPORTED_MESSAGE_XML =
 						"<?xml version=\"1.0\" encoding=\"UTF-8\"?>" +
@@ -45,7 +45,7 @@ public class MessageBeanTransformerImplTest {
 	@Test
 	public void shouldProduceRightResultForResponse() throws Exception {
 		XmlToModelResult result = this.transformer.transformFromHl7(MockVersionNumber.MOCK,
-				this.factory.createFromResource(new ClasspathResource(MESSAGE)));
+				this.factory.createFromResource(new ClasspathResource(this.getClass(), MESSAGE)));
 		
 		assertNotNull("result", result);
 		assertNotNull("bean", result.getMessageObject());

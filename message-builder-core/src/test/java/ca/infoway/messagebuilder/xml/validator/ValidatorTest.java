@@ -138,7 +138,10 @@ public class ValidatorTest {
 	}
 	
 	private Validator createValidator(String resourceName) throws IOException, SAXException {
-		Document document = new DocumentFactory().createFromResource(new ClasspathResource(resourceName));
+		if (!resourceName.startsWith("/")) {
+			resourceName = "/" + resourceName;
+		}
+		Document document = new DocumentFactory().createFromResource(new ClasspathResource(this.getClass(), resourceName));
 		return new Validator(new Service(), document, SpecificationVersion.V02R02.getVersionLiteral());
 	}
 	
@@ -164,7 +167,7 @@ public class ValidatorTest {
 	}
 
 	private Validator createNewValidator(String resourceName) throws IOException, SAXException {
-		Document document = new DocumentFactory().createFromResource(new ClasspathResource(resourceName));
+		Document document = new DocumentFactory().createFromResource(new ClasspathResource(this.getClass(), resourceName));
 		MessageDefinitionService messageDefinitionService = new MessageDefinitionServiceFactory().create();
 		return new Validator(messageDefinitionService, document, SpecificationVersion.R02_04_02.getVersionLiteral());
 	}
