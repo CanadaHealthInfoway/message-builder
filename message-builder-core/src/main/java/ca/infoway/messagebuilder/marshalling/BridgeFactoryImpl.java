@@ -169,7 +169,7 @@ class BridgeFactoryImpl implements BridgeFactory {
 			if (relationship.getCardinality().isMultiple() && value instanceof Iterable) {
 				this.log.debug("Association " + Describer.describe(currentMessagePart, relationship) 
 						+ " maps to collection property " + Describer.describe(sorter.getBeanType(), property));
-				return createCollectionOfCompositeBeanBridges(property.getName(), relationship, (Iterable<Object>) value, interaction);
+				return createCollectionOfCompositeBeanBridges(property.getName(), relationship, (Iterable) value, interaction);
 			} else if (context.isIndexed() && property.isCollection()) {
 				this.log.debug("Association " + Describer.describe(currentMessagePart, relationship) 
 						+ " maps to index " + context.getIndex() +  " of collection property " + Describer.describe(sorter.getBeanType(), property));
@@ -186,9 +186,8 @@ class BridgeFactoryImpl implements BridgeFactory {
 						+ " maps to property " + Describer.describe(sorter.getBeanType(), property));
 				
 				// Bug 13050 - should handle a single cardinality relationship if mapped to a collection
-				if (value instanceof Iterable) {
-					Iterator<Object> iterator = ((Iterable<Object>) value).iterator();
-					value = iterator.hasNext() ? iterator.next() : null;
+				if (ListElementUtil.isCollection(value)) {
+					value = ListElementUtil.isEmpty(value) ? null : ListElementUtil.getElement(value, 0);
 				}
 				
 				return new AssociationBridgeImpl(relationship, 
@@ -224,7 +223,7 @@ class BridgeFactoryImpl implements BridgeFactory {
 		return new AttributeBridgeImpl(relationship, property);
 	}
 
-	private AssociationBridge createCollectionOfCompositeBeanBridges(String propertyName, Relationship relationship, Iterable<Object> value, Interaction interaction) {
+	private AssociationBridge createCollectionOfCompositeBeanBridges(String propertyName, Relationship relationship, Iterable value, Interaction interaction) {
 		List<PartBridge> list = new ArrayList<PartBridge>();
 		for (Object object : value) {
 			list.add(createPartBridgeFromBean(propertyName, object, interaction, getMessagePart(interaction, relationship, value)));
