@@ -33,7 +33,7 @@ public class AddPersonXmlTransformationTest {
 	
 	protected static final SpecificationVersion VERSION = SpecificationVersion.R02_04_02;
 
-	private static final String REQUEST_MESSAGE_FILE = "ca/infoway/messagebuilder/sample/cr/v02r02/addPersonRequest.xml";
+	private static final String REQUEST_MESSAGE_FILE = "/ca/infoway/messagebuilder/sample/cr/v02r02/addPersonRequest.xml";
 //	private static final String ACCEPTED_MESSAGE_FILE = "ca/infoway/messagebuilder/sample/cr/v02r02/addPersonRequestAccepted.xml";
 //	private static final String REFUSED_MESSAGE_FILE = "ca/infoway/messagebuilder/sample/cr/v02r02/addPersonRequestRefused.xml";
 
@@ -50,7 +50,7 @@ public class AddPersonXmlTransformationTest {
 	
 	@Test @Ignore
 	public void shouldMarshallUnMarshall() throws Exception {
-		Document original = factory.createFromResource(new ClasspathResource(REQUEST_MESSAGE_FILE));
+		Document original = factory.createFromResource(new ClasspathResource(this.getClass(), REQUEST_MESSAGE_FILE));
 		String originalSimpleXml = toSimpleXmlFromHl7(original);
 
 		System.out.println(originalSimpleXml);

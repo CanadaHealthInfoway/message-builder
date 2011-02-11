@@ -18,7 +18,7 @@ import ca.infoway.messagebuilder.xml.service.MockTestCaseMessageDefinitionServic
 
 public class Hl7SourceMapperMessageBeanTest {
 	
-	private static final String QUERY_RESPONSE_MESSAGE_FILE = "ca/infoway/messagebuilder/transport/mohawk/sample/findCandidatesQuery.xml";
+	private static final String QUERY_RESPONSE_MESSAGE_FILE = "/ca/infoway/messagebuilder/transport/mohawk/sample/findCandidatesQuery.xml";
 	private Document document;
 	private MessageDefinitionService service;
 	private Hl7MessageSource messageSource;
@@ -50,6 +50,6 @@ public class Hl7SourceMapperMessageBeanTest {
 	}
 
 	private Document getSourceDocument() throws Exception {
-		return new DocumentFactory().createFromResource(new ClasspathResource(QUERY_RESPONSE_MESSAGE_FILE));
+		return new DocumentFactory().createFromResource(new ClasspathResource(this.getClass(), QUERY_RESPONSE_MESSAGE_FILE));
 	}
 }

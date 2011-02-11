@@ -83,7 +83,7 @@ abstract class BaseMifXPathHelper {
 				List<Annotation> annotations = new ArrayList<Annotation>();
 				if (!elements.isEmpty()) {
 					Annotation annotation = new Annotation();
-					annotation.setAnnotationType(annotationType);
+					annotation.setAnnotationTypeAsEnum(annotationType);
 					for (Element paragraph : elements) {
 						recurisvelyClearMifPrefix(paragraph);
 						try {

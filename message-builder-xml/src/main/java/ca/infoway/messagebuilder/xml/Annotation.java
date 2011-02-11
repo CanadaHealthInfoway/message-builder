@@ -62,7 +62,23 @@ public class Annotation {
 	 * <p>Get the annotation Type
 	 * @return annotation Type
 	 */
-	public AnnotationType getAnnotationType() {
+	public String getAnnotationType() {
+		return this.annotationType;
+	}
+
+	/**
+	 * <p>Set the annotation Type
+	 * @param annotationType
+	 */
+	public void setAnnotationType(String annotationType) {
+		this.annotationType = annotationType;
+	}
+
+	/**
+	 * <p>Get the annotation Type
+	 * @return annotation Type
+	 */
+	public AnnotationType getAnnotationTypeAsEnum() {
 		if (this.annotationType != null) {
 			return EnumPattern.valueOf(AnnotationType.class, this.annotationType);
 		}
@@ -73,7 +89,7 @@ public class Annotation {
 	 * <p>Set the annotation Type
 	 * @param annotationType
 	 */
-	public void setAnnotationType(AnnotationType annotationType) {
+	public void setAnnotationTypeAsEnum(AnnotationType annotationType) {
 		this.annotationType = annotationType == null ? null : annotationType.getName();
 	}
 
@@ -93,10 +109,6 @@ public class Annotation {
 		this.otherAnnotationType = otherAnnotationType;
 	}
 
-	public void setAnnotationType(String annotationType) {
-		this.annotationType = annotationType;
-	}
-	
 	/**
 	 * <p>Standard equals implementation.
 	 * 
