@@ -15,6 +15,7 @@ import org.jmock.Expectations;
 import org.jmock.Mockery;
 import org.jmock.integration.junit4.JMock;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -49,6 +50,7 @@ public class UsingManagerTest {
 	}
 	
 	@Test
+	@Ignore
 	public void shouldImportSystemTypes() throws Exception {
 		
 		Set<Object> classes = new HashSet<Object>();

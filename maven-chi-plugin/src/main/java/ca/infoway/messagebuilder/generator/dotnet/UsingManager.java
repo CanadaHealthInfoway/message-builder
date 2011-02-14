@@ -19,6 +19,7 @@ import java.util.TreeSet;
 
 import org.apache.commons.lang.ClassUtils;
 import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang.WordUtils;
 
 import ca.infoway.messagebuilder.generator.java.NameTranslator;
 import ca.infoway.messagebuilder.generator.java.Type;
@@ -122,14 +123,22 @@ public class UsingManager extends Indenter implements DependencyManager {
 	}
 
 	public String getRepresentationOfClassName(String className) {
-		String namespace = ClassUtils.getPackageName(className);
-		if (this.currentNamespace.equals(namespace)) {
-			return ClassUtils.getShortClassName(className);
-		} else if (this.imports.contains(NamespaceHelper.toNamespace(namespace)) && !isAmbiguous(className)) {
-			return ClassUtils.getShortClassName(className);
-		} else {
-			return className;
+		String namespace = toCSharpConvention(ClassUtils.getPackageName(className));
+//		if (this.currentNamespace.equals(namespace)) {
+//			return ClassUtils.getShortClassName(className);
+//		} else if (this.imports.contains(NamespaceHelper.toNamespace(namespace)) && !isAmbiguous(className)) {
+//			return ClassUtils.getShortClassName(className);
+//		} else {
+			return namespace + "." + ClassUtils.getShortClassName(className);
+//		}
+	}
+
+	private String toCSharpConvention(String packageName) {
+		String[] words = StringUtils.split(packageName, ".");
+		for (int i = 0; i < words.length; i++) {
+			words[i] = WordUtils.capitalize(words[i]);
 		}
+		return StringUtils.join(words, ".");
 	}
 
 	private boolean isAmbiguous(String className) {
