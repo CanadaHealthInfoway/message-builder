@@ -2,6 +2,7 @@ package ca.infoway.messagebuilder.marshalling;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -19,7 +20,7 @@ public class Hl7SourceMapperRequestMessageBeanTest {
 	
 	private static final String XML = "<NLPN_IN100200CA xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns=\"urn:hl7-org:v3\" ITSVersion=\"XML_1.0\">" +
 	"    <id root=\"1ee83ff1-08ab-4fe7-b573-ea777e9bad51\"/>" +
-	"    <creationTime value=\"20080625141610\"/>" +
+	"    <creationTime value=\"20080625141610-0500\"/>" +
 	"    <responseModeCode code=\"I\"/>" +
 	"    <versionCode code=\"V3-2007-05\"/>" +
 	"    <interactionId extension=\"NLPN_IN100200CA\" root=\"2.16.840.1.113883.1.6\" displayable=\"true\" />" +
@@ -48,7 +49,7 @@ public class Hl7SourceMapperRequestMessageBeanTest {
 	"        <low value=\"20080918\"/>" +
 	"      </effectiveTime>" +
 	"      <author typeCode=\"AUT\" contextControlCode=\"AP\">" +
-	"        <time value=\"20080918181800\"/>" +
+	"        <time value=\"20080625141610-0500\"/>" +
 	"       <assignedEntity1 classCode=\"ASSIGNED\">" +
 	"          <id extension=\"EHR ID EXT\" root=\"2.16.840.1.113883.4.267\" displayable=\"true\"/>" +
 	"          <assignedPerson classCode=\"PSN\" determinerCode=\"INSTANCE\">" +
@@ -108,6 +109,7 @@ public class Hl7SourceMapperRequestMessageBeanTest {
 		XmlToModelResult xmlToJavaResult = new Hl7SourceMapper().mapToTeal(this.messageSource);
 		UpdatePasswordRequestMessageBean teal = (UpdatePasswordRequestMessageBean) xmlToJavaResult.getMessageObject();
 		assertNotNull("message Bean", teal);
+		assertTrue(xmlToJavaResult.getHl7Errors().isEmpty());
 		assertEquals("controlActEvent.code", "NLPN_TE100200CA", teal.getControlActEventBean().getCode().getCodeValue());
 		assertEquals("assignedDevice.assignedRespository", "Panacea",
 				teal.getControlActEventBean().getRegistrationBean().getAssignedDevice().getAssignedRepository());

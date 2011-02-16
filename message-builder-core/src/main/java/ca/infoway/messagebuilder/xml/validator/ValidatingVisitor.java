@@ -17,6 +17,8 @@ import org.w3c.dom.Node;
 
 import ca.infoway.messagebuilder.Code;
 import ca.infoway.messagebuilder.Typed;
+import ca.infoway.messagebuilder.datatype.BareANY;
+import ca.infoway.messagebuilder.datatype.CD;
 import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode;
@@ -116,7 +118,6 @@ public class ValidatingVisitor implements MessageVisitor {
 		}
 	}
 
-	@SuppressWarnings("unchecked")
 	private void validateStructuralAttributeValue(Element base, Attr attr, Relationship relationship) {
 		if (StandardDataType.BL == StandardDataType.getByTypeName((Typed) relationship)) {
 			new BlElementParser().parseBooleanValue(this.result, attr.getValue(), base, attr);
@@ -145,13 +146,27 @@ public class ValidatingVisitor implements MessageVisitor {
 				try {
 					ElementParser parser = ParserRegistry.getInstance().get((Typed) relationship);
 					if (parser != null) {
-						parser.parse(ParseContextImpl.create(relationship, this.version), toNodeList(elements), this.result);
+						BareANY value = parser.parse(ParseContextImpl.create(relationship, this.version), toNodeList(elements), this.result);
+						validateNonstructuralFixedValue(relationship, value);
 					} else {
 						this.result.addHl7Error(new Hl7Error(Hl7ErrorCode.SYNTAX_ERROR, "Cannot find a parser for type " + relationship.getType()));
 					}
 				} catch (XmlToModelTransformationException e) {
 					this.result.addHl7Error(new Hl7Error(Hl7ErrorCode.SYNTAX_ERROR, e.getMessage()));
 				}
+			}
+		}
+	}
+
+	private void validateNonstructuralFixedValue(Relationship relationship,	BareANY value) {
+		if (relationship.isFixed()) {
+			if (value instanceof CD) {
+				Code code = ((CD) value).getValue();
+				if (code == null || code.getCodeValue() == null || !StringUtils.equals(relationship.getFixedValue(), code.getCodeValue())) {
+					this.result.addHl7Error(new Hl7Error(Hl7ErrorCode.MANDATORY_FIELD_NOT_PROVIDED, "Fixed-value attribute '" + relationship.getName() +"' must have value '" + relationship.getFixedValue() + "'"));
+				}
+			} else {
+				this.result.addHl7Error(new Hl7Error(Hl7ErrorCode.SYNTAX_ERROR, "Non-structural fixed-value attribute '" + relationship.getName() +"' was not a 'code' datatype as expected but was of type '" + relationship.getType() + "'"));
 			}
 		}
 	}

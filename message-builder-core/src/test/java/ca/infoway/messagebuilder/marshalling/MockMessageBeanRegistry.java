@@ -10,6 +10,7 @@ import ca.infoway.messagebuilder.model.mock.AssignedDeviceBean;
 import ca.infoway.messagebuilder.model.mock.AssignedPersonBean;
 import ca.infoway.messagebuilder.model.mock.AuthorBean;
 import ca.infoway.messagebuilder.model.mock.InFulfillmentOfBean;
+import ca.infoway.messagebuilder.model.mock.QuantityObservationEventBean;
 import ca.infoway.messagebuilder.model.mock.QueryByParameterBean;
 import ca.infoway.messagebuilder.model.mock.QueryControlActEventBean;
 import ca.infoway.messagebuilder.model.mock.Receiver;
@@ -63,6 +64,8 @@ public class MockMessageBeanRegistry {
 			MessageBeanRegistry.getInstance().registerClass(BeanB.class, MockVersionNumber.MOCK);
 			MessageBeanRegistry.getInstance().registerClass(SimpleInteraction.class, MockVersionNumber.MOCK);
 			
+			MessageBeanRegistry.getInstance().registerClass(QuantityObservationEventBean.class, MockVersionNumber.MOCK);
+
 			MessageBeanRegistry.getInstance().registerClass(InFulfillmentOfBean.class, MockVersionNumber.MOCK_MR2009);
 			
 			initialized = true;

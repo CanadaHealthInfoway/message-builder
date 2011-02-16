@@ -24,7 +24,7 @@
         <!-- event id -->
 		<id extension="1" root="2.16.124.113620.1.1.1.1.1.1" use="BUS" />
 		<code code="PRPA_TE101101CA" codeSystem="2.16.840.1.113883.5.4" />
-		<statusCode code="new" />
+		<statusCode code="completed" />
 		<subjectOf2 typeCode="SUBJ" contextControlCode="AP" contextConductionInd="false">
 			<detectedIssueEvent xsi:nil="true" nullFlavor="NI" />
 		</subjectOf2>

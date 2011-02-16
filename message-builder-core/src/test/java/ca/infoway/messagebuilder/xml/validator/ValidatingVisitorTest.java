@@ -1,8 +1,10 @@
 package ca.infoway.messagebuilder.xml.validator;
 
 import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import org.junit.Test;
@@ -10,8 +12,12 @@ import org.w3c.dom.Element;
 import org.xml.sax.SAXException;
 
 import ca.infoway.messagebuilder.SpecificationVersion;
+import ca.infoway.messagebuilder.domainvalue.controlact.ActStatus;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
+import ca.infoway.messagebuilder.resolver.CodeResolverRegistry;
+import ca.infoway.messagebuilder.resolver.EnumBasedCodeResolver;
 import ca.infoway.messagebuilder.util.xml.DocumentFactory;
+import ca.infoway.messagebuilder.xml.CodingStrength;
 import ca.infoway.messagebuilder.xml.ConformanceLevel;
 import ca.infoway.messagebuilder.xml.Relationship;
 
@@ -36,6 +42,56 @@ public class ValidatingVisitorTest {
 		
 		List<Hl7Error> hl7Errors = validatingVisitor.getResult().getHl7Errors();
 		assertFalse(hl7Errors.isEmpty());
+	}
+	
+	@Test
+	public void shouldHaveValidationErrorForFixedNonStructural() throws Exception {
+		
+		CodeResolverRegistry.register(new EnumBasedCodeResolver(ActStatus.class));
+		
+		Relationship relationship = new Relationship();
+		relationship.setName("statusCode");
+		relationship.setConformance(MANDATORY);
+		relationship.setFixedValue("completed");
+		relationship.setDomainType("ActStatus");
+		relationship.setCodingStrength(CodingStrength.CNE);
+		relationship.setType("CS");
+		relationship.setStructural(false);
+		
+		ValidatingVisitor validatingVisitor = new ValidatingVisitor(SpecificationVersion.R02_04_02.getVersionLiteral());
+		validatingVisitor.visitNonStructuralAttribute(createElement("<node/>"), Arrays.asList(createElement("<statusCode code=\"completed\"/>")), relationship);
+		List<Hl7Error> hl7Errors = validatingVisitor.getResult().getHl7Errors();
+		assertTrue(hl7Errors.isEmpty());
+
+		validatingVisitor = new ValidatingVisitor(SpecificationVersion.R02_04_02.getVersionLiteral());
+		validatingVisitor.visitNonStructuralAttribute(createElement("<node/>"), Arrays.asList(createElement("<statusCode code=\"new\"/>")), relationship);
+		hl7Errors = validatingVisitor.getResult().getHl7Errors();
+		assertFalse(hl7Errors.isEmpty());
+
+		validatingVisitor = new ValidatingVisitor(SpecificationVersion.R02_04_02.getVersionLiteral());
+		validatingVisitor.visitNonStructuralAttribute(createElement("<node/>"), Arrays.asList(createElement("<statusCode code=\"completedABC\"/>")), relationship);
+		hl7Errors = validatingVisitor.getResult().getHl7Errors();
+		assertFalse(hl7Errors.isEmpty());
+		
+	}
+	
+	@Test
+	public void shouldHaveValidationErrorForFixedNonStructuralWhenNotCodeType() throws Exception {
+		
+		CodeResolverRegistry.register(new EnumBasedCodeResolver(ActStatus.class));
+		
+		Relationship relationship = new Relationship();
+		relationship.setName("statusCode");
+		relationship.setConformance(MANDATORY);
+		relationship.setFixedValue("true");
+		relationship.setStructural(false);
+		relationship.setType("BL");
+
+		ValidatingVisitor validatingVisitor = new ValidatingVisitor(SpecificationVersion.R02_04_02.getVersionLiteral());
+		validatingVisitor.visitNonStructuralAttribute(createElement("<node/>"), Arrays.asList(createElement("<statusCode value=\"true\"/>")), relationship);
+		List<Hl7Error> hl7Errors = validatingVisitor.getResult().getHl7Errors();
+		assertFalse(hl7Errors.isEmpty());
+
 	}
 	
 	private Element createElement(String xml) throws SAXException {
