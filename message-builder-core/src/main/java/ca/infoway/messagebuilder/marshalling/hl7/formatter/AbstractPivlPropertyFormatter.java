@@ -73,7 +73,7 @@ abstract class AbstractPivlPropertyFormatter extends AbstractNullFlavorPropertyF
 			buffer.append(createElement(FREQUENCY, value.getRepetitions(), value.getQuantity(), indentLevel));
 			break;
 		default:
-			break;
+			// removed "break" to correct c# translation
 		}
 	}
 
