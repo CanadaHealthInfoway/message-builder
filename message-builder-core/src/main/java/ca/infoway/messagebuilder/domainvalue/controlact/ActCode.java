@@ -16,6 +16,7 @@ public class ActCode extends EnumPattern implements ca.infoway.messagebuilder.do
 	public static final ActCode SEV = new ActCode("SEV"); 
 	public static final ActCode STORE = new ActCode("STORE"); 
 	public static final ActCode INFA = new ActCode("INFA"); 
+	public static final ActCode INF = new ActCode("INF"); 
 	public static final ActCode REP_HALF_LIFE = new ActCode("REP_HALF_LIFE"); 
 	public static final ActCode OBSANTV = new ActCode("OBSANTV"); 
 	public static final ActCode OBSANTC = new ActCode("OBSANTC"); 
