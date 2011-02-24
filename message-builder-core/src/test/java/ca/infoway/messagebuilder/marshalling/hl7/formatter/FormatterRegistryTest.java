@@ -22,9 +22,14 @@ public class FormatterRegistryTest {
         
         for (File file : files) {
             String javaClassName = JavaFileUtil.convertFileNameToJavaClassName(SourceCodeLocationUtil.SOURCE_DIRECTORY, file);
-            Class<?> javaClass = Class.forName(javaClassName);
-            if (isFormatter(javaClass)) {
-                assertFormatterIsRegistered((Class<? extends PropertyFormatter>) javaClass);
+            try {
+	            Class<?> javaClass = Class.forName(javaClassName);
+	            if (isFormatter(javaClass)) {
+	                assertFormatterIsRegistered((Class<? extends PropertyFormatter>) javaClass);
+	            }
+            } catch (ClassNotFoundException e) {
+            	// this case shouldn't happen in Java, but is useful when the code is 
+            	// converted to .Net
             }
         }
     }
