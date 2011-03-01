@@ -126,13 +126,25 @@ public class PropertyNameResolver implements BaseRelationshipNameResolver {
 	}
 	
 	private void registerName(BaseRelationship baseRelationship, String name) throws GeneratorException {
-		String camelCaseRelationshipName = toCamelCase(name);
+		String camelCaseRelationshipName = toCamelCase(stripPunctuation(name));
 		if (!isValidCsharpName(camelCaseRelationshipName)) {
 			camelCaseRelationshipName += "Value";
 		}
 		this.map.put(baseRelationship, camelCaseRelationshipName);
 	}
 	
+
+	private String stripPunctuation(String name) {
+		StringBuilder builder = new StringBuilder();
+		for (char c : name.toCharArray()) {
+			if ("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890_".indexOf(c) < 0) {
+				builder.append(" ");
+			} else {
+				builder.append(c);
+			}
+		}
+		return builder.toString();
+	}
 
 	public String getName(BaseRelationship relationship) {
 		return this.map.get(relationship);

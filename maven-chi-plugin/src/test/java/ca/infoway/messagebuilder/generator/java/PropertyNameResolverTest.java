@@ -23,6 +23,17 @@ public class PropertyNameResolverTest {
 	}
 	
 	@Test
+	public void shouldRemoveDotsFromName() throws Exception {
+		Attribute attribute = new AttributeBuilder()
+				.setName("person.name").build();
+		
+		PropertyNameResolver resolver = new PropertyNameResolver("Person", 
+				Arrays.<BaseRelationship>asList(attribute));
+		
+		assertEquals("PersonName", resolver.getName(attribute));
+	}
+	
+	@Test
 	public void shouldInventUniqueNamesIfThereAreDuplicates() throws Exception {
 		Association association1 = new AssociationBuilder()
 				.setName("assignedEntity").setCardinality(new Cardinality(0, 1))
@@ -56,5 +67,4 @@ public class PropertyNameResolverTest {
 		assertEquals("AssignedEntityAssociation1", resolver.getName(association1));
 		assertEquals("AssignedEntityAssociation2", resolver.getName(association2));
 	}
-	
 }
