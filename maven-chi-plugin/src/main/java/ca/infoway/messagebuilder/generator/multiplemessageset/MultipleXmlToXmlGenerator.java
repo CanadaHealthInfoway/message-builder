@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Set;
 
 import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.lang.SystemUtils;
 
 import ca.infoway.messagebuilder.generator.GeneratorException;
 import ca.infoway.messagebuilder.generator.LogLevel;
@@ -58,11 +59,13 @@ public class MultipleXmlToXmlGenerator implements MessageSetGenerator {
 			renameTemplateParameterNames(primaryMessageSet, secondaryMessageSet);
 			MessageSet mergedMessageSet = mergeMessageSets(mergeContext, primaryMessageSet, secondaryMessageSet);
 			
-			createMergeReport(mergedMessageSet, new File("/tmp/generatorMergeReport.xls"));
+			createMergeReport(mergedMessageSet, new File(SystemUtils.getJavaIoTmpDir(),
+					"generatorMergeReport.xls"));
 			
 			Set<ExcisedItem> excisedItems = exciseUnmatchedItems(mergedMessageSet);
 			
-			createExciseReport(excisedItems, new File("/tmp/generatorExciseReport_firstPass.xls"));
+			createExciseReport(excisedItems, new File(SystemUtils.getJavaIoTmpDir(),
+					"generatorExciseReport_firstPass.xls"));
 			
 			this.outputUI.log(LogLevel.INFO, MESSAGE_SET_MERGE_COMPLETED);
 		}
