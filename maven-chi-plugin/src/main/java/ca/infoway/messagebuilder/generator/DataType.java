@@ -181,7 +181,7 @@ public class DataType {
 	 */
 	private String getUnparameterizedShortImplementationType(StringBuilder builder) {
 		StringBuilder stringBuilder = new StringBuilder();
-		if (isBareCollection()) {
+		if (isBasicCollection()) {
 			stringBuilder.append(ClassUtils.getShortClassName(DataTypeGenerationDetails.LIST.getHl7TypeName()));
 		} else {
 			stringBuilder.append(getUnparameterizedShortWrappedName());
@@ -194,8 +194,16 @@ public class DataType {
 		}
 		return result;
 	}
-	private boolean isBareCollection() {
-		return this.type == DataTypeGenerationDetails.COLLECTION;
+	
+	/**
+	 * <p>BAG and COLLECTION types are not really supported by the pan-Canadian standards,
+	 * and yet we've seen instances where we need to support them.  For all intents
+	 * and purposes, we'll treat them like LISTs.
+	 * @return
+	 */
+	private boolean isBasicCollection() {
+		return this.type == DataTypeGenerationDetails.COLLECTION || 
+			this.type == DataTypeGenerationDetails.BAG;
 	}
 	
 	@Override
@@ -234,7 +242,7 @@ public class DataType {
 		return builder.toString();
 	}
 	private ParameterAppender getImplementationParameterAppender() {
-		if (isBareCollection()) {
+		if (isBasicCollection()) {
 			return parameterAppenderRegistry.getAppender(StandardDataType.LIST);
 		} else {
 			return parameterAppenderRegistry.getAppender(StandardDataType.getByTypeName(getUnparameterizedShortWrappedName()));

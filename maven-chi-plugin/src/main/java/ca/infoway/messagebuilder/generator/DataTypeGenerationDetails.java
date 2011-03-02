@@ -217,6 +217,7 @@ enum DataTypeGenerationDetails implements Typed {
 	SET("SET", SET.class.getName(), Set.class.getName(), "System.Collections.Generic.ICollection"), 
 	SET_II("SET<II>", SET.class.getName(), Set.class.getName(), "System.Collections.Generic.ICollection"),
 	
+	BAG("BAG", COLLECTION.class.getName(), Collection.class.getName(), "System.Collections.Generic.IList"), 
 	LIST("LIST", LIST.class.getName(), List.class.getName(), "System.Collections.Generic.IList"), 
 	LIST_TEL_PHONEMAIL("LIST<TEL.PHONEMAIL>", LIST.class.getName(), List.class.getName(), "System.Collections.Generic.IList");
 	

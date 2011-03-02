@@ -4,11 +4,15 @@ import static org.hamcrest.Matchers.hasItem;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Set;
 
 import org.junit.Test;
 
+import ca.infoway.messagebuilder.datatype.AD;
+import ca.infoway.messagebuilder.datatype.COLLECTION;
+import ca.infoway.messagebuilder.datatype.lang.PostalAddress;
 import ca.infoway.messagebuilder.generator.lang.ProgrammingLanguage;
 
 
@@ -18,6 +22,23 @@ public class DataTypeTest {
 	public void shouldGetBasicWrappedType() throws Exception {
 		DataType dataType = new DataType(DataTypeGenerationDetails.ST, null);
 		assertEquals("ST", "ST", dataType.getShortWrappedName());
+	}
+	
+	@Test
+	public void shouldGetNonPanCanadianType() throws Exception {
+		DataType dataType = new TypeConverter().convertToType("AD", null);
+		assertEquals("AD", "AD", dataType.getShortWrappedName());
+		assertEquals("AD - Java", "AD", dataType.getShortWrappedName(ProgrammingLanguage.JAVA));
+		assertEquals("AD class", AD.class.getName(), dataType.getHl7ClassName());
+		assertEquals("type", DataTypeGenerationDetails.AD, dataType.getType());
+		assertEquals("Java type", PostalAddress.class.getName(), dataType.getType().getJavaTypeName());
+		
+		dataType = new TypeConverter().convertToType("BAG<AD>", null);
+		assertEquals("BAG<AD>", "COLLECTION<AD>", dataType.getShortWrappedName());
+		assertEquals("BAG - Java", "COLLECTION<AD>", dataType.getShortWrappedName(ProgrammingLanguage.JAVA));
+		assertEquals("BAG class", COLLECTION.class.getName(), dataType.getHl7ClassName());
+		assertEquals("type", DataTypeGenerationDetails.BAG, dataType.getType());
+		assertEquals("Java type", Collection.class.getName(), dataType.getType().getJavaTypeName());
 	}
 	
 	@Test
