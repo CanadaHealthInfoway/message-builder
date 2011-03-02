@@ -1,7 +1,6 @@
 package ca.infoway.messagebuilder.marshalling;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
