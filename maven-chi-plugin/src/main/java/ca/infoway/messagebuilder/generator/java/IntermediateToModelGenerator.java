@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Set;
 
 import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang.SystemUtils;
 import org.apache.commons.lang.builder.CompareToBuilder;
 
 import ca.infoway.messagebuilder.Named;
@@ -80,7 +81,7 @@ public abstract class IntermediateToModelGenerator {
 		Exciser exciser = new Exciser(messageSet, new PostSimplificationEvaluator(definitions, this.outputUI));
 		Set<ExcisedItem> items = exciser.execute();
 		try {
-			new ExciseReportGenerator(items, new File("/tmp/generatorExciseReport_secondPass.xls")).create();
+			new ExciseReportGenerator(items, new File(SystemUtils.getJavaIoTmpDir(), "generatorExciseReport_secondPass.xls")).create();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
