@@ -5,6 +5,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 
+import ca.infoway.messagebuilder.generator.GeneratorException;
 import ca.infoway.messagebuilder.generator.lang.ProgrammingLanguage;
 import ca.infoway.messagebuilder.util.iterator.EmptyIterable;
 import ca.infoway.messagebuilder.xml.Relationship;
@@ -75,13 +76,24 @@ public class Association extends BaseRelationship {
 			result.add(type.getLanguageSpecificName().getFullyQualifiedName());
 		}
 		for (Choice choice : EmptyIterable.nullSafeIterable(getAllChoiceTypes())) {
-			result.add(choice.getType().getLanguageSpecificName().getFullyQualifiedName());
+			if (choice != null) {
+				result.add(getImportClassName(choice));
+			}
 		}
 		if (isCardinalityMultiple()) {
 			result.add(List.class.getName());
 			result.add(ArrayList.class.getName());
 		}
 		return result;
+	}
+	private String getImportClassName(Choice choice) {
+		if (choice.getType() == null) {
+			throw new GeneratorException("Association: " + getType() + "(" + getName() + ") " + choice.getName() + " has no type");
+		} else if (choice.getType().getLanguageSpecificName() == null) {
+			throw new GeneratorException("Association: " + getType() + "(" + getName() + ") " + choice.getType().getTypeName() + " has no language-specific name");
+		} else {
+			return choice.getType().getLanguageSpecificName().getFullyQualifiedName();
+		}
 	}
 	public TypeName getPropertyTypeName() {
 		if (getAssociationType() == null) {

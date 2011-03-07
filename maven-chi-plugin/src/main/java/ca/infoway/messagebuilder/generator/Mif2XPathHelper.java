@@ -17,6 +17,29 @@ import ca.infoway.messagebuilder.xml.UpdateModeType;
 
 public class Mif2XPathHelper extends BaseMifXPathHelper {
 	
+	static class ChoiceItemImpl implements MifChoiceItem {
+
+		private final Element choiceItem;
+		private final List<MifChoiceItem> subChoices;
+
+		ChoiceItemImpl(Element choiceItem, List<MifChoiceItem> subChoices) {
+			this.choiceItem = choiceItem;
+			this.subChoices = subChoices;
+		}
+		public String getClassName() {
+			return this.choiceItem.getAttribute("className");
+		}
+		public String getTraversalName() {
+			return this.choiceItem.getAttribute("traversalName");
+		}
+		public Element getElement() {
+			return this.choiceItem;
+		}
+		public List<MifChoiceItem> getChoiceItems() {
+			return this.subChoices;
+		}
+	}
+	
 	public Element getOwnedEntryPointElement(Document document) {
 		Element element = MifXPathHelper.getSingleElement(document.getDocumentElement(), "/mif2:staticModel/mif2:entryPoint");
 		if (element != null) {
@@ -173,8 +196,14 @@ public class Mif2XPathHelper extends BaseMifXPathHelper {
 		return getSingleElement(element, "/.//mif2:containedClass/mif2:commonModelElementRef[@name='" + partName + "']");
 	}
 
-	public static List<Element> getChoiceItems(Element parent) {
-		return toElementList(getNodes(parent, "./mif2:choiceItem"));
+	public static List<MifChoiceItem> getChoiceItems(Element parent) {
+		List<Element> temp = toElementList(getNodes(parent, "./mif2:choiceItem"));
+		List<MifChoiceItem> result = new ArrayList<MifChoiceItem>();
+		for (Element element : temp) {
+			List<MifChoiceItem> subChoices = getChoiceItems(element);
+			result.add(new ChoiceItemImpl(element, subChoices));
+		}
+		return result;
 	}
 
 	public static List<Element> getSpecializationChilds(Element element) {

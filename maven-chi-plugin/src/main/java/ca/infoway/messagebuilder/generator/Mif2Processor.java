@@ -17,6 +17,7 @@ import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
+import ca.infoway.messagebuilder.generator.java.GeneratorInternalException;
 import ca.infoway.messagebuilder.util.iterator.NodeListIterator;
 import ca.infoway.messagebuilder.util.xml.DocumentFactory;
 import ca.infoway.messagebuilder.util.xml.XmlDescriber;
@@ -212,7 +213,6 @@ class Mif2Processor extends BaseMifProcessorImpl implements MifProcessor {
 					this.outputUI.log(LogLevel.DEBUG, "Complex type " + part.getName() + " has a child class " + rootType);
 				} else {
 					throw new GeneratorException("Cannot resolve child class cmetName " + name);
-					// System.out.println("Cannot resolve child class cmetName " + name);
 				}
 			}
 		}
@@ -243,17 +243,41 @@ class Mif2Processor extends BaseMifProcessorImpl implements MifProcessor {
 	}
 
 	private void addChoiceItems(MessageSet messageSet, Element targetConnection, Relationship choice) throws GeneratorException {
-		List<Element> choices = Mif2XPathHelper.getChoiceItems(targetConnection);
-		for (Element choiceElement : choices) {
-			Relationship relationship = new Relationship();
-			relationship.setName(choiceElement.getAttribute("traversalName"));
-			try {
-				relationship.setType(determineType(choiceElement.getAttribute("className"), messageSet, choiceElement));
-				addChoiceItems(messageSet, choiceElement, relationship);
-				choice.getChoices().add(relationship);
-			} catch (MifProcessingException e) {
-				this.outputUI.log(LogLevel.ERROR, e.getMessage());
-			}
+		addChoiceItems(messageSet, choice, Mif2XPathHelper.getChoiceItems(targetConnection));
+	}
+
+	private void addChoiceItems(MessageSet messageSet, 
+			Relationship choice, List<MifChoiceItem> choices) {
+		String parentType = choice.getType();
+		MessagePart part = messageSet.getMessagePart(parentType);
+		int i = 0;
+		for (MifChoiceItem choiceItem : choices) {
+			String choiceType = getSpecializationChild(part, i++, choiceItem);
+			addChoiceItem(messageSet, choice, choiceItem, choiceType);
+		}
+	}
+
+	private String getSpecializationChild(MessagePart part, int i, MifChoiceItem choiceItem) {
+		if (part.getSpecializationChilds().size() > i) {
+			return part.getSpecializationChilds().get(i);
+		} else {
+			throw new GeneratorInternalException("Part type : " + part.getName() 
+					+ " should have had a choice type at index " + i 
+					+ " corresponding to " + choiceItem.getClassName());
+		}
+	}
+
+	private void addChoiceItem(MessageSet messageSet, 
+			Relationship choice, MifChoiceItem choiceItem, String choiceType) {
+		
+		Relationship relationship = new Relationship();
+		relationship.setName(choiceItem.getTraversalName());
+		try {
+			relationship.setType(choiceType);
+			addChoiceItems(messageSet, relationship, choiceItem.getChoiceItems());
+			choice.getChoices().add(relationship);
+		} catch (MifProcessingException e) {
+			this.outputUI.log(LogLevel.ERROR, e.getMessage());
 		}
 	}
 
