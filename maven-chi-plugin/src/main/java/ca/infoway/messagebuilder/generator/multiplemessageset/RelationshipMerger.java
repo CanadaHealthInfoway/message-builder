@@ -244,7 +244,10 @@ class RelationshipMerger implements Merger<Relationship> {
 			} else if (StandardDataType.isSetOrList(type) || StandardDataType.isSetOrList(type2)) {
 				// check if one is a list or a set, but otherwise compatible
 				result = checkCollectionCompatibility(type, type2);
-			} else if (StandardDataType.getByTypeName(type).isCoded() && StandardDataType.getByTypeName(type2).isCoded()) {
+			} else if (StandardDataType.getByTypeName(type) != null 
+					&& StandardDataType.getByTypeName(type2) != null 
+					&& StandardDataType.getByTypeName(type).isCoded() 
+					&& StandardDataType.getByTypeName(type2).isCoded()) {
 				result = StandardDataType.CV.getType();
 			} else if (isInterval(type) || isInterval(type2)) {
 				result = checkIntervalCompatibility(type, type2);

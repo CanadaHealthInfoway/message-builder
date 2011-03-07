@@ -132,6 +132,7 @@ public class StandardDataType extends EnumPattern implements Typed {
 	
 	public static final StandardDataType RTO = new StandardDataType("RTO", "RTO"); 
 	public static final StandardDataType RTO_PQ_DRUG_PQ_TIME = new StandardDataType("RTO_PQ_DRUG_PQ_TIME", "RTO<PQ.DRUG, PQ.TIME>"); 
+	public static final StandardDataType RTO_PQ_DRUG_PQ_DRUG = new StandardDataType("RTO_PQ_DRUG_PQ_DRUG", "RTO<PQ.DRUG,PQ.DRUG>"); 
 	public static final StandardDataType RTO_MO_CAD_PQ_BASIC = new StandardDataType("RTO_MO_CAD_PQ_BASIC", "RTO<MO.CAD, PQ.BASIC>");
 	
 	public static final StandardDataType TS = new StandardDataType("TS", "TS");
