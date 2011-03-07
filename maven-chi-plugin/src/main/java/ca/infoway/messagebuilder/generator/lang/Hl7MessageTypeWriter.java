@@ -16,7 +16,6 @@ import ca.infoway.messagebuilder.generator.java.JavaCodeGenerator;
 import ca.infoway.messagebuilder.generator.java.PropertyGenerator;
 import ca.infoway.messagebuilder.generator.java.RenderedType;
 import ca.infoway.messagebuilder.xml.Documentation;
-import ca.infoway.messagebuilder.xml.Relationship;
 
 public abstract class Hl7MessageTypeWriter extends JavaCodeGenerator {
 	
@@ -65,7 +64,6 @@ public abstract class Hl7MessageTypeWriter extends JavaCodeGenerator {
             	writeDocumentation(relationship.getDocumentation(), indentLevel, writer);
             	createPropertyGenerator(relationship).createGettersAndSetters(indentLevel, writer);
             	if (relationship.isChoice() && !relationship.isCardinalityMultiple()) {
-            		List<Relationship> choices = relationship.getRelationship().getChoices();
             		List<Choice> childTypes = ((Association) relationship).getAllChoiceTypes();
             		createChoiceProperties(relationship, childTypes, indentLevel, writer);
             	}

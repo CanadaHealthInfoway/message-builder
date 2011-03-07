@@ -53,13 +53,12 @@ class Mif2InteractionDefinition implements InteractionDefinition {
 			interaction.setName(EntryPointAssembler.getEntryPoint(packageLocation));
 			
 			Element message = (Element) this.xPath.getSingleNode(this.document, "/mif2:interaction/mif2:argumentMessage", MIF2_NAMESPACE);
-			interaction.setSuperTypeName(
-					resolver.getPackageLocationRootType(EntryPointAssembler.getEntryPoint(message)));
+			interaction.setSuperTypeName(resolveType(interaction, resolver, message));
 			
 			Element interactionName = (Element) this.xPath.getSingleNode(this.document, "/mif2:interaction/mif2:businessName", MIF2_NAMESPACE);
 			interaction.setBusinessName(interactionName.getAttribute("name"));
 			
-			addArguments(interaction.getArguments(), message, resolver);
+			addArguments(interaction, interaction.getArguments(), message, resolver);
 			
 			return interaction;
 		} catch (XPathExpressionException e) {
@@ -67,26 +66,40 @@ class Mif2InteractionDefinition implements InteractionDefinition {
 		}
 	}
 
-	private void addArguments(List<Argument> arguments, Element element, MessagePartResolver resolver) throws XPathExpressionException {
+	private String resolveType(Interaction interaction, MessagePartResolver resolver, Element message) {
+		return resolveType(interaction, resolver, EntryPointAssembler.getEntryPoint(message));
+	}
+
+	private String resolveType(Interaction interaction, MessagePartResolver resolver, String packageName) {
+		String type = resolver.getPackageLocationRootType(packageName);
+		if (type != null) {
+			return type;
+		} else {
+			throw new MifDependencyException(interaction, packageName);
+		}
+	}
+
+	private void addArguments(Interaction interaction, List<Argument> arguments, Element element, MessagePartResolver resolver) throws XPathExpressionException {
 		NodeList list = this.xPath.getNodes(element, "./mif2:parameterModel", Namespaces.MIF2_NAMESPACE);
 		for (Element parameter : NodeListIterator.elementIterable(list)) {
 			Argument argument = new Argument();
-			String packageName = EntryPointAssembler.getEntryPoint(parameter);
-			argument.setName(resolver.getPackageLocationRootType(packageName));
+			argument.setName(resolveType(interaction, resolver, parameter));
 			argument.setTraversalName(parameter.getAttribute("traversalName"));
 			argument.setTemplateParameterName(parameter.getAttribute("parameterName"));
 			arguments.add(argument);
 			
 			// handle choices
 			NodeList nodes = this.xPath.getNodes(parameter, "./mif2:specialization", Namespaces.MIF2_NAMESPACE);
-			List<Relationship> choices = extractChoices(resolver, packageName, nodes);
+
+			String packageName = EntryPointAssembler.getEntryPoint(parameter);
+			List<Relationship> choices = extractChoices(interaction, resolver, packageName, nodes);
 			argument.getChoices().addAll(choices);
 			
-			addArguments(argument.getArguments(), parameter, resolver);
+			addArguments(interaction, argument.getArguments(), parameter, resolver);
 		}
 	}
 	
-	private List<Relationship> extractChoices(MessagePartResolver resolver, String packageName, NodeList nodes) throws XPathExpressionException {
+	private List<Relationship> extractChoices(Interaction interaction, MessagePartResolver resolver, String packageName, NodeList nodes) throws XPathExpressionException {
 		List<Relationship> choices = new ArrayList<Relationship>();
 		for (int i = 0, length = nodes == null ? 0 : nodes.getLength(); i < length; i++) {
 			Element specialization = (Element) nodes.item(i);
@@ -118,11 +131,10 @@ class Mif2InteractionDefinition implements InteractionDefinition {
 			// find nested choices
 			NodeList subNodes = this.xPath.getNodes(specialization, "./mif2:choiceItem", Namespaces.MIF2_NAMESPACE);
 			if (subNodes.getLength() > 0) {
-				List<Relationship> subChoices = extractChoices(resolver, nestedPackageName, subNodes);
+				List<Relationship> subChoices = extractChoices(interaction, resolver, nestedPackageName, subNodes);
 				relationship.getChoices().addAll(subChoices);
 			}
 		}
-		
 		
 		return choices;
 	}
