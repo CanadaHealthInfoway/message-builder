@@ -23,9 +23,11 @@ public class MifToXmlGenerator implements MessageSetGenerator {
 	private MifProcessor processor;
 	private MifRegistry mifRegistry;
 	private MessageSetWriter messageSetWriter;
+	private final File reportDir;
 
-	public MifToXmlGenerator(OutputUI outputUI, String version, File mifTransform) throws GeneratorException {
+	public MifToXmlGenerator(OutputUI outputUI, String version, File mifTransform, File reportDir) throws GeneratorException {
 		this.outputUI = outputUI;
+		this.reportDir = reportDir;
 		this.mifRegistry = new MifRegistry(mifTransform, outputUI);
 		this.messageSet.setVersion(version);
 		this.messageSetWriter = new MessageSetWriter(this.messageSet, this.outputUI);

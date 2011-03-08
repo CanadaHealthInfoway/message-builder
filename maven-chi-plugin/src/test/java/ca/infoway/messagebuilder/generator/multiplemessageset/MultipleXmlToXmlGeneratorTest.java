@@ -38,7 +38,7 @@ public class MultipleXmlToXmlGeneratorTest {
 		this.messageSetWriter = this.jmock.mock(MessageSetWriter.class);
 		this.messageSetMarshaller = this.jmock.mock(MessageSetMarshaller.class);
 		this.templateParameterNameRenamer = this.jmock.mock(TemplateParameterNameRenamer.class); 
-		this.generator = new MultipleXmlToXmlGenerator(this.outputUI, "a_version", this.messageSetMarshaller, this.messageSetWriter, this.templateParameterNameRenamer); 
+		this.generator = new MultipleXmlToXmlGenerator(this.outputUI, "a_version", this.messageSetMarshaller, this.messageSetWriter, this.templateParameterNameRenamer, null); 
 	}
 	
 	@Test(expected=UnsupportedOperationException.class)

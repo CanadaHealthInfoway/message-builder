@@ -6,6 +6,7 @@ import java.util.List;
 
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang.SystemUtils;
 import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
@@ -53,7 +54,14 @@ public class MifToXmlGeneratorMojo extends AbstractMojo {
      */
     private File mifTransformer;
     
-	private final MessageSetGeneratorFactory factory;
+    /**
+     * The output directory for any reports.
+     * 
+     * @parameter 
+     */
+    private File generatedReportsDirectory;
+
+    private final MessageSetGeneratorFactory factory;
     
 	/**
 	 * <p>Default constructor.
@@ -89,7 +97,12 @@ public class MifToXmlGeneratorMojo extends AbstractMojo {
 
 	private void generate() throws MojoExecutionException, MojoFailureException {
 		try {
-			MessageSetGenerator generator = this.factory.create(this, this.version, this.mifTransformer);
+			if (this.generatedReportsDirectory == null) {
+				this.generatedReportsDirectory = SystemUtils.getJavaIoTmpDir();
+			}
+			this.generatedReportsDirectory.mkdirs();
+
+			MessageSetGenerator generator = this.factory.create(this, this.version, this.mifTransformer, this.generatedReportsDirectory);
 			generator.processAllMifs(new MifSourceImpl(this.fileSets));
 			generator.writeToMessageSet(this.messageSet);
 		} catch (GeneratorException e) {

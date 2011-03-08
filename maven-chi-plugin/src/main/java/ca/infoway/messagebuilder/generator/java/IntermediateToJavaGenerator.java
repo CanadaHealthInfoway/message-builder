@@ -14,8 +14,8 @@ public class IntermediateToJavaGenerator extends IntermediateToModelGenerator {
 	public IntermediateToJavaGenerator(OutputUI outputUI, File sourceFolder, String basePackageName) {
 		this(outputUI, sourceFolder, basePackageName, null);
 	}
-	public IntermediateToJavaGenerator(OutputUI outputUI, File sourceFolder, String basePackageName, File report) {
-		super(outputUI, sourceFolder, basePackageName, report);
+	public IntermediateToJavaGenerator(OutputUI outputUI, File sourceFolder, String basePackageName, File reportDir) {
+		super(outputUI, sourceFolder, basePackageName, reportDir);
 	}
 	
 	/**

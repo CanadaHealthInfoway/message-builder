@@ -8,6 +8,6 @@ import ca.infoway.messagebuilder.generator.GeneratorException;
 import ca.infoway.messagebuilder.generator.MessageSetGenerator;
 
 interface MessageSetGeneratorFactory {
-	public MessageSetGenerator create(Mojo mojo, String version, File file) throws GeneratorException;
-	public MessageSetGenerator create(Mojo mojo, String version) throws GeneratorException;
+	public MessageSetGenerator create(Mojo mojo, String version, File mifTransformer, File reportDir) throws GeneratorException;
+	public MessageSetGenerator create(Mojo mojo, String version, File reportDir) throws GeneratorException;
 }

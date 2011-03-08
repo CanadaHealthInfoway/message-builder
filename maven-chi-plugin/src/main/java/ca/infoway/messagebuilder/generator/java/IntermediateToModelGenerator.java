@@ -8,7 +8,6 @@ import java.util.List;
 import java.util.Set;
 
 import org.apache.commons.lang.StringUtils;
-import org.apache.commons.lang.SystemUtils;
 import org.apache.commons.lang.builder.CompareToBuilder;
 
 import ca.infoway.messagebuilder.Named;
@@ -35,18 +34,18 @@ public abstract class IntermediateToModelGenerator {
 	protected final OutputUI outputUI;
 	protected final File sourceFolder;
 	protected final String basePackageName;
-	private final File report;
+	private final File reportDir;
 	
 	protected abstract ProgrammingLanguage getProgrammingLanguage();
 
 	public IntermediateToModelGenerator(OutputUI outputUI, File sourceFolder, String basePackageName) {
 		this(outputUI, sourceFolder, basePackageName, null);
 	}
-	public IntermediateToModelGenerator(OutputUI outputUI, File sourceFolder, String basePackageName, File report) {
+	public IntermediateToModelGenerator(OutputUI outputUI, File sourceFolder, String basePackageName, File reportDir) {
 		this.outputUI = outputUI;
 		this.sourceFolder = sourceFolder;
 		this.basePackageName = basePackageName;
-		this.report = report;
+		this.reportDir = reportDir;
 	}
 	
 	public TypeAnalysisResult generate(MessageSet messageSet) throws IOException, GeneratorException {
@@ -81,7 +80,7 @@ public abstract class IntermediateToModelGenerator {
 		Exciser exciser = new Exciser(messageSet, new PostSimplificationEvaluator(definitions, this.outputUI));
 		Set<ExcisedItem> items = exciser.execute();
 		try {
-			new ExciseReportGenerator(items, new File(SystemUtils.getJavaIoTmpDir(), "generatorExciseReport_secondPass.xls")).create();
+			new ExciseReportGenerator(items, new File(this.reportDir, "generatorExciseReport_secondPass.xls")).create();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -232,8 +231,8 @@ public abstract class IntermediateToModelGenerator {
 	}
 
 	private void writeReport(TypeAnalysisResult result, MessageSet messageSet, SimplifiableDefinitions definitions) throws IOException {
-		if (this.report != null) {
-			new ReportWriter(result, messageSet, this.outputUI, definitions).write(this.report);
+		if (this.reportDir != null) {
+			new ReportWriter(result, messageSet, this.outputUI, definitions).write(new File(this.reportDir, "simplificationReport.html"));
 		}
 	}
 

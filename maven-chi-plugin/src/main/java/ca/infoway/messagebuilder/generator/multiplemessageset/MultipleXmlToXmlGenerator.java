@@ -29,18 +29,21 @@ public class MultipleXmlToXmlGenerator implements MessageSetGenerator {
 	private MessageSetWriter messageSetWriter;
 	private final String version;
 	private final TemplateParameterNameRenamer templateParameterNameRenamer;
+
+	private final File reportDir;
 	
-	public MultipleXmlToXmlGenerator(OutputUI outputUI, String version) {
-		this(outputUI, version, new MessageSetMarshaller(), null, new TemplateParameterNameRenamer());
+	public MultipleXmlToXmlGenerator(OutputUI outputUI, String version, File reportDir) {
+		this(outputUI, version, new MessageSetMarshaller(), null, new TemplateParameterNameRenamer(), reportDir);
 	}
 	
 	protected MultipleXmlToXmlGenerator(OutputUI outputUI, String version, MessageSetMarshaller messageSetMarshaller, 
-			MessageSetWriter messageSetWriter, TemplateParameterNameRenamer templateParameterNameRenamer) {
+			MessageSetWriter messageSetWriter, TemplateParameterNameRenamer templateParameterNameRenamer, File reportDir) {
 		this.outputUI = outputUI;
 		this.version = version;
 		this.messageSetMarshaller = messageSetMarshaller;
 		this.messageSetWriter = messageSetWriter;
 		this.templateParameterNameRenamer = templateParameterNameRenamer;
+		this.reportDir = reportDir;
 	}
 
 	public void processAllMessageSets(List<FileSet> inputMessageSets) throws GeneratorException, IOException {

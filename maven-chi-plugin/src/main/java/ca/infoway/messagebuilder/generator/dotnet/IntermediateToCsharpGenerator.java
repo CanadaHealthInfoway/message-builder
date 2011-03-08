@@ -20,8 +20,8 @@ public class IntermediateToCsharpGenerator extends IntermediateToModelGenerator 
 	public IntermediateToCsharpGenerator(OutputUI outputUI, File sourceFolder, String basePackageName) {
 		this(outputUI, sourceFolder, basePackageName, null);
 	}
-	public IntermediateToCsharpGenerator(OutputUI outputUI, File sourceFolder, String basePackageName, File report) {
-		super(outputUI, sourceFolder, basePackageName, report);
+	public IntermediateToCsharpGenerator(OutputUI outputUI, File sourceFolder, String basePackageName, File reportDir) {
+		super(outputUI, sourceFolder, basePackageName, reportDir);
 	}
 	
 	/**

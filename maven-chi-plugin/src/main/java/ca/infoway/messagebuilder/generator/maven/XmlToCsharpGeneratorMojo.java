@@ -3,6 +3,7 @@ package ca.infoway.messagebuilder.generator.maven;
 import java.io.File;
 import java.io.IOException;
 
+import org.apache.commons.lang.SystemUtils;
 import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
@@ -34,7 +35,7 @@ public class XmlToCsharpGeneratorMojo extends AbstractMojo {
      * 
      * @parameter 
      */
-    private File reportFile;
+    private File generatedReportsDirectory;
     
     /**
      * The base package name to use
@@ -74,9 +75,14 @@ public class XmlToCsharpGeneratorMojo extends AbstractMojo {
 
 	private void generate() throws MojoExecutionException {
 		try {
+			if (this.generatedReportsDirectory == null) {
+				this.generatedReportsDirectory = SystemUtils.getJavaIoTmpDir();
+			}
+			this.generatedReportsDirectory.mkdirs();
+			
 			MessageSet messages = new MessageSetMarshaller().unmarshall(this.messageSet);
 			IntermediateToModelGenerator generator = new IntermediateToCsharpGenerator(new OutputUIImpl(this), 
-					this.csSourceFolder, this.basePackageName, this.reportFile);
+					this.csSourceFolder, this.basePackageName, this.generatedReportsDirectory);
 			generator.generate(messages);
 		} catch (IOException e) {
 			throw new MojoExecutionException("IOException", e);

@@ -6,6 +6,7 @@ import java.util.List;
 
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang.SystemUtils;
 import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
@@ -46,6 +47,13 @@ public class MultipleXmlToXmlGeneratorMojo extends AbstractMojo {
      */
     private List<FileSet> inputMessageSets;
 
+    /**
+     * The output directory for any reports.
+     * 
+     * @parameter 
+     */
+    private File generatedReportsDirectory;
+    
 	private final MessageSetGeneratorFactory factory;
     
 	/**
@@ -86,7 +94,12 @@ public class MultipleXmlToXmlGeneratorMojo extends AbstractMojo {
 
 	private void generate() throws MojoExecutionException, MojoFailureException {
 		try {
-			MessageSetGenerator generator = this.factory.create(this, this.version);
+			if (this.generatedReportsDirectory == null) {
+				this.generatedReportsDirectory = SystemUtils.getJavaIoTmpDir();
+			}
+			this.generatedReportsDirectory.mkdirs();
+
+			MessageSetGenerator generator = this.factory.create(this, this.version, this.generatedReportsDirectory);
 			generator.processAllMessageSets(this.inputMessageSets);
 			generator.writeToMessageSet(this.outputMessageSet);
 		} catch (GeneratorException e) {
