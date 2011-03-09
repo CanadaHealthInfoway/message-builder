@@ -109,7 +109,7 @@ public class DefinitionToResultConverterTest {
 		middleSimplifiableType.getRelationships().add(new SimplifiableRelationship(new Relationship("tom", "ABCD_MT123456CA.Tom", Cardinality.create("1")), innerSimplifiableType));
 		middleSimplifiableType.setInlined(true);
 		SimplifiableType simplifiableType = new SimplifiableType(new MessagePart("ABCD_MT123456CA.Patient"), true);
-		simplifiableType.getRelationships().add(new SimplifiableRelationship(new Relationship("person", "ABCD_MT123456CA.Person", Cardinality.create("1")), middleSimplifiableType));
+		simplifiableType.getRelationships().add(new SimplifiableRelationship(new Relationship("person", "ABCD_MT123456CA.Person", Cardinality.create("1-10")), middleSimplifiableType));
 		this.definitions.addType(middleSimplifiableType);
 		this.definitions.addType(innerSimplifiableType);
 		this.definitions.addType(simplifiableType);
@@ -125,6 +125,7 @@ public class DefinitionToResultConverterTest {
 		for (BaseRelationship relationship : type.getRelationships()) {
 			assertTrue("inlined", relationship instanceof InlinedAttribute);
 			assertTrue("name", new HashSet<String>(Arrays.asList("personTomName", "personTomAge")).contains(relationship.getName()));
+			assertTrue("multiple cardinality", relationship.getCardinality().isMultiple());
 		}
 	}
 	
@@ -413,6 +414,82 @@ public class DefinitionToResultConverterTest {
 		type = result.getTypeByName(new TypeName("ABCD_MT123456CA.TopMostType"));
 		assertNotNull("type", type);
 		assertEquals("relationships", 1, type.getRelationships().size());
+		assertTrue("cardinality", type.getRelationships().get(0).getCardinality().isMultiple());
+	}
+	
+	@Test
+	public void shouldConvertInlinedAndMergedCaseWithMultipleCardinalityForBug() throws Exception {
+
+		Relationship cvRelationship3a = new Relationship("code", "CV", Cardinality.create("1"));
+		Relationship cvRelationship3b = new Relationship("code", "CV", Cardinality.create("1"));
+		
+		SimplifiableType simplifiableType3a = new SimplifiableType(new MessagePart("COCT_MT470002CA.ActDefinition"), false);
+		simplifiableType3a.getRelationships().add(new SimplifiableRelationship(cvRelationship3a, new TypeConverter().convertToType(cvRelationship3a)));
+		simplifiableType3a.setInlined(true);
+
+		SimplifiableType simplifiableType3b = new SimplifiableType(new MessagePart("COCT_MT470012CA.ActDefinition"), false);
+		simplifiableType3b.getRelationships().add(new SimplifiableRelationship(cvRelationship3b, new TypeConverter().convertToType(cvRelationship3b)));
+		simplifiableType3b.setInlined(true);
+
+		TemporaryTypeName name3 = TemporaryTypeName.create("merged");
+		simplifiableType3a.setMergedTypeName(name3);
+		simplifiableType3a.getMergedWithTypes().add(simplifiableType3a);
+		simplifiableType3a.getMergedWithTypes().add(simplifiableType3b);
+		
+		simplifiableType3b.setMergedTypeName(name3);
+		simplifiableType3b.getMergedWithTypes().add(simplifiableType3a);
+		simplifiableType3b.getMergedWithTypes().add(simplifiableType3b);
+
+		// >>>>>>>>>>>>>>>
+		
+		SimplifiableType simplifiableType2a = new SimplifiableType(new MessagePart("COCT_MT470002CA.Subject3"), false);
+		simplifiableType2a.getRelationships().add(new SimplifiableRelationship(new Relationship("actDefinition", "COCT_MT470002CA.ActDefinition", Cardinality.create("1")), simplifiableType3a));
+		simplifiableType2a.setInlined(true);
+		
+		SimplifiableType simplifiableType2b = new SimplifiableType(new MessagePart("COCT_MT470012CA.Subject3"), false);
+		simplifiableType2b.getRelationships().add(new SimplifiableRelationship(new Relationship("actDefinition", "COCT_MT470012CA.ActDefinition", Cardinality.create("1")), simplifiableType3b));
+		simplifiableType2b.setInlined(true);
+		
+		TemporaryTypeName name2 = TemporaryTypeName.create("merged");
+		simplifiableType2a.setMergedTypeName(name2);
+		simplifiableType2a.getMergedWithTypes().add(simplifiableType2a);
+		simplifiableType2a.getMergedWithTypes().add(simplifiableType2b);
+		
+		simplifiableType2b.setMergedTypeName(name2);
+		simplifiableType2b.getMergedWithTypes().add(simplifiableType2a);
+		simplifiableType2b.getMergedWithTypes().add(simplifiableType2b);
+
+		// >>>>>>>>>>>>>>>
+		
+		SimplifiableType simplifiableType1a = new SimplifiableType(new MessagePart("COCT_MT470002CA.InformDefinition"), false);
+		simplifiableType1a.getRelationships().add(new SimplifiableRelationship(new Relationship("subject", "COCT_MT470002CA.Subject3", Cardinality.create("1-10")), simplifiableType2a));
+		
+		SimplifiableType simplifiableType1b = new SimplifiableType(new MessagePart("COCT_MT470012CA.InformDefinition"), false);
+		simplifiableType1b.getRelationships().add(new SimplifiableRelationship(new Relationship("subject", "COCT_MT470012CA.Subject3", Cardinality.create("1-10")), simplifiableType2b));
+
+		TemporaryTypeName name1 = TemporaryTypeName.create("merged");
+		simplifiableType1a.setMergedTypeName(name1);
+		simplifiableType1a.getMergedWithTypes().add(simplifiableType1a);
+		simplifiableType1a.getMergedWithTypes().add(simplifiableType1b);
+		
+		simplifiableType1b.setMergedTypeName(name1);
+		simplifiableType1b.getMergedWithTypes().add(simplifiableType1a);
+		simplifiableType1b.getMergedWithTypes().add(simplifiableType1b);
+
+		this.definitions.addType(simplifiableType1a);
+		this.definitions.addType(simplifiableType1b);
+		this.definitions.addType(simplifiableType2a);
+		this.definitions.addType(simplifiableType2b);
+		this.definitions.addType(simplifiableType3a);
+		this.definitions.addType(simplifiableType3b);
+		
+		TypeAnalysisResult result = this.converter.convert();
+		
+		assertEquals("count", 1, result.getAllMessageTypes().size());
+		
+		Type type = result.getTypeByName(name1);
+		assertNotNull("type", type);
+		assertTrue("interface", type.getInterfaceTypes().isEmpty());
 		assertTrue("cardinality", type.getRelationships().get(0).getCardinality().isMultiple());
 	}
 	

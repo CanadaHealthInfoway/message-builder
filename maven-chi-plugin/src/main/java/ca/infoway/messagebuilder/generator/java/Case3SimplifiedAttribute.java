@@ -9,6 +9,7 @@ import org.apache.commons.lang.StringUtils;
 import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.generator.DataType;
 import ca.infoway.messagebuilder.generator.TypeConverter;
+import ca.infoway.messagebuilder.xml.Cardinality;
 import ca.infoway.messagebuilder.xml.Documentation;
 import ca.infoway.messagebuilder.xml.TypeName;
 
@@ -72,6 +73,11 @@ class Case3SimplifiedAttribute extends Attribute implements MergedRelationshipSu
 	@Override
 	boolean requiresMapByPartTypeAnnotation() {
 		return super.requiresMapByPartTypeAnnotation() || this.requiresExtraAnnotation;
+	}
+	
+	@Override
+	public Cardinality getCardinality() {
+		return this.exemplar.getCardinality();
 	}
 	
 	@Override
