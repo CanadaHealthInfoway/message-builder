@@ -58,6 +58,7 @@ public class UsingManager extends Indenter implements DependencyManager {
 		map.put(BigDecimal.class.getName(), "System.decimal?");
 		map.put(Date.class.getName(), "System.DateTime?");
 		map.put(List.class.getName(), "System.Collections.Generic.IList");
+		map.put(Collection.class.getName(), "System.Collections.Generic.ICollection");
 		map.put(Set.class.getName(), "System.Collections.Generic.ISet");
 		map.put(ArrayList.class.getName(), "System.Collections.Generic.List");
 		csharpEquivalents = Collections.unmodifiableMap(map);
