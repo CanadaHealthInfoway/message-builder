@@ -2,6 +2,7 @@ package ca.infoway.messagebuilder.marshalling;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
@@ -117,5 +118,90 @@ public class RelationshipSorterTest {
 		assertTrue("other type", object instanceof BeanProperty);
 		assertEquals("other property name", "type", ((BeanProperty) object).getName());
 		
+	}
+	
+	@Test
+	public void shouldHandleInlinedPropertiesWithMapByPartTypeAndWithout() throws Exception {
+		RelationshipSorter sorter = RelationshipSorter.create("", new MockMultiplyCompoundNestedMappedMessagePartBean());
+		
+		Relationship organizationInMapByPartTypeRelationship = new Relationship(
+				"representedOrganization", "COCT_MT090102CA.Organization", Cardinality.create("1"));
+
+		Relationship organizationNotInMapByPartTypeRelationship = new Relationship(
+				"representedOrganization", "MOCK_MT090102CA.Organization", Cardinality.create("1"));
+
+		Relationship assignedOrganizationInMapByPartTypeRelationship = new Relationship(
+				"assignedOrganization", "COCT_MT260030CA.Organization", Cardinality.create("1"));
+		
+		Relationship nameRelationship = new Relationship(
+				"name", "ST", Cardinality.create("1"));
+		
+		Relationship idRelationship = new Relationship(
+				"id", "II", Cardinality.create("1"));
+		
+		Relationship otherIdRelationship = new Relationship(
+				"otherId", "II", Cardinality.create("1"));
+		
+		// >>>>>>>>>>>>>>>>>>
+
+		Object object = sorter.get(organizationInMapByPartTypeRelationship);
+		assertNotNull("type exists", object);
+		assertTrue("type", object instanceof RelationshipSorter);
+		
+		RelationshipSorter innerSorter = (RelationshipSorter) object;
+		
+		object = innerSorter.get(nameRelationship);
+		assertNotNull("type exists", object);
+		assertTrue("type", object instanceof BeanProperty);
+		assertEquals("property name", "assignedOrganizationName", ((BeanProperty) object).getName());
+
+		object = innerSorter.get(idRelationship);
+		assertNotNull("type exists", object);
+		assertTrue("type", object instanceof BeanProperty);
+		assertEquals("property id", "organizationIdentifier", ((BeanProperty) object).getName());
+
+		object = innerSorter.get(otherIdRelationship);
+		assertNull("type does not exists", object);
+		
+		// >>>>>>>>>>>>>>>>>>
+		
+		object = sorter.get(organizationNotInMapByPartTypeRelationship);
+		assertNotNull("type exists", object);
+		assertTrue("type", object instanceof RelationshipSorter);
+		
+		innerSorter = (RelationshipSorter) object;
+		
+		object = innerSorter.get(nameRelationship);
+		assertNull("type does not exist", object);
+
+		object = innerSorter.get(idRelationship);
+		assertNotNull("type exists", object);
+		assertTrue("type", object instanceof BeanProperty);
+		assertEquals("property id", "organizationIdentifier", ((BeanProperty) object).getName());
+
+		object = innerSorter.get(otherIdRelationship);
+		assertNull("type does not exist", object);
+
+		// >>>>>>>>>>>>>>>>>>
+		
+		object = sorter.get(assignedOrganizationInMapByPartTypeRelationship);
+		assertNotNull("type exists", object);
+		assertTrue("type", object instanceof RelationshipSorter);
+		
+		innerSorter = (RelationshipSorter) object;
+		
+		object = innerSorter.get(nameRelationship);
+		assertNotNull("type exists", object);
+		assertTrue("type", object instanceof BeanProperty);
+		assertEquals("property name", "assignedOrganizationName", ((BeanProperty) object).getName());
+
+		object = innerSorter.get(idRelationship);
+		assertNull("type should not exist", object);
+
+		object = innerSorter.get(otherIdRelationship);
+		assertNotNull("type exists", object);
+		assertTrue("type", object instanceof BeanProperty);
+		assertEquals("other property id", "otherOrganizationIdentifier", ((BeanProperty) object).getName());
+
 	}
 }

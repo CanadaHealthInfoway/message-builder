@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
+import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang.StringUtils;
 
 import ca.infoway.messagebuilder.NamedAndTyped;
@@ -13,7 +14,7 @@ import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
 import ca.infoway.messagebuilder.j5goodies.BeanProperty;
 import ca.infoway.messagebuilder.util.iterator.EmptyIterable;
 
-class Mapping implements NamedAndTyped {
+class Mapping {
 
 	static class PartTypeMapping {
 		private final String type;
@@ -109,15 +110,21 @@ class Mapping implements NamedAndTyped {
 		return this.mapping;
 	}
 
-	public String getType() {
-		String result = null;
-		for (PartTypeMapping map : this.mappings) {
-			if (StringUtils.equals(this.mapping, map.getName())) {
-				result = map.getType();
-				break;
+	public List<NamedAndTyped> getAllTypes() {
+		List<NamedAndTyped> types = new ArrayList<NamedAndTyped>();
+		if (hasPartTypeMappings()) {
+			for (PartTypeMapping map : this.mappings) {
+				if (StringUtils.equals(this.mapping, map.getName())) {
+					types.add(new RelationshipMap.Key(this.mapping, map.getType()));
+				}
 			}
+		} else {
+			types.add(new RelationshipMap.Key(this.mapping));
 		}
-		return result;
+		return types;
 	}
-	
+
+	public boolean hasPartTypeMappings() {
+		return CollectionUtils.isNotEmpty(this.mappings);
+	}
 }

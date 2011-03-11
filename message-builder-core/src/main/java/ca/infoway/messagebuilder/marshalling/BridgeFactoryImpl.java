@@ -222,6 +222,7 @@ class BridgeFactoryImpl implements BridgeFactory {
 		return new AttributeBridgeImpl(relationship, property);
 	}
 
+	@SuppressWarnings("unchecked")
 	private AssociationBridge createCollectionOfCompositeBeanBridges(String propertyName, Relationship relationship, Iterable value, Interaction interaction) {
 		List<PartBridge> list = new ArrayList<PartBridge>();
 		for (Object object : value) {

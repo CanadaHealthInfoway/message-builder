@@ -10,6 +10,7 @@ import org.apache.commons.lang.WordUtils;
 
 import ca.infoway.messagebuilder.NamedAndTyped;
 import ca.infoway.messagebuilder.j5goodies.BeanProperty;
+import ca.infoway.messagebuilder.marshalling.RelationshipMap.Key;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.platform.ListElementUtil;
 
@@ -44,7 +45,7 @@ class RelationshipSorter {
 		return this.beanType;
 	}
 
-	void add(Mapping mapping, BeanProperty beanProperty) {
+	private void add(Mapping mapping, BeanProperty beanProperty) {
 		this.properties.put(beanProperty.getName(), beanProperty);
 		if (!mapping.isCompound()) {
 			this.map.put(mapping, beanProperty);
@@ -56,11 +57,38 @@ class RelationshipSorter {
 			getAsRelationshipSorter(mapping.firstPart()).add(mapping.rest(), beanProperty);
 		}
 	}
+
+	/**
+	 * We need to distribute all "common" mappings to every applicable "type-based" mappings 
+	 * 
+	 * @param mapping
+	 * @param beanProperty
+	 */
+	private void addDuplicates(Mapping mapping, BeanProperty beanProperty) {
+		List<Key> allTypeBased = this.map.getAllTypeBased(mapping.first());
+		for (Key key : allTypeBased) {
+			Object object = this.map.get(key);
+			if (object instanceof RelationshipSorter) {
+				Mapping rest = mapping.rest();
+				if (rest.isCompound()) {
+					((RelationshipSorter) object).properties.put(beanProperty.getName(), beanProperty);
+					((RelationshipSorter) object).addDuplicates(rest, beanProperty);
+				} else {
+					// we are at the "bottom" of the chain - now we can add the "duplicate" property to its correct location 
+					((RelationshipSorter) object).add(rest, beanProperty);
+				}
+			}
+		}
+	}
 	
 	RelationshipSorter getAsRelationshipSorter(NamedAndTyped relationship) {
 		return (RelationshipSorter) this.map.get(relationship);
 	}
 	
+	private RelationshipSorter getAsRelationshipSorter(Mapping firstPart) {
+		return getAsRelationshipSorter(firstPart.getAllTypes().get(0));
+	}
+
 	static RelationshipSorter create(String propertyName, Object tealBean) {
 		RelationshipSorter holder = new RelationshipSorter(propertyName, tealBean == null ? null : tealBean.getClass(), tealBean);
 		Map<String,BeanProperty> properties = BeanProperty.getProperties(tealBean);
@@ -68,6 +96,15 @@ class RelationshipSorter {
 			List<Mapping> mappings = Mapping.from(property);
 			for (Mapping mapping : mappings) {
 				holder.add(mapping, property);
+			}
+		}
+		for (BeanProperty property : properties.values()) {
+			List<Mapping> mappings = Mapping.from(property);
+			for (Mapping mapping : mappings) {
+				// if this is an inlined "common" mapping, we need to add it to appropriate "type-based" mappings
+				if (mapping.isCompound() && !mapping.hasPartTypeMappings()) {
+					holder.addDuplicates(mapping, property);
+				}
 			}
 		}
 		return holder;

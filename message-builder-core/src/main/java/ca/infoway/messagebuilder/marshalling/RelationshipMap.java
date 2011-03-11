@@ -1,8 +1,10 @@
 package ca.infoway.messagebuilder.marshalling;
 
+import java.util.ArrayList;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
-
+import java.util.Set;
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 
@@ -19,7 +21,7 @@ import ca.infoway.messagebuilder.j5goodies.BeanProperty;
  */
 class RelationshipMap {
 	
-	static class Key {
+	static class Key implements NamedAndTyped {
 		private final String name;
 		private final String type;
 		Key(NamedAndTyped namedAndTyped) {
@@ -40,9 +42,11 @@ class RelationshipMap {
 		public String getType() {
 			return this.type;
 		}
+		@Override
 		public int hashCode() {
 			return new HashCodeBuilder().append(this.name).append(this.type).toHashCode();
 		}
+		@Override
 		public boolean equals(Object obj) {
 			if (obj == null) {
 				return false;
@@ -67,11 +71,15 @@ class RelationshipMap {
 	private final Map<Key, Object> relationships = new LinkedHashMap<Key,Object>();
 
 	void put(Mapping mapping, BeanProperty beanProperty) {
-		this.relationships.put(new Key(mapping), beanProperty);
+		for (NamedAndTyped namedAndTyped : mapping.getAllTypes()) {
+			this.relationships.put(new Key(namedAndTyped), beanProperty);
+		}
 	}
 
 	void put(Mapping mapping, RelationshipSorter sorter) {
-		this.relationships.put(new Key(mapping), sorter);
+		for (NamedAndTyped namedAndTyped : mapping.getAllTypes()) {
+			this.relationships.put(new Key(namedAndTyped), sorter);
+		}
 	}
 
 	@Deprecated
@@ -79,8 +87,19 @@ class RelationshipMap {
 		return this.relationships.get(new Key(relationshipName));
 	}
 
+	List<Key> getAllTypeBased(String relationshipName) {
+		List<Key> result = new ArrayList<Key>();
+		Set<Key> keySet = this.relationships.keySet();
+		for (Key key : keySet) {
+			if (relationshipName.equals(key.getName()) && key.getType() != null) {
+				result.add(key);
+			}
+		}
+		return result;
+	}
+
 	boolean containsMapping(Mapping mapping) {
-		return this.relationships.containsKey(new Key(mapping));
+		return this.relationships.containsKey(new Key(mapping.getAllTypes().get(0)));
 	}
 
 	Object get(NamedAndTyped relationship) {
