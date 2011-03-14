@@ -118,7 +118,10 @@ class TsElementParser extends AbstractSingleElementParser<Date> {
 	private ParseContext handleSpecializationType(ParseContext context, Node node, XmlToModelResult xmlToJavaResult) {
 		String specializationType = getAttributeValue(node, SPECIALIZATION_TYPE);
 		if (specializationType == null) {
-			xmlToJavaResult.addHl7Error(Hl7Error.createMissingMandatoryAttributeError(SPECIALIZATION_TYPE, (Element) node));
+			// TM - RedMine issue 492 - there is some concern over MBT forcing a specialization type for abstract TS types
+			//    - I'm relaxing this validation for the time being (the formatter currently ignores specialization type completely)
+			// do nothing - fall back to parsing through all allowable date formats for TS.FULLDATEWITHTIME
+			// xmlToJavaResult.addHl7Error(Hl7Error.createMissingMandatoryAttributeError(SPECIALIZATION_TYPE, (Element) node));
 		} else if (isValidType(specializationType)) {
 			context = ParserContextImpl.create(specializationType, context.getExpectedReturnType(), context.getVersion(), context.getConformance());
 		} else {

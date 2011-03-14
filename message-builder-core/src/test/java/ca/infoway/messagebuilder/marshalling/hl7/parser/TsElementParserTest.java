@@ -119,8 +119,9 @@ public class TsElementParserTest extends MarshallingTestCase {
         
         ParseContext context = ParserContextImpl.create("TS.FULLDATEWITHTIME", Date.class, SpecificationVersion.R02_04_02.getVersionLiteral(), ConformanceLevel.POPULATED);
         assertDateEquals("correct value returned " + value, FULL_DATE_TIME, expectedResult, (Date) (new TsElementParser()).parse(context, node, this.xmlJavaResult).getBareValue());
-        assertEquals("one error", 1, this.xmlJavaResult.getHl7Errors().size());
-        assertTrue("specialization type error", this.xmlJavaResult.getHl7Errors().get(0).getMessage().startsWith("Expected mandatory attribute \"specializationType\""));
+        assertTrue("no errors after relaxing validation", this.xmlJavaResult.getHl7Errors().isEmpty());
+//        assertEquals("one error", 1, this.xmlJavaResult.getHl7Errors().size());
+//        assertTrue("specialization type error", this.xmlJavaResult.getHl7Errors().get(0).getMessage().startsWith("Expected mandatory attribute \"specializationType\""));
     }
 	
 	@Test
@@ -131,8 +132,9 @@ public class TsElementParserTest extends MarshallingTestCase {
         
         ParseContext context = ParserContextImpl.create("TS.FULLDATEWITHTIME", Date.class, SpecificationVersion.R02_04_02.getVersionLiteral(), ConformanceLevel.POPULATED);
         assertDateEquals("correct value returned " + value, FULL_DATE, expectedResult, (Date) (new TsElementParser()).parse(context, node, this.xmlJavaResult).getBareValue());
-        assertEquals("one error", 1, this.xmlJavaResult.getHl7Errors().size());
-        assertTrue("specialization type error", this.xmlJavaResult.getHl7Errors().get(0).getMessage().startsWith("Expected mandatory attribute \"specializationType\""));
+        assertTrue("no errors after relaxing validation", this.xmlJavaResult.getHl7Errors().isEmpty());
+//        assertEquals("one error", 1, this.xmlJavaResult.getHl7Errors().size());
+//        assertTrue("specialization type error", this.xmlJavaResult.getHl7Errors().get(0).getMessage().startsWith("Expected mandatory attribute \"specializationType\""));
     }
 	
 	@Test

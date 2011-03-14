@@ -10,7 +10,9 @@ import java.util.regex.Pattern;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
+import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.LIST;
+import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.datatype.nullflavor.NullFlavorSupport;
 import ca.infoway.messagebuilder.domainvalue.NullFlavor;
 import ca.infoway.messagebuilder.j5goodies.BeanProperty;
@@ -129,4 +131,21 @@ public class MessagePartBean implements NullFlavorSupport, Serializable {
 		this.nullFlavor = nullFlavor;
 	}
 
+	public StandardDataType getSpecializationType(String propertyName) {
+		Object field = getField(propertyName);
+		if (field instanceof BareANY) {
+			return ((BareANY) field).getDataType();
+		} else {
+			throw new IllegalStateException("Could not find property " + propertyName + " in order to get specialization type");
+		}
+	}
+	
+	public void setSpecializationType(String propertyName, StandardDataType specializationType) {
+		Object field = getField(propertyName);
+		if (field instanceof BareANY) {
+			((BareANY) field).setDataType(specializationType);
+		} else {
+			throw new IllegalStateException("Could not find property " + propertyName + " in order to set specialization type");
+		}
+	}
 }
