@@ -1,5 +1,6 @@
 package ca.infoway.messagebuilder.generator.java;
 
+import static ca.infoway.messagebuilder.generator.java.DifferenceHelper.getDifferenceByType;
 import static ca.infoway.messagebuilder.generator.java.DifferenceHelper.hasDifferenceOfType;
 
 import java.util.ArrayList;
@@ -205,11 +206,25 @@ public class SimplifiableType implements Named, NamedType {
 				&& hasDifferenceOfType(relationship2.getRelationship(), DifferenceType.COMPONENT_ONLY_IN_ONE_VERSION)) {
 			Relationship primaryRelationship = DifferenceHelper.choosePrimary(relationship1.getRelationship(), relationship2.getRelationship());
 			return relationship1.getRelationship() == primaryRelationship ? relationship1 : relationship2;
+		} else if (getDifferenceByType(relationship1.getRelationship(), DifferenceType.ASSOCIATION_TYPE) != null) {
+			getDifferenceByType(relationship1.getRelationship(), DifferenceType.ASSOCIATION_TYPE).setOk(false);
+			return relationship1;
+		} else if (getDifferenceByType(relationship2.getRelationship(), DifferenceType.ASSOCIATION_TYPE) != null) {
+			getDifferenceByType(relationship2.getRelationship(), DifferenceType.ASSOCIATION_TYPE).setOk(false);
+			return relationship2;
 		} else {
 			throw new GeneratorException(
 					"Duplicate fingerprint found in type, \"" + this.getName() 
-					+ ". relationship1 = " + relationship1.getName() 
-					+ ", relationship2 = " +relationship2.getName());
+					+ ". relationship1 = " + describe(relationship1) 
+					+ ", relationship2 = " +describe(relationship2));
 		}
+	}
+
+	private String describe(SimplifiableRelationship relationship) {
+		return relationship.getName() + " (" + 
+				(relationship.isTemplateParameterPresent() 
+					? relationship.getVariable().getType() 
+					: relationship.getType().getName()) 
+				+ ")";
 	}
 }
