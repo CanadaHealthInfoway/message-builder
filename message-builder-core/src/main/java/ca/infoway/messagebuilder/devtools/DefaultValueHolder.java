@@ -1,5 +1,6 @@
 package ca.infoway.messagebuilder.devtools;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
@@ -39,7 +40,7 @@ public class DefaultValueHolder extends ValueHolder {
 	public List<Identifier> getConformanceProfileIdentifiers() {
 		List<Identifier> conformanceProfileIdentifiers = super.getConformanceProfileIdentifiers();
 		conformanceProfileIdentifiers.clear();
-		conformanceProfileIdentifiers.add(new Identifier("1.1.1", "ext"));
+		conformanceProfileIdentifiers.add(new Identifier("1.1.1", "ext1"));
 		return conformanceProfileIdentifiers;
 	}
 	
@@ -68,25 +69,49 @@ public class DefaultValueHolder extends ValueHolder {
 		return populateSender();
 	}
 	
+	@Override
+	public ToBeRespondedToByValueHolder getRespondTo() {
+		return populateRespondTo();
+	}
+	
+	@Override
+	public List<RoutingInstructionLinesValueHolder> getAttentionLine() {
+		RoutingInstructionLinesValueHolder bean = new RoutingInstructionLinesValueHolder();
+		bean.setRoutingName("routing name");
+		bean.setRoutingType("routing type");
+		
+		List<RoutingInstructionLinesValueHolder> result = new ArrayList<RoutingInstructionLinesValueHolder>();
+		result.add(bean);
+		return result;
+	}
+
 	private ReceiverValueHolder populateReceiver() {
 		ReceiverValueHolder receiver = new ReceiverValueHolder();
 		receiver.setReceiverApplicationName("Receiver Application Name");
 		receiver.setReceiverNetworkAddress(new TelecommunicationAddress(URLScheme.HTTP, "192.168.2.1"));
-		receiver.setReceiverOrganizationIdentifier(new Identifier("1.1.1", "ext"));
-		receiver.setReceiverApplicationIdentifier(new Identifier("1.1.1", "ext"));
+		receiver.setReceiverOrganizationIdentifier(new Identifier("1.1.2", "ext2"));
+		receiver.setReceiverApplicationIdentifier(new Identifier("1.1.3", "ext3"));
 		return receiver;
 	}
 
 	private SenderValueHolder populateSender() {
 		SenderValueHolder sender = new SenderValueHolder();
-		sender.setSendingNetworkAddress(new TelecommunicationAddress(URLScheme.HTTP, "192.168.2.1"));
-		sender.setSendingApplicationIdentifier(new Identifier("1.1.1", "ext"));
+		sender.setSendingNetworkAddress(new TelecommunicationAddress(URLScheme.HTTP, "192.168.2.2"));
+		sender.setSendingApplicationIdentifier(new Identifier("1.1.4", "ext4"));
 		sender.setSendingSoftwareVersionNumber("1.0");
 		sender.setSendingApplicationSoftwareName("MBT Pharmacy");
 		sender.setSendingApplicationConfigurationInformation("Configuration information");
 		sender.setSendingApplicationName("Sending Application name");
 		sender.setSendingApplicationVersionDate(IntervalFactory.<Date>createLow(new Date()));
-		sender.setSendingOrganizationIdentifier(new Identifier("1.1.1", "ext"));
+		sender.setSendingOrganizationIdentifier(new Identifier("1.1.5", "ext5"));
 		return sender;
 	}
+	
+	private ToBeRespondedToByValueHolder populateRespondTo() {
+		ToBeRespondedToByValueHolder bean = new ToBeRespondedToByValueHolder();
+		bean.setRespondToApplicationIdentifier(new Identifier("1.1.6", "ext6"));
+		bean.setRespondToNetworkAddress(new TelecommunicationAddress(URLScheme.HTTP, "192.168.2.3"));
+		return bean;
+	}
+
 }

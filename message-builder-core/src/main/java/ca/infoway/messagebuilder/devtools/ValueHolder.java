@@ -23,8 +23,10 @@ public class ValueHolder {
 	private AcknowledgementCondition desiredAcknowledgmentType;
     private ReceiverValueHolder receiver = new ReceiverValueHolder();
     private SenderValueHolder sender = new SenderValueHolder();
+	private ToBeRespondedToByValueHolder respondTo = new ToBeRespondedToByValueHolder();  
+    private List<RoutingInstructionLinesValueHolder> attentionLine = new ArrayList<RoutingInstructionLinesValueHolder>();
 
-    public Identifier getMessageIdentifier() {
+	public Identifier getMessageIdentifier() {
         return this.messageIdentifier;
     }
     public void setMessageIdentifier(Identifier messageIdentifier) {
@@ -90,4 +92,20 @@ public class ValueHolder {
     public void setSender(SenderValueHolder sender) {
         this.sender = sender;
     }
+    
+    public ToBeRespondedToByValueHolder getRespondTo() {
+		return respondTo;
+	}
+	public void setRespondTo(ToBeRespondedToByValueHolder respondTo) {
+		this.respondTo = respondTo;
+	}
+	
+	// FIXME - TM - this currently does not work due to the nature of MessageBeanFactory handling collections
+    public List<RoutingInstructionLinesValueHolder> getAttentionLine() {
+		return attentionLine;
+	}
+	public void setAttentionLine(List<RoutingInstructionLinesValueHolder> attentionLine) {
+		this.attentionLine = attentionLine;
+	}
+	
 }
