@@ -12,14 +12,14 @@ import ca.infoway.messagebuilder.domainvalue.payload.AdministrativeGender;
 import ca.infoway.messagebuilder.domainvalue.transport.HL7TriggerEventCode;
 import ca.infoway.messagebuilder.j5goodies.DateUtil;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.common.merged.CreatedBy_2Bean;
-import ca.infoway.messagebuilder.model.common.merged.HealthcareWorkerBean;
-import ca.infoway.messagebuilder.model.common.merged.QueryByParameterBean;
-import ca.infoway.messagebuilder.model.common.mfmi_mt700751ca.TriggerEventBean;
-import ca.infoway.messagebuilder.model.cr.prpa_mt101103ca.ParameterListBean;
-import ca.infoway.messagebuilder.model.interaction.FindCandidatesQueryBean;
-import ca.infoway.messagebuilder.model.merged.ActingPersonBean;
-import ca.infoway.messagebuilder.model.merged.ServiceDeliveryLocationBean;
+import ca.infoway.messagebuilder.model.r02_04_02.common.merged.CreatedBy_2Bean;
+import ca.infoway.messagebuilder.model.r02_04_02.common.merged.HealthcareWorkerBean;
+import ca.infoway.messagebuilder.model.r02_04_02.common.merged.QueryByParameterBean;
+import ca.infoway.messagebuilder.model.r02_04_02.common.mfmi_mt700751ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.r02_04_02.cr.prpa_mt101103ca.ParameterListBean;
+import ca.infoway.messagebuilder.model.r02_04_02.merged.ActingPersonBean;
+import ca.infoway.messagebuilder.model.r02_04_02.merged.ServiceDeliveryLocationBean;
+import ca.infoway.messagebuilder.model.r02_04_02.interaction.FindCandidatesQueryBean;
 
 /**
  * <p>This class shows how to create a simple FindCandidates HL7 query bean.
