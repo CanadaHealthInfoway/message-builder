@@ -33,30 +33,16 @@ import java.util.Date;
 public class ConsentBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private II consentFormNumber = new IIImpl();
     private PatientBean subjectPatient;
+    private CV consentOverrideReason = new CVImpl();
     private AccessTypeBean subject2InformDefinition;
+    private II consentFormNumber = new IIImpl();
+    private PrescribedByBean author2;
     private IVL<TS, Interval<Date>> consentEffectiveAndEndTime = new IVLImpl<TS, Interval<Date>>();
     private ConsentedToByBean author1;
-    private PrescribedByBean author2;
-    private CV consentOverrideReason = new CVImpl();
     private CV consentType = new CVImpl();
     private InformationAccessBean componentPermissionToInform;
     private BL consentRefusedIndicator = new BLImpl();
-
-
-    /**
-     * <p>ConsentFormNumber</p>
-     * 
-     * <p>D:Consent Form Number</p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Identifier getConsentFormNumber() {
-        return this.consentFormNumber.getValue();
-    }
-    public void setConsentFormNumber(Identifier consentFormNumber) {
-        this.consentFormNumber.setValue(consentFormNumber);
-    }
 
 
     @Hl7XmlMapping({"subject/patient","subject1/patient"})
@@ -73,12 +59,52 @@ public class ConsentBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>ConsentOverrideReason</p>
+     * 
+     * <p>E:Consent Override Reason</p>
+     */
+    @Hl7XmlMapping({"reasonCode"})
+    public ActConsentInformationAccessReason getConsentOverrideReason() {
+        return (ActConsentInformationAccessReason) this.consentOverrideReason.getValue();
+    }
+    public void setConsentOverrideReason(ActConsentInformationAccessReason consentOverrideReason) {
+        this.consentOverrideReason.setValue(consentOverrideReason);
+    }
+
+
     @Hl7XmlMapping({"subject2/informDefinition"})
     public AccessTypeBean getSubject2InformDefinition() {
         return this.subject2InformDefinition;
     }
     public void setSubject2InformDefinition(AccessTypeBean subject2InformDefinition) {
         this.subject2InformDefinition = subject2InformDefinition;
+    }
+
+
+    /**
+     * <p>ConsentFormNumber</p>
+     * 
+     * <p>D:Consent Form Number</p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Identifier getConsentFormNumber() {
+        return this.consentFormNumber.getValue();
+    }
+    public void setConsentFormNumber(Identifier consentFormNumber) {
+        this.consentFormNumber.setValue(consentFormNumber);
+    }
+
+
+    @Hl7XmlMapping({"author1","author2"})
+    @Hl7MapByPartTypes({
+        @Hl7MapByPartType(name="author1", type="COCT_MT470000CA.Author2"),
+        @Hl7MapByPartType(name="author2", type="RCMR_MT010001CA.Author2")})
+    public PrescribedByBean getAuthor2() {
+        return this.author2;
+    }
+    public void setAuthor2(PrescribedByBean author2) {
+        this.author2 = author2;
     }
 
 
@@ -105,32 +131,6 @@ public class ConsentBean extends MessagePartBean {
     }
     public void setAuthor1(ConsentedToByBean author1) {
         this.author1 = author1;
-    }
-
-
-    @Hl7XmlMapping({"author1","author2"})
-    @Hl7MapByPartTypes({
-        @Hl7MapByPartType(name="author1", type="COCT_MT470000CA.Author2"),
-        @Hl7MapByPartType(name="author2", type="RCMR_MT010001CA.Author2")})
-    public PrescribedByBean getAuthor2() {
-        return this.author2;
-    }
-    public void setAuthor2(PrescribedByBean author2) {
-        this.author2 = author2;
-    }
-
-
-    /**
-     * <p>ConsentOverrideReason</p>
-     * 
-     * <p>E:Consent Override Reason</p>
-     */
-    @Hl7XmlMapping({"reasonCode"})
-    public ActConsentInformationAccessReason getConsentOverrideReason() {
-        return (ActConsentInformationAccessReason) this.consentOverrideReason.getValue();
-    }
-    public void setConsentOverrideReason(ActConsentInformationAccessReason consentOverrideReason) {
-        this.consentOverrideReason.setValue(consentOverrideReason);
     }
 
 

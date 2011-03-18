@@ -37,17 +37,17 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
     private ConsentBean subjectOf2ConsentEvent;
-    private II eventIdentifier = new IIImpl();
     private RefusedByBean author;
-    private RefersToBean<ACT> subject;
-    private RecordedAtBean location;
-    private List<IssuesBean> subjectOfDetectedIssueEvent = new ArrayList<IssuesBean>();
-    private IVL<TS, Interval<Date>> eventEffectivePeriod = new IVLImpl<TS, Interval<Date>>();
-    private CV eventType = new CVImpl();
-    private ProviderBean dataEntererAssignedPerson;
-    private ServiceLocationBean dataEntryLocationServiceDeliveryLocation;
     private ProviderBean responsiblePartyAssignedPerson;
     private CV eventReason = new CVImpl();
+    private ProviderBean dataEntererAssignedPerson;
+    private RefersToBean<ACT> subject;
+    private ServiceLocationBean dataEntryLocationServiceDeliveryLocation;
+    private II eventIdentifier = new IIImpl();
+    private RecordedAtBean location;
+    private CV eventType = new CVImpl();
+    private List<IssuesBean> subjectOfDetectedIssueEvent = new ArrayList<IssuesBean>();
+    private IVL<TS, Interval<Date>> eventEffectivePeriod = new IVLImpl<TS, Interval<Date>>();
 
 
     @Hl7XmlMapping({"subjectOf2/consentEvent"})
@@ -56,6 +56,65 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
     }
     public void setSubjectOf2ConsentEvent(ConsentBean subjectOf2ConsentEvent) {
         this.subjectOf2ConsentEvent = subjectOf2ConsentEvent;
+    }
+
+
+    @Hl7XmlMapping({"author"})
+    public RefusedByBean getAuthor() {
+        return this.author;
+    }
+    public void setAuthor(RefusedByBean author) {
+        this.author = author;
+    }
+
+
+    @Hl7XmlMapping({"responsibleParty/assignedPerson"})
+    public ProviderBean getResponsiblePartyAssignedPerson() {
+        return this.responsiblePartyAssignedPerson;
+    }
+    public void setResponsiblePartyAssignedPerson(ProviderBean responsiblePartyAssignedPerson) {
+        this.responsiblePartyAssignedPerson = responsiblePartyAssignedPerson;
+    }
+
+
+    /**
+     * <p>EventReason</p>
+     * 
+     * <p>E:Event Reason</p>
+     */
+    @Hl7XmlMapping({"reasonCode"})
+    public ControlActReason getEventReason() {
+        return (ControlActReason) this.eventReason.getValue();
+    }
+    public void setEventReason(ControlActReason eventReason) {
+        this.eventReason.setValue(eventReason);
+    }
+
+
+    @Hl7XmlMapping({"dataEnterer/assignedPerson"})
+    public ProviderBean getDataEntererAssignedPerson() {
+        return this.dataEntererAssignedPerson;
+    }
+    public void setDataEntererAssignedPerson(ProviderBean dataEntererAssignedPerson) {
+        this.dataEntererAssignedPerson = dataEntererAssignedPerson;
+    }
+
+
+    @Hl7XmlMapping({"subject"})
+    public RefersToBean<ACT> getSubject() {
+        return this.subject;
+    }
+    public void setSubject(RefersToBean<ACT> subject) {
+        this.subject = subject;
+    }
+
+
+    @Hl7XmlMapping({"dataEntryLocation/serviceDeliveryLocation"})
+    public ServiceLocationBean getDataEntryLocationServiceDeliveryLocation() {
+        return this.dataEntryLocationServiceDeliveryLocation;
+    }
+    public void setDataEntryLocationServiceDeliveryLocation(ServiceLocationBean dataEntryLocationServiceDeliveryLocation) {
+        this.dataEntryLocationServiceDeliveryLocation = dataEntryLocationServiceDeliveryLocation;
     }
 
 
@@ -73,30 +132,26 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"author"})
-    public RefusedByBean getAuthor() {
-        return this.author;
-    }
-    public void setAuthor(RefusedByBean author) {
-        this.author = author;
-    }
-
-
-    @Hl7XmlMapping({"subject"})
-    public RefersToBean<ACT> getSubject() {
-        return this.subject;
-    }
-    public void setSubject(RefersToBean<ACT> subject) {
-        this.subject = subject;
-    }
-
-
     @Hl7XmlMapping({"location"})
     public RecordedAtBean getLocation() {
         return this.location;
     }
     public void setLocation(RecordedAtBean location) {
         this.location = location;
+    }
+
+
+    /**
+     * <p>EventType</p>
+     * 
+     * <p>A:Event Type</p>
+     */
+    @Hl7XmlMapping({"code"})
+    public HL7TriggerEventCode getEventType() {
+        return (HL7TriggerEventCode) this.eventType.getValue();
+    }
+    public void setEventType(HL7TriggerEventCode eventType) {
+        this.eventType.setValue(eventType);
     }
 
 
@@ -122,61 +177,6 @@ public class TriggerEvent_1Bean<ACT> extends MessagePartBean {
     }
     public void setEventEffectivePeriod(Interval<Date> eventEffectivePeriod) {
         this.eventEffectivePeriod.setValue(eventEffectivePeriod);
-    }
-
-
-    /**
-     * <p>EventType</p>
-     * 
-     * <p>A:Event Type</p>
-     */
-    @Hl7XmlMapping({"code"})
-    public HL7TriggerEventCode getEventType() {
-        return (HL7TriggerEventCode) this.eventType.getValue();
-    }
-    public void setEventType(HL7TriggerEventCode eventType) {
-        this.eventType.setValue(eventType);
-    }
-
-
-    @Hl7XmlMapping({"dataEnterer/assignedPerson"})
-    public ProviderBean getDataEntererAssignedPerson() {
-        return this.dataEntererAssignedPerson;
-    }
-    public void setDataEntererAssignedPerson(ProviderBean dataEntererAssignedPerson) {
-        this.dataEntererAssignedPerson = dataEntererAssignedPerson;
-    }
-
-
-    @Hl7XmlMapping({"dataEntryLocation/serviceDeliveryLocation"})
-    public ServiceLocationBean getDataEntryLocationServiceDeliveryLocation() {
-        return this.dataEntryLocationServiceDeliveryLocation;
-    }
-    public void setDataEntryLocationServiceDeliveryLocation(ServiceLocationBean dataEntryLocationServiceDeliveryLocation) {
-        this.dataEntryLocationServiceDeliveryLocation = dataEntryLocationServiceDeliveryLocation;
-    }
-
-
-    @Hl7XmlMapping({"responsibleParty/assignedPerson"})
-    public ProviderBean getResponsiblePartyAssignedPerson() {
-        return this.responsiblePartyAssignedPerson;
-    }
-    public void setResponsiblePartyAssignedPerson(ProviderBean responsiblePartyAssignedPerson) {
-        this.responsiblePartyAssignedPerson = responsiblePartyAssignedPerson;
-    }
-
-
-    /**
-     * <p>EventReason</p>
-     * 
-     * <p>E:Event Reason</p>
-     */
-    @Hl7XmlMapping({"reasonCode"})
-    public ControlActReason getEventReason() {
-        return (ControlActReason) this.eventReason.getValue();
-    }
-    public void setEventReason(ControlActReason eventReason) {
-        this.eventReason.setValue(eventReason);
     }
 
 }

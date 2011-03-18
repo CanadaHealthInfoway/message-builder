@@ -30,16 +30,30 @@ import java.util.List;
 public class TriggerEvent_3Bean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
+    private CV eventReason = new CVImpl();
     private II eventIdentifier = new IIImpl();
+    private CV eventType = new CVImpl();
     private List<IssuesBean> subjectOfDetectedIssueEvent = new ArrayList<IssuesBean>();
     private TS eventEffectivePeriod = new TSImpl();
-    private CV eventType = new CVImpl();
-    private CV eventReason = new CVImpl();
     private RefusedByBean author;
-    private RecordedAtBean location;
+    private ProviderBean responsiblePartyAssignedPerson;
     private ProviderBean dataEntererAssignedPerson;
     private ServiceLocationBean dataEntryLocationServiceDeliveryLocation;
-    private ProviderBean responsiblePartyAssignedPerson;
+    private RecordedAtBean location;
+
+
+    /**
+     * <p>EventReason</p>
+     * 
+     * <p>E:Event Reason</p>
+     */
+    @Hl7XmlMapping({"reasonCode"})
+    public ControlActReason getEventReason() {
+        return (ControlActReason) this.eventReason.getValue();
+    }
+    public void setEventReason(ControlActReason eventReason) {
+        this.eventReason.setValue(eventReason);
+    }
 
 
     /**
@@ -53,6 +67,20 @@ public class TriggerEvent_3Bean extends MessagePartBean {
     }
     public void setEventIdentifier(Identifier eventIdentifier) {
         this.eventIdentifier.setValue(eventIdentifier);
+    }
+
+
+    /**
+     * <p>EventType</p>
+     * 
+     * <p>A:Event Type</p>
+     */
+    @Hl7XmlMapping({"code"})
+    public HL7TriggerEventCode getEventType() {
+        return (HL7TriggerEventCode) this.eventType.getValue();
+    }
+    public void setEventType(HL7TriggerEventCode eventType) {
+        this.eventType.setValue(eventType);
     }
 
 
@@ -76,34 +104,6 @@ public class TriggerEvent_3Bean extends MessagePartBean {
     }
 
 
-    /**
-     * <p>EventType</p>
-     * 
-     * <p>A:Event Type</p>
-     */
-    @Hl7XmlMapping({"code"})
-    public HL7TriggerEventCode getEventType() {
-        return (HL7TriggerEventCode) this.eventType.getValue();
-    }
-    public void setEventType(HL7TriggerEventCode eventType) {
-        this.eventType.setValue(eventType);
-    }
-
-
-    /**
-     * <p>EventReason</p>
-     * 
-     * <p>E:Event Reason</p>
-     */
-    @Hl7XmlMapping({"reasonCode"})
-    public ControlActReason getEventReason() {
-        return (ControlActReason) this.eventReason.getValue();
-    }
-    public void setEventReason(ControlActReason eventReason) {
-        this.eventReason.setValue(eventReason);
-    }
-
-
     @Hl7XmlMapping({"author"})
     public RefusedByBean getAuthor() {
         return this.author;
@@ -113,12 +113,12 @@ public class TriggerEvent_3Bean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"location"})
-    public RecordedAtBean getLocation() {
-        return this.location;
+    @Hl7XmlMapping({"responsibleParty/assignedPerson"})
+    public ProviderBean getResponsiblePartyAssignedPerson() {
+        return this.responsiblePartyAssignedPerson;
     }
-    public void setLocation(RecordedAtBean location) {
-        this.location = location;
+    public void setResponsiblePartyAssignedPerson(ProviderBean responsiblePartyAssignedPerson) {
+        this.responsiblePartyAssignedPerson = responsiblePartyAssignedPerson;
     }
 
 
@@ -140,12 +140,12 @@ public class TriggerEvent_3Bean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"responsibleParty/assignedPerson"})
-    public ProviderBean getResponsiblePartyAssignedPerson() {
-        return this.responsiblePartyAssignedPerson;
+    @Hl7XmlMapping({"location"})
+    public RecordedAtBean getLocation() {
+        return this.location;
     }
-    public void setResponsiblePartyAssignedPerson(ProviderBean responsiblePartyAssignedPerson) {
-        this.responsiblePartyAssignedPerson = responsiblePartyAssignedPerson;
+    public void setLocation(RecordedAtBean location) {
+        this.location = location;
     }
 
 }

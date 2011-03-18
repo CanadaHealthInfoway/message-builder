@@ -17,21 +17,9 @@ import ca.infoway.messagebuilder.model.v01_r04_3.pharmacy.merged.AssignedEntity3
 public class FormulariesBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private II formularyId = new IIImpl();
     private ST formularyName = new STImpl();
+    private II formularyId = new IIImpl();
     private AssignedEntity3Bean performerAssignedEntity;
-
-
-    /**
-     * <p>Formulary Id</p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Identifier getFormularyId() {
-        return this.formularyId.getValue();
-    }
-    public void setFormularyId(Identifier formularyId) {
-        this.formularyId.setValue(formularyId);
-    }
 
 
     /**
@@ -43,6 +31,18 @@ public class FormulariesBean extends MessagePartBean {
     }
     public void setFormularyName(String formularyName) {
         this.formularyName.setValue(formularyName);
+    }
+
+
+    /**
+     * <p>Formulary Id</p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Identifier getFormularyId() {
+        return this.formularyId.getValue();
+    }
+    public void setFormularyId(Identifier formularyId) {
+        this.formularyId.setValue(formularyId);
     }
 
 

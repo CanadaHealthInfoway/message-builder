@@ -20,8 +20,8 @@ public class DiagnosisIndicationsBean extends MessagePartBean implements Indicat
 
     private static final long serialVersionUID = 20110318L;
     private CD diagnosisType = new CDImpl();
-    private ST freeFormDiagnosisIndication = new STImpl();
     private CV diagnosisCode = new CVImpl();
+    private ST freeFormDiagnosisIndication = new STImpl();
 
 
     /**
@@ -37,18 +37,6 @@ public class DiagnosisIndicationsBean extends MessagePartBean implements Indicat
 
 
     /**
-     * <p>Free Form Diagnosis Indication</p>
-     */
-    @Hl7XmlMapping({"text"})
-    public String getFreeFormDiagnosisIndication() {
-        return this.freeFormDiagnosisIndication.getValue();
-    }
-    public void setFreeFormDiagnosisIndication(String freeFormDiagnosisIndication) {
-        this.freeFormDiagnosisIndication.setValue(freeFormDiagnosisIndication);
-    }
-
-
-    /**
      * <p>A:Diagnosis Code</p>
      */
     @Hl7XmlMapping({"value"})
@@ -57,6 +45,18 @@ public class DiagnosisIndicationsBean extends MessagePartBean implements Indicat
     }
     public void setDiagnosisCode(DiagnosisValue diagnosisCode) {
         this.diagnosisCode.setValue(diagnosisCode);
+    }
+
+
+    /**
+     * <p>Free Form Diagnosis Indication</p>
+     */
+    @Hl7XmlMapping({"text"})
+    public String getFreeFormDiagnosisIndication() {
+        return this.freeFormDiagnosisIndication.getValue();
+    }
+    public void setFreeFormDiagnosisIndication(String freeFormDiagnosisIndication) {
+        this.freeFormDiagnosisIndication.setValue(freeFormDiagnosisIndication);
     }
 
 }

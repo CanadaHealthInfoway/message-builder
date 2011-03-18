@@ -17,24 +17,8 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 public class DispensedInBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private PQ quantity = new PQImpl();
     private CV containerPackagedMedicineFormCode = new CVImpl();
-
-
-    /**
-     * <p>B:Drug Package Quantity</p>
-     * 
-     * <p>Package Quantity</p>
-     * 
-     * <p>F:Drug Package Quantity</p>
-     */
-    @Hl7XmlMapping({"quantity"})
-    public PhysicalQuantity getQuantity() {
-        return this.quantity.getValue();
-    }
-    public void setQuantity(PhysicalQuantity quantity) {
-        this.quantity.setValue(quantity);
-    }
+    private PQ quantity = new PQImpl();
 
 
     /**
@@ -54,6 +38,22 @@ public class DispensedInBean extends MessagePartBean {
     }
     public void setContainerPackagedMedicineFormCode(CompliancePackageEntityType containerPackagedMedicineFormCode) {
         this.containerPackagedMedicineFormCode.setValue(containerPackagedMedicineFormCode);
+    }
+
+
+    /**
+     * <p>B:Drug Package Quantity</p>
+     * 
+     * <p>Package Quantity</p>
+     * 
+     * <p>F:Drug Package Quantity</p>
+     */
+    @Hl7XmlMapping({"quantity"})
+    public PhysicalQuantity getQuantity() {
+        return this.quantity.getValue();
+    }
+    public void setQuantity(PhysicalQuantity quantity) {
+        this.quantity.setValue(quantity);
     }
 
 }

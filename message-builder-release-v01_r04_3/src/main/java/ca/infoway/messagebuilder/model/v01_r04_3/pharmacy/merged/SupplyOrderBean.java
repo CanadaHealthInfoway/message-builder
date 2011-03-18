@@ -16,9 +16,18 @@ import ca.infoway.messagebuilder.model.v01_r04_3.merged.PrescribedByBean;
 public class SupplyOrderBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
+    private ProviderBean responsiblePartyAssignedPerson;
     private II prescriptionIdentifier = new IIImpl();
     private PrescribedByBean author;
-    private ProviderBean responsiblePartyAssignedPerson;
+
+
+    @Hl7XmlMapping({"responsibleParty/assignedPerson"})
+    public ProviderBean getResponsiblePartyAssignedPerson() {
+        return this.responsiblePartyAssignedPerson;
+    }
+    public void setResponsiblePartyAssignedPerson(ProviderBean responsiblePartyAssignedPerson) {
+        this.responsiblePartyAssignedPerson = responsiblePartyAssignedPerson;
+    }
 
 
     /**
@@ -41,15 +50,6 @@ public class SupplyOrderBean extends MessagePartBean {
     }
     public void setAuthor(PrescribedByBean author) {
         this.author = author;
-    }
-
-
-    @Hl7XmlMapping({"responsibleParty/assignedPerson"})
-    public ProviderBean getResponsiblePartyAssignedPerson() {
-        return this.responsiblePartyAssignedPerson;
-    }
-    public void setResponsiblePartyAssignedPerson(ProviderBean responsiblePartyAssignedPerson) {
-        this.responsiblePartyAssignedPerson = responsiblePartyAssignedPerson;
     }
 
 }

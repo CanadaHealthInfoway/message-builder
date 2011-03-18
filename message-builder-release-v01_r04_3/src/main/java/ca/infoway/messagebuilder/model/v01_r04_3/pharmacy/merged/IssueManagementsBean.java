@@ -20,33 +20,10 @@ import java.util.Date;
 public class IssueManagementsBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private TS managementDate = new TSImpl();
-    private ProviderBean authorAssignedPerson;
     private CV managementType = new CVImpl();
+    private ProviderBean authorAssignedPerson;
+    private TS managementDate = new TSImpl();
     private ST managementDescription = new STImpl();
-
-
-    /**
-     * <p>ManagementDate</p>
-     * 
-     * <p>B:Management Date</p>
-     */
-    @Hl7XmlMapping({"author/time"})
-    public Date getManagementDate() {
-        return this.managementDate.getValue();
-    }
-    public void setManagementDate(Date managementDate) {
-        this.managementDate.setValue(managementDate);
-    }
-
-
-    @Hl7XmlMapping({"author/assignedPerson"})
-    public ProviderBean getAuthorAssignedPerson() {
-        return this.authorAssignedPerson;
-    }
-    public void setAuthorAssignedPerson(ProviderBean authorAssignedPerson) {
-        this.authorAssignedPerson = authorAssignedPerson;
-    }
 
 
     /**
@@ -60,6 +37,29 @@ public class IssueManagementsBean extends MessagePartBean {
     }
     public void setManagementType(ActDetectedIssueManagementCode managementType) {
         this.managementType.setValue(managementType);
+    }
+
+
+    @Hl7XmlMapping({"author/assignedPerson"})
+    public ProviderBean getAuthorAssignedPerson() {
+        return this.authorAssignedPerson;
+    }
+    public void setAuthorAssignedPerson(ProviderBean authorAssignedPerson) {
+        this.authorAssignedPerson = authorAssignedPerson;
+    }
+
+
+    /**
+     * <p>ManagementDate</p>
+     * 
+     * <p>B:Management Date</p>
+     */
+    @Hl7XmlMapping({"author/time"})
+    public Date getManagementDate() {
+        return this.managementDate.getValue();
+    }
+    public void setManagementDate(Date managementDate) {
+        this.managementDate.setValue(managementDate);
     }
 
 

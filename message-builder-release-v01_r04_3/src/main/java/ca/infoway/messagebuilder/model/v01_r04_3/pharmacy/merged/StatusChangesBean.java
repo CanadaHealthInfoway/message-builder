@@ -23,25 +23,68 @@ import java.util.Date;
 public class StatusChangesBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private TS changeTimestamp = new TSImpl();
-    private ChangedBy authorChangedBy;
-    private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
-    private CV code = new CVImpl();
     private ProviderBean responsiblePartyAssignedPerson;
     private CV reasonCode = new CVImpl();
+    private CV code = new CVImpl();
+    private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
+    private ChangedBy authorChangedBy;
+    private TS changeTimestamp = new TSImpl();
+
+
+    @Hl7XmlMapping({"responsibleParty/assignedPerson"})
+    public ProviderBean getResponsiblePartyAssignedPerson() {
+        return this.responsiblePartyAssignedPerson;
+    }
+    public void setResponsiblePartyAssignedPerson(ProviderBean responsiblePartyAssignedPerson) {
+        this.responsiblePartyAssignedPerson = responsiblePartyAssignedPerson;
+    }
 
 
     /**
-     * <p>ChangeTimestamp</p>
+     * <p>Change Reason</p>
      * 
-     * <p>Change Timestamp</p>
+     * <p>Dispense Status Change Reason</p>
+     * 
+     * <p>Other Medication Status Change Reason</p>
      */
-    @Hl7XmlMapping({"author/time"})
-    public Date getChangeTimestamp() {
-        return this.changeTimestamp.getValue();
+    @Hl7XmlMapping({"reasonCode"})
+    public ControlActReason getReasonCode() {
+        return (ControlActReason) this.reasonCode.getValue();
     }
-    public void setChangeTimestamp(Date changeTimestamp) {
-        this.changeTimestamp.setValue(changeTimestamp);
+    public void setReasonCode(ControlActReason reasonCode) {
+        this.reasonCode.setValue(reasonCode);
+    }
+
+
+    /**
+     * <p>Dispense Status Change Type</p>
+     * 
+     * <p>Other Medication Status Change Type</p>
+     * 
+     * <p>Change Type</p>
+     */
+    @Hl7XmlMapping({"code"})
+    public HL7TriggerEventCode getCode() {
+        return (HL7TriggerEventCode) this.code.getValue();
+    }
+    public void setCode(HL7TriggerEventCode code) {
+        this.code.setValue(code);
+    }
+
+
+    /**
+     * <p>Other Medication Status Change Effective Period</p>
+     * 
+     * <p>Dispense Status Change Effective Date</p>
+     * 
+     * <p>Change Effective Period</p>
+     */
+    @Hl7XmlMapping({"effectiveTime"})
+    public Interval<Date> getEffectiveTime() {
+        return this.effectiveTime.getValue();
+    }
+    public void setEffectiveTime(Interval<Date> effectiveTime) {
+        this.effectiveTime.setValue(effectiveTime);
     }
 
 
@@ -69,59 +112,16 @@ public class StatusChangesBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Medication Status Change Effective Period</p>
+     * <p>ChangeTimestamp</p>
      * 
-     * <p>Dispense Status Change Effective Date</p>
-     * 
-     * <p>Change Effective Period</p>
+     * <p>Change Timestamp</p>
      */
-    @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getEffectiveTime() {
-        return this.effectiveTime.getValue();
+    @Hl7XmlMapping({"author/time"})
+    public Date getChangeTimestamp() {
+        return this.changeTimestamp.getValue();
     }
-    public void setEffectiveTime(Interval<Date> effectiveTime) {
-        this.effectiveTime.setValue(effectiveTime);
-    }
-
-
-    /**
-     * <p>Dispense Status Change Type</p>
-     * 
-     * <p>Other Medication Status Change Type</p>
-     * 
-     * <p>Change Type</p>
-     */
-    @Hl7XmlMapping({"code"})
-    public HL7TriggerEventCode getCode() {
-        return (HL7TriggerEventCode) this.code.getValue();
-    }
-    public void setCode(HL7TriggerEventCode code) {
-        this.code.setValue(code);
-    }
-
-
-    @Hl7XmlMapping({"responsibleParty/assignedPerson"})
-    public ProviderBean getResponsiblePartyAssignedPerson() {
-        return this.responsiblePartyAssignedPerson;
-    }
-    public void setResponsiblePartyAssignedPerson(ProviderBean responsiblePartyAssignedPerson) {
-        this.responsiblePartyAssignedPerson = responsiblePartyAssignedPerson;
-    }
-
-
-    /**
-     * <p>Change Reason</p>
-     * 
-     * <p>Dispense Status Change Reason</p>
-     * 
-     * <p>Other Medication Status Change Reason</p>
-     */
-    @Hl7XmlMapping({"reasonCode"})
-    public ControlActReason getReasonCode() {
-        return (ControlActReason) this.reasonCode.getValue();
-    }
-    public void setReasonCode(ControlActReason reasonCode) {
-        this.reasonCode.setValue(reasonCode);
+    public void setChangeTimestamp(Date changeTimestamp) {
+        this.changeTimestamp.setValue(changeTimestamp);
     }
 
 }

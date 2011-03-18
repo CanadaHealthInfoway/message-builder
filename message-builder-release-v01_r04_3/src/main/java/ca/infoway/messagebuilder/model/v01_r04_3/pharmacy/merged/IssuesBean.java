@@ -28,13 +28,13 @@ public class IssuesBean extends MessagePartBean {
     private static final long serialVersionUID = 20110318L;
     private CV issueType = new CVImpl();
     private ST text = new STImpl();
-    private CV issuePriority = new CVImpl();
-    private List<CausalActs> subjectCausalActs = new ArrayList<CausalActs>();
-    private CV severityCode = new CVImpl();
-    private IssueDescriptionBean instantiationDetectedIssueDefinition;
     private List<IssueManagementsBean> mitigatedByDetectedIssueManagement = new ArrayList<IssueManagementsBean>();
-    private BL subjectOf1StorageIntent = new BLImpl();
+    private List<CausalActs> subjectCausalActs = new ArrayList<CausalActs>();
+    private IssueDescriptionBean instantiationDetectedIssueDefinition;
+    private CV severityCode = new CVImpl();
+    private CV issuePriority = new CVImpl();
     private BL triggerForActRequest = new BLImpl();
+    private BL subjectOf1StorageIntent = new BLImpl();
 
 
     /**
@@ -69,23 +69,24 @@ public class IssuesBean extends MessagePartBean {
     }
 
 
-    /**
-     * <p>IssuePriority</p>
-     * 
-     * <p>C:Issue Priority</p>
-     */
-    @Hl7XmlMapping({"priorityCode"})
-    public ActIssuePriority getIssuePriority() {
-        return (ActIssuePriority) this.issuePriority.getValue();
-    }
-    public void setIssuePriority(ActIssuePriority issuePriority) {
-        this.issuePriority.setValue(issuePriority);
+    @Hl7XmlMapping({"mitigatedBy/detectedIssueManagement"})
+    public List<IssueManagementsBean> getMitigatedByDetectedIssueManagement() {
+        return this.mitigatedByDetectedIssueManagement;
     }
 
 
     @Hl7XmlMapping({"subject/causalActs"})
     public List<CausalActs> getSubjectCausalActs() {
         return this.subjectCausalActs;
+    }
+
+
+    @Hl7XmlMapping({"instantiation/detectedIssueDefinition"})
+    public IssueDescriptionBean getInstantiationDetectedIssueDefinition() {
+        return this.instantiationDetectedIssueDefinition;
+    }
+    public void setInstantiationDetectedIssueDefinition(IssueDescriptionBean instantiationDetectedIssueDefinition) {
+        this.instantiationDetectedIssueDefinition = instantiationDetectedIssueDefinition;
     }
 
 
@@ -110,27 +111,17 @@ public class IssuesBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"instantiation/detectedIssueDefinition"})
-    public IssueDescriptionBean getInstantiationDetectedIssueDefinition() {
-        return this.instantiationDetectedIssueDefinition;
+    /**
+     * <p>IssuePriority</p>
+     * 
+     * <p>C:Issue Priority</p>
+     */
+    @Hl7XmlMapping({"priorityCode"})
+    public ActIssuePriority getIssuePriority() {
+        return (ActIssuePriority) this.issuePriority.getValue();
     }
-    public void setInstantiationDetectedIssueDefinition(IssueDescriptionBean instantiationDetectedIssueDefinition) {
-        this.instantiationDetectedIssueDefinition = instantiationDetectedIssueDefinition;
-    }
-
-
-    @Hl7XmlMapping({"mitigatedBy/detectedIssueManagement"})
-    public List<IssueManagementsBean> getMitigatedByDetectedIssueManagement() {
-        return this.mitigatedByDetectedIssueManagement;
-    }
-
-
-    @Hl7XmlMapping({"subjectOf1/storageIntent"})
-    public Boolean getSubjectOf1StorageIntent() {
-        return this.subjectOf1StorageIntent.getValue();
-    }
-    public void setSubjectOf1StorageIntent(Boolean subjectOf1StorageIntent) {
-        this.subjectOf1StorageIntent.setValue(subjectOf1StorageIntent);
+    public void setIssuePriority(ActIssuePriority issuePriority) {
+        this.issuePriority.setValue(issuePriority);
     }
 
 
@@ -140,6 +131,15 @@ public class IssuesBean extends MessagePartBean {
     }
     public void setTriggerForActRequest(Boolean triggerForActRequest) {
         this.triggerForActRequest.setValue(triggerForActRequest);
+    }
+
+
+    @Hl7XmlMapping({"subjectOf1/storageIntent"})
+    public Boolean getSubjectOf1StorageIntent() {
+        return this.subjectOf1StorageIntent.getValue();
+    }
+    public void setSubjectOf1StorageIntent(Boolean subjectOf1StorageIntent) {
+        this.subjectOf1StorageIntent.setValue(subjectOf1StorageIntent);
     }
 
 }

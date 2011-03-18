@@ -25,28 +25,84 @@ import java.util.Date;
 public class SenderBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private TEL sendingNetworkAddress = new TELImpl();
+    private IVL<TS, Interval<Date>> sendingApplicationVersionDate = new IVLImpl<TS, Interval<Date>>();
+    private II sendingOrganizationIdentifier = new IIImpl();
+    private ST sendingApplicationConfigurationInformation = new STImpl();
+    private ST sendingApplicationName = new STImpl();
+    private II sendingFacilityIdentifier = new IIImpl();
     private II sendingApplicationIdentifier = new IIImpl();
     private ST sendingApplicationSoftwareName = new STImpl();
-    private II sendingFacilityIdentifier = new IIImpl();
-    private ST sendingApplicationConfigurationInformation = new STImpl();
-    private IVL<TS, Interval<Date>> sendingApplicationVersionDate = new IVLImpl<TS, Interval<Date>>();
-    private ST sendingApplicationName = new STImpl();
     private ST sendingSoftwareVersionNumber = new STImpl();
-    private II sendingOrganizationIdentifier = new IIImpl();
+    private TEL sendingNetworkAddress = new TELImpl();
 
 
     /**
-     * <p>SendingNetworkAddress</p>
+     * <p>SendingApplicationVersionDate</p>
      * 
-     * <p>IB:Sending Network Address</p>
+     * <p>IH:Sending Application Version Date</p>
      */
-    @Hl7XmlMapping({"telecom"})
-    public TelecommunicationAddress getSendingNetworkAddress() {
-        return this.sendingNetworkAddress.getValue();
+    @Hl7XmlMapping({"device/existenceTime"})
+    public Interval<Date> getSendingApplicationVersionDate() {
+        return this.sendingApplicationVersionDate.getValue();
     }
-    public void setSendingNetworkAddress(TelecommunicationAddress sendingNetworkAddress) {
-        this.sendingNetworkAddress.setValue(sendingNetworkAddress);
+    public void setSendingApplicationVersionDate(Interval<Date> sendingApplicationVersionDate) {
+        this.sendingApplicationVersionDate.setValue(sendingApplicationVersionDate);
+    }
+
+
+    /**
+     * <p>SendingOrganizationIdentifier</p>
+     * 
+     * <p>IC:Sending Organization Identifier</p>
+     */
+    @Hl7XmlMapping({"device/asAgent/representedOrganization/id"})
+    public Identifier getSendingOrganizationIdentifier() {
+        return this.sendingOrganizationIdentifier.getValue();
+    }
+    public void setSendingOrganizationIdentifier(Identifier sendingOrganizationIdentifier) {
+        this.sendingOrganizationIdentifier.setValue(sendingOrganizationIdentifier);
+    }
+
+
+    /**
+     * <p>SendingApplicationConfigurationInformation</p>
+     * 
+     * <p>II:Sending Application Configuration Information</p>
+     */
+    @Hl7XmlMapping({"device/desc"})
+    public String getSendingApplicationConfigurationInformation() {
+        return this.sendingApplicationConfigurationInformation.getValue();
+    }
+    public void setSendingApplicationConfigurationInformation(String sendingApplicationConfigurationInformation) {
+        this.sendingApplicationConfigurationInformation.setValue(sendingApplicationConfigurationInformation);
+    }
+
+
+    /**
+     * <p>SendingApplicationName</p>
+     * 
+     * <p>IE:Sending Application Name</p>
+     */
+    @Hl7XmlMapping({"device/name"})
+    public String getSendingApplicationName() {
+        return this.sendingApplicationName.getValue();
+    }
+    public void setSendingApplicationName(String sendingApplicationName) {
+        this.sendingApplicationName.setValue(sendingApplicationName);
+    }
+
+
+    /**
+     * <p>SendingFacilityIdentifier</p>
+     * 
+     * <p>ICA:Sending Facility Identifier</p>
+     */
+    @Hl7XmlMapping({"device/asLocatedEntity/location/id"})
+    public Identifier getSendingFacilityIdentifier() {
+        return this.sendingFacilityIdentifier.getValue();
+    }
+    public void setSendingFacilityIdentifier(Identifier sendingFacilityIdentifier) {
+        this.sendingFacilityIdentifier.setValue(sendingFacilityIdentifier);
     }
 
 
@@ -79,62 +135,6 @@ public class SenderBean extends MessagePartBean {
 
 
     /**
-     * <p>SendingFacilityIdentifier</p>
-     * 
-     * <p>ICA:Sending Facility Identifier</p>
-     */
-    @Hl7XmlMapping({"device/asLocatedEntity/location/id"})
-    public Identifier getSendingFacilityIdentifier() {
-        return this.sendingFacilityIdentifier.getValue();
-    }
-    public void setSendingFacilityIdentifier(Identifier sendingFacilityIdentifier) {
-        this.sendingFacilityIdentifier.setValue(sendingFacilityIdentifier);
-    }
-
-
-    /**
-     * <p>SendingApplicationConfigurationInformation</p>
-     * 
-     * <p>II:Sending Application Configuration Information</p>
-     */
-    @Hl7XmlMapping({"device/desc"})
-    public String getSendingApplicationConfigurationInformation() {
-        return this.sendingApplicationConfigurationInformation.getValue();
-    }
-    public void setSendingApplicationConfigurationInformation(String sendingApplicationConfigurationInformation) {
-        this.sendingApplicationConfigurationInformation.setValue(sendingApplicationConfigurationInformation);
-    }
-
-
-    /**
-     * <p>SendingApplicationVersionDate</p>
-     * 
-     * <p>IH:Sending Application Version Date</p>
-     */
-    @Hl7XmlMapping({"device/existenceTime"})
-    public Interval<Date> getSendingApplicationVersionDate() {
-        return this.sendingApplicationVersionDate.getValue();
-    }
-    public void setSendingApplicationVersionDate(Interval<Date> sendingApplicationVersionDate) {
-        this.sendingApplicationVersionDate.setValue(sendingApplicationVersionDate);
-    }
-
-
-    /**
-     * <p>SendingApplicationName</p>
-     * 
-     * <p>IE:Sending Application Name</p>
-     */
-    @Hl7XmlMapping({"device/name"})
-    public String getSendingApplicationName() {
-        return this.sendingApplicationName.getValue();
-    }
-    public void setSendingApplicationName(String sendingApplicationName) {
-        this.sendingApplicationName.setValue(sendingApplicationName);
-    }
-
-
-    /**
      * <p>SendingSoftwareVersionNumber</p>
      * 
      * <p>IG:Sending Software Version Number</p>
@@ -149,16 +149,16 @@ public class SenderBean extends MessagePartBean {
 
 
     /**
-     * <p>SendingOrganizationIdentifier</p>
+     * <p>SendingNetworkAddress</p>
      * 
-     * <p>IC:Sending Organization Identifier</p>
+     * <p>IB:Sending Network Address</p>
      */
-    @Hl7XmlMapping({"device/asAgent/representedOrganization/id"})
-    public Identifier getSendingOrganizationIdentifier() {
-        return this.sendingOrganizationIdentifier.getValue();
+    @Hl7XmlMapping({"telecom"})
+    public TelecommunicationAddress getSendingNetworkAddress() {
+        return this.sendingNetworkAddress.getValue();
     }
-    public void setSendingOrganizationIdentifier(Identifier sendingOrganizationIdentifier) {
-        this.sendingOrganizationIdentifier.setValue(sendingOrganizationIdentifier);
+    public void setSendingNetworkAddress(TelecommunicationAddress sendingNetworkAddress) {
+        this.sendingNetworkAddress.setValue(sendingNetworkAddress);
     }
 
 }

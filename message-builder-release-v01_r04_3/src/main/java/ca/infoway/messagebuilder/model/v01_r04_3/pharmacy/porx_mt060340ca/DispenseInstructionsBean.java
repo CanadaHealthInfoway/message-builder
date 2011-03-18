@@ -26,12 +26,24 @@ import java.util.List;
 public class DispenseInstructionsBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private RecordedAtBean location;
-    private DispenseShipToLocationBean destinationServiceDeliveryLocation;
-    private CS prescriptionDispensableIndicator = new CSImpl();
-    private IVL<TS, Interval<Date>> dispensingAllowedPeriod = new IVLImpl<TS, Interval<Date>>();
-    private List<ResponsiblePersonBean> receiverResponsibleParty = new ArrayList<ResponsiblePersonBean>();
     private List<Component3Bean> component = new ArrayList<Component3Bean>();
+    private List<ResponsiblePersonBean> receiverResponsibleParty = new ArrayList<ResponsiblePersonBean>();
+    private RecordedAtBean location;
+    private IVL<TS, Interval<Date>> dispensingAllowedPeriod = new IVLImpl<TS, Interval<Date>>();
+    private CS prescriptionDispensableIndicator = new CSImpl();
+    private DispenseShipToLocationBean destinationServiceDeliveryLocation;
+
+
+    @Hl7XmlMapping({"component"})
+    public List<Component3Bean> getComponent() {
+        return this.component;
+    }
+
+
+    @Hl7XmlMapping({"receiver/responsibleParty"})
+    public List<ResponsiblePersonBean> getReceiverResponsibleParty() {
+        return this.receiverResponsibleParty;
+    }
 
 
     @Hl7XmlMapping({"location"})
@@ -40,27 +52,6 @@ public class DispenseInstructionsBean extends MessagePartBean {
     }
     public void setLocation(RecordedAtBean location) {
         this.location = location;
-    }
-
-
-    @Hl7XmlMapping({"destination/serviceDeliveryLocation"})
-    public DispenseShipToLocationBean getDestinationServiceDeliveryLocation() {
-        return this.destinationServiceDeliveryLocation;
-    }
-    public void setDestinationServiceDeliveryLocation(DispenseShipToLocationBean destinationServiceDeliveryLocation) {
-        this.destinationServiceDeliveryLocation = destinationServiceDeliveryLocation;
-    }
-
-
-    /**
-     * <p>Prescription Dispensable Indicator</p>
-     */
-    @Hl7XmlMapping({"statusCode"})
-    public ActStatus getPrescriptionDispensableIndicator() {
-        return (ActStatus) this.prescriptionDispensableIndicator.getValue();
-    }
-    public void setPrescriptionDispensableIndicator(ActStatus prescriptionDispensableIndicator) {
-        this.prescriptionDispensableIndicator.setValue(prescriptionDispensableIndicator);
     }
 
 
@@ -76,15 +67,24 @@ public class DispenseInstructionsBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"receiver/responsibleParty"})
-    public List<ResponsiblePersonBean> getReceiverResponsibleParty() {
-        return this.receiverResponsibleParty;
+    /**
+     * <p>Prescription Dispensable Indicator</p>
+     */
+    @Hl7XmlMapping({"statusCode"})
+    public ActStatus getPrescriptionDispensableIndicator() {
+        return (ActStatus) this.prescriptionDispensableIndicator.getValue();
+    }
+    public void setPrescriptionDispensableIndicator(ActStatus prescriptionDispensableIndicator) {
+        this.prescriptionDispensableIndicator.setValue(prescriptionDispensableIndicator);
     }
 
 
-    @Hl7XmlMapping({"component"})
-    public List<Component3Bean> getComponent() {
-        return this.component;
+    @Hl7XmlMapping({"destination/serviceDeliveryLocation"})
+    public DispenseShipToLocationBean getDestinationServiceDeliveryLocation() {
+        return this.destinationServiceDeliveryLocation;
+    }
+    public void setDestinationServiceDeliveryLocation(DispenseShipToLocationBean destinationServiceDeliveryLocation) {
+        this.destinationServiceDeliveryLocation = destinationServiceDeliveryLocation;
     }
 
 }

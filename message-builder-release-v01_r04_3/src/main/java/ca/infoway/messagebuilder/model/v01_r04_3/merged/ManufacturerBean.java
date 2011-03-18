@@ -16,22 +16,8 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 public class ManufacturerBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private II id = new IIImpl();
     private ST manufacturerName = new STImpl();
-
-
-    /**
-     * <p>Organization Id</p>
-     * 
-     * <p>Manufacturer Id</p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Identifier getId() {
-        return this.id.getValue();
-    }
-    public void setId(Identifier id) {
-        this.id.setValue(id);
-    }
+    private II id = new IIImpl();
 
 
     /**
@@ -45,6 +31,20 @@ public class ManufacturerBean extends MessagePartBean {
     }
     public void setManufacturerName(String manufacturerName) {
         this.manufacturerName.setValue(manufacturerName);
+    }
+
+
+    /**
+     * <p>Organization Id</p>
+     * 
+     * <p>Manufacturer Id</p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Identifier getId() {
+        return this.id.getValue();
+    }
+    public void setId(Identifier id) {
+        this.id.setValue(id);
     }
 
 }

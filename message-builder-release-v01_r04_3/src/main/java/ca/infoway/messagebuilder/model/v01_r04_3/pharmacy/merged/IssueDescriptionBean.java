@@ -21,11 +21,48 @@ import java.util.Date;
 public class IssueDescriptionBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
+    private RecommendedDosageBean componentSubstanceAdministrationEventCriterion;
+    private ST knowledgebaseVendorName = new STImpl();
+    private TS issueMonographEffectiveDate = new TSImpl();
     private II issueMonographId = new IIImpl();
     private ANY<Object> issueDescription = new ANYImpl<Object>();
-    private RecommendedDosageBean componentSubstanceAdministrationEventCriterion;
-    private TS issueMonographEffectiveDate = new TSImpl();
-    private ST knowledgebaseVendorName = new STImpl();
+
+
+    @Hl7XmlMapping({"component/substanceAdministrationEventCriterion"})
+    public RecommendedDosageBean getComponentSubstanceAdministrationEventCriterion() {
+        return this.componentSubstanceAdministrationEventCriterion;
+    }
+    public void setComponentSubstanceAdministrationEventCriterion(RecommendedDosageBean componentSubstanceAdministrationEventCriterion) {
+        this.componentSubstanceAdministrationEventCriterion = componentSubstanceAdministrationEventCriterion;
+    }
+
+
+    /**
+     * <p>KnowledgebaseVendorName</p>
+     * 
+     * <p>C:Knowledgebase Vendor Name</p>
+     */
+    @Hl7XmlMapping({"author/assignedEntity/assignedOrganization/name"})
+    public String getKnowledgebaseVendorName() {
+        return this.knowledgebaseVendorName.getValue();
+    }
+    public void setKnowledgebaseVendorName(String knowledgebaseVendorName) {
+        this.knowledgebaseVendorName.setValue(knowledgebaseVendorName);
+    }
+
+
+    /**
+     * <p>IssueMonographEffectiveDate</p>
+     * 
+     * <p>B:Issue Monograph Effective Date</p>
+     */
+    @Hl7XmlMapping({"author/time"})
+    public Date getIssueMonographEffectiveDate() {
+        return this.issueMonographEffectiveDate.getValue();
+    }
+    public void setIssueMonographEffectiveDate(Date issueMonographEffectiveDate) {
+        this.issueMonographEffectiveDate.setValue(issueMonographEffectiveDate);
+    }
 
 
     /**
@@ -53,43 +90,6 @@ public class IssueDescriptionBean extends MessagePartBean {
     }
     public void setIssueDescription(Object issueDescription) {
         this.issueDescription.setValue(issueDescription);
-    }
-
-
-    @Hl7XmlMapping({"component/substanceAdministrationEventCriterion"})
-    public RecommendedDosageBean getComponentSubstanceAdministrationEventCriterion() {
-        return this.componentSubstanceAdministrationEventCriterion;
-    }
-    public void setComponentSubstanceAdministrationEventCriterion(RecommendedDosageBean componentSubstanceAdministrationEventCriterion) {
-        this.componentSubstanceAdministrationEventCriterion = componentSubstanceAdministrationEventCriterion;
-    }
-
-
-    /**
-     * <p>IssueMonographEffectiveDate</p>
-     * 
-     * <p>B:Issue Monograph Effective Date</p>
-     */
-    @Hl7XmlMapping({"author/time"})
-    public Date getIssueMonographEffectiveDate() {
-        return this.issueMonographEffectiveDate.getValue();
-    }
-    public void setIssueMonographEffectiveDate(Date issueMonographEffectiveDate) {
-        this.issueMonographEffectiveDate.setValue(issueMonographEffectiveDate);
-    }
-
-
-    /**
-     * <p>KnowledgebaseVendorName</p>
-     * 
-     * <p>C:Knowledgebase Vendor Name</p>
-     */
-    @Hl7XmlMapping({"author/assignedEntity/assignedOrganization/name"})
-    public String getKnowledgebaseVendorName() {
-        return this.knowledgebaseVendorName.getValue();
-    }
-    public void setKnowledgebaseVendorName(String knowledgebaseVendorName) {
-        this.knowledgebaseVendorName.setValue(knowledgebaseVendorName);
     }
 
 }

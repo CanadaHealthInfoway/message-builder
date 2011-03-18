@@ -17,37 +17,23 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 public class ReceiverBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private TEL receiverNetworkAddress = new TELImpl();
-    private II receiverApplicationIdentifier = new IIImpl();
-    private II receiverFacilityIdentifier = new IIImpl();
     private II receiverOrganizationIdentifier = new IIImpl();
+    private II receiverFacilityIdentifier = new IIImpl();
+    private II receiverApplicationIdentifier = new IIImpl();
+    private TEL receiverNetworkAddress = new TELImpl();
 
 
     /**
-     * <p>ReceiverNetworkAddress</p>
+     * <p>ReceiverOrganizationIdentifier</p>
      * 
-     * <p>JB:Receiver Network Address</p>
+     * <p>JC:Receiver Organization Identifier</p>
      */
-    @Hl7XmlMapping({"telecom"})
-    public TelecommunicationAddress getReceiverNetworkAddress() {
-        return this.receiverNetworkAddress.getValue();
+    @Hl7XmlMapping({"device/asAgent/representedOrganization/id"})
+    public Identifier getReceiverOrganizationIdentifier() {
+        return this.receiverOrganizationIdentifier.getValue();
     }
-    public void setReceiverNetworkAddress(TelecommunicationAddress receiverNetworkAddress) {
-        this.receiverNetworkAddress.setValue(receiverNetworkAddress);
-    }
-
-
-    /**
-     * <p>ReceiverApplicationIdentifier</p>
-     * 
-     * <p>JA:Receiver Application Identifier</p>
-     */
-    @Hl7XmlMapping({"device/id"})
-    public Identifier getReceiverApplicationIdentifier() {
-        return this.receiverApplicationIdentifier.getValue();
-    }
-    public void setReceiverApplicationIdentifier(Identifier receiverApplicationIdentifier) {
-        this.receiverApplicationIdentifier.setValue(receiverApplicationIdentifier);
+    public void setReceiverOrganizationIdentifier(Identifier receiverOrganizationIdentifier) {
+        this.receiverOrganizationIdentifier.setValue(receiverOrganizationIdentifier);
     }
 
 
@@ -66,16 +52,30 @@ public class ReceiverBean extends MessagePartBean {
 
 
     /**
-     * <p>ReceiverOrganizationIdentifier</p>
+     * <p>ReceiverApplicationIdentifier</p>
      * 
-     * <p>JC:Receiver Organization Identifier</p>
+     * <p>JA:Receiver Application Identifier</p>
      */
-    @Hl7XmlMapping({"device/asAgent/representedOrganization/id"})
-    public Identifier getReceiverOrganizationIdentifier() {
-        return this.receiverOrganizationIdentifier.getValue();
+    @Hl7XmlMapping({"device/id"})
+    public Identifier getReceiverApplicationIdentifier() {
+        return this.receiverApplicationIdentifier.getValue();
     }
-    public void setReceiverOrganizationIdentifier(Identifier receiverOrganizationIdentifier) {
-        this.receiverOrganizationIdentifier.setValue(receiverOrganizationIdentifier);
+    public void setReceiverApplicationIdentifier(Identifier receiverApplicationIdentifier) {
+        this.receiverApplicationIdentifier.setValue(receiverApplicationIdentifier);
+    }
+
+
+    /**
+     * <p>ReceiverNetworkAddress</p>
+     * 
+     * <p>JB:Receiver Network Address</p>
+     */
+    @Hl7XmlMapping({"telecom"})
+    public TelecommunicationAddress getReceiverNetworkAddress() {
+        return this.receiverNetworkAddress.getValue();
+    }
+    public void setReceiverNetworkAddress(TelecommunicationAddress receiverNetworkAddress) {
+        this.receiverNetworkAddress.setValue(receiverNetworkAddress);
     }
 
 }

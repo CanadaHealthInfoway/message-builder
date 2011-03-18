@@ -33,12 +33,12 @@ public class GenericQueryParametersBean extends MessagePartBean {
     private static final long serialVersionUID = 20110318L;
     private IVL<TS, Interval<Date>> usageEffectivePeriod = new IVLImpl<TS, Interval<Date>>();
     private BL mostRecentDispenseForEachRxIndicator = new BLImpl();
-    private CV patientGender = new CVImpl();
-    private BL mostRecentByDeviceIndicator = new BLImpl();
     private TS patientBirthDate = new TSImpl();
+    private BL mostRecentByDeviceIndicator = new BLImpl();
+    private CV patientGender = new CVImpl();
     private CV issueFilterCode = new CVImpl();
-    private PN patientName = new PNImpl();
     private II patientID = new IIImpl();
+    private PN patientName = new PNImpl();
 
 
     /**
@@ -66,14 +66,14 @@ public class GenericQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>Patient Gender</p>
+     * <p>Patient Birth Date</p>
      */
-    @Hl7XmlMapping({"patientGender/value"})
-    public AdministrativeGender getPatientGender() {
-        return (AdministrativeGender) this.patientGender.getValue();
+    @Hl7XmlMapping({"patientBirthDate/value"})
+    public Date getPatientBirthDate() {
+        return this.patientBirthDate.getValue();
     }
-    public void setPatientGender(AdministrativeGender patientGender) {
-        this.patientGender.setValue(patientGender);
+    public void setPatientBirthDate(Date patientBirthDate) {
+        this.patientBirthDate.setValue(patientBirthDate);
     }
 
 
@@ -90,14 +90,14 @@ public class GenericQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>Patient Birth Date</p>
+     * <p>Patient Gender</p>
      */
-    @Hl7XmlMapping({"patientBirthDate/value"})
-    public Date getPatientBirthDate() {
-        return this.patientBirthDate.getValue();
+    @Hl7XmlMapping({"patientGender/value"})
+    public AdministrativeGender getPatientGender() {
+        return (AdministrativeGender) this.patientGender.getValue();
     }
-    public void setPatientBirthDate(Date patientBirthDate) {
-        this.patientBirthDate.setValue(patientBirthDate);
+    public void setPatientGender(AdministrativeGender patientGender) {
+        this.patientGender.setValue(patientGender);
     }
 
 
@@ -114,18 +114,6 @@ public class GenericQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>C:Patient Name</p>
-     */
-    @Hl7XmlMapping({"patientName/value"})
-    public PersonName getPatientName() {
-        return this.patientName.getValue();
-    }
-    public void setPatientName(PersonName patientName) {
-        this.patientName.setValue(patientName);
-    }
-
-
-    /**
      * <p>B:Patient ID</p>
      */
     @Hl7XmlMapping({"patientID/value"})
@@ -134,6 +122,18 @@ public class GenericQueryParametersBean extends MessagePartBean {
     }
     public void setPatientID(Identifier patientID) {
         this.patientID.setValue(patientID);
+    }
+
+
+    /**
+     * <p>C:Patient Name</p>
+     */
+    @Hl7XmlMapping({"patientName/value"})
+    public PersonName getPatientName() {
+        return this.patientName.getValue();
+    }
+    public void setPatientName(PersonName patientName) {
+        this.patientName.setValue(patientName);
     }
 
 }

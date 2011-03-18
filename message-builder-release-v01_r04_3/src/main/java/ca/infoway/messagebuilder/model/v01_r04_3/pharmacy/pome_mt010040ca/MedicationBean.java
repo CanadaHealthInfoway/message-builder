@@ -18,26 +18,26 @@ import java.util.List;
 public class MedicationBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private List<MonographsBean> subjectOf1Document = new ArrayList<MonographsBean>();
     private List<MonitoringProgramsBean> subjectOf4MonitoringProgram = new ArrayList<MonitoringProgramsBean>();
+    private List<MonographsBean> subjectOf1Document = new ArrayList<MonographsBean>();
     private DispenseInformationBean productOf1DispenseGuidelines;
-    private DrugCostBean subjectOf5PotentialCharge;
+    private List<RecommendedAdministrationInstructionsBean> consumedInAdministrationGuideline = new ArrayList<RecommendedAdministrationInstructionsBean>();
+    private DrugOrCompoundBean player;
+    private DrugHalfLifeBean subjectOf2HalfLife;
     private List<AppearanceCharacteristicsBean> subjectOf3Characteristic = new ArrayList<AppearanceCharacteristicsBean>();
     private List<FormulariesBean> productOf2PotentialSupply = new ArrayList<FormulariesBean>();
-    private DrugOrCompoundBean player;
-    private List<RecommendedAdministrationInstructionsBean> consumedInAdministrationGuideline = new ArrayList<RecommendedAdministrationInstructionsBean>();
-    private DrugHalfLifeBean subjectOf2HalfLife;
-
-
-    @Hl7XmlMapping({"subjectOf1/document"})
-    public List<MonographsBean> getSubjectOf1Document() {
-        return this.subjectOf1Document;
-    }
+    private DrugCostBean subjectOf5PotentialCharge;
 
 
     @Hl7XmlMapping({"subjectOf4/monitoringProgram"})
     public List<MonitoringProgramsBean> getSubjectOf4MonitoringProgram() {
         return this.subjectOf4MonitoringProgram;
+    }
+
+
+    @Hl7XmlMapping({"subjectOf1/document"})
+    public List<MonographsBean> getSubjectOf1Document() {
+        return this.subjectOf1Document;
     }
 
 
@@ -50,12 +50,27 @@ public class MedicationBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"subjectOf5/potentialCharge"})
-    public DrugCostBean getSubjectOf5PotentialCharge() {
-        return this.subjectOf5PotentialCharge;
+    @Hl7XmlMapping({"consumedIn/administrationGuideline"})
+    public List<RecommendedAdministrationInstructionsBean> getConsumedInAdministrationGuideline() {
+        return this.consumedInAdministrationGuideline;
     }
-    public void setSubjectOf5PotentialCharge(DrugCostBean subjectOf5PotentialCharge) {
-        this.subjectOf5PotentialCharge = subjectOf5PotentialCharge;
+
+
+    @Hl7XmlMapping({"player"})
+    public DrugOrCompoundBean getPlayer() {
+        return this.player;
+    }
+    public void setPlayer(DrugOrCompoundBean player) {
+        this.player = player;
+    }
+
+
+    @Hl7XmlMapping({"subjectOf2/halfLife"})
+    public DrugHalfLifeBean getSubjectOf2HalfLife() {
+        return this.subjectOf2HalfLife;
+    }
+    public void setSubjectOf2HalfLife(DrugHalfLifeBean subjectOf2HalfLife) {
+        this.subjectOf2HalfLife = subjectOf2HalfLife;
     }
 
 
@@ -71,27 +86,12 @@ public class MedicationBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"player"})
-    public DrugOrCompoundBean getPlayer() {
-        return this.player;
+    @Hl7XmlMapping({"subjectOf5/potentialCharge"})
+    public DrugCostBean getSubjectOf5PotentialCharge() {
+        return this.subjectOf5PotentialCharge;
     }
-    public void setPlayer(DrugOrCompoundBean player) {
-        this.player = player;
-    }
-
-
-    @Hl7XmlMapping({"consumedIn/administrationGuideline"})
-    public List<RecommendedAdministrationInstructionsBean> getConsumedInAdministrationGuideline() {
-        return this.consumedInAdministrationGuideline;
-    }
-
-
-    @Hl7XmlMapping({"subjectOf2/halfLife"})
-    public DrugHalfLifeBean getSubjectOf2HalfLife() {
-        return this.subjectOf2HalfLife;
-    }
-    public void setSubjectOf2HalfLife(DrugHalfLifeBean subjectOf2HalfLife) {
-        this.subjectOf2HalfLife = subjectOf2HalfLife;
+    public void setSubjectOf5PotentialCharge(DrugCostBean subjectOf5PotentialCharge) {
+        this.subjectOf5PotentialCharge = subjectOf5PotentialCharge;
     }
 
 }

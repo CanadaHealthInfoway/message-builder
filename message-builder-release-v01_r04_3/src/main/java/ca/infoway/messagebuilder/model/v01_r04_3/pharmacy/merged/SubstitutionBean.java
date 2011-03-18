@@ -15,17 +15,22 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 public class SubstitutionBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private AgentBean responsiblePartyAgent;
-    private CV substitutionCode = new CVImpl();
     private CV reasonCode = new CVImpl();
+    private CV substitutionCode = new CVImpl();
+    private AgentBean responsiblePartyAgent;
 
 
-    @Hl7XmlMapping({"responsibleParty/agent"})
-    public AgentBean getResponsiblePartyAgent() {
-        return this.responsiblePartyAgent;
+    /**
+     * <p>Product Selection Reason Code</p>
+     * 
+     * <p>Product Selection Code</p>
+     */
+    @Hl7XmlMapping({"reasonCode"})
+    public SubstanceAdminSubstitutionReason getReasonCode() {
+        return (SubstanceAdminSubstitutionReason) this.reasonCode.getValue();
     }
-    public void setResponsiblePartyAgent(AgentBean responsiblePartyAgent) {
-        this.responsiblePartyAgent = responsiblePartyAgent;
+    public void setReasonCode(SubstanceAdminSubstitutionReason reasonCode) {
+        this.reasonCode.setValue(reasonCode);
     }
 
 
@@ -43,17 +48,12 @@ public class SubstitutionBean extends MessagePartBean {
     }
 
 
-    /**
-     * <p>Product Selection Reason Code</p>
-     * 
-     * <p>Product Selection Code</p>
-     */
-    @Hl7XmlMapping({"reasonCode"})
-    public SubstanceAdminSubstitutionReason getReasonCode() {
-        return (SubstanceAdminSubstitutionReason) this.reasonCode.getValue();
+    @Hl7XmlMapping({"responsibleParty/agent"})
+    public AgentBean getResponsiblePartyAgent() {
+        return this.responsiblePartyAgent;
     }
-    public void setReasonCode(SubstanceAdminSubstitutionReason reasonCode) {
-        this.reasonCode.setValue(reasonCode);
+    public void setResponsiblePartyAgent(AgentBean responsiblePartyAgent) {
+        this.responsiblePartyAgent = responsiblePartyAgent;
     }
 
 }

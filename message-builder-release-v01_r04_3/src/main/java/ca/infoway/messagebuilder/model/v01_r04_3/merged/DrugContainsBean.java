@@ -16,9 +16,18 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 public class DrugContainsBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private PQ quantity = new PQImpl();
     private DrugIngredientsBean ingredient;
+    private PQ quantity = new PQImpl();
     private BL negationInd = new BLImpl();
+
+
+    @Hl7XmlMapping({"ingredient"})
+    public DrugIngredientsBean getIngredient() {
+        return this.ingredient;
+    }
+    public void setIngredient(DrugIngredientsBean ingredient) {
+        this.ingredient = ingredient;
+    }
 
 
     /**
@@ -34,15 +43,6 @@ public class DrugContainsBean extends MessagePartBean {
     }
     public void setQuantity(PhysicalQuantity quantity) {
         this.quantity.setValue(quantity);
-    }
-
-
-    @Hl7XmlMapping({"ingredient"})
-    public DrugIngredientsBean getIngredient() {
-        return this.ingredient;
-    }
-    public void setIngredient(DrugIngredientsBean ingredient) {
-        this.ingredient = ingredient;
     }
 
 

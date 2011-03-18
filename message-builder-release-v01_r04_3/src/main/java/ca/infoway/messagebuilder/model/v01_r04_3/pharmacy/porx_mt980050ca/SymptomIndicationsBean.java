@@ -20,8 +20,8 @@ public class SymptomIndicationsBean extends MessagePartBean implements Indicatio
 
     private static final long serialVersionUID = 20110318L;
     private CD symptomType = new CDImpl();
-    private ST freeFormSymptomIndication = new STImpl();
     private CV symptomCode = new CVImpl();
+    private ST freeFormSymptomIndication = new STImpl();
 
 
     /**
@@ -37,18 +37,6 @@ public class SymptomIndicationsBean extends MessagePartBean implements Indicatio
 
 
     /**
-     * <p>Free Form Symptom Indication</p>
-     */
-    @Hl7XmlMapping({"text"})
-    public String getFreeFormSymptomIndication() {
-        return this.freeFormSymptomIndication.getValue();
-    }
-    public void setFreeFormSymptomIndication(String freeFormSymptomIndication) {
-        this.freeFormSymptomIndication.setValue(freeFormSymptomIndication);
-    }
-
-
-    /**
      * <p>A:Symptom Code</p>
      */
     @Hl7XmlMapping({"value"})
@@ -57,6 +45,18 @@ public class SymptomIndicationsBean extends MessagePartBean implements Indicatio
     }
     public void setSymptomCode(SymptomValue symptomCode) {
         this.symptomCode.setValue(symptomCode);
+    }
+
+
+    /**
+     * <p>Free Form Symptom Indication</p>
+     */
+    @Hl7XmlMapping({"text"})
+    public String getFreeFormSymptomIndication() {
+        return this.freeFormSymptomIndication.getValue();
+    }
+    public void setFreeFormSymptomIndication(String freeFormSymptomIndication) {
+        this.freeFormSymptomIndication.setValue(freeFormSymptomIndication);
     }
 
 }

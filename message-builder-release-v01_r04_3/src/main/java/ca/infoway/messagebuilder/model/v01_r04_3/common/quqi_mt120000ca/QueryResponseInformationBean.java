@@ -19,22 +19,22 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 public class QueryResponseInformationBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private CS queryResultStatus = new CSImpl();
-    private INT queryItemsRemaining = new INTImpl();
     private INT queryResultSetSize = new INTImpl();
+    private INT queryItemsRemaining = new INTImpl();
     private II queryIdentifier = new IIImpl();
     private INT queryItemsReturned = new INTImpl();
+    private CS queryResultStatus = new CSImpl();
 
 
     /**
-     * <p>N:Query Result Status</p>
+     * <p>O:Query Result-set Size</p>
      */
-    @Hl7XmlMapping({"queryResponseCode"})
-    public QueryResponse getQueryResultStatus() {
-        return (QueryResponse) this.queryResultStatus.getValue();
+    @Hl7XmlMapping({"resultTotalQuantity"})
+    public Integer getQueryResultSetSize() {
+        return this.queryResultSetSize.getValue();
     }
-    public void setQueryResultStatus(QueryResponse queryResultStatus) {
-        this.queryResultStatus.setValue(queryResultStatus);
+    public void setQueryResultSetSize(Integer queryResultSetSize) {
+        this.queryResultSetSize.setValue(queryResultSetSize);
     }
 
 
@@ -47,18 +47,6 @@ public class QueryResponseInformationBean extends MessagePartBean {
     }
     public void setQueryItemsRemaining(Integer queryItemsRemaining) {
         this.queryItemsRemaining.setValue(queryItemsRemaining);
-    }
-
-
-    /**
-     * <p>O:Query Result-set Size</p>
-     */
-    @Hl7XmlMapping({"resultTotalQuantity"})
-    public Integer getQueryResultSetSize() {
-        return this.queryResultSetSize.getValue();
-    }
-    public void setQueryResultSetSize(Integer queryResultSetSize) {
-        this.queryResultSetSize.setValue(queryResultSetSize);
     }
 
 
@@ -83,6 +71,18 @@ public class QueryResponseInformationBean extends MessagePartBean {
     }
     public void setQueryItemsReturned(Integer queryItemsReturned) {
         this.queryItemsReturned.setValue(queryItemsReturned);
+    }
+
+
+    /**
+     * <p>N:Query Result Status</p>
+     */
+    @Hl7XmlMapping({"queryResponseCode"})
+    public QueryResponse getQueryResultStatus() {
+        return (QueryResponse) this.queryResultStatus.getValue();
+    }
+    public void setQueryResultStatus(QueryResponse queryResultStatus) {
+        this.queryResultStatus.setValue(queryResultStatus);
     }
 
 }

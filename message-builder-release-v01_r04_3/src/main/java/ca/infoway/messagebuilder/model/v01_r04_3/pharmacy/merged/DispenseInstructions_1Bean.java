@@ -20,11 +20,38 @@ import java.util.Date;
 public class DispenseInstructions_1Bean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private IVL<TS, Interval<Date>> totalDaysSupply = new IVLImpl<TS, Interval<Date>>();
     private RecordedAtBean location;
-    private DispenseShipToLocationBean destinationServiceDeliveryLocation;
-    private INT totalPrescribedQuantity = new INTImpl();
     private SupplementalFillInformationBean componentSupplementalFillInformation;
+    private DispenseShipToLocationBean destinationServiceDeliveryLocation;
+    private IVL<TS, Interval<Date>> totalDaysSupply = new IVLImpl<TS, Interval<Date>>();
+    private INT totalPrescribedQuantity = new INTImpl();
+
+
+    @Hl7XmlMapping({"location"})
+    public RecordedAtBean getLocation() {
+        return this.location;
+    }
+    public void setLocation(RecordedAtBean location) {
+        this.location = location;
+    }
+
+
+    @Hl7XmlMapping({"component/supplementalFillInformation"})
+    public SupplementalFillInformationBean getComponentSupplementalFillInformation() {
+        return this.componentSupplementalFillInformation;
+    }
+    public void setComponentSupplementalFillInformation(SupplementalFillInformationBean componentSupplementalFillInformation) {
+        this.componentSupplementalFillInformation = componentSupplementalFillInformation;
+    }
+
+
+    @Hl7XmlMapping({"destination/serviceDeliveryLocation"})
+    public DispenseShipToLocationBean getDestinationServiceDeliveryLocation() {
+        return this.destinationServiceDeliveryLocation;
+    }
+    public void setDestinationServiceDeliveryLocation(DispenseShipToLocationBean destinationServiceDeliveryLocation) {
+        this.destinationServiceDeliveryLocation = destinationServiceDeliveryLocation;
+    }
 
 
     /**
@@ -43,24 +70,6 @@ public class DispenseInstructions_1Bean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"location"})
-    public RecordedAtBean getLocation() {
-        return this.location;
-    }
-    public void setLocation(RecordedAtBean location) {
-        this.location = location;
-    }
-
-
-    @Hl7XmlMapping({"destination/serviceDeliveryLocation"})
-    public DispenseShipToLocationBean getDestinationServiceDeliveryLocation() {
-        return this.destinationServiceDeliveryLocation;
-    }
-    public void setDestinationServiceDeliveryLocation(DispenseShipToLocationBean destinationServiceDeliveryLocation) {
-        this.destinationServiceDeliveryLocation = destinationServiceDeliveryLocation;
-    }
-
-
     /**
      * <p>TotalPrescribedQuantity</p>
      * 
@@ -74,15 +83,6 @@ public class DispenseInstructions_1Bean extends MessagePartBean {
     }
     public void setTotalPrescribedQuantity(Integer totalPrescribedQuantity) {
         this.totalPrescribedQuantity.setValue(totalPrescribedQuantity);
-    }
-
-
-    @Hl7XmlMapping({"component/supplementalFillInformation"})
-    public SupplementalFillInformationBean getComponentSupplementalFillInformation() {
-        return this.componentSupplementalFillInformation;
-    }
-    public void setComponentSupplementalFillInformation(SupplementalFillInformationBean componentSupplementalFillInformation) {
-        this.componentSupplementalFillInformation = componentSupplementalFillInformation;
     }
 
 }

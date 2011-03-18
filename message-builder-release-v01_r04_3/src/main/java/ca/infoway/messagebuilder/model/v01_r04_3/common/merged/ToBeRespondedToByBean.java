@@ -17,37 +17,23 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 public class ToBeRespondedToByBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private TEL respondToNetworkAddress = new TELImpl();
-    private II respondToApplicationIdentifier = new IIImpl();
-    private II respondToFacilityId = new IIImpl();
     private II respondToOrganizationId = new IIImpl();
+    private II respondToFacilityId = new IIImpl();
+    private II respondToApplicationIdentifier = new IIImpl();
+    private TEL respondToNetworkAddress = new TELImpl();
 
 
     /**
-     * <p>RespondToNetworkAddress</p>
+     * <p>RespondToOrganizationId</p>
      * 
-     * <p>KB:Respond to Network Address</p>
+     * <p>KC:Respond to Organization Id</p>
      */
-    @Hl7XmlMapping({"telecom"})
-    public TelecommunicationAddress getRespondToNetworkAddress() {
-        return this.respondToNetworkAddress.getValue();
+    @Hl7XmlMapping({"device/asAgent/representedOrganization/id"})
+    public Identifier getRespondToOrganizationId() {
+        return this.respondToOrganizationId.getValue();
     }
-    public void setRespondToNetworkAddress(TelecommunicationAddress respondToNetworkAddress) {
-        this.respondToNetworkAddress.setValue(respondToNetworkAddress);
-    }
-
-
-    /**
-     * <p>RespondToApplicationIdentifier</p>
-     * 
-     * <p>KA:Respond to Application Identifier</p>
-     */
-    @Hl7XmlMapping({"device/id"})
-    public Identifier getRespondToApplicationIdentifier() {
-        return this.respondToApplicationIdentifier.getValue();
-    }
-    public void setRespondToApplicationIdentifier(Identifier respondToApplicationIdentifier) {
-        this.respondToApplicationIdentifier.setValue(respondToApplicationIdentifier);
+    public void setRespondToOrganizationId(Identifier respondToOrganizationId) {
+        this.respondToOrganizationId.setValue(respondToOrganizationId);
     }
 
 
@@ -66,16 +52,30 @@ public class ToBeRespondedToByBean extends MessagePartBean {
 
 
     /**
-     * <p>RespondToOrganizationId</p>
+     * <p>RespondToApplicationIdentifier</p>
      * 
-     * <p>KC:Respond to Organization Id</p>
+     * <p>KA:Respond to Application Identifier</p>
      */
-    @Hl7XmlMapping({"device/asAgent/representedOrganization/id"})
-    public Identifier getRespondToOrganizationId() {
-        return this.respondToOrganizationId.getValue();
+    @Hl7XmlMapping({"device/id"})
+    public Identifier getRespondToApplicationIdentifier() {
+        return this.respondToApplicationIdentifier.getValue();
     }
-    public void setRespondToOrganizationId(Identifier respondToOrganizationId) {
-        this.respondToOrganizationId.setValue(respondToOrganizationId);
+    public void setRespondToApplicationIdentifier(Identifier respondToApplicationIdentifier) {
+        this.respondToApplicationIdentifier.setValue(respondToApplicationIdentifier);
+    }
+
+
+    /**
+     * <p>RespondToNetworkAddress</p>
+     * 
+     * <p>KB:Respond to Network Address</p>
+     */
+    @Hl7XmlMapping({"telecom"})
+    public TelecommunicationAddress getRespondToNetworkAddress() {
+        return this.respondToNetworkAddress.getValue();
+    }
+    public void setRespondToNetworkAddress(TelecommunicationAddress respondToNetworkAddress) {
+        this.respondToNetworkAddress.setValue(respondToNetworkAddress);
     }
 
 }

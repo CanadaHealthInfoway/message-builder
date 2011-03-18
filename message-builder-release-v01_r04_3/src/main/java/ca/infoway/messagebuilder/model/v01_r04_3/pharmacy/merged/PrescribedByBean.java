@@ -20,10 +20,19 @@ import java.util.Date;
 public class PrescribedByBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private TS prescribedDate = new TSImpl();
-    private ED<String> signature = new EDImpl<String>();
-    private CV prescriptionTransmissionMethod = new CVImpl();
     private ProviderBean assignedPerson;
+    private TS prescribedDate = new TSImpl();
+    private CV prescriptionTransmissionMethod = new CVImpl();
+    private ED<String> signature = new EDImpl<String>();
+
+
+    @Hl7XmlMapping({"assignedPerson"})
+    public ProviderBean getAssignedPerson() {
+        return this.assignedPerson;
+    }
+    public void setAssignedPerson(ProviderBean assignedPerson) {
+        this.assignedPerson = assignedPerson;
+    }
 
 
     /**
@@ -41,20 +50,6 @@ public class PrescribedByBean extends MessagePartBean {
 
 
     /**
-     * <p>Signature</p>
-     * 
-     * <p>Signature</p>
-     */
-    @Hl7XmlMapping({"signatureText"})
-    public String getSignature() {
-        return this.signature.getValue();
-    }
-    public void setSignature(String signature) {
-        this.signature.setValue(signature);
-    }
-
-
-    /**
      * <p>PrescriptionTransmissionMethod</p>
      * 
      * <p>Prescription Transmission Method</p>
@@ -68,12 +63,17 @@ public class PrescribedByBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"assignedPerson"})
-    public ProviderBean getAssignedPerson() {
-        return this.assignedPerson;
+    /**
+     * <p>Signature</p>
+     * 
+     * <p>Signature</p>
+     */
+    @Hl7XmlMapping({"signatureText"})
+    public String getSignature() {
+        return this.signature.getValue();
     }
-    public void setAssignedPerson(ProviderBean assignedPerson) {
-        this.assignedPerson = assignedPerson;
+    public void setSignature(String signature) {
+        this.signature.setValue(signature);
     }
 
 }

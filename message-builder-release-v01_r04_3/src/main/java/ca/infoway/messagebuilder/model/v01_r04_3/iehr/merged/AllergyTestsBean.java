@@ -24,8 +24,8 @@ public class AllergyTestsBean extends MessagePartBean implements Records {
 
     private static final long serialVersionUID = 20110318L;
     private II allergyTestRecordId = new IIImpl();
-    private TS allergyTestDate = new TSImpl();
     private CD allergyTestType = new CDImpl();
+    private TS allergyTestDate = new TSImpl();
     private CV allergyTestResult = new CVImpl();
 
 
@@ -44,20 +44,6 @@ public class AllergyTestsBean extends MessagePartBean implements Records {
 
 
     /**
-     * <p>AllergyTestDate</p>
-     * 
-     * <p>D:Allergy Test Date</p>
-     */
-    @Hl7XmlMapping({"effectiveTime"})
-    public Date getAllergyTestDate() {
-        return this.allergyTestDate.getValue();
-    }
-    public void setAllergyTestDate(Date allergyTestDate) {
-        this.allergyTestDate.setValue(allergyTestDate);
-    }
-
-
-    /**
      * <p>AllergyTestType</p>
      * 
      * <p>A:Allergy Test Type</p>
@@ -68,6 +54,20 @@ public class AllergyTestsBean extends MessagePartBean implements Records {
     }
     public void setAllergyTestType(ObservationAllergyTestType allergyTestType) {
         this.allergyTestType.setValue(allergyTestType);
+    }
+
+
+    /**
+     * <p>AllergyTestDate</p>
+     * 
+     * <p>D:Allergy Test Date</p>
+     */
+    @Hl7XmlMapping({"effectiveTime"})
+    public Date getAllergyTestDate() {
+        return this.allergyTestDate.getValue();
+    }
+    public void setAllergyTestDate(Date allergyTestDate) {
+        this.allergyTestDate.setValue(allergyTestDate);
     }
 
 

@@ -38,25 +38,16 @@ import java.util.Date;
 public class MedicalConditionBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private CommentBean subjectOf2Annotation;
     private PatientBean subjectPatient;
-    private CS conditionStatus = new CSImpl();
-    private ReportedByBean informant;
-    private IVL<TS, Interval<Date>> conditionTimePeriod = new IVLImpl<TS, Interval<Date>>();
-    private CD conditionType = new CDImpl();
-    private BL subjectOfChronicIndicator = new BLImpl();
     private CV confidentialityCode = new CVImpl();
+    private CD conditionType = new CDImpl();
+    private IVL<TS, Interval<Date>> conditionTimePeriod = new IVLImpl<TS, Interval<Date>>();
     private CV condition = new CVImpl();
+    private BL subjectOfChronicIndicator = new BLImpl();
+    private CS conditionStatus = new CSImpl();
+    private CommentBean subjectOf2Annotation;
+    private ReportedByBean informant;
     private II medicalConditionRecordId = new IIImpl();
-
-
-    @Hl7XmlMapping({"subjectOf2/annotation"})
-    public CommentBean getSubjectOf2Annotation() {
-        return this.subjectOf2Annotation;
-    }
-    public void setSubjectOf2Annotation(CommentBean subjectOf2Annotation) {
-        this.subjectOf2Annotation = subjectOf2Annotation;
-    }
 
 
     @Hl7XmlMapping({"subject/patient"})
@@ -69,27 +60,30 @@ public class MedicalConditionBean extends MessagePartBean {
 
 
     /**
-     * <p>ConditionStatus</p>
+     * <p>F:Medical Condition Masking Indicator</p>
      * 
-     * <p>C:Condition Status</p>
-     * 
-     * <p>D:Condition Status</p>
+     * <p>E:Condition Masking Indicator</p>
      */
-    @Hl7XmlMapping({"statusCode"})
-    public ActStatus getConditionStatus() {
-        return (ActStatus) this.conditionStatus.getValue();
+    @Hl7XmlMapping({"confidentialityCode"})
+    public x_VeryBasicConfidentialityKind getConfidentialityCode() {
+        return (x_VeryBasicConfidentialityKind) this.confidentialityCode.getValue();
     }
-    public void setConditionStatus(ActStatus conditionStatus) {
-        this.conditionStatus.setValue(conditionStatus);
+    public void setConfidentialityCode(x_VeryBasicConfidentialityKind confidentialityCode) {
+        this.confidentialityCode.setValue(confidentialityCode);
     }
 
 
-    @Hl7XmlMapping({"informant"})
-    public ReportedByBean getInformant() {
-        return this.informant;
+    /**
+     * <p>ConditionType</p>
+     * 
+     * <p>Condition Type</p>
+     */
+    @Hl7XmlMapping({"code"})
+    public ActCode getConditionType() {
+        return (ActCode) this.conditionType.getValue();
     }
-    public void setInformant(ReportedByBean informant) {
-        this.informant = informant;
+    public void setConditionType(ActCode conditionType) {
+        this.conditionType.setValue(conditionType);
     }
 
 
@@ -110,16 +104,18 @@ public class MedicalConditionBean extends MessagePartBean {
 
 
     /**
-     * <p>ConditionType</p>
+     * <p>Condition</p>
      * 
-     * <p>Condition Type</p>
+     * <p>B:Condition</p>
+     * 
+     * <p>C:Condition</p>
      */
-    @Hl7XmlMapping({"code"})
-    public ActCode getConditionType() {
-        return (ActCode) this.conditionType.getValue();
+    @Hl7XmlMapping({"value"})
+    public DiagnosisValue getCondition() {
+        return (DiagnosisValue) this.condition.getValue();
     }
-    public void setConditionType(ActCode conditionType) {
-        this.conditionType.setValue(conditionType);
+    public void setCondition(DiagnosisValue condition) {
+        this.condition.setValue(condition);
     }
 
 
@@ -138,32 +134,36 @@ public class MedicalConditionBean extends MessagePartBean {
 
 
     /**
-     * <p>F:Medical Condition Masking Indicator</p>
+     * <p>ConditionStatus</p>
      * 
-     * <p>E:Condition Masking Indicator</p>
+     * <p>C:Condition Status</p>
+     * 
+     * <p>D:Condition Status</p>
      */
-    @Hl7XmlMapping({"confidentialityCode"})
-    public x_VeryBasicConfidentialityKind getConfidentialityCode() {
-        return (x_VeryBasicConfidentialityKind) this.confidentialityCode.getValue();
+    @Hl7XmlMapping({"statusCode"})
+    public ActStatus getConditionStatus() {
+        return (ActStatus) this.conditionStatus.getValue();
     }
-    public void setConfidentialityCode(x_VeryBasicConfidentialityKind confidentialityCode) {
-        this.confidentialityCode.setValue(confidentialityCode);
+    public void setConditionStatus(ActStatus conditionStatus) {
+        this.conditionStatus.setValue(conditionStatus);
     }
 
 
-    /**
-     * <p>Condition</p>
-     * 
-     * <p>B:Condition</p>
-     * 
-     * <p>C:Condition</p>
-     */
-    @Hl7XmlMapping({"value"})
-    public DiagnosisValue getCondition() {
-        return (DiagnosisValue) this.condition.getValue();
+    @Hl7XmlMapping({"subjectOf2/annotation"})
+    public CommentBean getSubjectOf2Annotation() {
+        return this.subjectOf2Annotation;
     }
-    public void setCondition(DiagnosisValue condition) {
-        this.condition.setValue(condition);
+    public void setSubjectOf2Annotation(CommentBean subjectOf2Annotation) {
+        this.subjectOf2Annotation = subjectOf2Annotation;
+    }
+
+
+    @Hl7XmlMapping({"informant"})
+    public ReportedByBean getInformant() {
+        return this.informant;
+    }
+    public void setInformant(ReportedByBean informant) {
+        this.informant = informant;
     }
 
 

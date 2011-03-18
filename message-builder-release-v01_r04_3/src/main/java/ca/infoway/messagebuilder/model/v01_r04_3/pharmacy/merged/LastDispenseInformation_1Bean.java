@@ -20,8 +20,22 @@ import java.util.Date;
 public class LastDispenseInformation_1Bean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private PQ quantity = new PQImpl();
     private IVL<TS, Interval<Date>> lastDispensePickupDate = new IVLImpl<TS, Interval<Date>>();
+    private PQ quantity = new PQImpl();
+
+
+    /**
+     * <p>LastDispensePickupDate</p>
+     * 
+     * <p>Last Dispense Pickup Date</p>
+     */
+    @Hl7XmlMapping({"effectiveTime"})
+    public Interval<Date> getLastDispensePickupDate() {
+        return this.lastDispensePickupDate.getValue();
+    }
+    public void setLastDispensePickupDate(Interval<Date> lastDispensePickupDate) {
+        this.lastDispensePickupDate.setValue(lastDispensePickupDate);
+    }
 
 
     /**
@@ -37,20 +51,6 @@ public class LastDispenseInformation_1Bean extends MessagePartBean {
     }
     public void setQuantity(PhysicalQuantity quantity) {
         this.quantity.setValue(quantity);
-    }
-
-
-    /**
-     * <p>LastDispensePickupDate</p>
-     * 
-     * <p>Last Dispense Pickup Date</p>
-     */
-    @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getLastDispensePickupDate() {
-        return this.lastDispensePickupDate.getValue();
-    }
-    public void setLastDispensePickupDate(Interval<Date> lastDispensePickupDate) {
-        this.lastDispensePickupDate.setValue(lastDispensePickupDate);
     }
 
 }

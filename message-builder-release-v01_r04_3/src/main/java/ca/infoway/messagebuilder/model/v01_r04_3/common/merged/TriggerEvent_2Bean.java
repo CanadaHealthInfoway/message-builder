@@ -30,31 +30,17 @@ import java.util.List;
 public class TriggerEvent_2Bean<ACT> extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private II eventIdentifier = new IIImpl();
     private RefusedByBean author;
-    private RefersToBean<ACT> subject;
-    private RecordedAtBean location;
-    private List<IssuesBean> subjectOfDetectedIssueEvent = new ArrayList<IssuesBean>();
-    private TS eventEffectivePeriod = new TSImpl();
-    private CV eventType = new CVImpl();
-    private ProviderBean dataEntererAssignedPerson;
-    private ServiceLocationBean dataEntryLocationServiceDeliveryLocation;
     private ProviderBean responsiblePartyAssignedPerson;
     private CV eventReason = new CVImpl();
-
-
-    /**
-     * <p>EventIdentifier</p>
-     * 
-     * <p>B:Event Identifier</p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Identifier getEventIdentifier() {
-        return this.eventIdentifier.getValue();
-    }
-    public void setEventIdentifier(Identifier eventIdentifier) {
-        this.eventIdentifier.setValue(eventIdentifier);
-    }
+    private ProviderBean dataEntererAssignedPerson;
+    private RefersToBean<ACT> subject;
+    private ServiceLocationBean dataEntryLocationServiceDeliveryLocation;
+    private II eventIdentifier = new IIImpl();
+    private RecordedAtBean location;
+    private CV eventType = new CVImpl();
+    private List<IssuesBean> subjectOfDetectedIssueEvent = new ArrayList<IssuesBean>();
+    private TS eventEffectivePeriod = new TSImpl();
 
 
     @Hl7XmlMapping({"author"})
@@ -63,76 +49,6 @@ public class TriggerEvent_2Bean<ACT> extends MessagePartBean {
     }
     public void setAuthor(RefusedByBean author) {
         this.author = author;
-    }
-
-
-    @Hl7XmlMapping({"subject"})
-    public RefersToBean<ACT> getSubject() {
-        return this.subject;
-    }
-    public void setSubject(RefersToBean<ACT> subject) {
-        this.subject = subject;
-    }
-
-
-    @Hl7XmlMapping({"location"})
-    public RecordedAtBean getLocation() {
-        return this.location;
-    }
-    public void setLocation(RecordedAtBean location) {
-        this.location = location;
-    }
-
-
-    @Hl7XmlMapping({"subjectOf/detectedIssueEvent"})
-    public List<IssuesBean> getSubjectOfDetectedIssueEvent() {
-        return this.subjectOfDetectedIssueEvent;
-    }
-
-
-    /**
-     * <p>EventEffectivePeriod</p>
-     * 
-     * <p>C:Event Effective Period</p>
-     */
-    @Hl7XmlMapping({"effectiveTime"})
-    public Date getEventEffectivePeriod() {
-        return this.eventEffectivePeriod.getValue();
-    }
-    public void setEventEffectivePeriod(Date eventEffectivePeriod) {
-        this.eventEffectivePeriod.setValue(eventEffectivePeriod);
-    }
-
-
-    /**
-     * <p>EventType</p>
-     * 
-     * <p>A:Event Type</p>
-     */
-    @Hl7XmlMapping({"code"})
-    public HL7TriggerEventCode getEventType() {
-        return (HL7TriggerEventCode) this.eventType.getValue();
-    }
-    public void setEventType(HL7TriggerEventCode eventType) {
-        this.eventType.setValue(eventType);
-    }
-
-
-    @Hl7XmlMapping({"dataEnterer/assignedPerson"})
-    public ProviderBean getDataEntererAssignedPerson() {
-        return this.dataEntererAssignedPerson;
-    }
-    public void setDataEntererAssignedPerson(ProviderBean dataEntererAssignedPerson) {
-        this.dataEntererAssignedPerson = dataEntererAssignedPerson;
-    }
-
-
-    @Hl7XmlMapping({"dataEntryLocation/serviceDeliveryLocation"})
-    public ServiceLocationBean getDataEntryLocationServiceDeliveryLocation() {
-        return this.dataEntryLocationServiceDeliveryLocation;
-    }
-    public void setDataEntryLocationServiceDeliveryLocation(ServiceLocationBean dataEntryLocationServiceDeliveryLocation) {
-        this.dataEntryLocationServiceDeliveryLocation = dataEntryLocationServiceDeliveryLocation;
     }
 
 
@@ -156,6 +72,90 @@ public class TriggerEvent_2Bean<ACT> extends MessagePartBean {
     }
     public void setEventReason(ControlActReason eventReason) {
         this.eventReason.setValue(eventReason);
+    }
+
+
+    @Hl7XmlMapping({"dataEnterer/assignedPerson"})
+    public ProviderBean getDataEntererAssignedPerson() {
+        return this.dataEntererAssignedPerson;
+    }
+    public void setDataEntererAssignedPerson(ProviderBean dataEntererAssignedPerson) {
+        this.dataEntererAssignedPerson = dataEntererAssignedPerson;
+    }
+
+
+    @Hl7XmlMapping({"subject"})
+    public RefersToBean<ACT> getSubject() {
+        return this.subject;
+    }
+    public void setSubject(RefersToBean<ACT> subject) {
+        this.subject = subject;
+    }
+
+
+    @Hl7XmlMapping({"dataEntryLocation/serviceDeliveryLocation"})
+    public ServiceLocationBean getDataEntryLocationServiceDeliveryLocation() {
+        return this.dataEntryLocationServiceDeliveryLocation;
+    }
+    public void setDataEntryLocationServiceDeliveryLocation(ServiceLocationBean dataEntryLocationServiceDeliveryLocation) {
+        this.dataEntryLocationServiceDeliveryLocation = dataEntryLocationServiceDeliveryLocation;
+    }
+
+
+    /**
+     * <p>EventIdentifier</p>
+     * 
+     * <p>B:Event Identifier</p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Identifier getEventIdentifier() {
+        return this.eventIdentifier.getValue();
+    }
+    public void setEventIdentifier(Identifier eventIdentifier) {
+        this.eventIdentifier.setValue(eventIdentifier);
+    }
+
+
+    @Hl7XmlMapping({"location"})
+    public RecordedAtBean getLocation() {
+        return this.location;
+    }
+    public void setLocation(RecordedAtBean location) {
+        this.location = location;
+    }
+
+
+    /**
+     * <p>EventType</p>
+     * 
+     * <p>A:Event Type</p>
+     */
+    @Hl7XmlMapping({"code"})
+    public HL7TriggerEventCode getEventType() {
+        return (HL7TriggerEventCode) this.eventType.getValue();
+    }
+    public void setEventType(HL7TriggerEventCode eventType) {
+        this.eventType.setValue(eventType);
+    }
+
+
+    @Hl7XmlMapping({"subjectOf/detectedIssueEvent"})
+    public List<IssuesBean> getSubjectOfDetectedIssueEvent() {
+        return this.subjectOfDetectedIssueEvent;
+    }
+
+
+    /**
+     * <p>EventEffectivePeriod</p>
+     * 
+     * <p>C:Event Effective Period</p>
+     */
+    @Hl7XmlMapping({"effectiveTime"})
+    public Date getEventEffectivePeriod() {
+        return this.eventEffectivePeriod.getValue();
+    }
+    public void setEventEffectivePeriod(Date eventEffectivePeriod) {
+        this.eventEffectivePeriod.setValue(eventEffectivePeriod);
     }
 
 }

@@ -17,8 +17,24 @@ import ca.infoway.messagebuilder.model.v01_r04_3.pharmacy.porx_mt980050ca.Sympto
 public class PrescribedBecauseOfBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private Indications indications;
     private INT indicationPriority = new INTImpl();
+    private Indications indications;
+
+
+    /**
+     * <p>IndicationPriority</p>
+     * 
+     * <p>B:Indication Priority</p>
+     * 
+     * <p>Indication Priority</p>
+     */
+    @Hl7XmlMapping({"priorityNumber"})
+    public Integer getIndicationPriority() {
+        return this.indicationPriority.getValue();
+    }
+    public void setIndicationPriority(Integer indicationPriority) {
+        this.indicationPriority.setValue(indicationPriority);
+    }
 
 
     @Hl7XmlMapping({"indications"})
@@ -48,22 +64,6 @@ public class PrescribedBecauseOfBean extends MessagePartBean {
     }
     public boolean hasIndicationsAsOtherIndication() {
         return (this.indications instanceof OtherIndicationsBean);
-    }
-
-
-    /**
-     * <p>IndicationPriority</p>
-     * 
-     * <p>B:Indication Priority</p>
-     * 
-     * <p>Indication Priority</p>
-     */
-    @Hl7XmlMapping({"priorityNumber"})
-    public Integer getIndicationPriority() {
-        return this.indicationPriority.getValue();
-    }
-    public void setIndicationPriority(Integer indicationPriority) {
-        this.indicationPriority.setValue(indicationPriority);
     }
 
 }

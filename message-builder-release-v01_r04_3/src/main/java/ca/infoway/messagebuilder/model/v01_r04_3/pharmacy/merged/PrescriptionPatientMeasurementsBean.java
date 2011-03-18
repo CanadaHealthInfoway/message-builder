@@ -20,23 +20,9 @@ import java.util.Date;
 public class PrescriptionPatientMeasurementsBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private TS effectiveTime = new TSImpl();
     private CV prescriptionPatientMeasurementType = new CVImpl();
+    private TS effectiveTime = new TSImpl();
     private PQ prescriptionPatientMeasuredValue = new PQImpl();
-
-
-    /**
-     * <p>Prescription Patient Measurement Time</p>
-     * 
-     * <p>Prescription Patient Measurement Timestamp</p>
-     */
-    @Hl7XmlMapping({"effectiveTime"})
-    public Date getEffectiveTime() {
-        return this.effectiveTime.getValue();
-    }
-    public void setEffectiveTime(Date effectiveTime) {
-        this.effectiveTime.setValue(effectiveTime);
-    }
 
 
     /**
@@ -50,6 +36,20 @@ public class PrescriptionPatientMeasurementsBean extends MessagePartBean {
     }
     public void setPrescriptionPatientMeasurementType(x_ActObservationHeightOrWeight prescriptionPatientMeasurementType) {
         this.prescriptionPatientMeasurementType.setValue(prescriptionPatientMeasurementType);
+    }
+
+
+    /**
+     * <p>Prescription Patient Measurement Time</p>
+     * 
+     * <p>Prescription Patient Measurement Timestamp</p>
+     */
+    @Hl7XmlMapping({"effectiveTime"})
+    public Date getEffectiveTime() {
+        return this.effectiveTime.getValue();
+    }
+    public void setEffectiveTime(Date effectiveTime) {
+        this.effectiveTime.setValue(effectiveTime);
     }
 
 

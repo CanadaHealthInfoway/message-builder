@@ -30,15 +30,15 @@ public class TriggerEventBean<PL> extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
     private ConsentBean subjectOf2ConsentEvent;
-    private II eventIdentifier = new IIImpl();
     private RefusedByBean author;
-    private RecordedAtBean location;
-    private List<IssuesBean> subjectOf1DetectedIssueEvent = new ArrayList<IssuesBean>();
-    private CV eventType = new CVImpl();
+    private QueryDefinitionBean<PL> queryByParameter;
+    private CV eventReason = new CVImpl();
     private ProviderBean dataEntererAssignedPerson;
     private ServiceLocationBean dataEntryLocationServiceDeliveryLocation;
-    private CV eventReason = new CVImpl();
-    private QueryDefinitionBean<PL> queryByParameter;
+    private II eventIdentifier = new IIImpl();
+    private RecordedAtBean location;
+    private CV eventType = new CVImpl();
+    private List<IssuesBean> subjectOf1DetectedIssueEvent = new ArrayList<IssuesBean>();
 
 
     @Hl7XmlMapping({"subjectOf2/consentEvent"})
@@ -47,18 +47,6 @@ public class TriggerEventBean<PL> extends MessagePartBean {
     }
     public void setSubjectOf2ConsentEvent(ConsentBean subjectOf2ConsentEvent) {
         this.subjectOf2ConsentEvent = subjectOf2ConsentEvent;
-    }
-
-
-    /**
-     * <p>B:Event Identifier</p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Identifier getEventIdentifier() {
-        return this.eventIdentifier.getValue();
-    }
-    public void setEventIdentifier(Identifier eventIdentifier) {
-        this.eventIdentifier.setValue(eventIdentifier);
     }
 
 
@@ -71,30 +59,24 @@ public class TriggerEventBean<PL> extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"location"})
-    public RecordedAtBean getLocation() {
-        return this.location;
+    @Hl7XmlMapping({"queryByParameter"})
+    public QueryDefinitionBean<PL> getQueryByParameter() {
+        return this.queryByParameter;
     }
-    public void setLocation(RecordedAtBean location) {
-        this.location = location;
-    }
-
-
-    @Hl7XmlMapping({"subjectOf1/detectedIssueEvent"})
-    public List<IssuesBean> getSubjectOf1DetectedIssueEvent() {
-        return this.subjectOf1DetectedIssueEvent;
+    public void setQueryByParameter(QueryDefinitionBean<PL> queryByParameter) {
+        this.queryByParameter = queryByParameter;
     }
 
 
     /**
-     * <p>A:Event Type</p>
+     * <p>E:Event Reason</p>
      */
-    @Hl7XmlMapping({"code"})
-    public HL7TriggerEventCode getEventType() {
-        return (HL7TriggerEventCode) this.eventType.getValue();
+    @Hl7XmlMapping({"reasonCode"})
+    public ControlActReason getEventReason() {
+        return (ControlActReason) this.eventReason.getValue();
     }
-    public void setEventType(HL7TriggerEventCode eventType) {
-        this.eventType.setValue(eventType);
+    public void setEventReason(ControlActReason eventReason) {
+        this.eventReason.setValue(eventReason);
     }
 
 
@@ -117,23 +99,41 @@ public class TriggerEventBean<PL> extends MessagePartBean {
 
 
     /**
-     * <p>E:Event Reason</p>
+     * <p>B:Event Identifier</p>
      */
-    @Hl7XmlMapping({"reasonCode"})
-    public ControlActReason getEventReason() {
-        return (ControlActReason) this.eventReason.getValue();
+    @Hl7XmlMapping({"id"})
+    public Identifier getEventIdentifier() {
+        return this.eventIdentifier.getValue();
     }
-    public void setEventReason(ControlActReason eventReason) {
-        this.eventReason.setValue(eventReason);
+    public void setEventIdentifier(Identifier eventIdentifier) {
+        this.eventIdentifier.setValue(eventIdentifier);
     }
 
 
-    @Hl7XmlMapping({"queryByParameter"})
-    public QueryDefinitionBean<PL> getQueryByParameter() {
-        return this.queryByParameter;
+    @Hl7XmlMapping({"location"})
+    public RecordedAtBean getLocation() {
+        return this.location;
     }
-    public void setQueryByParameter(QueryDefinitionBean<PL> queryByParameter) {
-        this.queryByParameter = queryByParameter;
+    public void setLocation(RecordedAtBean location) {
+        this.location = location;
+    }
+
+
+    /**
+     * <p>A:Event Type</p>
+     */
+    @Hl7XmlMapping({"code"})
+    public HL7TriggerEventCode getEventType() {
+        return (HL7TriggerEventCode) this.eventType.getValue();
+    }
+    public void setEventType(HL7TriggerEventCode eventType) {
+        this.eventType.setValue(eventType);
+    }
+
+
+    @Hl7XmlMapping({"subjectOf1/detectedIssueEvent"})
+    public List<IssuesBean> getSubjectOf1DetectedIssueEvent() {
+        return this.subjectOf1DetectedIssueEvent;
     }
 
 }

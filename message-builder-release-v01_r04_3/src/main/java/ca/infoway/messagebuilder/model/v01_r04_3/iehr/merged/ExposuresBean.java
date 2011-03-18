@@ -20,23 +20,23 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 public class ExposuresBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private II incidenceIdentifier = new IIImpl();
-    private CV exposedMaterialType = new CVImpl();
     private CV exposureMethod = new CVImpl();
+    private CV exposedMaterialType = new CVImpl();
+    private II incidenceIdentifier = new IIImpl();
     private AgentCategoryBean consumableAdministrableMaterialAdministerableMaterialKind;
 
 
     /**
-     * <p>IncidenceIdentifier</p>
+     * <p>ExposureMethod</p>
      * 
-     * <p>B:Incidence Identifier</p>
+     * <p>C:Exposure Method</p>
      */
-    @Hl7XmlMapping({"id"})
-    public Identifier getIncidenceIdentifier() {
-        return this.incidenceIdentifier.getValue();
+    @Hl7XmlMapping({"routeCode"})
+    public RouteOfAdministration getExposureMethod() {
+        return (RouteOfAdministration) this.exposureMethod.getValue();
     }
-    public void setIncidenceIdentifier(Identifier incidenceIdentifier) {
-        this.incidenceIdentifier.setValue(incidenceIdentifier);
+    public void setExposureMethod(RouteOfAdministration exposureMethod) {
+        this.exposureMethod.setValue(exposureMethod);
     }
 
 
@@ -68,16 +68,16 @@ public class ExposuresBean extends MessagePartBean {
 
 
     /**
-     * <p>ExposureMethod</p>
+     * <p>IncidenceIdentifier</p>
      * 
-     * <p>C:Exposure Method</p>
+     * <p>B:Incidence Identifier</p>
      */
-    @Hl7XmlMapping({"routeCode"})
-    public RouteOfAdministration getExposureMethod() {
-        return (RouteOfAdministration) this.exposureMethod.getValue();
+    @Hl7XmlMapping({"id"})
+    public Identifier getIncidenceIdentifier() {
+        return this.incidenceIdentifier.getValue();
     }
-    public void setExposureMethod(RouteOfAdministration exposureMethod) {
-        this.exposureMethod.setValue(exposureMethod);
+    public void setIncidenceIdentifier(Identifier incidenceIdentifier) {
+        this.incidenceIdentifier.setValue(incidenceIdentifier);
     }
 
 

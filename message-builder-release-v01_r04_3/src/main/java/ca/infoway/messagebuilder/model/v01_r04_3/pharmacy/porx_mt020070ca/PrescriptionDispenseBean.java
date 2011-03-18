@@ -28,54 +28,15 @@ import java.util.List;
 public class PrescriptionDispenseBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private II localDispenseId = new IIImpl();
-    private CommentBean subjectOfAnnotation;
-    private PatientBean recordTargetPatient;
-    private SupplyEventBean component3SupplyEvent;
     private SubstitutionBean component1SubstitutionMade;
-    private CV prescriptionMaskingIndicator = new CVImpl();
+    private PatientBean recordTargetPatient;
     private Patient subjectPatient1;
-    private List<AdministrationInstructionsBean> component2DosageInstruction = new ArrayList<AdministrationInstructionsBean>();
+    private CV prescriptionMaskingIndicator = new CVImpl();
+    private II localDispenseId = new IIImpl();
     private SupplyRequest_1Bean inFulfillmentOfSubstanceAdministrationRequest;
-
-
-    /**
-     * <p>A:Local Dispense Id</p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Identifier getLocalDispenseId() {
-        return this.localDispenseId.getValue();
-    }
-    public void setLocalDispenseId(Identifier localDispenseId) {
-        this.localDispenseId.setValue(localDispenseId);
-    }
-
-
-    @Hl7XmlMapping({"subjectOf/annotation"})
-    public CommentBean getSubjectOfAnnotation() {
-        return this.subjectOfAnnotation;
-    }
-    public void setSubjectOfAnnotation(CommentBean subjectOfAnnotation) {
-        this.subjectOfAnnotation = subjectOfAnnotation;
-    }
-
-
-    @Hl7XmlMapping({"recordTarget/patient"})
-    public PatientBean getRecordTargetPatient() {
-        return this.recordTargetPatient;
-    }
-    public void setRecordTargetPatient(PatientBean recordTargetPatient) {
-        this.recordTargetPatient = recordTargetPatient;
-    }
-
-
-    @Hl7XmlMapping({"component3/supplyEvent"})
-    public SupplyEventBean getComponent3SupplyEvent() {
-        return this.component3SupplyEvent;
-    }
-    public void setComponent3SupplyEvent(SupplyEventBean component3SupplyEvent) {
-        this.component3SupplyEvent = component3SupplyEvent;
-    }
+    private List<AdministrationInstructionsBean> component2DosageInstruction = new ArrayList<AdministrationInstructionsBean>();
+    private SupplyEventBean component3SupplyEvent;
+    private CommentBean subjectOfAnnotation;
 
 
     @Hl7XmlMapping({"component1/substitutionMade"})
@@ -87,15 +48,12 @@ public class PrescriptionDispenseBean extends MessagePartBean {
     }
 
 
-    /**
-     * <p>E:Prescription Masking Indicator</p>
-     */
-    @Hl7XmlMapping({"confidentialityCode"})
-    public x_VeryBasicConfidentialityKind getPrescriptionMaskingIndicator() {
-        return (x_VeryBasicConfidentialityKind) this.prescriptionMaskingIndicator.getValue();
+    @Hl7XmlMapping({"recordTarget/patient"})
+    public PatientBean getRecordTargetPatient() {
+        return this.recordTargetPatient;
     }
-    public void setPrescriptionMaskingIndicator(x_VeryBasicConfidentialityKind prescriptionMaskingIndicator) {
-        this.prescriptionMaskingIndicator.setValue(prescriptionMaskingIndicator);
+    public void setRecordTargetPatient(PatientBean recordTargetPatient) {
+        this.recordTargetPatient = recordTargetPatient;
     }
 
 
@@ -122,9 +80,27 @@ public class PrescriptionDispenseBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"component2/dosageInstruction"})
-    public List<AdministrationInstructionsBean> getComponent2DosageInstruction() {
-        return this.component2DosageInstruction;
+    /**
+     * <p>E:Prescription Masking Indicator</p>
+     */
+    @Hl7XmlMapping({"confidentialityCode"})
+    public x_VeryBasicConfidentialityKind getPrescriptionMaskingIndicator() {
+        return (x_VeryBasicConfidentialityKind) this.prescriptionMaskingIndicator.getValue();
+    }
+    public void setPrescriptionMaskingIndicator(x_VeryBasicConfidentialityKind prescriptionMaskingIndicator) {
+        this.prescriptionMaskingIndicator.setValue(prescriptionMaskingIndicator);
+    }
+
+
+    /**
+     * <p>A:Local Dispense Id</p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Identifier getLocalDispenseId() {
+        return this.localDispenseId.getValue();
+    }
+    public void setLocalDispenseId(Identifier localDispenseId) {
+        this.localDispenseId.setValue(localDispenseId);
     }
 
 
@@ -134,6 +110,30 @@ public class PrescriptionDispenseBean extends MessagePartBean {
     }
     public void setInFulfillmentOfSubstanceAdministrationRequest(SupplyRequest_1Bean inFulfillmentOfSubstanceAdministrationRequest) {
         this.inFulfillmentOfSubstanceAdministrationRequest = inFulfillmentOfSubstanceAdministrationRequest;
+    }
+
+
+    @Hl7XmlMapping({"component2/dosageInstruction"})
+    public List<AdministrationInstructionsBean> getComponent2DosageInstruction() {
+        return this.component2DosageInstruction;
+    }
+
+
+    @Hl7XmlMapping({"component3/supplyEvent"})
+    public SupplyEventBean getComponent3SupplyEvent() {
+        return this.component3SupplyEvent;
+    }
+    public void setComponent3SupplyEvent(SupplyEventBean component3SupplyEvent) {
+        this.component3SupplyEvent = component3SupplyEvent;
+    }
+
+
+    @Hl7XmlMapping({"subjectOf/annotation"})
+    public CommentBean getSubjectOfAnnotation() {
+        return this.subjectOfAnnotation;
+    }
+    public void setSubjectOfAnnotation(CommentBean subjectOfAnnotation) {
+        this.subjectOfAnnotation = subjectOfAnnotation;
     }
 
 }

@@ -18,20 +18,17 @@ import ca.infoway.messagebuilder.model.v01_r04_3.common.merged.PatientBean;
 public class DispensePickupBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private II dispenseId = new IIImpl();
-    private PatientBean subjectPatient;
     private ResponsiblePersonBean receiverResponsibleParty;
+    private PatientBean subjectPatient;
+    private II dispenseId = new IIImpl();
 
 
-    /**
-     * <p>Dispense Id</p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Identifier getDispenseId() {
-        return this.dispenseId.getValue();
+    @Hl7XmlMapping({"receiver/responsibleParty"})
+    public ResponsiblePersonBean getReceiverResponsibleParty() {
+        return this.receiverResponsibleParty;
     }
-    public void setDispenseId(Identifier dispenseId) {
-        this.dispenseId.setValue(dispenseId);
+    public void setReceiverResponsibleParty(ResponsiblePersonBean receiverResponsibleParty) {
+        this.receiverResponsibleParty = receiverResponsibleParty;
     }
 
 
@@ -44,12 +41,15 @@ public class DispensePickupBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"receiver/responsibleParty"})
-    public ResponsiblePersonBean getReceiverResponsibleParty() {
-        return this.receiverResponsibleParty;
+    /**
+     * <p>Dispense Id</p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Identifier getDispenseId() {
+        return this.dispenseId.getValue();
     }
-    public void setReceiverResponsibleParty(ResponsiblePersonBean receiverResponsibleParty) {
-        this.receiverResponsibleParty = receiverResponsibleParty;
+    public void setDispenseId(Identifier dispenseId) {
+        this.dispenseId.setValue(dispenseId);
     }
 
 }

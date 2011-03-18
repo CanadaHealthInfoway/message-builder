@@ -27,10 +27,10 @@ public class GenericQueryParametersBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
     private CV patientNoteCategoryCode = new CVImpl();
-    private CV patientGender = new CVImpl();
     private TS patientBirthDate = new TSImpl();
-    private PN patientName = new PNImpl();
+    private CV patientGender = new CVImpl();
     private II patientID = new IIImpl();
+    private PN patientName = new PNImpl();
 
 
     /**
@@ -42,18 +42,6 @@ public class GenericQueryParametersBean extends MessagePartBean {
     }
     public void setPatientNoteCategoryCode(ActPatientAnnotationCode patientNoteCategoryCode) {
         this.patientNoteCategoryCode.setValue(patientNoteCategoryCode);
-    }
-
-
-    /**
-     * <p>Patient Gender</p>
-     */
-    @Hl7XmlMapping({"patientGender/value"})
-    public AdministrativeGender getPatientGender() {
-        return (AdministrativeGender) this.patientGender.getValue();
-    }
-    public void setPatientGender(AdministrativeGender patientGender) {
-        this.patientGender.setValue(patientGender);
     }
 
 
@@ -70,14 +58,14 @@ public class GenericQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>C:Patient Name</p>
+     * <p>Patient Gender</p>
      */
-    @Hl7XmlMapping({"patientName/value"})
-    public PersonName getPatientName() {
-        return this.patientName.getValue();
+    @Hl7XmlMapping({"patientGender/value"})
+    public AdministrativeGender getPatientGender() {
+        return (AdministrativeGender) this.patientGender.getValue();
     }
-    public void setPatientName(PersonName patientName) {
-        this.patientName.setValue(patientName);
+    public void setPatientGender(AdministrativeGender patientGender) {
+        this.patientGender.setValue(patientGender);
     }
 
 
@@ -90,6 +78,18 @@ public class GenericQueryParametersBean extends MessagePartBean {
     }
     public void setPatientID(Identifier patientID) {
         this.patientID.setValue(patientID);
+    }
+
+
+    /**
+     * <p>C:Patient Name</p>
+     */
+    @Hl7XmlMapping({"patientName/value"})
+    public PersonName getPatientName() {
+        return this.patientName.getValue();
+    }
+    public void setPatientName(PersonName patientName) {
+        this.patientName.setValue(patientName);
     }
 
 }

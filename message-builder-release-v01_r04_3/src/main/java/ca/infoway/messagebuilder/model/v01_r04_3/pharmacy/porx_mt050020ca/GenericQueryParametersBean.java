@@ -26,22 +26,22 @@ import java.util.Date;
 public class GenericQueryParametersBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private CV drugCode = new CVImpl();
-    private CV patientGender = new CVImpl();
     private TS patientBirthDate = new TSImpl();
-    private PN patientName = new PNImpl();
+    private CV patientGender = new CVImpl();
     private II patientID = new IIImpl();
+    private PN patientName = new PNImpl();
+    private CV drugCode = new CVImpl();
 
 
     /**
-     * <p>E:Drug Code</p>
+     * <p>D:Patient Birth Date</p>
      */
-    @Hl7XmlMapping({"drugCode/value"})
-    public ClinicalDrug getDrugCode() {
-        return (ClinicalDrug) this.drugCode.getValue();
+    @Hl7XmlMapping({"patientBirthDate/value"})
+    public Date getPatientBirthDate() {
+        return this.patientBirthDate.getValue();
     }
-    public void setDrugCode(ClinicalDrug drugCode) {
-        this.drugCode.setValue(drugCode);
+    public void setPatientBirthDate(Date patientBirthDate) {
+        this.patientBirthDate.setValue(patientBirthDate);
     }
 
 
@@ -58,14 +58,14 @@ public class GenericQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>D:Patient Birth Date</p>
+     * <p>B:Patient ID</p>
      */
-    @Hl7XmlMapping({"patientBirthDate/value"})
-    public Date getPatientBirthDate() {
-        return this.patientBirthDate.getValue();
+    @Hl7XmlMapping({"patientID/value"})
+    public Identifier getPatientID() {
+        return this.patientID.getValue();
     }
-    public void setPatientBirthDate(Date patientBirthDate) {
-        this.patientBirthDate.setValue(patientBirthDate);
+    public void setPatientID(Identifier patientID) {
+        this.patientID.setValue(patientID);
     }
 
 
@@ -82,14 +82,14 @@ public class GenericQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>B:Patient ID</p>
+     * <p>E:Drug Code</p>
      */
-    @Hl7XmlMapping({"patientID/value"})
-    public Identifier getPatientID() {
-        return this.patientID.getValue();
+    @Hl7XmlMapping({"drugCode/value"})
+    public ClinicalDrug getDrugCode() {
+        return (ClinicalDrug) this.drugCode.getValue();
     }
-    public void setPatientID(Identifier patientID) {
-        this.patientID.setValue(patientID);
+    public void setDrugCode(ClinicalDrug drugCode) {
+        this.drugCode.setValue(drugCode);
     }
 
 }

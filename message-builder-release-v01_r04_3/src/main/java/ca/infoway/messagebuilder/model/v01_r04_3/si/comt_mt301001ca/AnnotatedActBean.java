@@ -15,8 +15,17 @@ import ca.infoway.messagebuilder.model.v01_r04_3.common.merged.PatientBean;
 public class AnnotatedActBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private II recordId = new IIImpl();
     private PatientBean subjectPatient;
+    private II recordId = new IIImpl();
+
+
+    @Hl7XmlMapping({"subject/patient"})
+    public PatientBean getSubjectPatient() {
+        return this.subjectPatient;
+    }
+    public void setSubjectPatient(PatientBean subjectPatient) {
+        this.subjectPatient = subjectPatient;
+    }
 
 
     /**
@@ -28,15 +37,6 @@ public class AnnotatedActBean extends MessagePartBean {
     }
     public void setRecordId(Identifier recordId) {
         this.recordId.setValue(recordId);
-    }
-
-
-    @Hl7XmlMapping({"subject/patient"})
-    public PatientBean getSubjectPatient() {
-        return this.subjectPatient;
-    }
-    public void setSubjectPatient(PatientBean subjectPatient) {
-        this.subjectPatient = subjectPatient;
     }
 
 }

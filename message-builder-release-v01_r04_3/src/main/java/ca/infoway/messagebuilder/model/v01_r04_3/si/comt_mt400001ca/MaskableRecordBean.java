@@ -21,24 +21,12 @@ import ca.infoway.messagebuilder.model.v01_r04_3.common.merged.PatientBean;
 public class MaskableRecordBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private II recordIdentifier = new IIImpl();
     private PatientBean recordTargetPatient;
-    private CV recordType = new CVImpl();
     private DiagnosisBean reasonDiagnosis;
     private CV maskedIndicator = new CVImpl();
     private RoleBean directTargetRole;
-
-
-    /**
-     * <p>C:Record Identifier</p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Identifier getRecordIdentifier() {
-        return this.recordIdentifier.getValue();
-    }
-    public void setRecordIdentifier(Identifier recordIdentifier) {
-        this.recordIdentifier.setValue(recordIdentifier);
-    }
+    private II recordIdentifier = new IIImpl();
+    private CV recordType = new CVImpl();
 
 
     @Hl7XmlMapping({"recordTarget/patient"})
@@ -47,18 +35,6 @@ public class MaskableRecordBean extends MessagePartBean {
     }
     public void setRecordTargetPatient(PatientBean recordTargetPatient) {
         this.recordTargetPatient = recordTargetPatient;
-    }
-
-
-    /**
-     * <p>B:Record Type</p>
-     */
-    @Hl7XmlMapping({"code"})
-    public ActInformationCategoryCode getRecordType() {
-        return (ActInformationCategoryCode) this.recordType.getValue();
-    }
-    public void setRecordType(ActInformationCategoryCode recordType) {
-        this.recordType.setValue(recordType);
     }
 
 
@@ -89,6 +65,30 @@ public class MaskableRecordBean extends MessagePartBean {
     }
     public void setDirectTargetRole(RoleBean directTargetRole) {
         this.directTargetRole = directTargetRole;
+    }
+
+
+    /**
+     * <p>C:Record Identifier</p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Identifier getRecordIdentifier() {
+        return this.recordIdentifier.getValue();
+    }
+    public void setRecordIdentifier(Identifier recordIdentifier) {
+        this.recordIdentifier.setValue(recordIdentifier);
+    }
+
+
+    /**
+     * <p>B:Record Type</p>
+     */
+    @Hl7XmlMapping({"code"})
+    public ActInformationCategoryCode getRecordType() {
+        return (ActInformationCategoryCode) this.recordType.getValue();
+    }
+    public void setRecordType(ActInformationCategoryCode recordType) {
+        this.recordType.setValue(recordType);
     }
 
 }

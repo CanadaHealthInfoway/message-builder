@@ -11,17 +11,8 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 public class DispenseInformationBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private SubsequentDispenseBean component1SubsequentDispense;
     private DrugValidityPeriodBean component2InitialDispense;
-
-
-    @Hl7XmlMapping({"component1/subsequentDispense"})
-    public SubsequentDispenseBean getComponent1SubsequentDispense() {
-        return this.component1SubsequentDispense;
-    }
-    public void setComponent1SubsequentDispense(SubsequentDispenseBean component1SubsequentDispense) {
-        this.component1SubsequentDispense = component1SubsequentDispense;
-    }
+    private SubsequentDispenseBean component1SubsequentDispense;
 
 
     @Hl7XmlMapping({"component2/initialDispense"})
@@ -30,6 +21,15 @@ public class DispenseInformationBean extends MessagePartBean {
     }
     public void setComponent2InitialDispense(DrugValidityPeriodBean component2InitialDispense) {
         this.component2InitialDispense = component2InitialDispense;
+    }
+
+
+    @Hl7XmlMapping({"component1/subsequentDispense"})
+    public SubsequentDispenseBean getComponent1SubsequentDispense() {
+        return this.component1SubsequentDispense;
+    }
+    public void setComponent1SubsequentDispense(SubsequentDispenseBean component1SubsequentDispense) {
+        this.component1SubsequentDispense = component1SubsequentDispense;
     }
 
 }

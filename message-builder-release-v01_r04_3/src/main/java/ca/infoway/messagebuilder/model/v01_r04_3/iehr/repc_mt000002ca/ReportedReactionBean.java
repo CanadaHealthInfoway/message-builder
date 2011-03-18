@@ -35,25 +35,16 @@ import java.util.List;
 public class ReportedReactionBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private CommentBean subjectOf1Annotation;
     private PatientBean subjectPatient;
-    private List<ReportedReactionsBean> subjectOf3CausalityAssessment = new ArrayList<ReportedReactionsBean>();
-    private ReportedByBean informant;
-    private IVL<TS, Interval<Date>> reactionOnsetDate = new IVLImpl<TS, Interval<Date>>();
-    private CD diagnosisType = new CDImpl();
-    private AllergyIntoleranceSeverityLevelBean subjectOf2SeverityObservation;
-    private ST description = new STImpl();
     private CV adverseReactionMaskingIndicator = new CVImpl();
+    private List<ReportedReactionsBean> subjectOf3CausalityAssessment = new ArrayList<ReportedReactionsBean>();
+    private CD diagnosisType = new CDImpl();
+    private IVL<TS, Interval<Date>> reactionOnsetDate = new IVLImpl<TS, Interval<Date>>();
     private CV reaction = new CVImpl();
-
-
-    @Hl7XmlMapping({"subjectOf1/annotation"})
-    public CommentBean getSubjectOf1Annotation() {
-        return this.subjectOf1Annotation;
-    }
-    public void setSubjectOf1Annotation(CommentBean subjectOf1Annotation) {
-        this.subjectOf1Annotation = subjectOf1Annotation;
-    }
+    private AllergyIntoleranceSeverityLevelBean subjectOf2SeverityObservation;
+    private CommentBean subjectOf1Annotation;
+    private ST description = new STImpl();
+    private ReportedByBean informant;
 
 
     @Hl7XmlMapping({"subject/patient"})
@@ -65,18 +56,33 @@ public class ReportedReactionBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>G:Adverse Reaction Masking Indicator</p>
+     */
+    @Hl7XmlMapping({"confidentialityCode"})
+    public x_VeryBasicConfidentialityKind getAdverseReactionMaskingIndicator() {
+        return (x_VeryBasicConfidentialityKind) this.adverseReactionMaskingIndicator.getValue();
+    }
+    public void setAdverseReactionMaskingIndicator(x_VeryBasicConfidentialityKind adverseReactionMaskingIndicator) {
+        this.adverseReactionMaskingIndicator.setValue(adverseReactionMaskingIndicator);
+    }
+
+
     @Hl7XmlMapping({"subjectOf3/causalityAssessment"})
     public List<ReportedReactionsBean> getSubjectOf3CausalityAssessment() {
         return this.subjectOf3CausalityAssessment;
     }
 
 
-    @Hl7XmlMapping({"informant"})
-    public ReportedByBean getInformant() {
-        return this.informant;
+    /**
+     * <p>Diagnosis Type</p>
+     */
+    @Hl7XmlMapping({"code"})
+    public ActCode getDiagnosisType() {
+        return (ActCode) this.diagnosisType.getValue();
     }
-    public void setInformant(ReportedByBean informant) {
-        this.informant = informant;
+    public void setDiagnosisType(ActCode diagnosisType) {
+        this.diagnosisType.setValue(diagnosisType);
     }
 
 
@@ -93,14 +99,14 @@ public class ReportedReactionBean extends MessagePartBean {
 
 
     /**
-     * <p>Diagnosis Type</p>
+     * <p>B:Reaction</p>
      */
-    @Hl7XmlMapping({"code"})
-    public ActCode getDiagnosisType() {
-        return (ActCode) this.diagnosisType.getValue();
+    @Hl7XmlMapping({"value"})
+    public SubjectReaction getReaction() {
+        return (SubjectReaction) this.reaction.getValue();
     }
-    public void setDiagnosisType(ActCode diagnosisType) {
-        this.diagnosisType.setValue(diagnosisType);
+    public void setReaction(SubjectReaction reaction) {
+        this.reaction.setValue(reaction);
     }
 
 
@@ -110,6 +116,15 @@ public class ReportedReactionBean extends MessagePartBean {
     }
     public void setSubjectOf2SeverityObservation(AllergyIntoleranceSeverityLevelBean subjectOf2SeverityObservation) {
         this.subjectOf2SeverityObservation = subjectOf2SeverityObservation;
+    }
+
+
+    @Hl7XmlMapping({"subjectOf1/annotation"})
+    public CommentBean getSubjectOf1Annotation() {
+        return this.subjectOf1Annotation;
+    }
+    public void setSubjectOf1Annotation(CommentBean subjectOf1Annotation) {
+        this.subjectOf1Annotation = subjectOf1Annotation;
     }
 
 
@@ -125,27 +140,12 @@ public class ReportedReactionBean extends MessagePartBean {
     }
 
 
-    /**
-     * <p>G:Adverse Reaction Masking Indicator</p>
-     */
-    @Hl7XmlMapping({"confidentialityCode"})
-    public x_VeryBasicConfidentialityKind getAdverseReactionMaskingIndicator() {
-        return (x_VeryBasicConfidentialityKind) this.adverseReactionMaskingIndicator.getValue();
+    @Hl7XmlMapping({"informant"})
+    public ReportedByBean getInformant() {
+        return this.informant;
     }
-    public void setAdverseReactionMaskingIndicator(x_VeryBasicConfidentialityKind adverseReactionMaskingIndicator) {
-        this.adverseReactionMaskingIndicator.setValue(adverseReactionMaskingIndicator);
-    }
-
-
-    /**
-     * <p>B:Reaction</p>
-     */
-    @Hl7XmlMapping({"value"})
-    public SubjectReaction getReaction() {
-        return (SubjectReaction) this.reaction.getValue();
-    }
-    public void setReaction(SubjectReaction reaction) {
-        this.reaction.setValue(reaction);
+    public void setInformant(ReportedByBean informant) {
+        this.informant = informant;
     }
 
 }

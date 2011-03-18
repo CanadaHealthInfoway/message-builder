@@ -16,23 +16,9 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 public class CarrierRoleBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private II payorIdentifier = new IIImpl();
     private ST payorName = new STImpl();
+    private II payorIdentifier = new IIImpl();
     private ST underwritingOrganizationName = new STImpl();
-
-
-    /**
-     * <p>PayorIdentifier</p>
-     * 
-     * <p>Payor Identifier</p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Identifier getPayorIdentifier() {
-        return this.payorIdentifier.getValue();
-    }
-    public void setPayorIdentifier(Identifier payorIdentifier) {
-        this.payorIdentifier.setValue(payorIdentifier);
-    }
 
 
     /**
@@ -46,6 +32,20 @@ public class CarrierRoleBean extends MessagePartBean {
     }
     public void setPayorName(String payorName) {
         this.payorName.setValue(payorName);
+    }
+
+
+    /**
+     * <p>PayorIdentifier</p>
+     * 
+     * <p>Payor Identifier</p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Identifier getPayorIdentifier() {
+        return this.payorIdentifier.getValue();
+    }
+    public void setPayorIdentifier(Identifier payorIdentifier) {
+        this.payorIdentifier.setValue(payorIdentifier);
     }
 
 

@@ -20,10 +20,19 @@ import java.util.Date;
 public class RefusedByBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private TS time = new TSImpl();
     private ProviderBean assignedPerson;
-    private ED<String> digitalSignature = new EDImpl<String>();
+    private TS time = new TSImpl();
     private CV informationReceivedMethod = new CVImpl();
+    private ED<String> digitalSignature = new EDImpl<String>();
+
+
+    @Hl7XmlMapping({"assignedPerson"})
+    public ProviderBean getAssignedPerson() {
+        return this.assignedPerson;
+    }
+    public void setAssignedPerson(ProviderBean assignedPerson) {
+        this.assignedPerson = assignedPerson;
+    }
 
 
     /**
@@ -54,12 +63,17 @@ public class RefusedByBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"assignedPerson"})
-    public ProviderBean getAssignedPerson() {
-        return this.assignedPerson;
+    /**
+     * <p>InformationReceivedMethod</p>
+     * 
+     * <p>F:Information Received Method</p>
+     */
+    @Hl7XmlMapping({"modeCode"})
+    public ParticipationMode getInformationReceivedMethod() {
+        return (ParticipationMode) this.informationReceivedMethod.getValue();
     }
-    public void setAssignedPerson(ProviderBean assignedPerson) {
-        this.assignedPerson = assignedPerson;
+    public void setInformationReceivedMethod(ParticipationMode informationReceivedMethod) {
+        this.informationReceivedMethod.setValue(informationReceivedMethod);
     }
 
 
@@ -74,20 +88,6 @@ public class RefusedByBean extends MessagePartBean {
     }
     public void setDigitalSignature(String digitalSignature) {
         this.digitalSignature.setValue(digitalSignature);
-    }
-
-
-    /**
-     * <p>InformationReceivedMethod</p>
-     * 
-     * <p>F:Information Received Method</p>
-     */
-    @Hl7XmlMapping({"modeCode"})
-    public ParticipationMode getInformationReceivedMethod() {
-        return (ParticipationMode) this.informationReceivedMethod.getValue();
-    }
-    public void setInformationReceivedMethod(ParticipationMode informationReceivedMethod) {
-        this.informationReceivedMethod.setValue(informationReceivedMethod);
     }
 
 }

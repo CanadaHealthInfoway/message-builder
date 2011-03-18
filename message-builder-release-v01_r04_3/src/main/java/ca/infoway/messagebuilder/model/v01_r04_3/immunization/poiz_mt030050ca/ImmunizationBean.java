@@ -34,97 +34,31 @@ import java.util.Date;
 public class ImmunizationBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private PatientBean subjectPatient;
-    private CD immunizationType = new CDImpl();
-    private TS immunizationDate = new TSImpl();
-    private CV immunizationMaskingIndicator = new CVImpl();
-    private CV immunizationRefusalReason = new CVImpl();
-    private PartOfBean inFulfillmentOf;
-    private CV administrationSite = new CVImpl();
-    private DrugProductBean consumableMedication;
-    private BL notImmunized = new BLImpl();
-    private CommentBean subjectOfAnnotation;
-    private InformantionSourceRoleBean informantInformantionSourceRole;
-    private BL causeAdverseReactionObservationEvent = new BLImpl();
-    private PQ quantityAdministered = new PQImpl();
     private CV routeOfAdministration = new CVImpl();
-
-
-    @Hl7XmlMapping({"subject/patient"})
-    public PatientBean getSubjectPatient() {
-        return this.subjectPatient;
-    }
-    public void setSubjectPatient(PatientBean subjectPatient) {
-        this.subjectPatient = subjectPatient;
-    }
-
-
-    /**
-     * <p>Immunization Type</p>
-     */
-    @Hl7XmlMapping({"code"})
-    public ActCode getImmunizationType() {
-        return (ActCode) this.immunizationType.getValue();
-    }
-    public void setImmunizationType(ActCode immunizationType) {
-        this.immunizationType.setValue(immunizationType);
-    }
+    private DrugProductBean consumableMedication;
+    private PatientBean subjectPatient;
+    private CV immunizationRefusalReason = new CVImpl();
+    private PQ quantityAdministered = new PQImpl();
+    private TS immunizationDate = new TSImpl();
+    private BL causeAdverseReactionObservationEvent = new BLImpl();
+    private PartOfBean inFulfillmentOf;
+    private CV immunizationMaskingIndicator = new CVImpl();
+    private InformantionSourceRoleBean informantInformantionSourceRole;
+    private CD immunizationType = new CDImpl();
+    private CV administrationSite = new CVImpl();
+    private CommentBean subjectOfAnnotation;
+    private BL notImmunized = new BLImpl();
 
 
     /**
-     * <p>C:Immunization Date</p>
+     * <p>E:Route of Administration</p>
      */
-    @Hl7XmlMapping({"effectiveTime"})
-    public Date getImmunizationDate() {
-        return this.immunizationDate.getValue();
+    @Hl7XmlMapping({"routeCode"})
+    public RouteOfAdministration getRouteOfAdministration() {
+        return (RouteOfAdministration) this.routeOfAdministration.getValue();
     }
-    public void setImmunizationDate(Date immunizationDate) {
-        this.immunizationDate.setValue(immunizationDate);
-    }
-
-
-    /**
-     * <p>D:Immunization Masking Indicator</p>
-     */
-    @Hl7XmlMapping({"confidentialityCode"})
-    public x_VeryBasicConfidentialityKind getImmunizationMaskingIndicator() {
-        return (x_VeryBasicConfidentialityKind) this.immunizationMaskingIndicator.getValue();
-    }
-    public void setImmunizationMaskingIndicator(x_VeryBasicConfidentialityKind immunizationMaskingIndicator) {
-        this.immunizationMaskingIndicator.setValue(immunizationMaskingIndicator);
-    }
-
-
-    /**
-     * <p>Immunization Refusal Reason</p>
-     */
-    @Hl7XmlMapping({"reasonCode"})
-    public ActNoImmunizationReason getImmunizationRefusalReason() {
-        return (ActNoImmunizationReason) this.immunizationRefusalReason.getValue();
-    }
-    public void setImmunizationRefusalReason(ActNoImmunizationReason immunizationRefusalReason) {
-        this.immunizationRefusalReason.setValue(immunizationRefusalReason);
-    }
-
-
-    @Hl7XmlMapping({"inFulfillmentOf"})
-    public PartOfBean getInFulfillmentOf() {
-        return this.inFulfillmentOf;
-    }
-    public void setInFulfillmentOf(PartOfBean inFulfillmentOf) {
-        this.inFulfillmentOf = inFulfillmentOf;
-    }
-
-
-    /**
-     * <p>Administration Site</p>
-     */
-    @Hl7XmlMapping({"approachSiteCode"})
-    public HumanSubstanceAdministrationSite getAdministrationSite() {
-        return (HumanSubstanceAdministrationSite) this.administrationSite.getValue();
-    }
-    public void setAdministrationSite(HumanSubstanceAdministrationSite administrationSite) {
-        this.administrationSite.setValue(administrationSite);
+    public void setRouteOfAdministration(RouteOfAdministration routeOfAdministration) {
+        this.routeOfAdministration.setValue(routeOfAdministration);
     }
 
 
@@ -137,42 +71,24 @@ public class ImmunizationBean extends MessagePartBean {
     }
 
 
+    @Hl7XmlMapping({"subject/patient"})
+    public PatientBean getSubjectPatient() {
+        return this.subjectPatient;
+    }
+    public void setSubjectPatient(PatientBean subjectPatient) {
+        this.subjectPatient = subjectPatient;
+    }
+
+
     /**
-     * <p>Not Immunized?</p>
+     * <p>Immunization Refusal Reason</p>
      */
-    @Hl7XmlMapping({"negationInd"})
-    public Boolean getNotImmunized() {
-        return this.notImmunized.getValue();
+    @Hl7XmlMapping({"reasonCode"})
+    public ActNoImmunizationReason getImmunizationRefusalReason() {
+        return (ActNoImmunizationReason) this.immunizationRefusalReason.getValue();
     }
-    public void setNotImmunized(Boolean notImmunized) {
-        this.notImmunized.setValue(notImmunized);
-    }
-
-
-    @Hl7XmlMapping({"subjectOf/annotation"})
-    public CommentBean getSubjectOfAnnotation() {
-        return this.subjectOfAnnotation;
-    }
-    public void setSubjectOfAnnotation(CommentBean subjectOfAnnotation) {
-        this.subjectOfAnnotation = subjectOfAnnotation;
-    }
-
-
-    @Hl7XmlMapping({"informant/informantionSourceRole"})
-    public InformantionSourceRoleBean getInformantInformantionSourceRole() {
-        return this.informantInformantionSourceRole;
-    }
-    public void setInformantInformantionSourceRole(InformantionSourceRoleBean informantInformantionSourceRole) {
-        this.informantInformantionSourceRole = informantInformantionSourceRole;
-    }
-
-
-    @Hl7XmlMapping({"cause/adverseReactionObservationEvent"})
-    public Boolean getCauseAdverseReactionObservationEvent() {
-        return this.causeAdverseReactionObservationEvent.getValue();
-    }
-    public void setCauseAdverseReactionObservationEvent(Boolean causeAdverseReactionObservationEvent) {
-        this.causeAdverseReactionObservationEvent.setValue(causeAdverseReactionObservationEvent);
+    public void setImmunizationRefusalReason(ActNoImmunizationReason immunizationRefusalReason) {
+        this.immunizationRefusalReason.setValue(immunizationRefusalReason);
     }
 
 
@@ -189,14 +105,98 @@ public class ImmunizationBean extends MessagePartBean {
 
 
     /**
-     * <p>E:Route of Administration</p>
+     * <p>C:Immunization Date</p>
      */
-    @Hl7XmlMapping({"routeCode"})
-    public RouteOfAdministration getRouteOfAdministration() {
-        return (RouteOfAdministration) this.routeOfAdministration.getValue();
+    @Hl7XmlMapping({"effectiveTime"})
+    public Date getImmunizationDate() {
+        return this.immunizationDate.getValue();
     }
-    public void setRouteOfAdministration(RouteOfAdministration routeOfAdministration) {
-        this.routeOfAdministration.setValue(routeOfAdministration);
+    public void setImmunizationDate(Date immunizationDate) {
+        this.immunizationDate.setValue(immunizationDate);
+    }
+
+
+    @Hl7XmlMapping({"cause/adverseReactionObservationEvent"})
+    public Boolean getCauseAdverseReactionObservationEvent() {
+        return this.causeAdverseReactionObservationEvent.getValue();
+    }
+    public void setCauseAdverseReactionObservationEvent(Boolean causeAdverseReactionObservationEvent) {
+        this.causeAdverseReactionObservationEvent.setValue(causeAdverseReactionObservationEvent);
+    }
+
+
+    @Hl7XmlMapping({"inFulfillmentOf"})
+    public PartOfBean getInFulfillmentOf() {
+        return this.inFulfillmentOf;
+    }
+    public void setInFulfillmentOf(PartOfBean inFulfillmentOf) {
+        this.inFulfillmentOf = inFulfillmentOf;
+    }
+
+
+    /**
+     * <p>D:Immunization Masking Indicator</p>
+     */
+    @Hl7XmlMapping({"confidentialityCode"})
+    public x_VeryBasicConfidentialityKind getImmunizationMaskingIndicator() {
+        return (x_VeryBasicConfidentialityKind) this.immunizationMaskingIndicator.getValue();
+    }
+    public void setImmunizationMaskingIndicator(x_VeryBasicConfidentialityKind immunizationMaskingIndicator) {
+        this.immunizationMaskingIndicator.setValue(immunizationMaskingIndicator);
+    }
+
+
+    @Hl7XmlMapping({"informant/informantionSourceRole"})
+    public InformantionSourceRoleBean getInformantInformantionSourceRole() {
+        return this.informantInformantionSourceRole;
+    }
+    public void setInformantInformantionSourceRole(InformantionSourceRoleBean informantInformantionSourceRole) {
+        this.informantInformantionSourceRole = informantInformantionSourceRole;
+    }
+
+
+    /**
+     * <p>Immunization Type</p>
+     */
+    @Hl7XmlMapping({"code"})
+    public ActCode getImmunizationType() {
+        return (ActCode) this.immunizationType.getValue();
+    }
+    public void setImmunizationType(ActCode immunizationType) {
+        this.immunizationType.setValue(immunizationType);
+    }
+
+
+    /**
+     * <p>Administration Site</p>
+     */
+    @Hl7XmlMapping({"approachSiteCode"})
+    public HumanSubstanceAdministrationSite getAdministrationSite() {
+        return (HumanSubstanceAdministrationSite) this.administrationSite.getValue();
+    }
+    public void setAdministrationSite(HumanSubstanceAdministrationSite administrationSite) {
+        this.administrationSite.setValue(administrationSite);
+    }
+
+
+    @Hl7XmlMapping({"subjectOf/annotation"})
+    public CommentBean getSubjectOfAnnotation() {
+        return this.subjectOfAnnotation;
+    }
+    public void setSubjectOfAnnotation(CommentBean subjectOfAnnotation) {
+        this.subjectOfAnnotation = subjectOfAnnotation;
+    }
+
+
+    /**
+     * <p>Not Immunized?</p>
+     */
+    @Hl7XmlMapping({"negationInd"})
+    public Boolean getNotImmunized() {
+        return this.notImmunized.getValue();
+    }
+    public void setNotImmunized(Boolean notImmunized) {
+        this.notImmunized.setValue(notImmunized);
     }
 
 }

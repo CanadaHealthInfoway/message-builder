@@ -26,13 +26,28 @@ import java.util.List;
 public class DrugProductBean extends MessagePartBean implements ca.infoway.messagebuilder.model.v01_r04_3.pharmacy.porx_mt980040ca.Medication {
 
     private static final long serialVersionUID = 20110318L;
-    private ST drugDescription = new STImpl();
-    private ST drugName = new STImpl();
-    private CD drugCode = new CDImpl();
-    private DispensedInBean playerAsContent;
-    private CV drugForm = new CVImpl();
     private ManufacturerBean playerAsManufacturedProductManufacturer;
     private List<DrugContainsBean> playerIngredient = new ArrayList<DrugContainsBean>();
+    private ST drugDescription = new STImpl();
+    private ST drugName = new STImpl();
+    private DispensedInBean playerAsContent;
+    private CD drugCode = new CDImpl();
+    private CV drugForm = new CVImpl();
+
+
+    @Hl7XmlMapping({"player/asManufacturedProduct/manufacturer"})
+    public ManufacturerBean getPlayerAsManufacturedProductManufacturer() {
+        return this.playerAsManufacturedProductManufacturer;
+    }
+    public void setPlayerAsManufacturedProductManufacturer(ManufacturerBean playerAsManufacturedProductManufacturer) {
+        this.playerAsManufacturedProductManufacturer = playerAsManufacturedProductManufacturer;
+    }
+
+
+    @Hl7XmlMapping({"player/ingredient"})
+    public List<DrugContainsBean> getPlayerIngredient() {
+        return this.playerIngredient;
+    }
 
 
     /**
@@ -59,6 +74,15 @@ public class DrugProductBean extends MessagePartBean implements ca.infoway.messa
     }
 
 
+    @Hl7XmlMapping({"player/asContent"})
+    public DispensedInBean getPlayerAsContent() {
+        return this.playerAsContent;
+    }
+    public void setPlayerAsContent(DispensedInBean playerAsContent) {
+        this.playerAsContent = playerAsContent;
+    }
+
+
     /**
      * <p>A:Drug Code</p>
      */
@@ -71,15 +95,6 @@ public class DrugProductBean extends MessagePartBean implements ca.infoway.messa
     }
 
 
-    @Hl7XmlMapping({"player/asContent"})
-    public DispensedInBean getPlayerAsContent() {
-        return this.playerAsContent;
-    }
-    public void setPlayerAsContent(DispensedInBean playerAsContent) {
-        this.playerAsContent = playerAsContent;
-    }
-
-
     /**
      * <p>D:Drug Form</p>
      */
@@ -89,21 +104,6 @@ public class DrugProductBean extends MessagePartBean implements ca.infoway.messa
     }
     public void setDrugForm(OrderableDrugForm drugForm) {
         this.drugForm.setValue(drugForm);
-    }
-
-
-    @Hl7XmlMapping({"player/asManufacturedProduct/manufacturer"})
-    public ManufacturerBean getPlayerAsManufacturedProductManufacturer() {
-        return this.playerAsManufacturedProductManufacturer;
-    }
-    public void setPlayerAsManufacturedProductManufacturer(ManufacturerBean playerAsManufacturedProductManufacturer) {
-        this.playerAsManufacturedProductManufacturer = playerAsManufacturedProductManufacturer;
-    }
-
-
-    @Hl7XmlMapping({"player/ingredient"})
-    public List<DrugContainsBean> getPlayerIngredient() {
-        return this.playerIngredient;
     }
 
 }

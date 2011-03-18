@@ -18,6 +18,8 @@ import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.PostalAddress;
 import ca.infoway.messagebuilder.datatype.lang.TelecommunicationAddress;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 
@@ -27,18 +29,21 @@ import java.util.Set;
 public class ServiceLocationBean extends MessagePartBean implements ca.infoway.messagebuilder.model.v01_r04_3.merged.Recipient {
 
     private static final long serialVersionUID = 20110318L;
-    private SET<TEL, TelecommunicationAddress> serviceLocationPhonesAndEMails = new SETImpl<TEL, TelecommunicationAddress>(TELImpl.class);
-    private II serviceLocationId = new IIImpl();
     private ST serviceLocationName = new STImpl();
+    private II serviceLocationId = new IIImpl();
+    private SET<TEL, TelecommunicationAddress> serviceLocationPhonesAndEMails = new SETImpl<TEL, TelecommunicationAddress>(TELImpl.class);
     private AD serviceLocationAddress = new ADImpl();
 
 
     /**
-     * <p>E:Service Location Phones and E-mails</p>
+     * <p>B:Service Location Name</p>
      */
-    @Hl7XmlMapping({"telecom"})
-    public Set<TelecommunicationAddress> getServiceLocationPhonesAndEMails() {
-        return this.serviceLocationPhonesAndEMails.rawSet();
+    @Hl7XmlMapping({"location/name"})
+    public String getServiceLocationName() {
+        return this.serviceLocationName.getValue();
+    }
+    public void setServiceLocationName(String serviceLocationName) {
+        this.serviceLocationName.setValue(serviceLocationName);
     }
 
 
@@ -55,14 +60,11 @@ public class ServiceLocationBean extends MessagePartBean implements ca.infoway.m
 
 
     /**
-     * <p>B:Service Location Name</p>
+     * <p>E:Service Location Phones and E-mails</p>
      */
-    @Hl7XmlMapping({"location/name"})
-    public String getServiceLocationName() {
-        return this.serviceLocationName.getValue();
-    }
-    public void setServiceLocationName(String serviceLocationName) {
-        this.serviceLocationName.setValue(serviceLocationName);
+    @Hl7XmlMapping({"telecom"})
+    public Set<TelecommunicationAddress> getServiceLocationPhonesAndEMails() {
+        return this.serviceLocationPhonesAndEMails.rawSet();
     }
 
 

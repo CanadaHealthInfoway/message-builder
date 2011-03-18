@@ -13,22 +13,8 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 public class SupplementalFillInformationBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private INT fillQuantity = new INTImpl();
     private INT numberOfFills = new INTImpl();
-
-
-    /**
-     * <p>FillQuantity</p>
-     * 
-     * <p>D:Fill Quantity</p>
-     */
-    @Hl7XmlMapping({"quantity"})
-    public Integer getFillQuantity() {
-        return this.fillQuantity.getValue();
-    }
-    public void setFillQuantity(Integer fillQuantity) {
-        this.fillQuantity.setValue(fillQuantity);
-    }
+    private INT fillQuantity = new INTImpl();
 
 
     /**
@@ -42,6 +28,20 @@ public class SupplementalFillInformationBean extends MessagePartBean {
     }
     public void setNumberOfFills(Integer numberOfFills) {
         this.numberOfFills.setValue(numberOfFills);
+    }
+
+
+    /**
+     * <p>FillQuantity</p>
+     * 
+     * <p>D:Fill Quantity</p>
+     */
+    @Hl7XmlMapping({"quantity"})
+    public Integer getFillQuantity() {
+        return this.fillQuantity.getValue();
+    }
+    public void setFillQuantity(Integer fillQuantity) {
+        this.fillQuantity.setValue(fillQuantity);
     }
 
 }

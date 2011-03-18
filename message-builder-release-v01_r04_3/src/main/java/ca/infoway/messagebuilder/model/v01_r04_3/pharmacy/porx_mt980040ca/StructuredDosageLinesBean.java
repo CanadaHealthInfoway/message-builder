@@ -25,48 +25,24 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 public class StructuredDosageLinesBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private GTS dosageTimingFrequency = new GTSImpl();
-    private ST adHocDosageInstruction = new STImpl();
-    private URG<PQ, PhysicalQuantity> dosageRate = new URGImpl<PQ, PhysicalQuantity>();
-    private URG<PQ, PhysicalQuantity> dosageRange = new URGImpl<PQ, PhysicalQuantity>();
     private CS dosageUsageContext = new CSImpl();
-    private AdministrationPreconditionBean triggerActEventCriterion;
+    private URG<PQ, PhysicalQuantity> dosageRange = new URGImpl<PQ, PhysicalQuantity>();
+    private GTS dosageTimingFrequency = new GTSImpl();
     private AdditionalSIGInstructionBean componentSupplementalInstruction;
+    private URG<PQ, PhysicalQuantity> dosageRate = new URGImpl<PQ, PhysicalQuantity>();
+    private ST adHocDosageInstruction = new STImpl();
+    private AdministrationPreconditionBean triggerActEventCriterion;
 
 
     /**
-     * <p>C:Dosage Timing/Frequency</p>
+     * <p>Dosage Usage Context</p>
      */
-    @Hl7XmlMapping({"effectiveTime"})
-    public GeneralTimingSpecification getDosageTimingFrequency() {
-        return this.dosageTimingFrequency.getValue();
+    @Hl7XmlMapping({"moodCode"})
+    public x_ActMoodDefEvnRqo getDosageUsageContext() {
+        return (x_ActMoodDefEvnRqo) this.dosageUsageContext.getValue();
     }
-    public void setDosageTimingFrequency(GeneralTimingSpecification dosageTimingFrequency) {
-        this.dosageTimingFrequency.setValue(dosageTimingFrequency);
-    }
-
-
-    /**
-     * <p>C:Ad-hoc Dosage Instruction</p>
-     */
-    @Hl7XmlMapping({"text"})
-    public String getAdHocDosageInstruction() {
-        return this.adHocDosageInstruction.getValue();
-    }
-    public void setAdHocDosageInstruction(String adHocDosageInstruction) {
-        this.adHocDosageInstruction.setValue(adHocDosageInstruction);
-    }
-
-
-    /**
-     * <p>E:Dosage Rate</p>
-     */
-    @Hl7XmlMapping({"rateQuantity"})
-    public UncertainRange<PhysicalQuantity> getDosageRate() {
-        return this.dosageRate.getValue();
-    }
-    public void setDosageRate(UncertainRange<PhysicalQuantity> dosageRate) {
-        this.dosageRate.setValue(dosageRate);
+    public void setDosageUsageContext(x_ActMoodDefEvnRqo dosageUsageContext) {
+        this.dosageUsageContext.setValue(dosageUsageContext);
     }
 
 
@@ -83,23 +59,14 @@ public class StructuredDosageLinesBean extends MessagePartBean {
 
 
     /**
-     * <p>Dosage Usage Context</p>
+     * <p>C:Dosage Timing/Frequency</p>
      */
-    @Hl7XmlMapping({"moodCode"})
-    public x_ActMoodDefEvnRqo getDosageUsageContext() {
-        return (x_ActMoodDefEvnRqo) this.dosageUsageContext.getValue();
+    @Hl7XmlMapping({"effectiveTime"})
+    public GeneralTimingSpecification getDosageTimingFrequency() {
+        return this.dosageTimingFrequency.getValue();
     }
-    public void setDosageUsageContext(x_ActMoodDefEvnRqo dosageUsageContext) {
-        this.dosageUsageContext.setValue(dosageUsageContext);
-    }
-
-
-    @Hl7XmlMapping({"trigger/actEventCriterion"})
-    public AdministrationPreconditionBean getTriggerActEventCriterion() {
-        return this.triggerActEventCriterion;
-    }
-    public void setTriggerActEventCriterion(AdministrationPreconditionBean triggerActEventCriterion) {
-        this.triggerActEventCriterion = triggerActEventCriterion;
+    public void setDosageTimingFrequency(GeneralTimingSpecification dosageTimingFrequency) {
+        this.dosageTimingFrequency.setValue(dosageTimingFrequency);
     }
 
 
@@ -109,6 +76,39 @@ public class StructuredDosageLinesBean extends MessagePartBean {
     }
     public void setComponentSupplementalInstruction(AdditionalSIGInstructionBean componentSupplementalInstruction) {
         this.componentSupplementalInstruction = componentSupplementalInstruction;
+    }
+
+
+    /**
+     * <p>E:Dosage Rate</p>
+     */
+    @Hl7XmlMapping({"rateQuantity"})
+    public UncertainRange<PhysicalQuantity> getDosageRate() {
+        return this.dosageRate.getValue();
+    }
+    public void setDosageRate(UncertainRange<PhysicalQuantity> dosageRate) {
+        this.dosageRate.setValue(dosageRate);
+    }
+
+
+    /**
+     * <p>C:Ad-hoc Dosage Instruction</p>
+     */
+    @Hl7XmlMapping({"text"})
+    public String getAdHocDosageInstruction() {
+        return this.adHocDosageInstruction.getValue();
+    }
+    public void setAdHocDosageInstruction(String adHocDosageInstruction) {
+        this.adHocDosageInstruction.setValue(adHocDosageInstruction);
+    }
+
+
+    @Hl7XmlMapping({"trigger/actEventCriterion"})
+    public AdministrationPreconditionBean getTriggerActEventCriterion() {
+        return this.triggerActEventCriterion;
+    }
+    public void setTriggerActEventCriterion(AdministrationPreconditionBean triggerActEventCriterion) {
+        this.triggerActEventCriterion = triggerActEventCriterion;
     }
 
 }

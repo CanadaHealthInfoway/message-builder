@@ -28,12 +28,12 @@ public class CommentBean extends MessagePartBean {
     private PatientBean recordTargetPatient;
     private CV patientNoteCategory = new CVImpl();
     private ST text = new STImpl();
-    private II patientNoteId = new IIImpl();
     private RefusedByBean author;
-    private RecordedAtBean location;
     private ProviderBean responsiblePartyAssignedPerson;
-    private AnnotatedActBean subjectAnnotatedAct;
+    private II patientNoteId = new IIImpl();
+    private RecordedAtBean location;
     private CV writtenIn = new CVImpl();
+    private AnnotatedActBean subjectAnnotatedAct;
 
 
     @Hl7XmlMapping({"recordTarget/patient"})
@@ -77,6 +77,24 @@ public class CommentBean extends MessagePartBean {
     }
 
 
+    @Hl7XmlMapping({"author"})
+    public RefusedByBean getAuthor() {
+        return this.author;
+    }
+    public void setAuthor(RefusedByBean author) {
+        this.author = author;
+    }
+
+
+    @Hl7XmlMapping({"responsibleParty/assignedPerson"})
+    public ProviderBean getResponsiblePartyAssignedPerson() {
+        return this.responsiblePartyAssignedPerson;
+    }
+    public void setResponsiblePartyAssignedPerson(ProviderBean responsiblePartyAssignedPerson) {
+        this.responsiblePartyAssignedPerson = responsiblePartyAssignedPerson;
+    }
+
+
     /**
      * <p>PatientNoteId</p>
      * 
@@ -91,39 +109,12 @@ public class CommentBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"author"})
-    public RefusedByBean getAuthor() {
-        return this.author;
-    }
-    public void setAuthor(RefusedByBean author) {
-        this.author = author;
-    }
-
-
     @Hl7XmlMapping({"location"})
     public RecordedAtBean getLocation() {
         return this.location;
     }
     public void setLocation(RecordedAtBean location) {
         this.location = location;
-    }
-
-
-    @Hl7XmlMapping({"responsibleParty/assignedPerson"})
-    public ProviderBean getResponsiblePartyAssignedPerson() {
-        return this.responsiblePartyAssignedPerson;
-    }
-    public void setResponsiblePartyAssignedPerson(ProviderBean responsiblePartyAssignedPerson) {
-        this.responsiblePartyAssignedPerson = responsiblePartyAssignedPerson;
-    }
-
-
-    @Hl7XmlMapping({"subject/annotatedAct"})
-    public AnnotatedActBean getSubjectAnnotatedAct() {
-        return this.subjectAnnotatedAct;
-    }
-    public void setSubjectAnnotatedAct(AnnotatedActBean subjectAnnotatedAct) {
-        this.subjectAnnotatedAct = subjectAnnotatedAct;
     }
 
 
@@ -140,6 +131,15 @@ public class CommentBean extends MessagePartBean {
     }
     public void setWrittenIn(HumanLanguage writtenIn) {
         this.writtenIn.setValue(writtenIn);
+    }
+
+
+    @Hl7XmlMapping({"subject/annotatedAct"})
+    public AnnotatedActBean getSubjectAnnotatedAct() {
+        return this.subjectAnnotatedAct;
+    }
+    public void setSubjectAnnotatedAct(AnnotatedActBean subjectAnnotatedAct) {
+        this.subjectAnnotatedAct = subjectAnnotatedAct;
     }
 
 }

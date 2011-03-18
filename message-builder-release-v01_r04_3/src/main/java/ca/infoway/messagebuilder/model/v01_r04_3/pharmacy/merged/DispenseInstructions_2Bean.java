@@ -25,8 +25,8 @@ public class DispenseInstructions_2Bean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
     private RecordedAtBean location;
-    private PQ totalPrescribedQuantity = new PQImpl();
     private CS statusCode = new CSImpl();
+    private PQ totalPrescribedQuantity = new PQImpl();
     private IVL<TS, Interval<Date>> totalDaysSupply = new IVLImpl<TS, Interval<Date>>();
 
 
@@ -36,6 +36,20 @@ public class DispenseInstructions_2Bean extends MessagePartBean {
     }
     public void setLocation(RecordedAtBean location) {
         this.location = location;
+    }
+
+
+    /**
+     * <p>A:Prescription Dispensable Indicator</p>
+     * 
+     * <p>A:Prescription Dispense Indicator</p>
+     */
+    @Hl7XmlMapping({"statusCode"})
+    public ActStatus getStatusCode() {
+        return (ActStatus) this.statusCode.getValue();
+    }
+    public void setStatusCode(ActStatus statusCode) {
+        this.statusCode.setValue(statusCode);
     }
 
 
@@ -52,20 +66,6 @@ public class DispenseInstructions_2Bean extends MessagePartBean {
     }
     public void setTotalPrescribedQuantity(PhysicalQuantity totalPrescribedQuantity) {
         this.totalPrescribedQuantity.setValue(totalPrescribedQuantity);
-    }
-
-
-    /**
-     * <p>A:Prescription Dispensable Indicator</p>
-     * 
-     * <p>A:Prescription Dispense Indicator</p>
-     */
-    @Hl7XmlMapping({"statusCode"})
-    public ActStatus getStatusCode() {
-        return (ActStatus) this.statusCode.getValue();
-    }
-    public void setStatusCode(ActStatus statusCode) {
-        this.statusCode.setValue(statusCode);
     }
 
 

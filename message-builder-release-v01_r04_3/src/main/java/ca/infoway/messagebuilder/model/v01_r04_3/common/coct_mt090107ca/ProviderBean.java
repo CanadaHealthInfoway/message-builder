@@ -22,10 +22,34 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 public class ProviderBean extends MessagePartBean implements ca.infoway.messagebuilder.model.v01_r04_3.pharmacy.merged.ChangedBy, ca.infoway.messagebuilder.model.v01_r04_3.iehr.repc_mt000012ca.Choice, ca.infoway.messagebuilder.model.v01_r04_3.merged.Recipient, ca.infoway.messagebuilder.model.v01_r04_3.merged.Consenter, ca.infoway.messagebuilder.model.v01_r04_3.iehr.merged.Party {
 
     private static final long serialVersionUID = 20110318L;
+    private II providerLicenseNumber = new IIImpl();
+    private PN providerName = new PNImpl();
     private II providerId = new IIImpl();
     private CV providerType = new CVImpl();
-    private PN providerName = new PNImpl();
-    private II providerLicenseNumber = new IIImpl();
+
+
+    /**
+     * <p>D:Provider License Number</p>
+     */
+    @Hl7XmlMapping({"representedPerson/asLicensedEntity/id"})
+    public Identifier getProviderLicenseNumber() {
+        return this.providerLicenseNumber.getValue();
+    }
+    public void setProviderLicenseNumber(Identifier providerLicenseNumber) {
+        this.providerLicenseNumber.setValue(providerLicenseNumber);
+    }
+
+
+    /**
+     * <p>B:Provider Name</p>
+     */
+    @Hl7XmlMapping({"representedPerson/name"})
+    public PersonName getProviderName() {
+        return this.providerName.getValue();
+    }
+    public void setProviderName(PersonName providerName) {
+        this.providerName.setValue(providerName);
+    }
 
 
     /**
@@ -49,30 +73,6 @@ public class ProviderBean extends MessagePartBean implements ca.infoway.messageb
     }
     public void setProviderType(HealthcareProviderRoleType providerType) {
         this.providerType.setValue(providerType);
-    }
-
-
-    /**
-     * <p>B:Provider Name</p>
-     */
-    @Hl7XmlMapping({"representedPerson/name"})
-    public PersonName getProviderName() {
-        return this.providerName.getValue();
-    }
-    public void setProviderName(PersonName providerName) {
-        this.providerName.setValue(providerName);
-    }
-
-
-    /**
-     * <p>D:Provider License Number</p>
-     */
-    @Hl7XmlMapping({"representedPerson/asLicensedEntity/id"})
-    public Identifier getProviderLicenseNumber() {
-        return this.providerLicenseNumber.getValue();
-    }
-    public void setProviderLicenseNumber(Identifier providerLicenseNumber) {
-        this.providerLicenseNumber.setValue(providerLicenseNumber);
     }
 
 }

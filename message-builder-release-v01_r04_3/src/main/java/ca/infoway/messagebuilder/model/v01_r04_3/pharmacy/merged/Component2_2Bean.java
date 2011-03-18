@@ -13,17 +13,8 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 public class Component2_2Bean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private BL contextConductionInd = new BLImpl();
     private DispenseInstructions_2Bean supplyRequest;
-
-
-    @Hl7XmlMapping({"contextConductionInd"})
-    public Boolean getContextConductionInd() {
-        return this.contextConductionInd.getValue();
-    }
-    public void setContextConductionInd(Boolean contextConductionInd) {
-        this.contextConductionInd.setValue(contextConductionInd);
-    }
+    private BL contextConductionInd = new BLImpl();
 
 
     @Hl7XmlMapping({"supplyRequest"})
@@ -32,6 +23,15 @@ public class Component2_2Bean extends MessagePartBean {
     }
     public void setSupplyRequest(DispenseInstructions_2Bean supplyRequest) {
         this.supplyRequest = supplyRequest;
+    }
+
+
+    @Hl7XmlMapping({"contextConductionInd"})
+    public Boolean getContextConductionInd() {
+        return this.contextConductionInd.getValue();
+    }
+    public void setContextConductionInd(Boolean contextConductionInd) {
+        this.contextConductionInd.setValue(contextConductionInd);
     }
 
 }

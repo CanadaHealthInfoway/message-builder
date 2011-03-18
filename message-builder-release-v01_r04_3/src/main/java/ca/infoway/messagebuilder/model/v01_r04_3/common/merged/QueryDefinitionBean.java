@@ -16,17 +16,22 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 public class QueryDefinitionBean<PL> extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private PL parameterList;
-    private INT queryLimit = new INTImpl();
     private II queryIdentifier = new IIImpl();
+    private INT queryLimit = new INTImpl();
+    private PL parameterList;
 
 
-    @Hl7XmlMapping({"parameterList"})
-    public PL getParameterList() {
-        return this.parameterList;
+    /**
+     * <p>QueryIdentifier</p>
+     * 
+     * <p>H:Query Identifier</p>
+     */
+    @Hl7XmlMapping({"queryId"})
+    public Identifier getQueryIdentifier() {
+        return this.queryIdentifier.getValue();
     }
-    public void setParameterList(PL parameterList) {
-        this.parameterList = parameterList;
+    public void setQueryIdentifier(Identifier queryIdentifier) {
+        this.queryIdentifier.setValue(queryIdentifier);
     }
 
 
@@ -44,17 +49,12 @@ public class QueryDefinitionBean<PL> extends MessagePartBean {
     }
 
 
-    /**
-     * <p>QueryIdentifier</p>
-     * 
-     * <p>H:Query Identifier</p>
-     */
-    @Hl7XmlMapping({"queryId"})
-    public Identifier getQueryIdentifier() {
-        return this.queryIdentifier.getValue();
+    @Hl7XmlMapping({"parameterList"})
+    public PL getParameterList() {
+        return this.parameterList;
     }
-    public void setQueryIdentifier(Identifier queryIdentifier) {
-        this.queryIdentifier.setValue(queryIdentifier);
+    public void setParameterList(PL parameterList) {
+        this.parameterList = parameterList;
     }
 
 }

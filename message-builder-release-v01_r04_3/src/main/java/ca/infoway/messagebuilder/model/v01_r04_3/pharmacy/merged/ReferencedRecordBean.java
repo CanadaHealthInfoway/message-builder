@@ -21,23 +21,9 @@ import ca.infoway.messagebuilder.model.v01_r04_3.common.merged.PatientBean;
 public class ReferencedRecordBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private II id = new IIImpl();
     private PatientBean recordTargetPatient;
+    private II id = new IIImpl();
     private BL preconditionVerificationEventCriterion = new BLImpl();
-
-
-    /**
-     * <p>Record Id</p>
-     * 
-     * <p>A:Prescription Order Number</p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Identifier getId() {
-        return this.id.getValue();
-    }
-    public void setId(Identifier id) {
-        this.id.setValue(id);
-    }
 
 
     @Hl7XmlMapping({"recordTarget/patient","subject/patient"})
@@ -51,6 +37,20 @@ public class ReferencedRecordBean extends MessagePartBean {
     }
     public void setRecordTargetPatient(PatientBean recordTargetPatient) {
         this.recordTargetPatient = recordTargetPatient;
+    }
+
+
+    /**
+     * <p>Record Id</p>
+     * 
+     * <p>A:Prescription Order Number</p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Identifier getId() {
+        return this.id.getValue();
+    }
+    public void setId(Identifier id) {
+        this.id.setValue(id);
     }
 
 

@@ -18,21 +18,9 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 public class EHRRepositoryBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private TEL repositoryURL = new TELImpl();
     private ST repositoryName = new STImpl();
+    private TEL repositoryURL = new TELImpl();
     private ST repositoryJurisdictionName = new STImpl();
-
-
-    /**
-     * <p>Repository URL</p>
-     */
-    @Hl7XmlMapping({"assignedRepositoryLocation/telecom"})
-    public TelecommunicationAddress getRepositoryURL() {
-        return this.repositoryURL.getValue();
-    }
-    public void setRepositoryURL(TelecommunicationAddress repositoryURL) {
-        this.repositoryURL.setValue(repositoryURL);
-    }
 
 
     /**
@@ -44,6 +32,18 @@ public class EHRRepositoryBean extends MessagePartBean {
     }
     public void setRepositoryName(String repositoryName) {
         this.repositoryName.setValue(repositoryName);
+    }
+
+
+    /**
+     * <p>Repository URL</p>
+     */
+    @Hl7XmlMapping({"assignedRepositoryLocation/telecom"})
+    public TelecommunicationAddress getRepositoryURL() {
+        return this.repositoryURL.getValue();
+    }
+    public void setRepositoryURL(TelecommunicationAddress repositoryURL) {
+        this.repositoryURL.setValue(repositoryURL);
     }
 
 

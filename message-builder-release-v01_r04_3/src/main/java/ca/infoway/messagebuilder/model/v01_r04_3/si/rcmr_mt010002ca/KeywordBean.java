@@ -23,10 +23,19 @@ import java.util.List;
 public class KeywordBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private ca.infoway.messagebuilder.model.v01_r04_3.common.merged.PatientBean subject1Patient;
-    private Consenter authorConsenter;
-    private ST keyword = new STImpl();
     private List<CV> consentInformationTypes = new ArrayList<CV>();
+    private ca.infoway.messagebuilder.model.v01_r04_3.common.merged.PatientBean subject1Patient;
+    private ST keyword = new STImpl();
+    private Consenter authorConsenter;
+
+
+    /**
+     * <p>B:Consent Information Types</p>
+     */
+    @Hl7XmlMapping({"subject2/recordType/code"})
+    public List<ActInformationAccessTypeCode> getConsentInformationTypes() {
+        return new RawListWrapper<CV, ActInformationAccessTypeCode>(consentInformationTypes, CVImpl.class);
+    }
 
 
     @Hl7XmlMapping({"subject1/patient"})
@@ -35,6 +44,18 @@ public class KeywordBean extends MessagePartBean {
     }
     public void setSubject1Patient(ca.infoway.messagebuilder.model.v01_r04_3.common.merged.PatientBean subject1Patient) {
         this.subject1Patient = subject1Patient;
+    }
+
+
+    /**
+     * <p>Keyword</p>
+     */
+    @Hl7XmlMapping({"author/signatureText"})
+    public String getKeyword() {
+        return this.keyword.getValue();
+    }
+    public void setKeyword(String keyword) {
+        this.keyword.setValue(keyword);
     }
 
 
@@ -58,27 +79,6 @@ public class KeywordBean extends MessagePartBean {
     }
     public boolean hasAuthorConsenterAsResponsibleParty() {
         return (this.authorConsenter instanceof ResponsiblePersonBean);
-    }
-
-
-    /**
-     * <p>Keyword</p>
-     */
-    @Hl7XmlMapping({"author/signatureText"})
-    public String getKeyword() {
-        return this.keyword.getValue();
-    }
-    public void setKeyword(String keyword) {
-        this.keyword.setValue(keyword);
-    }
-
-
-    /**
-     * <p>B:Consent Information Types</p>
-     */
-    @Hl7XmlMapping({"subject2/recordType/code"})
-    public List<ActInformationAccessTypeCode> getConsentInformationTypes() {
-        return new RawListWrapper<CV, ActInformationAccessTypeCode>(consentInformationTypes, CVImpl.class);
     }
 
 }

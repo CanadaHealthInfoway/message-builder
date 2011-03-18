@@ -28,10 +28,10 @@ public class VersionInformationBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
     private RefusedByBean author;
-    private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
-    private CV code = new CVImpl();
     private ProviderBean responsiblePartyAssignedPerson;
     private CV reasonCode = new CVImpl();
+    private CV code = new CVImpl();
+    private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private II changeIdentifier = new IIImpl();
 
 
@@ -41,38 +41,6 @@ public class VersionInformationBean extends MessagePartBean {
     }
     public void setAuthor(RefusedByBean author) {
         this.author = author;
-    }
-
-
-    /**
-     * <p>B:Allergy/intolerance Status Change Effective Date</p>
-     * 
-     * <p>A:Medical Condition Status Change Effective Date</p>
-     * 
-     * <p>C:Change Effective Date and End Date</p>
-     */
-    @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getEffectiveTime() {
-        return this.effectiveTime.getValue();
-    }
-    public void setEffectiveTime(Interval<Date> effectiveTime) {
-        this.effectiveTime.setValue(effectiveTime);
-    }
-
-
-    /**
-     * <p>A:Change Type</p>
-     * 
-     * <p>A:Allergy/Intolerance Status Change Type</p>
-     * 
-     * <p>C:Medical Condition Status Change Type</p>
-     */
-    @Hl7XmlMapping({"code"})
-    public HL7TriggerEventCode getCode() {
-        return (HL7TriggerEventCode) this.code.getValue();
-    }
-    public void setCode(HL7TriggerEventCode code) {
-        this.code.setValue(code);
     }
 
 
@@ -98,6 +66,38 @@ public class VersionInformationBean extends MessagePartBean {
     }
     public void setReasonCode(ControlActReason reasonCode) {
         this.reasonCode.setValue(reasonCode);
+    }
+
+
+    /**
+     * <p>A:Change Type</p>
+     * 
+     * <p>A:Allergy/Intolerance Status Change Type</p>
+     * 
+     * <p>C:Medical Condition Status Change Type</p>
+     */
+    @Hl7XmlMapping({"code"})
+    public HL7TriggerEventCode getCode() {
+        return (HL7TriggerEventCode) this.code.getValue();
+    }
+    public void setCode(HL7TriggerEventCode code) {
+        this.code.setValue(code);
+    }
+
+
+    /**
+     * <p>B:Allergy/intolerance Status Change Effective Date</p>
+     * 
+     * <p>A:Medical Condition Status Change Effective Date</p>
+     * 
+     * <p>C:Change Effective Date and End Date</p>
+     */
+    @Hl7XmlMapping({"effectiveTime"})
+    public Interval<Date> getEffectiveTime() {
+        return this.effectiveTime.getValue();
+    }
+    public void setEffectiveTime(Interval<Date> effectiveTime) {
+        this.effectiveTime.setValue(effectiveTime);
     }
 
 

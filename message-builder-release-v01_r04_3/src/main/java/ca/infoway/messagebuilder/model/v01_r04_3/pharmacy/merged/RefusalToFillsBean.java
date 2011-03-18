@@ -22,10 +22,10 @@ public class RefusalToFillsBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
     private RefusedByBean author;
-    private RecordedAtBean location;
-    private TS refusalToFillDate = new TSImpl();
     private CV refusalToFillReason = new CVImpl();
     private List<IssuesBean> reasonDetectedIssueEvent = new ArrayList<IssuesBean>();
+    private RecordedAtBean location;
+    private TS refusalToFillDate = new TSImpl();
 
 
     @Hl7XmlMapping({"author"})
@@ -34,6 +34,28 @@ public class RefusalToFillsBean extends MessagePartBean {
     }
     public void setAuthor(RefusedByBean author) {
         this.author = author;
+    }
+
+
+    /**
+     * <p>RefusalToFillReason</p>
+     * 
+     * <p>Refusal To Fill Reason</p>
+     * 
+     * <p>Refusal to Fill Reason</p>
+     */
+    @Hl7XmlMapping({"reasonCode"})
+    public ActSupplyFulfillmentRefusalReason getRefusalToFillReason() {
+        return (ActSupplyFulfillmentRefusalReason) this.refusalToFillReason.getValue();
+    }
+    public void setRefusalToFillReason(ActSupplyFulfillmentRefusalReason refusalToFillReason) {
+        this.refusalToFillReason.setValue(refusalToFillReason);
+    }
+
+
+    @Hl7XmlMapping({"reason/detectedIssueEvent"})
+    public List<IssuesBean> getReasonDetectedIssueEvent() {
+        return this.reasonDetectedIssueEvent;
     }
 
 
@@ -57,28 +79,6 @@ public class RefusalToFillsBean extends MessagePartBean {
     }
     public void setRefusalToFillDate(Date refusalToFillDate) {
         this.refusalToFillDate.setValue(refusalToFillDate);
-    }
-
-
-    /**
-     * <p>RefusalToFillReason</p>
-     * 
-     * <p>Refusal To Fill Reason</p>
-     * 
-     * <p>Refusal to Fill Reason</p>
-     */
-    @Hl7XmlMapping({"reasonCode"})
-    public ActSupplyFulfillmentRefusalReason getRefusalToFillReason() {
-        return (ActSupplyFulfillmentRefusalReason) this.refusalToFillReason.getValue();
-    }
-    public void setRefusalToFillReason(ActSupplyFulfillmentRefusalReason refusalToFillReason) {
-        this.refusalToFillReason.setValue(refusalToFillReason);
-    }
-
-
-    @Hl7XmlMapping({"reason/detectedIssueEvent"})
-    public List<IssuesBean> getReasonDetectedIssueEvent() {
-        return this.reasonDetectedIssueEvent;
     }
 
 }

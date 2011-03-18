@@ -22,10 +22,38 @@ import java.util.Date;
 public class SubsequentSupplyRequestBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
+    private INT numberOfFills = new INTImpl();
+    private IVL<TS, Interval<Date>> dispenseInterval = new IVLImpl<TS, Interval<Date>>();
     private IVL<TS, Interval<Date>> daysSupply = new IVLImpl<TS, Interval<Date>>();
     private PQ fillQuantity = new PQImpl();
-    private IVL<TS, Interval<Date>> dispenseInterval = new IVLImpl<TS, Interval<Date>>();
-    private INT numberOfFills = new INTImpl();
+
+
+    /**
+     * <p>NumberOfFills</p>
+     * 
+     * <p>G:Number of Fills</p>
+     */
+    @Hl7XmlMapping({"repeatNumber"})
+    public Integer getNumberOfFills() {
+        return this.numberOfFills.getValue();
+    }
+    public void setNumberOfFills(Integer numberOfFills) {
+        this.numberOfFills.setValue(numberOfFills);
+    }
+
+
+    /**
+     * <p>DispenseInterval</p>
+     * 
+     * <p>F:Dispense Interval</p>
+     */
+    @Hl7XmlMapping({"effectiveTime"})
+    public Interval<Date> getDispenseInterval() {
+        return this.dispenseInterval.getValue();
+    }
+    public void setDispenseInterval(Interval<Date> dispenseInterval) {
+        this.dispenseInterval.setValue(dispenseInterval);
+    }
 
 
     /**
@@ -53,34 +81,6 @@ public class SubsequentSupplyRequestBean extends MessagePartBean {
     }
     public void setFillQuantity(PhysicalQuantity fillQuantity) {
         this.fillQuantity.setValue(fillQuantity);
-    }
-
-
-    /**
-     * <p>DispenseInterval</p>
-     * 
-     * <p>F:Dispense Interval</p>
-     */
-    @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getDispenseInterval() {
-        return this.dispenseInterval.getValue();
-    }
-    public void setDispenseInterval(Interval<Date> dispenseInterval) {
-        this.dispenseInterval.setValue(dispenseInterval);
-    }
-
-
-    /**
-     * <p>NumberOfFills</p>
-     * 
-     * <p>G:Number of Fills</p>
-     */
-    @Hl7XmlMapping({"repeatNumber"})
-    public Integer getNumberOfFills() {
-        return this.numberOfFills.getValue();
-    }
-    public void setNumberOfFills(Integer numberOfFills) {
-        this.numberOfFills.setValue(numberOfFills);
     }
 
 }

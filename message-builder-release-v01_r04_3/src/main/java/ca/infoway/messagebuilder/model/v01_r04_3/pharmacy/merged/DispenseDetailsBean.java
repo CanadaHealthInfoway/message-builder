@@ -24,27 +24,13 @@ import java.util.Date;
 public class DispenseDetailsBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private IVL<TS, Interval<Date>> expectedUseTime = new IVLImpl<TS, Interval<Date>>();
     private DeviceProductBean productManufacturedProduct;
-    private INT dispensedQuantity = new INTImpl();
     private DispenseShipToLocationBean destinationServiceDeliveryLocation;
-    private IVL<TS, Interval<Date>> dispenseProcessingAndPickupDate = new IVLImpl<TS, Interval<Date>>();
     private CV dispenseType = new CVImpl();
+    private IVL<TS, Interval<Date>> dispenseProcessingAndPickupDate = new IVLImpl<TS, Interval<Date>>();
+    private IVL<TS, Interval<Date>> expectedUseTime = new IVLImpl<TS, Interval<Date>>();
+    private INT dispensedQuantity = new INTImpl();
     private ResponsiblePersonBean receiverResponsibleParty;
-
-
-    /**
-     * <p>Dispense Days Supply</p>
-     * 
-     * <p>Dispensed Days Supply</p>
-     */
-    @Hl7XmlMapping({"expectedUseTime"})
-    public Interval<Date> getExpectedUseTime() {
-        return this.expectedUseTime.getValue();
-    }
-    public void setExpectedUseTime(Interval<Date> expectedUseTime) {
-        this.expectedUseTime.setValue(expectedUseTime);
-    }
 
 
     @Hl7XmlMapping({"product/manufacturedProduct"})
@@ -56,26 +42,26 @@ public class DispenseDetailsBean extends MessagePartBean {
     }
 
 
-    /**
-     * <p>DispensedQuantity</p>
-     * 
-     * <p>Dispensed Quantity</p>
-     */
-    @Hl7XmlMapping({"quantity"})
-    public Integer getDispensedQuantity() {
-        return this.dispensedQuantity.getValue();
-    }
-    public void setDispensedQuantity(Integer dispensedQuantity) {
-        this.dispensedQuantity.setValue(dispensedQuantity);
-    }
-
-
     @Hl7XmlMapping({"destination/serviceDeliveryLocation"})
     public DispenseShipToLocationBean getDestinationServiceDeliveryLocation() {
         return this.destinationServiceDeliveryLocation;
     }
     public void setDestinationServiceDeliveryLocation(DispenseShipToLocationBean destinationServiceDeliveryLocation) {
         this.destinationServiceDeliveryLocation = destinationServiceDeliveryLocation;
+    }
+
+
+    /**
+     * <p>DispenseType</p>
+     * 
+     * <p>Dispense Type</p>
+     */
+    @Hl7XmlMapping({"code"})
+    public ActPharmacySupplyType getDispenseType() {
+        return (ActPharmacySupplyType) this.dispenseType.getValue();
+    }
+    public void setDispenseType(ActPharmacySupplyType dispenseType) {
+        this.dispenseType.setValue(dispenseType);
     }
 
 
@@ -94,16 +80,30 @@ public class DispenseDetailsBean extends MessagePartBean {
 
 
     /**
-     * <p>DispenseType</p>
+     * <p>Dispense Days Supply</p>
      * 
-     * <p>Dispense Type</p>
+     * <p>Dispensed Days Supply</p>
      */
-    @Hl7XmlMapping({"code"})
-    public ActPharmacySupplyType getDispenseType() {
-        return (ActPharmacySupplyType) this.dispenseType.getValue();
+    @Hl7XmlMapping({"expectedUseTime"})
+    public Interval<Date> getExpectedUseTime() {
+        return this.expectedUseTime.getValue();
     }
-    public void setDispenseType(ActPharmacySupplyType dispenseType) {
-        this.dispenseType.setValue(dispenseType);
+    public void setExpectedUseTime(Interval<Date> expectedUseTime) {
+        this.expectedUseTime.setValue(expectedUseTime);
+    }
+
+
+    /**
+     * <p>DispensedQuantity</p>
+     * 
+     * <p>Dispensed Quantity</p>
+     */
+    @Hl7XmlMapping({"quantity"})
+    public Integer getDispensedQuantity() {
+        return this.dispensedQuantity.getValue();
+    }
+    public void setDispensedQuantity(Integer dispensedQuantity) {
+        this.dispensedQuantity.setValue(dispensedQuantity);
     }
 
 

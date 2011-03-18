@@ -34,78 +34,27 @@ import java.util.Date;
 public class ActiveMedicationBean extends MessagePartBean implements CausalActs {
 
     private static final long serialVersionUID = 20110318L;
-    private II activeMedicationRecordNumber = new IIImpl();
-    private DrugProductBean consumableMedication;
-    private CS activeMedicationStatus = new CSImpl();
-    private IVL<TS, Interval<Date>> activeMedicationTimeRange = new IVLImpl<TS, Interval<Date>>();
-    private CD administrationType = new CDImpl();
+    private CS otherMedicationIndicator = new CSImpl();
     private CV activeMedicationMaskingIndicator = new CVImpl();
     private PQ activeMedicationDoseQuantity = new PQImpl();
-    private CS otherMedicationIndicator = new CSImpl();
+    private II activeMedicationRecordNumber = new IIImpl();
+    private CD administrationType = new CDImpl();
+    private IVL<TS, Interval<Date>> activeMedicationTimeRange = new IVLImpl<TS, Interval<Date>>();
+    private DrugProductBean consumableMedication;
+    private CS activeMedicationStatus = new CSImpl();
 
 
     /**
-     * <p>ActiveMedicationRecordNumber</p>
+     * <p>OtherMedicationIndicator</p>
      * 
-     * <p>A:Active Medication Record Number</p>
+     * <p>Other Medication Indicator</p>
      */
-    @Hl7XmlMapping({"id"})
-    public Identifier getActiveMedicationRecordNumber() {
-        return this.activeMedicationRecordNumber.getValue();
+    @Hl7XmlMapping({"moodCode"})
+    public x_ActMoodOrderEvent getOtherMedicationIndicator() {
+        return (x_ActMoodOrderEvent) this.otherMedicationIndicator.getValue();
     }
-    public void setActiveMedicationRecordNumber(Identifier activeMedicationRecordNumber) {
-        this.activeMedicationRecordNumber.setValue(activeMedicationRecordNumber);
-    }
-
-
-    @Hl7XmlMapping({"consumable/medication"})
-    public DrugProductBean getConsumableMedication() {
-        return this.consumableMedication;
-    }
-    public void setConsumableMedication(DrugProductBean consumableMedication) {
-        this.consumableMedication = consumableMedication;
-    }
-
-
-    /**
-     * <p>ActiveMedicationStatus</p>
-     * 
-     * <p>B:Active Medication Status</p>
-     */
-    @Hl7XmlMapping({"statusCode"})
-    public ActStatus getActiveMedicationStatus() {
-        return (ActStatus) this.activeMedicationStatus.getValue();
-    }
-    public void setActiveMedicationStatus(ActStatus activeMedicationStatus) {
-        this.activeMedicationStatus.setValue(activeMedicationStatus);
-    }
-
-
-    /**
-     * <p>ActiveMedicationTimeRange</p>
-     * 
-     * <p>C:Active Medication Time-range</p>
-     */
-    @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getActiveMedicationTimeRange() {
-        return this.activeMedicationTimeRange.getValue();
-    }
-    public void setActiveMedicationTimeRange(Interval<Date> activeMedicationTimeRange) {
-        this.activeMedicationTimeRange.setValue(activeMedicationTimeRange);
-    }
-
-
-    /**
-     * <p>AdministrationType</p>
-     * 
-     * <p>Administration Type</p>
-     */
-    @Hl7XmlMapping({"code"})
-    public ActSubstanceAdministrationCode getAdministrationType() {
-        return (ActSubstanceAdministrationCode) this.administrationType.getValue();
-    }
-    public void setAdministrationType(ActSubstanceAdministrationCode administrationType) {
-        this.administrationType.setValue(administrationType);
+    public void setOtherMedicationIndicator(x_ActMoodOrderEvent otherMedicationIndicator) {
+        this.otherMedicationIndicator.setValue(otherMedicationIndicator);
     }
 
 
@@ -138,16 +87,67 @@ public class ActiveMedicationBean extends MessagePartBean implements CausalActs 
 
 
     /**
-     * <p>OtherMedicationIndicator</p>
+     * <p>ActiveMedicationRecordNumber</p>
      * 
-     * <p>Other Medication Indicator</p>
+     * <p>A:Active Medication Record Number</p>
      */
-    @Hl7XmlMapping({"moodCode"})
-    public x_ActMoodOrderEvent getOtherMedicationIndicator() {
-        return (x_ActMoodOrderEvent) this.otherMedicationIndicator.getValue();
+    @Hl7XmlMapping({"id"})
+    public Identifier getActiveMedicationRecordNumber() {
+        return this.activeMedicationRecordNumber.getValue();
     }
-    public void setOtherMedicationIndicator(x_ActMoodOrderEvent otherMedicationIndicator) {
-        this.otherMedicationIndicator.setValue(otherMedicationIndicator);
+    public void setActiveMedicationRecordNumber(Identifier activeMedicationRecordNumber) {
+        this.activeMedicationRecordNumber.setValue(activeMedicationRecordNumber);
+    }
+
+
+    /**
+     * <p>AdministrationType</p>
+     * 
+     * <p>Administration Type</p>
+     */
+    @Hl7XmlMapping({"code"})
+    public ActSubstanceAdministrationCode getAdministrationType() {
+        return (ActSubstanceAdministrationCode) this.administrationType.getValue();
+    }
+    public void setAdministrationType(ActSubstanceAdministrationCode administrationType) {
+        this.administrationType.setValue(administrationType);
+    }
+
+
+    /**
+     * <p>ActiveMedicationTimeRange</p>
+     * 
+     * <p>C:Active Medication Time-range</p>
+     */
+    @Hl7XmlMapping({"effectiveTime"})
+    public Interval<Date> getActiveMedicationTimeRange() {
+        return this.activeMedicationTimeRange.getValue();
+    }
+    public void setActiveMedicationTimeRange(Interval<Date> activeMedicationTimeRange) {
+        this.activeMedicationTimeRange.setValue(activeMedicationTimeRange);
+    }
+
+
+    @Hl7XmlMapping({"consumable/medication"})
+    public DrugProductBean getConsumableMedication() {
+        return this.consumableMedication;
+    }
+    public void setConsumableMedication(DrugProductBean consumableMedication) {
+        this.consumableMedication = consumableMedication;
+    }
+
+
+    /**
+     * <p>ActiveMedicationStatus</p>
+     * 
+     * <p>B:Active Medication Status</p>
+     */
+    @Hl7XmlMapping({"statusCode"})
+    public ActStatus getActiveMedicationStatus() {
+        return (ActStatus) this.activeMedicationStatus.getValue();
+    }
+    public void setActiveMedicationStatus(ActStatus activeMedicationStatus) {
+        this.activeMedicationStatus.setValue(activeMedicationStatus);
     }
 
 }

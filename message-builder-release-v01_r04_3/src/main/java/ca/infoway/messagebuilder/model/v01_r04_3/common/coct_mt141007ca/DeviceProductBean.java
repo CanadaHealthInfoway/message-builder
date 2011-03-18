@@ -23,10 +23,10 @@ public class DeviceProductBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
     private ST deviceDescription = new STImpl();
+    private BL manufacturedClinicalDeviceAsContentContainerPackagedDevice = new BLImpl();
+    private INT devicePackageQuantity = new INTImpl();
     private ST deviceName = new STImpl();
     private CV deviceCode = new CVImpl();
-    private INT devicePackageQuantity = new INTImpl();
-    private BL manufacturedClinicalDeviceAsContentContainerPackagedDevice = new BLImpl();
 
 
     /**
@@ -38,6 +38,27 @@ public class DeviceProductBean extends MessagePartBean {
     }
     public void setDeviceDescription(String deviceDescription) {
         this.deviceDescription.setValue(deviceDescription);
+    }
+
+
+    @Hl7XmlMapping({"manufacturedClinicalDevice/asContent/containerPackagedDevice"})
+    public Boolean getManufacturedClinicalDeviceAsContentContainerPackagedDevice() {
+        return this.manufacturedClinicalDeviceAsContentContainerPackagedDevice.getValue();
+    }
+    public void setManufacturedClinicalDeviceAsContentContainerPackagedDevice(Boolean manufacturedClinicalDeviceAsContentContainerPackagedDevice) {
+        this.manufacturedClinicalDeviceAsContentContainerPackagedDevice.setValue(manufacturedClinicalDeviceAsContentContainerPackagedDevice);
+    }
+
+
+    /**
+     * <p>F:Device Package Quantity</p>
+     */
+    @Hl7XmlMapping({"manufacturedClinicalDevice/asContent/quantity"})
+    public Integer getDevicePackageQuantity() {
+        return this.devicePackageQuantity.getValue();
+    }
+    public void setDevicePackageQuantity(Integer devicePackageQuantity) {
+        this.devicePackageQuantity.setValue(devicePackageQuantity);
     }
 
 
@@ -62,27 +83,6 @@ public class DeviceProductBean extends MessagePartBean {
     }
     public void setDeviceCode(ClinicalDeviceEntity deviceCode) {
         this.deviceCode.setValue(deviceCode);
-    }
-
-
-    /**
-     * <p>F:Device Package Quantity</p>
-     */
-    @Hl7XmlMapping({"manufacturedClinicalDevice/asContent/quantity"})
-    public Integer getDevicePackageQuantity() {
-        return this.devicePackageQuantity.getValue();
-    }
-    public void setDevicePackageQuantity(Integer devicePackageQuantity) {
-        this.devicePackageQuantity.setValue(devicePackageQuantity);
-    }
-
-
-    @Hl7XmlMapping({"manufacturedClinicalDevice/asContent/containerPackagedDevice"})
-    public Boolean getManufacturedClinicalDeviceAsContentContainerPackagedDevice() {
-        return this.manufacturedClinicalDeviceAsContentContainerPackagedDevice.getValue();
-    }
-    public void setManufacturedClinicalDeviceAsContentContainerPackagedDevice(Boolean manufacturedClinicalDeviceAsContentContainerPackagedDevice) {
-        this.manufacturedClinicalDeviceAsContentContainerPackagedDevice.setValue(manufacturedClinicalDeviceAsContentContainerPackagedDevice);
     }
 
 }

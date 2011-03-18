@@ -24,24 +24,24 @@ import java.util.List;
 public class AcknowledgementBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private INT numberOfWaitingMessages = new INTImpl();
-    private II acknowledgedMessageId = new IIImpl();
     private CV messageWaitingPriority = new CVImpl();
+    private II acknowledgedMessageId = new IIImpl();
+    private INT numberOfWaitingMessages = new INTImpl();
     private CS acknowledgementCode = new CSImpl();
     private List<ErrorsOrWarningsBean> acknowledgementDetail = new ArrayList<ErrorsOrWarningsBean>();
 
 
     /**
-     * <p>NumberOfWaitingMessages</p>
+     * <p>MessageWaitingPriority</p>
      * 
-     * <p>GC:Number of Waiting Messages</p>
+     * <p>GD:Message Waiting Priority</p>
      */
-    @Hl7XmlMapping({"messageWaitingNumber"})
-    public Integer getNumberOfWaitingMessages() {
-        return this.numberOfWaitingMessages.getValue();
+    @Hl7XmlMapping({"messageWaitingPriorityCode"})
+    public MessageWaitingPriority getMessageWaitingPriority() {
+        return (MessageWaitingPriority) this.messageWaitingPriority.getValue();
     }
-    public void setNumberOfWaitingMessages(Integer numberOfWaitingMessages) {
-        this.numberOfWaitingMessages.setValue(numberOfWaitingMessages);
+    public void setMessageWaitingPriority(MessageWaitingPriority messageWaitingPriority) {
+        this.messageWaitingPriority.setValue(messageWaitingPriority);
     }
 
 
@@ -60,16 +60,16 @@ public class AcknowledgementBean extends MessagePartBean {
 
 
     /**
-     * <p>MessageWaitingPriority</p>
+     * <p>NumberOfWaitingMessages</p>
      * 
-     * <p>GD:Message Waiting Priority</p>
+     * <p>GC:Number of Waiting Messages</p>
      */
-    @Hl7XmlMapping({"messageWaitingPriorityCode"})
-    public MessageWaitingPriority getMessageWaitingPriority() {
-        return (MessageWaitingPriority) this.messageWaitingPriority.getValue();
+    @Hl7XmlMapping({"messageWaitingNumber"})
+    public Integer getNumberOfWaitingMessages() {
+        return this.numberOfWaitingMessages.getValue();
     }
-    public void setMessageWaitingPriority(MessageWaitingPriority messageWaitingPriority) {
-        this.messageWaitingPriority.setValue(messageWaitingPriority);
+    public void setNumberOfWaitingMessages(Integer numberOfWaitingMessages) {
+        this.numberOfWaitingMessages.setValue(numberOfWaitingMessages);
     }
 
 

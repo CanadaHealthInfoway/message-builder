@@ -28,25 +28,22 @@ import java.util.Date;
 public class OfficeSupplyBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private II shipToFacilityId = new IIImpl();
-    private II localDispenseID = new IIImpl();
-    private CommentBean subjectOfAnnotation;
-    private PQ suppliedQuantity = new PQImpl();
-    private TS supplyDate = new TSImpl();
-    private CV dispenseType = new CVImpl();
-    private DrugProductBean productMedication;
     private SupplyOrderBean fulfillmentSupplyRequest;
+    private II localDispenseID = new IIImpl();
+    private II shipToFacilityId = new IIImpl();
+    private CV dispenseType = new CVImpl();
+    private TS supplyDate = new TSImpl();
+    private PQ suppliedQuantity = new PQImpl();
+    private CommentBean subjectOfAnnotation;
+    private DrugProductBean productMedication;
 
 
-    /**
-     * <p>C:Ship-to Facility Id</p>
-     */
-    @Hl7XmlMapping({"destination/serviceDeliveryLocation/id"})
-    public Identifier getShipToFacilityId() {
-        return this.shipToFacilityId.getValue();
+    @Hl7XmlMapping({"fulfillment/supplyRequest"})
+    public SupplyOrderBean getFulfillmentSupplyRequest() {
+        return this.fulfillmentSupplyRequest;
     }
-    public void setShipToFacilityId(Identifier shipToFacilityId) {
-        this.shipToFacilityId.setValue(shipToFacilityId);
+    public void setFulfillmentSupplyRequest(SupplyOrderBean fulfillmentSupplyRequest) {
+        this.fulfillmentSupplyRequest = fulfillmentSupplyRequest;
     }
 
 
@@ -62,24 +59,27 @@ public class OfficeSupplyBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"subjectOf/annotation"})
-    public CommentBean getSubjectOfAnnotation() {
-        return this.subjectOfAnnotation;
+    /**
+     * <p>C:Ship-to Facility Id</p>
+     */
+    @Hl7XmlMapping({"destination/serviceDeliveryLocation/id"})
+    public Identifier getShipToFacilityId() {
+        return this.shipToFacilityId.getValue();
     }
-    public void setSubjectOfAnnotation(CommentBean subjectOfAnnotation) {
-        this.subjectOfAnnotation = subjectOfAnnotation;
+    public void setShipToFacilityId(Identifier shipToFacilityId) {
+        this.shipToFacilityId.setValue(shipToFacilityId);
     }
 
 
     /**
-     * <p>B:Supplied Quantity</p>
+     * <p>Dispense Type</p>
      */
-    @Hl7XmlMapping({"quantity"})
-    public PhysicalQuantity getSuppliedQuantity() {
-        return this.suppliedQuantity.getValue();
+    @Hl7XmlMapping({"code"})
+    public ActCode getDispenseType() {
+        return (ActCode) this.dispenseType.getValue();
     }
-    public void setSuppliedQuantity(PhysicalQuantity suppliedQuantity) {
-        this.suppliedQuantity.setValue(suppliedQuantity);
+    public void setDispenseType(ActCode dispenseType) {
+        this.dispenseType.setValue(dispenseType);
     }
 
 
@@ -96,14 +96,23 @@ public class OfficeSupplyBean extends MessagePartBean {
 
 
     /**
-     * <p>Dispense Type</p>
+     * <p>B:Supplied Quantity</p>
      */
-    @Hl7XmlMapping({"code"})
-    public ActCode getDispenseType() {
-        return (ActCode) this.dispenseType.getValue();
+    @Hl7XmlMapping({"quantity"})
+    public PhysicalQuantity getSuppliedQuantity() {
+        return this.suppliedQuantity.getValue();
     }
-    public void setDispenseType(ActCode dispenseType) {
-        this.dispenseType.setValue(dispenseType);
+    public void setSuppliedQuantity(PhysicalQuantity suppliedQuantity) {
+        this.suppliedQuantity.setValue(suppliedQuantity);
+    }
+
+
+    @Hl7XmlMapping({"subjectOf/annotation"})
+    public CommentBean getSubjectOfAnnotation() {
+        return this.subjectOfAnnotation;
+    }
+    public void setSubjectOfAnnotation(CommentBean subjectOfAnnotation) {
+        this.subjectOfAnnotation = subjectOfAnnotation;
     }
 
 
@@ -113,15 +122,6 @@ public class OfficeSupplyBean extends MessagePartBean {
     }
     public void setProductMedication(DrugProductBean productMedication) {
         this.productMedication = productMedication;
-    }
-
-
-    @Hl7XmlMapping({"fulfillment/supplyRequest"})
-    public SupplyOrderBean getFulfillmentSupplyRequest() {
-        return this.fulfillmentSupplyRequest;
-    }
-    public void setFulfillmentSupplyRequest(SupplyOrderBean fulfillmentSupplyRequest) {
-        this.fulfillmentSupplyRequest = fulfillmentSupplyRequest;
     }
 
 }

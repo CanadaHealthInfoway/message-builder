@@ -19,26 +19,10 @@ import java.util.Date;
 public class ReportedByBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private TS time = new TSImpl();
     private Party party;
+    private TS time = new TSImpl();
     private Consenter consenter;
     private Choice choice;
-
-
-    /**
-     * <p>Reported Date</p>
-     * 
-     * <p>Reported Timestamp</p>
-     * 
-     * <p>Reported date</p>
-     */
-    @Hl7XmlMapping({"time"})
-    public Date getTime() {
-        return this.time.getValue();
-    }
-    public void setTime(Date time) {
-        this.time.setValue(time);
-    }
 
 
     @Hl7XmlMapping({"party"})
@@ -68,6 +52,22 @@ public class ReportedByBean extends MessagePartBean {
     }
     public boolean hasPartyAsAssignedPerson() {
         return (this.party instanceof ProviderBean);
+    }
+
+
+    /**
+     * <p>Reported Date</p>
+     * 
+     * <p>Reported Timestamp</p>
+     * 
+     * <p>Reported date</p>
+     */
+    @Hl7XmlMapping({"time"})
+    public Date getTime() {
+        return this.time.getValue();
+    }
+    public void setTime(Date time) {
+        this.time.setValue(time);
     }
 
 

@@ -16,20 +16,8 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 public class HasCharacteristicBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private ST drugCharacteristic = new STImpl();
     private CV drugCharacteristicTypeCode = new CVImpl();
-
-
-    /**
-     * <p>G:Drug Characteristic</p>
-     */
-    @Hl7XmlMapping({"drugCharacteristic/value"})
-    public String getDrugCharacteristic() {
-        return this.drugCharacteristic.getValue();
-    }
-    public void setDrugCharacteristic(String drugCharacteristic) {
-        this.drugCharacteristic.setValue(drugCharacteristic);
-    }
+    private ST drugCharacteristic = new STImpl();
 
 
     /**
@@ -41,6 +29,18 @@ public class HasCharacteristicBean extends MessagePartBean {
     }
     public void setDrugCharacteristicTypeCode(MedicationObservationType drugCharacteristicTypeCode) {
         this.drugCharacteristicTypeCode.setValue(drugCharacteristicTypeCode);
+    }
+
+
+    /**
+     * <p>G:Drug Characteristic</p>
+     */
+    @Hl7XmlMapping({"drugCharacteristic/value"})
+    public String getDrugCharacteristic() {
+        return this.drugCharacteristic.getValue();
+    }
+    public void setDrugCharacteristic(String drugCharacteristic) {
+        this.drugCharacteristic.setValue(drugCharacteristic);
     }
 
 }

@@ -29,27 +29,13 @@ import java.util.Date;
 public class MonographsBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private II id = new IIImpl();
     private CV writtenIn = new CVImpl();
-    private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
+    private II id = new IIImpl();
     private CV code = new CVImpl();
-    private ED<EncapsulatedData> monographContent = new EDImpl<EncapsulatedData>();
+    private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private AssignedEntity3Bean authorAssignedEntity;
+    private ED<EncapsulatedData> monographContent = new EDImpl<EncapsulatedData>();
     private ED<EncapsulatedData> medicationDocumentContentLanguage = new EDImpl<EncapsulatedData>();
-
-
-    /**
-     * <p>B:Medication Document Id</p>
-     * 
-     * <p>Monograph Id</p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Identifier getId() {
-        return this.id.getValue();
-    }
-    public void setId(Identifier id) {
-        this.id.setValue(id);
-    }
 
 
     /**
@@ -67,16 +53,16 @@ public class MonographsBean extends MessagePartBean {
 
 
     /**
-     * <p>Monograph Effective/Expiry Date</p>
+     * <p>B:Medication Document Id</p>
      * 
-     * <p>C:Medication Document Effective/Expiry Date</p>
+     * <p>Monograph Id</p>
      */
-    @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getEffectiveTime() {
-        return this.effectiveTime.getValue();
+    @Hl7XmlMapping({"id"})
+    public Identifier getId() {
+        return this.id.getValue();
     }
-    public void setEffectiveTime(Interval<Date> effectiveTime) {
-        this.effectiveTime.setValue(effectiveTime);
+    public void setId(Identifier id) {
+        this.id.setValue(id);
     }
 
 
@@ -95,6 +81,29 @@ public class MonographsBean extends MessagePartBean {
 
 
     /**
+     * <p>Monograph Effective/Expiry Date</p>
+     * 
+     * <p>C:Medication Document Effective/Expiry Date</p>
+     */
+    @Hl7XmlMapping({"effectiveTime"})
+    public Interval<Date> getEffectiveTime() {
+        return this.effectiveTime.getValue();
+    }
+    public void setEffectiveTime(Interval<Date> effectiveTime) {
+        this.effectiveTime.setValue(effectiveTime);
+    }
+
+
+    @Hl7XmlMapping({"author/assignedEntity"})
+    public AssignedEntity3Bean getAuthorAssignedEntity() {
+        return this.authorAssignedEntity;
+    }
+    public void setAuthorAssignedEntity(AssignedEntity3Bean authorAssignedEntity) {
+        this.authorAssignedEntity = authorAssignedEntity;
+    }
+
+
+    /**
      * <p>MonographContent</p>
      * 
      * <p>Monograph Content</p>
@@ -105,15 +114,6 @@ public class MonographsBean extends MessagePartBean {
     }
     public void setMonographContent(EncapsulatedData monographContent) {
         this.monographContent.setValue(monographContent);
-    }
-
-
-    @Hl7XmlMapping({"author/assignedEntity"})
-    public AssignedEntity3Bean getAuthorAssignedEntity() {
-        return this.authorAssignedEntity;
-    }
-    public void setAuthorAssignedEntity(AssignedEntity3Bean authorAssignedEntity) {
-        this.authorAssignedEntity = authorAssignedEntity;
     }
 
 

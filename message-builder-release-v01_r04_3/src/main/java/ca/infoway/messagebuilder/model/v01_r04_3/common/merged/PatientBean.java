@@ -24,6 +24,7 @@ import ca.infoway.messagebuilder.datatype.lang.PostalAddress;
 import ca.infoway.messagebuilder.datatype.lang.TelecommunicationAddress;
 import ca.infoway.messagebuilder.domainvalue.AdministrativeGender;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -34,51 +35,12 @@ import java.util.List;
 public class PatientBean extends MessagePartBean implements ca.infoway.messagebuilder.model.v01_r04_3.iehr.repc_mt000012ca.Choice, ca.infoway.messagebuilder.model.v01_r04_3.pharmacy.merged.Patient, ca.infoway.messagebuilder.model.v01_r04_3.merged.Consenter, ca.infoway.messagebuilder.model.v01_r04_3.iehr.merged.Party {
 
     private static final long serialVersionUID = 20110318L;
-    private LIST<TEL, TelecommunicationAddress> patientContactPhoneAndEMails = new LISTImpl<TEL, TelecommunicationAddress>(TELImpl.class);
-    private II patientID = new IIImpl();
-    private AD patientContactAddress = new ADImpl();
     private PN patientName = new PNImpl();
     private CV patientGender = new CVImpl();
     private TS patientBirthDate = new TSImpl();
-
-
-    /**
-     * <p>PatientContactPhoneAndEMails</p>
-     * 
-     * <p>D:Patient Contact Phone and E-mails</p>
-     */
-    @Hl7XmlMapping({"telecom"})
-    public List<TelecommunicationAddress> getPatientContactPhoneAndEMails() {
-        return this.patientContactPhoneAndEMails.rawList();
-    }
-
-
-    /**
-     * <p>PatientID</p>
-     * 
-     * <p>A:Patient ID</p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Identifier getPatientID() {
-        return this.patientID.getValue();
-    }
-    public void setPatientID(Identifier patientID) {
-        this.patientID.setValue(patientID);
-    }
-
-
-    /**
-     * <p>PatientContactAddress</p>
-     * 
-     * <p>C:Patient Contact Address</p>
-     */
-    @Hl7XmlMapping({"addr"})
-    public PostalAddress getPatientContactAddress() {
-        return this.patientContactAddress.getValue();
-    }
-    public void setPatientContactAddress(PostalAddress patientContactAddress) {
-        this.patientContactAddress.setValue(patientContactAddress);
-    }
+    private II patientID = new IIImpl();
+    private LIST<TEL, TelecommunicationAddress> patientContactPhoneAndEMails = new LISTImpl<TEL, TelecommunicationAddress>(TELImpl.class);
+    private AD patientContactAddress = new ADImpl();
 
 
     /**
@@ -120,6 +82,45 @@ public class PatientBean extends MessagePartBean implements ca.infoway.messagebu
     }
     public void setPatientBirthDate(Date patientBirthDate) {
         this.patientBirthDate.setValue(patientBirthDate);
+    }
+
+
+    /**
+     * <p>PatientID</p>
+     * 
+     * <p>A:Patient ID</p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Identifier getPatientID() {
+        return this.patientID.getValue();
+    }
+    public void setPatientID(Identifier patientID) {
+        this.patientID.setValue(patientID);
+    }
+
+
+    /**
+     * <p>PatientContactPhoneAndEMails</p>
+     * 
+     * <p>D:Patient Contact Phone and E-mails</p>
+     */
+    @Hl7XmlMapping({"telecom"})
+    public List<TelecommunicationAddress> getPatientContactPhoneAndEMails() {
+        return this.patientContactPhoneAndEMails.rawList();
+    }
+
+
+    /**
+     * <p>PatientContactAddress</p>
+     * 
+     * <p>C:Patient Contact Address</p>
+     */
+    @Hl7XmlMapping({"addr"})
+    public PostalAddress getPatientContactAddress() {
+        return this.patientContactAddress.getValue();
+    }
+    public void setPatientContactAddress(PostalAddress patientContactAddress) {
+        this.patientContactAddress.setValue(patientContactAddress);
     }
 
 }

@@ -20,24 +20,8 @@ import java.util.Date;
 public class FirstDispenseInformation_1Bean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private PQ quantity = new PQImpl();
     private IVL<TS, Interval<Date>> firstDispensePickupDate = new IVLImpl<TS, Interval<Date>>();
-
-
-    /**
-     * <p>First Quantity Dispense</p>
-     * 
-     * <p>First Quantity Dispensed</p>
-     * 
-     * <p>B:First Quantity Dispensed</p>
-     */
-    @Hl7XmlMapping({"quantity"})
-    public PhysicalQuantity getQuantity() {
-        return this.quantity.getValue();
-    }
-    public void setQuantity(PhysicalQuantity quantity) {
-        this.quantity.setValue(quantity);
-    }
+    private PQ quantity = new PQImpl();
 
 
     /**
@@ -53,6 +37,22 @@ public class FirstDispenseInformation_1Bean extends MessagePartBean {
     }
     public void setFirstDispensePickupDate(Interval<Date> firstDispensePickupDate) {
         this.firstDispensePickupDate.setValue(firstDispensePickupDate);
+    }
+
+
+    /**
+     * <p>First Quantity Dispense</p>
+     * 
+     * <p>First Quantity Dispensed</p>
+     * 
+     * <p>B:First Quantity Dispensed</p>
+     */
+    @Hl7XmlMapping({"quantity"})
+    public PhysicalQuantity getQuantity() {
+        return this.quantity.getValue();
+    }
+    public void setQuantity(PhysicalQuantity quantity) {
+        this.quantity.setValue(quantity);
     }
 
 }

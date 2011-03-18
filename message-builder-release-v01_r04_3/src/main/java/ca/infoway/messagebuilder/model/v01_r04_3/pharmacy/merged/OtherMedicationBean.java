@@ -38,29 +38,29 @@ import java.util.List;
 public class OtherMedicationBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private II otherMedicationId = new IIImpl();
-    private PatientBean subjectPatient;
-    private CS statusCode = new CSImpl();
-    private IVL<TS, Interval<Date>> drugActivePeriod = new IVLImpl<TS, Interval<Date>>();
-    private CD otherMedicationType = new CDImpl();
-    private CV otherMedicationMaskingIndicator = new CVImpl();
     private CV routeCode = new CVImpl();
-    private CommentBean subjectOfAnnotation;
+    private PatientBean subjectPatient;
+    private CV otherMedicationMaskingIndicator = new CVImpl();
+    private II otherMedicationId = new IIImpl();
+    private CD otherMedicationType = new CDImpl();
+    private IVL<TS, Interval<Date>> drugActivePeriod = new IVLImpl<TS, Interval<Date>>();
+    private CS statusCode = new CSImpl();
     private DrugProductBean consumableMedication;
+    private CommentBean subjectOfAnnotation;
     private List<AdministrationInstructionsBean> componentDosageInstruction = new ArrayList<AdministrationInstructionsBean>();
 
 
     /**
-     * <p>OtherMedicationId</p>
+     * <p>E:Route</p>
      * 
-     * <p>A:Other Medication Id</p>
+     * <p>F:Route of Administration</p>
      */
-    @Hl7XmlMapping({"id"})
-    public Identifier getOtherMedicationId() {
-        return this.otherMedicationId.getValue();
+    @Hl7XmlMapping({"routeCode"})
+    public RouteOfAdministration getRouteCode() {
+        return (RouteOfAdministration) this.routeCode.getValue();
     }
-    public void setOtherMedicationId(Identifier otherMedicationId) {
-        this.otherMedicationId.setValue(otherMedicationId);
+    public void setRouteCode(RouteOfAdministration routeCode) {
+        this.routeCode.setValue(routeCode);
     }
 
 
@@ -70,50 +70,6 @@ public class OtherMedicationBean extends MessagePartBean {
     }
     public void setSubjectPatient(PatientBean subjectPatient) {
         this.subjectPatient = subjectPatient;
-    }
-
-
-    /**
-     * <p>C:Other Medication Status</p>
-     * 
-     * <p>B:Medication Status</p>
-     */
-    @Hl7XmlMapping({"statusCode"})
-    public ActStatus getStatusCode() {
-        return (ActStatus) this.statusCode.getValue();
-    }
-    public void setStatusCode(ActStatus statusCode) {
-        this.statusCode.setValue(statusCode);
-    }
-
-
-    /**
-     * <p>DrugActivePeriod</p>
-     * 
-     * <p>C:Drug Active Period</p>
-     * 
-     * <p>d:Drug Active Period</p>
-     */
-    @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getDrugActivePeriod() {
-        return this.drugActivePeriod.getValue();
-    }
-    public void setDrugActivePeriod(Interval<Date> drugActivePeriod) {
-        this.drugActivePeriod.setValue(drugActivePeriod);
-    }
-
-
-    /**
-     * <p>OtherMedicationType</p>
-     * 
-     * <p>Other Medication Type</p>
-     */
-    @Hl7XmlMapping({"code"})
-    public ActCode getOtherMedicationType() {
-        return (ActCode) this.otherMedicationType.getValue();
-    }
-    public void setOtherMedicationType(ActCode otherMedicationType) {
-        this.otherMedicationType.setValue(otherMedicationType);
     }
 
 
@@ -134,25 +90,60 @@ public class OtherMedicationBean extends MessagePartBean {
 
 
     /**
-     * <p>E:Route</p>
+     * <p>OtherMedicationId</p>
      * 
-     * <p>F:Route of Administration</p>
+     * <p>A:Other Medication Id</p>
      */
-    @Hl7XmlMapping({"routeCode"})
-    public RouteOfAdministration getRouteCode() {
-        return (RouteOfAdministration) this.routeCode.getValue();
+    @Hl7XmlMapping({"id"})
+    public Identifier getOtherMedicationId() {
+        return this.otherMedicationId.getValue();
     }
-    public void setRouteCode(RouteOfAdministration routeCode) {
-        this.routeCode.setValue(routeCode);
+    public void setOtherMedicationId(Identifier otherMedicationId) {
+        this.otherMedicationId.setValue(otherMedicationId);
     }
 
 
-    @Hl7XmlMapping({"subjectOf/annotation"})
-    public CommentBean getSubjectOfAnnotation() {
-        return this.subjectOfAnnotation;
+    /**
+     * <p>OtherMedicationType</p>
+     * 
+     * <p>Other Medication Type</p>
+     */
+    @Hl7XmlMapping({"code"})
+    public ActCode getOtherMedicationType() {
+        return (ActCode) this.otherMedicationType.getValue();
     }
-    public void setSubjectOfAnnotation(CommentBean subjectOfAnnotation) {
-        this.subjectOfAnnotation = subjectOfAnnotation;
+    public void setOtherMedicationType(ActCode otherMedicationType) {
+        this.otherMedicationType.setValue(otherMedicationType);
+    }
+
+
+    /**
+     * <p>DrugActivePeriod</p>
+     * 
+     * <p>C:Drug Active Period</p>
+     * 
+     * <p>d:Drug Active Period</p>
+     */
+    @Hl7XmlMapping({"effectiveTime"})
+    public Interval<Date> getDrugActivePeriod() {
+        return this.drugActivePeriod.getValue();
+    }
+    public void setDrugActivePeriod(Interval<Date> drugActivePeriod) {
+        this.drugActivePeriod.setValue(drugActivePeriod);
+    }
+
+
+    /**
+     * <p>C:Other Medication Status</p>
+     * 
+     * <p>B:Medication Status</p>
+     */
+    @Hl7XmlMapping({"statusCode"})
+    public ActStatus getStatusCode() {
+        return (ActStatus) this.statusCode.getValue();
+    }
+    public void setStatusCode(ActStatus statusCode) {
+        this.statusCode.setValue(statusCode);
     }
 
 
@@ -162,6 +153,15 @@ public class OtherMedicationBean extends MessagePartBean {
     }
     public void setConsumableMedication(DrugProductBean consumableMedication) {
         this.consumableMedication = consumableMedication;
+    }
+
+
+    @Hl7XmlMapping({"subjectOf/annotation"})
+    public CommentBean getSubjectOfAnnotation() {
+        return this.subjectOfAnnotation;
+    }
+    public void setSubjectOfAnnotation(CommentBean subjectOfAnnotation) {
+        this.subjectOfAnnotation = subjectOfAnnotation;
     }
 
 

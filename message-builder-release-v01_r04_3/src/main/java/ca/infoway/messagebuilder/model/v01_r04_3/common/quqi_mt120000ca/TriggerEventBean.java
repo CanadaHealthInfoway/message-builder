@@ -28,70 +28,22 @@ import java.util.List;
 public class TriggerEventBean<ACT,PL> extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private II eventIdentifier = new IIImpl();
-    private List<RefersToBean<ACT>> subject = new ArrayList<RefersToBean<ACT>>();
-    private List<IssuesBean> subjectOfDetectedIssueEvent = new ArrayList<IssuesBean>();
-    private QueryResponseInformationBean queryAck;
-    private TS eventEffectivePeriod = new TSImpl();
-    private CV eventType = new CVImpl();
-    private CV eventReason = new CVImpl();
     private QueryDefinitionBean<PL> queryByParameter;
+    private CV eventReason = new CVImpl();
+    private QueryResponseInformationBean queryAck;
+    private List<RefersToBean<ACT>> subject = new ArrayList<RefersToBean<ACT>>();
+    private II eventIdentifier = new IIImpl();
+    private CV eventType = new CVImpl();
+    private List<IssuesBean> subjectOfDetectedIssueEvent = new ArrayList<IssuesBean>();
+    private TS eventEffectivePeriod = new TSImpl();
 
 
-    /**
-     * <p>B:Event Identifier</p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Identifier getEventIdentifier() {
-        return this.eventIdentifier.getValue();
+    @Hl7XmlMapping({"queryByParameter"})
+    public QueryDefinitionBean<PL> getQueryByParameter() {
+        return this.queryByParameter;
     }
-    public void setEventIdentifier(Identifier eventIdentifier) {
-        this.eventIdentifier.setValue(eventIdentifier);
-    }
-
-
-    @Hl7XmlMapping({"subject"})
-    public List<RefersToBean<ACT>> getSubject() {
-        return this.subject;
-    }
-
-
-    @Hl7XmlMapping({"subjectOf/detectedIssueEvent"})
-    public List<IssuesBean> getSubjectOfDetectedIssueEvent() {
-        return this.subjectOfDetectedIssueEvent;
-    }
-
-
-    @Hl7XmlMapping({"queryAck"})
-    public QueryResponseInformationBean getQueryAck() {
-        return this.queryAck;
-    }
-    public void setQueryAck(QueryResponseInformationBean queryAck) {
-        this.queryAck = queryAck;
-    }
-
-
-    /**
-     * <p>C:Event Effective Period</p>
-     */
-    @Hl7XmlMapping({"effectiveTime"})
-    public Date getEventEffectivePeriod() {
-        return this.eventEffectivePeriod.getValue();
-    }
-    public void setEventEffectivePeriod(Date eventEffectivePeriod) {
-        this.eventEffectivePeriod.setValue(eventEffectivePeriod);
-    }
-
-
-    /**
-     * <p>A:Event Type</p>
-     */
-    @Hl7XmlMapping({"code"})
-    public HL7TriggerEventCode getEventType() {
-        return (HL7TriggerEventCode) this.eventType.getValue();
-    }
-    public void setEventType(HL7TriggerEventCode eventType) {
-        this.eventType.setValue(eventType);
+    public void setQueryByParameter(QueryDefinitionBean<PL> queryByParameter) {
+        this.queryByParameter = queryByParameter;
     }
 
 
@@ -107,12 +59,60 @@ public class TriggerEventBean<ACT,PL> extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"queryByParameter"})
-    public QueryDefinitionBean<PL> getQueryByParameter() {
-        return this.queryByParameter;
+    @Hl7XmlMapping({"queryAck"})
+    public QueryResponseInformationBean getQueryAck() {
+        return this.queryAck;
     }
-    public void setQueryByParameter(QueryDefinitionBean<PL> queryByParameter) {
-        this.queryByParameter = queryByParameter;
+    public void setQueryAck(QueryResponseInformationBean queryAck) {
+        this.queryAck = queryAck;
+    }
+
+
+    @Hl7XmlMapping({"subject"})
+    public List<RefersToBean<ACT>> getSubject() {
+        return this.subject;
+    }
+
+
+    /**
+     * <p>B:Event Identifier</p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Identifier getEventIdentifier() {
+        return this.eventIdentifier.getValue();
+    }
+    public void setEventIdentifier(Identifier eventIdentifier) {
+        this.eventIdentifier.setValue(eventIdentifier);
+    }
+
+
+    /**
+     * <p>A:Event Type</p>
+     */
+    @Hl7XmlMapping({"code"})
+    public HL7TriggerEventCode getEventType() {
+        return (HL7TriggerEventCode) this.eventType.getValue();
+    }
+    public void setEventType(HL7TriggerEventCode eventType) {
+        this.eventType.setValue(eventType);
+    }
+
+
+    @Hl7XmlMapping({"subjectOf/detectedIssueEvent"})
+    public List<IssuesBean> getSubjectOfDetectedIssueEvent() {
+        return this.subjectOfDetectedIssueEvent;
+    }
+
+
+    /**
+     * <p>C:Event Effective Period</p>
+     */
+    @Hl7XmlMapping({"effectiveTime"})
+    public Date getEventEffectivePeriod() {
+        return this.eventEffectivePeriod.getValue();
+    }
+    public void setEventEffectivePeriod(Date eventEffectivePeriod) {
+        this.eventEffectivePeriod.setValue(eventEffectivePeriod);
     }
 
 }

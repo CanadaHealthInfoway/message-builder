@@ -18,6 +18,8 @@ import ca.infoway.messagebuilder.datatype.lang.PersonName;
 import ca.infoway.messagebuilder.datatype.lang.PostalAddress;
 import ca.infoway.messagebuilder.datatype.lang.TelecommunicationAddress;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 
@@ -27,10 +29,34 @@ import java.util.Set;
 public class AnimalPatientBean extends MessagePartBean implements ca.infoway.messagebuilder.model.v01_r04_3.pharmacy.merged.Patient {
 
     private static final long serialVersionUID = 20110318L;
+    private ST animalName = new STImpl();
+    private PN ownerName = new PNImpl();
     private SET<TEL, TelecommunicationAddress> ownerPhonesAndEmails = new SETImpl<TEL, TelecommunicationAddress>(TELImpl.class);
     private AD ownerAddress = new ADImpl();
-    private PN ownerName = new PNImpl();
-    private ST animalName = new STImpl();
+
+
+    /**
+     * <p>B:Animal name</p>
+     */
+    @Hl7XmlMapping({"patientAnimal/name"})
+    public String getAnimalName() {
+        return this.animalName.getValue();
+    }
+    public void setAnimalName(String animalName) {
+        this.animalName.setValue(animalName);
+    }
+
+
+    /**
+     * <p>Owner Name</p>
+     */
+    @Hl7XmlMapping({"patientAnimal/contactParty/contactPerson/name"})
+    public PersonName getOwnerName() {
+        return this.ownerName.getValue();
+    }
+    public void setOwnerName(PersonName ownerName) {
+        this.ownerName.setValue(ownerName);
+    }
 
 
     /**
@@ -51,30 +77,6 @@ public class AnimalPatientBean extends MessagePartBean implements ca.infoway.mes
     }
     public void setOwnerAddress(PostalAddress ownerAddress) {
         this.ownerAddress.setValue(ownerAddress);
-    }
-
-
-    /**
-     * <p>Owner Name</p>
-     */
-    @Hl7XmlMapping({"patientAnimal/contactParty/contactPerson/name"})
-    public PersonName getOwnerName() {
-        return this.ownerName.getValue();
-    }
-    public void setOwnerName(PersonName ownerName) {
-        this.ownerName.setValue(ownerName);
-    }
-
-
-    /**
-     * <p>B:Animal name</p>
-     */
-    @Hl7XmlMapping({"patientAnimal/name"})
-    public String getAnimalName() {
-        return this.animalName.getValue();
-    }
-    public void setAnimalName(String animalName) {
-        this.animalName.setValue(animalName);
     }
 
 }

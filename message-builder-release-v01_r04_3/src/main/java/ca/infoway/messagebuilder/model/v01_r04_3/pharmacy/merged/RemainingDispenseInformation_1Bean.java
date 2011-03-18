@@ -16,24 +16,8 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 public class RemainingDispenseInformation_1Bean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private PQ quantity = new PQImpl();
     private INT repeatNumber = new INTImpl();
-
-
-    /**
-     * <p>B:Remaining Total Quantity</p>
-     * 
-     * <p>Remaining Total Quantity</p>
-     * 
-     * <p>B:Total Quantity Remaining</p>
-     */
-    @Hl7XmlMapping({"quantity"})
-    public PhysicalQuantity getQuantity() {
-        return this.quantity.getValue();
-    }
-    public void setQuantity(PhysicalQuantity quantity) {
-        this.quantity.setValue(quantity);
-    }
+    private PQ quantity = new PQImpl();
 
 
     /**
@@ -49,6 +33,22 @@ public class RemainingDispenseInformation_1Bean extends MessagePartBean {
     }
     public void setRepeatNumber(Integer repeatNumber) {
         this.repeatNumber.setValue(repeatNumber);
+    }
+
+
+    /**
+     * <p>B:Remaining Total Quantity</p>
+     * 
+     * <p>Remaining Total Quantity</p>
+     * 
+     * <p>B:Total Quantity Remaining</p>
+     */
+    @Hl7XmlMapping({"quantity"})
+    public PhysicalQuantity getQuantity() {
+        return this.quantity.getValue();
+    }
+    public void setQuantity(PhysicalQuantity quantity) {
+        this.quantity.setValue(quantity);
     }
 
 }

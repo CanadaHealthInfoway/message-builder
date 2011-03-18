@@ -31,33 +31,48 @@ import java.util.Set;
 public class HL7Message_1Bean<CAP> extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private II messageIdentifier = new IIImpl();
-    private SET<II, Identifier> conformanceProfileIdentifiers = new SETImpl<II, Identifier>(IIImpl.class);
-    private CAP controlActProcess;
-    private ReceiverBean receiver;
-    private SenderBean sender;
-    private CS desiredAcknowledgmentType = new CSImpl();
-    private ToBeRespondedToByBean respondTo;
-    private List<RoutingInstructionLinesBean> attentionLine = new ArrayList<RoutingInstructionLinesBean>();
-    private TS messageTimestamp = new TSImpl();
-    private CS processingCode = new CSImpl();
-    private CS hL7StandardVersion = new CSImpl();
-    private ST securityToken = new STImpl();
-    private AcknowledgementBean acknowledgement;
     private II interactionType = new IIImpl();
+    private ReceiverBean receiver;
+    private List<RoutingInstructionLinesBean> attentionLine = new ArrayList<RoutingInstructionLinesBean>();
+    private SET<II, Identifier> conformanceProfileIdentifiers = new SETImpl<II, Identifier>(IIImpl.class);
+    private SenderBean sender;
+    private ToBeRespondedToByBean respondTo;
+    private AcknowledgementBean acknowledgement;
+    private TS messageTimestamp = new TSImpl();
+    private ST securityToken = new STImpl();
+    private CS processingCode = new CSImpl();
+    private CAP controlActProcess;
+    private II messageIdentifier = new IIImpl();
+    private CS desiredAcknowledgmentType = new CSImpl();
+    private CS hL7StandardVersion = new CSImpl();
 
 
     /**
-     * <p>MessageIdentifier</p>
+     * <p>InteractionType</p>
      * 
-     * <p>A:Message Identifier</p>
+     * <p>B:Interaction Type</p>
      */
-    @Hl7XmlMapping({"id"})
-    public Identifier getMessageIdentifier() {
-        return this.messageIdentifier.getValue();
+    @Hl7XmlMapping({"interactionId"})
+    public Identifier getInteractionType() {
+        return this.interactionType.getValue();
     }
-    public void setMessageIdentifier(Identifier messageIdentifier) {
-        this.messageIdentifier.setValue(messageIdentifier);
+    public void setInteractionType(Identifier interactionType) {
+        this.interactionType.setValue(interactionType);
+    }
+
+
+    @Hl7XmlMapping({"receiver"})
+    public ReceiverBean getReceiver() {
+        return this.receiver;
+    }
+    public void setReceiver(ReceiverBean receiver) {
+        this.receiver = receiver;
+    }
+
+
+    @Hl7XmlMapping({"attentionLine"})
+    public List<RoutingInstructionLinesBean> getAttentionLine() {
+        return this.attentionLine;
     }
 
 
@@ -72,44 +87,12 @@ public class HL7Message_1Bean<CAP> extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"controlActProcess"})
-    public CAP getControlActProcess() {
-        return this.controlActProcess;
-    }
-    public void setControlActProcess(CAP controlActProcess) {
-        this.controlActProcess = controlActProcess;
-    }
-
-
-    @Hl7XmlMapping({"receiver"})
-    public ReceiverBean getReceiver() {
-        return this.receiver;
-    }
-    public void setReceiver(ReceiverBean receiver) {
-        this.receiver = receiver;
-    }
-
-
     @Hl7XmlMapping({"sender"})
     public SenderBean getSender() {
         return this.sender;
     }
     public void setSender(SenderBean sender) {
         this.sender = sender;
-    }
-
-
-    /**
-     * <p>DesiredAcknowledgmentType</p>
-     * 
-     * <p>E:Desired Acknowledgment Type</p>
-     */
-    @Hl7XmlMapping({"acceptAckCode"})
-    public AcknowledgementCondition getDesiredAcknowledgmentType() {
-        return (AcknowledgementCondition) this.desiredAcknowledgmentType.getValue();
-    }
-    public void setDesiredAcknowledgmentType(AcknowledgementCondition desiredAcknowledgmentType) {
-        this.desiredAcknowledgmentType.setValue(desiredAcknowledgmentType);
     }
 
 
@@ -122,9 +105,12 @@ public class HL7Message_1Bean<CAP> extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"attentionLine"})
-    public List<RoutingInstructionLinesBean> getAttentionLine() {
-        return this.attentionLine;
+    @Hl7XmlMapping({"acknowledgement"})
+    public AcknowledgementBean getAcknowledgement() {
+        return this.acknowledgement;
+    }
+    public void setAcknowledgement(AcknowledgementBean acknowledgement) {
+        this.acknowledgement = acknowledgement;
     }
 
 
@@ -143,6 +129,20 @@ public class HL7Message_1Bean<CAP> extends MessagePartBean {
 
 
     /**
+     * <p>SecurityToken</p>
+     * 
+     * <p>H:Security Token</p>
+     */
+    @Hl7XmlMapping({"securityText"})
+    public String getSecurityToken() {
+        return this.securityToken.getValue();
+    }
+    public void setSecurityToken(String securityToken) {
+        this.securityToken.setValue(securityToken);
+    }
+
+
+    /**
      * <p>ProcessingCode</p>
      * 
      * <p>D:Processing Code</p>
@@ -153,6 +153,43 @@ public class HL7Message_1Bean<CAP> extends MessagePartBean {
     }
     public void setProcessingCode(ProcessingID processingCode) {
         this.processingCode.setValue(processingCode);
+    }
+
+
+    @Hl7XmlMapping({"controlActProcess"})
+    public CAP getControlActProcess() {
+        return this.controlActProcess;
+    }
+    public void setControlActProcess(CAP controlActProcess) {
+        this.controlActProcess = controlActProcess;
+    }
+
+
+    /**
+     * <p>MessageIdentifier</p>
+     * 
+     * <p>A:Message Identifier</p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Identifier getMessageIdentifier() {
+        return this.messageIdentifier.getValue();
+    }
+    public void setMessageIdentifier(Identifier messageIdentifier) {
+        this.messageIdentifier.setValue(messageIdentifier);
+    }
+
+
+    /**
+     * <p>DesiredAcknowledgmentType</p>
+     * 
+     * <p>E:Desired Acknowledgment Type</p>
+     */
+    @Hl7XmlMapping({"acceptAckCode"})
+    public AcknowledgementCondition getDesiredAcknowledgmentType() {
+        return (AcknowledgementCondition) this.desiredAcknowledgmentType.getValue();
+    }
+    public void setDesiredAcknowledgmentType(AcknowledgementCondition desiredAcknowledgmentType) {
+        this.desiredAcknowledgmentType.setValue(desiredAcknowledgmentType);
     }
 
 
@@ -167,43 +204,6 @@ public class HL7Message_1Bean<CAP> extends MessagePartBean {
     }
     public void setHL7StandardVersion(HL7StandardVersionCode hL7StandardVersion) {
         this.hL7StandardVersion.setValue(hL7StandardVersion);
-    }
-
-
-    /**
-     * <p>SecurityToken</p>
-     * 
-     * <p>H:Security Token</p>
-     */
-    @Hl7XmlMapping({"securityText"})
-    public String getSecurityToken() {
-        return this.securityToken.getValue();
-    }
-    public void setSecurityToken(String securityToken) {
-        this.securityToken.setValue(securityToken);
-    }
-
-
-    @Hl7XmlMapping({"acknowledgement"})
-    public AcknowledgementBean getAcknowledgement() {
-        return this.acknowledgement;
-    }
-    public void setAcknowledgement(AcknowledgementBean acknowledgement) {
-        this.acknowledgement = acknowledgement;
-    }
-
-
-    /**
-     * <p>InteractionType</p>
-     * 
-     * <p>B:Interaction Type</p>
-     */
-    @Hl7XmlMapping({"interactionId"})
-    public Identifier getInteractionType() {
-        return this.interactionType.getValue();
-    }
-    public void setInteractionType(Identifier interactionType) {
-        this.interactionType.setValue(interactionType);
     }
 
 }

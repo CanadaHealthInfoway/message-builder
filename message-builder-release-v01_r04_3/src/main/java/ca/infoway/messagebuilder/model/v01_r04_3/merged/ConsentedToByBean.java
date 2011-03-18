@@ -18,9 +18,37 @@ import ca.infoway.messagebuilder.model.v01_r04_3.si.rcmr_mt010001ca.PatientBean;
 public class ConsentedToByBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private Consenter consenter;
-    private ST keyword = new STImpl();
     private CV patientConsentMechanism = new CVImpl();
+    private ST keyword = new STImpl();
+    private Consenter consenter;
+
+
+    /**
+     * <p>PatientConsentMechanism</p>
+     * 
+     * <p>Patient Consent Mechanism</p>
+     */
+    @Hl7XmlMapping({"modeCode"})
+    public x_PhysicalVerbalParticipationMode getPatientConsentMechanism() {
+        return (x_PhysicalVerbalParticipationMode) this.patientConsentMechanism.getValue();
+    }
+    public void setPatientConsentMechanism(x_PhysicalVerbalParticipationMode patientConsentMechanism) {
+        this.patientConsentMechanism.setValue(patientConsentMechanism);
+    }
+
+
+    /**
+     * <p>Keyword</p>
+     * 
+     * <p>Keyword</p>
+     */
+    @Hl7XmlMapping({"signatureText"})
+    public String getKeyword() {
+        return this.keyword.getValue();
+    }
+    public void setKeyword(String keyword) {
+        this.keyword.setValue(keyword);
+    }
 
 
     @Hl7XmlMapping({"consenter"})
@@ -43,34 +71,6 @@ public class ConsentedToByBean extends MessagePartBean {
     }
     public boolean hasConsenterAsResponsibleParty() {
         return (this.consenter instanceof ResponsiblePersonBean);
-    }
-
-
-    /**
-     * <p>Keyword</p>
-     * 
-     * <p>Keyword</p>
-     */
-    @Hl7XmlMapping({"signatureText"})
-    public String getKeyword() {
-        return this.keyword.getValue();
-    }
-    public void setKeyword(String keyword) {
-        this.keyword.setValue(keyword);
-    }
-
-
-    /**
-     * <p>PatientConsentMechanism</p>
-     * 
-     * <p>Patient Consent Mechanism</p>
-     */
-    @Hl7XmlMapping({"modeCode"})
-    public x_PhysicalVerbalParticipationMode getPatientConsentMechanism() {
-        return (x_PhysicalVerbalParticipationMode) this.patientConsentMechanism.getValue();
-    }
-    public void setPatientConsentMechanism(x_PhysicalVerbalParticipationMode patientConsentMechanism) {
-        this.patientConsentMechanism.setValue(patientConsentMechanism);
     }
 
 }

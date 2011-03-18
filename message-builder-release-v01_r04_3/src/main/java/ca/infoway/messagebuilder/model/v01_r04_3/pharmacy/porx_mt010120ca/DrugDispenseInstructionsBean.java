@@ -23,11 +23,29 @@ import java.util.Date;
 public class DrugDispenseInstructionsBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
+    private FirstFillBean component2InitialSupplyRequest;
+    private SubsequentSupplyRequestBean component1SubsequentSupplyRequest;
     private IVL<TS, Interval<Date>> totalDaysSupply = new IVLImpl<TS, Interval<Date>>();
     private PQ totalPrescribedQuantity = new PQImpl();
-    private SubsequentSupplyRequestBean component1SubsequentSupplyRequest;
-    private FirstFillBean component2InitialSupplyRequest;
     private DrugProductBean productMedication;
+
+
+    @Hl7XmlMapping({"component2/initialSupplyRequest"})
+    public FirstFillBean getComponent2InitialSupplyRequest() {
+        return this.component2InitialSupplyRequest;
+    }
+    public void setComponent2InitialSupplyRequest(FirstFillBean component2InitialSupplyRequest) {
+        this.component2InitialSupplyRequest = component2InitialSupplyRequest;
+    }
+
+
+    @Hl7XmlMapping({"component1/subsequentSupplyRequest"})
+    public SubsequentSupplyRequestBean getComponent1SubsequentSupplyRequest() {
+        return this.component1SubsequentSupplyRequest;
+    }
+    public void setComponent1SubsequentSupplyRequest(SubsequentSupplyRequestBean component1SubsequentSupplyRequest) {
+        this.component1SubsequentSupplyRequest = component1SubsequentSupplyRequest;
+    }
 
 
     /**
@@ -51,24 +69,6 @@ public class DrugDispenseInstructionsBean extends MessagePartBean {
     }
     public void setTotalPrescribedQuantity(PhysicalQuantity totalPrescribedQuantity) {
         this.totalPrescribedQuantity.setValue(totalPrescribedQuantity);
-    }
-
-
-    @Hl7XmlMapping({"component1/subsequentSupplyRequest"})
-    public SubsequentSupplyRequestBean getComponent1SubsequentSupplyRequest() {
-        return this.component1SubsequentSupplyRequest;
-    }
-    public void setComponent1SubsequentSupplyRequest(SubsequentSupplyRequestBean component1SubsequentSupplyRequest) {
-        this.component1SubsequentSupplyRequest = component1SubsequentSupplyRequest;
-    }
-
-
-    @Hl7XmlMapping({"component2/initialSupplyRequest"})
-    public FirstFillBean getComponent2InitialSupplyRequest() {
-        return this.component2InitialSupplyRequest;
-    }
-    public void setComponent2InitialSupplyRequest(FirstFillBean component2InitialSupplyRequest) {
-        this.component2InitialSupplyRequest = component2InitialSupplyRequest;
     }
 
 

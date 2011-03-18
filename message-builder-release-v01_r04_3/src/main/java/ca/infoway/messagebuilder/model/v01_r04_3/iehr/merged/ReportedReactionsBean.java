@@ -32,8 +32,8 @@ public class ReportedReactionsBean extends MessagePartBean implements Records {
 
     private static final long serialVersionUID = 20110318L;
     private CD code = new CDImpl();
-    private ExposuresBean startsAfterStartOfExposureEvent;
     private CV value = new CVImpl();
+    private ExposuresBean startsAfterStartOfExposureEvent;
     private ReportedReactionsBean subjectObservationEvent;
     private II reactionRecordId = new IIImpl();
     private IVL<TS, Interval<Date>> reactionOnsetDate = new IVLImpl<TS, Interval<Date>>();
@@ -56,15 +56,6 @@ public class ReportedReactionsBean extends MessagePartBean implements Records {
     }
 
 
-    @Hl7XmlMapping({"startsAfterStartOf/exposureEvent"})
-    public ExposuresBean getStartsAfterStartOfExposureEvent() {
-        return this.startsAfterStartOfExposureEvent;
-    }
-    public void setStartsAfterStartOfExposureEvent(ExposuresBean startsAfterStartOfExposureEvent) {
-        this.startsAfterStartOfExposureEvent = startsAfterStartOfExposureEvent;
-    }
-
-
     /**
      * <p>Relatedness Assessment</p>
      * 
@@ -76,6 +67,15 @@ public class ReportedReactionsBean extends MessagePartBean implements Records {
     }
     public void setValue(SubjectReaction value) {
         this.value.setValue(value);
+    }
+
+
+    @Hl7XmlMapping({"startsAfterStartOf/exposureEvent"})
+    public ExposuresBean getStartsAfterStartOfExposureEvent() {
+        return this.startsAfterStartOfExposureEvent;
+    }
+    public void setStartsAfterStartOfExposureEvent(ExposuresBean startsAfterStartOfExposureEvent) {
+        this.startsAfterStartOfExposureEvent = startsAfterStartOfExposureEvent;
     }
 
 

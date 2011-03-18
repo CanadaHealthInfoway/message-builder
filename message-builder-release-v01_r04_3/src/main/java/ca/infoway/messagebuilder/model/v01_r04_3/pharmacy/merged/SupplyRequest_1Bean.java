@@ -16,25 +16,18 @@ import ca.infoway.messagebuilder.model.v01_r04_3.merged.RefusedByBean;
 public class SupplyRequest_1Bean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private II prescriptionOrderNumber = new IIImpl();
+    private Component2_2Bean component;
     private RefusedByBean author;
     private ProviderBean responsiblePartyAssignedPerson;
-    private Component2_2Bean component;
+    private II prescriptionOrderNumber = new IIImpl();
 
 
-    /**
-     * <p>PrescriptionOrderNumber</p>
-     * 
-     * <p>Prescription Order Number</p>
-     * 
-     * <p>D:Prescription Order Number</p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Identifier getPrescriptionOrderNumber() {
-        return this.prescriptionOrderNumber.getValue();
+    @Hl7XmlMapping({"component"})
+    public Component2_2Bean getComponent() {
+        return this.component;
     }
-    public void setPrescriptionOrderNumber(Identifier prescriptionOrderNumber) {
-        this.prescriptionOrderNumber.setValue(prescriptionOrderNumber);
+    public void setComponent(Component2_2Bean component) {
+        this.component = component;
     }
 
 
@@ -56,12 +49,19 @@ public class SupplyRequest_1Bean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"component"})
-    public Component2_2Bean getComponent() {
-        return this.component;
+    /**
+     * <p>PrescriptionOrderNumber</p>
+     * 
+     * <p>Prescription Order Number</p>
+     * 
+     * <p>D:Prescription Order Number</p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Identifier getPrescriptionOrderNumber() {
+        return this.prescriptionOrderNumber.getValue();
     }
-    public void setComponent(Component2_2Bean component) {
-        this.component = component;
+    public void setPrescriptionOrderNumber(Identifier prescriptionOrderNumber) {
+        this.prescriptionOrderNumber.setValue(prescriptionOrderNumber);
     }
 
 }
