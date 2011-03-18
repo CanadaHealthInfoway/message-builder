@@ -24,16 +24,33 @@ import java.util.List;
 public class AcknowledgementBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private List<ErrorsOrWarningsBean> acknowledgementDetail = new ArrayList<ErrorsOrWarningsBean>();
-    private II acknowledgedMessageId = new IIImpl();
     private CV messageWaitingPriority = new CVImpl();
+    private II acknowledgedMessageId = new IIImpl();
     private INT numberOfWaitingMessages = new INTImpl();
     private CS acknowledgementCode = new CSImpl();
+    private List<ErrorsOrWarningsBean> acknowledgementDetail = new ArrayList<ErrorsOrWarningsBean>();
 
 
-    @Hl7XmlMapping({"acknowledgementDetail"})
-    public List<ErrorsOrWarningsBean> getAcknowledgementDetail() {
-        return this.acknowledgementDetail;
+    /**
+     * <p>MessageWaitingPriority</p>
+     * 
+     * <p>GD:Message Waiting Priority</p>
+     * 
+     * <p><p>Indicates the priority of the highest-priority message 
+     * that is waiting on the poll queue for the system being 
+     * responded to.</p></p>
+     * 
+     * <p><p>The priority of the waiting message may influence how 
+     * quickly the polling system may choose to download queued 
+     * messages. The element is optional because not all systems 
+     * will support polling.</p></p>
+     */
+    @Hl7XmlMapping({"messageWaitingPriorityCode"})
+    public MessageWaitingPriority getMessageWaitingPriority() {
+        return (MessageWaitingPriority) this.messageWaitingPriority.getValue();
+    }
+    public void setMessageWaitingPriority(MessageWaitingPriority messageWaitingPriority) {
+        this.messageWaitingPriority.setValue(messageWaitingPriority);
     }
 
 
@@ -57,29 +74,6 @@ public class AcknowledgementBean extends MessagePartBean {
     }
     public void setAcknowledgedMessageId(Identifier acknowledgedMessageId) {
         this.acknowledgedMessageId.setValue(acknowledgedMessageId);
-    }
-
-
-    /**
-     * <p>MessageWaitingPriority</p>
-     * 
-     * <p>GD:Message Waiting Priority</p>
-     * 
-     * <p><p>Indicates the priority of the highest-priority message 
-     * that is waiting on the poll queue for the system being 
-     * responded to.</p></p>
-     * 
-     * <p><p>The priority of the waiting message may influence how 
-     * quickly the polling system may choose to download queued 
-     * messages. The element is optional because not all systems 
-     * will support polling.</p></p>
-     */
-    @Hl7XmlMapping({"messageWaitingPriorityCode"})
-    public MessageWaitingPriority getMessageWaitingPriority() {
-        return (MessageWaitingPriority) this.messageWaitingPriority.getValue();
-    }
-    public void setMessageWaitingPriority(MessageWaitingPriority messageWaitingPriority) {
-        this.messageWaitingPriority.setValue(messageWaitingPriority);
     }
 
 
@@ -122,6 +116,12 @@ public class AcknowledgementBean extends MessagePartBean {
     }
     public void setAcknowledgementCode(AcknowledgementType acknowledgementCode) {
         this.acknowledgementCode.setValue(acknowledgementCode);
+    }
+
+
+    @Hl7XmlMapping({"acknowledgementDetail"})
+    public List<ErrorsOrWarningsBean> getAcknowledgementDetail() {
+        return this.acknowledgementDetail;
     }
 
 }

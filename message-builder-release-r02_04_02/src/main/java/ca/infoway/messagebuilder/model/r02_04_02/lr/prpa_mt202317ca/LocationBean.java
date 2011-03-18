@@ -56,58 +56,14 @@ import java.util.Set;
 public class LocationBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
+    private CV locationType = new CVImpl();
+    private SET<ST, String> locationNames = new SETImpl<ST, String>(STImpl.class);
+    private AD locationAddress = new ADImpl();
     private IndirectAuthorithyOverBean indirectAuthority;
     private PlaceBean location;
-    private SET<ST, String> locationNames = new SETImpl<ST, String>(STImpl.class);
-    private CV locationType = new CVImpl();
-    private CS locationStatus = new CSImpl();
-    private AD locationAddress = new ADImpl();
     private List<GeographicCoordinatesBean> subjectOfPosition = new ArrayList<GeographicCoordinatesBean>();
+    private CS locationStatus = new CSImpl();
     private II locationIdentifier = new IIImpl();
-
-
-    @Hl7XmlMapping({"indirectAuthority"})
-    public IndirectAuthorithyOverBean getIndirectAuthority() {
-        return this.indirectAuthority;
-    }
-    public void setIndirectAuthority(IndirectAuthorithyOverBean indirectAuthority) {
-        this.indirectAuthority = indirectAuthority;
-    }
-
-
-    @Hl7XmlMapping({"location"})
-    public PlaceBean getLocation() {
-        return this.location;
-    }
-    public void setLocation(PlaceBean location) {
-        this.location = location;
-    }
-
-
-    /**
-     * <p>D:Location Names</p>
-     * 
-     * <p><p>A textual name for the place where the service is 
-     * provided e.g. Ottawa General Hospital.</p></p>
-     * 
-     * <p><p>Provides a human-readable label for the location. The 
-     * location name is not intended to be parsed or analyzed by 
-     * when processing the record. (E.g. To determine if a location 
-     * is a hospital, look at the location type, don't check the 
-     * name for the word &quot;hospital&quot;.)</p><p>Multiple 
-     * repetitions are allowed to capture historical names</p></p>
-     * 
-     * <p><p>Provides a human-readable label for the location. The 
-     * location name is not intended to be parsed or analyzed by 
-     * when processing the record. (E.g. To determine if a location 
-     * is a hospital, look at the location type, don't check the 
-     * name for the word &quot;hospital&quot;.)</p><p>Multiple 
-     * repetitions are allowed to capture historical names</p></p>
-     */
-    @Hl7XmlMapping({"name"})
-    public Set<String> getLocationNames() {
-        return this.locationNames.rawSet();
-    }
 
 
     /**
@@ -147,32 +103,28 @@ public class LocationBean extends MessagePartBean {
 
 
     /**
-     * <p>C: Location Status</p>
+     * <p>D:Location Names</p>
      * 
-     * <p></p><p>Allowed status values are 'active' (the location 
-     * is actively used to deliver healthcare-related services), 
-     * 'suspended' (the location has temporarily ceased delivering 
-     * healthcare-related services) and 'terminated' (the location 
-     * has permanently ceased delivering healthcare-related 
-     * services and may no longer physically exist.)</p></p>
+     * <p><p>A textual name for the place where the service is 
+     * provided e.g. Ottawa General Hospital.</p></p>
      * 
-     * <p></p><p>Allowed status values are 'active' (the location 
-     * is actively used to deliver healthcare-related services), 
-     * 'suspended' (the location has temporarily ceased delivering 
-     * healthcare-related services) and 'terminated' (the location 
-     * has permanently ceased delivering healthcare-related 
-     * services and may no longer physically exist.)</p></p>
+     * <p><p>Provides a human-readable label for the location. The 
+     * location name is not intended to be parsed or analyzed by 
+     * when processing the record. (E.g. To determine if a location 
+     * is a hospital, look at the location type, don't check the 
+     * name for the word &quot;hospital&quot;.)</p><p>Multiple 
+     * repetitions are allowed to capture historical names</p></p>
      * 
-     * <p></p></p>
-     * 
-     * <p></p></p>
+     * <p><p>Provides a human-readable label for the location. The 
+     * location name is not intended to be parsed or analyzed by 
+     * when processing the record. (E.g. To determine if a location 
+     * is a hospital, look at the location type, don't check the 
+     * name for the word &quot;hospital&quot;.)</p><p>Multiple 
+     * repetitions are allowed to capture historical names</p></p>
      */
-    @Hl7XmlMapping({"statusCode"})
-    public ServiceDeliveryRoleStatus getLocationStatus() {
-        return (ServiceDeliveryRoleStatus) this.locationStatus.getValue();
-    }
-    public void setLocationStatus(ServiceDeliveryRoleStatus locationStatus) {
-        this.locationStatus.setValue(locationStatus);
+    @Hl7XmlMapping({"name"})
+    public Set<String> getLocationNames() {
+        return this.locationNames.rawSet();
     }
 
 
@@ -216,9 +168,57 @@ public class LocationBean extends MessagePartBean {
     }
 
 
+    @Hl7XmlMapping({"indirectAuthority"})
+    public IndirectAuthorithyOverBean getIndirectAuthority() {
+        return this.indirectAuthority;
+    }
+    public void setIndirectAuthority(IndirectAuthorithyOverBean indirectAuthority) {
+        this.indirectAuthority = indirectAuthority;
+    }
+
+
+    @Hl7XmlMapping({"location"})
+    public PlaceBean getLocation() {
+        return this.location;
+    }
+    public void setLocation(PlaceBean location) {
+        this.location = location;
+    }
+
+
     @Hl7XmlMapping({"subjectOf/position"})
     public List<GeographicCoordinatesBean> getSubjectOfPosition() {
         return this.subjectOfPosition;
+    }
+
+
+    /**
+     * <p>C: Location Status</p>
+     * 
+     * <p></p><p>Allowed status values are 'active' (the location 
+     * is actively used to deliver healthcare-related services), 
+     * 'suspended' (the location has temporarily ceased delivering 
+     * healthcare-related services) and 'terminated' (the location 
+     * has permanently ceased delivering healthcare-related 
+     * services and may no longer physically exist.)</p></p>
+     * 
+     * <p></p><p>Allowed status values are 'active' (the location 
+     * is actively used to deliver healthcare-related services), 
+     * 'suspended' (the location has temporarily ceased delivering 
+     * healthcare-related services) and 'terminated' (the location 
+     * has permanently ceased delivering healthcare-related 
+     * services and may no longer physically exist.)</p></p>
+     * 
+     * <p></p></p>
+     * 
+     * <p></p></p>
+     */
+    @Hl7XmlMapping({"statusCode"})
+    public ServiceDeliveryRoleStatus getLocationStatus() {
+        return (ServiceDeliveryRoleStatus) this.locationStatus.getValue();
+    }
+    public void setLocationStatus(ServiceDeliveryRoleStatus locationStatus) {
+        this.locationStatus.setValue(locationStatus);
     }
 
 

@@ -59,9 +59,9 @@ public class RefersTo_2Bean<RR> extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
     private BL cascadeResponsibilityIndicator = new BLImpl();
-    private RegisteredItemBean<RR> registrationRequestSubject;
     private EHRRepositoryBean registrationRequestCustodianAssignedDevice;
     private PriorRegistrationEventBean registrationRequestReplacementOfPriorRegistration;
+    private RegisteredItemBean<RR> registrationRequestSubject;
 
 
     /**
@@ -127,15 +127,6 @@ public class RefersTo_2Bean<RR> extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"registrationRequest/subject"})
-    public RegisteredItemBean<RR> getRegistrationRequestSubject() {
-        return this.registrationRequestSubject;
-    }
-    public void setRegistrationRequestSubject(RegisteredItemBean<RR> registrationRequestSubject) {
-        this.registrationRequestSubject = registrationRequestSubject;
-    }
-
-
     @Hl7XmlMapping({"registrationRequest/custodian/assignedDevice"})
     public EHRRepositoryBean getRegistrationRequestCustodianAssignedDevice() {
         return this.registrationRequestCustodianAssignedDevice;
@@ -151,6 +142,15 @@ public class RefersTo_2Bean<RR> extends MessagePartBean {
     }
     public void setRegistrationRequestReplacementOfPriorRegistration(PriorRegistrationEventBean registrationRequestReplacementOfPriorRegistration) {
         this.registrationRequestReplacementOfPriorRegistration = registrationRequestReplacementOfPriorRegistration;
+    }
+
+
+    @Hl7XmlMapping({"registrationRequest/subject"})
+    public RegisteredItemBean<RR> getRegistrationRequestSubject() {
+        return this.registrationRequestSubject;
+    }
+    public void setRegistrationRequestSubject(RegisteredItemBean<RR> registrationRequestSubject) {
+        this.registrationRequestSubject = registrationRequestSubject;
     }
 
 }

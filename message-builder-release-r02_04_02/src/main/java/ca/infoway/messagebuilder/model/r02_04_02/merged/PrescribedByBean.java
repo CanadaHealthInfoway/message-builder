@@ -228,31 +228,10 @@ import java.util.Date;
 public class PrescribedByBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private ED<String> signature = new EDImpl<String>();
     private TS time = new TSImpl();
     private CV prescriptionTransmissionMethod = new CVImpl();
+    private ED<String> signature = new EDImpl<String>();
     private HealthcareWorkerBean assignedEntity;
-
-
-    /**
-     * <p>Signature</p>
-     * 
-     * <p>Signature</p>
-     * 
-     * <p><p>An electronic signature of the prescription by the 
-     * prescriber.</p></p>
-     * 
-     * <p><p>Allows for pure electronic prescriptions without a 
-     * trusted intermediary. The attribute is optional because all 
-     * jurisdictions may not support digital signatures.</p></p>
-     */
-    @Hl7XmlMapping({"signatureText"})
-    public String getSignature() {
-        return this.signature.getValue();
-    }
-    public void setSignature(String signature) {
-        this.signature.setValue(signature);
-    }
 
 
     /**
@@ -472,6 +451,27 @@ public class PrescribedByBean extends MessagePartBean {
     }
     public void setPrescriptionTransmissionMethod(ParticipationMode prescriptionTransmissionMethod) {
         this.prescriptionTransmissionMethod.setValue(prescriptionTransmissionMethod);
+    }
+
+
+    /**
+     * <p>Signature</p>
+     * 
+     * <p>Signature</p>
+     * 
+     * <p><p>An electronic signature of the prescription by the 
+     * prescriber.</p></p>
+     * 
+     * <p><p>Allows for pure electronic prescriptions without a 
+     * trusted intermediary. The attribute is optional because all 
+     * jurisdictions may not support digital signatures.</p></p>
+     */
+    @Hl7XmlMapping({"signatureText"})
+    public String getSignature() {
+        return this.signature.getValue();
+    }
+    public void setSignature(String signature) {
+        this.signature.setValue(signature);
     }
 
 

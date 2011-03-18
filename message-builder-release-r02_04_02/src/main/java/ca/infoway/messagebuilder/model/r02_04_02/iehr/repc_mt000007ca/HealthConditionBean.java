@@ -69,27 +69,39 @@ import java.util.Set;
 public class HealthConditionBean extends MessagePartBean implements ca.infoway.messagebuilder.model.r02_04_02.iehr.comt_mt111111ca.SHR {
 
     private static final long serialVersionUID = 20110318L;
-    private BL refutedIndicator = new BLImpl();
-    private EHRRepositoryBean custodian2AssignedDevice;
-    private ServiceLocationBean custodian1ServiceDeliveryLocation;
-    private SET<CV, Code> conditionMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);
-    private BL subjectOf2AnnotationIndicator = new BLImpl();
-    private IVL<TS, Interval<Date>> conditionTimePeriod = new IVLImpl<TS, Interval<Date>>();
-    private ChangedByBean author;
-    private ActingPerson informantActingPerson;
-    private ca.infoway.messagebuilder.model.r02_04_02.common.coct_mt911108ca.ActingPerson responsiblePartyActingPerson;
-    private CV conditionType = new CVImpl();
-    private CD condition = new CDImpl();
-    private AllergyIntoleranceStatusChangesBean subjectOf1ControlActEvent;
-    private List<OldConditionBean> predecessorOldCondition = new ArrayList<OldConditionBean>();
     private NewConditionBean successorNewCondition;
+    private CD condition = new CDImpl();
+    private ChangedByBean author;
+    private BL subjectOf2AnnotationIndicator = new BLImpl();
     private List<CareCompositionsBean> componentOfPatientCareProvisionEvent = new ArrayList<CareCompositionsBean>();
-    private CS conditionStatus = new CSImpl();
+    private AllergyIntoleranceStatusChangesBean subjectOf1ControlActEvent;
+    private ActingPerson informantActingPerson;
+    private List<OldConditionBean> predecessorOldCondition = new ArrayList<OldConditionBean>();
     private II conditionIdentifier = new IIImpl();
+    private CV conditionType = new CVImpl();
+    private ca.infoway.messagebuilder.model.r02_04_02.common.coct_mt911108ca.ActingPerson responsiblePartyActingPerson;
+    private ServiceLocationBean custodian1ServiceDeliveryLocation;
+    private EHRRepositoryBean custodian2AssignedDevice;
+    private BL refutedIndicator = new BLImpl();
+    private SET<CV, Code> conditionMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);
+    private CS conditionStatus = new CSImpl();
+    private IVL<TS, Interval<Date>> conditionTimePeriod = new IVLImpl<TS, Interval<Date>>();
+
+
+    @Hl7XmlMapping({"successor/newCondition"})
+    public NewConditionBean getSuccessorNewCondition() {
+        return this.successorNewCondition;
+    }
+    public void setSuccessorNewCondition(NewConditionBean successorNewCondition) {
+        this.successorNewCondition = successorNewCondition;
+    }
 
 
     /**
-     * <p>E: Refuted Indicator</p>
+     * <p>K:Condition</p>
+     * 
+     * <p><p>A code indicating the specific condition. E.g. 
+     * Hypertension, Pregnancy.</p></p>
      * 
      * <p></p></p>
      * 
@@ -97,47 +109,21 @@ public class HealthConditionBean extends MessagePartBean implements ca.infoway.m
      * 
      * <p></p></p>
      */
-    @Hl7XmlMapping({"negationInd"})
-    public Boolean getRefutedIndicator() {
-        return this.refutedIndicator.getValue();
+    @Hl7XmlMapping({"value"})
+    public DiagnosisValue getCondition() {
+        return (DiagnosisValue) this.condition.getValue();
     }
-    public void setRefutedIndicator(Boolean refutedIndicator) {
-        this.refutedIndicator.setValue(refutedIndicator);
-    }
-
-
-    @Hl7XmlMapping({"custodian2/assignedDevice"})
-    public EHRRepositoryBean getCustodian2AssignedDevice() {
-        return this.custodian2AssignedDevice;
-    }
-    public void setCustodian2AssignedDevice(EHRRepositoryBean custodian2AssignedDevice) {
-        this.custodian2AssignedDevice = custodian2AssignedDevice;
+    public void setCondition(DiagnosisValue condition) {
+        this.condition.setValue(condition);
     }
 
 
-    @Hl7XmlMapping({"custodian1/serviceDeliveryLocation"})
-    public ServiceLocationBean getCustodian1ServiceDeliveryLocation() {
-        return this.custodian1ServiceDeliveryLocation;
+    @Hl7XmlMapping({"author"})
+    public ChangedByBean getAuthor() {
+        return this.author;
     }
-    public void setCustodian1ServiceDeliveryLocation(ServiceLocationBean custodian1ServiceDeliveryLocation) {
-        this.custodian1ServiceDeliveryLocation = custodian1ServiceDeliveryLocation;
-    }
-
-
-    /**
-     * <p>F: Condition Masking Indicators</p>
-     * 
-     * <p></p></p>
-     * 
-     * <p></p></p>
-     * 
-     * <p></p></p>
-     * 
-     * <p></p></p>
-     */
-    @Hl7XmlMapping({"confidentialityCode"})
-    public Set<x_BasicConfidentialityKind> getConditionMaskingIndicators() {
-        return this.conditionMaskingIndicators.rawSet(x_BasicConfidentialityKind.class);
+    public void setAuthor(ChangedByBean author) {
+        this.author = author;
     }
 
 
@@ -150,47 +136,18 @@ public class HealthConditionBean extends MessagePartBean implements ca.infoway.m
     }
 
 
-    /**
-     * <p>G: Condition Time Period</p>
-     * 
-     * <p><p>The date on which the condition first began and when 
-     * it ended.</p><p>For ongoing conditions such as chronic 
-     * diseases, the upper boundary may be unknown.</p><p>For 
-     * transient conditions such as pregnancy, lactation, etc; the 
-     * upper boundary of the period would usually be specified to 
-     * signify the end of the condition.</p></p>
-     * 
-     * <p><p>The date on which the condition first began and when 
-     * it ended.</p><p>For ongoing conditions such as chronic 
-     * diseases, the upper boundary may be unknown.</p><p>For 
-     * transient conditions such as pregnancy, lactation, etc; the 
-     * upper boundary of the period would usually be specified to 
-     * signify the end of the condition.</p></p>
-     * 
-     * <p><p>The date on which the condition first began and when 
-     * it ended.</p><p>For ongoing conditions such as chronic 
-     * diseases, the upper boundary may be unknown.</p><p>For 
-     * transient conditions such as pregnancy, lactation, etc; the 
-     * upper boundary of the period would usually be specified to 
-     * signify the end of the condition.</p></p>
-     * 
-     * <p></p></p>
-     */
-    @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getConditionTimePeriod() {
-        return this.conditionTimePeriod.getValue();
-    }
-    public void setConditionTimePeriod(Interval<Date> conditionTimePeriod) {
-        this.conditionTimePeriod.setValue(conditionTimePeriod);
+    @Hl7XmlMapping({"componentOf/patientCareProvisionEvent"})
+    public List<CareCompositionsBean> getComponentOfPatientCareProvisionEvent() {
+        return this.componentOfPatientCareProvisionEvent;
     }
 
 
-    @Hl7XmlMapping({"author"})
-    public ChangedByBean getAuthor() {
-        return this.author;
+    @Hl7XmlMapping({"subjectOf1/controlActEvent"})
+    public AllergyIntoleranceStatusChangesBean getSubjectOf1ControlActEvent() {
+        return this.subjectOf1ControlActEvent;
     }
-    public void setAuthor(ChangedByBean author) {
-        this.author = author;
+    public void setSubjectOf1ControlActEvent(AllergyIntoleranceStatusChangesBean subjectOf1ControlActEvent) {
+        this.subjectOf1ControlActEvent = subjectOf1ControlActEvent;
     }
 
 
@@ -224,6 +181,62 @@ public class HealthConditionBean extends MessagePartBean implements ca.infoway.m
     }
 
 
+    @Hl7XmlMapping({"predecessor/oldCondition"})
+    public List<OldConditionBean> getPredecessorOldCondition() {
+        return this.predecessorOldCondition;
+    }
+
+
+    /**
+     * <p>A:Condition Identifier</p>
+     * 
+     * <p></p><p>The identifier applies to this 
+     * &quot;instance&quot; of the condition. For example, multiple 
+     * pregnancies would each be treated as distinct conditions, 
+     * each with a unique id.</p></p>
+     * 
+     * <p></p><p>The identifier applies to this 
+     * &quot;instance&quot; of the condition. For example, multiple 
+     * pregnancies would each be treated as distinct conditions, 
+     * each with a unique id.</p></p>
+     * 
+     * <p></p></p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Identifier getConditionIdentifier() {
+        return this.conditionIdentifier.getValue();
+    }
+    public void setConditionIdentifier(Identifier conditionIdentifier) {
+        this.conditionIdentifier.setValue(conditionIdentifier);
+    }
+
+
+    /**
+     * <p>B: Condition Type</p>
+     * 
+     * <p><p>Code is fixed DX if not using SNOMED;</p></p>
+     * 
+     * <p><p>Designates the concept in DiagnosisValue as a 
+     * Diagnosis</p></p>
+     * 
+     * <p></p><p>Since all diagnosis concepts can be represented in 
+     * a single field, this domain is a fixed value</p></p>
+     * 
+     * <p></p><p>Since all diagnosis concepts can be represented in 
+     * a single field, this domain is a fixed value</p></p>
+     * 
+     * <p></p><p>Since all diagnosis concepts can be represented in 
+     * a single field, this domain is a fixed value</p></p>
+     */
+    @Hl7XmlMapping({"code"})
+    public Code getConditionType() {
+        return (Code) this.conditionType.getValue();
+    }
+    public void setConditionType(Code conditionType) {
+        this.conditionType.setValue(conditionType);
+    }
+
+
     @Hl7XmlMapping({"responsibleParty/actingPerson"})
     public ca.infoway.messagebuilder.model.r02_04_02.common.coct_mt911108ca.ActingPerson getResponsiblePartyActingPerson() {
         return this.responsiblePartyActingPerson;
@@ -254,37 +267,26 @@ public class HealthConditionBean extends MessagePartBean implements ca.infoway.m
     }
 
 
-    /**
-     * <p>B: Condition Type</p>
-     * 
-     * <p><p>Code is fixed DX if not using SNOMED;</p></p>
-     * 
-     * <p><p>Designates the concept in DiagnosisValue as a 
-     * Diagnosis</p></p>
-     * 
-     * <p></p><p>Since all diagnosis concepts can be represented in 
-     * a single field, this domain is a fixed value</p></p>
-     * 
-     * <p></p><p>Since all diagnosis concepts can be represented in 
-     * a single field, this domain is a fixed value</p></p>
-     * 
-     * <p></p><p>Since all diagnosis concepts can be represented in 
-     * a single field, this domain is a fixed value</p></p>
-     */
-    @Hl7XmlMapping({"code"})
-    public Code getConditionType() {
-        return (Code) this.conditionType.getValue();
+    @Hl7XmlMapping({"custodian1/serviceDeliveryLocation"})
+    public ServiceLocationBean getCustodian1ServiceDeliveryLocation() {
+        return this.custodian1ServiceDeliveryLocation;
     }
-    public void setConditionType(Code conditionType) {
-        this.conditionType.setValue(conditionType);
+    public void setCustodian1ServiceDeliveryLocation(ServiceLocationBean custodian1ServiceDeliveryLocation) {
+        this.custodian1ServiceDeliveryLocation = custodian1ServiceDeliveryLocation;
+    }
+
+
+    @Hl7XmlMapping({"custodian2/assignedDevice"})
+    public EHRRepositoryBean getCustodian2AssignedDevice() {
+        return this.custodian2AssignedDevice;
+    }
+    public void setCustodian2AssignedDevice(EHRRepositoryBean custodian2AssignedDevice) {
+        this.custodian2AssignedDevice = custodian2AssignedDevice;
     }
 
 
     /**
-     * <p>K:Condition</p>
-     * 
-     * <p><p>A code indicating the specific condition. E.g. 
-     * Hypertension, Pregnancy.</p></p>
+     * <p>E: Refuted Indicator</p>
      * 
      * <p></p></p>
      * 
@@ -292,42 +294,29 @@ public class HealthConditionBean extends MessagePartBean implements ca.infoway.m
      * 
      * <p></p></p>
      */
-    @Hl7XmlMapping({"value"})
-    public DiagnosisValue getCondition() {
-        return (DiagnosisValue) this.condition.getValue();
+    @Hl7XmlMapping({"negationInd"})
+    public Boolean getRefutedIndicator() {
+        return this.refutedIndicator.getValue();
     }
-    public void setCondition(DiagnosisValue condition) {
-        this.condition.setValue(condition);
-    }
-
-
-    @Hl7XmlMapping({"subjectOf1/controlActEvent"})
-    public AllergyIntoleranceStatusChangesBean getSubjectOf1ControlActEvent() {
-        return this.subjectOf1ControlActEvent;
-    }
-    public void setSubjectOf1ControlActEvent(AllergyIntoleranceStatusChangesBean subjectOf1ControlActEvent) {
-        this.subjectOf1ControlActEvent = subjectOf1ControlActEvent;
+    public void setRefutedIndicator(Boolean refutedIndicator) {
+        this.refutedIndicator.setValue(refutedIndicator);
     }
 
 
-    @Hl7XmlMapping({"predecessor/oldCondition"})
-    public List<OldConditionBean> getPredecessorOldCondition() {
-        return this.predecessorOldCondition;
-    }
-
-
-    @Hl7XmlMapping({"successor/newCondition"})
-    public NewConditionBean getSuccessorNewCondition() {
-        return this.successorNewCondition;
-    }
-    public void setSuccessorNewCondition(NewConditionBean successorNewCondition) {
-        this.successorNewCondition = successorNewCondition;
-    }
-
-
-    @Hl7XmlMapping({"componentOf/patientCareProvisionEvent"})
-    public List<CareCompositionsBean> getComponentOfPatientCareProvisionEvent() {
-        return this.componentOfPatientCareProvisionEvent;
+    /**
+     * <p>F: Condition Masking Indicators</p>
+     * 
+     * <p></p></p>
+     * 
+     * <p></p></p>
+     * 
+     * <p></p></p>
+     * 
+     * <p></p></p>
+     */
+    @Hl7XmlMapping({"confidentialityCode"})
+    public Set<x_BasicConfidentialityKind> getConditionMaskingIndicators() {
+        return this.conditionMaskingIndicators.rawSet(x_BasicConfidentialityKind.class);
     }
 
 
@@ -404,26 +393,37 @@ public class HealthConditionBean extends MessagePartBean implements ca.infoway.m
 
 
     /**
-     * <p>A:Condition Identifier</p>
+     * <p>G: Condition Time Period</p>
      * 
-     * <p></p><p>The identifier applies to this 
-     * &quot;instance&quot; of the condition. For example, multiple 
-     * pregnancies would each be treated as distinct conditions, 
-     * each with a unique id.</p></p>
+     * <p><p>The date on which the condition first began and when 
+     * it ended.</p><p>For ongoing conditions such as chronic 
+     * diseases, the upper boundary may be unknown.</p><p>For 
+     * transient conditions such as pregnancy, lactation, etc; the 
+     * upper boundary of the period would usually be specified to 
+     * signify the end of the condition.</p></p>
      * 
-     * <p></p><p>The identifier applies to this 
-     * &quot;instance&quot; of the condition. For example, multiple 
-     * pregnancies would each be treated as distinct conditions, 
-     * each with a unique id.</p></p>
+     * <p><p>The date on which the condition first began and when 
+     * it ended.</p><p>For ongoing conditions such as chronic 
+     * diseases, the upper boundary may be unknown.</p><p>For 
+     * transient conditions such as pregnancy, lactation, etc; the 
+     * upper boundary of the period would usually be specified to 
+     * signify the end of the condition.</p></p>
+     * 
+     * <p><p>The date on which the condition first began and when 
+     * it ended.</p><p>For ongoing conditions such as chronic 
+     * diseases, the upper boundary may be unknown.</p><p>For 
+     * transient conditions such as pregnancy, lactation, etc; the 
+     * upper boundary of the period would usually be specified to 
+     * signify the end of the condition.</p></p>
      * 
      * <p></p></p>
      */
-    @Hl7XmlMapping({"id"})
-    public Identifier getConditionIdentifier() {
-        return this.conditionIdentifier.getValue();
+    @Hl7XmlMapping({"effectiveTime"})
+    public Interval<Date> getConditionTimePeriod() {
+        return this.conditionTimePeriod.getValue();
     }
-    public void setConditionIdentifier(Identifier conditionIdentifier) {
-        this.conditionIdentifier.setValue(conditionIdentifier);
+    public void setConditionTimePeriod(Interval<Date> conditionTimePeriod) {
+        this.conditionTimePeriod.setValue(conditionTimePeriod);
     }
 
 }

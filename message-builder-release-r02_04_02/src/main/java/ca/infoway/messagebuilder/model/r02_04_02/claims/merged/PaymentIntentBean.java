@@ -37,35 +37,17 @@ import java.util.List;
 public class PaymentIntentBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
+    private List<AdjudicatorBillingTaxAccountBean> pertinentInformationAdjudicatorBillingTaxAccount = new ArrayList<AdjudicatorBillingTaxAccountBean>();
+    private MO amt = new MOImpl();
     private List<PaymentIntentReasonBean> reasonOf = new ArrayList<PaymentIntentReasonBean>();
     private AccountBean debitAccount;
     private PayeeAccountBean creditAccount;
-    private MO amt = new MOImpl();
     private TS paymentIntentDateTime = new TSImpl();
-    private List<AdjudicatorBillingTaxAccountBean> pertinentInformationAdjudicatorBillingTaxAccount = new ArrayList<AdjudicatorBillingTaxAccountBean>();
 
 
-    @Hl7XmlMapping({"reasonOf"})
-    public List<PaymentIntentReasonBean> getReasonOf() {
-        return this.reasonOf;
-    }
-
-
-    @Hl7XmlMapping({"debit/account"})
-    public AccountBean getDebitAccount() {
-        return this.debitAccount;
-    }
-    public void setDebitAccount(AccountBean debitAccount) {
-        this.debitAccount = debitAccount;
-    }
-
-
-    @Hl7XmlMapping({"credit/account"})
-    public PayeeAccountBean getCreditAccount() {
-        return this.creditAccount;
-    }
-    public void setCreditAccount(PayeeAccountBean creditAccount) {
-        this.creditAccount = creditAccount;
+    @Hl7XmlMapping({"pertinentInformation/adjudicatorBillingTaxAccount"})
+    public List<AdjudicatorBillingTaxAccountBean> getPertinentInformationAdjudicatorBillingTaxAccount() {
+        return this.pertinentInformationAdjudicatorBillingTaxAccount;
     }
 
 
@@ -115,6 +97,30 @@ public class PaymentIntentBean extends MessagePartBean {
     }
 
 
+    @Hl7XmlMapping({"reasonOf"})
+    public List<PaymentIntentReasonBean> getReasonOf() {
+        return this.reasonOf;
+    }
+
+
+    @Hl7XmlMapping({"debit/account"})
+    public AccountBean getDebitAccount() {
+        return this.debitAccount;
+    }
+    public void setDebitAccount(AccountBean debitAccount) {
+        this.debitAccount = debitAccount;
+    }
+
+
+    @Hl7XmlMapping({"credit/account"})
+    public PayeeAccountBean getCreditAccount() {
+        return this.creditAccount;
+    }
+    public void setCreditAccount(PayeeAccountBean creditAccount) {
+        this.creditAccount = creditAccount;
+    }
+
+
     /**
      * <p>PaymentIntentDateTime</p>
      * 
@@ -141,12 +147,6 @@ public class PaymentIntentBean extends MessagePartBean {
     }
     public void setPaymentIntentDateTime(Date paymentIntentDateTime) {
         this.paymentIntentDateTime.setValue(paymentIntentDateTime);
-    }
-
-
-    @Hl7XmlMapping({"pertinentInformation/adjudicatorBillingTaxAccount"})
-    public List<AdjudicatorBillingTaxAccountBean> getPertinentInformationAdjudicatorBillingTaxAccount() {
-        return this.pertinentInformationAdjudicatorBillingTaxAccount;
     }
 
 }

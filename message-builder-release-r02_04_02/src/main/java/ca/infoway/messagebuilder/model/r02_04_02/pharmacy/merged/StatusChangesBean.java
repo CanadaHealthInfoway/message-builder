@@ -87,8 +87,8 @@ public class StatusChangesBean extends MessagePartBean {
     private CV code = new CVImpl();
     private HealthcareWorkerBean responsiblePartyAssignedEntity;
     private CV reasonCode = new CVImpl();
-    private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private ChangedByBean author;
+    private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
 
 
     /**
@@ -172,6 +172,15 @@ public class StatusChangesBean extends MessagePartBean {
     }
 
 
+    @Hl7XmlMapping({"author"})
+    public ChangedByBean getAuthor() {
+        return this.author;
+    }
+    public void setAuthor(ChangedByBean author) {
+        this.author = author;
+    }
+
+
     /**
      * <p>Dispense Status Change Effective Date</p>
      * 
@@ -224,15 +233,6 @@ public class StatusChangesBean extends MessagePartBean {
     }
     public void setEffectiveTime(Interval<Date> effectiveTime) {
         this.effectiveTime.setValue(effectiveTime);
-    }
-
-
-    @Hl7XmlMapping({"author"})
-    public ChangedByBean getAuthor() {
-        return this.author;
-    }
-    public void setAuthor(ChangedByBean author) {
-        this.author = author;
     }
 
 }

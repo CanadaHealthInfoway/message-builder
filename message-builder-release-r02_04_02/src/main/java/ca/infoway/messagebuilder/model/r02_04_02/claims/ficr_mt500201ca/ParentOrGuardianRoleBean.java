@@ -20,21 +20,9 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 public class ParentOrGuardianRoleBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private PN nameOfParentOrGuardian = new PNImpl();
     private CV parentOrGuardianRelationshipToPatient = new CVImpl();
+    private PN nameOfParentOrGuardian = new PNImpl();
     private II idOfParent = new IIImpl();
-
-
-    /**
-     * <p>Name of Parent or Guardian</p>
-     */
-    @Hl7XmlMapping({"relationshipHolder/name"})
-    public PersonName getNameOfParentOrGuardian() {
-        return this.nameOfParentOrGuardian.getValue();
-    }
-    public void setNameOfParentOrGuardian(PersonName nameOfParentOrGuardian) {
-        this.nameOfParentOrGuardian.setValue(nameOfParentOrGuardian);
-    }
 
 
     /**
@@ -46,6 +34,18 @@ public class ParentOrGuardianRoleBean extends MessagePartBean {
     }
     public void setParentOrGuardianRelationshipToPatient(PersonalRelationshipRoleType parentOrGuardianRelationshipToPatient) {
         this.parentOrGuardianRelationshipToPatient.setValue(parentOrGuardianRelationshipToPatient);
+    }
+
+
+    /**
+     * <p>Name of Parent or Guardian</p>
+     */
+    @Hl7XmlMapping({"relationshipHolder/name"})
+    public PersonName getNameOfParentOrGuardian() {
+        return this.nameOfParentOrGuardian.getValue();
+    }
+    public void setNameOfParentOrGuardian(PersonName nameOfParentOrGuardian) {
+        this.nameOfParentOrGuardian.setValue(nameOfParentOrGuardian);
     }
 
 

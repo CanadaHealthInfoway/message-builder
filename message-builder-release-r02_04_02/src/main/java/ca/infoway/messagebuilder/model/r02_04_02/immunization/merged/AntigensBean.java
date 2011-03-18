@@ -43,29 +43,9 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 public class AntigensBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private ST antigenName = new STImpl();
     private CV antigenCode = new CVImpl();
     private HealthChartBean asHealthChart;
-
-
-    /**
-     * <p>AntigenName</p>
-     * 
-     * <p>Antigen Name</p>
-     * 
-     * <p><p>The name of the antigen contained within a 
-     * vaccine.</p></p>
-     * 
-     * <p><p>Used for communication between and display to 
-     * providers.</p></p>
-     */
-    @Hl7XmlMapping({"name"})
-    public String getAntigenName() {
-        return this.antigenName.getValue();
-    }
-    public void setAntigenName(String antigenName) {
-        this.antigenName.setValue(antigenName);
-    }
+    private ST antigenName = new STImpl();
 
 
     /**
@@ -100,6 +80,26 @@ public class AntigensBean extends MessagePartBean {
     }
     public void setAsHealthChart(HealthChartBean asHealthChart) {
         this.asHealthChart = asHealthChart;
+    }
+
+
+    /**
+     * <p>AntigenName</p>
+     * 
+     * <p>Antigen Name</p>
+     * 
+     * <p><p>The name of the antigen contained within a 
+     * vaccine.</p></p>
+     * 
+     * <p><p>Used for communication between and display to 
+     * providers.</p></p>
+     */
+    @Hl7XmlMapping({"name"})
+    public String getAntigenName() {
+        return this.antigenName.getValue();
+    }
+    public void setAntigenName(String antigenName) {
+        this.antigenName.setValue(antigenName);
     }
 
 }

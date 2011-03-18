@@ -52,21 +52,15 @@ import java.util.Set;
 public class ReportedReactionBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private List<ReportedReactionsBean> subjectOf2CausalityAssessment = new ArrayList<ReportedReactionsBean>();
     private CD diagnosisType = new CDImpl();
     private CV reaction = new CVImpl();
     private ReportedByBean informant;
+    private List<ReportedReactionsBean> subjectOf2CausalityAssessment = new ArrayList<ReportedReactionsBean>();
+    private SET<CV, Code> adverseReactionMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);
     private ST description = new STImpl();
     private AllergyIntoleranceSeverityLevelBean subjectOf1SeverityObservation;
-    private SET<CV, Code> adverseReactionMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);
-    private IVL<TS, Interval<Date>> reactionOnsetDate = new IVLImpl<TS, Interval<Date>>();
     private II reactionRecordId = new IIImpl();
-
-
-    @Hl7XmlMapping({"subjectOf2/causalityAssessment"})
-    public List<ReportedReactionsBean> getSubjectOf2CausalityAssessment() {
-        return this.subjectOf2CausalityAssessment;
-    }
+    private IVL<TS, Interval<Date>> reactionOnsetDate = new IVLImpl<TS, Interval<Date>>();
 
 
     /**
@@ -125,29 +119,9 @@ public class ReportedReactionBean extends MessagePartBean {
     }
 
 
-    /**
-     * <p>G:Description</p>
-     * 
-     * <p><p>A free form description of the reaction.</p></p>
-     * 
-     * <p><p>Allows for flexibility in the recording and reporting 
-     * of the reaction.</p></p>
-     */
-    @Hl7XmlMapping({"text"})
-    public String getDescription() {
-        return this.description.getValue();
-    }
-    public void setDescription(String description) {
-        this.description.setValue(description);
-    }
-
-
-    @Hl7XmlMapping({"subjectOf1/severityObservation"})
-    public AllergyIntoleranceSeverityLevelBean getSubjectOf1SeverityObservation() {
-        return this.subjectOf1SeverityObservation;
-    }
-    public void setSubjectOf1SeverityObservation(AllergyIntoleranceSeverityLevelBean subjectOf1SeverityObservation) {
-        this.subjectOf1SeverityObservation = subjectOf1SeverityObservation;
+    @Hl7XmlMapping({"subjectOf2/causalityAssessment"})
+    public List<ReportedReactionsBean> getSubjectOf2CausalityAssessment() {
+        return this.subjectOf2CausalityAssessment;
     }
 
 
@@ -212,20 +186,28 @@ public class ReportedReactionBean extends MessagePartBean {
 
 
     /**
-     * <p>F:Reaction Onset Date</p>
+     * <p>G:Description</p>
      * 
-     * <p><p>The date on which the reaction occurrence began.</p></p>
+     * <p><p>A free form description of the reaction.</p></p>
      * 
-     * <p><p>Indicates when evidence of the condition first 
-     * appeared. May also provide information on the duration of 
-     * the reaction.</p></p>
+     * <p><p>Allows for flexibility in the recording and reporting 
+     * of the reaction.</p></p>
      */
-    @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getReactionOnsetDate() {
-        return this.reactionOnsetDate.getValue();
+    @Hl7XmlMapping({"text"})
+    public String getDescription() {
+        return this.description.getValue();
     }
-    public void setReactionOnsetDate(Interval<Date> reactionOnsetDate) {
-        this.reactionOnsetDate.setValue(reactionOnsetDate);
+    public void setDescription(String description) {
+        this.description.setValue(description);
+    }
+
+
+    @Hl7XmlMapping({"subjectOf1/severityObservation"})
+    public AllergyIntoleranceSeverityLevelBean getSubjectOf1SeverityObservation() {
+        return this.subjectOf1SeverityObservation;
+    }
+    public void setSubjectOf1SeverityObservation(AllergyIntoleranceSeverityLevelBean subjectOf1SeverityObservation) {
+        this.subjectOf1SeverityObservation = subjectOf1SeverityObservation;
     }
 
 
@@ -244,6 +226,24 @@ public class ReportedReactionBean extends MessagePartBean {
     }
     public void setReactionRecordId(Identifier reactionRecordId) {
         this.reactionRecordId.setValue(reactionRecordId);
+    }
+
+
+    /**
+     * <p>F:Reaction Onset Date</p>
+     * 
+     * <p><p>The date on which the reaction occurrence began.</p></p>
+     * 
+     * <p><p>Indicates when evidence of the condition first 
+     * appeared. May also provide information on the duration of 
+     * the reaction.</p></p>
+     */
+    @Hl7XmlMapping({"effectiveTime"})
+    public Interval<Date> getReactionOnsetDate() {
+        return this.reactionOnsetDate.getValue();
+    }
+    public void setReactionOnsetDate(Interval<Date> reactionOnsetDate) {
+        this.reactionOnsetDate.setValue(reactionOnsetDate);
     }
 
 }

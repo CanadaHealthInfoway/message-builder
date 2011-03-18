@@ -24,31 +24,8 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 public class ImmunizationReasonBean extends MessagePartBean implements ca.infoway.messagebuilder.model.r02_04_02.merged.Choice {
 
     private static final long serialVersionUID = 20110318L;
-    private ST immunizationReasonText = new STImpl();
     private CV immunizationReason = new CVImpl();
-
-
-    /**
-     * <p>ImmunizationReasonText</p>
-     * 
-     * <p>Immunization Reason Text</p>
-     * 
-     * <p><p>A textual or multimedia description (or reference to a 
-     * description) of the reason.</p></p>
-     * 
-     * <p><p>Provides additional context and description relating 
-     * to the reason for immunization. Not all implementations will 
-     * support text. As a result, this attribute is optional.</p></p>
-     * 
-     * <p>Immunization Reason Text</p>
-     */
-    @Hl7XmlMapping({"text"})
-    public String getImmunizationReasonText() {
-        return this.immunizationReasonText.getValue();
-    }
-    public void setImmunizationReasonText(String immunizationReasonText) {
-        this.immunizationReasonText.setValue(immunizationReasonText);
-    }
+    private ST immunizationReasonText = new STImpl();
 
 
     /**
@@ -72,6 +49,29 @@ public class ImmunizationReasonBean extends MessagePartBean implements ca.infowa
     }
     public void setImmunizationReason(Code immunizationReason) {
         this.immunizationReason.setValue(immunizationReason);
+    }
+
+
+    /**
+     * <p>ImmunizationReasonText</p>
+     * 
+     * <p>Immunization Reason Text</p>
+     * 
+     * <p><p>A textual or multimedia description (or reference to a 
+     * description) of the reason.</p></p>
+     * 
+     * <p><p>Provides additional context and description relating 
+     * to the reason for immunization. Not all implementations will 
+     * support text. As a result, this attribute is optional.</p></p>
+     * 
+     * <p>Immunization Reason Text</p>
+     */
+    @Hl7XmlMapping({"text"})
+    public String getImmunizationReasonText() {
+        return this.immunizationReasonText.getValue();
+    }
+    public void setImmunizationReasonText(String immunizationReasonText) {
+        this.immunizationReasonText.setValue(immunizationReasonText);
     }
 
 }

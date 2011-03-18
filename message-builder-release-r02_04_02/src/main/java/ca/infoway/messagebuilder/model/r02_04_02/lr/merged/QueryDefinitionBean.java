@@ -20,6 +20,7 @@ import ca.infoway.messagebuilder.datatype.impl.CSImpl;
 import ca.infoway.messagebuilder.datatype.impl.CVImpl;
 import ca.infoway.messagebuilder.datatype.impl.IIImpl;
 import ca.infoway.messagebuilder.datatype.impl.PQImpl;
+import ca.infoway.messagebuilder.datatype.impl.RawListWrapper;
 import ca.infoway.messagebuilder.datatype.impl.STImpl;
 import ca.infoway.messagebuilder.datatype.impl.TSImpl;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
@@ -30,7 +31,9 @@ import ca.infoway.messagebuilder.domainvalue.ServiceDeliveryLocationPlaceType;
 import ca.infoway.messagebuilder.domainvalue.ServiceDeliveryLocationRoleType;
 import ca.infoway.messagebuilder.domainvalue.ServiceDeliveryRoleStatus;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 
 
@@ -63,41 +66,37 @@ import java.util.Date;
 public class QueryDefinitionBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private CV locationServiceTypes = new CVImpl();
-    private CD recordTypes = new CDImpl();
-    private II responsibleOrganizationId = new IIImpl();
-    private CS recordStatuses = new CSImpl();
-    private ST nameContains = new STImpl();
+    private List<II> regionIds = new ArrayList<II>();
+    private List<CD> recordTypes = new ArrayList<CD>();
     private PQ searchRadius = new PQImpl();
-    private AD address = new ADImpl();
-    private TS updatedSinceDateTime = new TSImpl();
+    private List<CS> recordStatuses = new ArrayList<CS>();
     private BL locationMobileIndicator = new BLImpl();
     private CV locationPlaceType = new CVImpl();
-    private AD nearAddress = new ADImpl();
     private II eHRRepositoryId = new IIImpl();
-    private II protocolIds = new IIImpl();
-    private II regionIds = new IIImpl();
-    private II recordIds = new IIImpl();
+    private ST nameContains = new STImpl();
+    private AD nearAddress = new ADImpl();
+    private List<II> protocolIds = new ArrayList<II>();
+    private AD address = new ADImpl();
+    private TS updatedSinceDateTime = new TSImpl();
+    private List<CV> locationServiceTypes = new ArrayList<CV>();
+    private II responsibleOrganizationId = new IIImpl();
+    private List<II> recordIds = new ArrayList<II>();
 
 
     /**
-     * <p>LocationServiceTypes</p>
+     * <p>RegionIds</p>
      * 
-     * <p>ZB: Location Service Types</p>
+     * <p>ZD: Region Ids</p>
      * 
-     * <p></p></p>
+     * <p><p>If specified, filters the returned location records to 
+     * those which are part of the specified 'region'.</p></p>
      * 
-     * <p></p></p>
-     * 
-     * <p><p>Allows searching for facilities able to deliver 
-     * certain services or groups of services.</p></p>
+     * <p><p>Allows restricting the retrieved locations to those 
+     * associated with a particular health region.</p></p>
      */
-    @Hl7XmlMapping({"locationServiceType/value"})
-    public ActServiceDeliveryLocationService getLocationServiceTypes() {
-        return (ActServiceDeliveryLocationService) this.locationServiceTypes.getValue();
-    }
-    public void setLocationServiceTypes(ActServiceDeliveryLocationService locationServiceTypes) {
-        this.locationServiceTypes.setValue(locationServiceTypes);
+    @Hl7XmlMapping({"regionId/value"})
+    public List<Identifier> getRegionIds() {
+        return new RawListWrapper<II, Identifier>(regionIds, IIImpl.class);
     }
 
 
@@ -115,82 +114,8 @@ public class QueryDefinitionBean extends MessagePartBean {
      * <p></p></p>
      */
     @Hl7XmlMapping({"recordType/value"})
-    public ServiceDeliveryLocationRoleType getRecordTypes() {
-        return (ServiceDeliveryLocationRoleType) this.recordTypes.getValue();
-    }
-    public void setRecordTypes(ServiceDeliveryLocationRoleType recordTypes) {
-        this.recordTypes.setValue(recordTypes);
-    }
-
-
-    /**
-     * <p>ResponsibleOrganizationId</p>
-     * 
-     * <p>ZH: Responsible Organization Id</p>
-     * 
-     * <p><p>If specified, filters the returned location records to 
-     * those which are under the responsibility of the specified 
-     * organization.</p></p>
-     * 
-     * <p><p>Allows returning all locations associated with a 
-     * particular organization.</p></p>
-     */
-    @Hl7XmlMapping({"responsibleOrganizationId/value"})
-    public Identifier getResponsibleOrganizationId() {
-        return this.responsibleOrganizationId.getValue();
-    }
-    public void setResponsibleOrganizationId(Identifier responsibleOrganizationId) {
-        this.responsibleOrganizationId.setValue(responsibleOrganizationId);
-    }
-
-
-    /**
-     * <p>RecordStatuses</p>
-     * 
-     * <p>I: Record Statuses</p>
-     * 
-     * <p><p>Filters the set of records to be retrieved to only 
-     * include those with the identified status(s). If no values 
-     * are specified, no filter will be applied.</p></p>
-     * 
-     * <p><p>Allows constraining the status of records to be 
-     * retrieved. Multiple repetitions are present to allow 
-     * selection of multiple statuses with a single query.</p></p>
-     */
-    @Hl7XmlMapping({"recordStatus/value"})
-    public ServiceDeliveryRoleStatus getRecordStatuses() {
-        return (ServiceDeliveryRoleStatus) this.recordStatuses.getValue();
-    }
-    public void setRecordStatuses(ServiceDeliveryRoleStatus recordStatuses) {
-        this.recordStatuses.setValue(recordStatuses);
-    }
-
-
-    /**
-     * <p>NameContains</p>
-     * 
-     * <p>Z: Name Contains</p>
-     * 
-     * <p><p>Filters the returned location records to only include 
-     * those whose name includes the specified string. If 
-     * unspecified, no filter is applied.</p></p>
-     * 
-     * <p><p>Allows searching by name.</p><p>Note: Searches should 
-     * be case-insensitive and should ignore punctuation and 
-     * spacing. Some implementations may perform 
-     * &quot;sounds-like&quot; searches.</p></p>
-     * 
-     * <p><p>Allows searching by name.</p><p>Note: Searches should 
-     * be case-insensitive and should ignore punctuation and 
-     * spacing. Some implementations may perform 
-     * &quot;sounds-like&quot; searches.</p></p>
-     */
-    @Hl7XmlMapping({"nameContains/value"})
-    public String getNameContains() {
-        return this.nameContains.getValue();
-    }
-    public void setNameContains(String nameContains) {
-        this.nameContains.setValue(nameContains);
+    public List<ServiceDeliveryLocationRoleType> getRecordTypes() {
+        return new RawListWrapper<CD, ServiceDeliveryLocationRoleType>(recordTypes, CDImpl.class);
     }
 
 
@@ -216,44 +141,21 @@ public class QueryDefinitionBean extends MessagePartBean {
 
 
     /**
-     * <p>Address</p>
+     * <p>RecordStatuses</p>
      * 
-     * <p>ZE: Address</p>
+     * <p>I: Record Statuses</p>
      * 
-     * <p><p>If specified, filters the returned location records to 
-     * those in the specified province/territory or 
-     * municipality.</p></p>
+     * <p><p>Filters the set of records to be retrieved to only 
+     * include those with the identified status(s). If no values 
+     * are specified, no filter will be applied.</p></p>
      * 
-     * <p><p>Allows filtering the physical location of the 
-     * facility.</p></p>
+     * <p><p>Allows constraining the status of records to be 
+     * retrieved. Multiple repetitions are present to allow 
+     * selection of multiple statuses with a single query.</p></p>
      */
-    @Hl7XmlMapping({"address/value"})
-    public PostalAddress getAddress() {
-        return this.address.getValue();
-    }
-    public void setAddress(PostalAddress address) {
-        this.address.setValue(address);
-    }
-
-
-    /**
-     * <p>UpdatedSinceDateTime</p>
-     * 
-     * <p>K: Updated Since DateTime</p>
-     * 
-     * <p><p>Filters the records retrieved to only include those 
-     * which have been created or revised since the specified date 
-     * and time. If unspecified, no filter is applied.</p></p>
-     * 
-     * <p><p>Useful to retrieve information &quot;since you last 
-     * checked&quot;.</p></p>
-     */
-    @Hl7XmlMapping({"amendedSinceDateTime/value"})
-    public Date getUpdatedSinceDateTime() {
-        return this.updatedSinceDateTime.getValue();
-    }
-    public void setUpdatedSinceDateTime(Date updatedSinceDateTime) {
-        this.updatedSinceDateTime.setValue(updatedSinceDateTime);
+    @Hl7XmlMapping({"recordStatus/value"})
+    public List<ServiceDeliveryRoleStatus> getRecordStatuses() {
+        return new RawListWrapper<CS, ServiceDeliveryRoleStatus>(recordStatuses, CSImpl.class);
     }
 
 
@@ -301,27 +203,6 @@ public class QueryDefinitionBean extends MessagePartBean {
 
 
     /**
-     * <p>NearAddress</p>
-     * 
-     * <p>ZF: Near Address</p>
-     * 
-     * <p><p>Identifies an address that returned locations should 
-     * be near to. Results will be filtered to those appearing 
-     * within the specified radius from the identified address.</p></p>
-     * 
-     * <p><p>Allows retrieving facilities near to a particular 
-     * location.</p></p>
-     */
-    @Hl7XmlMapping({"nearAddress/value"})
-    public PostalAddress getNearAddress() {
-        return this.nearAddress.getValue();
-    }
-    public void setNearAddress(PostalAddress nearAddress) {
-        this.nearAddress.setValue(nearAddress);
-    }
-
-
-    /**
      * <p>EHRRepositoryId</p>
      * 
      * <p>Q: EHR Repository Id</p>
@@ -340,6 +221,55 @@ public class QueryDefinitionBean extends MessagePartBean {
     }
     public void setEHRRepositoryId(Identifier eHRRepositoryId) {
         this.eHRRepositoryId.setValue(eHRRepositoryId);
+    }
+
+
+    /**
+     * <p>NameContains</p>
+     * 
+     * <p>Z: Name Contains</p>
+     * 
+     * <p><p>Filters the returned location records to only include 
+     * those whose name includes the specified string. If 
+     * unspecified, no filter is applied.</p></p>
+     * 
+     * <p><p>Allows searching by name.</p><p>Note: Searches should 
+     * be case-insensitive and should ignore punctuation and 
+     * spacing. Some implementations may perform 
+     * &quot;sounds-like&quot; searches.</p></p>
+     * 
+     * <p><p>Allows searching by name.</p><p>Note: Searches should 
+     * be case-insensitive and should ignore punctuation and 
+     * spacing. Some implementations may perform 
+     * &quot;sounds-like&quot; searches.</p></p>
+     */
+    @Hl7XmlMapping({"nameContains/value"})
+    public String getNameContains() {
+        return this.nameContains.getValue();
+    }
+    public void setNameContains(String nameContains) {
+        this.nameContains.setValue(nameContains);
+    }
+
+
+    /**
+     * <p>NearAddress</p>
+     * 
+     * <p>ZF: Near Address</p>
+     * 
+     * <p><p>Identifies an address that returned locations should 
+     * be near to. Results will be filtered to those appearing 
+     * within the specified radius from the identified address.</p></p>
+     * 
+     * <p><p>Allows retrieving facilities near to a particular 
+     * location.</p></p>
+     */
+    @Hl7XmlMapping({"nearAddress/value"})
+    public PostalAddress getNearAddress() {
+        return this.nearAddress.getValue();
+    }
+    public void setNearAddress(PostalAddress nearAddress) {
+        this.nearAddress.setValue(nearAddress);
     }
 
 
@@ -365,31 +295,89 @@ public class QueryDefinitionBean extends MessagePartBean {
      * providers.</p></p>
      */
     @Hl7XmlMapping({"protocolId/value"})
-    public Identifier getProtocolIds() {
-        return this.protocolIds.getValue();
-    }
-    public void setProtocolIds(Identifier protocolIds) {
-        this.protocolIds.setValue(protocolIds);
+    public List<Identifier> getProtocolIds() {
+        return new RawListWrapper<II, Identifier>(protocolIds, IIImpl.class);
     }
 
 
     /**
-     * <p>RegionIds</p>
+     * <p>Address</p>
      * 
-     * <p>ZD: Region Ids</p>
+     * <p>ZE: Address</p>
      * 
      * <p><p>If specified, filters the returned location records to 
-     * those which are part of the specified 'region'.</p></p>
+     * those in the specified province/territory or 
+     * municipality.</p></p>
      * 
-     * <p><p>Allows restricting the retrieved locations to those 
-     * associated with a particular health region.</p></p>
+     * <p><p>Allows filtering the physical location of the 
+     * facility.</p></p>
      */
-    @Hl7XmlMapping({"regionId/value"})
-    public Identifier getRegionIds() {
-        return this.regionIds.getValue();
+    @Hl7XmlMapping({"address/value"})
+    public PostalAddress getAddress() {
+        return this.address.getValue();
     }
-    public void setRegionIds(Identifier regionIds) {
-        this.regionIds.setValue(regionIds);
+    public void setAddress(PostalAddress address) {
+        this.address.setValue(address);
+    }
+
+
+    /**
+     * <p>UpdatedSinceDateTime</p>
+     * 
+     * <p>K: Updated Since DateTime</p>
+     * 
+     * <p><p>Filters the records retrieved to only include those 
+     * which have been created or revised since the specified date 
+     * and time. If unspecified, no filter is applied.</p></p>
+     * 
+     * <p><p>Useful to retrieve information &quot;since you last 
+     * checked&quot;.</p></p>
+     */
+    @Hl7XmlMapping({"amendedSinceDateTime/value"})
+    public Date getUpdatedSinceDateTime() {
+        return this.updatedSinceDateTime.getValue();
+    }
+    public void setUpdatedSinceDateTime(Date updatedSinceDateTime) {
+        this.updatedSinceDateTime.setValue(updatedSinceDateTime);
+    }
+
+
+    /**
+     * <p>LocationServiceTypes</p>
+     * 
+     * <p>ZB: Location Service Types</p>
+     * 
+     * <p></p></p>
+     * 
+     * <p></p></p>
+     * 
+     * <p><p>Allows searching for facilities able to deliver 
+     * certain services or groups of services.</p></p>
+     */
+    @Hl7XmlMapping({"locationServiceType/value"})
+    public List<ActServiceDeliveryLocationService> getLocationServiceTypes() {
+        return new RawListWrapper<CV, ActServiceDeliveryLocationService>(locationServiceTypes, CVImpl.class);
+    }
+
+
+    /**
+     * <p>ResponsibleOrganizationId</p>
+     * 
+     * <p>ZH: Responsible Organization Id</p>
+     * 
+     * <p><p>If specified, filters the returned location records to 
+     * those which are under the responsibility of the specified 
+     * organization.</p></p>
+     * 
+     * <p><p>Allows returning all locations associated with a 
+     * particular organization.</p></p>
+     */
+    @Hl7XmlMapping({"responsibleOrganizationId/value"})
+    public Identifier getResponsibleOrganizationId() {
+        return this.responsibleOrganizationId.getValue();
+    }
+    public void setResponsibleOrganizationId(Identifier responsibleOrganizationId) {
+        this.responsibleOrganizationId.setValue(responsibleOrganizationId);
     }
 
 
@@ -423,11 +411,8 @@ public class QueryDefinitionBean extends MessagePartBean {
      * reasons.</p></p>
      */
     @Hl7XmlMapping({"recordId/value"})
-    public Identifier getRecordIds() {
-        return this.recordIds.getValue();
-    }
-    public void setRecordIds(Identifier recordIds) {
-        this.recordIds.setValue(recordIds);
+    public List<Identifier> getRecordIds() {
+        return new RawListWrapper<II, Identifier>(recordIds, IIImpl.class);
     }
 
 }

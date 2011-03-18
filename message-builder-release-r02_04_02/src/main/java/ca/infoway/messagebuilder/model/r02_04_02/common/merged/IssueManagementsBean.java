@@ -70,8 +70,8 @@ public class IssueManagementsBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
     private CV managementType = new CVImpl();
-    private ST managementDescription = new STImpl();
     private PrescribedByBean author;
+    private ST managementDescription = new STImpl();
 
 
     /**
@@ -282,6 +282,15 @@ public class IssueManagementsBean extends MessagePartBean {
     }
 
 
+    @Hl7XmlMapping({"author"})
+    public PrescribedByBean getAuthor() {
+        return this.author;
+    }
+    public void setAuthor(PrescribedByBean author) {
+        this.author = author;
+    }
+
+
     /**
      * <p>ManagementDescription</p>
      * 
@@ -301,15 +310,6 @@ public class IssueManagementsBean extends MessagePartBean {
     }
     public void setManagementDescription(String managementDescription) {
         this.managementDescription.setValue(managementDescription);
-    }
-
-
-    @Hl7XmlMapping({"author"})
-    public PrescribedByBean getAuthor() {
-        return this.author;
-    }
-    public void setAuthor(PrescribedByBean author) {
-        this.author = author;
     }
 
 }

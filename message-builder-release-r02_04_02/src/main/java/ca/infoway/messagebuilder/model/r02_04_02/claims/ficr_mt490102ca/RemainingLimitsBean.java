@@ -23,8 +23,8 @@ public class RemainingLimitsBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
     private PQ remainingQuantitySupply = new PQImpl();
-    private IVL<TS, Interval<Date>> remainingDaysSupply = new IVLImpl<TS, Interval<Date>>();
     private INT remainingFillsPermitted = new INTImpl();
+    private IVL<TS, Interval<Date>> remainingDaysSupply = new IVLImpl<TS, Interval<Date>>();
 
 
     /**
@@ -40,18 +40,6 @@ public class RemainingLimitsBean extends MessagePartBean {
 
 
     /**
-     * <p>Remaining Days Supply</p>
-     */
-    @Hl7XmlMapping({"expectedUseTime"})
-    public Interval<Date> getRemainingDaysSupply() {
-        return this.remainingDaysSupply.getValue();
-    }
-    public void setRemainingDaysSupply(Interval<Date> remainingDaysSupply) {
-        this.remainingDaysSupply.setValue(remainingDaysSupply);
-    }
-
-
-    /**
      * <p>Remaining Fills Permitted</p>
      */
     @Hl7XmlMapping({"repeatNumber"})
@@ -60,6 +48,18 @@ public class RemainingLimitsBean extends MessagePartBean {
     }
     public void setRemainingFillsPermitted(Integer remainingFillsPermitted) {
         this.remainingFillsPermitted.setValue(remainingFillsPermitted);
+    }
+
+
+    /**
+     * <p>Remaining Days Supply</p>
+     */
+    @Hl7XmlMapping({"expectedUseTime"})
+    public Interval<Date> getRemainingDaysSupply() {
+        return this.remainingDaysSupply.getValue();
+    }
+    public void setRemainingDaysSupply(Interval<Date> remainingDaysSupply) {
+        this.remainingDaysSupply.setValue(remainingDaysSupply);
     }
 
 }

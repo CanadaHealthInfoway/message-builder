@@ -24,6 +24,8 @@ import ca.infoway.messagebuilder.model.r02_04_02.merged.OccurredAtBean;
 import ca.infoway.messagebuilder.model.r02_04_02.pharmacy.merged.PrescribedAdminidtrationInstructionBean;
 import ca.infoway.messagebuilder.model.r02_04_02.pharmacy.merged.SubstanceAdministrationRequestBean;
 import ca.infoway.messagebuilder.model.r02_04_02.pharmacy.merged.SupplyEventBean;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 
@@ -43,35 +45,17 @@ import java.util.Set;
 public class DispenseBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private SubstanceAdministrationRequestBean fulfillmentSubstanceAdministrationRequest;
-    private PrescribedAdminidtrationInstructionBean component2AdministrationInstructions;
     private SupplyEventBean component1SupplyEvent;
+    private OccurredAtBean location;
     private BL subjectOf1DetectedIssueIndicator = new BLImpl();
     private HealthcareWorkerBean responsiblePartyAssignedEntity;
-    private OccurredAtBean location;
-    private CS dispenseStatus = new CSImpl();
-    private SET<CV, Code> prescriptionMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);
-    private BL subjectOf2AnnotationIndicator = new BLImpl();
-    private II prescriptionDispenseNumber = new IIImpl();
     private HealthcareWorkerBean performerAssignedEntity;
-
-
-    @Hl7XmlMapping({"fulfillment/substanceAdministrationRequest"})
-    public SubstanceAdministrationRequestBean getFulfillmentSubstanceAdministrationRequest() {
-        return this.fulfillmentSubstanceAdministrationRequest;
-    }
-    public void setFulfillmentSubstanceAdministrationRequest(SubstanceAdministrationRequestBean fulfillmentSubstanceAdministrationRequest) {
-        this.fulfillmentSubstanceAdministrationRequest = fulfillmentSubstanceAdministrationRequest;
-    }
-
-
-    @Hl7XmlMapping({"component2/administrationInstructions"})
-    public PrescribedAdminidtrationInstructionBean getComponent2AdministrationInstructions() {
-        return this.component2AdministrationInstructions;
-    }
-    public void setComponent2AdministrationInstructions(PrescribedAdminidtrationInstructionBean component2AdministrationInstructions) {
-        this.component2AdministrationInstructions = component2AdministrationInstructions;
-    }
+    private BL subjectOf2AnnotationIndicator = new BLImpl();
+    private PrescribedAdminidtrationInstructionBean component2AdministrationInstructions;
+    private SubstanceAdministrationRequestBean fulfillmentSubstanceAdministrationRequest;
+    private SET<CV, Code> prescriptionMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);
+    private CS dispenseStatus = new CSImpl();
+    private II prescriptionDispenseNumber = new IIImpl();
 
 
     @Hl7XmlMapping({"component1/supplyEvent"})
@@ -80,6 +64,15 @@ public class DispenseBean extends MessagePartBean {
     }
     public void setComponent1SupplyEvent(SupplyEventBean component1SupplyEvent) {
         this.component1SupplyEvent = component1SupplyEvent;
+    }
+
+
+    @Hl7XmlMapping({"location"})
+    public OccurredAtBean getLocation() {
+        return this.location;
+    }
+    public void setLocation(OccurredAtBean location) {
+        this.location = location;
     }
 
 
@@ -101,31 +94,39 @@ public class DispenseBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"location"})
-    public OccurredAtBean getLocation() {
-        return this.location;
+    @Hl7XmlMapping({"performer/assignedEntity"})
+    public HealthcareWorkerBean getPerformerAssignedEntity() {
+        return this.performerAssignedEntity;
     }
-    public void setLocation(OccurredAtBean location) {
-        this.location = location;
+    public void setPerformerAssignedEntity(HealthcareWorkerBean performerAssignedEntity) {
+        this.performerAssignedEntity = performerAssignedEntity;
     }
 
 
-    /**
-     * <p>C:Dispense Status</p>
-     * 
-     * <p><p>Indicates whether the dispense has been picked up 
-     * ('complete') or has just been processed ('active').</p></p>
-     * 
-     * <p><p>Indicates how far along the process the dispense event 
-     * is. It should always be known and is therefore 
-     * mandatory.</p></p>
-     */
-    @Hl7XmlMapping({"statusCode"})
-    public ActStatus getDispenseStatus() {
-        return (ActStatus) this.dispenseStatus.getValue();
+    @Hl7XmlMapping({"subjectOf2/annotationIndicator"})
+    public Boolean getSubjectOf2AnnotationIndicator() {
+        return this.subjectOf2AnnotationIndicator.getValue();
     }
-    public void setDispenseStatus(ActStatus dispenseStatus) {
-        this.dispenseStatus.setValue(dispenseStatus);
+    public void setSubjectOf2AnnotationIndicator(Boolean subjectOf2AnnotationIndicator) {
+        this.subjectOf2AnnotationIndicator.setValue(subjectOf2AnnotationIndicator);
+    }
+
+
+    @Hl7XmlMapping({"component2/administrationInstructions"})
+    public PrescribedAdminidtrationInstructionBean getComponent2AdministrationInstructions() {
+        return this.component2AdministrationInstructions;
+    }
+    public void setComponent2AdministrationInstructions(PrescribedAdminidtrationInstructionBean component2AdministrationInstructions) {
+        this.component2AdministrationInstructions = component2AdministrationInstructions;
+    }
+
+
+    @Hl7XmlMapping({"fulfillment/substanceAdministrationRequest"})
+    public SubstanceAdministrationRequestBean getFulfillmentSubstanceAdministrationRequest() {
+        return this.fulfillmentSubstanceAdministrationRequest;
+    }
+    public void setFulfillmentSubstanceAdministrationRequest(SubstanceAdministrationRequestBean fulfillmentSubstanceAdministrationRequest) {
+        this.fulfillmentSubstanceAdministrationRequest = fulfillmentSubstanceAdministrationRequest;
     }
 
 
@@ -234,12 +235,22 @@ public class DispenseBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"subjectOf2/annotationIndicator"})
-    public Boolean getSubjectOf2AnnotationIndicator() {
-        return this.subjectOf2AnnotationIndicator.getValue();
+    /**
+     * <p>C:Dispense Status</p>
+     * 
+     * <p><p>Indicates whether the dispense has been picked up 
+     * ('complete') or has just been processed ('active').</p></p>
+     * 
+     * <p><p>Indicates how far along the process the dispense event 
+     * is. It should always be known and is therefore 
+     * mandatory.</p></p>
+     */
+    @Hl7XmlMapping({"statusCode"})
+    public ActStatus getDispenseStatus() {
+        return (ActStatus) this.dispenseStatus.getValue();
     }
-    public void setSubjectOf2AnnotationIndicator(Boolean subjectOf2AnnotationIndicator) {
-        this.subjectOf2AnnotationIndicator.setValue(subjectOf2AnnotationIndicator);
+    public void setDispenseStatus(ActStatus dispenseStatus) {
+        this.dispenseStatus.setValue(dispenseStatus);
     }
 
 
@@ -267,15 +278,6 @@ public class DispenseBean extends MessagePartBean {
     }
     public void setPrescriptionDispenseNumber(Identifier prescriptionDispenseNumber) {
         this.prescriptionDispenseNumber.setValue(prescriptionDispenseNumber);
-    }
-
-
-    @Hl7XmlMapping({"performer/assignedEntity"})
-    public HealthcareWorkerBean getPerformerAssignedEntity() {
-        return this.performerAssignedEntity;
-    }
-    public void setPerformerAssignedEntity(HealthcareWorkerBean performerAssignedEntity) {
-        this.performerAssignedEntity = performerAssignedEntity;
     }
 
 }

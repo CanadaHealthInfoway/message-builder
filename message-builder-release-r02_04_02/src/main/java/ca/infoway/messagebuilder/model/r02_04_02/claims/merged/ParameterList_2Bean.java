@@ -41,11 +41,11 @@ public class ParameterList_2Bean extends MessagePartBean {
     private static final long serialVersionUID = 20110318L;
     private II payeeID = new IIImpl();
     private II payorID = new IIImpl();
-    private II locationIDNumber = new IIImpl();
-    private II sendingApplicationIDNumber = new IIImpl();
-    private II insuranceCarrierID = new IIImpl();
     private II providerID = new IIImpl();
+    private II sendingApplicationIDNumber = new IIImpl();
+    private II locationIDNumber = new IIImpl();
     private II financialContractID = new IIImpl();
+    private II insuranceCarrierID = new IIImpl();
     private II adjudicatedResultsGroupID = new IIImpl();
     private TS adjudicationDate = new TSImpl();
     private CV invoiceElementGroupCode = new CVImpl();
@@ -87,18 +87,19 @@ public class ParameterList_2Bean extends MessagePartBean {
 
 
     /**
-     * <p>LocationIDNumber</p>
+     * <p>ProviderID</p>
      * 
-     * <p>Location ID Number</p>
+     * <p>Provider ID</p>
      * 
-     * <p><p>Unique ID for location (OID)</p></p>
+     * <p><p>ID of provider:professional license no., 
+     * jurisdictional PHN. eg. Professional registry no.</p></p>
      */
-    @Hl7XmlMapping({"locationId/value"})
-    public Identifier getLocationIDNumber() {
-        return this.locationIDNumber.getValue();
+    @Hl7XmlMapping({"providerId/value"})
+    public Identifier getProviderID() {
+        return this.providerID.getValue();
     }
-    public void setLocationIDNumber(Identifier locationIDNumber) {
-        this.locationIDNumber.setValue(locationIDNumber);
+    public void setProviderID(Identifier providerID) {
+        this.providerID.setValue(providerID);
     }
 
 
@@ -120,35 +121,18 @@ public class ParameterList_2Bean extends MessagePartBean {
 
 
     /**
-     * <p>InsuranceCarrierID</p>
+     * <p>LocationIDNumber</p>
      * 
-     * <p>Insurance Carrier ID</p>
+     * <p>Location ID Number</p>
      * 
-     * <p><p>Business ID for Insurance Carrier</p></p>
+     * <p><p>Unique ID for location (OID)</p></p>
      */
-    @Hl7XmlMapping({"insuranceCarrierRoleId/value"})
-    public Identifier getInsuranceCarrierID() {
-        return this.insuranceCarrierID.getValue();
+    @Hl7XmlMapping({"locationId/value"})
+    public Identifier getLocationIDNumber() {
+        return this.locationIDNumber.getValue();
     }
-    public void setInsuranceCarrierID(Identifier insuranceCarrierID) {
-        this.insuranceCarrierID.setValue(insuranceCarrierID);
-    }
-
-
-    /**
-     * <p>ProviderID</p>
-     * 
-     * <p>Provider ID</p>
-     * 
-     * <p><p>ID of provider:professional license no., 
-     * jurisdictional PHN. eg. Professional registry no.</p></p>
-     */
-    @Hl7XmlMapping({"providerId/value"})
-    public Identifier getProviderID() {
-        return this.providerID.getValue();
-    }
-    public void setProviderID(Identifier providerID) {
-        this.providerID.setValue(providerID);
+    public void setLocationIDNumber(Identifier locationIDNumber) {
+        this.locationIDNumber.setValue(locationIDNumber);
     }
 
 
@@ -166,6 +150,22 @@ public class ParameterList_2Bean extends MessagePartBean {
     }
     public void setFinancialContractID(Identifier financialContractID) {
         this.financialContractID.setValue(financialContractID);
+    }
+
+
+    /**
+     * <p>InsuranceCarrierID</p>
+     * 
+     * <p>Insurance Carrier ID</p>
+     * 
+     * <p><p>Business ID for Insurance Carrier</p></p>
+     */
+    @Hl7XmlMapping({"insuranceCarrierRoleId/value"})
+    public Identifier getInsuranceCarrierID() {
+        return this.insuranceCarrierID.getValue();
+    }
+    public void setInsuranceCarrierID(Identifier insuranceCarrierID) {
+        this.insuranceCarrierID.setValue(insuranceCarrierID);
     }
 
 

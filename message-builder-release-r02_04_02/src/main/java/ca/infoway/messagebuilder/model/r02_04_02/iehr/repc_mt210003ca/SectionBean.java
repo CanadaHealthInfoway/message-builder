@@ -20,10 +20,16 @@ import java.util.List;
 public class SectionBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
+    private List<DocumentSectionsBean> component2SubSection = new ArrayList<DocumentSectionsBean>();
     private DocumentContent_1 component1DocumentContent;
     private ED<EncapsulatedData> documentOverviewContent = new EDImpl<EncapsulatedData>();
     private List<ReferenceBean> component3Reference = new ArrayList<ReferenceBean>();
-    private List<DocumentSectionsBean> component2SubSection = new ArrayList<DocumentSectionsBean>();
+
+
+    @Hl7XmlMapping({"component2/subSection"})
+    public List<DocumentSectionsBean> getComponent2SubSection() {
+        return this.component2SubSection;
+    }
 
 
     @Hl7XmlMapping({"component1/documentContent"})
@@ -73,12 +79,6 @@ public class SectionBean extends MessagePartBean {
     @Hl7XmlMapping({"component3/reference"})
     public List<ReferenceBean> getComponent3Reference() {
         return this.component3Reference;
-    }
-
-
-    @Hl7XmlMapping({"component2/subSection"})
-    public List<DocumentSectionsBean> getComponent2SubSection() {
-        return this.component2SubSection;
     }
 
 }

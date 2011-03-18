@@ -27,16 +27,31 @@ import java.util.List;
 public class RecommendedAdministrationInstructionsBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private List<AdministrationInstructionsBean> optionDosageInstruction = new ArrayList<AdministrationInstructionsBean>();
-    private ST recommendingAuthorityName = new STImpl();
+    private List<PatientCharacteristicsBean> preconditionObservationEventCriterion = new ArrayList<PatientCharacteristicsBean>();
     private PatientBean subjectPatient;
     private List<BecauseOfBean> reason = new ArrayList<BecauseOfBean>();
-    private List<PatientCharacteristicsBean> preconditionObservationEventCriterion = new ArrayList<PatientCharacteristicsBean>();
+    private ST recommendingAuthorityName = new STImpl();
+    private List<AdministrationInstructionsBean> optionDosageInstruction = new ArrayList<AdministrationInstructionsBean>();
 
 
-    @Hl7XmlMapping({"option/dosageInstruction"})
-    public List<AdministrationInstructionsBean> getOptionDosageInstruction() {
-        return this.optionDosageInstruction;
+    @Hl7XmlMapping({"precondition/observationEventCriterion"})
+    public List<PatientCharacteristicsBean> getPreconditionObservationEventCriterion() {
+        return this.preconditionObservationEventCriterion;
+    }
+
+
+    @Hl7XmlMapping({"subject/patient"})
+    public PatientBean getSubjectPatient() {
+        return this.subjectPatient;
+    }
+    public void setSubjectPatient(PatientBean subjectPatient) {
+        this.subjectPatient = subjectPatient;
+    }
+
+
+    @Hl7XmlMapping({"reason"})
+    public List<BecauseOfBean> getReason() {
+        return this.reason;
     }
 
 
@@ -59,24 +74,9 @@ public class RecommendedAdministrationInstructionsBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"subject/patient"})
-    public PatientBean getSubjectPatient() {
-        return this.subjectPatient;
-    }
-    public void setSubjectPatient(PatientBean subjectPatient) {
-        this.subjectPatient = subjectPatient;
-    }
-
-
-    @Hl7XmlMapping({"reason"})
-    public List<BecauseOfBean> getReason() {
-        return this.reason;
-    }
-
-
-    @Hl7XmlMapping({"precondition/observationEventCriterion"})
-    public List<PatientCharacteristicsBean> getPreconditionObservationEventCriterion() {
-        return this.preconditionObservationEventCriterion;
+    @Hl7XmlMapping({"option/dosageInstruction"})
+    public List<AdministrationInstructionsBean> getOptionDosageInstruction() {
+        return this.optionDosageInstruction;
     }
 
 }

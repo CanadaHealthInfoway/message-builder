@@ -45,18 +45,9 @@ import java.util.List;
 public class RegistrationEventBean<RR> extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private RegisteredItemBean<RR> subject;
     private EHRRepositoryBean custodianAssignedDevice;
     private List<PriorRegistrationEventBean> replacementOfPriorRegistration = new ArrayList<PriorRegistrationEventBean>();
-
-
-    @Hl7XmlMapping({"subject"})
-    public RegisteredItemBean<RR> getSubject() {
-        return this.subject;
-    }
-    public void setSubject(RegisteredItemBean<RR> subject) {
-        this.subject = subject;
-    }
+    private RegisteredItemBean<RR> subject;
 
 
     @Hl7XmlMapping({"custodian/assignedDevice"})
@@ -71,6 +62,15 @@ public class RegistrationEventBean<RR> extends MessagePartBean {
     @Hl7XmlMapping({"replacementOf/priorRegistration"})
     public List<PriorRegistrationEventBean> getReplacementOfPriorRegistration() {
         return this.replacementOfPriorRegistration;
+    }
+
+
+    @Hl7XmlMapping({"subject"})
+    public RegisteredItemBean<RR> getSubject() {
+        return this.subject;
+    }
+    public void setSubject(RegisteredItemBean<RR> subject) {
+        this.subject = subject;
     }
 
 }

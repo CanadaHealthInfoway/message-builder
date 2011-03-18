@@ -69,55 +69,20 @@ import java.util.Set;
 public class ProfessionalServiceBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private BL refutedIndicator = new BLImpl();
-    private SET<CV, Code> serviceMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);
     private Request_3Bean inFulfillmentOfActRequest;
-    private IVL<TS, Interval<Date>> serviceTimeAndLength = new IVLImpl<TS, Interval<Date>>();
+    private ClinicalDocumentEventBean subjectOf2ClinicalDocumentEvent;
     private List<BecauseOfBean> reason = new ArrayList<BecauseOfBean>();
-    private ActingPerson informantActingPerson;
-    private List<OldProcedureEventBean> predecessorOldProcedureEvent = new ArrayList<OldProcedureEventBean>();
-    private CD serviceType = new CDImpl();
+    private List<ActDefinitionBean> definitionActDefinition = new ArrayList<ActDefinitionBean>();
     private List<CareCompositionsBean> componentOfPatientCareProvisionEvent = new ArrayList<CareCompositionsBean>();
+    private List<OldProcedureEventBean> predecessorOldProcedureEvent = new ArrayList<OldProcedureEventBean>();
+    private ActingPerson informantActingPerson;
+    private CD serviceType = new CDImpl();
     private OccurredAtBean location;
     private IncludesBean subjectOf1;
-    private ClinicalDocumentEventBean subjectOf2ClinicalDocumentEvent;
-    private List<ActDefinitionBean> definitionActDefinition = new ArrayList<ActDefinitionBean>();
+    private BL refutedIndicator = new BLImpl();
     private List<ca.infoway.messagebuilder.model.r02_04_02.common.coct_mt911108ca.ActingPerson> performerActingPerson = new ArrayList<ca.infoway.messagebuilder.model.r02_04_02.common.coct_mt911108ca.ActingPerson>();
-
-
-    /**
-     * <p>C:Refuted Indicator</p>
-     * 
-     * <p></p></p>
-     * 
-     * <p></p></p>
-     * 
-     * <p></p></p>
-     */
-    @Hl7XmlMapping({"negationInd"})
-    public Boolean getRefutedIndicator() {
-        return this.refutedIndicator.getValue();
-    }
-    public void setRefutedIndicator(Boolean refutedIndicator) {
-        this.refutedIndicator.setValue(refutedIndicator);
-    }
-
-
-    /**
-     * <p>D:Service Masking Indicators</p>
-     * 
-     * <p></p></p>
-     * 
-     * <p></p></p>
-     * 
-     * <p></p></p>
-     * 
-     * <p></p></p>
-     */
-    @Hl7XmlMapping({"confidentialityCode"})
-    public Set<x_BasicConfidentialityKind> getServiceMaskingIndicators() {
-        return this.serviceMaskingIndicators.rawSet(x_BasicConfidentialityKind.class);
-    }
+    private SET<CV, Code> serviceMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);
+    private IVL<TS, Interval<Date>> serviceTimeAndLength = new IVLImpl<TS, Interval<Date>>();
 
 
     @Hl7XmlMapping({"inFulfillmentOf/actRequest"})
@@ -129,55 +94,36 @@ public class ProfessionalServiceBean extends MessagePartBean {
     }
 
 
-    /**
-     * <p>E:Service Time and Length</p>
-     * 
-     * <p><p>Center date cannot be null but duration can be left 
-     * unspecified if not known.</p></p>
-     * 
-     * <p><p>The date and time during which the professional 
-     * service was performed, as well as the duration of the 
-     * service. May be specified as any one or two of start time, 
-     * end time and duration.</p></p>
-     * 
-     * <p><p>PatientConsultation.eventTime(Low)</p><p>patientConsultation.eventDuration(Width)</p><p>ZPS.4 
-     * (center)</p><p>ZPS.5.2(timing portion of code 
-     * set)</p><p>Claim.457-EP</p><p>A_BillableClinicalService</p></p>
-     * 
-     * <p><p>PatientConsultation.eventTime(Low)</p><p>patientConsultation.eventDuration(Width)</p><p>ZPS.4 
-     * (center)</p><p>ZPS.5.2(timing portion of code 
-     * set)</p><p>Claim.457-EP</p><p>A_BillableClinicalService</p></p>
-     * 
-     * <p><p>PatientConsultation.eventTime(Low)</p><p>patientConsultation.eventDuration(Width)</p><p>ZPS.4 
-     * (center)</p><p>ZPS.5.2(timing portion of code 
-     * set)</p><p>Claim.457-EP</p><p>A_BillableClinicalService</p></p>
-     * 
-     * <p><p>PatientConsultation.eventTime(Low)</p><p>patientConsultation.eventDuration(Width)</p><p>ZPS.4 
-     * (center)</p><p>ZPS.5.2(timing portion of code 
-     * set)</p><p>Claim.457-EP</p><p>A_BillableClinicalService</p></p>
-     * 
-     * <p><p>PatientConsultation.eventTime(Low)</p><p>patientConsultation.eventDuration(Width)</p><p>ZPS.4 
-     * (center)</p><p>ZPS.5.2(timing portion of code 
-     * set)</p><p>Claim.457-EP</p><p>A_BillableClinicalService</p></p>
-     * 
-     * <p><p>PatientConsultation.eventTime(Low)</p><p>patientConsultation.eventDuration(Width)</p><p>ZPS.4 
-     * (center)</p><p>ZPS.5.2(timing portion of code 
-     * set)</p><p>Claim.457-EP</p><p>A_BillableClinicalService</p></p>
-     * 
-     * <p></p></p>
-     */
-    @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getServiceTimeAndLength() {
-        return this.serviceTimeAndLength.getValue();
+    @Hl7XmlMapping({"subjectOf2/clinicalDocumentEvent"})
+    public ClinicalDocumentEventBean getSubjectOf2ClinicalDocumentEvent() {
+        return this.subjectOf2ClinicalDocumentEvent;
     }
-    public void setServiceTimeAndLength(Interval<Date> serviceTimeAndLength) {
-        this.serviceTimeAndLength.setValue(serviceTimeAndLength);
+    public void setSubjectOf2ClinicalDocumentEvent(ClinicalDocumentEventBean subjectOf2ClinicalDocumentEvent) {
+        this.subjectOf2ClinicalDocumentEvent = subjectOf2ClinicalDocumentEvent;
     }
 
 
     @Hl7XmlMapping({"reason"})
     public List<BecauseOfBean> getReason() {
         return this.reason;
+    }
+
+
+    @Hl7XmlMapping({"definition/actDefinition"})
+    public List<ActDefinitionBean> getDefinitionActDefinition() {
+        return this.definitionActDefinition;
+    }
+
+
+    @Hl7XmlMapping({"componentOf/patientCareProvisionEvent"})
+    public List<CareCompositionsBean> getComponentOfPatientCareProvisionEvent() {
+        return this.componentOfPatientCareProvisionEvent;
+    }
+
+
+    @Hl7XmlMapping({"predecessor/oldProcedureEvent"})
+    public List<OldProcedureEventBean> getPredecessorOldProcedureEvent() {
+        return this.predecessorOldProcedureEvent;
     }
 
 
@@ -208,12 +154,6 @@ public class ProfessionalServiceBean extends MessagePartBean {
     }
     public boolean hasInformantActingPersonAsPatient() {
         return (this.informantActingPerson instanceof Patient_2Bean);
-    }
-
-
-    @Hl7XmlMapping({"predecessor/oldProcedureEvent"})
-    public List<OldProcedureEventBean> getPredecessorOldProcedureEvent() {
-        return this.predecessorOldProcedureEvent;
     }
 
 
@@ -313,12 +253,6 @@ public class ProfessionalServiceBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"componentOf/patientCareProvisionEvent"})
-    public List<CareCompositionsBean> getComponentOfPatientCareProvisionEvent() {
-        return this.componentOfPatientCareProvisionEvent;
-    }
-
-
     @Hl7XmlMapping({"location"})
     public OccurredAtBean getLocation() {
         return this.location;
@@ -337,24 +271,90 @@ public class ProfessionalServiceBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"subjectOf2/clinicalDocumentEvent"})
-    public ClinicalDocumentEventBean getSubjectOf2ClinicalDocumentEvent() {
-        return this.subjectOf2ClinicalDocumentEvent;
+    /**
+     * <p>C:Refuted Indicator</p>
+     * 
+     * <p></p></p>
+     * 
+     * <p></p></p>
+     * 
+     * <p></p></p>
+     */
+    @Hl7XmlMapping({"negationInd"})
+    public Boolean getRefutedIndicator() {
+        return this.refutedIndicator.getValue();
     }
-    public void setSubjectOf2ClinicalDocumentEvent(ClinicalDocumentEventBean subjectOf2ClinicalDocumentEvent) {
-        this.subjectOf2ClinicalDocumentEvent = subjectOf2ClinicalDocumentEvent;
-    }
-
-
-    @Hl7XmlMapping({"definition/actDefinition"})
-    public List<ActDefinitionBean> getDefinitionActDefinition() {
-        return this.definitionActDefinition;
+    public void setRefutedIndicator(Boolean refutedIndicator) {
+        this.refutedIndicator.setValue(refutedIndicator);
     }
 
 
     @Hl7XmlMapping({"performer/actingPerson"})
     public List<ca.infoway.messagebuilder.model.r02_04_02.common.coct_mt911108ca.ActingPerson> getPerformerActingPerson() {
         return this.performerActingPerson;
+    }
+
+
+    /**
+     * <p>D:Service Masking Indicators</p>
+     * 
+     * <p></p></p>
+     * 
+     * <p></p></p>
+     * 
+     * <p></p></p>
+     * 
+     * <p></p></p>
+     */
+    @Hl7XmlMapping({"confidentialityCode"})
+    public Set<x_BasicConfidentialityKind> getServiceMaskingIndicators() {
+        return this.serviceMaskingIndicators.rawSet(x_BasicConfidentialityKind.class);
+    }
+
+
+    /**
+     * <p>E:Service Time and Length</p>
+     * 
+     * <p><p>Center date cannot be null but duration can be left 
+     * unspecified if not known.</p></p>
+     * 
+     * <p><p>The date and time during which the professional 
+     * service was performed, as well as the duration of the 
+     * service. May be specified as any one or two of start time, 
+     * end time and duration.</p></p>
+     * 
+     * <p><p>PatientConsultation.eventTime(Low)</p><p>patientConsultation.eventDuration(Width)</p><p>ZPS.4 
+     * (center)</p><p>ZPS.5.2(timing portion of code 
+     * set)</p><p>Claim.457-EP</p><p>A_BillableClinicalService</p></p>
+     * 
+     * <p><p>PatientConsultation.eventTime(Low)</p><p>patientConsultation.eventDuration(Width)</p><p>ZPS.4 
+     * (center)</p><p>ZPS.5.2(timing portion of code 
+     * set)</p><p>Claim.457-EP</p><p>A_BillableClinicalService</p></p>
+     * 
+     * <p><p>PatientConsultation.eventTime(Low)</p><p>patientConsultation.eventDuration(Width)</p><p>ZPS.4 
+     * (center)</p><p>ZPS.5.2(timing portion of code 
+     * set)</p><p>Claim.457-EP</p><p>A_BillableClinicalService</p></p>
+     * 
+     * <p><p>PatientConsultation.eventTime(Low)</p><p>patientConsultation.eventDuration(Width)</p><p>ZPS.4 
+     * (center)</p><p>ZPS.5.2(timing portion of code 
+     * set)</p><p>Claim.457-EP</p><p>A_BillableClinicalService</p></p>
+     * 
+     * <p><p>PatientConsultation.eventTime(Low)</p><p>patientConsultation.eventDuration(Width)</p><p>ZPS.4 
+     * (center)</p><p>ZPS.5.2(timing portion of code 
+     * set)</p><p>Claim.457-EP</p><p>A_BillableClinicalService</p></p>
+     * 
+     * <p><p>PatientConsultation.eventTime(Low)</p><p>patientConsultation.eventDuration(Width)</p><p>ZPS.4 
+     * (center)</p><p>ZPS.5.2(timing portion of code 
+     * set)</p><p>Claim.457-EP</p><p>A_BillableClinicalService</p></p>
+     * 
+     * <p></p></p>
+     */
+    @Hl7XmlMapping({"effectiveTime"})
+    public Interval<Date> getServiceTimeAndLength() {
+        return this.serviceTimeAndLength.getValue();
+    }
+    public void setServiceTimeAndLength(Interval<Date> serviceTimeAndLength) {
+        this.serviceTimeAndLength.setValue(serviceTimeAndLength);
     }
 
 }

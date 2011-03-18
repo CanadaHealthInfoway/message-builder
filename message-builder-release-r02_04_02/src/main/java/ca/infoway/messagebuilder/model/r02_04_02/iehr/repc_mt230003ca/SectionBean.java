@@ -20,25 +20,15 @@ import java.util.List;
 public class SectionBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private DocumentContent_3 component1DocumentContent;
-    private ED<EncapsulatedData> documentOverviewContent = new EDImpl<EncapsulatedData>();
-    private List<ReferenceBean> component3Reference = new ArrayList<ReferenceBean>();
     private List<DocumentSectionsBean> component2SubSection = new ArrayList<DocumentSectionsBean>();
+    private ED<EncapsulatedData> documentOverviewContent = new EDImpl<EncapsulatedData>();
+    private DocumentContent_3 component1DocumentContent;
+    private List<ReferenceBean> component3Reference = new ArrayList<ReferenceBean>();
 
 
-    @Hl7XmlMapping({"component1/documentContent"})
-    public DocumentContent_3 getComponent1DocumentContent() {
-        return this.component1DocumentContent;
-    }
-    public void setComponent1DocumentContent(DocumentContent_3 component1DocumentContent) {
-        this.component1DocumentContent = component1DocumentContent;
-    }
-
-    public ClinicalObservationDocumentBean getComponent1DocumentContentAsObservation() {
-        return this.component1DocumentContent instanceof ClinicalObservationDocumentBean ? (ClinicalObservationDocumentBean) this.component1DocumentContent : null;
-    }
-    public boolean hasComponent1DocumentContentAsObservation() {
-        return (this.component1DocumentContent instanceof ClinicalObservationDocumentBean);
+    @Hl7XmlMapping({"component2/subSection"})
+    public List<DocumentSectionsBean> getComponent2SubSection() {
+        return this.component2SubSection;
     }
 
 
@@ -70,15 +60,25 @@ public class SectionBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"component3/reference"})
-    public List<ReferenceBean> getComponent3Reference() {
-        return this.component3Reference;
+    @Hl7XmlMapping({"component1/documentContent"})
+    public DocumentContent_3 getComponent1DocumentContent() {
+        return this.component1DocumentContent;
+    }
+    public void setComponent1DocumentContent(DocumentContent_3 component1DocumentContent) {
+        this.component1DocumentContent = component1DocumentContent;
+    }
+
+    public ClinicalObservationDocumentBean getComponent1DocumentContentAsObservation() {
+        return this.component1DocumentContent instanceof ClinicalObservationDocumentBean ? (ClinicalObservationDocumentBean) this.component1DocumentContent : null;
+    }
+    public boolean hasComponent1DocumentContentAsObservation() {
+        return (this.component1DocumentContent instanceof ClinicalObservationDocumentBean);
     }
 
 
-    @Hl7XmlMapping({"component2/subSection"})
-    public List<DocumentSectionsBean> getComponent2SubSection() {
-        return this.component2SubSection;
+    @Hl7XmlMapping({"component3/reference"})
+    public List<ReferenceBean> getComponent3Reference() {
+        return this.component3Reference;
     }
 
 }

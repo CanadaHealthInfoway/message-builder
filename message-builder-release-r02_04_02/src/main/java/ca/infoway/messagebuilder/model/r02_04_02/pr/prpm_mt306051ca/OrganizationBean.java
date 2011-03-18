@@ -27,8 +27,8 @@ public class OrganizationBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
     private ST issuingRepresentingQualificationGrantingOrganizationNameS = new STImpl();
-    private II organizationId = new IIImpl();
     private TerritorialAuthorityBean territorialAuthority;
+    private II organizationId = new IIImpl();
 
 
     /**
@@ -75,6 +75,15 @@ public class OrganizationBean extends MessagePartBean {
     }
 
 
+    @Hl7XmlMapping({"territorialAuthority"})
+    public TerritorialAuthorityBean getTerritorialAuthority() {
+        return this.territorialAuthority;
+    }
+    public void setTerritorialAuthority(TerritorialAuthorityBean territorialAuthority) {
+        this.territorialAuthority = territorialAuthority;
+    }
+
+
     /**
      * <p>Organization Id</p>
      * 
@@ -89,15 +98,6 @@ public class OrganizationBean extends MessagePartBean {
     }
     public void setOrganizationId(Identifier organizationId) {
         this.organizationId.setValue(organizationId);
-    }
-
-
-    @Hl7XmlMapping({"territorialAuthority"})
-    public TerritorialAuthorityBean getTerritorialAuthority() {
-        return this.territorialAuthority;
-    }
-    public void setTerritorialAuthority(TerritorialAuthorityBean territorialAuthority) {
-        this.territorialAuthority = territorialAuthority;
     }
 
 }

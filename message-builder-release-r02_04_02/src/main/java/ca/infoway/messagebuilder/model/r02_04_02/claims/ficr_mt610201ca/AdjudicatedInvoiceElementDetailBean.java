@@ -25,6 +25,8 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.r02_04_02.claims.merged.AllowableBean;
 import ca.infoway.messagebuilder.model.r02_04_02.merged.AdjudicatedResultOutcomeBean;
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
 
 
@@ -33,13 +35,13 @@ public class AdjudicatedInvoiceElementDetailBean extends MessagePartBean impleme
 
     private static final long serialVersionUID = 20110318L;
     private CV adjudicatedProductServiceCode = new CVImpl();
-    private PQ adjudicatedUnitQuantity = new PQImpl();
+    private MO adjudicatedInvoiceLineAmount = new MOImpl();
+    private List<REAL> multiplierEG007 = new ArrayList<REAL>();
     private RTO<Money, PhysicalQuantity> adjudicatedUnitPrice = new RTOImpl<Money, PhysicalQuantity>();
-    private REAL multiplierEG007 = new REALImpl();
+    private PQ adjudicatedUnitQuantity = new PQImpl();
     private AdjudicatedResultOutcomeBean outcomeOf;
     private AllowableBean reference1Allowable;
     private II adjudicatedInvoiceElementIdentifier = new IIImpl();
-    private MO adjudicatedInvoiceLineAmount = new MOImpl();
 
 
     /**
@@ -55,14 +57,23 @@ public class AdjudicatedInvoiceElementDetailBean extends MessagePartBean impleme
 
 
     /**
-     * <p>Adjudicated Unit Quantity</p>
+     * <p>Adjudicated Invoice Line Amount</p>
      */
-    @Hl7XmlMapping({"unitQuantity"})
-    public PhysicalQuantity getAdjudicatedUnitQuantity() {
-        return this.adjudicatedUnitQuantity.getValue();
+    @Hl7XmlMapping({"netAmt"})
+    public Money getAdjudicatedInvoiceLineAmount() {
+        return this.adjudicatedInvoiceLineAmount.getValue();
     }
-    public void setAdjudicatedUnitQuantity(PhysicalQuantity adjudicatedUnitQuantity) {
-        this.adjudicatedUnitQuantity.setValue(adjudicatedUnitQuantity);
+    public void setAdjudicatedInvoiceLineAmount(Money adjudicatedInvoiceLineAmount) {
+        this.adjudicatedInvoiceLineAmount.setValue(adjudicatedInvoiceLineAmount);
+    }
+
+
+    /**
+     * <p>Multiplier, e.g. 0.07</p>
+     */
+    @Hl7XmlMapping({"factorNumber"})
+    public List<BigDecimal> getMultiplierEG007() {
+        return new RawListWrapper<REAL, BigDecimal>(multiplierEG007, REALImpl.class);
     }
 
 
@@ -79,11 +90,14 @@ public class AdjudicatedInvoiceElementDetailBean extends MessagePartBean impleme
 
 
     /**
-     * <p>Multiplier, e.g. 0.07</p>
+     * <p>Adjudicated Unit Quantity</p>
      */
-    @Hl7XmlMapping({"factorNumber"})
-    public BigDecimal getMultiplierEG007() {
-        return this.multiplierEG007.getValue();
+    @Hl7XmlMapping({"unitQuantity"})
+    public PhysicalQuantity getAdjudicatedUnitQuantity() {
+        return this.adjudicatedUnitQuantity.getValue();
+    }
+    public void setAdjudicatedUnitQuantity(PhysicalQuantity adjudicatedUnitQuantity) {
+        this.adjudicatedUnitQuantity.setValue(adjudicatedUnitQuantity);
     }
 
 
@@ -114,18 +128,6 @@ public class AdjudicatedInvoiceElementDetailBean extends MessagePartBean impleme
     }
     public void setAdjudicatedInvoiceElementIdentifier(Identifier adjudicatedInvoiceElementIdentifier) {
         this.adjudicatedInvoiceElementIdentifier.setValue(adjudicatedInvoiceElementIdentifier);
-    }
-
-
-    /**
-     * <p>Adjudicated Invoice Line Amount</p>
-     */
-    @Hl7XmlMapping({"netAmt"})
-    public Money getAdjudicatedInvoiceLineAmount() {
-        return this.adjudicatedInvoiceLineAmount.getValue();
-    }
-    public void setAdjudicatedInvoiceLineAmount(Money adjudicatedInvoiceLineAmount) {
-        this.adjudicatedInvoiceLineAmount.setValue(adjudicatedInvoiceLineAmount);
     }
 
 }

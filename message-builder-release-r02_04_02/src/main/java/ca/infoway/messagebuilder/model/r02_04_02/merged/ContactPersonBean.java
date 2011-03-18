@@ -17,22 +17,8 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 public class ContactPersonBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private PN contactPersonName = new PNImpl();
     private TEL contactPersonTelephoneOrEmailDetails = new TELImpl();
-
-
-    /**
-     * <p>ContactPersonName</p>
-     * 
-     * <p>Contact Person Name</p>
-     */
-    @Hl7XmlMapping({"name"})
-    public PersonName getContactPersonName() {
-        return this.contactPersonName.getValue();
-    }
-    public void setContactPersonName(PersonName contactPersonName) {
-        this.contactPersonName.setValue(contactPersonName);
-    }
+    private PN contactPersonName = new PNImpl();
 
 
     /**
@@ -46,6 +32,20 @@ public class ContactPersonBean extends MessagePartBean {
     }
     public void setContactPersonTelephoneOrEmailDetails(TelecommunicationAddress contactPersonTelephoneOrEmailDetails) {
         this.contactPersonTelephoneOrEmailDetails.setValue(contactPersonTelephoneOrEmailDetails);
+    }
+
+
+    /**
+     * <p>ContactPersonName</p>
+     * 
+     * <p>Contact Person Name</p>
+     */
+    @Hl7XmlMapping({"name"})
+    public PersonName getContactPersonName() {
+        return this.contactPersonName.getValue();
+    }
+    public void setContactPersonName(PersonName contactPersonName) {
+        this.contactPersonName.setValue(contactPersonName);
     }
 
 }

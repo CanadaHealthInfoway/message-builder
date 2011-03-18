@@ -31,10 +31,10 @@ public class PayeeAccountBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
     private CV typeOfAccount = new CVImpl();
-    private ST nameOnCreditCard = new STImpl();
     private PayeeRoleBean holderPayeeRole;
-    private TS expiryDateOnCreditCard = new TSImpl();
+    private ST nameOnCreditCard = new STImpl();
     private II accountID = new IIImpl();
+    private TS expiryDateOnCreditCard = new TSImpl();
 
 
     /**
@@ -49,18 +49,6 @@ public class PayeeAccountBean extends MessagePartBean {
     }
 
 
-    /**
-     * <p>name on credit card</p>
-     */
-    @Hl7XmlMapping({"title"})
-    public String getNameOnCreditCard() {
-        return this.nameOnCreditCard.getValue();
-    }
-    public void setNameOnCreditCard(String nameOnCreditCard) {
-        this.nameOnCreditCard.setValue(nameOnCreditCard);
-    }
-
-
     @Hl7XmlMapping({"holder/payeeRole"})
     public PayeeRoleBean getHolderPayeeRole() {
         return this.holderPayeeRole;
@@ -71,14 +59,14 @@ public class PayeeAccountBean extends MessagePartBean {
 
 
     /**
-     * <p>expiry date on credit card</p>
+     * <p>name on credit card</p>
      */
-    @Hl7XmlMapping({"effectiveTime"})
-    public Date getExpiryDateOnCreditCard() {
-        return this.expiryDateOnCreditCard.getValue();
+    @Hl7XmlMapping({"title"})
+    public String getNameOnCreditCard() {
+        return this.nameOnCreditCard.getValue();
     }
-    public void setExpiryDateOnCreditCard(Date expiryDateOnCreditCard) {
-        this.expiryDateOnCreditCard.setValue(expiryDateOnCreditCard);
+    public void setNameOnCreditCard(String nameOnCreditCard) {
+        this.nameOnCreditCard.setValue(nameOnCreditCard);
     }
 
 
@@ -97,6 +85,18 @@ public class PayeeAccountBean extends MessagePartBean {
     }
     public void setAccountID(Identifier accountID) {
         this.accountID.setValue(accountID);
+    }
+
+
+    /**
+     * <p>expiry date on credit card</p>
+     */
+    @Hl7XmlMapping({"effectiveTime"})
+    public Date getExpiryDateOnCreditCard() {
+        return this.expiryDateOnCreditCard.getValue();
+    }
+    public void setExpiryDateOnCreditCard(Date expiryDateOnCreditCard) {
+        this.expiryDateOnCreditCard.setValue(expiryDateOnCreditCard);
     }
 
 }

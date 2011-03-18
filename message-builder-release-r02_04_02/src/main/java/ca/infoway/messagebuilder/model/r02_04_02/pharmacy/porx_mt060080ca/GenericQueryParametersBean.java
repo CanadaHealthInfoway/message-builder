@@ -13,6 +13,8 @@ import ca.infoway.messagebuilder.datatype.impl.SETImpl;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.domainvalue.IssueFilterCode;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 
@@ -30,28 +32,8 @@ import java.util.Set;
 public class GenericQueryParametersBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private SET<II, Identifier> prescriptionOrderNumber = new SETImpl<II, Identifier>(IIImpl.class);
     private CV issueFilterCode = new CVImpl();
-
-
-    /**
-     * <p>D:Prescription Order Number</p>
-     * 
-     * <p><p>Identifier of the prescription for which detailed 
-     * information is required.</p><p>The result set will be 
-     * filtered to only the specific prescription.</p></p>
-     * 
-     * <p><p>Identifier of the prescription for which detailed 
-     * information is required.</p><p>The result set will be 
-     * filtered to only the specific prescription.</p></p>
-     * 
-     * <p><p>Identifies the prescription that is to be retrieved 
-     * and is therefore mandatory.</p></p>
-     */
-    @Hl7XmlMapping({"prescriptionOrderNumber/value"})
-    public Set<Identifier> getPrescriptionOrderNumber() {
-        return this.prescriptionOrderNumber.rawSet();
-    }
+    private SET<II, Identifier> prescriptionOrderNumber = new SETImpl<II, Identifier>(IIImpl.class);
 
 
     /**
@@ -76,6 +58,26 @@ public class GenericQueryParametersBean extends MessagePartBean {
     }
     public void setIssueFilterCode(IssueFilterCode issueFilterCode) {
         this.issueFilterCode.setValue(issueFilterCode);
+    }
+
+
+    /**
+     * <p>D:Prescription Order Number</p>
+     * 
+     * <p><p>Identifier of the prescription for which detailed 
+     * information is required.</p><p>The result set will be 
+     * filtered to only the specific prescription.</p></p>
+     * 
+     * <p><p>Identifier of the prescription for which detailed 
+     * information is required.</p><p>The result set will be 
+     * filtered to only the specific prescription.</p></p>
+     * 
+     * <p><p>Identifies the prescription that is to be retrieved 
+     * and is therefore mandatory.</p></p>
+     */
+    @Hl7XmlMapping({"prescriptionOrderNumber/value"})
+    public Set<Identifier> getPrescriptionOrderNumber() {
+        return this.prescriptionOrderNumber.rawSet();
     }
 
 }

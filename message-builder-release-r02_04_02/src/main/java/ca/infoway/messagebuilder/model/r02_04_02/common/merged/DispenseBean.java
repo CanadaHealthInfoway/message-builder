@@ -23,7 +23,9 @@ import ca.infoway.messagebuilder.domainvalue.x_BasicConfidentialityKind;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.r02_04_02.merged.DispensedBean;
 import ca.infoway.messagebuilder.model.r02_04_02.merged.OccurredAtBean;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Set;
 
 
@@ -44,22 +46,13 @@ import java.util.Set;
 public class DispenseBean extends MessagePartBean implements CausalActs {
 
     private static final long serialVersionUID = 20110318L;
-    private DispensedBean product;
     private OccurredAtBean location;
-    private CS dispenseStatus = new CSImpl();
     private SET<CV, Code> confidentialityCode = new SETImpl<CV, Code>(CVImpl.class);
-    private IVL<TS, Interval<Date>> dispensedDate = new IVLImpl<TS, Interval<Date>>();
+    private CS dispenseStatus = new CSImpl();
     private II prescriptionDispenseNumber = new IIImpl();
+    private DispensedBean product;
+    private IVL<TS, Interval<Date>> dispensedDate = new IVLImpl<TS, Interval<Date>>();
     private SET<II, Identifier> prescriptionOrderNumber = new SETImpl<II, Identifier>(IIImpl.class);
-
-
-    @Hl7XmlMapping({"product"})
-    public DispensedBean getProduct() {
-        return this.product;
-    }
-    public void setProduct(DispensedBean product) {
-        this.product = product;
-    }
 
 
     @Hl7XmlMapping({"location"})
@@ -68,6 +61,29 @@ public class DispenseBean extends MessagePartBean implements CausalActs {
     }
     public void setLocation(OccurredAtBean location) {
         this.location = location;
+    }
+
+
+    /**
+     * <p>C:Dispense Masking Indicator</p>
+     * 
+     * <p><p>An indication of sensitivity surrounding the related 
+     * drug, and thus defines the required sensitivity for the 
+     * detected issue.</p></p>
+     * 
+     * <p><p>Conveys the patient's wishes relating to the 
+     * sensitivity of the drug information.</p><p>The attribute is 
+     * optional because not all systems will support masking.</p></p>
+     * 
+     * <p><p>Conveys the patient's wishes relating to the 
+     * sensitivity of the drug information.</p><p>The attribute is 
+     * optional because not all systems will support masking.</p></p>
+     * 
+     * <p>C:Dispense Masked Indicator</p>
+     */
+    @Hl7XmlMapping({"confidentialityCode"})
+    public Set<x_BasicConfidentialityKind> getConfidentialityCode() {
+        return this.confidentialityCode.rawSet(x_BasicConfidentialityKind.class);
     }
 
 
@@ -99,25 +115,34 @@ public class DispenseBean extends MessagePartBean implements CausalActs {
 
 
     /**
-     * <p>C:Dispense Masking Indicator</p>
+     * <p>PrescriptionDispenseNumber</p>
      * 
-     * <p><p>An indication of sensitivity surrounding the related 
-     * drug, and thus defines the required sensitivity for the 
-     * detected issue.</p></p>
+     * <p>A:Prescription Dispense Number</p>
      * 
-     * <p><p>Conveys the patient's wishes relating to the 
-     * sensitivity of the drug information.</p><p>The attribute is 
-     * optional because not all systems will support masking.</p></p>
+     * <p>A:Prescription Dispense Number</p>
      * 
-     * <p><p>Conveys the patient's wishes relating to the 
-     * sensitivity of the drug information.</p><p>The attribute is 
-     * optional because not all systems will support masking.</p></p>
+     * <p><p>Unique identifier of the dispensed event that 
+     * triggered the issue.</p></p>
      * 
-     * <p>C:Dispense Masked Indicator</p>
+     * <p><p>Allows provider to drill down and retrieve additional 
+     * information about the dispense event for consideration in 
+     * their issue management decision.</p></p>
      */
-    @Hl7XmlMapping({"confidentialityCode"})
-    public Set<x_BasicConfidentialityKind> getConfidentialityCode() {
-        return this.confidentialityCode.rawSet(x_BasicConfidentialityKind.class);
+    @Hl7XmlMapping({"id"})
+    public Identifier getPrescriptionDispenseNumber() {
+        return this.prescriptionDispenseNumber.getValue();
+    }
+    public void setPrescriptionDispenseNumber(Identifier prescriptionDispenseNumber) {
+        this.prescriptionDispenseNumber.setValue(prescriptionDispenseNumber);
+    }
+
+
+    @Hl7XmlMapping({"product"})
+    public DispensedBean getProduct() {
+        return this.product;
+    }
+    public void setProduct(DispensedBean product) {
+        this.product = product;
     }
 
 
@@ -151,29 +176,6 @@ public class DispenseBean extends MessagePartBean implements CausalActs {
     }
     public void setDispensedDate(Interval<Date> dispensedDate) {
         this.dispensedDate.setValue(dispensedDate);
-    }
-
-
-    /**
-     * <p>PrescriptionDispenseNumber</p>
-     * 
-     * <p>A:Prescription Dispense Number</p>
-     * 
-     * <p>A:Prescription Dispense Number</p>
-     * 
-     * <p><p>Unique identifier of the dispensed event that 
-     * triggered the issue.</p></p>
-     * 
-     * <p><p>Allows provider to drill down and retrieve additional 
-     * information about the dispense event for consideration in 
-     * their issue management decision.</p></p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Identifier getPrescriptionDispenseNumber() {
-        return this.prescriptionDispenseNumber.getValue();
-    }
-    public void setPrescriptionDispenseNumber(Identifier prescriptionDispenseNumber) {
-        this.prescriptionDispenseNumber.setValue(prescriptionDispenseNumber);
     }
 
 

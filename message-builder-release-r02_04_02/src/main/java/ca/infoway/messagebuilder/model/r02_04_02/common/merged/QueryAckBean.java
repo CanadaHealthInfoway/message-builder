@@ -19,11 +19,32 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 public class QueryAckBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private CS queryStatus = new CSImpl();
-    private INT remainingRows = new INTImpl();
-    private INT returnedRows = new INTImpl();
     private INT totalMatchingRows = new INTImpl();
+    private CS queryStatus = new CSImpl();
+    private INT returnedRows = new INTImpl();
+    private INT remainingRows = new INTImpl();
     private II queryResponseIdentifier = new IIImpl();
+
+
+    /**
+     * <p>TotalMatchingRows</p>
+     * 
+     * <p>J:Total Matching Rows</p>
+     * 
+     * <p><p>Identifies the total number of rows identified that 
+     * matched the query.</p></p>
+     * 
+     * <p><p>Indicates the overall size of the result-set and is 
+     * therefore mandatory. Particularly useful when only part of 
+     * the result set is actually returned.</p></p>
+     */
+    @Hl7XmlMapping({"resultTotalQuantity"})
+    public Integer getTotalMatchingRows() {
+        return this.totalMatchingRows.getValue();
+    }
+    public void setTotalMatchingRows(Integer totalMatchingRows) {
+        this.totalMatchingRows.setValue(totalMatchingRows);
+    }
 
 
     /**
@@ -42,26 +63,6 @@ public class QueryAckBean extends MessagePartBean {
     }
     public void setQueryStatus(QueryResponse queryStatus) {
         this.queryStatus.setValue(queryStatus);
-    }
-
-
-    /**
-     * <p>RemainingRows</p>
-     * 
-     * <p>L:Remaining Rows</p>
-     * 
-     * <p><p>Indicates the number of rows that still exist after 
-     * the last row returned in this response.</p></p>
-     * 
-     * <p><p>Identifies how much data remains to be queried and is 
-     * therefore mandatory.</p></p>
-     */
-    @Hl7XmlMapping({"resultRemainingQuantity"})
-    public Integer getRemainingRows() {
-        return this.remainingRows.getValue();
-    }
-    public void setRemainingRows(Integer remainingRows) {
-        this.remainingRows.setValue(remainingRows);
     }
 
 
@@ -94,23 +95,22 @@ public class QueryAckBean extends MessagePartBean {
 
 
     /**
-     * <p>TotalMatchingRows</p>
+     * <p>RemainingRows</p>
      * 
-     * <p>J:Total Matching Rows</p>
+     * <p>L:Remaining Rows</p>
      * 
-     * <p><p>Identifies the total number of rows identified that 
-     * matched the query.</p></p>
+     * <p><p>Indicates the number of rows that still exist after 
+     * the last row returned in this response.</p></p>
      * 
-     * <p><p>Indicates the overall size of the result-set and is 
-     * therefore mandatory. Particularly useful when only part of 
-     * the result set is actually returned.</p></p>
+     * <p><p>Identifies how much data remains to be queried and is 
+     * therefore mandatory.</p></p>
      */
-    @Hl7XmlMapping({"resultTotalQuantity"})
-    public Integer getTotalMatchingRows() {
-        return this.totalMatchingRows.getValue();
+    @Hl7XmlMapping({"resultRemainingQuantity"})
+    public Integer getRemainingRows() {
+        return this.remainingRows.getValue();
     }
-    public void setTotalMatchingRows(Integer totalMatchingRows) {
-        this.totalMatchingRows.setValue(totalMatchingRows);
+    public void setRemainingRows(Integer remainingRows) {
+        this.remainingRows.setValue(remainingRows);
     }
 
 

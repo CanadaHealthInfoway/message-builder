@@ -117,10 +117,10 @@ public class ServiceDeliveryLocationBean extends MessagePartBean implements Choi
 
     private static final long serialVersionUID = 20110318L;
     private II id = new IIImpl();
+    private ST locationName = new STImpl();
     private CV serviceDeliveryLocationType = new CVImpl();
     private TEL serviceDeliveryLocationTelecom = new TELImpl();
     private AD serviceDeliveryLocationAddress = new ADImpl();
-    private ST locationName = new STImpl();
     private IVL<TS, Interval<Date>> serviceDeliveryLocationEffectiveDate = new IVLImpl<TS, Interval<Date>>();
 
 
@@ -203,6 +203,39 @@ public class ServiceDeliveryLocationBean extends MessagePartBean implements Choi
 
 
     /**
+     * <p>B:Service Location Name</p>
+     * 
+     * <p><p>The name assigned to the service location.</p></p>
+     * 
+     * <p><p>PVD.070</p><p>Dispensing Pharmacy 
+     * Name</p><p>Facility.name</p></p>
+     * 
+     * <p><p>PVD.070</p><p>Dispensing Pharmacy 
+     * Name</p><p>Facility.name</p></p>
+     * 
+     * <p><p>PVD.070</p><p>Dispensing Pharmacy 
+     * Name</p><p>Facility.name</p></p>
+     * 
+     * <p><p>Used for human communication, and for cross-checking 
+     * of location Id and is therefore mandatory</p></p>
+     * 
+     * <p>Service Delivery Location Name</p>
+     * 
+     * <p><p>The name of the service delivery location</p></p>
+     * 
+     * <p><p>Mandatory attribute supports the validation and 
+     * identification of the service delivery location</p></p>
+     */
+    @Hl7XmlMapping({"location/name"})
+    public String getLocationName() {
+        return this.locationName.getValue();
+    }
+    public void setLocationName(String locationName) {
+        this.locationName.setValue(locationName);
+    }
+
+
+    /**
      * <p>ServiceDeliveryLocationType</p>
      * 
      * <p>Service Delivery Location Type</p>
@@ -265,39 +298,6 @@ public class ServiceDeliveryLocationBean extends MessagePartBean implements Choi
     }
     public void setServiceDeliveryLocationAddress(PostalAddress serviceDeliveryLocationAddress) {
         this.serviceDeliveryLocationAddress.setValue(serviceDeliveryLocationAddress);
-    }
-
-
-    /**
-     * <p>B:Service Location Name</p>
-     * 
-     * <p><p>The name assigned to the service location.</p></p>
-     * 
-     * <p><p>PVD.070</p><p>Dispensing Pharmacy 
-     * Name</p><p>Facility.name</p></p>
-     * 
-     * <p><p>PVD.070</p><p>Dispensing Pharmacy 
-     * Name</p><p>Facility.name</p></p>
-     * 
-     * <p><p>PVD.070</p><p>Dispensing Pharmacy 
-     * Name</p><p>Facility.name</p></p>
-     * 
-     * <p><p>Used for human communication, and for cross-checking 
-     * of location Id and is therefore mandatory</p></p>
-     * 
-     * <p>Service Delivery Location Name</p>
-     * 
-     * <p><p>The name of the service delivery location</p></p>
-     * 
-     * <p><p>Mandatory attribute supports the validation and 
-     * identification of the service delivery location</p></p>
-     */
-    @Hl7XmlMapping({"location/name"})
-    public String getLocationName() {
-        return this.locationName.getValue();
-    }
-    public void setLocationName(String locationName) {
-        this.locationName.setValue(locationName);
     }
 
 

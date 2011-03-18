@@ -42,26 +42,17 @@ import java.util.List;
 public class AdjudicatedInvoiceElementGroupBean extends MessagePartBean implements AdjudicatedInvoiceElementChoice {
 
     private static final long serialVersionUID = 20110318L;
-    private PaymentIntentBean reasonPaymentIntent;
     private CV code = new CVImpl();
     private AdjudicatedInvoiceElementGroupBean referenceAdjudicatedInvoiceElementGroup;
+    private PaymentIntentBean reasonPaymentIntent;
+    private MO netAmt = new MOImpl();
     private AdjudicatedResultsGroupBean referencedByAdjudResultsGroup;
     private CS statusCode = new CSImpl();
     private II adjudicationResultId = new IIImpl();
-    private MO netAmt = new MOImpl();
-    private List<AdjudicatedInvoiceElementChoice> componentAdjudicatedInvoiceElementChoice = new ArrayList<AdjudicatedInvoiceElementChoice>();
-    private AdjudicatedResultOutcomeBean outcomeOf;
     private AdjudicatedInvoiceAuthorBean author;
+    private AdjudicatedResultOutcomeBean outcomeOf;
     private List<AdjudicatedInvoiceCoverageBean> coverage = new ArrayList<AdjudicatedInvoiceCoverageBean>();
-
-
-    @Hl7XmlMapping({"reason/paymentIntent"})
-    public PaymentIntentBean getReasonPaymentIntent() {
-        return this.reasonPaymentIntent;
-    }
-    public void setReasonPaymentIntent(PaymentIntentBean reasonPaymentIntent) {
-        this.reasonPaymentIntent = reasonPaymentIntent;
-    }
+    private List<AdjudicatedInvoiceElementChoice> componentAdjudicatedInvoiceElementChoice = new ArrayList<AdjudicatedInvoiceElementChoice>();
 
 
     /**
@@ -126,6 +117,39 @@ public class AdjudicatedInvoiceElementGroupBean extends MessagePartBean implemen
     }
     public void setReferenceAdjudicatedInvoiceElementGroup(AdjudicatedInvoiceElementGroupBean referenceAdjudicatedInvoiceElementGroup) {
         this.referenceAdjudicatedInvoiceElementGroup = referenceAdjudicatedInvoiceElementGroup;
+    }
+
+
+    @Hl7XmlMapping({"reason/paymentIntent"})
+    public PaymentIntentBean getReasonPaymentIntent() {
+        return this.reasonPaymentIntent;
+    }
+    public void setReasonPaymentIntent(PaymentIntentBean reasonPaymentIntent) {
+        this.reasonPaymentIntent = reasonPaymentIntent;
+    }
+
+
+    /**
+     * <p>Paid Amount</p>
+     * 
+     * <p><p>Paid Amount</p></p>
+     * 
+     * <p><p>For Coverage Extension Results, this is typically not 
+     * specified, as dollar limits are noted as information 
+     * codes</p></p>
+     * 
+     * <p>Invoice Element amount billed</p>
+     * 
+     * <p><p>Identifies the total monetary amount billed for the 
+     * invoice element. = unit_qty * unit_price_amt * factor_nbr * 
+     * points_nbr. E.g. $150 CAD</p></p>
+     */
+    @Hl7XmlMapping({"netAmt"})
+    public Money getNetAmt() {
+        return this.netAmt.getValue();
+    }
+    public void setNetAmt(Money netAmt) {
+        this.netAmt.setValue(netAmt);
     }
 
 
@@ -264,33 +288,12 @@ public class AdjudicatedInvoiceElementGroupBean extends MessagePartBean implemen
     }
 
 
-    /**
-     * <p>Paid Amount</p>
-     * 
-     * <p><p>Paid Amount</p></p>
-     * 
-     * <p><p>For Coverage Extension Results, this is typically not 
-     * specified, as dollar limits are noted as information 
-     * codes</p></p>
-     * 
-     * <p>Invoice Element amount billed</p>
-     * 
-     * <p><p>Identifies the total monetary amount billed for the 
-     * invoice element. = unit_qty * unit_price_amt * factor_nbr * 
-     * points_nbr. E.g. $150 CAD</p></p>
-     */
-    @Hl7XmlMapping({"netAmt"})
-    public Money getNetAmt() {
-        return this.netAmt.getValue();
+    @Hl7XmlMapping({"author"})
+    public AdjudicatedInvoiceAuthorBean getAuthor() {
+        return this.author;
     }
-    public void setNetAmt(Money netAmt) {
-        this.netAmt.setValue(netAmt);
-    }
-
-
-    @Hl7XmlMapping({"component/adjudicatedInvoiceElementChoice"})
-    public List<AdjudicatedInvoiceElementChoice> getComponentAdjudicatedInvoiceElementChoice() {
-        return this.componentAdjudicatedInvoiceElementChoice;
+    public void setAuthor(AdjudicatedInvoiceAuthorBean author) {
+        this.author = author;
     }
 
 
@@ -303,18 +306,15 @@ public class AdjudicatedInvoiceElementGroupBean extends MessagePartBean implemen
     }
 
 
-    @Hl7XmlMapping({"author"})
-    public AdjudicatedInvoiceAuthorBean getAuthor() {
-        return this.author;
-    }
-    public void setAuthor(AdjudicatedInvoiceAuthorBean author) {
-        this.author = author;
-    }
-
-
     @Hl7XmlMapping({"coverage"})
     public List<AdjudicatedInvoiceCoverageBean> getCoverage() {
         return this.coverage;
+    }
+
+
+    @Hl7XmlMapping({"component/adjudicatedInvoiceElementChoice"})
+    public List<AdjudicatedInvoiceElementChoice> getComponentAdjudicatedInvoiceElementChoice() {
+        return this.componentAdjudicatedInvoiceElementChoice;
     }
 
 }

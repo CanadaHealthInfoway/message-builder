@@ -14,17 +14,8 @@ import ca.infoway.messagebuilder.model.r02_04_02.merged.DiagnosisBean;
 public class DiagnosisInformationBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private DiagnosisBean diagnosis;
     private INT diagnosisPriority = new INTImpl();
-
-
-    @Hl7XmlMapping({"diagnosis"})
-    public DiagnosisBean getDiagnosis() {
-        return this.diagnosis;
-    }
-    public void setDiagnosis(DiagnosisBean diagnosis) {
-        this.diagnosis = diagnosis;
-    }
+    private DiagnosisBean diagnosis;
 
 
     /**
@@ -46,6 +37,15 @@ public class DiagnosisInformationBean extends MessagePartBean {
     }
     public void setDiagnosisPriority(Integer diagnosisPriority) {
         this.diagnosisPriority.setValue(diagnosisPriority);
+    }
+
+
+    @Hl7XmlMapping({"diagnosis"})
+    public DiagnosisBean getDiagnosis() {
+        return this.diagnosis;
+    }
+    public void setDiagnosis(DiagnosisBean diagnosis) {
+        this.diagnosis = diagnosis;
     }
 
 }

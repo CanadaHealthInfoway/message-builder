@@ -39,22 +39,22 @@ import java.util.Set;
 public class PrescriptionDispenseBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private SubstitutionBean component1SubstitutionMade;
-    private SupplyEventBean component3SupplyEvent;
     private IncludesBean subjectOf;
-    private List<AdministrationInstructionsBean> component2DosageInstruction = new ArrayList<AdministrationInstructionsBean>();
+    private SupplyEventBean component3SupplyEvent;
     private AnimalPatientBean subjectPatient;
-    private SET<CV, Code> prescriptionMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);
+    private List<AdministrationInstructionsBean> component2DosageInstruction = new ArrayList<AdministrationInstructionsBean>();
     private PrescriptionReferenceBean inFulfillmentOfSubstanceAdministrationRequest;
+    private SubstitutionBean component1SubstitutionMade;
+    private SET<CV, Code> prescriptionMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);
     private II localDispenseId = new IIImpl();
 
 
-    @Hl7XmlMapping({"component1/substitutionMade"})
-    public SubstitutionBean getComponent1SubstitutionMade() {
-        return this.component1SubstitutionMade;
+    @Hl7XmlMapping({"subjectOf"})
+    public IncludesBean getSubjectOf() {
+        return this.subjectOf;
     }
-    public void setComponent1SubstitutionMade(SubstitutionBean component1SubstitutionMade) {
-        this.component1SubstitutionMade = component1SubstitutionMade;
+    public void setSubjectOf(IncludesBean subjectOf) {
+        this.subjectOf = subjectOf;
     }
 
 
@@ -67,12 +67,12 @@ public class PrescriptionDispenseBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"subjectOf"})
-    public IncludesBean getSubjectOf() {
-        return this.subjectOf;
+    @Hl7XmlMapping({"subject/patient"})
+    public AnimalPatientBean getSubjectPatient() {
+        return this.subjectPatient;
     }
-    public void setSubjectOf(IncludesBean subjectOf) {
-        this.subjectOf = subjectOf;
+    public void setSubjectPatient(AnimalPatientBean subjectPatient) {
+        this.subjectPatient = subjectPatient;
     }
 
 
@@ -82,12 +82,21 @@ public class PrescriptionDispenseBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"subject/patient"})
-    public AnimalPatientBean getSubjectPatient() {
-        return this.subjectPatient;
+    @Hl7XmlMapping({"inFulfillmentOf/substanceAdministrationRequest"})
+    public PrescriptionReferenceBean getInFulfillmentOfSubstanceAdministrationRequest() {
+        return this.inFulfillmentOfSubstanceAdministrationRequest;
     }
-    public void setSubjectPatient(AnimalPatientBean subjectPatient) {
-        this.subjectPatient = subjectPatient;
+    public void setInFulfillmentOfSubstanceAdministrationRequest(PrescriptionReferenceBean inFulfillmentOfSubstanceAdministrationRequest) {
+        this.inFulfillmentOfSubstanceAdministrationRequest = inFulfillmentOfSubstanceAdministrationRequest;
+    }
+
+
+    @Hl7XmlMapping({"component1/substitutionMade"})
+    public SubstitutionBean getComponent1SubstitutionMade() {
+        return this.component1SubstitutionMade;
+    }
+    public void setComponent1SubstitutionMade(SubstitutionBean component1SubstitutionMade) {
+        this.component1SubstitutionMade = component1SubstitutionMade;
     }
 
 
@@ -198,15 +207,6 @@ public class PrescriptionDispenseBean extends MessagePartBean {
     @Hl7XmlMapping({"confidentialityCode"})
     public Set<x_BasicConfidentialityKind> getPrescriptionMaskingIndicators() {
         return this.prescriptionMaskingIndicators.rawSet(x_BasicConfidentialityKind.class);
-    }
-
-
-    @Hl7XmlMapping({"inFulfillmentOf/substanceAdministrationRequest"})
-    public PrescriptionReferenceBean getInFulfillmentOfSubstanceAdministrationRequest() {
-        return this.inFulfillmentOfSubstanceAdministrationRequest;
-    }
-    public void setInFulfillmentOfSubstanceAdministrationRequest(PrescriptionReferenceBean inFulfillmentOfSubstanceAdministrationRequest) {
-        this.inFulfillmentOfSubstanceAdministrationRequest = inFulfillmentOfSubstanceAdministrationRequest;
     }
 
 

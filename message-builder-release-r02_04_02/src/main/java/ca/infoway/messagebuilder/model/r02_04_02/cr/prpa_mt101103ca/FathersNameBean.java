@@ -16,8 +16,17 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 public class FathersNameBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private PN fatherSName = new PNImpl();
     private ST semanticsText = new STImpl();
+    private PN fatherSName = new PNImpl();
+
+
+    @Hl7XmlMapping({"semanticsText"})
+    public String getSemanticsText() {
+        return this.semanticsText.getValue();
+    }
+    public void setSemanticsText(String semanticsText) {
+        this.semanticsText.setValue(semanticsText);
+    }
 
 
     /**
@@ -42,15 +51,6 @@ public class FathersNameBean extends MessagePartBean {
     }
     public void setFatherSName(PersonName fatherSName) {
         this.fatherSName.setValue(fatherSName);
-    }
-
-
-    @Hl7XmlMapping({"semanticsText"})
-    public String getSemanticsText() {
-        return this.semanticsText.getValue();
-    }
-    public void setSemanticsText(String semanticsText) {
-        this.semanticsText.setValue(semanticsText);
     }
 
 }

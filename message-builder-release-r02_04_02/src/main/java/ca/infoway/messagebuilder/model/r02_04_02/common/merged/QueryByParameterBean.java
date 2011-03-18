@@ -35,12 +35,57 @@ import java.util.List;
 public class QueryByParameterBean<PL> extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
+    private INT queryLimit = new INTImpl();
+    private List<SortControlBean> sortControl = new ArrayList<SortControlBean>();
     private PL parameterList;
     private CV queryLimitType = new CVImpl();
     private CS expeditedQueryIndicator = new CSImpl();
-    private List<SortControlBean> sortControl = new ArrayList<SortControlBean>();
     private II queryIdentifier = new IIImpl();
-    private INT queryLimit = new INTImpl();
+
+
+    /**
+     * <p>QueryLimit</p>
+     * 
+     * <p>I:Query Limit</p>
+     * 
+     * <p><p>The number of response item repetitions that should be 
+     * included in the initial response.</p></p>
+     * 
+     * <p><p>There may be a very large number of matching rows. To 
+     * manage communication bandwidth, a limited set may initially 
+     * be returned with further data retrieved by using query 
+     * continuations.</p></p>
+     * 
+     * <p>I:Query Limit</p>
+     * 
+     * <p><p>The number of response item repetitions that should be 
+     * included in the initial response.</p></p>
+     * 
+     * <p><p>There may be a very large number of matching rows. To 
+     * manage communication bandwidth, a limited set may initially 
+     * be returned with further data retrieved by using query 
+     * continuations.</p></p>
+     * 
+     * <p><p>If not specified, the default behavior is to return 
+     * all repetitions. However the recipient of a query may always 
+     * choose to limit the quantity returned to be less than the 
+     * number requested. Regardless of the number specified here, 
+     * the number of rows returned will never exceed the number of 
+     * matching rows based on the query parameters.</p></p>
+     */
+    @Hl7XmlMapping({"initialQuantity"})
+    public Integer getQueryLimit() {
+        return this.queryLimit.getValue();
+    }
+    public void setQueryLimit(Integer queryLimit) {
+        this.queryLimit.setValue(queryLimit);
+    }
+
+
+    @Hl7XmlMapping({"sortControl"})
+    public List<SortControlBean> getSortControl() {
+        return this.sortControl;
+    }
 
 
     @Hl7XmlMapping({"parameterList"})
@@ -113,12 +158,6 @@ public class QueryByParameterBean<PL> extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"sortControl"})
-    public List<SortControlBean> getSortControl() {
-        return this.sortControl;
-    }
-
-
     /**
      * <p>QueryIdentifier</p>
      * 
@@ -135,45 +174,6 @@ public class QueryByParameterBean<PL> extends MessagePartBean {
     }
     public void setQueryIdentifier(Identifier queryIdentifier) {
         this.queryIdentifier.setValue(queryIdentifier);
-    }
-
-
-    /**
-     * <p>QueryLimit</p>
-     * 
-     * <p>I:Query Limit</p>
-     * 
-     * <p><p>The number of response item repetitions that should be 
-     * included in the initial response.</p></p>
-     * 
-     * <p><p>There may be a very large number of matching rows. To 
-     * manage communication bandwidth, a limited set may initially 
-     * be returned with further data retrieved by using query 
-     * continuations.</p></p>
-     * 
-     * <p>I:Query Limit</p>
-     * 
-     * <p><p>The number of response item repetitions that should be 
-     * included in the initial response.</p></p>
-     * 
-     * <p><p>There may be a very large number of matching rows. To 
-     * manage communication bandwidth, a limited set may initially 
-     * be returned with further data retrieved by using query 
-     * continuations.</p></p>
-     * 
-     * <p><p>If not specified, the default behavior is to return 
-     * all repetitions. However the recipient of a query may always 
-     * choose to limit the quantity returned to be less than the 
-     * number requested. Regardless of the number specified here, 
-     * the number of rows returned will never exceed the number of 
-     * matching rows based on the query parameters.</p></p>
-     */
-    @Hl7XmlMapping({"initialQuantity"})
-    public Integer getQueryLimit() {
-        return this.queryLimit.getValue();
-    }
-    public void setQueryLimit(Integer queryLimit) {
-        this.queryLimit.setValue(queryLimit);
     }
 
 }

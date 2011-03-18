@@ -23,29 +23,11 @@ import java.util.List;
 public class SpecialAuthorizationAdditionalInformationResponseBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private ST additionalInformationAnswer = new STImpl();
-    private List<HealthDocumentAttachment_1Bean> pertinentInformationHealthDocumentAttachment = new ArrayList<HealthDocumentAttachment_1Bean>();
     private SpecialAuthorizationAdditionalInformationRequestBean inFulfillmentOfSpecialAuthorizationAdditionalInformationRequest;
+    private List<HealthDocumentAttachment_1Bean> pertinentInformationHealthDocumentAttachment = new ArrayList<HealthDocumentAttachment_1Bean>();
     private List<SpecialAuthorizationCriteriaBean> supportSpecialAuthorizationCriteria = new ArrayList<SpecialAuthorizationCriteriaBean>();
+    private ST additionalInformationAnswer = new STImpl();
     private II additionalInformationResponseID = new IIImpl();
-
-
-    /**
-     * <p>Additional Information Answer</p>
-     */
-    @Hl7XmlMapping({"text"})
-    public String getAdditionalInformationAnswer() {
-        return this.additionalInformationAnswer.getValue();
-    }
-    public void setAdditionalInformationAnswer(String additionalInformationAnswer) {
-        this.additionalInformationAnswer.setValue(additionalInformationAnswer);
-    }
-
-
-    @Hl7XmlMapping({"pertinentInformation/healthDocumentAttachment"})
-    public List<HealthDocumentAttachment_1Bean> getPertinentInformationHealthDocumentAttachment() {
-        return this.pertinentInformationHealthDocumentAttachment;
-    }
 
 
     @Hl7XmlMapping({"inFulfillmentOf/specialAuthorizationAdditionalInformationRequest"})
@@ -57,9 +39,27 @@ public class SpecialAuthorizationAdditionalInformationResponseBean extends Messa
     }
 
 
+    @Hl7XmlMapping({"pertinentInformation/healthDocumentAttachment"})
+    public List<HealthDocumentAttachment_1Bean> getPertinentInformationHealthDocumentAttachment() {
+        return this.pertinentInformationHealthDocumentAttachment;
+    }
+
+
     @Hl7XmlMapping({"support/specialAuthorizationCriteria"})
     public List<SpecialAuthorizationCriteriaBean> getSupportSpecialAuthorizationCriteria() {
         return this.supportSpecialAuthorizationCriteria;
+    }
+
+
+    /**
+     * <p>Additional Information Answer</p>
+     */
+    @Hl7XmlMapping({"text"})
+    public String getAdditionalInformationAnswer() {
+        return this.additionalInformationAnswer.getValue();
+    }
+    public void setAdditionalInformationAnswer(String additionalInformationAnswer) {
+        this.additionalInformationAnswer.setValue(additionalInformationAnswer);
     }
 
 

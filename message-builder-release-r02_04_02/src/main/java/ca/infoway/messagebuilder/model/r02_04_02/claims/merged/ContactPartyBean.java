@@ -19,6 +19,8 @@ import ca.infoway.messagebuilder.datatype.lang.TelecommunicationAddress;
 import ca.infoway.messagebuilder.domainvalue.AdministrativeContactRoleType;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.r02_04_02.merged.ContactPersonBean;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 
@@ -30,8 +32,8 @@ public class ContactPartyBean extends MessagePartBean {
     private CV code = new CVImpl();
     private ContactPersonBean contactPerson;
     private II administrativeContactID = new IIImpl();
-    private PN callBackContactPersonName = new PNImpl();
     private SET<TEL, TelecommunicationAddress> callBackContactPersonTelecom = new SETImpl<TEL, TelecommunicationAddress>(TELImpl.class);
+    private PN callBackContactPersonName = new PNImpl();
 
 
     /**
@@ -72,6 +74,17 @@ public class ContactPartyBean extends MessagePartBean {
 
 
     /**
+     * <p>CallBackContactPersonTelecom</p>
+     * 
+     * <p>Call Back Contact Person Telecom</p>
+     */
+    @Hl7XmlMapping({"contactCallBackPerson/telecom"})
+    public Set<TelecommunicationAddress> getCallBackContactPersonTelecom() {
+        return this.callBackContactPersonTelecom.rawSet();
+    }
+
+
+    /**
      * <p>CallBackContactPersonName</p>
      * 
      * <p>Call Back Contact Person Name</p>
@@ -82,17 +95,6 @@ public class ContactPartyBean extends MessagePartBean {
     }
     public void setCallBackContactPersonName(PersonName callBackContactPersonName) {
         this.callBackContactPersonName.setValue(callBackContactPersonName);
-    }
-
-
-    /**
-     * <p>CallBackContactPersonTelecom</p>
-     * 
-     * <p>Call Back Contact Person Telecom</p>
-     */
-    @Hl7XmlMapping({"contactCallBackPerson/telecom"})
-    public Set<TelecommunicationAddress> getCallBackContactPersonTelecom() {
-        return this.callBackContactPersonTelecom.rawSet();
     }
 
 }

@@ -135,8 +135,8 @@ public class ReportedReactionsBean extends MessagePartBean implements Records {
     private BL noReactionOccurred = new BLImpl();
     private ST description = new STImpl();
     private AllergyIntoleranceSeverityLevelBean subjectOfSeverityObservation;
-    private IVL<TS, Interval<Date>> reactionOnsetDate = new IVLImpl<TS, Interval<Date>>();
     private II reactionRecordId = new IIImpl();
+    private IVL<TS, Interval<Date>> reactionOnsetDate = new IVLImpl<TS, Interval<Date>>();
 
 
     /**
@@ -485,26 +485,6 @@ public class ReportedReactionsBean extends MessagePartBean implements Records {
 
 
     /**
-     * <p>ReactionOnsetDate</p>
-     * 
-     * <p>F:Reaction Onset Date</p>
-     * 
-     * <p><p>The date on which the reaction occurrence began.</p></p>
-     * 
-     * <p><p>Indicates when evidence of the condition first 
-     * appeared. May also provide information on the duration of 
-     * the reaction.</p></p>
-     */
-    @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getReactionOnsetDate() {
-        return this.reactionOnsetDate.getValue();
-    }
-    public void setReactionOnsetDate(Interval<Date> reactionOnsetDate) {
-        this.reactionOnsetDate.setValue(reactionOnsetDate);
-    }
-
-
-    /**
      * <p>ReactionRecordId</p>
      * 
      * <p>C:Reaction Record Id</p>
@@ -521,6 +501,26 @@ public class ReportedReactionsBean extends MessagePartBean implements Records {
     }
     public void setReactionRecordId(Identifier reactionRecordId) {
         this.reactionRecordId.setValue(reactionRecordId);
+    }
+
+
+    /**
+     * <p>ReactionOnsetDate</p>
+     * 
+     * <p>F:Reaction Onset Date</p>
+     * 
+     * <p><p>The date on which the reaction occurrence began.</p></p>
+     * 
+     * <p><p>Indicates when evidence of the condition first 
+     * appeared. May also provide information on the duration of 
+     * the reaction.</p></p>
+     */
+    @Hl7XmlMapping({"effectiveTime"})
+    public Interval<Date> getReactionOnsetDate() {
+        return this.reactionOnsetDate.getValue();
+    }
+    public void setReactionOnsetDate(Interval<Date> reactionOnsetDate) {
+        this.reactionOnsetDate.setValue(reactionOnsetDate);
     }
 
 }

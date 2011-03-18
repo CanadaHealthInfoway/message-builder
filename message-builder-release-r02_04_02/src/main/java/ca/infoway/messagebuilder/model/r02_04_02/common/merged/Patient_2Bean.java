@@ -19,6 +19,7 @@ import ca.infoway.messagebuilder.datatype.lang.PostalAddress;
 import ca.infoway.messagebuilder.datatype.lang.TelecommunicationAddress;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.r02_04_02.merged.ActingPersonBean;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
@@ -56,8 +57,8 @@ public class Patient_2Bean extends MessagePartBean implements ActingPerson, ca.i
 
     private static final long serialVersionUID = 20110318L;
     private LIST<TEL, TelecommunicationAddress> patientContactPhoneAndEMails = new LISTImpl<TEL, TelecommunicationAddress>(TELImpl.class);
-    private ActingPersonBean patientPerson;
     private AD patientContactAddress = new ADImpl();
+    private ActingPersonBean patientPerson;
     private SET<II, Identifier> patientIdentifier = new SETImpl<II, Identifier>(IIImpl.class);
 
 
@@ -267,15 +268,6 @@ public class Patient_2Bean extends MessagePartBean implements ActingPerson, ca.i
     @Hl7XmlMapping({"telecom"})
     public List<TelecommunicationAddress> getPatientContactPhoneAndEMails() {
         return this.patientContactPhoneAndEMails.rawList();
-    }
-
-
-    @Hl7XmlMapping({"patientPerson"})
-    public ActingPersonBean getPatientPerson() {
-        return this.patientPerson;
-    }
-    public void setPatientPerson(ActingPersonBean patientPerson) {
-        this.patientPerson = patientPerson;
     }
 
 
@@ -1555,6 +1547,15 @@ public class Patient_2Bean extends MessagePartBean implements ActingPerson, ca.i
     }
     public void setPatientContactAddress(PostalAddress patientContactAddress) {
         this.patientContactAddress.setValue(patientContactAddress);
+    }
+
+
+    @Hl7XmlMapping({"patientPerson"})
+    public ActingPersonBean getPatientPerson() {
+        return this.patientPerson;
+    }
+    public void setPatientPerson(ActingPersonBean patientPerson) {
+        this.patientPerson = patientPerson;
     }
 
 

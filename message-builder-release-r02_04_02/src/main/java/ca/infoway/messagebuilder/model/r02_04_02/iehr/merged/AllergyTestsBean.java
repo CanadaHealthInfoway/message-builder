@@ -66,8 +66,8 @@ public class AllergyTestsBean extends MessagePartBean implements Records {
     private static final long serialVersionUID = 20110318L;
     private CD allergyTestType = new CDImpl();
     private CV allergyTestResult = new CVImpl();
-    private TS allergyTestDate = new TSImpl();
     private II allergyTestRecordId = new IIImpl();
+    private TS allergyTestDate = new TSImpl();
 
 
     /**
@@ -139,25 +139,6 @@ public class AllergyTestsBean extends MessagePartBean implements Records {
 
 
     /**
-     * <p>AllergyTestDate</p>
-     * 
-     * <p>D:Allergy Test Date</p>
-     * 
-     * <p><p>The date on which the allergy test was performed.</p></p>
-     * 
-     * <p><p>Allows providers to evaluate the currency of the 
-     * test.</p></p>
-     */
-    @Hl7XmlMapping({"effectiveTime"})
-    public Date getAllergyTestDate() {
-        return this.allergyTestDate.getValue();
-    }
-    public void setAllergyTestDate(Date allergyTestDate) {
-        this.allergyTestDate.setValue(allergyTestDate);
-    }
-
-
-    /**
      * <p>AllergyTestRecordId</p>
      * 
      * <p>B:Allergy Test Record Id</p>
@@ -174,6 +155,25 @@ public class AllergyTestsBean extends MessagePartBean implements Records {
     }
     public void setAllergyTestRecordId(Identifier allergyTestRecordId) {
         this.allergyTestRecordId.setValue(allergyTestRecordId);
+    }
+
+
+    /**
+     * <p>AllergyTestDate</p>
+     * 
+     * <p>D:Allergy Test Date</p>
+     * 
+     * <p><p>The date on which the allergy test was performed.</p></p>
+     * 
+     * <p><p>Allows providers to evaluate the currency of the 
+     * test.</p></p>
+     */
+    @Hl7XmlMapping({"effectiveTime"})
+    public Date getAllergyTestDate() {
+        return this.allergyTestDate.getValue();
+    }
+    public void setAllergyTestDate(Date allergyTestDate) {
+        this.allergyTestDate.setValue(allergyTestDate);
     }
 
 }

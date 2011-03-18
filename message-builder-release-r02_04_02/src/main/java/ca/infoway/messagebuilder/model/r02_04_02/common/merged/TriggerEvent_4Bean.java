@@ -61,27 +61,13 @@ import java.util.List;
 public class TriggerEvent_4Bean<RR> extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private CE messageLanguage = new CEImpl();
     private CV eventType = new CVImpl();
-    private List<IssuesBean> subjectOfDetectedIssueEvent = new ArrayList<IssuesBean>();
     private RefersTo_3Bean<RR> subject;
     private CV eventReason = new CVImpl();
-    private IVL<TS, Interval<Date>> eventEffectivePeriod = new IVLImpl<TS, Interval<Date>>();
+    private List<IssuesBean> subjectOfDetectedIssueEvent = new ArrayList<IssuesBean>();
+    private CE messageLanguage = new CEImpl();
     private II eventIdentifier = new IIImpl();
-
-
-    /**
-     * <p>MessageLanguage</p>
-     * 
-     * <p>Message Language</p>
-     */
-    @Hl7XmlMapping({"languageCode"})
-    public HumanLanguage getMessageLanguage() {
-        return (HumanLanguage) this.messageLanguage.getValue();
-    }
-    public void setMessageLanguage(HumanLanguage messageLanguage) {
-        this.messageLanguage.setValue(messageLanguage);
-    }
+    private IVL<TS, Interval<Date>> eventEffectivePeriod = new IVLImpl<TS, Interval<Date>>();
 
 
     /**
@@ -100,12 +86,6 @@ public class TriggerEvent_4Bean<RR> extends MessagePartBean {
     }
     public void setEventType(HL7TriggerEventCode eventType) {
         this.eventType.setValue(eventType);
-    }
-
-
-    @Hl7XmlMapping({"subjectOf/detectedIssueEvent"})
-    public List<IssuesBean> getSubjectOfDetectedIssueEvent() {
-        return this.subjectOfDetectedIssueEvent;
     }
 
 
@@ -144,26 +124,23 @@ public class TriggerEvent_4Bean<RR> extends MessagePartBean {
     }
 
 
-    /**
-     * <p>EventEffectivePeriod</p>
-     * 
-     * <p>C:Event Effective Period</p>
-     * 
-     * <p><p>Indicates the time the event (e.g. query, change, 
-     * activation) should begin and occasionally when it should 
-     * end.</p></p>
-     * 
-     * <p><p>The time an event becomes effective may differ from 
-     * the time the event is recorded (i.e. it may be in the future 
-     * or the past). For events such as 'suspend', an intended end 
-     * date may also be indicated.</p></p>
-     */
-    @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getEventEffectivePeriod() {
-        return this.eventEffectivePeriod.getValue();
+    @Hl7XmlMapping({"subjectOf/detectedIssueEvent"})
+    public List<IssuesBean> getSubjectOfDetectedIssueEvent() {
+        return this.subjectOfDetectedIssueEvent;
     }
-    public void setEventEffectivePeriod(Interval<Date> eventEffectivePeriod) {
-        this.eventEffectivePeriod.setValue(eventEffectivePeriod);
+
+
+    /**
+     * <p>MessageLanguage</p>
+     * 
+     * <p>Message Language</p>
+     */
+    @Hl7XmlMapping({"languageCode"})
+    public HumanLanguage getMessageLanguage() {
+        return (HumanLanguage) this.messageLanguage.getValue();
+    }
+    public void setMessageLanguage(HumanLanguage messageLanguage) {
+        this.messageLanguage.setValue(messageLanguage);
     }
 
 
@@ -192,6 +169,29 @@ public class TriggerEvent_4Bean<RR> extends MessagePartBean {
     }
     public void setEventIdentifier(Identifier eventIdentifier) {
         this.eventIdentifier.setValue(eventIdentifier);
+    }
+
+
+    /**
+     * <p>EventEffectivePeriod</p>
+     * 
+     * <p>C:Event Effective Period</p>
+     * 
+     * <p><p>Indicates the time the event (e.g. query, change, 
+     * activation) should begin and occasionally when it should 
+     * end.</p></p>
+     * 
+     * <p><p>The time an event becomes effective may differ from 
+     * the time the event is recorded (i.e. it may be in the future 
+     * or the past). For events such as 'suspend', an intended end 
+     * date may also be indicated.</p></p>
+     */
+    @Hl7XmlMapping({"effectiveTime"})
+    public Interval<Date> getEventEffectivePeriod() {
+        return this.eventEffectivePeriod.getValue();
+    }
+    public void setEventEffectivePeriod(Interval<Date> eventEffectivePeriod) {
+        this.eventEffectivePeriod.setValue(eventEffectivePeriod);
     }
 
 }

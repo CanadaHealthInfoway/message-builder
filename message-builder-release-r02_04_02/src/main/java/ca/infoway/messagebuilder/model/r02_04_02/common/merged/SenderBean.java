@@ -26,13 +26,13 @@ public class SenderBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
     private TEL sendingNetworkAddress = new TELImpl();
+    private IVL<TS, Interval<Date>> sendingApplicationVersionDate = new IVLImpl<TS, Interval<Date>>();
     private ST sendingApplicationName = new STImpl();
     private ST sendingApplicationConfigurationInformation = new STImpl();
     private ST sendingSoftwareVersionNumber = new STImpl();
     private II sendingOrganizationIdentifier = new IIImpl();
-    private IVL<TS, Interval<Date>> sendingApplicationVersionDate = new IVLImpl<TS, Interval<Date>>();
-    private II sendingApplicationIdentifier = new IIImpl();
     private ST sendingApplicationSoftwareName = new STImpl();
+    private II sendingApplicationIdentifier = new IIImpl();
 
 
     /**
@@ -56,6 +56,26 @@ public class SenderBean extends MessagePartBean {
     }
     public void setSendingNetworkAddress(TelecommunicationAddress sendingNetworkAddress) {
         this.sendingNetworkAddress.setValue(sendingNetworkAddress);
+    }
+
+
+    /**
+     * <p>SendingApplicationVersionDate</p>
+     * 
+     * <p>IH:Sending Application Version Date</p>
+     * 
+     * <p><p>Indicates the last time the sending application was 
+     * modified or reconfigured.</p></p>
+     * 
+     * <p><p>Can help to isolate the source of a problem when 
+     * debugging.</p></p>
+     */
+    @Hl7XmlMapping({"device/existenceTime"})
+    public Interval<Date> getSendingApplicationVersionDate() {
+        return this.sendingApplicationVersionDate.getValue();
+    }
+    public void setSendingApplicationVersionDate(Interval<Date> sendingApplicationVersionDate) {
+        this.sendingApplicationVersionDate.setValue(sendingApplicationVersionDate);
     }
 
 
@@ -149,22 +169,22 @@ public class SenderBean extends MessagePartBean {
 
 
     /**
-     * <p>SendingApplicationVersionDate</p>
+     * <p>SendingApplicationSoftwareName</p>
      * 
-     * <p>IH:Sending Application Version Date</p>
+     * <p>IF:Sending Application Software Name</p>
      * 
-     * <p><p>Indicates the last time the sending application was 
-     * modified or reconfigured.</p></p>
+     * <p><p>Indicates the name of the software used to construct 
+     * the message.</p></p>
      * 
-     * <p><p>Can help to isolate the source of a problem when 
-     * debugging.</p></p>
+     * <p><p>May be used to filter messages based on sending 
+     * application compliance testing.</p></p>
      */
-    @Hl7XmlMapping({"device/existenceTime"})
-    public Interval<Date> getSendingApplicationVersionDate() {
-        return this.sendingApplicationVersionDate.getValue();
+    @Hl7XmlMapping({"device/softwareName"})
+    public String getSendingApplicationSoftwareName() {
+        return this.sendingApplicationSoftwareName.getValue();
     }
-    public void setSendingApplicationVersionDate(Interval<Date> sendingApplicationVersionDate) {
-        this.sendingApplicationVersionDate.setValue(sendingApplicationVersionDate);
+    public void setSendingApplicationSoftwareName(String sendingApplicationSoftwareName) {
+        this.sendingApplicationSoftwareName.setValue(sendingApplicationSoftwareName);
     }
 
 
@@ -199,26 +219,6 @@ public class SenderBean extends MessagePartBean {
     }
     public void setSendingApplicationIdentifier(Identifier sendingApplicationIdentifier) {
         this.sendingApplicationIdentifier.setValue(sendingApplicationIdentifier);
-    }
-
-
-    /**
-     * <p>SendingApplicationSoftwareName</p>
-     * 
-     * <p>IF:Sending Application Software Name</p>
-     * 
-     * <p><p>Indicates the name of the software used to construct 
-     * the message.</p></p>
-     * 
-     * <p><p>May be used to filter messages based on sending 
-     * application compliance testing.</p></p>
-     */
-    @Hl7XmlMapping({"device/softwareName"})
-    public String getSendingApplicationSoftwareName() {
-        return this.sendingApplicationSoftwareName.getValue();
-    }
-    public void setSendingApplicationSoftwareName(String sendingApplicationSoftwareName) {
-        this.sendingApplicationSoftwareName.setValue(sendingApplicationSoftwareName);
     }
 
 }

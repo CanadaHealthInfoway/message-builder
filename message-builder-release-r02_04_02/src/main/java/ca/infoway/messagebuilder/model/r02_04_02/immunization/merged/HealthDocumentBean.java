@@ -46,9 +46,30 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 public class HealthDocumentBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private ED<EncapsulatedData> healthDocumentText = new EDImpl<EncapsulatedData>();
     private ST healthDocumentTitle = new STImpl();
+    private ED<EncapsulatedData> healthDocumentText = new EDImpl<EncapsulatedData>();
     private II healthDocumentID = new IIImpl();
+
+
+    /**
+     * <p>HealthDocumentTitle</p>
+     * 
+     * <p>Health Document Title</p>
+     * 
+     * <p><p>The title of the Health Document</p></p>
+     * 
+     * <p><p>Useful for identifying the Health Document that is the 
+     * basis of historical immunization information. Not all 
+     * implementations will support this concept so this attribute 
+     * is optional.</p></p>
+     */
+    @Hl7XmlMapping({"title"})
+    public String getHealthDocumentTitle() {
+        return this.healthDocumentTitle.getValue();
+    }
+    public void setHealthDocumentTitle(String healthDocumentTitle) {
+        this.healthDocumentTitle.setValue(healthDocumentTitle);
+    }
 
 
     /**
@@ -70,27 +91,6 @@ public class HealthDocumentBean extends MessagePartBean {
     }
     public void setHealthDocumentText(EncapsulatedData healthDocumentText) {
         this.healthDocumentText.setValue(healthDocumentText);
-    }
-
-
-    /**
-     * <p>HealthDocumentTitle</p>
-     * 
-     * <p>Health Document Title</p>
-     * 
-     * <p><p>The title of the Health Document</p></p>
-     * 
-     * <p><p>Useful for identifying the Health Document that is the 
-     * basis of historical immunization information. Not all 
-     * implementations will support this concept so this attribute 
-     * is optional.</p></p>
-     */
-    @Hl7XmlMapping({"title"})
-    public String getHealthDocumentTitle() {
-        return this.healthDocumentTitle.getValue();
-    }
-    public void setHealthDocumentTitle(String healthDocumentTitle) {
-        this.healthDocumentTitle.setValue(healthDocumentTitle);
     }
 
 

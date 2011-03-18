@@ -31,29 +31,8 @@ import java.util.Date;
 public class PatientEncounterBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private TS effectiveTime = new TSImpl();
     private II encounterID = new IIImpl();
-
-
-    /**
-     * <p>Admit/Discharge Date</p>
-     * 
-     * <p><p>Time of encounter</p></p>
-     * 
-     * <p>Encounter Date</p>
-     * 
-     * <p><p>The start and end dates of the interaction with the 
-     * patient, eg. for dispensing, the interval would be when the 
-     * patient handed the prescription to the pharmacy to when the 
-     * patient picked up the medication.</p></p>
-     */
-    @Hl7XmlMapping({"effectiveTime"})
-    public Date getEffectiveTime() {
-        return this.effectiveTime.getValue();
-    }
-    public void setEffectiveTime(Date effectiveTime) {
-        this.effectiveTime.setValue(effectiveTime);
-    }
+    private TS effectiveTime = new TSImpl();
 
 
     /**
@@ -74,6 +53,27 @@ public class PatientEncounterBean extends MessagePartBean {
     }
     public void setEncounterID(Identifier encounterID) {
         this.encounterID.setValue(encounterID);
+    }
+
+
+    /**
+     * <p>Admit/Discharge Date</p>
+     * 
+     * <p><p>Time of encounter</p></p>
+     * 
+     * <p>Encounter Date</p>
+     * 
+     * <p><p>The start and end dates of the interaction with the 
+     * patient, eg. for dispensing, the interval would be when the 
+     * patient handed the prescription to the pharmacy to when the 
+     * patient picked up the medication.</p></p>
+     */
+    @Hl7XmlMapping({"effectiveTime"})
+    public Date getEffectiveTime() {
+        return this.effectiveTime.getValue();
+    }
+    public void setEffectiveTime(Date effectiveTime) {
+        this.effectiveTime.setValue(effectiveTime);
     }
 
 }

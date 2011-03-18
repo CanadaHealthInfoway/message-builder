@@ -33,19 +33,13 @@ import java.util.Set;
 public class CoveredPartyBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private List<RelatedPersonBean> indirectAuthorityPersonalRelationship = new ArrayList<RelatedPersonBean>();
     private CV relationshipToPolicyHolder = new CVImpl();
-    private II coveredPartyIdentifier = new IIImpl();
-    private CV coveredPartyPatientGender = new CVImpl();
     private SET<PN, PersonName> coveredPartyPatientNameS = new SETImpl<PN, PersonName>(PNImpl.class);
     private AD coveredPartyPatientAddress = new ADImpl();
     private TS coveredPartyPatientDateOfBirth = new TSImpl();
-
-
-    @Hl7XmlMapping({"indirectAuthority/personalRelationship"})
-    public List<RelatedPersonBean> getIndirectAuthorityPersonalRelationship() {
-        return this.indirectAuthorityPersonalRelationship;
-    }
+    private CV coveredPartyPatientGender = new CVImpl();
+    private List<RelatedPersonBean> indirectAuthorityPersonalRelationship = new ArrayList<RelatedPersonBean>();
+    private II coveredPartyIdentifier = new IIImpl();
 
 
     /**
@@ -59,34 +53,6 @@ public class CoveredPartyBean extends MessagePartBean {
     }
     public void setRelationshipToPolicyHolder(Code relationshipToPolicyHolder) {
         this.relationshipToPolicyHolder.setValue(relationshipToPolicyHolder);
-    }
-
-
-    /**
-     * <p>CoveredPartyIdentifier</p>
-     * 
-     * <p>Covered Party Identifier</p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Identifier getCoveredPartyIdentifier() {
-        return this.coveredPartyIdentifier.getValue();
-    }
-    public void setCoveredPartyIdentifier(Identifier coveredPartyIdentifier) {
-        this.coveredPartyIdentifier.setValue(coveredPartyIdentifier);
-    }
-
-
-    /**
-     * <p>CoveredPartyPatientGender</p>
-     * 
-     * <p>Covered Party (Patient) Gender</p>
-     */
-    @Hl7XmlMapping({"coveredPartyAsPatientPerson/administrativeGenderCode"})
-    public AdministrativeGender getCoveredPartyPatientGender() {
-        return (AdministrativeGender) this.coveredPartyPatientGender.getValue();
-    }
-    public void setCoveredPartyPatientGender(AdministrativeGender coveredPartyPatientGender) {
-        this.coveredPartyPatientGender.setValue(coveredPartyPatientGender);
     }
 
 
@@ -126,6 +92,40 @@ public class CoveredPartyBean extends MessagePartBean {
     }
     public void setCoveredPartyPatientDateOfBirth(Date coveredPartyPatientDateOfBirth) {
         this.coveredPartyPatientDateOfBirth.setValue(coveredPartyPatientDateOfBirth);
+    }
+
+
+    /**
+     * <p>CoveredPartyPatientGender</p>
+     * 
+     * <p>Covered Party (Patient) Gender</p>
+     */
+    @Hl7XmlMapping({"coveredPartyAsPatientPerson/administrativeGenderCode"})
+    public AdministrativeGender getCoveredPartyPatientGender() {
+        return (AdministrativeGender) this.coveredPartyPatientGender.getValue();
+    }
+    public void setCoveredPartyPatientGender(AdministrativeGender coveredPartyPatientGender) {
+        this.coveredPartyPatientGender.setValue(coveredPartyPatientGender);
+    }
+
+
+    @Hl7XmlMapping({"indirectAuthority/personalRelationship"})
+    public List<RelatedPersonBean> getIndirectAuthorityPersonalRelationship() {
+        return this.indirectAuthorityPersonalRelationship;
+    }
+
+
+    /**
+     * <p>CoveredPartyIdentifier</p>
+     * 
+     * <p>Covered Party Identifier</p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Identifier getCoveredPartyIdentifier() {
+        return this.coveredPartyIdentifier.getValue();
+    }
+    public void setCoveredPartyIdentifier(Identifier coveredPartyIdentifier) {
+        this.coveredPartyIdentifier.setValue(coveredPartyIdentifier);
     }
 
 }

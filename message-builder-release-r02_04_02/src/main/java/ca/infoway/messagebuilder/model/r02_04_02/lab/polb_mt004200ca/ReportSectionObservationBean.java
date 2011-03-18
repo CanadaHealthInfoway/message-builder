@@ -21,7 +21,9 @@ import ca.infoway.messagebuilder.datatype.impl.TSImpl;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.domainvalue.x_BasicConfidentialityKind;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Set;
 
 
@@ -38,10 +40,10 @@ public class ReportSectionObservationBean extends MessagePartBean {
     private static final long serialVersionUID = 20110318L;
     private CD reportSectionObservationType = new CDImpl();
     private ANY<Object> reportSectionObservationValue = new ANYImpl<Object>();
-    private ST noteType = new STImpl();
     private SET<CV, Code> resultMaskingIndicator = new SETImpl<CV, Code>(CVImpl.class);
-    private TS reportSectionObservationDateTime = new TSImpl();
+    private ST noteType = new STImpl();
     private II sectionIdentifier = new IIImpl();
+    private TS reportSectionObservationDateTime = new TSImpl();
 
 
     /**
@@ -76,6 +78,15 @@ public class ReportSectionObservationBean extends MessagePartBean {
 
 
     /**
+     * <p>Result Masking Indicator</p>
+     */
+    @Hl7XmlMapping({"confidentialityCode"})
+    public Set<x_BasicConfidentialityKind> getResultMaskingIndicator() {
+        return this.resultMaskingIndicator.rawSet(x_BasicConfidentialityKind.class);
+    }
+
+
+    /**
      * <p>Note Type</p>
      * 
      * <p><p>Type of comment or note.</p></p>
@@ -86,30 +97,6 @@ public class ReportSectionObservationBean extends MessagePartBean {
     }
     public void setNoteType(String noteType) {
         this.noteType.setValue(noteType);
-    }
-
-
-    /**
-     * <p>Result Masking Indicator</p>
-     */
-    @Hl7XmlMapping({"confidentialityCode"})
-    public Set<x_BasicConfidentialityKind> getResultMaskingIndicator() {
-        return this.resultMaskingIndicator.rawSet(x_BasicConfidentialityKind.class);
-    }
-
-
-    /**
-     * <p>Report Section Observation Date/Time</p>
-     * 
-     * <p><p>The date/time this report section was 
-     * &quot;reported&quot;.</p></p>
-     */
-    @Hl7XmlMapping({"effectiveTime"})
-    public Date getReportSectionObservationDateTime() {
-        return this.reportSectionObservationDateTime.getValue();
-    }
-    public void setReportSectionObservationDateTime(Date reportSectionObservationDateTime) {
-        this.reportSectionObservationDateTime.setValue(reportSectionObservationDateTime);
     }
 
 
@@ -125,6 +112,21 @@ public class ReportSectionObservationBean extends MessagePartBean {
     }
     public void setSectionIdentifier(Identifier sectionIdentifier) {
         this.sectionIdentifier.setValue(sectionIdentifier);
+    }
+
+
+    /**
+     * <p>Report Section Observation Date/Time</p>
+     * 
+     * <p><p>The date/time this report section was 
+     * &quot;reported&quot;.</p></p>
+     */
+    @Hl7XmlMapping({"effectiveTime"})
+    public Date getReportSectionObservationDateTime() {
+        return this.reportSectionObservationDateTime.getValue();
+    }
+    public void setReportSectionObservationDateTime(Date reportSectionObservationDateTime) {
+        this.reportSectionObservationDateTime.setValue(reportSectionObservationDateTime);
     }
 
 }

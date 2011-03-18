@@ -38,16 +38,31 @@ import java.util.List;
 public class SpecimenCollectionProcedureBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private List<PerformerChoice> performerPerformerChoice = new ArrayList<PerformerChoice>();
-    private ST specimenCollectionText = new STImpl();
     private List<IncludesBean> subjectOf = new ArrayList<IncludesBean>();
     private CV specimenCollectionProcedureMethod = new CVImpl();
+    private ST specimenCollectionText = new STImpl();
+    private List<PerformerChoice> performerPerformerChoice = new ArrayList<PerformerChoice>();
     private IVL<TS, Interval<Date>> specimenCollectionDateTime = new IVLImpl<TS, Interval<Date>>();
 
 
-    @Hl7XmlMapping({"performer/performerChoice"})
-    public List<PerformerChoice> getPerformerPerformerChoice() {
-        return this.performerPerformerChoice;
+    @Hl7XmlMapping({"subjectOf"})
+    public List<IncludesBean> getSubjectOf() {
+        return this.subjectOf;
+    }
+
+
+    /**
+     * <p>Specimen Collection Procedure Method</p>
+     * 
+     * <p><p>Method of specimen collection used primariy for 
+     * Surgical Pathology.</p></p>
+     */
+    @Hl7XmlMapping({"methodCode"})
+    public Code getSpecimenCollectionProcedureMethod() {
+        return (Code) this.specimenCollectionProcedureMethod.getValue();
+    }
+    public void setSpecimenCollectionProcedureMethod(Code specimenCollectionProcedureMethod) {
+        this.specimenCollectionProcedureMethod.setValue(specimenCollectionProcedureMethod);
     }
 
 
@@ -79,24 +94,9 @@ public class SpecimenCollectionProcedureBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"subjectOf"})
-    public List<IncludesBean> getSubjectOf() {
-        return this.subjectOf;
-    }
-
-
-    /**
-     * <p>Specimen Collection Procedure Method</p>
-     * 
-     * <p><p>Method of specimen collection used primariy for 
-     * Surgical Pathology.</p></p>
-     */
-    @Hl7XmlMapping({"methodCode"})
-    public Code getSpecimenCollectionProcedureMethod() {
-        return (Code) this.specimenCollectionProcedureMethod.getValue();
-    }
-    public void setSpecimenCollectionProcedureMethod(Code specimenCollectionProcedureMethod) {
-        this.specimenCollectionProcedureMethod.setValue(specimenCollectionProcedureMethod);
+    @Hl7XmlMapping({"performer/performerChoice"})
+    public List<PerformerChoice> getPerformerPerformerChoice() {
+        return this.performerPerformerChoice;
     }
 
 

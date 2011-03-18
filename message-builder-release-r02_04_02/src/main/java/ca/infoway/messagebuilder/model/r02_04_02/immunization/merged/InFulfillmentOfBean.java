@@ -24,17 +24,8 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 public class InFulfillmentOfBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private BL immunizationPlan = new BLImpl(false);
     private INT doseNumber = new INTImpl();
-
-
-    @Hl7XmlMapping({"immunizationPlan"})
-    public Boolean getImmunizationPlan() {
-        return this.immunizationPlan.getValue();
-    }
-    public void setImmunizationPlan(Boolean immunizationPlan) {
-        this.immunizationPlan.setValue(immunizationPlan);
-    }
+    private BL immunizationPlan = new BLImpl(false);
 
 
     /**
@@ -57,6 +48,15 @@ public class InFulfillmentOfBean extends MessagePartBean {
     }
     public void setDoseNumber(Integer doseNumber) {
         this.doseNumber.setValue(doseNumber);
+    }
+
+
+    @Hl7XmlMapping({"immunizationPlan"})
+    public Boolean getImmunizationPlan() {
+        return this.immunizationPlan.getValue();
+    }
+    public void setImmunizationPlan(Boolean immunizationPlan) {
+        this.immunizationPlan.setValue(immunizationPlan);
     }
 
 }

@@ -17,34 +17,11 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 public class PolicyOrAccount_1Bean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private II carrierIdentifier = new IIImpl();
-    private CoveredPartyBean beneficiaryCoveredParty;
     private CV policyType = new CVImpl();
     private PolicyHolderBean holderPolicyHolder;
+    private CoveredPartyBean beneficiaryCoveredParty;
     private II id = new IIImpl();
-
-
-    /**
-     * <p>CarrierIdentifier</p>
-     * 
-     * <p>Carrier Identifier</p>
-     */
-    @Hl7XmlMapping({"author/carrierRole/id"})
-    public Identifier getCarrierIdentifier() {
-        return this.carrierIdentifier.getValue();
-    }
-    public void setCarrierIdentifier(Identifier carrierIdentifier) {
-        this.carrierIdentifier.setValue(carrierIdentifier);
-    }
-
-
-    @Hl7XmlMapping({"beneficiary/coveredParty"})
-    public CoveredPartyBean getBeneficiaryCoveredParty() {
-        return this.beneficiaryCoveredParty;
-    }
-    public void setBeneficiaryCoveredParty(CoveredPartyBean beneficiaryCoveredParty) {
-        this.beneficiaryCoveredParty = beneficiaryCoveredParty;
-    }
+    private II carrierIdentifier = new IIImpl();
 
 
     /**
@@ -70,6 +47,15 @@ public class PolicyOrAccount_1Bean extends MessagePartBean {
     }
 
 
+    @Hl7XmlMapping({"beneficiary/coveredParty"})
+    public CoveredPartyBean getBeneficiaryCoveredParty() {
+        return this.beneficiaryCoveredParty;
+    }
+    public void setBeneficiaryCoveredParty(CoveredPartyBean beneficiaryCoveredParty) {
+        this.beneficiaryCoveredParty = beneficiaryCoveredParty;
+    }
+
+
     /**
      * <p>Policy Identifier(s</p>
      * 
@@ -81,6 +67,20 @@ public class PolicyOrAccount_1Bean extends MessagePartBean {
     }
     public void setId(Identifier id) {
         this.id.setValue(id);
+    }
+
+
+    /**
+     * <p>CarrierIdentifier</p>
+     * 
+     * <p>Carrier Identifier</p>
+     */
+    @Hl7XmlMapping({"author/carrierRole/id"})
+    public Identifier getCarrierIdentifier() {
+        return this.carrierIdentifier.getValue();
+    }
+    public void setCarrierIdentifier(Identifier carrierIdentifier) {
+        this.carrierIdentifier.setValue(carrierIdentifier);
     }
 
 }

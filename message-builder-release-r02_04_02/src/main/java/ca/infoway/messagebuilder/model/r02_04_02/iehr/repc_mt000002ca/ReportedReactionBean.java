@@ -50,21 +50,15 @@ import java.util.Set;
 public class ReportedReactionBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private List<ReportedReactionsBean> subjectOf3CausalityAssessment = new ArrayList<ReportedReactionsBean>();
     private CD diagnosisType = new CDImpl();
+    private IncludesBean subjectOf1;
     private CV reaction = new CVImpl();
     private ReportedByBean informant;
+    private List<ReportedReactionsBean> subjectOf3CausalityAssessment = new ArrayList<ReportedReactionsBean>();
+    private SET<CV, Code> adverseReactionMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);
     private ST description = new STImpl();
     private AllergyIntoleranceSeverityLevelBean subjectOf2SeverityObservation;
-    private IncludesBean subjectOf1;
-    private SET<CV, Code> adverseReactionMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);
     private IVL<TS, Interval<Date>> reactionOnsetDate = new IVLImpl<TS, Interval<Date>>();
-
-
-    @Hl7XmlMapping({"subjectOf3/causalityAssessment"})
-    public List<ReportedReactionsBean> getSubjectOf3CausalityAssessment() {
-        return this.subjectOf3CausalityAssessment;
-    }
 
 
     /**
@@ -87,6 +81,15 @@ public class ReportedReactionBean extends MessagePartBean {
     }
     public void setDiagnosisType(Code diagnosisType) {
         this.diagnosisType.setValue(diagnosisType);
+    }
+
+
+    @Hl7XmlMapping({"subjectOf1"})
+    public IncludesBean getSubjectOf1() {
+        return this.subjectOf1;
+    }
+    public void setSubjectOf1(IncludesBean subjectOf1) {
+        this.subjectOf1 = subjectOf1;
     }
 
 
@@ -125,69 +128,9 @@ public class ReportedReactionBean extends MessagePartBean {
     }
 
 
-    /**
-     * <p>G:Description</p>
-     * 
-     * <p><p>A free form description of the reaction.</p><p>This is 
-     * a specific description of the reaction, as opposed to 
-     * annotations on the reaction.</p><p>Annotations and text are 
-     * quite different. Think of it from a user interface. Notes 
-     * might be things like &quot;patient didn't have the problem 
-     * when he took the medication two weeks earlier&quot; or 
-     * &quot;patient thinks it might have been related to the two 
-     * bottles of scotch they drank the night prior&quot;, which 
-     * aren't describing the reaction but are relevant to the 
-     * reaction record</p></p>
-     * 
-     * <p><p>A free form description of the reaction.</p><p>This is 
-     * a specific description of the reaction, as opposed to 
-     * annotations on the reaction.</p><p>Annotations and text are 
-     * quite different. Think of it from a user interface. Notes 
-     * might be things like &quot;patient didn't have the problem 
-     * when he took the medication two weeks earlier&quot; or 
-     * &quot;patient thinks it might have been related to the two 
-     * bottles of scotch they drank the night prior&quot;, which 
-     * aren't describing the reaction but are relevant to the 
-     * reaction record</p></p>
-     * 
-     * <p><p>A free form description of the reaction.</p><p>This is 
-     * a specific description of the reaction, as opposed to 
-     * annotations on the reaction.</p><p>Annotations and text are 
-     * quite different. Think of it from a user interface. Notes 
-     * might be things like &quot;patient didn't have the problem 
-     * when he took the medication two weeks earlier&quot; or 
-     * &quot;patient thinks it might have been related to the two 
-     * bottles of scotch they drank the night prior&quot;, which 
-     * aren't describing the reaction but are relevant to the 
-     * reaction record</p></p>
-     * 
-     * <p><p>Allows for flexibility in the recording and reporting 
-     * of the reaction.</p></p>
-     */
-    @Hl7XmlMapping({"text"})
-    public String getDescription() {
-        return this.description.getValue();
-    }
-    public void setDescription(String description) {
-        this.description.setValue(description);
-    }
-
-
-    @Hl7XmlMapping({"subjectOf2/severityObservation"})
-    public AllergyIntoleranceSeverityLevelBean getSubjectOf2SeverityObservation() {
-        return this.subjectOf2SeverityObservation;
-    }
-    public void setSubjectOf2SeverityObservation(AllergyIntoleranceSeverityLevelBean subjectOf2SeverityObservation) {
-        this.subjectOf2SeverityObservation = subjectOf2SeverityObservation;
-    }
-
-
-    @Hl7XmlMapping({"subjectOf1"})
-    public IncludesBean getSubjectOf1() {
-        return this.subjectOf1;
-    }
-    public void setSubjectOf1(IncludesBean subjectOf1) {
-        this.subjectOf1 = subjectOf1;
+    @Hl7XmlMapping({"subjectOf3/causalityAssessment"})
+    public List<ReportedReactionsBean> getSubjectOf3CausalityAssessment() {
+        return this.subjectOf3CausalityAssessment;
     }
 
 
@@ -248,6 +191,63 @@ public class ReportedReactionBean extends MessagePartBean {
     @Hl7XmlMapping({"confidentialityCode"})
     public Set<x_BasicConfidentialityKind> getAdverseReactionMaskingIndicators() {
         return this.adverseReactionMaskingIndicators.rawSet(x_BasicConfidentialityKind.class);
+    }
+
+
+    /**
+     * <p>G:Description</p>
+     * 
+     * <p><p>A free form description of the reaction.</p><p>This is 
+     * a specific description of the reaction, as opposed to 
+     * annotations on the reaction.</p><p>Annotations and text are 
+     * quite different. Think of it from a user interface. Notes 
+     * might be things like &quot;patient didn't have the problem 
+     * when he took the medication two weeks earlier&quot; or 
+     * &quot;patient thinks it might have been related to the two 
+     * bottles of scotch they drank the night prior&quot;, which 
+     * aren't describing the reaction but are relevant to the 
+     * reaction record</p></p>
+     * 
+     * <p><p>A free form description of the reaction.</p><p>This is 
+     * a specific description of the reaction, as opposed to 
+     * annotations on the reaction.</p><p>Annotations and text are 
+     * quite different. Think of it from a user interface. Notes 
+     * might be things like &quot;patient didn't have the problem 
+     * when he took the medication two weeks earlier&quot; or 
+     * &quot;patient thinks it might have been related to the two 
+     * bottles of scotch they drank the night prior&quot;, which 
+     * aren't describing the reaction but are relevant to the 
+     * reaction record</p></p>
+     * 
+     * <p><p>A free form description of the reaction.</p><p>This is 
+     * a specific description of the reaction, as opposed to 
+     * annotations on the reaction.</p><p>Annotations and text are 
+     * quite different. Think of it from a user interface. Notes 
+     * might be things like &quot;patient didn't have the problem 
+     * when he took the medication two weeks earlier&quot; or 
+     * &quot;patient thinks it might have been related to the two 
+     * bottles of scotch they drank the night prior&quot;, which 
+     * aren't describing the reaction but are relevant to the 
+     * reaction record</p></p>
+     * 
+     * <p><p>Allows for flexibility in the recording and reporting 
+     * of the reaction.</p></p>
+     */
+    @Hl7XmlMapping({"text"})
+    public String getDescription() {
+        return this.description.getValue();
+    }
+    public void setDescription(String description) {
+        this.description.setValue(description);
+    }
+
+
+    @Hl7XmlMapping({"subjectOf2/severityObservation"})
+    public AllergyIntoleranceSeverityLevelBean getSubjectOf2SeverityObservation() {
+        return this.subjectOf2SeverityObservation;
+    }
+    public void setSubjectOf2SeverityObservation(AllergyIntoleranceSeverityLevelBean subjectOf2SeverityObservation) {
+        this.subjectOf2SeverityObservation = subjectOf2SeverityObservation;
     }
 
 

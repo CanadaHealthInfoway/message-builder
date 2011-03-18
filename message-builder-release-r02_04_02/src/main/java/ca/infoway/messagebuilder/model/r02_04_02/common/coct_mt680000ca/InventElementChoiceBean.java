@@ -20,8 +20,8 @@ public class InventElementChoiceBean extends MessagePartBean implements ca.infow
 
     private static final long serialVersionUID = 20110318L;
     private CV invoiceElementIntentCode = new CVImpl();
-    private List<InvoiceElementComponentBean> component = new ArrayList<InvoiceElementComponentBean>();
     private MO totalAmountBilledForInvoiceElement = new MOImpl();
+    private List<InvoiceElementComponentBean> component = new ArrayList<InvoiceElementComponentBean>();
 
 
     /**
@@ -39,12 +39,6 @@ public class InventElementChoiceBean extends MessagePartBean implements ca.infow
     }
 
 
-    @Hl7XmlMapping({"component"})
-    public List<InvoiceElementComponentBean> getComponent() {
-        return this.component;
-    }
-
-
     /**
      * <p>Total amount billed for invoice element</p>
      * 
@@ -57,6 +51,12 @@ public class InventElementChoiceBean extends MessagePartBean implements ca.infow
     }
     public void setTotalAmountBilledForInvoiceElement(Money totalAmountBilledForInvoiceElement) {
         this.totalAmountBilledForInvoiceElement.setValue(totalAmountBilledForInvoiceElement);
+    }
+
+
+    @Hl7XmlMapping({"component"})
+    public List<InvoiceElementComponentBean> getComponent() {
+        return this.component;
     }
 
 }

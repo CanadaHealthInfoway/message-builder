@@ -77,8 +77,14 @@ import java.util.List;
 public class ParticipantGroupingsBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private CreatedAtBean location;
     private List<HasBean> participant = new ArrayList<HasBean>();
+    private CreatedAtBean location;
+
+
+    @Hl7XmlMapping({"participant"})
+    public List<HasBean> getParticipant() {
+        return this.participant;
+    }
 
 
     @Hl7XmlMapping({"location"})
@@ -87,12 +93,6 @@ public class ParticipantGroupingsBean extends MessagePartBean {
     }
     public void setLocation(CreatedAtBean location) {
         this.location = location;
-    }
-
-
-    @Hl7XmlMapping({"participant"})
-    public List<HasBean> getParticipant() {
-        return this.participant;
     }
 
 }

@@ -46,18 +46,12 @@ import java.util.List;
 public class CareCompositionsBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private List<Assignees> attenderAssignees = new ArrayList<Assignees>();
     private CV careCompositionType = new CVImpl();
     private OccurredAtBean location;
+    private List<Assignees> attenderAssignees = new ArrayList<Assignees>();
     private List<Assignees> admitterAssignees = new ArrayList<Assignees>();
-    private IVL<TS, Interval<Date>> careCompositionEffectiveDate = new IVLImpl<TS, Interval<Date>>();
     private II id = new IIImpl();
-
-
-    @Hl7XmlMapping({"attender/assignees"})
-    public List<Assignees> getAttenderAssignees() {
-        return this.attenderAssignees;
-    }
+    private IVL<TS, Interval<Date>> careCompositionEffectiveDate = new IVLImpl<TS, Interval<Date>>();
 
 
     /**
@@ -100,23 +94,15 @@ public class CareCompositionsBean extends MessagePartBean {
     }
 
 
+    @Hl7XmlMapping({"attender/assignees"})
+    public List<Assignees> getAttenderAssignees() {
+        return this.attenderAssignees;
+    }
+
+
     @Hl7XmlMapping({"admitter/assignees"})
     public List<Assignees> getAdmitterAssignees() {
         return this.admitterAssignees;
-    }
-
-
-    /**
-     * <p>CareCompositionEffectiveDate</p>
-     * 
-     * <p>Care Composition Effective Date</p>
-     */
-    @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getCareCompositionEffectiveDate() {
-        return this.careCompositionEffectiveDate.getValue();
-    }
-    public void setCareCompositionEffectiveDate(Interval<Date> careCompositionEffectiveDate) {
-        this.careCompositionEffectiveDate.setValue(careCompositionEffectiveDate);
     }
 
 
@@ -151,6 +137,20 @@ public class CareCompositionsBean extends MessagePartBean {
     }
     public void setId(Identifier id) {
         this.id.setValue(id);
+    }
+
+
+    /**
+     * <p>CareCompositionEffectiveDate</p>
+     * 
+     * <p>Care Composition Effective Date</p>
+     */
+    @Hl7XmlMapping({"effectiveTime"})
+    public Interval<Date> getCareCompositionEffectiveDate() {
+        return this.careCompositionEffectiveDate.getValue();
+    }
+    public void setCareCompositionEffectiveDate(Interval<Date> careCompositionEffectiveDate) {
+        this.careCompositionEffectiveDate.setValue(careCompositionEffectiveDate);
     }
 
 }

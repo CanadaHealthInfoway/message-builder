@@ -39,10 +39,10 @@ public class SpecimenRoleBean extends MessagePartBean {
     private static final long serialVersionUID = 20110318L;
     private ST specimenMaterialDesc = new STImpl();
     private SpecimenCollectionProcedureBean productOfSpecimenCollectionProcedureEvent;
-    private List<SpecimenProcessStepsBean> subjectOfTransportationEvent = new ArrayList<SpecimenProcessStepsBean>();
-    private CV specimenContainerRisk = new CVImpl();
     private CD specimenCode = new CDImpl();
+    private CV specimenContainerRisk = new CVImpl();
     private List<OtherSpecimenIdentificationsBean> specimenMaterialAsIdentifiedEntity = new ArrayList<OtherSpecimenIdentificationsBean>();
+    private List<SpecimenProcessStepsBean> subjectOfTransportationEvent = new ArrayList<SpecimenProcessStepsBean>();
     private II specimenIdentifier = new IIImpl();
 
 
@@ -99,9 +99,23 @@ public class SpecimenRoleBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"subjectOf/transportationEvent"})
-    public List<SpecimenProcessStepsBean> getSubjectOfTransportationEvent() {
-        return this.subjectOfTransportationEvent;
+    /**
+     * <p>SpecimenCode</p>
+     * 
+     * <p>V:Specimen Code</p>
+     * 
+     * <p><p>The code of the specimen material collected e.g. skin, 
+     * blood, etc.</p></p>
+     * 
+     * <p><p>The specimen code differentiates testing types, 
+     * methods, and resulting processing of specimen material.</p></p>
+     */
+    @Hl7XmlMapping({"specimenMaterial/code"})
+    public Code getSpecimenCode() {
+        return (Code) this.specimenCode.getValue();
+    }
+    public void setSpecimenCode(Code specimenCode) {
+        this.specimenCode.setValue(specimenCode);
     }
 
 
@@ -125,29 +139,15 @@ public class SpecimenRoleBean extends MessagePartBean {
     }
 
 
-    /**
-     * <p>SpecimenCode</p>
-     * 
-     * <p>V:Specimen Code</p>
-     * 
-     * <p><p>The code of the specimen material collected e.g. skin, 
-     * blood, etc.</p></p>
-     * 
-     * <p><p>The specimen code differentiates testing types, 
-     * methods, and resulting processing of specimen material.</p></p>
-     */
-    @Hl7XmlMapping({"specimenMaterial/code"})
-    public Code getSpecimenCode() {
-        return (Code) this.specimenCode.getValue();
-    }
-    public void setSpecimenCode(Code specimenCode) {
-        this.specimenCode.setValue(specimenCode);
-    }
-
-
     @Hl7XmlMapping({"specimenMaterial/asIdentifiedEntity"})
     public List<OtherSpecimenIdentificationsBean> getSpecimenMaterialAsIdentifiedEntity() {
         return this.specimenMaterialAsIdentifiedEntity;
+    }
+
+
+    @Hl7XmlMapping({"subjectOf/transportationEvent"})
+    public List<SpecimenProcessStepsBean> getSubjectOfTransportationEvent() {
+        return this.subjectOfTransportationEvent;
     }
 
 

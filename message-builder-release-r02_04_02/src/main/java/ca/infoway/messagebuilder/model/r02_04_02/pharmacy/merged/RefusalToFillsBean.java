@@ -119,17 +119,11 @@ import java.util.List;
 public class RefusalToFillsBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private List<IssuesBean> reasonDetectedIssueEvent = new ArrayList<IssuesBean>();
     private OccurredAtBean location;
     private RefusedByBean author;
     private CV refusalToFillReason = new CVImpl();
+    private List<IssuesBean> reasonDetectedIssueEvent = new ArrayList<IssuesBean>();
     private TS refusalToFillDate = new TSImpl();
-
-
-    @Hl7XmlMapping({"reason/detectedIssueEvent"})
-    public List<IssuesBean> getReasonDetectedIssueEvent() {
-        return this.reasonDetectedIssueEvent;
-    }
 
 
     @Hl7XmlMapping({"location"})
@@ -212,6 +206,12 @@ public class RefusalToFillsBean extends MessagePartBean {
     }
     public void setRefusalToFillReason(ActSupplyFulfillmentRefusalReason refusalToFillReason) {
         this.refusalToFillReason.setValue(refusalToFillReason);
+    }
+
+
+    @Hl7XmlMapping({"reason/detectedIssueEvent"})
+    public List<IssuesBean> getReasonDetectedIssueEvent() {
+        return this.reasonDetectedIssueEvent;
     }
 
 

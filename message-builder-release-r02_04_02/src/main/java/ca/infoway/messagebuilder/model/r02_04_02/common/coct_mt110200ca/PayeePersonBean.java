@@ -28,38 +28,12 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 public class PayeePersonBean extends MessagePartBean implements PayeeChoice {
 
     private static final long serialVersionUID = 20110318L;
-    private PN payeeName = new PNImpl();
-    private CV payeePersonLanguage = new CVImpl();
     private CV languageOfCommunication = new CVImpl();
     private BL preferredLanguageIndicator = new BLImpl();
-    private PayeeRelationshipRoleBean asRole;
+    private CV payeePersonLanguage = new CVImpl();
+    private PN payeeName = new PNImpl();
     private AD payeeAddress = new ADImpl();
-
-
-    /**
-     * <p>payee name</p>
-     * 
-     * <p><p>name of person who is the payee</p></p>
-     */
-    @Hl7XmlMapping({"name"})
-    public PersonName getPayeeName() {
-        return this.payeeName.getValue();
-    }
-    public void setPayeeName(PersonName payeeName) {
-        this.payeeName.setValue(payeeName);
-    }
-
-
-    /**
-     * <p>Payee Person Language</p>
-     */
-    @Hl7XmlMapping({"payeeLanguage/languageCode"})
-    public HumanLanguage getPayeePersonLanguage() {
-        return (HumanLanguage) this.payeePersonLanguage.getValue();
-    }
-    public void setPayeePersonLanguage(HumanLanguage payeePersonLanguage) {
-        this.payeePersonLanguage.setValue(payeePersonLanguage);
-    }
+    private PayeeRelationshipRoleBean asRole;
 
 
     /**
@@ -89,12 +63,29 @@ public class PayeePersonBean extends MessagePartBean implements PayeeChoice {
     }
 
 
-    @Hl7XmlMapping({"asRole"})
-    public PayeeRelationshipRoleBean getAsRole() {
-        return this.asRole;
+    /**
+     * <p>Payee Person Language</p>
+     */
+    @Hl7XmlMapping({"payeeLanguage/languageCode"})
+    public HumanLanguage getPayeePersonLanguage() {
+        return (HumanLanguage) this.payeePersonLanguage.getValue();
     }
-    public void setAsRole(PayeeRelationshipRoleBean asRole) {
-        this.asRole = asRole;
+    public void setPayeePersonLanguage(HumanLanguage payeePersonLanguage) {
+        this.payeePersonLanguage.setValue(payeePersonLanguage);
+    }
+
+
+    /**
+     * <p>payee name</p>
+     * 
+     * <p><p>name of person who is the payee</p></p>
+     */
+    @Hl7XmlMapping({"name"})
+    public PersonName getPayeeName() {
+        return this.payeeName.getValue();
+    }
+    public void setPayeeName(PersonName payeeName) {
+        this.payeeName.setValue(payeeName);
     }
 
 
@@ -107,6 +98,15 @@ public class PayeePersonBean extends MessagePartBean implements PayeeChoice {
     }
     public void setPayeeAddress(PostalAddress payeeAddress) {
         this.payeeAddress.setValue(payeeAddress);
+    }
+
+
+    @Hl7XmlMapping({"asRole"})
+    public PayeeRelationshipRoleBean getAsRole() {
+        return this.asRole;
+    }
+    public void setAsRole(PayeeRelationshipRoleBean asRole) {
+        this.asRole = asRole;
     }
 
 }

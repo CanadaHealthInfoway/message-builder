@@ -44,48 +44,46 @@ import java.util.Set;
 public class DrugOrCompoundBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private List<GroupedWithinBean> asSpecializedKind = new ArrayList<GroupedWithinBean>();
+    private CV drugCode = new CVImpl();
+    private DispensedInBean asContent;
+    private SET<TN, TrivialName> drugNames = new SETImpl<TN, TrivialName>(TNImpl.class);
+    private ST description = new STImpl();
+    private CS regulatoryStatusCode = new CSImpl();
     private ManufacturerBean asManufacturedProductManufacturer;
     private CV drugForm = new CVImpl();
-    private SET<TN, TrivialName> drugNames = new SETImpl<TN, TrivialName>(TNImpl.class);
     private List<DrugContainsBean> ingredient = new ArrayList<DrugContainsBean>();
-    private CV drugCode = new CVImpl();
-    private ST description = new STImpl();
-    private DispensedInBean asContent;
-    private CS regulatoryStatusCode = new CSImpl();
-
-
-    @Hl7XmlMapping({"asSpecializedKind"})
-    public List<GroupedWithinBean> getAsSpecializedKind() {
-        return this.asSpecializedKind;
-    }
-
-
-    @Hl7XmlMapping({"asManufacturedProduct/manufacturer"})
-    public ManufacturerBean getAsManufacturedProductManufacturer() {
-        return this.asManufacturedProductManufacturer;
-    }
-    public void setAsManufacturedProductManufacturer(ManufacturerBean asManufacturedProductManufacturer) {
-        this.asManufacturedProductManufacturer = asManufacturedProductManufacturer;
-    }
+    private List<GroupedWithinBean> asSpecializedKind = new ArrayList<GroupedWithinBean>();
 
 
     /**
-     * <p>Drug Form</p>
+     * <p>Drug Code</p>
      * 
-     * <p><p>Indicates the form in which the drug product must be, 
-     * or has been manufactured or custom prepared.</p></p>
+     * <p><p>An identifier for a type of drug. Depending on where 
+     * the drug is being referenced, the drug may be identified at 
+     * different levels of abstraction. E.g. Manufactured drug 
+     * (including vaccines), generic formulation, generic, 
+     * therapeutic class, etc.</p></p>
      * 
-     * <p><p>Provides a constrained vocabulary for describing dose 
-     * forms. The form of the drug influences how it can be used by 
-     * the patient.</p></p>
+     * <p><p>Used to ensure clear communication by uniquely 
+     * identifying a particular drug product when prescribing or 
+     * dispensing. This attribute is mandatory because querying by 
+     * drug code can only return drug codes.</p></p>
      */
-    @Hl7XmlMapping({"formCode"})
-    public OrderableDrugForm getDrugForm() {
-        return (OrderableDrugForm) this.drugForm.getValue();
+    @Hl7XmlMapping({"code"})
+    public ClinicalDrug getDrugCode() {
+        return (ClinicalDrug) this.drugCode.getValue();
     }
-    public void setDrugForm(OrderableDrugForm drugForm) {
-        this.drugForm.setValue(drugForm);
+    public void setDrugCode(ClinicalDrug drugCode) {
+        this.drugCode.setValue(drugCode);
+    }
+
+
+    @Hl7XmlMapping({"asContent"})
+    public DispensedInBean getAsContent() {
+        return this.asContent;
+    }
+    public void setAsContent(DispensedInBean asContent) {
+        this.asContent = asContent;
     }
 
 
@@ -118,35 +116,6 @@ public class DrugOrCompoundBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"ingredient"})
-    public List<DrugContainsBean> getIngredient() {
-        return this.ingredient;
-    }
-
-
-    /**
-     * <p>Drug Code</p>
-     * 
-     * <p><p>An identifier for a type of drug. Depending on where 
-     * the drug is being referenced, the drug may be identified at 
-     * different levels of abstraction. E.g. Manufactured drug 
-     * (including vaccines), generic formulation, generic, 
-     * therapeutic class, etc.</p></p>
-     * 
-     * <p><p>Used to ensure clear communication by uniquely 
-     * identifying a particular drug product when prescribing or 
-     * dispensing. This attribute is mandatory because querying by 
-     * drug code can only return drug codes.</p></p>
-     */
-    @Hl7XmlMapping({"code"})
-    public ClinicalDrug getDrugCode() {
-        return (ClinicalDrug) this.drugCode.getValue();
-    }
-    public void setDrugCode(ClinicalDrug drugCode) {
-        this.drugCode.setValue(drugCode);
-    }
-
-
     /**
      * <p>Description</p>
      * 
@@ -167,15 +136,6 @@ public class DrugOrCompoundBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"asContent"})
-    public DispensedInBean getAsContent() {
-        return this.asContent;
-    }
-    public void setAsContent(DispensedInBean asContent) {
-        this.asContent = asContent;
-    }
-
-
     /**
      * <p>Regulatory Status Code</p>
      * 
@@ -192,6 +152,46 @@ public class DrugOrCompoundBean extends MessagePartBean {
     }
     public void setRegulatoryStatusCode(RoleStatusNormal regulatoryStatusCode) {
         this.regulatoryStatusCode.setValue(regulatoryStatusCode);
+    }
+
+
+    @Hl7XmlMapping({"asManufacturedProduct/manufacturer"})
+    public ManufacturerBean getAsManufacturedProductManufacturer() {
+        return this.asManufacturedProductManufacturer;
+    }
+    public void setAsManufacturedProductManufacturer(ManufacturerBean asManufacturedProductManufacturer) {
+        this.asManufacturedProductManufacturer = asManufacturedProductManufacturer;
+    }
+
+
+    /**
+     * <p>Drug Form</p>
+     * 
+     * <p><p>Indicates the form in which the drug product must be, 
+     * or has been manufactured or custom prepared.</p></p>
+     * 
+     * <p><p>Provides a constrained vocabulary for describing dose 
+     * forms. The form of the drug influences how it can be used by 
+     * the patient.</p></p>
+     */
+    @Hl7XmlMapping({"formCode"})
+    public OrderableDrugForm getDrugForm() {
+        return (OrderableDrugForm) this.drugForm.getValue();
+    }
+    public void setDrugForm(OrderableDrugForm drugForm) {
+        this.drugForm.setValue(drugForm);
+    }
+
+
+    @Hl7XmlMapping({"ingredient"})
+    public List<DrugContainsBean> getIngredient() {
+        return this.ingredient;
+    }
+
+
+    @Hl7XmlMapping({"asSpecializedKind"})
+    public List<GroupedWithinBean> getAsSpecializedKind() {
+        return this.asSpecializedKind;
     }
 
 }

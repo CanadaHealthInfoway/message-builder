@@ -27,9 +27,9 @@ public class SupplyEventBean extends MessagePartBean {
     private static final long serialVersionUID = 20110318L;
     private PQ dispensedQuantity = new PQImpl();
     private CV dispenseType = new CVImpl();
-    private DrugProductBean productMedication;
     private DispenseShipToLocationBean destinationServiceDeliveryLocation;
     private RelatedPersonBean receiverPersonalRelationship;
+    private DrugProductBean productMedication;
     private IVL<TS, Interval<Date>> expectedUseTime = new IVLImpl<TS, Interval<Date>>();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
 
@@ -98,15 +98,6 @@ public class SupplyEventBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"product/medication"})
-    public DrugProductBean getProductMedication() {
-        return this.productMedication;
-    }
-    public void setProductMedication(DrugProductBean productMedication) {
-        this.productMedication = productMedication;
-    }
-
-
     @Hl7XmlMapping({"destination/serviceDeliveryLocation"})
     public DispenseShipToLocationBean getDestinationServiceDeliveryLocation() {
         return this.destinationServiceDeliveryLocation;
@@ -122,6 +113,15 @@ public class SupplyEventBean extends MessagePartBean {
     }
     public void setReceiverPersonalRelationship(RelatedPersonBean receiverPersonalRelationship) {
         this.receiverPersonalRelationship = receiverPersonalRelationship;
+    }
+
+
+    @Hl7XmlMapping({"product/medication"})
+    public DrugProductBean getProductMedication() {
+        return this.productMedication;
+    }
+    public void setProductMedication(DrugProductBean productMedication) {
+        this.productMedication = productMedication;
     }
 
 

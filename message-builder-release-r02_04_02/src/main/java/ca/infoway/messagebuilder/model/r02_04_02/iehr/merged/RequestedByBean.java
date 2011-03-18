@@ -175,8 +175,8 @@ public class RequestedByBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
     private TS time = new TSImpl();
-    private CV attestedIndicator = new CVImpl();
     private ActingPerson actingPerson;
+    private CV attestedIndicator = new CVImpl();
 
 
     /**
@@ -219,30 +219,6 @@ public class RequestedByBean extends MessagePartBean {
     }
 
 
-    /**
-     * <p>AttestedIndicator</p>
-     * 
-     * <p>K:Attested Indicator</p>
-     * 
-     * <p>K:Attested Indicator</p>
-     * 
-     * <p><p>An indication that the provider attests to the 
-     * authenticity of the document that he/she has authored.</p></p>
-     * 
-     * <p><p>Important for assessing the level of 'officialness' of 
-     * a document. Because it must always be known whether a 
-     * document has been attested or not, the attribute is 
-     * mandatory.</p></p>
-     */
-    @Hl7XmlMapping({"signatureCode"})
-    public ParticipationSignature getAttestedIndicator() {
-        return (ParticipationSignature) this.attestedIndicator.getValue();
-    }
-    public void setAttestedIndicator(ParticipationSignature attestedIndicator) {
-        this.attestedIndicator.setValue(attestedIndicator);
-    }
-
-
     @Hl7XmlMapping({"actingPerson"})
     public ActingPerson getActingPerson() {
         return this.actingPerson;
@@ -270,6 +246,30 @@ public class RequestedByBean extends MessagePartBean {
     }
     public boolean hasActingPersonAsPersonalRelationship() {
         return (this.actingPerson instanceof RelatedPersonBean);
+    }
+
+
+    /**
+     * <p>AttestedIndicator</p>
+     * 
+     * <p>K:Attested Indicator</p>
+     * 
+     * <p>K:Attested Indicator</p>
+     * 
+     * <p><p>An indication that the provider attests to the 
+     * authenticity of the document that he/she has authored.</p></p>
+     * 
+     * <p><p>Important for assessing the level of 'officialness' of 
+     * a document. Because it must always be known whether a 
+     * document has been attested or not, the attribute is 
+     * mandatory.</p></p>
+     */
+    @Hl7XmlMapping({"signatureCode"})
+    public ParticipationSignature getAttestedIndicator() {
+        return (ParticipationSignature) this.attestedIndicator.getValue();
+    }
+    public void setAttestedIndicator(ParticipationSignature attestedIndicator) {
+        this.attestedIndicator.setValue(attestedIndicator);
     }
 
 }

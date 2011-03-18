@@ -24,24 +24,24 @@ import java.util.Date;
 public class CoveredPartyAsPatientPersonBean extends MessagePartBean implements ca.infoway.messagebuilder.model.r02_04_02.claims.merged.CoveredPartyAsPatientChoice {
 
     private static final long serialVersionUID = 20110318L;
-    private CV personGender = new CVImpl();
-    private PN patientName = new PNImpl();
-    private INT personMultipleBirthOrderNumber = new INTImpl();
     private TS timeOfDeath = new TSImpl();
+    private PN patientName = new PNImpl();
+    private TS personDateOfBirth = new TSImpl();
     private ParentOrGuardianRoleBean parentOrGuardianRole;
     private BL personMultipleBirthIndicator = new BLImpl();
-    private TS personDateOfBirth = new TSImpl();
+    private CV personGender = new CVImpl();
+    private INT personMultipleBirthOrderNumber = new INTImpl();
 
 
     /**
-     * <p>Person Gender</p>
+     * <p>time of death</p>
      */
-    @Hl7XmlMapping({"administrativeGenderCode"})
-    public AdministrativeGender getPersonGender() {
-        return (AdministrativeGender) this.personGender.getValue();
+    @Hl7XmlMapping({"deceasedTime"})
+    public Date getTimeOfDeath() {
+        return this.timeOfDeath.getValue();
     }
-    public void setPersonGender(AdministrativeGender personGender) {
-        this.personGender.setValue(personGender);
+    public void setTimeOfDeath(Date timeOfDeath) {
+        this.timeOfDeath.setValue(timeOfDeath);
     }
 
 
@@ -58,26 +58,14 @@ public class CoveredPartyAsPatientPersonBean extends MessagePartBean implements 
 
 
     /**
-     * <p>Person multiple birth order number</p>
+     * <p>Person Date of birth</p>
      */
-    @Hl7XmlMapping({"multipleBirthOrderNumber"})
-    public Integer getPersonMultipleBirthOrderNumber() {
-        return this.personMultipleBirthOrderNumber.getValue();
+    @Hl7XmlMapping({"birthTime"})
+    public Date getPersonDateOfBirth() {
+        return this.personDateOfBirth.getValue();
     }
-    public void setPersonMultipleBirthOrderNumber(Integer personMultipleBirthOrderNumber) {
-        this.personMultipleBirthOrderNumber.setValue(personMultipleBirthOrderNumber);
-    }
-
-
-    /**
-     * <p>time of death</p>
-     */
-    @Hl7XmlMapping({"deceasedTime"})
-    public Date getTimeOfDeath() {
-        return this.timeOfDeath.getValue();
-    }
-    public void setTimeOfDeath(Date timeOfDeath) {
-        this.timeOfDeath.setValue(timeOfDeath);
+    public void setPersonDateOfBirth(Date personDateOfBirth) {
+        this.personDateOfBirth.setValue(personDateOfBirth);
     }
 
 
@@ -103,14 +91,26 @@ public class CoveredPartyAsPatientPersonBean extends MessagePartBean implements 
 
 
     /**
-     * <p>Person Date of birth</p>
+     * <p>Person Gender</p>
      */
-    @Hl7XmlMapping({"birthTime"})
-    public Date getPersonDateOfBirth() {
-        return this.personDateOfBirth.getValue();
+    @Hl7XmlMapping({"administrativeGenderCode"})
+    public AdministrativeGender getPersonGender() {
+        return (AdministrativeGender) this.personGender.getValue();
     }
-    public void setPersonDateOfBirth(Date personDateOfBirth) {
-        this.personDateOfBirth.setValue(personDateOfBirth);
+    public void setPersonGender(AdministrativeGender personGender) {
+        this.personGender.setValue(personGender);
+    }
+
+
+    /**
+     * <p>Person multiple birth order number</p>
+     */
+    @Hl7XmlMapping({"multipleBirthOrderNumber"})
+    public Integer getPersonMultipleBirthOrderNumber() {
+        return this.personMultipleBirthOrderNumber.getValue();
+    }
+    public void setPersonMultipleBirthOrderNumber(Integer personMultipleBirthOrderNumber) {
+        this.personMultipleBirthOrderNumber.setValue(personMultipleBirthOrderNumber);
     }
 
 }

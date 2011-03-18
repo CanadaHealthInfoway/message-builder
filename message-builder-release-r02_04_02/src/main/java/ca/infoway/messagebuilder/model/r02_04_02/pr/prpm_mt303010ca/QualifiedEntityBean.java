@@ -41,19 +41,13 @@ import java.util.List;
 public class QualifiedEntityBean extends MessagePartBean implements RoleChoice {
 
     private static final long serialVersionUID = 20110318L;
-    private List<RelatedToBean> relatedTo = new ArrayList<RelatedToBean>();
     private CV expertiseOrCredentialsRoleType = new CVImpl();
+    private OrganizationBean qualificationGrantingOrganization;
     private List<PrivilegeBean> responsibleForPrivilege = new ArrayList<PrivilegeBean>();
     private PrinicpalPerson_1Bean qualifiedPrincipalPerson;
-    private IVL<TS, Interval<Date>> expertiseOrCredentialsRoleEffectiveDate = new IVLImpl<TS, Interval<Date>>();
+    private List<RelatedToBean> relatedTo = new ArrayList<RelatedToBean>();
     private II expertiseOrCredentialsRoleIdentifier = new IIImpl();
-    private OrganizationBean qualificationGrantingOrganization;
-
-
-    @Hl7XmlMapping({"relatedTo"})
-    public List<RelatedToBean> getRelatedTo() {
-        return this.relatedTo;
-    }
+    private IVL<TS, Interval<Date>> expertiseOrCredentialsRoleEffectiveDate = new IVLImpl<TS, Interval<Date>>();
 
 
     /**
@@ -78,6 +72,15 @@ public class QualifiedEntityBean extends MessagePartBean implements RoleChoice {
     }
 
 
+    @Hl7XmlMapping({"qualificationGrantingOrganization"})
+    public OrganizationBean getQualificationGrantingOrganization() {
+        return this.qualificationGrantingOrganization;
+    }
+    public void setQualificationGrantingOrganization(OrganizationBean qualificationGrantingOrganization) {
+        this.qualificationGrantingOrganization = qualificationGrantingOrganization;
+    }
+
+
     @Hl7XmlMapping({"responsibleFor/privilege"})
     public List<PrivilegeBean> getResponsibleForPrivilege() {
         return this.responsibleForPrivilege;
@@ -90,6 +93,29 @@ public class QualifiedEntityBean extends MessagePartBean implements RoleChoice {
     }
     public void setQualifiedPrincipalPerson(PrinicpalPerson_1Bean qualifiedPrincipalPerson) {
         this.qualifiedPrincipalPerson = qualifiedPrincipalPerson;
+    }
+
+
+    @Hl7XmlMapping({"relatedTo"})
+    public List<RelatedToBean> getRelatedTo() {
+        return this.relatedTo;
+    }
+
+
+    /**
+     * <p>Expertise or Credentials Role Identifier</p>
+     * 
+     * <p><p>Unique identifier for the Expertise or Credential.</p></p>
+     * 
+     * <p><p>Mandatory attribute supports the identification of the 
+     * healthcare provider credentials</p></p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Identifier getExpertiseOrCredentialsRoleIdentifier() {
+        return this.expertiseOrCredentialsRoleIdentifier.getValue();
+    }
+    public void setExpertiseOrCredentialsRoleIdentifier(Identifier expertiseOrCredentialsRoleIdentifier) {
+        this.expertiseOrCredentialsRoleIdentifier.setValue(expertiseOrCredentialsRoleIdentifier);
     }
 
 
@@ -111,32 +137,6 @@ public class QualifiedEntityBean extends MessagePartBean implements RoleChoice {
     }
     public void setExpertiseOrCredentialsRoleEffectiveDate(Interval<Date> expertiseOrCredentialsRoleEffectiveDate) {
         this.expertiseOrCredentialsRoleEffectiveDate.setValue(expertiseOrCredentialsRoleEffectiveDate);
-    }
-
-
-    /**
-     * <p>Expertise or Credentials Role Identifier</p>
-     * 
-     * <p><p>Unique identifier for the Expertise or Credential.</p></p>
-     * 
-     * <p><p>Mandatory attribute supports the identification of the 
-     * healthcare provider credentials</p></p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Identifier getExpertiseOrCredentialsRoleIdentifier() {
-        return this.expertiseOrCredentialsRoleIdentifier.getValue();
-    }
-    public void setExpertiseOrCredentialsRoleIdentifier(Identifier expertiseOrCredentialsRoleIdentifier) {
-        this.expertiseOrCredentialsRoleIdentifier.setValue(expertiseOrCredentialsRoleIdentifier);
-    }
-
-
-    @Hl7XmlMapping({"qualificationGrantingOrganization"})
-    public OrganizationBean getQualificationGrantingOrganization() {
-        return this.qualificationGrantingOrganization;
-    }
-    public void setQualificationGrantingOrganization(OrganizationBean qualificationGrantingOrganization) {
-        this.qualificationGrantingOrganization = qualificationGrantingOrganization;
     }
 
 }

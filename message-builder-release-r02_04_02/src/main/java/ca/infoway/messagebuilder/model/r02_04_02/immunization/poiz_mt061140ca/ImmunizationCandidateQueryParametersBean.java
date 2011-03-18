@@ -42,14 +42,49 @@ import java.util.List;
 public class ImmunizationCandidateQueryParametersBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private CV vaccineCode = new CVImpl();
-    private IVL<TS, Interval<Date>> patientBirthDateRange = new IVLImpl<TS, Interval<Date>>();
     private CV patientGender = new CVImpl();
-    private List<II> serviceDeliveryLocations = new ArrayList<II>();
+    private IVL<TS, Interval<Date>> patientBirthDateRange = new IVLImpl<TS, Interval<Date>>();
+    private CV vaccineCode = new CVImpl();
     private ST postalCode = new STImpl();
-    private PN patientName = new PNImpl();
     private List<PatientIDBean> patientID = new ArrayList<PatientIDBean>();
     private IVL<TS, Interval<Date>> immunizationPeriod = new IVLImpl<TS, Interval<Date>>();
+    private PN patientName = new PNImpl();
+    private List<II> serviceDeliveryLocations = new ArrayList<II>();
+
+
+    /**
+     * <p>C:Patient Gender</p>
+     * 
+     * <p><p>Indicates the gender (sex) of the patient.</p></p>
+     * 
+     * <p><p>Used to confirm the identity of the patient for the 
+     * query. As a result, this parameter is required.</p></p>
+     */
+    @Hl7XmlMapping({"patientGender/value"})
+    public AdministrativeGender getPatientGender() {
+        return (AdministrativeGender) this.patientGender.getValue();
+    }
+    public void setPatientGender(AdministrativeGender patientGender) {
+        this.patientGender.setValue(patientGender);
+    }
+
+
+    /**
+     * <p>D:Patient Birth Date Range</p>
+     * 
+     * <p><p>Indicates the range of on which the patient was 
+     * born.</p></p>
+     * 
+     * <p><p>Use to confirm identity of the patient for the query. 
+     * As a result, this parameter is required.</p></p>
+     */
+    @Hl7XmlMapping({"patientBirthDate/value"})
+    public Interval<Date> getPatientBirthDateRange() {
+        return this.patientBirthDateRange.getValue();
+    }
+    public void setPatientBirthDateRange(Interval<Date> patientBirthDateRange) {
+        this.patientBirthDateRange.setValue(patientBirthDateRange);
+    }
 
 
     /**
@@ -79,64 +114,6 @@ public class ImmunizationCandidateQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>D:Patient Birth Date Range</p>
-     * 
-     * <p><p>Indicates the range of on which the patient was 
-     * born.</p></p>
-     * 
-     * <p><p>Use to confirm identity of the patient for the query. 
-     * As a result, this parameter is required.</p></p>
-     */
-    @Hl7XmlMapping({"patientBirthDate/value"})
-    public Interval<Date> getPatientBirthDateRange() {
-        return this.patientBirthDateRange.getValue();
-    }
-    public void setPatientBirthDateRange(Interval<Date> patientBirthDateRange) {
-        this.patientBirthDateRange.setValue(patientBirthDateRange);
-    }
-
-
-    /**
-     * <p>C:Patient Gender</p>
-     * 
-     * <p><p>Indicates the gender (sex) of the patient.</p></p>
-     * 
-     * <p><p>Used to confirm the identity of the patient for the 
-     * query. As a result, this parameter is required.</p></p>
-     */
-    @Hl7XmlMapping({"patientGender/value"})
-    public AdministrativeGender getPatientGender() {
-        return (AdministrativeGender) this.patientGender.getValue();
-    }
-    public void setPatientGender(AdministrativeGender patientGender) {
-        this.patientGender.setValue(patientGender);
-    }
-
-
-    /**
-     * <p>H:Service Delivery Locations</p>
-     * 
-     * <p><p>Indicates that the returned records should be filtered 
-     * to only include those immunizations that occurred at an 
-     * identified service delivery location</p></p>
-     * 
-     * <p><p>Allows the requester to specify the service delivery 
-     * location of interest for the retrieval of immunization 
-     * records.</p><p>Useful for constraining run-away queries. As 
-     * a result, this parameter is required.</p></p>
-     * 
-     * <p><p>Allows the requester to specify the service delivery 
-     * location of interest for the retrieval of immunization 
-     * records.</p><p>Useful for constraining run-away queries. As 
-     * a result, this parameter is required.</p></p>
-     */
-    @Hl7XmlMapping({"serviceDeliveryLocation/value"})
-    public List<Identifier> getServiceDeliveryLocations() {
-        return new RawListWrapper<II, Identifier>(serviceDeliveryLocations, IIImpl.class);
-    }
-
-
-    /**
      * <p>I:Postal Code</p>
      * 
      * <p><p>Indicates that the returned records should be filtered 
@@ -159,35 +136,6 @@ public class ImmunizationCandidateQueryParametersBean extends MessagePartBean {
     }
     public void setPostalCode(String postalCode) {
         this.postalCode.setValue(postalCode);
-    }
-
-
-    /**
-     * <p>B:Patient Name</p>
-     * 
-     * <p><p>The name of the patient who is the subject of the 
-     * immunization candidate query.</p><p>Filter the result set to 
-     * include only those records pertaining to the patient with 
-     * this name.</p></p>
-     * 
-     * <p><p>The name of the patient who is the subject of the 
-     * immunization candidate query.</p><p>Filter the result set to 
-     * include only those records pertaining to the patient with 
-     * this name.</p></p>
-     * 
-     * <p><p>Allows filtering of result set by patient name. As a 
-     * result, this parameter is required.</p></p>
-     * 
-     * <p><p>names are messaged as iterations of the PN datatype, 
-     * with specific name parts identified as a type declaration in 
-     * addition to the text string.</p></p>
-     */
-    @Hl7XmlMapping({"patientName/value"})
-    public PersonName getPatientName() {
-        return this.patientName.getValue();
-    }
-    public void setPatientName(PersonName patientName) {
-        this.patientName.setValue(patientName);
     }
 
 
@@ -221,6 +169,58 @@ public class ImmunizationCandidateQueryParametersBean extends MessagePartBean {
     }
     public void setImmunizationPeriod(Interval<Date> immunizationPeriod) {
         this.immunizationPeriod.setValue(immunizationPeriod);
+    }
+
+
+    /**
+     * <p>B:Patient Name</p>
+     * 
+     * <p><p>The name of the patient who is the subject of the 
+     * immunization candidate query.</p><p>Filter the result set to 
+     * include only those records pertaining to the patient with 
+     * this name.</p></p>
+     * 
+     * <p><p>The name of the patient who is the subject of the 
+     * immunization candidate query.</p><p>Filter the result set to 
+     * include only those records pertaining to the patient with 
+     * this name.</p></p>
+     * 
+     * <p><p>Allows filtering of result set by patient name. As a 
+     * result, this parameter is required.</p></p>
+     * 
+     * <p><p>names are messaged as iterations of the PN datatype, 
+     * with specific name parts identified as a type declaration in 
+     * addition to the text string.</p></p>
+     */
+    @Hl7XmlMapping({"patientName/value"})
+    public PersonName getPatientName() {
+        return this.patientName.getValue();
+    }
+    public void setPatientName(PersonName patientName) {
+        this.patientName.setValue(patientName);
+    }
+
+
+    /**
+     * <p>H:Service Delivery Locations</p>
+     * 
+     * <p><p>Indicates that the returned records should be filtered 
+     * to only include those immunizations that occurred at an 
+     * identified service delivery location</p></p>
+     * 
+     * <p><p>Allows the requester to specify the service delivery 
+     * location of interest for the retrieval of immunization 
+     * records.</p><p>Useful for constraining run-away queries. As 
+     * a result, this parameter is required.</p></p>
+     * 
+     * <p><p>Allows the requester to specify the service delivery 
+     * location of interest for the retrieval of immunization 
+     * records.</p><p>Useful for constraining run-away queries. As 
+     * a result, this parameter is required.</p></p>
+     */
+    @Hl7XmlMapping({"serviceDeliveryLocation/value"})
+    public List<Identifier> getServiceDeliveryLocations() {
+        return new RawListWrapper<II, Identifier>(serviceDeliveryLocations, IIImpl.class);
     }
 
 }

@@ -40,8 +40,8 @@ public class IssueDescriptionBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
     private RecommendedDosageBean componentSubstanceAdministrationEventCriterion;
-    private ED<EncapsulatedData> issueDescription = new EDImpl<EncapsulatedData>();
     private PrescribedByBean author;
+    private ED<EncapsulatedData> issueDescription = new EDImpl<EncapsulatedData>();
     private II issueMonographId = new IIImpl();
 
 
@@ -51,6 +51,15 @@ public class IssueDescriptionBean extends MessagePartBean {
     }
     public void setComponentSubstanceAdministrationEventCriterion(RecommendedDosageBean componentSubstanceAdministrationEventCriterion) {
         this.componentSubstanceAdministrationEventCriterion = componentSubstanceAdministrationEventCriterion;
+    }
+
+
+    @Hl7XmlMapping({"author"})
+    public PrescribedByBean getAuthor() {
+        return this.author;
+    }
+    public void setAuthor(PrescribedByBean author) {
+        this.author = author;
     }
 
 
@@ -79,15 +88,6 @@ public class IssueDescriptionBean extends MessagePartBean {
     }
     public void setIssueDescription(EncapsulatedData issueDescription) {
         this.issueDescription.setValue(issueDescription);
-    }
-
-
-    @Hl7XmlMapping({"author"})
-    public PrescribedByBean getAuthor() {
-        return this.author;
-    }
-    public void setAuthor(PrescribedByBean author) {
-        this.author = author;
     }
 
 

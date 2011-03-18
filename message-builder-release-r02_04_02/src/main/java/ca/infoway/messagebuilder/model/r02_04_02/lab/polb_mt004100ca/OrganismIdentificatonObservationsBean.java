@@ -36,8 +36,8 @@ public class OrganismIdentificatonObservationsBean extends MessagePartBean {
     private CD organismIdentificationType = new CDImpl();
     private ResultStatusProcessStepBean subjectOf2ResultStatusProcessStep;
     private List<IncludesBean> subjectOf1 = new ArrayList<IncludesBean>();
-    private CS organsimIdentificationObservationStatus = new CSImpl();
     private IsolateParticipationBean specimen;
+    private CS organsimIdentificationObservationStatus = new CSImpl();
     private IVL<TS, Interval<Date>> organismObservationEffectiveTime = new IVLImpl<TS, Interval<Date>>();
 
 
@@ -72,6 +72,15 @@ public class OrganismIdentificatonObservationsBean extends MessagePartBean {
     }
 
 
+    @Hl7XmlMapping({"specimen"})
+    public IsolateParticipationBean getSpecimen() {
+        return this.specimen;
+    }
+    public void setSpecimen(IsolateParticipationBean specimen) {
+        this.specimen = specimen;
+    }
+
+
     /**
      * <p>Organsim Identification Observation Status</p>
      * 
@@ -84,15 +93,6 @@ public class OrganismIdentificatonObservationsBean extends MessagePartBean {
     }
     public void setOrgansimIdentificationObservationStatus(ActStatus organsimIdentificationObservationStatus) {
         this.organsimIdentificationObservationStatus.setValue(organsimIdentificationObservationStatus);
-    }
-
-
-    @Hl7XmlMapping({"specimen"})
-    public IsolateParticipationBean getSpecimen() {
-        return this.specimen;
-    }
-    public void setSpecimen(IsolateParticipationBean specimen) {
-        this.specimen = specimen;
     }
 
 

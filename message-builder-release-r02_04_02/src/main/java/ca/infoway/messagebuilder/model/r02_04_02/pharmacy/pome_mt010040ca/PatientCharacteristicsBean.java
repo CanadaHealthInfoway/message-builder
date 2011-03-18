@@ -31,37 +31,9 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 public class PatientCharacteristicsBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private BL excludeCharacteristic = new BLImpl();
     private CV patientCharacteristicType = new CVImpl();
     private IVL<PQ, Interval<PhysicalQuantity>> patientCharacteristicValue = new IVLImpl<PQ, Interval<PhysicalQuantity>>();
-
-
-    /**
-     * <p>Exclude characteristic?</p>
-     * 
-     * <p><p>If true, indicates that the characteristic is one 
-     * which should *not* be held by the patient for the dosage to 
-     * apply.</p></p>
-     * 
-     * <p><p>Many dosages are inappropriate for patients with 
-     * certain characteristics (e.g. INR values, 
-     * etc.)</p><p>Because it must be known whether the 
-     * characteristic is included or excluded, this element is 
-     * mandatory.</p></p>
-     * 
-     * <p><p>Many dosages are inappropriate for patients with 
-     * certain characteristics (e.g. INR values, 
-     * etc.)</p><p>Because it must be known whether the 
-     * characteristic is included or excluded, this element is 
-     * mandatory.</p></p>
-     */
-    @Hl7XmlMapping({"negationInd"})
-    public Boolean getExcludeCharacteristic() {
-        return this.excludeCharacteristic.getValue();
-    }
-    public void setExcludeCharacteristic(Boolean excludeCharacteristic) {
-        this.excludeCharacteristic.setValue(excludeCharacteristic);
-    }
+    private BL excludeCharacteristic = new BLImpl();
 
 
     /**
@@ -111,6 +83,34 @@ public class PatientCharacteristicsBean extends MessagePartBean {
     }
     public void setPatientCharacteristicValue(Interval<PhysicalQuantity> patientCharacteristicValue) {
         this.patientCharacteristicValue.setValue(patientCharacteristicValue);
+    }
+
+
+    /**
+     * <p>Exclude characteristic?</p>
+     * 
+     * <p><p>If true, indicates that the characteristic is one 
+     * which should *not* be held by the patient for the dosage to 
+     * apply.</p></p>
+     * 
+     * <p><p>Many dosages are inappropriate for patients with 
+     * certain characteristics (e.g. INR values, 
+     * etc.)</p><p>Because it must be known whether the 
+     * characteristic is included or excluded, this element is 
+     * mandatory.</p></p>
+     * 
+     * <p><p>Many dosages are inappropriate for patients with 
+     * certain characteristics (e.g. INR values, 
+     * etc.)</p><p>Because it must be known whether the 
+     * characteristic is included or excluded, this element is 
+     * mandatory.</p></p>
+     */
+    @Hl7XmlMapping({"negationInd"})
+    public Boolean getExcludeCharacteristic() {
+        return this.excludeCharacteristic.getValue();
+    }
+    public void setExcludeCharacteristic(Boolean excludeCharacteristic) {
+        this.excludeCharacteristic.setValue(excludeCharacteristic);
     }
 
 }

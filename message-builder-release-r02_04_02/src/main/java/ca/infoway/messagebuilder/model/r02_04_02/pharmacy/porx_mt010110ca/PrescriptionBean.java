@@ -48,17 +48,26 @@ import java.util.Set;
 public class PrescriptionBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
+    private IncludesBean subjectOf;
     private DispenseInstructionsBean component2SupplyRequest;
+    private List<CoverageExtensions_1Bean> coverageCoverage = new ArrayList<CoverageExtensions_1Bean>();
+    private List<BecauseOfBean> reason = new ArrayList<BecauseOfBean>();
+    private PriorDeviceRequestBean predecessorPriorDeviceRequest;
+    private DeviceProductBean directTargetManufacturedProduct;
     private ProcedureRequestBean component1ProcedureRequest;
     private BL preconditionVerificationEventCriterion = new BLImpl();
-    private List<CoverageExtensions_1Bean> coverageCoverage = new ArrayList<CoverageExtensions_1Bean>();
-    private IncludesBean subjectOf;
-    private CS prescriptionStatus = new CSImpl();
     private SET<CV, Code> prescriptionMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);
-    private List<BecauseOfBean> reason = new ArrayList<BecauseOfBean>();
-    private DeviceProductBean directTargetManufacturedProduct;
-    private PriorDeviceRequestBean predecessorPriorDeviceRequest;
+    private CS prescriptionStatus = new CSImpl();
     private II prescriptionNumber = new IIImpl();
+
+
+    @Hl7XmlMapping({"subjectOf"})
+    public IncludesBean getSubjectOf() {
+        return this.subjectOf;
+    }
+    public void setSubjectOf(IncludesBean subjectOf) {
+        this.subjectOf = subjectOf;
+    }
 
 
     @Hl7XmlMapping({"component2/supplyRequest"})
@@ -67,6 +76,36 @@ public class PrescriptionBean extends MessagePartBean {
     }
     public void setComponent2SupplyRequest(DispenseInstructionsBean component2SupplyRequest) {
         this.component2SupplyRequest = component2SupplyRequest;
+    }
+
+
+    @Hl7XmlMapping({"coverage/coverage"})
+    public List<CoverageExtensions_1Bean> getCoverageCoverage() {
+        return this.coverageCoverage;
+    }
+
+
+    @Hl7XmlMapping({"reason"})
+    public List<BecauseOfBean> getReason() {
+        return this.reason;
+    }
+
+
+    @Hl7XmlMapping({"predecessor/priorDeviceRequest"})
+    public PriorDeviceRequestBean getPredecessorPriorDeviceRequest() {
+        return this.predecessorPriorDeviceRequest;
+    }
+    public void setPredecessorPriorDeviceRequest(PriorDeviceRequestBean predecessorPriorDeviceRequest) {
+        this.predecessorPriorDeviceRequest = predecessorPriorDeviceRequest;
+    }
+
+
+    @Hl7XmlMapping({"directTarget/manufacturedProduct"})
+    public DeviceProductBean getDirectTargetManufacturedProduct() {
+        return this.directTargetManufacturedProduct;
+    }
+    public void setDirectTargetManufacturedProduct(DeviceProductBean directTargetManufacturedProduct) {
+        this.directTargetManufacturedProduct = directTargetManufacturedProduct;
     }
 
 
@@ -85,44 +124,6 @@ public class PrescriptionBean extends MessagePartBean {
     }
     public void setPreconditionVerificationEventCriterion(Boolean preconditionVerificationEventCriterion) {
         this.preconditionVerificationEventCriterion.setValue(preconditionVerificationEventCriterion);
-    }
-
-
-    @Hl7XmlMapping({"coverage/coverage"})
-    public List<CoverageExtensions_1Bean> getCoverageCoverage() {
-        return this.coverageCoverage;
-    }
-
-
-    @Hl7XmlMapping({"subjectOf"})
-    public IncludesBean getSubjectOf() {
-        return this.subjectOf;
-    }
-    public void setSubjectOf(IncludesBean subjectOf) {
-        this.subjectOf = subjectOf;
-    }
-
-
-    /**
-     * <p>C:Prescription Status</p>
-     * 
-     * <p><p>This denotes the state of the prescription in the 
-     * lifecycle of the prescription. Valid statuses are: new, 
-     * active, suspended, aborted, completed, obsolete and 
-     * nullified. Use 'active' when registering a new prescription 
-     * or converting a predetermination into a valid 
-     * prescription.</p></p>
-     * 
-     * <p><p>Indicates what actions are allowed to be performed 
-     * against a prescription. This is a mandatory field because 
-     * every prescription needs to be in some state.</p></p>
-     */
-    @Hl7XmlMapping({"statusCode"})
-    public ActStatus getPrescriptionStatus() {
-        return (ActStatus) this.prescriptionStatus.getValue();
-    }
-    public void setPrescriptionStatus(ActStatus prescriptionStatus) {
-        this.prescriptionStatus.setValue(prescriptionStatus);
     }
 
 
@@ -200,27 +201,26 @@ public class PrescriptionBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"reason"})
-    public List<BecauseOfBean> getReason() {
-        return this.reason;
+    /**
+     * <p>C:Prescription Status</p>
+     * 
+     * <p><p>This denotes the state of the prescription in the 
+     * lifecycle of the prescription. Valid statuses are: new, 
+     * active, suspended, aborted, completed, obsolete and 
+     * nullified. Use 'active' when registering a new prescription 
+     * or converting a predetermination into a valid 
+     * prescription.</p></p>
+     * 
+     * <p><p>Indicates what actions are allowed to be performed 
+     * against a prescription. This is a mandatory field because 
+     * every prescription needs to be in some state.</p></p>
+     */
+    @Hl7XmlMapping({"statusCode"})
+    public ActStatus getPrescriptionStatus() {
+        return (ActStatus) this.prescriptionStatus.getValue();
     }
-
-
-    @Hl7XmlMapping({"directTarget/manufacturedProduct"})
-    public DeviceProductBean getDirectTargetManufacturedProduct() {
-        return this.directTargetManufacturedProduct;
-    }
-    public void setDirectTargetManufacturedProduct(DeviceProductBean directTargetManufacturedProduct) {
-        this.directTargetManufacturedProduct = directTargetManufacturedProduct;
-    }
-
-
-    @Hl7XmlMapping({"predecessor/priorDeviceRequest"})
-    public PriorDeviceRequestBean getPredecessorPriorDeviceRequest() {
-        return this.predecessorPriorDeviceRequest;
-    }
-    public void setPredecessorPriorDeviceRequest(PriorDeviceRequestBean predecessorPriorDeviceRequest) {
-        this.predecessorPriorDeviceRequest = predecessorPriorDeviceRequest;
+    public void setPrescriptionStatus(ActStatus prescriptionStatus) {
+        this.prescriptionStatus.setValue(prescriptionStatus);
     }
 
 

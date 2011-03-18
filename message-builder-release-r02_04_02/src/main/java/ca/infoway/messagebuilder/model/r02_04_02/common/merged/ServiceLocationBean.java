@@ -74,12 +74,40 @@ import java.util.Set;
 public class ServiceLocationBean extends MessagePartBean implements ca.infoway.messagebuilder.model.r02_04_02.iehr.merged.Recipients, ca.infoway.messagebuilder.model.r02_04_02.merged.Recipient {
 
     private static final long serialVersionUID = 20110318L;
+    private ST serviceLocationName = new STImpl();
     private CV serviceLocationType = new CVImpl();
     private SET<TEL, TelecommunicationAddress> serviceLocationPhonesAndEMails = new SETImpl<TEL, TelecommunicationAddress>(TELImpl.class);
     private AD serviceLocationAddress = new ADImpl();
-    private ST serviceLocationName = new STImpl();
     private List<GeographicCoordinatesBean> subjectOfPosition = new ArrayList<GeographicCoordinatesBean>();
     private II serviceLocationIdentifier = new IIImpl();
+
+
+    /**
+     * <p>ServiceLocationName</p>
+     * 
+     * <p>B:Service Location Name</p>
+     * 
+     * <p><p>The name assigned to the service location.</p></p>
+     * 
+     * <p><p>PVD.070</p><p>Dispensing Pharmacy 
+     * Name</p><p>Facility.name</p></p>
+     * 
+     * <p><p>PVD.070</p><p>Dispensing Pharmacy 
+     * Name</p><p>Facility.name</p></p>
+     * 
+     * <p><p>PVD.070</p><p>Dispensing Pharmacy 
+     * Name</p><p>Facility.name</p></p>
+     * 
+     * <p><p>Used for human communication, and for cross-checking 
+     * of location Id and is therefore mandatory</p></p>
+     */
+    @Hl7XmlMapping({"location/name"})
+    public String getServiceLocationName() {
+        return this.serviceLocationName.getValue();
+    }
+    public void setServiceLocationName(String serviceLocationName) {
+        this.serviceLocationName.setValue(serviceLocationName);
+    }
 
 
     /**
@@ -149,34 +177,6 @@ public class ServiceLocationBean extends MessagePartBean implements ca.infoway.m
     }
     public void setServiceLocationAddress(PostalAddress serviceLocationAddress) {
         this.serviceLocationAddress.setValue(serviceLocationAddress);
-    }
-
-
-    /**
-     * <p>ServiceLocationName</p>
-     * 
-     * <p>B:Service Location Name</p>
-     * 
-     * <p><p>The name assigned to the service location.</p></p>
-     * 
-     * <p><p>PVD.070</p><p>Dispensing Pharmacy 
-     * Name</p><p>Facility.name</p></p>
-     * 
-     * <p><p>PVD.070</p><p>Dispensing Pharmacy 
-     * Name</p><p>Facility.name</p></p>
-     * 
-     * <p><p>PVD.070</p><p>Dispensing Pharmacy 
-     * Name</p><p>Facility.name</p></p>
-     * 
-     * <p><p>Used for human communication, and for cross-checking 
-     * of location Id and is therefore mandatory</p></p>
-     */
-    @Hl7XmlMapping({"location/name"})
-    public String getServiceLocationName() {
-        return this.serviceLocationName.getValue();
-    }
-    public void setServiceLocationName(String serviceLocationName) {
-        this.serviceLocationName.setValue(serviceLocationName);
     }
 
 

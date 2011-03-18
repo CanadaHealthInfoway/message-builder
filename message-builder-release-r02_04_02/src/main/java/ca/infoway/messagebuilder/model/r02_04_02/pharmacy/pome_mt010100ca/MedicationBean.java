@@ -46,15 +46,15 @@ public class MedicationBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
     private List<AppearanceCharacteristicsBean> subjectOf2Characteristic = new ArrayList<AppearanceCharacteristicsBean>();
-    private List<GroupedWithinBean> administerableMedicineAsSpecializedKind = new ArrayList<GroupedWithinBean>();
+    private CV drugCode = new CVImpl();
+    private DispensedInBean administerableMedicineAsContent;
+    private SET<TN, TrivialName> drugNames = new SETImpl<TN, TrivialName>(TNImpl.class);
+    private ST description = new STImpl();
+    private CS regulatoryStatusCode = new CSImpl();
     private ManufacturerBean administerableMedicineAsManufacturedProductManufacturer;
     private CV drugForm = new CVImpl();
-    private SET<TN, TrivialName> drugNames = new SETImpl<TN, TrivialName>(TNImpl.class);
     private List<DrugContainsBean> administerableMedicineIngredient = new ArrayList<DrugContainsBean>();
-    private CV drugCode = new CVImpl();
-    private ST description = new STImpl();
-    private DispensedInBean administerableMedicineAsContent;
-    private CS regulatoryStatusCode = new CSImpl();
+    private List<GroupedWithinBean> administerableMedicineAsSpecializedKind = new ArrayList<GroupedWithinBean>();
     private DrugCostBean subjectOf1PotentialCharge;
 
 
@@ -64,9 +64,94 @@ public class MedicationBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"administerableMedicine/asSpecializedKind"})
-    public List<GroupedWithinBean> getAdministerableMedicineAsSpecializedKind() {
-        return this.administerableMedicineAsSpecializedKind;
+    /**
+     * <p>A:Drug Code</p>
+     * 
+     * <p><p>An identifier for a type of drug. Depending on where 
+     * the drug is being referenced, the drug may be identified at 
+     * different levels of abstraction. E.g. Manufactured drug 
+     * (including vaccines), generic formulation, generic, 
+     * therapeutic class, etc.</p></p>
+     * 
+     * <p><p>Used to ensure clear communication by uniquely 
+     * identifying a particular drug product when prescribing or 
+     * dispensing. This attribute is only constrained to 'required' 
+     * because some custom compounds will not have unique 
+     * identifiers.</p></p>
+     */
+    @Hl7XmlMapping({"administerableMedicine/code"})
+    public ClinicalDrug getDrugCode() {
+        return (ClinicalDrug) this.drugCode.getValue();
+    }
+    public void setDrugCode(ClinicalDrug drugCode) {
+        this.drugCode.setValue(drugCode);
+    }
+
+
+    @Hl7XmlMapping({"administerableMedicine/asContent"})
+    public DispensedInBean getAdministerableMedicineAsContent() {
+        return this.administerableMedicineAsContent;
+    }
+    public void setAdministerableMedicineAsContent(DispensedInBean administerableMedicineAsContent) {
+        this.administerableMedicineAsContent = administerableMedicineAsContent;
+    }
+
+
+    /**
+     * <p>B:Drug Names</p>
+     * 
+     * <p><p>The name assigned to a drug.</p></p>
+     * 
+     * <p><p>Names are used for human reference communication, to 
+     * allow selection from dropdowns and for local searching. Up 
+     * to two names are supported: a 'search name' which is fully 
+     * formed with no abbreviations, and a 'display name' which may 
+     * contain abbreviations to fit within a smaller area on the 
+     * screen. Because names are the one attribute that exist for 
+     * all attributes, this element is mandatory.</p></p>
+     */
+    @Hl7XmlMapping({"administerableMedicine/name"})
+    public Set<TrivialName> getDrugNames() {
+        return this.drugNames.rawSet();
+    }
+
+
+    /**
+     * <p>Description</p>
+     * 
+     * <p><p>A free form textual description of a drug. This 
+     * usually is only recorded for custom compounds, providing 
+     * instructions on the composition and creation of the 
+     * compound.</p></p>
+     * 
+     * <p><p>Allows description of compound ingredients and/or 
+     * recipe in free text form.</p></p>
+     */
+    @Hl7XmlMapping({"administerableMedicine/desc"})
+    public String getDescription() {
+        return this.description.getValue();
+    }
+    public void setDescription(String description) {
+        this.description.setValue(description);
+    }
+
+
+    /**
+     * <p>Regulatory Status Code</p>
+     * 
+     * <p><p>Indicates whether the drug is approved for use in 
+     * Canada or not. (active = approved for use; pending or 
+     * terminated = not approved for use)</p></p>
+     * 
+     * <p><p>Allows providers to evaluate the validity of the 
+     * medication for use in Canada.</p></p>
+     */
+    @Hl7XmlMapping({"administerableMedicine/asRegulatedProduct/statusCode"})
+    public RoleStatusNormal getRegulatoryStatusCode() {
+        return (RoleStatusNormal) this.regulatoryStatusCode.getValue();
+    }
+    public void setRegulatoryStatusCode(RoleStatusNormal regulatoryStatusCode) {
+        this.regulatoryStatusCode.setValue(regulatoryStatusCode);
     }
 
 
@@ -98,100 +183,15 @@ public class MedicationBean extends MessagePartBean {
     }
 
 
-    /**
-     * <p>B:Drug Names</p>
-     * 
-     * <p><p>The name assigned to a drug.</p></p>
-     * 
-     * <p><p>Names are used for human reference communication, to 
-     * allow selection from dropdowns and for local searching. Up 
-     * to two names are supported: a 'search name' which is fully 
-     * formed with no abbreviations, and a 'display name' which may 
-     * contain abbreviations to fit within a smaller area on the 
-     * screen. Because names are the one attribute that exist for 
-     * all attributes, this element is mandatory.</p></p>
-     */
-    @Hl7XmlMapping({"administerableMedicine/name"})
-    public Set<TrivialName> getDrugNames() {
-        return this.drugNames.rawSet();
-    }
-
-
     @Hl7XmlMapping({"administerableMedicine/ingredient"})
     public List<DrugContainsBean> getAdministerableMedicineIngredient() {
         return this.administerableMedicineIngredient;
     }
 
 
-    /**
-     * <p>A:Drug Code</p>
-     * 
-     * <p><p>An identifier for a type of drug. Depending on where 
-     * the drug is being referenced, the drug may be identified at 
-     * different levels of abstraction. E.g. Manufactured drug 
-     * (including vaccines), generic formulation, generic, 
-     * therapeutic class, etc.</p></p>
-     * 
-     * <p><p>Used to ensure clear communication by uniquely 
-     * identifying a particular drug product when prescribing or 
-     * dispensing. This attribute is only constrained to 'required' 
-     * because some custom compounds will not have unique 
-     * identifiers.</p></p>
-     */
-    @Hl7XmlMapping({"administerableMedicine/code"})
-    public ClinicalDrug getDrugCode() {
-        return (ClinicalDrug) this.drugCode.getValue();
-    }
-    public void setDrugCode(ClinicalDrug drugCode) {
-        this.drugCode.setValue(drugCode);
-    }
-
-
-    /**
-     * <p>Description</p>
-     * 
-     * <p><p>A free form textual description of a drug. This 
-     * usually is only recorded for custom compounds, providing 
-     * instructions on the composition and creation of the 
-     * compound.</p></p>
-     * 
-     * <p><p>Allows description of compound ingredients and/or 
-     * recipe in free text form.</p></p>
-     */
-    @Hl7XmlMapping({"administerableMedicine/desc"})
-    public String getDescription() {
-        return this.description.getValue();
-    }
-    public void setDescription(String description) {
-        this.description.setValue(description);
-    }
-
-
-    @Hl7XmlMapping({"administerableMedicine/asContent"})
-    public DispensedInBean getAdministerableMedicineAsContent() {
-        return this.administerableMedicineAsContent;
-    }
-    public void setAdministerableMedicineAsContent(DispensedInBean administerableMedicineAsContent) {
-        this.administerableMedicineAsContent = administerableMedicineAsContent;
-    }
-
-
-    /**
-     * <p>Regulatory Status Code</p>
-     * 
-     * <p><p>Indicates whether the drug is approved for use in 
-     * Canada or not. (active = approved for use; pending or 
-     * terminated = not approved for use)</p></p>
-     * 
-     * <p><p>Allows providers to evaluate the validity of the 
-     * medication for use in Canada.</p></p>
-     */
-    @Hl7XmlMapping({"administerableMedicine/asRegulatedProduct/statusCode"})
-    public RoleStatusNormal getRegulatoryStatusCode() {
-        return (RoleStatusNormal) this.regulatoryStatusCode.getValue();
-    }
-    public void setRegulatoryStatusCode(RoleStatusNormal regulatoryStatusCode) {
-        this.regulatoryStatusCode.setValue(regulatoryStatusCode);
+    @Hl7XmlMapping({"administerableMedicine/asSpecializedKind"})
+    public List<GroupedWithinBean> getAdministerableMedicineAsSpecializedKind() {
+        return this.administerableMedicineAsSpecializedKind;
     }
 
 

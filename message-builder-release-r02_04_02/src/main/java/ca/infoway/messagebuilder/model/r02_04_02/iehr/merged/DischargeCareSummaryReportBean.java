@@ -67,14 +67,14 @@ public class DischargeCareSummaryReportBean extends MessagePartBean implements D
 
     private static final long serialVersionUID = 20110318L;
     private CD dischargeCareSummaryReportType = new CDImpl();
-    private Request_1Bean inFulfillmentOfActRequest;
     private OccurredAtBean location;
+    private List<BecauseOfBean> reason = new ArrayList<BecauseOfBean>();
+    private List<DischargeDiagnosesBean> outcomeConditionEvent = new ArrayList<DischargeDiagnosesBean>();
     private CV dischargeDisposition = new CVImpl();
     private CS preliminaryFinalIndicator = new CSImpl();
-    private List<DischargeDiagnosesBean> outcomeConditionEvent = new ArrayList<DischargeDiagnosesBean>();
-    private IVL<TS, Interval<Date>> dischargeCareSummaryReportPeriod = new IVLImpl<TS, Interval<Date>>();
-    private List<BecauseOfBean> reason = new ArrayList<BecauseOfBean>();
     private II reportedOnCareCompositionLink = new IIImpl();
+    private Request_1Bean inFulfillmentOfActRequest;
+    private IVL<TS, Interval<Date>> dischargeCareSummaryReportPeriod = new IVLImpl<TS, Interval<Date>>();
 
 
     /**
@@ -124,21 +124,24 @@ public class DischargeCareSummaryReportBean extends MessagePartBean implements D
     }
 
 
-    @Hl7XmlMapping({"inFulfillmentOf/actRequest"})
-    public Request_1Bean getInFulfillmentOfActRequest() {
-        return this.inFulfillmentOfActRequest;
-    }
-    public void setInFulfillmentOfActRequest(Request_1Bean inFulfillmentOfActRequest) {
-        this.inFulfillmentOfActRequest = inFulfillmentOfActRequest;
-    }
-
-
     @Hl7XmlMapping({"location"})
     public OccurredAtBean getLocation() {
         return this.location;
     }
     public void setLocation(OccurredAtBean location) {
         this.location = location;
+    }
+
+
+    @Hl7XmlMapping({"reason"})
+    public List<BecauseOfBean> getReason() {
+        return this.reason;
+    }
+
+
+    @Hl7XmlMapping({"outcome/conditionEvent"})
+    public List<DischargeDiagnosesBean> getOutcomeConditionEvent() {
+        return this.outcomeConditionEvent;
     }
 
 
@@ -193,9 +196,32 @@ public class DischargeCareSummaryReportBean extends MessagePartBean implements D
     }
 
 
-    @Hl7XmlMapping({"outcome/conditionEvent"})
-    public List<DischargeDiagnosesBean> getOutcomeConditionEvent() {
-        return this.outcomeConditionEvent;
+    /**
+     * <p>ReportedOnCareCompositionLink</p>
+     * 
+     * <p>M:Reported on Care Composition Link</p>
+     * 
+     * <p><p>Provides the identifier of the discrete encounter, 
+     * episode or care event being reported on.</p></p>
+     * 
+     * <p><p>Allows for drill-down and for direct association 
+     * between the report and the discrete record.</p></p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Identifier getReportedOnCareCompositionLink() {
+        return this.reportedOnCareCompositionLink.getValue();
+    }
+    public void setReportedOnCareCompositionLink(Identifier reportedOnCareCompositionLink) {
+        this.reportedOnCareCompositionLink.setValue(reportedOnCareCompositionLink);
+    }
+
+
+    @Hl7XmlMapping({"inFulfillmentOf/actRequest"})
+    public Request_1Bean getInFulfillmentOfActRequest() {
+        return this.inFulfillmentOfActRequest;
+    }
+    public void setInFulfillmentOfActRequest(Request_1Bean inFulfillmentOfActRequest) {
+        this.inFulfillmentOfActRequest = inFulfillmentOfActRequest;
     }
 
 
@@ -232,32 +258,6 @@ public class DischargeCareSummaryReportBean extends MessagePartBean implements D
     }
     public void setDischargeCareSummaryReportPeriod(Interval<Date> dischargeCareSummaryReportPeriod) {
         this.dischargeCareSummaryReportPeriod.setValue(dischargeCareSummaryReportPeriod);
-    }
-
-
-    @Hl7XmlMapping({"reason"})
-    public List<BecauseOfBean> getReason() {
-        return this.reason;
-    }
-
-
-    /**
-     * <p>ReportedOnCareCompositionLink</p>
-     * 
-     * <p>M:Reported on Care Composition Link</p>
-     * 
-     * <p><p>Provides the identifier of the discrete encounter, 
-     * episode or care event being reported on.</p></p>
-     * 
-     * <p><p>Allows for drill-down and for direct association 
-     * between the report and the discrete record.</p></p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Identifier getReportedOnCareCompositionLink() {
-        return this.reportedOnCareCompositionLink.getValue();
-    }
-    public void setReportedOnCareCompositionLink(Identifier reportedOnCareCompositionLink) {
-        this.reportedOnCareCompositionLink.setValue(reportedOnCareCompositionLink);
     }
 
 }

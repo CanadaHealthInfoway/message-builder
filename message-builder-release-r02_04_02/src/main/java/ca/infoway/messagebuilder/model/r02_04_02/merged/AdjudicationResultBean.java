@@ -27,8 +27,8 @@ public class AdjudicationResultBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
     private CV code = new CVImpl();
-    private List<AdjudicationCodeChoice> pertinentInformationAdjudicationCodeChoice = new ArrayList<AdjudicationCodeChoice>();
     private List<AdjudicationResultReferenceBean> reference = new ArrayList<AdjudicationResultReferenceBean>();
+    private List<AdjudicationCodeChoice> pertinentInformationAdjudicationCodeChoice = new ArrayList<AdjudicationCodeChoice>();
     private List<AdjudicationResultRequiredActBean> triggerAdjudicationResultRequiredAct = new ArrayList<AdjudicationResultRequiredActBean>();
     private List<IssuesBean> reasonOfDetectedIssueEvent = new ArrayList<IssuesBean>();
 
@@ -50,15 +50,15 @@ public class AdjudicationResultBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"pertinentInformation/adjudicationCodeChoice"})
-    public List<AdjudicationCodeChoice> getPertinentInformationAdjudicationCodeChoice() {
-        return this.pertinentInformationAdjudicationCodeChoice;
-    }
-
-
     @Hl7XmlMapping({"reference"})
     public List<AdjudicationResultReferenceBean> getReference() {
         return this.reference;
+    }
+
+
+    @Hl7XmlMapping({"pertinentInformation/adjudicationCodeChoice"})
+    public List<AdjudicationCodeChoice> getPertinentInformationAdjudicationCodeChoice() {
+        return this.pertinentInformationAdjudicationCodeChoice;
     }
 
 

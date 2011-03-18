@@ -35,16 +35,22 @@ import java.util.Set;
 public class DocumentBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
+    private List<Recipients> primaryInformationRecipientRecipients = new ArrayList<Recipients>();
     private ActingPerson responsiblePartyActingPerson;
     private CV documentCategory = new CVImpl();
-    private List<Recipients> primaryInformationRecipientRecipients = new ArrayList<Recipients>();
-    private List<CareCompositionsBean> componentOfPatientCareProvisionEvent = new ArrayList<CareCompositionsBean>();
     private IncludesBean subjectOf;
     private List<OldClinicalDocumentEventBean> predecessorOldClinicalDocumentEvent = new ArrayList<OldClinicalDocumentEventBean>();
-    private SectionBean componentStructuredBodyComponentSection;
-    private SET<CV, Code> documentMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);
     private ST documentTitle = new STImpl();
     private RequestedByBean author;
+    private List<CareCompositionsBean> componentOfPatientCareProvisionEvent = new ArrayList<CareCompositionsBean>();
+    private SET<CV, Code> documentMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);
+    private SectionBean componentStructuredBodyComponentSection;
+
+
+    @Hl7XmlMapping({"primaryInformationRecipient/recipients"})
+    public List<Recipients> getPrimaryInformationRecipientRecipients() {
+        return this.primaryInformationRecipientRecipients;
+    }
 
 
     @Hl7XmlMapping({"responsibleParty/actingPerson"})
@@ -89,18 +95,6 @@ public class DocumentBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"primaryInformationRecipient/recipients"})
-    public List<Recipients> getPrimaryInformationRecipientRecipients() {
-        return this.primaryInformationRecipientRecipients;
-    }
-
-
-    @Hl7XmlMapping({"componentOf/patientCareProvisionEvent"})
-    public List<CareCompositionsBean> getComponentOfPatientCareProvisionEvent() {
-        return this.componentOfPatientCareProvisionEvent;
-    }
-
-
     @Hl7XmlMapping({"subjectOf"})
     public IncludesBean getSubjectOf() {
         return this.subjectOf;
@@ -113,24 +107,6 @@ public class DocumentBean extends MessagePartBean {
     @Hl7XmlMapping({"predecessor/oldClinicalDocumentEvent"})
     public List<OldClinicalDocumentEventBean> getPredecessorOldClinicalDocumentEvent() {
         return this.predecessorOldClinicalDocumentEvent;
-    }
-
-
-    @Hl7XmlMapping({"component/structuredBody/component/section"})
-    public SectionBean getComponentStructuredBodyComponentSection() {
-        return this.componentStructuredBodyComponentSection;
-    }
-    public void setComponentStructuredBodyComponentSection(SectionBean componentStructuredBodyComponentSection) {
-        this.componentStructuredBodyComponentSection = componentStructuredBodyComponentSection;
-    }
-
-
-    /**
-     * <p>E: Document Masking Indicators</p>
-     */
-    @Hl7XmlMapping({"confidentialityCode"})
-    public Set<x_BasicConfidentialityKind> getDocumentMaskingIndicators() {
-        return this.documentMaskingIndicators.rawSet(x_BasicConfidentialityKind.class);
     }
 
 
@@ -152,6 +128,30 @@ public class DocumentBean extends MessagePartBean {
     }
     public void setAuthor(RequestedByBean author) {
         this.author = author;
+    }
+
+
+    @Hl7XmlMapping({"componentOf/patientCareProvisionEvent"})
+    public List<CareCompositionsBean> getComponentOfPatientCareProvisionEvent() {
+        return this.componentOfPatientCareProvisionEvent;
+    }
+
+
+    /**
+     * <p>E: Document Masking Indicators</p>
+     */
+    @Hl7XmlMapping({"confidentialityCode"})
+    public Set<x_BasicConfidentialityKind> getDocumentMaskingIndicators() {
+        return this.documentMaskingIndicators.rawSet(x_BasicConfidentialityKind.class);
+    }
+
+
+    @Hl7XmlMapping({"component/structuredBody/component/section"})
+    public SectionBean getComponentStructuredBodyComponentSection() {
+        return this.componentStructuredBodyComponentSection;
+    }
+    public void setComponentStructuredBodyComponentSection(SectionBean componentStructuredBodyComponentSection) {
+        this.componentStructuredBodyComponentSection = componentStructuredBodyComponentSection;
     }
 
 }

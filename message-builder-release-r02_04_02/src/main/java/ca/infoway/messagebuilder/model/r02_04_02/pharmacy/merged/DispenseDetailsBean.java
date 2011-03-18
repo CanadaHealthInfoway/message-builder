@@ -24,23 +24,14 @@ import java.util.Date;
 public class DispenseDetailsBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private DeviceProductBean productManufacturedProduct;
     private INT dispensedQuantity = new INTImpl();
     private CV dispenseType = new CVImpl();
     private DispenseShipToLocationBean destinationServiceDeliveryLocation;
-    private IVL<TS, Interval<Date>> expectedUseTime = new IVLImpl<TS, Interval<Date>>();
     private INT numberOfRemainingFills = new INTImpl();
+    private DeviceProductBean productManufacturedProduct;
+    private IVL<TS, Interval<Date>> expectedUseTime = new IVLImpl<TS, Interval<Date>>();
     private IVL<TS, Interval<Date>> dispenseProcessingAndPickupDate = new IVLImpl<TS, Interval<Date>>();
     private RelatedPersonBean receiverPersonalRelationship;
-
-
-    @Hl7XmlMapping({"product/manufacturedProduct"})
-    public DeviceProductBean getProductManufacturedProduct() {
-        return this.productManufacturedProduct;
-    }
-    public void setProductManufacturedProduct(DeviceProductBean productManufacturedProduct) {
-        this.productManufacturedProduct = productManufacturedProduct;
-    }
 
 
     /**
@@ -105,6 +96,35 @@ public class DispenseDetailsBean extends MessagePartBean {
     }
     public void setDestinationServiceDeliveryLocation(DispenseShipToLocationBean destinationServiceDeliveryLocation) {
         this.destinationServiceDeliveryLocation = destinationServiceDeliveryLocation;
+    }
+
+
+    /**
+     * <p>NumberOfRemainingFills</p>
+     * 
+     * <p>Number of remaining fills</p>
+     * 
+     * <p><p>Stipulates the number of remaining fills for this 
+     * prescription</p></p>
+     * 
+     * <p><p>The number of remaining fills is used to evaluate the 
+     * &quot;completed&quot; status of the prescription.</p></p>
+     */
+    @Hl7XmlMapping({"repeatNumber"})
+    public Integer getNumberOfRemainingFills() {
+        return this.numberOfRemainingFills.getValue();
+    }
+    public void setNumberOfRemainingFills(Integer numberOfRemainingFills) {
+        this.numberOfRemainingFills.setValue(numberOfRemainingFills);
+    }
+
+
+    @Hl7XmlMapping({"product/manufacturedProduct"})
+    public DeviceProductBean getProductManufacturedProduct() {
+        return this.productManufacturedProduct;
+    }
+    public void setProductManufacturedProduct(DeviceProductBean productManufacturedProduct) {
+        this.productManufacturedProduct = productManufacturedProduct;
     }
 
 
@@ -176,26 +196,6 @@ public class DispenseDetailsBean extends MessagePartBean {
     }
     public void setExpectedUseTime(Interval<Date> expectedUseTime) {
         this.expectedUseTime.setValue(expectedUseTime);
-    }
-
-
-    /**
-     * <p>NumberOfRemainingFills</p>
-     * 
-     * <p>Number of remaining fills</p>
-     * 
-     * <p><p>Stipulates the number of remaining fills for this 
-     * prescription</p></p>
-     * 
-     * <p><p>The number of remaining fills is used to evaluate the 
-     * &quot;completed&quot; status of the prescription.</p></p>
-     */
-    @Hl7XmlMapping({"repeatNumber"})
-    public Integer getNumberOfRemainingFills() {
-        return this.numberOfRemainingFills.getValue();
-    }
-    public void setNumberOfRemainingFills(Integer numberOfRemainingFills) {
-        this.numberOfRemainingFills.setValue(numberOfRemainingFills);
     }
 
 

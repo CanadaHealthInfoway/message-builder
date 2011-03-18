@@ -91,37 +91,21 @@ import java.util.Set;
 public class MedicationDispenseBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private SubstitutionBean component3SubstitutionMade;
     private SupplyEventBean component1SupplyEvent;
-    private List<AdministrationInstructionsBean> component2DosageInstruction = new ArrayList<AdministrationInstructionsBean>();
+    private List<StatusChangesBean> subjectOf1ControlActEvent = new ArrayList<StatusChangesBean>();
     private BL subjectOf2AnnotationIndicator = new BLImpl();
     private List<IssuesBean> subjectOf5DetectedIssueEvent = new ArrayList<IssuesBean>();
-    private List<StatusChangesBean> subjectOf1ControlActEvent = new ArrayList<StatusChangesBean>();
-    private BL subjectOf3DetectedIssueIndicator = new BLImpl();
-    private HealthcareWorkerBean responsiblePartyAssignedEntity;
-    private CS dispenseStatus = new CSImpl();
+    private II prescriptionDispenseNumber = new IIImpl();
     private OccurredAtBean location;
     private List<IncludesBean> subjectOf4 = new ArrayList<IncludesBean>();
+    private BL subjectOf3DetectedIssueIndicator = new BLImpl();
+    private HealthcareWorkerBean responsiblePartyAssignedEntity;
+    private List<AdministrationInstructionsBean> component2DosageInstruction = new ArrayList<AdministrationInstructionsBean>();
     private HealthcareWorkerBean performerAssignedEntity;
-    private II prescriptionDispenseNumber = new IIImpl();
-    private SET<CV, Code> prescriptionMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);
+    private SubstitutionBean component3SubstitutionMade;
+    private CS dispenseStatus = new CSImpl();
     private PrescriptionReferenceBean inFulfillmentOfSubstanceAdministrationRequest;
-
-
-    @Hl7XmlMapping({"component2/substitutionMade","component3/substitutionMade"})
-    @Hl7MapByPartTypes({
-        @Hl7MapByPartType(name="component2", type="PORX_MT060090CA.Component13"),
-        @Hl7MapByPartType(name="component2", type="PORX_MT060340CA.Component13"),
-        @Hl7MapByPartType(name="component2/substitutionMade", type="PORX_MT060090CA.SubstitutionMade"),
-        @Hl7MapByPartType(name="component2/substitutionMade", type="PORX_MT060340CA.SubstitutionMade"),
-        @Hl7MapByPartType(name="component3", type="PORX_MT060160CA.Component13"),
-        @Hl7MapByPartType(name="component3/substitutionMade", type="PORX_MT060160CA.SubstitutionMade")})
-    public SubstitutionBean getComponent3SubstitutionMade() {
-        return this.component3SubstitutionMade;
-    }
-    public void setComponent3SubstitutionMade(SubstitutionBean component3SubstitutionMade) {
-        this.component3SubstitutionMade = component3SubstitutionMade;
-    }
+    private SET<CV, Code> prescriptionMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);
 
 
     @Hl7XmlMapping({"component1/supplyEvent","component3/supplyEvent"})
@@ -140,15 +124,9 @@ public class MedicationDispenseBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"component1/dosageInstruction","component2/dosageInstruction"})
-    @Hl7MapByPartTypes({
-        @Hl7MapByPartType(name="component1", type="PORX_MT060090CA.Component11"),
-        @Hl7MapByPartType(name="component1", type="PORX_MT060340CA.Component11"),
-        @Hl7MapByPartType(name="component1/dosageInstruction", type="COCT_MT270010CA.DosageInstruction"),
-        @Hl7MapByPartType(name="component2", type="PORX_MT060160CA.Component11"),
-        @Hl7MapByPartType(name="component2/dosageInstruction", type="COCT_MT270010CA.DosageInstruction")})
-    public List<AdministrationInstructionsBean> getComponent2DosageInstruction() {
-        return this.component2DosageInstruction;
+    @Hl7XmlMapping({"subjectOf1/controlActEvent"})
+    public List<StatusChangesBean> getSubjectOf1ControlActEvent() {
+        return this.subjectOf1ControlActEvent;
     }
 
 
@@ -181,9 +159,58 @@ public class MedicationDispenseBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"subjectOf1/controlActEvent"})
-    public List<StatusChangesBean> getSubjectOf1ControlActEvent() {
-        return this.subjectOf1ControlActEvent;
+    /**
+     * <p>PrescriptionDispenseNumber</p>
+     * 
+     * <p>A:Prescription Dispense Number</p>
+     * 
+     * <p><p>The Prescription Dispense Number is a globally unique 
+     * number assigned to a dispense (single fill) by the EHR/DIS 
+     * irrespective of the source of the dispense.</p><p>It is 
+     * created by the EHR/DIS once the dispense has passed all 
+     * edits and validation.</p></p>
+     * 
+     * <p><p>The Prescription Dispense Number is a globally unique 
+     * number assigned to a dispense (single fill) by the EHR/DIS 
+     * irrespective of the source of the dispense.</p><p>It is 
+     * created by the EHR/DIS once the dispense has passed all 
+     * edits and validation.</p></p>
+     * 
+     * <p><p>Allows for the referencing of a specific dispense 
+     * record.</p><p>Identifier for a dispensed record is needed so 
+     * that dispenses may be uniquely referenced. Thus the 
+     * mandatory requirement.</p></p>
+     * 
+     * <p><p>Allows for the referencing of a specific dispense 
+     * record.</p><p>Identifier for a dispensed record is needed so 
+     * that dispenses may be uniquely referenced. Thus the 
+     * mandatory requirement.</p></p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Identifier getPrescriptionDispenseNumber() {
+        return this.prescriptionDispenseNumber.getValue();
+    }
+    public void setPrescriptionDispenseNumber(Identifier prescriptionDispenseNumber) {
+        this.prescriptionDispenseNumber.setValue(prescriptionDispenseNumber);
+    }
+
+
+    @Hl7XmlMapping({"location"})
+    public OccurredAtBean getLocation() {
+        return this.location;
+    }
+    public void setLocation(OccurredAtBean location) {
+        this.location = location;
+    }
+
+
+    @Hl7XmlMapping({"subjectOf2","subjectOf3","subjectOf4"})
+    @Hl7MapByPartTypes({
+        @Hl7MapByPartType(name="subjectOf2", type="PORX_MT060340CA.Subject7"),
+        @Hl7MapByPartType(name="subjectOf3", type="PORX_MT060090CA.Subject7"),
+        @Hl7MapByPartType(name="subjectOf4", type="PORX_MT060160CA.Subject7")})
+    public List<IncludesBean> getSubjectOf4() {
+        return this.subjectOf4;
     }
 
 
@@ -209,6 +236,43 @@ public class MedicationDispenseBean extends MessagePartBean {
     }
     public void setResponsiblePartyAssignedEntity(HealthcareWorkerBean responsiblePartyAssignedEntity) {
         this.responsiblePartyAssignedEntity = responsiblePartyAssignedEntity;
+    }
+
+
+    @Hl7XmlMapping({"component1/dosageInstruction","component2/dosageInstruction"})
+    @Hl7MapByPartTypes({
+        @Hl7MapByPartType(name="component1", type="PORX_MT060090CA.Component11"),
+        @Hl7MapByPartType(name="component1", type="PORX_MT060340CA.Component11"),
+        @Hl7MapByPartType(name="component1/dosageInstruction", type="COCT_MT270010CA.DosageInstruction"),
+        @Hl7MapByPartType(name="component2", type="PORX_MT060160CA.Component11"),
+        @Hl7MapByPartType(name="component2/dosageInstruction", type="COCT_MT270010CA.DosageInstruction")})
+    public List<AdministrationInstructionsBean> getComponent2DosageInstruction() {
+        return this.component2DosageInstruction;
+    }
+
+
+    @Hl7XmlMapping({"performer/assignedEntity"})
+    public HealthcareWorkerBean getPerformerAssignedEntity() {
+        return this.performerAssignedEntity;
+    }
+    public void setPerformerAssignedEntity(HealthcareWorkerBean performerAssignedEntity) {
+        this.performerAssignedEntity = performerAssignedEntity;
+    }
+
+
+    @Hl7XmlMapping({"component2/substitutionMade","component3/substitutionMade"})
+    @Hl7MapByPartTypes({
+        @Hl7MapByPartType(name="component2", type="PORX_MT060090CA.Component13"),
+        @Hl7MapByPartType(name="component2", type="PORX_MT060340CA.Component13"),
+        @Hl7MapByPartType(name="component2/substitutionMade", type="PORX_MT060090CA.SubstitutionMade"),
+        @Hl7MapByPartType(name="component2/substitutionMade", type="PORX_MT060340CA.SubstitutionMade"),
+        @Hl7MapByPartType(name="component3", type="PORX_MT060160CA.Component13"),
+        @Hl7MapByPartType(name="component3/substitutionMade", type="PORX_MT060160CA.SubstitutionMade")})
+    public SubstitutionBean getComponent3SubstitutionMade() {
+        return this.component3SubstitutionMade;
+    }
+    public void setComponent3SubstitutionMade(SubstitutionBean component3SubstitutionMade) {
+        this.component3SubstitutionMade = component3SubstitutionMade;
     }
 
 
@@ -263,67 +327,12 @@ public class MedicationDispenseBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"location"})
-    public OccurredAtBean getLocation() {
-        return this.location;
+    @Hl7XmlMapping({"inFulfillmentOf/substanceAdministrationRequest"})
+    public PrescriptionReferenceBean getInFulfillmentOfSubstanceAdministrationRequest() {
+        return this.inFulfillmentOfSubstanceAdministrationRequest;
     }
-    public void setLocation(OccurredAtBean location) {
-        this.location = location;
-    }
-
-
-    @Hl7XmlMapping({"subjectOf2","subjectOf3","subjectOf4"})
-    @Hl7MapByPartTypes({
-        @Hl7MapByPartType(name="subjectOf2", type="PORX_MT060340CA.Subject7"),
-        @Hl7MapByPartType(name="subjectOf3", type="PORX_MT060090CA.Subject7"),
-        @Hl7MapByPartType(name="subjectOf4", type="PORX_MT060160CA.Subject7")})
-    public List<IncludesBean> getSubjectOf4() {
-        return this.subjectOf4;
-    }
-
-
-    @Hl7XmlMapping({"performer/assignedEntity"})
-    public HealthcareWorkerBean getPerformerAssignedEntity() {
-        return this.performerAssignedEntity;
-    }
-    public void setPerformerAssignedEntity(HealthcareWorkerBean performerAssignedEntity) {
-        this.performerAssignedEntity = performerAssignedEntity;
-    }
-
-
-    /**
-     * <p>PrescriptionDispenseNumber</p>
-     * 
-     * <p>A:Prescription Dispense Number</p>
-     * 
-     * <p><p>The Prescription Dispense Number is a globally unique 
-     * number assigned to a dispense (single fill) by the EHR/DIS 
-     * irrespective of the source of the dispense.</p><p>It is 
-     * created by the EHR/DIS once the dispense has passed all 
-     * edits and validation.</p></p>
-     * 
-     * <p><p>The Prescription Dispense Number is a globally unique 
-     * number assigned to a dispense (single fill) by the EHR/DIS 
-     * irrespective of the source of the dispense.</p><p>It is 
-     * created by the EHR/DIS once the dispense has passed all 
-     * edits and validation.</p></p>
-     * 
-     * <p><p>Allows for the referencing of a specific dispense 
-     * record.</p><p>Identifier for a dispensed record is needed so 
-     * that dispenses may be uniquely referenced. Thus the 
-     * mandatory requirement.</p></p>
-     * 
-     * <p><p>Allows for the referencing of a specific dispense 
-     * record.</p><p>Identifier for a dispensed record is needed so 
-     * that dispenses may be uniquely referenced. Thus the 
-     * mandatory requirement.</p></p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Identifier getPrescriptionDispenseNumber() {
-        return this.prescriptionDispenseNumber.getValue();
-    }
-    public void setPrescriptionDispenseNumber(Identifier prescriptionDispenseNumber) {
-        this.prescriptionDispenseNumber.setValue(prescriptionDispenseNumber);
+    public void setInFulfillmentOfSubstanceAdministrationRequest(PrescriptionReferenceBean inFulfillmentOfSubstanceAdministrationRequest) {
+        this.inFulfillmentOfSubstanceAdministrationRequest = inFulfillmentOfSubstanceAdministrationRequest;
     }
 
 
@@ -419,15 +428,6 @@ public class MedicationDispenseBean extends MessagePartBean {
     @Hl7XmlMapping({"confidentialityCode"})
     public Set<x_BasicConfidentialityKind> getPrescriptionMaskingIndicators() {
         return this.prescriptionMaskingIndicators.rawSet(x_BasicConfidentialityKind.class);
-    }
-
-
-    @Hl7XmlMapping({"inFulfillmentOf/substanceAdministrationRequest"})
-    public PrescriptionReferenceBean getInFulfillmentOfSubstanceAdministrationRequest() {
-        return this.inFulfillmentOfSubstanceAdministrationRequest;
-    }
-    public void setInFulfillmentOfSubstanceAdministrationRequest(PrescriptionReferenceBean inFulfillmentOfSubstanceAdministrationRequest) {
-        this.inFulfillmentOfSubstanceAdministrationRequest = inFulfillmentOfSubstanceAdministrationRequest;
     }
 
 }

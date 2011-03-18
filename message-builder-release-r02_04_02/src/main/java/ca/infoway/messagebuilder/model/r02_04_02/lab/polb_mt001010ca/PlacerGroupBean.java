@@ -42,77 +42,50 @@ import java.util.Set;
 public class PlacerGroupBean extends MessagePartBean implements RequestChoice {
 
     private static final long serialVersionUID = 20110318L;
-    private ParentTestBean occurrenceOfActParentPointer;
-    private List<SpecimenRoleBean> specimenSpecimen = new ArrayList<SpecimenRoleBean>();
-    private LabInitiatedOrderIndicatorBean component3LabInitiatedOrderIndicator;
-    private SET<CV, Code> placerGroupMaskingIndicator = new SETImpl<CV, Code>(CVImpl.class);
-    private VersionInformationBean subjectOf2ControlActEvent;
+    private List<RecipientChoice> informationRecipientRecipientChoice = new ArrayList<RecipientChoice>();
+    private List<RequestChoice> component4RequestChoice = new ArrayList<RequestChoice>();
+    private List<HealthcareWorkerBean> callBackContactAssignedEntity = new ArrayList<HealthcareWorkerBean>();
+    private PriorTestRequestBean componentOfPriorActRequest;
     private OutbreakBean pertinentInformation1OutbreakEvent;
     private List<SupportingClinicalInformationBean> pertinentInformation2SupportingClinicalObservationEvent = new ArrayList<SupportingClinicalInformationBean>();
-    private List<HealthcareWorkerBean> callBackContactAssignedEntity = new ArrayList<HealthcareWorkerBean>();
-    private Patient_1Bean recordTargetPatient;
-    private List<RequestChoice> component4RequestChoice = new ArrayList<RequestChoice>();
-    private List<RecipientChoice> informationRecipientRecipientChoice = new ArrayList<RecipientChoice>();
     private ReferralRedirectIndicatorBean component1ReferralRedirectIndicator;
-    private PriorTestRequestBean componentOfPriorActRequest;
-    private List<IncludesBean> subjectOf1 = new ArrayList<IncludesBean>();
-    private HealthcareOrganizationBean performerAssignedEntity;
-    private OrderSortKeyBean component2RequestSortKey;
+    private LabInitiatedOrderIndicatorBean component3LabInitiatedOrderIndicator;
     private SET<II, Identifier> placerGroupIdentifier = new SETImpl<II, Identifier>(IIImpl.class);
+    private List<IncludesBean> subjectOf1 = new ArrayList<IncludesBean>();
+    private Patient_1Bean recordTargetPatient;
+    private OrderSortKeyBean component2RequestSortKey;
+    private HealthcareOrganizationBean performerAssignedEntity;
+    private VersionInformationBean subjectOf2ControlActEvent;
+    private SET<CV, Code> placerGroupMaskingIndicator = new SETImpl<CV, Code>(CVImpl.class);
+    private ParentTestBean occurrenceOfActParentPointer;
+    private List<SpecimenRoleBean> specimenSpecimen = new ArrayList<SpecimenRoleBean>();
     private List<HealthcareWorkerBean> verifierAssignedEntity = new ArrayList<HealthcareWorkerBean>();
 
 
-    @Hl7XmlMapping({"occurrenceOf/actParentPointer"})
-    public ParentTestBean getOccurrenceOfActParentPointer() {
-        return this.occurrenceOfActParentPointer;
-    }
-    public void setOccurrenceOfActParentPointer(ParentTestBean occurrenceOfActParentPointer) {
-        this.occurrenceOfActParentPointer = occurrenceOfActParentPointer;
+    @Hl7XmlMapping({"informationRecipient/recipientChoice"})
+    public List<RecipientChoice> getInformationRecipientRecipientChoice() {
+        return this.informationRecipientRecipientChoice;
     }
 
 
-    @Hl7XmlMapping({"specimen/specimen"})
-    public List<SpecimenRoleBean> getSpecimenSpecimen() {
-        return this.specimenSpecimen;
+    @Hl7XmlMapping({"component4/requestChoice"})
+    public List<RequestChoice> getComponent4RequestChoice() {
+        return this.component4RequestChoice;
     }
 
 
-    @Hl7XmlMapping({"component3/labInitiatedOrderIndicator"})
-    public LabInitiatedOrderIndicatorBean getComponent3LabInitiatedOrderIndicator() {
-        return this.component3LabInitiatedOrderIndicator;
-    }
-    public void setComponent3LabInitiatedOrderIndicator(LabInitiatedOrderIndicatorBean component3LabInitiatedOrderIndicator) {
-        this.component3LabInitiatedOrderIndicator = component3LabInitiatedOrderIndicator;
+    @Hl7XmlMapping({"callBackContact/assignedEntity"})
+    public List<HealthcareWorkerBean> getCallBackContactAssignedEntity() {
+        return this.callBackContactAssignedEntity;
     }
 
 
-    /**
-     * <p>B:Placer Group Masking Indicator</p>
-     * 
-     * <p><p>Any piece of information is potentially subject to 
-     * 'masking', restricting it's availability from providers who 
-     * have not been specifically authorized. Additionally, some 
-     * clinical data requires the ability to mark as &quot;not for 
-     * direct disclosure to patient&quot;. The values in this 
-     * attribute enable the above masking to be represented and 
-     * messaged.</p></p>
-     * 
-     * <p><p>This code allows for privacy control by patients as 
-     * well as flagged for 'not for disclosure to patient' by care 
-     * providers.</p></p>
-     */
-    @Hl7XmlMapping({"confidentialityCode"})
-    public Set<x_BasicConfidentialityKind> getPlacerGroupMaskingIndicator() {
-        return this.placerGroupMaskingIndicator.rawSet(x_BasicConfidentialityKind.class);
+    @Hl7XmlMapping({"componentOf/priorActRequest"})
+    public PriorTestRequestBean getComponentOfPriorActRequest() {
+        return this.componentOfPriorActRequest;
     }
-
-
-    @Hl7XmlMapping({"subjectOf2/controlActEvent"})
-    public VersionInformationBean getSubjectOf2ControlActEvent() {
-        return this.subjectOf2ControlActEvent;
-    }
-    public void setSubjectOf2ControlActEvent(VersionInformationBean subjectOf2ControlActEvent) {
-        this.subjectOf2ControlActEvent = subjectOf2ControlActEvent;
+    public void setComponentOfPriorActRequest(PriorTestRequestBean componentOfPriorActRequest) {
+        this.componentOfPriorActRequest = componentOfPriorActRequest;
     }
 
 
@@ -131,33 +104,6 @@ public class PlacerGroupBean extends MessagePartBean implements RequestChoice {
     }
 
 
-    @Hl7XmlMapping({"callBackContact/assignedEntity"})
-    public List<HealthcareWorkerBean> getCallBackContactAssignedEntity() {
-        return this.callBackContactAssignedEntity;
-    }
-
-
-    @Hl7XmlMapping({"recordTarget/patient"})
-    public Patient_1Bean getRecordTargetPatient() {
-        return this.recordTargetPatient;
-    }
-    public void setRecordTargetPatient(Patient_1Bean recordTargetPatient) {
-        this.recordTargetPatient = recordTargetPatient;
-    }
-
-
-    @Hl7XmlMapping({"component4/requestChoice"})
-    public List<RequestChoice> getComponent4RequestChoice() {
-        return this.component4RequestChoice;
-    }
-
-
-    @Hl7XmlMapping({"informationRecipient/recipientChoice"})
-    public List<RecipientChoice> getInformationRecipientRecipientChoice() {
-        return this.informationRecipientRecipientChoice;
-    }
-
-
     @Hl7XmlMapping({"component1/referralRedirectIndicator"})
     public ReferralRedirectIndicatorBean getComponent1ReferralRedirectIndicator() {
         return this.component1ReferralRedirectIndicator;
@@ -167,36 +113,12 @@ public class PlacerGroupBean extends MessagePartBean implements RequestChoice {
     }
 
 
-    @Hl7XmlMapping({"componentOf/priorActRequest"})
-    public PriorTestRequestBean getComponentOfPriorActRequest() {
-        return this.componentOfPriorActRequest;
+    @Hl7XmlMapping({"component3/labInitiatedOrderIndicator"})
+    public LabInitiatedOrderIndicatorBean getComponent3LabInitiatedOrderIndicator() {
+        return this.component3LabInitiatedOrderIndicator;
     }
-    public void setComponentOfPriorActRequest(PriorTestRequestBean componentOfPriorActRequest) {
-        this.componentOfPriorActRequest = componentOfPriorActRequest;
-    }
-
-
-    @Hl7XmlMapping({"subjectOf1"})
-    public List<IncludesBean> getSubjectOf1() {
-        return this.subjectOf1;
-    }
-
-
-    @Hl7XmlMapping({"performer/assignedEntity"})
-    public HealthcareOrganizationBean getPerformerAssignedEntity() {
-        return this.performerAssignedEntity;
-    }
-    public void setPerformerAssignedEntity(HealthcareOrganizationBean performerAssignedEntity) {
-        this.performerAssignedEntity = performerAssignedEntity;
-    }
-
-
-    @Hl7XmlMapping({"component2/requestSortKey"})
-    public OrderSortKeyBean getComponent2RequestSortKey() {
-        return this.component2RequestSortKey;
-    }
-    public void setComponent2RequestSortKey(OrderSortKeyBean component2RequestSortKey) {
-        this.component2RequestSortKey = component2RequestSortKey;
+    public void setComponent3LabInitiatedOrderIndicator(LabInitiatedOrderIndicatorBean component3LabInitiatedOrderIndicator) {
+        this.component3LabInitiatedOrderIndicator = component3LabInitiatedOrderIndicator;
     }
 
 
@@ -221,6 +143,84 @@ public class PlacerGroupBean extends MessagePartBean implements RequestChoice {
     @Hl7XmlMapping({"id"})
     public Set<Identifier> getPlacerGroupIdentifier() {
         return this.placerGroupIdentifier.rawSet();
+    }
+
+
+    @Hl7XmlMapping({"subjectOf1"})
+    public List<IncludesBean> getSubjectOf1() {
+        return this.subjectOf1;
+    }
+
+
+    @Hl7XmlMapping({"recordTarget/patient"})
+    public Patient_1Bean getRecordTargetPatient() {
+        return this.recordTargetPatient;
+    }
+    public void setRecordTargetPatient(Patient_1Bean recordTargetPatient) {
+        this.recordTargetPatient = recordTargetPatient;
+    }
+
+
+    @Hl7XmlMapping({"component2/requestSortKey"})
+    public OrderSortKeyBean getComponent2RequestSortKey() {
+        return this.component2RequestSortKey;
+    }
+    public void setComponent2RequestSortKey(OrderSortKeyBean component2RequestSortKey) {
+        this.component2RequestSortKey = component2RequestSortKey;
+    }
+
+
+    @Hl7XmlMapping({"performer/assignedEntity"})
+    public HealthcareOrganizationBean getPerformerAssignedEntity() {
+        return this.performerAssignedEntity;
+    }
+    public void setPerformerAssignedEntity(HealthcareOrganizationBean performerAssignedEntity) {
+        this.performerAssignedEntity = performerAssignedEntity;
+    }
+
+
+    @Hl7XmlMapping({"subjectOf2/controlActEvent"})
+    public VersionInformationBean getSubjectOf2ControlActEvent() {
+        return this.subjectOf2ControlActEvent;
+    }
+    public void setSubjectOf2ControlActEvent(VersionInformationBean subjectOf2ControlActEvent) {
+        this.subjectOf2ControlActEvent = subjectOf2ControlActEvent;
+    }
+
+
+    /**
+     * <p>B:Placer Group Masking Indicator</p>
+     * 
+     * <p><p>Any piece of information is potentially subject to 
+     * 'masking', restricting it's availability from providers who 
+     * have not been specifically authorized. Additionally, some 
+     * clinical data requires the ability to mark as &quot;not for 
+     * direct disclosure to patient&quot;. The values in this 
+     * attribute enable the above masking to be represented and 
+     * messaged.</p></p>
+     * 
+     * <p><p>This code allows for privacy control by patients as 
+     * well as flagged for 'not for disclosure to patient' by care 
+     * providers.</p></p>
+     */
+    @Hl7XmlMapping({"confidentialityCode"})
+    public Set<x_BasicConfidentialityKind> getPlacerGroupMaskingIndicator() {
+        return this.placerGroupMaskingIndicator.rawSet(x_BasicConfidentialityKind.class);
+    }
+
+
+    @Hl7XmlMapping({"occurrenceOf/actParentPointer"})
+    public ParentTestBean getOccurrenceOfActParentPointer() {
+        return this.occurrenceOfActParentPointer;
+    }
+    public void setOccurrenceOfActParentPointer(ParentTestBean occurrenceOfActParentPointer) {
+        this.occurrenceOfActParentPointer = occurrenceOfActParentPointer;
+    }
+
+
+    @Hl7XmlMapping({"specimen/specimen"})
+    public List<SpecimenRoleBean> getSpecimenSpecimen() {
+        return this.specimenSpecimen;
     }
 
 

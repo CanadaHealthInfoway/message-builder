@@ -27,17 +27,8 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 public class ConsistsOfBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private StructuredDosageLinesBean dosageLine;
     private INT dosageLineOrder = new INTImpl();
-
-
-    @Hl7XmlMapping({"dosageLine"})
-    public StructuredDosageLinesBean getDosageLine() {
-        return this.dosageLine;
-    }
-    public void setDosageLine(StructuredDosageLinesBean dosageLine) {
-        this.dosageLine = dosageLine;
-    }
+    private StructuredDosageLinesBean dosageLine;
 
 
     /**
@@ -67,6 +58,15 @@ public class ConsistsOfBean extends MessagePartBean {
     }
     public void setDosageLineOrder(Integer dosageLineOrder) {
         this.dosageLineOrder.setValue(dosageLineOrder);
+    }
+
+
+    @Hl7XmlMapping({"dosageLine"})
+    public StructuredDosageLinesBean getDosageLine() {
+        return this.dosageLine;
+    }
+    public void setDosageLine(StructuredDosageLinesBean dosageLine) {
+        this.dosageLine = dosageLine;
     }
 
 }

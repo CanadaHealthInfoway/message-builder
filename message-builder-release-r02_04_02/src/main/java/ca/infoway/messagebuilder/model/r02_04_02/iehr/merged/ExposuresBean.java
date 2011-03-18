@@ -135,10 +135,38 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 public class ExposuresBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private CV exposedMaterialType = new CVImpl();
     private CV exposureMethod = new CVImpl();
+    private CV exposedMaterialType = new CVImpl();
     private II incidenceIdentifier = new IIImpl();
     private AgentCategoryBean consumableAdministrableMaterialAdministerableMaterialKind;
+
+
+    /**
+     * <p>ExposureMethod</p>
+     * 
+     * <p>C:Exposure Method</p>
+     * 
+     * <p><p>The method by which the patient was exposed to the 
+     * substance.</p></p>
+     * 
+     * <p><p>Helps evaluate the cause of the reaction.</p></p>
+     * 
+     * <p>C:Exposure Method</p>
+     * 
+     * <p><p>routeCode is required if not using SNOMED</p></p>
+     * 
+     * <p><p>The method by which the patient was exposed to the 
+     * substance.</p></p>
+     * 
+     * <p><p>Helps evaluate the cause of the reaction.</p></p>
+     */
+    @Hl7XmlMapping({"routeCode"})
+    public RouteOfAdministration getExposureMethod() {
+        return (RouteOfAdministration) this.exposureMethod.getValue();
+    }
+    public void setExposureMethod(RouteOfAdministration exposureMethod) {
+        this.exposureMethod.setValue(exposureMethod);
+    }
 
 
     /**
@@ -192,34 +220,6 @@ public class ExposuresBean extends MessagePartBean {
     }
     public void setExposedMaterialType(ExposureAgentEntityType exposedMaterialType) {
         this.exposedMaterialType.setValue(exposedMaterialType);
-    }
-
-
-    /**
-     * <p>ExposureMethod</p>
-     * 
-     * <p>C:Exposure Method</p>
-     * 
-     * <p><p>The method by which the patient was exposed to the 
-     * substance.</p></p>
-     * 
-     * <p><p>Helps evaluate the cause of the reaction.</p></p>
-     * 
-     * <p>C:Exposure Method</p>
-     * 
-     * <p><p>routeCode is required if not using SNOMED</p></p>
-     * 
-     * <p><p>The method by which the patient was exposed to the 
-     * substance.</p></p>
-     * 
-     * <p><p>Helps evaluate the cause of the reaction.</p></p>
-     */
-    @Hl7XmlMapping({"routeCode"})
-    public RouteOfAdministration getExposureMethod() {
-        return (RouteOfAdministration) this.exposureMethod.getValue();
-    }
-    public void setExposureMethod(RouteOfAdministration exposureMethod) {
-        this.exposureMethod.setValue(exposureMethod);
     }
 
 

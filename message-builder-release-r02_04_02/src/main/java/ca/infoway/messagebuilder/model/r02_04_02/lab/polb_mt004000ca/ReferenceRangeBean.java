@@ -26,9 +26,15 @@ import java.util.List;
 public class ReferenceRangeBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
+    private List<ReferenceRangeCriteriaBean> preconditionObservationEventCriterion = new ArrayList<ReferenceRangeCriteriaBean>();
     private ANY<Object> referenceRangeValue = new ANYImpl<Object>();
     private CV referenceRangeInterpretationType = new CVImpl();
-    private List<ReferenceRangeCriteriaBean> preconditionObservationEventCriterion = new ArrayList<ReferenceRangeCriteriaBean>();
+
+
+    @Hl7XmlMapping({"precondition/observationEventCriterion"})
+    public List<ReferenceRangeCriteriaBean> getPreconditionObservationEventCriterion() {
+        return this.preconditionObservationEventCriterion;
+    }
 
 
     /**
@@ -62,12 +68,6 @@ public class ReferenceRangeBean extends MessagePartBean {
     }
     public void setReferenceRangeInterpretationType(ObservationInterpretation referenceRangeInterpretationType) {
         this.referenceRangeInterpretationType.setValue(referenceRangeInterpretationType);
-    }
-
-
-    @Hl7XmlMapping({"precondition/observationEventCriterion"})
-    public List<ReferenceRangeCriteriaBean> getPreconditionObservationEventCriterion() {
-        return this.preconditionObservationEventCriterion;
     }
 
 }

@@ -11,10 +11,13 @@ import ca.infoway.messagebuilder.datatype.SET;
 import ca.infoway.messagebuilder.datatype.impl.BLImpl;
 import ca.infoway.messagebuilder.datatype.impl.CVImpl;
 import ca.infoway.messagebuilder.datatype.impl.IIImpl;
+import ca.infoway.messagebuilder.datatype.impl.RawListWrapper;
 import ca.infoway.messagebuilder.datatype.impl.SETImpl;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.domainvalue.ActCareEventType;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 
@@ -40,128 +43,47 @@ import java.util.Set;
 public class DrugPrescriptionDetailQueryParametersBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private SET<II, Identifier> prescriptionOrderNumber = new SETImpl<II, Identifier>(IIImpl.class);
-    private CV careCompositionTypes = new CVImpl();
-    private II careCompositionIDs = new IIImpl();
-    private BL includePendingChangesIndicator = new BLImpl();
+    private BL includeEventHistoryIndicator = new BLImpl();
     private BL includeIssuesIndicator = new BLImpl();
     private BL includeNotesIndicator = new BLImpl();
-    private BL includeEventHistoryIndicator = new BLImpl();
+    private List<II> careCompositionIDs = new ArrayList<II>();
+    private BL includePendingChangesIndicator = new BLImpl();
+    private List<CV> careCompositionTypes = new ArrayList<CV>();
+    private SET<II, Identifier> prescriptionOrderNumber = new SETImpl<II, Identifier>(IIImpl.class);
     private II prescriptionDispenseNumber = new IIImpl();
 
 
     /**
-     * <p>PrescriptionOrderNumber</p>
+     * <p>IncludeEventHistoryIndicator</p>
      * 
-     * <p>Prescription order Number</p>
+     * <p>Include Event History Indicator</p>
      * 
-     * <p><p>Identifier of the prescription for which detailed 
-     * information is required.</p><p>The result set will be 
-     * filtered to only the specific prescription.</p></p>
+     * <p><p>Indicates whether or not history of selected 
+     * medication records are to be returned along with the 
+     * detailed information.</p><p>&quot;Pending&quot; changes will 
+     * be returned regardless of the setting of this flag.</p></p>
      * 
-     * <p><p>Identifier of the prescription for which detailed 
-     * information is required.</p><p>The result set will be 
-     * filtered to only the specific prescription.</p></p>
-     * 
-     * <p><p>Identifies the prescription that is to be retrieved, 
-     * and is therefore mandatory.</p></p>
-     */
-    @Hl7XmlMapping({"prescriptionOrderNumber/value"})
-    public Set<Identifier> getPrescriptionOrderNumber() {
-        return this.prescriptionOrderNumber.rawSet();
-    }
-
-
-    /**
-     * <p>CareCompositionTypes</p>
-     * 
-     * <p>Care Composition Types</p>
-     * 
-     * <p><p>Filters the records retrieved to only include those 
-     * associated with the specified 'kind' of encounter, episode 
-     * or care event. If unspecified, no filter is applied.</p></p>
-     * 
-     * <p><p>Allows retrieving all records associated with a 
-     * particular type of encounter, episode or care event. 
-     * E.g.Orthopedic Clinic Encounter, ER encounter, Walk-in 
-     * encounter, etc.</p></p>
-     */
-    @Hl7XmlMapping({"careCompositionType/value"})
-    public ActCareEventType getCareCompositionTypes() {
-        return (ActCareEventType) this.careCompositionTypes.getValue();
-    }
-    public void setCareCompositionTypes(ActCareEventType careCompositionTypes) {
-        this.careCompositionTypes.setValue(careCompositionTypes);
-    }
-
-
-    /**
-     * <p>CareCompositionIDs</p>
-     * 
-     * <p>Care Composition IDs</p>
-     * 
-     * <p><p>Desc: Filters the records retrieved to only include 
-     * those associated with the specified encounter, episode or 
-     * care event. If unspecified, no filter is 
-     * applied.</p><p>Note: When matching on care composition id, 
-     * systems should also retrieve records with a fulfillment id 
-     * to requisitions associated with the care composition. E.g. 
-     * When retrieving records associated with an encounter which 
-     * includes a referral, the retrieved records should also 
-     * include the care summary created in fulfillment of the 
-     * referral.</p></p>
-     * 
-     * <p><p>Desc: Filters the records retrieved to only include 
-     * those associated with the specified encounter, episode or 
-     * care event. If unspecified, no filter is 
-     * applied.</p><p>Note: When matching on care composition id, 
-     * systems should also retrieve records with a fulfillment id 
-     * to requisitions associated with the care composition. E.g. 
-     * When retrieving records associated with an encounter which 
-     * includes a referral, the retrieved records should also 
-     * include the care summary created in fulfillment of the 
-     * referral.</p></p>
-     * 
-     * <p><p>Allows retrieving all records associated with an 
-     * encounter, episode or care event.</p></p>
-     */
-    @Hl7XmlMapping({"careCompositionID/value"})
-    public Identifier getCareCompositionIDs() {
-        return this.careCompositionIDs.getValue();
-    }
-    public void setCareCompositionIDs(Identifier careCompositionIDs) {
-        this.careCompositionIDs.setValue(careCompositionIDs);
-    }
-
-
-    /**
-     * <p>IncludePendingChangesIndicator</p>
-     * 
-     * <p>Include Pending Changes Indicator</p>
-     * 
-     * <p><p>Indicates whether to include future changes (e.g. 
-     * status changes that aren't effective yet) associated with a 
-     * prescription order and/or prescription dispense are to be 
-     * returned along with the detailed information.</p></p>
+     * <p><p>Indicates whether or not history of selected 
+     * medication records are to be returned along with the 
+     * detailed information.</p><p>&quot;Pending&quot; changes will 
+     * be returned regardless of the setting of this flag.</p></p>
      * 
      * <p><p>Allows for the flexibility of omitting/including 
-     * future events in the retrieval of the requested 
-     * information.</p><p>Because the attribute is boolean, it must 
-     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
-     * mandatory.</p></p>
+     * history in the retrieval of the requested 
+     * information.</p><p>Because the attribute is always either 
+     * 'TRUE' or 'FALSE' it is mandatory.</p></p>
      * 
      * <p><p>Allows for the flexibility of omitting/including 
-     * future events in the retrieval of the requested 
-     * information.</p><p>Because the attribute is boolean, it must 
-     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
-     * mandatory.</p></p>
+     * history in the retrieval of the requested 
+     * information.</p><p>Because the attribute is always either 
+     * 'TRUE' or 'FALSE' it is mandatory.</p></p>
      */
-    @Hl7XmlMapping({"includePendingChangesIndicator/value"})
-    public Boolean getIncludePendingChangesIndicator() {
-        return this.includePendingChangesIndicator.getValue();
+    @Hl7XmlMapping({"includeEventHistoryIndicator/value"})
+    public Boolean getIncludeEventHistoryIndicator() {
+        return this.includeEventHistoryIndicator.getValue();
     }
-    public void setIncludePendingChangesIndicator(Boolean includePendingChangesIndicator) {
-        this.includePendingChangesIndicator.setValue(includePendingChangesIndicator);
+    public void setIncludeEventHistoryIndicator(Boolean includeEventHistoryIndicator) {
+        this.includeEventHistoryIndicator.setValue(includeEventHistoryIndicator);
     }
 
 
@@ -263,36 +185,111 @@ public class DrugPrescriptionDetailQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>IncludeEventHistoryIndicator</p>
+     * <p>CareCompositionIDs</p>
      * 
-     * <p>Include Event History Indicator</p>
+     * <p>Care Composition IDs</p>
      * 
-     * <p><p>Indicates whether or not history of selected 
-     * medication records are to be returned along with the 
-     * detailed information.</p><p>&quot;Pending&quot; changes will 
-     * be returned regardless of the setting of this flag.</p></p>
+     * <p><p>Desc: Filters the records retrieved to only include 
+     * those associated with the specified encounter, episode or 
+     * care event. If unspecified, no filter is 
+     * applied.</p><p>Note: When matching on care composition id, 
+     * systems should also retrieve records with a fulfillment id 
+     * to requisitions associated with the care composition. E.g. 
+     * When retrieving records associated with an encounter which 
+     * includes a referral, the retrieved records should also 
+     * include the care summary created in fulfillment of the 
+     * referral.</p></p>
      * 
-     * <p><p>Indicates whether or not history of selected 
-     * medication records are to be returned along with the 
-     * detailed information.</p><p>&quot;Pending&quot; changes will 
-     * be returned regardless of the setting of this flag.</p></p>
+     * <p><p>Desc: Filters the records retrieved to only include 
+     * those associated with the specified encounter, episode or 
+     * care event. If unspecified, no filter is 
+     * applied.</p><p>Note: When matching on care composition id, 
+     * systems should also retrieve records with a fulfillment id 
+     * to requisitions associated with the care composition. E.g. 
+     * When retrieving records associated with an encounter which 
+     * includes a referral, the retrieved records should also 
+     * include the care summary created in fulfillment of the 
+     * referral.</p></p>
      * 
-     * <p><p>Allows for the flexibility of omitting/including 
-     * history in the retrieval of the requested 
-     * information.</p><p>Because the attribute is always either 
-     * 'TRUE' or 'FALSE' it is mandatory.</p></p>
-     * 
-     * <p><p>Allows for the flexibility of omitting/including 
-     * history in the retrieval of the requested 
-     * information.</p><p>Because the attribute is always either 
-     * 'TRUE' or 'FALSE' it is mandatory.</p></p>
+     * <p><p>Allows retrieving all records associated with an 
+     * encounter, episode or care event.</p></p>
      */
-    @Hl7XmlMapping({"includeEventHistoryIndicator/value"})
-    public Boolean getIncludeEventHistoryIndicator() {
-        return this.includeEventHistoryIndicator.getValue();
+    @Hl7XmlMapping({"careCompositionID/value"})
+    public List<Identifier> getCareCompositionIDs() {
+        return new RawListWrapper<II, Identifier>(careCompositionIDs, IIImpl.class);
     }
-    public void setIncludeEventHistoryIndicator(Boolean includeEventHistoryIndicator) {
-        this.includeEventHistoryIndicator.setValue(includeEventHistoryIndicator);
+
+
+    /**
+     * <p>IncludePendingChangesIndicator</p>
+     * 
+     * <p>Include Pending Changes Indicator</p>
+     * 
+     * <p><p>Indicates whether to include future changes (e.g. 
+     * status changes that aren't effective yet) associated with a 
+     * prescription order and/or prescription dispense are to be 
+     * returned along with the detailed information.</p></p>
+     * 
+     * <p><p>Allows for the flexibility of omitting/including 
+     * future events in the retrieval of the requested 
+     * information.</p><p>Because the attribute is boolean, it must 
+     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
+     * mandatory.</p></p>
+     * 
+     * <p><p>Allows for the flexibility of omitting/including 
+     * future events in the retrieval of the requested 
+     * information.</p><p>Because the attribute is boolean, it must 
+     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
+     * mandatory.</p></p>
+     */
+    @Hl7XmlMapping({"includePendingChangesIndicator/value"})
+    public Boolean getIncludePendingChangesIndicator() {
+        return this.includePendingChangesIndicator.getValue();
+    }
+    public void setIncludePendingChangesIndicator(Boolean includePendingChangesIndicator) {
+        this.includePendingChangesIndicator.setValue(includePendingChangesIndicator);
+    }
+
+
+    /**
+     * <p>CareCompositionTypes</p>
+     * 
+     * <p>Care Composition Types</p>
+     * 
+     * <p><p>Filters the records retrieved to only include those 
+     * associated with the specified 'kind' of encounter, episode 
+     * or care event. If unspecified, no filter is applied.</p></p>
+     * 
+     * <p><p>Allows retrieving all records associated with a 
+     * particular type of encounter, episode or care event. 
+     * E.g.Orthopedic Clinic Encounter, ER encounter, Walk-in 
+     * encounter, etc.</p></p>
+     */
+    @Hl7XmlMapping({"careCompositionType/value"})
+    public List<ActCareEventType> getCareCompositionTypes() {
+        return new RawListWrapper<CV, ActCareEventType>(careCompositionTypes, CVImpl.class);
+    }
+
+
+    /**
+     * <p>PrescriptionOrderNumber</p>
+     * 
+     * <p>Prescription order Number</p>
+     * 
+     * <p><p>Identifier of the prescription for which detailed 
+     * information is required.</p><p>The result set will be 
+     * filtered to only the specific prescription.</p></p>
+     * 
+     * <p><p>Identifier of the prescription for which detailed 
+     * information is required.</p><p>The result set will be 
+     * filtered to only the specific prescription.</p></p>
+     * 
+     * <p><p>Identifies the prescription that is to be retrieved, 
+     * and is therefore mandatory.</p></p>
+     */
+    @Hl7XmlMapping({"prescriptionOrderNumber/value"})
+    public Set<Identifier> getPrescriptionOrderNumber() {
+        return this.prescriptionOrderNumber.rawSet();
     }
 
 

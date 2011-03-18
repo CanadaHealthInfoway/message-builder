@@ -45,229 +45,14 @@ import java.util.List;
 public class DrugProductBean extends MessagePartBean implements ca.infoway.messagebuilder.model.r02_04_02.common.coct_mt270010ca.Medication {
 
     private static final long serialVersionUID = 20110318L;
-    private CV drugForm = new CVImpl();
-    private ST drugName = new STImpl();
-    private List<DrugContainsBean> administerableMedicineIngredient = new ArrayList<DrugContainsBean>();
     private CD drugCode = new CDImpl();
-    private ST drugLotNumber = new STImpl();
-    private IVL<TS, Interval<Date>> drugExpiryDate = new IVLImpl<TS, Interval<Date>>();
-    private ST drugDescription = new STImpl();
     private DispensedInBean administerableMedicineAsContent;
-
-
-    /**
-     * <p>D:Drug Form</p>
-     * 
-     * <p><p>Indicates the form in which the drug product must be, 
-     * or has been manufactured or custom prepared.</p></p>
-     * 
-     * <p><p>Prescription.dosageForm</p><p>DrugProduct.dosageForm</p><p>CompoundedDrugProduct.dosageForm</p><p>DispensedItem.dosageForm</p><p>D63</p><p>ZPC.3</p><p>ZPD.3</p><p>Drug 
-     * form</p><p>ZDP.14.1</p><p>ZDP.3b</p><p>DRU.010-05</p><p>Compound.450-EF</p><p>A_BillablePharmacyDispense</p><p>Dosage 
-     * Form</p><p>Dosage Form</p></p>
-     * 
-     * <p><p>Prescription.dosageForm</p><p>DrugProduct.dosageForm</p><p>CompoundedDrugProduct.dosageForm</p><p>DispensedItem.dosageForm</p><p>D63</p><p>ZPC.3</p><p>ZPD.3</p><p>Drug 
-     * form</p><p>ZDP.14.1</p><p>ZDP.3b</p><p>DRU.010-05</p><p>Compound.450-EF</p><p>A_BillablePharmacyDispense</p><p>Dosage 
-     * Form</p><p>Dosage Form</p></p>
-     * 
-     * <p><p>Prescription.dosageForm</p><p>DrugProduct.dosageForm</p><p>CompoundedDrugProduct.dosageForm</p><p>DispensedItem.dosageForm</p><p>D63</p><p>ZPC.3</p><p>ZPD.3</p><p>Drug 
-     * form</p><p>ZDP.14.1</p><p>ZDP.3b</p><p>DRU.010-05</p><p>Compound.450-EF</p><p>A_BillablePharmacyDispense</p><p>Dosage 
-     * Form</p><p>Dosage Form</p></p>
-     * 
-     * <p><p>Prescription.dosageForm</p><p>DrugProduct.dosageForm</p><p>CompoundedDrugProduct.dosageForm</p><p>DispensedItem.dosageForm</p><p>D63</p><p>ZPC.3</p><p>ZPD.3</p><p>Drug 
-     * form</p><p>ZDP.14.1</p><p>ZDP.3b</p><p>DRU.010-05</p><p>Compound.450-EF</p><p>A_BillablePharmacyDispense</p><p>Dosage 
-     * Form</p><p>Dosage Form</p></p>
-     * 
-     * <p><p>Prescription.dosageForm</p><p>DrugProduct.dosageForm</p><p>CompoundedDrugProduct.dosageForm</p><p>DispensedItem.dosageForm</p><p>D63</p><p>ZPC.3</p><p>ZPD.3</p><p>Drug 
-     * form</p><p>ZDP.14.1</p><p>ZDP.3b</p><p>DRU.010-05</p><p>Compound.450-EF</p><p>A_BillablePharmacyDispense</p><p>Dosage 
-     * Form</p><p>Dosage Form</p></p>
-     * 
-     * <p><p>Prescription.dosageForm</p><p>DrugProduct.dosageForm</p><p>CompoundedDrugProduct.dosageForm</p><p>DispensedItem.dosageForm</p><p>D63</p><p>ZPC.3</p><p>ZPD.3</p><p>Drug 
-     * form</p><p>ZDP.14.1</p><p>ZDP.3b</p><p>DRU.010-05</p><p>Compound.450-EF</p><p>A_BillablePharmacyDispense</p><p>Dosage 
-     * Form</p><p>Dosage Form</p></p>
-     * 
-     * <p><p>Prescription.dosageForm</p><p>DrugProduct.dosageForm</p><p>CompoundedDrugProduct.dosageForm</p><p>DispensedItem.dosageForm</p><p>D63</p><p>ZPC.3</p><p>ZPD.3</p><p>Drug 
-     * form</p><p>ZDP.14.1</p><p>ZDP.3b</p><p>DRU.010-05</p><p>Compound.450-EF</p><p>A_BillablePharmacyDispense</p><p>Dosage 
-     * Form</p><p>Dosage Form</p></p>
-     * 
-     * <p><p>Prescription.dosageForm</p><p>DrugProduct.dosageForm</p><p>CompoundedDrugProduct.dosageForm</p><p>DispensedItem.dosageForm</p><p>D63</p><p>ZPC.3</p><p>ZPD.3</p><p>Drug 
-     * form</p><p>ZDP.14.1</p><p>ZDP.3b</p><p>DRU.010-05</p><p>Compound.450-EF</p><p>A_BillablePharmacyDispense</p><p>Dosage 
-     * Form</p><p>Dosage Form</p></p>
-     * 
-     * <p><p>Prescription.dosageForm</p><p>DrugProduct.dosageForm</p><p>CompoundedDrugProduct.dosageForm</p><p>DispensedItem.dosageForm</p><p>D63</p><p>ZPC.3</p><p>ZPD.3</p><p>Drug 
-     * form</p><p>ZDP.14.1</p><p>ZDP.3b</p><p>DRU.010-05</p><p>Compound.450-EF</p><p>A_BillablePharmacyDispense</p><p>Dosage 
-     * Form</p><p>Dosage Form</p></p>
-     * 
-     * <p><p>Prescription.dosageForm</p><p>DrugProduct.dosageForm</p><p>CompoundedDrugProduct.dosageForm</p><p>DispensedItem.dosageForm</p><p>D63</p><p>ZPC.3</p><p>ZPD.3</p><p>Drug 
-     * form</p><p>ZDP.14.1</p><p>ZDP.3b</p><p>DRU.010-05</p><p>Compound.450-EF</p><p>A_BillablePharmacyDispense</p><p>Dosage 
-     * Form</p><p>Dosage Form</p></p>
-     * 
-     * <p><p>Prescription.dosageForm</p><p>DrugProduct.dosageForm</p><p>CompoundedDrugProduct.dosageForm</p><p>DispensedItem.dosageForm</p><p>D63</p><p>ZPC.3</p><p>ZPD.3</p><p>Drug 
-     * form</p><p>ZDP.14.1</p><p>ZDP.3b</p><p>DRU.010-05</p><p>Compound.450-EF</p><p>A_BillablePharmacyDispense</p><p>Dosage 
-     * Form</p><p>Dosage Form</p></p>
-     * 
-     * <p><p>Prescription.dosageForm</p><p>DrugProduct.dosageForm</p><p>CompoundedDrugProduct.dosageForm</p><p>DispensedItem.dosageForm</p><p>D63</p><p>ZPC.3</p><p>ZPD.3</p><p>Drug 
-     * form</p><p>ZDP.14.1</p><p>ZDP.3b</p><p>DRU.010-05</p><p>Compound.450-EF</p><p>A_BillablePharmacyDispense</p><p>Dosage 
-     * Form</p><p>Dosage Form</p></p>
-     * 
-     * <p><p>Prescription.dosageForm</p><p>DrugProduct.dosageForm</p><p>CompoundedDrugProduct.dosageForm</p><p>DispensedItem.dosageForm</p><p>D63</p><p>ZPC.3</p><p>ZPD.3</p><p>Drug 
-     * form</p><p>ZDP.14.1</p><p>ZDP.3b</p><p>DRU.010-05</p><p>Compound.450-EF</p><p>A_BillablePharmacyDispense</p><p>Dosage 
-     * Form</p><p>Dosage Form</p></p>
-     * 
-     * <p><p>Prescription.dosageForm</p><p>DrugProduct.dosageForm</p><p>CompoundedDrugProduct.dosageForm</p><p>DispensedItem.dosageForm</p><p>D63</p><p>ZPC.3</p><p>ZPD.3</p><p>Drug 
-     * form</p><p>ZDP.14.1</p><p>ZDP.3b</p><p>DRU.010-05</p><p>Compound.450-EF</p><p>A_BillablePharmacyDispense</p><p>Dosage 
-     * Form</p><p>Dosage Form</p></p>
-     * 
-     * <p><p>Prescription.dosageForm</p><p>DrugProduct.dosageForm</p><p>CompoundedDrugProduct.dosageForm</p><p>DispensedItem.dosageForm</p><p>D63</p><p>ZPC.3</p><p>ZPD.3</p><p>Drug 
-     * form</p><p>ZDP.14.1</p><p>ZDP.3b</p><p>DRU.010-05</p><p>Compound.450-EF</p><p>A_BillablePharmacyDispense</p><p>Dosage 
-     * Form</p><p>Dosage Form</p></p>
-     * 
-     * <p><p>Provides a constrained vocabulary for describing dose 
-     * forms. The form of the drug influences how it can be used by 
-     * the patient.</p></p>
-     * 
-     * <p><p>Must be populated if the Drug Id does not specify the 
-     * Drug Form.</p></p>
-     */
-    @Hl7XmlMapping({"administerableMedicine/formCode"})
-    public OrderableDrugForm getDrugForm() {
-        return (OrderableDrugForm) this.drugForm.getValue();
-    }
-    public void setDrugForm(OrderableDrugForm drugForm) {
-        this.drugForm.setValue(drugForm);
-    }
-
-
-    /**
-     * <p>B:Drug Name</p>
-     * 
-     * <p><p>The name assigned to a drug.</p></p>
-     * 
-     * <p><p>DrugProduct.Name 
-     * (Search)</p><p>CoumpoundDrugProduct.name</p><p>Contraindication.interactingDrugName</p><p>DrugProduct.labelName(useCode=L)</p><p>ZPB2.2</p><p>ZPB3.2</p><p>ZPC.2</p><p>ZPD.2</p><p>ZPD1.2</p><p>ZPD.5</p><p>MB.01.03</p><p>Drug 
-     * Name</p><p>ZDU.4.2</p><p>ZDU.6.1.1</p><p>DRU.010-02</p><p>RXA.TradeName</p><p>DRU.010-10-&gt;12</p><p>Brand 
-     * Name</p><p>C.1a</p><p>Trade Name</p><p>Other Name</p></p>
-     * 
-     * <p><p>DrugProduct.Name 
-     * (Search)</p><p>CoumpoundDrugProduct.name</p><p>Contraindication.interactingDrugName</p><p>DrugProduct.labelName(useCode=L)</p><p>ZPB2.2</p><p>ZPB3.2</p><p>ZPC.2</p><p>ZPD.2</p><p>ZPD1.2</p><p>ZPD.5</p><p>MB.01.03</p><p>Drug 
-     * Name</p><p>ZDU.4.2</p><p>ZDU.6.1.1</p><p>DRU.010-02</p><p>RXA.TradeName</p><p>DRU.010-10-&gt;12</p><p>Brand 
-     * Name</p><p>C.1a</p><p>Trade Name</p><p>Other Name</p></p>
-     * 
-     * <p><p>DrugProduct.Name 
-     * (Search)</p><p>CoumpoundDrugProduct.name</p><p>Contraindication.interactingDrugName</p><p>DrugProduct.labelName(useCode=L)</p><p>ZPB2.2</p><p>ZPB3.2</p><p>ZPC.2</p><p>ZPD.2</p><p>ZPD1.2</p><p>ZPD.5</p><p>MB.01.03</p><p>Drug 
-     * Name</p><p>ZDU.4.2</p><p>ZDU.6.1.1</p><p>DRU.010-02</p><p>RXA.TradeName</p><p>DRU.010-10-&gt;12</p><p>Brand 
-     * Name</p><p>C.1a</p><p>Trade Name</p><p>Other Name</p></p>
-     * 
-     * <p><p>DrugProduct.Name 
-     * (Search)</p><p>CoumpoundDrugProduct.name</p><p>Contraindication.interactingDrugName</p><p>DrugProduct.labelName(useCode=L)</p><p>ZPB2.2</p><p>ZPB3.2</p><p>ZPC.2</p><p>ZPD.2</p><p>ZPD1.2</p><p>ZPD.5</p><p>MB.01.03</p><p>Drug 
-     * Name</p><p>ZDU.4.2</p><p>ZDU.6.1.1</p><p>DRU.010-02</p><p>RXA.TradeName</p><p>DRU.010-10-&gt;12</p><p>Brand 
-     * Name</p><p>C.1a</p><p>Trade Name</p><p>Other Name</p></p>
-     * 
-     * <p><p>DrugProduct.Name 
-     * (Search)</p><p>CoumpoundDrugProduct.name</p><p>Contraindication.interactingDrugName</p><p>DrugProduct.labelName(useCode=L)</p><p>ZPB2.2</p><p>ZPB3.2</p><p>ZPC.2</p><p>ZPD.2</p><p>ZPD1.2</p><p>ZPD.5</p><p>MB.01.03</p><p>Drug 
-     * Name</p><p>ZDU.4.2</p><p>ZDU.6.1.1</p><p>DRU.010-02</p><p>RXA.TradeName</p><p>DRU.010-10-&gt;12</p><p>Brand 
-     * Name</p><p>C.1a</p><p>Trade Name</p><p>Other Name</p></p>
-     * 
-     * <p><p>DrugProduct.Name 
-     * (Search)</p><p>CoumpoundDrugProduct.name</p><p>Contraindication.interactingDrugName</p><p>DrugProduct.labelName(useCode=L)</p><p>ZPB2.2</p><p>ZPB3.2</p><p>ZPC.2</p><p>ZPD.2</p><p>ZPD1.2</p><p>ZPD.5</p><p>MB.01.03</p><p>Drug 
-     * Name</p><p>ZDU.4.2</p><p>ZDU.6.1.1</p><p>DRU.010-02</p><p>RXA.TradeName</p><p>DRU.010-10-&gt;12</p><p>Brand 
-     * Name</p><p>C.1a</p><p>Trade Name</p><p>Other Name</p></p>
-     * 
-     * <p><p>DrugProduct.Name 
-     * (Search)</p><p>CoumpoundDrugProduct.name</p><p>Contraindication.interactingDrugName</p><p>DrugProduct.labelName(useCode=L)</p><p>ZPB2.2</p><p>ZPB3.2</p><p>ZPC.2</p><p>ZPD.2</p><p>ZPD1.2</p><p>ZPD.5</p><p>MB.01.03</p><p>Drug 
-     * Name</p><p>ZDU.4.2</p><p>ZDU.6.1.1</p><p>DRU.010-02</p><p>RXA.TradeName</p><p>DRU.010-10-&gt;12</p><p>Brand 
-     * Name</p><p>C.1a</p><p>Trade Name</p><p>Other Name</p></p>
-     * 
-     * <p><p>DrugProduct.Name 
-     * (Search)</p><p>CoumpoundDrugProduct.name</p><p>Contraindication.interactingDrugName</p><p>DrugProduct.labelName(useCode=L)</p><p>ZPB2.2</p><p>ZPB3.2</p><p>ZPC.2</p><p>ZPD.2</p><p>ZPD1.2</p><p>ZPD.5</p><p>MB.01.03</p><p>Drug 
-     * Name</p><p>ZDU.4.2</p><p>ZDU.6.1.1</p><p>DRU.010-02</p><p>RXA.TradeName</p><p>DRU.010-10-&gt;12</p><p>Brand 
-     * Name</p><p>C.1a</p><p>Trade Name</p><p>Other Name</p></p>
-     * 
-     * <p><p>DrugProduct.Name 
-     * (Search)</p><p>CoumpoundDrugProduct.name</p><p>Contraindication.interactingDrugName</p><p>DrugProduct.labelName(useCode=L)</p><p>ZPB2.2</p><p>ZPB3.2</p><p>ZPC.2</p><p>ZPD.2</p><p>ZPD1.2</p><p>ZPD.5</p><p>MB.01.03</p><p>Drug 
-     * Name</p><p>ZDU.4.2</p><p>ZDU.6.1.1</p><p>DRU.010-02</p><p>RXA.TradeName</p><p>DRU.010-10-&gt;12</p><p>Brand 
-     * Name</p><p>C.1a</p><p>Trade Name</p><p>Other Name</p></p>
-     * 
-     * <p><p>DrugProduct.Name 
-     * (Search)</p><p>CoumpoundDrugProduct.name</p><p>Contraindication.interactingDrugName</p><p>DrugProduct.labelName(useCode=L)</p><p>ZPB2.2</p><p>ZPB3.2</p><p>ZPC.2</p><p>ZPD.2</p><p>ZPD1.2</p><p>ZPD.5</p><p>MB.01.03</p><p>Drug 
-     * Name</p><p>ZDU.4.2</p><p>ZDU.6.1.1</p><p>DRU.010-02</p><p>RXA.TradeName</p><p>DRU.010-10-&gt;12</p><p>Brand 
-     * Name</p><p>C.1a</p><p>Trade Name</p><p>Other Name</p></p>
-     * 
-     * <p><p>DrugProduct.Name 
-     * (Search)</p><p>CoumpoundDrugProduct.name</p><p>Contraindication.interactingDrugName</p><p>DrugProduct.labelName(useCode=L)</p><p>ZPB2.2</p><p>ZPB3.2</p><p>ZPC.2</p><p>ZPD.2</p><p>ZPD1.2</p><p>ZPD.5</p><p>MB.01.03</p><p>Drug 
-     * Name</p><p>ZDU.4.2</p><p>ZDU.6.1.1</p><p>DRU.010-02</p><p>RXA.TradeName</p><p>DRU.010-10-&gt;12</p><p>Brand 
-     * Name</p><p>C.1a</p><p>Trade Name</p><p>Other Name</p></p>
-     * 
-     * <p><p>DrugProduct.Name 
-     * (Search)</p><p>CoumpoundDrugProduct.name</p><p>Contraindication.interactingDrugName</p><p>DrugProduct.labelName(useCode=L)</p><p>ZPB2.2</p><p>ZPB3.2</p><p>ZPC.2</p><p>ZPD.2</p><p>ZPD1.2</p><p>ZPD.5</p><p>MB.01.03</p><p>Drug 
-     * Name</p><p>ZDU.4.2</p><p>ZDU.6.1.1</p><p>DRU.010-02</p><p>RXA.TradeName</p><p>DRU.010-10-&gt;12</p><p>Brand 
-     * Name</p><p>C.1a</p><p>Trade Name</p><p>Other Name</p></p>
-     * 
-     * <p><p>DrugProduct.Name 
-     * (Search)</p><p>CoumpoundDrugProduct.name</p><p>Contraindication.interactingDrugName</p><p>DrugProduct.labelName(useCode=L)</p><p>ZPB2.2</p><p>ZPB3.2</p><p>ZPC.2</p><p>ZPD.2</p><p>ZPD1.2</p><p>ZPD.5</p><p>MB.01.03</p><p>Drug 
-     * Name</p><p>ZDU.4.2</p><p>ZDU.6.1.1</p><p>DRU.010-02</p><p>RXA.TradeName</p><p>DRU.010-10-&gt;12</p><p>Brand 
-     * Name</p><p>C.1a</p><p>Trade Name</p><p>Other Name</p></p>
-     * 
-     * <p><p>DrugProduct.Name 
-     * (Search)</p><p>CoumpoundDrugProduct.name</p><p>Contraindication.interactingDrugName</p><p>DrugProduct.labelName(useCode=L)</p><p>ZPB2.2</p><p>ZPB3.2</p><p>ZPC.2</p><p>ZPD.2</p><p>ZPD1.2</p><p>ZPD.5</p><p>MB.01.03</p><p>Drug 
-     * Name</p><p>ZDU.4.2</p><p>ZDU.6.1.1</p><p>DRU.010-02</p><p>RXA.TradeName</p><p>DRU.010-10-&gt;12</p><p>Brand 
-     * Name</p><p>C.1a</p><p>Trade Name</p><p>Other Name</p></p>
-     * 
-     * <p><p>DrugProduct.Name 
-     * (Search)</p><p>CoumpoundDrugProduct.name</p><p>Contraindication.interactingDrugName</p><p>DrugProduct.labelName(useCode=L)</p><p>ZPB2.2</p><p>ZPB3.2</p><p>ZPC.2</p><p>ZPD.2</p><p>ZPD1.2</p><p>ZPD.5</p><p>MB.01.03</p><p>Drug 
-     * Name</p><p>ZDU.4.2</p><p>ZDU.6.1.1</p><p>DRU.010-02</p><p>RXA.TradeName</p><p>DRU.010-10-&gt;12</p><p>Brand 
-     * Name</p><p>C.1a</p><p>Trade Name</p><p>Other Name</p></p>
-     * 
-     * <p><p>DrugProduct.Name 
-     * (Search)</p><p>CoumpoundDrugProduct.name</p><p>Contraindication.interactingDrugName</p><p>DrugProduct.labelName(useCode=L)</p><p>ZPB2.2</p><p>ZPB3.2</p><p>ZPC.2</p><p>ZPD.2</p><p>ZPD1.2</p><p>ZPD.5</p><p>MB.01.03</p><p>Drug 
-     * Name</p><p>ZDU.4.2</p><p>ZDU.6.1.1</p><p>DRU.010-02</p><p>RXA.TradeName</p><p>DRU.010-10-&gt;12</p><p>Brand 
-     * Name</p><p>C.1a</p><p>Trade Name</p><p>Other Name</p></p>
-     * 
-     * <p><p>DrugProduct.Name 
-     * (Search)</p><p>CoumpoundDrugProduct.name</p><p>Contraindication.interactingDrugName</p><p>DrugProduct.labelName(useCode=L)</p><p>ZPB2.2</p><p>ZPB3.2</p><p>ZPC.2</p><p>ZPD.2</p><p>ZPD1.2</p><p>ZPD.5</p><p>MB.01.03</p><p>Drug 
-     * Name</p><p>ZDU.4.2</p><p>ZDU.6.1.1</p><p>DRU.010-02</p><p>RXA.TradeName</p><p>DRU.010-10-&gt;12</p><p>Brand 
-     * Name</p><p>C.1a</p><p>Trade Name</p><p>Other Name</p></p>
-     * 
-     * <p><p>DrugProduct.Name 
-     * (Search)</p><p>CoumpoundDrugProduct.name</p><p>Contraindication.interactingDrugName</p><p>DrugProduct.labelName(useCode=L)</p><p>ZPB2.2</p><p>ZPB3.2</p><p>ZPC.2</p><p>ZPD.2</p><p>ZPD1.2</p><p>ZPD.5</p><p>MB.01.03</p><p>Drug 
-     * Name</p><p>ZDU.4.2</p><p>ZDU.6.1.1</p><p>DRU.010-02</p><p>RXA.TradeName</p><p>DRU.010-10-&gt;12</p><p>Brand 
-     * Name</p><p>C.1a</p><p>Trade Name</p><p>Other Name</p></p>
-     * 
-     * <p><p>DrugProduct.Name 
-     * (Search)</p><p>CoumpoundDrugProduct.name</p><p>Contraindication.interactingDrugName</p><p>DrugProduct.labelName(useCode=L)</p><p>ZPB2.2</p><p>ZPB3.2</p><p>ZPC.2</p><p>ZPD.2</p><p>ZPD1.2</p><p>ZPD.5</p><p>MB.01.03</p><p>Drug 
-     * Name</p><p>ZDU.4.2</p><p>ZDU.6.1.1</p><p>DRU.010-02</p><p>RXA.TradeName</p><p>DRU.010-10-&gt;12</p><p>Brand 
-     * Name</p><p>C.1a</p><p>Trade Name</p><p>Other Name</p></p>
-     * 
-     * <p><p>DrugProduct.Name 
-     * (Search)</p><p>CoumpoundDrugProduct.name</p><p>Contraindication.interactingDrugName</p><p>DrugProduct.labelName(useCode=L)</p><p>ZPB2.2</p><p>ZPB3.2</p><p>ZPC.2</p><p>ZPD.2</p><p>ZPD1.2</p><p>ZPD.5</p><p>MB.01.03</p><p>Drug 
-     * Name</p><p>ZDU.4.2</p><p>ZDU.6.1.1</p><p>DRU.010-02</p><p>RXA.TradeName</p><p>DRU.010-10-&gt;12</p><p>Brand 
-     * Name</p><p>C.1a</p><p>Trade Name</p><p>Other Name</p></p>
-     * 
-     * <p><p>DrugProduct.Name 
-     * (Search)</p><p>CoumpoundDrugProduct.name</p><p>Contraindication.interactingDrugName</p><p>DrugProduct.labelName(useCode=L)</p><p>ZPB2.2</p><p>ZPB3.2</p><p>ZPC.2</p><p>ZPD.2</p><p>ZPD1.2</p><p>ZPD.5</p><p>MB.01.03</p><p>Drug 
-     * Name</p><p>ZDU.4.2</p><p>ZDU.6.1.1</p><p>DRU.010-02</p><p>RXA.TradeName</p><p>DRU.010-10-&gt;12</p><p>Brand 
-     * Name</p><p>C.1a</p><p>Trade Name</p><p>Other Name</p></p>
-     * 
-     * <p><p>Names are used for human reference communication, to 
-     * allow selection from dropdowns and for local searching. If a 
-     * code is available, the name acts as a cross-check. If the 
-     * code is not available the name acts as the primary 
-     * identifier. The attribute is therefore mandatory.</p></p>
-     * 
-     * <p><p>First occurrence is preferred for display.</p></p>
-     */
-    @Hl7XmlMapping({"administerableMedicine/name"})
-    public String getDrugName() {
-        return this.drugName.getValue();
-    }
-    public void setDrugName(String drugName) {
-        this.drugName.setValue(drugName);
-    }
-
-
-    @Hl7XmlMapping({"administerableMedicine/ingredient"})
-    public List<DrugContainsBean> getAdministerableMedicineIngredient() {
-        return this.administerableMedicineIngredient;
-    }
+    private IVL<TS, Interval<Date>> drugExpiryDate = new IVLImpl<TS, Interval<Date>>();
+    private ST drugName = new STImpl();
+    private ST drugDescription = new STImpl();
+    private CV drugForm = new CVImpl();
+    private ST drugLotNumber = new STImpl();
+    private List<DrugContainsBean> administerableMedicineIngredient = new ArrayList<DrugContainsBean>();
 
 
     /**
@@ -958,27 +743,12 @@ public class DrugProductBean extends MessagePartBean implements ca.infoway.messa
     }
 
 
-    /**
-     * <p>E:Drug Lot Number</p>
-     * 
-     * <p><p>Identification of a batch in which a specific 
-     * manufactured drug belongs.</p></p>
-     * 
-     * <p><p>X0301</p><p>RXA.15</p><p>C.6</p></p>
-     * 
-     * <p><p>X0301</p><p>RXA.15</p><p>C.6</p></p>
-     * 
-     * <p><p>X0301</p><p>RXA.15</p><p>C.6</p></p>
-     * 
-     * <p><p>Useful in tracking for recalls but may not always 
-     * exist.</p></p>
-     */
-    @Hl7XmlMapping({"administerableMedicine/lotNumberText"})
-    public String getDrugLotNumber() {
-        return this.drugLotNumber.getValue();
+    @Hl7XmlMapping({"administerableMedicine/asContent"})
+    public DispensedInBean getAdministerableMedicineAsContent() {
+        return this.administerableMedicineAsContent;
     }
-    public void setDrugLotNumber(String drugLotNumber) {
-        this.drugLotNumber.setValue(drugLotNumber);
+    public void setAdministerableMedicineAsContent(DispensedInBean administerableMedicineAsContent) {
+        this.administerableMedicineAsContent = administerableMedicineAsContent;
     }
 
 
@@ -1020,6 +790,133 @@ public class DrugProductBean extends MessagePartBean implements ca.infoway.messa
 
 
     /**
+     * <p>B:Drug Name</p>
+     * 
+     * <p><p>The name assigned to a drug.</p></p>
+     * 
+     * <p><p>DrugProduct.Name 
+     * (Search)</p><p>CoumpoundDrugProduct.name</p><p>Contraindication.interactingDrugName</p><p>DrugProduct.labelName(useCode=L)</p><p>ZPB2.2</p><p>ZPB3.2</p><p>ZPC.2</p><p>ZPD.2</p><p>ZPD1.2</p><p>ZPD.5</p><p>MB.01.03</p><p>Drug 
+     * Name</p><p>ZDU.4.2</p><p>ZDU.6.1.1</p><p>DRU.010-02</p><p>RXA.TradeName</p><p>DRU.010-10-&gt;12</p><p>Brand 
+     * Name</p><p>C.1a</p><p>Trade Name</p><p>Other Name</p></p>
+     * 
+     * <p><p>DrugProduct.Name 
+     * (Search)</p><p>CoumpoundDrugProduct.name</p><p>Contraindication.interactingDrugName</p><p>DrugProduct.labelName(useCode=L)</p><p>ZPB2.2</p><p>ZPB3.2</p><p>ZPC.2</p><p>ZPD.2</p><p>ZPD1.2</p><p>ZPD.5</p><p>MB.01.03</p><p>Drug 
+     * Name</p><p>ZDU.4.2</p><p>ZDU.6.1.1</p><p>DRU.010-02</p><p>RXA.TradeName</p><p>DRU.010-10-&gt;12</p><p>Brand 
+     * Name</p><p>C.1a</p><p>Trade Name</p><p>Other Name</p></p>
+     * 
+     * <p><p>DrugProduct.Name 
+     * (Search)</p><p>CoumpoundDrugProduct.name</p><p>Contraindication.interactingDrugName</p><p>DrugProduct.labelName(useCode=L)</p><p>ZPB2.2</p><p>ZPB3.2</p><p>ZPC.2</p><p>ZPD.2</p><p>ZPD1.2</p><p>ZPD.5</p><p>MB.01.03</p><p>Drug 
+     * Name</p><p>ZDU.4.2</p><p>ZDU.6.1.1</p><p>DRU.010-02</p><p>RXA.TradeName</p><p>DRU.010-10-&gt;12</p><p>Brand 
+     * Name</p><p>C.1a</p><p>Trade Name</p><p>Other Name</p></p>
+     * 
+     * <p><p>DrugProduct.Name 
+     * (Search)</p><p>CoumpoundDrugProduct.name</p><p>Contraindication.interactingDrugName</p><p>DrugProduct.labelName(useCode=L)</p><p>ZPB2.2</p><p>ZPB3.2</p><p>ZPC.2</p><p>ZPD.2</p><p>ZPD1.2</p><p>ZPD.5</p><p>MB.01.03</p><p>Drug 
+     * Name</p><p>ZDU.4.2</p><p>ZDU.6.1.1</p><p>DRU.010-02</p><p>RXA.TradeName</p><p>DRU.010-10-&gt;12</p><p>Brand 
+     * Name</p><p>C.1a</p><p>Trade Name</p><p>Other Name</p></p>
+     * 
+     * <p><p>DrugProduct.Name 
+     * (Search)</p><p>CoumpoundDrugProduct.name</p><p>Contraindication.interactingDrugName</p><p>DrugProduct.labelName(useCode=L)</p><p>ZPB2.2</p><p>ZPB3.2</p><p>ZPC.2</p><p>ZPD.2</p><p>ZPD1.2</p><p>ZPD.5</p><p>MB.01.03</p><p>Drug 
+     * Name</p><p>ZDU.4.2</p><p>ZDU.6.1.1</p><p>DRU.010-02</p><p>RXA.TradeName</p><p>DRU.010-10-&gt;12</p><p>Brand 
+     * Name</p><p>C.1a</p><p>Trade Name</p><p>Other Name</p></p>
+     * 
+     * <p><p>DrugProduct.Name 
+     * (Search)</p><p>CoumpoundDrugProduct.name</p><p>Contraindication.interactingDrugName</p><p>DrugProduct.labelName(useCode=L)</p><p>ZPB2.2</p><p>ZPB3.2</p><p>ZPC.2</p><p>ZPD.2</p><p>ZPD1.2</p><p>ZPD.5</p><p>MB.01.03</p><p>Drug 
+     * Name</p><p>ZDU.4.2</p><p>ZDU.6.1.1</p><p>DRU.010-02</p><p>RXA.TradeName</p><p>DRU.010-10-&gt;12</p><p>Brand 
+     * Name</p><p>C.1a</p><p>Trade Name</p><p>Other Name</p></p>
+     * 
+     * <p><p>DrugProduct.Name 
+     * (Search)</p><p>CoumpoundDrugProduct.name</p><p>Contraindication.interactingDrugName</p><p>DrugProduct.labelName(useCode=L)</p><p>ZPB2.2</p><p>ZPB3.2</p><p>ZPC.2</p><p>ZPD.2</p><p>ZPD1.2</p><p>ZPD.5</p><p>MB.01.03</p><p>Drug 
+     * Name</p><p>ZDU.4.2</p><p>ZDU.6.1.1</p><p>DRU.010-02</p><p>RXA.TradeName</p><p>DRU.010-10-&gt;12</p><p>Brand 
+     * Name</p><p>C.1a</p><p>Trade Name</p><p>Other Name</p></p>
+     * 
+     * <p><p>DrugProduct.Name 
+     * (Search)</p><p>CoumpoundDrugProduct.name</p><p>Contraindication.interactingDrugName</p><p>DrugProduct.labelName(useCode=L)</p><p>ZPB2.2</p><p>ZPB3.2</p><p>ZPC.2</p><p>ZPD.2</p><p>ZPD1.2</p><p>ZPD.5</p><p>MB.01.03</p><p>Drug 
+     * Name</p><p>ZDU.4.2</p><p>ZDU.6.1.1</p><p>DRU.010-02</p><p>RXA.TradeName</p><p>DRU.010-10-&gt;12</p><p>Brand 
+     * Name</p><p>C.1a</p><p>Trade Name</p><p>Other Name</p></p>
+     * 
+     * <p><p>DrugProduct.Name 
+     * (Search)</p><p>CoumpoundDrugProduct.name</p><p>Contraindication.interactingDrugName</p><p>DrugProduct.labelName(useCode=L)</p><p>ZPB2.2</p><p>ZPB3.2</p><p>ZPC.2</p><p>ZPD.2</p><p>ZPD1.2</p><p>ZPD.5</p><p>MB.01.03</p><p>Drug 
+     * Name</p><p>ZDU.4.2</p><p>ZDU.6.1.1</p><p>DRU.010-02</p><p>RXA.TradeName</p><p>DRU.010-10-&gt;12</p><p>Brand 
+     * Name</p><p>C.1a</p><p>Trade Name</p><p>Other Name</p></p>
+     * 
+     * <p><p>DrugProduct.Name 
+     * (Search)</p><p>CoumpoundDrugProduct.name</p><p>Contraindication.interactingDrugName</p><p>DrugProduct.labelName(useCode=L)</p><p>ZPB2.2</p><p>ZPB3.2</p><p>ZPC.2</p><p>ZPD.2</p><p>ZPD1.2</p><p>ZPD.5</p><p>MB.01.03</p><p>Drug 
+     * Name</p><p>ZDU.4.2</p><p>ZDU.6.1.1</p><p>DRU.010-02</p><p>RXA.TradeName</p><p>DRU.010-10-&gt;12</p><p>Brand 
+     * Name</p><p>C.1a</p><p>Trade Name</p><p>Other Name</p></p>
+     * 
+     * <p><p>DrugProduct.Name 
+     * (Search)</p><p>CoumpoundDrugProduct.name</p><p>Contraindication.interactingDrugName</p><p>DrugProduct.labelName(useCode=L)</p><p>ZPB2.2</p><p>ZPB3.2</p><p>ZPC.2</p><p>ZPD.2</p><p>ZPD1.2</p><p>ZPD.5</p><p>MB.01.03</p><p>Drug 
+     * Name</p><p>ZDU.4.2</p><p>ZDU.6.1.1</p><p>DRU.010-02</p><p>RXA.TradeName</p><p>DRU.010-10-&gt;12</p><p>Brand 
+     * Name</p><p>C.1a</p><p>Trade Name</p><p>Other Name</p></p>
+     * 
+     * <p><p>DrugProduct.Name 
+     * (Search)</p><p>CoumpoundDrugProduct.name</p><p>Contraindication.interactingDrugName</p><p>DrugProduct.labelName(useCode=L)</p><p>ZPB2.2</p><p>ZPB3.2</p><p>ZPC.2</p><p>ZPD.2</p><p>ZPD1.2</p><p>ZPD.5</p><p>MB.01.03</p><p>Drug 
+     * Name</p><p>ZDU.4.2</p><p>ZDU.6.1.1</p><p>DRU.010-02</p><p>RXA.TradeName</p><p>DRU.010-10-&gt;12</p><p>Brand 
+     * Name</p><p>C.1a</p><p>Trade Name</p><p>Other Name</p></p>
+     * 
+     * <p><p>DrugProduct.Name 
+     * (Search)</p><p>CoumpoundDrugProduct.name</p><p>Contraindication.interactingDrugName</p><p>DrugProduct.labelName(useCode=L)</p><p>ZPB2.2</p><p>ZPB3.2</p><p>ZPC.2</p><p>ZPD.2</p><p>ZPD1.2</p><p>ZPD.5</p><p>MB.01.03</p><p>Drug 
+     * Name</p><p>ZDU.4.2</p><p>ZDU.6.1.1</p><p>DRU.010-02</p><p>RXA.TradeName</p><p>DRU.010-10-&gt;12</p><p>Brand 
+     * Name</p><p>C.1a</p><p>Trade Name</p><p>Other Name</p></p>
+     * 
+     * <p><p>DrugProduct.Name 
+     * (Search)</p><p>CoumpoundDrugProduct.name</p><p>Contraindication.interactingDrugName</p><p>DrugProduct.labelName(useCode=L)</p><p>ZPB2.2</p><p>ZPB3.2</p><p>ZPC.2</p><p>ZPD.2</p><p>ZPD1.2</p><p>ZPD.5</p><p>MB.01.03</p><p>Drug 
+     * Name</p><p>ZDU.4.2</p><p>ZDU.6.1.1</p><p>DRU.010-02</p><p>RXA.TradeName</p><p>DRU.010-10-&gt;12</p><p>Brand 
+     * Name</p><p>C.1a</p><p>Trade Name</p><p>Other Name</p></p>
+     * 
+     * <p><p>DrugProduct.Name 
+     * (Search)</p><p>CoumpoundDrugProduct.name</p><p>Contraindication.interactingDrugName</p><p>DrugProduct.labelName(useCode=L)</p><p>ZPB2.2</p><p>ZPB3.2</p><p>ZPC.2</p><p>ZPD.2</p><p>ZPD1.2</p><p>ZPD.5</p><p>MB.01.03</p><p>Drug 
+     * Name</p><p>ZDU.4.2</p><p>ZDU.6.1.1</p><p>DRU.010-02</p><p>RXA.TradeName</p><p>DRU.010-10-&gt;12</p><p>Brand 
+     * Name</p><p>C.1a</p><p>Trade Name</p><p>Other Name</p></p>
+     * 
+     * <p><p>DrugProduct.Name 
+     * (Search)</p><p>CoumpoundDrugProduct.name</p><p>Contraindication.interactingDrugName</p><p>DrugProduct.labelName(useCode=L)</p><p>ZPB2.2</p><p>ZPB3.2</p><p>ZPC.2</p><p>ZPD.2</p><p>ZPD1.2</p><p>ZPD.5</p><p>MB.01.03</p><p>Drug 
+     * Name</p><p>ZDU.4.2</p><p>ZDU.6.1.1</p><p>DRU.010-02</p><p>RXA.TradeName</p><p>DRU.010-10-&gt;12</p><p>Brand 
+     * Name</p><p>C.1a</p><p>Trade Name</p><p>Other Name</p></p>
+     * 
+     * <p><p>DrugProduct.Name 
+     * (Search)</p><p>CoumpoundDrugProduct.name</p><p>Contraindication.interactingDrugName</p><p>DrugProduct.labelName(useCode=L)</p><p>ZPB2.2</p><p>ZPB3.2</p><p>ZPC.2</p><p>ZPD.2</p><p>ZPD1.2</p><p>ZPD.5</p><p>MB.01.03</p><p>Drug 
+     * Name</p><p>ZDU.4.2</p><p>ZDU.6.1.1</p><p>DRU.010-02</p><p>RXA.TradeName</p><p>DRU.010-10-&gt;12</p><p>Brand 
+     * Name</p><p>C.1a</p><p>Trade Name</p><p>Other Name</p></p>
+     * 
+     * <p><p>DrugProduct.Name 
+     * (Search)</p><p>CoumpoundDrugProduct.name</p><p>Contraindication.interactingDrugName</p><p>DrugProduct.labelName(useCode=L)</p><p>ZPB2.2</p><p>ZPB3.2</p><p>ZPC.2</p><p>ZPD.2</p><p>ZPD1.2</p><p>ZPD.5</p><p>MB.01.03</p><p>Drug 
+     * Name</p><p>ZDU.4.2</p><p>ZDU.6.1.1</p><p>DRU.010-02</p><p>RXA.TradeName</p><p>DRU.010-10-&gt;12</p><p>Brand 
+     * Name</p><p>C.1a</p><p>Trade Name</p><p>Other Name</p></p>
+     * 
+     * <p><p>DrugProduct.Name 
+     * (Search)</p><p>CoumpoundDrugProduct.name</p><p>Contraindication.interactingDrugName</p><p>DrugProduct.labelName(useCode=L)</p><p>ZPB2.2</p><p>ZPB3.2</p><p>ZPC.2</p><p>ZPD.2</p><p>ZPD1.2</p><p>ZPD.5</p><p>MB.01.03</p><p>Drug 
+     * Name</p><p>ZDU.4.2</p><p>ZDU.6.1.1</p><p>DRU.010-02</p><p>RXA.TradeName</p><p>DRU.010-10-&gt;12</p><p>Brand 
+     * Name</p><p>C.1a</p><p>Trade Name</p><p>Other Name</p></p>
+     * 
+     * <p><p>DrugProduct.Name 
+     * (Search)</p><p>CoumpoundDrugProduct.name</p><p>Contraindication.interactingDrugName</p><p>DrugProduct.labelName(useCode=L)</p><p>ZPB2.2</p><p>ZPB3.2</p><p>ZPC.2</p><p>ZPD.2</p><p>ZPD1.2</p><p>ZPD.5</p><p>MB.01.03</p><p>Drug 
+     * Name</p><p>ZDU.4.2</p><p>ZDU.6.1.1</p><p>DRU.010-02</p><p>RXA.TradeName</p><p>DRU.010-10-&gt;12</p><p>Brand 
+     * Name</p><p>C.1a</p><p>Trade Name</p><p>Other Name</p></p>
+     * 
+     * <p><p>DrugProduct.Name 
+     * (Search)</p><p>CoumpoundDrugProduct.name</p><p>Contraindication.interactingDrugName</p><p>DrugProduct.labelName(useCode=L)</p><p>ZPB2.2</p><p>ZPB3.2</p><p>ZPC.2</p><p>ZPD.2</p><p>ZPD1.2</p><p>ZPD.5</p><p>MB.01.03</p><p>Drug 
+     * Name</p><p>ZDU.4.2</p><p>ZDU.6.1.1</p><p>DRU.010-02</p><p>RXA.TradeName</p><p>DRU.010-10-&gt;12</p><p>Brand 
+     * Name</p><p>C.1a</p><p>Trade Name</p><p>Other Name</p></p>
+     * 
+     * <p><p>Names are used for human reference communication, to 
+     * allow selection from dropdowns and for local searching. If a 
+     * code is available, the name acts as a cross-check. If the 
+     * code is not available the name acts as the primary 
+     * identifier. The attribute is therefore mandatory.</p></p>
+     * 
+     * <p><p>First occurrence is preferred for display.</p></p>
+     */
+    @Hl7XmlMapping({"administerableMedicine/name"})
+    public String getDrugName() {
+        return this.drugName.getValue();
+    }
+    public void setDrugName(String drugName) {
+        this.drugName.setValue(drugName);
+    }
+
+
+    /**
      * <p>C:Drug Description</p>
      * 
      * <p><p>A free form textual description of a drug. This 
@@ -1051,12 +948,115 @@ public class DrugProductBean extends MessagePartBean implements ca.infoway.messa
     }
 
 
-    @Hl7XmlMapping({"administerableMedicine/asContent"})
-    public DispensedInBean getAdministerableMedicineAsContent() {
-        return this.administerableMedicineAsContent;
+    /**
+     * <p>D:Drug Form</p>
+     * 
+     * <p><p>Indicates the form in which the drug product must be, 
+     * or has been manufactured or custom prepared.</p></p>
+     * 
+     * <p><p>Prescription.dosageForm</p><p>DrugProduct.dosageForm</p><p>CompoundedDrugProduct.dosageForm</p><p>DispensedItem.dosageForm</p><p>D63</p><p>ZPC.3</p><p>ZPD.3</p><p>Drug 
+     * form</p><p>ZDP.14.1</p><p>ZDP.3b</p><p>DRU.010-05</p><p>Compound.450-EF</p><p>A_BillablePharmacyDispense</p><p>Dosage 
+     * Form</p><p>Dosage Form</p></p>
+     * 
+     * <p><p>Prescription.dosageForm</p><p>DrugProduct.dosageForm</p><p>CompoundedDrugProduct.dosageForm</p><p>DispensedItem.dosageForm</p><p>D63</p><p>ZPC.3</p><p>ZPD.3</p><p>Drug 
+     * form</p><p>ZDP.14.1</p><p>ZDP.3b</p><p>DRU.010-05</p><p>Compound.450-EF</p><p>A_BillablePharmacyDispense</p><p>Dosage 
+     * Form</p><p>Dosage Form</p></p>
+     * 
+     * <p><p>Prescription.dosageForm</p><p>DrugProduct.dosageForm</p><p>CompoundedDrugProduct.dosageForm</p><p>DispensedItem.dosageForm</p><p>D63</p><p>ZPC.3</p><p>ZPD.3</p><p>Drug 
+     * form</p><p>ZDP.14.1</p><p>ZDP.3b</p><p>DRU.010-05</p><p>Compound.450-EF</p><p>A_BillablePharmacyDispense</p><p>Dosage 
+     * Form</p><p>Dosage Form</p></p>
+     * 
+     * <p><p>Prescription.dosageForm</p><p>DrugProduct.dosageForm</p><p>CompoundedDrugProduct.dosageForm</p><p>DispensedItem.dosageForm</p><p>D63</p><p>ZPC.3</p><p>ZPD.3</p><p>Drug 
+     * form</p><p>ZDP.14.1</p><p>ZDP.3b</p><p>DRU.010-05</p><p>Compound.450-EF</p><p>A_BillablePharmacyDispense</p><p>Dosage 
+     * Form</p><p>Dosage Form</p></p>
+     * 
+     * <p><p>Prescription.dosageForm</p><p>DrugProduct.dosageForm</p><p>CompoundedDrugProduct.dosageForm</p><p>DispensedItem.dosageForm</p><p>D63</p><p>ZPC.3</p><p>ZPD.3</p><p>Drug 
+     * form</p><p>ZDP.14.1</p><p>ZDP.3b</p><p>DRU.010-05</p><p>Compound.450-EF</p><p>A_BillablePharmacyDispense</p><p>Dosage 
+     * Form</p><p>Dosage Form</p></p>
+     * 
+     * <p><p>Prescription.dosageForm</p><p>DrugProduct.dosageForm</p><p>CompoundedDrugProduct.dosageForm</p><p>DispensedItem.dosageForm</p><p>D63</p><p>ZPC.3</p><p>ZPD.3</p><p>Drug 
+     * form</p><p>ZDP.14.1</p><p>ZDP.3b</p><p>DRU.010-05</p><p>Compound.450-EF</p><p>A_BillablePharmacyDispense</p><p>Dosage 
+     * Form</p><p>Dosage Form</p></p>
+     * 
+     * <p><p>Prescription.dosageForm</p><p>DrugProduct.dosageForm</p><p>CompoundedDrugProduct.dosageForm</p><p>DispensedItem.dosageForm</p><p>D63</p><p>ZPC.3</p><p>ZPD.3</p><p>Drug 
+     * form</p><p>ZDP.14.1</p><p>ZDP.3b</p><p>DRU.010-05</p><p>Compound.450-EF</p><p>A_BillablePharmacyDispense</p><p>Dosage 
+     * Form</p><p>Dosage Form</p></p>
+     * 
+     * <p><p>Prescription.dosageForm</p><p>DrugProduct.dosageForm</p><p>CompoundedDrugProduct.dosageForm</p><p>DispensedItem.dosageForm</p><p>D63</p><p>ZPC.3</p><p>ZPD.3</p><p>Drug 
+     * form</p><p>ZDP.14.1</p><p>ZDP.3b</p><p>DRU.010-05</p><p>Compound.450-EF</p><p>A_BillablePharmacyDispense</p><p>Dosage 
+     * Form</p><p>Dosage Form</p></p>
+     * 
+     * <p><p>Prescription.dosageForm</p><p>DrugProduct.dosageForm</p><p>CompoundedDrugProduct.dosageForm</p><p>DispensedItem.dosageForm</p><p>D63</p><p>ZPC.3</p><p>ZPD.3</p><p>Drug 
+     * form</p><p>ZDP.14.1</p><p>ZDP.3b</p><p>DRU.010-05</p><p>Compound.450-EF</p><p>A_BillablePharmacyDispense</p><p>Dosage 
+     * Form</p><p>Dosage Form</p></p>
+     * 
+     * <p><p>Prescription.dosageForm</p><p>DrugProduct.dosageForm</p><p>CompoundedDrugProduct.dosageForm</p><p>DispensedItem.dosageForm</p><p>D63</p><p>ZPC.3</p><p>ZPD.3</p><p>Drug 
+     * form</p><p>ZDP.14.1</p><p>ZDP.3b</p><p>DRU.010-05</p><p>Compound.450-EF</p><p>A_BillablePharmacyDispense</p><p>Dosage 
+     * Form</p><p>Dosage Form</p></p>
+     * 
+     * <p><p>Prescription.dosageForm</p><p>DrugProduct.dosageForm</p><p>CompoundedDrugProduct.dosageForm</p><p>DispensedItem.dosageForm</p><p>D63</p><p>ZPC.3</p><p>ZPD.3</p><p>Drug 
+     * form</p><p>ZDP.14.1</p><p>ZDP.3b</p><p>DRU.010-05</p><p>Compound.450-EF</p><p>A_BillablePharmacyDispense</p><p>Dosage 
+     * Form</p><p>Dosage Form</p></p>
+     * 
+     * <p><p>Prescription.dosageForm</p><p>DrugProduct.dosageForm</p><p>CompoundedDrugProduct.dosageForm</p><p>DispensedItem.dosageForm</p><p>D63</p><p>ZPC.3</p><p>ZPD.3</p><p>Drug 
+     * form</p><p>ZDP.14.1</p><p>ZDP.3b</p><p>DRU.010-05</p><p>Compound.450-EF</p><p>A_BillablePharmacyDispense</p><p>Dosage 
+     * Form</p><p>Dosage Form</p></p>
+     * 
+     * <p><p>Prescription.dosageForm</p><p>DrugProduct.dosageForm</p><p>CompoundedDrugProduct.dosageForm</p><p>DispensedItem.dosageForm</p><p>D63</p><p>ZPC.3</p><p>ZPD.3</p><p>Drug 
+     * form</p><p>ZDP.14.1</p><p>ZDP.3b</p><p>DRU.010-05</p><p>Compound.450-EF</p><p>A_BillablePharmacyDispense</p><p>Dosage 
+     * Form</p><p>Dosage Form</p></p>
+     * 
+     * <p><p>Prescription.dosageForm</p><p>DrugProduct.dosageForm</p><p>CompoundedDrugProduct.dosageForm</p><p>DispensedItem.dosageForm</p><p>D63</p><p>ZPC.3</p><p>ZPD.3</p><p>Drug 
+     * form</p><p>ZDP.14.1</p><p>ZDP.3b</p><p>DRU.010-05</p><p>Compound.450-EF</p><p>A_BillablePharmacyDispense</p><p>Dosage 
+     * Form</p><p>Dosage Form</p></p>
+     * 
+     * <p><p>Prescription.dosageForm</p><p>DrugProduct.dosageForm</p><p>CompoundedDrugProduct.dosageForm</p><p>DispensedItem.dosageForm</p><p>D63</p><p>ZPC.3</p><p>ZPD.3</p><p>Drug 
+     * form</p><p>ZDP.14.1</p><p>ZDP.3b</p><p>DRU.010-05</p><p>Compound.450-EF</p><p>A_BillablePharmacyDispense</p><p>Dosage 
+     * Form</p><p>Dosage Form</p></p>
+     * 
+     * <p><p>Provides a constrained vocabulary for describing dose 
+     * forms. The form of the drug influences how it can be used by 
+     * the patient.</p></p>
+     * 
+     * <p><p>Must be populated if the Drug Id does not specify the 
+     * Drug Form.</p></p>
+     */
+    @Hl7XmlMapping({"administerableMedicine/formCode"})
+    public OrderableDrugForm getDrugForm() {
+        return (OrderableDrugForm) this.drugForm.getValue();
     }
-    public void setAdministerableMedicineAsContent(DispensedInBean administerableMedicineAsContent) {
-        this.administerableMedicineAsContent = administerableMedicineAsContent;
+    public void setDrugForm(OrderableDrugForm drugForm) {
+        this.drugForm.setValue(drugForm);
+    }
+
+
+    /**
+     * <p>E:Drug Lot Number</p>
+     * 
+     * <p><p>Identification of a batch in which a specific 
+     * manufactured drug belongs.</p></p>
+     * 
+     * <p><p>X0301</p><p>RXA.15</p><p>C.6</p></p>
+     * 
+     * <p><p>X0301</p><p>RXA.15</p><p>C.6</p></p>
+     * 
+     * <p><p>X0301</p><p>RXA.15</p><p>C.6</p></p>
+     * 
+     * <p><p>Useful in tracking for recalls but may not always 
+     * exist.</p></p>
+     */
+    @Hl7XmlMapping({"administerableMedicine/lotNumberText"})
+    public String getDrugLotNumber() {
+        return this.drugLotNumber.getValue();
+    }
+    public void setDrugLotNumber(String drugLotNumber) {
+        this.drugLotNumber.setValue(drugLotNumber);
+    }
+
+
+    @Hl7XmlMapping({"administerableMedicine/ingredient"})
+    public List<DrugContainsBean> getAdministerableMedicineIngredient() {
+        return this.administerableMedicineIngredient;
     }
 
 }

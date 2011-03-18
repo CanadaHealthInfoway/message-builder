@@ -37,8 +37,8 @@ public class ManufacturedMaterialKindBean extends MessagePartBean {
     private ST packageDescription = new STImpl();
     private PQ packageQuantity = new PQImpl();
     private ManufacturedMaterialKindBean contentPackagedProductContainedManufacturedMaterialKind;
-    private ST warrantorOrganisationName = new STImpl();
     private TEL warrantorOrganisationTelecom = new TELImpl();
+    private ST warrantorOrganisationName = new STImpl();
     private IVL<TS, Interval<Date>> timeOfWarranty = new IVLImpl<TS, Interval<Date>>();
 
 
@@ -95,20 +95,6 @@ public class ManufacturedMaterialKindBean extends MessagePartBean {
 
 
     /**
-     * <p>Warrantor Organisation Name</p>
-     * 
-     * <p><p>name of Organization that holds warranty</p></p>
-     */
-    @Hl7XmlMapping({"asWarrantor/warrantingWarrantorOrganization/name"})
-    public String getWarrantorOrganisationName() {
-        return this.warrantorOrganisationName.getValue();
-    }
-    public void setWarrantorOrganisationName(String warrantorOrganisationName) {
-        this.warrantorOrganisationName.setValue(warrantorOrganisationName);
-    }
-
-
-    /**
      * <p>Warrantor Organisation telecom</p>
      * 
      * <p><p>Warrantor Organization telephone number</p></p>
@@ -119,6 +105,20 @@ public class ManufacturedMaterialKindBean extends MessagePartBean {
     }
     public void setWarrantorOrganisationTelecom(TelecommunicationAddress warrantorOrganisationTelecom) {
         this.warrantorOrganisationTelecom.setValue(warrantorOrganisationTelecom);
+    }
+
+
+    /**
+     * <p>Warrantor Organisation Name</p>
+     * 
+     * <p><p>name of Organization that holds warranty</p></p>
+     */
+    @Hl7XmlMapping({"asWarrantor/warrantingWarrantorOrganization/name"})
+    public String getWarrantorOrganisationName() {
+        return this.warrantorOrganisationName.getValue();
+    }
+    public void setWarrantorOrganisationName(String warrantorOrganisationName) {
+        this.warrantorOrganisationName.setValue(warrantorOrganisationName);
     }
 
 

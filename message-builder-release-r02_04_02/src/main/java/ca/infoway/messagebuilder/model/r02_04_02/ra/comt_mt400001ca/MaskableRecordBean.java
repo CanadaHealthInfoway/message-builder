@@ -16,6 +16,8 @@ import ca.infoway.messagebuilder.domainvalue.ActInformationCategoryCode;
 import ca.infoway.messagebuilder.domainvalue.x_BasicConfidentialityKind;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.r02_04_02.merged.DiagnosisBean;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 
@@ -34,20 +36,11 @@ import java.util.Set;
 public class MaskableRecordBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private DiagnosisBean reasonDiagnosis;
     private CV recordType = new CVImpl();
-    private SET<CV, Code> maskedIndicator = new SETImpl<CV, Code>(CVImpl.class);
     private RoleBean directTargetRole;
+    private SET<CV, Code> maskedIndicator = new SETImpl<CV, Code>(CVImpl.class);
+    private DiagnosisBean reasonDiagnosis;
     private II recordIdentifier = new IIImpl();
-
-
-    @Hl7XmlMapping({"reason/diagnosis"})
-    public DiagnosisBean getReasonDiagnosis() {
-        return this.reasonDiagnosis;
-    }
-    public void setReasonDiagnosis(DiagnosisBean reasonDiagnosis) {
-        this.reasonDiagnosis = reasonDiagnosis;
-    }
 
 
     /**
@@ -69,6 +62,15 @@ public class MaskableRecordBean extends MessagePartBean {
     }
 
 
+    @Hl7XmlMapping({"directTarget/role"})
+    public RoleBean getDirectTargetRole() {
+        return this.directTargetRole;
+    }
+    public void setDirectTargetRole(RoleBean directTargetRole) {
+        this.directTargetRole = directTargetRole;
+    }
+
+
     /**
      * <p>A:Masked Indicator</p>
      * 
@@ -86,12 +88,12 @@ public class MaskableRecordBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"directTarget/role"})
-    public RoleBean getDirectTargetRole() {
-        return this.directTargetRole;
+    @Hl7XmlMapping({"reason/diagnosis"})
+    public DiagnosisBean getReasonDiagnosis() {
+        return this.reasonDiagnosis;
     }
-    public void setDirectTargetRole(RoleBean directTargetRole) {
-        this.directTargetRole = directTargetRole;
+    public void setReasonDiagnosis(DiagnosisBean reasonDiagnosis) {
+        this.reasonDiagnosis = reasonDiagnosis;
     }
 
 

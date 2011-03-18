@@ -27,6 +27,7 @@ import ca.infoway.messagebuilder.datatype.lang.PostalAddress;
 import ca.infoway.messagebuilder.datatype.lang.TelecommunicationAddress;
 import ca.infoway.messagebuilder.domainvalue.ServiceDeliveryLocationRoleType;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Set;
@@ -102,12 +103,31 @@ import java.util.Set;
 public class ServiceDeliveryLocationBean extends MessagePartBean implements ca.infoway.messagebuilder.model.r02_04_02.merged.Choice {
 
     private static final long serialVersionUID = 20110318L;
+    private ST serviceDeliveryLocationName = new STImpl();
     private CV serviceDeliveryLocationType = new CVImpl();
     private LIST<TEL, TelecommunicationAddress> serviceDeliveryLocationTelecom = new LISTImpl<TEL, TelecommunicationAddress>(TELImpl.class);
     private LIST<AD, PostalAddress> serviceDeliveryLocationAddress = new LISTImpl<AD, PostalAddress>(ADImpl.class);
-    private ST serviceDeliveryLocationName = new STImpl();
-    private IVL<TS, Interval<Date>> serviceDeliveryLocationEffectiveDate = new IVLImpl<TS, Interval<Date>>();
     private SET<II, Identifier> serviceDeliveryLocationIdentifier = new SETImpl<II, Identifier>(IIImpl.class);
+    private IVL<TS, Interval<Date>> serviceDeliveryLocationEffectiveDate = new IVLImpl<TS, Interval<Date>>();
+
+
+    /**
+     * <p>ServiceDeliveryLocationName</p>
+     * 
+     * <p>Service Delivery Location Name</p>
+     * 
+     * <p><p>The name of the service delivery location</p></p>
+     * 
+     * <p><p>Mandatory attribute supports the validation and 
+     * identification of the service delivery location</p></p>
+     */
+    @Hl7XmlMapping({"location/name"})
+    public String getServiceDeliveryLocationName() {
+        return this.serviceDeliveryLocationName.getValue();
+    }
+    public void setServiceDeliveryLocationName(String serviceDeliveryLocationName) {
+        this.serviceDeliveryLocationName.setValue(serviceDeliveryLocationName);
+    }
 
 
     /**
@@ -164,45 +184,6 @@ public class ServiceDeliveryLocationBean extends MessagePartBean implements ca.i
 
 
     /**
-     * <p>ServiceDeliveryLocationName</p>
-     * 
-     * <p>Service Delivery Location Name</p>
-     * 
-     * <p><p>The name of the service delivery location</p></p>
-     * 
-     * <p><p>Mandatory attribute supports the validation and 
-     * identification of the service delivery location</p></p>
-     */
-    @Hl7XmlMapping({"location/name"})
-    public String getServiceDeliveryLocationName() {
-        return this.serviceDeliveryLocationName.getValue();
-    }
-    public void setServiceDeliveryLocationName(String serviceDeliveryLocationName) {
-        this.serviceDeliveryLocationName.setValue(serviceDeliveryLocationName);
-    }
-
-
-    /**
-     * <p>ServiceDeliveryLocationEffectiveDate</p>
-     * 
-     * <p>Service Delivery Location Effective Date</p>
-     * 
-     * <p><p>Effective date of the specific service delivery 
-     * location</p></p>
-     * 
-     * <p><p>Required attribute supports the validation and 
-     * identification of the service delivery location</p></p>
-     */
-    @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getServiceDeliveryLocationEffectiveDate() {
-        return this.serviceDeliveryLocationEffectiveDate.getValue();
-    }
-    public void setServiceDeliveryLocationEffectiveDate(Interval<Date> serviceDeliveryLocationEffectiveDate) {
-        this.serviceDeliveryLocationEffectiveDate.setValue(serviceDeliveryLocationEffectiveDate);
-    }
-
-
-    /**
      * <p>ServiceDeliveryLocationIdentifier</p>
      * 
      * <p>Service Delivery Location Identifier</p>
@@ -224,6 +205,26 @@ public class ServiceDeliveryLocationBean extends MessagePartBean implements ca.i
     @Hl7XmlMapping({"id"})
     public Set<Identifier> getServiceDeliveryLocationIdentifier() {
         return this.serviceDeliveryLocationIdentifier.rawSet();
+    }
+
+
+    /**
+     * <p>ServiceDeliveryLocationEffectiveDate</p>
+     * 
+     * <p>Service Delivery Location Effective Date</p>
+     * 
+     * <p><p>Effective date of the specific service delivery 
+     * location</p></p>
+     * 
+     * <p><p>Required attribute supports the validation and 
+     * identification of the service delivery location</p></p>
+     */
+    @Hl7XmlMapping({"effectiveTime"})
+    public Interval<Date> getServiceDeliveryLocationEffectiveDate() {
+        return this.serviceDeliveryLocationEffectiveDate.getValue();
+    }
+    public void setServiceDeliveryLocationEffectiveDate(Interval<Date> serviceDeliveryLocationEffectiveDate) {
+        this.serviceDeliveryLocationEffectiveDate.setValue(serviceDeliveryLocationEffectiveDate);
     }
 
 }

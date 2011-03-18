@@ -18,6 +18,8 @@ import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.TelecommunicationAddress;
 import ca.infoway.messagebuilder.domainvalue.HealthcareOrganizationRoleType;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 
@@ -39,28 +41,10 @@ import java.util.Set;
 public class HealthcareOrganizationBean extends MessagePartBean implements ca.infoway.messagebuilder.model.r02_04_02.lab.merged.RecipientChoice, ca.infoway.messagebuilder.model.r02_04_02.common.merged.ActingPerson, ca.infoway.messagebuilder.model.r02_04_02.merged.RoleChoice, ca.infoway.messagebuilder.model.r02_04_02.common.coct_mt911108ca.ActingPerson {
 
     private static final long serialVersionUID = 20110318L;
-    private ST organizationName = new STImpl();
     private CV organizationType = new CVImpl();
     private SET<TEL, TelecommunicationAddress> organizationPhoneAndEmails = new SETImpl<TEL, TelecommunicationAddress>(TELImpl.class);
+    private ST organizationName = new STImpl();
     private II organizationIdentifier = new IIImpl();
-
-
-    /**
-     * <p>G: Organization Name</p>
-     * 
-     * <p><p>Identifies the name of the organization</p></p>
-     * 
-     * <p><p>Allows for human recognition of the organization as 
-     * well as confirmation of the identifier. As a result, the 
-     * attribute is mandatory.</p></p>
-     */
-    @Hl7XmlMapping({"representedOrganization/name"})
-    public String getOrganizationName() {
-        return this.organizationName.getValue();
-    }
-    public void setOrganizationName(String organizationName) {
-        this.organizationName.setValue(organizationName);
-    }
 
 
     /**
@@ -95,6 +79,24 @@ public class HealthcareOrganizationBean extends MessagePartBean implements ca.in
     @Hl7XmlMapping({"representedOrganization/assignedOrganization/telecom"})
     public Set<TelecommunicationAddress> getOrganizationPhoneAndEmails() {
         return this.organizationPhoneAndEmails.rawSet();
+    }
+
+
+    /**
+     * <p>G: Organization Name</p>
+     * 
+     * <p><p>Identifies the name of the organization</p></p>
+     * 
+     * <p><p>Allows for human recognition of the organization as 
+     * well as confirmation of the identifier. As a result, the 
+     * attribute is mandatory.</p></p>
+     */
+    @Hl7XmlMapping({"representedOrganization/name"})
+    public String getOrganizationName() {
+        return this.organizationName.getValue();
+    }
+    public void setOrganizationName(String organizationName) {
+        this.organizationName.setValue(organizationName);
     }
 
 

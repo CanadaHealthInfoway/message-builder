@@ -36,8 +36,8 @@ public class SubsequentSupplyRequestBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
     private PQ fillQuantity = new PQImpl();
-    private IVL<TS, Interval<Date>> daysSupply = new IVLImpl<TS, Interval<Date>>();
     private INT numberOfFills = new INTImpl();
+    private IVL<TS, Interval<Date>> daysSupply = new IVLImpl<TS, Interval<Date>>();
     private IVL<TS, Interval<Date>> dispenseInterval = new IVLImpl<TS, Interval<Date>>();
 
 
@@ -80,49 +80,6 @@ public class SubsequentSupplyRequestBean extends MessagePartBean {
     }
     public void setFillQuantity(PhysicalQuantity fillQuantity) {
         this.fillQuantity.setValue(fillQuantity);
-    }
-
-
-    /**
-     * <p>DaysSupply</p>
-     * 
-     * <p>E:Days Supply</p>
-     * 
-     * <p><p>The number of days that each standard fill is expected 
-     * to last. The dispenser must use the administration 
-     * instructions together with the Days Supply to calculate the 
-     * total quantity to dispense per fill. May be specified in 
-     * addition to quantity to indicate the length of time a 
-     * quantity of 'as needed' medication is expected to last.</p></p>
-     * 
-     * <p><p>Useful in determining and managing certain 
-     * contraindications ('Fill-Too-Soon', 'Fill-Too-Late', and 
-     * 'Duration of Therapy'). Also provides guidance to the 
-     * pharmacy on how much to dispense. Also useful in 
-     * research.</p></p>
-     * 
-     * <p>E:Days Supply</p>
-     * 
-     * <p><p>The number of days that each standard fill is expected 
-     * to last. The dispenser must use the administration 
-     * instructions together with the Days Supply to calculate the 
-     * total quantity to dispense per fill. May be specified in 
-     * addition to quantity to indicate the length of time a 
-     * quantity of &quot;as needed&quot; medication is expected to 
-     * last.</p></p>
-     * 
-     * <p><p>Useful in determining and managing certain 
-     * contraindications ('Fill-Too-Soon', 'Fill-Too-Late', and 
-     * 'Duration of Therapy'). Also provides guidance to the 
-     * pharmacy on how much to dispense. Also useful in 
-     * research</p></p>
-     */
-    @Hl7XmlMapping({"expectedUseTime"})
-    public Interval<Date> getDaysSupply() {
-        return this.daysSupply.getValue();
-    }
-    public void setDaysSupply(Interval<Date> daysSupply) {
-        this.daysSupply.setValue(daysSupply);
     }
 
 
@@ -200,6 +157,49 @@ public class SubsequentSupplyRequestBean extends MessagePartBean {
     }
     public void setNumberOfFills(Integer numberOfFills) {
         this.numberOfFills.setValue(numberOfFills);
+    }
+
+
+    /**
+     * <p>DaysSupply</p>
+     * 
+     * <p>E:Days Supply</p>
+     * 
+     * <p><p>The number of days that each standard fill is expected 
+     * to last. The dispenser must use the administration 
+     * instructions together with the Days Supply to calculate the 
+     * total quantity to dispense per fill. May be specified in 
+     * addition to quantity to indicate the length of time a 
+     * quantity of 'as needed' medication is expected to last.</p></p>
+     * 
+     * <p><p>Useful in determining and managing certain 
+     * contraindications ('Fill-Too-Soon', 'Fill-Too-Late', and 
+     * 'Duration of Therapy'). Also provides guidance to the 
+     * pharmacy on how much to dispense. Also useful in 
+     * research.</p></p>
+     * 
+     * <p>E:Days Supply</p>
+     * 
+     * <p><p>The number of days that each standard fill is expected 
+     * to last. The dispenser must use the administration 
+     * instructions together with the Days Supply to calculate the 
+     * total quantity to dispense per fill. May be specified in 
+     * addition to quantity to indicate the length of time a 
+     * quantity of &quot;as needed&quot; medication is expected to 
+     * last.</p></p>
+     * 
+     * <p><p>Useful in determining and managing certain 
+     * contraindications ('Fill-Too-Soon', 'Fill-Too-Late', and 
+     * 'Duration of Therapy'). Also provides guidance to the 
+     * pharmacy on how much to dispense. Also useful in 
+     * research</p></p>
+     */
+    @Hl7XmlMapping({"expectedUseTime"})
+    public Interval<Date> getDaysSupply() {
+        return this.daysSupply.getValue();
+    }
+    public void setDaysSupply(Interval<Date> daysSupply) {
+        this.daysSupply.setValue(daysSupply);
     }
 
 

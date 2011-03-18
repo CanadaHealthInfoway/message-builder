@@ -33,34 +33,16 @@ import java.util.Date;
 public class SupplyEventBean extends MessagePartBean implements ca.infoway.messagebuilder.model.r02_04_02.common.coct_mt280001ca.A_BillableActChoice {
 
     private static final long serialVersionUID = 20110318L;
-    private PatientEncounterBean componentOfPatientEncounter;
-    private DispensedInBean productContent;
     private PQ totalDispensed = new PQImpl();
     private CV typeOfDispense = new CVImpl();
-    private PharmacistRoleBean performerPharmacistRole;
+    private DispenseInstructionsBean pertinentInformation;
+    private PatientEncounterBean componentOfPatientEncounter;
     private ServiceLocationBean originServiceDeliveryLocation;
     private IVL<TS, Interval<Date>> dispensedDaysSupply = new IVLImpl<TS, Interval<Date>>();
-    private DispenseInstructionsBean pertinentInformation;
+    private PharmacistRoleBean performerPharmacistRole;
+    private DispensedInBean productContent;
     private ServiceLocationBean destinationServiceDeliveryLocation;
     private TS dispenseTime = new TSImpl();
-
-
-    @Hl7XmlMapping({"componentOf/patientEncounter"})
-    public PatientEncounterBean getComponentOfPatientEncounter() {
-        return this.componentOfPatientEncounter;
-    }
-    public void setComponentOfPatientEncounter(PatientEncounterBean componentOfPatientEncounter) {
-        this.componentOfPatientEncounter = componentOfPatientEncounter;
-    }
-
-
-    @Hl7XmlMapping({"product/content"})
-    public DispensedInBean getProductContent() {
-        return this.productContent;
-    }
-    public void setProductContent(DispensedInBean productContent) {
-        this.productContent = productContent;
-    }
 
 
     /**
@@ -87,12 +69,21 @@ public class SupplyEventBean extends MessagePartBean implements ca.infoway.messa
     }
 
 
-    @Hl7XmlMapping({"performer/pharmacistRole"})
-    public PharmacistRoleBean getPerformerPharmacistRole() {
-        return this.performerPharmacistRole;
+    @Hl7XmlMapping({"pertinentInformation"})
+    public DispenseInstructionsBean getPertinentInformation() {
+        return this.pertinentInformation;
     }
-    public void setPerformerPharmacistRole(PharmacistRoleBean performerPharmacistRole) {
-        this.performerPharmacistRole = performerPharmacistRole;
+    public void setPertinentInformation(DispenseInstructionsBean pertinentInformation) {
+        this.pertinentInformation = pertinentInformation;
+    }
+
+
+    @Hl7XmlMapping({"componentOf/patientEncounter"})
+    public PatientEncounterBean getComponentOfPatientEncounter() {
+        return this.componentOfPatientEncounter;
+    }
+    public void setComponentOfPatientEncounter(PatientEncounterBean componentOfPatientEncounter) {
+        this.componentOfPatientEncounter = componentOfPatientEncounter;
     }
 
 
@@ -117,12 +108,21 @@ public class SupplyEventBean extends MessagePartBean implements ca.infoway.messa
     }
 
 
-    @Hl7XmlMapping({"pertinentInformation"})
-    public DispenseInstructionsBean getPertinentInformation() {
-        return this.pertinentInformation;
+    @Hl7XmlMapping({"performer/pharmacistRole"})
+    public PharmacistRoleBean getPerformerPharmacistRole() {
+        return this.performerPharmacistRole;
     }
-    public void setPertinentInformation(DispenseInstructionsBean pertinentInformation) {
-        this.pertinentInformation = pertinentInformation;
+    public void setPerformerPharmacistRole(PharmacistRoleBean performerPharmacistRole) {
+        this.performerPharmacistRole = performerPharmacistRole;
+    }
+
+
+    @Hl7XmlMapping({"product/content"})
+    public DispensedInBean getProductContent() {
+        return this.productContent;
+    }
+    public void setProductContent(DispensedInBean productContent) {
+        this.productContent = productContent;
     }
 
 

@@ -18,6 +18,7 @@ import ca.infoway.messagebuilder.datatype.lang.PersonName;
 import ca.infoway.messagebuilder.domainvalue.HealthcareProviderRoleType;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.r02_04_02.pr.merged.PrinicpalPerson_2Bean;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
@@ -36,25 +37,19 @@ import java.util.Set;
 public class HealthcareProviderBean extends MessagePartBean implements ca.infoway.messagebuilder.model.r02_04_02.merged.RoleChoice {
 
     private static final long serialVersionUID = 20110318L;
-    private LIST<PN, PersonName> healthcareProviderRoleName = new LISTImpl<PN, PersonName>(PNImpl.class);
-    private CV healthcareProviderRoleType = new CVImpl();
     private OrganizationBean issuingOrganization;
+    private CV healthcareProviderRoleType = new CVImpl();
+    private LIST<PN, PersonName> healthcareProviderRoleName = new LISTImpl<PN, PersonName>(PNImpl.class);
     private PrinicpalPerson_2Bean healthCarePrincipalPerson;
     private SET<II, Identifier> healthcareProviderRoleIdentification = new SETImpl<II, Identifier>(IIImpl.class);
 
 
-    /**
-     * <p>Healthcare Provider Role Name</p>
-     * 
-     * <p><p>The provider'''s name pertaining to the specific 
-     * healthcare provider role.</p></p>
-     * 
-     * <p><p>Required attribute supports the identification of the 
-     * healthcare provider</p></p>
-     */
-    @Hl7XmlMapping({"name"})
-    public List<PersonName> getHealthcareProviderRoleName() {
-        return this.healthcareProviderRoleName.rawList();
+    @Hl7XmlMapping({"issuingOrganization"})
+    public OrganizationBean getIssuingOrganization() {
+        return this.issuingOrganization;
+    }
+    public void setIssuingOrganization(OrganizationBean issuingOrganization) {
+        this.issuingOrganization = issuingOrganization;
     }
 
 
@@ -76,12 +71,18 @@ public class HealthcareProviderBean extends MessagePartBean implements ca.infowa
     }
 
 
-    @Hl7XmlMapping({"issuingOrganization"})
-    public OrganizationBean getIssuingOrganization() {
-        return this.issuingOrganization;
-    }
-    public void setIssuingOrganization(OrganizationBean issuingOrganization) {
-        this.issuingOrganization = issuingOrganization;
+    /**
+     * <p>Healthcare Provider Role Name</p>
+     * 
+     * <p><p>The provider'''s name pertaining to the specific 
+     * healthcare provider role.</p></p>
+     * 
+     * <p><p>Required attribute supports the identification of the 
+     * healthcare provider</p></p>
+     */
+    @Hl7XmlMapping({"name"})
+    public List<PersonName> getHealthcareProviderRoleName() {
+        return this.healthcareProviderRoleName.rawList();
     }
 
 

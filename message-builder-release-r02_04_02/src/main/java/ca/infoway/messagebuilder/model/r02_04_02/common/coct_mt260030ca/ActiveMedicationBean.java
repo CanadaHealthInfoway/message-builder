@@ -29,7 +29,9 @@ import ca.infoway.messagebuilder.domainvalue.x_ActMoodRequestEvent;
 import ca.infoway.messagebuilder.domainvalue.x_BasicConfidentialityKind;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.r02_04_02.common.coct_mt220110ca.DrugProductBean;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Set;
 
 
@@ -49,14 +51,40 @@ import java.util.Set;
 public class ActiveMedicationBean extends MessagePartBean implements ca.infoway.messagebuilder.model.r02_04_02.common.merged.CausalActs {
 
     private static final long serialVersionUID = 20110318L;
-    private PQ activeMedicationDoseQuantity = new PQImpl();
     private CD administrationType = new CDImpl();
+    private PQ activeMedicationDoseQuantity = new PQImpl();
     private CS otherMedicationIndicator = new CSImpl();
+    private SET<CV, Code> activeMedicationMaskingIndicator = new SETImpl<CV, Code>(CVImpl.class);
     private DrugProductBean consumableMedication;
     private CS activeMedicationStatus = new CSImpl();
-    private SET<CV, Code> activeMedicationMaskingIndicator = new SETImpl<CV, Code>(CVImpl.class);
-    private IVL<TS, Interval<Date>> activeMedicationTimeRange = new IVLImpl<TS, Interval<Date>>();
     private II activeMedicationRecordNumber = new IIImpl();
+    private IVL<TS, Interval<Date>> activeMedicationTimeRange = new IVLImpl<TS, Interval<Date>>();
+
+
+    /**
+     * <p>Administration Type</p>
+     * 
+     * <p><p>Identifies whether the interaction is with a drug or a 
+     * vaccine. For SNOMED, may also indicate the specific drug or 
+     * vaccine at issue.</p></p>
+     * 
+     * <p><p>Needed to determine what to do about the issue. 
+     * Because the medication can be masked, this element is only 
+     * marked as 'populated'.</p><p>The element allows a full 'CD' 
+     * type to support SNOMED implementations.</p></p>
+     * 
+     * <p><p>Needed to determine what to do about the issue. 
+     * Because the medication can be masked, this element is only 
+     * marked as 'populated'.</p><p>The element allows a full 'CD' 
+     * type to support SNOMED implementations.</p></p>
+     */
+    @Hl7XmlMapping({"code"})
+    public ActSubstanceAdministrationCode getAdministrationType() {
+        return (ActSubstanceAdministrationCode) this.administrationType.getValue();
+    }
+    public void setAdministrationType(ActSubstanceAdministrationCode administrationType) {
+        this.administrationType.setValue(administrationType);
+    }
 
 
     /**
@@ -89,32 +117,6 @@ public class ActiveMedicationBean extends MessagePartBean implements ca.infoway.
 
 
     /**
-     * <p>Administration Type</p>
-     * 
-     * <p><p>Identifies whether the interaction is with a drug or a 
-     * vaccine. For SNOMED, may also indicate the specific drug or 
-     * vaccine at issue.</p></p>
-     * 
-     * <p><p>Needed to determine what to do about the issue. 
-     * Because the medication can be masked, this element is only 
-     * marked as 'populated'.</p><p>The element allows a full 'CD' 
-     * type to support SNOMED implementations.</p></p>
-     * 
-     * <p><p>Needed to determine what to do about the issue. 
-     * Because the medication can be masked, this element is only 
-     * marked as 'populated'.</p><p>The element allows a full 'CD' 
-     * type to support SNOMED implementations.</p></p>
-     */
-    @Hl7XmlMapping({"code"})
-    public ActSubstanceAdministrationCode getAdministrationType() {
-        return (ActSubstanceAdministrationCode) this.administrationType.getValue();
-    }
-    public void setAdministrationType(ActSubstanceAdministrationCode administrationType) {
-        this.administrationType.setValue(administrationType);
-    }
-
-
-    /**
      * <p>Other Medication Indicator</p>
      * 
      * <p><p>If the attribute is 'RQO', represents a prescription 
@@ -131,6 +133,27 @@ public class ActiveMedicationBean extends MessagePartBean implements ca.infoway.
     }
     public void setOtherMedicationIndicator(x_ActMoodRequestEvent otherMedicationIndicator) {
         this.otherMedicationIndicator.setValue(otherMedicationIndicator);
+    }
+
+
+    /**
+     * <p>E:Active Medication Masking Indicator</p>
+     * 
+     * <p><p>An indication of sensitivity surrounding the related 
+     * drug, and thus defines the required sensitivity for the 
+     * detected issue.</p></p>
+     * 
+     * <p><p>Conveys the patient's wishes relating to the 
+     * sensitivity of the drug information.</p><p>The attribute is 
+     * optional because not all systems will support masking.</p></p>
+     * 
+     * <p><p>Conveys the patient's wishes relating to the 
+     * sensitivity of the drug information.</p><p>The attribute is 
+     * optional because not all systems will support masking.</p></p>
+     */
+    @Hl7XmlMapping({"confidentialityCode"})
+    public Set<x_BasicConfidentialityKind> getActiveMedicationMaskingIndicator() {
+        return this.activeMedicationMaskingIndicator.rawSet(x_BasicConfidentialityKind.class);
     }
 
 
@@ -167,47 +190,6 @@ public class ActiveMedicationBean extends MessagePartBean implements ca.infoway.
 
 
     /**
-     * <p>E:Active Medication Masking Indicator</p>
-     * 
-     * <p><p>An indication of sensitivity surrounding the related 
-     * drug, and thus defines the required sensitivity for the 
-     * detected issue.</p></p>
-     * 
-     * <p><p>Conveys the patient's wishes relating to the 
-     * sensitivity of the drug information.</p><p>The attribute is 
-     * optional because not all systems will support masking.</p></p>
-     * 
-     * <p><p>Conveys the patient's wishes relating to the 
-     * sensitivity of the drug information.</p><p>The attribute is 
-     * optional because not all systems will support masking.</p></p>
-     */
-    @Hl7XmlMapping({"confidentialityCode"})
-    public Set<x_BasicConfidentialityKind> getActiveMedicationMaskingIndicator() {
-        return this.activeMedicationMaskingIndicator.rawSet(x_BasicConfidentialityKind.class);
-    }
-
-
-    /**
-     * <p>C:Active Medication Time-range</p>
-     * 
-     * <p><p>The date and time during which the patient is expected 
-     * to be taking the drug which triggered the issue.</p></p>
-     * 
-     * <p><p>Requested Duration</p></p>
-     * 
-     * <p><p>Allows the provider to evaluate 'duplicate therapy' 
-     * and similar timing-based issues.</p></p>
-     */
-    @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getActiveMedicationTimeRange() {
-        return this.activeMedicationTimeRange.getValue();
-    }
-    public void setActiveMedicationTimeRange(Interval<Date> activeMedicationTimeRange) {
-        this.activeMedicationTimeRange.setValue(activeMedicationTimeRange);
-    }
-
-
-    /**
      * <p>A:Active Medication Record Number</p>
      * 
      * <p><p>Unique identifier of the prescription or other 
@@ -240,6 +222,26 @@ public class ActiveMedicationBean extends MessagePartBean implements ca.infoway.
     }
     public void setActiveMedicationRecordNumber(Identifier activeMedicationRecordNumber) {
         this.activeMedicationRecordNumber.setValue(activeMedicationRecordNumber);
+    }
+
+
+    /**
+     * <p>C:Active Medication Time-range</p>
+     * 
+     * <p><p>The date and time during which the patient is expected 
+     * to be taking the drug which triggered the issue.</p></p>
+     * 
+     * <p><p>Requested Duration</p></p>
+     * 
+     * <p><p>Allows the provider to evaluate 'duplicate therapy' 
+     * and similar timing-based issues.</p></p>
+     */
+    @Hl7XmlMapping({"effectiveTime"})
+    public Interval<Date> getActiveMedicationTimeRange() {
+        return this.activeMedicationTimeRange.getValue();
+    }
+    public void setActiveMedicationTimeRange(Interval<Date> activeMedicationTimeRange) {
+        this.activeMedicationTimeRange.setValue(activeMedicationTimeRange);
     }
 
 }

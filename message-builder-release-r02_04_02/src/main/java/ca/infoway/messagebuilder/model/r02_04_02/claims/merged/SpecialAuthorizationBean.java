@@ -28,9 +28,9 @@ public class SpecialAuthorizationBean extends MessagePartBean {
     private HealthcareOrganizationBean authorAssignedEntity;
     private CS specialAuthorizationStatus = new CSImpl();
     private IVL<TS, Interval<Date>> specialAuthorizationEffectiveDate = new IVLImpl<TS, Interval<Date>>();
-    private MaximumLimitsBean limitationMaximumLimits;
     private List<IncludesBean> subjectOf = new ArrayList<IncludesBean>();
     private List<Subject3Bean> subject = new ArrayList<Subject3Bean>();
+    private MaximumLimitsBean limitationMaximumLimits;
 
 
     @Hl7XmlMapping({"coverage/policyOrAccount"})
@@ -79,15 +79,6 @@ public class SpecialAuthorizationBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"limitation/maximumLimits"})
-    public MaximumLimitsBean getLimitationMaximumLimits() {
-        return this.limitationMaximumLimits;
-    }
-    public void setLimitationMaximumLimits(MaximumLimitsBean limitationMaximumLimits) {
-        this.limitationMaximumLimits = limitationMaximumLimits;
-    }
-
-
     @Hl7XmlMapping({"subjectOf"})
     public List<IncludesBean> getSubjectOf() {
         return this.subjectOf;
@@ -97,6 +88,15 @@ public class SpecialAuthorizationBean extends MessagePartBean {
     @Hl7XmlMapping({"subject"})
     public List<Subject3Bean> getSubject() {
         return this.subject;
+    }
+
+
+    @Hl7XmlMapping({"limitation/maximumLimits"})
+    public MaximumLimitsBean getLimitationMaximumLimits() {
+        return this.limitationMaximumLimits;
+    }
+    public void setLimitationMaximumLimits(MaximumLimitsBean limitationMaximumLimits) {
+        this.limitationMaximumLimits = limitationMaximumLimits;
     }
 
 }

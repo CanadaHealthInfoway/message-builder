@@ -48,94 +48,26 @@ import java.util.List;
 public class ParameterListBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private CV routedDocumentType = new CVImpl();
-    private REAL confidenceValue = new REALImpl();
-    private BL historyIndicatorValue = new BLImpl();
-    private List<CV> expertiseOrCredentialsRoleType = new ArrayList<CV>();
     private List<CV> serviceDeliveryLocationTypeValue = new ArrayList<CV>();
-    private List<CV> providerQueryResponseObject = new ArrayList<CV>();
-    private List<AD> serviceDeliveryLocationAddressDetail = new ArrayList<AD>();
+    private CV routedDocumentType = new CVImpl();
     private IVL<TS, Interval<Date>> healthcareProviderRoleEffectiveDate = new IVLImpl<TS, Interval<Date>>();
-    private List<TEL> healthcareProviderRoleTelecom = new ArrayList<TEL>();
-    private List<II> serviceDeliveryLocationIdentifier = new ArrayList<II>();
+    private List<AD> serviceDeliveryLocationAddressDetail = new ArrayList<AD>();
     private CV principalPersonGender = new CVImpl();
     private List<CV> healthcareProviderRoleType = new ArrayList<CV>();
-    private List<AD> healthcareProviderRoleAddress = new ArrayList<AD>();
-    private List<CV> assignedRoleTypeValue = new ArrayList<CV>();
-    private List<CV> healthcareProviderRoleStatusCode = new ArrayList<CV>();
-    private List<CV> jurisdictionType = new ArrayList<CV>();
     private List<CV> roleClassValue = new ArrayList<CV>();
+    private List<TEL> healthcareProviderRoleTelecom = new ArrayList<TEL>();
     private List<II> healthcareProviderRoleIdentification = new ArrayList<II>();
     private PN healthcareProviderRoleName = new PNImpl();
     private TS principalPersonDateOfBirth = new TSImpl();
-
-
-    /**
-     * <p>Routed Document Type</p>
-     * 
-     * <p><p>Supports the business requirement to identify the 
-     * specified roleClass being queried upon</p></p>
-     * 
-     * <p><p>Supports the business requirement to identify the 
-     * specified roleClass being queried upon</p></p>
-     */
-    @Hl7XmlMapping({"routedDocType/value"})
-    public Code getRoutedDocumentType() {
-        return (Code) this.routedDocumentType.getValue();
-    }
-    public void setRoutedDocumentType(Code routedDocumentType) {
-        this.routedDocumentType.setValue(routedDocumentType);
-    }
-
-
-    /**
-     * <p>Confidence Value</p>
-     * 
-     * <p><p>A real number value indicating the confidence of the 
-     * query with regard to finding the intended target provider 
-     * i.e. the value would be the computed confidence value.</p></p>
-     * 
-     * <p><p>Required attribute to provide information about 
-     * success of query</p></p>
-     */
-    @Hl7XmlMapping({"confidence/value"})
-    public BigDecimal getConfidenceValue() {
-        return this.confidenceValue.getValue();
-    }
-    public void setConfidenceValue(BigDecimal confidenceValue) {
-        this.confidenceValue.setValue(confidenceValue);
-    }
-
-
-    /**
-     * <p>History Indicator Value</p>
-     * 
-     * <p><p>Indicates whether or not historical records should be 
-     * included in this query response</p></p>
-     * 
-     * <p><p>Mandatory attribute when queried upon</p></p>
-     */
-    @Hl7XmlMapping({"includeHistoryIndicator/value"})
-    public Boolean getHistoryIndicatorValue() {
-        return this.historyIndicatorValue.getValue();
-    }
-    public void setHistoryIndicatorValue(Boolean historyIndicatorValue) {
-        this.historyIndicatorValue.setValue(historyIndicatorValue);
-    }
-
-
-    /**
-     * <p>Expertise or Credentials Role Type</p>
-     * 
-     * <p><p>Unique identifier for the Expertise or Credential.</p></p>
-     * 
-     * <p><p>Mandatory attribute supports the identification of the 
-     * healthcare provider credentials</p></p>
-     */
-    @Hl7XmlMapping({"qualification/value"})
-    public List<QualifiedRoleType> getExpertiseOrCredentialsRoleType() {
-        return new RawListWrapper<CV, QualifiedRoleType>(expertiseOrCredentialsRoleType, CVImpl.class);
-    }
+    private List<II> serviceDeliveryLocationIdentifier = new ArrayList<II>();
+    private REAL confidenceValue = new REALImpl();
+    private List<AD> healthcareProviderRoleAddress = new ArrayList<AD>();
+    private List<CV> jurisdictionType = new ArrayList<CV>();
+    private List<CV> expertiseOrCredentialsRoleType = new ArrayList<CV>();
+    private List<CV> assignedRoleTypeValue = new ArrayList<CV>();
+    private List<CV> providerQueryResponseObject = new ArrayList<CV>();
+    private List<CV> healthcareProviderRoleStatusCode = new ArrayList<CV>();
+    private BL historyIndicatorValue = new BLImpl();
 
 
     /**
@@ -154,31 +86,20 @@ public class ParameterListBean extends MessagePartBean {
 
 
     /**
-     * <p>Provider Query Response Object</p>
+     * <p>Routed Document Type</p>
      * 
-     * <p><p>Outlines the values expected to be received by this 
-     * query</p></p>
+     * <p><p>Supports the business requirement to identify the 
+     * specified roleClass being queried upon</p></p>
      * 
-     * <p><p>Populated attribute provides tremendous value in 
-     * giving the organization issuing the query the flexibility to 
-     * request particular items in the response.</p></p>
+     * <p><p>Supports the business requirement to identify the 
+     * specified roleClass being queried upon</p></p>
      */
-    @Hl7XmlMapping({"responseObject/value"})
-    public List<Code> getProviderQueryResponseObject() {
-        return new RawListWrapper<CV, Code>(providerQueryResponseObject, CVImpl.class);
+    @Hl7XmlMapping({"routedDocType/value"})
+    public Code getRoutedDocumentType() {
+        return (Code) this.routedDocumentType.getValue();
     }
-
-
-    /**
-     * <p>Service Delivery Location Address Detail</p>
-     * 
-     * <p><p>Address for the Service Delivery Location</p></p>
-     * 
-     * <p><p>Mandatory attribute when queried upon</p></p>
-     */
-    @Hl7XmlMapping({"serviceDeliveryLocationAddress/value"})
-    public List<PostalAddress> getServiceDeliveryLocationAddressDetail() {
-        return new RawListWrapper<AD, PostalAddress>(serviceDeliveryLocationAddressDetail, ADImpl.class);
+    public void setRoutedDocumentType(Code routedDocumentType) {
+        this.routedDocumentType.setValue(routedDocumentType);
     }
 
 
@@ -201,32 +122,15 @@ public class ParameterListBean extends MessagePartBean {
 
 
     /**
-     * <p>Healthcare Provider Role Telecom</p>
+     * <p>Service Delivery Location Address Detail</p>
      * 
-     * <p><p>The telecom for the provider when playing the role of 
-     * healthcare provider.</p></p>
+     * <p><p>Address for the Service Delivery Location</p></p>
      * 
-     * <p><p>Mandatory attribute supports the identification of the 
-     * healthcare provider</p></p>
+     * <p><p>Mandatory attribute when queried upon</p></p>
      */
-    @Hl7XmlMapping({"telecom/value"})
-    public List<TelecommunicationAddress> getHealthcareProviderRoleTelecom() {
-        return new RawListWrapper<TEL, TelecommunicationAddress>(healthcareProviderRoleTelecom, TELImpl.class);
-    }
-
-
-    /**
-     * <p>Service Delivery Location Identifier</p>
-     * 
-     * <p><p>A unique identifier for the service delivery 
-     * location.</p></p>
-     * 
-     * <p><p>Mandatory attribute supports the validation and 
-     * identification of the service delivery location</p></p>
-     */
-    @Hl7XmlMapping({"serviceDeliveryLocationID/value"})
-    public List<Identifier> getServiceDeliveryLocationIdentifier() {
-        return new RawListWrapper<II, Identifier>(serviceDeliveryLocationIdentifier, IIImpl.class);
+    @Hl7XmlMapping({"serviceDeliveryLocationAddress/value"})
+    public List<PostalAddress> getServiceDeliveryLocationAddressDetail() {
+        return new RawListWrapper<AD, PostalAddress>(serviceDeliveryLocationAddressDetail, ADImpl.class);
     }
 
 
@@ -263,66 +167,6 @@ public class ParameterListBean extends MessagePartBean {
 
 
     /**
-     * <p>Healthcare Provider Role Address</p>
-     * 
-     * <p><p>The address for the provider when playing the role of 
-     * healthcare provider.</p></p>
-     * 
-     * <p><p>Mandatory attribute supports the identification of the 
-     * healthcare provider</p></p>
-     */
-    @Hl7XmlMapping({"address/value"})
-    public List<PostalAddress> getHealthcareProviderRoleAddress() {
-        return new RawListWrapper<AD, PostalAddress>(healthcareProviderRoleAddress, ADImpl.class);
-    }
-
-
-    /**
-     * <p>Assigned Role Type Value</p>
-     * 
-     * <p><p>The code identifying the specific functional role.</p></p>
-     * 
-     * <p><p>Mandatory attribute supports the identification of the 
-     * healthcare provider</p></p>
-     */
-    @Hl7XmlMapping({"assignedRoleType/value"})
-    public List<AssignedRoleType> getAssignedRoleTypeValue() {
-        return new RawListWrapper<CV, AssignedRoleType>(assignedRoleTypeValue, CVImpl.class);
-    }
-
-
-    /**
-     * <p>Healthcare Provider Role Status Code</p>
-     * 
-     * <p><p>The status of the provider in the healthcare provider 
-     * role i.e. Active</p></p>
-     * 
-     * <p><p>Mandatory attribute supports the identification of the 
-     * healthcare provider</p></p>
-     */
-    @Hl7XmlMapping({"status/value"})
-    public List<RoleStatus> getHealthcareProviderRoleStatusCode() {
-        return new RawListWrapper<CV, RoleStatus>(healthcareProviderRoleStatusCode, CVImpl.class);
-    }
-
-
-    /**
-     * <p>Jurisdiction Type</p>
-     * 
-     * <p><p>A character value that represents the Canadian 
-     * provincial or territorial geographical area within which the 
-     * Provider is operating.</p></p>
-     * 
-     * <p><p>Mandatory attribute supports the validation and 
-     * identification of the healthcare provider</p></p>
-     */
-    @Hl7XmlMapping({"jurisdiction/value"})
-    public List<Code> getJurisdictionType() {
-        return new RawListWrapper<CV, Code>(jurisdictionType, CVImpl.class);
-    }
-
-
-    /**
      * <p>Role Class Value</p>
      * 
      * <p><p>Indicates Role Class being queried upon</p></p>
@@ -332,6 +176,21 @@ public class ParameterListBean extends MessagePartBean {
     @Hl7XmlMapping({"roleClass/value"})
     public List<Code> getRoleClassValue() {
         return new RawListWrapper<CV, Code>(roleClassValue, CVImpl.class);
+    }
+
+
+    /**
+     * <p>Healthcare Provider Role Telecom</p>
+     * 
+     * <p><p>The telecom for the provider when playing the role of 
+     * healthcare provider.</p></p>
+     * 
+     * <p><p>Mandatory attribute supports the identification of the 
+     * healthcare provider</p></p>
+     */
+    @Hl7XmlMapping({"telecom/value"})
+    public List<TelecommunicationAddress> getHealthcareProviderRoleTelecom() {
+        return new RawListWrapper<TEL, TelecommunicationAddress>(healthcareProviderRoleTelecom, TELImpl.class);
     }
 
 
@@ -382,6 +241,147 @@ public class ParameterListBean extends MessagePartBean {
     }
     public void setPrincipalPersonDateOfBirth(Date principalPersonDateOfBirth) {
         this.principalPersonDateOfBirth.setValue(principalPersonDateOfBirth);
+    }
+
+
+    /**
+     * <p>Service Delivery Location Identifier</p>
+     * 
+     * <p><p>A unique identifier for the service delivery 
+     * location.</p></p>
+     * 
+     * <p><p>Mandatory attribute supports the validation and 
+     * identification of the service delivery location</p></p>
+     */
+    @Hl7XmlMapping({"serviceDeliveryLocationID/value"})
+    public List<Identifier> getServiceDeliveryLocationIdentifier() {
+        return new RawListWrapper<II, Identifier>(serviceDeliveryLocationIdentifier, IIImpl.class);
+    }
+
+
+    /**
+     * <p>Confidence Value</p>
+     * 
+     * <p><p>A real number value indicating the confidence of the 
+     * query with regard to finding the intended target provider 
+     * i.e. the value would be the computed confidence value.</p></p>
+     * 
+     * <p><p>Required attribute to provide information about 
+     * success of query</p></p>
+     */
+    @Hl7XmlMapping({"confidence/value"})
+    public BigDecimal getConfidenceValue() {
+        return this.confidenceValue.getValue();
+    }
+    public void setConfidenceValue(BigDecimal confidenceValue) {
+        this.confidenceValue.setValue(confidenceValue);
+    }
+
+
+    /**
+     * <p>Healthcare Provider Role Address</p>
+     * 
+     * <p><p>The address for the provider when playing the role of 
+     * healthcare provider.</p></p>
+     * 
+     * <p><p>Mandatory attribute supports the identification of the 
+     * healthcare provider</p></p>
+     */
+    @Hl7XmlMapping({"address/value"})
+    public List<PostalAddress> getHealthcareProviderRoleAddress() {
+        return new RawListWrapper<AD, PostalAddress>(healthcareProviderRoleAddress, ADImpl.class);
+    }
+
+
+    /**
+     * <p>Jurisdiction Type</p>
+     * 
+     * <p><p>A character value that represents the Canadian 
+     * provincial or territorial geographical area within which the 
+     * Provider is operating.</p></p>
+     * 
+     * <p><p>Mandatory attribute supports the validation and 
+     * identification of the healthcare provider</p></p>
+     */
+    @Hl7XmlMapping({"jurisdiction/value"})
+    public List<Code> getJurisdictionType() {
+        return new RawListWrapper<CV, Code>(jurisdictionType, CVImpl.class);
+    }
+
+
+    /**
+     * <p>Expertise or Credentials Role Type</p>
+     * 
+     * <p><p>Unique identifier for the Expertise or Credential.</p></p>
+     * 
+     * <p><p>Mandatory attribute supports the identification of the 
+     * healthcare provider credentials</p></p>
+     */
+    @Hl7XmlMapping({"qualification/value"})
+    public List<QualifiedRoleType> getExpertiseOrCredentialsRoleType() {
+        return new RawListWrapper<CV, QualifiedRoleType>(expertiseOrCredentialsRoleType, CVImpl.class);
+    }
+
+
+    /**
+     * <p>Assigned Role Type Value</p>
+     * 
+     * <p><p>The code identifying the specific functional role.</p></p>
+     * 
+     * <p><p>Mandatory attribute supports the identification of the 
+     * healthcare provider</p></p>
+     */
+    @Hl7XmlMapping({"assignedRoleType/value"})
+    public List<AssignedRoleType> getAssignedRoleTypeValue() {
+        return new RawListWrapper<CV, AssignedRoleType>(assignedRoleTypeValue, CVImpl.class);
+    }
+
+
+    /**
+     * <p>Provider Query Response Object</p>
+     * 
+     * <p><p>Outlines the values expected to be received by this 
+     * query</p></p>
+     * 
+     * <p><p>Populated attribute provides tremendous value in 
+     * giving the organization issuing the query the flexibility to 
+     * request particular items in the response.</p></p>
+     */
+    @Hl7XmlMapping({"responseObject/value"})
+    public List<Code> getProviderQueryResponseObject() {
+        return new RawListWrapper<CV, Code>(providerQueryResponseObject, CVImpl.class);
+    }
+
+
+    /**
+     * <p>Healthcare Provider Role Status Code</p>
+     * 
+     * <p><p>The status of the provider in the healthcare provider 
+     * role i.e. Active</p></p>
+     * 
+     * <p><p>Mandatory attribute supports the identification of the 
+     * healthcare provider</p></p>
+     */
+    @Hl7XmlMapping({"status/value"})
+    public List<RoleStatus> getHealthcareProviderRoleStatusCode() {
+        return new RawListWrapper<CV, RoleStatus>(healthcareProviderRoleStatusCode, CVImpl.class);
+    }
+
+
+    /**
+     * <p>History Indicator Value</p>
+     * 
+     * <p><p>Indicates whether or not historical records should be 
+     * included in this query response</p></p>
+     * 
+     * <p><p>Mandatory attribute when queried upon</p></p>
+     */
+    @Hl7XmlMapping({"includeHistoryIndicator/value"})
+    public Boolean getHistoryIndicatorValue() {
+        return this.historyIndicatorValue.getValue();
+    }
+    public void setHistoryIndicatorValue(Boolean historyIndicatorValue) {
+        this.historyIndicatorValue.setValue(historyIndicatorValue);
     }
 
 }

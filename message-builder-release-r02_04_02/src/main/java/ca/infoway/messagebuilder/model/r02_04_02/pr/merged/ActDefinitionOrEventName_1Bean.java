@@ -69,20 +69,20 @@ import java.util.List;
 public class ActDefinitionOrEventName_1Bean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private List<CreatedAtBean> location = new ArrayList<CreatedAtBean>();
     private List<SequelToBean> sequel = new ArrayList<SequelToBean>();
+    private List<CreatedAtBean> location = new ArrayList<CreatedAtBean>();
     private IVL<TS, Interval<Date>> actDefinitionOrEventNameEffectiveTime = new IVLImpl<TS, Interval<Date>>();
-
-
-    @Hl7XmlMapping({"location"})
-    public List<CreatedAtBean> getLocation() {
-        return this.location;
-    }
 
 
     @Hl7XmlMapping({"sequel"})
     public List<SequelToBean> getSequel() {
         return this.sequel;
+    }
+
+
+    @Hl7XmlMapping({"location"})
+    public List<CreatedAtBean> getLocation() {
+        return this.location;
     }
 
 

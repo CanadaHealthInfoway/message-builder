@@ -14,8 +14,8 @@ import java.util.List;
 @Hl7RootType
 public interface RoleChoice {
 
-    public List<RelatedToBean> getRelatedTo();
-
     public List<PrivilegeBean> getResponsibleForPrivilege();
+
+    public List<RelatedToBean> getRelatedTo();
 
 }

@@ -19,17 +19,8 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 public class HasAComponentBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private BL contextConductionInd = new BLImpl();
     private SpecimenObservationClusterBean specimenObservationCluster;
-
-
-    @Hl7XmlMapping({"contextConductionInd"})
-    public Boolean getContextConductionInd() {
-        return this.contextConductionInd.getValue();
-    }
-    public void setContextConductionInd(Boolean contextConductionInd) {
-        this.contextConductionInd.setValue(contextConductionInd);
-    }
+    private BL contextConductionInd = new BLImpl();
 
 
     @Hl7XmlMapping({"specimenObservationCluster"})
@@ -38,6 +29,15 @@ public class HasAComponentBean extends MessagePartBean {
     }
     public void setSpecimenObservationCluster(SpecimenObservationClusterBean specimenObservationCluster) {
         this.specimenObservationCluster = specimenObservationCluster;
+    }
+
+
+    @Hl7XmlMapping({"contextConductionInd"})
+    public Boolean getContextConductionInd() {
+        return this.contextConductionInd.getValue();
+    }
+    public void setContextConductionInd(Boolean contextConductionInd) {
+        this.contextConductionInd.setValue(contextConductionInd);
     }
 
 }

@@ -77,28 +77,165 @@ import java.util.Set;
 public class OtherMedicationBean extends MessagePartBean implements ca.infoway.messagebuilder.model.r02_04_02.iehr.comt_mt111111ca.Pharmacy {
 
     private static final long serialVersionUID = 20110318L;
-    private List<StatusChangesBean> subjectOf1ControlActEvent = new ArrayList<StatusChangesBean>();
-    private SET<CV, Code> otherMedicationMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);
-    private RefusedByBean author;
     private BL subjectOf4AnnotationIndicator = new BLImpl();
     private List<IssuesBean> subjectOf5DetectedIssueEvent = new ArrayList<IssuesBean>();
-    private IVL<TS, Interval<Date>> drugActivePeriod = new IVLImpl<TS, Interval<Date>>();
+    private List<CareCompositionsBean> componentOfPatientCareProvisionEvent = new ArrayList<CareCompositionsBean>();
     private CV routeOfAdministration = new CVImpl();
-    private DrugProductBean consumableMedication;
+    private SET<II, Identifier> administrationRecordId = new SETImpl<II, Identifier>(IIImpl.class);
+    private List<AdministrationInstructionsBean> componentDosageInstruction = new ArrayList<AdministrationInstructionsBean>();
     private CD otherMedicationType = new CDImpl();
+    private List<IncludesBean> subjectOf3 = new ArrayList<IncludesBean>();
+    private OccurredAtBean location;
+    private RefusedByBean author;
     private BL subjectOf2DetectedIssueIndicator = new BLImpl();
     private HealthcareWorkerBean responsiblePartyAssignedEntity;
-    private List<CareCompositionsBean> componentOfPatientCareProvisionEvent = new ArrayList<CareCompositionsBean>();
-    private List<IncludesBean> subjectOf3 = new ArrayList<IncludesBean>();
+    private DrugProductBean consumableMedication;
+    private SET<CV, Code> otherMedicationMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);
+    private List<StatusChangesBean> subjectOf1ControlActEvent = new ArrayList<StatusChangesBean>();
     private CS otherMedicationStatus = new CSImpl();
-    private OccurredAtBean location;
-    private List<AdministrationInstructionsBean> componentDosageInstruction = new ArrayList<AdministrationInstructionsBean>();
-    private SET<II, Identifier> administrationRecordId = new SETImpl<II, Identifier>(IIImpl.class);
+    private IVL<TS, Interval<Date>> drugActivePeriod = new IVLImpl<TS, Interval<Date>>();
 
 
-    @Hl7XmlMapping({"subjectOf1/controlActEvent"})
-    public List<StatusChangesBean> getSubjectOf1ControlActEvent() {
-        return this.subjectOf1ControlActEvent;
+    @Hl7XmlMapping({"subjectOf4/annotationIndicator"})
+    public Boolean getSubjectOf4AnnotationIndicator() {
+        return this.subjectOf4AnnotationIndicator.getValue();
+    }
+    public void setSubjectOf4AnnotationIndicator(Boolean subjectOf4AnnotationIndicator) {
+        this.subjectOf4AnnotationIndicator.setValue(subjectOf4AnnotationIndicator);
+    }
+
+
+    @Hl7XmlMapping({"subjectOf5/detectedIssueEvent"})
+    public List<IssuesBean> getSubjectOf5DetectedIssueEvent() {
+        return this.subjectOf5DetectedIssueEvent;
+    }
+
+
+    @Hl7XmlMapping({"componentOf/patientCareProvisionEvent"})
+    public List<CareCompositionsBean> getComponentOfPatientCareProvisionEvent() {
+        return this.componentOfPatientCareProvisionEvent;
+    }
+
+
+    /**
+     * <p>E:Route of Administration</p>
+     * 
+     * <p><p>routeCode must not be used when code is SNOMED and is 
+     * mandatory otherwise</p></p>
+     * 
+     * <p><p>This is the means by which the patient is taking the 
+     * medication.</p></p>
+     * 
+     * <p><p>Ensures consistency in description of routes. Provides 
+     * potential for cross-checking dosage form and route. Because 
+     * this information is pre-coordinated into 'code' for SNOMED, 
+     * it is marked as optional.</p></p>
+     */
+    @Hl7XmlMapping({"routeCode"})
+    public RouteOfAdministration getRouteOfAdministration() {
+        return (RouteOfAdministration) this.routeOfAdministration.getValue();
+    }
+    public void setRouteOfAdministration(RouteOfAdministration routeOfAdministration) {
+        this.routeOfAdministration.setValue(routeOfAdministration);
+    }
+
+
+    /**
+     * <p>A:Administration Record Id</p>
+     * 
+     * <p><p>This is an identifier assigned to a unique instance of 
+     * an active medication record.</p></p>
+     * 
+     * <p><p>Allows for the unique referencing of a specific active 
+     * medication record. Thus the mandatory requirement. .</p></p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Set<Identifier> getAdministrationRecordId() {
+        return this.administrationRecordId.rawSet();
+    }
+
+
+    @Hl7XmlMapping({"component/dosageInstruction"})
+    public List<AdministrationInstructionsBean> getComponentDosageInstruction() {
+        return this.componentDosageInstruction;
+    }
+
+
+    /**
+     * <p>Other Medication Type</p>
+     * 
+     * <p><p>Must be 'DRUG' unless using SNOMED</p></p>
+     * 
+     * <p><p>Indicates that the record is a drug administration 
+     * rather than an immunization or other type of administration. 
+     * For SNOMED, may also include route, drug and other 
+     * information.</p></p>
+     * 
+     * <p><p>Needed to convey the meaning of this class and is 
+     * therefore mandatory.</p><p>The element allows 'CD' to 
+     * provide support for SNOMED.</p></p>
+     * 
+     * <p><p>Needed to convey the meaning of this class and is 
+     * therefore mandatory.</p><p>The element allows 'CD' to 
+     * provide support for SNOMED.</p></p>
+     */
+    @Hl7XmlMapping({"code"})
+    public Code getOtherMedicationType() {
+        return (Code) this.otherMedicationType.getValue();
+    }
+    public void setOtherMedicationType(Code otherMedicationType) {
+        this.otherMedicationType.setValue(otherMedicationType);
+    }
+
+
+    @Hl7XmlMapping({"subjectOf3"})
+    public List<IncludesBean> getSubjectOf3() {
+        return this.subjectOf3;
+    }
+
+
+    @Hl7XmlMapping({"location"})
+    public OccurredAtBean getLocation() {
+        return this.location;
+    }
+    public void setLocation(OccurredAtBean location) {
+        this.location = location;
+    }
+
+
+    @Hl7XmlMapping({"author"})
+    public RefusedByBean getAuthor() {
+        return this.author;
+    }
+    public void setAuthor(RefusedByBean author) {
+        this.author = author;
+    }
+
+
+    @Hl7XmlMapping({"subjectOf2/detectedIssueIndicator"})
+    public Boolean getSubjectOf2DetectedIssueIndicator() {
+        return this.subjectOf2DetectedIssueIndicator.getValue();
+    }
+    public void setSubjectOf2DetectedIssueIndicator(Boolean subjectOf2DetectedIssueIndicator) {
+        this.subjectOf2DetectedIssueIndicator.setValue(subjectOf2DetectedIssueIndicator);
+    }
+
+
+    @Hl7XmlMapping({"responsibleParty/assignedEntity"})
+    public HealthcareWorkerBean getResponsiblePartyAssignedEntity() {
+        return this.responsiblePartyAssignedEntity;
+    }
+    public void setResponsiblePartyAssignedEntity(HealthcareWorkerBean responsiblePartyAssignedEntity) {
+        this.responsiblePartyAssignedEntity = responsiblePartyAssignedEntity;
+    }
+
+
+    @Hl7XmlMapping({"consumable/medication"})
+    public DrugProductBean getConsumableMedication() {
+        return this.consumableMedication;
+    }
+    public void setConsumableMedication(DrugProductBean consumableMedication) {
+        this.consumableMedication = consumableMedication;
     }
 
 
@@ -195,135 +332,9 @@ public class OtherMedicationBean extends MessagePartBean implements ca.infoway.m
     }
 
 
-    @Hl7XmlMapping({"author"})
-    public RefusedByBean getAuthor() {
-        return this.author;
-    }
-    public void setAuthor(RefusedByBean author) {
-        this.author = author;
-    }
-
-
-    @Hl7XmlMapping({"subjectOf4/annotationIndicator"})
-    public Boolean getSubjectOf4AnnotationIndicator() {
-        return this.subjectOf4AnnotationIndicator.getValue();
-    }
-    public void setSubjectOf4AnnotationIndicator(Boolean subjectOf4AnnotationIndicator) {
-        this.subjectOf4AnnotationIndicator.setValue(subjectOf4AnnotationIndicator);
-    }
-
-
-    @Hl7XmlMapping({"subjectOf5/detectedIssueEvent"})
-    public List<IssuesBean> getSubjectOf5DetectedIssueEvent() {
-        return this.subjectOf5DetectedIssueEvent;
-    }
-
-
-    /**
-     * <p>C:Drug Active Period</p>
-     * 
-     * <p><p>Indicates the time-period in which the patient has 
-     * been taking or is expected to be taking the medication.</p></p>
-     * 
-     * <p><p>Used to help determine whether the medication is 
-     * currently active. Because this information won't always be 
-     * available, the attribute is marked as 'populated'.</p></p>
-     */
-    @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getDrugActivePeriod() {
-        return this.drugActivePeriod.getValue();
-    }
-    public void setDrugActivePeriod(Interval<Date> drugActivePeriod) {
-        this.drugActivePeriod.setValue(drugActivePeriod);
-    }
-
-
-    /**
-     * <p>E:Route of Administration</p>
-     * 
-     * <p><p>routeCode must not be used when code is SNOMED and is 
-     * mandatory otherwise</p></p>
-     * 
-     * <p><p>This is the means by which the patient is taking the 
-     * medication.</p></p>
-     * 
-     * <p><p>Ensures consistency in description of routes. Provides 
-     * potential for cross-checking dosage form and route. Because 
-     * this information is pre-coordinated into 'code' for SNOMED, 
-     * it is marked as optional.</p></p>
-     */
-    @Hl7XmlMapping({"routeCode"})
-    public RouteOfAdministration getRouteOfAdministration() {
-        return (RouteOfAdministration) this.routeOfAdministration.getValue();
-    }
-    public void setRouteOfAdministration(RouteOfAdministration routeOfAdministration) {
-        this.routeOfAdministration.setValue(routeOfAdministration);
-    }
-
-
-    @Hl7XmlMapping({"consumable/medication"})
-    public DrugProductBean getConsumableMedication() {
-        return this.consumableMedication;
-    }
-    public void setConsumableMedication(DrugProductBean consumableMedication) {
-        this.consumableMedication = consumableMedication;
-    }
-
-
-    /**
-     * <p>Other Medication Type</p>
-     * 
-     * <p><p>Must be 'DRUG' unless using SNOMED</p></p>
-     * 
-     * <p><p>Indicates that the record is a drug administration 
-     * rather than an immunization or other type of administration. 
-     * For SNOMED, may also include route, drug and other 
-     * information.</p></p>
-     * 
-     * <p><p>Needed to convey the meaning of this class and is 
-     * therefore mandatory.</p><p>The element allows 'CD' to 
-     * provide support for SNOMED.</p></p>
-     * 
-     * <p><p>Needed to convey the meaning of this class and is 
-     * therefore mandatory.</p><p>The element allows 'CD' to 
-     * provide support for SNOMED.</p></p>
-     */
-    @Hl7XmlMapping({"code"})
-    public Code getOtherMedicationType() {
-        return (Code) this.otherMedicationType.getValue();
-    }
-    public void setOtherMedicationType(Code otherMedicationType) {
-        this.otherMedicationType.setValue(otherMedicationType);
-    }
-
-
-    @Hl7XmlMapping({"subjectOf2/detectedIssueIndicator"})
-    public Boolean getSubjectOf2DetectedIssueIndicator() {
-        return this.subjectOf2DetectedIssueIndicator.getValue();
-    }
-    public void setSubjectOf2DetectedIssueIndicator(Boolean subjectOf2DetectedIssueIndicator) {
-        this.subjectOf2DetectedIssueIndicator.setValue(subjectOf2DetectedIssueIndicator);
-    }
-
-
-    @Hl7XmlMapping({"responsibleParty/assignedEntity"})
-    public HealthcareWorkerBean getResponsiblePartyAssignedEntity() {
-        return this.responsiblePartyAssignedEntity;
-    }
-    public void setResponsiblePartyAssignedEntity(HealthcareWorkerBean responsiblePartyAssignedEntity) {
-        this.responsiblePartyAssignedEntity = responsiblePartyAssignedEntity;
-    }
-
-
-    @Hl7XmlMapping({"componentOf/patientCareProvisionEvent"})
-    public List<CareCompositionsBean> getComponentOfPatientCareProvisionEvent() {
-        return this.componentOfPatientCareProvisionEvent;
-    }
-
-
-    @Hl7XmlMapping({"subjectOf3"})
-    public List<IncludesBean> getSubjectOf3() {
-        return this.subjectOf3;
+    @Hl7XmlMapping({"subjectOf1/controlActEvent"})
+    public List<StatusChangesBean> getSubjectOf1ControlActEvent() {
+        return this.subjectOf1ControlActEvent;
     }
 
 
@@ -375,33 +386,22 @@ public class OtherMedicationBean extends MessagePartBean implements ca.infoway.m
     }
 
 
-    @Hl7XmlMapping({"location"})
-    public OccurredAtBean getLocation() {
-        return this.location;
-    }
-    public void setLocation(OccurredAtBean location) {
-        this.location = location;
-    }
-
-
-    @Hl7XmlMapping({"component/dosageInstruction"})
-    public List<AdministrationInstructionsBean> getComponentDosageInstruction() {
-        return this.componentDosageInstruction;
-    }
-
-
     /**
-     * <p>A:Administration Record Id</p>
+     * <p>C:Drug Active Period</p>
      * 
-     * <p><p>This is an identifier assigned to a unique instance of 
-     * an active medication record.</p></p>
+     * <p><p>Indicates the time-period in which the patient has 
+     * been taking or is expected to be taking the medication.</p></p>
      * 
-     * <p><p>Allows for the unique referencing of a specific active 
-     * medication record. Thus the mandatory requirement. .</p></p>
+     * <p><p>Used to help determine whether the medication is 
+     * currently active. Because this information won't always be 
+     * available, the attribute is marked as 'populated'.</p></p>
      */
-    @Hl7XmlMapping({"id"})
-    public Set<Identifier> getAdministrationRecordId() {
-        return this.administrationRecordId.rawSet();
+    @Hl7XmlMapping({"effectiveTime"})
+    public Interval<Date> getDrugActivePeriod() {
+        return this.drugActivePeriod.getValue();
+    }
+    public void setDrugActivePeriod(Interval<Date> drugActivePeriod) {
+        this.drugActivePeriod.setValue(drugActivePeriod);
     }
 
 }

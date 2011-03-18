@@ -22,6 +22,7 @@ import ca.infoway.messagebuilder.datatype.lang.TelecommunicationAddress;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.r02_04_02.common.coct_mt050007ca.PatientIdentifyingCharacteristicsBean;
 import ca.infoway.messagebuilder.model.r02_04_02.merged.ActingPersonBean;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
@@ -61,9 +62,9 @@ public class Patient_1Bean extends MessagePartBean implements ca.infoway.message
     private SET<II, Identifier> patientIdentifier = new SETImpl<II, Identifier>(IIImpl.class);
     private ST patientHealthCardVersionCode = new STImpl();
     private LIST<TEL, TelecommunicationAddress> patientContactPhoneAndEMails = new LISTImpl<TEL, TelecommunicationAddress>(TELImpl.class);
-    private ActingPersonBean patientPerson;
-    private AD patientAddress = new ADImpl();
     private PatientIdentifyingCharacteristicsBean subjectOfIdentifyingCharacteristicsObservationEvent;
+    private AD patientAddress = new ADImpl();
+    private ActingPersonBean patientPerson;
 
 
     /**
@@ -240,12 +241,12 @@ public class Patient_1Bean extends MessagePartBean implements ca.infoway.message
     }
 
 
-    @Hl7XmlMapping({"patientPerson"})
-    public ActingPersonBean getPatientPerson() {
-        return this.patientPerson;
+    @Hl7XmlMapping({"subjectOf/identifyingCharacteristicsObservationEvent"})
+    public PatientIdentifyingCharacteristicsBean getSubjectOfIdentifyingCharacteristicsObservationEvent() {
+        return this.subjectOfIdentifyingCharacteristicsObservationEvent;
     }
-    public void setPatientPerson(ActingPersonBean patientPerson) {
-        this.patientPerson = patientPerson;
+    public void setSubjectOfIdentifyingCharacteristicsObservationEvent(PatientIdentifyingCharacteristicsBean subjectOfIdentifyingCharacteristicsObservationEvent) {
+        this.subjectOfIdentifyingCharacteristicsObservationEvent = subjectOfIdentifyingCharacteristicsObservationEvent;
     }
 
 
@@ -263,12 +264,12 @@ public class Patient_1Bean extends MessagePartBean implements ca.infoway.message
     }
 
 
-    @Hl7XmlMapping({"subjectOf/identifyingCharacteristicsObservationEvent"})
-    public PatientIdentifyingCharacteristicsBean getSubjectOfIdentifyingCharacteristicsObservationEvent() {
-        return this.subjectOfIdentifyingCharacteristicsObservationEvent;
+    @Hl7XmlMapping({"patientPerson"})
+    public ActingPersonBean getPatientPerson() {
+        return this.patientPerson;
     }
-    public void setSubjectOfIdentifyingCharacteristicsObservationEvent(PatientIdentifyingCharacteristicsBean subjectOfIdentifyingCharacteristicsObservationEvent) {
-        this.subjectOfIdentifyingCharacteristicsObservationEvent = subjectOfIdentifyingCharacteristicsObservationEvent;
+    public void setPatientPerson(ActingPersonBean patientPerson) {
+        this.patientPerson = patientPerson;
     }
 
 }

@@ -39,23 +39,96 @@ public class InvoiceElementGroupBean extends MessagePartBean implements ca.infow
 
     private static final long serialVersionUID = 20110318L;
     private List<AdjudicatedInvoiceElementGroupBean> referenceAdjudicatedInvoiceElementGroup = new ArrayList<AdjudicatedInvoiceElementGroupBean>();
+    private List<InvoiceElementComponentBean> component = new ArrayList<InvoiceElementComponentBean>();
+    private List<InvoiceElementOverrideBean> triggerForInvoiceElementOverride = new ArrayList<InvoiceElementOverrideBean>();
+    private List<InvoiceElementCrossReferenceBean> predecessorInvoiceElementCrossReference = new ArrayList<InvoiceElementCrossReferenceBean>();
+    private SET<II, Identifier> invoiceGroupingIdentifierS = new SETImpl<II, Identifier>(IIImpl.class);
+    private List<PolicyOrAccount_2Bean> coveragePolicyOrAccount = new ArrayList<PolicyOrAccount_2Bean>();
+    private CV invoiceType = new CVImpl();
+    private MO invoiceSubTotal = new MOImpl();
+    private List<HealthDocumentAttachment_2Bean> pertinentInformationHealthDocumentAttachment = new ArrayList<HealthDocumentAttachment_2Bean>();
     private FinancialContractBean inFulfillmentOfFinancialContract;
     private List<A_BillableActChoice> reasonOfBillableActChoice = new ArrayList<A_BillableActChoice>();
     private CoveredPartyAsPatientBean coveredPartyCoveredPartyAsPatient;
-    private List<HealthDocumentAttachment_2Bean> pertinentInformationHealthDocumentAttachment = new ArrayList<HealthDocumentAttachment_2Bean>();
     private IVL<TS, Interval<Date>> timePeriodForInvoice = new IVLImpl<TS, Interval<Date>>();
-    private List<InvoiceElementOverrideBean> triggerForInvoiceElementOverride = new ArrayList<InvoiceElementOverrideBean>();
-    private MO invoiceSubTotal = new MOImpl();
-    private CV invoiceType = new CVImpl();
-    private List<InvoiceElementCrossReferenceBean> predecessorInvoiceElementCrossReference = new ArrayList<InvoiceElementCrossReferenceBean>();
-    private List<PolicyOrAccount_2Bean> coveragePolicyOrAccount = new ArrayList<PolicyOrAccount_2Bean>();
-    private List<InvoiceElementComponentBean> component = new ArrayList<InvoiceElementComponentBean>();
-    private SET<II, Identifier> invoiceGroupingIdentifierS = new SETImpl<II, Identifier>(IIImpl.class);
 
 
     @Hl7XmlMapping({"reference/adjudicatedInvoiceElementGroup"})
     public List<AdjudicatedInvoiceElementGroupBean> getReferenceAdjudicatedInvoiceElementGroup() {
         return this.referenceAdjudicatedInvoiceElementGroup;
+    }
+
+
+    @Hl7XmlMapping({"component"})
+    public List<InvoiceElementComponentBean> getComponent() {
+        return this.component;
+    }
+
+
+    @Hl7XmlMapping({"triggerFor/invoiceElementOverride"})
+    public List<InvoiceElementOverrideBean> getTriggerForInvoiceElementOverride() {
+        return this.triggerForInvoiceElementOverride;
+    }
+
+
+    @Hl7XmlMapping({"predecessor/invoiceElementCrossReference"})
+    public List<InvoiceElementCrossReferenceBean> getPredecessorInvoiceElementCrossReference() {
+        return this.predecessorInvoiceElementCrossReference;
+    }
+
+
+    /**
+     * <p>InvoiceGroupingIdentifierS</p>
+     * 
+     * <p>Invoice Grouping Identifier(s</p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Set<Identifier> getInvoiceGroupingIdentifierS() {
+        return this.invoiceGroupingIdentifierS.rawSet();
+    }
+
+
+    @Hl7XmlMapping({"coverage/policyOrAccount"})
+    public List<PolicyOrAccount_2Bean> getCoveragePolicyOrAccount() {
+        return this.coveragePolicyOrAccount;
+    }
+
+
+    /**
+     * <p>InvoiceType</p>
+     * 
+     * <p>Invoice type</p>
+     * 
+     * <p>Invoice Type</p>
+     */
+    @Hl7XmlMapping({"code"})
+    public Code getInvoiceType() {
+        return (Code) this.invoiceType.getValue();
+    }
+    public void setInvoiceType(Code invoiceType) {
+        this.invoiceType.setValue(invoiceType);
+    }
+
+
+    /**
+     * <p>InvoiceSubTotal</p>
+     * 
+     * <p>Invoice Sub-total</p>
+     * 
+     * <p>Invoice sub-total</p>
+     */
+    @Hl7XmlMapping({"netAmt"})
+    public Money getInvoiceSubTotal() {
+        return this.invoiceSubTotal.getValue();
+    }
+    public void setInvoiceSubTotal(Money invoiceSubTotal) {
+        this.invoiceSubTotal.setValue(invoiceSubTotal);
+    }
+
+
+    @Hl7XmlMapping({"pertinentInformation/healthDocumentAttachment"})
+    public List<HealthDocumentAttachment_2Bean> getPertinentInformationHealthDocumentAttachment() {
+        return this.pertinentInformationHealthDocumentAttachment;
     }
 
 
@@ -83,12 +156,6 @@ public class InvoiceElementGroupBean extends MessagePartBean implements ca.infow
     }
 
 
-    @Hl7XmlMapping({"pertinentInformation/healthDocumentAttachment"})
-    public List<HealthDocumentAttachment_2Bean> getPertinentInformationHealthDocumentAttachment() {
-        return this.pertinentInformationHealthDocumentAttachment;
-    }
-
-
     /**
      * <p>TimePeriodForInvoice</p>
      * 
@@ -100,73 +167,6 @@ public class InvoiceElementGroupBean extends MessagePartBean implements ca.infow
     }
     public void setTimePeriodForInvoice(Interval<Date> timePeriodForInvoice) {
         this.timePeriodForInvoice.setValue(timePeriodForInvoice);
-    }
-
-
-    @Hl7XmlMapping({"triggerFor/invoiceElementOverride"})
-    public List<InvoiceElementOverrideBean> getTriggerForInvoiceElementOverride() {
-        return this.triggerForInvoiceElementOverride;
-    }
-
-
-    /**
-     * <p>InvoiceSubTotal</p>
-     * 
-     * <p>Invoice Sub-total</p>
-     * 
-     * <p>Invoice sub-total</p>
-     */
-    @Hl7XmlMapping({"netAmt"})
-    public Money getInvoiceSubTotal() {
-        return this.invoiceSubTotal.getValue();
-    }
-    public void setInvoiceSubTotal(Money invoiceSubTotal) {
-        this.invoiceSubTotal.setValue(invoiceSubTotal);
-    }
-
-
-    /**
-     * <p>InvoiceType</p>
-     * 
-     * <p>Invoice type</p>
-     * 
-     * <p>Invoice Type</p>
-     */
-    @Hl7XmlMapping({"code"})
-    public Code getInvoiceType() {
-        return (Code) this.invoiceType.getValue();
-    }
-    public void setInvoiceType(Code invoiceType) {
-        this.invoiceType.setValue(invoiceType);
-    }
-
-
-    @Hl7XmlMapping({"predecessor/invoiceElementCrossReference"})
-    public List<InvoiceElementCrossReferenceBean> getPredecessorInvoiceElementCrossReference() {
-        return this.predecessorInvoiceElementCrossReference;
-    }
-
-
-    @Hl7XmlMapping({"coverage/policyOrAccount"})
-    public List<PolicyOrAccount_2Bean> getCoveragePolicyOrAccount() {
-        return this.coveragePolicyOrAccount;
-    }
-
-
-    @Hl7XmlMapping({"component"})
-    public List<InvoiceElementComponentBean> getComponent() {
-        return this.component;
-    }
-
-
-    /**
-     * <p>InvoiceGroupingIdentifierS</p>
-     * 
-     * <p>Invoice Grouping Identifier(s</p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Set<Identifier> getInvoiceGroupingIdentifierS() {
-        return this.invoiceGroupingIdentifierS.rawSet();
     }
 
 }

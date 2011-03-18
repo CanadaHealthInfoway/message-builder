@@ -41,29 +41,26 @@ import java.util.Set;
 public class PromiseGroupBean extends MessagePartBean implements PromiseChoice {
 
     private static final long serialVersionUID = 20110318L;
-    private ReportSectionSpecimenBean specimen;
-    private List<PromiseChoice> componentPromiseChoice = new ArrayList<PromiseChoice>();
-    private List<FulfillmentChoice> inFulfillmentOfFulfillmentChoice = new ArrayList<FulfillmentChoice>();
-    private SET<CV, Code> resultMaskingIndicator = new SETImpl<CV, Code>(CVImpl.class);
-    private OutbreakBean pertinentInformation1OutbreakEvent;
-    private VersionInformationBean subjectOf1ControlActEvent;
-    private List<SupportingClinicalInformationBean> pertinentInformation2SupportingClinicalObservationEvent = new ArrayList<SupportingClinicalInformationBean>();
-    private TS promiseGrouperDateTime = new TSImpl();
-    private Patient_1Bean recordTargetPatient;
-    private List<RoleChoice> receiverRoleChoice = new ArrayList<RoleChoice>();
-    private HealthcareOrganizationBean primaryInformationRecipientAssignedEntity;
     private List<RoleChoice> performerRoleChoice = new ArrayList<RoleChoice>();
+    private List<PromiseChoice> componentPromiseChoice = new ArrayList<PromiseChoice>();
+    private List<RoleChoice> receiverRoleChoice = new ArrayList<RoleChoice>();
+    private OutbreakBean pertinentInformation1OutbreakEvent;
+    private HealthcareOrganizationBean primaryInformationRecipientAssignedEntity;
+    private List<SupportingClinicalInformationBean> pertinentInformation2SupportingClinicalObservationEvent = new ArrayList<SupportingClinicalInformationBean>();
+    private II promiseGrouperIdentifier = new IIImpl();
     private ResultStatusProcessStepBean subjectOf3ResultStatusProcessStep;
     private List<IncludesBean> subjectOf2 = new ArrayList<IncludesBean>();
-    private II promiseGrouperIdentifier = new IIImpl();
+    private Patient_1Bean recordTargetPatient;
+    private VersionInformationBean subjectOf1ControlActEvent;
+    private SET<CV, Code> resultMaskingIndicator = new SETImpl<CV, Code>(CVImpl.class);
+    private List<FulfillmentChoice> inFulfillmentOfFulfillmentChoice = new ArrayList<FulfillmentChoice>();
+    private ReportSectionSpecimenBean specimen;
+    private TS promiseGrouperDateTime = new TSImpl();
 
 
-    @Hl7XmlMapping({"specimen"})
-    public ReportSectionSpecimenBean getSpecimen() {
-        return this.specimen;
-    }
-    public void setSpecimen(ReportSectionSpecimenBean specimen) {
-        this.specimen = specimen;
+    @Hl7XmlMapping({"performer/roleChoice"})
+    public List<RoleChoice> getPerformerRoleChoice() {
+        return this.performerRoleChoice;
     }
 
 
@@ -73,18 +70,9 @@ public class PromiseGroupBean extends MessagePartBean implements PromiseChoice {
     }
 
 
-    @Hl7XmlMapping({"inFulfillmentOf/fulfillmentChoice"})
-    public List<FulfillmentChoice> getInFulfillmentOfFulfillmentChoice() {
-        return this.inFulfillmentOfFulfillmentChoice;
-    }
-
-
-    /**
-     * <p>Result Masking Indicator</p>
-     */
-    @Hl7XmlMapping({"confidentialityCode"})
-    public Set<x_BasicConfidentialityKind> getResultMaskingIndicator() {
-        return this.resultMaskingIndicator.rawSet(x_BasicConfidentialityKind.class);
+    @Hl7XmlMapping({"receiver/roleChoice"})
+    public List<RoleChoice> getReceiverRoleChoice() {
+        return this.receiverRoleChoice;
     }
 
 
@@ -97,12 +85,12 @@ public class PromiseGroupBean extends MessagePartBean implements PromiseChoice {
     }
 
 
-    @Hl7XmlMapping({"subjectOf1/controlActEvent"})
-    public VersionInformationBean getSubjectOf1ControlActEvent() {
-        return this.subjectOf1ControlActEvent;
+    @Hl7XmlMapping({"primaryInformationRecipient/assignedEntity"})
+    public HealthcareOrganizationBean getPrimaryInformationRecipientAssignedEntity() {
+        return this.primaryInformationRecipientAssignedEntity;
     }
-    public void setSubjectOf1ControlActEvent(VersionInformationBean subjectOf1ControlActEvent) {
-        this.subjectOf1ControlActEvent = subjectOf1ControlActEvent;
+    public void setPrimaryInformationRecipientAssignedEntity(HealthcareOrganizationBean primaryInformationRecipientAssignedEntity) {
+        this.primaryInformationRecipientAssignedEntity = primaryInformationRecipientAssignedEntity;
     }
 
 
@@ -113,44 +101,14 @@ public class PromiseGroupBean extends MessagePartBean implements PromiseChoice {
 
 
     /**
-     * <p>Promise Grouper Date/Time</p>
+     * <p>Promise Grouper Identifier</p>
      */
-    @Hl7XmlMapping({"effectiveTime"})
-    public Date getPromiseGrouperDateTime() {
-        return this.promiseGrouperDateTime.getValue();
+    @Hl7XmlMapping({"id"})
+    public Identifier getPromiseGrouperIdentifier() {
+        return this.promiseGrouperIdentifier.getValue();
     }
-    public void setPromiseGrouperDateTime(Date promiseGrouperDateTime) {
-        this.promiseGrouperDateTime.setValue(promiseGrouperDateTime);
-    }
-
-
-    @Hl7XmlMapping({"recordTarget/patient"})
-    public Patient_1Bean getRecordTargetPatient() {
-        return this.recordTargetPatient;
-    }
-    public void setRecordTargetPatient(Patient_1Bean recordTargetPatient) {
-        this.recordTargetPatient = recordTargetPatient;
-    }
-
-
-    @Hl7XmlMapping({"receiver/roleChoice"})
-    public List<RoleChoice> getReceiverRoleChoice() {
-        return this.receiverRoleChoice;
-    }
-
-
-    @Hl7XmlMapping({"primaryInformationRecipient/assignedEntity"})
-    public HealthcareOrganizationBean getPrimaryInformationRecipientAssignedEntity() {
-        return this.primaryInformationRecipientAssignedEntity;
-    }
-    public void setPrimaryInformationRecipientAssignedEntity(HealthcareOrganizationBean primaryInformationRecipientAssignedEntity) {
-        this.primaryInformationRecipientAssignedEntity = primaryInformationRecipientAssignedEntity;
-    }
-
-
-    @Hl7XmlMapping({"performer/roleChoice"})
-    public List<RoleChoice> getPerformerRoleChoice() {
-        return this.performerRoleChoice;
+    public void setPromiseGrouperIdentifier(Identifier promiseGrouperIdentifier) {
+        this.promiseGrouperIdentifier.setValue(promiseGrouperIdentifier);
     }
 
 
@@ -169,15 +127,57 @@ public class PromiseGroupBean extends MessagePartBean implements PromiseChoice {
     }
 
 
-    /**
-     * <p>Promise Grouper Identifier</p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Identifier getPromiseGrouperIdentifier() {
-        return this.promiseGrouperIdentifier.getValue();
+    @Hl7XmlMapping({"recordTarget/patient"})
+    public Patient_1Bean getRecordTargetPatient() {
+        return this.recordTargetPatient;
     }
-    public void setPromiseGrouperIdentifier(Identifier promiseGrouperIdentifier) {
-        this.promiseGrouperIdentifier.setValue(promiseGrouperIdentifier);
+    public void setRecordTargetPatient(Patient_1Bean recordTargetPatient) {
+        this.recordTargetPatient = recordTargetPatient;
+    }
+
+
+    @Hl7XmlMapping({"subjectOf1/controlActEvent"})
+    public VersionInformationBean getSubjectOf1ControlActEvent() {
+        return this.subjectOf1ControlActEvent;
+    }
+    public void setSubjectOf1ControlActEvent(VersionInformationBean subjectOf1ControlActEvent) {
+        this.subjectOf1ControlActEvent = subjectOf1ControlActEvent;
+    }
+
+
+    /**
+     * <p>Result Masking Indicator</p>
+     */
+    @Hl7XmlMapping({"confidentialityCode"})
+    public Set<x_BasicConfidentialityKind> getResultMaskingIndicator() {
+        return this.resultMaskingIndicator.rawSet(x_BasicConfidentialityKind.class);
+    }
+
+
+    @Hl7XmlMapping({"inFulfillmentOf/fulfillmentChoice"})
+    public List<FulfillmentChoice> getInFulfillmentOfFulfillmentChoice() {
+        return this.inFulfillmentOfFulfillmentChoice;
+    }
+
+
+    @Hl7XmlMapping({"specimen"})
+    public ReportSectionSpecimenBean getSpecimen() {
+        return this.specimen;
+    }
+    public void setSpecimen(ReportSectionSpecimenBean specimen) {
+        this.specimen = specimen;
+    }
+
+
+    /**
+     * <p>Promise Grouper Date/Time</p>
+     */
+    @Hl7XmlMapping({"effectiveTime"})
+    public Date getPromiseGrouperDateTime() {
+        return this.promiseGrouperDateTime.getValue();
+    }
+    public void setPromiseGrouperDateTime(Date promiseGrouperDateTime) {
+        this.promiseGrouperDateTime.setValue(promiseGrouperDateTime);
     }
 
 }

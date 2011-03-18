@@ -22,6 +22,8 @@ import ca.infoway.messagebuilder.domainvalue.HealthcareOrganizationRoleType;
 import ca.infoway.messagebuilder.domainvalue.HealthcareProviderRoleType;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.r02_04_02.merged.ActingPersonBean;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 
@@ -61,10 +63,10 @@ public class HealthcareWorkerBean extends MessagePartBean implements ca.infoway.
     private static final long serialVersionUID = 20110318L;
     private ST assignedOrganizationName = new STImpl();
     private CV healthcareWorkerType = new CVImpl();
+    private SET<TEL, TelecommunicationAddress> healthcareWorkerPhoneAndEmails = new SETImpl<TEL, TelecommunicationAddress>(TELImpl.class);
     private CV organizationType = new CVImpl();
     private SET<TEL, TelecommunicationAddress> organizationPhoneAndEmails = new SETImpl<TEL, TelecommunicationAddress>(TELImpl.class);
     private II organizationIdentifier = new IIImpl();
-    private SET<TEL, TelecommunicationAddress> healthcareWorkerPhoneAndEmails = new SETImpl<TEL, TelecommunicationAddress>(TELImpl.class);
     private ActingPersonBean assignedPerson;
     private SET<II, Identifier> healthcareWorkerIdentifier = new SETImpl<II, Identifier>(IIImpl.class);
 
@@ -139,6 +141,24 @@ public class HealthcareWorkerBean extends MessagePartBean implements ca.infoway.
 
 
     /**
+     * <p>HealthcareWorkerPhoneAndEmails</p>
+     * 
+     * <p>E: Healthcare Worker Phone and Emails</p>
+     * 
+     * <p><p>Indicates phone and/or e-mail addresses at which the 
+     * healthcare worker can be reached.</p></p>
+     * 
+     * <p><p>This is the most commonly used piece of contact 
+     * information and is returned here to avoid unnecessary 
+     * queries of the provider registry.</p></p>
+     */
+    @Hl7XmlMapping({"telecom"})
+    public Set<TelecommunicationAddress> getHealthcareWorkerPhoneAndEmails() {
+        return this.healthcareWorkerPhoneAndEmails.rawSet();
+    }
+
+
+    /**
      * <p>OrganizationType</p>
      * 
      * <p>G: Organization Type</p>
@@ -204,24 +224,6 @@ public class HealthcareWorkerBean extends MessagePartBean implements ca.infoway.
     }
     public void setOrganizationIdentifier(Identifier organizationIdentifier) {
         this.organizationIdentifier.setValue(organizationIdentifier);
-    }
-
-
-    /**
-     * <p>HealthcareWorkerPhoneAndEmails</p>
-     * 
-     * <p>E: Healthcare Worker Phone and Emails</p>
-     * 
-     * <p><p>Indicates phone and/or e-mail addresses at which the 
-     * healthcare worker can be reached.</p></p>
-     * 
-     * <p><p>This is the most commonly used piece of contact 
-     * information and is returned here to avoid unnecessary 
-     * queries of the provider registry.</p></p>
-     */
-    @Hl7XmlMapping({"telecom"})
-    public Set<TelecommunicationAddress> getHealthcareWorkerPhoneAndEmails() {
-        return this.healthcareWorkerPhoneAndEmails.rawSet();
     }
 
 

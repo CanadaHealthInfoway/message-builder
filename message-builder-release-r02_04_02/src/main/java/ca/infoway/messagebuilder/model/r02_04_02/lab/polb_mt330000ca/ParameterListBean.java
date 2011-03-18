@@ -45,38 +45,34 @@ import java.util.Date;
 public class ParameterListBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private BL includeHistoryIndicator = new BLImpl();
+    private BL includeResultsIndicator = new BLImpl();
     private II orderingProviderIdentifier = new IIImpl();
     private CV patientGender = new CVImpl();
-    private IVL<TS, Interval<Date>> orderEntryEffectiveTimeRange = new IVLImpl<TS, Interval<Date>>();
-    private II placerOrderNumber = new IIImpl();
-    private BL includeResultsIndicator = new BLImpl();
     private II patientID = new IIImpl();
     private BL includeNullifiedOrdersIndicator = new BLImpl();
-    private IVL<TS, Interval<Date>> observationAvailabilityEffectiveTimeRange = new IVLImpl<TS, Interval<Date>>();
     private CD orderTestCode = new CDImpl();
-    private TS patientDOB = new TSImpl();
-    private CS orderStatusValue = new CSImpl();
+    private IVL<TS, Interval<Date>> observationAvailabilityEffectiveTimeRange = new IVLImpl<TS, Interval<Date>>();
+    private II placerOrderNumber = new IIImpl();
+    private IVL<TS, Interval<Date>> orderEntryEffectiveTimeRange = new IVLImpl<TS, Interval<Date>>();
     private PN patientName = new PNImpl();
+    private CS orderStatusValue = new CSImpl();
+    private TS patientDOB = new TSImpl();
+    private BL includeHistoryIndicator = new BLImpl();
 
 
     /**
-     * <p>Include History Indicator</p>
+     * <p>Include Results Indicator</p>
      * 
-     * <p><p>Indicates whether or not to include historical records 
-     * (each change to a record, revisions, state changes, each 
-     * trigger event). True=include records, the default is 
-     * false.</p></p>
-     * 
-     * <p><p>Historical (version) records are usable for audit, 
-     * quality assurance, etc.</p></p>
+     * <p><p>Indicates whether or not to include results (current 
+     * if present) with each order. True=include records, the 
+     * default is false.</p></p>
      */
-    @Hl7XmlMapping({"includeHistoryIndicator/value"})
-    public Boolean getIncludeHistoryIndicator() {
-        return this.includeHistoryIndicator.getValue();
+    @Hl7XmlMapping({"includeResultsIndicator/value"})
+    public Boolean getIncludeResultsIndicator() {
+        return this.includeResultsIndicator.getValue();
     }
-    public void setIncludeHistoryIndicator(Boolean includeHistoryIndicator) {
-        this.includeHistoryIndicator.setValue(includeHistoryIndicator);
+    public void setIncludeResultsIndicator(Boolean includeResultsIndicator) {
+        this.includeResultsIndicator.setValue(includeResultsIndicator);
     }
 
 
@@ -116,64 +112,6 @@ public class ParameterListBean extends MessagePartBean {
 
 
     /**
-     * <p>Order Entry Effective Time Range</p>
-     * 
-     * <p><p>Filters the set of records to be retrieved to those 
-     * which the order entry date/time for the patient within the 
-     * time boundaries specified. Either the lower bound or upper 
-     * bound or both would be specified. If no value is specified, 
-     * no filter will be applied. If there is any overlap between 
-     * the specified time-range and the order entry date/time, the 
-     * record will be returned.</p></p>
-     * 
-     * <p><p>Allows constraining the retrieved records to those 
-     * applicable at a particular time.</p></p>
-     */
-    @Hl7XmlMapping({"orderEnteredDateTimeRange/value"})
-    public Interval<Date> getOrderEntryEffectiveTimeRange() {
-        return this.orderEntryEffectiveTimeRange.getValue();
-    }
-    public void setOrderEntryEffectiveTimeRange(Interval<Date> orderEntryEffectiveTimeRange) {
-        this.orderEntryEffectiveTimeRange.setValue(orderEntryEffectiveTimeRange);
-    }
-
-
-    /**
-     * <p>Placer Order Number</p>
-     * 
-     * <p><p>Must contain a value assigned by the order-placing 
-     * organization that uniquely identifies the test for query 
-     * selection.</p></p>
-     * 
-     * <p><p>Allows constraining the retrieved records by 
-     * identifier.</p></p>
-     */
-    @Hl7XmlMapping({"placerOrderNumber/value"})
-    public Identifier getPlacerOrderNumber() {
-        return this.placerOrderNumber.getValue();
-    }
-    public void setPlacerOrderNumber(Identifier placerOrderNumber) {
-        this.placerOrderNumber.setValue(placerOrderNumber);
-    }
-
-
-    /**
-     * <p>Include Results Indicator</p>
-     * 
-     * <p><p>Indicates whether or not to include results (current 
-     * if present) with each order. True=include records, the 
-     * default is false.</p></p>
-     */
-    @Hl7XmlMapping({"includeResultsIndicator/value"})
-    public Boolean getIncludeResultsIndicator() {
-        return this.includeResultsIndicator.getValue();
-    }
-    public void setIncludeResultsIndicator(Boolean includeResultsIndicator) {
-        this.includeResultsIndicator.setValue(includeResultsIndicator);
-    }
-
-
-    /**
      * <p>Patient ID</p>
      * 
      * <p><p>A globally unique identifier for the patient whose 
@@ -207,6 +145,23 @@ public class ParameterListBean extends MessagePartBean {
 
 
     /**
+     * <p>Order Test Code</p>
+     * 
+     * <p><p>The code to describe the type of test requested to be 
+     * performed.</p></p>
+     * 
+     * <p><p>Identifies the specific test to perform.</p></p>
+     */
+    @Hl7XmlMapping({"orderTestCode/value"})
+    public ObservationOrderableLabType getOrderTestCode() {
+        return (ObservationOrderableLabType) this.orderTestCode.getValue();
+    }
+    public void setOrderTestCode(ObservationOrderableLabType orderTestCode) {
+        this.orderTestCode.setValue(orderTestCode);
+    }
+
+
+    /**
      * <p>Observation Availability Effective Time Range</p>
      * 
      * <p><p>Filters the set of records to be retrieved to those 
@@ -230,36 +185,61 @@ public class ParameterListBean extends MessagePartBean {
 
 
     /**
-     * <p>Order Test Code</p>
+     * <p>Placer Order Number</p>
      * 
-     * <p><p>The code to describe the type of test requested to be 
-     * performed.</p></p>
+     * <p><p>Must contain a value assigned by the order-placing 
+     * organization that uniquely identifies the test for query 
+     * selection.</p></p>
      * 
-     * <p><p>Identifies the specific test to perform.</p></p>
+     * <p><p>Allows constraining the retrieved records by 
+     * identifier.</p></p>
      */
-    @Hl7XmlMapping({"orderTestCode/value"})
-    public ObservationOrderableLabType getOrderTestCode() {
-        return (ObservationOrderableLabType) this.orderTestCode.getValue();
+    @Hl7XmlMapping({"placerOrderNumber/value"})
+    public Identifier getPlacerOrderNumber() {
+        return this.placerOrderNumber.getValue();
     }
-    public void setOrderTestCode(ObservationOrderableLabType orderTestCode) {
-        this.orderTestCode.setValue(orderTestCode);
+    public void setPlacerOrderNumber(Identifier placerOrderNumber) {
+        this.placerOrderNumber.setValue(placerOrderNumber);
     }
 
 
     /**
-     * <p>Patient DOB</p>
+     * <p>Order Entry Effective Time Range</p>
      * 
-     * <p><p>Patient's date of birth.</p></p>
+     * <p><p>Filters the set of records to be retrieved to those 
+     * which the order entry date/time for the patient within the 
+     * time boundaries specified. Either the lower bound or upper 
+     * bound or both would be specified. If no value is specified, 
+     * no filter will be applied. If there is any overlap between 
+     * the specified time-range and the order entry date/time, the 
+     * record will be returned.</p></p>
+     * 
+     * <p><p>Allows constraining the retrieved records to those 
+     * applicable at a particular time.</p></p>
+     */
+    @Hl7XmlMapping({"orderEnteredDateTimeRange/value"})
+    public Interval<Date> getOrderEntryEffectiveTimeRange() {
+        return this.orderEntryEffectiveTimeRange.getValue();
+    }
+    public void setOrderEntryEffectiveTimeRange(Interval<Date> orderEntryEffectiveTimeRange) {
+        this.orderEntryEffectiveTimeRange.setValue(orderEntryEffectiveTimeRange);
+    }
+
+
+    /**
+     * <p>Patient Name</p>
+     * 
+     * <p><p>Name for the patient.</p></p>
      * 
      * <p><p>Used to verify patient identity (a check against the 
      * patient id parameter).</p></p>
      */
-    @Hl7XmlMapping({"patientDateofBirth/value"})
-    public Date getPatientDOB() {
-        return this.patientDOB.getValue();
+    @Hl7XmlMapping({"patientName/value"})
+    public PersonName getPatientName() {
+        return this.patientName.getValue();
     }
-    public void setPatientDOB(Date patientDOB) {
-        this.patientDOB.setValue(patientDOB);
+    public void setPatientName(PersonName patientName) {
+        this.patientName.setValue(patientName);
     }
 
 
@@ -284,19 +264,39 @@ public class ParameterListBean extends MessagePartBean {
 
 
     /**
-     * <p>Patient Name</p>
+     * <p>Patient DOB</p>
      * 
-     * <p><p>Name for the patient.</p></p>
+     * <p><p>Patient's date of birth.</p></p>
      * 
      * <p><p>Used to verify patient identity (a check against the 
      * patient id parameter).</p></p>
      */
-    @Hl7XmlMapping({"patientName/value"})
-    public PersonName getPatientName() {
-        return this.patientName.getValue();
+    @Hl7XmlMapping({"patientDateofBirth/value"})
+    public Date getPatientDOB() {
+        return this.patientDOB.getValue();
     }
-    public void setPatientName(PersonName patientName) {
-        this.patientName.setValue(patientName);
+    public void setPatientDOB(Date patientDOB) {
+        this.patientDOB.setValue(patientDOB);
+    }
+
+
+    /**
+     * <p>Include History Indicator</p>
+     * 
+     * <p><p>Indicates whether or not to include historical records 
+     * (each change to a record, revisions, state changes, each 
+     * trigger event). True=include records, the default is 
+     * false.</p></p>
+     * 
+     * <p><p>Historical (version) records are usable for audit, 
+     * quality assurance, etc.</p></p>
+     */
+    @Hl7XmlMapping({"includeHistoryIndicator/value"})
+    public Boolean getIncludeHistoryIndicator() {
+        return this.includeHistoryIndicator.getValue();
+    }
+    public void setIncludeHistoryIndicator(Boolean includeHistoryIndicator) {
+        this.includeHistoryIndicator.setValue(includeHistoryIndicator);
     }
 
 }

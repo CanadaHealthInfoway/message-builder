@@ -58,74 +58,18 @@ import java.util.Set;
 public class LocationBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private List<AvailableServicesBean> locationOfServiceDefinition = new ArrayList<AvailableServicesBean>();
-    private PlaceBean location;
-    private IndirectAuthorithyOverBean indirectAuthority;
-    private SET<ST, String> locationNames = new SETImpl<ST, String>(STImpl.class);
-    private List<SubLocationsBean> partSubLocation = new ArrayList<SubLocationsBean>();
     private CV locationType = new CVImpl();
-    private LocationBean partOfServiceDeliveryLocation;
-    private CS locationStatus = new CSImpl();
+    private SET<ST, String> locationNames = new SETImpl<ST, String>(STImpl.class);
     private ResponsibleOrganizationBean serviceProviderOrganization;
-    private AD locationAddress = new ADImpl();
-    private List<GeographicCoordinatesBean> subjectOfPosition = new ArrayList<GeographicCoordinatesBean>();
+    private List<SubLocationsBean> partSubLocation = new ArrayList<SubLocationsBean>();
     private List<ContactPointsBean> directAuthorityOverContactParty = new ArrayList<ContactPointsBean>();
-
-
-    @Hl7XmlMapping({"locationOf/serviceDefinition"})
-    public List<AvailableServicesBean> getLocationOfServiceDefinition() {
-        return this.locationOfServiceDefinition;
-    }
-
-
-    @Hl7XmlMapping({"location"})
-    public PlaceBean getLocation() {
-        return this.location;
-    }
-    public void setLocation(PlaceBean location) {
-        this.location = location;
-    }
-
-
-    @Hl7XmlMapping({"indirectAuthority"})
-    public IndirectAuthorithyOverBean getIndirectAuthority() {
-        return this.indirectAuthority;
-    }
-    public void setIndirectAuthority(IndirectAuthorithyOverBean indirectAuthority) {
-        this.indirectAuthority = indirectAuthority;
-    }
-
-
-    /**
-     * <p>D:Location Names</p>
-     * 
-     * <p><p>A textual name for the place where the service is 
-     * provided e.g. Ottawa General Hospital.</p></p>
-     * 
-     * <p><p>Provides a human-readable label for the location. The 
-     * location name is not intended to be parsed or analyzed by 
-     * when processing the record. (E.g. To determine if a location 
-     * is a hospital, look at the location type, don't check the 
-     * name for the word &quot;hospital&quot;.)</p><p>Multiple 
-     * repetitions are allowed to capture historical names</p></p>
-     * 
-     * <p><p>Provides a human-readable label for the location. The 
-     * location name is not intended to be parsed or analyzed by 
-     * when processing the record. (E.g. To determine if a location 
-     * is a hospital, look at the location type, don't check the 
-     * name for the word &quot;hospital&quot;.)</p><p>Multiple 
-     * repetitions are allowed to capture historical names</p></p>
-     */
-    @Hl7XmlMapping({"name"})
-    public Set<String> getLocationNames() {
-        return this.locationNames.rawSet();
-    }
-
-
-    @Hl7XmlMapping({"part/subLocation"})
-    public List<SubLocationsBean> getPartSubLocation() {
-        return this.partSubLocation;
-    }
+    private AD locationAddress = new ADImpl();
+    private IndirectAuthorithyOverBean indirectAuthority;
+    private LocationBean partOfServiceDeliveryLocation;
+    private PlaceBean location;
+    private List<AvailableServicesBean> locationOfServiceDefinition = new ArrayList<AvailableServicesBean>();
+    private List<GeographicCoordinatesBean> subjectOfPosition = new ArrayList<GeographicCoordinatesBean>();
+    private CS locationStatus = new CSImpl();
 
 
     /**
@@ -164,42 +108,29 @@ public class LocationBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"partOf/serviceDeliveryLocation"})
-    public LocationBean getPartOfServiceDeliveryLocation() {
-        return this.partOfServiceDeliveryLocation;
-    }
-    public void setPartOfServiceDeliveryLocation(LocationBean partOfServiceDeliveryLocation) {
-        this.partOfServiceDeliveryLocation = partOfServiceDeliveryLocation;
-    }
-
-
     /**
-     * <p>C: Location Status</p>
+     * <p>D:Location Names</p>
      * 
-     * <p></p><p>Allowed status values are 'active' (the location 
-     * is actively used to deliver healthcare-related services), 
-     * 'suspended' (the location has temporarily ceased delivering 
-     * healthcare-related services) and 'terminated' (the location 
-     * has permanently ceased delivering healthcare-related 
-     * services and may no longer physically exist.)</p></p>
+     * <p><p>A textual name for the place where the service is 
+     * provided e.g. Ottawa General Hospital.</p></p>
      * 
-     * <p></p><p>Allowed status values are 'active' (the location 
-     * is actively used to deliver healthcare-related services), 
-     * 'suspended' (the location has temporarily ceased delivering 
-     * healthcare-related services) and 'terminated' (the location 
-     * has permanently ceased delivering healthcare-related 
-     * services and may no longer physically exist.)</p></p>
+     * <p><p>Provides a human-readable label for the location. The 
+     * location name is not intended to be parsed or analyzed by 
+     * when processing the record. (E.g. To determine if a location 
+     * is a hospital, look at the location type, don't check the 
+     * name for the word &quot;hospital&quot;.)</p><p>Multiple 
+     * repetitions are allowed to capture historical names</p></p>
      * 
-     * <p></p></p>
-     * 
-     * <p></p></p>
+     * <p><p>Provides a human-readable label for the location. The 
+     * location name is not intended to be parsed or analyzed by 
+     * when processing the record. (E.g. To determine if a location 
+     * is a hospital, look at the location type, don't check the 
+     * name for the word &quot;hospital&quot;.)</p><p>Multiple 
+     * repetitions are allowed to capture historical names</p></p>
      */
-    @Hl7XmlMapping({"statusCode"})
-    public ServiceDeliveryRoleStatus getLocationStatus() {
-        return (ServiceDeliveryRoleStatus) this.locationStatus.getValue();
-    }
-    public void setLocationStatus(ServiceDeliveryRoleStatus locationStatus) {
-        this.locationStatus.setValue(locationStatus);
+    @Hl7XmlMapping({"name"})
+    public Set<String> getLocationNames() {
+        return this.locationNames.rawSet();
     }
 
 
@@ -209,6 +140,18 @@ public class LocationBean extends MessagePartBean {
     }
     public void setServiceProviderOrganization(ResponsibleOrganizationBean serviceProviderOrganization) {
         this.serviceProviderOrganization = serviceProviderOrganization;
+    }
+
+
+    @Hl7XmlMapping({"part/subLocation"})
+    public List<SubLocationsBean> getPartSubLocation() {
+        return this.partSubLocation;
+    }
+
+
+    @Hl7XmlMapping({"directAuthorityOver/contactParty"})
+    public List<ContactPointsBean> getDirectAuthorityOverContactParty() {
+        return this.directAuthorityOverContactParty;
     }
 
 
@@ -252,15 +195,72 @@ public class LocationBean extends MessagePartBean {
     }
 
 
+    @Hl7XmlMapping({"indirectAuthority"})
+    public IndirectAuthorithyOverBean getIndirectAuthority() {
+        return this.indirectAuthority;
+    }
+    public void setIndirectAuthority(IndirectAuthorithyOverBean indirectAuthority) {
+        this.indirectAuthority = indirectAuthority;
+    }
+
+
+    @Hl7XmlMapping({"partOf/serviceDeliveryLocation"})
+    public LocationBean getPartOfServiceDeliveryLocation() {
+        return this.partOfServiceDeliveryLocation;
+    }
+    public void setPartOfServiceDeliveryLocation(LocationBean partOfServiceDeliveryLocation) {
+        this.partOfServiceDeliveryLocation = partOfServiceDeliveryLocation;
+    }
+
+
+    @Hl7XmlMapping({"location"})
+    public PlaceBean getLocation() {
+        return this.location;
+    }
+    public void setLocation(PlaceBean location) {
+        this.location = location;
+    }
+
+
+    @Hl7XmlMapping({"locationOf/serviceDefinition"})
+    public List<AvailableServicesBean> getLocationOfServiceDefinition() {
+        return this.locationOfServiceDefinition;
+    }
+
+
     @Hl7XmlMapping({"subjectOf/position"})
     public List<GeographicCoordinatesBean> getSubjectOfPosition() {
         return this.subjectOfPosition;
     }
 
 
-    @Hl7XmlMapping({"directAuthorityOver/contactParty"})
-    public List<ContactPointsBean> getDirectAuthorityOverContactParty() {
-        return this.directAuthorityOverContactParty;
+    /**
+     * <p>C: Location Status</p>
+     * 
+     * <p></p><p>Allowed status values are 'active' (the location 
+     * is actively used to deliver healthcare-related services), 
+     * 'suspended' (the location has temporarily ceased delivering 
+     * healthcare-related services) and 'terminated' (the location 
+     * has permanently ceased delivering healthcare-related 
+     * services and may no longer physically exist.)</p></p>
+     * 
+     * <p></p><p>Allowed status values are 'active' (the location 
+     * is actively used to deliver healthcare-related services), 
+     * 'suspended' (the location has temporarily ceased delivering 
+     * healthcare-related services) and 'terminated' (the location 
+     * has permanently ceased delivering healthcare-related 
+     * services and may no longer physically exist.)</p></p>
+     * 
+     * <p></p></p>
+     * 
+     * <p></p></p>
+     */
+    @Hl7XmlMapping({"statusCode"})
+    public ServiceDeliveryRoleStatus getLocationStatus() {
+        return (ServiceDeliveryRoleStatus) this.locationStatus.getValue();
+    }
+    public void setLocationStatus(ServiceDeliveryRoleStatus locationStatus) {
+        this.locationStatus.setValue(locationStatus);
     }
 
 }

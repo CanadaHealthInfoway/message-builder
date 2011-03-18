@@ -44,10 +44,10 @@ public class CultureObservationsBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
     private CD cultureObservationType = new CDImpl();
-    private ANY<Object> cultureObservationValue = new ANYImpl<Object>();
     private ResultStatusProcessStepBean subjectOf2ResultStatusProcessStep;
-    private ST cultureObservationComment = new STImpl();
     private List<IncludesBean> subjectOf1 = new ArrayList<IncludesBean>();
+    private ANY<Object> cultureObservationValue = new ANYImpl<Object>();
+    private ST cultureObservationComment = new STImpl();
     private CS cultureObservationStatus = new CSImpl();
     private IVL<TS, Interval<Date>> cultureObservationDateTime = new IVLImpl<TS, Interval<Date>>();
 
@@ -64,6 +64,21 @@ public class CultureObservationsBean extends MessagePartBean {
     }
     public void setCultureObservationType(Code cultureObservationType) {
         this.cultureObservationType.setValue(cultureObservationType);
+    }
+
+
+    @Hl7XmlMapping({"subjectOf2/resultStatusProcessStep"})
+    public ResultStatusProcessStepBean getSubjectOf2ResultStatusProcessStep() {
+        return this.subjectOf2ResultStatusProcessStep;
+    }
+    public void setSubjectOf2ResultStatusProcessStep(ResultStatusProcessStepBean subjectOf2ResultStatusProcessStep) {
+        this.subjectOf2ResultStatusProcessStep = subjectOf2ResultStatusProcessStep;
+    }
+
+
+    @Hl7XmlMapping({"subjectOf1"})
+    public List<IncludesBean> getSubjectOf1() {
+        return this.subjectOf1;
     }
 
 
@@ -84,15 +99,6 @@ public class CultureObservationsBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"subjectOf2/resultStatusProcessStep"})
-    public ResultStatusProcessStepBean getSubjectOf2ResultStatusProcessStep() {
-        return this.subjectOf2ResultStatusProcessStep;
-    }
-    public void setSubjectOf2ResultStatusProcessStep(ResultStatusProcessStepBean subjectOf2ResultStatusProcessStep) {
-        this.subjectOf2ResultStatusProcessStep = subjectOf2ResultStatusProcessStep;
-    }
-
-
     /**
      * <p>Culture Observation Comment</p>
      * 
@@ -104,12 +110,6 @@ public class CultureObservationsBean extends MessagePartBean {
     }
     public void setCultureObservationComment(String cultureObservationComment) {
         this.cultureObservationComment.setValue(cultureObservationComment);
-    }
-
-
-    @Hl7XmlMapping({"subjectOf1"})
-    public List<IncludesBean> getSubjectOf1() {
-        return this.subjectOf1;
     }
 
 

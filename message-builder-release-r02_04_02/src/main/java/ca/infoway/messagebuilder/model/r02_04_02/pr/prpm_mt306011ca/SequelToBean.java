@@ -13,8 +13,17 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 public class SequelToBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private INT orderOfInformRequests = new INTImpl();
     private InformRequestBean informRequest;
+    private INT orderOfInformRequests = new INTImpl();
+
+
+    @Hl7XmlMapping({"informRequest"})
+    public InformRequestBean getInformRequest() {
+        return this.informRequest;
+    }
+    public void setInformRequest(InformRequestBean informRequest) {
+        this.informRequest = informRequest;
+    }
 
 
     /**
@@ -29,15 +38,6 @@ public class SequelToBean extends MessagePartBean {
     }
     public void setOrderOfInformRequests(Integer orderOfInformRequests) {
         this.orderOfInformRequests.setValue(orderOfInformRequests);
-    }
-
-
-    @Hl7XmlMapping({"informRequest"})
-    public InformRequestBean getInformRequest() {
-        return this.informRequest;
-    }
-    public void setInformRequest(InformRequestBean informRequest) {
-        this.informRequest = informRequest;
     }
 
 }

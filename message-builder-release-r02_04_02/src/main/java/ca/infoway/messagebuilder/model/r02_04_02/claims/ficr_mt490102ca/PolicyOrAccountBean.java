@@ -19,20 +19,11 @@ import ca.infoway.messagebuilder.model.r02_04_02.claims.merged.PolicyHolderBean;
 public class PolicyOrAccountBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private CoveredPartyBean beneficiaryCoveredParty;
     private CV policyType = new CVImpl();
-    private PolicyHolderBean holderPolicyHolder;
     private II carrierIdentifier = new IIImpl();
+    private PolicyHolderBean holderPolicyHolder;
+    private CoveredPartyBean beneficiaryCoveredParty;
     private II policyIdentifier = new IIImpl();
-
-
-    @Hl7XmlMapping({"beneficiary/coveredParty"})
-    public CoveredPartyBean getBeneficiaryCoveredParty() {
-        return this.beneficiaryCoveredParty;
-    }
-    public void setBeneficiaryCoveredParty(CoveredPartyBean beneficiaryCoveredParty) {
-        this.beneficiaryCoveredParty = beneficiaryCoveredParty;
-    }
 
 
     /**
@@ -47,15 +38,6 @@ public class PolicyOrAccountBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"holder/policyHolder"})
-    public PolicyHolderBean getHolderPolicyHolder() {
-        return this.holderPolicyHolder;
-    }
-    public void setHolderPolicyHolder(PolicyHolderBean holderPolicyHolder) {
-        this.holderPolicyHolder = holderPolicyHolder;
-    }
-
-
     /**
      * <p>Carrier Identifier</p>
      */
@@ -65,6 +47,24 @@ public class PolicyOrAccountBean extends MessagePartBean {
     }
     public void setCarrierIdentifier(Identifier carrierIdentifier) {
         this.carrierIdentifier.setValue(carrierIdentifier);
+    }
+
+
+    @Hl7XmlMapping({"holder/policyHolder"})
+    public PolicyHolderBean getHolderPolicyHolder() {
+        return this.holderPolicyHolder;
+    }
+    public void setHolderPolicyHolder(PolicyHolderBean holderPolicyHolder) {
+        this.holderPolicyHolder = holderPolicyHolder;
+    }
+
+
+    @Hl7XmlMapping({"beneficiary/coveredParty"})
+    public CoveredPartyBean getBeneficiaryCoveredParty() {
+        return this.beneficiaryCoveredParty;
+    }
+    public void setBeneficiaryCoveredParty(CoveredPartyBean beneficiaryCoveredParty) {
+        this.beneficiaryCoveredParty = beneficiaryCoveredParty;
     }
 
 

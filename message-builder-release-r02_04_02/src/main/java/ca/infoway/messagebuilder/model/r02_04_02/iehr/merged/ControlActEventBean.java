@@ -29,17 +29,8 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 public class ControlActEventBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private RequestedByBean author;
     private CV amendReason = new CVImpl();
-
-
-    @Hl7XmlMapping({"author"})
-    public RequestedByBean getAuthor() {
-        return this.author;
-    }
-    public void setAuthor(RequestedByBean author) {
-        this.author = author;
-    }
+    private RequestedByBean author;
 
 
     /**
@@ -59,6 +50,15 @@ public class ControlActEventBean extends MessagePartBean {
     }
     public void setAmendReason(ControlActReason amendReason) {
         this.amendReason.setValue(amendReason);
+    }
+
+
+    @Hl7XmlMapping({"author"})
+    public RequestedByBean getAuthor() {
+        return this.author;
+    }
+    public void setAuthor(RequestedByBean author) {
+        this.author = author;
     }
 
 }

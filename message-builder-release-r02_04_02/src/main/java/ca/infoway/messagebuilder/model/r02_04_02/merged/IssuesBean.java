@@ -132,28 +132,16 @@ import java.util.Set;
 public class IssuesBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private List<IssueManagementsBean> mitigatedByDetectedIssueManagement = new ArrayList<IssueManagementsBean>();
-    private List<CausalActs> subjectCausalActs = new ArrayList<CausalActs>();
     private CV issueType = new CVImpl();
+    private IssueDescriptionBean instantiationDetectedIssueDefinition;
+    private SET<ST, String> messageIssueLocation = new SETImpl<ST, String>(STImpl.class);
+    private List<CausalActs> subjectCausalActs = new ArrayList<CausalActs>();
     private ST text = new STImpl();
     private CV severityCode = new CVImpl();
-    private SET<ST, String> messageIssueLocation = new SETImpl<ST, String>(STImpl.class);
+    private List<IssueManagementsBean> mitigatedByDetectedIssueManagement = new ArrayList<IssueManagementsBean>();
     private CV issuePriority = new CVImpl();
-    private IssueDescriptionBean instantiationDetectedIssueDefinition;
     private BL triggerForActRequest = new BLImpl();
     private BL subjectOf1StorageIntent = new BLImpl();
-
-
-    @Hl7XmlMapping({"mitigatedBy/detectedIssueManagement"})
-    public List<IssueManagementsBean> getMitigatedByDetectedIssueManagement() {
-        return this.mitigatedByDetectedIssueManagement;
-    }
-
-
-    @Hl7XmlMapping({"subject/causalActs"})
-    public List<CausalActs> getSubjectCausalActs() {
-        return this.subjectCausalActs;
-    }
 
 
     /**
@@ -877,6 +865,48 @@ public class IssuesBean extends MessagePartBean {
     }
 
 
+    @Hl7XmlMapping({"instantiation/detectedIssueDefinition"})
+    public IssueDescriptionBean getInstantiationDetectedIssueDefinition() {
+        return this.instantiationDetectedIssueDefinition;
+    }
+    public void setInstantiationDetectedIssueDefinition(IssueDescriptionBean instantiationDetectedIssueDefinition) {
+        this.instantiationDetectedIssueDefinition = instantiationDetectedIssueDefinition;
+    }
+
+
+    /**
+     * <p>MessageIssueLocation</p>
+     * 
+     * <p>Message Issue Location</p>
+     * 
+     * <p><p>Used to identify XPath references that indicate which 
+     * attributes from the message instance were involved in the 
+     * issue.</p></p>
+     * 
+     * <p>Message Issue Location</p>
+     * 
+     * <p><p>Used to identify XPath referencesthat indicate which 
+     * attributes in a message instance were involved in the 
+     * issue.</p></p>
+     * 
+     * <p>Message Issue Location</p>
+     * 
+     * <p><p>Used to identify XPath references that indicate which 
+     * attributes in a message instance were involved in the 
+     * issue.</p></p>
+     */
+    @Hl7XmlMapping({"targetSiteCode"})
+    public Set<String> getMessageIssueLocation() {
+        return this.messageIssueLocation.rawSet();
+    }
+
+
+    @Hl7XmlMapping({"subject/causalActs"})
+    public List<CausalActs> getSubjectCausalActs() {
+        return this.subjectCausalActs;
+    }
+
+
     /**
      * <p>Issue Comment</p>
      * 
@@ -991,30 +1021,9 @@ public class IssuesBean extends MessagePartBean {
     }
 
 
-    /**
-     * <p>MessageIssueLocation</p>
-     * 
-     * <p>Message Issue Location</p>
-     * 
-     * <p><p>Used to identify XPath references that indicate which 
-     * attributes from the message instance were involved in the 
-     * issue.</p></p>
-     * 
-     * <p>Message Issue Location</p>
-     * 
-     * <p><p>Used to identify XPath referencesthat indicate which 
-     * attributes in a message instance were involved in the 
-     * issue.</p></p>
-     * 
-     * <p>Message Issue Location</p>
-     * 
-     * <p><p>Used to identify XPath references that indicate which 
-     * attributes in a message instance were involved in the 
-     * issue.</p></p>
-     */
-    @Hl7XmlMapping({"targetSiteCode"})
-    public Set<String> getMessageIssueLocation() {
-        return this.messageIssueLocation.rawSet();
+    @Hl7XmlMapping({"mitigatedBy/detectedIssueManagement"})
+    public List<IssueManagementsBean> getMitigatedByDetectedIssueManagement() {
+        return this.mitigatedByDetectedIssueManagement;
     }
 
 
@@ -1041,15 +1050,6 @@ public class IssuesBean extends MessagePartBean {
     }
     public void setIssuePriority(ActIssuePriority issuePriority) {
         this.issuePriority.setValue(issuePriority);
-    }
-
-
-    @Hl7XmlMapping({"instantiation/detectedIssueDefinition"})
-    public IssueDescriptionBean getInstantiationDetectedIssueDefinition() {
-        return this.instantiationDetectedIssueDefinition;
-    }
-    public void setInstantiationDetectedIssueDefinition(IssueDescriptionBean instantiationDetectedIssueDefinition) {
-        this.instantiationDetectedIssueDefinition = instantiationDetectedIssueDefinition;
     }
 
 

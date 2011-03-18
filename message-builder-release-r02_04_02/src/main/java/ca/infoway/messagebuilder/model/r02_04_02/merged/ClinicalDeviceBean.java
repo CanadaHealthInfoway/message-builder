@@ -16,23 +16,9 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 public class ClinicalDeviceBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private ST deviceName = new STImpl();
     private CV deviceCode = new CVImpl();
+    private ST deviceName = new STImpl();
     private ST deviceDescription = new STImpl();
-
-
-    /**
-     * <p>DeviceName</p>
-     * 
-     * <p>Device Name</p>
-     */
-    @Hl7XmlMapping({"name"})
-    public String getDeviceName() {
-        return this.deviceName.getValue();
-    }
-    public void setDeviceName(String deviceName) {
-        this.deviceName.setValue(deviceName);
-    }
 
 
     /**
@@ -46,6 +32,20 @@ public class ClinicalDeviceBean extends MessagePartBean {
     }
     public void setDeviceCode(Code deviceCode) {
         this.deviceCode.setValue(deviceCode);
+    }
+
+
+    /**
+     * <p>DeviceName</p>
+     * 
+     * <p>Device Name</p>
+     */
+    @Hl7XmlMapping({"name"})
+    public String getDeviceName() {
+        return this.deviceName.getValue();
+    }
+    public void setDeviceName(String deviceName) {
+        this.deviceName.setValue(deviceName);
     }
 
 

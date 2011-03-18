@@ -28,17 +28,8 @@ import java.util.List;
 public class InformationAccessBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private ConsentGivenToBean receiver;
     private List<CV> consentInformationTypes = new ArrayList<CV>();
-
-
-    @Hl7XmlMapping({"receiver"})
-    public ConsentGivenToBean getReceiver() {
-        return this.receiver;
-    }
-    public void setReceiver(ConsentGivenToBean receiver) {
-        this.receiver = receiver;
-    }
+    private ConsentGivenToBean receiver;
 
 
     /**
@@ -57,6 +48,15 @@ public class InformationAccessBean extends MessagePartBean {
     @Hl7XmlMapping({"subject/recordType/code"})
     public List<Code> getConsentInformationTypes() {
         return new RawListWrapper<CV, Code>(consentInformationTypes, CVImpl.class);
+    }
+
+
+    @Hl7XmlMapping({"receiver"})
+    public ConsentGivenToBean getReceiver() {
+        return this.receiver;
+    }
+    public void setReceiver(ConsentGivenToBean receiver) {
+        this.receiver = receiver;
     }
 
 }

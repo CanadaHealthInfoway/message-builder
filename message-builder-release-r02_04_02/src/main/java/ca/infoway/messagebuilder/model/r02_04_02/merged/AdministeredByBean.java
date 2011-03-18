@@ -64,18 +64,31 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 public class AdministeredByBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private HealthcareWorkerBean assignedEntity;
-    private ED<String> digitalSignature = new EDImpl<String>();
     private CV signingMethod = new CVImpl();
+    private ED<String> digitalSignature = new EDImpl<String>();
     private CV signatureCode = new CVImpl();
+    private HealthcareWorkerBean assignedEntity;
 
 
-    @Hl7XmlMapping({"assignedEntity"})
-    public HealthcareWorkerBean getAssignedEntity() {
-        return this.assignedEntity;
+    /**
+     * <p>SigningMethod</p>
+     * 
+     * <p>Signing method</p>
+     * 
+     * <p><p>A code specifying the modality by which the original 
+     * information was presented.</p></p>
+     * 
+     * <p><p>Used to specify whether the information was initially 
+     * provided verbally, (hand-)written, or electronically. As not 
+     * all implementations will need to communication this 
+     * information, this attribute is optional.</p></p>
+     */
+    @Hl7XmlMapping({"modeCode"})
+    public ParticipationMode getSigningMethod() {
+        return (ParticipationMode) this.signingMethod.getValue();
     }
-    public void setAssignedEntity(HealthcareWorkerBean assignedEntity) {
-        this.assignedEntity = assignedEntity;
+    public void setSigningMethod(ParticipationMode signingMethod) {
+        this.signingMethod.setValue(signingMethod);
     }
 
 
@@ -105,28 +118,6 @@ public class AdministeredByBean extends MessagePartBean {
 
 
     /**
-     * <p>SigningMethod</p>
-     * 
-     * <p>Signing method</p>
-     * 
-     * <p><p>A code specifying the modality by which the original 
-     * information was presented.</p></p>
-     * 
-     * <p><p>Used to specify whether the information was initially 
-     * provided verbally, (hand-)written, or electronically. As not 
-     * all implementations will need to communication this 
-     * information, this attribute is optional.</p></p>
-     */
-    @Hl7XmlMapping({"modeCode"})
-    public ParticipationMode getSigningMethod() {
-        return (ParticipationMode) this.signingMethod.getValue();
-    }
-    public void setSigningMethod(ParticipationMode signingMethod) {
-        this.signingMethod.setValue(signingMethod);
-    }
-
-
-    /**
      * <p>SignatureCode</p>
      * 
      * <p>Signature Code</p>
@@ -147,6 +138,15 @@ public class AdministeredByBean extends MessagePartBean {
     }
     public void setSignatureCode(ParticipationSignature signatureCode) {
         this.signatureCode.setValue(signatureCode);
+    }
+
+
+    @Hl7XmlMapping({"assignedEntity"})
+    public HealthcareWorkerBean getAssignedEntity() {
+        return this.assignedEntity;
+    }
+    public void setAssignedEntity(HealthcareWorkerBean assignedEntity) {
+        this.assignedEntity = assignedEntity;
     }
 
 }

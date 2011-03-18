@@ -29,19 +29,10 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 public class OrganizationBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private TerritorialAuthorityBean territorialAuthority;
     private ST issuingRepresentingQualificationGrantingOrganizationName = new STImpl();
     private AD issuingRepresentingQualificationGrantingOrganizationAddress = new ADImpl();
+    private TerritorialAuthorityBean territorialAuthority;
     private II organizationId = new IIImpl();
-
-
-    @Hl7XmlMapping({"territorialAuthority"})
-    public TerritorialAuthorityBean getTerritorialAuthority() {
-        return this.territorialAuthority;
-    }
-    public void setTerritorialAuthority(TerritorialAuthorityBean territorialAuthority) {
-        this.territorialAuthority = territorialAuthority;
-    }
 
 
     /**
@@ -121,6 +112,15 @@ public class OrganizationBean extends MessagePartBean {
     }
     public void setIssuingRepresentingQualificationGrantingOrganizationAddress(PostalAddress issuingRepresentingQualificationGrantingOrganizationAddress) {
         this.issuingRepresentingQualificationGrantingOrganizationAddress.setValue(issuingRepresentingQualificationGrantingOrganizationAddress);
+    }
+
+
+    @Hl7XmlMapping({"territorialAuthority"})
+    public TerritorialAuthorityBean getTerritorialAuthority() {
+        return this.territorialAuthority;
+    }
+    public void setTerritorialAuthority(TerritorialAuthorityBean territorialAuthority) {
+        this.territorialAuthority = territorialAuthority;
     }
 
 

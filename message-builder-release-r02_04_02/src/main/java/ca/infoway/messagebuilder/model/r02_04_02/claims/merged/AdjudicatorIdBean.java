@@ -23,8 +23,8 @@ public class AdjudicatorIdBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
     private II id = new IIImpl();
-    private AdjudicatorPersonBean playingAdjudicatorPerson;
     private II adjudicatorInsuranceCarrierID = new IIImpl();
+    private AdjudicatorPersonBean playingAdjudicatorPerson;
 
 
     /**
@@ -44,15 +44,6 @@ public class AdjudicatorIdBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"playingAdjudicatorPerson"})
-    public AdjudicatorPersonBean getPlayingAdjudicatorPerson() {
-        return this.playingAdjudicatorPerson;
-    }
-    public void setPlayingAdjudicatorPerson(AdjudicatorPersonBean playingAdjudicatorPerson) {
-        this.playingAdjudicatorPerson = playingAdjudicatorPerson;
-    }
-
-
     /**
      * <p>AdjudicatorInsuranceCarrierID</p>
      * 
@@ -64,6 +55,15 @@ public class AdjudicatorIdBean extends MessagePartBean {
     }
     public void setAdjudicatorInsuranceCarrierID(Identifier adjudicatorInsuranceCarrierID) {
         this.adjudicatorInsuranceCarrierID.setValue(adjudicatorInsuranceCarrierID);
+    }
+
+
+    @Hl7XmlMapping({"playingAdjudicatorPerson"})
+    public AdjudicatorPersonBean getPlayingAdjudicatorPerson() {
+        return this.playingAdjudicatorPerson;
+    }
+    public void setPlayingAdjudicatorPerson(AdjudicatorPersonBean playingAdjudicatorPerson) {
+        this.playingAdjudicatorPerson = playingAdjudicatorPerson;
     }
 
 }

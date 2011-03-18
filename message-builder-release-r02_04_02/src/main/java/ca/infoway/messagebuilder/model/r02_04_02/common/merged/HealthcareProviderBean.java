@@ -24,7 +24,9 @@ import ca.infoway.messagebuilder.datatype.lang.TelecommunicationAddress;
 import ca.infoway.messagebuilder.domainvalue.AdministrativeGender;
 import ca.infoway.messagebuilder.domainvalue.HealthcareProviderRoleType;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Set;
 
 
@@ -45,11 +47,11 @@ public class HealthcareProviderBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
     private CV code = new CVImpl();
-    private CV providerGender = new CVImpl();
-    private PN healthCareProviderPersonName = new PNImpl();
     private TEL healthCareProviderPersonTelecom = new TELImpl();
+    private PN healthCareProviderPersonName = new PNImpl();
     private AD providerAddress = new ADImpl();
     private TS healthCareProviderPersonBirthTime = new TSImpl();
+    private CV providerGender = new CVImpl();
     private SET<II, Identifier> id = new SETImpl<II, Identifier>(IIImpl.class);
 
 
@@ -72,24 +74,23 @@ public class HealthcareProviderBean extends MessagePartBean {
 
 
     /**
-     * <p>ProviderGender</p>
+     * <p>contact no.</p>
      * 
-     * <p>Provider Gender</p>
+     * <p><p>contact info. for Provider</p></p>
+     * 
+     * <p>Provider Telecom</p>
+     * 
+     * <p><p>Telephone no. of provider</p></p>
      * 
      * <p><p>only required if provider is not known to the 
      * Payor</p></p>
-     * 
-     * <p>Provider Gender</p>
-     * 
-     * <p><p>Telecom, gender, birth time, addr are only required if 
-     * provider is not known to the Payor</p></p>
      */
-    @Hl7XmlMapping({"healthCareProviderPerson/administrativeGenderCode"})
-    public AdministrativeGender getProviderGender() {
-        return (AdministrativeGender) this.providerGender.getValue();
+    @Hl7XmlMapping({"healthCareProviderPerson/telecom"})
+    public TelecommunicationAddress getHealthCareProviderPersonTelecom() {
+        return this.healthCareProviderPersonTelecom.getValue();
     }
-    public void setProviderGender(AdministrativeGender providerGender) {
-        this.providerGender.setValue(providerGender);
+    public void setHealthCareProviderPersonTelecom(TelecommunicationAddress healthCareProviderPersonTelecom) {
+        this.healthCareProviderPersonTelecom.setValue(healthCareProviderPersonTelecom);
     }
 
 
@@ -108,27 +109,6 @@ public class HealthcareProviderBean extends MessagePartBean {
     }
     public void setHealthCareProviderPersonName(PersonName healthCareProviderPersonName) {
         this.healthCareProviderPersonName.setValue(healthCareProviderPersonName);
-    }
-
-
-    /**
-     * <p>contact no.</p>
-     * 
-     * <p><p>contact info. for Provider</p></p>
-     * 
-     * <p>Provider Telecom</p>
-     * 
-     * <p><p>Telephone no. of provider</p></p>
-     * 
-     * <p><p>only required if provider is not known to the 
-     * Payor</p></p>
-     */
-    @Hl7XmlMapping({"healthCareProviderPerson/telecom"})
-    public TelecommunicationAddress getHealthCareProviderPersonTelecom() {
-        return this.healthCareProviderPersonTelecom.getValue();
-    }
-    public void setHealthCareProviderPersonTelecom(TelecommunicationAddress healthCareProviderPersonTelecom) {
-        this.healthCareProviderPersonTelecom.setValue(healthCareProviderPersonTelecom);
     }
 
 
@@ -174,6 +154,28 @@ public class HealthcareProviderBean extends MessagePartBean {
     }
     public void setHealthCareProviderPersonBirthTime(Date healthCareProviderPersonBirthTime) {
         this.healthCareProviderPersonBirthTime.setValue(healthCareProviderPersonBirthTime);
+    }
+
+
+    /**
+     * <p>ProviderGender</p>
+     * 
+     * <p>Provider Gender</p>
+     * 
+     * <p><p>only required if provider is not known to the 
+     * Payor</p></p>
+     * 
+     * <p>Provider Gender</p>
+     * 
+     * <p><p>Telecom, gender, birth time, addr are only required if 
+     * provider is not known to the Payor</p></p>
+     */
+    @Hl7XmlMapping({"healthCareProviderPerson/administrativeGenderCode"})
+    public AdministrativeGender getProviderGender() {
+        return (AdministrativeGender) this.providerGender.getValue();
+    }
+    public void setProviderGender(AdministrativeGender providerGender) {
+        this.providerGender.setValue(providerGender);
     }
 
 

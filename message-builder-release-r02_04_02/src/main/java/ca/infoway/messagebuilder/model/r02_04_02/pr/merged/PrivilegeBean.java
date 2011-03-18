@@ -84,33 +84,13 @@ import java.util.List;
 public class PrivilegeBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private BL restrictionsToPracticeNegationIndicator = new BLImpl();
     private CV restrictionsToPracticeType = new CVImpl();
+    private BL restrictionsToPracticeNegationIndicator = new BLImpl();
     private List<PrivilegeCategorizationBean> subjectOfPrivilegeCategorization = new ArrayList<PrivilegeCategorizationBean>();
-    private ST restrictionsToPracticeText = new STImpl();
     private CV restrictionsToPracticeConfidentialityCode = new CVImpl();
-    private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
+    private ST restrictionsToPracticeText = new STImpl();
     private II restrictionsToPracticeIdentifier = new IIImpl();
-
-
-    /**
-     * <p>RestrictionsToPracticeNegationIndicator</p>
-     * 
-     * <p>Restrictions to Practice Negation Indicator</p>
-     * 
-     * <p><p>Indicating that the privilege is a restriction.</p></p>
-     * 
-     * <p><p>Required attribute supports the validation and 
-     * identification of the healthcare provider and his/her given 
-     * privileges</p></p>
-     */
-    @Hl7XmlMapping({"negationInd"})
-    public Boolean getRestrictionsToPracticeNegationIndicator() {
-        return this.restrictionsToPracticeNegationIndicator.getValue();
-    }
-    public void setRestrictionsToPracticeNegationIndicator(Boolean restrictionsToPracticeNegationIndicator) {
-        this.restrictionsToPracticeNegationIndicator.setValue(restrictionsToPracticeNegationIndicator);
-    }
+    private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
 
 
     /**
@@ -147,29 +127,29 @@ public class PrivilegeBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"subjectOf/privilegeCategorization"})
-    public List<PrivilegeCategorizationBean> getSubjectOfPrivilegeCategorization() {
-        return this.subjectOfPrivilegeCategorization;
-    }
-
-
     /**
-     * <p>RestrictionsToPracticeText</p>
+     * <p>RestrictionsToPracticeNegationIndicator</p>
      * 
-     * <p>Restrictions to Practice Text</p>
+     * <p>Restrictions to Practice Negation Indicator</p>
      * 
-     * <p><p>Comments pertaining to the restriction.</p></p>
+     * <p><p>Indicating that the privilege is a restriction.</p></p>
      * 
      * <p><p>Required attribute supports the validation and 
      * identification of the healthcare provider and his/her given 
      * privileges</p></p>
      */
-    @Hl7XmlMapping({"text"})
-    public String getRestrictionsToPracticeText() {
-        return this.restrictionsToPracticeText.getValue();
+    @Hl7XmlMapping({"negationInd"})
+    public Boolean getRestrictionsToPracticeNegationIndicator() {
+        return this.restrictionsToPracticeNegationIndicator.getValue();
     }
-    public void setRestrictionsToPracticeText(String restrictionsToPracticeText) {
-        this.restrictionsToPracticeText.setValue(restrictionsToPracticeText);
+    public void setRestrictionsToPracticeNegationIndicator(Boolean restrictionsToPracticeNegationIndicator) {
+        this.restrictionsToPracticeNegationIndicator.setValue(restrictionsToPracticeNegationIndicator);
+    }
+
+
+    @Hl7XmlMapping({"subjectOf/privilegeCategorization"})
+    public List<PrivilegeCategorizationBean> getSubjectOfPrivilegeCategorization() {
+        return this.subjectOfPrivilegeCategorization;
     }
 
 
@@ -241,6 +221,54 @@ public class PrivilegeBean extends MessagePartBean {
 
 
     /**
+     * <p>RestrictionsToPracticeText</p>
+     * 
+     * <p>Restrictions to Practice Text</p>
+     * 
+     * <p><p>Comments pertaining to the restriction.</p></p>
+     * 
+     * <p><p>Required attribute supports the validation and 
+     * identification of the healthcare provider and his/her given 
+     * privileges</p></p>
+     */
+    @Hl7XmlMapping({"text"})
+    public String getRestrictionsToPracticeText() {
+        return this.restrictionsToPracticeText.getValue();
+    }
+    public void setRestrictionsToPracticeText(String restrictionsToPracticeText) {
+        this.restrictionsToPracticeText.setValue(restrictionsToPracticeText);
+    }
+
+
+    /**
+     * <p>RestrictionsToPracticeIdentifier</p>
+     * 
+     * <p>Restrictions to Practice Identifier</p>
+     * 
+     * <p><p>Unique identifier for the restriction.</p></p>
+     * 
+     * <p><p>Populated attribute supports the validation and 
+     * identification of the healthcare provider and his/her given 
+     * privileges</p></p>
+     * 
+     * <p>Restrictions to Practice Identifier</p>
+     * 
+     * <p><p>Unique identifier for the restriction.</p></p>
+     * 
+     * <p><p>Required attribute supports the validation and 
+     * identification of the healthcare provider and his/her given 
+     * privileges</p></p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Identifier getRestrictionsToPracticeIdentifier() {
+        return this.restrictionsToPracticeIdentifier.getValue();
+    }
+    public void setRestrictionsToPracticeIdentifier(Identifier restrictionsToPracticeIdentifier) {
+        this.restrictionsToPracticeIdentifier.setValue(restrictionsToPracticeIdentifier);
+    }
+
+
+    /**
      * <p>Restrictions to Practice Effective Date</p>
      * 
      * <p><p>Effective date of the restriction.</p></p>
@@ -280,34 +308,6 @@ public class PrivilegeBean extends MessagePartBean {
     }
     public void setEffectiveTime(Interval<Date> effectiveTime) {
         this.effectiveTime.setValue(effectiveTime);
-    }
-
-
-    /**
-     * <p>RestrictionsToPracticeIdentifier</p>
-     * 
-     * <p>Restrictions to Practice Identifier</p>
-     * 
-     * <p><p>Unique identifier for the restriction.</p></p>
-     * 
-     * <p><p>Populated attribute supports the validation and 
-     * identification of the healthcare provider and his/her given 
-     * privileges</p></p>
-     * 
-     * <p>Restrictions to Practice Identifier</p>
-     * 
-     * <p><p>Unique identifier for the restriction.</p></p>
-     * 
-     * <p><p>Required attribute supports the validation and 
-     * identification of the healthcare provider and his/her given 
-     * privileges</p></p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Identifier getRestrictionsToPracticeIdentifier() {
-        return this.restrictionsToPracticeIdentifier.getValue();
-    }
-    public void setRestrictionsToPracticeIdentifier(Identifier restrictionsToPracticeIdentifier) {
-        this.restrictionsToPracticeIdentifier.setValue(restrictionsToPracticeIdentifier);
     }
 
 }

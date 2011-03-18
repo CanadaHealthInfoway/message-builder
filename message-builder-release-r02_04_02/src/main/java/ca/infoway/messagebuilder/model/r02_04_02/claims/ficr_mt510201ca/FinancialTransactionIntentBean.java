@@ -52,14 +52,29 @@ import java.util.List;
 public class FinancialTransactionIntentBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
+    private List<AdjudicatorBillingTaxAccountBean> pertinentInformationAdjudicatorBillingTaxAccount = new ArrayList<AdjudicatorBillingTaxAccountBean>();
+    private PayeeAccountBean creditAccount;
     private List<Reason2Bean> reasonOf = new ArrayList<Reason2Bean>();
     private MO totalAmountOfPaymentIntent = new MOImpl();
-    private CS paymentIntentStatus = new CSImpl();
     private AccountBean debitAccount;
-    private PayeeAccountBean creditAccount;
-    private TS paymentIntentDateTime = new TSImpl();
+    private CS paymentIntentStatus = new CSImpl();
     private II paymentIntentIdentifier = new IIImpl();
-    private List<AdjudicatorBillingTaxAccountBean> pertinentInformationAdjudicatorBillingTaxAccount = new ArrayList<AdjudicatorBillingTaxAccountBean>();
+    private TS paymentIntentDateTime = new TSImpl();
+
+
+    @Hl7XmlMapping({"pertinentInformation/adjudicatorBillingTaxAccount"})
+    public List<AdjudicatorBillingTaxAccountBean> getPertinentInformationAdjudicatorBillingTaxAccount() {
+        return this.pertinentInformationAdjudicatorBillingTaxAccount;
+    }
+
+
+    @Hl7XmlMapping({"credit/account"})
+    public PayeeAccountBean getCreditAccount() {
+        return this.creditAccount;
+    }
+    public void setCreditAccount(PayeeAccountBean creditAccount) {
+        this.creditAccount = creditAccount;
+    }
 
 
     @Hl7XmlMapping({"reasonOf"})
@@ -80,18 +95,6 @@ public class FinancialTransactionIntentBean extends MessagePartBean {
     }
 
 
-    /**
-     * <p>Payment Intent Status</p>
-     */
-    @Hl7XmlMapping({"statusCode"})
-    public ActStatus getPaymentIntentStatus() {
-        return (ActStatus) this.paymentIntentStatus.getValue();
-    }
-    public void setPaymentIntentStatus(ActStatus paymentIntentStatus) {
-        this.paymentIntentStatus.setValue(paymentIntentStatus);
-    }
-
-
     @Hl7XmlMapping({"debit/account"})
     public AccountBean getDebitAccount() {
         return this.debitAccount;
@@ -101,24 +104,15 @@ public class FinancialTransactionIntentBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"credit/account"})
-    public PayeeAccountBean getCreditAccount() {
-        return this.creditAccount;
-    }
-    public void setCreditAccount(PayeeAccountBean creditAccount) {
-        this.creditAccount = creditAccount;
-    }
-
-
     /**
-     * <p>Payment Intent Date/Time</p>
+     * <p>Payment Intent Status</p>
      */
-    @Hl7XmlMapping({"effectiveTime"})
-    public Date getPaymentIntentDateTime() {
-        return this.paymentIntentDateTime.getValue();
+    @Hl7XmlMapping({"statusCode"})
+    public ActStatus getPaymentIntentStatus() {
+        return (ActStatus) this.paymentIntentStatus.getValue();
     }
-    public void setPaymentIntentDateTime(Date paymentIntentDateTime) {
-        this.paymentIntentDateTime.setValue(paymentIntentDateTime);
+    public void setPaymentIntentStatus(ActStatus paymentIntentStatus) {
+        this.paymentIntentStatus.setValue(paymentIntentStatus);
     }
 
 
@@ -134,9 +128,15 @@ public class FinancialTransactionIntentBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"pertinentInformation/adjudicatorBillingTaxAccount"})
-    public List<AdjudicatorBillingTaxAccountBean> getPertinentInformationAdjudicatorBillingTaxAccount() {
-        return this.pertinentInformationAdjudicatorBillingTaxAccount;
+    /**
+     * <p>Payment Intent Date/Time</p>
+     */
+    @Hl7XmlMapping({"effectiveTime"})
+    public Date getPaymentIntentDateTime() {
+        return this.paymentIntentDateTime.getValue();
+    }
+    public void setPaymentIntentDateTime(Date paymentIntentDateTime) {
+        this.paymentIntentDateTime.setValue(paymentIntentDateTime);
     }
 
 }

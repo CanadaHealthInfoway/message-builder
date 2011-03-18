@@ -43,12 +43,12 @@ public class InvoiceElementDetailBean extends MessagePartBean implements Invoice
 
     private static final long serialVersionUID = 20110318L;
     private CV submittedProductServiceCode = new CVImpl();
+    private MO submittedInvoiceLineAmount = new MOImpl();
+    private List<REAL> multiplierEG007 = new ArrayList<REAL>();
+    private RTO<Money, PhysicalQuantity> submittedUnitAmountPrice = new RTOImpl<Money, PhysicalQuantity>();
     private PQ submittedUnitQuantity = new PQImpl();
     private List<A_BillableActChoice> reasonOfBillableActChoice = new ArrayList<A_BillableActChoice>();
-    private RTO<Money, PhysicalQuantity> submittedUnitAmountPrice = new RTOImpl<Money, PhysicalQuantity>();
-    private REAL multiplierEG007 = new REALImpl();
     private II submittedInvoiceLineIdentifier = new IIImpl();
-    private MO submittedInvoiceLineAmount = new MOImpl();
 
 
     /**
@@ -60,6 +60,39 @@ public class InvoiceElementDetailBean extends MessagePartBean implements Invoice
     }
     public void setSubmittedProductServiceCode(Code submittedProductServiceCode) {
         this.submittedProductServiceCode.setValue(submittedProductServiceCode);
+    }
+
+
+    /**
+     * <p>Submitted Invoice Line Amount</p>
+     */
+    @Hl7XmlMapping({"netAmt"})
+    public Money getSubmittedInvoiceLineAmount() {
+        return this.submittedInvoiceLineAmount.getValue();
+    }
+    public void setSubmittedInvoiceLineAmount(Money submittedInvoiceLineAmount) {
+        this.submittedInvoiceLineAmount.setValue(submittedInvoiceLineAmount);
+    }
+
+
+    /**
+     * <p>Multiplier, e.g. 0.07</p>
+     */
+    @Hl7XmlMapping({"factorNumber"})
+    public List<BigDecimal> getMultiplierEG007() {
+        return new RawListWrapper<REAL, BigDecimal>(multiplierEG007, REALImpl.class);
+    }
+
+
+    /**
+     * <p>Submitted Unit Amount Price</p>
+     */
+    @Hl7XmlMapping({"unitPriceAmt"})
+    public Ratio<Money, PhysicalQuantity> getSubmittedUnitAmountPrice() {
+        return this.submittedUnitAmountPrice.getValue();
+    }
+    public void setSubmittedUnitAmountPrice(Ratio<Money, PhysicalQuantity> submittedUnitAmountPrice) {
+        this.submittedUnitAmountPrice.setValue(submittedUnitAmountPrice);
     }
 
 
@@ -82,27 +115,6 @@ public class InvoiceElementDetailBean extends MessagePartBean implements Invoice
 
 
     /**
-     * <p>Submitted Unit Amount Price</p>
-     */
-    @Hl7XmlMapping({"unitPriceAmt"})
-    public Ratio<Money, PhysicalQuantity> getSubmittedUnitAmountPrice() {
-        return this.submittedUnitAmountPrice.getValue();
-    }
-    public void setSubmittedUnitAmountPrice(Ratio<Money, PhysicalQuantity> submittedUnitAmountPrice) {
-        this.submittedUnitAmountPrice.setValue(submittedUnitAmountPrice);
-    }
-
-
-    /**
-     * <p>Multiplier, e.g. 0.07</p>
-     */
-    @Hl7XmlMapping({"factorNumber"})
-    public BigDecimal getMultiplierEG007() {
-        return this.multiplierEG007.getValue();
-    }
-
-
-    /**
      * <p>Submitted Invoice Line Identifier</p>
      */
     @Hl7XmlMapping({"id"})
@@ -111,18 +123,6 @@ public class InvoiceElementDetailBean extends MessagePartBean implements Invoice
     }
     public void setSubmittedInvoiceLineIdentifier(Identifier submittedInvoiceLineIdentifier) {
         this.submittedInvoiceLineIdentifier.setValue(submittedInvoiceLineIdentifier);
-    }
-
-
-    /**
-     * <p>Submitted Invoice Line Amount</p>
-     */
-    @Hl7XmlMapping({"netAmt"})
-    public Money getSubmittedInvoiceLineAmount() {
-        return this.submittedInvoiceLineAmount.getValue();
-    }
-    public void setSubmittedInvoiceLineAmount(Money submittedInvoiceLineAmount) {
-        this.submittedInvoiceLineAmount.setValue(submittedInvoiceLineAmount);
     }
 
 }

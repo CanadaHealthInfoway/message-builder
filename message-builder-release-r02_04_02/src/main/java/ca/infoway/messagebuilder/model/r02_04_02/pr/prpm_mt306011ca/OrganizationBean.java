@@ -14,6 +14,8 @@ import ca.infoway.messagebuilder.datatype.impl.STImpl;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.PostalAddress;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 
@@ -32,19 +34,10 @@ import java.util.Set;
 public class OrganizationBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private TerritorialAuthorityBean territorialAuthority;
     private ST issuingRepresentingQualificationGrantingOrganizationNameS = new STImpl();
     private SET<AD, PostalAddress> issuingRepresentingQualificationGrantingOrganizationAddressEs = new SETImpl<AD, PostalAddress>(ADImpl.class);
     private II organizationId = new IIImpl();
-
-
-    @Hl7XmlMapping({"territorialAuthority"})
-    public TerritorialAuthorityBean getTerritorialAuthority() {
-        return this.territorialAuthority;
-    }
-    public void setTerritorialAuthority(TerritorialAuthorityBean territorialAuthority) {
-        this.territorialAuthority = territorialAuthority;
-    }
+    private TerritorialAuthorityBean territorialAuthority;
 
 
     /**
@@ -129,6 +122,15 @@ public class OrganizationBean extends MessagePartBean {
     }
     public void setOrganizationId(Identifier organizationId) {
         this.organizationId.setValue(organizationId);
+    }
+
+
+    @Hl7XmlMapping({"territorialAuthority"})
+    public TerritorialAuthorityBean getTerritorialAuthority() {
+        return this.territorialAuthority;
+    }
+    public void setTerritorialAuthority(TerritorialAuthorityBean territorialAuthority) {
+        this.territorialAuthority = territorialAuthority;
     }
 
 }

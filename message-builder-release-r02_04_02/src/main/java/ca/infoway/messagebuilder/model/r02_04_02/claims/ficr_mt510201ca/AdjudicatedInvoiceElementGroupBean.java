@@ -28,14 +28,14 @@ public class AdjudicatedInvoiceElementGroupBean extends MessagePartBean implemen
     private static final long serialVersionUID = 20110318L;
     private CV invoiceType = new CVImpl();
     private ca.infoway.messagebuilder.model.r02_04_02.merged.AdjudicatedInvoiceElementGroupBean referenceAdjudicatedInvoiceElementGroup;
-    private CoverageBean coverage;
-    private AdjudicationResultBean outcomeOfAdjudicationResult;
-    private CS invoiceStatus = new CSImpl();
-    private List<ComponentBean> component = new ArrayList<ComponentBean>();
     private Author1Bean author;
-    private AllowableBean reference1Allowable;
-    private II adjudicationResultIdentifier = new IIImpl();
     private MO paidAmount = new MOImpl();
+    private AdjudicationResultBean outcomeOfAdjudicationResult;
+    private CoverageBean coverage;
+    private AllowableBean reference1Allowable;
+    private List<ComponentBean> component = new ArrayList<ComponentBean>();
+    private CS invoiceStatus = new CSImpl();
+    private II adjudicationResultIdentifier = new IIImpl();
 
 
     /**
@@ -59,12 +59,24 @@ public class AdjudicatedInvoiceElementGroupBean extends MessagePartBean implemen
     }
 
 
-    @Hl7XmlMapping({"coverage"})
-    public CoverageBean getCoverage() {
-        return this.coverage;
+    @Hl7XmlMapping({"author"})
+    public Author1Bean getAuthor() {
+        return this.author;
     }
-    public void setCoverage(CoverageBean coverage) {
-        this.coverage = coverage;
+    public void setAuthor(Author1Bean author) {
+        this.author = author;
+    }
+
+
+    /**
+     * <p>Paid Amount</p>
+     */
+    @Hl7XmlMapping({"netAmt"})
+    public Money getPaidAmount() {
+        return this.paidAmount.getValue();
+    }
+    public void setPaidAmount(Money paidAmount) {
+        this.paidAmount.setValue(paidAmount);
     }
 
 
@@ -74,6 +86,30 @@ public class AdjudicatedInvoiceElementGroupBean extends MessagePartBean implemen
     }
     public void setOutcomeOfAdjudicationResult(AdjudicationResultBean outcomeOfAdjudicationResult) {
         this.outcomeOfAdjudicationResult = outcomeOfAdjudicationResult;
+    }
+
+
+    @Hl7XmlMapping({"coverage"})
+    public CoverageBean getCoverage() {
+        return this.coverage;
+    }
+    public void setCoverage(CoverageBean coverage) {
+        this.coverage = coverage;
+    }
+
+
+    @Hl7XmlMapping({"reference1/allowable"})
+    public AllowableBean getReference1Allowable() {
+        return this.reference1Allowable;
+    }
+    public void setReference1Allowable(AllowableBean reference1Allowable) {
+        this.reference1Allowable = reference1Allowable;
+    }
+
+
+    @Hl7XmlMapping({"component"})
+    public List<ComponentBean> getComponent() {
+        return this.component;
     }
 
 
@@ -89,30 +125,6 @@ public class AdjudicatedInvoiceElementGroupBean extends MessagePartBean implemen
     }
 
 
-    @Hl7XmlMapping({"component"})
-    public List<ComponentBean> getComponent() {
-        return this.component;
-    }
-
-
-    @Hl7XmlMapping({"author"})
-    public Author1Bean getAuthor() {
-        return this.author;
-    }
-    public void setAuthor(Author1Bean author) {
-        this.author = author;
-    }
-
-
-    @Hl7XmlMapping({"reference1/allowable"})
-    public AllowableBean getReference1Allowable() {
-        return this.reference1Allowable;
-    }
-    public void setReference1Allowable(AllowableBean reference1Allowable) {
-        this.reference1Allowable = reference1Allowable;
-    }
-
-
     /**
      * <p>Adjudication Result Identifier</p>
      */
@@ -122,18 +134,6 @@ public class AdjudicatedInvoiceElementGroupBean extends MessagePartBean implemen
     }
     public void setAdjudicationResultIdentifier(Identifier adjudicationResultIdentifier) {
         this.adjudicationResultIdentifier.setValue(adjudicationResultIdentifier);
-    }
-
-
-    /**
-     * <p>Paid Amount</p>
-     */
-    @Hl7XmlMapping({"netAmt"})
-    public Money getPaidAmount() {
-        return this.paidAmount.getValue();
-    }
-    public void setPaidAmount(Money paidAmount) {
-        this.paidAmount.setValue(paidAmount);
     }
 
 }

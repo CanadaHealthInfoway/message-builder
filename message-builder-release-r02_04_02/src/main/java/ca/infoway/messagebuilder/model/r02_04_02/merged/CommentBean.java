@@ -20,6 +20,8 @@ import ca.infoway.messagebuilder.domainvalue.x_BasicConfidentialityKind;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.r02_04_02.common.merged.HealthcareWorkerBean;
 import ca.infoway.messagebuilder.model.r02_04_02.iehr.comt_mt300003ca.AnnotatedByBean;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 
@@ -51,14 +53,14 @@ public class CommentBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
     private CV patientNoteCategory = new CVImpl();
-    private ST text = new STImpl();
     private SET<CV, Code> restrictedPatientAccess = new SETImpl<CV, Code>(CVImpl.class);
-    private HealthcareWorkerBean responsiblePartyAssignedEntity;
+    private ST text = new STImpl();
     private OccurredAtBean location;
+    private HealthcareWorkerBean responsiblePartyAssignedEntity;
     private AnnotatedByBean author;
     private II patientNoteId = new IIImpl();
-    private CV writtenIn = new CVImpl();
     private II recordId = new IIImpl();
+    private CV writtenIn = new CVImpl();
 
 
     /**
@@ -94,28 +96,6 @@ public class CommentBean extends MessagePartBean {
     }
     public void setPatientNoteCategory(ActPatientAnnotationCode patientNoteCategory) {
         this.patientNoteCategory.setValue(patientNoteCategory);
-    }
-
-
-    /**
-     * <p>C:Annotation Text</p>
-     * 
-     * <p>C:Patient Note Text</p>
-     * 
-     * <p><p>Free textual description of the patient note.</p></p>
-     * 
-     * <p><p>Allows a provider to attach comments to a patient as a 
-     * whole or to the patient's profile (such as medication, lab. 
-     * DI, etc). This attribute is mandatory because there's no 
-     * point in having a patient note unless there's actually 
-     * content in the note.</p></p>
-     */
-    @Hl7XmlMapping({"text"})
-    public String getText() {
-        return this.text.getValue();
-    }
-    public void setText(String text) {
-        this.text.setValue(text);
     }
 
 
@@ -212,12 +192,25 @@ public class CommentBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"responsibleParty/assignedEntity"})
-    public HealthcareWorkerBean getResponsiblePartyAssignedEntity() {
-        return this.responsiblePartyAssignedEntity;
+    /**
+     * <p>C:Annotation Text</p>
+     * 
+     * <p>C:Patient Note Text</p>
+     * 
+     * <p><p>Free textual description of the patient note.</p></p>
+     * 
+     * <p><p>Allows a provider to attach comments to a patient as a 
+     * whole or to the patient's profile (such as medication, lab. 
+     * DI, etc). This attribute is mandatory because there's no 
+     * point in having a patient note unless there's actually 
+     * content in the note.</p></p>
+     */
+    @Hl7XmlMapping({"text"})
+    public String getText() {
+        return this.text.getValue();
     }
-    public void setResponsiblePartyAssignedEntity(HealthcareWorkerBean responsiblePartyAssignedEntity) {
-        this.responsiblePartyAssignedEntity = responsiblePartyAssignedEntity;
+    public void setText(String text) {
+        this.text.setValue(text);
     }
 
 
@@ -227,6 +220,15 @@ public class CommentBean extends MessagePartBean {
     }
     public void setLocation(OccurredAtBean location) {
         this.location = location;
+    }
+
+
+    @Hl7XmlMapping({"responsibleParty/assignedEntity"})
+    public HealthcareWorkerBean getResponsiblePartyAssignedEntity() {
+        return this.responsiblePartyAssignedEntity;
+    }
+    public void setResponsiblePartyAssignedEntity(HealthcareWorkerBean responsiblePartyAssignedEntity) {
+        this.responsiblePartyAssignedEntity = responsiblePartyAssignedEntity;
     }
 
 
@@ -266,20 +268,6 @@ public class CommentBean extends MessagePartBean {
 
 
     /**
-     * <p>WrittenIn</p>
-     * 
-     * <p>D:Written in</p>
-     */
-    @Hl7XmlMapping({"languageCode"})
-    public HumanLanguage getWrittenIn() {
-        return (HumanLanguage) this.writtenIn.getValue();
-    }
-    public void setWrittenIn(HumanLanguage writtenIn) {
-        this.writtenIn.setValue(writtenIn);
-    }
-
-
-    /**
      * <p>RecordId</p>
      * 
      * <p>A:Record Id</p>
@@ -290,6 +278,20 @@ public class CommentBean extends MessagePartBean {
     }
     public void setRecordId(Identifier recordId) {
         this.recordId.setValue(recordId);
+    }
+
+
+    /**
+     * <p>WrittenIn</p>
+     * 
+     * <p>D:Written in</p>
+     */
+    @Hl7XmlMapping({"languageCode"})
+    public HumanLanguage getWrittenIn() {
+        return (HumanLanguage) this.writtenIn.getValue();
+    }
+    public void setWrittenIn(HumanLanguage writtenIn) {
+        this.writtenIn.setValue(writtenIn);
     }
 
 }

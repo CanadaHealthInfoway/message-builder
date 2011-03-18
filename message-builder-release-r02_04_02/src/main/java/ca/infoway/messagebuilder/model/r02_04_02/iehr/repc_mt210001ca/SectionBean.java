@@ -19,21 +19,15 @@ import java.util.List;
 public class SectionBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private ED<EncapsulatedData> documentOverviewContent = new EDImpl<EncapsulatedData>();
-    private DocumentContent component1DocumentContent;
-    private List<ReferenceBean> component3Reference = new ArrayList<ReferenceBean>();
     private List<DocumentSectionsBean> component2SubSection = new ArrayList<DocumentSectionsBean>();
+    private DocumentContent component1DocumentContent;
+    private ED<EncapsulatedData> documentOverviewContent = new EDImpl<EncapsulatedData>();
+    private List<ReferenceBean> component3Reference = new ArrayList<ReferenceBean>();
 
 
-    /**
-     * <p>M: Document Overview Content</p>
-     */
-    @Hl7XmlMapping({"text"})
-    public EncapsulatedData getDocumentOverviewContent() {
-        return this.documentOverviewContent.getValue();
-    }
-    public void setDocumentOverviewContent(EncapsulatedData documentOverviewContent) {
-        this.documentOverviewContent.setValue(documentOverviewContent);
+    @Hl7XmlMapping({"component2/subSection"})
+    public List<DocumentSectionsBean> getComponent2SubSection() {
+        return this.component2SubSection;
     }
 
 
@@ -53,15 +47,21 @@ public class SectionBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"component3/reference"})
-    public List<ReferenceBean> getComponent3Reference() {
-        return this.component3Reference;
+    /**
+     * <p>M: Document Overview Content</p>
+     */
+    @Hl7XmlMapping({"text"})
+    public EncapsulatedData getDocumentOverviewContent() {
+        return this.documentOverviewContent.getValue();
+    }
+    public void setDocumentOverviewContent(EncapsulatedData documentOverviewContent) {
+        this.documentOverviewContent.setValue(documentOverviewContent);
     }
 
 
-    @Hl7XmlMapping({"component2/subSection"})
-    public List<DocumentSectionsBean> getComponent2SubSection() {
-        return this.component2SubSection;
+    @Hl7XmlMapping({"component3/reference"})
+    public List<ReferenceBean> getComponent3Reference() {
+        return this.component3Reference;
     }
 
 }

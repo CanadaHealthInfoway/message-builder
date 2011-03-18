@@ -50,9 +50,15 @@ import java.util.List;
 public class RecommendedDosageBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private URG<PQ, PhysicalQuantity> dosageRange = new URGImpl<PQ, PhysicalQuantity>();
     private List<DosagePreconditionsBean> componentObservationEventCriterion = new ArrayList<DosagePreconditionsBean>();
+    private URG<PQ, PhysicalQuantity> dosageRange = new URGImpl<PQ, PhysicalQuantity>();
     private IVL<TS, Interval<Date>> doseDuration = new IVLImpl<TS, Interval<Date>>();
+
+
+    @Hl7XmlMapping({"component/observationEventCriterion"})
+    public List<DosagePreconditionsBean> getComponentObservationEventCriterion() {
+        return this.componentObservationEventCriterion;
+    }
 
 
     /**
@@ -83,12 +89,6 @@ public class RecommendedDosageBean extends MessagePartBean {
     }
     public void setDosageRange(UncertainRange<PhysicalQuantity> dosageRange) {
         this.dosageRange.setValue(dosageRange);
-    }
-
-
-    @Hl7XmlMapping({"component/observationEventCriterion"})
-    public List<DosagePreconditionsBean> getComponentObservationEventCriterion() {
-        return this.componentObservationEventCriterion;
     }
 
 

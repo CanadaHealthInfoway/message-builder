@@ -34,36 +34,11 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 public class IntoleranceConditionBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private BL allergyIntoleranceRefuted = new BLImpl();
     private CD allergyIntoleranceType = new CDImpl();
+    private BL allergyIntoleranceRefuted = new BLImpl();
     private CS allergyIntoleranceStatus = new CSImpl();
-    private CV confirmedIndicator = new CVImpl();
     private II allergyIntoleranceRecordID = new IIImpl();
-
-
-    /**
-     * <p>AllergyIntoleranceRefuted</p>
-     * 
-     * <p>Allergy/Intolerance Refuted</p>
-     * 
-     * <p>Allergy/Intolerance Refuted</p>
-     * 
-     * <p><p>An indication that the allergy/intolerance has been 
-     * refuted. I.e. A clinician has positively determined that the 
-     * patient does not suffer from a particular allergy or 
-     * intolerance.</p></p>
-     * 
-     * <p><p>Allows providers to refute a previously confirmed or 
-     * suspected allergy. The attribute is mandatory because it is 
-     * essential to know whether a record is refuted or not.</p></p>
-     */
-    @Hl7XmlMapping({"negationInd"})
-    public Boolean getAllergyIntoleranceRefuted() {
-        return this.allergyIntoleranceRefuted.getValue();
-    }
-    public void setAllergyIntoleranceRefuted(Boolean allergyIntoleranceRefuted) {
-        this.allergyIntoleranceRefuted.setValue(allergyIntoleranceRefuted);
-    }
+    private CV confirmedIndicator = new CVImpl();
 
 
     /**
@@ -92,6 +67,31 @@ public class IntoleranceConditionBean extends MessagePartBean {
 
 
     /**
+     * <p>AllergyIntoleranceRefuted</p>
+     * 
+     * <p>Allergy/Intolerance Refuted</p>
+     * 
+     * <p>Allergy/Intolerance Refuted</p>
+     * 
+     * <p><p>An indication that the allergy/intolerance has been 
+     * refuted. I.e. A clinician has positively determined that the 
+     * patient does not suffer from a particular allergy or 
+     * intolerance.</p></p>
+     * 
+     * <p><p>Allows providers to refute a previously confirmed or 
+     * suspected allergy. The attribute is mandatory because it is 
+     * essential to know whether a record is refuted or not.</p></p>
+     */
+    @Hl7XmlMapping({"negationInd"})
+    public Boolean getAllergyIntoleranceRefuted() {
+        return this.allergyIntoleranceRefuted.getValue();
+    }
+    public void setAllergyIntoleranceRefuted(Boolean allergyIntoleranceRefuted) {
+        this.allergyIntoleranceRefuted.setValue(allergyIntoleranceRefuted);
+    }
+
+
+    /**
      * <p>AllergyIntoleranceStatus</p>
      * 
      * <p>Allergy/Intolerance Status</p>
@@ -112,6 +112,28 @@ public class IntoleranceConditionBean extends MessagePartBean {
     }
     public void setAllergyIntoleranceStatus(ActStatus allergyIntoleranceStatus) {
         this.allergyIntoleranceStatus.setValue(allergyIntoleranceStatus);
+    }
+
+
+    /**
+     * <p>AllergyIntoleranceRecordID</p>
+     * 
+     * <p>Allergy/Intolerance Record ID</p>
+     * 
+     * <p>Allergy/Intolerance Record ID</p>
+     * 
+     * <p><p>Unique identifier for the intolerance condition.</p></p>
+     * 
+     * <p><p>Needed to reference allergy and intolerance records 
+     * stored in a patient's logitudinal electronic health record. 
+     * As a result, this attribute is mandatory.</p></p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Identifier getAllergyIntoleranceRecordID() {
+        return this.allergyIntoleranceRecordID.getValue();
+    }
+    public void setAllergyIntoleranceRecordID(Identifier allergyIntoleranceRecordID) {
+        this.allergyIntoleranceRecordID.setValue(allergyIntoleranceRecordID);
     }
 
 
@@ -141,28 +163,6 @@ public class IntoleranceConditionBean extends MessagePartBean {
     }
     public void setConfirmedIndicator(ActUncertainty confirmedIndicator) {
         this.confirmedIndicator.setValue(confirmedIndicator);
-    }
-
-
-    /**
-     * <p>AllergyIntoleranceRecordID</p>
-     * 
-     * <p>Allergy/Intolerance Record ID</p>
-     * 
-     * <p>Allergy/Intolerance Record ID</p>
-     * 
-     * <p><p>Unique identifier for the intolerance condition.</p></p>
-     * 
-     * <p><p>Needed to reference allergy and intolerance records 
-     * stored in a patient's logitudinal electronic health record. 
-     * As a result, this attribute is mandatory.</p></p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Identifier getAllergyIntoleranceRecordID() {
-        return this.allergyIntoleranceRecordID.getValue();
-    }
-    public void setAllergyIntoleranceRecordID(Identifier allergyIntoleranceRecordID) {
-        this.allergyIntoleranceRecordID.setValue(allergyIntoleranceRecordID);
     }
 
 }

@@ -46,42 +46,13 @@ import java.util.Date;
 public class MonographsBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private CV writtenIn = new CVImpl();
     private CV code = new CVImpl();
+    private CV writtenIn = new CVImpl();
     private ED<EncapsulatedData> monographContent = new EDImpl<EncapsulatedData>();
     private AssignedEntity3Bean authorAssignedEntity;
-    private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private II id = new IIImpl();
+    private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private ED<EncapsulatedData> medicationDocumentContentLanguage = new EDImpl<EncapsulatedData>();
-
-
-    /**
-     * <p>WrittenIn</p>
-     * 
-     * <p>Written in</p>
-     * 
-     * <p><p>A coded value denoting the language in which the 
-     * monograph is written.</p></p>
-     * 
-     * <p><p>Allows providers to request or display monographs in 
-     * the language of their choice.</p><p>This attribute is marked 
-     * as 'populated' because the language of the monograph must 
-     * always be known/available or a null flavor must be 
-     * specified.</p></p>
-     * 
-     * <p><p>Allows providers to request or display monographs in 
-     * the language of their choice.</p><p>This attribute is marked 
-     * as 'populated' because the language of the monograph must 
-     * always be known/available or a null flavor must be 
-     * specified.</p></p>
-     */
-    @Hl7XmlMapping({"languageCode"})
-    public HumanLanguage getWrittenIn() {
-        return (HumanLanguage) this.writtenIn.getValue();
-    }
-    public void setWrittenIn(HumanLanguage writtenIn) {
-        this.writtenIn.setValue(writtenIn);
-    }
 
 
     /**
@@ -123,6 +94,35 @@ public class MonographsBean extends MessagePartBean {
 
 
     /**
+     * <p>WrittenIn</p>
+     * 
+     * <p>Written in</p>
+     * 
+     * <p><p>A coded value denoting the language in which the 
+     * monograph is written.</p></p>
+     * 
+     * <p><p>Allows providers to request or display monographs in 
+     * the language of their choice.</p><p>This attribute is marked 
+     * as 'populated' because the language of the monograph must 
+     * always be known/available or a null flavor must be 
+     * specified.</p></p>
+     * 
+     * <p><p>Allows providers to request or display monographs in 
+     * the language of their choice.</p><p>This attribute is marked 
+     * as 'populated' because the language of the monograph must 
+     * always be known/available or a null flavor must be 
+     * specified.</p></p>
+     */
+    @Hl7XmlMapping({"languageCode"})
+    public HumanLanguage getWrittenIn() {
+        return (HumanLanguage) this.writtenIn.getValue();
+    }
+    public void setWrittenIn(HumanLanguage writtenIn) {
+        this.writtenIn.setValue(writtenIn);
+    }
+
+
+    /**
      * <p>MonographContent</p>
      * 
      * <p>Monograph Content</p>
@@ -150,6 +150,41 @@ public class MonographsBean extends MessagePartBean {
     }
     public void setAuthorAssignedEntity(AssignedEntity3Bean authorAssignedEntity) {
         this.authorAssignedEntity = authorAssignedEntity;
+    }
+
+
+    /**
+     * <p>B:Medication Document Id</p>
+     * 
+     * <p><p>Unique identifier assigned to a medication document 
+     * record.</p></p>
+     * 
+     * <p><p>Allows matching and replacing of locally-stored 
+     * medication documents.</p><p>This attribute is marked as 
+     * 'mandatory', as it is always available.</p></p>
+     * 
+     * <p><p>Allows matching and replacing of locally-stored 
+     * medication documents.</p><p>This attribute is marked as 
+     * 'mandatory', as it is always available.</p></p>
+     * 
+     * <p>Monograph Id</p>
+     * 
+     * <p><p>Unique identifier assigned to a monograph record.</p></p>
+     * 
+     * <p><p>Allows matching and replacing of locally-stored 
+     * monographs.</p><p>This attribute is marked as 'mandatory', 
+     * as it is always available.</p></p>
+     * 
+     * <p><p>Allows matching and replacing of locally-stored 
+     * monographs.</p><p>This attribute is marked as 'mandatory', 
+     * as it is always available.</p></p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Identifier getId() {
+        return this.id.getValue();
+    }
+    public void setId(Identifier id) {
+        this.id.setValue(id);
     }
 
 
@@ -204,41 +239,6 @@ public class MonographsBean extends MessagePartBean {
     }
     public void setEffectiveTime(Interval<Date> effectiveTime) {
         this.effectiveTime.setValue(effectiveTime);
-    }
-
-
-    /**
-     * <p>B:Medication Document Id</p>
-     * 
-     * <p><p>Unique identifier assigned to a medication document 
-     * record.</p></p>
-     * 
-     * <p><p>Allows matching and replacing of locally-stored 
-     * medication documents.</p><p>This attribute is marked as 
-     * 'mandatory', as it is always available.</p></p>
-     * 
-     * <p><p>Allows matching and replacing of locally-stored 
-     * medication documents.</p><p>This attribute is marked as 
-     * 'mandatory', as it is always available.</p></p>
-     * 
-     * <p>Monograph Id</p>
-     * 
-     * <p><p>Unique identifier assigned to a monograph record.</p></p>
-     * 
-     * <p><p>Allows matching and replacing of locally-stored 
-     * monographs.</p><p>This attribute is marked as 'mandatory', 
-     * as it is always available.</p></p>
-     * 
-     * <p><p>Allows matching and replacing of locally-stored 
-     * monographs.</p><p>This attribute is marked as 'mandatory', 
-     * as it is always available.</p></p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Identifier getId() {
-        return this.id.getValue();
-    }
-    public void setId(Identifier id) {
-        this.id.setValue(id);
     }
 
 

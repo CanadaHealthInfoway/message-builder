@@ -35,12 +35,36 @@ import java.util.List;
 public class ExpectedStartTimeBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private CV inLieuOfDaysSupply = new CVImpl();
-    private List<IssuesBean> subjectOfDetectedIssueEvent = new ArrayList<IssuesBean>();
-    private OriginalPrescriptionOrderBean inFulfillmentOfSubstanceAdministrationOrder;
-    private IVL<TS, Interval<Date>> substanceAdministrationTime = new IVLImpl<TS, Interval<Date>>();
     private DispenseSubstitutionBean componentSubstitution;
+    private OriginalPrescriptionOrderBean inFulfillmentOfSubstanceAdministrationOrder;
+    private List<IssuesBean> subjectOfDetectedIssueEvent = new ArrayList<IssuesBean>();
+    private CV inLieuOfDaysSupply = new CVImpl();
     private II dispenseID = new IIImpl();
+    private IVL<TS, Interval<Date>> substanceAdministrationTime = new IVLImpl<TS, Interval<Date>>();
+
+
+    @Hl7XmlMapping({"component/substitution"})
+    public DispenseSubstitutionBean getComponentSubstitution() {
+        return this.componentSubstitution;
+    }
+    public void setComponentSubstitution(DispenseSubstitutionBean componentSubstitution) {
+        this.componentSubstitution = componentSubstitution;
+    }
+
+
+    @Hl7XmlMapping({"inFulfillmentOf/substanceAdministrationOrder"})
+    public OriginalPrescriptionOrderBean getInFulfillmentOfSubstanceAdministrationOrder() {
+        return this.inFulfillmentOfSubstanceAdministrationOrder;
+    }
+    public void setInFulfillmentOfSubstanceAdministrationOrder(OriginalPrescriptionOrderBean inFulfillmentOfSubstanceAdministrationOrder) {
+        this.inFulfillmentOfSubstanceAdministrationOrder = inFulfillmentOfSubstanceAdministrationOrder;
+    }
+
+
+    @Hl7XmlMapping({"subjectOf/detectedIssueEvent"})
+    public List<IssuesBean> getSubjectOfDetectedIssueEvent() {
+        return this.subjectOfDetectedIssueEvent;
+    }
 
 
     /**
@@ -63,18 +87,17 @@ public class ExpectedStartTimeBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"subjectOf/detectedIssueEvent"})
-    public List<IssuesBean> getSubjectOfDetectedIssueEvent() {
-        return this.subjectOfDetectedIssueEvent;
+    /**
+     * <p>Dispense ID</p>
+     * 
+     * <p><p>filler transaction number for dispense</p></p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Identifier getDispenseID() {
+        return this.dispenseID.getValue();
     }
-
-
-    @Hl7XmlMapping({"inFulfillmentOf/substanceAdministrationOrder"})
-    public OriginalPrescriptionOrderBean getInFulfillmentOfSubstanceAdministrationOrder() {
-        return this.inFulfillmentOfSubstanceAdministrationOrder;
-    }
-    public void setInFulfillmentOfSubstanceAdministrationOrder(OriginalPrescriptionOrderBean inFulfillmentOfSubstanceAdministrationOrder) {
-        this.inFulfillmentOfSubstanceAdministrationOrder = inFulfillmentOfSubstanceAdministrationOrder;
+    public void setDispenseID(Identifier dispenseID) {
+        this.dispenseID.setValue(dispenseID);
     }
 
 
@@ -94,29 +117,6 @@ public class ExpectedStartTimeBean extends MessagePartBean {
     }
     public void setSubstanceAdministrationTime(Interval<Date> substanceAdministrationTime) {
         this.substanceAdministrationTime.setValue(substanceAdministrationTime);
-    }
-
-
-    @Hl7XmlMapping({"component/substitution"})
-    public DispenseSubstitutionBean getComponentSubstitution() {
-        return this.componentSubstitution;
-    }
-    public void setComponentSubstitution(DispenseSubstitutionBean componentSubstitution) {
-        this.componentSubstitution = componentSubstitution;
-    }
-
-
-    /**
-     * <p>Dispense ID</p>
-     * 
-     * <p><p>filler transaction number for dispense</p></p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Identifier getDispenseID() {
-        return this.dispenseID.getValue();
-    }
-    public void setDispenseID(Identifier dispenseID) {
-        this.dispenseID.setValue(dispenseID);
     }
 
 }

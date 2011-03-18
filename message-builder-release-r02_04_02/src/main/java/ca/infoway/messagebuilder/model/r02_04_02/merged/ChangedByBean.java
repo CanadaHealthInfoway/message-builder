@@ -219,33 +219,10 @@ import java.util.Date;
 public class ChangedByBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private ChangedBy changedBy;
     private TS time = new TSImpl();
+    private ChangedBy changedBy;
     private ActingPerson actingPerson;
     private HealthcareWorkerBean assignedEntity;
-
-
-    @Hl7XmlMapping({"changedBy"})
-    public ChangedBy getChangedBy() {
-        return this.changedBy;
-    }
-    public void setChangedBy(ChangedBy changedBy) {
-        this.changedBy = changedBy;
-    }
-
-    public HealthcareWorkerBean getChangedByAsAssignedEntity() {
-        return this.changedBy instanceof HealthcareWorkerBean ? (HealthcareWorkerBean) this.changedBy : null;
-    }
-    public boolean hasChangedByAsAssignedEntity() {
-        return (this.changedBy instanceof HealthcareWorkerBean);
-    }
-
-    public EHRRepositoryBean getChangedByAsAssignedDevice() {
-        return this.changedBy instanceof EHRRepositoryBean ? (EHRRepositoryBean) this.changedBy : null;
-    }
-    public boolean hasChangedByAsAssignedDevice() {
-        return (this.changedBy instanceof EHRRepositoryBean);
-    }
 
 
     /**
@@ -388,6 +365,29 @@ public class ChangedByBean extends MessagePartBean {
     }
     public void setTime(Date time) {
         this.time.setValue(time);
+    }
+
+
+    @Hl7XmlMapping({"changedBy"})
+    public ChangedBy getChangedBy() {
+        return this.changedBy;
+    }
+    public void setChangedBy(ChangedBy changedBy) {
+        this.changedBy = changedBy;
+    }
+
+    public HealthcareWorkerBean getChangedByAsAssignedEntity() {
+        return this.changedBy instanceof HealthcareWorkerBean ? (HealthcareWorkerBean) this.changedBy : null;
+    }
+    public boolean hasChangedByAsAssignedEntity() {
+        return (this.changedBy instanceof HealthcareWorkerBean);
+    }
+
+    public EHRRepositoryBean getChangedByAsAssignedDevice() {
+        return this.changedBy instanceof EHRRepositoryBean ? (EHRRepositoryBean) this.changedBy : null;
+    }
+    public boolean hasChangedByAsAssignedDevice() {
+        return (this.changedBy instanceof EHRRepositoryBean);
     }
 
 

@@ -35,8 +35,8 @@ public class PolicyOrAccount_2Bean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
     private CD policyType = new CDImpl();
-    private PolicyUnderwriterBean author;
     private CoveredPartyAsPatientBean beneficiaryCoveredPartyAsPatient;
+    private PolicyUnderwriterBean author;
     private II id = new IIImpl();
     private PolicyHolderBean holderPolicyHolder;
 
@@ -55,21 +55,21 @@ public class PolicyOrAccount_2Bean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"author"})
-    public PolicyUnderwriterBean getAuthor() {
-        return this.author;
-    }
-    public void setAuthor(PolicyUnderwriterBean author) {
-        this.author = author;
-    }
-
-
     @Hl7XmlMapping({"beneficiary/coveredPartyAsPatient"})
     public CoveredPartyAsPatientBean getBeneficiaryCoveredPartyAsPatient() {
         return this.beneficiaryCoveredPartyAsPatient;
     }
     public void setBeneficiaryCoveredPartyAsPatient(CoveredPartyAsPatientBean beneficiaryCoveredPartyAsPatient) {
         this.beneficiaryCoveredPartyAsPatient = beneficiaryCoveredPartyAsPatient;
+    }
+
+
+    @Hl7XmlMapping({"author"})
+    public PolicyUnderwriterBean getAuthor() {
+        return this.author;
+    }
+    public void setAuthor(PolicyUnderwriterBean author) {
+        this.author = author;
     }
 
 

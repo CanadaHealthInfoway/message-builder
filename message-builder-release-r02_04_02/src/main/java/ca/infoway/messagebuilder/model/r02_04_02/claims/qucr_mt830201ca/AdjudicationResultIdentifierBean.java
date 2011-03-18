@@ -35,23 +35,14 @@ import java.util.Date;
 public class AdjudicationResultIdentifierBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private AdjudicatedResultOutcomeBean outcomeOf;
     private CV invoiceType = new CVImpl();
+    private MO paidAmount = new MOImpl();
+    private AdjudicatedResultOutcomeBean outcomeOf;
     private TS adjudicationDateTime = new TSImpl();
     private AdjudicatorIdBean authorAdjudicatorRole;
     private CV eOBCommunicationMethod = new CVImpl();
     private CS contextControlCode = new CSImpl();
     private II adjudicationResultIdentifier = new IIImpl();
-    private MO paidAmount = new MOImpl();
-
-
-    @Hl7XmlMapping({"outcomeOf"})
-    public AdjudicatedResultOutcomeBean getOutcomeOf() {
-        return this.outcomeOf;
-    }
-    public void setOutcomeOf(AdjudicatedResultOutcomeBean outcomeOf) {
-        this.outcomeOf = outcomeOf;
-    }
 
 
     /**
@@ -102,6 +93,34 @@ public class AdjudicationResultIdentifierBean extends MessagePartBean {
     }
     public void setInvoiceType(Code invoiceType) {
         this.invoiceType.setValue(invoiceType);
+    }
+
+
+    /**
+     * <p>Paid Amount</p>
+     * 
+     * <p><p>Grand total of all SOFA observations contained in this 
+     * summary</p></p>
+     * 
+     * <p><p>For Coverage Extension Results, this is typically not 
+     * specified, as dollar limits are noted as information 
+     * codes.</p></p>
+     */
+    @Hl7XmlMapping({"netAmt"})
+    public Money getPaidAmount() {
+        return this.paidAmount.getValue();
+    }
+    public void setPaidAmount(Money paidAmount) {
+        this.paidAmount.setValue(paidAmount);
+    }
+
+
+    @Hl7XmlMapping({"outcomeOf"})
+    public AdjudicatedResultOutcomeBean getOutcomeOf() {
+        return this.outcomeOf;
+    }
+    public void setOutcomeOf(AdjudicatedResultOutcomeBean outcomeOf) {
+        this.outcomeOf = outcomeOf;
     }
 
 
@@ -190,25 +209,6 @@ public class AdjudicationResultIdentifierBean extends MessagePartBean {
     }
     public void setAdjudicationResultIdentifier(Identifier adjudicationResultIdentifier) {
         this.adjudicationResultIdentifier.setValue(adjudicationResultIdentifier);
-    }
-
-
-    /**
-     * <p>Paid Amount</p>
-     * 
-     * <p><p>Grand total of all SOFA observations contained in this 
-     * summary</p></p>
-     * 
-     * <p><p>For Coverage Extension Results, this is typically not 
-     * specified, as dollar limits are noted as information 
-     * codes.</p></p>
-     */
-    @Hl7XmlMapping({"netAmt"})
-    public Money getPaidAmount() {
-        return this.paidAmount.getValue();
-    }
-    public void setPaidAmount(Money paidAmount) {
-        this.paidAmount.setValue(paidAmount);
     }
 
 }

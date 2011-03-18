@@ -96,42 +96,31 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 public class LanguageCommunicationBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private CV languageOfCommunicationCode = new CVImpl();
+    private CV languageOfCommunicationProficiencyLevelCode = new CVImpl();
     private CV languageOfCommunicationSkillsCode = new CVImpl();
     private BL languageOfCommunicationPreferenceIndicator = new BLImpl();
-    private CV languageOfCommunicationProficiencyLevelCode = new CVImpl();
+    private CV languageOfCommunicationCode = new CVImpl();
 
 
     /**
-     * <p>LanguageOfCommunicationCode</p>
+     * <p>LanguageOfCommunicationProficiencyLevelCode</p>
      * 
-     * <p>Language of Communication Code</p>
+     * <p>Language of Communication Proficiency Level Code</p>
      * 
-     * <p><p>A code indicating the language of communication</p></p>
+     * <p><p>Indicates the proficiency level at which healthcare 
+     * provider is able to communicate in the indicated language of 
+     * communication</p></p>
      * 
-     * <p><p>Mandatory attribute conveying the expected language 
-     * message elements are to be transmitted in.</p></p>
-     * 
-     * <p>Language of Communication Code</p>
-     * 
-     * <p><p>A code indicating the language of communication</p></p>
-     * 
-     * <p><p>Mandatory attribute conveying the expected language 
-     * message elements are to be transmitted in</p></p>
-     * 
-     * <p>Language of Communication Code</p>
-     * 
-     * <p><p>A code indicating the language of communication</p></p>
-     * 
-     * <p><p>Required attribute conveying the expected language 
-     * message elements are to be transmitted in</p></p>
+     * <p><p>Required attribute provides additional information 
+     * about the healthcare provider's communication skills in a 
+     * given language</p></p>
      */
-    @Hl7XmlMapping({"languageCode"})
-    public HumanLanguage getLanguageOfCommunicationCode() {
-        return (HumanLanguage) this.languageOfCommunicationCode.getValue();
+    @Hl7XmlMapping({"proficiencyLevelCode"})
+    public LanguageAbilityProficiency getLanguageOfCommunicationProficiencyLevelCode() {
+        return (LanguageAbilityProficiency) this.languageOfCommunicationProficiencyLevelCode.getValue();
     }
-    public void setLanguageOfCommunicationCode(HumanLanguage languageOfCommunicationCode) {
-        this.languageOfCommunicationCode.setValue(languageOfCommunicationCode);
+    public void setLanguageOfCommunicationProficiencyLevelCode(LanguageAbilityProficiency languageOfCommunicationProficiencyLevelCode) {
+        this.languageOfCommunicationProficiencyLevelCode.setValue(languageOfCommunicationProficiencyLevelCode);
     }
 
 
@@ -179,24 +168,35 @@ public class LanguageCommunicationBean extends MessagePartBean {
 
 
     /**
-     * <p>LanguageOfCommunicationProficiencyLevelCode</p>
+     * <p>LanguageOfCommunicationCode</p>
      * 
-     * <p>Language of Communication Proficiency Level Code</p>
+     * <p>Language of Communication Code</p>
      * 
-     * <p><p>Indicates the proficiency level at which healthcare 
-     * provider is able to communicate in the indicated language of 
-     * communication</p></p>
+     * <p><p>A code indicating the language of communication</p></p>
      * 
-     * <p><p>Required attribute provides additional information 
-     * about the healthcare provider's communication skills in a 
-     * given language</p></p>
+     * <p><p>Mandatory attribute conveying the expected language 
+     * message elements are to be transmitted in.</p></p>
+     * 
+     * <p>Language of Communication Code</p>
+     * 
+     * <p><p>A code indicating the language of communication</p></p>
+     * 
+     * <p><p>Mandatory attribute conveying the expected language 
+     * message elements are to be transmitted in</p></p>
+     * 
+     * <p>Language of Communication Code</p>
+     * 
+     * <p><p>A code indicating the language of communication</p></p>
+     * 
+     * <p><p>Required attribute conveying the expected language 
+     * message elements are to be transmitted in</p></p>
      */
-    @Hl7XmlMapping({"proficiencyLevelCode"})
-    public LanguageAbilityProficiency getLanguageOfCommunicationProficiencyLevelCode() {
-        return (LanguageAbilityProficiency) this.languageOfCommunicationProficiencyLevelCode.getValue();
+    @Hl7XmlMapping({"languageCode"})
+    public HumanLanguage getLanguageOfCommunicationCode() {
+        return (HumanLanguage) this.languageOfCommunicationCode.getValue();
     }
-    public void setLanguageOfCommunicationProficiencyLevelCode(LanguageAbilityProficiency languageOfCommunicationProficiencyLevelCode) {
-        this.languageOfCommunicationProficiencyLevelCode.setValue(languageOfCommunicationProficiencyLevelCode);
+    public void setLanguageOfCommunicationCode(HumanLanguage languageOfCommunicationCode) {
+        this.languageOfCommunicationCode.setValue(languageOfCommunicationCode);
     }
 
 }

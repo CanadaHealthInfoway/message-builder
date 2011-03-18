@@ -37,18 +37,12 @@ import java.util.List;
 public class DispenseInstructionsBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private List<Component3Bean> component = new ArrayList<Component3Bean>();
     private OccurredAtBean location;
+    private List<RelatedPersonBean> receiverPersonalRelationship = new ArrayList<RelatedPersonBean>();
     private DispenseShipToLocationBean destinationServiceDeliveryLocation;
+    private List<Component3Bean> component = new ArrayList<Component3Bean>();
     private CS prescriptionDispensableIndicator = new CSImpl();
     private IVL<TS, Interval<Date>> dispensingAllowedPeriod = new IVLImpl<TS, Interval<Date>>();
-    private List<RelatedPersonBean> receiverPersonalRelationship = new ArrayList<RelatedPersonBean>();
-
-
-    @Hl7XmlMapping({"component"})
-    public List<Component3Bean> getComponent() {
-        return this.component;
-    }
 
 
     @Hl7XmlMapping({"location"})
@@ -60,12 +54,24 @@ public class DispenseInstructionsBean extends MessagePartBean {
     }
 
 
+    @Hl7XmlMapping({"receiver/personalRelationship"})
+    public List<RelatedPersonBean> getReceiverPersonalRelationship() {
+        return this.receiverPersonalRelationship;
+    }
+
+
     @Hl7XmlMapping({"destination/serviceDeliveryLocation"})
     public DispenseShipToLocationBean getDestinationServiceDeliveryLocation() {
         return this.destinationServiceDeliveryLocation;
     }
     public void setDestinationServiceDeliveryLocation(DispenseShipToLocationBean destinationServiceDeliveryLocation) {
         this.destinationServiceDeliveryLocation = destinationServiceDeliveryLocation;
+    }
+
+
+    @Hl7XmlMapping({"component"})
+    public List<Component3Bean> getComponent() {
+        return this.component;
     }
 
 
@@ -122,12 +128,6 @@ public class DispenseInstructionsBean extends MessagePartBean {
     }
     public void setDispensingAllowedPeriod(Interval<Date> dispensingAllowedPeriod) {
         this.dispensingAllowedPeriod.setValue(dispensingAllowedPeriod);
-    }
-
-
-    @Hl7XmlMapping({"receiver/personalRelationship"})
-    public List<RelatedPersonBean> getReceiverPersonalRelationship() {
-        return this.receiverPersonalRelationship;
     }
 
 }

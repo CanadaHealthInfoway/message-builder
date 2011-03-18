@@ -24,22 +24,10 @@ import ca.infoway.messagebuilder.model.r02_04_02.claims.merged.CoveredPartyAsPat
 public class PolicyOrAccountBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private II carrierId = new IIImpl();
     private CV policyType = new CVImpl();
-    private II policyIdentifier = new IIImpl();
     private CoveredPartyAsPatientBean beneficiaryCoveredPartyAsPatient;
-
-
-    /**
-     * <p>Carrier Id</p>
-     */
-    @Hl7XmlMapping({"author/carrierRole/id"})
-    public Identifier getCarrierId() {
-        return this.carrierId.getValue();
-    }
-    public void setCarrierId(Identifier carrierId) {
-        this.carrierId.setValue(carrierId);
-    }
+    private II policyIdentifier = new IIImpl();
+    private II carrierId = new IIImpl();
 
 
     /**
@@ -51,6 +39,15 @@ public class PolicyOrAccountBean extends MessagePartBean {
     }
     public void setPolicyType(Code policyType) {
         this.policyType.setValue(policyType);
+    }
+
+
+    @Hl7XmlMapping({"beneficiary/coveredPartyAsPatient"})
+    public CoveredPartyAsPatientBean getBeneficiaryCoveredPartyAsPatient() {
+        return this.beneficiaryCoveredPartyAsPatient;
+    }
+    public void setBeneficiaryCoveredPartyAsPatient(CoveredPartyAsPatientBean beneficiaryCoveredPartyAsPatient) {
+        this.beneficiaryCoveredPartyAsPatient = beneficiaryCoveredPartyAsPatient;
     }
 
 
@@ -66,12 +63,15 @@ public class PolicyOrAccountBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"beneficiary/coveredPartyAsPatient"})
-    public CoveredPartyAsPatientBean getBeneficiaryCoveredPartyAsPatient() {
-        return this.beneficiaryCoveredPartyAsPatient;
+    /**
+     * <p>Carrier Id</p>
+     */
+    @Hl7XmlMapping({"author/carrierRole/id"})
+    public Identifier getCarrierId() {
+        return this.carrierId.getValue();
     }
-    public void setBeneficiaryCoveredPartyAsPatient(CoveredPartyAsPatientBean beneficiaryCoveredPartyAsPatient) {
-        this.beneficiaryCoveredPartyAsPatient = beneficiaryCoveredPartyAsPatient;
+    public void setCarrierId(Identifier carrierId) {
+        this.carrierId.setValue(carrierId);
     }
 
 }

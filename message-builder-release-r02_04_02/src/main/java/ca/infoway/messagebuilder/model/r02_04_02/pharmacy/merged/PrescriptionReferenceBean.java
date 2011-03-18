@@ -19,6 +19,8 @@ import ca.infoway.messagebuilder.domainvalue.ActStatus;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.r02_04_02.common.merged.HealthcareWorkerBean;
 import ca.infoway.messagebuilder.model.r02_04_02.merged.RefusedByBean;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 
@@ -76,8 +78,8 @@ public class PrescriptionReferenceBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
     private CV prescriptionType = new CVImpl();
-    private HealthcareWorkerBean responsiblePartyAssignedEntity;
     private RefusedByBean author;
+    private HealthcareWorkerBean responsiblePartyAssignedEntity;
     private Component2Bean component;
     private ClassifiesBean component1;
     private SET<II, Identifier> prescriptionOrderNumber = new SETImpl<II, Identifier>(IIImpl.class);
@@ -112,21 +114,21 @@ public class PrescriptionReferenceBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"responsibleParty/assignedEntity"})
-    public HealthcareWorkerBean getResponsiblePartyAssignedEntity() {
-        return this.responsiblePartyAssignedEntity;
-    }
-    public void setResponsiblePartyAssignedEntity(HealthcareWorkerBean responsiblePartyAssignedEntity) {
-        this.responsiblePartyAssignedEntity = responsiblePartyAssignedEntity;
-    }
-
-
     @Hl7XmlMapping({"author"})
     public RefusedByBean getAuthor() {
         return this.author;
     }
     public void setAuthor(RefusedByBean author) {
         this.author = author;
+    }
+
+
+    @Hl7XmlMapping({"responsibleParty/assignedEntity"})
+    public HealthcareWorkerBean getResponsiblePartyAssignedEntity() {
+        return this.responsiblePartyAssignedEntity;
+    }
+    public void setResponsiblePartyAssignedEntity(HealthcareWorkerBean responsiblePartyAssignedEntity) {
+        this.responsiblePartyAssignedEntity = responsiblePartyAssignedEntity;
     }
 
 

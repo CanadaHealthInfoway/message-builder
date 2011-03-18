@@ -45,110 +45,19 @@ import java.util.Set;
 public class BillableClinicalServiceBean extends MessagePartBean implements ca.infoway.messagebuilder.model.r02_04_02.common.coct_mt280001ca.A_BillableActChoice {
 
     private static final long serialVersionUID = 20110318L;
-    private PatientEncounterBean pertinentInformation2PatientEncounter;
-    private List<AccidentInformationBean> pertinentInformation1 = new ArrayList<AccidentInformationBean>();
-    private IVL<TS, Interval<Date>> durationDateTimeOfOccurrence = new IVLImpl<TS, Interval<Date>>();
-    private HealthcareProviderBean referrerHealthCareProvider;
-    private List<ManufacturedProductBean> productManufacturedProduct = new ArrayList<ManufacturedProductBean>();
-    private List<DiagnosisInformationBean> pertinentInformation3 = new ArrayList<DiagnosisInformationBean>();
-    private CV procedureCode = new CVImpl();
-    private ServiceLocationBean locationServiceDeliveryLocation;
-    private HealthcareProviderBean secondaryPerformerHealthCareProvider;
-    private HealthcareProviderBean performerHealthCareProvider;
     private SET<CV, Code> serviceReason = new SETImpl<CV, Code>(CVImpl.class);
     private HealthcareProviderBean consultantHealthCareProvider;
+    private HealthcareProviderBean performerHealthCareProvider;
+    private List<ManufacturedProductBean> productManufacturedProduct = new ArrayList<ManufacturedProductBean>();
+    private List<AccidentInformationBean> pertinentInformation1 = new ArrayList<AccidentInformationBean>();
     private II serviceEventID = new IIImpl();
-
-
-    @Hl7XmlMapping({"pertinentInformation2/patientEncounter"})
-    public PatientEncounterBean getPertinentInformation2PatientEncounter() {
-        return this.pertinentInformation2PatientEncounter;
-    }
-    public void setPertinentInformation2PatientEncounter(PatientEncounterBean pertinentInformation2PatientEncounter) {
-        this.pertinentInformation2PatientEncounter = pertinentInformation2PatientEncounter;
-    }
-
-
-    @Hl7XmlMapping({"pertinentInformation1"})
-    public List<AccidentInformationBean> getPertinentInformation1() {
-        return this.pertinentInformation1;
-    }
-
-
-    /**
-     * <p>Duration, date/time of occurrence</p>
-     * 
-     * <p><p>Duration, date/time of occurrence</p></p>
-     */
-    @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getDurationDateTimeOfOccurrence() {
-        return this.durationDateTimeOfOccurrence.getValue();
-    }
-    public void setDurationDateTimeOfOccurrence(Interval<Date> durationDateTimeOfOccurrence) {
-        this.durationDateTimeOfOccurrence.setValue(durationDateTimeOfOccurrence);
-    }
-
-
-    @Hl7XmlMapping({"referrer/healthCareProvider"})
-    public HealthcareProviderBean getReferrerHealthCareProvider() {
-        return this.referrerHealthCareProvider;
-    }
-    public void setReferrerHealthCareProvider(HealthcareProviderBean referrerHealthCareProvider) {
-        this.referrerHealthCareProvider = referrerHealthCareProvider;
-    }
-
-
-    @Hl7XmlMapping({"product/manufacturedProduct"})
-    public List<ManufacturedProductBean> getProductManufacturedProduct() {
-        return this.productManufacturedProduct;
-    }
-
-
-    @Hl7XmlMapping({"pertinentInformation3"})
-    public List<DiagnosisInformationBean> getPertinentInformation3() {
-        return this.pertinentInformation3;
-    }
-
-
-    /**
-     * <p>Procedure code</p>
-     * 
-     * <p><p>procedure cd, CPT cd, supply cd</p></p>
-     */
-    @Hl7XmlMapping({"code"})
-    public Code getProcedureCode() {
-        return (Code) this.procedureCode.getValue();
-    }
-    public void setProcedureCode(Code procedureCode) {
-        this.procedureCode.setValue(procedureCode);
-    }
-
-
-    @Hl7XmlMapping({"location/serviceDeliveryLocation"})
-    public ServiceLocationBean getLocationServiceDeliveryLocation() {
-        return this.locationServiceDeliveryLocation;
-    }
-    public void setLocationServiceDeliveryLocation(ServiceLocationBean locationServiceDeliveryLocation) {
-        this.locationServiceDeliveryLocation = locationServiceDeliveryLocation;
-    }
-
-
-    @Hl7XmlMapping({"secondaryPerformer/healthCareProvider"})
-    public HealthcareProviderBean getSecondaryPerformerHealthCareProvider() {
-        return this.secondaryPerformerHealthCareProvider;
-    }
-    public void setSecondaryPerformerHealthCareProvider(HealthcareProviderBean secondaryPerformerHealthCareProvider) {
-        this.secondaryPerformerHealthCareProvider = secondaryPerformerHealthCareProvider;
-    }
-
-
-    @Hl7XmlMapping({"performer/healthCareProvider"})
-    public HealthcareProviderBean getPerformerHealthCareProvider() {
-        return this.performerHealthCareProvider;
-    }
-    public void setPerformerHealthCareProvider(HealthcareProviderBean performerHealthCareProvider) {
-        this.performerHealthCareProvider = performerHealthCareProvider;
-    }
+    private CV procedureCode = new CVImpl();
+    private ServiceLocationBean locationServiceDeliveryLocation;
+    private HealthcareProviderBean referrerHealthCareProvider;
+    private PatientEncounterBean pertinentInformation2PatientEncounter;
+    private List<DiagnosisInformationBean> pertinentInformation3 = new ArrayList<DiagnosisInformationBean>();
+    private HealthcareProviderBean secondaryPerformerHealthCareProvider;
+    private IVL<TS, Interval<Date>> durationDateTimeOfOccurrence = new IVLImpl<TS, Interval<Date>>();
 
 
     /**
@@ -177,6 +86,27 @@ public class BillableClinicalServiceBean extends MessagePartBean implements ca.i
     }
 
 
+    @Hl7XmlMapping({"performer/healthCareProvider"})
+    public HealthcareProviderBean getPerformerHealthCareProvider() {
+        return this.performerHealthCareProvider;
+    }
+    public void setPerformerHealthCareProvider(HealthcareProviderBean performerHealthCareProvider) {
+        this.performerHealthCareProvider = performerHealthCareProvider;
+    }
+
+
+    @Hl7XmlMapping({"product/manufacturedProduct"})
+    public List<ManufacturedProductBean> getProductManufacturedProduct() {
+        return this.productManufacturedProduct;
+    }
+
+
+    @Hl7XmlMapping({"pertinentInformation1"})
+    public List<AccidentInformationBean> getPertinentInformation1() {
+        return this.pertinentInformation1;
+    }
+
+
     /**
      * <p>Service event ID</p>
      * 
@@ -188,6 +118,76 @@ public class BillableClinicalServiceBean extends MessagePartBean implements ca.i
     }
     public void setServiceEventID(Identifier serviceEventID) {
         this.serviceEventID.setValue(serviceEventID);
+    }
+
+
+    /**
+     * <p>Procedure code</p>
+     * 
+     * <p><p>procedure cd, CPT cd, supply cd</p></p>
+     */
+    @Hl7XmlMapping({"code"})
+    public Code getProcedureCode() {
+        return (Code) this.procedureCode.getValue();
+    }
+    public void setProcedureCode(Code procedureCode) {
+        this.procedureCode.setValue(procedureCode);
+    }
+
+
+    @Hl7XmlMapping({"location/serviceDeliveryLocation"})
+    public ServiceLocationBean getLocationServiceDeliveryLocation() {
+        return this.locationServiceDeliveryLocation;
+    }
+    public void setLocationServiceDeliveryLocation(ServiceLocationBean locationServiceDeliveryLocation) {
+        this.locationServiceDeliveryLocation = locationServiceDeliveryLocation;
+    }
+
+
+    @Hl7XmlMapping({"referrer/healthCareProvider"})
+    public HealthcareProviderBean getReferrerHealthCareProvider() {
+        return this.referrerHealthCareProvider;
+    }
+    public void setReferrerHealthCareProvider(HealthcareProviderBean referrerHealthCareProvider) {
+        this.referrerHealthCareProvider = referrerHealthCareProvider;
+    }
+
+
+    @Hl7XmlMapping({"pertinentInformation2/patientEncounter"})
+    public PatientEncounterBean getPertinentInformation2PatientEncounter() {
+        return this.pertinentInformation2PatientEncounter;
+    }
+    public void setPertinentInformation2PatientEncounter(PatientEncounterBean pertinentInformation2PatientEncounter) {
+        this.pertinentInformation2PatientEncounter = pertinentInformation2PatientEncounter;
+    }
+
+
+    @Hl7XmlMapping({"pertinentInformation3"})
+    public List<DiagnosisInformationBean> getPertinentInformation3() {
+        return this.pertinentInformation3;
+    }
+
+
+    @Hl7XmlMapping({"secondaryPerformer/healthCareProvider"})
+    public HealthcareProviderBean getSecondaryPerformerHealthCareProvider() {
+        return this.secondaryPerformerHealthCareProvider;
+    }
+    public void setSecondaryPerformerHealthCareProvider(HealthcareProviderBean secondaryPerformerHealthCareProvider) {
+        this.secondaryPerformerHealthCareProvider = secondaryPerformerHealthCareProvider;
+    }
+
+
+    /**
+     * <p>Duration, date/time of occurrence</p>
+     * 
+     * <p><p>Duration, date/time of occurrence</p></p>
+     */
+    @Hl7XmlMapping({"effectiveTime"})
+    public Interval<Date> getDurationDateTimeOfOccurrence() {
+        return this.durationDateTimeOfOccurrence.getValue();
+    }
+    public void setDurationDateTimeOfOccurrence(Interval<Date> durationDateTimeOfOccurrence) {
+        this.durationDateTimeOfOccurrence.setValue(durationDateTimeOfOccurrence);
     }
 
 }

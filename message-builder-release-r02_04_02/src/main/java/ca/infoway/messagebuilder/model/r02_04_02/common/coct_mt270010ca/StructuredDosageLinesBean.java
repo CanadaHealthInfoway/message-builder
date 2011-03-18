@@ -41,12 +41,12 @@ public class StructuredDosageLinesBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
     private URG<PQ, PhysicalQuantity> dosageRange = new URGImpl<PQ, PhysicalQuantity>();
-    private AdministrationPreconditionBean triggerActEventCriterion;
     private CS dosageUsageContext = new CSImpl();
-    private AdditionalSIGInstructionBean componentSupplementalInstruction;
     private ST adHocDosageInstruction = new STImpl();
-    private GTS dosageTimingFrequency = new GTSImpl();
+    private AdditionalSIGInstructionBean componentSupplementalInstruction;
+    private AdministrationPreconditionBean triggerActEventCriterion;
     private URG<PQ, PhysicalQuantity> dosageRate = new URGImpl<PQ, PhysicalQuantity>();
+    private GTS dosageTimingFrequency = new GTSImpl();
 
 
     /**
@@ -75,15 +75,6 @@ public class StructuredDosageLinesBean extends MessagePartBean {
     }
     public void setDosageRange(UncertainRange<PhysicalQuantity> dosageRange) {
         this.dosageRange.setValue(dosageRange);
-    }
-
-
-    @Hl7XmlMapping({"trigger/actEventCriterion"})
-    public AdministrationPreconditionBean getTriggerActEventCriterion() {
-        return this.triggerActEventCriterion;
-    }
-    public void setTriggerActEventCriterion(AdministrationPreconditionBean triggerActEventCriterion) {
-        this.triggerActEventCriterion = triggerActEventCriterion;
     }
 
 
@@ -135,15 +126,6 @@ public class StructuredDosageLinesBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"component/supplementalInstruction"})
-    public AdditionalSIGInstructionBean getComponentSupplementalInstruction() {
-        return this.componentSupplementalInstruction;
-    }
-    public void setComponentSupplementalInstruction(AdditionalSIGInstructionBean componentSupplementalInstruction) {
-        this.componentSupplementalInstruction = componentSupplementalInstruction;
-    }
-
-
     /**
      * <p>C:Ad-hoc Dosage Instruction</p>
      * 
@@ -182,6 +164,43 @@ public class StructuredDosageLinesBean extends MessagePartBean {
     }
     public void setAdHocDosageInstruction(String adHocDosageInstruction) {
         this.adHocDosageInstruction.setValue(adHocDosageInstruction);
+    }
+
+
+    @Hl7XmlMapping({"component/supplementalInstruction"})
+    public AdditionalSIGInstructionBean getComponentSupplementalInstruction() {
+        return this.componentSupplementalInstruction;
+    }
+    public void setComponentSupplementalInstruction(AdditionalSIGInstructionBean componentSupplementalInstruction) {
+        this.componentSupplementalInstruction = componentSupplementalInstruction;
+    }
+
+
+    @Hl7XmlMapping({"trigger/actEventCriterion"})
+    public AdministrationPreconditionBean getTriggerActEventCriterion() {
+        return this.triggerActEventCriterion;
+    }
+    public void setTriggerActEventCriterion(AdministrationPreconditionBean triggerActEventCriterion) {
+        this.triggerActEventCriterion = triggerActEventCriterion;
+    }
+
+
+    /**
+     * <p>E:Dosage Rate</p>
+     * 
+     * <p><p>For intravenous and other such routes, this is the 
+     * time period over which one dose is to be administered. The 
+     * flow rate is determined by dividing the dose quantity by the 
+     * Dosage rate.</p></p>
+     * 
+     * <p><p>Required for intravenous administration</p></p>
+     */
+    @Hl7XmlMapping({"rateQuantity"})
+    public UncertainRange<PhysicalQuantity> getDosageRate() {
+        return this.dosageRate.getValue();
+    }
+    public void setDosageRate(UncertainRange<PhysicalQuantity> dosageRate) {
+        this.dosageRate.setValue(dosageRate);
     }
 
 
@@ -303,25 +322,6 @@ public class StructuredDosageLinesBean extends MessagePartBean {
     }
     public void setDosageTimingFrequency(GeneralTimingSpecification dosageTimingFrequency) {
         this.dosageTimingFrequency.setValue(dosageTimingFrequency);
-    }
-
-
-    /**
-     * <p>E:Dosage Rate</p>
-     * 
-     * <p><p>For intravenous and other such routes, this is the 
-     * time period over which one dose is to be administered. The 
-     * flow rate is determined by dividing the dose quantity by the 
-     * Dosage rate.</p></p>
-     * 
-     * <p><p>Required for intravenous administration</p></p>
-     */
-    @Hl7XmlMapping({"rateQuantity"})
-    public UncertainRange<PhysicalQuantity> getDosageRate() {
-        return this.dosageRate.getValue();
-    }
-    public void setDosageRate(UncertainRange<PhysicalQuantity> dosageRate) {
-        this.dosageRate.setValue(dosageRate);
     }
 
 }

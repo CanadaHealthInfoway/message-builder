@@ -13,6 +13,8 @@ import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.domainvalue.QualifiedRoleType;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.r02_04_02.pr.merged.PrinicpalPerson_2Bean;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 
@@ -35,10 +37,19 @@ import java.util.Set;
 public class QualifiedEntityBean extends MessagePartBean implements ca.infoway.messagebuilder.model.r02_04_02.merged.RoleChoice {
 
     private static final long serialVersionUID = 20110318L;
-    private CV expertiseOrCredentialsRoleType = new CVImpl();
     private OrganizationBean qualificationGrantingOrganization;
+    private CV expertiseOrCredentialsRoleType = new CVImpl();
     private PrinicpalPerson_2Bean qualifiedPrincipalPerson;
     private SET<II, Identifier> expertiseOrCredentialsRoleIdentifier = new SETImpl<II, Identifier>(IIImpl.class);
+
+
+    @Hl7XmlMapping({"qualificationGrantingOrganization"})
+    public OrganizationBean getQualificationGrantingOrganization() {
+        return this.qualificationGrantingOrganization;
+    }
+    public void setQualificationGrantingOrganization(OrganizationBean qualificationGrantingOrganization) {
+        this.qualificationGrantingOrganization = qualificationGrantingOrganization;
+    }
 
 
     /**
@@ -60,15 +71,6 @@ public class QualifiedEntityBean extends MessagePartBean implements ca.infoway.m
     }
     public void setExpertiseOrCredentialsRoleType(QualifiedRoleType expertiseOrCredentialsRoleType) {
         this.expertiseOrCredentialsRoleType.setValue(expertiseOrCredentialsRoleType);
-    }
-
-
-    @Hl7XmlMapping({"qualificationGrantingOrganization"})
-    public OrganizationBean getQualificationGrantingOrganization() {
-        return this.qualificationGrantingOrganization;
-    }
-    public void setQualificationGrantingOrganization(OrganizationBean qualificationGrantingOrganization) {
-        this.qualificationGrantingOrganization = qualificationGrantingOrganization;
     }
 
 

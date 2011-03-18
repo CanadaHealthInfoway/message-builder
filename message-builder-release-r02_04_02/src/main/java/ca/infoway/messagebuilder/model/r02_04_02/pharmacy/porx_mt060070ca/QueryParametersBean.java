@@ -40,56 +40,69 @@ import java.util.List;
 public class QueryParametersBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private List<CV> rxDispenserIndicators = new ArrayList<CV>();
-    private List<CV> careCompositionTypes = new ArrayList<CV>();
-    private IVL<TS, Interval<Date>> amendedInTimeRange = new IVLImpl<TS, Interval<Date>>();
-    private List<II> careCompositionIDs = new ArrayList<II>();
     private CV issueFilterCode = new CVImpl();
     private BL mostRecentByDeviceIndicator = new BLImpl();
+    private IVL<TS, Interval<Date>> amendedInTimeRange = new IVLImpl<TS, Interval<Date>>();
+    private List<II> careCompositionIDs = new ArrayList<II>();
     private IVL<TS, Interval<Date>> usageEffectivePeriod = new IVLImpl<TS, Interval<Date>>();
+    private List<CV> careCompositionTypes = new ArrayList<CV>();
+    private List<CV> rxDispenserIndicators = new ArrayList<CV>();
 
 
     /**
-     * <p>Rx Dispenser Indicators</p>
+     * <p>Issue Filter Code</p>
      * 
-     * <p><p>A coded value indicating the dispensing (fill) status 
-     * of the prescription to be included in the result set. Rx 
-     * Dispense Indicators include: ND (Never Dispensed), DRR 
-     * (Dispensed with Refills Remaining), etc.</p><p>The 
-     * repetition of 3 allows for retrieval based on all three Rx 
-     * Dispense Indicators.</p></p>
+     * <p><p>Indicates whether records to be returned (e.g. 
+     * prescription order, prescription dispense and/or other 
+     * medication) should be filtered to those with at least one 
+     * persistent un-managed issue (against the record), with at 
+     * least one persistent issues or should return all records, 
+     * independent of the presence of persistent issues.</p></p>
      * 
-     * <p><p>A coded value indicating the dispensing (fill) status 
-     * of the prescription to be included in the result set. Rx 
-     * Dispense Indicators include: ND (Never Dispensed), DRR 
-     * (Dispensed with Refills Remaining), etc.</p><p>The 
-     * repetition of 3 allows for retrieval based on all three Rx 
-     * Dispense Indicators.</p></p>
-     * 
-     * <p><p>Allows for finer sub-set of prescriptions to be 
-     * retrieved based on the fill status of the prescription.</p></p>
+     * <p><p>By filtering returned records to include only those 
+     * which have unmanaged issues or any issues at all, allows a 
+     * provider to focus on those aspects of care where extra 
+     * attention is needed. Because the attribute must be known, it 
+     * is mandatory.</p></p>
      */
-    @Hl7XmlMapping({"rxDispenseIndicator/value"})
-    public List<PrescriptionDispenseFilterCode> getRxDispenserIndicators() {
-        return new RawListWrapper<CV, PrescriptionDispenseFilterCode>(rxDispenserIndicators, CVImpl.class);
+    @Hl7XmlMapping({"issueFilterCode/value"})
+    public IssueFilterCode getIssueFilterCode() {
+        return (IssueFilterCode) this.issueFilterCode.getValue();
+    }
+    public void setIssueFilterCode(IssueFilterCode issueFilterCode) {
+        this.issueFilterCode.setValue(issueFilterCode);
     }
 
 
     /**
-     * <p>Care Composition Types</p>
+     * <p>Most Recent By Device Indicator</p>
      * 
-     * <p><p>Filters the records retrieved to only include those 
-     * associated with the specified 'kind' of encounter, episode 
-     * or care event. If unspecified, no filter is applied.</p></p>
+     * <p><p>Indicates whether or not the records are to be 
+     * retrieved based on the most recent by Device Code. If true, 
+     * only the most recent prescription or dispense for a 
+     * particular device type will be returned. The default is 
+     * 'FALSE' indicating that retrieval of prescription or 
+     * dispense records should not be limited to one per device 
+     * type.</p></p>
      * 
-     * <p><p>Allows retrieving all records associated with a 
-     * particular type of encounter, episode or care event. 
-     * E.g.Orthopedic Clinic Encounter, ER encounter, Walk-in 
-     * encounter, etc.</p></p>
+     * <p><p>Helps decrease the volume of records returned, while 
+     * still maintaining information on all devices that the 
+     * patient is using.</p><p>Because this is a boolean attribute 
+     * whose value must be known to evaluate the query, the 
+     * attribute is mandatory.</p></p>
+     * 
+     * <p><p>Helps decrease the volume of records returned, while 
+     * still maintaining information on all devices that the 
+     * patient is using.</p><p>Because this is a boolean attribute 
+     * whose value must be known to evaluate the query, the 
+     * attribute is mandatory.</p></p>
      */
-    @Hl7XmlMapping({"careCompositionType/value"})
-    public List<ActCareEventType> getCareCompositionTypes() {
-        return new RawListWrapper<CV, ActCareEventType>(careCompositionTypes, CVImpl.class);
+    @Hl7XmlMapping({"mostRecentByDeviceIndicator/value"})
+    public Boolean getMostRecentByDeviceIndicator() {
+        return this.mostRecentByDeviceIndicator.getValue();
+    }
+    public void setMostRecentByDeviceIndicator(Boolean mostRecentByDeviceIndicator) {
+        this.mostRecentByDeviceIndicator.setValue(mostRecentByDeviceIndicator);
     }
 
 
@@ -153,63 +166,6 @@ public class QueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>Issue Filter Code</p>
-     * 
-     * <p><p>Indicates whether records to be returned (e.g. 
-     * prescription order, prescription dispense and/or other 
-     * medication) should be filtered to those with at least one 
-     * persistent un-managed issue (against the record), with at 
-     * least one persistent issues or should return all records, 
-     * independent of the presence of persistent issues.</p></p>
-     * 
-     * <p><p>By filtering returned records to include only those 
-     * which have unmanaged issues or any issues at all, allows a 
-     * provider to focus on those aspects of care where extra 
-     * attention is needed. Because the attribute must be known, it 
-     * is mandatory.</p></p>
-     */
-    @Hl7XmlMapping({"issueFilterCode/value"})
-    public IssueFilterCode getIssueFilterCode() {
-        return (IssueFilterCode) this.issueFilterCode.getValue();
-    }
-    public void setIssueFilterCode(IssueFilterCode issueFilterCode) {
-        this.issueFilterCode.setValue(issueFilterCode);
-    }
-
-
-    /**
-     * <p>Most Recent By Device Indicator</p>
-     * 
-     * <p><p>Indicates whether or not the records are to be 
-     * retrieved based on the most recent by Device Code. If true, 
-     * only the most recent prescription or dispense for a 
-     * particular device type will be returned. The default is 
-     * 'FALSE' indicating that retrieval of prescription or 
-     * dispense records should not be limited to one per device 
-     * type.</p></p>
-     * 
-     * <p><p>Helps decrease the volume of records returned, while 
-     * still maintaining information on all devices that the 
-     * patient is using.</p><p>Because this is a boolean attribute 
-     * whose value must be known to evaluate the query, the 
-     * attribute is mandatory.</p></p>
-     * 
-     * <p><p>Helps decrease the volume of records returned, while 
-     * still maintaining information on all devices that the 
-     * patient is using.</p><p>Because this is a boolean attribute 
-     * whose value must be known to evaluate the query, the 
-     * attribute is mandatory.</p></p>
-     */
-    @Hl7XmlMapping({"mostRecentByDeviceIndicator/value"})
-    public Boolean getMostRecentByDeviceIndicator() {
-        return this.mostRecentByDeviceIndicator.getValue();
-    }
-    public void setMostRecentByDeviceIndicator(Boolean mostRecentByDeviceIndicator) {
-        this.mostRecentByDeviceIndicator.setValue(mostRecentByDeviceIndicator);
-    }
-
-
-    /**
      * <p>Usage Effective Period</p>
      * 
      * <p><p>Indicates the usage period for which the request/query 
@@ -238,6 +194,50 @@ public class QueryParametersBean extends MessagePartBean {
     }
     public void setUsageEffectivePeriod(Interval<Date> usageEffectivePeriod) {
         this.usageEffectivePeriod.setValue(usageEffectivePeriod);
+    }
+
+
+    /**
+     * <p>Care Composition Types</p>
+     * 
+     * <p><p>Filters the records retrieved to only include those 
+     * associated with the specified 'kind' of encounter, episode 
+     * or care event. If unspecified, no filter is applied.</p></p>
+     * 
+     * <p><p>Allows retrieving all records associated with a 
+     * particular type of encounter, episode or care event. 
+     * E.g.Orthopedic Clinic Encounter, ER encounter, Walk-in 
+     * encounter, etc.</p></p>
+     */
+    @Hl7XmlMapping({"careCompositionType/value"})
+    public List<ActCareEventType> getCareCompositionTypes() {
+        return new RawListWrapper<CV, ActCareEventType>(careCompositionTypes, CVImpl.class);
+    }
+
+
+    /**
+     * <p>Rx Dispenser Indicators</p>
+     * 
+     * <p><p>A coded value indicating the dispensing (fill) status 
+     * of the prescription to be included in the result set. Rx 
+     * Dispense Indicators include: ND (Never Dispensed), DRR 
+     * (Dispensed with Refills Remaining), etc.</p><p>The 
+     * repetition of 3 allows for retrieval based on all three Rx 
+     * Dispense Indicators.</p></p>
+     * 
+     * <p><p>A coded value indicating the dispensing (fill) status 
+     * of the prescription to be included in the result set. Rx 
+     * Dispense Indicators include: ND (Never Dispensed), DRR 
+     * (Dispensed with Refills Remaining), etc.</p><p>The 
+     * repetition of 3 allows for retrieval based on all three Rx 
+     * Dispense Indicators.</p></p>
+     * 
+     * <p><p>Allows for finer sub-set of prescriptions to be 
+     * retrieved based on the fill status of the prescription.</p></p>
+     */
+    @Hl7XmlMapping({"rxDispenseIndicator/value"})
+    public List<PrescriptionDispenseFilterCode> getRxDispenserIndicators() {
+        return new RawListWrapper<CV, PrescriptionDispenseFilterCode>(rxDispenserIndicators, CVImpl.class);
     }
 
 }

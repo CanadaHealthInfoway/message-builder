@@ -53,30 +53,10 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 public class SubLocationsBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private ST locationName = new STImpl();
     private CV subLocationType = new CVImpl();
+    private ST locationName = new STImpl();
     private CV subLocationPlaceType = new CVImpl();
     private II subLocationIdentifier = new IIImpl();
-
-
-    /**
-     * <p>LocationName</p>
-     * 
-     * <p>Location Name</p>
-     * 
-     * <p><p>A descriptive name for the sub-location.</p></p>
-     * 
-     * <p><p>Provides a human-readable label for the location and 
-     * is therefore mandatory. In general, names of sub-locations 
-     * will be unique within their containing location.</p></p>
-     */
-    @Hl7XmlMapping({"name"})
-    public String getLocationName() {
-        return this.locationName.getValue();
-    }
-    public void setLocationName(String locationName) {
-        this.locationName.setValue(locationName);
-    }
 
 
     /**
@@ -99,6 +79,26 @@ public class SubLocationsBean extends MessagePartBean {
     }
     public void setSubLocationType(ServiceDeliveryLocationRoleType subLocationType) {
         this.subLocationType.setValue(subLocationType);
+    }
+
+
+    /**
+     * <p>LocationName</p>
+     * 
+     * <p>Location Name</p>
+     * 
+     * <p><p>A descriptive name for the sub-location.</p></p>
+     * 
+     * <p><p>Provides a human-readable label for the location and 
+     * is therefore mandatory. In general, names of sub-locations 
+     * will be unique within their containing location.</p></p>
+     */
+    @Hl7XmlMapping({"name"})
+    public String getLocationName() {
+        return this.locationName.getValue();
+    }
+    public void setLocationName(String locationName) {
+        this.locationName.setValue(locationName);
     }
 
 

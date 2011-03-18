@@ -14,6 +14,7 @@ import ca.infoway.messagebuilder.datatype.impl.CVImpl;
 import ca.infoway.messagebuilder.datatype.impl.IIImpl;
 import ca.infoway.messagebuilder.datatype.impl.IVLImpl;
 import ca.infoway.messagebuilder.datatype.impl.PNImpl;
+import ca.infoway.messagebuilder.datatype.impl.RawListWrapper;
 import ca.infoway.messagebuilder.datatype.impl.TSImpl;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.Interval;
@@ -23,7 +24,9 @@ import ca.infoway.messagebuilder.domainvalue.AdministrativeGender;
 import ca.infoway.messagebuilder.domainvalue.ClinicalDeviceEntity;
 import ca.infoway.messagebuilder.domainvalue.ClinicalDrug;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 
 
@@ -32,33 +35,33 @@ import java.util.Date;
 public class ParameterList_1Bean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private II policyIdentifier = new IIImpl();
-    private PN coveredPartyNameValue = new PNImpl();
-    private CV coveredPartyGenderValue = new CVImpl();
     private II specialAuthorizationRequestID = new IIImpl();
+    private PN coveredPartyNameValue = new PNImpl();
+    private II policyIdentifier = new IIImpl();
     private TS coveredPartyBirthdate = new TSImpl();
-    private CV requestedDeviceCode = new CVImpl();
-    private CV requestedDrugCode = new CVImpl();
-    private PN authorName = new PNImpl();
+    private CV coveredPartyGenderValue = new CVImpl();
+    private List<CV> specialAuthorizationStatus = new ArrayList<CV>();
     private IVL<TS, Interval<Date>> specialAuthorizationExpiryDateRange = new IVLImpl<TS, Interval<Date>>();
+    private CV requestedDrugCode = new CVImpl();
     private CV approvedDeviceCode = new CVImpl();
-    private II authorID = new IIImpl();
+    private PN authorName = new PNImpl();
+    private CV requestedDeviceCode = new CVImpl();
     private CV specialAuthorizationRequestType = new CVImpl();
-    private CV specialAuthorizationStatus = new CVImpl();
+    private II authorID = new IIImpl();
     private CV approvedDrugCode = new CVImpl();
 
 
     /**
-     * <p>PolicyIdentifier</p>
+     * <p>SpecialAuthorizationRequestID</p>
      * 
-     * <p>Policy Identifier</p>
+     * <p>Special Authorization Request ID</p>
      */
-    @Hl7XmlMapping({"policyIdentifier/value"})
-    public Identifier getPolicyIdentifier() {
-        return this.policyIdentifier.getValue();
+    @Hl7XmlMapping({"specialAuthorizationRequestID/value"})
+    public Identifier getSpecialAuthorizationRequestID() {
+        return this.specialAuthorizationRequestID.getValue();
     }
-    public void setPolicyIdentifier(Identifier policyIdentifier) {
-        this.policyIdentifier.setValue(policyIdentifier);
+    public void setSpecialAuthorizationRequestID(Identifier specialAuthorizationRequestID) {
+        this.specialAuthorizationRequestID.setValue(specialAuthorizationRequestID);
     }
 
 
@@ -77,30 +80,16 @@ public class ParameterList_1Bean extends MessagePartBean {
 
 
     /**
-     * <p>Covered Party Gender</p>
+     * <p>PolicyIdentifier</p>
      * 
-     * <p>Gender of covered party</p>
+     * <p>Policy Identifier</p>
      */
-    @Hl7XmlMapping({"coveredPartyGender/value"})
-    public AdministrativeGender getCoveredPartyGenderValue() {
-        return (AdministrativeGender) this.coveredPartyGenderValue.getValue();
+    @Hl7XmlMapping({"policyIdentifier/value"})
+    public Identifier getPolicyIdentifier() {
+        return this.policyIdentifier.getValue();
     }
-    public void setCoveredPartyGenderValue(AdministrativeGender coveredPartyGenderValue) {
-        this.coveredPartyGenderValue.setValue(coveredPartyGenderValue);
-    }
-
-
-    /**
-     * <p>SpecialAuthorizationRequestID</p>
-     * 
-     * <p>Special Authorization Request ID</p>
-     */
-    @Hl7XmlMapping({"specialAuthorizationRequestID/value"})
-    public Identifier getSpecialAuthorizationRequestID() {
-        return this.specialAuthorizationRequestID.getValue();
-    }
-    public void setSpecialAuthorizationRequestID(Identifier specialAuthorizationRequestID) {
-        this.specialAuthorizationRequestID.setValue(specialAuthorizationRequestID);
+    public void setPolicyIdentifier(Identifier policyIdentifier) {
+        this.policyIdentifier.setValue(policyIdentifier);
     }
 
 
@@ -119,44 +108,27 @@ public class ParameterList_1Bean extends MessagePartBean {
 
 
     /**
-     * <p>RequestedDeviceCode</p>
+     * <p>Covered Party Gender</p>
      * 
-     * <p>Requested Device Code</p>
+     * <p>Gender of covered party</p>
      */
-    @Hl7XmlMapping({"requestedDeviceCode/value"})
-    public ClinicalDeviceEntity getRequestedDeviceCode() {
-        return (ClinicalDeviceEntity) this.requestedDeviceCode.getValue();
+    @Hl7XmlMapping({"coveredPartyGender/value"})
+    public AdministrativeGender getCoveredPartyGenderValue() {
+        return (AdministrativeGender) this.coveredPartyGenderValue.getValue();
     }
-    public void setRequestedDeviceCode(ClinicalDeviceEntity requestedDeviceCode) {
-        this.requestedDeviceCode.setValue(requestedDeviceCode);
+    public void setCoveredPartyGenderValue(AdministrativeGender coveredPartyGenderValue) {
+        this.coveredPartyGenderValue.setValue(coveredPartyGenderValue);
     }
 
 
     /**
-     * <p>RequestedDrugCode</p>
+     * <p>SpecialAuthorizationStatus</p>
      * 
-     * <p>Requested Drug Code</p>
+     * <p>Special Authorization Status</p>
      */
-    @Hl7XmlMapping({"requestedDrugCode/value"})
-    public ClinicalDrug getRequestedDrugCode() {
-        return (ClinicalDrug) this.requestedDrugCode.getValue();
-    }
-    public void setRequestedDrugCode(ClinicalDrug requestedDrugCode) {
-        this.requestedDrugCode.setValue(requestedDrugCode);
-    }
-
-
-    /**
-     * <p>AuthorName</p>
-     * 
-     * <p>Author Name</p>
-     */
-    @Hl7XmlMapping({"authorName/value"})
-    public PersonName getAuthorName() {
-        return this.authorName.getValue();
-    }
-    public void setAuthorName(PersonName authorName) {
-        this.authorName.setValue(authorName);
+    @Hl7XmlMapping({"specialAuthorizationStatus/value"})
+    public List<ActStatus> getSpecialAuthorizationStatus() {
+        return new RawListWrapper<CV, ActStatus>(specialAuthorizationStatus, CVImpl.class);
     }
 
 
@@ -175,6 +147,20 @@ public class ParameterList_1Bean extends MessagePartBean {
 
 
     /**
+     * <p>RequestedDrugCode</p>
+     * 
+     * <p>Requested Drug Code</p>
+     */
+    @Hl7XmlMapping({"requestedDrugCode/value"})
+    public ClinicalDrug getRequestedDrugCode() {
+        return (ClinicalDrug) this.requestedDrugCode.getValue();
+    }
+    public void setRequestedDrugCode(ClinicalDrug requestedDrugCode) {
+        this.requestedDrugCode.setValue(requestedDrugCode);
+    }
+
+
+    /**
      * <p>ApprovedDeviceCode</p>
      * 
      * <p>Approved Device Code</p>
@@ -189,16 +175,30 @@ public class ParameterList_1Bean extends MessagePartBean {
 
 
     /**
-     * <p>AuthorID</p>
+     * <p>AuthorName</p>
      * 
-     * <p>Author ID</p>
+     * <p>Author Name</p>
      */
-    @Hl7XmlMapping({"authorID/id"})
-    public Identifier getAuthorID() {
-        return this.authorID.getValue();
+    @Hl7XmlMapping({"authorName/value"})
+    public PersonName getAuthorName() {
+        return this.authorName.getValue();
     }
-    public void setAuthorID(Identifier authorID) {
-        this.authorID.setValue(authorID);
+    public void setAuthorName(PersonName authorName) {
+        this.authorName.setValue(authorName);
+    }
+
+
+    /**
+     * <p>RequestedDeviceCode</p>
+     * 
+     * <p>Requested Device Code</p>
+     */
+    @Hl7XmlMapping({"requestedDeviceCode/value"})
+    public ClinicalDeviceEntity getRequestedDeviceCode() {
+        return (ClinicalDeviceEntity) this.requestedDeviceCode.getValue();
+    }
+    public void setRequestedDeviceCode(ClinicalDeviceEntity requestedDeviceCode) {
+        this.requestedDeviceCode.setValue(requestedDeviceCode);
     }
 
 
@@ -217,16 +217,16 @@ public class ParameterList_1Bean extends MessagePartBean {
 
 
     /**
-     * <p>SpecialAuthorizationStatus</p>
+     * <p>AuthorID</p>
      * 
-     * <p>Special Authorization Status</p>
+     * <p>Author ID</p>
      */
-    @Hl7XmlMapping({"specialAuthorizationStatus/value"})
-    public ActStatus getSpecialAuthorizationStatus() {
-        return (ActStatus) this.specialAuthorizationStatus.getValue();
+    @Hl7XmlMapping({"authorID/id"})
+    public Identifier getAuthorID() {
+        return this.authorID.getValue();
     }
-    public void setSpecialAuthorizationStatus(ActStatus specialAuthorizationStatus) {
-        this.specialAuthorizationStatus.setValue(specialAuthorizationStatus);
+    public void setAuthorID(Identifier authorID) {
+        this.authorID.setValue(authorID);
     }
 
 

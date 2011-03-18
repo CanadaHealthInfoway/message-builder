@@ -18,9 +18,18 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 public class SpecialAuthorizationAdditionalInformationRequestBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
+    private SpecialAuthorizationRequestBean referenceSpecialAuthorizationRequest;
     private ST additionalInformationQuestion = new STImpl();
     private II additionalInformationRequestID = new IIImpl();
-    private SpecialAuthorizationRequestBean referenceSpecialAuthorizationRequest;
+
+
+    @Hl7XmlMapping({"reference/specialAuthorizationRequest"})
+    public SpecialAuthorizationRequestBean getReferenceSpecialAuthorizationRequest() {
+        return this.referenceSpecialAuthorizationRequest;
+    }
+    public void setReferenceSpecialAuthorizationRequest(SpecialAuthorizationRequestBean referenceSpecialAuthorizationRequest) {
+        this.referenceSpecialAuthorizationRequest = referenceSpecialAuthorizationRequest;
+    }
 
 
     /**
@@ -48,15 +57,6 @@ public class SpecialAuthorizationAdditionalInformationRequestBean extends Messag
     }
     public void setAdditionalInformationRequestID(Identifier additionalInformationRequestID) {
         this.additionalInformationRequestID.setValue(additionalInformationRequestID);
-    }
-
-
-    @Hl7XmlMapping({"reference/specialAuthorizationRequest"})
-    public SpecialAuthorizationRequestBean getReferenceSpecialAuthorizationRequest() {
-        return this.referenceSpecialAuthorizationRequest;
-    }
-    public void setReferenceSpecialAuthorizationRequest(SpecialAuthorizationRequestBean referenceSpecialAuthorizationRequest) {
-        this.referenceSpecialAuthorizationRequest = referenceSpecialAuthorizationRequest;
     }
 
 }

@@ -47,53 +47,9 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 public class AllowedSubstitutionBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private BL negationInd = new BLImpl();
     private CV code = new CVImpl();
     private CV reasonCode = new CVImpl();
-
-
-    /**
-     * <p>A:Substitution Not Allowed Indicator</p>
-     * 
-     * <p><p>If true, indicates that the drug must be dispensed 
-     * exactly as prescribed</p></p>
-     * 
-     * <p><p>Many jurisdictions allow substitution by default and 
-     * require prescribers to explicitly declare when they do not 
-     * want substitution. The element is mandatory because it must 
-     * be explicitly true or false.</p></p>
-     * 
-     * <p>A:Substitution Not Allowed?</p>
-     * 
-     * <p><p>If true, indicates that the prescriber has prohibited 
-     * substitution. Default is that substitution is allowed.</p></p>
-     * 
-     * <p><p>Indicates whether substitutions are allowed. The 
-     * attribute is mandatory because whether substitution is 
-     * allowed must be declared.</p></p>
-     * 
-     * <p>A:Substitution Not Allowed Indicator</p>
-     * 
-     * <p><p>If true, indicates that the drug must be dispensed 
-     * exactly as prescribed</p></p>
-     * 
-     * <p><p>Many jurisdictions allow substitution by default and 
-     * require prescribers to explicitly declare when they do not 
-     * want substitution.</p><p>The attribute is mandatory because 
-     * it must be known whether the indicator is true or false.</p></p>
-     * 
-     * <p><p>Many jurisdictions allow substitution by default and 
-     * require prescribers to explicitly declare when they do not 
-     * want substitution.</p><p>The attribute is mandatory because 
-     * it must be known whether the indicator is true or false.</p></p>
-     */
-    @Hl7XmlMapping({"negationInd"})
-    public Boolean getNegationInd() {
-        return this.negationInd.getValue();
-    }
-    public void setNegationInd(Boolean negationInd) {
-        this.negationInd.setValue(negationInd);
-    }
+    private BL negationInd = new BLImpl();
 
 
     /**
@@ -168,6 +124,50 @@ public class AllowedSubstitutionBean extends MessagePartBean {
     }
     public void setReasonCode(SubstanceAdminSubstitutionNotAllowedReason reasonCode) {
         this.reasonCode.setValue(reasonCode);
+    }
+
+
+    /**
+     * <p>A:Substitution Not Allowed Indicator</p>
+     * 
+     * <p><p>If true, indicates that the drug must be dispensed 
+     * exactly as prescribed</p></p>
+     * 
+     * <p><p>Many jurisdictions allow substitution by default and 
+     * require prescribers to explicitly declare when they do not 
+     * want substitution. The element is mandatory because it must 
+     * be explicitly true or false.</p></p>
+     * 
+     * <p>A:Substitution Not Allowed?</p>
+     * 
+     * <p><p>If true, indicates that the prescriber has prohibited 
+     * substitution. Default is that substitution is allowed.</p></p>
+     * 
+     * <p><p>Indicates whether substitutions are allowed. The 
+     * attribute is mandatory because whether substitution is 
+     * allowed must be declared.</p></p>
+     * 
+     * <p>A:Substitution Not Allowed Indicator</p>
+     * 
+     * <p><p>If true, indicates that the drug must be dispensed 
+     * exactly as prescribed</p></p>
+     * 
+     * <p><p>Many jurisdictions allow substitution by default and 
+     * require prescribers to explicitly declare when they do not 
+     * want substitution.</p><p>The attribute is mandatory because 
+     * it must be known whether the indicator is true or false.</p></p>
+     * 
+     * <p><p>Many jurisdictions allow substitution by default and 
+     * require prescribers to explicitly declare when they do not 
+     * want substitution.</p><p>The attribute is mandatory because 
+     * it must be known whether the indicator is true or false.</p></p>
+     */
+    @Hl7XmlMapping({"negationInd"})
+    public Boolean getNegationInd() {
+        return this.negationInd.getValue();
+    }
+    public void setNegationInd(Boolean negationInd) {
+        this.negationInd.setValue(negationInd);
     }
 
 }

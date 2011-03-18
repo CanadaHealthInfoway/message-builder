@@ -44,12 +44,12 @@ public class InvoiceElementDetailBean extends MessagePartBean implements ca.info
 
     private static final long serialVersionUID = 20110318L;
     private CV submittedProductServiceCode = new CVImpl();
-    private II submittedInvoiceLineIdentifier = new IIImpl();
     private MO submittedInvoiceLineAmount = new MOImpl();
+    private II submittedInvoiceLineIdentifier = new IIImpl();
+    private REAL taxAppliedToUnitPriceAmt = new REALImpl();
+    private RTO<Money, PhysicalQuantity> submittedUnitAmountPrice = new RTOImpl<Money, PhysicalQuantity>();
     private PQ submittedUnitQuantity = new PQImpl();
     private List<A_BillableActChoice> reasonOfBillableActChoice = new ArrayList<A_BillableActChoice>();
-    private RTO<Money, PhysicalQuantity> submittedUnitAmountPrice = new RTOImpl<Money, PhysicalQuantity>();
-    private REAL taxAppliedToUnitPriceAmt = new REALImpl();
 
 
     /**
@@ -69,6 +69,20 @@ public class InvoiceElementDetailBean extends MessagePartBean implements ca.info
 
 
     /**
+     * <p>SubmittedInvoiceLineAmount</p>
+     * 
+     * <p>Submitted Invoice Line Amount</p>
+     */
+    @Hl7XmlMapping({"netAmt"})
+    public Money getSubmittedInvoiceLineAmount() {
+        return this.submittedInvoiceLineAmount.getValue();
+    }
+    public void setSubmittedInvoiceLineAmount(Money submittedInvoiceLineAmount) {
+        this.submittedInvoiceLineAmount.setValue(submittedInvoiceLineAmount);
+    }
+
+
+    /**
      * <p>SubmittedInvoiceLineIdentifier</p>
      * 
      * <p>Submitted Invoice Line Identifier</p>
@@ -83,16 +97,30 @@ public class InvoiceElementDetailBean extends MessagePartBean implements ca.info
 
 
     /**
-     * <p>SubmittedInvoiceLineAmount</p>
+     * <p>TaxAppliedToUnitPriceAmt</p>
      * 
-     * <p>Submitted Invoice Line Amount</p>
+     * <p>Tax % applied to unitPriceAmt.</p>
      */
-    @Hl7XmlMapping({"netAmt"})
-    public Money getSubmittedInvoiceLineAmount() {
-        return this.submittedInvoiceLineAmount.getValue();
+    @Hl7XmlMapping({"factorNumber"})
+    public BigDecimal getTaxAppliedToUnitPriceAmt() {
+        return this.taxAppliedToUnitPriceAmt.getValue();
     }
-    public void setSubmittedInvoiceLineAmount(Money submittedInvoiceLineAmount) {
-        this.submittedInvoiceLineAmount.setValue(submittedInvoiceLineAmount);
+    public void setTaxAppliedToUnitPriceAmt(BigDecimal taxAppliedToUnitPriceAmt) {
+        this.taxAppliedToUnitPriceAmt.setValue(taxAppliedToUnitPriceAmt);
+    }
+
+
+    /**
+     * <p>SubmittedUnitAmountPrice</p>
+     * 
+     * <p>Submitted Unit Amount Price</p>
+     */
+    @Hl7XmlMapping({"unitPriceAmt"})
+    public Ratio<Money, PhysicalQuantity> getSubmittedUnitAmountPrice() {
+        return this.submittedUnitAmountPrice.getValue();
+    }
+    public void setSubmittedUnitAmountPrice(Ratio<Money, PhysicalQuantity> submittedUnitAmountPrice) {
+        this.submittedUnitAmountPrice.setValue(submittedUnitAmountPrice);
     }
 
 
@@ -113,34 +141,6 @@ public class InvoiceElementDetailBean extends MessagePartBean implements ca.info
     @Hl7XmlMapping({"reasonOf/billableActChoice"})
     public List<A_BillableActChoice> getReasonOfBillableActChoice() {
         return this.reasonOfBillableActChoice;
-    }
-
-
-    /**
-     * <p>SubmittedUnitAmountPrice</p>
-     * 
-     * <p>Submitted Unit Amount Price</p>
-     */
-    @Hl7XmlMapping({"unitPriceAmt"})
-    public Ratio<Money, PhysicalQuantity> getSubmittedUnitAmountPrice() {
-        return this.submittedUnitAmountPrice.getValue();
-    }
-    public void setSubmittedUnitAmountPrice(Ratio<Money, PhysicalQuantity> submittedUnitAmountPrice) {
-        this.submittedUnitAmountPrice.setValue(submittedUnitAmountPrice);
-    }
-
-
-    /**
-     * <p>TaxAppliedToUnitPriceAmt</p>
-     * 
-     * <p>Tax % applied to unitPriceAmt.</p>
-     */
-    @Hl7XmlMapping({"factorNumber"})
-    public BigDecimal getTaxAppliedToUnitPriceAmt() {
-        return this.taxAppliedToUnitPriceAmt.getValue();
-    }
-    public void setTaxAppliedToUnitPriceAmt(BigDecimal taxAppliedToUnitPriceAmt) {
-        this.taxAppliedToUnitPriceAmt.setValue(taxAppliedToUnitPriceAmt);
     }
 
 }

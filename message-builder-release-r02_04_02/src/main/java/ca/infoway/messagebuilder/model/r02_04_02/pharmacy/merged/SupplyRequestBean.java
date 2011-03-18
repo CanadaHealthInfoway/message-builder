@@ -49,8 +49,8 @@ public class SupplyRequestBean extends MessagePartBean {
     private PQ totalPrescribedQuantity = new PQImpl();
     private OccurredAtBean location;
     private CS prescriptionDispensableIndicator = new CSImpl();
-    private IVL<TS, Interval<Date>> totalDaysSupply = new IVLImpl<TS, Interval<Date>>();
     private INT numberOfAuthorizedFills = new INTImpl();
+    private IVL<TS, Interval<Date>> totalDaysSupply = new IVLImpl<TS, Interval<Date>>();
 
 
     /**
@@ -143,6 +143,25 @@ public class SupplyRequestBean extends MessagePartBean {
 
 
     /**
+     * <p>NumberOfAuthorizedFills</p>
+     * 
+     * <p>Number of Authorized Fills</p>
+     * 
+     * <p><p>Records the total number of fills authorized</p></p>
+     * 
+     * <p><p>Regulation prevents this number from being calculated 
+     * in some jurisdictions.</p></p>
+     */
+    @Hl7XmlMapping({"repeatNumber"})
+    public Integer getNumberOfAuthorizedFills() {
+        return this.numberOfAuthorizedFills.getValue();
+    }
+    public void setNumberOfAuthorizedFills(Integer numberOfAuthorizedFills) {
+        this.numberOfAuthorizedFills.setValue(numberOfAuthorizedFills);
+    }
+
+
+    /**
      * <p>TotalDaysSupply</p>
      * 
      * <p>Total Days Supply</p>
@@ -180,25 +199,6 @@ public class SupplyRequestBean extends MessagePartBean {
     }
     public void setTotalDaysSupply(Interval<Date> totalDaysSupply) {
         this.totalDaysSupply.setValue(totalDaysSupply);
-    }
-
-
-    /**
-     * <p>NumberOfAuthorizedFills</p>
-     * 
-     * <p>Number of Authorized Fills</p>
-     * 
-     * <p><p>Records the total number of fills authorized</p></p>
-     * 
-     * <p><p>Regulation prevents this number from being calculated 
-     * in some jurisdictions.</p></p>
-     */
-    @Hl7XmlMapping({"repeatNumber"})
-    public Integer getNumberOfAuthorizedFills() {
-        return this.numberOfAuthorizedFills.getValue();
-    }
-    public void setNumberOfAuthorizedFills(Integer numberOfAuthorizedFills) {
-        this.numberOfAuthorizedFills.setValue(numberOfAuthorizedFills);
     }
 
 }

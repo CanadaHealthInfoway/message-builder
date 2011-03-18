@@ -46,8 +46,8 @@ public class InformRequestBean extends MessagePartBean {
     private static final long serialVersionUID = 20110318L;
     private CV informRequestCode = new CVImpl();
     private Choice indirectTargetChoice;
-    private ServiceDeliveryLocationBean subjectServiceDeliveryLocation;
     private CV serviceDeliveryLocationParticipationMode = new CVImpl();
+    private ServiceDeliveryLocationBean subjectServiceDeliveryLocation;
 
 
     /**
@@ -94,15 +94,6 @@ public class InformRequestBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"subject/serviceDeliveryLocation"})
-    public ServiceDeliveryLocationBean getSubjectServiceDeliveryLocation() {
-        return this.subjectServiceDeliveryLocation;
-    }
-    public void setSubjectServiceDeliveryLocation(ServiceDeliveryLocationBean subjectServiceDeliveryLocation) {
-        this.subjectServiceDeliveryLocation = subjectServiceDeliveryLocation;
-    }
-
-
     /**
      * <p>ServiceDeliveryLocationParticipationMode</p>
      * 
@@ -124,6 +115,15 @@ public class InformRequestBean extends MessagePartBean {
     }
     public void setServiceDeliveryLocationParticipationMode(ParticipationMode serviceDeliveryLocationParticipationMode) {
         this.serviceDeliveryLocationParticipationMode.setValue(serviceDeliveryLocationParticipationMode);
+    }
+
+
+    @Hl7XmlMapping({"subject/serviceDeliveryLocation"})
+    public ServiceDeliveryLocationBean getSubjectServiceDeliveryLocation() {
+        return this.subjectServiceDeliveryLocation;
+    }
+    public void setSubjectServiceDeliveryLocation(ServiceDeliveryLocationBean subjectServiceDeliveryLocation) {
+        this.subjectServiceDeliveryLocation = subjectServiceDeliveryLocation;
     }
 
 }

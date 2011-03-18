@@ -54,20 +54,11 @@ import java.util.Date;
 public class ExtendedDispenseInstructionsBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private DrugProductBean productMedication;
     private PQ totalPrescribedQuantity = new PQImpl();
-    private FirstFillBean component2InitialSupplyRequest;
-    private IVL<TS, Interval<Date>> totalDaysSupply = new IVLImpl<TS, Interval<Date>>();
     private SubsequentSupplyRequestBean component1SubsequentSupplyRequest;
-
-
-    @Hl7XmlMapping({"product/medication"})
-    public DrugProductBean getProductMedication() {
-        return this.productMedication;
-    }
-    public void setProductMedication(DrugProductBean productMedication) {
-        this.productMedication = productMedication;
-    }
+    private IVL<TS, Interval<Date>> totalDaysSupply = new IVLImpl<TS, Interval<Date>>();
+    private FirstFillBean component2InitialSupplyRequest;
+    private DrugProductBean productMedication;
 
 
     /**
@@ -103,17 +94,17 @@ public class ExtendedDispenseInstructionsBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"component1/initialSupplyRequest","component2/initialSupplyRequest"})
+    @Hl7XmlMapping({"component1/subsequentSupplyRequest","component2/subsequentSupplyRequest"})
     @Hl7MapByPartTypes({
-        @Hl7MapByPartType(name="component1", type="PORX_MT060160CA.Component7"),
-        @Hl7MapByPartType(name="component1/initialSupplyRequest", type="PORX_MT060160CA.InitialSupplyRequest"),
-        @Hl7MapByPartType(name="component2", type="PORX_MT060340CA.Component7"),
-        @Hl7MapByPartType(name="component2/initialSupplyRequest", type="PORX_MT060340CA.InitialSupplyRequest")})
-    public FirstFillBean getComponent2InitialSupplyRequest() {
-        return this.component2InitialSupplyRequest;
+        @Hl7MapByPartType(name="component1", type="PORX_MT060340CA.Component8"),
+        @Hl7MapByPartType(name="component1/subsequentSupplyRequest", type="PORX_MT060340CA.SubsequentSupplyRequest"),
+        @Hl7MapByPartType(name="component2", type="PORX_MT060160CA.Component8"),
+        @Hl7MapByPartType(name="component2/subsequentSupplyRequest", type="PORX_MT060160CA.SubsequentSupplyRequest")})
+    public SubsequentSupplyRequestBean getComponent1SubsequentSupplyRequest() {
+        return this.component1SubsequentSupplyRequest;
     }
-    public void setComponent2InitialSupplyRequest(FirstFillBean component2InitialSupplyRequest) {
-        this.component2InitialSupplyRequest = component2InitialSupplyRequest;
+    public void setComponent1SubsequentSupplyRequest(SubsequentSupplyRequestBean component1SubsequentSupplyRequest) {
+        this.component1SubsequentSupplyRequest = component1SubsequentSupplyRequest;
     }
 
 
@@ -143,17 +134,26 @@ public class ExtendedDispenseInstructionsBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"component1/subsequentSupplyRequest","component2/subsequentSupplyRequest"})
+    @Hl7XmlMapping({"component1/initialSupplyRequest","component2/initialSupplyRequest"})
     @Hl7MapByPartTypes({
-        @Hl7MapByPartType(name="component1", type="PORX_MT060340CA.Component8"),
-        @Hl7MapByPartType(name="component1/subsequentSupplyRequest", type="PORX_MT060340CA.SubsequentSupplyRequest"),
-        @Hl7MapByPartType(name="component2", type="PORX_MT060160CA.Component8"),
-        @Hl7MapByPartType(name="component2/subsequentSupplyRequest", type="PORX_MT060160CA.SubsequentSupplyRequest")})
-    public SubsequentSupplyRequestBean getComponent1SubsequentSupplyRequest() {
-        return this.component1SubsequentSupplyRequest;
+        @Hl7MapByPartType(name="component1", type="PORX_MT060160CA.Component7"),
+        @Hl7MapByPartType(name="component1/initialSupplyRequest", type="PORX_MT060160CA.InitialSupplyRequest"),
+        @Hl7MapByPartType(name="component2", type="PORX_MT060340CA.Component7"),
+        @Hl7MapByPartType(name="component2/initialSupplyRequest", type="PORX_MT060340CA.InitialSupplyRequest")})
+    public FirstFillBean getComponent2InitialSupplyRequest() {
+        return this.component2InitialSupplyRequest;
     }
-    public void setComponent1SubsequentSupplyRequest(SubsequentSupplyRequestBean component1SubsequentSupplyRequest) {
-        this.component1SubsequentSupplyRequest = component1SubsequentSupplyRequest;
+    public void setComponent2InitialSupplyRequest(FirstFillBean component2InitialSupplyRequest) {
+        this.component2InitialSupplyRequest = component2InitialSupplyRequest;
+    }
+
+
+    @Hl7XmlMapping({"product/medication"})
+    public DrugProductBean getProductMedication() {
+        return this.productMedication;
+    }
+    public void setProductMedication(DrugProductBean productMedication) {
+        this.productMedication = productMedication;
     }
 
 }

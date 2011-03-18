@@ -23,8 +23,8 @@ public class MaximumLimitsBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
     private PQ maximumQuantitySupply = new PQImpl();
-    private IVL<TS, Interval<Date>> maximumDaysSupply = new IVLImpl<TS, Interval<Date>>();
     private INT maximumFillsPermitted = new INTImpl();
+    private IVL<TS, Interval<Date>> maximumDaysSupply = new IVLImpl<TS, Interval<Date>>();
 
 
     /**
@@ -42,20 +42,6 @@ public class MaximumLimitsBean extends MessagePartBean {
 
 
     /**
-     * <p>MaximumDaysSupply</p>
-     * 
-     * <p>Maximum Days Supply</p>
-     */
-    @Hl7XmlMapping({"expectedUseTime"})
-    public Interval<Date> getMaximumDaysSupply() {
-        return this.maximumDaysSupply.getValue();
-    }
-    public void setMaximumDaysSupply(Interval<Date> maximumDaysSupply) {
-        this.maximumDaysSupply.setValue(maximumDaysSupply);
-    }
-
-
-    /**
      * <p>MaximumFillsPermitted</p>
      * 
      * <p>Maximum Fills Permitted</p>
@@ -66,6 +52,20 @@ public class MaximumLimitsBean extends MessagePartBean {
     }
     public void setMaximumFillsPermitted(Integer maximumFillsPermitted) {
         this.maximumFillsPermitted.setValue(maximumFillsPermitted);
+    }
+
+
+    /**
+     * <p>MaximumDaysSupply</p>
+     * 
+     * <p>Maximum Days Supply</p>
+     */
+    @Hl7XmlMapping({"expectedUseTime"})
+    public Interval<Date> getMaximumDaysSupply() {
+        return this.maximumDaysSupply.getValue();
+    }
+    public void setMaximumDaysSupply(Interval<Date> maximumDaysSupply) {
+        this.maximumDaysSupply.setValue(maximumDaysSupply);
     }
 
 }

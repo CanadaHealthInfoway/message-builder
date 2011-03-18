@@ -26,31 +26,19 @@ import java.util.List;
 public class SpecialAuthorizationBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private MaximumLimitsBean limitation2MaximumLimits;
-    private HealthcareOrganizationBean authorAssignedEntity;
-    private RemainingLimitsBean limitation1RemainingLimits;
     private List<IncludesBean> subjectOf = new ArrayList<IncludesBean>();
-    private CS specialAuthorizationStatus = new CSImpl();
+    private RemainingLimitsBean limitation1RemainingLimits;
     private List<Subject3Bean> subject = new ArrayList<Subject3Bean>();
-    private IVL<TS, Interval<Date>> specialAuthorizationEffectiveDate = new IVLImpl<TS, Interval<Date>>();
+    private HealthcareOrganizationBean authorAssignedEntity;
+    private MaximumLimitsBean limitation2MaximumLimits;
     private PolicyOrAccountBean coveragePolicyOrAccount;
+    private CS specialAuthorizationStatus = new CSImpl();
+    private IVL<TS, Interval<Date>> specialAuthorizationEffectiveDate = new IVLImpl<TS, Interval<Date>>();
 
 
-    @Hl7XmlMapping({"limitation2/maximumLimits"})
-    public MaximumLimitsBean getLimitation2MaximumLimits() {
-        return this.limitation2MaximumLimits;
-    }
-    public void setLimitation2MaximumLimits(MaximumLimitsBean limitation2MaximumLimits) {
-        this.limitation2MaximumLimits = limitation2MaximumLimits;
-    }
-
-
-    @Hl7XmlMapping({"author/assignedEntity"})
-    public HealthcareOrganizationBean getAuthorAssignedEntity() {
-        return this.authorAssignedEntity;
-    }
-    public void setAuthorAssignedEntity(HealthcareOrganizationBean authorAssignedEntity) {
-        this.authorAssignedEntity = authorAssignedEntity;
+    @Hl7XmlMapping({"subjectOf"})
+    public List<IncludesBean> getSubjectOf() {
+        return this.subjectOf;
     }
 
 
@@ -63,9 +51,36 @@ public class SpecialAuthorizationBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"subjectOf"})
-    public List<IncludesBean> getSubjectOf() {
-        return this.subjectOf;
+    @Hl7XmlMapping({"subject"})
+    public List<Subject3Bean> getSubject() {
+        return this.subject;
+    }
+
+
+    @Hl7XmlMapping({"author/assignedEntity"})
+    public HealthcareOrganizationBean getAuthorAssignedEntity() {
+        return this.authorAssignedEntity;
+    }
+    public void setAuthorAssignedEntity(HealthcareOrganizationBean authorAssignedEntity) {
+        this.authorAssignedEntity = authorAssignedEntity;
+    }
+
+
+    @Hl7XmlMapping({"limitation2/maximumLimits"})
+    public MaximumLimitsBean getLimitation2MaximumLimits() {
+        return this.limitation2MaximumLimits;
+    }
+    public void setLimitation2MaximumLimits(MaximumLimitsBean limitation2MaximumLimits) {
+        this.limitation2MaximumLimits = limitation2MaximumLimits;
+    }
+
+
+    @Hl7XmlMapping({"coverage/policyOrAccount"})
+    public PolicyOrAccountBean getCoveragePolicyOrAccount() {
+        return this.coveragePolicyOrAccount;
+    }
+    public void setCoveragePolicyOrAccount(PolicyOrAccountBean coveragePolicyOrAccount) {
+        this.coveragePolicyOrAccount = coveragePolicyOrAccount;
     }
 
 
@@ -81,12 +96,6 @@ public class SpecialAuthorizationBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"subject"})
-    public List<Subject3Bean> getSubject() {
-        return this.subject;
-    }
-
-
     /**
      * <p>Special Authorization Effective Date</p>
      */
@@ -96,15 +105,6 @@ public class SpecialAuthorizationBean extends MessagePartBean {
     }
     public void setSpecialAuthorizationEffectiveDate(Interval<Date> specialAuthorizationEffectiveDate) {
         this.specialAuthorizationEffectiveDate.setValue(specialAuthorizationEffectiveDate);
-    }
-
-
-    @Hl7XmlMapping({"coverage/policyOrAccount"})
-    public PolicyOrAccountBean getCoveragePolicyOrAccount() {
-        return this.coveragePolicyOrAccount;
-    }
-    public void setCoveragePolicyOrAccount(PolicyOrAccountBean coveragePolicyOrAccount) {
-        this.coveragePolicyOrAccount = coveragePolicyOrAccount;
     }
 
 }

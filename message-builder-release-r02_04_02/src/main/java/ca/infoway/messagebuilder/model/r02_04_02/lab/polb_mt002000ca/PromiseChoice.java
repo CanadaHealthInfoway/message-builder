@@ -28,19 +28,19 @@ import java.util.List;
 @Hl7RootType
 public interface PromiseChoice {
 
-    public List<RoleChoice> getPerformerRoleChoice();
-
-    public ReportSectionSpecimenBean getSpecimen();
-    public void setSpecimen(ReportSectionSpecimenBean specimen);
-
-    public List<PromiseChoice> getComponentPromiseChoice();
-
     public ResultStatusProcessStepBean getSubjectOf3ResultStatusProcessStep();
     public void setSubjectOf3ResultStatusProcessStep(ResultStatusProcessStepBean subjectOf3ResultStatusProcessStep);
 
-    public List<FulfillmentChoice> getInFulfillmentOfFulfillmentChoice();
-
     public List<IncludesBean> getSubjectOf2();
+
+    public List<PromiseChoice> getComponentPromiseChoice();
+
+    public List<RoleChoice> getPerformerRoleChoice();
+
+    public List<RoleChoice> getReceiverRoleChoice();
+
+    public Patient_1Bean getRecordTargetPatient();
+    public void setRecordTargetPatient(Patient_1Bean recordTargetPatient);
 
     public VersionInformationBean getSubjectOf1ControlActEvent();
     public void setSubjectOf1ControlActEvent(VersionInformationBean subjectOf1ControlActEvent);
@@ -50,12 +50,12 @@ public interface PromiseChoice {
 
     public List<SupportingClinicalInformationBean> getPertinentInformation2SupportingClinicalObservationEvent();
 
-    public Patient_1Bean getRecordTargetPatient();
-    public void setRecordTargetPatient(Patient_1Bean recordTargetPatient);
-
     public HealthcareOrganizationBean getPrimaryInformationRecipientAssignedEntity();
     public void setPrimaryInformationRecipientAssignedEntity(HealthcareOrganizationBean primaryInformationRecipientAssignedEntity);
 
-    public List<RoleChoice> getReceiverRoleChoice();
+    public List<FulfillmentChoice> getInFulfillmentOfFulfillmentChoice();
+
+    public ReportSectionSpecimenBean getSpecimen();
+    public void setSpecimen(ReportSectionSpecimenBean specimen);
 
 }

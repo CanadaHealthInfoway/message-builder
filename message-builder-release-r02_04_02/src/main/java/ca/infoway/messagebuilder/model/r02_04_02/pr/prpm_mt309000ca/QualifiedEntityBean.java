@@ -43,22 +43,13 @@ import java.util.Set;
 public class QualifiedEntityBean extends MessagePartBean implements RoleChoice {
 
     private static final long serialVersionUID = 20110318L;
-    private OrganizationBean qualificationGrantingOrganization;
     private CV expertiseOrCredentialsRoleType = new CVImpl();
-    private PrinicpalPersonBean qualifiedPrincipalPerson;
     private List<PrivilegeBean> responsibleForPrivilege = new ArrayList<PrivilegeBean>();
-    private IVL<TS, Interval<Date>> expertiseOrCredentialsRoleEffectiveDate = new IVLImpl<TS, Interval<Date>>();
+    private OrganizationBean qualificationGrantingOrganization;
+    private PrinicpalPersonBean qualifiedPrincipalPerson;
     private List<RoleChoice> relatedToRoleChoice = new ArrayList<RoleChoice>();
     private SET<II, Identifier> expertiseOrCredentialsRoleIdentifier = new SETImpl<II, Identifier>(IIImpl.class);
-
-
-    @Hl7XmlMapping({"qualificationGrantingOrganization"})
-    public OrganizationBean getQualificationGrantingOrganization() {
-        return this.qualificationGrantingOrganization;
-    }
-    public void setQualificationGrantingOrganization(OrganizationBean qualificationGrantingOrganization) {
-        this.qualificationGrantingOrganization = qualificationGrantingOrganization;
-    }
+    private IVL<TS, Interval<Date>> expertiseOrCredentialsRoleEffectiveDate = new IVLImpl<TS, Interval<Date>>();
 
 
     /**
@@ -80,6 +71,21 @@ public class QualifiedEntityBean extends MessagePartBean implements RoleChoice {
     }
 
 
+    @Hl7XmlMapping({"responsibleFor/privilege"})
+    public List<PrivilegeBean> getResponsibleForPrivilege() {
+        return this.responsibleForPrivilege;
+    }
+
+
+    @Hl7XmlMapping({"qualificationGrantingOrganization"})
+    public OrganizationBean getQualificationGrantingOrganization() {
+        return this.qualificationGrantingOrganization;
+    }
+    public void setQualificationGrantingOrganization(OrganizationBean qualificationGrantingOrganization) {
+        this.qualificationGrantingOrganization = qualificationGrantingOrganization;
+    }
+
+
     @Hl7XmlMapping({"qualifiedPrincipalPerson"})
     public PrinicpalPersonBean getQualifiedPrincipalPerson() {
         return this.qualifiedPrincipalPerson;
@@ -89,9 +95,23 @@ public class QualifiedEntityBean extends MessagePartBean implements RoleChoice {
     }
 
 
-    @Hl7XmlMapping({"responsibleFor/privilege"})
-    public List<PrivilegeBean> getResponsibleForPrivilege() {
-        return this.responsibleForPrivilege;
+    @Hl7XmlMapping({"relatedTo/roleChoice"})
+    public List<RoleChoice> getRelatedToRoleChoice() {
+        return this.relatedToRoleChoice;
+    }
+
+
+    /**
+     * <p>Expertise or Credentials Role Identifier</p>
+     * 
+     * <p><p>Unique identifier for the Expertise or Credential.</p></p>
+     * 
+     * <p><p>Required attribute supports the identification of the 
+     * healthcare provider credentials</p></p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Set<Identifier> getExpertiseOrCredentialsRoleIdentifier() {
+        return this.expertiseOrCredentialsRoleIdentifier.rawSet();
     }
 
 
@@ -113,26 +133,6 @@ public class QualifiedEntityBean extends MessagePartBean implements RoleChoice {
     }
     public void setExpertiseOrCredentialsRoleEffectiveDate(Interval<Date> expertiseOrCredentialsRoleEffectiveDate) {
         this.expertiseOrCredentialsRoleEffectiveDate.setValue(expertiseOrCredentialsRoleEffectiveDate);
-    }
-
-
-    @Hl7XmlMapping({"relatedTo/roleChoice"})
-    public List<RoleChoice> getRelatedToRoleChoice() {
-        return this.relatedToRoleChoice;
-    }
-
-
-    /**
-     * <p>Expertise or Credentials Role Identifier</p>
-     * 
-     * <p><p>Unique identifier for the Expertise or Credential.</p></p>
-     * 
-     * <p><p>Required attribute supports the identification of the 
-     * healthcare provider credentials</p></p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Set<Identifier> getExpertiseOrCredentialsRoleIdentifier() {
-        return this.expertiseOrCredentialsRoleIdentifier.rawSet();
     }
 
 }

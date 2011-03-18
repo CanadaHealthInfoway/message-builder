@@ -15,18 +15,9 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 public class DispenseSubstitutionBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private SubstitutionRoleBean performerSubstitutionRole;
     private CV substitutionType = new CVImpl();
+    private SubstitutionRoleBean performerSubstitutionRole;
     private CV substitutionReason = new CVImpl();
-
-
-    @Hl7XmlMapping({"performer/substitutionRole"})
-    public SubstitutionRoleBean getPerformerSubstitutionRole() {
-        return this.performerSubstitutionRole;
-    }
-    public void setPerformerSubstitutionRole(SubstitutionRoleBean performerSubstitutionRole) {
-        this.performerSubstitutionRole = performerSubstitutionRole;
-    }
 
 
     /**
@@ -40,6 +31,15 @@ public class DispenseSubstitutionBean extends MessagePartBean {
     }
     public void setSubstitutionType(ActSubstanceAdminSubstitutionCode substitutionType) {
         this.substitutionType.setValue(substitutionType);
+    }
+
+
+    @Hl7XmlMapping({"performer/substitutionRole"})
+    public SubstitutionRoleBean getPerformerSubstitutionRole() {
+        return this.performerSubstitutionRole;
+    }
+    public void setPerformerSubstitutionRole(SubstitutionRoleBean performerSubstitutionRole) {
+        this.performerSubstitutionRole = performerSubstitutionRole;
     }
 
 

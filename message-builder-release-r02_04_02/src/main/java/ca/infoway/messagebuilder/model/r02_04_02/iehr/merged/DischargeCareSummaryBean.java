@@ -66,21 +66,27 @@ import java.util.Set;
 public class DischargeCareSummaryBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private CV documentCategory = new CVImpl();
     private List<Recipients> primaryInformationRecipientRecipients = new ArrayList<Recipients>();
-    private List<CareCompositionsBean> componentOfPatientCareProvisionEvent = new ArrayList<CareCompositionsBean>();
+    private CV documentCategory = new CVImpl();
     private IncludesBean subjectOf1;
     private List<OldClinicalDocumentEventBean> predecessorOldClinicalDocumentEvent = new ArrayList<OldClinicalDocumentEventBean>();
-    private SET<CV, Code> documentMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);
-    private ST documentTitle = new STImpl();
     private SectionBean componentStructuredBodyComponentSection;
+    private ST documentTitle = new STImpl();
     private RequestedByBean author;
-    private EHRRepositoryBean custodian2AssignedDevice;
-    private ServiceLocationBean custodian1ServiceDeliveryLocation;
+    private List<CareCompositionsBean> componentOfPatientCareProvisionEvent = new ArrayList<CareCompositionsBean>();
+    private SET<CV, Code> documentMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);
     private BL subjectOf2AnnotationIndicator = new BLImpl();
-    private ActingPerson responsiblePartyActingPerson;
     private SET<II, Identifier> documentIdentifiers = new SETImpl<II, Identifier>(IIImpl.class);
+    private ActingPerson responsiblePartyActingPerson;
+    private ServiceLocationBean custodian1ServiceDeliveryLocation;
+    private EHRRepositoryBean custodian2AssignedDevice;
     private NewClinicalDocumentEventBean successorNewClinicalDocumentEvent;
+
+
+    @Hl7XmlMapping({"primaryInformationRecipient/recipients"})
+    public List<Recipients> getPrimaryInformationRecipientRecipients() {
+        return this.primaryInformationRecipientRecipients;
+    }
 
 
     /**
@@ -103,18 +109,6 @@ public class DischargeCareSummaryBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"primaryInformationRecipient/recipients"})
-    public List<Recipients> getPrimaryInformationRecipientRecipients() {
-        return this.primaryInformationRecipientRecipients;
-    }
-
-
-    @Hl7XmlMapping({"componentOf/patientCareProvisionEvent"})
-    public List<CareCompositionsBean> getComponentOfPatientCareProvisionEvent() {
-        return this.componentOfPatientCareProvisionEvent;
-    }
-
-
     @Hl7XmlMapping({"subjectOf","subjectOf1"})
     @Hl7MapByPartTypes({
         @Hl7MapByPartType(name="subjectOf", type="REPC_MT220001CA.Subject4"),
@@ -133,22 +127,12 @@ public class DischargeCareSummaryBean extends MessagePartBean {
     }
 
 
-    /**
-     * <p>DocumentMaskingIndicators</p>
-     * 
-     * <p>E: Document Masking Indicators</p>
-     * 
-     * <p></p></p>
-     * 
-     * <p></p></p>
-     * 
-     * <p></p></p>
-     * 
-     * <p></p></p>
-     */
-    @Hl7XmlMapping({"confidentialityCode"})
-    public Set<x_BasicConfidentialityKind> getDocumentMaskingIndicators() {
-        return this.documentMaskingIndicators.rawSet(x_BasicConfidentialityKind.class);
+    @Hl7XmlMapping({"component/structuredBody/component/section"})
+    public SectionBean getComponentStructuredBodyComponentSection() {
+        return this.componentStructuredBodyComponentSection;
+    }
+    public void setComponentStructuredBodyComponentSection(SectionBean componentStructuredBodyComponentSection) {
+        this.componentStructuredBodyComponentSection = componentStructuredBodyComponentSection;
     }
 
 
@@ -180,15 +164,6 @@ public class DischargeCareSummaryBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"component/structuredBody/component/section"})
-    public SectionBean getComponentStructuredBodyComponentSection() {
-        return this.componentStructuredBodyComponentSection;
-    }
-    public void setComponentStructuredBodyComponentSection(SectionBean componentStructuredBodyComponentSection) {
-        this.componentStructuredBodyComponentSection = componentStructuredBodyComponentSection;
-    }
-
-
     @Hl7XmlMapping({"author"})
     public RequestedByBean getAuthor() {
         return this.author;
@@ -198,21 +173,28 @@ public class DischargeCareSummaryBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"custodian2/assignedDevice"})
-    public EHRRepositoryBean getCustodian2AssignedDevice() {
-        return this.custodian2AssignedDevice;
-    }
-    public void setCustodian2AssignedDevice(EHRRepositoryBean custodian2AssignedDevice) {
-        this.custodian2AssignedDevice = custodian2AssignedDevice;
+    @Hl7XmlMapping({"componentOf/patientCareProvisionEvent"})
+    public List<CareCompositionsBean> getComponentOfPatientCareProvisionEvent() {
+        return this.componentOfPatientCareProvisionEvent;
     }
 
 
-    @Hl7XmlMapping({"custodian1/serviceDeliveryLocation"})
-    public ServiceLocationBean getCustodian1ServiceDeliveryLocation() {
-        return this.custodian1ServiceDeliveryLocation;
-    }
-    public void setCustodian1ServiceDeliveryLocation(ServiceLocationBean custodian1ServiceDeliveryLocation) {
-        this.custodian1ServiceDeliveryLocation = custodian1ServiceDeliveryLocation;
+    /**
+     * <p>DocumentMaskingIndicators</p>
+     * 
+     * <p>E: Document Masking Indicators</p>
+     * 
+     * <p></p></p>
+     * 
+     * <p></p></p>
+     * 
+     * <p></p></p>
+     * 
+     * <p></p></p>
+     */
+    @Hl7XmlMapping({"confidentialityCode"})
+    public Set<x_BasicConfidentialityKind> getDocumentMaskingIndicators() {
+        return this.documentMaskingIndicators.rawSet(x_BasicConfidentialityKind.class);
     }
 
 
@@ -222,6 +204,21 @@ public class DischargeCareSummaryBean extends MessagePartBean {
     }
     public void setSubjectOf2AnnotationIndicator(Boolean subjectOf2AnnotationIndicator) {
         this.subjectOf2AnnotationIndicator.setValue(subjectOf2AnnotationIndicator);
+    }
+
+
+    /**
+     * <p>DocumentIdentifiers</p>
+     * 
+     * <p>A: Document Identifiers</p>
+     * 
+     * <p></p></p>
+     * 
+     * <p></p></p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Set<Identifier> getDocumentIdentifiers() {
+        return this.documentIdentifiers.rawSet();
     }
 
 
@@ -255,18 +252,21 @@ public class DischargeCareSummaryBean extends MessagePartBean {
     }
 
 
-    /**
-     * <p>DocumentIdentifiers</p>
-     * 
-     * <p>A: Document Identifiers</p>
-     * 
-     * <p></p></p>
-     * 
-     * <p></p></p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Set<Identifier> getDocumentIdentifiers() {
-        return this.documentIdentifiers.rawSet();
+    @Hl7XmlMapping({"custodian1/serviceDeliveryLocation"})
+    public ServiceLocationBean getCustodian1ServiceDeliveryLocation() {
+        return this.custodian1ServiceDeliveryLocation;
+    }
+    public void setCustodian1ServiceDeliveryLocation(ServiceLocationBean custodian1ServiceDeliveryLocation) {
+        this.custodian1ServiceDeliveryLocation = custodian1ServiceDeliveryLocation;
+    }
+
+
+    @Hl7XmlMapping({"custodian2/assignedDevice"})
+    public EHRRepositoryBean getCustodian2AssignedDevice() {
+        return this.custodian2AssignedDevice;
+    }
+    public void setCustodian2AssignedDevice(EHRRepositoryBean custodian2AssignedDevice) {
+        this.custodian2AssignedDevice = custodian2AssignedDevice;
     }
 
 

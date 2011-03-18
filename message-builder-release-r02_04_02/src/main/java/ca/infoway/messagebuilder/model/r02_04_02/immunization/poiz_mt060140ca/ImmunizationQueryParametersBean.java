@@ -18,7 +18,9 @@ import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.PersonName;
 import ca.infoway.messagebuilder.domainvalue.AdministrativeGender;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Set;
 
 
@@ -39,8 +41,8 @@ public class ImmunizationQueryParametersBean extends MessagePartBean {
     private TS patientBirthDate = new TSImpl();
     private CV patientGender = new CVImpl();
     private II immunizationEventID = new IIImpl();
-    private PN patientName = new PNImpl();
     private SET<II, Identifier> patientIdentifiers = new SETImpl<II, Identifier>(IIImpl.class);
+    private PN patientName = new PNImpl();
 
 
     /**
@@ -95,6 +97,24 @@ public class ImmunizationQueryParametersBean extends MessagePartBean {
 
 
     /**
+     * <p>B:Patient Identifiers</p>
+     * 
+     * <p><p>Identifier of the patient who is the subject of the 
+     * patient immunization query. Filter the result set to include 
+     * only those records pertaining to the patient with this 
+     * Id.</p></p>
+     * 
+     * <p><p>Allows filtering of result set by patient ID. This 
+     * information is used to verify the record. As a result, this 
+     * attribute is required.</p></p>
+     */
+    @Hl7XmlMapping({"patientID/value"})
+    public Set<Identifier> getPatientIdentifiers() {
+        return this.patientIdentifiers.rawSet();
+    }
+
+
+    /**
      * <p>C:Patient Name</p>
      * 
      * <p><p>The name of the patient who is the subject of the 
@@ -121,24 +141,6 @@ public class ImmunizationQueryParametersBean extends MessagePartBean {
     }
     public void setPatientName(PersonName patientName) {
         this.patientName.setValue(patientName);
-    }
-
-
-    /**
-     * <p>B:Patient Identifiers</p>
-     * 
-     * <p><p>Identifier of the patient who is the subject of the 
-     * patient immunization query. Filter the result set to include 
-     * only those records pertaining to the patient with this 
-     * Id.</p></p>
-     * 
-     * <p><p>Allows filtering of result set by patient ID. This 
-     * information is used to verify the record. As a result, this 
-     * attribute is required.</p></p>
-     */
-    @Hl7XmlMapping({"patientID/value"})
-    public Set<Identifier> getPatientIdentifiers() {
-        return this.patientIdentifiers.rawSet();
     }
 
 }

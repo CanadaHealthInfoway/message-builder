@@ -47,9 +47,9 @@ public class ManufacturedProductBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
     private CV code = new CVImpl();
-    private ManufacturedMaterialKindBean manufacturedMaterialKind;
-    private ST manufacturerManufacturedProductOrganizationName = new STImpl();
     private TEL manufacturerManufacturedProductOrganizationTelecom = new TELImpl();
+    private ST manufacturerManufacturedProductOrganizationName = new STImpl();
+    private ManufacturedMaterialKindBean manufacturedMaterialKind;
     private II id = new IIImpl();
     private CD productNumber = new CDImpl();
 
@@ -73,12 +73,21 @@ public class ManufacturedProductBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"manufacturedMaterialKind"})
-    public ManufacturedMaterialKindBean getManufacturedMaterialKind() {
-        return this.manufacturedMaterialKind;
+    /**
+     * <p>Manufacturer Telecom</p>
+     * 
+     * <p><p>Telephone no. for manufacturer</p></p>
+     * 
+     * <p>Organisation telephone/email</p>
+     * 
+     * <p><p>Organisation telephone/email</p></p>
+     */
+    @Hl7XmlMapping({"manufacturerManufacturedProductOrganization/telecom"})
+    public TelecommunicationAddress getManufacturerManufacturedProductOrganizationTelecom() {
+        return this.manufacturerManufacturedProductOrganizationTelecom.getValue();
     }
-    public void setManufacturedMaterialKind(ManufacturedMaterialKindBean manufacturedMaterialKind) {
-        this.manufacturedMaterialKind = manufacturedMaterialKind;
+    public void setManufacturerManufacturedProductOrganizationTelecom(TelecommunicationAddress manufacturerManufacturedProductOrganizationTelecom) {
+        this.manufacturerManufacturedProductOrganizationTelecom.setValue(manufacturerManufacturedProductOrganizationTelecom);
     }
 
 
@@ -100,21 +109,12 @@ public class ManufacturedProductBean extends MessagePartBean {
     }
 
 
-    /**
-     * <p>Manufacturer Telecom</p>
-     * 
-     * <p><p>Telephone no. for manufacturer</p></p>
-     * 
-     * <p>Organisation telephone/email</p>
-     * 
-     * <p><p>Organisation telephone/email</p></p>
-     */
-    @Hl7XmlMapping({"manufacturerManufacturedProductOrganization/telecom"})
-    public TelecommunicationAddress getManufacturerManufacturedProductOrganizationTelecom() {
-        return this.manufacturerManufacturedProductOrganizationTelecom.getValue();
+    @Hl7XmlMapping({"manufacturedMaterialKind"})
+    public ManufacturedMaterialKindBean getManufacturedMaterialKind() {
+        return this.manufacturedMaterialKind;
     }
-    public void setManufacturerManufacturedProductOrganizationTelecom(TelecommunicationAddress manufacturerManufacturedProductOrganizationTelecom) {
-        this.manufacturerManufacturedProductOrganizationTelecom.setValue(manufacturerManufacturedProductOrganizationTelecom);
+    public void setManufacturedMaterialKind(ManufacturedMaterialKindBean manufacturedMaterialKind) {
+        this.manufacturedMaterialKind = manufacturedMaterialKind;
     }
 
 

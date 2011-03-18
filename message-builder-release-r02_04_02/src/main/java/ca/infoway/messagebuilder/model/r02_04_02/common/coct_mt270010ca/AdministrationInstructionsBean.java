@@ -55,17 +55,45 @@ import java.util.Set;
 public class AdministrationInstructionsBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private CV dosageUnit = new CVImpl();
-    private CD dosageType = new CDImpl();
-    private CS dosageUsageContext = new CSImpl();
     private List<ConsistsOfBean> component2 = new ArrayList<ConsistsOfBean>();
-    private AdditionalSIGInstructionBean component1SupplementalInstruction;
-    private ST renderedDosageInstruction = new STImpl();
+    private CD dosageType = new CDImpl();
+    private CV dosageUnit = new CVImpl();
     private Medication consumableMedication1;
+    private CS dosageUsageContext = new CSImpl();
     private SET<CV, Code> administrationSites = new SETImpl<CV, Code>(CVImpl.class);
     private SET<RTO<PhysicalQuantity, PhysicalQuantity>, Ratio<PhysicalQuantity, PhysicalQuantity>> maximumDailyWeeklyDoses = new SETImpl<RTO<PhysicalQuantity, PhysicalQuantity>, Ratio<PhysicalQuantity, PhysicalQuantity>>(RTOImpl.class);
+    private ST renderedDosageInstruction = new STImpl();
+    private AdditionalSIGInstructionBean component1SupplementalInstruction;
     private CV routeCode = new CVImpl();
     private IVL<TS, Interval<Date>> administrationPeriod = new IVLImpl<TS, Interval<Date>>();
+
+
+    @Hl7XmlMapping({"component2"})
+    public List<ConsistsOfBean> getComponent2() {
+        return this.component2;
+    }
+
+
+    /**
+     * <p>Dosage Type</p>
+     * 
+     * <p><p>Distinguishes types of dosage.</p></p>
+     * 
+     * <p><p>Distinguishes between types of dosage administration 
+     * and is therefore mandatory. Datatype is CD to allow for 
+     * SNOMED codes.</p></p>
+     * 
+     * <p><p>For SNOMED this will pre-coordinate route, body site 
+     * and potentially drug. For non-SNOMED, this will be a fixed 
+     * value of DRUG.</p></p>
+     */
+    @Hl7XmlMapping({"code"})
+    public Code getDosageType() {
+        return (Code) this.dosageType.getValue();
+    }
+    public void setDosageType(Code dosageType) {
+        this.dosageType.setValue(dosageType);
+    }
 
 
     /**
@@ -93,25 +121,40 @@ public class AdministrationInstructionsBean extends MessagePartBean {
     }
 
 
-    /**
-     * <p>Dosage Type</p>
-     * 
-     * <p><p>Distinguishes types of dosage.</p></p>
-     * 
-     * <p><p>Distinguishes between types of dosage administration 
-     * and is therefore mandatory. Datatype is CD to allow for 
-     * SNOMED codes.</p></p>
-     * 
-     * <p><p>For SNOMED this will pre-coordinate route, body site 
-     * and potentially drug. For non-SNOMED, this will be a fixed 
-     * value of DRUG.</p></p>
-     */
-    @Hl7XmlMapping({"code"})
-    public Code getDosageType() {
-        return (Code) this.dosageType.getValue();
+    @Hl7XmlMapping({"consumable/medication1"})
+    public Medication getConsumableMedication1() {
+        return this.consumableMedication1;
     }
-    public void setDosageType(Code dosageType) {
-        this.dosageType.setValue(dosageType);
+    public void setConsumableMedication1(Medication consumableMedication1) {
+        this.consumableMedication1 = consumableMedication1;
+    }
+
+    public DrugProductBean getConsumableMedication1AsMedication1() {
+        return this.consumableMedication1 instanceof DrugProductBean ? (DrugProductBean) this.consumableMedication1 : null;
+    }
+    public boolean hasConsumableMedication1AsMedication1() {
+        return (this.consumableMedication1 instanceof DrugProductBean);
+    }
+
+    public ca.infoway.messagebuilder.model.r02_04_02.common.coct_mt220110ca.DrugProductBean getConsumableMedication1AsMedication2() {
+        return this.consumableMedication1 instanceof ca.infoway.messagebuilder.model.r02_04_02.common.coct_mt220110ca.DrugProductBean ? (ca.infoway.messagebuilder.model.r02_04_02.common.coct_mt220110ca.DrugProductBean) this.consumableMedication1 : null;
+    }
+    public boolean hasConsumableMedication1AsMedication2() {
+        return (this.consumableMedication1 instanceof ca.infoway.messagebuilder.model.r02_04_02.common.coct_mt220110ca.DrugProductBean);
+    }
+
+    public ca.infoway.messagebuilder.model.r02_04_02.common.coct_mt220200ca.DrugProductBean getConsumableMedication1AsMedication3() {
+        return this.consumableMedication1 instanceof ca.infoway.messagebuilder.model.r02_04_02.common.coct_mt220200ca.DrugProductBean ? (ca.infoway.messagebuilder.model.r02_04_02.common.coct_mt220200ca.DrugProductBean) this.consumableMedication1 : null;
+    }
+    public boolean hasConsumableMedication1AsMedication3() {
+        return (this.consumableMedication1 instanceof ca.infoway.messagebuilder.model.r02_04_02.common.coct_mt220200ca.DrugProductBean);
+    }
+
+    public ca.infoway.messagebuilder.model.r02_04_02.common.coct_mt220210ca.DrugProductBean getConsumableMedication1AsMedication4() {
+        return this.consumableMedication1 instanceof ca.infoway.messagebuilder.model.r02_04_02.common.coct_mt220210ca.DrugProductBean ? (ca.infoway.messagebuilder.model.r02_04_02.common.coct_mt220210ca.DrugProductBean) this.consumableMedication1 : null;
+    }
+    public boolean hasConsumableMedication1AsMedication4() {
+        return (this.consumableMedication1 instanceof ca.infoway.messagebuilder.model.r02_04_02.common.coct_mt220210ca.DrugProductBean);
     }
 
 
@@ -163,18 +206,51 @@ public class AdministrationInstructionsBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"component2"})
-    public List<ConsistsOfBean> getComponent2() {
-        return this.component2;
+    /**
+     * <p>Administration Sites</p>
+     * 
+     * <p><p>A value denoting the body area where the medicine 
+     * should be administered. E.g. 'Right Elbow', 'Left Ear'. When 
+     * multiples sites are specified they should be treated as 
+     * 'AND'.</p></p>
+     * 
+     * <p><p>Allows specificity when a drug can potentially be 
+     * applied to different parts of the patien's body. Multiple 
+     * repetitions are used when the product should be administered 
+     * to multiple parts of the body. CWE is used because using a 
+     * code system is not essential for understanding or analyzing 
+     * the prescription. The attribute is optional because it can 
+     * be pre-coordinated with SubstanceAdministration.code when 
+     * using SNOMED.</p></p>
+     */
+    @Hl7XmlMapping({"approachSiteCode"})
+    public Set<HumanSubstanceAdministrationSite> getAdministrationSites() {
+        return this.administrationSites.rawSet(HumanSubstanceAdministrationSite.class);
     }
 
 
-    @Hl7XmlMapping({"component1/supplementalInstruction"})
-    public AdditionalSIGInstructionBean getComponent1SupplementalInstruction() {
-        return this.component1SupplementalInstruction;
-    }
-    public void setComponent1SupplementalInstruction(AdditionalSIGInstructionBean component1SupplementalInstruction) {
-        this.component1SupplementalInstruction = component1SupplementalInstruction;
+    /**
+     * <p>D:Maximum Daily/Weekly Doses</p>
+     * 
+     * <p><p>The maximum amount of the dispensed medication to be 
+     * administered to the patient in a 24-hr period (doses per 
+     * day) or in a 7 day period (doses per week).</p></p>
+     * 
+     * <p><p>ZPB3.5(denominator=1D)</p></p>
+     * 
+     * <p><p>Sets an upper boundary for the quantity of the drug to 
+     * be administered over a specified period of time. 
+     * Particularly useful for PRN medications.</p></p>
+     * 
+     * <p><p>This field can only capture maximum doses based on 
+     * explicit time periods. Dosage maximums based on other 
+     * constraints such as patient lifetime, menstrual cycles must 
+     * be recorded using additional dosage instruction 
+     * comments.</p></p>
+     */
+    @Hl7XmlMapping({"maxDoseQuantity"})
+    public Set<Ratio<PhysicalQuantity, PhysicalQuantity>> getMaximumDailyWeeklyDoses() {
+        return this.maximumDailyWeeklyDoses.rawSet();
     }
 
 
@@ -228,88 +304,12 @@ public class AdministrationInstructionsBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"consumable/medication1"})
-    public Medication getConsumableMedication1() {
-        return this.consumableMedication1;
+    @Hl7XmlMapping({"component1/supplementalInstruction"})
+    public AdditionalSIGInstructionBean getComponent1SupplementalInstruction() {
+        return this.component1SupplementalInstruction;
     }
-    public void setConsumableMedication1(Medication consumableMedication1) {
-        this.consumableMedication1 = consumableMedication1;
-    }
-
-    public DrugProductBean getConsumableMedication1AsMedication1() {
-        return this.consumableMedication1 instanceof DrugProductBean ? (DrugProductBean) this.consumableMedication1 : null;
-    }
-    public boolean hasConsumableMedication1AsMedication1() {
-        return (this.consumableMedication1 instanceof DrugProductBean);
-    }
-
-    public ca.infoway.messagebuilder.model.r02_04_02.common.coct_mt220110ca.DrugProductBean getConsumableMedication1AsMedication2() {
-        return this.consumableMedication1 instanceof ca.infoway.messagebuilder.model.r02_04_02.common.coct_mt220110ca.DrugProductBean ? (ca.infoway.messagebuilder.model.r02_04_02.common.coct_mt220110ca.DrugProductBean) this.consumableMedication1 : null;
-    }
-    public boolean hasConsumableMedication1AsMedication2() {
-        return (this.consumableMedication1 instanceof ca.infoway.messagebuilder.model.r02_04_02.common.coct_mt220110ca.DrugProductBean);
-    }
-
-    public ca.infoway.messagebuilder.model.r02_04_02.common.coct_mt220200ca.DrugProductBean getConsumableMedication1AsMedication3() {
-        return this.consumableMedication1 instanceof ca.infoway.messagebuilder.model.r02_04_02.common.coct_mt220200ca.DrugProductBean ? (ca.infoway.messagebuilder.model.r02_04_02.common.coct_mt220200ca.DrugProductBean) this.consumableMedication1 : null;
-    }
-    public boolean hasConsumableMedication1AsMedication3() {
-        return (this.consumableMedication1 instanceof ca.infoway.messagebuilder.model.r02_04_02.common.coct_mt220200ca.DrugProductBean);
-    }
-
-    public ca.infoway.messagebuilder.model.r02_04_02.common.coct_mt220210ca.DrugProductBean getConsumableMedication1AsMedication4() {
-        return this.consumableMedication1 instanceof ca.infoway.messagebuilder.model.r02_04_02.common.coct_mt220210ca.DrugProductBean ? (ca.infoway.messagebuilder.model.r02_04_02.common.coct_mt220210ca.DrugProductBean) this.consumableMedication1 : null;
-    }
-    public boolean hasConsumableMedication1AsMedication4() {
-        return (this.consumableMedication1 instanceof ca.infoway.messagebuilder.model.r02_04_02.common.coct_mt220210ca.DrugProductBean);
-    }
-
-
-    /**
-     * <p>Administration Sites</p>
-     * 
-     * <p><p>A value denoting the body area where the medicine 
-     * should be administered. E.g. 'Right Elbow', 'Left Ear'. When 
-     * multiples sites are specified they should be treated as 
-     * 'AND'.</p></p>
-     * 
-     * <p><p>Allows specificity when a drug can potentially be 
-     * applied to different parts of the patien's body. Multiple 
-     * repetitions are used when the product should be administered 
-     * to multiple parts of the body. CWE is used because using a 
-     * code system is not essential for understanding or analyzing 
-     * the prescription. The attribute is optional because it can 
-     * be pre-coordinated with SubstanceAdministration.code when 
-     * using SNOMED.</p></p>
-     */
-    @Hl7XmlMapping({"approachSiteCode"})
-    public Set<HumanSubstanceAdministrationSite> getAdministrationSites() {
-        return this.administrationSites.rawSet(HumanSubstanceAdministrationSite.class);
-    }
-
-
-    /**
-     * <p>D:Maximum Daily/Weekly Doses</p>
-     * 
-     * <p><p>The maximum amount of the dispensed medication to be 
-     * administered to the patient in a 24-hr period (doses per 
-     * day) or in a 7 day period (doses per week).</p></p>
-     * 
-     * <p><p>ZPB3.5(denominator=1D)</p></p>
-     * 
-     * <p><p>Sets an upper boundary for the quantity of the drug to 
-     * be administered over a specified period of time. 
-     * Particularly useful for PRN medications.</p></p>
-     * 
-     * <p><p>This field can only capture maximum doses based on 
-     * explicit time periods. Dosage maximums based on other 
-     * constraints such as patient lifetime, menstrual cycles must 
-     * be recorded using additional dosage instruction 
-     * comments.</p></p>
-     */
-    @Hl7XmlMapping({"maxDoseQuantity"})
-    public Set<Ratio<PhysicalQuantity, PhysicalQuantity>> getMaximumDailyWeeklyDoses() {
-        return this.maximumDailyWeeklyDoses.rawSet();
+    public void setComponent1SupplementalInstruction(AdditionalSIGInstructionBean component1SupplementalInstruction) {
+        this.component1SupplementalInstruction = component1SupplementalInstruction;
     }
 
 

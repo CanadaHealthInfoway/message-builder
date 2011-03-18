@@ -20,17 +20,8 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 public class CoverageBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private PolicyOrAccountBean policyOrAccount;
     private INT cOBSequenceAsAdjudicated = new INTImpl();
-
-
-    @Hl7XmlMapping({"policyOrAccount"})
-    public PolicyOrAccountBean getPolicyOrAccount() {
-        return this.policyOrAccount;
-    }
-    public void setPolicyOrAccount(PolicyOrAccountBean policyOrAccount) {
-        this.policyOrAccount = policyOrAccount;
-    }
+    private PolicyOrAccountBean policyOrAccount;
 
 
     /**
@@ -42,6 +33,15 @@ public class CoverageBean extends MessagePartBean {
     }
     public void setCOBSequenceAsAdjudicated(Integer cOBSequenceAsAdjudicated) {
         this.cOBSequenceAsAdjudicated.setValue(cOBSequenceAsAdjudicated);
+    }
+
+
+    @Hl7XmlMapping({"policyOrAccount"})
+    public PolicyOrAccountBean getPolicyOrAccount() {
+        return this.policyOrAccount;
+    }
+    public void setPolicyOrAccount(PolicyOrAccountBean policyOrAccount) {
+        this.policyOrAccount = policyOrAccount;
     }
 
 }

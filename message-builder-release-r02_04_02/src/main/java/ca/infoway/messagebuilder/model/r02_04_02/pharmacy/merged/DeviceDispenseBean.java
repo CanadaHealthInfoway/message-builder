@@ -94,28 +94,50 @@ import java.util.Set;
 public class DeviceDispenseBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private DispenseDetailsBean component2SupplyEvent;
-    private ProcedureRequestBean component1ProcedureRequest;
-    private SET<CV, Code> prescriptionMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);
+    private List<StatusChangesBean> subjectOf1ControlActEvent = new ArrayList<StatusChangesBean>();
     private BL subjectOf2AnnotationIndicator = new BLImpl();
     private List<IssuesBean> subjectOf4DetectedIssueEvent = new ArrayList<IssuesBean>();
-    private List<StatusChangesBean> subjectOf1ControlActEvent = new ArrayList<StatusChangesBean>();
+    private ProcedureRequestBean component1ProcedureRequest;
+    private II prescriptionDispenseNumber = new IIImpl();
+    private List<IncludesBean> subjectOf5 = new ArrayList<IncludesBean>();
+    private OccurredAtBean location;
     private BL subjectOf3DetectedIssueIndicator = new BLImpl();
     private HealthcareWorkerBean responsiblePartyAssignedEntity;
-    private List<IncludesBean> subjectOf5 = new ArrayList<IncludesBean>();
-    private CS dispenseStatus = new CSImpl();
-    private OccurredAtBean location;
     private PrescriptionReferenceBean fulfillmentSupplyRequest;
     private HealthcareWorkerBean performerAssignedEntity;
-    private II prescriptionDispenseNumber = new IIImpl();
+    private SET<CV, Code> prescriptionMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);
+    private DispenseDetailsBean component2SupplyEvent;
+    private CS dispenseStatus = new CSImpl();
 
 
-    @Hl7XmlMapping({"component2/supplyEvent"})
-    public DispenseDetailsBean getComponent2SupplyEvent() {
-        return this.component2SupplyEvent;
+    @Hl7XmlMapping({"subjectOf1/controlActEvent"})
+    public List<StatusChangesBean> getSubjectOf1ControlActEvent() {
+        return this.subjectOf1ControlActEvent;
     }
-    public void setComponent2SupplyEvent(DispenseDetailsBean component2SupplyEvent) {
-        this.component2SupplyEvent = component2SupplyEvent;
+
+
+    @Hl7XmlMapping({"subjectOf2/annotationIndicator","subjectOf3/annotationIndicator"})
+    @Hl7MapByPartTypes({
+        @Hl7MapByPartType(name="subjectOf2", type="PORX_MT060040CA.Subject12"),
+        @Hl7MapByPartType(name="subjectOf2/annotationIndicator", type="PORX_MT060040CA.AnnotationIndicator"),
+        @Hl7MapByPartType(name="subjectOf3", type="PORX_MT060010CA.Subject12"),
+        @Hl7MapByPartType(name="subjectOf3/annotationIndicator", type="PORX_MT060010CA.AnnotationIndicator")})
+    public Boolean getSubjectOf2AnnotationIndicator() {
+        return this.subjectOf2AnnotationIndicator.getValue();
+    }
+    public void setSubjectOf2AnnotationIndicator(Boolean subjectOf2AnnotationIndicator) {
+        this.subjectOf2AnnotationIndicator.setValue(subjectOf2AnnotationIndicator);
+    }
+
+
+    @Hl7XmlMapping({"subjectOf2/detectedIssueEvent","subjectOf4/detectedIssueEvent"})
+    @Hl7MapByPartTypes({
+        @Hl7MapByPartType(name="subjectOf2", type="PORX_MT060010CA.Subject6"),
+        @Hl7MapByPartType(name="subjectOf2/detectedIssueEvent", type="COCT_MT260030CA.DetectedIssueEvent"),
+        @Hl7MapByPartType(name="subjectOf4", type="PORX_MT060040CA.Subject6"),
+        @Hl7MapByPartType(name="subjectOf4/detectedIssueEvent", type="COCT_MT260030CA.DetectedIssueEvent")})
+    public List<IssuesBean> getSubjectOf4DetectedIssueEvent() {
+        return this.subjectOf4DetectedIssueEvent;
     }
 
 
@@ -125,6 +147,115 @@ public class DeviceDispenseBean extends MessagePartBean {
     }
     public void setComponent1ProcedureRequest(ProcedureRequestBean component1ProcedureRequest) {
         this.component1ProcedureRequest = component1ProcedureRequest;
+    }
+
+
+    /**
+     * <p>PrescriptionDispenseNumber</p>
+     * 
+     * <p>A:Prescription Dispense Number</p>
+     * 
+     * <p><p>The Prescription Dispense Number is a globally unique 
+     * number assigned to a prescription dispense by the EHR/DIS 
+     * irrespective of the source of the supply event</p><p>It is 
+     * created by the EHR/DIS once the dispense has passed all 
+     * edits and validation.</p></p>
+     * 
+     * <p><p>The Prescription Dispense Number is a globally unique 
+     * number assigned to a prescription dispense by the EHR/DIS 
+     * irrespective of the source of the supply event</p><p>It is 
+     * created by the EHR/DIS once the dispense has passed all 
+     * edits and validation.</p></p>
+     * 
+     * <p><p>Allows dispense events to be uniquely referenced and 
+     * is therefore mandatory.</p></p>
+     * 
+     * <p>A:Prescription Dispense Number</p>
+     * 
+     * <p><p>The Prescription Dispense Number is a globally unique 
+     * number assigned to a dispense (single fill) by the EHR/DIS 
+     * irrespective of the source of the dispense.</p><p>It is 
+     * created by the EHR/DIS once the dispense has passed all 
+     * edits and validation.</p></p>
+     * 
+     * <p><p>The Prescription Dispense Number is a globally unique 
+     * number assigned to a dispense (single fill) by the EHR/DIS 
+     * irrespective of the source of the dispense.</p><p>It is 
+     * created by the EHR/DIS once the dispense has passed all 
+     * edits and validation.</p></p>
+     * 
+     * <p><p>Allows for the referencing of a specific dispense 
+     * record.</p><p>Identifier for a dispensed record is needed so 
+     * that dispenses may be uniquely referenced. Thus the 
+     * mandatory requirement.</p></p>
+     * 
+     * <p><p>Allows for the referencing of a specific dispense 
+     * record.</p><p>Identifier for a dispensed record is needed so 
+     * that dispenses may be uniquely referenced. Thus the 
+     * mandatory requirement.</p></p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Identifier getPrescriptionDispenseNumber() {
+        return this.prescriptionDispenseNumber.getValue();
+    }
+    public void setPrescriptionDispenseNumber(Identifier prescriptionDispenseNumber) {
+        this.prescriptionDispenseNumber.setValue(prescriptionDispenseNumber);
+    }
+
+
+    @Hl7XmlMapping({"subjectOf5"})
+    public List<IncludesBean> getSubjectOf5() {
+        return this.subjectOf5;
+    }
+
+
+    @Hl7XmlMapping({"location"})
+    public OccurredAtBean getLocation() {
+        return this.location;
+    }
+    public void setLocation(OccurredAtBean location) {
+        this.location = location;
+    }
+
+
+    @Hl7XmlMapping({"subjectOf3/detectedIssueIndicator","subjectOf4/detectedIssueIndicator"})
+    @Hl7MapByPartTypes({
+        @Hl7MapByPartType(name="subjectOf3", type="PORX_MT060040CA.Subject13"),
+        @Hl7MapByPartType(name="subjectOf3/detectedIssueIndicator", type="PORX_MT060040CA.DetectedIssueIndicator"),
+        @Hl7MapByPartType(name="subjectOf4", type="PORX_MT060010CA.Subject13"),
+        @Hl7MapByPartType(name="subjectOf4/detectedIssueIndicator", type="PORX_MT060010CA.DetectedIssueIndicator")})
+    public Boolean getSubjectOf3DetectedIssueIndicator() {
+        return this.subjectOf3DetectedIssueIndicator.getValue();
+    }
+    public void setSubjectOf3DetectedIssueIndicator(Boolean subjectOf3DetectedIssueIndicator) {
+        this.subjectOf3DetectedIssueIndicator.setValue(subjectOf3DetectedIssueIndicator);
+    }
+
+
+    @Hl7XmlMapping({"responsibleParty/assignedEntity"})
+    public HealthcareWorkerBean getResponsiblePartyAssignedEntity() {
+        return this.responsiblePartyAssignedEntity;
+    }
+    public void setResponsiblePartyAssignedEntity(HealthcareWorkerBean responsiblePartyAssignedEntity) {
+        this.responsiblePartyAssignedEntity = responsiblePartyAssignedEntity;
+    }
+
+
+    @Hl7XmlMapping({"fulfillment/supplyRequest"})
+    public PrescriptionReferenceBean getFulfillmentSupplyRequest() {
+        return this.fulfillmentSupplyRequest;
+    }
+    public void setFulfillmentSupplyRequest(PrescriptionReferenceBean fulfillmentSupplyRequest) {
+        this.fulfillmentSupplyRequest = fulfillmentSupplyRequest;
+    }
+
+
+    @Hl7XmlMapping({"performer/assignedEntity"})
+    public HealthcareWorkerBean getPerformerAssignedEntity() {
+        return this.performerAssignedEntity;
+    }
+    public void setPerformerAssignedEntity(HealthcareWorkerBean performerAssignedEntity) {
+        this.performerAssignedEntity = performerAssignedEntity;
     }
 
 
@@ -219,63 +350,12 @@ public class DeviceDispenseBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"subjectOf2/annotationIndicator","subjectOf3/annotationIndicator"})
-    @Hl7MapByPartTypes({
-        @Hl7MapByPartType(name="subjectOf2", type="PORX_MT060040CA.Subject12"),
-        @Hl7MapByPartType(name="subjectOf2/annotationIndicator", type="PORX_MT060040CA.AnnotationIndicator"),
-        @Hl7MapByPartType(name="subjectOf3", type="PORX_MT060010CA.Subject12"),
-        @Hl7MapByPartType(name="subjectOf3/annotationIndicator", type="PORX_MT060010CA.AnnotationIndicator")})
-    public Boolean getSubjectOf2AnnotationIndicator() {
-        return this.subjectOf2AnnotationIndicator.getValue();
+    @Hl7XmlMapping({"component2/supplyEvent"})
+    public DispenseDetailsBean getComponent2SupplyEvent() {
+        return this.component2SupplyEvent;
     }
-    public void setSubjectOf2AnnotationIndicator(Boolean subjectOf2AnnotationIndicator) {
-        this.subjectOf2AnnotationIndicator.setValue(subjectOf2AnnotationIndicator);
-    }
-
-
-    @Hl7XmlMapping({"subjectOf2/detectedIssueEvent","subjectOf4/detectedIssueEvent"})
-    @Hl7MapByPartTypes({
-        @Hl7MapByPartType(name="subjectOf2", type="PORX_MT060010CA.Subject6"),
-        @Hl7MapByPartType(name="subjectOf2/detectedIssueEvent", type="COCT_MT260030CA.DetectedIssueEvent"),
-        @Hl7MapByPartType(name="subjectOf4", type="PORX_MT060040CA.Subject6"),
-        @Hl7MapByPartType(name="subjectOf4/detectedIssueEvent", type="COCT_MT260030CA.DetectedIssueEvent")})
-    public List<IssuesBean> getSubjectOf4DetectedIssueEvent() {
-        return this.subjectOf4DetectedIssueEvent;
-    }
-
-
-    @Hl7XmlMapping({"subjectOf1/controlActEvent"})
-    public List<StatusChangesBean> getSubjectOf1ControlActEvent() {
-        return this.subjectOf1ControlActEvent;
-    }
-
-
-    @Hl7XmlMapping({"subjectOf3/detectedIssueIndicator","subjectOf4/detectedIssueIndicator"})
-    @Hl7MapByPartTypes({
-        @Hl7MapByPartType(name="subjectOf3", type="PORX_MT060040CA.Subject13"),
-        @Hl7MapByPartType(name="subjectOf3/detectedIssueIndicator", type="PORX_MT060040CA.DetectedIssueIndicator"),
-        @Hl7MapByPartType(name="subjectOf4", type="PORX_MT060010CA.Subject13"),
-        @Hl7MapByPartType(name="subjectOf4/detectedIssueIndicator", type="PORX_MT060010CA.DetectedIssueIndicator")})
-    public Boolean getSubjectOf3DetectedIssueIndicator() {
-        return this.subjectOf3DetectedIssueIndicator.getValue();
-    }
-    public void setSubjectOf3DetectedIssueIndicator(Boolean subjectOf3DetectedIssueIndicator) {
-        this.subjectOf3DetectedIssueIndicator.setValue(subjectOf3DetectedIssueIndicator);
-    }
-
-
-    @Hl7XmlMapping({"responsibleParty/assignedEntity"})
-    public HealthcareWorkerBean getResponsiblePartyAssignedEntity() {
-        return this.responsiblePartyAssignedEntity;
-    }
-    public void setResponsiblePartyAssignedEntity(HealthcareWorkerBean responsiblePartyAssignedEntity) {
-        this.responsiblePartyAssignedEntity = responsiblePartyAssignedEntity;
-    }
-
-
-    @Hl7XmlMapping({"subjectOf5"})
-    public List<IncludesBean> getSubjectOf5() {
-        return this.subjectOf5;
+    public void setComponent2SupplyEvent(DispenseDetailsBean component2SupplyEvent) {
+        this.component2SupplyEvent = component2SupplyEvent;
     }
 
 
@@ -310,86 +390,6 @@ public class DeviceDispenseBean extends MessagePartBean {
     }
     public void setDispenseStatus(ActStatus dispenseStatus) {
         this.dispenseStatus.setValue(dispenseStatus);
-    }
-
-
-    @Hl7XmlMapping({"location"})
-    public OccurredAtBean getLocation() {
-        return this.location;
-    }
-    public void setLocation(OccurredAtBean location) {
-        this.location = location;
-    }
-
-
-    @Hl7XmlMapping({"fulfillment/supplyRequest"})
-    public PrescriptionReferenceBean getFulfillmentSupplyRequest() {
-        return this.fulfillmentSupplyRequest;
-    }
-    public void setFulfillmentSupplyRequest(PrescriptionReferenceBean fulfillmentSupplyRequest) {
-        this.fulfillmentSupplyRequest = fulfillmentSupplyRequest;
-    }
-
-
-    @Hl7XmlMapping({"performer/assignedEntity"})
-    public HealthcareWorkerBean getPerformerAssignedEntity() {
-        return this.performerAssignedEntity;
-    }
-    public void setPerformerAssignedEntity(HealthcareWorkerBean performerAssignedEntity) {
-        this.performerAssignedEntity = performerAssignedEntity;
-    }
-
-
-    /**
-     * <p>PrescriptionDispenseNumber</p>
-     * 
-     * <p>A:Prescription Dispense Number</p>
-     * 
-     * <p><p>The Prescription Dispense Number is a globally unique 
-     * number assigned to a prescription dispense by the EHR/DIS 
-     * irrespective of the source of the supply event</p><p>It is 
-     * created by the EHR/DIS once the dispense has passed all 
-     * edits and validation.</p></p>
-     * 
-     * <p><p>The Prescription Dispense Number is a globally unique 
-     * number assigned to a prescription dispense by the EHR/DIS 
-     * irrespective of the source of the supply event</p><p>It is 
-     * created by the EHR/DIS once the dispense has passed all 
-     * edits and validation.</p></p>
-     * 
-     * <p><p>Allows dispense events to be uniquely referenced and 
-     * is therefore mandatory.</p></p>
-     * 
-     * <p>A:Prescription Dispense Number</p>
-     * 
-     * <p><p>The Prescription Dispense Number is a globally unique 
-     * number assigned to a dispense (single fill) by the EHR/DIS 
-     * irrespective of the source of the dispense.</p><p>It is 
-     * created by the EHR/DIS once the dispense has passed all 
-     * edits and validation.</p></p>
-     * 
-     * <p><p>The Prescription Dispense Number is a globally unique 
-     * number assigned to a dispense (single fill) by the EHR/DIS 
-     * irrespective of the source of the dispense.</p><p>It is 
-     * created by the EHR/DIS once the dispense has passed all 
-     * edits and validation.</p></p>
-     * 
-     * <p><p>Allows for the referencing of a specific dispense 
-     * record.</p><p>Identifier for a dispensed record is needed so 
-     * that dispenses may be uniquely referenced. Thus the 
-     * mandatory requirement.</p></p>
-     * 
-     * <p><p>Allows for the referencing of a specific dispense 
-     * record.</p><p>Identifier for a dispensed record is needed so 
-     * that dispenses may be uniquely referenced. Thus the 
-     * mandatory requirement.</p></p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Identifier getPrescriptionDispenseNumber() {
-        return this.prescriptionDispenseNumber.getValue();
-    }
-    public void setPrescriptionDispenseNumber(Identifier prescriptionDispenseNumber) {
-        this.prescriptionDispenseNumber.setValue(prescriptionDispenseNumber);
     }
 
 }

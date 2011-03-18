@@ -255,20 +255,11 @@ import java.util.List;
 public class CoveredPartyAsPatientBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private RelatedPersonBean indirectAuthorityPersonalRelationship;
     private CV code = new CVImpl();
+    private RelatedPersonBean indirectAuthorityPersonalRelationship;
     private II coveredPartyIdentifier = new IIImpl();
     private CoveredPartyAsPatientChoice coveredPartyAsPatientChoice;
     private List<SubjectBean> subjectOf = new ArrayList<SubjectBean>();
-
-
-    @Hl7XmlMapping({"indirectAuthority/personalRelationship"})
-    public RelatedPersonBean getIndirectAuthorityPersonalRelationship() {
-        return this.indirectAuthorityPersonalRelationship;
-    }
-    public void setIndirectAuthorityPersonalRelationship(RelatedPersonBean indirectAuthorityPersonalRelationship) {
-        this.indirectAuthorityPersonalRelationship = indirectAuthorityPersonalRelationship;
-    }
 
 
     /**
@@ -282,6 +273,15 @@ public class CoveredPartyAsPatientBean extends MessagePartBean {
     }
     public void setCode(Code code) {
         this.code.setValue(code);
+    }
+
+
+    @Hl7XmlMapping({"indirectAuthority/personalRelationship"})
+    public RelatedPersonBean getIndirectAuthorityPersonalRelationship() {
+        return this.indirectAuthorityPersonalRelationship;
+    }
+    public void setIndirectAuthorityPersonalRelationship(RelatedPersonBean indirectAuthorityPersonalRelationship) {
+        this.indirectAuthorityPersonalRelationship = indirectAuthorityPersonalRelationship;
     }
 
 

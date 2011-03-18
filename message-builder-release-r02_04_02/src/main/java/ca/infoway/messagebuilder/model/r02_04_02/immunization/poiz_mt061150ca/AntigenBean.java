@@ -28,28 +28,10 @@ import ca.infoway.messagebuilder.model.r02_04_02.immunization.merged.AntigenVali
 public class AntigenBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private ST antigenName = new STImpl();
     private CV antigenCode = new CVImpl();
     private INT antigenCountValue = new INTImpl();
     private AntigenValidityBean asHealthChartSubjectOf1AntigenValidity;
-
-
-    /**
-     * <p>Antigen Name</p>
-     * 
-     * <p><p>The name of the antigen contained within a 
-     * vaccine.</p></p>
-     * 
-     * <p><p>Used for communication between and display to 
-     * providers.</p></p>
-     */
-    @Hl7XmlMapping({"name"})
-    public String getAntigenName() {
-        return this.antigenName.getValue();
-    }
-    public void setAntigenName(String antigenName) {
-        this.antigenName.setValue(antigenName);
-    }
+    private ST antigenName = new STImpl();
 
 
     /**
@@ -99,6 +81,24 @@ public class AntigenBean extends MessagePartBean {
     }
     public void setAsHealthChartSubjectOf1AntigenValidity(AntigenValidityBean asHealthChartSubjectOf1AntigenValidity) {
         this.asHealthChartSubjectOf1AntigenValidity = asHealthChartSubjectOf1AntigenValidity;
+    }
+
+
+    /**
+     * <p>Antigen Name</p>
+     * 
+     * <p><p>The name of the antigen contained within a 
+     * vaccine.</p></p>
+     * 
+     * <p><p>Used for communication between and display to 
+     * providers.</p></p>
+     */
+    @Hl7XmlMapping({"name"})
+    public String getAntigenName() {
+        return this.antigenName.getValue();
+    }
+    public void setAntigenName(String antigenName) {
+        this.antigenName.setValue(antigenName);
     }
 
 }

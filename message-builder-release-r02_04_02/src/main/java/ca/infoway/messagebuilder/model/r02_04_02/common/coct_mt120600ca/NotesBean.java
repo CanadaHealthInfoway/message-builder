@@ -48,9 +48,33 @@ import java.util.Date;
 public class NotesBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private AssignedPerson authorAssignedPerson;
     private TS noteTimestamp = new TSImpl();
+    private AssignedPerson authorAssignedPerson;
     private ST noteText = new STImpl();
+
+
+    /**
+     * <p>A: Note Timestamp</p>
+     * 
+     * <p><p>The date and time at which the note was posted.</p></p>
+     * 
+     * <p><p>Identifies timing of the annotation for sorting and 
+     * for audit purposes.</p><p>This attribute is mandatory 
+     * because the time of creation of the annotation will always 
+     * be known.</p></p>
+     * 
+     * <p><p>Identifies timing of the annotation for sorting and 
+     * for audit purposes.</p><p>This attribute is mandatory 
+     * because the time of creation of the annotation will always 
+     * be known.</p></p>
+     */
+    @Hl7XmlMapping({"author/time"})
+    public Date getNoteTimestamp() {
+        return this.noteTimestamp.getValue();
+    }
+    public void setNoteTimestamp(Date noteTimestamp) {
+        this.noteTimestamp.setValue(noteTimestamp);
+    }
 
 
     @Hl7XmlMapping({"author/assignedPerson"})
@@ -122,30 +146,6 @@ public class NotesBean extends MessagePartBean {
     }
     public boolean hasAuthorAssignedPersonAsPersonalRelationship4() {
         return (this.authorAssignedPerson instanceof RelatedPersonBean);
-    }
-
-
-    /**
-     * <p>A: Note Timestamp</p>
-     * 
-     * <p><p>The date and time at which the note was posted.</p></p>
-     * 
-     * <p><p>Identifies timing of the annotation for sorting and 
-     * for audit purposes.</p><p>This attribute is mandatory 
-     * because the time of creation of the annotation will always 
-     * be known.</p></p>
-     * 
-     * <p><p>Identifies timing of the annotation for sorting and 
-     * for audit purposes.</p><p>This attribute is mandatory 
-     * because the time of creation of the annotation will always 
-     * be known.</p></p>
-     */
-    @Hl7XmlMapping({"author/time"})
-    public Date getNoteTimestamp() {
-        return this.noteTimestamp.getValue();
-    }
-    public void setNoteTimestamp(Date noteTimestamp) {
-        this.noteTimestamp.setValue(noteTimestamp);
     }
 
 

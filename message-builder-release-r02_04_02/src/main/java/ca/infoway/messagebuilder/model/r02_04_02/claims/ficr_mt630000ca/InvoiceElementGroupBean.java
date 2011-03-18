@@ -25,10 +25,16 @@ import java.util.List;
 public class InvoiceElementGroupBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private CV invoiceType = new CVImpl();
     private List<AdjudicatedInvoiceElementGroupBean> referenceAdjudicatedInvoiceElementGroup = new ArrayList<AdjudicatedInvoiceElementGroupBean>();
-    private II invoiceGroupID = new IIImpl();
+    private CV invoiceType = new CVImpl();
     private MO invoiceSubTotal = new MOImpl();
+    private II invoiceGroupID = new IIImpl();
+
+
+    @Hl7XmlMapping({"reference/adjudicatedInvoiceElementGroup"})
+    public List<AdjudicatedInvoiceElementGroupBean> getReferenceAdjudicatedInvoiceElementGroup() {
+        return this.referenceAdjudicatedInvoiceElementGroup;
+    }
 
 
     /**
@@ -131,9 +137,31 @@ public class InvoiceElementGroupBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"reference/adjudicatedInvoiceElementGroup"})
-    public List<AdjudicatedInvoiceElementGroupBean> getReferenceAdjudicatedInvoiceElementGroup() {
-        return this.referenceAdjudicatedInvoiceElementGroup;
+    /**
+     * <p>Invoice Sub-total</p>
+     * 
+     * <p><p>Invoice Sub-total - Identifies the total monetary 
+     * amount billed for the invoice element.</p></p>
+     * 
+     * <p><p>This is the sum of the Submitted Invoice Line 
+     * amounts.</p></p>
+     * 
+     * <p><p>For Cancel Request: This would serve as a cross-check 
+     * for the Adjudicator for the Invoice Grouping that is being 
+     * cancelled.</p><p>Attribute cannot be mandatory as it may not 
+     * be present for a Coverage Extension Request.</p></p>
+     * 
+     * <p><p>For Cancel Request: This would serve as a cross-check 
+     * for the Adjudicator for the Invoice Grouping that is being 
+     * cancelled.</p><p>Attribute cannot be mandatory as it may not 
+     * be present for a Coverage Extension Request.</p></p>
+     */
+    @Hl7XmlMapping({"netAmt"})
+    public Money getInvoiceSubTotal() {
+        return this.invoiceSubTotal.getValue();
+    }
+    public void setInvoiceSubTotal(Money invoiceSubTotal) {
+        this.invoiceSubTotal.setValue(invoiceSubTotal);
     }
 
 
@@ -181,34 +209,6 @@ public class InvoiceElementGroupBean extends MessagePartBean {
     }
     public void setInvoiceGroupID(Identifier invoiceGroupID) {
         this.invoiceGroupID.setValue(invoiceGroupID);
-    }
-
-
-    /**
-     * <p>Invoice Sub-total</p>
-     * 
-     * <p><p>Invoice Sub-total - Identifies the total monetary 
-     * amount billed for the invoice element.</p></p>
-     * 
-     * <p><p>This is the sum of the Submitted Invoice Line 
-     * amounts.</p></p>
-     * 
-     * <p><p>For Cancel Request: This would serve as a cross-check 
-     * for the Adjudicator for the Invoice Grouping that is being 
-     * cancelled.</p><p>Attribute cannot be mandatory as it may not 
-     * be present for a Coverage Extension Request.</p></p>
-     * 
-     * <p><p>For Cancel Request: This would serve as a cross-check 
-     * for the Adjudicator for the Invoice Grouping that is being 
-     * cancelled.</p><p>Attribute cannot be mandatory as it may not 
-     * be present for a Coverage Extension Request.</p></p>
-     */
-    @Hl7XmlMapping({"netAmt"})
-    public Money getInvoiceSubTotal() {
-        return this.invoiceSubTotal.getValue();
-    }
-    public void setInvoiceSubTotal(Money invoiceSubTotal) {
-        this.invoiceSubTotal.setValue(invoiceSubTotal);
     }
 
 }

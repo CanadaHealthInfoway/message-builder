@@ -11,17 +11,17 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 public class OriginalPrescriptionOrderBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private OriginalPrescriptionBean component2SupplyOrder;
-    private PlayingPrescribePersonBean authorPresriberRole;
     private DispenseSubstitutionBean component1Substitution;
+    private PlayingPrescribePersonBean authorPresriberRole;
+    private OriginalPrescriptionBean component2SupplyOrder;
 
 
-    @Hl7XmlMapping({"component2/supplyOrder"})
-    public OriginalPrescriptionBean getComponent2SupplyOrder() {
-        return this.component2SupplyOrder;
+    @Hl7XmlMapping({"component1/substitution"})
+    public DispenseSubstitutionBean getComponent1Substitution() {
+        return this.component1Substitution;
     }
-    public void setComponent2SupplyOrder(OriginalPrescriptionBean component2SupplyOrder) {
-        this.component2SupplyOrder = component2SupplyOrder;
+    public void setComponent1Substitution(DispenseSubstitutionBean component1Substitution) {
+        this.component1Substitution = component1Substitution;
     }
 
 
@@ -34,12 +34,12 @@ public class OriginalPrescriptionOrderBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"component1/substitution"})
-    public DispenseSubstitutionBean getComponent1Substitution() {
-        return this.component1Substitution;
+    @Hl7XmlMapping({"component2/supplyOrder"})
+    public OriginalPrescriptionBean getComponent2SupplyOrder() {
+        return this.component2SupplyOrder;
     }
-    public void setComponent1Substitution(DispenseSubstitutionBean component1Substitution) {
-        this.component1Substitution = component1Substitution;
+    public void setComponent2SupplyOrder(OriginalPrescriptionBean component2SupplyOrder) {
+        this.component2SupplyOrder = component2SupplyOrder;
     }
 
 }

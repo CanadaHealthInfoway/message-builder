@@ -37,8 +37,8 @@ public class InformantBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
     private IVL<TS, Interval<Date>> dateOfInformation = new IVLImpl<TS, Interval<Date>>();
-    private InformationSourceChoice informationSourceChoice;
     private CV informationSourceForm = new CVImpl();
+    private InformationSourceChoice informationSourceChoice;
 
 
     /**
@@ -69,6 +69,29 @@ public class InformantBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>InformationSourceForm</p>
+     * 
+     * <p>Information Source Form</p>
+     * 
+     * <p>Information Source Form</p>
+     * 
+     * <p><p>Describes how the information was presented by the 
+     * information source.</p></p>
+     * 
+     * <p><p>Useful for categorizing how information is gathered 
+     * from information sources. This information may not always be 
+     * available, so this attribute is noted as being required.</p></p>
+     */
+    @Hl7XmlMapping({"modeCode"})
+    public ParticipationMode getInformationSourceForm() {
+        return (ParticipationMode) this.informationSourceForm.getValue();
+    }
+    public void setInformationSourceForm(ParticipationMode informationSourceForm) {
+        this.informationSourceForm.setValue(informationSourceForm);
+    }
+
+
     @Hl7XmlMapping({"informationSourceChoice"})
     public InformationSourceChoice getInformationSourceChoice() {
         return this.informationSourceChoice;
@@ -96,29 +119,6 @@ public class InformantBean extends MessagePartBean {
     }
     public boolean hasInformationSourceChoiceAsPatientRole() {
         return (this.informationSourceChoice instanceof PatientRoleBean);
-    }
-
-
-    /**
-     * <p>InformationSourceForm</p>
-     * 
-     * <p>Information Source Form</p>
-     * 
-     * <p>Information Source Form</p>
-     * 
-     * <p><p>Describes how the information was presented by the 
-     * information source.</p></p>
-     * 
-     * <p><p>Useful for categorizing how information is gathered 
-     * from information sources. This information may not always be 
-     * available, so this attribute is noted as being required.</p></p>
-     */
-    @Hl7XmlMapping({"modeCode"})
-    public ParticipationMode getInformationSourceForm() {
-        return (ParticipationMode) this.informationSourceForm.getValue();
-    }
-    public void setInformationSourceForm(ParticipationMode informationSourceForm) {
-        this.informationSourceForm.setValue(informationSourceForm);
     }
 
 }

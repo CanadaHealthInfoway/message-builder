@@ -34,10 +34,10 @@ public class DispenseInstructionsBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
     private OccurredAtBean location;
-    private DispenseShipToLocationBean destinationServiceDeliveryLocation;
-    private IVL<TS, Interval<Date>> dispensingAllowedPeriod = new IVLImpl<TS, Interval<Date>>();
     private List<RelatedPersonBean> receiverPersonalRelationship = new ArrayList<RelatedPersonBean>();
+    private DispenseShipToLocationBean destinationServiceDeliveryLocation;
     private List<DrugDispenseInstructionsBean> componentSupplyRequestItem = new ArrayList<DrugDispenseInstructionsBean>();
+    private IVL<TS, Interval<Date>> dispensingAllowedPeriod = new IVLImpl<TS, Interval<Date>>();
 
 
     @Hl7XmlMapping({"location"})
@@ -49,12 +49,24 @@ public class DispenseInstructionsBean extends MessagePartBean {
     }
 
 
+    @Hl7XmlMapping({"receiver/personalRelationship"})
+    public List<RelatedPersonBean> getReceiverPersonalRelationship() {
+        return this.receiverPersonalRelationship;
+    }
+
+
     @Hl7XmlMapping({"destination/serviceDeliveryLocation"})
     public DispenseShipToLocationBean getDestinationServiceDeliveryLocation() {
         return this.destinationServiceDeliveryLocation;
     }
     public void setDestinationServiceDeliveryLocation(DispenseShipToLocationBean destinationServiceDeliveryLocation) {
         this.destinationServiceDeliveryLocation = destinationServiceDeliveryLocation;
+    }
+
+
+    @Hl7XmlMapping({"component/supplyRequestItem"})
+    public List<DrugDispenseInstructionsBean> getComponentSupplyRequestItem() {
+        return this.componentSupplyRequestItem;
     }
 
 
@@ -101,18 +113,6 @@ public class DispenseInstructionsBean extends MessagePartBean {
     }
     public void setDispensingAllowedPeriod(Interval<Date> dispensingAllowedPeriod) {
         this.dispensingAllowedPeriod.setValue(dispensingAllowedPeriod);
-    }
-
-
-    @Hl7XmlMapping({"receiver/personalRelationship"})
-    public List<RelatedPersonBean> getReceiverPersonalRelationship() {
-        return this.receiverPersonalRelationship;
-    }
-
-
-    @Hl7XmlMapping({"component/supplyRequestItem"})
-    public List<DrugDispenseInstructionsBean> getComponentSupplyRequestItem() {
-        return this.componentSupplyRequestItem;
     }
 
 }

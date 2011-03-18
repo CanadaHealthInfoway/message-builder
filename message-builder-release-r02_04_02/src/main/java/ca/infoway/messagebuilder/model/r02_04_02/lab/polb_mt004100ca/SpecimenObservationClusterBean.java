@@ -34,29 +34,14 @@ import java.util.List;
 public class SpecimenObservationClusterBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private List<WasPerformedByBean> performer = new ArrayList<WasPerformedByBean>();
-    private HasComponentBean component2;
     private ResultStatusProcessStepBean subjectOfResultStatusProcessStep;
-    private List<IsolateObservationsBean> component1IsolateObservationEvent = new ArrayList<IsolateObservationsBean>();
-    private ST clusterComment = new STImpl();
+    private List<WasPerformedByBean> performer = new ArrayList<WasPerformedByBean>();
     private List<SensitivityBatteryBean> component3SensitivityBattery = new ArrayList<SensitivityBatteryBean>();
+    private List<IsolateObservationsBean> component1IsolateObservationEvent = new ArrayList<IsolateObservationsBean>();
+    private HasComponentBean component2;
+    private ST clusterComment = new STImpl();
     private CS clusterStatus = new CSImpl();
     private IVL<TS, Interval<Date>> clusterEffectiveTime = new IVLImpl<TS, Interval<Date>>();
-
-
-    @Hl7XmlMapping({"performer"})
-    public List<WasPerformedByBean> getPerformer() {
-        return this.performer;
-    }
-
-
-    @Hl7XmlMapping({"component2"})
-    public HasComponentBean getComponent2() {
-        return this.component2;
-    }
-    public void setComponent2(HasComponentBean component2) {
-        this.component2 = component2;
-    }
 
 
     @Hl7XmlMapping({"subjectOf/resultStatusProcessStep"})
@@ -68,9 +53,30 @@ public class SpecimenObservationClusterBean extends MessagePartBean {
     }
 
 
+    @Hl7XmlMapping({"performer"})
+    public List<WasPerformedByBean> getPerformer() {
+        return this.performer;
+    }
+
+
+    @Hl7XmlMapping({"component3/sensitivityBattery"})
+    public List<SensitivityBatteryBean> getComponent3SensitivityBattery() {
+        return this.component3SensitivityBattery;
+    }
+
+
     @Hl7XmlMapping({"component1/isolateObservationEvent"})
     public List<IsolateObservationsBean> getComponent1IsolateObservationEvent() {
         return this.component1IsolateObservationEvent;
+    }
+
+
+    @Hl7XmlMapping({"component2"})
+    public HasComponentBean getComponent2() {
+        return this.component2;
+    }
+    public void setComponent2(HasComponentBean component2) {
+        this.component2 = component2;
     }
 
 
@@ -85,12 +91,6 @@ public class SpecimenObservationClusterBean extends MessagePartBean {
     }
     public void setClusterComment(String clusterComment) {
         this.clusterComment.setValue(clusterComment);
-    }
-
-
-    @Hl7XmlMapping({"component3/sensitivityBattery"})
-    public List<SensitivityBatteryBean> getComponent3SensitivityBattery() {
-        return this.component3SensitivityBattery;
     }
 
 

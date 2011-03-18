@@ -85,14 +85,14 @@ public class OtherMedicationBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
     private CD otherMedicationType = new CDImpl();
-    private CS statusCode = new CSImpl();
     private SET<CV, Code> otherMedicationMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);
     private CV routeCode = new CVImpl();
-    private IVL<TS, Interval<Date>> drugActivePeriod = new IVLImpl<TS, Interval<Date>>();
+    private CS statusCode = new CSImpl();
     private SET<II, Identifier> otherMedicationId = new SETImpl<II, Identifier>(IIImpl.class);
+    private IVL<TS, Interval<Date>> drugActivePeriod = new IVLImpl<TS, Interval<Date>>();
     private IncludesBean subjectOf;
-    private List<AdministrationInstructionsBean> componentDosageInstruction = new ArrayList<AdministrationInstructionsBean>();
     private DrugProductBean consumableMedication;
+    private List<AdministrationInstructionsBean> componentDosageInstruction = new ArrayList<AdministrationInstructionsBean>();
 
 
     /**
@@ -121,72 +121,6 @@ public class OtherMedicationBean extends MessagePartBean {
     }
     public void setOtherMedicationType(Code otherMedicationType) {
         this.otherMedicationType.setValue(otherMedicationType);
-    }
-
-
-    /**
-     * <p>C:Other Medication Status</p>
-     * 
-     * <p><p>Status can only be 'ACTIVE' or 'COMPLETED'</p></p>
-     * 
-     * <p><p>This denotes a state in the lifecycle of the other 
-     * medication. Valid statuses are: 'ACTIVE' and 'COMPLETED' 
-     * only.</p></p>
-     * 
-     * <p><p>Indicates what actions are allowed to be performed 
-     * against an other medication record. This is a mandatory 
-     * field because every recorded 'other medication' needs to be 
-     * in some state.</p><p>Note ------ The provider might know 
-     * that the patient is not taking the medication but not 
-     * necessarily when the patient stopped it. Thus the status of 
-     * the medication could be set to 'COMPLETED' by the provider 
-     * without necessarily setting an End Date on the medication 
-     * record.</p></p>
-     * 
-     * <p><p>Indicates what actions are allowed to be performed 
-     * against an other medication record. This is a mandatory 
-     * field because every recorded 'other medication' needs to be 
-     * in some state.</p><p>Note ------ The provider might know 
-     * that the patient is not taking the medication but not 
-     * necessarily when the patient stopped it. Thus the status of 
-     * the medication could be set to 'COMPLETED' by the provider 
-     * without necessarily setting an End Date on the medication 
-     * record.</p></p>
-     * 
-     * <p>B:Medication Status</p>
-     * 
-     * <p><p>Status can only be '''ACTIVE''' or '''COMPLETED'''</p></p>
-     * 
-     * <p><p>Indicates whether the medication is still considered 
-     * active.</p><p>Valid status can only be 'ACTIVE' or 
-     * 'COMPLETED'.</p></p>
-     * 
-     * <p><p>Indicates whether the medication is still considered 
-     * active.</p><p>Valid status can only be 'ACTIVE' or 
-     * 'COMPLETED'.</p></p>
-     * 
-     * <p><p>Indicates the new state of the medication and is 
-     * therefore mandatory.</p><p>Note ------ The provider might 
-     * know that the patient is not taking the medication but not 
-     * necessarily when the patient stopped it. Thus the status of 
-     * the medication could be set to 'COMPLETED' by the provider 
-     * without necessarily setting an End Date on the medication 
-     * record.</p></p>
-     * 
-     * <p><p>Indicates the new state of the medication and is 
-     * therefore mandatory.</p><p>Note ------ The provider might 
-     * know that the patient is not taking the medication but not 
-     * necessarily when the patient stopped it. Thus the status of 
-     * the medication could be set to 'COMPLETED' by the provider 
-     * without necessarily setting an End Date on the medication 
-     * record.</p></p>
-     */
-    @Hl7XmlMapping({"statusCode"})
-    public ActStatus getStatusCode() {
-        return (ActStatus) this.statusCode.getValue();
-    }
-    public void setStatusCode(ActStatus statusCode) {
-        this.statusCode.setValue(statusCode);
     }
 
 
@@ -392,6 +326,89 @@ public class OtherMedicationBean extends MessagePartBean {
 
 
     /**
+     * <p>C:Other Medication Status</p>
+     * 
+     * <p><p>Status can only be 'ACTIVE' or 'COMPLETED'</p></p>
+     * 
+     * <p><p>This denotes a state in the lifecycle of the other 
+     * medication. Valid statuses are: 'ACTIVE' and 'COMPLETED' 
+     * only.</p></p>
+     * 
+     * <p><p>Indicates what actions are allowed to be performed 
+     * against an other medication record. This is a mandatory 
+     * field because every recorded 'other medication' needs to be 
+     * in some state.</p><p>Note ------ The provider might know 
+     * that the patient is not taking the medication but not 
+     * necessarily when the patient stopped it. Thus the status of 
+     * the medication could be set to 'COMPLETED' by the provider 
+     * without necessarily setting an End Date on the medication 
+     * record.</p></p>
+     * 
+     * <p><p>Indicates what actions are allowed to be performed 
+     * against an other medication record. This is a mandatory 
+     * field because every recorded 'other medication' needs to be 
+     * in some state.</p><p>Note ------ The provider might know 
+     * that the patient is not taking the medication but not 
+     * necessarily when the patient stopped it. Thus the status of 
+     * the medication could be set to 'COMPLETED' by the provider 
+     * without necessarily setting an End Date on the medication 
+     * record.</p></p>
+     * 
+     * <p>B:Medication Status</p>
+     * 
+     * <p><p>Status can only be '''ACTIVE''' or '''COMPLETED'''</p></p>
+     * 
+     * <p><p>Indicates whether the medication is still considered 
+     * active.</p><p>Valid status can only be 'ACTIVE' or 
+     * 'COMPLETED'.</p></p>
+     * 
+     * <p><p>Indicates whether the medication is still considered 
+     * active.</p><p>Valid status can only be 'ACTIVE' or 
+     * 'COMPLETED'.</p></p>
+     * 
+     * <p><p>Indicates the new state of the medication and is 
+     * therefore mandatory.</p><p>Note ------ The provider might 
+     * know that the patient is not taking the medication but not 
+     * necessarily when the patient stopped it. Thus the status of 
+     * the medication could be set to 'COMPLETED' by the provider 
+     * without necessarily setting an End Date on the medication 
+     * record.</p></p>
+     * 
+     * <p><p>Indicates the new state of the medication and is 
+     * therefore mandatory.</p><p>Note ------ The provider might 
+     * know that the patient is not taking the medication but not 
+     * necessarily when the patient stopped it. Thus the status of 
+     * the medication could be set to 'COMPLETED' by the provider 
+     * without necessarily setting an End Date on the medication 
+     * record.</p></p>
+     */
+    @Hl7XmlMapping({"statusCode"})
+    public ActStatus getStatusCode() {
+        return (ActStatus) this.statusCode.getValue();
+    }
+    public void setStatusCode(ActStatus statusCode) {
+        this.statusCode.setValue(statusCode);
+    }
+
+
+    /**
+     * <p>OtherMedicationId</p>
+     * 
+     * <p>A:Other Medication Id</p>
+     * 
+     * <p><p>Identifier of the Other Medication record that needs 
+     * to be updated.</p></p>
+     * 
+     * <p><p>Uniquely identifies the record to be updated and is 
+     * therefore mandatory.</p></p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Set<Identifier> getOtherMedicationId() {
+        return this.otherMedicationId.rawSet();
+    }
+
+
+    /**
      * <p>DrugActivePeriod</p>
      * 
      * <p>C:Drug Active Period</p>
@@ -423,23 +440,6 @@ public class OtherMedicationBean extends MessagePartBean {
     }
 
 
-    /**
-     * <p>OtherMedicationId</p>
-     * 
-     * <p>A:Other Medication Id</p>
-     * 
-     * <p><p>Identifier of the Other Medication record that needs 
-     * to be updated.</p></p>
-     * 
-     * <p><p>Uniquely identifies the record to be updated and is 
-     * therefore mandatory.</p></p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Set<Identifier> getOtherMedicationId() {
-        return this.otherMedicationId.rawSet();
-    }
-
-
     @Hl7XmlMapping({"subjectOf"})
     public IncludesBean getSubjectOf() {
         return this.subjectOf;
@@ -449,18 +449,18 @@ public class OtherMedicationBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"component/dosageInstruction"})
-    public List<AdministrationInstructionsBean> getComponentDosageInstruction() {
-        return this.componentDosageInstruction;
-    }
-
-
     @Hl7XmlMapping({"consumable/medication"})
     public DrugProductBean getConsumableMedication() {
         return this.consumableMedication;
     }
     public void setConsumableMedication(DrugProductBean consumableMedication) {
         this.consumableMedication = consumableMedication;
+    }
+
+
+    @Hl7XmlMapping({"component/dosageInstruction"})
+    public List<AdministrationInstructionsBean> getComponentDosageInstruction() {
+        return this.componentDosageInstruction;
     }
 
 }

@@ -56,11 +56,11 @@ public class ClinicalObservationDocumentBean extends MessagePartBean implements 
 
     private static final long serialVersionUID = 20110318L;
     private CD clinicalObservationDocumentType = new CDImpl();
+    private OccurredAtBean location;
+    private List<BecauseOfBean> reason = new ArrayList<BecauseOfBean>();
     private ActEventBean subjectActEvent;
     private Request_2Bean inFulfillmentOfActRequest;
-    private OccurredAtBean location;
     private IVL<TS, Interval<Date>> clinicalObservationDocumentTimeRange = new IVLImpl<TS, Interval<Date>>();
-    private List<BecauseOfBean> reason = new ArrayList<BecauseOfBean>();
 
 
     /**
@@ -89,6 +89,21 @@ public class ClinicalObservationDocumentBean extends MessagePartBean implements 
     }
 
 
+    @Hl7XmlMapping({"location"})
+    public OccurredAtBean getLocation() {
+        return this.location;
+    }
+    public void setLocation(OccurredAtBean location) {
+        this.location = location;
+    }
+
+
+    @Hl7XmlMapping({"reason"})
+    public List<BecauseOfBean> getReason() {
+        return this.reason;
+    }
+
+
     @Hl7XmlMapping({"subject/actEvent"})
     public ActEventBean getSubjectActEvent() {
         return this.subjectActEvent;
@@ -104,15 +119,6 @@ public class ClinicalObservationDocumentBean extends MessagePartBean implements 
     }
     public void setInFulfillmentOfActRequest(Request_2Bean inFulfillmentOfActRequest) {
         this.inFulfillmentOfActRequest = inFulfillmentOfActRequest;
-    }
-
-
-    @Hl7XmlMapping({"location"})
-    public OccurredAtBean getLocation() {
-        return this.location;
-    }
-    public void setLocation(OccurredAtBean location) {
-        this.location = location;
     }
 
 
@@ -135,12 +141,6 @@ public class ClinicalObservationDocumentBean extends MessagePartBean implements 
     }
     public void setClinicalObservationDocumentTimeRange(Interval<Date> clinicalObservationDocumentTimeRange) {
         this.clinicalObservationDocumentTimeRange.setValue(clinicalObservationDocumentTimeRange);
-    }
-
-
-    @Hl7XmlMapping({"reason"})
-    public List<BecauseOfBean> getReason() {
-        return this.reason;
     }
 
 }

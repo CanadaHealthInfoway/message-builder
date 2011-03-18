@@ -21,6 +21,8 @@ import ca.infoway.messagebuilder.datatype.lang.TelecommunicationAddress;
 import ca.infoway.messagebuilder.domainvalue.HealthcareOrganizationRoleType;
 import ca.infoway.messagebuilder.domainvalue.HealthcareProviderRoleType;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 
@@ -103,11 +105,11 @@ public class HealthcareWorkerBean extends MessagePartBean {
     private CV code = new CVImpl();
     private PN providerName = new PNImpl();
     private II id = new IIImpl();
-    private ST organizationName = new STImpl();
+    private SET<TEL, TelecommunicationAddress> healthcareWorkerPhoneAndEmails = new SETImpl<TEL, TelecommunicationAddress>(TELImpl.class);
     private CV organizationType = new CVImpl();
     private SET<TEL, TelecommunicationAddress> organizationPhoneAndEmails = new SETImpl<TEL, TelecommunicationAddress>(TELImpl.class);
+    private ST organizationName = new STImpl();
     private II organizationIdentifier = new IIImpl();
-    private SET<TEL, TelecommunicationAddress> healthcareWorkerPhoneAndEmails = new SETImpl<TEL, TelecommunicationAddress>(TELImpl.class);
     private ActingPersonBean assignedPerson;
 
 
@@ -207,22 +209,20 @@ public class HealthcareWorkerBean extends MessagePartBean {
 
 
     /**
-     * <p>OrganizationName</p>
+     * <p>HealthcareWorkerPhoneAndEmails</p>
      * 
-     * <p>H: Organization Name</p>
+     * <p>E: Healthcare Worker Phone and Emails</p>
      * 
-     * <p><p>Identifies the name of the organization</p></p>
+     * <p><p>Indicates phone and/or e-mail addresses at which the 
+     * healthcare worker can be reached.</p></p>
      * 
-     * <p><p>Allows for human recognition of the organization as 
-     * well as confirmation of the identifier. As a result, the 
-     * attribute is mandatory.</p></p>
+     * <p><p>This is the most commonly used piece of contact 
+     * information and is returned here to avoid unnecessary 
+     * queries of the provider registry.</p></p>
      */
-    @Hl7XmlMapping({"representedOrganization/name"})
-    public String getOrganizationName() {
-        return this.organizationName.getValue();
-    }
-    public void setOrganizationName(String organizationName) {
-        this.organizationName.setValue(organizationName);
+    @Hl7XmlMapping({"telecom"})
+    public Set<TelecommunicationAddress> getHealthcareWorkerPhoneAndEmails() {
+        return this.healthcareWorkerPhoneAndEmails.rawSet();
     }
 
 
@@ -266,6 +266,26 @@ public class HealthcareWorkerBean extends MessagePartBean {
 
 
     /**
+     * <p>OrganizationName</p>
+     * 
+     * <p>H: Organization Name</p>
+     * 
+     * <p><p>Identifies the name of the organization</p></p>
+     * 
+     * <p><p>Allows for human recognition of the organization as 
+     * well as confirmation of the identifier. As a result, the 
+     * attribute is mandatory.</p></p>
+     */
+    @Hl7XmlMapping({"representedOrganization/name"})
+    public String getOrganizationName() {
+        return this.organizationName.getValue();
+    }
+    public void setOrganizationName(String organizationName) {
+        this.organizationName.setValue(organizationName);
+    }
+
+
+    /**
      * <p>OrganizationIdentifier</p>
      * 
      * <p>F: Organization identifier</p>
@@ -283,24 +303,6 @@ public class HealthcareWorkerBean extends MessagePartBean {
     }
     public void setOrganizationIdentifier(Identifier organizationIdentifier) {
         this.organizationIdentifier.setValue(organizationIdentifier);
-    }
-
-
-    /**
-     * <p>HealthcareWorkerPhoneAndEmails</p>
-     * 
-     * <p>E: Healthcare Worker Phone and Emails</p>
-     * 
-     * <p><p>Indicates phone and/or e-mail addresses at which the 
-     * healthcare worker can be reached.</p></p>
-     * 
-     * <p><p>This is the most commonly used piece of contact 
-     * information and is returned here to avoid unnecessary 
-     * queries of the provider registry.</p></p>
-     */
-    @Hl7XmlMapping({"telecom"})
-    public Set<TelecommunicationAddress> getHealthcareWorkerPhoneAndEmails() {
-        return this.healthcareWorkerPhoneAndEmails.rawSet();
     }
 
 

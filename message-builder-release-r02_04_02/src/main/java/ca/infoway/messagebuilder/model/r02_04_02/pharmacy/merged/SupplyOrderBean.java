@@ -14,6 +14,8 @@ import ca.infoway.messagebuilder.domainvalue.ActStatus;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.r02_04_02.common.merged.HealthcareWorkerBean;
 import ca.infoway.messagebuilder.model.r02_04_02.merged.PrescribedByBean;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 
@@ -41,8 +43,8 @@ public class SupplyOrderBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
     private HealthcareWorkerBean responsiblePartyAssignedEntity;
-    private CS prescriptionStatus = new CSImpl();
     private PrescribedByBean author;
+    private CS prescriptionStatus = new CSImpl();
     private SET<II, Identifier> prescriptionIdentifier = new SETImpl<II, Identifier>(IIImpl.class);
 
 
@@ -52,6 +54,15 @@ public class SupplyOrderBean extends MessagePartBean {
     }
     public void setResponsiblePartyAssignedEntity(HealthcareWorkerBean responsiblePartyAssignedEntity) {
         this.responsiblePartyAssignedEntity = responsiblePartyAssignedEntity;
+    }
+
+
+    @Hl7XmlMapping({"author"})
+    public PrescribedByBean getAuthor() {
+        return this.author;
+    }
+    public void setAuthor(PrescribedByBean author) {
+        this.author = author;
     }
 
 
@@ -71,15 +82,6 @@ public class SupplyOrderBean extends MessagePartBean {
     }
     public void setPrescriptionStatus(ActStatus prescriptionStatus) {
         this.prescriptionStatus.setValue(prescriptionStatus);
-    }
-
-
-    @Hl7XmlMapping({"author"})
-    public PrescribedByBean getAuthor() {
-        return this.author;
-    }
-    public void setAuthor(PrescribedByBean author) {
-        this.author = author;
     }
 
 

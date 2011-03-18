@@ -26,8 +26,26 @@ import ca.infoway.messagebuilder.model.r02_04_02.merged.RelatedPersonBean;
 public class ConsentedToByBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private Consenter consenter;
     private CV patientConsentMechanism = new CVImpl();
+    private Consenter consenter;
+
+
+    /**
+     * <p>Patient Consent Mechanism</p>
+     * 
+     * <p><p>Indicates whether the patient's consent is written or 
+     * verbal.</p></p>
+     * 
+     * <p><p>Verbal consents may trigger a higher level of 
+     * auditing.</p></p>
+     */
+    @Hl7XmlMapping({"modeCode"})
+    public x_PhysicalVerbalParticipationMode getPatientConsentMechanism() {
+        return (x_PhysicalVerbalParticipationMode) this.patientConsentMechanism.getValue();
+    }
+    public void setPatientConsentMechanism(x_PhysicalVerbalParticipationMode patientConsentMechanism) {
+        this.patientConsentMechanism.setValue(patientConsentMechanism);
+    }
 
 
     @Hl7XmlMapping({"consenter"})
@@ -50,24 +68,6 @@ public class ConsentedToByBean extends MessagePartBean {
     }
     public boolean hasConsenterAsPersonalRelationship() {
         return (this.consenter instanceof RelatedPersonBean);
-    }
-
-
-    /**
-     * <p>Patient Consent Mechanism</p>
-     * 
-     * <p><p>Indicates whether the patient's consent is written or 
-     * verbal.</p></p>
-     * 
-     * <p><p>Verbal consents may trigger a higher level of 
-     * auditing.</p></p>
-     */
-    @Hl7XmlMapping({"modeCode"})
-    public x_PhysicalVerbalParticipationMode getPatientConsentMechanism() {
-        return (x_PhysicalVerbalParticipationMode) this.patientConsentMechanism.getValue();
-    }
-    public void setPatientConsentMechanism(x_PhysicalVerbalParticipationMode patientConsentMechanism) {
-        this.patientConsentMechanism.setValue(patientConsentMechanism);
     }
 
 }

@@ -34,10 +34,10 @@ public class DrugDispenseInstructionsBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
     private PQ totalPrescribedQuantity = new PQImpl();
-    private FirstFillBean component2InitialSupplyRequest;
+    private SubsequentSupplyRequestBean component1SubsequentSupplyRequest;
     private DrugProductBean productMedication;
     private IVL<TS, Interval<Date>> totalDaysSupply = new IVLImpl<TS, Interval<Date>>();
-    private SubsequentSupplyRequestBean component1SubsequentSupplyRequest;
+    private FirstFillBean component2InitialSupplyRequest;
 
 
     /**
@@ -71,12 +71,12 @@ public class DrugDispenseInstructionsBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"component2/initialSupplyRequest"})
-    public FirstFillBean getComponent2InitialSupplyRequest() {
-        return this.component2InitialSupplyRequest;
+    @Hl7XmlMapping({"component1/subsequentSupplyRequest"})
+    public SubsequentSupplyRequestBean getComponent1SubsequentSupplyRequest() {
+        return this.component1SubsequentSupplyRequest;
     }
-    public void setComponent2InitialSupplyRequest(FirstFillBean component2InitialSupplyRequest) {
-        this.component2InitialSupplyRequest = component2InitialSupplyRequest;
+    public void setComponent1SubsequentSupplyRequest(SubsequentSupplyRequestBean component1SubsequentSupplyRequest) {
+        this.component1SubsequentSupplyRequest = component1SubsequentSupplyRequest;
     }
 
 
@@ -123,12 +123,12 @@ public class DrugDispenseInstructionsBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"component1/subsequentSupplyRequest"})
-    public SubsequentSupplyRequestBean getComponent1SubsequentSupplyRequest() {
-        return this.component1SubsequentSupplyRequest;
+    @Hl7XmlMapping({"component2/initialSupplyRequest"})
+    public FirstFillBean getComponent2InitialSupplyRequest() {
+        return this.component2InitialSupplyRequest;
     }
-    public void setComponent1SubsequentSupplyRequest(SubsequentSupplyRequestBean component1SubsequentSupplyRequest) {
-        this.component1SubsequentSupplyRequest = component1SubsequentSupplyRequest;
+    public void setComponent2InitialSupplyRequest(FirstFillBean component2InitialSupplyRequest) {
+        this.component2InitialSupplyRequest = component2InitialSupplyRequest;
     }
 
 }

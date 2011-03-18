@@ -43,44 +43,8 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 public class AgentCategoryBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private ST exposedMaterialName = new STImpl();
     private CV exposedMaterialType = new CVImpl();
-
-
-    /**
-     * <p>ExposedMaterialName</p>
-     * 
-     * <p>Exposed Material Name</p>
-     * 
-     * <p><p>Indicates the name of the agent identified by 
-     * MaterialKind.code</p></p>
-     * 
-     * <p><p>Provides a human-readable name in circumstances where 
-     * the agent is captured as code.</p></p>
-     * 
-     * <p>Exposed Material Name</p>
-     * 
-     * <p><p>Indicates the name of the agent identified by 
-     * MaterialKind.code</p></p>
-     * 
-     * <p><p>Provides a human-readable name in circumstances where 
-     * the agent is captured as a code.</p></p>
-     * 
-     * <p>Exposed Material Name</p>
-     * 
-     * <p><p>Indicates the name of the agent identified by 
-     * MaterialKind.code.</p></p>
-     * 
-     * <p><p>Provides a human-readable name in circumstances where 
-     * the agent is captured as a code.</p></p>
-     */
-    @Hl7XmlMapping({"name"})
-    public String getExposedMaterialName() {
-        return this.exposedMaterialName.getValue();
-    }
-    public void setExposedMaterialName(String exposedMaterialName) {
-        this.exposedMaterialName.setValue(exposedMaterialName);
-    }
+    private ST exposedMaterialName = new STImpl();
 
 
     /**
@@ -121,6 +85,42 @@ public class AgentCategoryBean extends MessagePartBean {
     }
     public void setExposedMaterialType(ExposureAgentEntityType exposedMaterialType) {
         this.exposedMaterialType.setValue(exposedMaterialType);
+    }
+
+
+    /**
+     * <p>ExposedMaterialName</p>
+     * 
+     * <p>Exposed Material Name</p>
+     * 
+     * <p><p>Indicates the name of the agent identified by 
+     * MaterialKind.code</p></p>
+     * 
+     * <p><p>Provides a human-readable name in circumstances where 
+     * the agent is captured as code.</p></p>
+     * 
+     * <p>Exposed Material Name</p>
+     * 
+     * <p><p>Indicates the name of the agent identified by 
+     * MaterialKind.code</p></p>
+     * 
+     * <p><p>Provides a human-readable name in circumstances where 
+     * the agent is captured as a code.</p></p>
+     * 
+     * <p>Exposed Material Name</p>
+     * 
+     * <p><p>Indicates the name of the agent identified by 
+     * MaterialKind.code.</p></p>
+     * 
+     * <p><p>Provides a human-readable name in circumstances where 
+     * the agent is captured as a code.</p></p>
+     */
+    @Hl7XmlMapping({"name"})
+    public String getExposedMaterialName() {
+        return this.exposedMaterialName.getValue();
+    }
+    public void setExposedMaterialName(String exposedMaterialName) {
+        this.exposedMaterialName.setValue(exposedMaterialName);
     }
 
 }

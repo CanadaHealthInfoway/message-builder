@@ -75,8 +75,8 @@ public class DocumentSectionsBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
     private CV sectionType = new CVImpl();
-    private ED<EncapsulatedData> sectionContent = new EDImpl<EncapsulatedData>();
     private ST sectionTitle = new STImpl();
+    private ED<EncapsulatedData> sectionContent = new EDImpl<EncapsulatedData>();
     private List<ReferenceBean> componentReference = new ArrayList<ReferenceBean>();
 
 
@@ -137,32 +137,6 @@ public class DocumentSectionsBean extends MessagePartBean {
 
 
     /**
-     * <p>SectionContent</p>
-     * 
-     * <p>M: Section Content</p>
-     * 
-     * <p>M: Section Content</p>
-     * 
-     * <p><p>Represents the rendered text content for the 
-     * section.</p></p>
-     * 
-     * <p><p>Provides a human-readable view of data that is 
-     * accessible without sophisticated PoS applications. Allows 
-     * data to be filtered and rendered in a manner to focus on the 
-     * content deemed relevant by the author of the document. 
-     * Because it conveys the content, the attribute must be 
-     * mandatory.</p></p>
-     */
-    @Hl7XmlMapping({"text"})
-    public EncapsulatedData getSectionContent() {
-        return this.sectionContent.getValue();
-    }
-    public void setSectionContent(EncapsulatedData sectionContent) {
-        this.sectionContent.setValue(sectionContent);
-    }
-
-
-    /**
      * <p>SectionTitle</p>
      * 
      * <p>B: Section Title</p>
@@ -197,6 +171,32 @@ public class DocumentSectionsBean extends MessagePartBean {
     }
     public void setSectionTitle(String sectionTitle) {
         this.sectionTitle.setValue(sectionTitle);
+    }
+
+
+    /**
+     * <p>SectionContent</p>
+     * 
+     * <p>M: Section Content</p>
+     * 
+     * <p>M: Section Content</p>
+     * 
+     * <p><p>Represents the rendered text content for the 
+     * section.</p></p>
+     * 
+     * <p><p>Provides a human-readable view of data that is 
+     * accessible without sophisticated PoS applications. Allows 
+     * data to be filtered and rendered in a manner to focus on the 
+     * content deemed relevant by the author of the document. 
+     * Because it conveys the content, the attribute must be 
+     * mandatory.</p></p>
+     */
+    @Hl7XmlMapping({"text"})
+    public EncapsulatedData getSectionContent() {
+        return this.sectionContent.getValue();
+    }
+    public void setSectionContent(EncapsulatedData sectionContent) {
+        this.sectionContent.setValue(sectionContent);
     }
 
 

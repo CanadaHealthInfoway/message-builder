@@ -11,13 +11,16 @@ import ca.infoway.messagebuilder.datatype.TS;
 import ca.infoway.messagebuilder.datatype.impl.CVImpl;
 import ca.infoway.messagebuilder.datatype.impl.IIImpl;
 import ca.infoway.messagebuilder.datatype.impl.IVLImpl;
+import ca.infoway.messagebuilder.datatype.impl.RawListWrapper;
 import ca.infoway.messagebuilder.datatype.impl.TSImpl;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.domainvalue.ActStatus;
 import ca.infoway.messagebuilder.domainvalue.PrescriptionDispenseFilterCode;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 
 
@@ -46,8 +49,8 @@ public class UnfilledPrescriptionQueryParametersBean extends MessagePartBean {
     private static final long serialVersionUID = 20110318L;
     private IVL<TS, Interval<Date>> administrationEffectivePeriod = new IVLImpl<TS, Interval<Date>>();
     private II prescriberProviderID = new IIImpl();
+    private List<CV> prescriptionStatuses = new ArrayList<CV>();
     private CV rxDispenseIndicator = new CVImpl();
-    private CV prescriptionStatuses = new CVImpl();
 
 
     /**
@@ -136,6 +139,26 @@ public class UnfilledPrescriptionQueryParametersBean extends MessagePartBean {
 
 
     /**
+     * <p>PrescriptionStatuses</p>
+     * 
+     * <p>E:Prescription Statuses</p>
+     * 
+     * <p><p>Indicates that prescriptions of a specific statuses 
+     * are to be included in the result set. Allowable prescription 
+     * status codes are: 'ABORTED, ACTIVE', 'COMPLETED', and 
+     * 'SUSPENDED'.</p></p>
+     * 
+     * <p><p>Allows for the retrieval of patient prescriptions and 
+     * dispenses based on the lifecycle state of the 
+     * prescription.</p></p>
+     */
+    @Hl7XmlMapping({"prescriptionStatus/value"})
+    public List<ActStatus> getPrescriptionStatuses() {
+        return new RawListWrapper<CV, ActStatus>(prescriptionStatuses, CVImpl.class);
+    }
+
+
+    /**
      * <p>RxDispenseIndicator</p>
      * 
      * <p>Rx Dispense Indicator</p>
@@ -154,29 +177,6 @@ public class UnfilledPrescriptionQueryParametersBean extends MessagePartBean {
     }
     public void setRxDispenseIndicator(PrescriptionDispenseFilterCode rxDispenseIndicator) {
         this.rxDispenseIndicator.setValue(rxDispenseIndicator);
-    }
-
-
-    /**
-     * <p>PrescriptionStatuses</p>
-     * 
-     * <p>E:Prescription Statuses</p>
-     * 
-     * <p><p>Indicates that prescriptions of a specific statuses 
-     * are to be included in the result set. Allowable prescription 
-     * status codes are: 'ABORTED, ACTIVE', 'COMPLETED', and 
-     * 'SUSPENDED'.</p></p>
-     * 
-     * <p><p>Allows for the retrieval of patient prescriptions and 
-     * dispenses based on the lifecycle state of the 
-     * prescription.</p></p>
-     */
-    @Hl7XmlMapping({"prescriptionStatus/value"})
-    public ActStatus getPrescriptionStatuses() {
-        return (ActStatus) this.prescriptionStatuses.getValue();
-    }
-    public void setPrescriptionStatuses(ActStatus prescriptionStatuses) {
-        this.prescriptionStatuses.setValue(prescriptionStatuses);
     }
 
 }

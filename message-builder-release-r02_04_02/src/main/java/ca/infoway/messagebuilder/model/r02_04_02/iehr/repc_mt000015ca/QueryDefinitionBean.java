@@ -49,20 +49,46 @@ import java.util.List;
 public class QueryDefinitionBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private List<II> careCompositionIds = new ArrayList<II>();
-    private TS updatedSinceDateTime = new TSImpl();
-    private List<CV> careCompositionTypes = new ArrayList<CV>();
-    private List<CD> recordTypes = new ArrayList<CD>();
-    private CV eventLocationType = new CVImpl();
-    private List<CS> recordStatuses = new ArrayList<CS>();
-    private CV responsibleProviderType = new CVImpl();
-    private II eventLocationId = new IIImpl();
-    private II eHRRepositoryId = new IIImpl();
-    private II responsibleProviderId = new IIImpl();
     private IVL<TS, Interval<Date>> effectiveTimeRange = new IVLImpl<TS, Interval<Date>>();
-    private List<II> protocolIds = new ArrayList<II>();
-    private BL mostRecentByTypeIndicator = new BLImpl();
+    private List<II> careCompositionIds = new ArrayList<II>();
+    private CV responsibleProviderType = new CVImpl();
     private List<CD> healthConditions = new ArrayList<CD>();
+    private II eventLocationId = new IIImpl();
+    private CV eventLocationType = new CVImpl();
+    private List<CD> recordTypes = new ArrayList<CD>();
+    private II responsibleProviderId = new IIImpl();
+    private List<CV> careCompositionTypes = new ArrayList<CV>();
+    private II eHRRepositoryId = new IIImpl();
+    private List<II> protocolIds = new ArrayList<II>();
+    private TS updatedSinceDateTime = new TSImpl();
+    private List<CS> recordStatuses = new ArrayList<CS>();
+    private BL mostRecentByTypeIndicator = new BLImpl();
+
+
+    /**
+     * <p>J: Effective Time Range</p>
+     * 
+     * <p><p>Filters the set of records to be retrieved to those 
+     * which occurred or were effective for the patient within the 
+     * date boundaries specified. Either the lower bound or upper 
+     * bound or both would be specified. If no value is specified, 
+     * no filter will be applied. If there is any overlap between 
+     * the specified time-range and the effective time of the 
+     * record, the record will be returned.</p></p>
+     * 
+     * <p><p>Allows constraining the retrieved records to those 
+     * applicable at a particular date. Useful in retrieving those 
+     * records &quot;currently in effect&quot; as well as 
+     * retrieving views of what information was in effect at some 
+     * point in the past.</p></p>
+     */
+    @Hl7XmlMapping({"effectiveTimeRange/value"})
+    public Interval<Date> getEffectiveTimeRange() {
+        return this.effectiveTimeRange.getValue();
+    }
+    public void setEffectiveTimeRange(Interval<Date> effectiveTimeRange) {
+        this.effectiveTimeRange.setValue(effectiveTimeRange);
+    }
 
 
     /**
@@ -98,100 +124,6 @@ public class QueryDefinitionBean extends MessagePartBean {
 
 
     /**
-     * <p>K: Updated Since DateTime</p>
-     * 
-     * <p><p>Filters the records retrieved to only include those 
-     * which have been created or revised since the specified date 
-     * and time. If unspecified, no filter is applied.</p></p>
-     * 
-     * <p><p>Useful to retrieve information &quot;since you last 
-     * checked&quot;.</p></p>
-     */
-    @Hl7XmlMapping({"amendedSinceDateTime/value"})
-    public Date getUpdatedSinceDateTime() {
-        return this.updatedSinceDateTime.getValue();
-    }
-    public void setUpdatedSinceDateTime(Date updatedSinceDateTime) {
-        this.updatedSinceDateTime.setValue(updatedSinceDateTime);
-    }
-
-
-    /**
-     * <p>S: Care Composition Types</p>
-     * 
-     * <p></p></p>
-     * 
-     * <p></p></p>
-     * 
-     * <p><p>Allows retrieving all records associated with a 
-     * particular type of encounter, episode or care event. E.g. 
-     * Orthopedic Clinic Encounter, ER encounter, Walk-in 
-     * encounter, etc.</p></p>
-     */
-    @Hl7XmlMapping({"careCompositionType/value"})
-    public List<ActCareEventType> getCareCompositionTypes() {
-        return new RawListWrapper<CV, ActCareEventType>(careCompositionTypes, CVImpl.class);
-    }
-
-
-    /**
-     * <p>H:Record Types</p>
-     * 
-     * <p><p>ActDiagnosisCode is fixed to DX if not using 
-     * SNOMED</p></p>
-     * 
-     * <p></p></p>
-     * 
-     * <p></p></p>
-     * 
-     * <p></p></p>
-     * 
-     * <p></p></p>
-     */
-    @Hl7XmlMapping({"recordType/value"})
-    public List<Code> getRecordTypes() {
-        return new RawListWrapper<CD, Code>(recordTypes, CDImpl.class);
-    }
-
-
-    /**
-     * <p>P: Event Location Type</p>
-     * 
-     * <p></p></p>
-     * 
-     * <p></p></p>
-     * 
-     * <p><p>Allows retrieving those records associated with a 
-     * particular kind of facility. E.g. Hospital, clinic, 
-     * pharmacy, patient residence, etc.</p></p>
-     */
-    @Hl7XmlMapping({"eventLocationType/value"})
-    public ServiceDeliveryLocationRoleType getEventLocationType() {
-        return (ServiceDeliveryLocationRoleType) this.eventLocationType.getValue();
-    }
-    public void setEventLocationType(ServiceDeliveryLocationRoleType eventLocationType) {
-        this.eventLocationType.setValue(eventLocationType);
-    }
-
-
-    /**
-     * <p>I: Record Statuses</p>
-     * 
-     * <p><p>Filters the set of records to be retrieved to only 
-     * include those with the identified status(s). If no values 
-     * are specified, no filter will be applied.</p></p>
-     * 
-     * <p><p>Allows constraining the status of records to be 
-     * retrieved. Multiple repetitions are present to allow 
-     * selection of multiple statuses with a single query.</p></p>
-     */
-    @Hl7XmlMapping({"recordStatus/value"})
-    public List<ActStatus> getRecordStatuses() {
-        return new RawListWrapper<CS, ActStatus>(recordStatuses, CSImpl.class);
-    }
-
-
-    /**
      * <p>M: Responsible Provider Type</p>
      * 
      * <p></p></p>
@@ -207,6 +139,23 @@ public class QueryDefinitionBean extends MessagePartBean {
     }
     public void setResponsibleProviderType(HealthcareProviderRoleType responsibleProviderType) {
         this.responsibleProviderType.setValue(responsibleProviderType);
+    }
+
+
+    /**
+     * <p>T: Health Conditions</p>
+     * 
+     * <p></p></p>
+     * 
+     * <p></p></p>
+     * 
+     * <p></p></p>
+     * 
+     * <p></p></p>
+     */
+    @Hl7XmlMapping({"healthCondition/value"})
+    public List<ActHealthConditionType> getHealthConditions() {
+        return new RawListWrapper<CD, ActHealthConditionType>(healthConditions, CDImpl.class);
     }
 
 
@@ -235,22 +184,42 @@ public class QueryDefinitionBean extends MessagePartBean {
 
 
     /**
-     * <p>Q: EHR Repository Id</p>
+     * <p>P: Event Location Type</p>
      * 
-     * <p><p>Filters the records retrieved to only include those 
-     * records from a specific EHR repository. If unspecified, all 
-     * &quot;connected&quot; EHR repositories will be searched.</p></p>
+     * <p></p></p>
      * 
-     * <p><p>Primarily intended to allow filtering an initial 
-     * search to a local EHR repository for performance 
-     * reasons.</p></p>
+     * <p></p></p>
+     * 
+     * <p><p>Allows retrieving those records associated with a 
+     * particular kind of facility. E.g. Hospital, clinic, 
+     * pharmacy, patient residence, etc.</p></p>
      */
-    @Hl7XmlMapping({"eHRRepositoryId/value"})
-    public Identifier getEHRRepositoryId() {
-        return this.eHRRepositoryId.getValue();
+    @Hl7XmlMapping({"eventLocationType/value"})
+    public ServiceDeliveryLocationRoleType getEventLocationType() {
+        return (ServiceDeliveryLocationRoleType) this.eventLocationType.getValue();
     }
-    public void setEHRRepositoryId(Identifier eHRRepositoryId) {
-        this.eHRRepositoryId.setValue(eHRRepositoryId);
+    public void setEventLocationType(ServiceDeliveryLocationRoleType eventLocationType) {
+        this.eventLocationType.setValue(eventLocationType);
+    }
+
+
+    /**
+     * <p>H:Record Types</p>
+     * 
+     * <p><p>ActDiagnosisCode is fixed to DX if not using 
+     * SNOMED</p></p>
+     * 
+     * <p></p></p>
+     * 
+     * <p></p></p>
+     * 
+     * <p></p></p>
+     * 
+     * <p></p></p>
+     */
+    @Hl7XmlMapping({"recordType/value"})
+    public List<Code> getRecordTypes() {
+        return new RawListWrapper<CD, Code>(recordTypes, CDImpl.class);
     }
 
 
@@ -274,28 +243,40 @@ public class QueryDefinitionBean extends MessagePartBean {
 
 
     /**
-     * <p>J: Effective Time Range</p>
+     * <p>S: Care Composition Types</p>
      * 
-     * <p><p>Filters the set of records to be retrieved to those 
-     * which occurred or were effective for the patient within the 
-     * date boundaries specified. Either the lower bound or upper 
-     * bound or both would be specified. If no value is specified, 
-     * no filter will be applied. If there is any overlap between 
-     * the specified time-range and the effective time of the 
-     * record, the record will be returned.</p></p>
+     * <p></p></p>
      * 
-     * <p><p>Allows constraining the retrieved records to those 
-     * applicable at a particular date. Useful in retrieving those 
-     * records &quot;currently in effect&quot; as well as 
-     * retrieving views of what information was in effect at some 
-     * point in the past.</p></p>
+     * <p></p></p>
+     * 
+     * <p><p>Allows retrieving all records associated with a 
+     * particular type of encounter, episode or care event. E.g. 
+     * Orthopedic Clinic Encounter, ER encounter, Walk-in 
+     * encounter, etc.</p></p>
      */
-    @Hl7XmlMapping({"effectiveTimeRange/value"})
-    public Interval<Date> getEffectiveTimeRange() {
-        return this.effectiveTimeRange.getValue();
+    @Hl7XmlMapping({"careCompositionType/value"})
+    public List<ActCareEventType> getCareCompositionTypes() {
+        return new RawListWrapper<CV, ActCareEventType>(careCompositionTypes, CVImpl.class);
     }
-    public void setEffectiveTimeRange(Interval<Date> effectiveTimeRange) {
-        this.effectiveTimeRange.setValue(effectiveTimeRange);
+
+
+    /**
+     * <p>Q: EHR Repository Id</p>
+     * 
+     * <p><p>Filters the records retrieved to only include those 
+     * records from a specific EHR repository. If unspecified, all 
+     * &quot;connected&quot; EHR repositories will be searched.</p></p>
+     * 
+     * <p><p>Primarily intended to allow filtering an initial 
+     * search to a local EHR repository for performance 
+     * reasons.</p></p>
+     */
+    @Hl7XmlMapping({"eHRRepositoryId/value"})
+    public Identifier getEHRRepositoryId() {
+        return this.eHRRepositoryId.getValue();
+    }
+    public void setEHRRepositoryId(Identifier eHRRepositoryId) {
+        this.eHRRepositoryId.setValue(eHRRepositoryId);
     }
 
 
@@ -325,6 +306,42 @@ public class QueryDefinitionBean extends MessagePartBean {
 
 
     /**
+     * <p>K: Updated Since DateTime</p>
+     * 
+     * <p><p>Filters the records retrieved to only include those 
+     * which have been created or revised since the specified date 
+     * and time. If unspecified, no filter is applied.</p></p>
+     * 
+     * <p><p>Useful to retrieve information &quot;since you last 
+     * checked&quot;.</p></p>
+     */
+    @Hl7XmlMapping({"amendedSinceDateTime/value"})
+    public Date getUpdatedSinceDateTime() {
+        return this.updatedSinceDateTime.getValue();
+    }
+    public void setUpdatedSinceDateTime(Date updatedSinceDateTime) {
+        this.updatedSinceDateTime.setValue(updatedSinceDateTime);
+    }
+
+
+    /**
+     * <p>I: Record Statuses</p>
+     * 
+     * <p><p>Filters the set of records to be retrieved to only 
+     * include those with the identified status(s). If no values 
+     * are specified, no filter will be applied.</p></p>
+     * 
+     * <p><p>Allows constraining the status of records to be 
+     * retrieved. Multiple repetitions are present to allow 
+     * selection of multiple statuses with a single query.</p></p>
+     */
+    @Hl7XmlMapping({"recordStatus/value"})
+    public List<ActStatus> getRecordStatuses() {
+        return new RawListWrapper<CS, ActStatus>(recordStatuses, CSImpl.class);
+    }
+
+
+    /**
      * <p>V: Most Recent By Type Indicator</p>
      * 
      * <p><p>If true, indicates that only the most recent records 
@@ -345,23 +362,6 @@ public class QueryDefinitionBean extends MessagePartBean {
     }
     public void setMostRecentByTypeIndicator(Boolean mostRecentByTypeIndicator) {
         this.mostRecentByTypeIndicator.setValue(mostRecentByTypeIndicator);
-    }
-
-
-    /**
-     * <p>T: Health Conditions</p>
-     * 
-     * <p></p></p>
-     * 
-     * <p></p></p>
-     * 
-     * <p></p></p>
-     * 
-     * <p></p></p>
-     */
-    @Hl7XmlMapping({"healthCondition/value"})
-    public List<ActHealthConditionType> getHealthConditions() {
-        return new RawListWrapper<CD, ActHealthConditionType>(healthConditions, CDImpl.class);
     }
 
 }

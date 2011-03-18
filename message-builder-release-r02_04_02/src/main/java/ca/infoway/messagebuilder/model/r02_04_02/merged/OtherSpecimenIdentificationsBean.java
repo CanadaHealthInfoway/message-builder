@@ -21,6 +21,7 @@ import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.PersonName;
 import ca.infoway.messagebuilder.domainvalue.AdministrativeGender;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -65,9 +66,9 @@ public class OtherSpecimenIdentificationsBean extends MessagePartBean {
     private ST organizationName = new STImpl();
     private II organizationIdentifier = new IIImpl();
     private II id = new IIImpl();
-    private CV clientGender = new CVImpl();
     private LIST<PN, PersonName> clientName = new LISTImpl<PN, PersonName>(PNImpl.class);
     private TS clientDateOfBirth = new TSImpl();
+    private CV clientGender = new CVImpl();
 
 
     /**
@@ -172,28 +173,6 @@ public class OtherSpecimenIdentificationsBean extends MessagePartBean {
 
 
     /**
-     * <p>ClientGender</p>
-     * 
-     * <p>Client Gender</p>
-     * 
-     * <p><p>Gender of the Client, this is not to be confused with 
-     * Clinical Gender of a client. Administrative Gender is 
-     * typically restricted to Male (M), Female (F) or Unknown 
-     * (UN)</p></p>
-     * 
-     * <p><p>Populated attribute supports the identification of the 
-     * client</p></p>
-     */
-    @Hl7XmlMapping({"identifiedPerson/administrativeGenderCode"})
-    public AdministrativeGender getClientGender() {
-        return (AdministrativeGender) this.clientGender.getValue();
-    }
-    public void setClientGender(AdministrativeGender clientGender) {
-        this.clientGender.setValue(clientGender);
-    }
-
-
-    /**
      * <p>ClientName</p>
      * 
      * <p>Client Name</p>
@@ -225,6 +204,28 @@ public class OtherSpecimenIdentificationsBean extends MessagePartBean {
     }
     public void setClientDateOfBirth(Date clientDateOfBirth) {
         this.clientDateOfBirth.setValue(clientDateOfBirth);
+    }
+
+
+    /**
+     * <p>ClientGender</p>
+     * 
+     * <p>Client Gender</p>
+     * 
+     * <p><p>Gender of the Client, this is not to be confused with 
+     * Clinical Gender of a client. Administrative Gender is 
+     * typically restricted to Male (M), Female (F) or Unknown 
+     * (UN)</p></p>
+     * 
+     * <p><p>Populated attribute supports the identification of the 
+     * client</p></p>
+     */
+    @Hl7XmlMapping({"identifiedPerson/administrativeGenderCode"})
+    public AdministrativeGender getClientGender() {
+        return (AdministrativeGender) this.clientGender.getValue();
+    }
+    public void setClientGender(AdministrativeGender clientGender) {
+        this.clientGender.setValue(clientGender);
     }
 
 }

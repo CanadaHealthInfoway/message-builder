@@ -80,18 +80,18 @@ public class AdjudicatedResultsGroupBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
     private AccountBean debitAccount;
-    private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
-    private DevicePlayingTheSendingApplicationRoleBean deviceAdjudResultsSendingAppRole;
-    private MO netAmt = new MOImpl();
-    private List<SummaryDetailsBean> summaryAdjudResultsGroupSummaryData = new ArrayList<SummaryDetailsBean>();
-    private PayeeAccountBean creditAccount;
-    private CV code = new CVImpl();
-    private ServiceLocationBean locationServiceDeliveryLocation;
     private ProviderIDBean performerAdjudResultsProviderRole;
-    private CarrierOrThirdPartyAdministratorBean authorAdjudResultsCarrierRole;
-    private II adjudicatedResultsGroupID = new IIImpl();
-    private List<AdjudicatedResultsGroupBean> componentAdjudResultsGroup = new ArrayList<AdjudicatedResultsGroupBean>();
+    private List<SummaryDetailsBean> summaryAdjudResultsGroupSummaryData = new ArrayList<SummaryDetailsBean>();
     private BusinessArrangementBean referenceAdjudResultsFinancialContract;
+    private II adjudicatedResultsGroupID = new IIImpl();
+    private CV code = new CVImpl();
+    private DevicePlayingTheSendingApplicationRoleBean deviceAdjudResultsSendingAppRole;
+    private ServiceLocationBean locationServiceDeliveryLocation;
+    private MO netAmt = new MOImpl();
+    private CarrierOrThirdPartyAdministratorBean authorAdjudResultsCarrierRole;
+    private PayeeAccountBean creditAccount;
+    private List<AdjudicatedResultsGroupBean> componentAdjudResultsGroup = new ArrayList<AdjudicatedResultsGroupBean>();
+    private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
 
 
     @Hl7XmlMapping({"debit/account"})
@@ -103,77 +103,12 @@ public class AdjudicatedResultsGroupBean extends MessagePartBean {
     }
 
 
-    /**
-     * <p>Summary Period Date Range</p>
-     * 
-     * <p>Time period for the payment</p>
-     * 
-     * <p><p>Time period for the payment or summary period.</p></p>
-     * 
-     * <p><p>For Payment Advice: Can also indicate time period over 
-     * which the clawback and/or retro adjustment applies.</p></p>
-     * 
-     * <p>Time period for the payment</p>
-     * 
-     * <p><p>Time period for the payment or summary period.</p></p>
-     * 
-     * <p><p>For Payment Advice: Can also indicate time period over 
-     * which the clawback and/or retro adjustment applies.</p></p>
-     */
-    @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getEffectiveTime() {
-        return this.effectiveTime.getValue();
+    @Hl7XmlMapping({"performer/adjudResultsProviderRole"})
+    public ProviderIDBean getPerformerAdjudResultsProviderRole() {
+        return this.performerAdjudResultsProviderRole;
     }
-    public void setEffectiveTime(Interval<Date> effectiveTime) {
-        this.effectiveTime.setValue(effectiveTime);
-    }
-
-
-    @Hl7XmlMapping({"device/adjudResultsSendingAppRole"})
-    public DevicePlayingTheSendingApplicationRoleBean getDeviceAdjudResultsSendingAppRole() {
-        return this.deviceAdjudResultsSendingAppRole;
-    }
-    public void setDeviceAdjudResultsSendingAppRole(DevicePlayingTheSendingApplicationRoleBean deviceAdjudResultsSendingAppRole) {
-        this.deviceAdjudResultsSendingAppRole = deviceAdjudResultsSendingAppRole;
-    }
-
-
-    /**
-     * <p>Summary Period Amt</p>
-     * 
-     * <p><p>Summary Period Amt - Grand total of all SOFA 
-     * observations contained in this summary</p></p>
-     * 
-     * <p><p>On SOFA Summary, this could be used to specify the 
-     * amount that will be included in the Payment Advice. In this 
-     * situation, it should equal the net effect of all 
-     * AdjudResultsGroupSummaryData elements that would appear in 
-     * the Payment Advice.</p></p>
-     * 
-     * <p>Summary Period Amount</p>
-     * 
-     * <p>Summary Period Amt</p>
-     * 
-     * <p><p>The AdjudResultsGroup.netAmt must equal the sum of all 
-     * immediate children AdjudResultsGroup.netAmt</p></p>
-     * 
-     * <p><p>Summary Period Amt</p></p>
-     * 
-     * <p><p>Can also indicate time period over which the clawback 
-     * and/or retro adjustment applies</p></p>
-     * 
-     * <p><p>On SOFA Summary, this could be used to specify the 
-     * amount that will be included in the Payment Advice. In this 
-     * situation, it should equal the net effect of all 
-     * AdjudResultsGroupSummaryData elements that would appear in 
-     * the Payment Advice.</p></p>
-     */
-    @Hl7XmlMapping({"netAmt"})
-    public Money getNetAmt() {
-        return this.netAmt.getValue();
-    }
-    public void setNetAmt(Money netAmt) {
-        this.netAmt.setValue(netAmt);
+    public void setPerformerAdjudResultsProviderRole(ProviderIDBean performerAdjudResultsProviderRole) {
+        this.performerAdjudResultsProviderRole = performerAdjudResultsProviderRole;
     }
 
 
@@ -183,12 +118,38 @@ public class AdjudicatedResultsGroupBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"credit/account"})
-    public PayeeAccountBean getCreditAccount() {
-        return this.creditAccount;
+    @Hl7XmlMapping({"reference/adjudResultsFinancialContract"})
+    public BusinessArrangementBean getReferenceAdjudResultsFinancialContract() {
+        return this.referenceAdjudResultsFinancialContract;
     }
-    public void setCreditAccount(PayeeAccountBean creditAccount) {
-        this.creditAccount = creditAccount;
+    public void setReferenceAdjudResultsFinancialContract(BusinessArrangementBean referenceAdjudResultsFinancialContract) {
+        this.referenceAdjudResultsFinancialContract = referenceAdjudResultsFinancialContract;
+    }
+
+
+    /**
+     * <p>AdjudicatedResultsGroupID</p>
+     * 
+     * <p>Adjudicated Results Group ID</p>
+     * 
+     * <p>Adjudicated Results Group ID</p>
+     * 
+     * <p><p>ID of Results Group</p></p>
+     * 
+     * <p><p>If specified on a Payment Advice Summary, can be used 
+     * to request additional detail with a Payment Advice Query 
+     * message</p></p>
+     * 
+     * <p><p>(If specified on a Payment Advice Summary, can be used 
+     * to request additional detail with a Payment Advice Query 
+     * message</p></p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Identifier getAdjudicatedResultsGroupID() {
+        return this.adjudicatedResultsGroupID.getValue();
+    }
+    public void setAdjudicatedResultsGroupID(Identifier adjudicatedResultsGroupID) {
+        this.adjudicatedResultsGroupID.setValue(adjudicatedResultsGroupID);
     }
 
 
@@ -289,6 +250,15 @@ public class AdjudicatedResultsGroupBean extends MessagePartBean {
     }
 
 
+    @Hl7XmlMapping({"device/adjudResultsSendingAppRole"})
+    public DevicePlayingTheSendingApplicationRoleBean getDeviceAdjudResultsSendingAppRole() {
+        return this.deviceAdjudResultsSendingAppRole;
+    }
+    public void setDeviceAdjudResultsSendingAppRole(DevicePlayingTheSendingApplicationRoleBean deviceAdjudResultsSendingAppRole) {
+        this.deviceAdjudResultsSendingAppRole = deviceAdjudResultsSendingAppRole;
+    }
+
+
     @Hl7XmlMapping({"location/serviceDeliveryLocation"})
     public ServiceLocationBean getLocationServiceDeliveryLocation() {
         return this.locationServiceDeliveryLocation;
@@ -298,12 +268,42 @@ public class AdjudicatedResultsGroupBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"performer/adjudResultsProviderRole"})
-    public ProviderIDBean getPerformerAdjudResultsProviderRole() {
-        return this.performerAdjudResultsProviderRole;
+    /**
+     * <p>Summary Period Amt</p>
+     * 
+     * <p><p>Summary Period Amt - Grand total of all SOFA 
+     * observations contained in this summary</p></p>
+     * 
+     * <p><p>On SOFA Summary, this could be used to specify the 
+     * amount that will be included in the Payment Advice. In this 
+     * situation, it should equal the net effect of all 
+     * AdjudResultsGroupSummaryData elements that would appear in 
+     * the Payment Advice.</p></p>
+     * 
+     * <p>Summary Period Amount</p>
+     * 
+     * <p>Summary Period Amt</p>
+     * 
+     * <p><p>The AdjudResultsGroup.netAmt must equal the sum of all 
+     * immediate children AdjudResultsGroup.netAmt</p></p>
+     * 
+     * <p><p>Summary Period Amt</p></p>
+     * 
+     * <p><p>Can also indicate time period over which the clawback 
+     * and/or retro adjustment applies</p></p>
+     * 
+     * <p><p>On SOFA Summary, this could be used to specify the 
+     * amount that will be included in the Payment Advice. In this 
+     * situation, it should equal the net effect of all 
+     * AdjudResultsGroupSummaryData elements that would appear in 
+     * the Payment Advice.</p></p>
+     */
+    @Hl7XmlMapping({"netAmt"})
+    public Money getNetAmt() {
+        return this.netAmt.getValue();
     }
-    public void setPerformerAdjudResultsProviderRole(ProviderIDBean performerAdjudResultsProviderRole) {
-        this.performerAdjudResultsProviderRole = performerAdjudResultsProviderRole;
+    public void setNetAmt(Money netAmt) {
+        this.netAmt.setValue(netAmt);
     }
 
 
@@ -316,29 +316,12 @@ public class AdjudicatedResultsGroupBean extends MessagePartBean {
     }
 
 
-    /**
-     * <p>AdjudicatedResultsGroupID</p>
-     * 
-     * <p>Adjudicated Results Group ID</p>
-     * 
-     * <p>Adjudicated Results Group ID</p>
-     * 
-     * <p><p>ID of Results Group</p></p>
-     * 
-     * <p><p>If specified on a Payment Advice Summary, can be used 
-     * to request additional detail with a Payment Advice Query 
-     * message</p></p>
-     * 
-     * <p><p>(If specified on a Payment Advice Summary, can be used 
-     * to request additional detail with a Payment Advice Query 
-     * message</p></p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Identifier getAdjudicatedResultsGroupID() {
-        return this.adjudicatedResultsGroupID.getValue();
+    @Hl7XmlMapping({"credit/account"})
+    public PayeeAccountBean getCreditAccount() {
+        return this.creditAccount;
     }
-    public void setAdjudicatedResultsGroupID(Identifier adjudicatedResultsGroupID) {
-        this.adjudicatedResultsGroupID.setValue(adjudicatedResultsGroupID);
+    public void setCreditAccount(PayeeAccountBean creditAccount) {
+        this.creditAccount = creditAccount;
     }
 
 
@@ -348,12 +331,29 @@ public class AdjudicatedResultsGroupBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"reference/adjudResultsFinancialContract"})
-    public BusinessArrangementBean getReferenceAdjudResultsFinancialContract() {
-        return this.referenceAdjudResultsFinancialContract;
+    /**
+     * <p>Summary Period Date Range</p>
+     * 
+     * <p>Time period for the payment</p>
+     * 
+     * <p><p>Time period for the payment or summary period.</p></p>
+     * 
+     * <p><p>For Payment Advice: Can also indicate time period over 
+     * which the clawback and/or retro adjustment applies.</p></p>
+     * 
+     * <p>Time period for the payment</p>
+     * 
+     * <p><p>Time period for the payment or summary period.</p></p>
+     * 
+     * <p><p>For Payment Advice: Can also indicate time period over 
+     * which the clawback and/or retro adjustment applies.</p></p>
+     */
+    @Hl7XmlMapping({"effectiveTime"})
+    public Interval<Date> getEffectiveTime() {
+        return this.effectiveTime.getValue();
     }
-    public void setReferenceAdjudResultsFinancialContract(BusinessArrangementBean referenceAdjudResultsFinancialContract) {
-        this.referenceAdjudResultsFinancialContract = referenceAdjudResultsFinancialContract;
+    public void setEffectiveTime(Interval<Date> effectiveTime) {
+        this.effectiveTime.setValue(effectiveTime);
     }
 
 }

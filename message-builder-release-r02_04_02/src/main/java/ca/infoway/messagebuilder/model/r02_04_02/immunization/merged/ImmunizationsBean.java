@@ -76,95 +76,76 @@ import java.util.Set;
 public class ImmunizationsBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
+    private HealthcareWorkerBean authenticatorAssignedEntity;
+    private ReasonBean reason;
+    private PQ quantityAdministered = new PQImpl();
+    private CV anatomicalSite = new CVImpl();
+    private List<PatientImmunizationObservationsBean> pertinentInformationPatientImmunizationObservations = new ArrayList<PatientImmunizationObservationsBean>();
+    private List<IssuesBean> subjectOf1DetectedIssueEvent = new ArrayList<IssuesBean>();
+    private II immunizationEventID = new IIImpl();
+    private CV uncertaintyCode = new CVImpl();
+    private OccurredAtBean location;
     private BL notImmunized = new BLImpl();
     private AdministeredToBean subject;
-    private SET<CV, Code> immunizationMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);
-    private InformantBean informant;
-    private CV anatomicalSite = new CVImpl();
-    private ConsentBean authorizationConsent;
-    private List<IssuesBean> subjectOf1DetectedIssueEvent = new ArrayList<IssuesBean>();
-    private List<PatientImmunizationObservationsBean> pertinentInformationPatientImmunizationObservations = new ArrayList<PatientImmunizationObservationsBean>();
-    private CV routeOfAdministration = new CVImpl();
-    private PQ quantityAdministered = new PQImpl();
-    private VaccineBean consumableAdministerableMedicineAdministerableVaccine;
-    private HealthDocumentBean referencedByHealthDocument;
-    private OccurredAtBean location;
-    private HealthcareWorkerBean responsiblePartyAssignedEntity;
-    private List<IntoleranceConditionBean> cause2IntoleranceCondition = new ArrayList<IntoleranceConditionBean>();
-    private InvestigationEventBean cause1InvestigationEvent;
-    private InFulfillmentOfBean inFulfillmentOf;
-    private ReasonBean reason;
-    private TS immunizationDate = new TSImpl();
-    private HealthcareWorkerBean authorAssignedEntity;
-    private CV uncertaintyCode = new CVImpl();
-    private HealthcareWorkerBean authenticatorAssignedEntity;
-    private CS immunizationEventStatus = new CSImpl();
-    private List<IncludesBean> subjectOf = new ArrayList<IncludesBean>();
-    private II immunizationEventID = new IIImpl();
     private AdministeredByBean performer;
+    private SET<CV, Code> immunizationMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);
+    private CS immunizationEventStatus = new CSImpl();
+    private InformantBean informant;
+    private HealthcareWorkerBean responsiblePartyAssignedEntity;
+    private HealthcareWorkerBean authorAssignedEntity;
+    private CV routeOfAdministration = new CVImpl();
+    private HealthDocumentBean referencedByHealthDocument;
+    private VaccineBean consumableAdministerableMedicineAdministerableVaccine;
+    private List<IncludesBean> subjectOf = new ArrayList<IncludesBean>();
+    private InFulfillmentOfBean inFulfillmentOf;
+    private InvestigationEventBean cause1InvestigationEvent;
+    private ConsentBean authorizationConsent;
+    private List<IntoleranceConditionBean> cause2IntoleranceCondition = new ArrayList<IntoleranceConditionBean>();
+    private TS immunizationDate = new TSImpl();
+
+
+    @Hl7XmlMapping({"authenticator/assignedEntity"})
+    public HealthcareWorkerBean getAuthenticatorAssignedEntity() {
+        return this.authenticatorAssignedEntity;
+    }
+    public void setAuthenticatorAssignedEntity(HealthcareWorkerBean authenticatorAssignedEntity) {
+        this.authenticatorAssignedEntity = authenticatorAssignedEntity;
+    }
+
+
+    @Hl7XmlMapping({"reason"})
+    public ReasonBean getReason() {
+        return this.reason;
+    }
+    public void setReason(ReasonBean reason) {
+        this.reason = reason;
+    }
 
 
     /**
-     * <p>NotImmunized</p>
+     * <p>QuantityAdministered</p>
      * 
-     * <p>Not Immunized?</p>
+     * <p>Quantity Administered</p>
      * 
-     * <p><p>An explicit indication that a person has not been 
-     * immunized with the specified vaccine at the time 
-     * indicated.</p></p>
+     * <p><p>The amount of the drug product administered to/by the 
+     * patient.</p></p>
      * 
-     * <p><p>Tracking failures to be immunized is also important in 
-     * immunization reporting. Marked as mandatory because it is 
-     * not meaningful for this flag to be 'unknown'.</p></p>
+     * <p><p>Useful for evaluating reaction, evaluating vaccine 
+     * failure and for checking contraindication.</p><p>Attribute 
+     * is populated to allow for situations where quantity may not 
+     * be known and thus null flavor must be specified.</p></p>
+     * 
+     * <p><p>Useful for evaluating reaction, evaluating vaccine 
+     * failure and for checking contraindication.</p><p>Attribute 
+     * is populated to allow for situations where quantity may not 
+     * be known and thus null flavor must be specified.</p></p>
      */
-    @Hl7XmlMapping({"negationInd"})
-    public Boolean getNotImmunized() {
-        return this.notImmunized.getValue();
+    @Hl7XmlMapping({"doseQuantity"})
+    public PhysicalQuantity getQuantityAdministered() {
+        return this.quantityAdministered.getValue();
     }
-    public void setNotImmunized(Boolean notImmunized) {
-        this.notImmunized.setValue(notImmunized);
-    }
-
-
-    @Hl7XmlMapping({"subject"})
-    public AdministeredToBean getSubject() {
-        return this.subject;
-    }
-    public void setSubject(AdministeredToBean subject) {
-        this.subject = subject;
-    }
-
-
-    /**
-     * <p>ImmunizationMaskingIndicators</p>
-     * 
-     * <p>Immunization Masking Indicators</p>
-     * 
-     * <p><p>Denotes access restriction place on the immunization 
-     * record.</p></p>
-     * 
-     * <p><p>Provides support for additional confidentiality 
-     * constraint to reflect the wishes of the patient.</p><p>The 
-     * attribute is optional because not all systems will support 
-     * masking.</p></p>
-     * 
-     * <p><p>Provides support for additional confidentiality 
-     * constraint to reflect the wishes of the patient.</p><p>The 
-     * attribute is optional because not all systems will support 
-     * masking.</p></p>
-     */
-    @Hl7XmlMapping({"confidentialityCode"})
-    public Set<x_BasicConfidentialityKind> getImmunizationMaskingIndicators() {
-        return this.immunizationMaskingIndicators.rawSet(x_BasicConfidentialityKind.class);
-    }
-
-
-    @Hl7XmlMapping({"informant"})
-    public InformantBean getInformant() {
-        return this.informant;
-    }
-    public void setInformant(InformantBean informant) {
-        this.informant = informant;
+    public void setQuantityAdministered(PhysicalQuantity quantityAdministered) {
+        this.quantityAdministered.setValue(quantityAdministered);
     }
 
 
@@ -199,12 +180,9 @@ public class ImmunizationsBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"authorization/consent"})
-    public ConsentBean getAuthorizationConsent() {
-        return this.authorizationConsent;
-    }
-    public void setAuthorizationConsent(ConsentBean authorizationConsent) {
-        this.authorizationConsent = authorizationConsent;
+    @Hl7XmlMapping({"pertinentInformation/patientImmunizationObservations"})
+    public List<PatientImmunizationObservationsBean> getPertinentInformationPatientImmunizationObservations() {
+        return this.pertinentInformationPatientImmunizationObservations;
     }
 
 
@@ -214,9 +192,169 @@ public class ImmunizationsBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"pertinentInformation/patientImmunizationObservations"})
-    public List<PatientImmunizationObservationsBean> getPertinentInformationPatientImmunizationObservations() {
-        return this.pertinentInformationPatientImmunizationObservations;
+    /**
+     * <p>ImmunizationEventID</p>
+     * 
+     * <p>A:Immunization Event ID</p>
+     * 
+     * <p><p>This is an identifier assigned to a unique instance of 
+     * an immunization record.</p></p>
+     * 
+     * <p><p>Allows for the unique referencing of a specific 
+     * immunization record. Thus the mandatory requirement.</p></p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Identifier getImmunizationEventID() {
+        return this.immunizationEventID.getValue();
+    }
+    public void setImmunizationEventID(Identifier immunizationEventID) {
+        this.immunizationEventID.setValue(immunizationEventID);
+    }
+
+
+    /**
+     * <p>UncertaintyCode</p>
+     * 
+     * <p>Uncertainty Code</p>
+     * 
+     * <p><p>An indication of uncertainty regarding an immunization 
+     * event</p></p>
+     * 
+     * <p><p>Allows for users of information to determine the 
+     * degree of uncertainty regarding the details of an 
+     * immunization event and is therefore populated.</p></p>
+     * 
+     * <p><p>Only populated when it is needed to communicate a 
+     * degree of uncertainty - i.e. historical information.</p></p>
+     */
+    @Hl7XmlMapping({"uncertaintyCode"})
+    public ActUncertainty getUncertaintyCode() {
+        return (ActUncertainty) this.uncertaintyCode.getValue();
+    }
+    public void setUncertaintyCode(ActUncertainty uncertaintyCode) {
+        this.uncertaintyCode.setValue(uncertaintyCode);
+    }
+
+
+    @Hl7XmlMapping({"location"})
+    public OccurredAtBean getLocation() {
+        return this.location;
+    }
+    public void setLocation(OccurredAtBean location) {
+        this.location = location;
+    }
+
+
+    /**
+     * <p>NotImmunized</p>
+     * 
+     * <p>Not Immunized?</p>
+     * 
+     * <p><p>An explicit indication that a person has not been 
+     * immunized with the specified vaccine at the time 
+     * indicated.</p></p>
+     * 
+     * <p><p>Tracking failures to be immunized is also important in 
+     * immunization reporting. Marked as mandatory because it is 
+     * not meaningful for this flag to be 'unknown'.</p></p>
+     */
+    @Hl7XmlMapping({"negationInd"})
+    public Boolean getNotImmunized() {
+        return this.notImmunized.getValue();
+    }
+    public void setNotImmunized(Boolean notImmunized) {
+        this.notImmunized.setValue(notImmunized);
+    }
+
+
+    @Hl7XmlMapping({"subject"})
+    public AdministeredToBean getSubject() {
+        return this.subject;
+    }
+    public void setSubject(AdministeredToBean subject) {
+        this.subject = subject;
+    }
+
+
+    @Hl7XmlMapping({"performer"})
+    public AdministeredByBean getPerformer() {
+        return this.performer;
+    }
+    public void setPerformer(AdministeredByBean performer) {
+        this.performer = performer;
+    }
+
+
+    /**
+     * <p>ImmunizationMaskingIndicators</p>
+     * 
+     * <p>Immunization Masking Indicators</p>
+     * 
+     * <p><p>Denotes access restriction place on the immunization 
+     * record.</p></p>
+     * 
+     * <p><p>Provides support for additional confidentiality 
+     * constraint to reflect the wishes of the patient.</p><p>The 
+     * attribute is optional because not all systems will support 
+     * masking.</p></p>
+     * 
+     * <p><p>Provides support for additional confidentiality 
+     * constraint to reflect the wishes of the patient.</p><p>The 
+     * attribute is optional because not all systems will support 
+     * masking.</p></p>
+     */
+    @Hl7XmlMapping({"confidentialityCode"})
+    public Set<x_BasicConfidentialityKind> getImmunizationMaskingIndicators() {
+        return this.immunizationMaskingIndicators.rawSet(x_BasicConfidentialityKind.class);
+    }
+
+
+    /**
+     * <p>ImmunizationEventStatus</p>
+     * 
+     * <p>Immunization Event Status</p>
+     * 
+     * <p><p>Status of the immunization event</p></p>
+     * 
+     * <p><p>Needed to differentiate between valid, obsolete and 
+     * invalid immunization events (e.g. immunization event has 
+     * been retracted or nullified) and is therefore mandatory.</p></p>
+     * 
+     * <p><p>Nullified=Retracted</p></p>
+     */
+    @Hl7XmlMapping({"statusCode"})
+    public ActStatus getImmunizationEventStatus() {
+        return (ActStatus) this.immunizationEventStatus.getValue();
+    }
+    public void setImmunizationEventStatus(ActStatus immunizationEventStatus) {
+        this.immunizationEventStatus.setValue(immunizationEventStatus);
+    }
+
+
+    @Hl7XmlMapping({"informant"})
+    public InformantBean getInformant() {
+        return this.informant;
+    }
+    public void setInformant(InformantBean informant) {
+        this.informant = informant;
+    }
+
+
+    @Hl7XmlMapping({"responsibleParty/assignedEntity"})
+    public HealthcareWorkerBean getResponsiblePartyAssignedEntity() {
+        return this.responsiblePartyAssignedEntity;
+    }
+    public void setResponsiblePartyAssignedEntity(HealthcareWorkerBean responsiblePartyAssignedEntity) {
+        this.responsiblePartyAssignedEntity = responsiblePartyAssignedEntity;
+    }
+
+
+    @Hl7XmlMapping({"author/assignedEntity"})
+    public HealthcareWorkerBean getAuthorAssignedEntity() {
+        return this.authorAssignedEntity;
+    }
+    public void setAuthorAssignedEntity(HealthcareWorkerBean authorAssignedEntity) {
+        this.authorAssignedEntity = authorAssignedEntity;
     }
 
 
@@ -247,30 +385,12 @@ public class ImmunizationsBean extends MessagePartBean {
     }
 
 
-    /**
-     * <p>QuantityAdministered</p>
-     * 
-     * <p>Quantity Administered</p>
-     * 
-     * <p><p>The amount of the drug product administered to/by the 
-     * patient.</p></p>
-     * 
-     * <p><p>Useful for evaluating reaction, evaluating vaccine 
-     * failure and for checking contraindication.</p><p>Attribute 
-     * is populated to allow for situations where quantity may not 
-     * be known and thus null flavor must be specified.</p></p>
-     * 
-     * <p><p>Useful for evaluating reaction, evaluating vaccine 
-     * failure and for checking contraindication.</p><p>Attribute 
-     * is populated to allow for situations where quantity may not 
-     * be known and thus null flavor must be specified.</p></p>
-     */
-    @Hl7XmlMapping({"doseQuantity"})
-    public PhysicalQuantity getQuantityAdministered() {
-        return this.quantityAdministered.getValue();
+    @Hl7XmlMapping({"referencedBy/healthDocument"})
+    public HealthDocumentBean getReferencedByHealthDocument() {
+        return this.referencedByHealthDocument;
     }
-    public void setQuantityAdministered(PhysicalQuantity quantityAdministered) {
-        this.quantityAdministered.setValue(quantityAdministered);
+    public void setReferencedByHealthDocument(HealthDocumentBean referencedByHealthDocument) {
+        this.referencedByHealthDocument = referencedByHealthDocument;
     }
 
 
@@ -283,45 +403,13 @@ public class ImmunizationsBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"referencedBy/healthDocument"})
-    public HealthDocumentBean getReferencedByHealthDocument() {
-        return this.referencedByHealthDocument;
-    }
-    public void setReferencedByHealthDocument(HealthDocumentBean referencedByHealthDocument) {
-        this.referencedByHealthDocument = referencedByHealthDocument;
-    }
-
-
-    @Hl7XmlMapping({"location"})
-    public OccurredAtBean getLocation() {
-        return this.location;
-    }
-    public void setLocation(OccurredAtBean location) {
-        this.location = location;
-    }
-
-
-    @Hl7XmlMapping({"responsibleParty/assignedEntity"})
-    public HealthcareWorkerBean getResponsiblePartyAssignedEntity() {
-        return this.responsiblePartyAssignedEntity;
-    }
-    public void setResponsiblePartyAssignedEntity(HealthcareWorkerBean responsiblePartyAssignedEntity) {
-        this.responsiblePartyAssignedEntity = responsiblePartyAssignedEntity;
-    }
-
-
-    @Hl7XmlMapping({"cause2/intoleranceCondition"})
-    public List<IntoleranceConditionBean> getCause2IntoleranceCondition() {
-        return this.cause2IntoleranceCondition;
-    }
-
-
-    @Hl7XmlMapping({"cause1/investigationEvent"})
-    public InvestigationEventBean getCause1InvestigationEvent() {
-        return this.cause1InvestigationEvent;
-    }
-    public void setCause1InvestigationEvent(InvestigationEventBean cause1InvestigationEvent) {
-        this.cause1InvestigationEvent = cause1InvestigationEvent;
+    @Hl7XmlMapping({"subjectOf","subjectOf2"})
+    @Hl7MapByPartTypes({
+        @Hl7MapByPartType(name="subjectOf", type="POIZ_MT030050CA.Subject2"),
+        @Hl7MapByPartType(name="subjectOf", type="POIZ_MT030060CA.Subject2"),
+        @Hl7MapByPartType(name="subjectOf2", type="POIZ_MT060150CA.Subject2")})
+    public List<IncludesBean> getSubjectOf() {
+        return this.subjectOf;
     }
 
 
@@ -334,12 +422,27 @@ public class ImmunizationsBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"reason"})
-    public ReasonBean getReason() {
-        return this.reason;
+    @Hl7XmlMapping({"cause1/investigationEvent"})
+    public InvestigationEventBean getCause1InvestigationEvent() {
+        return this.cause1InvestigationEvent;
     }
-    public void setReason(ReasonBean reason) {
-        this.reason = reason;
+    public void setCause1InvestigationEvent(InvestigationEventBean cause1InvestigationEvent) {
+        this.cause1InvestigationEvent = cause1InvestigationEvent;
+    }
+
+
+    @Hl7XmlMapping({"authorization/consent"})
+    public ConsentBean getAuthorizationConsent() {
+        return this.authorizationConsent;
+    }
+    public void setAuthorizationConsent(ConsentBean authorizationConsent) {
+        this.authorizationConsent = authorizationConsent;
+    }
+
+
+    @Hl7XmlMapping({"cause2/intoleranceCondition"})
+    public List<IntoleranceConditionBean> getCause2IntoleranceCondition() {
+        return this.cause2IntoleranceCondition;
     }
 
 
@@ -361,109 +464,6 @@ public class ImmunizationsBean extends MessagePartBean {
     }
     public void setImmunizationDate(Date immunizationDate) {
         this.immunizationDate.setValue(immunizationDate);
-    }
-
-
-    @Hl7XmlMapping({"author/assignedEntity"})
-    public HealthcareWorkerBean getAuthorAssignedEntity() {
-        return this.authorAssignedEntity;
-    }
-    public void setAuthorAssignedEntity(HealthcareWorkerBean authorAssignedEntity) {
-        this.authorAssignedEntity = authorAssignedEntity;
-    }
-
-
-    /**
-     * <p>UncertaintyCode</p>
-     * 
-     * <p>Uncertainty Code</p>
-     * 
-     * <p><p>An indication of uncertainty regarding an immunization 
-     * event</p></p>
-     * 
-     * <p><p>Allows for users of information to determine the 
-     * degree of uncertainty regarding the details of an 
-     * immunization event and is therefore populated.</p></p>
-     * 
-     * <p><p>Only populated when it is needed to communicate a 
-     * degree of uncertainty - i.e. historical information.</p></p>
-     */
-    @Hl7XmlMapping({"uncertaintyCode"})
-    public ActUncertainty getUncertaintyCode() {
-        return (ActUncertainty) this.uncertaintyCode.getValue();
-    }
-    public void setUncertaintyCode(ActUncertainty uncertaintyCode) {
-        this.uncertaintyCode.setValue(uncertaintyCode);
-    }
-
-
-    @Hl7XmlMapping({"authenticator/assignedEntity"})
-    public HealthcareWorkerBean getAuthenticatorAssignedEntity() {
-        return this.authenticatorAssignedEntity;
-    }
-    public void setAuthenticatorAssignedEntity(HealthcareWorkerBean authenticatorAssignedEntity) {
-        this.authenticatorAssignedEntity = authenticatorAssignedEntity;
-    }
-
-
-    /**
-     * <p>ImmunizationEventStatus</p>
-     * 
-     * <p>Immunization Event Status</p>
-     * 
-     * <p><p>Status of the immunization event</p></p>
-     * 
-     * <p><p>Needed to differentiate between valid, obsolete and 
-     * invalid immunization events (e.g. immunization event has 
-     * been retracted or nullified) and is therefore mandatory.</p></p>
-     * 
-     * <p><p>Nullified=Retracted</p></p>
-     */
-    @Hl7XmlMapping({"statusCode"})
-    public ActStatus getImmunizationEventStatus() {
-        return (ActStatus) this.immunizationEventStatus.getValue();
-    }
-    public void setImmunizationEventStatus(ActStatus immunizationEventStatus) {
-        this.immunizationEventStatus.setValue(immunizationEventStatus);
-    }
-
-
-    @Hl7XmlMapping({"subjectOf","subjectOf2"})
-    @Hl7MapByPartTypes({
-        @Hl7MapByPartType(name="subjectOf", type="POIZ_MT030050CA.Subject2"),
-        @Hl7MapByPartType(name="subjectOf", type="POIZ_MT030060CA.Subject2"),
-        @Hl7MapByPartType(name="subjectOf2", type="POIZ_MT060150CA.Subject2")})
-    public List<IncludesBean> getSubjectOf() {
-        return this.subjectOf;
-    }
-
-
-    /**
-     * <p>ImmunizationEventID</p>
-     * 
-     * <p>A:Immunization Event ID</p>
-     * 
-     * <p><p>This is an identifier assigned to a unique instance of 
-     * an immunization record.</p></p>
-     * 
-     * <p><p>Allows for the unique referencing of a specific 
-     * immunization record. Thus the mandatory requirement.</p></p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Identifier getImmunizationEventID() {
-        return this.immunizationEventID.getValue();
-    }
-    public void setImmunizationEventID(Identifier immunizationEventID) {
-        this.immunizationEventID.setValue(immunizationEventID);
-    }
-
-
-    @Hl7XmlMapping({"performer"})
-    public AdministeredByBean getPerformer() {
-        return this.performer;
-    }
-    public void setPerformer(AdministeredByBean performer) {
-        this.performer = performer;
     }
 
 }

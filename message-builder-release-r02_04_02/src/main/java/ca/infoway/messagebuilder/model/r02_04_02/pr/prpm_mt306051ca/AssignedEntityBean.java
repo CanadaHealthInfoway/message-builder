@@ -18,6 +18,7 @@ import ca.infoway.messagebuilder.datatype.lang.PersonName;
 import ca.infoway.messagebuilder.domainvalue.AssignedRoleType;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.r02_04_02.pr.merged.PrinicpalPerson_2Bean;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
@@ -44,25 +45,19 @@ import java.util.Set;
 public class AssignedEntityBean extends MessagePartBean implements ca.infoway.messagebuilder.model.r02_04_02.merged.RoleChoice {
 
     private static final long serialVersionUID = 20110318L;
-    private LIST<PN, PersonName> functionalRoleName = new LISTImpl<PN, PersonName>(PNImpl.class);
-    private CV functionalRoleType = new CVImpl();
     private OrganizationBean representedOrganization;
+    private CV functionalRoleType = new CVImpl();
+    private LIST<PN, PersonName> functionalRoleName = new LISTImpl<PN, PersonName>(PNImpl.class);
     private PrinicpalPerson_2Bean assignedPrincipalPerson;
     private SET<II, Identifier> functionalRoleIdentifier = new SETImpl<II, Identifier>(IIImpl.class);
 
 
-    /**
-     * <p>Functional Role Name</p>
-     * 
-     * <p><p>The provider'''s name pertaining to the specific 
-     * functional role.</p></p>
-     * 
-     * <p><p>Required attribute supports the identification of the 
-     * healthcare provider</p></p>
-     */
-    @Hl7XmlMapping({"name"})
-    public List<PersonName> getFunctionalRoleName() {
-        return this.functionalRoleName.rawList();
+    @Hl7XmlMapping({"representedOrganization"})
+    public OrganizationBean getRepresentedOrganization() {
+        return this.representedOrganization;
+    }
+    public void setRepresentedOrganization(OrganizationBean representedOrganization) {
+        this.representedOrganization = representedOrganization;
     }
 
 
@@ -83,12 +78,18 @@ public class AssignedEntityBean extends MessagePartBean implements ca.infoway.me
     }
 
 
-    @Hl7XmlMapping({"representedOrganization"})
-    public OrganizationBean getRepresentedOrganization() {
-        return this.representedOrganization;
-    }
-    public void setRepresentedOrganization(OrganizationBean representedOrganization) {
-        this.representedOrganization = representedOrganization;
+    /**
+     * <p>Functional Role Name</p>
+     * 
+     * <p><p>The provider'''s name pertaining to the specific 
+     * functional role.</p></p>
+     * 
+     * <p><p>Required attribute supports the identification of the 
+     * healthcare provider</p></p>
+     */
+    @Hl7XmlMapping({"name"})
+    public List<PersonName> getFunctionalRoleName() {
+        return this.functionalRoleName.rawList();
     }
 
 

@@ -19,7 +19,9 @@ import ca.infoway.messagebuilder.model.r02_04_02.merged.DispensedBean;
 import ca.infoway.messagebuilder.model.r02_04_02.merged.IncludesBean;
 import ca.infoway.messagebuilder.model.r02_04_02.merged.RelatedPersonBean;
 import ca.infoway.messagebuilder.model.r02_04_02.merged.ServiceDeliveryLocationBean;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Set;
 
 
@@ -58,11 +60,11 @@ public class PrescriptionDispenseResponseBean extends MessagePartBean {
     private SET<II, Identifier> prescriptionOrderNumber = new SETImpl<II, Identifier>(IIImpl.class);
     private II id = new IIImpl();
     private RelatedPersonBean receiverPersonalRelationship;
-    private DispensedBean product;
     private PQ suppliedQuantity = new PQImpl();
+    private IncludesBean subjectOf;
     private ServiceDeliveryLocationBean destinationServiceDeliveryLocation;
     private SupplyOrderBean fulfillmentSupplyRequest;
-    private IncludesBean subjectOf;
+    private DispensedBean product;
     private TS supplyDate = new TSImpl();
 
 
@@ -139,15 +141,6 @@ public class PrescriptionDispenseResponseBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"product"})
-    public DispensedBean getProduct() {
-        return this.product;
-    }
-    public void setProduct(DispensedBean product) {
-        this.product = product;
-    }
-
-
     /**
      * <p>SuppliedQuantity</p>
      * 
@@ -169,6 +162,15 @@ public class PrescriptionDispenseResponseBean extends MessagePartBean {
     }
 
 
+    @Hl7XmlMapping({"subjectOf"})
+    public IncludesBean getSubjectOf() {
+        return this.subjectOf;
+    }
+    public void setSubjectOf(IncludesBean subjectOf) {
+        this.subjectOf = subjectOf;
+    }
+
+
     @Hl7XmlMapping({"destination/serviceDeliveryLocation"})
     public ServiceDeliveryLocationBean getDestinationServiceDeliveryLocation() {
         return this.destinationServiceDeliveryLocation;
@@ -187,12 +189,12 @@ public class PrescriptionDispenseResponseBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"subjectOf"})
-    public IncludesBean getSubjectOf() {
-        return this.subjectOf;
+    @Hl7XmlMapping({"product"})
+    public DispensedBean getProduct() {
+        return this.product;
     }
-    public void setSubjectOf(IncludesBean subjectOf) {
-        this.subjectOf = subjectOf;
+    public void setProduct(DispensedBean product) {
+        this.product = product;
     }
 
 

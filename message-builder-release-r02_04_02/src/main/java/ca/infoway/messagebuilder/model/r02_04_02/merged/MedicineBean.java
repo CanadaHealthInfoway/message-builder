@@ -17,29 +17,24 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 public class MedicineBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private CV drugForm = new CVImpl();
-    private ST drugName = new STImpl();
     private CV drugCode = new CVImpl();
+    private ST drugName = new STImpl();
     private ST drugDescription = new STImpl();
+    private CV drugForm = new CVImpl();
     private DrugContainsBean ingredient;
 
 
     /**
-     * <p>DrugForm</p>
+     * <p>DrugCode</p>
      * 
-     * <p>Drug Form</p>
-     * 
-     * <p><p>Indicates the form in which the drug product must be, 
-     * or has been manufactured or custom prepared. Examples 
-     * include: tablet, suspension, liquid, injectable, capsule, 
-     * etc.</p></p>
+     * <p>Drug Code</p>
      */
-    @Hl7XmlMapping({"formCode"})
-    public OrderableDrugForm getDrugForm() {
-        return (OrderableDrugForm) this.drugForm.getValue();
+    @Hl7XmlMapping({"code"})
+    public ClinicalDrug getDrugCode() {
+        return (ClinicalDrug) this.drugCode.getValue();
     }
-    public void setDrugForm(OrderableDrugForm drugForm) {
-        this.drugForm.setValue(drugForm);
+    public void setDrugCode(ClinicalDrug drugCode) {
+        this.drugCode.setValue(drugCode);
     }
 
 
@@ -58,20 +53,6 @@ public class MedicineBean extends MessagePartBean {
 
 
     /**
-     * <p>DrugCode</p>
-     * 
-     * <p>Drug Code</p>
-     */
-    @Hl7XmlMapping({"code"})
-    public ClinicalDrug getDrugCode() {
-        return (ClinicalDrug) this.drugCode.getValue();
-    }
-    public void setDrugCode(ClinicalDrug drugCode) {
-        this.drugCode.setValue(drugCode);
-    }
-
-
-    /**
      * <p>DrugDescription</p>
      * 
      * <p>Drug Description</p>
@@ -82,6 +63,25 @@ public class MedicineBean extends MessagePartBean {
     }
     public void setDrugDescription(String drugDescription) {
         this.drugDescription.setValue(drugDescription);
+    }
+
+
+    /**
+     * <p>DrugForm</p>
+     * 
+     * <p>Drug Form</p>
+     * 
+     * <p><p>Indicates the form in which the drug product must be, 
+     * or has been manufactured or custom prepared. Examples 
+     * include: tablet, suspension, liquid, injectable, capsule, 
+     * etc.</p></p>
+     */
+    @Hl7XmlMapping({"formCode"})
+    public OrderableDrugForm getDrugForm() {
+        return (OrderableDrugForm) this.drugForm.getValue();
+    }
+    public void setDrugForm(OrderableDrugForm drugForm) {
+        this.drugForm.setValue(drugForm);
     }
 
 

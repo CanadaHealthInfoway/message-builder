@@ -97,9 +97,58 @@ import ca.infoway.messagebuilder.model.r02_04_02.common.coct_mt300000ca.DrugForm
 public class DispensedInBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private CV containerPackagedMedicineFormCode = new CVImpl();
     private PQ quantity = new PQImpl();
+    private CV containerPackagedMedicineFormCode = new CVImpl();
     private DrugFormBean containedManufacturedMaterialKind;
+
+
+    /**
+     * <p>B:Drug Package Quantity</p>
+     * 
+     * <p><p>The quantity of the medication dosage form contained 
+     * in the package given or to be given to the patient.</p></p>
+     * 
+     * <p><p>ZDP.10.2.2</p><p>ZDP.9.2.2</p></p>
+     * 
+     * <p><p>ZDP.10.2.2</p><p>ZDP.9.2.2</p></p>
+     * 
+     * <p><p>Sometimes ordering and dispensing is by package rather 
+     * than individual units, and package is important in 
+     * calculating total amount supplied.</p></p>
+     * 
+     * <p>F:Drug Package Quantity</p>
+     * 
+     * <p><p>The quantity of the medication dosage form contained 
+     * in the package given or to be given to the patient.</p></p>
+     * 
+     * <p><p>ZDP.10.2.2</p><p>ZDP.9.2.2</p></p>
+     * 
+     * <p><p>ZDP.10.2.2</p><p>ZDP.9.2.2</p></p>
+     * 
+     * <p><p>Sometimes ordering and dispensing is by package rather 
+     * than individual units, and package is important in 
+     * calculating total amount supplied.</p></p>
+     * 
+     * <p>Package Size</p>
+     * 
+     * <p><p>package size</p></p>
+     * 
+     * <p>Package Quantity</p>
+     * 
+     * <p><p>The quantity of the medication dosage form contained 
+     * in the package given or to be given to the patient.</p></p>
+     * 
+     * <p><p>Sometimes ordering and dispensing is by package rather 
+     * than individual units, and package is important in 
+     * calculating total amount supplied.</p></p>
+     */
+    @Hl7XmlMapping({"quantity"})
+    public PhysicalQuantity getQuantity() {
+        return this.quantity.getValue();
+    }
+    public void setQuantity(PhysicalQuantity quantity) {
+        this.quantity.setValue(quantity);
+    }
 
 
     /**
@@ -159,55 +208,6 @@ public class DispensedInBean extends MessagePartBean {
     }
     public void setContainerPackagedMedicineFormCode(CompliancePackageEntityType containerPackagedMedicineFormCode) {
         this.containerPackagedMedicineFormCode.setValue(containerPackagedMedicineFormCode);
-    }
-
-
-    /**
-     * <p>B:Drug Package Quantity</p>
-     * 
-     * <p><p>The quantity of the medication dosage form contained 
-     * in the package given or to be given to the patient.</p></p>
-     * 
-     * <p><p>ZDP.10.2.2</p><p>ZDP.9.2.2</p></p>
-     * 
-     * <p><p>ZDP.10.2.2</p><p>ZDP.9.2.2</p></p>
-     * 
-     * <p><p>Sometimes ordering and dispensing is by package rather 
-     * than individual units, and package is important in 
-     * calculating total amount supplied.</p></p>
-     * 
-     * <p>F:Drug Package Quantity</p>
-     * 
-     * <p><p>The quantity of the medication dosage form contained 
-     * in the package given or to be given to the patient.</p></p>
-     * 
-     * <p><p>ZDP.10.2.2</p><p>ZDP.9.2.2</p></p>
-     * 
-     * <p><p>ZDP.10.2.2</p><p>ZDP.9.2.2</p></p>
-     * 
-     * <p><p>Sometimes ordering and dispensing is by package rather 
-     * than individual units, and package is important in 
-     * calculating total amount supplied.</p></p>
-     * 
-     * <p>Package Size</p>
-     * 
-     * <p><p>package size</p></p>
-     * 
-     * <p>Package Quantity</p>
-     * 
-     * <p><p>The quantity of the medication dosage form contained 
-     * in the package given or to be given to the patient.</p></p>
-     * 
-     * <p><p>Sometimes ordering and dispensing is by package rather 
-     * than individual units, and package is important in 
-     * calculating total amount supplied.</p></p>
-     */
-    @Hl7XmlMapping({"quantity"})
-    public PhysicalQuantity getQuantity() {
-        return this.quantity.getValue();
-    }
-    public void setQuantity(PhysicalQuantity quantity) {
-        this.quantity.setValue(quantity);
     }
 
 

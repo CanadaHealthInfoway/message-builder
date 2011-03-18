@@ -40,12 +40,29 @@ import java.util.Date;
 public class VersionInformationBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
+    private CV changeType = new CVImpl();
     private TS changeDatetime = new TSImpl();
     private ActingPerson authorActingPerson;
-    private CV changeType = new CVImpl();
     private CV changeReason = new CVImpl();
-    private IVL<TS, Interval<Date>> changeEffectiveDateAndEndDate = new IVLImpl<TS, Interval<Date>>();
     private II changeIdentifier = new IIImpl();
+    private IVL<TS, Interval<Date>> changeEffectiveDateAndEndDate = new IVLImpl<TS, Interval<Date>>();
+
+
+    /**
+     * <p>A:Change Type</p>
+     * 
+     * <p><p>Identifies what kind of change occurred.</p></p>
+     * 
+     * <p><p>This attribute is mandatory to ensure that change 
+     * types are distinguishable.</p></p>
+     */
+    @Hl7XmlMapping({"code"})
+    public HL7TriggerEventCode getChangeType() {
+        return (HL7TriggerEventCode) this.changeType.getValue();
+    }
+    public void setChangeType(HL7TriggerEventCode changeType) {
+        this.changeType.setValue(changeType);
+    }
 
 
     /**
@@ -100,23 +117,6 @@ public class VersionInformationBean extends MessagePartBean {
 
 
     /**
-     * <p>A:Change Type</p>
-     * 
-     * <p><p>Identifies what kind of change occurred.</p></p>
-     * 
-     * <p><p>This attribute is mandatory to ensure that change 
-     * types are distinguishable.</p></p>
-     */
-    @Hl7XmlMapping({"code"})
-    public HL7TriggerEventCode getChangeType() {
-        return (HL7TriggerEventCode) this.changeType.getValue();
-    }
-    public void setChangeType(HL7TriggerEventCode changeType) {
-        this.changeType.setValue(changeType);
-    }
-
-
-    /**
      * <p>D:Change Reason</p>
      * 
      * <p><p>Denotes the reason the record was modified.</p></p>
@@ -131,6 +131,24 @@ public class VersionInformationBean extends MessagePartBean {
     }
     public void setChangeReason(ControlActReason changeReason) {
         this.changeReason.setValue(changeReason);
+    }
+
+
+    /**
+     * <p>B:Change Identifier</p>
+     * 
+     * <p><p>A unique identifier for this particular change.</p></p>
+     * 
+     * <p><p>Allows referencing (and potentially undoing) a 
+     * specific change. Every status change has an identifier, thus 
+     * this attribute is mandatory.</p></p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Identifier getChangeIdentifier() {
+        return this.changeIdentifier.getValue();
+    }
+    public void setChangeIdentifier(Identifier changeIdentifier) {
+        this.changeIdentifier.setValue(changeIdentifier);
     }
 
 
@@ -153,24 +171,6 @@ public class VersionInformationBean extends MessagePartBean {
     }
     public void setChangeEffectiveDateAndEndDate(Interval<Date> changeEffectiveDateAndEndDate) {
         this.changeEffectiveDateAndEndDate.setValue(changeEffectiveDateAndEndDate);
-    }
-
-
-    /**
-     * <p>B:Change Identifier</p>
-     * 
-     * <p><p>A unique identifier for this particular change.</p></p>
-     * 
-     * <p><p>Allows referencing (and potentially undoing) a 
-     * specific change. Every status change has an identifier, thus 
-     * this attribute is mandatory.</p></p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Identifier getChangeIdentifier() {
-        return this.changeIdentifier.getValue();
-    }
-    public void setChangeIdentifier(Identifier changeIdentifier) {
-        this.changeIdentifier.setValue(changeIdentifier);
     }
 
 }

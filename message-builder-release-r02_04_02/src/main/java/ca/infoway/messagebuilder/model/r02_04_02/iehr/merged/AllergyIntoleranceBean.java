@@ -73,202 +73,23 @@ import java.util.Set;
 public class AllergyIntoleranceBean extends MessagePartBean implements ca.infoway.messagebuilder.model.r02_04_02.iehr.comt_mt111111ca.SHR {
 
     private static final long serialVersionUID = 20110318L;
-    private BL allergyIntoleranceRefuted = new BLImpl();
-    private SET<CV, Code> allergyIntoleranceMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);
-    private RefusedByBean author;
     private BL subjectOf3AnnotationIndicator = new BLImpl();
-    private TS allergyIntoleranceDate = new TSImpl();
+    private CV agent = new CVImpl();
+    private ReportedByBean informant;
+    private List<CareCompositionsBean> componentOfPatientCareProvisionEvent = new ArrayList<CareCompositionsBean>();
+    private AllergyIntoleranceSeverityLevelBean subjectOfSeverityObservation;
+    private II allergyIntoleranceRecordId = new IIImpl();
     private CV confirmedIndicator = new CVImpl();
     private CD allergyIntoleranceType = new CDImpl();
-    private CV agent = new CVImpl();
-    private HealthcareWorkerBean responsiblePartyAssignedEntity;
-    private ReportedByBean informant;
-    private List<Records> supportRecords = new ArrayList<Records>();
-    private List<CareCompositionsBean> componentOfPatientCareProvisionEvent = new ArrayList<CareCompositionsBean>();
     private IncludesBean subjectOf1;
-    private AllergyIntoleranceSeverityLevelBean subjectOfSeverityObservation;
-    private CS allergyIntoleranceStatus = new CSImpl();
     private OccurredAtBean location;
-    private II allergyIntoleranceRecordId = new IIImpl();
-
-
-    /**
-     * <p>AllergyIntoleranceRefuted</p>
-     * 
-     * <p>G:Allergy/Intolerance Refuted</p>
-     * 
-     * <p><p>An indication that the allergy/intolerance has been 
-     * refuted. I.e. A clinician has positively determined that the 
-     * patient does not suffer from a particular allergy or 
-     * intolerance.</p></p>
-     * 
-     * <p><p>Allows providers to refute a previously confirmed or 
-     * suspected allergy. The attribute is mandatory because it is 
-     * critical to know whether the record represents the 
-     * refutation or affirmation of an allergy or intolerance.</p></p>
-     * 
-     * <p>G:Allergy/Intolerance Refuted</p>
-     * 
-     * <p><p>An indication that the allergy/intolerance has been 
-     * refuted. I.e. A clinician has positively determined that the 
-     * patient does not suffer from a particular allergy or 
-     * intolerance.</p></p>
-     * 
-     * <p><p>Allows providers to refute a previously confirmed or 
-     * suspected allergy. The attribute is mandatory because it is 
-     * essential to know whether a record is refuted or not.</p></p>
-     * 
-     * <p>G:Allergy/Intolerance Refuted</p>
-     * 
-     * <p><p>An indication that the allergy/intolerance has been 
-     * refuted. I.e. A clinician has positively determined that the 
-     * patient does not suffer from a particular allergy or 
-     * intolerance.</p></p>
-     * 
-     * <p><p>Allows providers to refute a previously confirmed or 
-     * suspected allergy. Because it is essential to know whether 
-     * the allergy or intolerance is being refuted or affirmed, 
-     * this attribute is mandatory.</p></p>
-     */
-    @Hl7XmlMapping({"negationInd"})
-    public Boolean getAllergyIntoleranceRefuted() {
-        return this.allergyIntoleranceRefuted.getValue();
-    }
-    public void setAllergyIntoleranceRefuted(Boolean allergyIntoleranceRefuted) {
-        this.allergyIntoleranceRefuted.setValue(allergyIntoleranceRefuted);
-    }
-
-
-    /**
-     * <p>AllergyIntoleranceMaskingIndicators</p>
-     * 
-     * <p>H:Allergy/Intolerance Masking Indicators</p>
-     * 
-     * <p><p>Communicates the desire of the patient to restrict 
-     * access to this Health Condition record. Provides support for 
-     * additional confidentiality constraint, giving patients a 
-     * level of control over their information. Methods for 
-     * accessing masked event records will be governed by each 
-     * jurisdiction (e.g. court orders, shared secret/consent, 
-     * etc.). Can also be used to communicate that the information 
-     * is deemed to be sensitive and should not be communicated or 
-     * exposed to the patient (at least without the guidance of the 
-     * authoring or other responsible healthcare provider). Valid 
-     * values are: 'normal' (denotes 'Not Masked'); 'restricted' 
-     * (denotes 'Masked'); '''very restricted''' (denotes '''Masked 
-     * by Regulation'''); and 'taboo' (denotes 'patient 
-     * restricted'). The default is 'normal' signifying 'Not 
-     * Masked'. Either or both of the other codes can be asserted 
-     * to indicate masking by the patient from providers or masking 
-     * by a provider from the patient, respectively. 'normal' 
-     * should never be asserted with one of the other codes.</p></p>
-     * 
-     * <p><p>Provides support for additional confidentiality 
-     * constraint to reflect the wishes of the patient.</p><p>Taboo 
-     * allows the provider to request restricted access to patient 
-     * or their care giver.</p><p>Constraint: Can'''t have both 
-     * normal and one of the other codes simultaneously.</p><p>The 
-     * attribute is optional because not all systems will support 
-     * masking.</p></p>
-     * 
-     * <p><p>Provides support for additional confidentiality 
-     * constraint to reflect the wishes of the patient.</p><p>Taboo 
-     * allows the provider to request restricted access to patient 
-     * or their care giver.</p><p>Constraint: Can'''t have both 
-     * normal and one of the other codes simultaneously.</p><p>The 
-     * attribute is optional because not all systems will support 
-     * masking.</p></p>
-     * 
-     * <p><p>Provides support for additional confidentiality 
-     * constraint to reflect the wishes of the patient.</p><p>Taboo 
-     * allows the provider to request restricted access to patient 
-     * or their care giver.</p><p>Constraint: Can'''t have both 
-     * normal and one of the other codes simultaneously.</p><p>The 
-     * attribute is optional because not all systems will support 
-     * masking.</p></p>
-     * 
-     * <p><p>Provides support for additional confidentiality 
-     * constraint to reflect the wishes of the patient.</p><p>Taboo 
-     * allows the provider to request restricted access to patient 
-     * or their care giver.</p><p>Constraint: Can'''t have both 
-     * normal and one of the other codes simultaneously.</p><p>The 
-     * attribute is optional because not all systems will support 
-     * masking.</p></p>
-     * 
-     * <p>H:Allergy/Intolerance Masking Indicators</p>
-     * 
-     * <p><p>Communicates the desire of the patient to restrict 
-     * access to this Health Condition record. Provides support for 
-     * additional confidentiality constraint, giving patients a 
-     * level of control over their information. Methods for 
-     * accessing masked event records will be governed by each 
-     * jurisdiction (e.g. court orders, shared secret/consent, 
-     * etc.). Can also be used to communicate that the information 
-     * is deemed to be sensitive and should not be communicated or 
-     * exposed to the patient (at least without the guidance of the 
-     * authoring or other responsible healthcare provider). Valid 
-     * values are: 'normal' (denotes 'Not Masked'); 'restricted' 
-     * (denotes 'Masked'); '''very restricted''' (denotes '''Masked 
-     * by Regulation'''); and 'taboo' (denotes 'patient 
-     * restricted'). The default is 'normal' signifying 'Not 
-     * Masked'. Either or both of the other codes can be asserted 
-     * to indicate masking by the patient from providers or masking 
-     * by a provider from the patient, respectively. 'normal' 
-     * should never be asserted with one of the other codes.</p></p>
-     * 
-     * <p><p>Provides support for additional confidentiality 
-     * constraint to reflect the wishes of the patient.</p><p>Taboo 
-     * allows the provider to request restricted access to patient 
-     * or their care giver.</p><p>Constraint: Can'''t have both 
-     * normal and one of the other codes simultaneously.</p><p>The 
-     * attribute is required because even if a jurisdiction doesn't 
-     * support masking on the way in, it will need to need to 
-     * communicate masked data returned from other 
-     * jurisdictions.</p></p>
-     * 
-     * <p><p>Provides support for additional confidentiality 
-     * constraint to reflect the wishes of the patient.</p><p>Taboo 
-     * allows the provider to request restricted access to patient 
-     * or their care giver.</p><p>Constraint: Can'''t have both 
-     * normal and one of the other codes simultaneously.</p><p>The 
-     * attribute is required because even if a jurisdiction doesn't 
-     * support masking on the way in, it will need to need to 
-     * communicate masked data returned from other 
-     * jurisdictions.</p></p>
-     * 
-     * <p><p>Provides support for additional confidentiality 
-     * constraint to reflect the wishes of the patient.</p><p>Taboo 
-     * allows the provider to request restricted access to patient 
-     * or their care giver.</p><p>Constraint: Can'''t have both 
-     * normal and one of the other codes simultaneously.</p><p>The 
-     * attribute is required because even if a jurisdiction doesn't 
-     * support masking on the way in, it will need to need to 
-     * communicate masked data returned from other 
-     * jurisdictions.</p></p>
-     * 
-     * <p><p>Provides support for additional confidentiality 
-     * constraint to reflect the wishes of the patient.</p><p>Taboo 
-     * allows the provider to request restricted access to patient 
-     * or their care giver.</p><p>Constraint: Can'''t have both 
-     * normal and one of the other codes simultaneously.</p><p>The 
-     * attribute is required because even if a jurisdiction doesn't 
-     * support masking on the way in, it will need to need to 
-     * communicate masked data returned from other 
-     * jurisdictions.</p></p>
-     */
-    @Hl7XmlMapping({"confidentialityCode"})
-    public Set<x_BasicConfidentialityKind> getAllergyIntoleranceMaskingIndicators() {
-        return this.allergyIntoleranceMaskingIndicators.rawSet(x_BasicConfidentialityKind.class);
-    }
-
-
-    @Hl7XmlMapping({"author"})
-    public RefusedByBean getAuthor() {
-        return this.author;
-    }
-    public void setAuthor(RefusedByBean author) {
-        this.author = author;
-    }
+    private RefusedByBean author;
+    private List<Records> supportRecords = new ArrayList<Records>();
+    private HealthcareWorkerBean responsiblePartyAssignedEntity;
+    private BL allergyIntoleranceRefuted = new BLImpl();
+    private SET<CV, Code> allergyIntoleranceMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);
+    private CS allergyIntoleranceStatus = new CSImpl();
+    private TS allergyIntoleranceDate = new TSImpl();
 
 
     @Hl7XmlMapping({"subjectOf3/annotationIndicator"})
@@ -281,22 +102,96 @@ public class AllergyIntoleranceBean extends MessagePartBean implements ca.infowa
 
 
     /**
-     * <p>AllergyIntoleranceDate</p>
+     * <p>Agent</p>
      * 
-     * <p>I:Allergy/Intolerance Date</p>
+     * <p>B:Agent</p>
      * 
-     * <p><p>The date on which the recorded allergy is considered 
-     * active.</p></p>
+     * <p><p>Value is mandatory if not using SNOMED</p></p>
      * 
-     * <p><p>Allows providers to evaluate the period of relevance 
-     * for the allergy/intolerance record.</p></p>
+     * <p><p>Indicates the substance to which the patient is 
+     * allergic</p></p>
+     * 
+     * <p><p>Critical for identifying the allergy or intolerance. 
+     * Because it is not used for SNOMED, this element is 
+     * optional.</p></p>
+     * 
+     * <p>B:Agent</p>
+     * 
+     * <p><p>Value is mandatory if not using SNOMED</p></p>
+     * 
+     * <p><p>Indicates the substance to which the patient is 
+     * allergic</p></p>
+     * 
+     * <p><p>Critical for identifying the allergy or intolerance. 
+     * However, because the attribute is not used for SNOMED, it is 
+     * optional.</p></p>
      */
-    @Hl7XmlMapping({"effectiveTime"})
-    public Date getAllergyIntoleranceDate() {
-        return this.allergyIntoleranceDate.getValue();
+    @Hl7XmlMapping({"value"})
+    public IntoleranceValue getAgent() {
+        return (IntoleranceValue) this.agent.getValue();
     }
-    public void setAllergyIntoleranceDate(Date allergyIntoleranceDate) {
-        this.allergyIntoleranceDate.setValue(allergyIntoleranceDate);
+    public void setAgent(IntoleranceValue agent) {
+        this.agent.setValue(agent);
+    }
+
+
+    @Hl7XmlMapping({"informant"})
+    public ReportedByBean getInformant() {
+        return this.informant;
+    }
+    public void setInformant(ReportedByBean informant) {
+        this.informant = informant;
+    }
+
+
+    @Hl7XmlMapping({"componentOf/patientCareProvisionEvent"})
+    public List<CareCompositionsBean> getComponentOfPatientCareProvisionEvent() {
+        return this.componentOfPatientCareProvisionEvent;
+    }
+
+
+    @Hl7XmlMapping({"subjectOf/severityObservation","subjectOf1/severityObservation","subjectOf2/severityObservation"})
+    @Hl7MapByPartTypes({
+        @Hl7MapByPartType(name="subjectOf", type="REPC_MT000013CA.Subject1"),
+        @Hl7MapByPartType(name="subjectOf/severityObservation", type="REPC_MT000013CA.SeverityObservation"),
+        @Hl7MapByPartType(name="subjectOf1", type="REPC_MT000005CA.Subject1"),
+        @Hl7MapByPartType(name="subjectOf1/severityObservation", type="REPC_MT000005CA.SeverityObservation"),
+        @Hl7MapByPartType(name="subjectOf2", type="REPC_MT000001CA.Subject1"),
+        @Hl7MapByPartType(name="subjectOf2/severityObservation", type="REPC_MT000001CA.SeverityObservation")})
+    public AllergyIntoleranceSeverityLevelBean getSubjectOfSeverityObservation() {
+        return this.subjectOfSeverityObservation;
+    }
+    public void setSubjectOfSeverityObservation(AllergyIntoleranceSeverityLevelBean subjectOfSeverityObservation) {
+        this.subjectOfSeverityObservation = subjectOfSeverityObservation;
+    }
+
+
+    /**
+     * <p>AllergyIntoleranceRecordId</p>
+     * 
+     * <p>D:Allergy/Intolerance Record Id</p>
+     * 
+     * <p><p>Unique identifier for an allergy/intolerance 
+     * record.</p></p>
+     * 
+     * <p><p>Allows for direct referencing of an 
+     * allergy/intolerance record when querying or performing 
+     * updates and is therefore mandatory.</p></p>
+     * 
+     * <p>D:Allergy/Intolerance Record Id</p>
+     * 
+     * <p><p>Unique identifier for an allergy/intolerance 
+     * record.</p></p>
+     * 
+     * <p><p>Indicates the allergy or intolerance record to be 
+     * updated and is therefore mandatory.</p></p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Identifier getAllergyIntoleranceRecordId() {
+        return this.allergyIntoleranceRecordId.getValue();
+    }
+    public void setAllergyIntoleranceRecordId(Identifier allergyIntoleranceRecordId) {
+        this.allergyIntoleranceRecordId.setValue(allergyIntoleranceRecordId);
     }
 
 
@@ -632,70 +527,6 @@ public class AllergyIntoleranceBean extends MessagePartBean implements ca.infowa
     }
 
 
-    /**
-     * <p>Agent</p>
-     * 
-     * <p>B:Agent</p>
-     * 
-     * <p><p>Value is mandatory if not using SNOMED</p></p>
-     * 
-     * <p><p>Indicates the substance to which the patient is 
-     * allergic</p></p>
-     * 
-     * <p><p>Critical for identifying the allergy or intolerance. 
-     * Because it is not used for SNOMED, this element is 
-     * optional.</p></p>
-     * 
-     * <p>B:Agent</p>
-     * 
-     * <p><p>Value is mandatory if not using SNOMED</p></p>
-     * 
-     * <p><p>Indicates the substance to which the patient is 
-     * allergic</p></p>
-     * 
-     * <p><p>Critical for identifying the allergy or intolerance. 
-     * However, because the attribute is not used for SNOMED, it is 
-     * optional.</p></p>
-     */
-    @Hl7XmlMapping({"value"})
-    public IntoleranceValue getAgent() {
-        return (IntoleranceValue) this.agent.getValue();
-    }
-    public void setAgent(IntoleranceValue agent) {
-        this.agent.setValue(agent);
-    }
-
-
-    @Hl7XmlMapping({"responsibleParty/assignedEntity"})
-    public HealthcareWorkerBean getResponsiblePartyAssignedEntity() {
-        return this.responsiblePartyAssignedEntity;
-    }
-    public void setResponsiblePartyAssignedEntity(HealthcareWorkerBean responsiblePartyAssignedEntity) {
-        this.responsiblePartyAssignedEntity = responsiblePartyAssignedEntity;
-    }
-
-
-    @Hl7XmlMapping({"informant"})
-    public ReportedByBean getInformant() {
-        return this.informant;
-    }
-    public void setInformant(ReportedByBean informant) {
-        this.informant = informant;
-    }
-
-
-    @Hl7XmlMapping({"support/records"})
-    public List<Records> getSupportRecords() {
-        return this.supportRecords;
-    }
-
-
-    @Hl7XmlMapping({"componentOf/patientCareProvisionEvent"})
-    public List<CareCompositionsBean> getComponentOfPatientCareProvisionEvent() {
-        return this.componentOfPatientCareProvisionEvent;
-    }
-
-
     @Hl7XmlMapping({"subjectOf1","subjectOf2"})
     @Hl7MapByPartTypes({
         @Hl7MapByPartType(name="subjectOf1", type="REPC_MT000001CA.Subject3"),
@@ -708,19 +539,206 @@ public class AllergyIntoleranceBean extends MessagePartBean implements ca.infowa
     }
 
 
-    @Hl7XmlMapping({"subjectOf/severityObservation","subjectOf1/severityObservation","subjectOf2/severityObservation"})
-    @Hl7MapByPartTypes({
-        @Hl7MapByPartType(name="subjectOf", type="REPC_MT000013CA.Subject1"),
-        @Hl7MapByPartType(name="subjectOf/severityObservation", type="REPC_MT000013CA.SeverityObservation"),
-        @Hl7MapByPartType(name="subjectOf1", type="REPC_MT000005CA.Subject1"),
-        @Hl7MapByPartType(name="subjectOf1/severityObservation", type="REPC_MT000005CA.SeverityObservation"),
-        @Hl7MapByPartType(name="subjectOf2", type="REPC_MT000001CA.Subject1"),
-        @Hl7MapByPartType(name="subjectOf2/severityObservation", type="REPC_MT000001CA.SeverityObservation")})
-    public AllergyIntoleranceSeverityLevelBean getSubjectOfSeverityObservation() {
-        return this.subjectOfSeverityObservation;
+    @Hl7XmlMapping({"location"})
+    public OccurredAtBean getLocation() {
+        return this.location;
     }
-    public void setSubjectOfSeverityObservation(AllergyIntoleranceSeverityLevelBean subjectOfSeverityObservation) {
-        this.subjectOfSeverityObservation = subjectOfSeverityObservation;
+    public void setLocation(OccurredAtBean location) {
+        this.location = location;
+    }
+
+
+    @Hl7XmlMapping({"author"})
+    public RefusedByBean getAuthor() {
+        return this.author;
+    }
+    public void setAuthor(RefusedByBean author) {
+        this.author = author;
+    }
+
+
+    @Hl7XmlMapping({"support/records"})
+    public List<Records> getSupportRecords() {
+        return this.supportRecords;
+    }
+
+
+    @Hl7XmlMapping({"responsibleParty/assignedEntity"})
+    public HealthcareWorkerBean getResponsiblePartyAssignedEntity() {
+        return this.responsiblePartyAssignedEntity;
+    }
+    public void setResponsiblePartyAssignedEntity(HealthcareWorkerBean responsiblePartyAssignedEntity) {
+        this.responsiblePartyAssignedEntity = responsiblePartyAssignedEntity;
+    }
+
+
+    /**
+     * <p>AllergyIntoleranceRefuted</p>
+     * 
+     * <p>G:Allergy/Intolerance Refuted</p>
+     * 
+     * <p><p>An indication that the allergy/intolerance has been 
+     * refuted. I.e. A clinician has positively determined that the 
+     * patient does not suffer from a particular allergy or 
+     * intolerance.</p></p>
+     * 
+     * <p><p>Allows providers to refute a previously confirmed or 
+     * suspected allergy. The attribute is mandatory because it is 
+     * critical to know whether the record represents the 
+     * refutation or affirmation of an allergy or intolerance.</p></p>
+     * 
+     * <p>G:Allergy/Intolerance Refuted</p>
+     * 
+     * <p><p>An indication that the allergy/intolerance has been 
+     * refuted. I.e. A clinician has positively determined that the 
+     * patient does not suffer from a particular allergy or 
+     * intolerance.</p></p>
+     * 
+     * <p><p>Allows providers to refute a previously confirmed or 
+     * suspected allergy. The attribute is mandatory because it is 
+     * essential to know whether a record is refuted or not.</p></p>
+     * 
+     * <p>G:Allergy/Intolerance Refuted</p>
+     * 
+     * <p><p>An indication that the allergy/intolerance has been 
+     * refuted. I.e. A clinician has positively determined that the 
+     * patient does not suffer from a particular allergy or 
+     * intolerance.</p></p>
+     * 
+     * <p><p>Allows providers to refute a previously confirmed or 
+     * suspected allergy. Because it is essential to know whether 
+     * the allergy or intolerance is being refuted or affirmed, 
+     * this attribute is mandatory.</p></p>
+     */
+    @Hl7XmlMapping({"negationInd"})
+    public Boolean getAllergyIntoleranceRefuted() {
+        return this.allergyIntoleranceRefuted.getValue();
+    }
+    public void setAllergyIntoleranceRefuted(Boolean allergyIntoleranceRefuted) {
+        this.allergyIntoleranceRefuted.setValue(allergyIntoleranceRefuted);
+    }
+
+
+    /**
+     * <p>AllergyIntoleranceMaskingIndicators</p>
+     * 
+     * <p>H:Allergy/Intolerance Masking Indicators</p>
+     * 
+     * <p><p>Communicates the desire of the patient to restrict 
+     * access to this Health Condition record. Provides support for 
+     * additional confidentiality constraint, giving patients a 
+     * level of control over their information. Methods for 
+     * accessing masked event records will be governed by each 
+     * jurisdiction (e.g. court orders, shared secret/consent, 
+     * etc.). Can also be used to communicate that the information 
+     * is deemed to be sensitive and should not be communicated or 
+     * exposed to the patient (at least without the guidance of the 
+     * authoring or other responsible healthcare provider). Valid 
+     * values are: 'normal' (denotes 'Not Masked'); 'restricted' 
+     * (denotes 'Masked'); '''very restricted''' (denotes '''Masked 
+     * by Regulation'''); and 'taboo' (denotes 'patient 
+     * restricted'). The default is 'normal' signifying 'Not 
+     * Masked'. Either or both of the other codes can be asserted 
+     * to indicate masking by the patient from providers or masking 
+     * by a provider from the patient, respectively. 'normal' 
+     * should never be asserted with one of the other codes.</p></p>
+     * 
+     * <p><p>Provides support for additional confidentiality 
+     * constraint to reflect the wishes of the patient.</p><p>Taboo 
+     * allows the provider to request restricted access to patient 
+     * or their care giver.</p><p>Constraint: Can'''t have both 
+     * normal and one of the other codes simultaneously.</p><p>The 
+     * attribute is optional because not all systems will support 
+     * masking.</p></p>
+     * 
+     * <p><p>Provides support for additional confidentiality 
+     * constraint to reflect the wishes of the patient.</p><p>Taboo 
+     * allows the provider to request restricted access to patient 
+     * or their care giver.</p><p>Constraint: Can'''t have both 
+     * normal and one of the other codes simultaneously.</p><p>The 
+     * attribute is optional because not all systems will support 
+     * masking.</p></p>
+     * 
+     * <p><p>Provides support for additional confidentiality 
+     * constraint to reflect the wishes of the patient.</p><p>Taboo 
+     * allows the provider to request restricted access to patient 
+     * or their care giver.</p><p>Constraint: Can'''t have both 
+     * normal and one of the other codes simultaneously.</p><p>The 
+     * attribute is optional because not all systems will support 
+     * masking.</p></p>
+     * 
+     * <p><p>Provides support for additional confidentiality 
+     * constraint to reflect the wishes of the patient.</p><p>Taboo 
+     * allows the provider to request restricted access to patient 
+     * or their care giver.</p><p>Constraint: Can'''t have both 
+     * normal and one of the other codes simultaneously.</p><p>The 
+     * attribute is optional because not all systems will support 
+     * masking.</p></p>
+     * 
+     * <p>H:Allergy/Intolerance Masking Indicators</p>
+     * 
+     * <p><p>Communicates the desire of the patient to restrict 
+     * access to this Health Condition record. Provides support for 
+     * additional confidentiality constraint, giving patients a 
+     * level of control over their information. Methods for 
+     * accessing masked event records will be governed by each 
+     * jurisdiction (e.g. court orders, shared secret/consent, 
+     * etc.). Can also be used to communicate that the information 
+     * is deemed to be sensitive and should not be communicated or 
+     * exposed to the patient (at least without the guidance of the 
+     * authoring or other responsible healthcare provider). Valid 
+     * values are: 'normal' (denotes 'Not Masked'); 'restricted' 
+     * (denotes 'Masked'); '''very restricted''' (denotes '''Masked 
+     * by Regulation'''); and 'taboo' (denotes 'patient 
+     * restricted'). The default is 'normal' signifying 'Not 
+     * Masked'. Either or both of the other codes can be asserted 
+     * to indicate masking by the patient from providers or masking 
+     * by a provider from the patient, respectively. 'normal' 
+     * should never be asserted with one of the other codes.</p></p>
+     * 
+     * <p><p>Provides support for additional confidentiality 
+     * constraint to reflect the wishes of the patient.</p><p>Taboo 
+     * allows the provider to request restricted access to patient 
+     * or their care giver.</p><p>Constraint: Can'''t have both 
+     * normal and one of the other codes simultaneously.</p><p>The 
+     * attribute is required because even if a jurisdiction doesn't 
+     * support masking on the way in, it will need to need to 
+     * communicate masked data returned from other 
+     * jurisdictions.</p></p>
+     * 
+     * <p><p>Provides support for additional confidentiality 
+     * constraint to reflect the wishes of the patient.</p><p>Taboo 
+     * allows the provider to request restricted access to patient 
+     * or their care giver.</p><p>Constraint: Can'''t have both 
+     * normal and one of the other codes simultaneously.</p><p>The 
+     * attribute is required because even if a jurisdiction doesn't 
+     * support masking on the way in, it will need to need to 
+     * communicate masked data returned from other 
+     * jurisdictions.</p></p>
+     * 
+     * <p><p>Provides support for additional confidentiality 
+     * constraint to reflect the wishes of the patient.</p><p>Taboo 
+     * allows the provider to request restricted access to patient 
+     * or their care giver.</p><p>Constraint: Can'''t have both 
+     * normal and one of the other codes simultaneously.</p><p>The 
+     * attribute is required because even if a jurisdiction doesn't 
+     * support masking on the way in, it will need to need to 
+     * communicate masked data returned from other 
+     * jurisdictions.</p></p>
+     * 
+     * <p><p>Provides support for additional confidentiality 
+     * constraint to reflect the wishes of the patient.</p><p>Taboo 
+     * allows the provider to request restricted access to patient 
+     * or their care giver.</p><p>Constraint: Can'''t have both 
+     * normal and one of the other codes simultaneously.</p><p>The 
+     * attribute is required because even if a jurisdiction doesn't 
+     * support masking on the way in, it will need to need to 
+     * communicate masked data returned from other 
+     * jurisdictions.</p></p>
+     */
+    @Hl7XmlMapping({"confidentialityCode"})
+    public Set<x_BasicConfidentialityKind> getAllergyIntoleranceMaskingIndicators() {
+        return this.allergyIntoleranceMaskingIndicators.rawSet(x_BasicConfidentialityKind.class);
     }
 
 
@@ -760,41 +778,23 @@ public class AllergyIntoleranceBean extends MessagePartBean implements ca.infowa
     }
 
 
-    @Hl7XmlMapping({"location"})
-    public OccurredAtBean getLocation() {
-        return this.location;
-    }
-    public void setLocation(OccurredAtBean location) {
-        this.location = location;
-    }
-
-
     /**
-     * <p>AllergyIntoleranceRecordId</p>
+     * <p>AllergyIntoleranceDate</p>
      * 
-     * <p>D:Allergy/Intolerance Record Id</p>
+     * <p>I:Allergy/Intolerance Date</p>
      * 
-     * <p><p>Unique identifier for an allergy/intolerance 
-     * record.</p></p>
+     * <p><p>The date on which the recorded allergy is considered 
+     * active.</p></p>
      * 
-     * <p><p>Allows for direct referencing of an 
-     * allergy/intolerance record when querying or performing 
-     * updates and is therefore mandatory.</p></p>
-     * 
-     * <p>D:Allergy/Intolerance Record Id</p>
-     * 
-     * <p><p>Unique identifier for an allergy/intolerance 
-     * record.</p></p>
-     * 
-     * <p><p>Indicates the allergy or intolerance record to be 
-     * updated and is therefore mandatory.</p></p>
+     * <p><p>Allows providers to evaluate the period of relevance 
+     * for the allergy/intolerance record.</p></p>
      */
-    @Hl7XmlMapping({"id"})
-    public Identifier getAllergyIntoleranceRecordId() {
-        return this.allergyIntoleranceRecordId.getValue();
+    @Hl7XmlMapping({"effectiveTime"})
+    public Date getAllergyIntoleranceDate() {
+        return this.allergyIntoleranceDate.getValue();
     }
-    public void setAllergyIntoleranceRecordId(Identifier allergyIntoleranceRecordId) {
-        this.allergyIntoleranceRecordId.setValue(allergyIntoleranceRecordId);
+    public void setAllergyIntoleranceDate(Date allergyIntoleranceDate) {
+        this.allergyIntoleranceDate.setValue(allergyIntoleranceDate);
     }
 
 }

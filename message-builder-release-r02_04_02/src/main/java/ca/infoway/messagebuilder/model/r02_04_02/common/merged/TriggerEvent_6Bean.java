@@ -65,41 +65,18 @@ import java.util.List;
 public class TriggerEvent_6Bean<ACT,PL> extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private QueryByParameterBean<PL> queryByParameter;
-    private CE messageLanguage = new CEImpl();
     private CV eventType = new CVImpl();
-    private ConsentBean subjectOf2ConsentEvent;
-    private List<RefersTo_1Bean<ACT>> subject = new ArrayList<RefersTo_1Bean<ACT>>();
-    private List<IssuesBean> subjectOf1DetectedIssueEvent = new ArrayList<IssuesBean>();
+    private QueryByParameterBean<PL> queryByParameter;
     private CV eventReason = new CVImpl();
-    private IVL<TS, Interval<Date>> eventEffectivePeriod = new IVLImpl<TS, Interval<Date>>();
-    private II eventIdentifier = new IIImpl();
     private QueryAckBean queryAck;
-    private List<CareCompositionsBean> componentOfPatientCareProvisionEvent = new ArrayList<CareCompositionsBean>();
+    private List<IssuesBean> subjectOf1DetectedIssueEvent = new ArrayList<IssuesBean>();
+    private CE messageLanguage = new CEImpl();
+    private List<RefersTo_1Bean<ACT>> subject = new ArrayList<RefersTo_1Bean<ACT>>();
+    private ConsentBean subjectOf2ConsentEvent;
+    private II eventIdentifier = new IIImpl();
+    private IVL<TS, Interval<Date>> eventEffectivePeriod = new IVLImpl<TS, Interval<Date>>();
     private Patient recordTargetPatient1;
-
-
-    @Hl7XmlMapping({"queryByParameter"})
-    public QueryByParameterBean<PL> getQueryByParameter() {
-        return this.queryByParameter;
-    }
-    public void setQueryByParameter(QueryByParameterBean<PL> queryByParameter) {
-        this.queryByParameter = queryByParameter;
-    }
-
-
-    /**
-     * <p>MessageLanguage</p>
-     * 
-     * <p>Message Language</p>
-     */
-    @Hl7XmlMapping({"languageCode"})
-    public HumanLanguage getMessageLanguage() {
-        return (HumanLanguage) this.messageLanguage.getValue();
-    }
-    public void setMessageLanguage(HumanLanguage messageLanguage) {
-        this.messageLanguage.setValue(messageLanguage);
-    }
+    private List<CareCompositionsBean> componentOfPatientCareProvisionEvent = new ArrayList<CareCompositionsBean>();
 
 
     /**
@@ -121,24 +98,12 @@ public class TriggerEvent_6Bean<ACT,PL> extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"subjectOf2/consentEvent"})
-    public ConsentBean getSubjectOf2ConsentEvent() {
-        return this.subjectOf2ConsentEvent;
+    @Hl7XmlMapping({"queryByParameter"})
+    public QueryByParameterBean<PL> getQueryByParameter() {
+        return this.queryByParameter;
     }
-    public void setSubjectOf2ConsentEvent(ConsentBean subjectOf2ConsentEvent) {
-        this.subjectOf2ConsentEvent = subjectOf2ConsentEvent;
-    }
-
-
-    @Hl7XmlMapping({"subject"})
-    public List<RefersTo_1Bean<ACT>> getSubject() {
-        return this.subject;
-    }
-
-
-    @Hl7XmlMapping({"subjectOf1/detectedIssueEvent"})
-    public List<IssuesBean> getSubjectOf1DetectedIssueEvent() {
-        return this.subjectOf1DetectedIssueEvent;
+    public void setQueryByParameter(QueryByParameterBean<PL> queryByParameter) {
+        this.queryByParameter = queryByParameter;
     }
 
 
@@ -168,26 +133,47 @@ public class TriggerEvent_6Bean<ACT,PL> extends MessagePartBean {
     }
 
 
-    /**
-     * <p>EventEffectivePeriod</p>
-     * 
-     * <p>C:Event Effective Period</p>
-     * 
-     * <p><p>Indicates the time the event (e.g. query, change, 
-     * activation) should begin and occasionally when it should 
-     * end.</p></p>
-     * 
-     * <p><p>The time an event becomes effective may differ from 
-     * the time the event is recorded (i.e. it may be in the future 
-     * or the past). For events such as 'suspend', an intended end 
-     * date may also be indicated.</p></p>
-     */
-    @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getEventEffectivePeriod() {
-        return this.eventEffectivePeriod.getValue();
+    @Hl7XmlMapping({"queryAck"})
+    public QueryAckBean getQueryAck() {
+        return this.queryAck;
     }
-    public void setEventEffectivePeriod(Interval<Date> eventEffectivePeriod) {
-        this.eventEffectivePeriod.setValue(eventEffectivePeriod);
+    public void setQueryAck(QueryAckBean queryAck) {
+        this.queryAck = queryAck;
+    }
+
+
+    @Hl7XmlMapping({"subjectOf1/detectedIssueEvent"})
+    public List<IssuesBean> getSubjectOf1DetectedIssueEvent() {
+        return this.subjectOf1DetectedIssueEvent;
+    }
+
+
+    /**
+     * <p>MessageLanguage</p>
+     * 
+     * <p>Message Language</p>
+     */
+    @Hl7XmlMapping({"languageCode"})
+    public HumanLanguage getMessageLanguage() {
+        return (HumanLanguage) this.messageLanguage.getValue();
+    }
+    public void setMessageLanguage(HumanLanguage messageLanguage) {
+        this.messageLanguage.setValue(messageLanguage);
+    }
+
+
+    @Hl7XmlMapping({"subject"})
+    public List<RefersTo_1Bean<ACT>> getSubject() {
+        return this.subject;
+    }
+
+
+    @Hl7XmlMapping({"subjectOf2/consentEvent"})
+    public ConsentBean getSubjectOf2ConsentEvent() {
+        return this.subjectOf2ConsentEvent;
+    }
+    public void setSubjectOf2ConsentEvent(ConsentBean subjectOf2ConsentEvent) {
+        this.subjectOf2ConsentEvent = subjectOf2ConsentEvent;
     }
 
 
@@ -219,18 +205,26 @@ public class TriggerEvent_6Bean<ACT,PL> extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"queryAck"})
-    public QueryAckBean getQueryAck() {
-        return this.queryAck;
+    /**
+     * <p>EventEffectivePeriod</p>
+     * 
+     * <p>C:Event Effective Period</p>
+     * 
+     * <p><p>Indicates the time the event (e.g. query, change, 
+     * activation) should begin and occasionally when it should 
+     * end.</p></p>
+     * 
+     * <p><p>The time an event becomes effective may differ from 
+     * the time the event is recorded (i.e. it may be in the future 
+     * or the past). For events such as 'suspend', an intended end 
+     * date may also be indicated.</p></p>
+     */
+    @Hl7XmlMapping({"effectiveTime"})
+    public Interval<Date> getEventEffectivePeriod() {
+        return this.eventEffectivePeriod.getValue();
     }
-    public void setQueryAck(QueryAckBean queryAck) {
-        this.queryAck = queryAck;
-    }
-
-
-    @Hl7XmlMapping({"componentOf/patientCareProvisionEvent"})
-    public List<CareCompositionsBean> getComponentOfPatientCareProvisionEvent() {
-        return this.componentOfPatientCareProvisionEvent;
+    public void setEventEffectivePeriod(Interval<Date> eventEffectivePeriod) {
+        this.eventEffectivePeriod.setValue(eventEffectivePeriod);
     }
 
 
@@ -261,6 +255,12 @@ public class TriggerEvent_6Bean<ACT,PL> extends MessagePartBean {
     }
     public boolean hasRecordTargetPatient1AsPatient3() {
         return (this.recordTargetPatient1 instanceof Patient_1Bean);
+    }
+
+
+    @Hl7XmlMapping({"componentOf/patientCareProvisionEvent"})
+    public List<CareCompositionsBean> getComponentOfPatientCareProvisionEvent() {
+        return this.componentOfPatientCareProvisionEvent;
     }
 
 }

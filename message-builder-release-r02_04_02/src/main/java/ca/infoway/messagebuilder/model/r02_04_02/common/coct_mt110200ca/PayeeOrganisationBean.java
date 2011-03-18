@@ -22,8 +22,8 @@ public class PayeeOrganisationBean extends MessagePartBean implements PayeeChoic
 
     private static final long serialVersionUID = 20110318L;
     private ST payeeOrganisationName = new STImpl();
-    private PayeeRelationshipRoleBean asRole;
     private AD payeeOrganisationAddress = new ADImpl();
+    private PayeeRelationshipRoleBean asRole;
 
 
     /**
@@ -40,15 +40,6 @@ public class PayeeOrganisationBean extends MessagePartBean implements PayeeChoic
     }
 
 
-    @Hl7XmlMapping({"asRole"})
-    public PayeeRelationshipRoleBean getAsRole() {
-        return this.asRole;
-    }
-    public void setAsRole(PayeeRelationshipRoleBean asRole) {
-        this.asRole = asRole;
-    }
-
-
     /**
      * <p>Payee Organisation address</p>
      */
@@ -58,6 +49,15 @@ public class PayeeOrganisationBean extends MessagePartBean implements PayeeChoic
     }
     public void setPayeeOrganisationAddress(PostalAddress payeeOrganisationAddress) {
         this.payeeOrganisationAddress.setValue(payeeOrganisationAddress);
+    }
+
+
+    @Hl7XmlMapping({"asRole"})
+    public PayeeRelationshipRoleBean getAsRole() {
+        return this.asRole;
+    }
+    public void setAsRole(PayeeRelationshipRoleBean asRole) {
+        this.asRole = asRole;
     }
 
 }

@@ -28,21 +28,15 @@ import java.util.List;
 public class MedicationBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private List<MonographsBean> subjectOf1Document = new ArrayList<MonographsBean>();
     private List<RecommendedAdministrationInstructionsBean> consumedInAdministrationGuideline = new ArrayList<RecommendedAdministrationInstructionsBean>();
-    private List<MonitoringProgramsBean> subjectOf2MonitoringProgram = new ArrayList<MonitoringProgramsBean>();
-    private DrugHalfLifeBean subjectOf5HalfLife;
     private List<AppearanceCharacteristicsBean> subjectOf3Characteristic = new ArrayList<AppearanceCharacteristicsBean>();
-    private List<FormulariesBean> productOf2PotentialSupply = new ArrayList<FormulariesBean>();
     private DispenseInformationBean productOf1DispenseGuidelines;
     private DrugOrCompoundBean administerableMedicine;
     private DrugCostBean subjectOf4PotentialCharge;
-
-
-    @Hl7XmlMapping({"subjectOf1/document"})
-    public List<MonographsBean> getSubjectOf1Document() {
-        return this.subjectOf1Document;
-    }
+    private List<MonographsBean> subjectOf1Document = new ArrayList<MonographsBean>();
+    private List<MonitoringProgramsBean> subjectOf2MonitoringProgram = new ArrayList<MonitoringProgramsBean>();
+    private DrugHalfLifeBean subjectOf5HalfLife;
+    private List<FormulariesBean> productOf2PotentialSupply = new ArrayList<FormulariesBean>();
 
 
     @Hl7XmlMapping({"consumedIn/administrationGuideline"})
@@ -51,30 +45,9 @@ public class MedicationBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"subjectOf2/monitoringProgram"})
-    public List<MonitoringProgramsBean> getSubjectOf2MonitoringProgram() {
-        return this.subjectOf2MonitoringProgram;
-    }
-
-
-    @Hl7XmlMapping({"subjectOf5/halfLife"})
-    public DrugHalfLifeBean getSubjectOf5HalfLife() {
-        return this.subjectOf5HalfLife;
-    }
-    public void setSubjectOf5HalfLife(DrugHalfLifeBean subjectOf5HalfLife) {
-        this.subjectOf5HalfLife = subjectOf5HalfLife;
-    }
-
-
     @Hl7XmlMapping({"subjectOf3/characteristic"})
     public List<AppearanceCharacteristicsBean> getSubjectOf3Characteristic() {
         return this.subjectOf3Characteristic;
-    }
-
-
-    @Hl7XmlMapping({"productOf2/potentialSupply"})
-    public List<FormulariesBean> getProductOf2PotentialSupply() {
-        return this.productOf2PotentialSupply;
     }
 
 
@@ -102,6 +75,33 @@ public class MedicationBean extends MessagePartBean {
     }
     public void setSubjectOf4PotentialCharge(DrugCostBean subjectOf4PotentialCharge) {
         this.subjectOf4PotentialCharge = subjectOf4PotentialCharge;
+    }
+
+
+    @Hl7XmlMapping({"subjectOf1/document"})
+    public List<MonographsBean> getSubjectOf1Document() {
+        return this.subjectOf1Document;
+    }
+
+
+    @Hl7XmlMapping({"subjectOf2/monitoringProgram"})
+    public List<MonitoringProgramsBean> getSubjectOf2MonitoringProgram() {
+        return this.subjectOf2MonitoringProgram;
+    }
+
+
+    @Hl7XmlMapping({"subjectOf5/halfLife"})
+    public DrugHalfLifeBean getSubjectOf5HalfLife() {
+        return this.subjectOf5HalfLife;
+    }
+    public void setSubjectOf5HalfLife(DrugHalfLifeBean subjectOf5HalfLife) {
+        this.subjectOf5HalfLife = subjectOf5HalfLife;
+    }
+
+
+    @Hl7XmlMapping({"productOf2/potentialSupply"})
+    public List<FormulariesBean> getProductOf2PotentialSupply() {
+        return this.productOf2PotentialSupply;
     }
 
 }

@@ -30,7 +30,9 @@ import ca.infoway.messagebuilder.domainvalue.x_BasicConfidentialityKind;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.r02_04_02.claims.ficr_mt490102ca.MedicationBean;
 import ca.infoway.messagebuilder.model.r02_04_02.common.coct_mt220100ca.DrugProductBean;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Set;
 
 
@@ -58,11 +60,11 @@ public class ActiveMedicationBean extends MessagePartBean implements ca.infoway.
     private MedicineBean directTargetMedicationAdministerableMedicine;
     private CD administrationType = new CDImpl();
     private CS otherMedicationIndicator = new CSImpl();
-    private CS activeMedicationStatus = new CSImpl();
-    private SET<CV, Code> activeMedicationMaskingIndicator = new SETImpl<CV, Code>(CVImpl.class);
-    private IVL<TS, Interval<Date>> activeMedicationTimeRange = new IVLImpl<TS, Interval<Date>>();
     private DrugProductBean consumableMedication;
+    private SET<CV, Code> activeMedicationMaskingIndicator = new SETImpl<CV, Code>(CVImpl.class);
+    private CS activeMedicationStatus = new CSImpl();
     private II activeMedicationRecordNumber = new IIImpl();
+    private IVL<TS, Interval<Date>> activeMedicationTimeRange = new IVLImpl<TS, Interval<Date>>();
 
 
     /**
@@ -170,30 +172,12 @@ public class ActiveMedicationBean extends MessagePartBean implements ca.infoway.
     }
 
 
-    /**
-     * <p>ActiveMedicationStatus</p>
-     * 
-     * <p>B:Active Medication Status</p>
-     * 
-     * <p>B:Active Medication Status</p>
-     * 
-     * <p><p>Indicates the status of the medication record at the 
-     * time of the issue.</p></p>
-     * 
-     * <p><p>ZPB3.8 (aborted = discontinued; nullified = 
-     * reversed/system reversed; active=filled/not-filled)</p></p>
-     * 
-     * <p><p>Used to determine the relevance of the issue and the 
-     * need to manage it. For example, if the medication is on 
-     * hold, it may be less of an issue than if it is being 
-     * actively taken.</p></p>
-     */
-    @Hl7XmlMapping({"statusCode"})
-    public ActStatus getActiveMedicationStatus() {
-        return (ActStatus) this.activeMedicationStatus.getValue();
+    @Hl7XmlMapping({"consumable/medication"})
+    public DrugProductBean getConsumableMedication() {
+        return this.consumableMedication;
     }
-    public void setActiveMedicationStatus(ActStatus activeMedicationStatus) {
-        this.activeMedicationStatus.setValue(activeMedicationStatus);
+    public void setConsumableMedication(DrugProductBean consumableMedication) {
+        this.consumableMedication = consumableMedication;
     }
 
 
@@ -223,35 +207,29 @@ public class ActiveMedicationBean extends MessagePartBean implements ca.infoway.
 
 
     /**
-     * <p>ActiveMedicationTimeRange</p>
+     * <p>ActiveMedicationStatus</p>
      * 
-     * <p>C:Active Medication Time-range</p>
+     * <p>B:Active Medication Status</p>
      * 
-     * <p><p>The date and time during which the patient is expected 
-     * to be taking the drug which triggered the issue.</p></p>
+     * <p>B:Active Medication Status</p>
      * 
-     * <p><p>Requested Duration</p></p>
+     * <p><p>Indicates the status of the medication record at the 
+     * time of the issue.</p></p>
      * 
-     * <p><p>Allows the provider to evaluate '''duplicate 
-     * therapy''' and similar timing-based issues.</p></p>
+     * <p><p>ZPB3.8 (aborted = discontinued; nullified = 
+     * reversed/system reversed; active=filled/not-filled)</p></p>
      * 
-     * <p>C:Active Medication Time-range</p>
+     * <p><p>Used to determine the relevance of the issue and the 
+     * need to manage it. For example, if the medication is on 
+     * hold, it may be less of an issue than if it is being 
+     * actively taken.</p></p>
      */
-    @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getActiveMedicationTimeRange() {
-        return this.activeMedicationTimeRange.getValue();
+    @Hl7XmlMapping({"statusCode"})
+    public ActStatus getActiveMedicationStatus() {
+        return (ActStatus) this.activeMedicationStatus.getValue();
     }
-    public void setActiveMedicationTimeRange(Interval<Date> activeMedicationTimeRange) {
-        this.activeMedicationTimeRange.setValue(activeMedicationTimeRange);
-    }
-
-
-    @Hl7XmlMapping({"consumable/medication"})
-    public DrugProductBean getConsumableMedication() {
-        return this.consumableMedication;
-    }
-    public void setConsumableMedication(DrugProductBean consumableMedication) {
-        this.consumableMedication = consumableMedication;
+    public void setActiveMedicationStatus(ActStatus activeMedicationStatus) {
+        this.activeMedicationStatus.setValue(activeMedicationStatus);
     }
 
 
@@ -292,6 +270,30 @@ public class ActiveMedicationBean extends MessagePartBean implements ca.infoway.
     }
     public void setActiveMedicationRecordNumber(Identifier activeMedicationRecordNumber) {
         this.activeMedicationRecordNumber.setValue(activeMedicationRecordNumber);
+    }
+
+
+    /**
+     * <p>ActiveMedicationTimeRange</p>
+     * 
+     * <p>C:Active Medication Time-range</p>
+     * 
+     * <p><p>The date and time during which the patient is expected 
+     * to be taking the drug which triggered the issue.</p></p>
+     * 
+     * <p><p>Requested Duration</p></p>
+     * 
+     * <p><p>Allows the provider to evaluate '''duplicate 
+     * therapy''' and similar timing-based issues.</p></p>
+     * 
+     * <p>C:Active Medication Time-range</p>
+     */
+    @Hl7XmlMapping({"effectiveTime"})
+    public Interval<Date> getActiveMedicationTimeRange() {
+        return this.activeMedicationTimeRange.getValue();
+    }
+    public void setActiveMedicationTimeRange(Interval<Date> activeMedicationTimeRange) {
+        this.activeMedicationTimeRange.setValue(activeMedicationTimeRange);
     }
 
 }

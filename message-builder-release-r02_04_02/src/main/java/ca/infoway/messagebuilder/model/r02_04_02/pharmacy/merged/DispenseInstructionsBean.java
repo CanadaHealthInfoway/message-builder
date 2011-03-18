@@ -81,11 +81,11 @@ public class DispenseInstructionsBean extends MessagePartBean {
     private static final long serialVersionUID = 20110318L;
     private INT totalPrescribedQuantity = new INTImpl();
     private OccurredAtBean location;
+    private BL componentContextConductionInd = new BLImpl();
+    private CS componentContextControlCode = new CSImpl();
+    private SupplementalFillInformationBean componentSupplementalFillInformation;
     private DispenseShipToLocationBean destinationServiceDeliveryLocation;
     private IVL<TS, Interval<Date>> totalDaysSupply = new IVLImpl<TS, Interval<Date>>();
-    private BL componentContextConductionInd = new BLImpl();
-    private SupplementalFillInformationBean componentSupplementalFillInformation;
-    private CS componentContextControlCode = new CSImpl();
     private ActRequestBean componentOfActRequest;
     private List<RemainingDispensesBean> fulfillmentSupplyEvent = new ArrayList<RemainingDispensesBean>();
 
@@ -137,6 +137,33 @@ public class DispenseInstructionsBean extends MessagePartBean {
     }
 
 
+    @Hl7XmlMapping({"component/contextConductionInd"})
+    public Boolean getComponentContextConductionInd() {
+        return this.componentContextConductionInd.getValue();
+    }
+    public void setComponentContextConductionInd(Boolean componentContextConductionInd) {
+        this.componentContextConductionInd.setValue(componentContextConductionInd);
+    }
+
+
+    @Hl7XmlMapping({"component/contextControlCode"})
+    public ContextControl getComponentContextControlCode() {
+        return (ContextControl) this.componentContextControlCode.getValue();
+    }
+    public void setComponentContextControlCode(ContextControl componentContextControlCode) {
+        this.componentContextControlCode.setValue(componentContextControlCode);
+    }
+
+
+    @Hl7XmlMapping({"component/supplementalFillInformation"})
+    public SupplementalFillInformationBean getComponentSupplementalFillInformation() {
+        return this.componentSupplementalFillInformation;
+    }
+    public void setComponentSupplementalFillInformation(SupplementalFillInformationBean componentSupplementalFillInformation) {
+        this.componentSupplementalFillInformation = componentSupplementalFillInformation;
+    }
+
+
     @Hl7XmlMapping({"destination/serviceDeliveryLocation"})
     public DispenseShipToLocationBean getDestinationServiceDeliveryLocation() {
         return this.destinationServiceDeliveryLocation;
@@ -167,33 +194,6 @@ public class DispenseInstructionsBean extends MessagePartBean {
     }
     public void setTotalDaysSupply(Interval<Date> totalDaysSupply) {
         this.totalDaysSupply.setValue(totalDaysSupply);
-    }
-
-
-    @Hl7XmlMapping({"component/contextConductionInd"})
-    public Boolean getComponentContextConductionInd() {
-        return this.componentContextConductionInd.getValue();
-    }
-    public void setComponentContextConductionInd(Boolean componentContextConductionInd) {
-        this.componentContextConductionInd.setValue(componentContextConductionInd);
-    }
-
-
-    @Hl7XmlMapping({"component/supplementalFillInformation"})
-    public SupplementalFillInformationBean getComponentSupplementalFillInformation() {
-        return this.componentSupplementalFillInformation;
-    }
-    public void setComponentSupplementalFillInformation(SupplementalFillInformationBean componentSupplementalFillInformation) {
-        this.componentSupplementalFillInformation = componentSupplementalFillInformation;
-    }
-
-
-    @Hl7XmlMapping({"component/contextControlCode"})
-    public ContextControl getComponentContextControlCode() {
-        return (ContextControl) this.componentContextControlCode.getValue();
-    }
-    public void setComponentContextControlCode(ContextControl componentContextControlCode) {
-        this.componentContextControlCode.setValue(componentContextControlCode);
     }
 
 
