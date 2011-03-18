@@ -15,8 +15,10 @@ import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 
 import ca.infoway.messagebuilder.Code;
+import ca.infoway.messagebuilder.datatype.BL;
 import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.CD;
+import ca.infoway.messagebuilder.datatype.INT;
 import ca.infoway.messagebuilder.datatype.impl.BLImpl;
 import ca.infoway.messagebuilder.domainvalue.NullFlavor;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
@@ -300,15 +302,26 @@ class Hl7SourceMapper {
 
 	private void validateNonstructuralFixedValue(Relationship relationship,	BareANY value, Hl7Source source) {
 		if (relationship.isFixed()) {
-			if (value instanceof CD) {
-				Code code = ((CD) value).getValue();
-				if (code == null || code.getCodeValue() == null || !StringUtils.equals(relationship.getFixedValue(), code.getCodeValue())) {
-					source.getResult().addHl7Error(new Hl7Error(Hl7ErrorCode.MANDATORY_FIELD_NOT_PROVIDED, "Fixed-value attribute '" + relationship.getName() +"' must have value '" + relationship.getFixedValue() + "'"));
+			boolean valid = (value != null && value.getBareValue() != null);
+			if (valid) {
+				if ("BL".equals(relationship.getType()) && value instanceof BL) {
+					String valueAsString = ((BL) value).getValue().toString();
+					valid = StringUtils.equalsIgnoreCase(relationship.getFixedValue(), valueAsString);
+				} else if ("INT.POS".equals(relationship.getType()) && value instanceof INT) {
+					String valueAsString = ((INT) value).getValue().toString();
+					valid = StringUtils.equalsIgnoreCase(relationship.getFixedValue(), valueAsString);
+				} else if (relationship.isCodedType() && value instanceof CD) {
+					Code code = ((CD) value).getValue();
+					valid = (code.getCodeValue() != null && StringUtils.equals(relationship.getFixedValue(), code.getCodeValue()));
+				} else {
+					source.getResult().addHl7Error(new Hl7Error(Hl7ErrorCode.SYNTAX_ERROR, "Non-structural fixed-value attribute '" + relationship.getName() +"' was of unexpected type '" + relationship.getType() + "'"));
 				}
-			} else {
-				source.getResult().addHl7Error(new Hl7Error(Hl7ErrorCode.SYNTAX_ERROR, "Non-structural fixed-value attribute '" + relationship.getName() +"' was not a 'code' datatype as expected but was of type '" + relationship.getType() + "'"));
+			}
+			if (!valid) {
+				source.getResult().addHl7Error(new Hl7Error(Hl7ErrorCode.MANDATORY_FIELD_NOT_PROVIDED, "Fixed-value attribute '" + relationship.getName() +"' must have value '" + relationship.getFixedValue() + "'"));
 			}
 		}
+		
 	}
 
 	private void mapNodeAttributesToTeal(Hl7Source source, BeanWrapper wrapper, Relationship relationship) {

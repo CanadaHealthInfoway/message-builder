@@ -76,7 +76,7 @@ public class ValidatingVisitorTest {
 	}
 	
 	@Test
-	public void shouldHaveValidationErrorForFixedNonStructuralWhenNotCodeType() throws Exception {
+	public void shouldHaveNoValidationErrorForFixedNonStructuralWhenBoolean() throws Exception {
 		
 		CodeResolverRegistry.register(new EnumBasedCodeResolver(ActStatus.class));
 		
@@ -89,6 +89,44 @@ public class ValidatingVisitorTest {
 
 		ValidatingVisitor validatingVisitor = new ValidatingVisitor(SpecificationVersion.R02_04_02.getVersionLiteral());
 		validatingVisitor.visitNonStructuralAttribute(createElement("<node/>"), Arrays.asList(createElement("<statusCode value=\"true\"/>")), relationship);
+		List<Hl7Error> hl7Errors = validatingVisitor.getResult().getHl7Errors();
+		assertTrue(hl7Errors.isEmpty());
+
+	}
+	
+	@Test
+	public void shouldHaveNoValidationErrorForFixedNonStructuralWhenIntPos() throws Exception {
+		
+		CodeResolverRegistry.register(new EnumBasedCodeResolver(ActStatus.class));
+		
+		Relationship relationship = new Relationship();
+		relationship.setName("statusCode");
+		relationship.setConformance(MANDATORY);
+		relationship.setFixedValue("112233");
+		relationship.setStructural(false);
+		relationship.setType("INT.POS");
+
+		ValidatingVisitor validatingVisitor = new ValidatingVisitor(SpecificationVersion.R02_04_02.getVersionLiteral());
+		validatingVisitor.visitNonStructuralAttribute(createElement("<node/>"), Arrays.asList(createElement("<statusCode value=\"112233\"/>")), relationship);
+		List<Hl7Error> hl7Errors = validatingVisitor.getResult().getHl7Errors();
+		assertTrue(hl7Errors.isEmpty());
+
+	}
+	
+	@Test
+	public void shouldHaveValidationErrorForFixedNonStructuralWhenNotValidType() throws Exception {
+		
+		CodeResolverRegistry.register(new EnumBasedCodeResolver(ActStatus.class));
+		
+		Relationship relationship = new Relationship();
+		relationship.setName("statusCode");
+		relationship.setConformance(MANDATORY);
+		relationship.setFixedValue("123");
+		relationship.setStructural(false);
+		relationship.setType("INT.NONNEG");
+
+		ValidatingVisitor validatingVisitor = new ValidatingVisitor(SpecificationVersion.R02_04_02.getVersionLiteral());
+		validatingVisitor.visitNonStructuralAttribute(createElement("<node/>"), Arrays.asList(createElement("<statusCode value=\"123\"/>")), relationship);
 		List<Hl7Error> hl7Errors = validatingVisitor.getResult().getHl7Errors();
 		assertFalse(hl7Errors.isEmpty());
 
