@@ -24,30 +24,24 @@ import java.util.List;
 public class AcknowledgementBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private List<ErrorsOrWarningsBean> acknowledgementDetail = new ArrayList<ErrorsOrWarningsBean>();
-    private CV messageWaitingPriority = new CVImpl();
+    private CS acknowledgementCode = new CSImpl();
     private II acknowledgedMessageId = new IIImpl();
     private INT numberOfWaitingMessages = new INTImpl();
-    private CS acknowledgementCode = new CSImpl();
-
-
-    @Hl7XmlMapping({"acknowledgementDetail"})
-    public List<ErrorsOrWarningsBean> getAcknowledgementDetail() {
-        return this.acknowledgementDetail;
-    }
+    private CV messageWaitingPriority = new CVImpl();
+    private List<ErrorsOrWarningsBean> acknowledgementDetail = new ArrayList<ErrorsOrWarningsBean>();
 
 
     /**
-     * <p>MessageWaitingPriority</p>
+     * <p>AcknowledgementCode</p>
      * 
-     * <p>GD:Message Waiting Priority</p>
+     * <p>GA:Acknowledgement Code</p>
      */
-    @Hl7XmlMapping({"messageWaitingPriorityCode"})
-    public MessageWaitingPriority getMessageWaitingPriority() {
-        return (MessageWaitingPriority) this.messageWaitingPriority.getValue();
+    @Hl7XmlMapping({"typeCode"})
+    public AcknowledgementType getAcknowledgementCode() {
+        return (AcknowledgementType) this.acknowledgementCode.getValue();
     }
-    public void setMessageWaitingPriority(MessageWaitingPriority messageWaitingPriority) {
-        this.messageWaitingPriority.setValue(messageWaitingPriority);
+    public void setAcknowledgementCode(AcknowledgementType acknowledgementCode) {
+        this.acknowledgementCode.setValue(acknowledgementCode);
     }
 
 
@@ -80,16 +74,22 @@ public class AcknowledgementBean extends MessagePartBean {
 
 
     /**
-     * <p>AcknowledgementCode</p>
+     * <p>MessageWaitingPriority</p>
      * 
-     * <p>GA:Acknowledgement Code</p>
+     * <p>GD:Message Waiting Priority</p>
      */
-    @Hl7XmlMapping({"typeCode"})
-    public AcknowledgementType getAcknowledgementCode() {
-        return (AcknowledgementType) this.acknowledgementCode.getValue();
+    @Hl7XmlMapping({"messageWaitingPriorityCode"})
+    public MessageWaitingPriority getMessageWaitingPriority() {
+        return (MessageWaitingPriority) this.messageWaitingPriority.getValue();
     }
-    public void setAcknowledgementCode(AcknowledgementType acknowledgementCode) {
-        this.acknowledgementCode.setValue(acknowledgementCode);
+    public void setMessageWaitingPriority(MessageWaitingPriority messageWaitingPriority) {
+        this.messageWaitingPriority.setValue(messageWaitingPriority);
+    }
+
+
+    @Hl7XmlMapping({"acknowledgementDetail"})
+    public List<ErrorsOrWarningsBean> getAcknowledgementDetail() {
+        return this.acknowledgementDetail;
     }
 
 }

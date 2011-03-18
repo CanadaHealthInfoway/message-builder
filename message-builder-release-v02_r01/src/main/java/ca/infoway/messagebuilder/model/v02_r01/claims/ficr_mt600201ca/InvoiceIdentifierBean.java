@@ -26,13 +26,34 @@ import java.util.Set;
 public class InvoiceIdentifierBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
+    private List<TaxAccountOfProviderBean> pertinentInformationProviderBillingTaxAccount = new ArrayList<TaxAccountOfProviderBean>();
+    private List<InvoiceElementChoice> reasonOfInvoiceElementChoice = new ArrayList<InvoiceElementChoice>();
+    private SET<II, Identifier> invoiceIdentifier = new SETImpl<II, Identifier>(IIImpl.class);
     private AccountBean debitAccount;
     private ca.infoway.messagebuilder.model.v02_r01.claims.coct_mt110200ca.AccountBean creditAccount;
-    private SET<II, Identifier> invoiceIdentifier = new SETImpl<II, Identifier>(IIImpl.class);
-    private List<TaxAccountOfProviderBean> pertinentInformationProviderBillingTaxAccount = new ArrayList<TaxAccountOfProviderBean>();
-    private AdministrativeContactsSBean primaryPerformerContactParty;
-    private List<InvoiceElementChoice> reasonOfInvoiceElementChoice = new ArrayList<InvoiceElementChoice>();
     private MO totalBilledAmount = new MOImpl();
+    private AdministrativeContactsSBean primaryPerformerContactParty;
+
+
+    @Hl7XmlMapping({"pertinentInformation/providerBillingTaxAccount"})
+    public List<TaxAccountOfProviderBean> getPertinentInformationProviderBillingTaxAccount() {
+        return this.pertinentInformationProviderBillingTaxAccount;
+    }
+
+
+    @Hl7XmlMapping({"reasonOf/invoiceElementChoice"})
+    public List<InvoiceElementChoice> getReasonOfInvoiceElementChoice() {
+        return this.reasonOfInvoiceElementChoice;
+    }
+
+
+    /**
+     * <p>Invoice Identifier</p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Set<Identifier> getInvoiceIdentifier() {
+        return this.invoiceIdentifier.rawSet();
+    }
 
 
     @Hl7XmlMapping({"debit/account"})
@@ -54,17 +75,14 @@ public class InvoiceIdentifierBean extends MessagePartBean {
 
 
     /**
-     * <p>Invoice Identifier</p>
+     * <p>Total Billed Amount</p>
      */
-    @Hl7XmlMapping({"id"})
-    public Set<Identifier> getInvoiceIdentifier() {
-        return this.invoiceIdentifier.rawSet();
+    @Hl7XmlMapping({"amt"})
+    public Money getTotalBilledAmount() {
+        return this.totalBilledAmount.getValue();
     }
-
-
-    @Hl7XmlMapping({"pertinentInformation/providerBillingTaxAccount"})
-    public List<TaxAccountOfProviderBean> getPertinentInformationProviderBillingTaxAccount() {
-        return this.pertinentInformationProviderBillingTaxAccount;
+    public void setTotalBilledAmount(Money totalBilledAmount) {
+        this.totalBilledAmount.setValue(totalBilledAmount);
     }
 
 
@@ -74,24 +92,6 @@ public class InvoiceIdentifierBean extends MessagePartBean {
     }
     public void setPrimaryPerformerContactParty(AdministrativeContactsSBean primaryPerformerContactParty) {
         this.primaryPerformerContactParty = primaryPerformerContactParty;
-    }
-
-
-    @Hl7XmlMapping({"reasonOf/invoiceElementChoice"})
-    public List<InvoiceElementChoice> getReasonOfInvoiceElementChoice() {
-        return this.reasonOfInvoiceElementChoice;
-    }
-
-
-    /**
-     * <p>Total Billed Amount</p>
-     */
-    @Hl7XmlMapping({"amt"})
-    public Money getTotalBilledAmount() {
-        return this.totalBilledAmount.getValue();
-    }
-    public void setTotalBilledAmount(Money totalBilledAmount) {
-        this.totalBilledAmount.setValue(totalBilledAmount);
     }
 
 }

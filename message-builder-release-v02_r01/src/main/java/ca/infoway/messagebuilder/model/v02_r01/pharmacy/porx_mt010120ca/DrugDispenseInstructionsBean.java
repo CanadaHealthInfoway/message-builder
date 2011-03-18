@@ -25,9 +25,9 @@ public class DrugDispenseInstructionsBean extends MessagePartBean {
     private static final long serialVersionUID = 20110318L;
     private SubsequentSupplyRequestBean component1SubsequentSupplyRequest;
     private PQ totalPrescribedQuantity = new PQImpl();
-    private DrugProductBean productMedication;
     private FirstFillBean component2InitialSupplyRequest;
     private IVL<TS, Interval<Date>> totalDaysSupply = new IVLImpl<TS, Interval<Date>>();
+    private DrugProductBean productMedication;
 
 
     @Hl7XmlMapping({"component1/subsequentSupplyRequest"})
@@ -51,15 +51,6 @@ public class DrugDispenseInstructionsBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"product/medication"})
-    public DrugProductBean getProductMedication() {
-        return this.productMedication;
-    }
-    public void setProductMedication(DrugProductBean productMedication) {
-        this.productMedication = productMedication;
-    }
-
-
     @Hl7XmlMapping({"component2/initialSupplyRequest"})
     public FirstFillBean getComponent2InitialSupplyRequest() {
         return this.component2InitialSupplyRequest;
@@ -78,6 +69,15 @@ public class DrugDispenseInstructionsBean extends MessagePartBean {
     }
     public void setTotalDaysSupply(Interval<Date> totalDaysSupply) {
         this.totalDaysSupply.setValue(totalDaysSupply);
+    }
+
+
+    @Hl7XmlMapping({"product/medication"})
+    public DrugProductBean getProductMedication() {
+        return this.productMedication;
+    }
+    public void setProductMedication(DrugProductBean productMedication) {
+        this.productMedication = productMedication;
     }
 
 }

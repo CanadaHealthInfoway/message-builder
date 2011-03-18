@@ -26,20 +26,20 @@ import ca.infoway.messagebuilder.model.v02_r01.claims.coct_mt490000ca.Manufactur
 public class ManufacturedProductBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private ManufacturedMaterialKindBean manufacturedMaterialKind;
-    private CV code = new CVImpl();
     private II id = new IIImpl();
-    private TEL manufacturerManufacturedProductOrganizationTelecom = new TELImpl();
+    private CV code = new CVImpl();
+    private ManufacturedMaterialKindBean manufacturedMaterialKind;
     private ST manufacturerManufacturedProductOrganizationName = new STImpl();
+    private TEL manufacturerManufacturedProductOrganizationTelecom = new TELImpl();
     private CE manufacturedMaterialCode = new CEImpl();
 
 
-    @Hl7XmlMapping({"manufacturedMaterialKind"})
-    public ManufacturedMaterialKindBean getManufacturedMaterialKind() {
-        return this.manufacturedMaterialKind;
+    @Hl7XmlMapping({"id"})
+    public Identifier getId() {
+        return this.id.getValue();
     }
-    public void setManufacturedMaterialKind(ManufacturedMaterialKindBean manufacturedMaterialKind) {
-        this.manufacturedMaterialKind = manufacturedMaterialKind;
+    public void setId(Identifier id) {
+        this.id.setValue(id);
     }
 
 
@@ -52,21 +52,12 @@ public class ManufacturedProductBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"id"})
-    public Identifier getId() {
-        return this.id.getValue();
+    @Hl7XmlMapping({"manufacturedMaterialKind"})
+    public ManufacturedMaterialKindBean getManufacturedMaterialKind() {
+        return this.manufacturedMaterialKind;
     }
-    public void setId(Identifier id) {
-        this.id.setValue(id);
-    }
-
-
-    @Hl7XmlMapping({"manufacturerManufacturedProductOrganization/telecom"})
-    public TelecommunicationAddress getManufacturerManufacturedProductOrganizationTelecom() {
-        return this.manufacturerManufacturedProductOrganizationTelecom.getValue();
-    }
-    public void setManufacturerManufacturedProductOrganizationTelecom(TelecommunicationAddress manufacturerManufacturedProductOrganizationTelecom) {
-        this.manufacturerManufacturedProductOrganizationTelecom.setValue(manufacturerManufacturedProductOrganizationTelecom);
+    public void setManufacturedMaterialKind(ManufacturedMaterialKindBean manufacturedMaterialKind) {
+        this.manufacturedMaterialKind = manufacturedMaterialKind;
     }
 
 
@@ -76,6 +67,15 @@ public class ManufacturedProductBean extends MessagePartBean {
     }
     public void setManufacturerManufacturedProductOrganizationName(String manufacturerManufacturedProductOrganizationName) {
         this.manufacturerManufacturedProductOrganizationName.setValue(manufacturerManufacturedProductOrganizationName);
+    }
+
+
+    @Hl7XmlMapping({"manufacturerManufacturedProductOrganization/telecom"})
+    public TelecommunicationAddress getManufacturerManufacturedProductOrganizationTelecom() {
+        return this.manufacturerManufacturedProductOrganizationTelecom.getValue();
+    }
+    public void setManufacturerManufacturedProductOrganizationTelecom(TelecommunicationAddress manufacturerManufacturedProductOrganizationTelecom) {
+        this.manufacturerManufacturedProductOrganizationTelecom.setValue(manufacturerManufacturedProductOrganizationTelecom);
     }
 
 

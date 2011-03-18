@@ -30,16 +30,16 @@ public class TriggerEvent_5Bean<ACT,PL> extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
     private AuthorizedByBean subjectOf2;
-    private List<RefersTo_1Bean<ACT>> subject = new ArrayList<RefersTo_1Bean<ACT>>();
-    private CV eventType = new CVImpl();
+    private CV eventReason = new CVImpl();
     private II eventIdentifier = new IIImpl();
     private QueryByParameterBean<PL> queryByParameter;
-    private CV eventReason = new CVImpl();
-    private QueryAckBean queryAck;
-    private List<IssuesBean> subjectOf1DetectedIssueEvent = new ArrayList<IssuesBean>();
     private IVL<TS, Interval<Date>> eventEffectivePeriod = new IVLImpl<TS, Interval<Date>>();
-    private List<CareCompositionsBean> componentOf = new ArrayList<CareCompositionsBean>();
+    private CV eventType = new CVImpl();
+    private QueryAckBean queryAck;
+    private List<RefersTo_1Bean<ACT>> subject = new ArrayList<RefersTo_1Bean<ACT>>();
+    private List<IssuesBean> subjectOf1DetectedIssueEvent = new ArrayList<IssuesBean>();
     private RecordTargetBean recordTarget;
+    private List<CareCompositionsBean> componentOf = new ArrayList<CareCompositionsBean>();
 
 
     @Hl7XmlMapping({"subjectOf2"})
@@ -51,23 +51,17 @@ public class TriggerEvent_5Bean<ACT,PL> extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"subject"})
-    public List<RefersTo_1Bean<ACT>> getSubject() {
-        return this.subject;
-    }
-
-
     /**
-     * <p>EventType</p>
+     * <p>EventReason</p>
      * 
-     * <p>A:Event Type</p>
+     * <p>E:Event Reason</p>
      */
-    @Hl7XmlMapping({"code"})
-    public HL7TriggerEventCode getEventType() {
-        return (HL7TriggerEventCode) this.eventType.getValue();
+    @Hl7XmlMapping({"reasonCode"})
+    public ControlActReason getEventReason() {
+        return (ControlActReason) this.eventReason.getValue();
     }
-    public void setEventType(HL7TriggerEventCode eventType) {
-        this.eventType.setValue(eventType);
+    public void setEventReason(ControlActReason eventReason) {
+        this.eventReason.setValue(eventReason);
     }
 
 
@@ -95,35 +89,6 @@ public class TriggerEvent_5Bean<ACT,PL> extends MessagePartBean {
 
 
     /**
-     * <p>EventReason</p>
-     * 
-     * <p>E:Event Reason</p>
-     */
-    @Hl7XmlMapping({"reasonCode"})
-    public ControlActReason getEventReason() {
-        return (ControlActReason) this.eventReason.getValue();
-    }
-    public void setEventReason(ControlActReason eventReason) {
-        this.eventReason.setValue(eventReason);
-    }
-
-
-    @Hl7XmlMapping({"queryAck"})
-    public QueryAckBean getQueryAck() {
-        return this.queryAck;
-    }
-    public void setQueryAck(QueryAckBean queryAck) {
-        this.queryAck = queryAck;
-    }
-
-
-    @Hl7XmlMapping({"subjectOf1/detectedIssueEvent"})
-    public List<IssuesBean> getSubjectOf1DetectedIssueEvent() {
-        return this.subjectOf1DetectedIssueEvent;
-    }
-
-
-    /**
      * <p>EventEffectivePeriod</p>
      * 
      * <p>C:Event Effective Period</p>
@@ -137,9 +102,38 @@ public class TriggerEvent_5Bean<ACT,PL> extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"componentOf"})
-    public List<CareCompositionsBean> getComponentOf() {
-        return this.componentOf;
+    /**
+     * <p>EventType</p>
+     * 
+     * <p>A:Event Type</p>
+     */
+    @Hl7XmlMapping({"code"})
+    public HL7TriggerEventCode getEventType() {
+        return (HL7TriggerEventCode) this.eventType.getValue();
+    }
+    public void setEventType(HL7TriggerEventCode eventType) {
+        this.eventType.setValue(eventType);
+    }
+
+
+    @Hl7XmlMapping({"queryAck"})
+    public QueryAckBean getQueryAck() {
+        return this.queryAck;
+    }
+    public void setQueryAck(QueryAckBean queryAck) {
+        this.queryAck = queryAck;
+    }
+
+
+    @Hl7XmlMapping({"subject"})
+    public List<RefersTo_1Bean<ACT>> getSubject() {
+        return this.subject;
+    }
+
+
+    @Hl7XmlMapping({"subjectOf1/detectedIssueEvent"})
+    public List<IssuesBean> getSubjectOf1DetectedIssueEvent() {
+        return this.subjectOf1DetectedIssueEvent;
     }
 
 
@@ -149,6 +143,12 @@ public class TriggerEvent_5Bean<ACT,PL> extends MessagePartBean {
     }
     public void setRecordTarget(RecordTargetBean recordTarget) {
         this.recordTarget = recordTarget;
+    }
+
+
+    @Hl7XmlMapping({"componentOf"})
+    public List<CareCompositionsBean> getComponentOf() {
+        return this.componentOf;
     }
 
 }

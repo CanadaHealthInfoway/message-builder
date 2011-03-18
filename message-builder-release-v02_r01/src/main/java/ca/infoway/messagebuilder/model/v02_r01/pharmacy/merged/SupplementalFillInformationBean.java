@@ -17,18 +17,18 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 public class SupplementalFillInformationBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private CS moodCode = new CSImpl();
+    private CS classCode = new CSImpl();
     private INT fillQuantity = new INTImpl();
     private INT numberOfFills = new INTImpl();
-    private CS classCode = new CSImpl();
+    private CS moodCode = new CSImpl();
 
 
-    @Hl7XmlMapping({"moodCode"})
-    public ActMood getMoodCode() {
-        return (ActMood) this.moodCode.getValue();
+    @Hl7XmlMapping({"classCode"})
+    public ActClass getClassCode() {
+        return (ActClass) this.classCode.getValue();
     }
-    public void setMoodCode(ActMood moodCode) {
-        this.moodCode.setValue(moodCode);
+    public void setClassCode(ActClass classCode) {
+        this.classCode.setValue(classCode);
     }
 
 
@@ -60,12 +60,12 @@ public class SupplementalFillInformationBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"classCode"})
-    public ActClass getClassCode() {
-        return (ActClass) this.classCode.getValue();
+    @Hl7XmlMapping({"moodCode"})
+    public ActMood getMoodCode() {
+        return (ActMood) this.moodCode.getValue();
     }
-    public void setClassCode(ActClass classCode) {
-        this.classCode.setValue(classCode);
+    public void setMoodCode(ActMood moodCode) {
+        this.moodCode.setValue(moodCode);
     }
 
 }

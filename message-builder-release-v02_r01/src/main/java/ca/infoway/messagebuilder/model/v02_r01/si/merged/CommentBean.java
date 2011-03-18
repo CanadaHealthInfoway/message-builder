@@ -21,6 +21,8 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.v02_r01.merged.CreatedAtBean;
 import ca.infoway.messagebuilder.model.v02_r01.merged.HealthcareWorkerBean;
 import ca.infoway.messagebuilder.model.v02_r01.si.comt_mt300003ca.AnnotatedByBean;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 
@@ -30,29 +32,15 @@ import java.util.Set;
 public class CommentBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private ST text = new STImpl();
     private SET<CV, Code> restrictedPatientAccess = new SETImpl<CV, Code>(CVImpl.class);
     private CV patientNoteCategory = new CVImpl();
-    private CreatedAtBean location;
-    private HealthcareWorkerBean responsiblePartyAssignedEntity;
+    private ST text = new STImpl();
     private II patientNoteId = new IIImpl();
+    private HealthcareWorkerBean responsiblePartyAssignedEntity;
+    private CreatedAtBean location;
     private AnnotatedByBean author;
-    private CV writtenIn = new CVImpl();
     private II recordId = new IIImpl();
-
-
-    /**
-     * <p>C:Annotation Text</p>
-     * 
-     * <p>C:Patient Note Text</p>
-     */
-    @Hl7XmlMapping({"text"})
-    public String getText() {
-        return this.text.getValue();
-    }
-    public void setText(String text) {
-        this.text.setValue(text);
-    }
+    private CV writtenIn = new CVImpl();
 
 
     /**
@@ -82,21 +70,17 @@ public class CommentBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"location"})
-    public CreatedAtBean getLocation() {
-        return this.location;
+    /**
+     * <p>C:Annotation Text</p>
+     * 
+     * <p>C:Patient Note Text</p>
+     */
+    @Hl7XmlMapping({"text"})
+    public String getText() {
+        return this.text.getValue();
     }
-    public void setLocation(CreatedAtBean location) {
-        this.location = location;
-    }
-
-
-    @Hl7XmlMapping({"responsibleParty/assignedEntity"})
-    public HealthcareWorkerBean getResponsiblePartyAssignedEntity() {
-        return this.responsiblePartyAssignedEntity;
-    }
-    public void setResponsiblePartyAssignedEntity(HealthcareWorkerBean responsiblePartyAssignedEntity) {
-        this.responsiblePartyAssignedEntity = responsiblePartyAssignedEntity;
+    public void setText(String text) {
+        this.text.setValue(text);
     }
 
 
@@ -114,26 +98,30 @@ public class CommentBean extends MessagePartBean {
     }
 
 
+    @Hl7XmlMapping({"responsibleParty/assignedEntity"})
+    public HealthcareWorkerBean getResponsiblePartyAssignedEntity() {
+        return this.responsiblePartyAssignedEntity;
+    }
+    public void setResponsiblePartyAssignedEntity(HealthcareWorkerBean responsiblePartyAssignedEntity) {
+        this.responsiblePartyAssignedEntity = responsiblePartyAssignedEntity;
+    }
+
+
+    @Hl7XmlMapping({"location"})
+    public CreatedAtBean getLocation() {
+        return this.location;
+    }
+    public void setLocation(CreatedAtBean location) {
+        this.location = location;
+    }
+
+
     @Hl7XmlMapping({"author"})
     public AnnotatedByBean getAuthor() {
         return this.author;
     }
     public void setAuthor(AnnotatedByBean author) {
         this.author = author;
-    }
-
-
-    /**
-     * <p>WrittenIn</p>
-     * 
-     * <p>D:Written in</p>
-     */
-    @Hl7XmlMapping({"languageCode"})
-    public HumanLanguage getWrittenIn() {
-        return (HumanLanguage) this.writtenIn.getValue();
-    }
-    public void setWrittenIn(HumanLanguage writtenIn) {
-        this.writtenIn.setValue(writtenIn);
     }
 
 
@@ -148,6 +136,20 @@ public class CommentBean extends MessagePartBean {
     }
     public void setRecordId(Identifier recordId) {
         this.recordId.setValue(recordId);
+    }
+
+
+    /**
+     * <p>WrittenIn</p>
+     * 
+     * <p>D:Written in</p>
+     */
+    @Hl7XmlMapping({"languageCode"})
+    public HumanLanguage getWrittenIn() {
+        return (HumanLanguage) this.writtenIn.getValue();
+    }
+    public void setWrittenIn(HumanLanguage writtenIn) {
+        this.writtenIn.setValue(writtenIn);
     }
 
 }

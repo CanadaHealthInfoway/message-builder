@@ -24,13 +24,58 @@ import java.util.List;
 public class DrugProductBean extends MessagePartBean implements ca.infoway.messagebuilder.model.v02_r01.common.coct_mt270010ca.Medication {
 
     private static final long serialVersionUID = 20110318L;
+    private ST drugDescription = new STImpl();
+    private CV drugCode = new CVImpl();
+    private ST drugName = new STImpl();
+    private DrugDispensedInBean administerableMedicineAsContent;
     private CV drugForm = new CVImpl();
     private List<DrugContainsBean> administerableMedicineIngredient = new ArrayList<DrugContainsBean>();
-    private DrugDispensedInBean administerableMedicineAsContent;
     private ManufacturerBean administerableMedicineAsManufacturedProductManufacturer;
-    private ST drugName = new STImpl();
-    private CV drugCode = new CVImpl();
-    private ST drugDescription = new STImpl();
+
+
+    /**
+     * <p>C:Drug Description</p>
+     */
+    @Hl7XmlMapping({"administerableMedicine/desc"})
+    public String getDrugDescription() {
+        return this.drugDescription.getValue();
+    }
+    public void setDrugDescription(String drugDescription) {
+        this.drugDescription.setValue(drugDescription);
+    }
+
+
+    /**
+     * <p>A:Drug Code</p>
+     */
+    @Hl7XmlMapping({"administerableMedicine/code"})
+    public ClinicalDrug getDrugCode() {
+        return (ClinicalDrug) this.drugCode.getValue();
+    }
+    public void setDrugCode(ClinicalDrug drugCode) {
+        this.drugCode.setValue(drugCode);
+    }
+
+
+    /**
+     * <p>B:Drug Name</p>
+     */
+    @Hl7XmlMapping({"administerableMedicine/name"})
+    public String getDrugName() {
+        return this.drugName.getValue();
+    }
+    public void setDrugName(String drugName) {
+        this.drugName.setValue(drugName);
+    }
+
+
+    @Hl7XmlMapping({"administerableMedicine/asContent"})
+    public DrugDispensedInBean getAdministerableMedicineAsContent() {
+        return this.administerableMedicineAsContent;
+    }
+    public void setAdministerableMedicineAsContent(DrugDispensedInBean administerableMedicineAsContent) {
+        this.administerableMedicineAsContent = administerableMedicineAsContent;
+    }
 
 
     /**
@@ -51,57 +96,12 @@ public class DrugProductBean extends MessagePartBean implements ca.infoway.messa
     }
 
 
-    @Hl7XmlMapping({"administerableMedicine/asContent"})
-    public DrugDispensedInBean getAdministerableMedicineAsContent() {
-        return this.administerableMedicineAsContent;
-    }
-    public void setAdministerableMedicineAsContent(DrugDispensedInBean administerableMedicineAsContent) {
-        this.administerableMedicineAsContent = administerableMedicineAsContent;
-    }
-
-
     @Hl7XmlMapping({"administerableMedicine/asManufacturedProduct/manufacturer"})
     public ManufacturerBean getAdministerableMedicineAsManufacturedProductManufacturer() {
         return this.administerableMedicineAsManufacturedProductManufacturer;
     }
     public void setAdministerableMedicineAsManufacturedProductManufacturer(ManufacturerBean administerableMedicineAsManufacturedProductManufacturer) {
         this.administerableMedicineAsManufacturedProductManufacturer = administerableMedicineAsManufacturedProductManufacturer;
-    }
-
-
-    /**
-     * <p>B:Drug Name</p>
-     */
-    @Hl7XmlMapping({"administerableMedicine/name"})
-    public String getDrugName() {
-        return this.drugName.getValue();
-    }
-    public void setDrugName(String drugName) {
-        this.drugName.setValue(drugName);
-    }
-
-
-    /**
-     * <p>A:Drug Code</p>
-     */
-    @Hl7XmlMapping({"administerableMedicine/code"})
-    public ClinicalDrug getDrugCode() {
-        return (ClinicalDrug) this.drugCode.getValue();
-    }
-    public void setDrugCode(ClinicalDrug drugCode) {
-        this.drugCode.setValue(drugCode);
-    }
-
-
-    /**
-     * <p>C:Drug Description</p>
-     */
-    @Hl7XmlMapping({"administerableMedicine/desc"})
-    public String getDrugDescription() {
-        return this.drugDescription.getValue();
-    }
-    public void setDrugDescription(String drugDescription) {
-        this.drugDescription.setValue(drugDescription);
     }
 
 }

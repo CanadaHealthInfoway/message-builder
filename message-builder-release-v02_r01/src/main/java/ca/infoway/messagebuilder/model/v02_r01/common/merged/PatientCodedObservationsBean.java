@@ -21,24 +21,10 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 public class PatientCodedObservationsBean extends MessagePartBean implements CausalActs {
 
     private static final long serialVersionUID = 20110318L;
-    private CV confidentialityCode = new CVImpl();
     private CV observationValue = new CVImpl();
-    private CD observationType = new CDImpl();
     private II observationIdentifier = new IIImpl();
-
-
-    /**
-     * <p>D:Observation Masking Indicator</p>
-     * 
-     * <p>D:Observation Masked Indicator</p>
-     */
-    @Hl7XmlMapping({"confidentialityCode"})
-    public x_VeryBasicConfidentialityKind getConfidentialityCode() {
-        return (x_VeryBasicConfidentialityKind) this.confidentialityCode.getValue();
-    }
-    public void setConfidentialityCode(x_VeryBasicConfidentialityKind confidentialityCode) {
-        this.confidentialityCode.setValue(confidentialityCode);
-    }
+    private CV confidentialityCode = new CVImpl();
+    private CD observationType = new CDImpl();
 
 
     /**
@@ -56,20 +42,6 @@ public class PatientCodedObservationsBean extends MessagePartBean implements Cau
 
 
     /**
-     * <p>ObservationType</p>
-     * 
-     * <p>B:Observation Type</p>
-     */
-    @Hl7XmlMapping({"code"})
-    public ActCode getObservationType() {
-        return (ActCode) this.observationType.getValue();
-    }
-    public void setObservationType(ActCode observationType) {
-        this.observationType.setValue(observationType);
-    }
-
-
-    /**
      * <p>ObservationIdentifier</p>
      * 
      * <p>A:Observation Identifier</p>
@@ -80,6 +52,34 @@ public class PatientCodedObservationsBean extends MessagePartBean implements Cau
     }
     public void setObservationIdentifier(Identifier observationIdentifier) {
         this.observationIdentifier.setValue(observationIdentifier);
+    }
+
+
+    /**
+     * <p>D:Observation Masking Indicator</p>
+     * 
+     * <p>D:Observation Masked Indicator</p>
+     */
+    @Hl7XmlMapping({"confidentialityCode"})
+    public x_VeryBasicConfidentialityKind getConfidentialityCode() {
+        return (x_VeryBasicConfidentialityKind) this.confidentialityCode.getValue();
+    }
+    public void setConfidentialityCode(x_VeryBasicConfidentialityKind confidentialityCode) {
+        this.confidentialityCode.setValue(confidentialityCode);
+    }
+
+
+    /**
+     * <p>ObservationType</p>
+     * 
+     * <p>B:Observation Type</p>
+     */
+    @Hl7XmlMapping({"code"})
+    public ActCode getObservationType() {
+        return (ActCode) this.observationType.getValue();
+    }
+    public void setObservationType(ActCode observationType) {
+        this.observationType.setValue(observationType);
     }
 
 }

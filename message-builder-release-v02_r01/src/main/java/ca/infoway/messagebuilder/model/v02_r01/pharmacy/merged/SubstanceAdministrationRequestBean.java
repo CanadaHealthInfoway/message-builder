@@ -39,34 +39,25 @@ import java.util.Set;
 public class SubstanceAdministrationRequestBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private BL preconditionVerificationEventCriterion = new BLImpl();
     private II id = new IIImpl();
-    private Includes_1Bean component3;
-    private ParentPrescriptionBean predecessorPriorCombinedMedicationRequest;
+    private BL preconditionVerificationEventCriterion = new BLImpl();
     private AllowedSubstitutionBean subjectOf1SubstitutionPermission;
-    private SET<CV, Code> prescriptionMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);
-    private List<CoverageExtensions_1Bean> coverageCoverage = new ArrayList<CoverageExtensions_1Bean>();
-    private ClassifiesBean componentOf;
-    private CS prescriptionStatus = new CSImpl();
-    private List<ReferencesBean> definition = new ArrayList<ReferencesBean>();
-    private List<IncludesBean> pertinentInformation = new ArrayList<IncludesBean>();
-    private Component2Bean component2;
-    private DrugProductBean directTargetMedication;
+    private ParentPrescriptionBean predecessorPriorCombinedMedicationRequest;
     private NotesBean subjectOf2Annotation;
     private List<PrescribedBecauseOfBean> reason = new ArrayList<PrescribedBecauseOfBean>();
     private List<AdministrationInstructionsBean> component1DosageInstruction = new ArrayList<AdministrationInstructionsBean>();
+    private Component2Bean component2;
+    private DrugProductBean directTargetMedication;
+    private Includes_1Bean component3;
+    private List<CoverageExtensions_1Bean> coverageCoverage = new ArrayList<CoverageExtensions_1Bean>();
     private CV prescriptionType = new CVImpl();
-    private HealthcareWorkerBean responsiblePartyAssignedEntity;
+    private SET<CV, Code> prescriptionMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);
+    private ClassifiesBean componentOf;
+    private List<ReferencesBean> definition = new ArrayList<ReferencesBean>();
+    private CS prescriptionStatus = new CSImpl();
+    private List<IncludesBean> pertinentInformation = new ArrayList<IncludesBean>();
     private PrescribedByBean author;
-
-
-    @Hl7XmlMapping({"precondition/verificationEventCriterion"})
-    public Boolean getPreconditionVerificationEventCriterion() {
-        return this.preconditionVerificationEventCriterion.getValue();
-    }
-    public void setPreconditionVerificationEventCriterion(Boolean preconditionVerificationEventCriterion) {
-        this.preconditionVerificationEventCriterion.setValue(preconditionVerificationEventCriterion);
-    }
+    private HealthcareWorkerBean responsiblePartyAssignedEntity;
 
 
     /**
@@ -85,21 +76,12 @@ public class SubstanceAdministrationRequestBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"component3"})
-    public Includes_1Bean getComponent3() {
-        return this.component3;
+    @Hl7XmlMapping({"precondition/verificationEventCriterion"})
+    public Boolean getPreconditionVerificationEventCriterion() {
+        return this.preconditionVerificationEventCriterion.getValue();
     }
-    public void setComponent3(Includes_1Bean component3) {
-        this.component3 = component3;
-    }
-
-
-    @Hl7XmlMapping({"predecessor/priorCombinedMedicationRequest"})
-    public ParentPrescriptionBean getPredecessorPriorCombinedMedicationRequest() {
-        return this.predecessorPriorCombinedMedicationRequest;
-    }
-    public void setPredecessorPriorCombinedMedicationRequest(ParentPrescriptionBean predecessorPriorCombinedMedicationRequest) {
-        this.predecessorPriorCombinedMedicationRequest = predecessorPriorCombinedMedicationRequest;
+    public void setPreconditionVerificationEventCriterion(Boolean preconditionVerificationEventCriterion) {
+        this.preconditionVerificationEventCriterion.setValue(preconditionVerificationEventCriterion);
     }
 
 
@@ -112,73 +94,12 @@ public class SubstanceAdministrationRequestBean extends MessagePartBean {
     }
 
 
-    /**
-     * <p>PrescriptionMaskingIndicators</p>
-     * 
-     * <p>F:Prescription Masking Indicators</p>
-     */
-    @Hl7XmlMapping({"confidentialityCode"})
-    public Set<x_NormalRestrictedTabooConfidentialityKind> getPrescriptionMaskingIndicators() {
-        return this.prescriptionMaskingIndicators.rawSet(x_NormalRestrictedTabooConfidentialityKind.class);
+    @Hl7XmlMapping({"predecessor/priorCombinedMedicationRequest"})
+    public ParentPrescriptionBean getPredecessorPriorCombinedMedicationRequest() {
+        return this.predecessorPriorCombinedMedicationRequest;
     }
-
-
-    @Hl7XmlMapping({"coverage/coverage"})
-    public List<CoverageExtensions_1Bean> getCoverageCoverage() {
-        return this.coverageCoverage;
-    }
-
-
-    @Hl7XmlMapping({"componentOf"})
-    public ClassifiesBean getComponentOf() {
-        return this.componentOf;
-    }
-    public void setComponentOf(ClassifiesBean componentOf) {
-        this.componentOf = componentOf;
-    }
-
-
-    /**
-     * <p>PrescriptionStatus</p>
-     * 
-     * <p>C:Prescription Status</p>
-     */
-    @Hl7XmlMapping({"statusCode"})
-    public ActStatus getPrescriptionStatus() {
-        return (ActStatus) this.prescriptionStatus.getValue();
-    }
-    public void setPrescriptionStatus(ActStatus prescriptionStatus) {
-        this.prescriptionStatus.setValue(prescriptionStatus);
-    }
-
-
-    @Hl7XmlMapping({"definition"})
-    public List<ReferencesBean> getDefinition() {
-        return this.definition;
-    }
-
-
-    @Hl7XmlMapping({"pertinentInformation"})
-    public List<IncludesBean> getPertinentInformation() {
-        return this.pertinentInformation;
-    }
-
-
-    @Hl7XmlMapping({"component2"})
-    public Component2Bean getComponent2() {
-        return this.component2;
-    }
-    public void setComponent2(Component2Bean component2) {
-        this.component2 = component2;
-    }
-
-
-    @Hl7XmlMapping({"directTarget/medication"})
-    public DrugProductBean getDirectTargetMedication() {
-        return this.directTargetMedication;
-    }
-    public void setDirectTargetMedication(DrugProductBean directTargetMedication) {
-        this.directTargetMedication = directTargetMedication;
+    public void setPredecessorPriorCombinedMedicationRequest(ParentPrescriptionBean predecessorPriorCombinedMedicationRequest) {
+        this.predecessorPriorCombinedMedicationRequest = predecessorPriorCombinedMedicationRequest;
     }
 
 
@@ -203,6 +124,39 @@ public class SubstanceAdministrationRequestBean extends MessagePartBean {
     }
 
 
+    @Hl7XmlMapping({"component2"})
+    public Component2Bean getComponent2() {
+        return this.component2;
+    }
+    public void setComponent2(Component2Bean component2) {
+        this.component2 = component2;
+    }
+
+
+    @Hl7XmlMapping({"directTarget/medication"})
+    public DrugProductBean getDirectTargetMedication() {
+        return this.directTargetMedication;
+    }
+    public void setDirectTargetMedication(DrugProductBean directTargetMedication) {
+        this.directTargetMedication = directTargetMedication;
+    }
+
+
+    @Hl7XmlMapping({"component3"})
+    public Includes_1Bean getComponent3() {
+        return this.component3;
+    }
+    public void setComponent3(Includes_1Bean component3) {
+        this.component3 = component3;
+    }
+
+
+    @Hl7XmlMapping({"coverage/coverage"})
+    public List<CoverageExtensions_1Bean> getCoverageCoverage() {
+        return this.coverageCoverage;
+    }
+
+
     /**
      * <p>PrescriptionType</p>
      * 
@@ -217,12 +171,49 @@ public class SubstanceAdministrationRequestBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"responsibleParty/assignedEntity"})
-    public HealthcareWorkerBean getResponsiblePartyAssignedEntity() {
-        return this.responsiblePartyAssignedEntity;
+    /**
+     * <p>PrescriptionMaskingIndicators</p>
+     * 
+     * <p>F:Prescription Masking Indicators</p>
+     */
+    @Hl7XmlMapping({"confidentialityCode"})
+    public Set<x_NormalRestrictedTabooConfidentialityKind> getPrescriptionMaskingIndicators() {
+        return this.prescriptionMaskingIndicators.rawSet(x_NormalRestrictedTabooConfidentialityKind.class);
     }
-    public void setResponsiblePartyAssignedEntity(HealthcareWorkerBean responsiblePartyAssignedEntity) {
-        this.responsiblePartyAssignedEntity = responsiblePartyAssignedEntity;
+
+
+    @Hl7XmlMapping({"componentOf"})
+    public ClassifiesBean getComponentOf() {
+        return this.componentOf;
+    }
+    public void setComponentOf(ClassifiesBean componentOf) {
+        this.componentOf = componentOf;
+    }
+
+
+    @Hl7XmlMapping({"definition"})
+    public List<ReferencesBean> getDefinition() {
+        return this.definition;
+    }
+
+
+    /**
+     * <p>PrescriptionStatus</p>
+     * 
+     * <p>C:Prescription Status</p>
+     */
+    @Hl7XmlMapping({"statusCode"})
+    public ActStatus getPrescriptionStatus() {
+        return (ActStatus) this.prescriptionStatus.getValue();
+    }
+    public void setPrescriptionStatus(ActStatus prescriptionStatus) {
+        this.prescriptionStatus.setValue(prescriptionStatus);
+    }
+
+
+    @Hl7XmlMapping({"pertinentInformation"})
+    public List<IncludesBean> getPertinentInformation() {
+        return this.pertinentInformation;
     }
 
 
@@ -232,6 +223,15 @@ public class SubstanceAdministrationRequestBean extends MessagePartBean {
     }
     public void setAuthor(PrescribedByBean author) {
         this.author = author;
+    }
+
+
+    @Hl7XmlMapping({"responsibleParty/assignedEntity"})
+    public HealthcareWorkerBean getResponsiblePartyAssignedEntity() {
+        return this.responsiblePartyAssignedEntity;
+    }
+    public void setResponsiblePartyAssignedEntity(HealthcareWorkerBean responsiblePartyAssignedEntity) {
+        this.responsiblePartyAssignedEntity = responsiblePartyAssignedEntity;
     }
 
 }

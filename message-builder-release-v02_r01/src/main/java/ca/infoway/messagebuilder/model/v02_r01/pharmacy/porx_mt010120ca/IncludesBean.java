@@ -14,17 +14,8 @@ import ca.infoway.messagebuilder.model.v02_r01.pharmacy.merged.PrescriptionPatie
 public class IncludesBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private PrescriptionPatientMeasurementsBean quantityObservationEvent;
     private BL contextConductionInd = new BLImpl();
-
-
-    @Hl7XmlMapping({"quantityObservationEvent"})
-    public PrescriptionPatientMeasurementsBean getQuantityObservationEvent() {
-        return this.quantityObservationEvent;
-    }
-    public void setQuantityObservationEvent(PrescriptionPatientMeasurementsBean quantityObservationEvent) {
-        this.quantityObservationEvent = quantityObservationEvent;
-    }
+    private PrescriptionPatientMeasurementsBean quantityObservationEvent;
 
 
     @Hl7XmlMapping({"contextConductionInd"})
@@ -33,6 +24,15 @@ public class IncludesBean extends MessagePartBean {
     }
     public void setContextConductionInd(Boolean contextConductionInd) {
         this.contextConductionInd.setValue(contextConductionInd);
+    }
+
+
+    @Hl7XmlMapping({"quantityObservationEvent"})
+    public PrescriptionPatientMeasurementsBean getQuantityObservationEvent() {
+        return this.quantityObservationEvent;
+    }
+    public void setQuantityObservationEvent(PrescriptionPatientMeasurementsBean quantityObservationEvent) {
+        this.quantityObservationEvent = quantityObservationEvent;
     }
 
 }

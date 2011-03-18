@@ -22,6 +22,8 @@ import ca.infoway.messagebuilder.datatype.lang.PostalAddress;
 import ca.infoway.messagebuilder.datatype.lang.TelecommunicationAddress;
 import ca.infoway.messagebuilder.domainvalue.x_SimplePersonalRelationship;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 
@@ -33,8 +35,8 @@ public class RelatedPersonBean extends MessagePartBean implements ca.infoway.mes
     private static final long serialVersionUID = 20110318L;
     private CV code = new CVImpl();
     private AD relatedPersonAddress = new ADImpl();
-    private SET<TEL, TelecommunicationAddress> relatedPersonPhonesAndEmails = new SETImpl<TEL, TelecommunicationAddress>(TELImpl.class);
     private PN relatedPersonName = new PNImpl();
+    private SET<TEL, TelecommunicationAddress> relatedPersonPhonesAndEmails = new SETImpl<TEL, TelecommunicationAddress>(TELImpl.class);
     private II relatedPersonIdentifier = new IIImpl();
 
 
@@ -69,17 +71,6 @@ public class RelatedPersonBean extends MessagePartBean implements ca.infoway.mes
 
 
     /**
-     * <p>RelatedPersonPhonesAndEmails</p>
-     * 
-     * <p>E:Related Person Phones and Emails</p>
-     */
-    @Hl7XmlMapping({"relationshipHolder/telecom"})
-    public Set<TelecommunicationAddress> getRelatedPersonPhonesAndEmails() {
-        return this.relatedPersonPhonesAndEmails.rawSet();
-    }
-
-
-    /**
      * <p>RelatedPersonName</p>
      * 
      * <p>A:Related Person Name</p>
@@ -90,6 +81,17 @@ public class RelatedPersonBean extends MessagePartBean implements ca.infoway.mes
     }
     public void setRelatedPersonName(PersonName relatedPersonName) {
         this.relatedPersonName.setValue(relatedPersonName);
+    }
+
+
+    /**
+     * <p>RelatedPersonPhonesAndEmails</p>
+     * 
+     * <p>E:Related Person Phones and Emails</p>
+     */
+    @Hl7XmlMapping({"relationshipHolder/telecom"})
+    public Set<TelecommunicationAddress> getRelatedPersonPhonesAndEmails() {
+        return this.relatedPersonPhonesAndEmails.rawSet();
     }
 
 

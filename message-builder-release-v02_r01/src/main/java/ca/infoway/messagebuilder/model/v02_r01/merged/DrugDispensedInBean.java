@@ -18,25 +18,9 @@ import ca.infoway.messagebuilder.model.v02_r01.claims.coct_mt300000ca.DrugFormBe
 public class DrugDispensedInBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private PQ drugPackageQuantity = new PQImpl();
     private CV drugContainerType = new CVImpl();
+    private PQ drugPackageQuantity = new PQImpl();
     private DrugFormBean containedManufacturedMaterialKind;
-
-
-    /**
-     * <p>DrugPackageQuantity</p>
-     * 
-     * <p>B:Drug Package Quantity</p>
-     * 
-     * <p>F:Drug Package Quantity</p>
-     */
-    @Hl7XmlMapping({"quantity"})
-    public PhysicalQuantity getDrugPackageQuantity() {
-        return this.drugPackageQuantity.getValue();
-    }
-    public void setDrugPackageQuantity(PhysicalQuantity drugPackageQuantity) {
-        this.drugPackageQuantity.setValue(drugPackageQuantity);
-    }
 
 
     /**
@@ -54,6 +38,22 @@ public class DrugDispensedInBean extends MessagePartBean {
     }
     public void setDrugContainerType(CompliancePackageEntityType drugContainerType) {
         this.drugContainerType.setValue(drugContainerType);
+    }
+
+
+    /**
+     * <p>DrugPackageQuantity</p>
+     * 
+     * <p>B:Drug Package Quantity</p>
+     * 
+     * <p>F:Drug Package Quantity</p>
+     */
+    @Hl7XmlMapping({"quantity"})
+    public PhysicalQuantity getDrugPackageQuantity() {
+        return this.drugPackageQuantity.getValue();
+    }
+    public void setDrugPackageQuantity(PhysicalQuantity drugPackageQuantity) {
+        this.drugPackageQuantity.setValue(drugPackageQuantity);
     }
 
 

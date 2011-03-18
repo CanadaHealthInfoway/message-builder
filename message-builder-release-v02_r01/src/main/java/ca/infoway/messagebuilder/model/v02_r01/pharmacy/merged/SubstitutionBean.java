@@ -16,8 +16,8 @@ public class SubstitutionBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
     private AgentBean responsiblePartyAgent;
-    private CV substitutionCode = new CVImpl();
     private CV reasonCode = new CVImpl();
+    private CV substitutionCode = new CVImpl();
 
 
     @Hl7XmlMapping({"responsibleParty/agent"})
@@ -26,20 +26,6 @@ public class SubstitutionBean extends MessagePartBean {
     }
     public void setResponsiblePartyAgent(AgentBean responsiblePartyAgent) {
         this.responsiblePartyAgent = responsiblePartyAgent;
-    }
-
-
-    /**
-     * <p>SubstitutionCode</p>
-     * 
-     * <p>Substitution Code</p>
-     */
-    @Hl7XmlMapping({"code"})
-    public ActSubstanceAdminSubstitutionCode getSubstitutionCode() {
-        return (ActSubstanceAdminSubstitutionCode) this.substitutionCode.getValue();
-    }
-    public void setSubstitutionCode(ActSubstanceAdminSubstitutionCode substitutionCode) {
-        this.substitutionCode.setValue(substitutionCode);
     }
 
 
@@ -54,6 +40,20 @@ public class SubstitutionBean extends MessagePartBean {
     }
     public void setReasonCode(SubstanceAdminSubstitutionReason reasonCode) {
         this.reasonCode.setValue(reasonCode);
+    }
+
+
+    /**
+     * <p>SubstitutionCode</p>
+     * 
+     * <p>Substitution Code</p>
+     */
+    @Hl7XmlMapping({"code"})
+    public ActSubstanceAdminSubstitutionCode getSubstitutionCode() {
+        return (ActSubstanceAdminSubstitutionCode) this.substitutionCode.getValue();
+    }
+    public void setSubstitutionCode(ActSubstanceAdminSubstitutionCode substitutionCode) {
+        this.substitutionCode.setValue(substitutionCode);
     }
 
 }

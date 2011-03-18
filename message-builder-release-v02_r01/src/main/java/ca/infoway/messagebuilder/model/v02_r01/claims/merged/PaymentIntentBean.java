@@ -25,11 +25,11 @@ public class PaymentIntentBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
     private ca.infoway.messagebuilder.model.v02_r01.claims.coct_mt110200ca.AccountBean creditAccount;
-    private List<AdjudicatorBillingTaxAccountBean> pertinentInformationAdjudicatorBillingTaxAccount = new ArrayList<AdjudicatorBillingTaxAccountBean>();
-    private List<PaymentReasonBean> reasonOf = new ArrayList<PaymentReasonBean>();
     private AccountBean debitAccount;
-    private MO amt = new MOImpl();
     private TS paymentIntentDateTime = new TSImpl();
+    private List<PaymentReasonBean> reasonOf = new ArrayList<PaymentReasonBean>();
+    private List<AdjudicatorBillingTaxAccountBean> pertinentInformationAdjudicatorBillingTaxAccount = new ArrayList<AdjudicatorBillingTaxAccountBean>();
+    private MO amt = new MOImpl();
 
 
     @Hl7XmlMapping({"credit/account"})
@@ -41,38 +41,12 @@ public class PaymentIntentBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"pertinentInformation/adjudicatorBillingTaxAccount"})
-    public List<AdjudicatorBillingTaxAccountBean> getPertinentInformationAdjudicatorBillingTaxAccount() {
-        return this.pertinentInformationAdjudicatorBillingTaxAccount;
-    }
-
-
-    @Hl7XmlMapping({"reasonOf"})
-    public List<PaymentReasonBean> getReasonOf() {
-        return this.reasonOf;
-    }
-
-
     @Hl7XmlMapping({"debit/account"})
     public AccountBean getDebitAccount() {
         return this.debitAccount;
     }
     public void setDebitAccount(AccountBean debitAccount) {
         this.debitAccount = debitAccount;
-    }
-
-
-    /**
-     * <p>payment amount</p>
-     * 
-     * <p>Total intent payment amount</p>
-     */
-    @Hl7XmlMapping({"amt"})
-    public Money getAmt() {
-        return this.amt.getValue();
-    }
-    public void setAmt(Money amt) {
-        this.amt.setValue(amt);
     }
 
 
@@ -87,6 +61,32 @@ public class PaymentIntentBean extends MessagePartBean {
     }
     public void setPaymentIntentDateTime(Date paymentIntentDateTime) {
         this.paymentIntentDateTime.setValue(paymentIntentDateTime);
+    }
+
+
+    @Hl7XmlMapping({"reasonOf"})
+    public List<PaymentReasonBean> getReasonOf() {
+        return this.reasonOf;
+    }
+
+
+    @Hl7XmlMapping({"pertinentInformation/adjudicatorBillingTaxAccount"})
+    public List<AdjudicatorBillingTaxAccountBean> getPertinentInformationAdjudicatorBillingTaxAccount() {
+        return this.pertinentInformationAdjudicatorBillingTaxAccount;
+    }
+
+
+    /**
+     * <p>payment amount</p>
+     * 
+     * <p>Total intent payment amount</p>
+     */
+    @Hl7XmlMapping({"amt"})
+    public Money getAmt() {
+        return this.amt.getValue();
+    }
+    public void setAmt(Money amt) {
+        this.amt.setValue(amt);
     }
 
 }

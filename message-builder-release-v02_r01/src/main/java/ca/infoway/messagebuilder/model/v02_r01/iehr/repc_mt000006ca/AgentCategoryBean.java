@@ -16,20 +16,8 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 public class AgentCategoryBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private ST exposedMaterialName = new STImpl();
     private CV exposedMaterialType = new CVImpl();
-
-
-    /**
-     * <p>Exposed Material Name</p>
-     */
-    @Hl7XmlMapping({"name"})
-    public String getExposedMaterialName() {
-        return this.exposedMaterialName.getValue();
-    }
-    public void setExposedMaterialName(String exposedMaterialName) {
-        this.exposedMaterialName.setValue(exposedMaterialName);
-    }
+    private ST exposedMaterialName = new STImpl();
 
 
     /**
@@ -41,6 +29,18 @@ public class AgentCategoryBean extends MessagePartBean {
     }
     public void setExposedMaterialType(ExposureAgentEntityType exposedMaterialType) {
         this.exposedMaterialType.setValue(exposedMaterialType);
+    }
+
+
+    /**
+     * <p>Exposed Material Name</p>
+     */
+    @Hl7XmlMapping({"name"})
+    public String getExposedMaterialName() {
+        return this.exposedMaterialName.getValue();
+    }
+    public void setExposedMaterialName(String exposedMaterialName) {
+        this.exposedMaterialName.setValue(exposedMaterialName);
     }
 
 }

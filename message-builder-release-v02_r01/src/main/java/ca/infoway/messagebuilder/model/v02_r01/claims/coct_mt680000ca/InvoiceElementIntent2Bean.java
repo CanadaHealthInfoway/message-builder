@@ -25,29 +25,11 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 public class InvoiceElementIntent2Bean extends MessagePartBean implements InvoiceElementChoice {
 
     private static final long serialVersionUID = 20110318L;
-    private PQ unitQuantity = new PQImpl();
-    private RTO<Money, PhysicalQuantity> unitPriceAmt = new RTOImpl<Money, PhysicalQuantity>();
     private MO netAmt = new MOImpl();
     private INT factorNumber = new INTImpl();
     private CV code = new CVImpl();
-
-
-    @Hl7XmlMapping({"unitQuantity"})
-    public PhysicalQuantity getUnitQuantity() {
-        return this.unitQuantity.getValue();
-    }
-    public void setUnitQuantity(PhysicalQuantity unitQuantity) {
-        this.unitQuantity.setValue(unitQuantity);
-    }
-
-
-    @Hl7XmlMapping({"unitPriceAmt"})
-    public Ratio<Money, PhysicalQuantity> getUnitPriceAmt() {
-        return this.unitPriceAmt.getValue();
-    }
-    public void setUnitPriceAmt(Ratio<Money, PhysicalQuantity> unitPriceAmt) {
-        this.unitPriceAmt.setValue(unitPriceAmt);
-    }
+    private PQ unitQuantity = new PQImpl();
+    private RTO<Money, PhysicalQuantity> unitPriceAmt = new RTOImpl<Money, PhysicalQuantity>();
 
 
     @Hl7XmlMapping({"netAmt"})
@@ -74,6 +56,24 @@ public class InvoiceElementIntent2Bean extends MessagePartBean implements Invoic
     }
     public void setCode(Code code) {
         this.code.setValue(code);
+    }
+
+
+    @Hl7XmlMapping({"unitQuantity"})
+    public PhysicalQuantity getUnitQuantity() {
+        return this.unitQuantity.getValue();
+    }
+    public void setUnitQuantity(PhysicalQuantity unitQuantity) {
+        this.unitQuantity.setValue(unitQuantity);
+    }
+
+
+    @Hl7XmlMapping({"unitPriceAmt"})
+    public Ratio<Money, PhysicalQuantity> getUnitPriceAmt() {
+        return this.unitPriceAmt.getValue();
+    }
+    public void setUnitPriceAmt(Ratio<Money, PhysicalQuantity> unitPriceAmt) {
+        this.unitPriceAmt.setValue(unitPriceAmt);
     }
 
 }

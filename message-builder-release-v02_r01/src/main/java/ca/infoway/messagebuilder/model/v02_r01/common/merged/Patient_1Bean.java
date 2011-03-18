@@ -24,6 +24,7 @@ import ca.infoway.messagebuilder.datatype.lang.PostalAddress;
 import ca.infoway.messagebuilder.datatype.lang.TelecommunicationAddress;
 import ca.infoway.messagebuilder.domainvalue.AdministrativeGender;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -34,12 +35,68 @@ import java.util.List;
 public class Patient_1Bean extends MessagePartBean implements Patient_2, ActingPerson {
 
     private static final long serialVersionUID = 20110318L;
+    private TS patientBirthDate = new TSImpl();
+    private PN patientName = new PNImpl();
+    private CV patientGender = new CVImpl();
+    private II patientIdentifier = new IIImpl();
     private AD patientContactAddress = new ADImpl();
     private LIST<TEL, TelecommunicationAddress> patientContactPhoneAndEMails = new LISTImpl<TEL, TelecommunicationAddress>(TELImpl.class);
-    private CV patientGender = new CVImpl();
-    private PN patientName = new PNImpl();
-    private TS patientBirthDate = new TSImpl();
-    private II patientIdentifier = new IIImpl();
+
+
+    /**
+     * <p>PatientBirthDate</p>
+     * 
+     * <p>E:Patient Birth Date</p>
+     */
+    @Hl7XmlMapping({"patientPerson/birthTime"})
+    public Date getPatientBirthDate() {
+        return this.patientBirthDate.getValue();
+    }
+    public void setPatientBirthDate(Date patientBirthDate) {
+        this.patientBirthDate.setValue(patientBirthDate);
+    }
+
+
+    /**
+     * <p>PatientName</p>
+     * 
+     * <p>B:Patient Name</p>
+     */
+    @Hl7XmlMapping({"patientPerson/name"})
+    public PersonName getPatientName() {
+        return this.patientName.getValue();
+    }
+    public void setPatientName(PersonName patientName) {
+        this.patientName.setValue(patientName);
+    }
+
+
+    /**
+     * <p>PatientGender</p>
+     * 
+     * <p>F:Patient Gender</p>
+     */
+    @Hl7XmlMapping({"patientPerson/administrativeGenderCode"})
+    public AdministrativeGender getPatientGender() {
+        return (AdministrativeGender) this.patientGender.getValue();
+    }
+    public void setPatientGender(AdministrativeGender patientGender) {
+        this.patientGender.setValue(patientGender);
+    }
+
+
+    /**
+     * <p>PatientIdentifier</p>
+     * 
+     * <p>A:Patient Identifier</p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Identifier getPatientIdentifier() {
+        return this.patientIdentifier.getValue();
+    }
+    public void setPatientIdentifier(Identifier patientIdentifier) {
+        this.patientIdentifier.setValue(patientIdentifier);
+    }
 
 
     /**
@@ -64,62 +121,6 @@ public class Patient_1Bean extends MessagePartBean implements Patient_2, ActingP
     @Hl7XmlMapping({"telecom"})
     public List<TelecommunicationAddress> getPatientContactPhoneAndEMails() {
         return this.patientContactPhoneAndEMails.rawList();
-    }
-
-
-    /**
-     * <p>PatientGender</p>
-     * 
-     * <p>F:Patient Gender</p>
-     */
-    @Hl7XmlMapping({"patientPerson/administrativeGenderCode"})
-    public AdministrativeGender getPatientGender() {
-        return (AdministrativeGender) this.patientGender.getValue();
-    }
-    public void setPatientGender(AdministrativeGender patientGender) {
-        this.patientGender.setValue(patientGender);
-    }
-
-
-    /**
-     * <p>PatientName</p>
-     * 
-     * <p>B:Patient Name</p>
-     */
-    @Hl7XmlMapping({"patientPerson/name"})
-    public PersonName getPatientName() {
-        return this.patientName.getValue();
-    }
-    public void setPatientName(PersonName patientName) {
-        this.patientName.setValue(patientName);
-    }
-
-
-    /**
-     * <p>PatientBirthDate</p>
-     * 
-     * <p>E:Patient Birth Date</p>
-     */
-    @Hl7XmlMapping({"patientPerson/birthTime"})
-    public Date getPatientBirthDate() {
-        return this.patientBirthDate.getValue();
-    }
-    public void setPatientBirthDate(Date patientBirthDate) {
-        this.patientBirthDate.setValue(patientBirthDate);
-    }
-
-
-    /**
-     * <p>PatientIdentifier</p>
-     * 
-     * <p>A:Patient Identifier</p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Identifier getPatientIdentifier() {
-        return this.patientIdentifier.getValue();
-    }
-    public void setPatientIdentifier(Identifier patientIdentifier) {
-        this.patientIdentifier.setValue(patientIdentifier);
     }
 
 }

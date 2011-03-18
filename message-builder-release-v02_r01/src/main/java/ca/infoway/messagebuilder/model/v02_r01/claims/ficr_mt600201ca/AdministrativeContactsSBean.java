@@ -17,9 +17,21 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 public class AdministrativeContactsSBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
+    private II administrativeContactID = new IIImpl();
     private AdministrativeContactPersonBean contactPerson;
     private CV administrativeContactType = new CVImpl();
-    private II administrativeContactID = new IIImpl();
+
+
+    /**
+     * <p>Administrative Contact ID</p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Identifier getAdministrativeContactID() {
+        return this.administrativeContactID.getValue();
+    }
+    public void setAdministrativeContactID(Identifier administrativeContactID) {
+        this.administrativeContactID.setValue(administrativeContactID);
+    }
 
 
     @Hl7XmlMapping({"contactPerson"})
@@ -40,18 +52,6 @@ public class AdministrativeContactsSBean extends MessagePartBean {
     }
     public void setAdministrativeContactType(AdministrativeContactRoleType administrativeContactType) {
         this.administrativeContactType.setValue(administrativeContactType);
-    }
-
-
-    /**
-     * <p>Administrative Contact ID</p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Identifier getAdministrativeContactID() {
-        return this.administrativeContactID.getValue();
-    }
-    public void setAdministrativeContactID(Identifier administrativeContactID) {
-        this.administrativeContactID.setValue(administrativeContactID);
     }
 
 }

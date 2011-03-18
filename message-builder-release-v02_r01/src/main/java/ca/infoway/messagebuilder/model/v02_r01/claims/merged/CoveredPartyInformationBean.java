@@ -24,24 +24,11 @@ import java.util.List;
 public class CoveredPartyInformationBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private CV code = new CVImpl();
     private II coveredPartyIdentifier = new IIImpl();
     private RelatedPersonBean indirectAuthorityPersonalRelationship;
+    private CV code = new CVImpl();
     private List<PatientConsentBean> subjectOf = new ArrayList<PatientConsentBean>();
     private CoveredPartyAsPatientChoice coveredPartyAsPatientChoice;
-
-
-    /**
-     * <p>Relationship to Policy Holder</p>
-     * 
-     */
-    @Hl7XmlMapping({"code"})
-    public Code getCode() {
-        return (Code) this.code.getValue();
-    }
-    public void setCode(Code code) {
-        this.code.setValue(code);
-    }
 
 
     /**
@@ -64,6 +51,19 @@ public class CoveredPartyInformationBean extends MessagePartBean {
     }
     public void setIndirectAuthorityPersonalRelationship(RelatedPersonBean indirectAuthorityPersonalRelationship) {
         this.indirectAuthorityPersonalRelationship = indirectAuthorityPersonalRelationship;
+    }
+
+
+    /**
+     * <p>Relationship to Policy Holder</p>
+     * 
+     */
+    @Hl7XmlMapping({"code"})
+    public Code getCode() {
+        return (Code) this.code.getValue();
+    }
+    public void setCode(Code code) {
+        this.code.setValue(code);
     }
 
 

@@ -28,14 +28,74 @@ import java.util.Date;
 public class DispenseInstructionsBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
+    private INT totalPrescribedQuantity = new INTImpl();
+    private IVL<TS, Interval<Date>> totalDaysSupply = new IVLImpl<TS, Interval<Date>>();
+    private BL sourceOfContextConductionInd = new BLImpl();
+    private CS sourceOfContextControlCode = new CSImpl();
+    private CS sourceOfTypeCode = new CSImpl();
+    private SupplementalFillInformationBean sourceOfSupplementalFillInformation;
     private DispenseShipToLocationBean destinationServiceDeliveryLocation;
     private CreatedAtBean location;
-    private INT totalPrescribedQuantity = new INTImpl();
-    private BL sourceOfContextConductionInd = new BLImpl();
-    private SupplementalFillInformationBean sourceOfSupplementalFillInformation;
-    private CS sourceOfTypeCode = new CSImpl();
-    private CS sourceOfContextControlCode = new CSImpl();
-    private IVL<TS, Interval<Date>> totalDaysSupply = new IVLImpl<TS, Interval<Date>>();
+
+
+    /**
+     * <p>B:Total Prescribed Quantity</p>
+     */
+    @Hl7XmlMapping({"quantity"})
+    public Integer getTotalPrescribedQuantity() {
+        return this.totalPrescribedQuantity.getValue();
+    }
+    public void setTotalPrescribedQuantity(Integer totalPrescribedQuantity) {
+        this.totalPrescribedQuantity.setValue(totalPrescribedQuantity);
+    }
+
+
+    /**
+     * <p>C:Total Days Supply</p>
+     */
+    @Hl7XmlMapping({"expectedUseTime"})
+    public Interval<Date> getTotalDaysSupply() {
+        return this.totalDaysSupply.getValue();
+    }
+    public void setTotalDaysSupply(Interval<Date> totalDaysSupply) {
+        this.totalDaysSupply.setValue(totalDaysSupply);
+    }
+
+
+    @Hl7XmlMapping({"sourceOf/contextConductionInd"})
+    public Boolean getSourceOfContextConductionInd() {
+        return this.sourceOfContextConductionInd.getValue();
+    }
+    public void setSourceOfContextConductionInd(Boolean sourceOfContextConductionInd) {
+        this.sourceOfContextConductionInd.setValue(sourceOfContextConductionInd);
+    }
+
+
+    @Hl7XmlMapping({"sourceOf/contextControlCode"})
+    public ContextControl getSourceOfContextControlCode() {
+        return (ContextControl) this.sourceOfContextControlCode.getValue();
+    }
+    public void setSourceOfContextControlCode(ContextControl sourceOfContextControlCode) {
+        this.sourceOfContextControlCode.setValue(sourceOfContextControlCode);
+    }
+
+
+    @Hl7XmlMapping({"sourceOf/typeCode"})
+    public ActRelationshipType getSourceOfTypeCode() {
+        return (ActRelationshipType) this.sourceOfTypeCode.getValue();
+    }
+    public void setSourceOfTypeCode(ActRelationshipType sourceOfTypeCode) {
+        this.sourceOfTypeCode.setValue(sourceOfTypeCode);
+    }
+
+
+    @Hl7XmlMapping({"sourceOf/supplementalFillInformation"})
+    public SupplementalFillInformationBean getSourceOfSupplementalFillInformation() {
+        return this.sourceOfSupplementalFillInformation;
+    }
+    public void setSourceOfSupplementalFillInformation(SupplementalFillInformationBean sourceOfSupplementalFillInformation) {
+        this.sourceOfSupplementalFillInformation = sourceOfSupplementalFillInformation;
+    }
 
 
     @Hl7XmlMapping({"destination/serviceDeliveryLocation"})
@@ -53,66 +113,6 @@ public class DispenseInstructionsBean extends MessagePartBean {
     }
     public void setLocation(CreatedAtBean location) {
         this.location = location;
-    }
-
-
-    /**
-     * <p>B:Total Prescribed Quantity</p>
-     */
-    @Hl7XmlMapping({"quantity"})
-    public Integer getTotalPrescribedQuantity() {
-        return this.totalPrescribedQuantity.getValue();
-    }
-    public void setTotalPrescribedQuantity(Integer totalPrescribedQuantity) {
-        this.totalPrescribedQuantity.setValue(totalPrescribedQuantity);
-    }
-
-
-    @Hl7XmlMapping({"sourceOf/contextConductionInd"})
-    public Boolean getSourceOfContextConductionInd() {
-        return this.sourceOfContextConductionInd.getValue();
-    }
-    public void setSourceOfContextConductionInd(Boolean sourceOfContextConductionInd) {
-        this.sourceOfContextConductionInd.setValue(sourceOfContextConductionInd);
-    }
-
-
-    @Hl7XmlMapping({"sourceOf/supplementalFillInformation"})
-    public SupplementalFillInformationBean getSourceOfSupplementalFillInformation() {
-        return this.sourceOfSupplementalFillInformation;
-    }
-    public void setSourceOfSupplementalFillInformation(SupplementalFillInformationBean sourceOfSupplementalFillInformation) {
-        this.sourceOfSupplementalFillInformation = sourceOfSupplementalFillInformation;
-    }
-
-
-    @Hl7XmlMapping({"sourceOf/typeCode"})
-    public ActRelationshipType getSourceOfTypeCode() {
-        return (ActRelationshipType) this.sourceOfTypeCode.getValue();
-    }
-    public void setSourceOfTypeCode(ActRelationshipType sourceOfTypeCode) {
-        this.sourceOfTypeCode.setValue(sourceOfTypeCode);
-    }
-
-
-    @Hl7XmlMapping({"sourceOf/contextControlCode"})
-    public ContextControl getSourceOfContextControlCode() {
-        return (ContextControl) this.sourceOfContextControlCode.getValue();
-    }
-    public void setSourceOfContextControlCode(ContextControl sourceOfContextControlCode) {
-        this.sourceOfContextControlCode.setValue(sourceOfContextControlCode);
-    }
-
-
-    /**
-     * <p>C:Total Days Supply</p>
-     */
-    @Hl7XmlMapping({"expectedUseTime"})
-    public Interval<Date> getTotalDaysSupply() {
-        return this.totalDaysSupply.getValue();
-    }
-    public void setTotalDaysSupply(Interval<Date> totalDaysSupply) {
-        this.totalDaysSupply.setValue(totalDaysSupply);
     }
 
 }

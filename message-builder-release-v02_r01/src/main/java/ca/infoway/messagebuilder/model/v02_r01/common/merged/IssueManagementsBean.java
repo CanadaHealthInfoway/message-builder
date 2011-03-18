@@ -17,23 +17,9 @@ import ca.infoway.messagebuilder.model.v02_r01.merged.ChangedByBean;
 public class IssueManagementsBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private ST managementDescription = new STImpl();
     private ChangedByBean author;
     private CV managementType = new CVImpl();
-
-
-    /**
-     * <p>ManagementDescription</p>
-     * 
-     * <p>C:Management Description</p>
-     */
-    @Hl7XmlMapping({"text"})
-    public String getManagementDescription() {
-        return this.managementDescription.getValue();
-    }
-    public void setManagementDescription(String managementDescription) {
-        this.managementDescription.setValue(managementDescription);
-    }
+    private ST managementDescription = new STImpl();
 
 
     @Hl7XmlMapping({"author"})
@@ -56,6 +42,20 @@ public class IssueManagementsBean extends MessagePartBean {
     }
     public void setManagementType(ActDetectedIssueManagementCode managementType) {
         this.managementType.setValue(managementType);
+    }
+
+
+    /**
+     * <p>ManagementDescription</p>
+     * 
+     * <p>C:Management Description</p>
+     */
+    @Hl7XmlMapping({"text"})
+    public String getManagementDescription() {
+        return this.managementDescription.getValue();
+    }
+    public void setManagementDescription(String managementDescription) {
+        this.managementDescription.setValue(managementDescription);
     }
 
 }

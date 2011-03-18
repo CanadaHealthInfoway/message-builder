@@ -18,6 +18,8 @@ import ca.infoway.messagebuilder.datatype.lang.PersonName;
 import ca.infoway.messagebuilder.datatype.lang.PostalAddress;
 import ca.infoway.messagebuilder.datatype.lang.TelecommunicationAddress;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 
@@ -27,22 +29,10 @@ import java.util.Set;
 public class AnimalPatientBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private ST animalName = new STImpl();
     private PN ownerName = new PNImpl();
     private AD ownerAddress = new ADImpl();
     private SET<TEL, TelecommunicationAddress> ownerPhonesAndEmails = new SETImpl<TEL, TelecommunicationAddress>(TELImpl.class);
-
-
-    /**
-     * <p>B:Animal name</p>
-     */
-    @Hl7XmlMapping({"patientNonPersonLivingSubject/name"})
-    public String getAnimalName() {
-        return this.animalName.getValue();
-    }
-    public void setAnimalName(String animalName) {
-        this.animalName.setValue(animalName);
-    }
+    private ST animalName = new STImpl();
 
 
     /**
@@ -75,6 +65,18 @@ public class AnimalPatientBean extends MessagePartBean {
     @Hl7XmlMapping({"patientNonPersonLivingSubject/contactParty/telecom"})
     public Set<TelecommunicationAddress> getOwnerPhonesAndEmails() {
         return this.ownerPhonesAndEmails.rawSet();
+    }
+
+
+    /**
+     * <p>B:Animal name</p>
+     */
+    @Hl7XmlMapping({"patientNonPersonLivingSubject/name"})
+    public String getAnimalName() {
+        return this.animalName.getValue();
+    }
+    public void setAnimalName(String animalName) {
+        this.animalName.setValue(animalName);
     }
 
 }

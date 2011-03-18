@@ -27,12 +27,26 @@ import java.util.Date;
 public class DispenseBean extends MessagePartBean implements CausalActs {
 
     private static final long serialVersionUID = 20110318L;
+    private II prescriptionDispenseNumber = new IIImpl();
     private CV confidentialityCode = new CVImpl();
-    private CreatedAtBean location;
+    private IVL<TS, Interval<Date>> dispensedDate = new IVLImpl<TS, Interval<Date>>();
     private DispensedBean product;
     private CS dispenseStatus = new CSImpl();
-    private II prescriptionDispenseNumber = new IIImpl();
-    private IVL<TS, Interval<Date>> dispensedDate = new IVLImpl<TS, Interval<Date>>();
+    private CreatedAtBean location;
+
+
+    /**
+     * <p>PrescriptionDispenseNumber</p>
+     * 
+     * <p>A:Prescription Dispense Number</p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Identifier getPrescriptionDispenseNumber() {
+        return this.prescriptionDispenseNumber.getValue();
+    }
+    public void setPrescriptionDispenseNumber(Identifier prescriptionDispenseNumber) {
+        this.prescriptionDispenseNumber.setValue(prescriptionDispenseNumber);
+    }
 
 
     /**
@@ -49,12 +63,17 @@ public class DispenseBean extends MessagePartBean implements CausalActs {
     }
 
 
-    @Hl7XmlMapping({"location"})
-    public CreatedAtBean getLocation() {
-        return this.location;
+    /**
+     * <p>DispensedDate</p>
+     * 
+     * <p>B:Dispensed Date</p>
+     */
+    @Hl7XmlMapping({"effectiveTime"})
+    public Interval<Date> getDispensedDate() {
+        return this.dispensedDate.getValue();
     }
-    public void setLocation(CreatedAtBean location) {
-        this.location = location;
+    public void setDispensedDate(Interval<Date> dispensedDate) {
+        this.dispensedDate.setValue(dispensedDate);
     }
 
 
@@ -81,31 +100,12 @@ public class DispenseBean extends MessagePartBean implements CausalActs {
     }
 
 
-    /**
-     * <p>PrescriptionDispenseNumber</p>
-     * 
-     * <p>A:Prescription Dispense Number</p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Identifier getPrescriptionDispenseNumber() {
-        return this.prescriptionDispenseNumber.getValue();
+    @Hl7XmlMapping({"location"})
+    public CreatedAtBean getLocation() {
+        return this.location;
     }
-    public void setPrescriptionDispenseNumber(Identifier prescriptionDispenseNumber) {
-        this.prescriptionDispenseNumber.setValue(prescriptionDispenseNumber);
-    }
-
-
-    /**
-     * <p>DispensedDate</p>
-     * 
-     * <p>B:Dispensed Date</p>
-     */
-    @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getDispensedDate() {
-        return this.dispensedDate.getValue();
-    }
-    public void setDispensedDate(Interval<Date> dispensedDate) {
-        this.dispensedDate.setValue(dispensedDate);
+    public void setLocation(CreatedAtBean location) {
+        this.location = location;
     }
 
 }

@@ -22,10 +22,19 @@ import java.util.Set;
 public class OtherIDsBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private CV nonHealthcareIdentificationCode = new CVImpl();
     private SET<II, Identifier> nonHealthcareIdentification = new SETImpl<II, Identifier>(IIImpl.class);
-    private ST nonHealthcareOrganizationName = new STImpl();
+    private CV nonHealthcareIdentificationCode = new CVImpl();
     private II nonHealthcareOrganizationIdentifier = new IIImpl();
+    private ST nonHealthcareOrganizationName = new STImpl();
+
+
+    /**
+     * <p>NonHealthcare Identification</p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Set<Identifier> getNonHealthcareIdentification() {
+        return this.nonHealthcareIdentification.rawSet();
+    }
 
 
     /**
@@ -41,11 +50,14 @@ public class OtherIDsBean extends MessagePartBean {
 
 
     /**
-     * <p>NonHealthcare Identification</p>
+     * <p>NonHealthcare Organization Identifier</p>
      */
-    @Hl7XmlMapping({"id"})
-    public Set<Identifier> getNonHealthcareIdentification() {
-        return this.nonHealthcareIdentification.rawSet();
+    @Hl7XmlMapping({"scopingIdOrganization/id"})
+    public Identifier getNonHealthcareOrganizationIdentifier() {
+        return this.nonHealthcareOrganizationIdentifier.getValue();
+    }
+    public void setNonHealthcareOrganizationIdentifier(Identifier nonHealthcareOrganizationIdentifier) {
+        this.nonHealthcareOrganizationIdentifier.setValue(nonHealthcareOrganizationIdentifier);
     }
 
 
@@ -58,18 +70,6 @@ public class OtherIDsBean extends MessagePartBean {
     }
     public void setNonHealthcareOrganizationName(String nonHealthcareOrganizationName) {
         this.nonHealthcareOrganizationName.setValue(nonHealthcareOrganizationName);
-    }
-
-
-    /**
-     * <p>NonHealthcare Organization Identifier</p>
-     */
-    @Hl7XmlMapping({"scopingIdOrganization/id"})
-    public Identifier getNonHealthcareOrganizationIdentifier() {
-        return this.nonHealthcareOrganizationIdentifier.getValue();
-    }
-    public void setNonHealthcareOrganizationIdentifier(Identifier nonHealthcareOrganizationIdentifier) {
-        this.nonHealthcareOrganizationIdentifier.setValue(nonHealthcareOrganizationIdentifier);
     }
 
 }

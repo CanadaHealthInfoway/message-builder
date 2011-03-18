@@ -33,14 +33,14 @@ public class DrugOrCompoundBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
     private CS regulatoryStatusCode = new CSImpl();
+    private ST description = new STImpl();
+    private CV drugCode = new CVImpl();
+    private SET<TN, TrivialName> drugNames = new SETImpl<TN, TrivialName>(TNImpl.class);
+    private List<GroupedWithinBean> asSpecializedKind = new ArrayList<GroupedWithinBean>();
     private CV drugForm = new CVImpl();
     private List<DrugContainsBean> ingredient = new ArrayList<DrugContainsBean>();
-    private List<GroupedWithinBean> asSpecializedKind = new ArrayList<GroupedWithinBean>();
-    private ManufacturerBean asManufacturedProductManufacturer;
     private DispensedInBean asContent;
-    private SET<TN, TrivialName> drugNames = new SETImpl<TN, TrivialName>(TNImpl.class);
-    private CV drugCode = new CVImpl();
-    private ST description = new STImpl();
+    private ManufacturerBean asManufacturedProductManufacturer;
 
 
     /**
@@ -52,6 +52,45 @@ public class DrugOrCompoundBean extends MessagePartBean {
     }
     public void setRegulatoryStatusCode(RoleStatusNormal regulatoryStatusCode) {
         this.regulatoryStatusCode.setValue(regulatoryStatusCode);
+    }
+
+
+    /**
+     * <p>Description</p>
+     */
+    @Hl7XmlMapping({"desc"})
+    public String getDescription() {
+        return this.description.getValue();
+    }
+    public void setDescription(String description) {
+        this.description.setValue(description);
+    }
+
+
+    /**
+     * <p>Drug Code</p>
+     */
+    @Hl7XmlMapping({"code"})
+    public ClinicalDrug getDrugCode() {
+        return (ClinicalDrug) this.drugCode.getValue();
+    }
+    public void setDrugCode(ClinicalDrug drugCode) {
+        this.drugCode.setValue(drugCode);
+    }
+
+
+    /**
+     * <p>Drug Names</p>
+     */
+    @Hl7XmlMapping({"name"})
+    public Set<TrivialName> getDrugNames() {
+        return this.drugNames.rawSet();
+    }
+
+
+    @Hl7XmlMapping({"asSpecializedKind"})
+    public List<GroupedWithinBean> getAsSpecializedKind() {
+        return this.asSpecializedKind;
     }
 
 
@@ -73,21 +112,6 @@ public class DrugOrCompoundBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"asSpecializedKind"})
-    public List<GroupedWithinBean> getAsSpecializedKind() {
-        return this.asSpecializedKind;
-    }
-
-
-    @Hl7XmlMapping({"asManufacturedProduct/manufacturer"})
-    public ManufacturerBean getAsManufacturedProductManufacturer() {
-        return this.asManufacturedProductManufacturer;
-    }
-    public void setAsManufacturedProductManufacturer(ManufacturerBean asManufacturedProductManufacturer) {
-        this.asManufacturedProductManufacturer = asManufacturedProductManufacturer;
-    }
-
-
     @Hl7XmlMapping({"asContent"})
     public DispensedInBean getAsContent() {
         return this.asContent;
@@ -97,36 +121,12 @@ public class DrugOrCompoundBean extends MessagePartBean {
     }
 
 
-    /**
-     * <p>Drug Names</p>
-     */
-    @Hl7XmlMapping({"name"})
-    public Set<TrivialName> getDrugNames() {
-        return this.drugNames.rawSet();
+    @Hl7XmlMapping({"asManufacturedProduct/manufacturer"})
+    public ManufacturerBean getAsManufacturedProductManufacturer() {
+        return this.asManufacturedProductManufacturer;
     }
-
-
-    /**
-     * <p>Drug Code</p>
-     */
-    @Hl7XmlMapping({"code"})
-    public ClinicalDrug getDrugCode() {
-        return (ClinicalDrug) this.drugCode.getValue();
-    }
-    public void setDrugCode(ClinicalDrug drugCode) {
-        this.drugCode.setValue(drugCode);
-    }
-
-
-    /**
-     * <p>Description</p>
-     */
-    @Hl7XmlMapping({"desc"})
-    public String getDescription() {
-        return this.description.getValue();
-    }
-    public void setDescription(String description) {
-        this.description.setValue(description);
+    public void setAsManufacturedProductManufacturer(ManufacturerBean asManufacturedProductManufacturer) {
+        this.asManufacturedProductManufacturer = asManufacturedProductManufacturer;
     }
 
 }

@@ -16,27 +16,9 @@ import ca.infoway.messagebuilder.model.v02_r01.merged.PrescribedByBean;
 public class SupplyOrderBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private HealthcareWorkerBean responsiblePartyAssignedEntity;
-    private PrescribedByBean author;
     private II prescriptionIdentifier = new IIImpl();
-
-
-    @Hl7XmlMapping({"responsibleParty/assignedEntity"})
-    public HealthcareWorkerBean getResponsiblePartyAssignedEntity() {
-        return this.responsiblePartyAssignedEntity;
-    }
-    public void setResponsiblePartyAssignedEntity(HealthcareWorkerBean responsiblePartyAssignedEntity) {
-        this.responsiblePartyAssignedEntity = responsiblePartyAssignedEntity;
-    }
-
-
-    @Hl7XmlMapping({"author"})
-    public PrescribedByBean getAuthor() {
-        return this.author;
-    }
-    public void setAuthor(PrescribedByBean author) {
-        this.author = author;
-    }
+    private PrescribedByBean author;
+    private HealthcareWorkerBean responsiblePartyAssignedEntity;
 
 
     /**
@@ -50,6 +32,24 @@ public class SupplyOrderBean extends MessagePartBean {
     }
     public void setPrescriptionIdentifier(Identifier prescriptionIdentifier) {
         this.prescriptionIdentifier.setValue(prescriptionIdentifier);
+    }
+
+
+    @Hl7XmlMapping({"author"})
+    public PrescribedByBean getAuthor() {
+        return this.author;
+    }
+    public void setAuthor(PrescribedByBean author) {
+        this.author = author;
+    }
+
+
+    @Hl7XmlMapping({"responsibleParty/assignedEntity"})
+    public HealthcareWorkerBean getResponsiblePartyAssignedEntity() {
+        return this.responsiblePartyAssignedEntity;
+    }
+    public void setResponsiblePartyAssignedEntity(HealthcareWorkerBean responsiblePartyAssignedEntity) {
+        this.responsiblePartyAssignedEntity = responsiblePartyAssignedEntity;
     }
 
 }

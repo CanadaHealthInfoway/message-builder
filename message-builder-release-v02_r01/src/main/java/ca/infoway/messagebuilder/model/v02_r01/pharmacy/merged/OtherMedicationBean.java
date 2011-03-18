@@ -41,15 +41,29 @@ import java.util.Set;
 public class OtherMedicationBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
+    private II otherMedicationId = new IIImpl();
     private SET<CV, Code> otherMedicationMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);
+    private IVL<TS, Interval<Date>> drugActivePeriod = new IVLImpl<TS, Interval<Date>>();
+    private CD otherMedicationType = new CDImpl();
     private CV routeCode = new CVImpl();
     private CS statusCode = new CSImpl();
-    private CD otherMedicationType = new CDImpl();
-    private II otherMedicationId = new IIImpl();
-    private IVL<TS, Interval<Date>> drugActivePeriod = new IVLImpl<TS, Interval<Date>>();
-    private NotesBean subjectOfAnnotation;
-    private DrugProductBean consumableMedication;
     private List<AdministrationInstructionsBean> componentDosageInstruction = new ArrayList<AdministrationInstructionsBean>();
+    private DrugProductBean consumableMedication;
+    private NotesBean subjectOfAnnotation;
+
+
+    /**
+     * <p>OtherMedicationId</p>
+     * 
+     * <p>A:Other Medication Id</p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Identifier getOtherMedicationId() {
+        return this.otherMedicationId.getValue();
+    }
+    public void setOtherMedicationId(Identifier otherMedicationId) {
+        this.otherMedicationId.setValue(otherMedicationId);
+    }
 
 
     /**
@@ -60,6 +74,36 @@ public class OtherMedicationBean extends MessagePartBean {
     @Hl7XmlMapping({"confidentialityCode"})
     public Set<x_NormalRestrictedTabooConfidentialityKind> getOtherMedicationMaskingIndicators() {
         return this.otherMedicationMaskingIndicators.rawSet(x_NormalRestrictedTabooConfidentialityKind.class);
+    }
+
+
+    /**
+     * <p>DrugActivePeriod</p>
+     * 
+     * <p>C:Drug Active Period</p>
+     * 
+     * <p>d:Drug Active Period</p>
+     */
+    @Hl7XmlMapping({"effectiveTime"})
+    public Interval<Date> getDrugActivePeriod() {
+        return this.drugActivePeriod.getValue();
+    }
+    public void setDrugActivePeriod(Interval<Date> drugActivePeriod) {
+        this.drugActivePeriod.setValue(drugActivePeriod);
+    }
+
+
+    /**
+     * <p>OtherMedicationType</p>
+     * 
+     * <p>Other Medication Type</p>
+     */
+    @Hl7XmlMapping({"code"})
+    public ActCode getOtherMedicationType() {
+        return (ActCode) this.otherMedicationType.getValue();
+    }
+    public void setOtherMedicationType(ActCode otherMedicationType) {
+        this.otherMedicationType.setValue(otherMedicationType);
     }
 
 
@@ -91,56 +135,9 @@ public class OtherMedicationBean extends MessagePartBean {
     }
 
 
-    /**
-     * <p>OtherMedicationType</p>
-     * 
-     * <p>Other Medication Type</p>
-     */
-    @Hl7XmlMapping({"code"})
-    public ActCode getOtherMedicationType() {
-        return (ActCode) this.otherMedicationType.getValue();
-    }
-    public void setOtherMedicationType(ActCode otherMedicationType) {
-        this.otherMedicationType.setValue(otherMedicationType);
-    }
-
-
-    /**
-     * <p>OtherMedicationId</p>
-     * 
-     * <p>A:Other Medication Id</p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Identifier getOtherMedicationId() {
-        return this.otherMedicationId.getValue();
-    }
-    public void setOtherMedicationId(Identifier otherMedicationId) {
-        this.otherMedicationId.setValue(otherMedicationId);
-    }
-
-
-    /**
-     * <p>DrugActivePeriod</p>
-     * 
-     * <p>C:Drug Active Period</p>
-     * 
-     * <p>d:Drug Active Period</p>
-     */
-    @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getDrugActivePeriod() {
-        return this.drugActivePeriod.getValue();
-    }
-    public void setDrugActivePeriod(Interval<Date> drugActivePeriod) {
-        this.drugActivePeriod.setValue(drugActivePeriod);
-    }
-
-
-    @Hl7XmlMapping({"subjectOf/annotation"})
-    public NotesBean getSubjectOfAnnotation() {
-        return this.subjectOfAnnotation;
-    }
-    public void setSubjectOfAnnotation(NotesBean subjectOfAnnotation) {
-        this.subjectOfAnnotation = subjectOfAnnotation;
+    @Hl7XmlMapping({"component/dosageInstruction"})
+    public List<AdministrationInstructionsBean> getComponentDosageInstruction() {
+        return this.componentDosageInstruction;
     }
 
 
@@ -153,9 +150,12 @@ public class OtherMedicationBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"component/dosageInstruction"})
-    public List<AdministrationInstructionsBean> getComponentDosageInstruction() {
-        return this.componentDosageInstruction;
+    @Hl7XmlMapping({"subjectOf/annotation"})
+    public NotesBean getSubjectOfAnnotation() {
+        return this.subjectOfAnnotation;
+    }
+    public void setSubjectOfAnnotation(NotesBean subjectOfAnnotation) {
+        this.subjectOfAnnotation = subjectOfAnnotation;
     }
 
 }

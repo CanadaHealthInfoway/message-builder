@@ -34,27 +34,27 @@ import java.util.Date;
 public class ActiveMedicationBean extends MessagePartBean implements CausalActs {
 
     private static final long serialVersionUID = 20110318L;
-    private CS otherMedicationIndicator = new CSImpl();
+    private II activeMedicationRecordNumber = new IIImpl();
     private CV activeMedicationMaskingIndicator = new CVImpl();
+    private IVL<TS, Interval<Date>> activeMedicationTimeRange = new IVLImpl<TS, Interval<Date>>();
+    private CD administrationType = new CDImpl();
     private DrugProductBean consumableMedication;
     private CS activeMedicationStatus = new CSImpl();
-    private CD administrationType = new CDImpl();
-    private II activeMedicationRecordNumber = new IIImpl();
+    private CS otherMedicationIndicator = new CSImpl();
     private PQ activeMedicationDoseQuantity = new PQImpl();
-    private IVL<TS, Interval<Date>> activeMedicationTimeRange = new IVLImpl<TS, Interval<Date>>();
 
 
     /**
-     * <p>OtherMedicationIndicator</p>
+     * <p>ActiveMedicationRecordNumber</p>
      * 
-     * <p>Other Medication Indicator</p>
+     * <p>A:Active Medication Record Number</p>
      */
-    @Hl7XmlMapping({"moodCode"})
-    public x_ActMoodRequestEvent getOtherMedicationIndicator() {
-        return (x_ActMoodRequestEvent) this.otherMedicationIndicator.getValue();
+    @Hl7XmlMapping({"id"})
+    public Identifier getActiveMedicationRecordNumber() {
+        return this.activeMedicationRecordNumber.getValue();
     }
-    public void setOtherMedicationIndicator(x_ActMoodRequestEvent otherMedicationIndicator) {
-        this.otherMedicationIndicator.setValue(otherMedicationIndicator);
+    public void setActiveMedicationRecordNumber(Identifier activeMedicationRecordNumber) {
+        this.activeMedicationRecordNumber.setValue(activeMedicationRecordNumber);
     }
 
 
@@ -69,6 +69,34 @@ public class ActiveMedicationBean extends MessagePartBean implements CausalActs 
     }
     public void setActiveMedicationMaskingIndicator(x_VeryBasicConfidentialityKind activeMedicationMaskingIndicator) {
         this.activeMedicationMaskingIndicator.setValue(activeMedicationMaskingIndicator);
+    }
+
+
+    /**
+     * <p>ActiveMedicationTimeRange</p>
+     * 
+     * <p>C:Active Medication Time-range</p>
+     */
+    @Hl7XmlMapping({"effectiveTime"})
+    public Interval<Date> getActiveMedicationTimeRange() {
+        return this.activeMedicationTimeRange.getValue();
+    }
+    public void setActiveMedicationTimeRange(Interval<Date> activeMedicationTimeRange) {
+        this.activeMedicationTimeRange.setValue(activeMedicationTimeRange);
+    }
+
+
+    /**
+     * <p>AdministrationType</p>
+     * 
+     * <p>Administration Type</p>
+     */
+    @Hl7XmlMapping({"code"})
+    public ActSubstanceAdministrationCode getAdministrationType() {
+        return (ActSubstanceAdministrationCode) this.administrationType.getValue();
+    }
+    public void setAdministrationType(ActSubstanceAdministrationCode administrationType) {
+        this.administrationType.setValue(administrationType);
     }
 
 
@@ -96,30 +124,16 @@ public class ActiveMedicationBean extends MessagePartBean implements CausalActs 
 
 
     /**
-     * <p>AdministrationType</p>
+     * <p>OtherMedicationIndicator</p>
      * 
-     * <p>Administration Type</p>
+     * <p>Other Medication Indicator</p>
      */
-    @Hl7XmlMapping({"code"})
-    public ActSubstanceAdministrationCode getAdministrationType() {
-        return (ActSubstanceAdministrationCode) this.administrationType.getValue();
+    @Hl7XmlMapping({"moodCode"})
+    public x_ActMoodRequestEvent getOtherMedicationIndicator() {
+        return (x_ActMoodRequestEvent) this.otherMedicationIndicator.getValue();
     }
-    public void setAdministrationType(ActSubstanceAdministrationCode administrationType) {
-        this.administrationType.setValue(administrationType);
-    }
-
-
-    /**
-     * <p>ActiveMedicationRecordNumber</p>
-     * 
-     * <p>A:Active Medication Record Number</p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Identifier getActiveMedicationRecordNumber() {
-        return this.activeMedicationRecordNumber.getValue();
-    }
-    public void setActiveMedicationRecordNumber(Identifier activeMedicationRecordNumber) {
-        this.activeMedicationRecordNumber.setValue(activeMedicationRecordNumber);
+    public void setOtherMedicationIndicator(x_ActMoodRequestEvent otherMedicationIndicator) {
+        this.otherMedicationIndicator.setValue(otherMedicationIndicator);
     }
 
 
@@ -134,20 +148,6 @@ public class ActiveMedicationBean extends MessagePartBean implements CausalActs 
     }
     public void setActiveMedicationDoseQuantity(PhysicalQuantity activeMedicationDoseQuantity) {
         this.activeMedicationDoseQuantity.setValue(activeMedicationDoseQuantity);
-    }
-
-
-    /**
-     * <p>ActiveMedicationTimeRange</p>
-     * 
-     * <p>C:Active Medication Time-range</p>
-     */
-    @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getActiveMedicationTimeRange() {
-        return this.activeMedicationTimeRange.getValue();
-    }
-    public void setActiveMedicationTimeRange(Interval<Date> activeMedicationTimeRange) {
-        this.activeMedicationTimeRange.setValue(activeMedicationTimeRange);
     }
 
 }

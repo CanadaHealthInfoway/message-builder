@@ -21,8 +21,8 @@ public class PrescriptionPatientMeasurementsBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
     private PQ prescriptionPatientMeasuredValue = new PQImpl();
-    private CV prescriptionPatientMeasurementType = new CVImpl();
     private TS effectiveTime = new TSImpl();
+    private CV prescriptionPatientMeasurementType = new CVImpl();
 
 
     /**
@@ -40,20 +40,6 @@ public class PrescriptionPatientMeasurementsBean extends MessagePartBean {
 
 
     /**
-     * <p>PrescriptionPatientMeasurementType</p>
-     * 
-     * <p>Prescription Patient Measurement Type</p>
-     */
-    @Hl7XmlMapping({"code"})
-    public x_ActObservationHeightOrWeight getPrescriptionPatientMeasurementType() {
-        return (x_ActObservationHeightOrWeight) this.prescriptionPatientMeasurementType.getValue();
-    }
-    public void setPrescriptionPatientMeasurementType(x_ActObservationHeightOrWeight prescriptionPatientMeasurementType) {
-        this.prescriptionPatientMeasurementType.setValue(prescriptionPatientMeasurementType);
-    }
-
-
-    /**
      * <p>Prescription Patient Measurement Time</p>
      * 
      * <p>Prescription Patient Measurement Timestamp</p>
@@ -64,6 +50,20 @@ public class PrescriptionPatientMeasurementsBean extends MessagePartBean {
     }
     public void setEffectiveTime(Date effectiveTime) {
         this.effectiveTime.setValue(effectiveTime);
+    }
+
+
+    /**
+     * <p>PrescriptionPatientMeasurementType</p>
+     * 
+     * <p>Prescription Patient Measurement Type</p>
+     */
+    @Hl7XmlMapping({"code"})
+    public x_ActObservationHeightOrWeight getPrescriptionPatientMeasurementType() {
+        return (x_ActObservationHeightOrWeight) this.prescriptionPatientMeasurementType.getValue();
+    }
+    public void setPrescriptionPatientMeasurementType(x_ActObservationHeightOrWeight prescriptionPatientMeasurementType) {
+        this.prescriptionPatientMeasurementType.setValue(prescriptionPatientMeasurementType);
     }
 
 }

@@ -24,6 +24,8 @@ import ca.infoway.messagebuilder.datatype.lang.TelecommunicationAddress;
 import ca.infoway.messagebuilder.domainvalue.HealthcareOrganizationRoleType;
 import ca.infoway.messagebuilder.domainvalue.HealthcareProviderRoleType;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 
@@ -34,14 +36,14 @@ public class HealthcareWorkerBean extends MessagePartBean implements ca.infoway.
 
     private static final long serialVersionUID = 20110318L;
     private ST assignedOrganizationName = new STImpl();
-    private SET<TEL, TelecommunicationAddress> healthcareWorkerPhoneAndEmails = new SETImpl<TEL, TelecommunicationAddress>(TELImpl.class);
-    private PN healthcareWorkerName = new PNImpl();
     private II licenseNumber = new IIImpl();
-    private II organizationIdentifier = new IIImpl();
-    private SET<TEL, TelecommunicationAddress> organizationPhoneAndEmails = new SETImpl<TEL, TelecommunicationAddress>(TELImpl.class);
-    private CV organizationType = new CVImpl();
-    private CV healthcareWorkerType = new CVImpl();
+    private PN healthcareWorkerName = new PNImpl();
     private II healthcareWorkerIdentifier = new IIImpl();
+    private II organizationIdentifier = new IIImpl();
+    private CV organizationType = new CVImpl();
+    private SET<TEL, TelecommunicationAddress> organizationPhoneAndEmails = new SETImpl<TEL, TelecommunicationAddress>(TELImpl.class);
+    private CV healthcareWorkerType = new CVImpl();
+    private SET<TEL, TelecommunicationAddress> healthcareWorkerPhoneAndEmails = new SETImpl<TEL, TelecommunicationAddress>(TELImpl.class);
 
 
     /**
@@ -82,13 +84,18 @@ public class HealthcareWorkerBean extends MessagePartBean implements ca.infoway.
 
 
     /**
-     * <p>HealthcareWorkerPhoneAndEmails</p>
+     * <p>LicenseNumber</p>
      * 
-     * <p>E: Healthcare Worker Phone and Emails</p>
+     * <p>C: License Number</p>
+     * 
+     * <p>D: License Number</p>
      */
-    @Hl7XmlMapping({"telecom"})
-    public Set<TelecommunicationAddress> getHealthcareWorkerPhoneAndEmails() {
-        return this.healthcareWorkerPhoneAndEmails.rawSet();
+    @Hl7XmlMapping({"assignedPerson/asHealthCareProvider/id"})
+    public Identifier getLicenseNumber() {
+        return this.licenseNumber.getValue();
+    }
+    public void setLicenseNumber(Identifier licenseNumber) {
+        this.licenseNumber.setValue(licenseNumber);
     }
 
 
@@ -109,18 +116,18 @@ public class HealthcareWorkerBean extends MessagePartBean implements ca.infoway.
 
 
     /**
-     * <p>LicenseNumber</p>
+     * <p>HealthcareWorkerIdentifier</p>
      * 
-     * <p>C: License Number</p>
+     * <p>A: Healthcare Worker Identifier</p>
      * 
-     * <p>D: License Number</p>
+     * <p>A:Healthcare Worker Identifier</p>
      */
-    @Hl7XmlMapping({"assignedPerson/asHealthCareProvider/id"})
-    public Identifier getLicenseNumber() {
-        return this.licenseNumber.getValue();
+    @Hl7XmlMapping({"id"})
+    public Identifier getHealthcareWorkerIdentifier() {
+        return this.healthcareWorkerIdentifier.getValue();
     }
-    public void setLicenseNumber(Identifier licenseNumber) {
-        this.licenseNumber.setValue(licenseNumber);
+    public void setHealthcareWorkerIdentifier(Identifier healthcareWorkerIdentifier) {
+        this.healthcareWorkerIdentifier.setValue(healthcareWorkerIdentifier);
     }
 
 
@@ -141,17 +148,6 @@ public class HealthcareWorkerBean extends MessagePartBean implements ca.infoway.
 
 
     /**
-     * <p>OrganizationPhoneAndEmails</p>
-     * 
-     * <p>I: Organization Phone and Emails</p>
-     */
-    @Hl7XmlMapping({"representedOrganization/assignedOrganization/telecom"})
-    public Set<TelecommunicationAddress> getOrganizationPhoneAndEmails() {
-        return this.organizationPhoneAndEmails.rawSet();
-    }
-
-
-    /**
      * <p>OrganizationType</p>
      * 
      * <p>G: Organization Type</p>
@@ -162,6 +158,17 @@ public class HealthcareWorkerBean extends MessagePartBean implements ca.infoway.
     }
     public void setOrganizationType(HealthcareOrganizationRoleType organizationType) {
         this.organizationType.setValue(organizationType);
+    }
+
+
+    /**
+     * <p>OrganizationPhoneAndEmails</p>
+     * 
+     * <p>I: Organization Phone and Emails</p>
+     */
+    @Hl7XmlMapping({"representedOrganization/assignedOrganization/telecom"})
+    public Set<TelecommunicationAddress> getOrganizationPhoneAndEmails() {
+        return this.organizationPhoneAndEmails.rawSet();
     }
 
 
@@ -180,18 +187,13 @@ public class HealthcareWorkerBean extends MessagePartBean implements ca.infoway.
 
 
     /**
-     * <p>HealthcareWorkerIdentifier</p>
+     * <p>HealthcareWorkerPhoneAndEmails</p>
      * 
-     * <p>A: Healthcare Worker Identifier</p>
-     * 
-     * <p>A:Healthcare Worker Identifier</p>
+     * <p>E: Healthcare Worker Phone and Emails</p>
      */
-    @Hl7XmlMapping({"id"})
-    public Identifier getHealthcareWorkerIdentifier() {
-        return this.healthcareWorkerIdentifier.getValue();
-    }
-    public void setHealthcareWorkerIdentifier(Identifier healthcareWorkerIdentifier) {
-        this.healthcareWorkerIdentifier.setValue(healthcareWorkerIdentifier);
+    @Hl7XmlMapping({"telecom"})
+    public Set<TelecommunicationAddress> getHealthcareWorkerPhoneAndEmails() {
+        return this.healthcareWorkerPhoneAndEmails.rawSet();
     }
 
 }

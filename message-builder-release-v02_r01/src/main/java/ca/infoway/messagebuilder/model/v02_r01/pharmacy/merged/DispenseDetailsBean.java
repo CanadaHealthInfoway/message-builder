@@ -24,22 +24,13 @@ import java.util.Date;
 public class DispenseDetailsBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private DispenseShipToLocationBean destinationServiceDeliveryLocation;
     private INT dispensedQuantity = new INTImpl();
-    private DeviceProductBean productManufacturedProduct;
-    private CV dispenseType = new CVImpl();
-    private IVL<TS, Interval<Date>> expectedUseTime = new IVLImpl<TS, Interval<Date>>();
     private IVL<TS, Interval<Date>> dispenseProcessingAndPickupDate = new IVLImpl<TS, Interval<Date>>();
+    private CV dispenseType = new CVImpl();
+    private DeviceProductBean productManufacturedProduct;
+    private IVL<TS, Interval<Date>> expectedUseTime = new IVLImpl<TS, Interval<Date>>();
+    private DispenseShipToLocationBean destinationServiceDeliveryLocation;
     private RelatedPersonBean receiverPersonalRelationship;
-
-
-    @Hl7XmlMapping({"destination/serviceDeliveryLocation"})
-    public DispenseShipToLocationBean getDestinationServiceDeliveryLocation() {
-        return this.destinationServiceDeliveryLocation;
-    }
-    public void setDestinationServiceDeliveryLocation(DispenseShipToLocationBean destinationServiceDeliveryLocation) {
-        this.destinationServiceDeliveryLocation = destinationServiceDeliveryLocation;
-    }
 
 
     /**
@@ -56,12 +47,17 @@ public class DispenseDetailsBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"product/manufacturedProduct"})
-    public DeviceProductBean getProductManufacturedProduct() {
-        return this.productManufacturedProduct;
+    /**
+     * <p>DispenseProcessingAndPickupDate</p>
+     * 
+     * <p>Dispense Processing and Pickup Date</p>
+     */
+    @Hl7XmlMapping({"effectiveTime"})
+    public Interval<Date> getDispenseProcessingAndPickupDate() {
+        return this.dispenseProcessingAndPickupDate.getValue();
     }
-    public void setProductManufacturedProduct(DeviceProductBean productManufacturedProduct) {
-        this.productManufacturedProduct = productManufacturedProduct;
+    public void setDispenseProcessingAndPickupDate(Interval<Date> dispenseProcessingAndPickupDate) {
+        this.dispenseProcessingAndPickupDate.setValue(dispenseProcessingAndPickupDate);
     }
 
 
@@ -79,6 +75,15 @@ public class DispenseDetailsBean extends MessagePartBean {
     }
 
 
+    @Hl7XmlMapping({"product/manufacturedProduct"})
+    public DeviceProductBean getProductManufacturedProduct() {
+        return this.productManufacturedProduct;
+    }
+    public void setProductManufacturedProduct(DeviceProductBean productManufacturedProduct) {
+        this.productManufacturedProduct = productManufacturedProduct;
+    }
+
+
     /**
      * <p>Dispense Days Supply</p>
      * 
@@ -93,17 +98,12 @@ public class DispenseDetailsBean extends MessagePartBean {
     }
 
 
-    /**
-     * <p>DispenseProcessingAndPickupDate</p>
-     * 
-     * <p>Dispense Processing and Pickup Date</p>
-     */
-    @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getDispenseProcessingAndPickupDate() {
-        return this.dispenseProcessingAndPickupDate.getValue();
+    @Hl7XmlMapping({"destination/serviceDeliveryLocation"})
+    public DispenseShipToLocationBean getDestinationServiceDeliveryLocation() {
+        return this.destinationServiceDeliveryLocation;
     }
-    public void setDispenseProcessingAndPickupDate(Interval<Date> dispenseProcessingAndPickupDate) {
-        this.dispenseProcessingAndPickupDate.setValue(dispenseProcessingAndPickupDate);
+    public void setDestinationServiceDeliveryLocation(DispenseShipToLocationBean destinationServiceDeliveryLocation) {
+        this.destinationServiceDeliveryLocation = destinationServiceDeliveryLocation;
     }
 
 

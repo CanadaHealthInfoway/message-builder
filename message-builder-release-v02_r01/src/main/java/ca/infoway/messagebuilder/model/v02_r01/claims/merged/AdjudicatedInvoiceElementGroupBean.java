@@ -32,16 +32,16 @@ public class AdjudicatedInvoiceElementGroupBean extends MessagePartBean implemen
 
     private static final long serialVersionUID = 20110318L;
     private PaymentIntentBean reasonPaymentIntent;
-    private MO paidAmount = new MOImpl();
-    private AdjudicatedInvoiceElementGroupBean referenceAdjudicatedInvoiceElementGroup;
     private AdjudicatedResultsGroupBean referencedByAdjudResultsGroup;
-    private CS statusCode = new CSImpl();
-    private CV invoiceType = new CVImpl();
     private II adjudicationResultId = new IIImpl();
-    private AdjudicatedInvoiceAuthorBean author;
+    private MO paidAmount = new MOImpl();
+    private CV invoiceType = new CVImpl();
+    private CS statusCode = new CSImpl();
+    private AdjudicatedInvoiceElementGroupBean referenceAdjudicatedInvoiceElementGroup;
     private List<AdjudicatedInvoiceCoverageBean> coverage = new ArrayList<AdjudicatedInvoiceCoverageBean>();
-    private List<AdjudicatedInvoiceElementChoice> componentAdjudicatedInvoiceElementChoice = new ArrayList<AdjudicatedInvoiceElementChoice>();
+    private AdjudicatedInvoiceAuthorBean author;
     private AdjudicatedResultOutcomeBean outcomeOf;
+    private List<AdjudicatedInvoiceElementChoice> componentAdjudicatedInvoiceElementChoice = new ArrayList<AdjudicatedInvoiceElementChoice>();
 
 
     @Hl7XmlMapping({"reason/paymentIntent"})
@@ -53,58 +53,12 @@ public class AdjudicatedInvoiceElementGroupBean extends MessagePartBean implemen
     }
 
 
-    /**
-     * <p>PaidAmount</p>
-     * 
-     * <p>Paid Amount</p>
-     */
-    @Hl7XmlMapping({"netAmt"})
-    public Money getPaidAmount() {
-        return this.paidAmount.getValue();
-    }
-    public void setPaidAmount(Money paidAmount) {
-        this.paidAmount.setValue(paidAmount);
-    }
-
-
-    @Hl7XmlMapping({"reference/adjudicatedInvoiceElementGroup"})
-    public AdjudicatedInvoiceElementGroupBean getReferenceAdjudicatedInvoiceElementGroup() {
-        return this.referenceAdjudicatedInvoiceElementGroup;
-    }
-    public void setReferenceAdjudicatedInvoiceElementGroup(AdjudicatedInvoiceElementGroupBean referenceAdjudicatedInvoiceElementGroup) {
-        this.referenceAdjudicatedInvoiceElementGroup = referenceAdjudicatedInvoiceElementGroup;
-    }
-
-
     @Hl7XmlMapping({"referencedBy/adjudResultsGroup"})
     public AdjudicatedResultsGroupBean getReferencedByAdjudResultsGroup() {
         return this.referencedByAdjudResultsGroup;
     }
     public void setReferencedByAdjudResultsGroup(AdjudicatedResultsGroupBean referencedByAdjudResultsGroup) {
         this.referencedByAdjudResultsGroup = referencedByAdjudResultsGroup;
-    }
-
-
-    @Hl7XmlMapping({"statusCode"})
-    public ActStatus getStatusCode() {
-        return (ActStatus) this.statusCode.getValue();
-    }
-    public void setStatusCode(ActStatus statusCode) {
-        this.statusCode.setValue(statusCode);
-    }
-
-
-    /**
-     * <p>InvoiceType</p>
-     * 
-     * <p>Invoice Type</p>
-     */
-    @Hl7XmlMapping({"code"})
-    public Code getInvoiceType() {
-        return (Code) this.invoiceType.getValue();
-    }
-    public void setInvoiceType(Code invoiceType) {
-        this.invoiceType.setValue(invoiceType);
     }
 
 
@@ -122,12 +76,49 @@ public class AdjudicatedInvoiceElementGroupBean extends MessagePartBean implemen
     }
 
 
-    @Hl7XmlMapping({"author"})
-    public AdjudicatedInvoiceAuthorBean getAuthor() {
-        return this.author;
+    /**
+     * <p>PaidAmount</p>
+     * 
+     * <p>Paid Amount</p>
+     */
+    @Hl7XmlMapping({"netAmt"})
+    public Money getPaidAmount() {
+        return this.paidAmount.getValue();
     }
-    public void setAuthor(AdjudicatedInvoiceAuthorBean author) {
-        this.author = author;
+    public void setPaidAmount(Money paidAmount) {
+        this.paidAmount.setValue(paidAmount);
+    }
+
+
+    /**
+     * <p>InvoiceType</p>
+     * 
+     * <p>Invoice Type</p>
+     */
+    @Hl7XmlMapping({"code"})
+    public Code getInvoiceType() {
+        return (Code) this.invoiceType.getValue();
+    }
+    public void setInvoiceType(Code invoiceType) {
+        this.invoiceType.setValue(invoiceType);
+    }
+
+
+    @Hl7XmlMapping({"statusCode"})
+    public ActStatus getStatusCode() {
+        return (ActStatus) this.statusCode.getValue();
+    }
+    public void setStatusCode(ActStatus statusCode) {
+        this.statusCode.setValue(statusCode);
+    }
+
+
+    @Hl7XmlMapping({"reference/adjudicatedInvoiceElementGroup"})
+    public AdjudicatedInvoiceElementGroupBean getReferenceAdjudicatedInvoiceElementGroup() {
+        return this.referenceAdjudicatedInvoiceElementGroup;
+    }
+    public void setReferenceAdjudicatedInvoiceElementGroup(AdjudicatedInvoiceElementGroupBean referenceAdjudicatedInvoiceElementGroup) {
+        this.referenceAdjudicatedInvoiceElementGroup = referenceAdjudicatedInvoiceElementGroup;
     }
 
 
@@ -137,9 +128,12 @@ public class AdjudicatedInvoiceElementGroupBean extends MessagePartBean implemen
     }
 
 
-    @Hl7XmlMapping({"component/adjudicatedInvoiceElementChoice"})
-    public List<AdjudicatedInvoiceElementChoice> getComponentAdjudicatedInvoiceElementChoice() {
-        return this.componentAdjudicatedInvoiceElementChoice;
+    @Hl7XmlMapping({"author"})
+    public AdjudicatedInvoiceAuthorBean getAuthor() {
+        return this.author;
+    }
+    public void setAuthor(AdjudicatedInvoiceAuthorBean author) {
+        this.author = author;
     }
 
 
@@ -149,6 +143,12 @@ public class AdjudicatedInvoiceElementGroupBean extends MessagePartBean implemen
     }
     public void setOutcomeOf(AdjudicatedResultOutcomeBean outcomeOf) {
         this.outcomeOf = outcomeOf;
+    }
+
+
+    @Hl7XmlMapping({"component/adjudicatedInvoiceElementChoice"})
+    public List<AdjudicatedInvoiceElementChoice> getComponentAdjudicatedInvoiceElementChoice() {
+        return this.componentAdjudicatedInvoiceElementChoice;
     }
 
 }

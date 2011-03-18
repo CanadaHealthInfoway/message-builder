@@ -30,55 +30,13 @@ import java.util.Date;
 public class MonographsBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private ED<EncapsulatedData> monographContent = new EDImpl<EncapsulatedData>();
-    private CV writtenIn = new CVImpl();
-    private CV code = new CVImpl();
     private II id = new IIImpl();
     private RefusedByBean author;
+    private CV writtenIn = new CVImpl();
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
+    private CV code = new CVImpl();
+    private ED<EncapsulatedData> monographContent = new EDImpl<EncapsulatedData>();
     private ED<EncapsulatedData> medicationDocumentContentLanguage = new EDImpl<EncapsulatedData>();
-
-
-    /**
-     * <p>MonographContent</p>
-     * 
-     * <p>Monograph Content</p>
-     */
-    @Hl7XmlMapping({"text"})
-    public EncapsulatedData getMonographContent() {
-        return this.monographContent.getValue();
-    }
-    public void setMonographContent(EncapsulatedData monographContent) {
-        this.monographContent.setValue(monographContent);
-    }
-
-
-    /**
-     * <p>WrittenIn</p>
-     * 
-     * <p>Written in</p>
-     */
-    @Hl7XmlMapping({"languageCode"})
-    public HumanLanguage getWrittenIn() {
-        return (HumanLanguage) this.writtenIn.getValue();
-    }
-    public void setWrittenIn(HumanLanguage writtenIn) {
-        this.writtenIn.setValue(writtenIn);
-    }
-
-
-    /**
-     * <p>Monograph Type</p>
-     * 
-     * <p>A:Medication Document Type</p>
-     */
-    @Hl7XmlMapping({"code"})
-    public ActMedicationDocumentCode getCode() {
-        return (ActMedicationDocumentCode) this.code.getValue();
-    }
-    public void setCode(ActMedicationDocumentCode code) {
-        this.code.setValue(code);
-    }
 
 
     /**
@@ -105,6 +63,20 @@ public class MonographsBean extends MessagePartBean {
 
 
     /**
+     * <p>WrittenIn</p>
+     * 
+     * <p>Written in</p>
+     */
+    @Hl7XmlMapping({"languageCode"})
+    public HumanLanguage getWrittenIn() {
+        return (HumanLanguage) this.writtenIn.getValue();
+    }
+    public void setWrittenIn(HumanLanguage writtenIn) {
+        this.writtenIn.setValue(writtenIn);
+    }
+
+
+    /**
      * <p>Monograph Effective/Expiry Date</p>
      * 
      * <p>C:Medication Document Effective/Expiry Date</p>
@@ -115,6 +87,34 @@ public class MonographsBean extends MessagePartBean {
     }
     public void setEffectiveTime(Interval<Date> effectiveTime) {
         this.effectiveTime.setValue(effectiveTime);
+    }
+
+
+    /**
+     * <p>Monograph Type</p>
+     * 
+     * <p>A:Medication Document Type</p>
+     */
+    @Hl7XmlMapping({"code"})
+    public ActMedicationDocumentCode getCode() {
+        return (ActMedicationDocumentCode) this.code.getValue();
+    }
+    public void setCode(ActMedicationDocumentCode code) {
+        this.code.setValue(code);
+    }
+
+
+    /**
+     * <p>MonographContent</p>
+     * 
+     * <p>Monograph Content</p>
+     */
+    @Hl7XmlMapping({"text"})
+    public EncapsulatedData getMonographContent() {
+        return this.monographContent.getValue();
+    }
+    public void setMonographContent(EncapsulatedData monographContent) {
+        this.monographContent.setValue(monographContent);
     }
 
 

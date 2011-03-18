@@ -24,6 +24,8 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.v02_r01.common.coct_mt120600ca.NotesBean;
 import ca.infoway.messagebuilder.model.v02_r01.merged.CreatedAtBean;
 import ca.infoway.messagebuilder.model.v02_r01.merged.HealthcareWorkerBean;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 
@@ -33,31 +35,20 @@ import java.util.Set;
 public class PrescriptionDispenseBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private SET<CV, Code> prescriptionMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);
     private DispenseDetailsBean componentSupplyEvent;
+    private ProcedureRequestBean component1ProcedureRequest;
     private PrescriptionReferenceBean inFulfillmentOfDeviceRequest;
     private BL subject = new BLImpl(false);
-    private NotesBean subjectOfAnnotation;
-    private ProcedureRequestBean component1ProcedureRequest;
     private II prescriptionDispenseNumber = new IIImpl();
-    private CreatedAtBean location;
-    private BL subjectOf2AnnotationIndicator = new BLImpl();
+    private SET<CV, Code> prescriptionMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);
+    private NotesBean subjectOfAnnotation;
     private HealthcareWorkerBean responsiblePartyAssignedEntity;
     private BL subjectOf1DetectedIssueIndicator = new BLImpl();
+    private SupplyOrderBean fulfillmentSupplyRequest;
     private HealthcareWorkerBean performerAssignedEntity;
     private CS dispenseStatus = new CSImpl();
-    private SupplyOrderBean fulfillmentSupplyRequest;
-
-
-    /**
-     * <p>PrescriptionMaskingIndicators</p>
-     * 
-     * <p>E:Prescription Masking Indicators</p>
-     */
-    @Hl7XmlMapping({"confidentialityCode"})
-    public Set<x_NormalRestrictedTabooConfidentialityKind> getPrescriptionMaskingIndicators() {
-        return this.prescriptionMaskingIndicators.rawSet(x_NormalRestrictedTabooConfidentialityKind.class);
-    }
+    private BL subjectOf2AnnotationIndicator = new BLImpl();
+    private CreatedAtBean location;
 
 
     @Hl7XmlMapping({"component/supplyEvent","component2/supplyEvent"})
@@ -71,6 +62,15 @@ public class PrescriptionDispenseBean extends MessagePartBean {
     }
     public void setComponentSupplyEvent(DispenseDetailsBean componentSupplyEvent) {
         this.componentSupplyEvent = componentSupplyEvent;
+    }
+
+
+    @Hl7XmlMapping({"component1/procedureRequest"})
+    public ProcedureRequestBean getComponent1ProcedureRequest() {
+        return this.component1ProcedureRequest;
+    }
+    public void setComponent1ProcedureRequest(ProcedureRequestBean component1ProcedureRequest) {
+        this.component1ProcedureRequest = component1ProcedureRequest;
     }
 
 
@@ -92,24 +92,6 @@ public class PrescriptionDispenseBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"subjectOf/annotation"})
-    public NotesBean getSubjectOfAnnotation() {
-        return this.subjectOfAnnotation;
-    }
-    public void setSubjectOfAnnotation(NotesBean subjectOfAnnotation) {
-        this.subjectOfAnnotation = subjectOfAnnotation;
-    }
-
-
-    @Hl7XmlMapping({"component1/procedureRequest"})
-    public ProcedureRequestBean getComponent1ProcedureRequest() {
-        return this.component1ProcedureRequest;
-    }
-    public void setComponent1ProcedureRequest(ProcedureRequestBean component1ProcedureRequest) {
-        this.component1ProcedureRequest = component1ProcedureRequest;
-    }
-
-
     /**
      * <p>PrescriptionDispenseNumber</p>
      * 
@@ -124,21 +106,23 @@ public class PrescriptionDispenseBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"location"})
-    public CreatedAtBean getLocation() {
-        return this.location;
-    }
-    public void setLocation(CreatedAtBean location) {
-        this.location = location;
+    /**
+     * <p>PrescriptionMaskingIndicators</p>
+     * 
+     * <p>E:Prescription Masking Indicators</p>
+     */
+    @Hl7XmlMapping({"confidentialityCode"})
+    public Set<x_NormalRestrictedTabooConfidentialityKind> getPrescriptionMaskingIndicators() {
+        return this.prescriptionMaskingIndicators.rawSet(x_NormalRestrictedTabooConfidentialityKind.class);
     }
 
 
-    @Hl7XmlMapping({"subjectOf2/annotationIndicator"})
-    public Boolean getSubjectOf2AnnotationIndicator() {
-        return this.subjectOf2AnnotationIndicator.getValue();
+    @Hl7XmlMapping({"subjectOf/annotation"})
+    public NotesBean getSubjectOfAnnotation() {
+        return this.subjectOfAnnotation;
     }
-    public void setSubjectOf2AnnotationIndicator(Boolean subjectOf2AnnotationIndicator) {
-        this.subjectOf2AnnotationIndicator.setValue(subjectOf2AnnotationIndicator);
+    public void setSubjectOfAnnotation(NotesBean subjectOfAnnotation) {
+        this.subjectOfAnnotation = subjectOfAnnotation;
     }
 
 
@@ -157,6 +141,15 @@ public class PrescriptionDispenseBean extends MessagePartBean {
     }
     public void setSubjectOf1DetectedIssueIndicator(Boolean subjectOf1DetectedIssueIndicator) {
         this.subjectOf1DetectedIssueIndicator.setValue(subjectOf1DetectedIssueIndicator);
+    }
+
+
+    @Hl7XmlMapping({"fulfillment/supplyRequest"})
+    public SupplyOrderBean getFulfillmentSupplyRequest() {
+        return this.fulfillmentSupplyRequest;
+    }
+    public void setFulfillmentSupplyRequest(SupplyOrderBean fulfillmentSupplyRequest) {
+        this.fulfillmentSupplyRequest = fulfillmentSupplyRequest;
     }
 
 
@@ -183,12 +176,21 @@ public class PrescriptionDispenseBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"fulfillment/supplyRequest"})
-    public SupplyOrderBean getFulfillmentSupplyRequest() {
-        return this.fulfillmentSupplyRequest;
+    @Hl7XmlMapping({"subjectOf2/annotationIndicator"})
+    public Boolean getSubjectOf2AnnotationIndicator() {
+        return this.subjectOf2AnnotationIndicator.getValue();
     }
-    public void setFulfillmentSupplyRequest(SupplyOrderBean fulfillmentSupplyRequest) {
-        this.fulfillmentSupplyRequest = fulfillmentSupplyRequest;
+    public void setSubjectOf2AnnotationIndicator(Boolean subjectOf2AnnotationIndicator) {
+        this.subjectOf2AnnotationIndicator.setValue(subjectOf2AnnotationIndicator);
+    }
+
+
+    @Hl7XmlMapping({"location"})
+    public CreatedAtBean getLocation() {
+        return this.location;
+    }
+    public void setLocation(CreatedAtBean location) {
+        this.location = location;
     }
 
 }

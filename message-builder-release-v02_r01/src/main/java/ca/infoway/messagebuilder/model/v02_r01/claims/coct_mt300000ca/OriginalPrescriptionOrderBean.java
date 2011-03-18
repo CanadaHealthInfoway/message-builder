@@ -11,9 +11,18 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 public class OriginalPrescriptionOrderBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
+    private DispenseSubstitutionBean component1Substitution;
     private PresriberRoleBean authorPresriberRole;
     private OriginalPrescriptionBean component2SupplyOrder;
-    private DispenseSubstitutionBean component1Substitution;
+
+
+    @Hl7XmlMapping({"component1/substitution"})
+    public DispenseSubstitutionBean getComponent1Substitution() {
+        return this.component1Substitution;
+    }
+    public void setComponent1Substitution(DispenseSubstitutionBean component1Substitution) {
+        this.component1Substitution = component1Substitution;
+    }
 
 
     @Hl7XmlMapping({"author/presriberRole"})
@@ -31,15 +40,6 @@ public class OriginalPrescriptionOrderBean extends MessagePartBean {
     }
     public void setComponent2SupplyOrder(OriginalPrescriptionBean component2SupplyOrder) {
         this.component2SupplyOrder = component2SupplyOrder;
-    }
-
-
-    @Hl7XmlMapping({"component1/substitution"})
-    public DispenseSubstitutionBean getComponent1Substitution() {
-        return this.component1Substitution;
-    }
-    public void setComponent1Substitution(DispenseSubstitutionBean component1Substitution) {
-        this.component1Substitution = component1Substitution;
     }
 
 }

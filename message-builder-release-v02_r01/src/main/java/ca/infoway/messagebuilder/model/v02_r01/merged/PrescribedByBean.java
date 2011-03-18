@@ -19,10 +19,19 @@ import java.util.Date;
 public class PrescribedByBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private ED<String> signature = new EDImpl<String>();
-    private CV prescriptionTransmissionMethod = new CVImpl();
-    private TS time = new TSImpl();
     private HealthcareWorkerBean assignedEntity;
+    private ED<String> signature = new EDImpl<String>();
+    private TS time = new TSImpl();
+    private CV prescriptionTransmissionMethod = new CVImpl();
+
+
+    @Hl7XmlMapping({"assignedEntity"})
+    public HealthcareWorkerBean getAssignedEntity() {
+        return this.assignedEntity;
+    }
+    public void setAssignedEntity(HealthcareWorkerBean assignedEntity) {
+        this.assignedEntity = assignedEntity;
+    }
 
 
     /**
@@ -36,20 +45,6 @@ public class PrescribedByBean extends MessagePartBean {
     }
     public void setSignature(String signature) {
         this.signature.setValue(signature);
-    }
-
-
-    /**
-     * <p>PrescriptionTransmissionMethod</p>
-     * 
-     * <p>Prescription Transmission Method</p>
-     */
-    @Hl7XmlMapping({"modeCode"})
-    public ParticipationMode getPrescriptionTransmissionMethod() {
-        return (ParticipationMode) this.prescriptionTransmissionMethod.getValue();
-    }
-    public void setPrescriptionTransmissionMethod(ParticipationMode prescriptionTransmissionMethod) {
-        this.prescriptionTransmissionMethod.setValue(prescriptionTransmissionMethod);
     }
 
 
@@ -69,12 +64,17 @@ public class PrescribedByBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"assignedEntity"})
-    public HealthcareWorkerBean getAssignedEntity() {
-        return this.assignedEntity;
+    /**
+     * <p>PrescriptionTransmissionMethod</p>
+     * 
+     * <p>Prescription Transmission Method</p>
+     */
+    @Hl7XmlMapping({"modeCode"})
+    public ParticipationMode getPrescriptionTransmissionMethod() {
+        return (ParticipationMode) this.prescriptionTransmissionMethod.getValue();
     }
-    public void setAssignedEntity(HealthcareWorkerBean assignedEntity) {
-        this.assignedEntity = assignedEntity;
+    public void setPrescriptionTransmissionMethod(ParticipationMode prescriptionTransmissionMethod) {
+        this.prescriptionTransmissionMethod.setValue(prescriptionTransmissionMethod);
     }
 
 }

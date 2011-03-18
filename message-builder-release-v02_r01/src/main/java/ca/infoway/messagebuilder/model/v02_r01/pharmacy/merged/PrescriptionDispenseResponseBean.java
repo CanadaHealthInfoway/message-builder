@@ -33,10 +33,10 @@ public class PrescriptionDispenseResponseBean extends MessagePartBean {
     private RelatedPersonBean receiverPersonalRelationship;
     private II shipToFacilityId = new IIImpl();
     private PQ suppliedQuantity = new PQImpl();
-    private NotesBean subjectOfAnnotation;
-    private CV dispenseType = new CVImpl();
-    private SupplyOrderBean fulfillmentSupplyRequest;
     private TS supplyDate = new TSImpl();
+    private CV dispenseType = new CVImpl();
+    private NotesBean subjectOfAnnotation;
+    private SupplyOrderBean fulfillmentSupplyRequest;
     private DrugProductBean productMedication;
 
 
@@ -107,12 +107,17 @@ public class PrescriptionDispenseResponseBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"subjectOf/annotation"})
-    public NotesBean getSubjectOfAnnotation() {
-        return this.subjectOfAnnotation;
+    /**
+     * <p>SupplyDate</p>
+     * 
+     * <p>A:Supply Date</p>
+     */
+    @Hl7XmlMapping({"effectiveTime"})
+    public Date getSupplyDate() {
+        return this.supplyDate.getValue();
     }
-    public void setSubjectOfAnnotation(NotesBean subjectOfAnnotation) {
-        this.subjectOfAnnotation = subjectOfAnnotation;
+    public void setSupplyDate(Date supplyDate) {
+        this.supplyDate.setValue(supplyDate);
     }
 
 
@@ -130,26 +135,21 @@ public class PrescriptionDispenseResponseBean extends MessagePartBean {
     }
 
 
+    @Hl7XmlMapping({"subjectOf/annotation"})
+    public NotesBean getSubjectOfAnnotation() {
+        return this.subjectOfAnnotation;
+    }
+    public void setSubjectOfAnnotation(NotesBean subjectOfAnnotation) {
+        this.subjectOfAnnotation = subjectOfAnnotation;
+    }
+
+
     @Hl7XmlMapping({"fulfillment/supplyRequest"})
     public SupplyOrderBean getFulfillmentSupplyRequest() {
         return this.fulfillmentSupplyRequest;
     }
     public void setFulfillmentSupplyRequest(SupplyOrderBean fulfillmentSupplyRequest) {
         this.fulfillmentSupplyRequest = fulfillmentSupplyRequest;
-    }
-
-
-    /**
-     * <p>SupplyDate</p>
-     * 
-     * <p>A:Supply Date</p>
-     */
-    @Hl7XmlMapping({"effectiveTime"})
-    public Date getSupplyDate() {
-        return this.supplyDate.getValue();
-    }
-    public void setSupplyDate(Date supplyDate) {
-        this.supplyDate.setValue(supplyDate);
     }
 
 

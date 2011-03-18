@@ -20,22 +20,8 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 public class DispensedInBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private RTO<PhysicalQuantity, PhysicalQuantity> packageQuantity = new RTOImpl<PhysicalQuantity, PhysicalQuantity>();
     private CV containerType = new CVImpl();
-
-
-    /**
-     * <p>PackageQuantity</p>
-     * 
-     * <p>Package Quantity</p>
-     */
-    @Hl7XmlMapping({"quantity"})
-    public Ratio<PhysicalQuantity, PhysicalQuantity> getPackageQuantity() {
-        return this.packageQuantity.getValue();
-    }
-    public void setPackageQuantity(Ratio<PhysicalQuantity, PhysicalQuantity> packageQuantity) {
-        this.packageQuantity.setValue(packageQuantity);
-    }
+    private RTO<PhysicalQuantity, PhysicalQuantity> packageQuantity = new RTOImpl<PhysicalQuantity, PhysicalQuantity>();
 
 
     /**
@@ -51,6 +37,20 @@ public class DispensedInBean extends MessagePartBean {
     }
     public void setContainerType(CompliancePackageEntityType containerType) {
         this.containerType.setValue(containerType);
+    }
+
+
+    /**
+     * <p>PackageQuantity</p>
+     * 
+     * <p>Package Quantity</p>
+     */
+    @Hl7XmlMapping({"quantity"})
+    public Ratio<PhysicalQuantity, PhysicalQuantity> getPackageQuantity() {
+        return this.packageQuantity.getValue();
+    }
+    public void setPackageQuantity(Ratio<PhysicalQuantity, PhysicalQuantity> packageQuantity) {
+        this.packageQuantity.setValue(packageQuantity);
     }
 
 }

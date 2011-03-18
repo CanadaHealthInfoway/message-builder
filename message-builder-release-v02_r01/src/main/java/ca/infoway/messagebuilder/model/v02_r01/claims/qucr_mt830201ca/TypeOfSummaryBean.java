@@ -29,9 +29,9 @@ public class TypeOfSummaryBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
     private MO summaryPeriodAmt = new MOImpl();
-    private CD code = new CDImpl();
     private List<AdjudicationResultIdentifierBean> referenceAdjudicatedInvoiceElementGroup = new ArrayList<AdjudicationResultIdentifierBean>();
     private IVL<TS, Interval<Date>> summaryPeriodDateRange = new IVLImpl<TS, Interval<Date>>();
+    private CD code = new CDImpl();
 
 
     /**
@@ -43,15 +43,6 @@ public class TypeOfSummaryBean extends MessagePartBean {
     }
     public void setSummaryPeriodAmt(Money summaryPeriodAmt) {
         this.summaryPeriodAmt.setValue(summaryPeriodAmt);
-    }
-
-
-    @Hl7XmlMapping({"code"})
-    public Code getCode() {
-        return (Code) this.code.getValue();
-    }
-    public void setCode(Code code) {
-        this.code.setValue(code);
     }
 
 
@@ -70,6 +61,15 @@ public class TypeOfSummaryBean extends MessagePartBean {
     }
     public void setSummaryPeriodDateRange(Interval<Date> summaryPeriodDateRange) {
         this.summaryPeriodDateRange.setValue(summaryPeriodDateRange);
+    }
+
+
+    @Hl7XmlMapping({"code"})
+    public Code getCode() {
+        return (Code) this.code.getValue();
+    }
+    public void setCode(Code code) {
+        this.code.setValue(code);
     }
 
 }

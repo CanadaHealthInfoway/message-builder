@@ -28,13 +28,58 @@ import java.util.Date;
 public class ManufacturedMaterialKindBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
+    private ST desc = new STImpl();
+    private IVL<TS, Interval<Date>> asWarrantorEffectiveTime = new IVLImpl<TS, Interval<Date>>();
+    private ST asWarrantorWarrantingWarrantorOrganizationName = new STImpl();
+    private TEL asWarrantorWarrantingWarrantorOrganizationTelecom = new TELImpl();
+    private CV code = new CVImpl();
     private PQ contentPackagedProductQuantity = new PQImpl();
     private ManufacturedMaterialKindBean contentPackagedProductContainedManufacturedMaterialKind;
-    private TEL asWarrantorWarrantingWarrantorOrganizationTelecom = new TELImpl();
-    private ST asWarrantorWarrantingWarrantorOrganizationName = new STImpl();
-    private IVL<TS, Interval<Date>> asWarrantorEffectiveTime = new IVLImpl<TS, Interval<Date>>();
-    private CV code = new CVImpl();
-    private ST desc = new STImpl();
+
+
+    @Hl7XmlMapping({"desc"})
+    public String getDesc() {
+        return this.desc.getValue();
+    }
+    public void setDesc(String desc) {
+        this.desc.setValue(desc);
+    }
+
+
+    @Hl7XmlMapping({"asWarrantor/effectiveTime"})
+    public Interval<Date> getAsWarrantorEffectiveTime() {
+        return this.asWarrantorEffectiveTime.getValue();
+    }
+    public void setAsWarrantorEffectiveTime(Interval<Date> asWarrantorEffectiveTime) {
+        this.asWarrantorEffectiveTime.setValue(asWarrantorEffectiveTime);
+    }
+
+
+    @Hl7XmlMapping({"asWarrantor/warrantingWarrantorOrganization/name"})
+    public String getAsWarrantorWarrantingWarrantorOrganizationName() {
+        return this.asWarrantorWarrantingWarrantorOrganizationName.getValue();
+    }
+    public void setAsWarrantorWarrantingWarrantorOrganizationName(String asWarrantorWarrantingWarrantorOrganizationName) {
+        this.asWarrantorWarrantingWarrantorOrganizationName.setValue(asWarrantorWarrantingWarrantorOrganizationName);
+    }
+
+
+    @Hl7XmlMapping({"asWarrantor/warrantingWarrantorOrganization/telecom"})
+    public TelecommunicationAddress getAsWarrantorWarrantingWarrantorOrganizationTelecom() {
+        return this.asWarrantorWarrantingWarrantorOrganizationTelecom.getValue();
+    }
+    public void setAsWarrantorWarrantingWarrantorOrganizationTelecom(TelecommunicationAddress asWarrantorWarrantingWarrantorOrganizationTelecom) {
+        this.asWarrantorWarrantingWarrantorOrganizationTelecom.setValue(asWarrantorWarrantingWarrantorOrganizationTelecom);
+    }
+
+
+    @Hl7XmlMapping({"code"})
+    public Code getCode() {
+        return (Code) this.code.getValue();
+    }
+    public void setCode(Code code) {
+        this.code.setValue(code);
+    }
 
 
     @Hl7XmlMapping({"contentPackagedProduct/quantity"})
@@ -52,51 +97,6 @@ public class ManufacturedMaterialKindBean extends MessagePartBean {
     }
     public void setContentPackagedProductContainedManufacturedMaterialKind(ManufacturedMaterialKindBean contentPackagedProductContainedManufacturedMaterialKind) {
         this.contentPackagedProductContainedManufacturedMaterialKind = contentPackagedProductContainedManufacturedMaterialKind;
-    }
-
-
-    @Hl7XmlMapping({"asWarrantor/warrantingWarrantorOrganization/telecom"})
-    public TelecommunicationAddress getAsWarrantorWarrantingWarrantorOrganizationTelecom() {
-        return this.asWarrantorWarrantingWarrantorOrganizationTelecom.getValue();
-    }
-    public void setAsWarrantorWarrantingWarrantorOrganizationTelecom(TelecommunicationAddress asWarrantorWarrantingWarrantorOrganizationTelecom) {
-        this.asWarrantorWarrantingWarrantorOrganizationTelecom.setValue(asWarrantorWarrantingWarrantorOrganizationTelecom);
-    }
-
-
-    @Hl7XmlMapping({"asWarrantor/warrantingWarrantorOrganization/name"})
-    public String getAsWarrantorWarrantingWarrantorOrganizationName() {
-        return this.asWarrantorWarrantingWarrantorOrganizationName.getValue();
-    }
-    public void setAsWarrantorWarrantingWarrantorOrganizationName(String asWarrantorWarrantingWarrantorOrganizationName) {
-        this.asWarrantorWarrantingWarrantorOrganizationName.setValue(asWarrantorWarrantingWarrantorOrganizationName);
-    }
-
-
-    @Hl7XmlMapping({"asWarrantor/effectiveTime"})
-    public Interval<Date> getAsWarrantorEffectiveTime() {
-        return this.asWarrantorEffectiveTime.getValue();
-    }
-    public void setAsWarrantorEffectiveTime(Interval<Date> asWarrantorEffectiveTime) {
-        this.asWarrantorEffectiveTime.setValue(asWarrantorEffectiveTime);
-    }
-
-
-    @Hl7XmlMapping({"code"})
-    public Code getCode() {
-        return (Code) this.code.getValue();
-    }
-    public void setCode(Code code) {
-        this.code.setValue(code);
-    }
-
-
-    @Hl7XmlMapping({"desc"})
-    public String getDesc() {
-        return this.desc.getValue();
-    }
-    public void setDesc(String desc) {
-        this.desc.setValue(desc);
     }
 
 }

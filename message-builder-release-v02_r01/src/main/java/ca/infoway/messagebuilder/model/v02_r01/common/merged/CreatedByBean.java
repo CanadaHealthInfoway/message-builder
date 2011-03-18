@@ -22,10 +22,52 @@ import java.util.Date;
 public class CreatedByBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private AuthorPerson authorPerson;
     private ED<String> digitalSignature = new EDImpl<String>();
-    private CV informationReceivedMethod = new CVImpl();
     private TS timeOfCreation = new TSImpl();
+    private CV informationReceivedMethod = new CVImpl();
+    private AuthorPerson authorPerson;
+
+
+    /**
+     * <p>DigitalSignature</p>
+     * 
+     * <p>G:Digital Signature</p>
+     */
+    @Hl7XmlMapping({"signatureText"})
+    public String getDigitalSignature() {
+        return this.digitalSignature.getValue();
+    }
+    public void setDigitalSignature(String digitalSignature) {
+        this.digitalSignature.setValue(digitalSignature);
+    }
+
+
+    /**
+     * <p>TimeOfCreation</p>
+     * 
+     * <p>D:Time of Creation</p>
+     */
+    @Hl7XmlMapping({"time"})
+    public Date getTimeOfCreation() {
+        return this.timeOfCreation.getValue();
+    }
+    public void setTimeOfCreation(Date timeOfCreation) {
+        this.timeOfCreation.setValue(timeOfCreation);
+    }
+
+
+    /**
+     * <p>InformationReceivedMethod</p>
+     * 
+     * <p>F:Information Received Method</p>
+     */
+    @Hl7XmlMapping({"modeCode"})
+    public ParticipationMode getInformationReceivedMethod() {
+        return (ParticipationMode) this.informationReceivedMethod.getValue();
+    }
+    public void setInformationReceivedMethod(ParticipationMode informationReceivedMethod) {
+        this.informationReceivedMethod.setValue(informationReceivedMethod);
+    }
 
 
     @Hl7XmlMapping({"authorPerson"})
@@ -69,48 +111,6 @@ public class CreatedByBean extends MessagePartBean {
     }
     public boolean hasAuthorPersonAsActingPerson() {
         return (this.authorPerson instanceof ActingPerson);
-    }
-
-
-    /**
-     * <p>DigitalSignature</p>
-     * 
-     * <p>G:Digital Signature</p>
-     */
-    @Hl7XmlMapping({"signatureText"})
-    public String getDigitalSignature() {
-        return this.digitalSignature.getValue();
-    }
-    public void setDigitalSignature(String digitalSignature) {
-        this.digitalSignature.setValue(digitalSignature);
-    }
-
-
-    /**
-     * <p>InformationReceivedMethod</p>
-     * 
-     * <p>F:Information Received Method</p>
-     */
-    @Hl7XmlMapping({"modeCode"})
-    public ParticipationMode getInformationReceivedMethod() {
-        return (ParticipationMode) this.informationReceivedMethod.getValue();
-    }
-    public void setInformationReceivedMethod(ParticipationMode informationReceivedMethod) {
-        this.informationReceivedMethod.setValue(informationReceivedMethod);
-    }
-
-
-    /**
-     * <p>TimeOfCreation</p>
-     * 
-     * <p>D:Time of Creation</p>
-     */
-    @Hl7XmlMapping({"time"})
-    public Date getTimeOfCreation() {
-        return this.timeOfCreation.getValue();
-    }
-    public void setTimeOfCreation(Date timeOfCreation) {
-        this.timeOfCreation.setValue(timeOfCreation);
     }
 
 }

@@ -31,25 +31,31 @@ import java.util.List;
 public class TriggerEventBean<PL,RR> extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private CV eventType = new CVImpl();
+    private CV eventReason = new CVImpl();
+    private List<RegistrationEventBean<RR>> subjectRegistrationEvent = new ArrayList<RegistrationEventBean<RR>>();
     private II eventIdentifier = new IIImpl();
     private QueryByParameterBean<PL> queryByParameter;
-    private CV eventReason = new CVImpl();
+    private IVL<TS, Interval<Date>> eventEffectivePeriod = new IVLImpl<TS, Interval<Date>>();
+    private CV eventType = new CVImpl();
     private QueryAckBean queryAck;
     private List<IssuesBean> subjectOfDetectedIssueEvent = new ArrayList<IssuesBean>();
-    private IVL<TS, Interval<Date>> eventEffectivePeriod = new IVLImpl<TS, Interval<Date>>();
-    private List<RegistrationEventBean<RR>> subjectRegistrationEvent = new ArrayList<RegistrationEventBean<RR>>();
 
 
     /**
-     * <p>A:Event Type</p>
+     * <p>E:Event Reason</p>
      */
-    @Hl7XmlMapping({"code"})
-    public HL7TriggerEventCode getEventType() {
-        return (HL7TriggerEventCode) this.eventType.getValue();
+    @Hl7XmlMapping({"reasonCode"})
+    public ControlActReason getEventReason() {
+        return (ControlActReason) this.eventReason.getValue();
     }
-    public void setEventType(HL7TriggerEventCode eventType) {
-        this.eventType.setValue(eventType);
+    public void setEventReason(ControlActReason eventReason) {
+        this.eventReason.setValue(eventReason);
+    }
+
+
+    @Hl7XmlMapping({"subject/registrationEvent"})
+    public List<RegistrationEventBean<RR>> getSubjectRegistrationEvent() {
+        return this.subjectRegistrationEvent;
     }
 
 
@@ -75,14 +81,26 @@ public class TriggerEventBean<PL,RR> extends MessagePartBean {
 
 
     /**
-     * <p>E:Event Reason</p>
+     * <p>C:Event Effective Period</p>
      */
-    @Hl7XmlMapping({"reasonCode"})
-    public ControlActReason getEventReason() {
-        return (ControlActReason) this.eventReason.getValue();
+    @Hl7XmlMapping({"effectiveTime"})
+    public Interval<Date> getEventEffectivePeriod() {
+        return this.eventEffectivePeriod.getValue();
     }
-    public void setEventReason(ControlActReason eventReason) {
-        this.eventReason.setValue(eventReason);
+    public void setEventEffectivePeriod(Interval<Date> eventEffectivePeriod) {
+        this.eventEffectivePeriod.setValue(eventEffectivePeriod);
+    }
+
+
+    /**
+     * <p>A:Event Type</p>
+     */
+    @Hl7XmlMapping({"code"})
+    public HL7TriggerEventCode getEventType() {
+        return (HL7TriggerEventCode) this.eventType.getValue();
+    }
+    public void setEventType(HL7TriggerEventCode eventType) {
+        this.eventType.setValue(eventType);
     }
 
 
@@ -98,24 +116,6 @@ public class TriggerEventBean<PL,RR> extends MessagePartBean {
     @Hl7XmlMapping({"subjectOf/detectedIssueEvent"})
     public List<IssuesBean> getSubjectOfDetectedIssueEvent() {
         return this.subjectOfDetectedIssueEvent;
-    }
-
-
-    /**
-     * <p>C:Event Effective Period</p>
-     */
-    @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getEventEffectivePeriod() {
-        return this.eventEffectivePeriod.getValue();
-    }
-    public void setEventEffectivePeriod(Interval<Date> eventEffectivePeriod) {
-        this.eventEffectivePeriod.setValue(eventEffectivePeriod);
-    }
-
-
-    @Hl7XmlMapping({"subject/registrationEvent"})
-    public List<RegistrationEventBean<RR>> getSubjectRegistrationEvent() {
-        return this.subjectRegistrationEvent;
     }
 
 }

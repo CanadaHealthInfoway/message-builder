@@ -33,39 +33,20 @@ import java.util.List;
 public class IssuesBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private ST text = new STImpl();
-    private IssueDescriptionBean instantiationDetectedIssueDefinition;
-    private CV issuePriority = new CVImpl();
     private List<CausalActs> subjectCausalActs = new ArrayList<CausalActs>();
+    private CV issuePriority = new CVImpl();
+    private IssueDescriptionBean instantiationDetectedIssueDefinition;
+    private CV issueType = new CVImpl();
+    private ST text = new STImpl();
     private CV severityCode = new CVImpl();
     private List<IssueManagementsBean> mitigatedByDetectedIssueManagement = new ArrayList<IssueManagementsBean>();
-    private CV issueType = new CVImpl();
     private BL triggerForActRequest = new BLImpl();
     private BL subjectOf1StorageIntent = new BLImpl();
 
 
-    /**
-     * <p>Issue Comment</p>
-     * 
-     * <p>D:Issue Details</p>
-     * 
-     * <p>B:Issue Comment</p>
-     */
-    @Hl7XmlMapping({"text"})
-    public String getText() {
-        return this.text.getValue();
-    }
-    public void setText(String text) {
-        this.text.setValue(text);
-    }
-
-
-    @Hl7XmlMapping({"instantiation/detectedIssueDefinition"})
-    public IssueDescriptionBean getInstantiationDetectedIssueDefinition() {
-        return this.instantiationDetectedIssueDefinition;
-    }
-    public void setInstantiationDetectedIssueDefinition(IssueDescriptionBean instantiationDetectedIssueDefinition) {
-        this.instantiationDetectedIssueDefinition = instantiationDetectedIssueDefinition;
+    @Hl7XmlMapping({"subject/causalActs"})
+    public List<CausalActs> getSubjectCausalActs() {
+        return this.subjectCausalActs;
     }
 
 
@@ -83,9 +64,44 @@ public class IssuesBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"subject/causalActs"})
-    public List<CausalActs> getSubjectCausalActs() {
-        return this.subjectCausalActs;
+    @Hl7XmlMapping({"instantiation/detectedIssueDefinition"})
+    public IssueDescriptionBean getInstantiationDetectedIssueDefinition() {
+        return this.instantiationDetectedIssueDefinition;
+    }
+    public void setInstantiationDetectedIssueDefinition(IssueDescriptionBean instantiationDetectedIssueDefinition) {
+        this.instantiationDetectedIssueDefinition = instantiationDetectedIssueDefinition;
+    }
+
+
+    /**
+     * <p>IssueType</p>
+     * 
+     * <p>Issue Type</p>
+     * 
+     * <p>A:Issue Type</p>
+     */
+    @Hl7XmlMapping({"code"})
+    public ActDetectedIssueCode getIssueType() {
+        return (ActDetectedIssueCode) this.issueType.getValue();
+    }
+    public void setIssueType(ActDetectedIssueCode issueType) {
+        this.issueType.setValue(issueType);
+    }
+
+
+    /**
+     * <p>Issue Comment</p>
+     * 
+     * <p>D:Issue Details</p>
+     * 
+     * <p>B:Issue Comment</p>
+     */
+    @Hl7XmlMapping({"text"})
+    public String getText() {
+        return this.text.getValue();
+    }
+    public void setText(String text) {
+        this.text.setValue(text);
     }
 
 
@@ -113,22 +129,6 @@ public class IssuesBean extends MessagePartBean {
     @Hl7XmlMapping({"mitigatedBy/detectedIssueManagement"})
     public List<IssueManagementsBean> getMitigatedByDetectedIssueManagement() {
         return this.mitigatedByDetectedIssueManagement;
-    }
-
-
-    /**
-     * <p>IssueType</p>
-     * 
-     * <p>Issue Type</p>
-     * 
-     * <p>A:Issue Type</p>
-     */
-    @Hl7XmlMapping({"code"})
-    public ActDetectedIssueCode getIssueType() {
-        return (ActDetectedIssueCode) this.issueType.getValue();
-    }
-    public void setIssueType(ActDetectedIssueCode issueType) {
-        this.issueType.setValue(issueType);
     }
 
 

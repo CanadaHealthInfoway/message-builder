@@ -25,8 +25,8 @@ public class ExtendedDispenseInstructionsBean extends MessagePartBean {
     private static final long serialVersionUID = 20110318L;
     private SubsequentSupplyRequestBean component1SubsequentSupplyRequest;
     private PQ totalPrescribedQuantity = new PQImpl();
-    private FirstFillBean component2InitialSupplyRequest;
     private DrugProductBean productMedication;
+    private FirstFillBean component2InitialSupplyRequest;
     private IVL<TS, Interval<Date>> totalDaysSupply = new IVLImpl<TS, Interval<Date>>();
 
 
@@ -58,6 +58,15 @@ public class ExtendedDispenseInstructionsBean extends MessagePartBean {
     }
 
 
+    @Hl7XmlMapping({"product/medication"})
+    public DrugProductBean getProductMedication() {
+        return this.productMedication;
+    }
+    public void setProductMedication(DrugProductBean productMedication) {
+        this.productMedication = productMedication;
+    }
+
+
     @Hl7XmlMapping({"component1/initialSupplyRequest","component2/initialSupplyRequest"})
     @Hl7MapByPartTypes({
         @Hl7MapByPartType(name="component1", type="PORX_MT060160CA.Component7"),
@@ -69,15 +78,6 @@ public class ExtendedDispenseInstructionsBean extends MessagePartBean {
     }
     public void setComponent2InitialSupplyRequest(FirstFillBean component2InitialSupplyRequest) {
         this.component2InitialSupplyRequest = component2InitialSupplyRequest;
-    }
-
-
-    @Hl7XmlMapping({"product/medication"})
-    public DrugProductBean getProductMedication() {
-        return this.productMedication;
-    }
-    public void setProductMedication(DrugProductBean productMedication) {
-        this.productMedication = productMedication;
     }
 
 

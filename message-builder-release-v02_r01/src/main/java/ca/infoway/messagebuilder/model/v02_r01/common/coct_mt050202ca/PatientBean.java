@@ -25,21 +25,21 @@ import java.util.Date;
 public class PatientBean extends MessagePartBean implements ca.infoway.messagebuilder.model.v02_r01.iehr.merged.Party, ca.infoway.messagebuilder.model.v02_r01.common.coct_mt470002ca.SubjectChoice, ca.infoway.messagebuilder.model.v02_r01.common.merged.Patient_2 {
 
     private static final long serialVersionUID = 20110318L;
-    private CV patientGender = new CVImpl();
-    private PN patientName = new PNImpl();
     private TS patientBirthDate = new TSImpl();
+    private PN patientName = new PNImpl();
+    private CV patientGender = new CVImpl();
     private II patientIdentifier = new IIImpl();
 
 
     /**
-     * <p>F:Patient Gender</p>
+     * <p>E:Patient Birth Date</p>
      */
-    @Hl7XmlMapping({"patientPerson/administrativeGenderCode"})
-    public AdministrativeGender getPatientGender() {
-        return (AdministrativeGender) this.patientGender.getValue();
+    @Hl7XmlMapping({"patientPerson/birthTime"})
+    public Date getPatientBirthDate() {
+        return this.patientBirthDate.getValue();
     }
-    public void setPatientGender(AdministrativeGender patientGender) {
-        this.patientGender.setValue(patientGender);
+    public void setPatientBirthDate(Date patientBirthDate) {
+        this.patientBirthDate.setValue(patientBirthDate);
     }
 
 
@@ -56,14 +56,14 @@ public class PatientBean extends MessagePartBean implements ca.infoway.messagebu
 
 
     /**
-     * <p>E:Patient Birth Date</p>
+     * <p>F:Patient Gender</p>
      */
-    @Hl7XmlMapping({"patientPerson/birthTime"})
-    public Date getPatientBirthDate() {
-        return this.patientBirthDate.getValue();
+    @Hl7XmlMapping({"patientPerson/administrativeGenderCode"})
+    public AdministrativeGender getPatientGender() {
+        return (AdministrativeGender) this.patientGender.getValue();
     }
-    public void setPatientBirthDate(Date patientBirthDate) {
-        this.patientBirthDate.setValue(patientBirthDate);
+    public void setPatientGender(AdministrativeGender patientGender) {
+        this.patientGender.setValue(patientGender);
     }
 
 

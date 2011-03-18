@@ -17,8 +17,17 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 public class PriorRegistrationRoleIdsBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private II priorRegisteredRoleIds = new IIImpl();
     private CS classCode = new CSImpl();
+    private II priorRegisteredRoleIds = new IIImpl();
+
+
+    @Hl7XmlMapping({"classCode"})
+    public RoleClass getClassCode() {
+        return (RoleClass) this.classCode.getValue();
+    }
+    public void setClassCode(RoleClass classCode) {
+        this.classCode.setValue(classCode);
+    }
 
 
     /**
@@ -32,15 +41,6 @@ public class PriorRegistrationRoleIdsBean extends MessagePartBean {
     }
     public void setPriorRegisteredRoleIds(Identifier priorRegisteredRoleIds) {
         this.priorRegisteredRoleIds.setValue(priorRegisteredRoleIds);
-    }
-
-
-    @Hl7XmlMapping({"classCode"})
-    public RoleClass getClassCode() {
-        return (RoleClass) this.classCode.getValue();
-    }
-    public void setClassCode(RoleClass classCode) {
-        this.classCode.setValue(classCode);
     }
 
 }

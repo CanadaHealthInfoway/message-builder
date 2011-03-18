@@ -13,17 +13,8 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 public class ReplacesBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private PriorRegistrationEventBean priorRegistration;
     private BL contextConductionInd = new BLImpl();
-
-
-    @Hl7XmlMapping({"priorRegistration"})
-    public PriorRegistrationEventBean getPriorRegistration() {
-        return this.priorRegistration;
-    }
-    public void setPriorRegistration(PriorRegistrationEventBean priorRegistration) {
-        this.priorRegistration = priorRegistration;
-    }
+    private PriorRegistrationEventBean priorRegistration;
 
 
     @Hl7XmlMapping({"contextConductionInd"})
@@ -32,6 +23,15 @@ public class ReplacesBean extends MessagePartBean {
     }
     public void setContextConductionInd(Boolean contextConductionInd) {
         this.contextConductionInd.setValue(contextConductionInd);
+    }
+
+
+    @Hl7XmlMapping({"priorRegistration"})
+    public PriorRegistrationEventBean getPriorRegistration() {
+        return this.priorRegistration;
+    }
+    public void setPriorRegistration(PriorRegistrationEventBean priorRegistration) {
+        this.priorRegistration = priorRegistration;
     }
 
 }

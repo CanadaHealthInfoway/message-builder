@@ -19,9 +19,9 @@ public class PolicyIdentifierBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
     private CoveredPartyInformationBean beneficiaryCoveredPartyAsPatient;
-    private CarrierRoleBean authorCarrierRole;
-    private CD policyType = new CDImpl();
     private II id = new IIImpl();
+    private CD policyType = new CDImpl();
+    private CarrierRoleBean authorCarrierRole;
 
 
     @Hl7XmlMapping({"beneficiary/coveredPartyAsPatient"})
@@ -33,12 +33,17 @@ public class PolicyIdentifierBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"author/carrierRole"})
-    public CarrierRoleBean getAuthorCarrierRole() {
-        return this.authorCarrierRole;
+    /**
+     * <p>Policy ID</p>
+     * 
+     * <p>Policy Identifier(s</p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Identifier getId() {
+        return this.id.getValue();
     }
-    public void setAuthorCarrierRole(CarrierRoleBean authorCarrierRole) {
-        this.authorCarrierRole = authorCarrierRole;
+    public void setId(Identifier id) {
+        this.id.setValue(id);
     }
 
 
@@ -56,17 +61,12 @@ public class PolicyIdentifierBean extends MessagePartBean {
     }
 
 
-    /**
-     * <p>Policy ID</p>
-     * 
-     * <p>Policy Identifier(s</p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Identifier getId() {
-        return this.id.getValue();
+    @Hl7XmlMapping({"author/carrierRole"})
+    public CarrierRoleBean getAuthorCarrierRole() {
+        return this.authorCarrierRole;
     }
-    public void setId(Identifier id) {
-        this.id.setValue(id);
+    public void setAuthorCarrierRole(CarrierRoleBean authorCarrierRole) {
+        this.authorCarrierRole = authorCarrierRole;
     }
 
 }

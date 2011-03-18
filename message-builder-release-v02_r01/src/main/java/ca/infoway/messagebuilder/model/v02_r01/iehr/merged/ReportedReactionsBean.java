@@ -31,24 +31,15 @@ import java.util.Date;
 public class ReportedReactionsBean extends MessagePartBean implements Records {
 
     private static final long serialVersionUID = 20110318L;
-    private ExposuresBean startsAfterStartOfExposureEvent;
     private CV value = new CVImpl();
+    private ExposuresBean startsAfterStartOfExposureEvent;
     private CD code = new CDImpl();
     private ReportedReactionsBean subjectObservationEvent;
-    private ST description = new STImpl();
-    private AllergyIntoleranceSeverityLevelBean subjectOfSeverityObservation;
-    private BL noReactionOccurred = new BLImpl();
     private II reactionRecordId = new IIImpl();
     private IVL<TS, Interval<Date>> reactionOnsetDate = new IVLImpl<TS, Interval<Date>>();
-
-
-    @Hl7XmlMapping({"startsAfterStartOf/exposureEvent"})
-    public ExposuresBean getStartsAfterStartOfExposureEvent() {
-        return this.startsAfterStartOfExposureEvent;
-    }
-    public void setStartsAfterStartOfExposureEvent(ExposuresBean startsAfterStartOfExposureEvent) {
-        this.startsAfterStartOfExposureEvent = startsAfterStartOfExposureEvent;
-    }
+    private ST description = new STImpl();
+    private BL noReactionOccurred = new BLImpl();
+    private AllergyIntoleranceSeverityLevelBean subjectOfSeverityObservation;
 
 
     /**
@@ -62,6 +53,15 @@ public class ReportedReactionsBean extends MessagePartBean implements Records {
     }
     public void setValue(SubjectReaction value) {
         this.value.setValue(value);
+    }
+
+
+    @Hl7XmlMapping({"startsAfterStartOf/exposureEvent"})
+    public ExposuresBean getStartsAfterStartOfExposureEvent() {
+        return this.startsAfterStartOfExposureEvent;
+    }
+    public void setStartsAfterStartOfExposureEvent(ExposuresBean startsAfterStartOfExposureEvent) {
+        this.startsAfterStartOfExposureEvent = startsAfterStartOfExposureEvent;
     }
 
 
@@ -85,43 +85,6 @@ public class ReportedReactionsBean extends MessagePartBean implements Records {
     }
     public void setSubjectObservationEvent(ReportedReactionsBean subjectObservationEvent) {
         this.subjectObservationEvent = subjectObservationEvent;
-    }
-
-
-    /**
-     * <p>Description</p>
-     * 
-     * <p>G:Description</p>
-     */
-    @Hl7XmlMapping({"text"})
-    public String getDescription() {
-        return this.description.getValue();
-    }
-    public void setDescription(String description) {
-        this.description.setValue(description);
-    }
-
-
-    @Hl7XmlMapping({"subjectOf/severityObservation"})
-    public AllergyIntoleranceSeverityLevelBean getSubjectOfSeverityObservation() {
-        return this.subjectOfSeverityObservation;
-    }
-    public void setSubjectOfSeverityObservation(AllergyIntoleranceSeverityLevelBean subjectOfSeverityObservation) {
-        this.subjectOfSeverityObservation = subjectOfSeverityObservation;
-    }
-
-
-    /**
-     * <p>NoReactionOccurred</p>
-     * 
-     * <p>D:No reaction occurred</p>
-     */
-    @Hl7XmlMapping({"negationInd"})
-    public Boolean getNoReactionOccurred() {
-        return this.noReactionOccurred.getValue();
-    }
-    public void setNoReactionOccurred(Boolean noReactionOccurred) {
-        this.noReactionOccurred.setValue(noReactionOccurred);
     }
 
 
@@ -150,6 +113,43 @@ public class ReportedReactionsBean extends MessagePartBean implements Records {
     }
     public void setReactionOnsetDate(Interval<Date> reactionOnsetDate) {
         this.reactionOnsetDate.setValue(reactionOnsetDate);
+    }
+
+
+    /**
+     * <p>Description</p>
+     * 
+     * <p>G:Description</p>
+     */
+    @Hl7XmlMapping({"text"})
+    public String getDescription() {
+        return this.description.getValue();
+    }
+    public void setDescription(String description) {
+        this.description.setValue(description);
+    }
+
+
+    /**
+     * <p>NoReactionOccurred</p>
+     * 
+     * <p>D:No reaction occurred</p>
+     */
+    @Hl7XmlMapping({"negationInd"})
+    public Boolean getNoReactionOccurred() {
+        return this.noReactionOccurred.getValue();
+    }
+    public void setNoReactionOccurred(Boolean noReactionOccurred) {
+        this.noReactionOccurred.setValue(noReactionOccurred);
+    }
+
+
+    @Hl7XmlMapping({"subjectOf/severityObservation"})
+    public AllergyIntoleranceSeverityLevelBean getSubjectOfSeverityObservation() {
+        return this.subjectOfSeverityObservation;
+    }
+    public void setSubjectOfSeverityObservation(AllergyIntoleranceSeverityLevelBean subjectOfSeverityObservation) {
+        this.subjectOfSeverityObservation = subjectOfSeverityObservation;
     }
 
 }

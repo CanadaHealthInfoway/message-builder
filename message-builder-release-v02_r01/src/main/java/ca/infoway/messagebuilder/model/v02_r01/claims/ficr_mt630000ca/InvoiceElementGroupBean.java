@@ -25,15 +25,21 @@ import java.util.List;
 public class InvoiceElementGroupBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private List<AdjudicatedInvoiceElementGroupBean> referenceAdjudicatedInvoiceElementGroup = new ArrayList<AdjudicatedInvoiceElementGroupBean>();
+    private II invoiceGroupID = new IIImpl();
     private MO invoiceSubTotal = new MOImpl();
     private CV invoiceType = new CVImpl();
-    private II invoiceGroupID = new IIImpl();
+    private List<AdjudicatedInvoiceElementGroupBean> referenceAdjudicatedInvoiceElementGroup = new ArrayList<AdjudicatedInvoiceElementGroupBean>();
 
 
-    @Hl7XmlMapping({"reference/adjudicatedInvoiceElementGroup"})
-    public List<AdjudicatedInvoiceElementGroupBean> getReferenceAdjudicatedInvoiceElementGroup() {
-        return this.referenceAdjudicatedInvoiceElementGroup;
+    /**
+     * <p>Invoice Group ID</p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Identifier getInvoiceGroupID() {
+        return this.invoiceGroupID.getValue();
+    }
+    public void setInvoiceGroupID(Identifier invoiceGroupID) {
+        this.invoiceGroupID.setValue(invoiceGroupID);
     }
 
 
@@ -61,15 +67,9 @@ public class InvoiceElementGroupBean extends MessagePartBean {
     }
 
 
-    /**
-     * <p>Invoice Group ID</p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Identifier getInvoiceGroupID() {
-        return this.invoiceGroupID.getValue();
-    }
-    public void setInvoiceGroupID(Identifier invoiceGroupID) {
-        this.invoiceGroupID.setValue(invoiceGroupID);
+    @Hl7XmlMapping({"reference/adjudicatedInvoiceElementGroup"})
+    public List<AdjudicatedInvoiceElementGroupBean> getReferenceAdjudicatedInvoiceElementGroup() {
+        return this.referenceAdjudicatedInvoiceElementGroup;
     }
 
 }

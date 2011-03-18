@@ -35,10 +35,10 @@ public class QueryParametersBean extends MessagePartBean {
     private BL mostRecentByDeviceIndicator = new BLImpl();
     private List<CV> rxDispenserIndicators = new ArrayList<CV>();
     private IVL<TS, Interval<Date>> usageEffectivePeriod = new IVLImpl<TS, Interval<Date>>();
+    private CV issueFilterCode = new CVImpl();
     private IVL<TS, Interval<Date>> amendedInTimeRange = new IVLImpl<TS, Interval<Date>>();
     private List<II> careCompositionIDs = new ArrayList<II>();
     private List<CV> careCompositionTypes = new ArrayList<CV>();
-    private CV issueFilterCode = new CVImpl();
 
 
     /**
@@ -75,6 +75,18 @@ public class QueryParametersBean extends MessagePartBean {
 
 
     /**
+     * <p>Issue Filter Code</p>
+     */
+    @Hl7XmlMapping({"issueFilterCode/value"})
+    public IssueFilterCode getIssueFilterCode() {
+        return (IssueFilterCode) this.issueFilterCode.getValue();
+    }
+    public void setIssueFilterCode(IssueFilterCode issueFilterCode) {
+        this.issueFilterCode.setValue(issueFilterCode);
+    }
+
+
+    /**
      * <p>Amended in Time Range</p>
      */
     @Hl7XmlMapping({"amendedInTimeRange/value"})
@@ -101,18 +113,6 @@ public class QueryParametersBean extends MessagePartBean {
     @Hl7XmlMapping({"careCompositionType/value"})
     public List<ActCareEventType> getCareCompositionTypes() {
         return new RawListWrapper<CV, ActCareEventType>(careCompositionTypes, CVImpl.class);
-    }
-
-
-    /**
-     * <p>Issue Filter Code</p>
-     */
-    @Hl7XmlMapping({"issueFilterCode/value"})
-    public IssueFilterCode getIssueFilterCode() {
-        return (IssueFilterCode) this.issueFilterCode.getValue();
-    }
-    public void setIssueFilterCode(IssueFilterCode issueFilterCode) {
-        this.issueFilterCode.setValue(issueFilterCode);
     }
 
 }

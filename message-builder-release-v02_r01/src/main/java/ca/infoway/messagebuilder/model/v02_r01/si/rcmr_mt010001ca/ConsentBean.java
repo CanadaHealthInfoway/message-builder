@@ -29,25 +29,37 @@ import java.util.Date;
 public class ConsentBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private BL consentRefusedIndicator = new BLImpl();
-    private PrescribedByBean author2;
-    private CV consentType = new CVImpl();
-    private II consentFormNumber = new IIImpl();
-    private ConsentedToByBean author1;
     private CV consentOverrideReason = new CVImpl();
-    private InformationAccessBean componentPermissionToInform;
+    private II consentFormNumber = new IIImpl();
+    private PrescribedByBean author2;
     private IVL<TS, Interval<Date>> consentEffectiveAndEndTime = new IVLImpl<TS, Interval<Date>>();
+    private CV consentType = new CVImpl();
+    private BL consentRefusedIndicator = new BLImpl();
+    private ConsentedToByBean author1;
+    private InformationAccessBean componentPermissionToInform;
 
 
     /**
-     * <p>B:Consent Refused Indicator</p>
+     * <p>E:Consent Override Reason</p>
      */
-    @Hl7XmlMapping({"negationInd"})
-    public Boolean getConsentRefusedIndicator() {
-        return this.consentRefusedIndicator.getValue();
+    @Hl7XmlMapping({"reasonCode"})
+    public ActConsentInformationAccessReason getConsentOverrideReason() {
+        return (ActConsentInformationAccessReason) this.consentOverrideReason.getValue();
     }
-    public void setConsentRefusedIndicator(Boolean consentRefusedIndicator) {
-        this.consentRefusedIndicator.setValue(consentRefusedIndicator);
+    public void setConsentOverrideReason(ActConsentInformationAccessReason consentOverrideReason) {
+        this.consentOverrideReason.setValue(consentOverrideReason);
+    }
+
+
+    /**
+     * <p>D:Consent Form Number</p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Identifier getConsentFormNumber() {
+        return this.consentFormNumber.getValue();
+    }
+    public void setConsentFormNumber(Identifier consentFormNumber) {
+        this.consentFormNumber.setValue(consentFormNumber);
     }
 
 
@@ -57,6 +69,18 @@ public class ConsentBean extends MessagePartBean {
     }
     public void setAuthor2(PrescribedByBean author2) {
         this.author2 = author2;
+    }
+
+
+    /**
+     * <p>C:Consent Effective and End Time</p>
+     */
+    @Hl7XmlMapping({"effectiveTime"})
+    public Interval<Date> getConsentEffectiveAndEndTime() {
+        return this.consentEffectiveAndEndTime.getValue();
+    }
+    public void setConsentEffectiveAndEndTime(Interval<Date> consentEffectiveAndEndTime) {
+        this.consentEffectiveAndEndTime.setValue(consentEffectiveAndEndTime);
     }
 
 
@@ -73,14 +97,14 @@ public class ConsentBean extends MessagePartBean {
 
 
     /**
-     * <p>D:Consent Form Number</p>
+     * <p>B:Consent Refused Indicator</p>
      */
-    @Hl7XmlMapping({"id"})
-    public Identifier getConsentFormNumber() {
-        return this.consentFormNumber.getValue();
+    @Hl7XmlMapping({"negationInd"})
+    public Boolean getConsentRefusedIndicator() {
+        return this.consentRefusedIndicator.getValue();
     }
-    public void setConsentFormNumber(Identifier consentFormNumber) {
-        this.consentFormNumber.setValue(consentFormNumber);
+    public void setConsentRefusedIndicator(Boolean consentRefusedIndicator) {
+        this.consentRefusedIndicator.setValue(consentRefusedIndicator);
     }
 
 
@@ -93,36 +117,12 @@ public class ConsentBean extends MessagePartBean {
     }
 
 
-    /**
-     * <p>E:Consent Override Reason</p>
-     */
-    @Hl7XmlMapping({"reasonCode"})
-    public ActConsentInformationAccessReason getConsentOverrideReason() {
-        return (ActConsentInformationAccessReason) this.consentOverrideReason.getValue();
-    }
-    public void setConsentOverrideReason(ActConsentInformationAccessReason consentOverrideReason) {
-        this.consentOverrideReason.setValue(consentOverrideReason);
-    }
-
-
     @Hl7XmlMapping({"component/permissionToInform"})
     public InformationAccessBean getComponentPermissionToInform() {
         return this.componentPermissionToInform;
     }
     public void setComponentPermissionToInform(InformationAccessBean componentPermissionToInform) {
         this.componentPermissionToInform = componentPermissionToInform;
-    }
-
-
-    /**
-     * <p>C:Consent Effective and End Time</p>
-     */
-    @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getConsentEffectiveAndEndTime() {
-        return this.consentEffectiveAndEndTime.getValue();
-    }
-    public void setConsentEffectiveAndEndTime(Interval<Date> consentEffectiveAndEndTime) {
-        this.consentEffectiveAndEndTime.setValue(consentEffectiveAndEndTime);
     }
 
 }

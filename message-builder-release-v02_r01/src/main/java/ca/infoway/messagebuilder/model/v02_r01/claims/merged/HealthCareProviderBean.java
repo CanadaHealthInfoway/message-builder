@@ -24,7 +24,9 @@ import ca.infoway.messagebuilder.datatype.lang.PostalAddress;
 import ca.infoway.messagebuilder.datatype.lang.TelecommunicationAddress;
 import ca.infoway.messagebuilder.domainvalue.AdministrativeGender;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Set;
 
 
@@ -33,22 +35,13 @@ import java.util.Set;
 public class HealthCareProviderBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private CV code = new CVImpl();
     private SET<II, Identifier> providerIdentifierS = new SETImpl<II, Identifier>(IIImpl.class);
+    private CV code = new CVImpl();
     private AD canBeUsedToSpecifyJurisdictionForOOJProviders = new ADImpl();
-    private CV healthCareProviderPersonAdministrativeGenderCode = new CVImpl();
-    private TEL healthCareProviderPersonTelecom = new TELImpl();
-    private PN nameOfProvider = new PNImpl();
     private TS healthCareProviderPersonBirthTime = new TSImpl();
-
-
-    @Hl7XmlMapping({"code"})
-    public Code getCode() {
-        return (Code) this.code.getValue();
-    }
-    public void setCode(Code code) {
-        this.code.setValue(code);
-    }
+    private PN nameOfProvider = new PNImpl();
+    private TEL healthCareProviderPersonTelecom = new TELImpl();
+    private CV healthCareProviderPersonAdministrativeGenderCode = new CVImpl();
 
 
     /**
@@ -59,6 +52,15 @@ public class HealthCareProviderBean extends MessagePartBean {
     @Hl7XmlMapping({"id"})
     public Set<Identifier> getProviderIdentifierS() {
         return this.providerIdentifierS.rawSet();
+    }
+
+
+    @Hl7XmlMapping({"code"})
+    public Code getCode() {
+        return (Code) this.code.getValue();
+    }
+    public void setCode(Code code) {
+        this.code.setValue(code);
     }
 
 
@@ -76,21 +78,12 @@ public class HealthCareProviderBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"healthCareProviderPerson/administrativeGenderCode"})
-    public AdministrativeGender getHealthCareProviderPersonAdministrativeGenderCode() {
-        return (AdministrativeGender) this.healthCareProviderPersonAdministrativeGenderCode.getValue();
+    @Hl7XmlMapping({"healthCareProviderPerson/birthTime"})
+    public Date getHealthCareProviderPersonBirthTime() {
+        return this.healthCareProviderPersonBirthTime.getValue();
     }
-    public void setHealthCareProviderPersonAdministrativeGenderCode(AdministrativeGender healthCareProviderPersonAdministrativeGenderCode) {
-        this.healthCareProviderPersonAdministrativeGenderCode.setValue(healthCareProviderPersonAdministrativeGenderCode);
-    }
-
-
-    @Hl7XmlMapping({"healthCareProviderPerson/telecom"})
-    public TelecommunicationAddress getHealthCareProviderPersonTelecom() {
-        return this.healthCareProviderPersonTelecom.getValue();
-    }
-    public void setHealthCareProviderPersonTelecom(TelecommunicationAddress healthCareProviderPersonTelecom) {
-        this.healthCareProviderPersonTelecom.setValue(healthCareProviderPersonTelecom);
+    public void setHealthCareProviderPersonBirthTime(Date healthCareProviderPersonBirthTime) {
+        this.healthCareProviderPersonBirthTime.setValue(healthCareProviderPersonBirthTime);
     }
 
 
@@ -108,12 +101,21 @@ public class HealthCareProviderBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"healthCareProviderPerson/birthTime"})
-    public Date getHealthCareProviderPersonBirthTime() {
-        return this.healthCareProviderPersonBirthTime.getValue();
+    @Hl7XmlMapping({"healthCareProviderPerson/telecom"})
+    public TelecommunicationAddress getHealthCareProviderPersonTelecom() {
+        return this.healthCareProviderPersonTelecom.getValue();
     }
-    public void setHealthCareProviderPersonBirthTime(Date healthCareProviderPersonBirthTime) {
-        this.healthCareProviderPersonBirthTime.setValue(healthCareProviderPersonBirthTime);
+    public void setHealthCareProviderPersonTelecom(TelecommunicationAddress healthCareProviderPersonTelecom) {
+        this.healthCareProviderPersonTelecom.setValue(healthCareProviderPersonTelecom);
+    }
+
+
+    @Hl7XmlMapping({"healthCareProviderPerson/administrativeGenderCode"})
+    public AdministrativeGender getHealthCareProviderPersonAdministrativeGenderCode() {
+        return (AdministrativeGender) this.healthCareProviderPersonAdministrativeGenderCode.getValue();
+    }
+    public void setHealthCareProviderPersonAdministrativeGenderCode(AdministrativeGender healthCareProviderPersonAdministrativeGenderCode) {
+        this.healthCareProviderPersonAdministrativeGenderCode.setValue(healthCareProviderPersonAdministrativeGenderCode);
     }
 
 }

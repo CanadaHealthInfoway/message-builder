@@ -34,39 +34,15 @@ import java.util.List;
 public class TriggerEventBean<RR> extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private CV eventType = new CVImpl();
-    private II eventIdentifier = new IIImpl();
     private CV eventReason = new CVImpl();
-    private List<IssuesBean> subjectOfDetectedIssueEvent = new ArrayList<IssuesBean>();
-    private IVL<TS, Interval<Date>> eventEffectivePeriod = new IVLImpl<TS, Interval<Date>>();
-    private BL cascadeResponsibilityIndicator = new BLImpl();
-    private List<ReplacesBean> subjectRegistrationEventReplacementOf = new ArrayList<ReplacesBean>();
     private RegisteredItemBean<RR> subjectRegistrationEventSubject;
     private EHRRepositoryBean subjectRegistrationEventCustodianAssignedDevice;
-
-
-    /**
-     * <p>A:Event Type</p>
-     */
-    @Hl7XmlMapping({"code"})
-    public HL7TriggerEventCode getEventType() {
-        return (HL7TriggerEventCode) this.eventType.getValue();
-    }
-    public void setEventType(HL7TriggerEventCode eventType) {
-        this.eventType.setValue(eventType);
-    }
-
-
-    /**
-     * <p>B:Event Identifier</p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Identifier getEventIdentifier() {
-        return this.eventIdentifier.getValue();
-    }
-    public void setEventIdentifier(Identifier eventIdentifier) {
-        this.eventIdentifier.setValue(eventIdentifier);
-    }
+    private List<ReplacesBean> subjectRegistrationEventReplacementOf = new ArrayList<ReplacesBean>();
+    private BL cascadeResponsibilityIndicator = new BLImpl();
+    private II eventIdentifier = new IIImpl();
+    private IVL<TS, Interval<Date>> eventEffectivePeriod = new IVLImpl<TS, Interval<Date>>();
+    private CV eventType = new CVImpl();
+    private List<IssuesBean> subjectOfDetectedIssueEvent = new ArrayList<IssuesBean>();
 
 
     /**
@@ -78,42 +54,6 @@ public class TriggerEventBean<RR> extends MessagePartBean {
     }
     public void setEventReason(ControlActReason eventReason) {
         this.eventReason.setValue(eventReason);
-    }
-
-
-    @Hl7XmlMapping({"subjectOf/detectedIssueEvent"})
-    public List<IssuesBean> getSubjectOfDetectedIssueEvent() {
-        return this.subjectOfDetectedIssueEvent;
-    }
-
-
-    /**
-     * <p>C:Event Effective Period</p>
-     */
-    @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getEventEffectivePeriod() {
-        return this.eventEffectivePeriod.getValue();
-    }
-    public void setEventEffectivePeriod(Interval<Date> eventEffectivePeriod) {
-        this.eventEffectivePeriod.setValue(eventEffectivePeriod);
-    }
-
-
-    /**
-     * <p>Cascade Responsibility Indicator</p>
-     */
-    @Hl7XmlMapping({"subject/contextConductionInd"})
-    public Boolean getCascadeResponsibilityIndicator() {
-        return this.cascadeResponsibilityIndicator.getValue();
-    }
-    public void setCascadeResponsibilityIndicator(Boolean cascadeResponsibilityIndicator) {
-        this.cascadeResponsibilityIndicator.setValue(cascadeResponsibilityIndicator);
-    }
-
-
-    @Hl7XmlMapping({"subject/registrationEvent/replacementOf"})
-    public List<ReplacesBean> getSubjectRegistrationEventReplacementOf() {
-        return this.subjectRegistrationEventReplacementOf;
     }
 
 
@@ -132,6 +72,66 @@ public class TriggerEventBean<RR> extends MessagePartBean {
     }
     public void setSubjectRegistrationEventCustodianAssignedDevice(EHRRepositoryBean subjectRegistrationEventCustodianAssignedDevice) {
         this.subjectRegistrationEventCustodianAssignedDevice = subjectRegistrationEventCustodianAssignedDevice;
+    }
+
+
+    @Hl7XmlMapping({"subject/registrationEvent/replacementOf"})
+    public List<ReplacesBean> getSubjectRegistrationEventReplacementOf() {
+        return this.subjectRegistrationEventReplacementOf;
+    }
+
+
+    /**
+     * <p>Cascade Responsibility Indicator</p>
+     */
+    @Hl7XmlMapping({"subject/contextConductionInd"})
+    public Boolean getCascadeResponsibilityIndicator() {
+        return this.cascadeResponsibilityIndicator.getValue();
+    }
+    public void setCascadeResponsibilityIndicator(Boolean cascadeResponsibilityIndicator) {
+        this.cascadeResponsibilityIndicator.setValue(cascadeResponsibilityIndicator);
+    }
+
+
+    /**
+     * <p>B:Event Identifier</p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Identifier getEventIdentifier() {
+        return this.eventIdentifier.getValue();
+    }
+    public void setEventIdentifier(Identifier eventIdentifier) {
+        this.eventIdentifier.setValue(eventIdentifier);
+    }
+
+
+    /**
+     * <p>C:Event Effective Period</p>
+     */
+    @Hl7XmlMapping({"effectiveTime"})
+    public Interval<Date> getEventEffectivePeriod() {
+        return this.eventEffectivePeriod.getValue();
+    }
+    public void setEventEffectivePeriod(Interval<Date> eventEffectivePeriod) {
+        this.eventEffectivePeriod.setValue(eventEffectivePeriod);
+    }
+
+
+    /**
+     * <p>A:Event Type</p>
+     */
+    @Hl7XmlMapping({"code"})
+    public HL7TriggerEventCode getEventType() {
+        return (HL7TriggerEventCode) this.eventType.getValue();
+    }
+    public void setEventType(HL7TriggerEventCode eventType) {
+        this.eventType.setValue(eventType);
+    }
+
+
+    @Hl7XmlMapping({"subjectOf/detectedIssueEvent"})
+    public List<IssuesBean> getSubjectOfDetectedIssueEvent() {
+        return this.subjectOfDetectedIssueEvent;
     }
 
 }

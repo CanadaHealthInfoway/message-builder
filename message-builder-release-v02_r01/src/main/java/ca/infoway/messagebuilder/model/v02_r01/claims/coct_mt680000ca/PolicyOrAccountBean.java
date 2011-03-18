@@ -17,17 +17,8 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 public class PolicyOrAccountBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private II authorCarrierRoleId = new IIImpl();
     private CV code = new CVImpl();
-
-
-    @Hl7XmlMapping({"author/carrierRole/id"})
-    public Identifier getAuthorCarrierRoleId() {
-        return this.authorCarrierRoleId.getValue();
-    }
-    public void setAuthorCarrierRoleId(Identifier authorCarrierRoleId) {
-        this.authorCarrierRoleId.setValue(authorCarrierRoleId);
-    }
+    private II authorCarrierRoleId = new IIImpl();
 
 
     @Hl7XmlMapping({"code"})
@@ -36,6 +27,15 @@ public class PolicyOrAccountBean extends MessagePartBean {
     }
     public void setCode(Code code) {
         this.code.setValue(code);
+    }
+
+
+    @Hl7XmlMapping({"author/carrierRole/id"})
+    public Identifier getAuthorCarrierRoleId() {
+        return this.authorCarrierRoleId.getValue();
+    }
+    public void setAuthorCarrierRoleId(Identifier authorCarrierRoleId) {
+        this.authorCarrierRoleId.setValue(authorCarrierRoleId);
     }
 
 }

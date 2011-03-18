@@ -16,20 +16,8 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 public class OtherIndicationsBean extends MessagePartBean implements Indications {
 
     private static final long serialVersionUID = 20110318L;
-    private ST otherIndicationAdHocDescription = new STImpl();
     private CV otherIndication = new CVImpl();
-
-
-    /**
-     * <p>Other indication ad-hoc description</p>
-     */
-    @Hl7XmlMapping({"text"})
-    public String getOtherIndicationAdHocDescription() {
-        return this.otherIndicationAdHocDescription.getValue();
-    }
-    public void setOtherIndicationAdHocDescription(String otherIndicationAdHocDescription) {
-        this.otherIndicationAdHocDescription.setValue(otherIndicationAdHocDescription);
-    }
+    private ST otherIndicationAdHocDescription = new STImpl();
 
 
     /**
@@ -41,6 +29,18 @@ public class OtherIndicationsBean extends MessagePartBean implements Indications
     }
     public void setOtherIndication(ActNonConditionIndicationCode otherIndication) {
         this.otherIndication.setValue(otherIndication);
+    }
+
+
+    /**
+     * <p>Other indication ad-hoc description</p>
+     */
+    @Hl7XmlMapping({"text"})
+    public String getOtherIndicationAdHocDescription() {
+        return this.otherIndicationAdHocDescription.getValue();
+    }
+    public void setOtherIndicationAdHocDescription(String otherIndicationAdHocDescription) {
+        this.otherIndicationAdHocDescription.setValue(otherIndicationAdHocDescription);
     }
 
 }

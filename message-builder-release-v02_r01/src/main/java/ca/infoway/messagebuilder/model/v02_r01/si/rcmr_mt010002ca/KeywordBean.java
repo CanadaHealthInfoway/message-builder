@@ -23,9 +23,30 @@ import java.util.List;
 public class KeywordBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private Consenter authorConsenter;
-    private ST keyword = new STImpl();
     private List<CV> consentInformationTypes = new ArrayList<CV>();
+    private ST keyword = new STImpl();
+    private Consenter authorConsenter;
+
+
+    /**
+     * <p>B:Consent Information Types</p>
+     */
+    @Hl7XmlMapping({"subject/recordType/code"})
+    public List<ActInformationAccessTypeCode> getConsentInformationTypes() {
+        return new RawListWrapper<CV, ActInformationAccessTypeCode>(consentInformationTypes, CVImpl.class);
+    }
+
+
+    /**
+     * <p>Keyword</p>
+     */
+    @Hl7XmlMapping({"author/signatureText"})
+    public String getKeyword() {
+        return this.keyword.getValue();
+    }
+    public void setKeyword(String keyword) {
+        this.keyword.setValue(keyword);
+    }
 
 
     @Hl7XmlMapping({"author/consenter"})
@@ -48,27 +69,6 @@ public class KeywordBean extends MessagePartBean {
     }
     public boolean hasAuthorConsenterAsPersonalRelationship() {
         return (this.authorConsenter instanceof RelatedPersonBean);
-    }
-
-
-    /**
-     * <p>Keyword</p>
-     */
-    @Hl7XmlMapping({"author/signatureText"})
-    public String getKeyword() {
-        return this.keyword.getValue();
-    }
-    public void setKeyword(String keyword) {
-        this.keyword.setValue(keyword);
-    }
-
-
-    /**
-     * <p>B:Consent Information Types</p>
-     */
-    @Hl7XmlMapping({"subject/recordType/code"})
-    public List<ActInformationAccessTypeCode> getConsentInformationTypes() {
-        return new RawListWrapper<CV, ActInformationAccessTypeCode>(consentInformationTypes, CVImpl.class);
     }
 
 }

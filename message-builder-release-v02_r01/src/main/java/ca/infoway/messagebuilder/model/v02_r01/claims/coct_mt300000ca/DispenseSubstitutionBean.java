@@ -15,17 +15,20 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 public class DispenseSubstitutionBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private SubstitutionRoleBean performerSubstitutionRole;
-    private CV substitutionType = new CVImpl();
     private CV substitutionReason = new CVImpl();
+    private CV substitutionType = new CVImpl();
+    private SubstitutionRoleBean performerSubstitutionRole;
 
 
-    @Hl7XmlMapping({"performer/substitutionRole"})
-    public SubstitutionRoleBean getPerformerSubstitutionRole() {
-        return this.performerSubstitutionRole;
+    /**
+     * <p>Substitution Reason</p>
+     */
+    @Hl7XmlMapping({"reasonCode"})
+    public SubstanceAdminSubstitutionReason getSubstitutionReason() {
+        return (SubstanceAdminSubstitutionReason) this.substitutionReason.getValue();
     }
-    public void setPerformerSubstitutionRole(SubstitutionRoleBean performerSubstitutionRole) {
-        this.performerSubstitutionRole = performerSubstitutionRole;
+    public void setSubstitutionReason(SubstanceAdminSubstitutionReason substitutionReason) {
+        this.substitutionReason.setValue(substitutionReason);
     }
 
 
@@ -41,15 +44,12 @@ public class DispenseSubstitutionBean extends MessagePartBean {
     }
 
 
-    /**
-     * <p>Substitution Reason</p>
-     */
-    @Hl7XmlMapping({"reasonCode"})
-    public SubstanceAdminSubstitutionReason getSubstitutionReason() {
-        return (SubstanceAdminSubstitutionReason) this.substitutionReason.getValue();
+    @Hl7XmlMapping({"performer/substitutionRole"})
+    public SubstitutionRoleBean getPerformerSubstitutionRole() {
+        return this.performerSubstitutionRole;
     }
-    public void setSubstitutionReason(SubstanceAdminSubstitutionReason substitutionReason) {
-        this.substitutionReason.setValue(substitutionReason);
+    public void setPerformerSubstitutionRole(SubstitutionRoleBean performerSubstitutionRole) {
+        this.performerSubstitutionRole = performerSubstitutionRole;
     }
 
 }

@@ -17,22 +17,8 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 public class BusinessArrangementBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private CV billingArrangementType = new CVImpl();
     private II id = new IIImpl();
-
-
-    /**
-     * <p>BillingArrangementType</p>
-     * 
-     * <p>Billing Arrangement Type</p>
-     */
-    @Hl7XmlMapping({"code"})
-    public Code getBillingArrangementType() {
-        return (Code) this.billingArrangementType.getValue();
-    }
-    public void setBillingArrangementType(Code billingArrangementType) {
-        this.billingArrangementType.setValue(billingArrangementType);
-    }
+    private CV billingArrangementType = new CVImpl();
 
 
     /**
@@ -46,6 +32,20 @@ public class BusinessArrangementBean extends MessagePartBean {
     }
     public void setId(Identifier id) {
         this.id.setValue(id);
+    }
+
+
+    /**
+     * <p>BillingArrangementType</p>
+     * 
+     * <p>Billing Arrangement Type</p>
+     */
+    @Hl7XmlMapping({"code"})
+    public Code getBillingArrangementType() {
+        return (Code) this.billingArrangementType.getValue();
+    }
+    public void setBillingArrangementType(Code billingArrangementType) {
+        this.billingArrangementType.setValue(billingArrangementType);
     }
 
 }

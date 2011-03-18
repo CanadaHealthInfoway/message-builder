@@ -18,6 +18,8 @@ import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.TelecommunicationAddress;
 import ca.infoway.messagebuilder.domainvalue.HealthcareOrganizationRoleType;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 
@@ -27,26 +29,10 @@ import java.util.Set;
 public class HealthcareOrganizationBean extends MessagePartBean implements ca.infoway.messagebuilder.model.v02_r01.common.coct_mt911108ca.ActingPerson, ActingPerson {
 
     private static final long serialVersionUID = 20110318L;
-    private ST organizationName = new STImpl();
     private II organizationIdentifier = new IIImpl();
-    private SET<TEL, TelecommunicationAddress> organizationPhoneAndEmails = new SETImpl<TEL, TelecommunicationAddress>(TELImpl.class);
     private CV organizationType = new CVImpl();
-
-
-    /**
-     * <p>OrganizationName</p>
-     * 
-     * <p>E: Organization Name</p>
-     * 
-     * <p>G: Organization Name</p>
-     */
-    @Hl7XmlMapping({"representedOrganization/name"})
-    public String getOrganizationName() {
-        return this.organizationName.getValue();
-    }
-    public void setOrganizationName(String organizationName) {
-        this.organizationName.setValue(organizationName);
-    }
+    private SET<TEL, TelecommunicationAddress> organizationPhoneAndEmails = new SETImpl<TEL, TelecommunicationAddress>(TELImpl.class);
+    private ST organizationName = new STImpl();
 
 
     /**
@@ -66,6 +52,20 @@ public class HealthcareOrganizationBean extends MessagePartBean implements ca.in
 
 
     /**
+     * <p>OrganizationType</p>
+     * 
+     * <p>F: Organization Type</p>
+     */
+    @Hl7XmlMapping({"representedOrganization/assignedOrganization/code"})
+    public HealthcareOrganizationRoleType getOrganizationType() {
+        return (HealthcareOrganizationRoleType) this.organizationType.getValue();
+    }
+    public void setOrganizationType(HealthcareOrganizationRoleType organizationType) {
+        this.organizationType.setValue(organizationType);
+    }
+
+
+    /**
      * <p>OrganizationPhoneAndEmails</p>
      * 
      * <p>H: Organization Phone and Emails</p>
@@ -77,16 +77,18 @@ public class HealthcareOrganizationBean extends MessagePartBean implements ca.in
 
 
     /**
-     * <p>OrganizationType</p>
+     * <p>OrganizationName</p>
      * 
-     * <p>F: Organization Type</p>
+     * <p>E: Organization Name</p>
+     * 
+     * <p>G: Organization Name</p>
      */
-    @Hl7XmlMapping({"representedOrganization/assignedOrganization/code"})
-    public HealthcareOrganizationRoleType getOrganizationType() {
-        return (HealthcareOrganizationRoleType) this.organizationType.getValue();
+    @Hl7XmlMapping({"representedOrganization/name"})
+    public String getOrganizationName() {
+        return this.organizationName.getValue();
     }
-    public void setOrganizationType(HealthcareOrganizationRoleType organizationType) {
-        this.organizationType.setValue(organizationType);
+    public void setOrganizationName(String organizationName) {
+        this.organizationName.setValue(organizationName);
     }
 
 }

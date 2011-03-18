@@ -17,17 +17,20 @@ import ca.infoway.messagebuilder.model.v02_r01.merged.HealthcareWorkerBean;
 public class FormulariesBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private HealthcareWorkerBean performerAssignedEntity;
-    private ST formularyName = new STImpl();
     private II formularyId = new IIImpl();
+    private ST formularyName = new STImpl();
+    private HealthcareWorkerBean performerAssignedEntity;
 
 
-    @Hl7XmlMapping({"performer/assignedEntity"})
-    public HealthcareWorkerBean getPerformerAssignedEntity() {
-        return this.performerAssignedEntity;
+    /**
+     * <p>Formulary Id</p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Identifier getFormularyId() {
+        return this.formularyId.getValue();
     }
-    public void setPerformerAssignedEntity(HealthcareWorkerBean performerAssignedEntity) {
-        this.performerAssignedEntity = performerAssignedEntity;
+    public void setFormularyId(Identifier formularyId) {
+        this.formularyId.setValue(formularyId);
     }
 
 
@@ -43,15 +46,12 @@ public class FormulariesBean extends MessagePartBean {
     }
 
 
-    /**
-     * <p>Formulary Id</p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Identifier getFormularyId() {
-        return this.formularyId.getValue();
+    @Hl7XmlMapping({"performer/assignedEntity"})
+    public HealthcareWorkerBean getPerformerAssignedEntity() {
+        return this.performerAssignedEntity;
     }
-    public void setFormularyId(Identifier formularyId) {
-        this.formularyId.setValue(formularyId);
+    public void setPerformerAssignedEntity(HealthcareWorkerBean performerAssignedEntity) {
+        this.performerAssignedEntity = performerAssignedEntity;
     }
 
 }

@@ -23,14 +23,14 @@ public class ParameterListBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
     private II payeeIdValue = new IIImpl();
+    private II providerID = new IIImpl();
     private II adjudResultsGroupIdValue = new IIImpl();
-    private CV invoiceElementGroupCodeValue = new CVImpl();
+    private TS adjudResultsGroupAuthorTimeValue = new TSImpl();
     private II payorIdValue = new IIImpl();
     private II locationIdValue = new IIImpl();
-    private II providerID = new IIImpl();
-    private TS adjudResultsGroupAuthorTimeValue = new TSImpl();
-    private II insuranceCarrierRoleIdValue = new IIImpl();
     private II sendingApplicationIdValue = new IIImpl();
+    private CV invoiceElementGroupCodeValue = new CVImpl();
+    private II insuranceCarrierRoleIdValue = new IIImpl();
     private II financialContractIdValue = new IIImpl();
 
 
@@ -43,6 +43,18 @@ public class ParameterListBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>Provider ID</p>
+     */
+    @Hl7XmlMapping({"providerId/value"})
+    public Identifier getProviderID() {
+        return this.providerID.getValue();
+    }
+    public void setProviderID(Identifier providerID) {
+        this.providerID.setValue(providerID);
+    }
+
+
     @Hl7XmlMapping({"adjudResultsGroupId/value"})
     public Identifier getAdjudResultsGroupIdValue() {
         return this.adjudResultsGroupIdValue.getValue();
@@ -52,12 +64,12 @@ public class ParameterListBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"invoiceElementGroupCode/value"})
-    public Code getInvoiceElementGroupCodeValue() {
-        return (Code) this.invoiceElementGroupCodeValue.getValue();
+    @Hl7XmlMapping({"adjudResultsGroupAuthorTime/value"})
+    public Date getAdjudResultsGroupAuthorTimeValue() {
+        return this.adjudResultsGroupAuthorTimeValue.getValue();
     }
-    public void setInvoiceElementGroupCodeValue(Code invoiceElementGroupCodeValue) {
-        this.invoiceElementGroupCodeValue.setValue(invoiceElementGroupCodeValue);
+    public void setAdjudResultsGroupAuthorTimeValue(Date adjudResultsGroupAuthorTimeValue) {
+        this.adjudResultsGroupAuthorTimeValue.setValue(adjudResultsGroupAuthorTimeValue);
     }
 
 
@@ -79,24 +91,21 @@ public class ParameterListBean extends MessagePartBean {
     }
 
 
-    /**
-     * <p>Provider ID</p>
-     */
-    @Hl7XmlMapping({"providerId/value"})
-    public Identifier getProviderID() {
-        return this.providerID.getValue();
+    @Hl7XmlMapping({"sendingApplicationId/value"})
+    public Identifier getSendingApplicationIdValue() {
+        return this.sendingApplicationIdValue.getValue();
     }
-    public void setProviderID(Identifier providerID) {
-        this.providerID.setValue(providerID);
+    public void setSendingApplicationIdValue(Identifier sendingApplicationIdValue) {
+        this.sendingApplicationIdValue.setValue(sendingApplicationIdValue);
     }
 
 
-    @Hl7XmlMapping({"adjudResultsGroupAuthorTime/value"})
-    public Date getAdjudResultsGroupAuthorTimeValue() {
-        return this.adjudResultsGroupAuthorTimeValue.getValue();
+    @Hl7XmlMapping({"invoiceElementGroupCode/value"})
+    public Code getInvoiceElementGroupCodeValue() {
+        return (Code) this.invoiceElementGroupCodeValue.getValue();
     }
-    public void setAdjudResultsGroupAuthorTimeValue(Date adjudResultsGroupAuthorTimeValue) {
-        this.adjudResultsGroupAuthorTimeValue.setValue(adjudResultsGroupAuthorTimeValue);
+    public void setInvoiceElementGroupCodeValue(Code invoiceElementGroupCodeValue) {
+        this.invoiceElementGroupCodeValue.setValue(invoiceElementGroupCodeValue);
     }
 
 
@@ -106,15 +115,6 @@ public class ParameterListBean extends MessagePartBean {
     }
     public void setInsuranceCarrierRoleIdValue(Identifier insuranceCarrierRoleIdValue) {
         this.insuranceCarrierRoleIdValue.setValue(insuranceCarrierRoleIdValue);
-    }
-
-
-    @Hl7XmlMapping({"sendingApplicationId/value"})
-    public Identifier getSendingApplicationIdValue() {
-        return this.sendingApplicationIdValue.getValue();
-    }
-    public void setSendingApplicationIdValue(Identifier sendingApplicationIdValue) {
-        this.sendingApplicationIdValue.setValue(sendingApplicationIdValue);
     }
 
 

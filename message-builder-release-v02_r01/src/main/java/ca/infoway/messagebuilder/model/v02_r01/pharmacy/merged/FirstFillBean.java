@@ -21,8 +21,8 @@ public class FirstFillBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
     private PQ firstFillQuantity = new PQImpl();
-    private IVL<TS, Interval<Date>> firstFillDaysSupply = new IVLImpl<TS, Interval<Date>>();
     private IVL<TS, Interval<Date>> firstFillExpiryDate = new IVLImpl<TS, Interval<Date>>();
+    private IVL<TS, Interval<Date>> firstFillDaysSupply = new IVLImpl<TS, Interval<Date>>();
 
 
     /**
@@ -40,20 +40,6 @@ public class FirstFillBean extends MessagePartBean {
 
 
     /**
-     * <p>FirstFillDaysSupply</p>
-     * 
-     * <p>First Fill Days Supply</p>
-     */
-    @Hl7XmlMapping({"expectedUseTime"})
-    public Interval<Date> getFirstFillDaysSupply() {
-        return this.firstFillDaysSupply.getValue();
-    }
-    public void setFirstFillDaysSupply(Interval<Date> firstFillDaysSupply) {
-        this.firstFillDaysSupply.setValue(firstFillDaysSupply);
-    }
-
-
-    /**
      * <p>FirstFillExpiryDate</p>
      * 
      * <p>First Fill Expiry Date</p>
@@ -64,6 +50,20 @@ public class FirstFillBean extends MessagePartBean {
     }
     public void setFirstFillExpiryDate(Interval<Date> firstFillExpiryDate) {
         this.firstFillExpiryDate.setValue(firstFillExpiryDate);
+    }
+
+
+    /**
+     * <p>FirstFillDaysSupply</p>
+     * 
+     * <p>First Fill Days Supply</p>
+     */
+    @Hl7XmlMapping({"expectedUseTime"})
+    public Interval<Date> getFirstFillDaysSupply() {
+        return this.firstFillDaysSupply.getValue();
+    }
+    public void setFirstFillDaysSupply(Interval<Date> firstFillDaysSupply) {
+        this.firstFillDaysSupply.setValue(firstFillDaysSupply);
     }
 
 }

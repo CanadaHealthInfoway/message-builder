@@ -24,19 +24,10 @@ import java.util.Date;
 public class DispenseInstructions_2Bean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private CreatedAtBean location;
     private PQ totalPrescribedQuantity = new PQImpl();
     private CS statusCode = new CSImpl();
+    private CreatedAtBean location;
     private IVL<TS, Interval<Date>> totalDaysSupply = new IVLImpl<TS, Interval<Date>>();
-
-
-    @Hl7XmlMapping({"location"})
-    public CreatedAtBean getLocation() {
-        return this.location;
-    }
-    public void setLocation(CreatedAtBean location) {
-        this.location = location;
-    }
 
 
     /**
@@ -66,6 +57,15 @@ public class DispenseInstructions_2Bean extends MessagePartBean {
     }
     public void setStatusCode(ActStatus statusCode) {
         this.statusCode.setValue(statusCode);
+    }
+
+
+    @Hl7XmlMapping({"location"})
+    public CreatedAtBean getLocation() {
+        return this.location;
+    }
+    public void setLocation(CreatedAtBean location) {
+        this.location = location;
     }
 
 

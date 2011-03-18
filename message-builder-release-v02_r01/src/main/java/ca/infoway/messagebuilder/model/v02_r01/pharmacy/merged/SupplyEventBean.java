@@ -25,21 +25,21 @@ import java.util.Date;
 public class SupplyEventBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private DispenseShipToLocationBean destinationServiceDeliveryLocation;
-    private PQ dispensedQuantity = new PQImpl();
     private RelatedPersonBean receiverPersonalRelationship;
-    private DrugProductBean productMedication;
+    private PQ dispensedQuantity = new PQImpl();
+    private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private CV dispenseType = new CVImpl();
     private IVL<TS, Interval<Date>> expectedUseTime = new IVLImpl<TS, Interval<Date>>();
-    private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
+    private DrugProductBean productMedication;
+    private DispenseShipToLocationBean destinationServiceDeliveryLocation;
 
 
-    @Hl7XmlMapping({"destination/serviceDeliveryLocation"})
-    public DispenseShipToLocationBean getDestinationServiceDeliveryLocation() {
-        return this.destinationServiceDeliveryLocation;
+    @Hl7XmlMapping({"receiver/personalRelationship"})
+    public RelatedPersonBean getReceiverPersonalRelationship() {
+        return this.receiverPersonalRelationship;
     }
-    public void setDestinationServiceDeliveryLocation(DispenseShipToLocationBean destinationServiceDeliveryLocation) {
-        this.destinationServiceDeliveryLocation = destinationServiceDeliveryLocation;
+    public void setReceiverPersonalRelationship(RelatedPersonBean receiverPersonalRelationship) {
+        this.receiverPersonalRelationship = receiverPersonalRelationship;
     }
 
 
@@ -59,21 +59,17 @@ public class SupplyEventBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"receiver/personalRelationship"})
-    public RelatedPersonBean getReceiverPersonalRelationship() {
-        return this.receiverPersonalRelationship;
+    /**
+     * <p>Dispense Processing and Pickup Date</p>
+     * 
+     * <p>D:Dispensed Processing and Pickup Date</p>
+     */
+    @Hl7XmlMapping({"effectiveTime"})
+    public Interval<Date> getEffectiveTime() {
+        return this.effectiveTime.getValue();
     }
-    public void setReceiverPersonalRelationship(RelatedPersonBean receiverPersonalRelationship) {
-        this.receiverPersonalRelationship = receiverPersonalRelationship;
-    }
-
-
-    @Hl7XmlMapping({"product/medication"})
-    public DrugProductBean getProductMedication() {
-        return this.productMedication;
-    }
-    public void setProductMedication(DrugProductBean productMedication) {
-        this.productMedication = productMedication;
+    public void setEffectiveTime(Interval<Date> effectiveTime) {
+        this.effectiveTime.setValue(effectiveTime);
     }
 
 
@@ -109,17 +105,21 @@ public class SupplyEventBean extends MessagePartBean {
     }
 
 
-    /**
-     * <p>Dispense Processing and Pickup Date</p>
-     * 
-     * <p>D:Dispensed Processing and Pickup Date</p>
-     */
-    @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getEffectiveTime() {
-        return this.effectiveTime.getValue();
+    @Hl7XmlMapping({"product/medication"})
+    public DrugProductBean getProductMedication() {
+        return this.productMedication;
     }
-    public void setEffectiveTime(Interval<Date> effectiveTime) {
-        this.effectiveTime.setValue(effectiveTime);
+    public void setProductMedication(DrugProductBean productMedication) {
+        this.productMedication = productMedication;
+    }
+
+
+    @Hl7XmlMapping({"destination/serviceDeliveryLocation"})
+    public DispenseShipToLocationBean getDestinationServiceDeliveryLocation() {
+        return this.destinationServiceDeliveryLocation;
+    }
+    public void setDestinationServiceDeliveryLocation(DispenseShipToLocationBean destinationServiceDeliveryLocation) {
+        this.destinationServiceDeliveryLocation = destinationServiceDeliveryLocation;
     }
 
 }

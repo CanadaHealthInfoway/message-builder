@@ -37,21 +37,64 @@ import java.util.Set;
 public class MedicationDispenseBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
+    private HealthcareWorkerBean performerAssignedEntity;
+    private HealthcareWorkerBean responsiblePartyAssignedEntity;
+    private List<AdministrationInstructionsBean> component2DosageInstruction = new ArrayList<AdministrationInstructionsBean>();
+    private List<NotesBean> subjectOf4Annotation = new ArrayList<NotesBean>();
     private List<StatusChangesBean> subjectOf1ControlActEvent = new ArrayList<StatusChangesBean>();
     private SupplyEventBean component1SupplyEvent;
-    private CreatedAtBean location;
-    private HealthcareWorkerBean performerAssignedEntity;
-    private List<AdministrationInstructionsBean> component2DosageInstruction = new ArrayList<AdministrationInstructionsBean>();
-    private BL subjectOf2AnnotationIndicator = new BLImpl();
-    private CS dispenseStatus = new CSImpl();
-    private SubstitutionBean component3SubstitutionMade;
-    private HealthcareWorkerBean responsiblePartyAssignedEntity;
-    private List<NotesBean> subjectOf4Annotation = new ArrayList<NotesBean>();
     private II prescriptionDispenseNumber = new IIImpl();
-    private List<IssuesBean> subjectOf5DetectedIssueEvent = new ArrayList<IssuesBean>();
     private BL subjectOf3DetectedIssueIndicator = new BLImpl();
+    private SubstitutionBean component3SubstitutionMade;
+    private CS dispenseStatus = new CSImpl();
+    private List<IssuesBean> subjectOf5DetectedIssueEvent = new ArrayList<IssuesBean>();
+    private BL subjectOf2AnnotationIndicator = new BLImpl();
+    private CreatedAtBean location;
     private SET<CV, Code> prescriptionMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);
     private PrescriptionReferenceBean inFulfillmentOfSubstanceAdministrationRequest;
+
+
+    @Hl7XmlMapping({"performer/assignedEntity"})
+    public HealthcareWorkerBean getPerformerAssignedEntity() {
+        return this.performerAssignedEntity;
+    }
+    public void setPerformerAssignedEntity(HealthcareWorkerBean performerAssignedEntity) {
+        this.performerAssignedEntity = performerAssignedEntity;
+    }
+
+
+    @Hl7XmlMapping({"responsibleParty/assignedEntity"})
+    public HealthcareWorkerBean getResponsiblePartyAssignedEntity() {
+        return this.responsiblePartyAssignedEntity;
+    }
+    public void setResponsiblePartyAssignedEntity(HealthcareWorkerBean responsiblePartyAssignedEntity) {
+        this.responsiblePartyAssignedEntity = responsiblePartyAssignedEntity;
+    }
+
+
+    @Hl7XmlMapping({"component1/dosageInstruction","component2/dosageInstruction"})
+    @Hl7MapByPartTypes({
+        @Hl7MapByPartType(name="component1", type="PORX_MT060090CA.Component11"),
+        @Hl7MapByPartType(name="component1", type="PORX_MT060340CA.Component11"),
+        @Hl7MapByPartType(name="component1/dosageInstruction", type="COCT_MT270010CA.DosageInstruction"),
+        @Hl7MapByPartType(name="component2", type="PORX_MT060160CA.Component11"),
+        @Hl7MapByPartType(name="component2/dosageInstruction", type="COCT_MT270010CA.DosageInstruction")})
+    public List<AdministrationInstructionsBean> getComponent2DosageInstruction() {
+        return this.component2DosageInstruction;
+    }
+
+
+    @Hl7XmlMapping({"subjectOf2/annotation","subjectOf3/annotation","subjectOf4/annotation"})
+    @Hl7MapByPartTypes({
+        @Hl7MapByPartType(name="subjectOf2", type="PORX_MT060340CA.Subject7"),
+        @Hl7MapByPartType(name="subjectOf2/annotation", type="COCT_MT120600CA.Annotation"),
+        @Hl7MapByPartType(name="subjectOf3", type="PORX_MT060090CA.Subject7"),
+        @Hl7MapByPartType(name="subjectOf3/annotation", type="COCT_MT120600CA.Annotation"),
+        @Hl7MapByPartType(name="subjectOf4", type="PORX_MT060160CA.Subject7"),
+        @Hl7MapByPartType(name="subjectOf4/annotation", type="COCT_MT120600CA.Annotation")})
+    public List<NotesBean> getSubjectOf4Annotation() {
+        return this.subjectOf4Annotation;
+    }
 
 
     @Hl7XmlMapping({"subjectOf1/controlActEvent"})
@@ -76,65 +119,33 @@ public class MedicationDispenseBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"location"})
-    public CreatedAtBean getLocation() {
-        return this.location;
-    }
-    public void setLocation(CreatedAtBean location) {
-        this.location = location;
-    }
-
-
-    @Hl7XmlMapping({"performer/assignedEntity"})
-    public HealthcareWorkerBean getPerformerAssignedEntity() {
-        return this.performerAssignedEntity;
-    }
-    public void setPerformerAssignedEntity(HealthcareWorkerBean performerAssignedEntity) {
-        this.performerAssignedEntity = performerAssignedEntity;
-    }
-
-
-    @Hl7XmlMapping({"component1/dosageInstruction","component2/dosageInstruction"})
-    @Hl7MapByPartTypes({
-        @Hl7MapByPartType(name="component1", type="PORX_MT060090CA.Component11"),
-        @Hl7MapByPartType(name="component1", type="PORX_MT060340CA.Component11"),
-        @Hl7MapByPartType(name="component1/dosageInstruction", type="COCT_MT270010CA.DosageInstruction"),
-        @Hl7MapByPartType(name="component2", type="PORX_MT060160CA.Component11"),
-        @Hl7MapByPartType(name="component2/dosageInstruction", type="COCT_MT270010CA.DosageInstruction")})
-    public List<AdministrationInstructionsBean> getComponent2DosageInstruction() {
-        return this.component2DosageInstruction;
-    }
-
-
-    @Hl7XmlMapping({"subjectOf2/annotationIndicator","subjectOf5/annotationIndicator"})
-    @Hl7MapByPartTypes({
-        @Hl7MapByPartType(name="subjectOf2", type="PORX_MT060160CA.Subject12"),
-        @Hl7MapByPartType(name="subjectOf2/annotationIndicator", type="PORX_MT060160CA.AnnotationIndicator"),
-        @Hl7MapByPartType(name="subjectOf5", type="PORX_MT060090CA.Subject12"),
-        @Hl7MapByPartType(name="subjectOf5", type="PORX_MT060340CA.Subject12"),
-        @Hl7MapByPartType(name="subjectOf5/annotationIndicator", type="PORX_MT060090CA.AnnotationIndicator"),
-        @Hl7MapByPartType(name="subjectOf5/annotationIndicator", type="PORX_MT060340CA.AnnotationIndicator")})
-    public Boolean getSubjectOf2AnnotationIndicator() {
-        return this.subjectOf2AnnotationIndicator.getValue();
-    }
-    public void setSubjectOf2AnnotationIndicator(Boolean subjectOf2AnnotationIndicator) {
-        this.subjectOf2AnnotationIndicator.setValue(subjectOf2AnnotationIndicator);
-    }
-
-
     /**
-     * <p>DispenseStatus</p>
+     * <p>PrescriptionDispenseNumber</p>
      * 
-     * <p>C:Dispense Status</p>
-     * 
-     * <p>Dispense Status</p>
+     * <p>A:Prescription Dispense Number</p>
      */
-    @Hl7XmlMapping({"statusCode"})
-    public ActStatus getDispenseStatus() {
-        return (ActStatus) this.dispenseStatus.getValue();
+    @Hl7XmlMapping({"id"})
+    public Identifier getPrescriptionDispenseNumber() {
+        return this.prescriptionDispenseNumber.getValue();
     }
-    public void setDispenseStatus(ActStatus dispenseStatus) {
-        this.dispenseStatus.setValue(dispenseStatus);
+    public void setPrescriptionDispenseNumber(Identifier prescriptionDispenseNumber) {
+        this.prescriptionDispenseNumber.setValue(prescriptionDispenseNumber);
+    }
+
+
+    @Hl7XmlMapping({"subjectOf3/detectedIssueIndicator","subjectOf4/detectedIssueIndicator"})
+    @Hl7MapByPartTypes({
+        @Hl7MapByPartType(name="subjectOf3", type="PORX_MT060160CA.Subject13"),
+        @Hl7MapByPartType(name="subjectOf3", type="PORX_MT060340CA.Subject13"),
+        @Hl7MapByPartType(name="subjectOf3/detectedIssueIndicator", type="PORX_MT060160CA.DetectedIssueIndicator"),
+        @Hl7MapByPartType(name="subjectOf3/detectedIssueIndicator", type="PORX_MT060340CA.DetectedIssueIndicator"),
+        @Hl7MapByPartType(name="subjectOf4", type="PORX_MT060090CA.Subject13"),
+        @Hl7MapByPartType(name="subjectOf4/detectedIssueIndicator", type="PORX_MT060090CA.DetectedIssueIndicator")})
+    public Boolean getSubjectOf3DetectedIssueIndicator() {
+        return this.subjectOf3DetectedIssueIndicator.getValue();
+    }
+    public void setSubjectOf3DetectedIssueIndicator(Boolean subjectOf3DetectedIssueIndicator) {
+        this.subjectOf3DetectedIssueIndicator.setValue(subjectOf3DetectedIssueIndicator);
     }
 
 
@@ -154,39 +165,19 @@ public class MedicationDispenseBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"responsibleParty/assignedEntity"})
-    public HealthcareWorkerBean getResponsiblePartyAssignedEntity() {
-        return this.responsiblePartyAssignedEntity;
-    }
-    public void setResponsiblePartyAssignedEntity(HealthcareWorkerBean responsiblePartyAssignedEntity) {
-        this.responsiblePartyAssignedEntity = responsiblePartyAssignedEntity;
-    }
-
-
-    @Hl7XmlMapping({"subjectOf2/annotation","subjectOf3/annotation","subjectOf4/annotation"})
-    @Hl7MapByPartTypes({
-        @Hl7MapByPartType(name="subjectOf2", type="PORX_MT060340CA.Subject7"),
-        @Hl7MapByPartType(name="subjectOf2/annotation", type="COCT_MT120600CA.Annotation"),
-        @Hl7MapByPartType(name="subjectOf3", type="PORX_MT060090CA.Subject7"),
-        @Hl7MapByPartType(name="subjectOf3/annotation", type="COCT_MT120600CA.Annotation"),
-        @Hl7MapByPartType(name="subjectOf4", type="PORX_MT060160CA.Subject7"),
-        @Hl7MapByPartType(name="subjectOf4/annotation", type="COCT_MT120600CA.Annotation")})
-    public List<NotesBean> getSubjectOf4Annotation() {
-        return this.subjectOf4Annotation;
-    }
-
-
     /**
-     * <p>PrescriptionDispenseNumber</p>
+     * <p>DispenseStatus</p>
      * 
-     * <p>A:Prescription Dispense Number</p>
+     * <p>C:Dispense Status</p>
+     * 
+     * <p>Dispense Status</p>
      */
-    @Hl7XmlMapping({"id"})
-    public Identifier getPrescriptionDispenseNumber() {
-        return this.prescriptionDispenseNumber.getValue();
+    @Hl7XmlMapping({"statusCode"})
+    public ActStatus getDispenseStatus() {
+        return (ActStatus) this.dispenseStatus.getValue();
     }
-    public void setPrescriptionDispenseNumber(Identifier prescriptionDispenseNumber) {
-        this.prescriptionDispenseNumber.setValue(prescriptionDispenseNumber);
+    public void setDispenseStatus(ActStatus dispenseStatus) {
+        this.dispenseStatus.setValue(dispenseStatus);
     }
 
 
@@ -203,19 +194,28 @@ public class MedicationDispenseBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"subjectOf3/detectedIssueIndicator","subjectOf4/detectedIssueIndicator"})
+    @Hl7XmlMapping({"subjectOf2/annotationIndicator","subjectOf5/annotationIndicator"})
     @Hl7MapByPartTypes({
-        @Hl7MapByPartType(name="subjectOf3", type="PORX_MT060160CA.Subject13"),
-        @Hl7MapByPartType(name="subjectOf3", type="PORX_MT060340CA.Subject13"),
-        @Hl7MapByPartType(name="subjectOf3/detectedIssueIndicator", type="PORX_MT060160CA.DetectedIssueIndicator"),
-        @Hl7MapByPartType(name="subjectOf3/detectedIssueIndicator", type="PORX_MT060340CA.DetectedIssueIndicator"),
-        @Hl7MapByPartType(name="subjectOf4", type="PORX_MT060090CA.Subject13"),
-        @Hl7MapByPartType(name="subjectOf4/detectedIssueIndicator", type="PORX_MT060090CA.DetectedIssueIndicator")})
-    public Boolean getSubjectOf3DetectedIssueIndicator() {
-        return this.subjectOf3DetectedIssueIndicator.getValue();
+        @Hl7MapByPartType(name="subjectOf2", type="PORX_MT060160CA.Subject12"),
+        @Hl7MapByPartType(name="subjectOf2/annotationIndicator", type="PORX_MT060160CA.AnnotationIndicator"),
+        @Hl7MapByPartType(name="subjectOf5", type="PORX_MT060090CA.Subject12"),
+        @Hl7MapByPartType(name="subjectOf5", type="PORX_MT060340CA.Subject12"),
+        @Hl7MapByPartType(name="subjectOf5/annotationIndicator", type="PORX_MT060090CA.AnnotationIndicator"),
+        @Hl7MapByPartType(name="subjectOf5/annotationIndicator", type="PORX_MT060340CA.AnnotationIndicator")})
+    public Boolean getSubjectOf2AnnotationIndicator() {
+        return this.subjectOf2AnnotationIndicator.getValue();
     }
-    public void setSubjectOf3DetectedIssueIndicator(Boolean subjectOf3DetectedIssueIndicator) {
-        this.subjectOf3DetectedIssueIndicator.setValue(subjectOf3DetectedIssueIndicator);
+    public void setSubjectOf2AnnotationIndicator(Boolean subjectOf2AnnotationIndicator) {
+        this.subjectOf2AnnotationIndicator.setValue(subjectOf2AnnotationIndicator);
+    }
+
+
+    @Hl7XmlMapping({"location"})
+    public CreatedAtBean getLocation() {
+        return this.location;
+    }
+    public void setLocation(CreatedAtBean location) {
+        this.location = location;
     }
 
 

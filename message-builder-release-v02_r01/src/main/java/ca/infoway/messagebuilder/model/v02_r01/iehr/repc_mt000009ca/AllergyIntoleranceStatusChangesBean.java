@@ -23,41 +23,11 @@ import java.util.Date;
 public class AllergyIntoleranceStatusChangesBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private HealthcareWorkerBean responsiblePartyAssignedEntity;
-    private ChangedByBean author;
-    private CV allergyIntoleranceStatusChangeType = new CVImpl();
     private CV allergyIntoleranceStatusChangeReason = new CVImpl();
+    private ChangedByBean author;
+    private HealthcareWorkerBean responsiblePartyAssignedEntity;
     private IVL<TS, Interval<Date>> allergyIntoleranceStatusChangeEffectiveDate = new IVLImpl<TS, Interval<Date>>();
-
-
-    @Hl7XmlMapping({"responsibleParty/assignedEntity"})
-    public HealthcareWorkerBean getResponsiblePartyAssignedEntity() {
-        return this.responsiblePartyAssignedEntity;
-    }
-    public void setResponsiblePartyAssignedEntity(HealthcareWorkerBean responsiblePartyAssignedEntity) {
-        this.responsiblePartyAssignedEntity = responsiblePartyAssignedEntity;
-    }
-
-
-    @Hl7XmlMapping({"author"})
-    public ChangedByBean getAuthor() {
-        return this.author;
-    }
-    public void setAuthor(ChangedByBean author) {
-        this.author = author;
-    }
-
-
-    /**
-     * <p>A:Allergy/Intolerance Status Change Type</p>
-     */
-    @Hl7XmlMapping({"code"})
-    public HL7TriggerEventCode getAllergyIntoleranceStatusChangeType() {
-        return (HL7TriggerEventCode) this.allergyIntoleranceStatusChangeType.getValue();
-    }
-    public void setAllergyIntoleranceStatusChangeType(HL7TriggerEventCode allergyIntoleranceStatusChangeType) {
-        this.allergyIntoleranceStatusChangeType.setValue(allergyIntoleranceStatusChangeType);
-    }
+    private CV allergyIntoleranceStatusChangeType = new CVImpl();
 
 
     /**
@@ -72,6 +42,24 @@ public class AllergyIntoleranceStatusChangesBean extends MessagePartBean {
     }
 
 
+    @Hl7XmlMapping({"author"})
+    public ChangedByBean getAuthor() {
+        return this.author;
+    }
+    public void setAuthor(ChangedByBean author) {
+        this.author = author;
+    }
+
+
+    @Hl7XmlMapping({"responsibleParty/assignedEntity"})
+    public HealthcareWorkerBean getResponsiblePartyAssignedEntity() {
+        return this.responsiblePartyAssignedEntity;
+    }
+    public void setResponsiblePartyAssignedEntity(HealthcareWorkerBean responsiblePartyAssignedEntity) {
+        this.responsiblePartyAssignedEntity = responsiblePartyAssignedEntity;
+    }
+
+
     /**
      * <p>B:Allergy/intolerance Status Change Effective Date</p>
      */
@@ -81,6 +69,18 @@ public class AllergyIntoleranceStatusChangesBean extends MessagePartBean {
     }
     public void setAllergyIntoleranceStatusChangeEffectiveDate(Interval<Date> allergyIntoleranceStatusChangeEffectiveDate) {
         this.allergyIntoleranceStatusChangeEffectiveDate.setValue(allergyIntoleranceStatusChangeEffectiveDate);
+    }
+
+
+    /**
+     * <p>A:Allergy/Intolerance Status Change Type</p>
+     */
+    @Hl7XmlMapping({"code"})
+    public HL7TriggerEventCode getAllergyIntoleranceStatusChangeType() {
+        return (HL7TriggerEventCode) this.allergyIntoleranceStatusChangeType.getValue();
+    }
+    public void setAllergyIntoleranceStatusChangeType(HL7TriggerEventCode allergyIntoleranceStatusChangeType) {
+        this.allergyIntoleranceStatusChangeType.setValue(allergyIntoleranceStatusChangeType);
     }
 
 }

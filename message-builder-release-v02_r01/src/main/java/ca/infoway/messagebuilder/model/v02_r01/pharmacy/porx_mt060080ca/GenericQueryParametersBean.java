@@ -19,20 +19,8 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 public class GenericQueryParametersBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private II prescriptionOrderNumber = new IIImpl();
     private CV issueFilterCode = new CVImpl();
-
-
-    /**
-     * <p>D:Prescription Order Number</p>
-     */
-    @Hl7XmlMapping({"prescriptionOrderNumber/value"})
-    public Identifier getPrescriptionOrderNumber() {
-        return this.prescriptionOrderNumber.getValue();
-    }
-    public void setPrescriptionOrderNumber(Identifier prescriptionOrderNumber) {
-        this.prescriptionOrderNumber.setValue(prescriptionOrderNumber);
-    }
+    private II prescriptionOrderNumber = new IIImpl();
 
 
     /**
@@ -44,6 +32,18 @@ public class GenericQueryParametersBean extends MessagePartBean {
     }
     public void setIssueFilterCode(IssueFilterCode issueFilterCode) {
         this.issueFilterCode.setValue(issueFilterCode);
+    }
+
+
+    /**
+     * <p>D:Prescription Order Number</p>
+     */
+    @Hl7XmlMapping({"prescriptionOrderNumber/value"})
+    public Identifier getPrescriptionOrderNumber() {
+        return this.prescriptionOrderNumber.getValue();
+    }
+    public void setPrescriptionOrderNumber(Identifier prescriptionOrderNumber) {
+        this.prescriptionOrderNumber.setValue(prescriptionOrderNumber);
     }
 
 }

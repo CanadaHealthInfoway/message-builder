@@ -40,49 +40,19 @@ public class ReportedReactionBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
     private List<ReportedReactionsBean> subjectOf2CausalityAssessment = new ArrayList<ReportedReactionsBean>();
-    private ST description = new STImpl();
-    private SET<CV, Code> adverseReactionMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);
-    private AllergyIntoleranceSeverityLevelBean subjectOf1SeverityObservation;
     private CV reaction = new CVImpl();
-    private TS reportedDate = new TSImpl();
-    private CD diagnosisType = new CDImpl();
     private II reactionRecordId = new IIImpl();
+    private SET<CV, Code> adverseReactionMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);
     private IVL<TS, Interval<Date>> reactionOnsetDate = new IVLImpl<TS, Interval<Date>>();
+    private CD diagnosisType = new CDImpl();
+    private ST description = new STImpl();
+    private AllergyIntoleranceSeverityLevelBean subjectOf1SeverityObservation;
+    private TS reportedDate = new TSImpl();
 
 
     @Hl7XmlMapping({"subjectOf2/causalityAssessment"})
     public List<ReportedReactionsBean> getSubjectOf2CausalityAssessment() {
         return this.subjectOf2CausalityAssessment;
-    }
-
-
-    /**
-     * <p>G:Description</p>
-     */
-    @Hl7XmlMapping({"text"})
-    public String getDescription() {
-        return this.description.getValue();
-    }
-    public void setDescription(String description) {
-        this.description.setValue(description);
-    }
-
-
-    /**
-     * <p>G:Adverse Reaction Masking Indicators</p>
-     */
-    @Hl7XmlMapping({"confidentialityCode"})
-    public Set<x_NormalRestrictedTabooConfidentialityKind> getAdverseReactionMaskingIndicators() {
-        return this.adverseReactionMaskingIndicators.rawSet(x_NormalRestrictedTabooConfidentialityKind.class);
-    }
-
-
-    @Hl7XmlMapping({"subjectOf1/severityObservation"})
-    public AllergyIntoleranceSeverityLevelBean getSubjectOf1SeverityObservation() {
-        return this.subjectOf1SeverityObservation;
-    }
-    public void setSubjectOf1SeverityObservation(AllergyIntoleranceSeverityLevelBean subjectOf1SeverityObservation) {
-        this.subjectOf1SeverityObservation = subjectOf1SeverityObservation;
     }
 
 
@@ -99,14 +69,35 @@ public class ReportedReactionBean extends MessagePartBean {
 
 
     /**
-     * <p>Reported date</p>
+     * <p>C:Reaction Record Id</p>
      */
-    @Hl7XmlMapping({"informant/time"})
-    public Date getReportedDate() {
-        return this.reportedDate.getValue();
+    @Hl7XmlMapping({"id"})
+    public Identifier getReactionRecordId() {
+        return this.reactionRecordId.getValue();
     }
-    public void setReportedDate(Date reportedDate) {
-        this.reportedDate.setValue(reportedDate);
+    public void setReactionRecordId(Identifier reactionRecordId) {
+        this.reactionRecordId.setValue(reactionRecordId);
+    }
+
+
+    /**
+     * <p>G:Adverse Reaction Masking Indicators</p>
+     */
+    @Hl7XmlMapping({"confidentialityCode"})
+    public Set<x_NormalRestrictedTabooConfidentialityKind> getAdverseReactionMaskingIndicators() {
+        return this.adverseReactionMaskingIndicators.rawSet(x_NormalRestrictedTabooConfidentialityKind.class);
+    }
+
+
+    /**
+     * <p>F:Reaction Onset Date</p>
+     */
+    @Hl7XmlMapping({"effectiveTime"})
+    public Interval<Date> getReactionOnsetDate() {
+        return this.reactionOnsetDate.getValue();
+    }
+    public void setReactionOnsetDate(Interval<Date> reactionOnsetDate) {
+        this.reactionOnsetDate.setValue(reactionOnsetDate);
     }
 
 
@@ -123,26 +114,35 @@ public class ReportedReactionBean extends MessagePartBean {
 
 
     /**
-     * <p>C:Reaction Record Id</p>
+     * <p>G:Description</p>
      */
-    @Hl7XmlMapping({"id"})
-    public Identifier getReactionRecordId() {
-        return this.reactionRecordId.getValue();
+    @Hl7XmlMapping({"text"})
+    public String getDescription() {
+        return this.description.getValue();
     }
-    public void setReactionRecordId(Identifier reactionRecordId) {
-        this.reactionRecordId.setValue(reactionRecordId);
+    public void setDescription(String description) {
+        this.description.setValue(description);
+    }
+
+
+    @Hl7XmlMapping({"subjectOf1/severityObservation"})
+    public AllergyIntoleranceSeverityLevelBean getSubjectOf1SeverityObservation() {
+        return this.subjectOf1SeverityObservation;
+    }
+    public void setSubjectOf1SeverityObservation(AllergyIntoleranceSeverityLevelBean subjectOf1SeverityObservation) {
+        this.subjectOf1SeverityObservation = subjectOf1SeverityObservation;
     }
 
 
     /**
-     * <p>F:Reaction Onset Date</p>
+     * <p>Reported date</p>
      */
-    @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getReactionOnsetDate() {
-        return this.reactionOnsetDate.getValue();
+    @Hl7XmlMapping({"informant/time"})
+    public Date getReportedDate() {
+        return this.reportedDate.getValue();
     }
-    public void setReactionOnsetDate(Interval<Date> reactionOnsetDate) {
-        this.reactionOnsetDate.setValue(reactionOnsetDate);
+    public void setReportedDate(Date reportedDate) {
+        this.reportedDate.setValue(reportedDate);
     }
 
 }

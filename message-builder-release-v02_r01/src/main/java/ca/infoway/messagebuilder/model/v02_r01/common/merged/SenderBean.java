@@ -25,26 +25,54 @@ import java.util.Date;
 public class SenderBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private IVL<TS, Interval<Date>> sendingApplicationVersionDate = new IVLImpl<TS, Interval<Date>>();
+    private ST sendingSoftwareVersionNumber = new STImpl();
+    private ST sendingApplicationConfigurationInformation = new STImpl();
+    private II sendingApplicationIdentifier = new IIImpl();
     private ST sendingApplicationSoftwareName = new STImpl();
     private ST sendingApplicationName = new STImpl();
-    private II sendingApplicationIdentifier = new IIImpl();
-    private ST sendingApplicationConfigurationInformation = new STImpl();
-    private ST sendingSoftwareVersionNumber = new STImpl();
+    private IVL<TS, Interval<Date>> sendingApplicationVersionDate = new IVLImpl<TS, Interval<Date>>();
     private TEL sendingNetworkAddress = new TELImpl();
 
 
     /**
-     * <p>SendingApplicationVersionDate</p>
+     * <p>SendingSoftwareVersionNumber</p>
      * 
-     * <p>IH:Sending Application Version Date</p>
+     * <p>IG:Sending Software Version Number</p>
      */
-    @Hl7XmlMapping({"device/existenceTime"})
-    public Interval<Date> getSendingApplicationVersionDate() {
-        return this.sendingApplicationVersionDate.getValue();
+    @Hl7XmlMapping({"device/manufacturerModelName"})
+    public String getSendingSoftwareVersionNumber() {
+        return this.sendingSoftwareVersionNumber.getValue();
     }
-    public void setSendingApplicationVersionDate(Interval<Date> sendingApplicationVersionDate) {
-        this.sendingApplicationVersionDate.setValue(sendingApplicationVersionDate);
+    public void setSendingSoftwareVersionNumber(String sendingSoftwareVersionNumber) {
+        this.sendingSoftwareVersionNumber.setValue(sendingSoftwareVersionNumber);
+    }
+
+
+    /**
+     * <p>SendingApplicationConfigurationInformation</p>
+     * 
+     * <p>II:Sending Application Configuration Information</p>
+     */
+    @Hl7XmlMapping({"device/desc"})
+    public String getSendingApplicationConfigurationInformation() {
+        return this.sendingApplicationConfigurationInformation.getValue();
+    }
+    public void setSendingApplicationConfigurationInformation(String sendingApplicationConfigurationInformation) {
+        this.sendingApplicationConfigurationInformation.setValue(sendingApplicationConfigurationInformation);
+    }
+
+
+    /**
+     * <p>SendingApplicationIdentifier</p>
+     * 
+     * <p>IA:Sending Application Identifier</p>
+     */
+    @Hl7XmlMapping({"device/id"})
+    public Identifier getSendingApplicationIdentifier() {
+        return this.sendingApplicationIdentifier.getValue();
+    }
+    public void setSendingApplicationIdentifier(Identifier sendingApplicationIdentifier) {
+        this.sendingApplicationIdentifier.setValue(sendingApplicationIdentifier);
     }
 
 
@@ -77,44 +105,16 @@ public class SenderBean extends MessagePartBean {
 
 
     /**
-     * <p>SendingApplicationIdentifier</p>
+     * <p>SendingApplicationVersionDate</p>
      * 
-     * <p>IA:Sending Application Identifier</p>
+     * <p>IH:Sending Application Version Date</p>
      */
-    @Hl7XmlMapping({"device/id"})
-    public Identifier getSendingApplicationIdentifier() {
-        return this.sendingApplicationIdentifier.getValue();
+    @Hl7XmlMapping({"device/existenceTime"})
+    public Interval<Date> getSendingApplicationVersionDate() {
+        return this.sendingApplicationVersionDate.getValue();
     }
-    public void setSendingApplicationIdentifier(Identifier sendingApplicationIdentifier) {
-        this.sendingApplicationIdentifier.setValue(sendingApplicationIdentifier);
-    }
-
-
-    /**
-     * <p>SendingApplicationConfigurationInformation</p>
-     * 
-     * <p>II:Sending Application Configuration Information</p>
-     */
-    @Hl7XmlMapping({"device/desc"})
-    public String getSendingApplicationConfigurationInformation() {
-        return this.sendingApplicationConfigurationInformation.getValue();
-    }
-    public void setSendingApplicationConfigurationInformation(String sendingApplicationConfigurationInformation) {
-        this.sendingApplicationConfigurationInformation.setValue(sendingApplicationConfigurationInformation);
-    }
-
-
-    /**
-     * <p>SendingSoftwareVersionNumber</p>
-     * 
-     * <p>IG:Sending Software Version Number</p>
-     */
-    @Hl7XmlMapping({"device/manufacturerModelName"})
-    public String getSendingSoftwareVersionNumber() {
-        return this.sendingSoftwareVersionNumber.getValue();
-    }
-    public void setSendingSoftwareVersionNumber(String sendingSoftwareVersionNumber) {
-        this.sendingSoftwareVersionNumber.setValue(sendingSoftwareVersionNumber);
+    public void setSendingApplicationVersionDate(Interval<Date> sendingApplicationVersionDate) {
+        this.sendingApplicationVersionDate.setValue(sendingApplicationVersionDate);
     }
 
 

@@ -12,6 +12,7 @@ import ca.infoway.messagebuilder.datatype.impl.TELImpl;
 import ca.infoway.messagebuilder.datatype.lang.PersonName;
 import ca.infoway.messagebuilder.datatype.lang.TelecommunicationAddress;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -20,17 +21,8 @@ import java.util.List;
 public class PersonPrescribingBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private LIST<TEL, TelecommunicationAddress> prescriberTelephoneNumber = new LISTImpl<TEL, TelecommunicationAddress>(TELImpl.class);
     private PN prescriberName = new PNImpl();
-
-
-    /**
-     * <p>Prescriber Telephone Number</p>
-     */
-    @Hl7XmlMapping({"telecom"})
-    public List<TelecommunicationAddress> getPrescriberTelephoneNumber() {
-        return this.prescriberTelephoneNumber.rawList();
-    }
+    private LIST<TEL, TelecommunicationAddress> prescriberTelephoneNumber = new LISTImpl<TEL, TelecommunicationAddress>(TELImpl.class);
 
 
     /**
@@ -42,6 +34,15 @@ public class PersonPrescribingBean extends MessagePartBean {
     }
     public void setPrescriberName(PersonName prescriberName) {
         this.prescriberName.setValue(prescriberName);
+    }
+
+
+    /**
+     * <p>Prescriber Telephone Number</p>
+     */
+    @Hl7XmlMapping({"telecom"})
+    public List<TelecommunicationAddress> getPrescriberTelephoneNumber() {
+        return this.prescriberTelephoneNumber.rawList();
     }
 
 }

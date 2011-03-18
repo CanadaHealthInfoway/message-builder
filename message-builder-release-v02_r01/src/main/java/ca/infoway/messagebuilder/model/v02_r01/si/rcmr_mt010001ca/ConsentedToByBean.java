@@ -16,8 +16,20 @@ import ca.infoway.messagebuilder.model.v02_r01.si.merged.Consenter;
 public class ConsentedToByBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private Consenter consenter;
     private CV patientConsentMechanism = new CVImpl();
+    private Consenter consenter;
+
+
+    /**
+     * <p>Patient Consent Mechanism</p>
+     */
+    @Hl7XmlMapping({"modeCode"})
+    public x_PhysicalVerbalParticipationMode getPatientConsentMechanism() {
+        return (x_PhysicalVerbalParticipationMode) this.patientConsentMechanism.getValue();
+    }
+    public void setPatientConsentMechanism(x_PhysicalVerbalParticipationMode patientConsentMechanism) {
+        this.patientConsentMechanism.setValue(patientConsentMechanism);
+    }
 
 
     @Hl7XmlMapping({"consenter"})
@@ -40,18 +52,6 @@ public class ConsentedToByBean extends MessagePartBean {
     }
     public boolean hasConsenterAsPersonalRelationship() {
         return (this.consenter instanceof RelatedPersonBean);
-    }
-
-
-    /**
-     * <p>Patient Consent Mechanism</p>
-     */
-    @Hl7XmlMapping({"modeCode"})
-    public x_PhysicalVerbalParticipationMode getPatientConsentMechanism() {
-        return (x_PhysicalVerbalParticipationMode) this.patientConsentMechanism.getValue();
-    }
-    public void setPatientConsentMechanism(x_PhysicalVerbalParticipationMode patientConsentMechanism) {
-        this.patientConsentMechanism.setValue(patientConsentMechanism);
     }
 
 }

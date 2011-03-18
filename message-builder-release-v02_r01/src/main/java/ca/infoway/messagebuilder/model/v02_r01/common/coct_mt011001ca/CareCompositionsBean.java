@@ -19,20 +19,8 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 public class CareCompositionsBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private CV careCompositionType = new CVImpl();
     private II careCompositionIdentifier = new IIImpl();
-
-
-    /**
-     * <p>A: Care Composition Type</p>
-     */
-    @Hl7XmlMapping({"code"})
-    public ActCareEventType getCareCompositionType() {
-        return (ActCareEventType) this.careCompositionType.getValue();
-    }
-    public void setCareCompositionType(ActCareEventType careCompositionType) {
-        this.careCompositionType.setValue(careCompositionType);
-    }
+    private CV careCompositionType = new CVImpl();
 
 
     /**
@@ -44,6 +32,18 @@ public class CareCompositionsBean extends MessagePartBean {
     }
     public void setCareCompositionIdentifier(Identifier careCompositionIdentifier) {
         this.careCompositionIdentifier.setValue(careCompositionIdentifier);
+    }
+
+
+    /**
+     * <p>A: Care Composition Type</p>
+     */
+    @Hl7XmlMapping({"code"})
+    public ActCareEventType getCareCompositionType() {
+        return (ActCareEventType) this.careCompositionType.getValue();
+    }
+    public void setCareCompositionType(ActCareEventType careCompositionType) {
+        this.careCompositionType.setValue(careCompositionType);
     }
 
 }

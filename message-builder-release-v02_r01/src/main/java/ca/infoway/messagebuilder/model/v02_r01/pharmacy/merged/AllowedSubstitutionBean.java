@@ -16,22 +16,8 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 public class AllowedSubstitutionBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private BL negationInd = new BLImpl();
     private CV reasonCode = new CVImpl();
-
-
-    /**
-     * <p>A:Substitution Not Allowed?</p>
-     * 
-     * <p>A:Substitution Not Allowed Indicator</p>
-     */
-    @Hl7XmlMapping({"negationInd"})
-    public Boolean getNegationInd() {
-        return this.negationInd.getValue();
-    }
-    public void setNegationInd(Boolean negationInd) {
-        this.negationInd.setValue(negationInd);
-    }
+    private BL negationInd = new BLImpl();
 
 
     /**
@@ -45,6 +31,20 @@ public class AllowedSubstitutionBean extends MessagePartBean {
     }
     public void setReasonCode(SubstanceAdminSubstitutionNotAllowedReason reasonCode) {
         this.reasonCode.setValue(reasonCode);
+    }
+
+
+    /**
+     * <p>A:Substitution Not Allowed?</p>
+     * 
+     * <p>A:Substitution Not Allowed Indicator</p>
+     */
+    @Hl7XmlMapping({"negationInd"})
+    public Boolean getNegationInd() {
+        return this.negationInd.getValue();
+    }
+    public void setNegationInd(Boolean negationInd) {
+        this.negationInd.setValue(negationInd);
     }
 
 }

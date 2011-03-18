@@ -14,17 +14,8 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 public class PresriberRoleBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private PersonPrescribingBean playingPrescriberPerson;
     private II prescriberID = new IIImpl();
-
-
-    @Hl7XmlMapping({"playingPrescriberPerson"})
-    public PersonPrescribingBean getPlayingPrescriberPerson() {
-        return this.playingPrescriberPerson;
-    }
-    public void setPlayingPrescriberPerson(PersonPrescribingBean playingPrescriberPerson) {
-        this.playingPrescriberPerson = playingPrescriberPerson;
-    }
+    private PersonPrescribingBean playingPrescriberPerson;
 
 
     /**
@@ -36,6 +27,15 @@ public class PresriberRoleBean extends MessagePartBean {
     }
     public void setPrescriberID(Identifier prescriberID) {
         this.prescriberID.setValue(prescriberID);
+    }
+
+
+    @Hl7XmlMapping({"playingPrescriberPerson"})
+    public PersonPrescribingBean getPlayingPrescriberPerson() {
+        return this.playingPrescriberPerson;
+    }
+    public void setPlayingPrescriberPerson(PersonPrescribingBean playingPrescriberPerson) {
+        this.playingPrescriberPerson = playingPrescriberPerson;
     }
 
 }

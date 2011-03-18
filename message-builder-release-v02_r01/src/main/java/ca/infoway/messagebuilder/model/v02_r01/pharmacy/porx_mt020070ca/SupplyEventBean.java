@@ -25,21 +25,12 @@ import java.util.Date;
 public class SupplyEventBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private DispenseShipToLocationBean destinationServiceDeliveryLocation;
     private PQ dispensedQuantity = new PQImpl();
-    private CV dispenseType = new CVImpl();
-    private IVL<TS, Interval<Date>> dispensedDaysSupply = new IVLImpl<TS, Interval<Date>>();
     private IVL<TS, Interval<Date>> dispenseProcessingAndPickupDate = new IVLImpl<TS, Interval<Date>>();
+    private CV dispenseType = new CVImpl();
     private DrugProductBean productMedication;
-
-
-    @Hl7XmlMapping({"destination/serviceDeliveryLocation"})
-    public DispenseShipToLocationBean getDestinationServiceDeliveryLocation() {
-        return this.destinationServiceDeliveryLocation;
-    }
-    public void setDestinationServiceDeliveryLocation(DispenseShipToLocationBean destinationServiceDeliveryLocation) {
-        this.destinationServiceDeliveryLocation = destinationServiceDeliveryLocation;
-    }
+    private IVL<TS, Interval<Date>> dispensedDaysSupply = new IVLImpl<TS, Interval<Date>>();
+    private DispenseShipToLocationBean destinationServiceDeliveryLocation;
 
 
     /**
@@ -55,6 +46,18 @@ public class SupplyEventBean extends MessagePartBean {
 
 
     /**
+     * <p>Dispense Processing and Pickup Date</p>
+     */
+    @Hl7XmlMapping({"effectiveTime"})
+    public Interval<Date> getDispenseProcessingAndPickupDate() {
+        return this.dispenseProcessingAndPickupDate.getValue();
+    }
+    public void setDispenseProcessingAndPickupDate(Interval<Date> dispenseProcessingAndPickupDate) {
+        this.dispenseProcessingAndPickupDate.setValue(dispenseProcessingAndPickupDate);
+    }
+
+
+    /**
      * <p>Dispense Type</p>
      */
     @Hl7XmlMapping({"code"})
@@ -63,6 +66,15 @@ public class SupplyEventBean extends MessagePartBean {
     }
     public void setDispenseType(ActPharmacySupplyType dispenseType) {
         this.dispenseType.setValue(dispenseType);
+    }
+
+
+    @Hl7XmlMapping({"product/medication"})
+    public DrugProductBean getProductMedication() {
+        return this.productMedication;
+    }
+    public void setProductMedication(DrugProductBean productMedication) {
+        this.productMedication = productMedication;
     }
 
 
@@ -78,24 +90,12 @@ public class SupplyEventBean extends MessagePartBean {
     }
 
 
-    /**
-     * <p>Dispense Processing and Pickup Date</p>
-     */
-    @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getDispenseProcessingAndPickupDate() {
-        return this.dispenseProcessingAndPickupDate.getValue();
+    @Hl7XmlMapping({"destination/serviceDeliveryLocation"})
+    public DispenseShipToLocationBean getDestinationServiceDeliveryLocation() {
+        return this.destinationServiceDeliveryLocation;
     }
-    public void setDispenseProcessingAndPickupDate(Interval<Date> dispenseProcessingAndPickupDate) {
-        this.dispenseProcessingAndPickupDate.setValue(dispenseProcessingAndPickupDate);
-    }
-
-
-    @Hl7XmlMapping({"product/medication"})
-    public DrugProductBean getProductMedication() {
-        return this.productMedication;
-    }
-    public void setProductMedication(DrugProductBean productMedication) {
-        this.productMedication = productMedication;
+    public void setDestinationServiceDeliveryLocation(DispenseShipToLocationBean destinationServiceDeliveryLocation) {
+        this.destinationServiceDeliveryLocation = destinationServiceDeliveryLocation;
     }
 
 }

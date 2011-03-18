@@ -35,36 +35,27 @@ import java.util.List;
 public class TriggerEvent_3Bean<RR> extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
+    private AuthorizedByBean subjectOf2;
+    private CV eventReason = new CVImpl();
+    private ServiceLocationBean dataEntryLocationServiceDeliveryLocation;
+    private ActingPerson dataEntererActingPerson;
+    private HealthcareWorkerBean responsiblePartyAssignedEntity;
+    private IVL<TS, Interval<Date>> eventEffectivePeriod = new IVLImpl<TS, Interval<Date>>();
+    private II eventIdentifier = new IIImpl();
+    private CreatedByBean author;
+    private CV eventType = new CVImpl();
+    private AuthenticationTokenBean pertinentInformationAuthorizationToken;
+    private List<IssuesBean> subjectOfDetectedIssueEvent = new ArrayList<IssuesBean>();
     private CreatedAtBean location;
     private RefersTo_2Bean<RR> subject;
-    private CV eventReason = new CVImpl();
-    private CreatedByBean author;
-    private AuthenticationTokenBean pertinentInformationAuthorizationToken;
-    private IVL<TS, Interval<Date>> eventEffectivePeriod = new IVLImpl<TS, Interval<Date>>();
-    private ServiceLocationBean dataEntryLocationServiceDeliveryLocation;
-    private HealthcareWorkerBean responsiblePartyAssignedEntity;
-    private AuthorizedByBean subjectOf2;
-    private ActingPerson dataEntererActingPerson;
-    private II eventIdentifier = new IIImpl();
-    private CV eventType = new CVImpl();
-    private List<IssuesBean> subjectOfDetectedIssueEvent = new ArrayList<IssuesBean>();
 
 
-    @Hl7XmlMapping({"location"})
-    public CreatedAtBean getLocation() {
-        return this.location;
+    @Hl7XmlMapping({"subjectOf2"})
+    public AuthorizedByBean getSubjectOf2() {
+        return this.subjectOf2;
     }
-    public void setLocation(CreatedAtBean location) {
-        this.location = location;
-    }
-
-
-    @Hl7XmlMapping({"subject"})
-    public RefersTo_2Bean<RR> getSubject() {
-        return this.subject;
-    }
-    public void setSubject(RefersTo_2Bean<RR> subject) {
-        this.subject = subject;
+    public void setSubjectOf2(AuthorizedByBean subjectOf2) {
+        this.subjectOf2 = subjectOf2;
     }
 
 
@@ -82,62 +73,12 @@ public class TriggerEvent_3Bean<RR> extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"author"})
-    public CreatedByBean getAuthor() {
-        return this.author;
-    }
-    public void setAuthor(CreatedByBean author) {
-        this.author = author;
-    }
-
-
-    @Hl7XmlMapping({"pertinentInformation/authorizationToken"})
-    public AuthenticationTokenBean getPertinentInformationAuthorizationToken() {
-        return this.pertinentInformationAuthorizationToken;
-    }
-    public void setPertinentInformationAuthorizationToken(AuthenticationTokenBean pertinentInformationAuthorizationToken) {
-        this.pertinentInformationAuthorizationToken = pertinentInformationAuthorizationToken;
-    }
-
-
-    /**
-     * <p>EventEffectivePeriod</p>
-     * 
-     * <p>C:Event Effective Period</p>
-     */
-    @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getEventEffectivePeriod() {
-        return this.eventEffectivePeriod.getValue();
-    }
-    public void setEventEffectivePeriod(Interval<Date> eventEffectivePeriod) {
-        this.eventEffectivePeriod.setValue(eventEffectivePeriod);
-    }
-
-
     @Hl7XmlMapping({"dataEntryLocation/serviceDeliveryLocation"})
     public ServiceLocationBean getDataEntryLocationServiceDeliveryLocation() {
         return this.dataEntryLocationServiceDeliveryLocation;
     }
     public void setDataEntryLocationServiceDeliveryLocation(ServiceLocationBean dataEntryLocationServiceDeliveryLocation) {
         this.dataEntryLocationServiceDeliveryLocation = dataEntryLocationServiceDeliveryLocation;
-    }
-
-
-    @Hl7XmlMapping({"responsibleParty/assignedEntity"})
-    public HealthcareWorkerBean getResponsiblePartyAssignedEntity() {
-        return this.responsiblePartyAssignedEntity;
-    }
-    public void setResponsiblePartyAssignedEntity(HealthcareWorkerBean responsiblePartyAssignedEntity) {
-        this.responsiblePartyAssignedEntity = responsiblePartyAssignedEntity;
-    }
-
-
-    @Hl7XmlMapping({"subjectOf2"})
-    public AuthorizedByBean getSubjectOf2() {
-        return this.subjectOf2;
-    }
-    public void setSubjectOf2(AuthorizedByBean subjectOf2) {
-        this.subjectOf2 = subjectOf2;
     }
 
 
@@ -171,6 +112,29 @@ public class TriggerEvent_3Bean<RR> extends MessagePartBean {
     }
 
 
+    @Hl7XmlMapping({"responsibleParty/assignedEntity"})
+    public HealthcareWorkerBean getResponsiblePartyAssignedEntity() {
+        return this.responsiblePartyAssignedEntity;
+    }
+    public void setResponsiblePartyAssignedEntity(HealthcareWorkerBean responsiblePartyAssignedEntity) {
+        this.responsiblePartyAssignedEntity = responsiblePartyAssignedEntity;
+    }
+
+
+    /**
+     * <p>EventEffectivePeriod</p>
+     * 
+     * <p>C:Event Effective Period</p>
+     */
+    @Hl7XmlMapping({"effectiveTime"})
+    public Interval<Date> getEventEffectivePeriod() {
+        return this.eventEffectivePeriod.getValue();
+    }
+    public void setEventEffectivePeriod(Interval<Date> eventEffectivePeriod) {
+        this.eventEffectivePeriod.setValue(eventEffectivePeriod);
+    }
+
+
     /**
      * <p>EventIdentifier</p>
      * 
@@ -182,6 +146,15 @@ public class TriggerEvent_3Bean<RR> extends MessagePartBean {
     }
     public void setEventIdentifier(Identifier eventIdentifier) {
         this.eventIdentifier.setValue(eventIdentifier);
+    }
+
+
+    @Hl7XmlMapping({"author"})
+    public CreatedByBean getAuthor() {
+        return this.author;
+    }
+    public void setAuthor(CreatedByBean author) {
+        this.author = author;
     }
 
 
@@ -199,6 +172,15 @@ public class TriggerEvent_3Bean<RR> extends MessagePartBean {
     }
 
 
+    @Hl7XmlMapping({"pertinentInformation/authorizationToken"})
+    public AuthenticationTokenBean getPertinentInformationAuthorizationToken() {
+        return this.pertinentInformationAuthorizationToken;
+    }
+    public void setPertinentInformationAuthorizationToken(AuthenticationTokenBean pertinentInformationAuthorizationToken) {
+        this.pertinentInformationAuthorizationToken = pertinentInformationAuthorizationToken;
+    }
+
+
     @Hl7XmlMapping({"subjectOf/detectedIssueEvent","subjectOf1/detectedIssueEvent"})
     @Hl7MapByPartTypes({
         @Hl7MapByPartType(name="subjectOf", type="MFMI_MT700716CA.Subject"),
@@ -207,6 +189,24 @@ public class TriggerEvent_3Bean<RR> extends MessagePartBean {
         @Hl7MapByPartType(name="subjectOf1/detectedIssueEvent", type="COCT_MT260012CA.DetectedIssueEvent")})
     public List<IssuesBean> getSubjectOfDetectedIssueEvent() {
         return this.subjectOfDetectedIssueEvent;
+    }
+
+
+    @Hl7XmlMapping({"location"})
+    public CreatedAtBean getLocation() {
+        return this.location;
+    }
+    public void setLocation(CreatedAtBean location) {
+        this.location = location;
+    }
+
+
+    @Hl7XmlMapping({"subject"})
+    public RefersTo_2Bean<RR> getSubject() {
+        return this.subject;
+    }
+    public void setSubject(RefersTo_2Bean<RR> subject) {
+        this.subject = subject;
     }
 
 }

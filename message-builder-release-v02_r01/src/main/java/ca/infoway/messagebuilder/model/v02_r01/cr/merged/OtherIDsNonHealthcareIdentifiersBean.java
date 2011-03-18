@@ -19,24 +19,10 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 public class OtherIDsNonHealthcareIdentifiersBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private CV nonHealthcareIdentificationCode = new CVImpl();
     private II nonHealthcareIdentification = new IIImpl();
-    private ST nonHealthcareOrganizationName = new STImpl();
+    private CV nonHealthcareIdentificationCode = new CVImpl();
     private II nonHealthcareOrganizationIdentifier = new IIImpl();
-
-
-    /**
-     * <p>NonHealthcareIdentificationCode</p>
-     * 
-     * <p>NonHealthcare Identification Code</p>
-     */
-    @Hl7XmlMapping({"code"})
-    public OtherIDsRoleCode getNonHealthcareIdentificationCode() {
-        return (OtherIDsRoleCode) this.nonHealthcareIdentificationCode.getValue();
-    }
-    public void setNonHealthcareIdentificationCode(OtherIDsRoleCode nonHealthcareIdentificationCode) {
-        this.nonHealthcareIdentificationCode.setValue(nonHealthcareIdentificationCode);
-    }
+    private ST nonHealthcareOrganizationName = new STImpl();
 
 
     /**
@@ -54,16 +40,16 @@ public class OtherIDsNonHealthcareIdentifiersBean extends MessagePartBean {
 
 
     /**
-     * <p>NonHealthcareOrganizationName</p>
+     * <p>NonHealthcareIdentificationCode</p>
      * 
-     * <p>NonHealthcare Organization Name</p>
+     * <p>NonHealthcare Identification Code</p>
      */
-    @Hl7XmlMapping({"assigningIdOrganization/name"})
-    public String getNonHealthcareOrganizationName() {
-        return this.nonHealthcareOrganizationName.getValue();
+    @Hl7XmlMapping({"code"})
+    public OtherIDsRoleCode getNonHealthcareIdentificationCode() {
+        return (OtherIDsRoleCode) this.nonHealthcareIdentificationCode.getValue();
     }
-    public void setNonHealthcareOrganizationName(String nonHealthcareOrganizationName) {
-        this.nonHealthcareOrganizationName.setValue(nonHealthcareOrganizationName);
+    public void setNonHealthcareIdentificationCode(OtherIDsRoleCode nonHealthcareIdentificationCode) {
+        this.nonHealthcareIdentificationCode.setValue(nonHealthcareIdentificationCode);
     }
 
 
@@ -78,6 +64,20 @@ public class OtherIDsNonHealthcareIdentifiersBean extends MessagePartBean {
     }
     public void setNonHealthcareOrganizationIdentifier(Identifier nonHealthcareOrganizationIdentifier) {
         this.nonHealthcareOrganizationIdentifier.setValue(nonHealthcareOrganizationIdentifier);
+    }
+
+
+    /**
+     * <p>NonHealthcareOrganizationName</p>
+     * 
+     * <p>NonHealthcare Organization Name</p>
+     */
+    @Hl7XmlMapping({"assigningIdOrganization/name"})
+    public String getNonHealthcareOrganizationName() {
+        return this.nonHealthcareOrganizationName.getValue();
+    }
+    public void setNonHealthcareOrganizationName(String nonHealthcareOrganizationName) {
+        this.nonHealthcareOrganizationName.setValue(nonHealthcareOrganizationName);
     }
 
 }

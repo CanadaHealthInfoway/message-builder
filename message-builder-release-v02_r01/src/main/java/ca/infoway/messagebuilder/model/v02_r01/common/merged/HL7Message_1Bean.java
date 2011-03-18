@@ -31,21 +31,70 @@ import java.util.List;
 public class HL7Message_1Bean<CAE> extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private CAE controlActEvent;
-    private AcknowledgementBean acknowledgement;
-    private CS responseType = new CSImpl();
-    private CS desiredAcknowledgmentType = new CSImpl();
-    private CS hL7StandardVersion = new CSImpl();
-    private SenderBean sender;
-    private LIST<II, Identifier> conformanceProfileIdentifiers = new LISTImpl<II, Identifier>(IIImpl.class);
-    private TS messageTimestamp = new TSImpl();
-    private II interactionType = new IIImpl();
-    private ToBeRespondedToByBean respondTo;
-    private CS processingCode = new CSImpl();
-    private List<RoutingInstructionLinesBean> attentionLine = new ArrayList<RoutingInstructionLinesBean>();
     private ST securityToken = new STImpl();
+    private LIST<II, Identifier> conformanceProfileIdentifiers = new LISTImpl<II, Identifier>(IIImpl.class);
     private ReceiverBean receiver;
+    private ToBeRespondedToByBean respondTo;
+    private List<RoutingInstructionLinesBean> attentionLine = new ArrayList<RoutingInstructionLinesBean>();
+    private CAE controlActEvent;
+    private CS hL7StandardVersion = new CSImpl();
+    private TS messageTimestamp = new TSImpl();
+    private CS responseType = new CSImpl();
+    private II interactionType = new IIImpl();
     private II messageIdentifier = new IIImpl();
+    private CS processingCode = new CSImpl();
+    private AcknowledgementBean acknowledgement;
+    private CS desiredAcknowledgmentType = new CSImpl();
+    private SenderBean sender;
+
+
+    /**
+     * <p>SecurityToken</p>
+     * 
+     * <p>H:Security Token</p>
+     */
+    @Hl7XmlMapping({"securityText"})
+    public String getSecurityToken() {
+        return this.securityToken.getValue();
+    }
+    public void setSecurityToken(String securityToken) {
+        this.securityToken.setValue(securityToken);
+    }
+
+
+    /**
+     * <p>ConformanceProfileIdentifiers</p>
+     * 
+     * <p>F:Conformance Profile Identifiers</p>
+     */
+    @Hl7XmlMapping({"profileId"})
+    public List<Identifier> getConformanceProfileIdentifiers() {
+        return this.conformanceProfileIdentifiers.rawList();
+    }
+
+
+    @Hl7XmlMapping({"receiver"})
+    public ReceiverBean getReceiver() {
+        return this.receiver;
+    }
+    public void setReceiver(ReceiverBean receiver) {
+        this.receiver = receiver;
+    }
+
+
+    @Hl7XmlMapping({"respondTo"})
+    public ToBeRespondedToByBean getRespondTo() {
+        return this.respondTo;
+    }
+    public void setRespondTo(ToBeRespondedToByBean respondTo) {
+        this.respondTo = respondTo;
+    }
+
+
+    @Hl7XmlMapping({"attentionLine"})
+    public List<RoutingInstructionLinesBean> getAttentionLine() {
+        return this.attentionLine;
+    }
 
 
     @Hl7XmlMapping({"controlActEvent"})
@@ -54,43 +103,6 @@ public class HL7Message_1Bean<CAE> extends MessagePartBean {
     }
     public void setControlActEvent(CAE controlActEvent) {
         this.controlActEvent = controlActEvent;
-    }
-
-
-    @Hl7XmlMapping({"acknowledgement"})
-    public AcknowledgementBean getAcknowledgement() {
-        return this.acknowledgement;
-    }
-    public void setAcknowledgement(AcknowledgementBean acknowledgement) {
-        this.acknowledgement = acknowledgement;
-    }
-
-
-    /**
-     * <p>ResponseType</p>
-     * 
-     * <p>DA: Response Type</p>
-     */
-    @Hl7XmlMapping({"responseModeCode"})
-    public ResponseMode getResponseType() {
-        return (ResponseMode) this.responseType.getValue();
-    }
-    public void setResponseType(ResponseMode responseType) {
-        this.responseType.setValue(responseType);
-    }
-
-
-    /**
-     * <p>DesiredAcknowledgmentType</p>
-     * 
-     * <p>E:Desired Acknowledgment Type</p>
-     */
-    @Hl7XmlMapping({"acceptAckCode"})
-    public AcknowledgementCondition getDesiredAcknowledgmentType() {
-        return (AcknowledgementCondition) this.desiredAcknowledgmentType.getValue();
-    }
-    public void setDesiredAcknowledgmentType(AcknowledgementCondition desiredAcknowledgmentType) {
-        this.desiredAcknowledgmentType.setValue(desiredAcknowledgmentType);
     }
 
 
@@ -105,26 +117,6 @@ public class HL7Message_1Bean<CAE> extends MessagePartBean {
     }
     public void setHL7StandardVersion(HL7StandardVersionCode hL7StandardVersion) {
         this.hL7StandardVersion.setValue(hL7StandardVersion);
-    }
-
-
-    @Hl7XmlMapping({"sender"})
-    public SenderBean getSender() {
-        return this.sender;
-    }
-    public void setSender(SenderBean sender) {
-        this.sender = sender;
-    }
-
-
-    /**
-     * <p>ConformanceProfileIdentifiers</p>
-     * 
-     * <p>F:Conformance Profile Identifiers</p>
-     */
-    @Hl7XmlMapping({"profileId"})
-    public List<Identifier> getConformanceProfileIdentifiers() {
-        return this.conformanceProfileIdentifiers.rawList();
     }
 
 
@@ -143,6 +135,20 @@ public class HL7Message_1Bean<CAE> extends MessagePartBean {
 
 
     /**
+     * <p>ResponseType</p>
+     * 
+     * <p>DA: Response Type</p>
+     */
+    @Hl7XmlMapping({"responseModeCode"})
+    public ResponseMode getResponseType() {
+        return (ResponseMode) this.responseType.getValue();
+    }
+    public void setResponseType(ResponseMode responseType) {
+        this.responseType.setValue(responseType);
+    }
+
+
+    /**
      * <p>InteractionType</p>
      * 
      * <p>B:Interaction Type</p>
@@ -156,12 +162,17 @@ public class HL7Message_1Bean<CAE> extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"respondTo"})
-    public ToBeRespondedToByBean getRespondTo() {
-        return this.respondTo;
+    /**
+     * <p>MessageIdentifier</p>
+     * 
+     * <p>A:Message Identifier</p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Identifier getMessageIdentifier() {
+        return this.messageIdentifier.getValue();
     }
-    public void setRespondTo(ToBeRespondedToByBean respondTo) {
-        this.respondTo = respondTo;
+    public void setMessageIdentifier(Identifier messageIdentifier) {
+        this.messageIdentifier.setValue(messageIdentifier);
     }
 
 
@@ -179,46 +190,35 @@ public class HL7Message_1Bean<CAE> extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"attentionLine"})
-    public List<RoutingInstructionLinesBean> getAttentionLine() {
-        return this.attentionLine;
+    @Hl7XmlMapping({"acknowledgement"})
+    public AcknowledgementBean getAcknowledgement() {
+        return this.acknowledgement;
+    }
+    public void setAcknowledgement(AcknowledgementBean acknowledgement) {
+        this.acknowledgement = acknowledgement;
     }
 
 
     /**
-     * <p>SecurityToken</p>
+     * <p>DesiredAcknowledgmentType</p>
      * 
-     * <p>H:Security Token</p>
+     * <p>E:Desired Acknowledgment Type</p>
      */
-    @Hl7XmlMapping({"securityText"})
-    public String getSecurityToken() {
-        return this.securityToken.getValue();
+    @Hl7XmlMapping({"acceptAckCode"})
+    public AcknowledgementCondition getDesiredAcknowledgmentType() {
+        return (AcknowledgementCondition) this.desiredAcknowledgmentType.getValue();
     }
-    public void setSecurityToken(String securityToken) {
-        this.securityToken.setValue(securityToken);
-    }
-
-
-    @Hl7XmlMapping({"receiver"})
-    public ReceiverBean getReceiver() {
-        return this.receiver;
-    }
-    public void setReceiver(ReceiverBean receiver) {
-        this.receiver = receiver;
+    public void setDesiredAcknowledgmentType(AcknowledgementCondition desiredAcknowledgmentType) {
+        this.desiredAcknowledgmentType.setValue(desiredAcknowledgmentType);
     }
 
 
-    /**
-     * <p>MessageIdentifier</p>
-     * 
-     * <p>A:Message Identifier</p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Identifier getMessageIdentifier() {
-        return this.messageIdentifier.getValue();
+    @Hl7XmlMapping({"sender"})
+    public SenderBean getSender() {
+        return this.sender;
     }
-    public void setMessageIdentifier(Identifier messageIdentifier) {
-        this.messageIdentifier.setValue(messageIdentifier);
+    public void setSender(SenderBean sender) {
+        this.sender = sender;
     }
 
 }

@@ -14,17 +14,8 @@ import ca.infoway.messagebuilder.model.v02_r01.pharmacy.merged.ProtocolsBean;
 public class ReferencesBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private ProtocolsBean substanceAdministrationDefinition;
     private BL contextConductionInd = new BLImpl();
-
-
-    @Hl7XmlMapping({"substanceAdministrationDefinition"})
-    public ProtocolsBean getSubstanceAdministrationDefinition() {
-        return this.substanceAdministrationDefinition;
-    }
-    public void setSubstanceAdministrationDefinition(ProtocolsBean substanceAdministrationDefinition) {
-        this.substanceAdministrationDefinition = substanceAdministrationDefinition;
-    }
+    private ProtocolsBean substanceAdministrationDefinition;
 
 
     @Hl7XmlMapping({"contextConductionInd"})
@@ -33,6 +24,15 @@ public class ReferencesBean extends MessagePartBean {
     }
     public void setContextConductionInd(Boolean contextConductionInd) {
         this.contextConductionInd.setValue(contextConductionInd);
+    }
+
+
+    @Hl7XmlMapping({"substanceAdministrationDefinition"})
+    public ProtocolsBean getSubstanceAdministrationDefinition() {
+        return this.substanceAdministrationDefinition;
+    }
+    public void setSubstanceAdministrationDefinition(ProtocolsBean substanceAdministrationDefinition) {
+        this.substanceAdministrationDefinition = substanceAdministrationDefinition;
     }
 
 }

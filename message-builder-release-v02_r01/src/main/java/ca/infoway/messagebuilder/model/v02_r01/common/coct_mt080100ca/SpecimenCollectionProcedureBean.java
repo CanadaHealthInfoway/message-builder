@@ -23,28 +23,10 @@ import java.util.List;
 public class SpecimenCollectionProcedureBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private ST specimenCollectionText = new STImpl();
-    private List<NotesBean> subjectOfAnnotation = new ArrayList<NotesBean>();
     private HealthcareWorkerBean performerAssignedEntity;
     private IVL<TS, Interval<Date>> specimenCollectionDateTime = new IVLImpl<TS, Interval<Date>>();
-
-
-    /**
-     * <p>G:Specimen Collection Text</p>
-     */
-    @Hl7XmlMapping({"text"})
-    public String getSpecimenCollectionText() {
-        return this.specimenCollectionText.getValue();
-    }
-    public void setSpecimenCollectionText(String specimenCollectionText) {
-        this.specimenCollectionText.setValue(specimenCollectionText);
-    }
-
-
-    @Hl7XmlMapping({"subjectOf/annotation"})
-    public List<NotesBean> getSubjectOfAnnotation() {
-        return this.subjectOfAnnotation;
-    }
+    private ST specimenCollectionText = new STImpl();
+    private List<NotesBean> subjectOfAnnotation = new ArrayList<NotesBean>();
 
 
     @Hl7XmlMapping({"performer/assignedEntity"})
@@ -65,6 +47,24 @@ public class SpecimenCollectionProcedureBean extends MessagePartBean {
     }
     public void setSpecimenCollectionDateTime(Interval<Date> specimenCollectionDateTime) {
         this.specimenCollectionDateTime.setValue(specimenCollectionDateTime);
+    }
+
+
+    /**
+     * <p>G:Specimen Collection Text</p>
+     */
+    @Hl7XmlMapping({"text"})
+    public String getSpecimenCollectionText() {
+        return this.specimenCollectionText.getValue();
+    }
+    public void setSpecimenCollectionText(String specimenCollectionText) {
+        this.specimenCollectionText.setValue(specimenCollectionText);
+    }
+
+
+    @Hl7XmlMapping({"subjectOf/annotation"})
+    public List<NotesBean> getSubjectOfAnnotation() {
+        return this.subjectOfAnnotation;
     }
 
 }

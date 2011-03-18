@@ -15,6 +15,8 @@ import ca.infoway.messagebuilder.datatype.impl.SETImpl;
 import ca.infoway.messagebuilder.datatype.lang.EncapsulatedData;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 
@@ -24,8 +26,8 @@ public class HealthDocumentAttachmentBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
     private ED<EncapsulatedData> attachmentContent = new EDImpl<EncapsulatedData>();
-    private CV attachmentType = new CVImpl();
     private SET<II, Identifier> attachmentIdentifier = new SETImpl<II, Identifier>(IIImpl.class);
+    private CV attachmentType = new CVImpl();
 
 
     /**
@@ -41,6 +43,15 @@ public class HealthDocumentAttachmentBean extends MessagePartBean {
 
 
     /**
+     * <p>Attachment identifier</p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Set<Identifier> getAttachmentIdentifier() {
+        return this.attachmentIdentifier.rawSet();
+    }
+
+
+    /**
      * <p>Attachment Type</p>
      */
     @Hl7XmlMapping({"code"})
@@ -49,15 +60,6 @@ public class HealthDocumentAttachmentBean extends MessagePartBean {
     }
     public void setAttachmentType(Code attachmentType) {
         this.attachmentType.setValue(attachmentType);
-    }
-
-
-    /**
-     * <p>Attachment identifier</p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Set<Identifier> getAttachmentIdentifier() {
-        return this.attachmentIdentifier.rawSet();
     }
 
 }

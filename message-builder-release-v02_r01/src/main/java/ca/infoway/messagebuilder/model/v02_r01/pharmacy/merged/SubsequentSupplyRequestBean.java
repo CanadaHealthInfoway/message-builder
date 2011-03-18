@@ -24,8 +24,8 @@ public class SubsequentSupplyRequestBean extends MessagePartBean {
     private static final long serialVersionUID = 20110318L;
     private PQ fillQuantity = new PQImpl();
     private INT numberOfFills = new INTImpl();
-    private IVL<TS, Interval<Date>> daysSupply = new IVLImpl<TS, Interval<Date>>();
     private IVL<TS, Interval<Date>> dispenseInterval = new IVLImpl<TS, Interval<Date>>();
+    private IVL<TS, Interval<Date>> daysSupply = new IVLImpl<TS, Interval<Date>>();
 
 
     /**
@@ -57,20 +57,6 @@ public class SubsequentSupplyRequestBean extends MessagePartBean {
 
 
     /**
-     * <p>DaysSupply</p>
-     * 
-     * <p>E:Days Supply</p>
-     */
-    @Hl7XmlMapping({"expectedUseTime"})
-    public Interval<Date> getDaysSupply() {
-        return this.daysSupply.getValue();
-    }
-    public void setDaysSupply(Interval<Date> daysSupply) {
-        this.daysSupply.setValue(daysSupply);
-    }
-
-
-    /**
      * <p>DispenseInterval</p>
      * 
      * <p>F:Dispense Interval</p>
@@ -81,6 +67,20 @@ public class SubsequentSupplyRequestBean extends MessagePartBean {
     }
     public void setDispenseInterval(Interval<Date> dispenseInterval) {
         this.dispenseInterval.setValue(dispenseInterval);
+    }
+
+
+    /**
+     * <p>DaysSupply</p>
+     * 
+     * <p>E:Days Supply</p>
+     */
+    @Hl7XmlMapping({"expectedUseTime"})
+    public Interval<Date> getDaysSupply() {
+        return this.daysSupply.getValue();
+    }
+    public void setDaysSupply(Interval<Date> daysSupply) {
+        this.daysSupply.setValue(daysSupply);
     }
 
 }

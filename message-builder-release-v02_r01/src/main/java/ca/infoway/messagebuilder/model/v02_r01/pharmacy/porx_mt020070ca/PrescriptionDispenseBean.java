@@ -31,23 +31,14 @@ import java.util.Set;
 public class PrescriptionDispenseBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private SET<CV, Code> prescriptionMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);
     private PrescriptionReferenceBean inFulfillmentOfSubstanceAdministrationRequest;
-    private SupplyEventBean component3SupplyEvent;
     private BL subject = new BLImpl(false);
-    private List<AdministrationInstructionsBean> component2DosageInstruction = new ArrayList<AdministrationInstructionsBean>();
-    private NotesBean subjectOfAnnotation;
     private II localDispenseId = new IIImpl();
     private SubstitutionBean component1SubstitutionMade;
-
-
-    /**
-     * <p>E:Prescription Masking Indicators</p>
-     */
-    @Hl7XmlMapping({"confidentialityCode"})
-    public Set<x_NormalRestrictedTabooConfidentialityKind> getPrescriptionMaskingIndicators() {
-        return this.prescriptionMaskingIndicators.rawSet(x_NormalRestrictedTabooConfidentialityKind.class);
-    }
+    private SET<CV, Code> prescriptionMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);
+    private NotesBean subjectOfAnnotation;
+    private List<AdministrationInstructionsBean> component2DosageInstruction = new ArrayList<AdministrationInstructionsBean>();
+    private SupplyEventBean component3SupplyEvent;
 
 
     @Hl7XmlMapping({"inFulfillmentOf/substanceAdministrationRequest"})
@@ -59,36 +50,12 @@ public class PrescriptionDispenseBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"component3/supplyEvent"})
-    public SupplyEventBean getComponent3SupplyEvent() {
-        return this.component3SupplyEvent;
-    }
-    public void setComponent3SupplyEvent(SupplyEventBean component3SupplyEvent) {
-        this.component3SupplyEvent = component3SupplyEvent;
-    }
-
-
     @Hl7XmlMapping({"subject"})
     public Boolean getSubject() {
         return this.subject.getValue();
     }
     public void setSubject(Boolean subject) {
         this.subject.setValue(subject);
-    }
-
-
-    @Hl7XmlMapping({"component2/dosageInstruction"})
-    public List<AdministrationInstructionsBean> getComponent2DosageInstruction() {
-        return this.component2DosageInstruction;
-    }
-
-
-    @Hl7XmlMapping({"subjectOf/annotation"})
-    public NotesBean getSubjectOfAnnotation() {
-        return this.subjectOfAnnotation;
-    }
-    public void setSubjectOfAnnotation(NotesBean subjectOfAnnotation) {
-        this.subjectOfAnnotation = subjectOfAnnotation;
     }
 
 
@@ -110,6 +77,39 @@ public class PrescriptionDispenseBean extends MessagePartBean {
     }
     public void setComponent1SubstitutionMade(SubstitutionBean component1SubstitutionMade) {
         this.component1SubstitutionMade = component1SubstitutionMade;
+    }
+
+
+    /**
+     * <p>E:Prescription Masking Indicators</p>
+     */
+    @Hl7XmlMapping({"confidentialityCode"})
+    public Set<x_NormalRestrictedTabooConfidentialityKind> getPrescriptionMaskingIndicators() {
+        return this.prescriptionMaskingIndicators.rawSet(x_NormalRestrictedTabooConfidentialityKind.class);
+    }
+
+
+    @Hl7XmlMapping({"subjectOf/annotation"})
+    public NotesBean getSubjectOfAnnotation() {
+        return this.subjectOfAnnotation;
+    }
+    public void setSubjectOfAnnotation(NotesBean subjectOfAnnotation) {
+        this.subjectOfAnnotation = subjectOfAnnotation;
+    }
+
+
+    @Hl7XmlMapping({"component2/dosageInstruction"})
+    public List<AdministrationInstructionsBean> getComponent2DosageInstruction() {
+        return this.component2DosageInstruction;
+    }
+
+
+    @Hl7XmlMapping({"component3/supplyEvent"})
+    public SupplyEventBean getComponent3SupplyEvent() {
+        return this.component3SupplyEvent;
+    }
+    public void setComponent3SupplyEvent(SupplyEventBean component3SupplyEvent) {
+        this.component3SupplyEvent = component3SupplyEvent;
     }
 
 }

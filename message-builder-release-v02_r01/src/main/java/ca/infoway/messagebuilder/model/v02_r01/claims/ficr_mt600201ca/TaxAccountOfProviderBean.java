@@ -17,20 +17,8 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 public class TaxAccountOfProviderBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private CV actInvoiceDetailscode = new CVImpl();
     private II taxNumber = new IIImpl();
-
-
-    /**
-     * <p>ActInvoiceDetailscode</p>
-     */
-    @Hl7XmlMapping({"code"})
-    public Code getActInvoiceDetailscode() {
-        return (Code) this.actInvoiceDetailscode.getValue();
-    }
-    public void setActInvoiceDetailscode(Code actInvoiceDetailscode) {
-        this.actInvoiceDetailscode.setValue(actInvoiceDetailscode);
-    }
+    private CV actInvoiceDetailscode = new CVImpl();
 
 
     /**
@@ -42,6 +30,18 @@ public class TaxAccountOfProviderBean extends MessagePartBean {
     }
     public void setTaxNumber(Identifier taxNumber) {
         this.taxNumber.setValue(taxNumber);
+    }
+
+
+    /**
+     * <p>ActInvoiceDetailscode</p>
+     */
+    @Hl7XmlMapping({"code"})
+    public Code getActInvoiceDetailscode() {
+        return (Code) this.actInvoiceDetailscode.getValue();
+    }
+    public void setActInvoiceDetailscode(Code actInvoiceDetailscode) {
+        this.actInvoiceDetailscode.setValue(actInvoiceDetailscode);
     }
 
 }

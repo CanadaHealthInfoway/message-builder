@@ -16,18 +16,9 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 public class CareCompositionsBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private ca.infoway.messagebuilder.model.v02_r01.common.coct_mt011001ca.CareCompositionsBean patientCareProvisionEvent;
     private BL contextConductionInd = new BLImpl();
     private CS typeCode = new CSImpl();
-
-
-    @Hl7XmlMapping({"patientCareProvisionEvent"})
-    public ca.infoway.messagebuilder.model.v02_r01.common.coct_mt011001ca.CareCompositionsBean getPatientCareProvisionEvent() {
-        return this.patientCareProvisionEvent;
-    }
-    public void setPatientCareProvisionEvent(ca.infoway.messagebuilder.model.v02_r01.common.coct_mt011001ca.CareCompositionsBean patientCareProvisionEvent) {
-        this.patientCareProvisionEvent = patientCareProvisionEvent;
-    }
+    private ca.infoway.messagebuilder.model.v02_r01.common.coct_mt011001ca.CareCompositionsBean patientCareProvisionEvent;
 
 
     @Hl7XmlMapping({"contextConductionInd"})
@@ -45,6 +36,15 @@ public class CareCompositionsBean extends MessagePartBean {
     }
     public void setTypeCode(ActRelationshipType typeCode) {
         this.typeCode.setValue(typeCode);
+    }
+
+
+    @Hl7XmlMapping({"patientCareProvisionEvent"})
+    public ca.infoway.messagebuilder.model.v02_r01.common.coct_mt011001ca.CareCompositionsBean getPatientCareProvisionEvent() {
+        return this.patientCareProvisionEvent;
+    }
+    public void setPatientCareProvisionEvent(ca.infoway.messagebuilder.model.v02_r01.common.coct_mt011001ca.CareCompositionsBean patientCareProvisionEvent) {
+        this.patientCareProvisionEvent = patientCareProvisionEvent;
     }
 
 }

@@ -16,6 +16,8 @@ import ca.infoway.messagebuilder.domainvalue.ActInformationCategoryCode;
 import ca.infoway.messagebuilder.domainvalue.x_NormalRestrictedTabooConfidentialityKind;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.v02_r01.merged.DiagnosisBean;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 
@@ -25,29 +27,11 @@ import java.util.Set;
 public class MaskableRecordBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private SET<CV, Code> maskedIndicator = new SETImpl<CV, Code>(CVImpl.class);
-    private DiagnosisBean reasonDiagnosis;
     private RoleBean directTargetRole;
-    private CV recordType = new CVImpl();
     private II recordIdentifier = new IIImpl();
-
-
-    /**
-     * <p>A:Masked Indicator</p>
-     */
-    @Hl7XmlMapping({"confidentialityCode"})
-    public Set<x_NormalRestrictedTabooConfidentialityKind> getMaskedIndicator() {
-        return this.maskedIndicator.rawSet(x_NormalRestrictedTabooConfidentialityKind.class);
-    }
-
-
-    @Hl7XmlMapping({"reason/diagnosis"})
-    public DiagnosisBean getReasonDiagnosis() {
-        return this.reasonDiagnosis;
-    }
-    public void setReasonDiagnosis(DiagnosisBean reasonDiagnosis) {
-        this.reasonDiagnosis = reasonDiagnosis;
-    }
+    private DiagnosisBean reasonDiagnosis;
+    private SET<CV, Code> maskedIndicator = new SETImpl<CV, Code>(CVImpl.class);
+    private CV recordType = new CVImpl();
 
 
     @Hl7XmlMapping({"directTarget/role"})
@@ -60,18 +44,6 @@ public class MaskableRecordBean extends MessagePartBean {
 
 
     /**
-     * <p>B:Record Type</p>
-     */
-    @Hl7XmlMapping({"code"})
-    public ActInformationCategoryCode getRecordType() {
-        return (ActInformationCategoryCode) this.recordType.getValue();
-    }
-    public void setRecordType(ActInformationCategoryCode recordType) {
-        this.recordType.setValue(recordType);
-    }
-
-
-    /**
      * <p>C:Record Identifier</p>
      */
     @Hl7XmlMapping({"id"})
@@ -80,6 +52,36 @@ public class MaskableRecordBean extends MessagePartBean {
     }
     public void setRecordIdentifier(Identifier recordIdentifier) {
         this.recordIdentifier.setValue(recordIdentifier);
+    }
+
+
+    @Hl7XmlMapping({"reason/diagnosis"})
+    public DiagnosisBean getReasonDiagnosis() {
+        return this.reasonDiagnosis;
+    }
+    public void setReasonDiagnosis(DiagnosisBean reasonDiagnosis) {
+        this.reasonDiagnosis = reasonDiagnosis;
+    }
+
+
+    /**
+     * <p>A:Masked Indicator</p>
+     */
+    @Hl7XmlMapping({"confidentialityCode"})
+    public Set<x_NormalRestrictedTabooConfidentialityKind> getMaskedIndicator() {
+        return this.maskedIndicator.rawSet(x_NormalRestrictedTabooConfidentialityKind.class);
+    }
+
+
+    /**
+     * <p>B:Record Type</p>
+     */
+    @Hl7XmlMapping({"code"})
+    public ActInformationCategoryCode getRecordType() {
+        return (ActInformationCategoryCode) this.recordType.getValue();
+    }
+    public void setRecordType(ActInformationCategoryCode recordType) {
+        this.recordType.setValue(recordType);
     }
 
 }

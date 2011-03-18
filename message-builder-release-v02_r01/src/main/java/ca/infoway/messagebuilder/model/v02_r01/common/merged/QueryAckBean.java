@@ -20,9 +20,9 @@ public class QueryAckBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
     private CS queryStatus = new CSImpl();
-    private II queryIdentifier = new IIImpl();
     private INT totalMatchingRows = new INTImpl();
     private INT remainingRows = new INTImpl();
+    private II queryIdentifier = new IIImpl();
     private INT returnedRows = new INTImpl();
 
 
@@ -37,20 +37,6 @@ public class QueryAckBean extends MessagePartBean {
     }
     public void setQueryStatus(QueryResponse queryStatus) {
         this.queryStatus.setValue(queryStatus);
-    }
-
-
-    /**
-     * <p>QueryIdentifier</p>
-     * 
-     * <p>H:Query Identifier</p>
-     */
-    @Hl7XmlMapping({"queryId"})
-    public Identifier getQueryIdentifier() {
-        return this.queryIdentifier.getValue();
-    }
-    public void setQueryIdentifier(Identifier queryIdentifier) {
-        this.queryIdentifier.setValue(queryIdentifier);
     }
 
 
@@ -79,6 +65,20 @@ public class QueryAckBean extends MessagePartBean {
     }
     public void setRemainingRows(Integer remainingRows) {
         this.remainingRows.setValue(remainingRows);
+    }
+
+
+    /**
+     * <p>QueryIdentifier</p>
+     * 
+     * <p>H:Query Identifier</p>
+     */
+    @Hl7XmlMapping({"queryId"})
+    public Identifier getQueryIdentifier() {
+        return this.queryIdentifier.getValue();
+    }
+    public void setQueryIdentifier(Identifier queryIdentifier) {
+        this.queryIdentifier.setValue(queryIdentifier);
     }
 
 

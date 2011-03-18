@@ -36,23 +36,17 @@ import java.util.Set;
 public class MedicationBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private List<AppearanceCharacteristicsBean> subjectOf2Characteristic = new ArrayList<AppearanceCharacteristicsBean>();
     private DrugCostBean subjectOf1PotentialCharge;
     private CS regulatoryStatusCode = new CSImpl();
+    private ST description = new STImpl();
+    private CV drugCode = new CVImpl();
+    private SET<TN, TrivialName> drugNames = new SETImpl<TN, TrivialName>(TNImpl.class);
+    private List<GroupedWithinBean> playerAsSpecializedKind = new ArrayList<GroupedWithinBean>();
     private CV drugForm = new CVImpl();
     private List<DrugContainsBean> playerIngredient = new ArrayList<DrugContainsBean>();
-    private List<GroupedWithinBean> playerAsSpecializedKind = new ArrayList<GroupedWithinBean>();
-    private ManufacturerBean playerAsManufacturedProductManufacturer;
     private DispensedInBean playerAsContent;
-    private SET<TN, TrivialName> drugNames = new SETImpl<TN, TrivialName>(TNImpl.class);
-    private CV drugCode = new CVImpl();
-    private ST description = new STImpl();
-
-
-    @Hl7XmlMapping({"subjectOf2/characteristic"})
-    public List<AppearanceCharacteristicsBean> getSubjectOf2Characteristic() {
-        return this.subjectOf2Characteristic;
-    }
+    private ManufacturerBean playerAsManufacturedProductManufacturer;
+    private List<AppearanceCharacteristicsBean> subjectOf2Characteristic = new ArrayList<AppearanceCharacteristicsBean>();
 
 
     @Hl7XmlMapping({"subjectOf1/potentialCharge"})
@@ -77,6 +71,45 @@ public class MedicationBean extends MessagePartBean {
 
 
     /**
+     * <p>Description</p>
+     */
+    @Hl7XmlMapping({"player/desc"})
+    public String getDescription() {
+        return this.description.getValue();
+    }
+    public void setDescription(String description) {
+        this.description.setValue(description);
+    }
+
+
+    /**
+     * <p>A:Drug Code</p>
+     */
+    @Hl7XmlMapping({"player/code"})
+    public ClinicalDrug getDrugCode() {
+        return (ClinicalDrug) this.drugCode.getValue();
+    }
+    public void setDrugCode(ClinicalDrug drugCode) {
+        this.drugCode.setValue(drugCode);
+    }
+
+
+    /**
+     * <p>B:Drug Names</p>
+     */
+    @Hl7XmlMapping({"player/name"})
+    public Set<TrivialName> getDrugNames() {
+        return this.drugNames.rawSet();
+    }
+
+
+    @Hl7XmlMapping({"player/asSpecializedKind"})
+    public List<GroupedWithinBean> getPlayerAsSpecializedKind() {
+        return this.playerAsSpecializedKind;
+    }
+
+
+    /**
      * <p>D:Drug Form</p>
      */
     @Hl7XmlMapping({"player/formCode"})
@@ -94,9 +127,12 @@ public class MedicationBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"player/asSpecializedKind"})
-    public List<GroupedWithinBean> getPlayerAsSpecializedKind() {
-        return this.playerAsSpecializedKind;
+    @Hl7XmlMapping({"player/asContent"})
+    public DispensedInBean getPlayerAsContent() {
+        return this.playerAsContent;
+    }
+    public void setPlayerAsContent(DispensedInBean playerAsContent) {
+        this.playerAsContent = playerAsContent;
     }
 
 
@@ -109,45 +145,9 @@ public class MedicationBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"player/asContent"})
-    public DispensedInBean getPlayerAsContent() {
-        return this.playerAsContent;
-    }
-    public void setPlayerAsContent(DispensedInBean playerAsContent) {
-        this.playerAsContent = playerAsContent;
-    }
-
-
-    /**
-     * <p>B:Drug Names</p>
-     */
-    @Hl7XmlMapping({"player/name"})
-    public Set<TrivialName> getDrugNames() {
-        return this.drugNames.rawSet();
-    }
-
-
-    /**
-     * <p>A:Drug Code</p>
-     */
-    @Hl7XmlMapping({"player/code"})
-    public ClinicalDrug getDrugCode() {
-        return (ClinicalDrug) this.drugCode.getValue();
-    }
-    public void setDrugCode(ClinicalDrug drugCode) {
-        this.drugCode.setValue(drugCode);
-    }
-
-
-    /**
-     * <p>Description</p>
-     */
-    @Hl7XmlMapping({"player/desc"})
-    public String getDescription() {
-        return this.description.getValue();
-    }
-    public void setDescription(String description) {
-        this.description.setValue(description);
+    @Hl7XmlMapping({"subjectOf2/characteristic"})
+    public List<AppearanceCharacteristicsBean> getSubjectOf2Characteristic() {
+        return this.subjectOf2Characteristic;
     }
 
 }

@@ -18,32 +18,11 @@ import java.util.List;
 public class RecommendedAdministrationInstructionsBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private List<PatientCharacteristicsBean> preconditionObservationEventCriterion = new ArrayList<PatientCharacteristicsBean>();
-    private HealthcareWorkerBean authorAssignedEntity;
-    private List<AdministrationInstructionsBean> optionDosageInstruction = new ArrayList<AdministrationInstructionsBean>();
     private PatientBean subjectPatient;
     private List<Indications> reasonIndications = new ArrayList<Indications>();
-
-
-    @Hl7XmlMapping({"precondition/observationEventCriterion"})
-    public List<PatientCharacteristicsBean> getPreconditionObservationEventCriterion() {
-        return this.preconditionObservationEventCriterion;
-    }
-
-
-    @Hl7XmlMapping({"author/assignedEntity"})
-    public HealthcareWorkerBean getAuthorAssignedEntity() {
-        return this.authorAssignedEntity;
-    }
-    public void setAuthorAssignedEntity(HealthcareWorkerBean authorAssignedEntity) {
-        this.authorAssignedEntity = authorAssignedEntity;
-    }
-
-
-    @Hl7XmlMapping({"option/dosageInstruction"})
-    public List<AdministrationInstructionsBean> getOptionDosageInstruction() {
-        return this.optionDosageInstruction;
-    }
+    private List<AdministrationInstructionsBean> optionDosageInstruction = new ArrayList<AdministrationInstructionsBean>();
+    private HealthcareWorkerBean authorAssignedEntity;
+    private List<PatientCharacteristicsBean> preconditionObservationEventCriterion = new ArrayList<PatientCharacteristicsBean>();
 
 
     @Hl7XmlMapping({"subject/patient"})
@@ -58,6 +37,27 @@ public class RecommendedAdministrationInstructionsBean extends MessagePartBean {
     @Hl7XmlMapping({"reason/indications"})
     public List<Indications> getReasonIndications() {
         return this.reasonIndications;
+    }
+
+
+    @Hl7XmlMapping({"option/dosageInstruction"})
+    public List<AdministrationInstructionsBean> getOptionDosageInstruction() {
+        return this.optionDosageInstruction;
+    }
+
+
+    @Hl7XmlMapping({"author/assignedEntity"})
+    public HealthcareWorkerBean getAuthorAssignedEntity() {
+        return this.authorAssignedEntity;
+    }
+    public void setAuthorAssignedEntity(HealthcareWorkerBean authorAssignedEntity) {
+        this.authorAssignedEntity = authorAssignedEntity;
+    }
+
+
+    @Hl7XmlMapping({"precondition/observationEventCriterion"})
+    public List<PatientCharacteristicsBean> getPreconditionObservationEventCriterion() {
+        return this.preconditionObservationEventCriterion;
     }
 
 }

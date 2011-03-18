@@ -35,36 +35,30 @@ import java.util.List;
 public class InvoiceElementDetailsBean extends MessagePartBean implements InvoiceElementChoice {
 
     private static final long serialVersionUID = 20110318L;
-    private PQ submittedUnitQuantity = new PQImpl();
-    private RTO<Money, PhysicalQuantity> submittedUnitAmountPrice = new RTOImpl<Money, PhysicalQuantity>();
-    private MO submittedInvoiceLineAmount = new MOImpl();
     private List<A_BillableActChoice> reasonOfBillableActChoice = new ArrayList<A_BillableActChoice>();
+    private II submittedInvoiceLineIdentifier = new IIImpl();
+    private MO submittedInvoiceLineAmount = new MOImpl();
     private INT factorNumber = new INTImpl();
     private CV submittedProductServiceCode = new CVImpl();
-    private II submittedInvoiceLineIdentifier = new IIImpl();
+    private PQ submittedUnitQuantity = new PQImpl();
+    private RTO<Money, PhysicalQuantity> submittedUnitAmountPrice = new RTOImpl<Money, PhysicalQuantity>();
 
 
-    /**
-     * <p>Submitted Unit Quantity</p>
-     */
-    @Hl7XmlMapping({"unitQuantity"})
-    public PhysicalQuantity getSubmittedUnitQuantity() {
-        return this.submittedUnitQuantity.getValue();
-    }
-    public void setSubmittedUnitQuantity(PhysicalQuantity submittedUnitQuantity) {
-        this.submittedUnitQuantity.setValue(submittedUnitQuantity);
+    @Hl7XmlMapping({"reasonOf/billableActChoice"})
+    public List<A_BillableActChoice> getReasonOfBillableActChoice() {
+        return this.reasonOfBillableActChoice;
     }
 
 
     /**
-     * <p>Submitted Unit Amount Price</p>
+     * <p>Submitted Invoice Line Identifier</p>
      */
-    @Hl7XmlMapping({"unitPriceAmt"})
-    public Ratio<Money, PhysicalQuantity> getSubmittedUnitAmountPrice() {
-        return this.submittedUnitAmountPrice.getValue();
+    @Hl7XmlMapping({"id"})
+    public Identifier getSubmittedInvoiceLineIdentifier() {
+        return this.submittedInvoiceLineIdentifier.getValue();
     }
-    public void setSubmittedUnitAmountPrice(Ratio<Money, PhysicalQuantity> submittedUnitAmountPrice) {
-        this.submittedUnitAmountPrice.setValue(submittedUnitAmountPrice);
+    public void setSubmittedInvoiceLineIdentifier(Identifier submittedInvoiceLineIdentifier) {
+        this.submittedInvoiceLineIdentifier.setValue(submittedInvoiceLineIdentifier);
     }
 
 
@@ -77,12 +71,6 @@ public class InvoiceElementDetailsBean extends MessagePartBean implements Invoic
     }
     public void setSubmittedInvoiceLineAmount(Money submittedInvoiceLineAmount) {
         this.submittedInvoiceLineAmount.setValue(submittedInvoiceLineAmount);
-    }
-
-
-    @Hl7XmlMapping({"reasonOf/billableActChoice"})
-    public List<A_BillableActChoice> getReasonOfBillableActChoice() {
-        return this.reasonOfBillableActChoice;
     }
 
 
@@ -108,14 +96,26 @@ public class InvoiceElementDetailsBean extends MessagePartBean implements Invoic
 
 
     /**
-     * <p>Submitted Invoice Line Identifier</p>
+     * <p>Submitted Unit Quantity</p>
      */
-    @Hl7XmlMapping({"id"})
-    public Identifier getSubmittedInvoiceLineIdentifier() {
-        return this.submittedInvoiceLineIdentifier.getValue();
+    @Hl7XmlMapping({"unitQuantity"})
+    public PhysicalQuantity getSubmittedUnitQuantity() {
+        return this.submittedUnitQuantity.getValue();
     }
-    public void setSubmittedInvoiceLineIdentifier(Identifier submittedInvoiceLineIdentifier) {
-        this.submittedInvoiceLineIdentifier.setValue(submittedInvoiceLineIdentifier);
+    public void setSubmittedUnitQuantity(PhysicalQuantity submittedUnitQuantity) {
+        this.submittedUnitQuantity.setValue(submittedUnitQuantity);
+    }
+
+
+    /**
+     * <p>Submitted Unit Amount Price</p>
+     */
+    @Hl7XmlMapping({"unitPriceAmt"})
+    public Ratio<Money, PhysicalQuantity> getSubmittedUnitAmountPrice() {
+        return this.submittedUnitAmountPrice.getValue();
+    }
+    public void setSubmittedUnitAmountPrice(Ratio<Money, PhysicalQuantity> submittedUnitAmountPrice) {
+        this.submittedUnitAmountPrice.setValue(submittedUnitAmountPrice);
     }
 
 }

@@ -21,10 +21,24 @@ import ca.infoway.messagebuilder.model.v02_r01.iehr.repc_mt000006ca.AgentCategor
 public class ExposuresBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
+    private II incidenceIdentifier = new IIImpl();
     private CV exposureMethod = new CVImpl();
     private CV exposedMaterialType = new CVImpl();
-    private II incidenceIdentifier = new IIImpl();
     private AgentCategoryBean consumableAdministrableMaterialAdministerableMaterialKind;
+
+
+    /**
+     * <p>IncidenceIdentifier</p>
+     * 
+     * <p>B:Incidence Identifier</p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Identifier getIncidenceIdentifier() {
+        return this.incidenceIdentifier.getValue();
+    }
+    public void setIncidenceIdentifier(Identifier incidenceIdentifier) {
+        this.incidenceIdentifier.setValue(incidenceIdentifier);
+    }
 
 
     /**
@@ -71,20 +85,6 @@ public class ExposuresBean extends MessagePartBean {
     }
     public void setExposedMaterialType(ExposureAgentEntityType exposedMaterialType) {
         this.exposedMaterialType.setValue(exposedMaterialType);
-    }
-
-
-    /**
-     * <p>IncidenceIdentifier</p>
-     * 
-     * <p>B:Incidence Identifier</p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Identifier getIncidenceIdentifier() {
-        return this.incidenceIdentifier.getValue();
-    }
-    public void setIncidenceIdentifier(Identifier incidenceIdentifier) {
-        this.incidenceIdentifier.setValue(incidenceIdentifier);
     }
 
 

@@ -23,8 +23,8 @@ public class PatientCharacteristicsBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
     private IVL<PQ, Interval<PhysicalQuantity>> patientCharacteristicValue = new IVLImpl<PQ, Interval<PhysicalQuantity>>();
-    private BL excludeCharacteristic = new BLImpl();
     private CV patientCharacteristicType = new CVImpl();
+    private BL excludeCharacteristic = new BLImpl();
 
 
     /**
@@ -40,18 +40,6 @@ public class PatientCharacteristicsBean extends MessagePartBean {
 
 
     /**
-     * <p>Exclude characteristic?</p>
-     */
-    @Hl7XmlMapping({"negationInd"})
-    public Boolean getExcludeCharacteristic() {
-        return this.excludeCharacteristic.getValue();
-    }
-    public void setExcludeCharacteristic(Boolean excludeCharacteristic) {
-        this.excludeCharacteristic.setValue(excludeCharacteristic);
-    }
-
-
-    /**
      * <p>Patient Characteristic Type</p>
      */
     @Hl7XmlMapping({"code"})
@@ -60,6 +48,18 @@ public class PatientCharacteristicsBean extends MessagePartBean {
     }
     public void setPatientCharacteristicType(ObservationDosageDefinitionPreconditionType patientCharacteristicType) {
         this.patientCharacteristicType.setValue(patientCharacteristicType);
+    }
+
+
+    /**
+     * <p>Exclude characteristic?</p>
+     */
+    @Hl7XmlMapping({"negationInd"})
+    public Boolean getExcludeCharacteristic() {
+        return this.excludeCharacteristic.getValue();
+    }
+    public void setExcludeCharacteristic(Boolean excludeCharacteristic) {
+        this.excludeCharacteristic.setValue(excludeCharacteristic);
     }
 
 }

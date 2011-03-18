@@ -16,15 +16,9 @@ import java.util.List;
 public class RegistrationEventBean<RR> extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private List<ReplacesBean> replacementOf = new ArrayList<ReplacesBean>();
     private RegisteredItemBean<RR> subject;
     private EHRRepositoryBean custodianAssignedDevice;
-
-
-    @Hl7XmlMapping({"replacementOf"})
-    public List<ReplacesBean> getReplacementOf() {
-        return this.replacementOf;
-    }
+    private List<ReplacesBean> replacementOf = new ArrayList<ReplacesBean>();
 
 
     @Hl7XmlMapping({"subject"})
@@ -42,6 +36,12 @@ public class RegistrationEventBean<RR> extends MessagePartBean {
     }
     public void setCustodianAssignedDevice(EHRRepositoryBean custodianAssignedDevice) {
         this.custodianAssignedDevice = custodianAssignedDevice;
+    }
+
+
+    @Hl7XmlMapping({"replacementOf"})
+    public List<ReplacesBean> getReplacementOf() {
+        return this.replacementOf;
     }
 
 }

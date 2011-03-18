@@ -18,10 +18,33 @@ import ca.infoway.messagebuilder.model.v02_r01.merged.PrescribedByBean;
 public class IssueDescriptionBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
+    private II issueMonographId = new IIImpl();
+    private PrescribedByBean author;
     private ED<EncapsulatedData> issueDescription = new EDImpl<EncapsulatedData>();
     private RecommendedDosageBean componentSubstanceAdministrationEventCriterion;
-    private PrescribedByBean author;
-    private II issueMonographId = new IIImpl();
+
+
+    /**
+     * <p>IssueMonographId</p>
+     * 
+     * <p>A:Issue Monograph Id</p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Identifier getIssueMonographId() {
+        return this.issueMonographId.getValue();
+    }
+    public void setIssueMonographId(Identifier issueMonographId) {
+        this.issueMonographId.setValue(issueMonographId);
+    }
+
+
+    @Hl7XmlMapping({"author"})
+    public PrescribedByBean getAuthor() {
+        return this.author;
+    }
+    public void setAuthor(PrescribedByBean author) {
+        this.author = author;
+    }
 
 
     /**
@@ -44,29 +67,6 @@ public class IssueDescriptionBean extends MessagePartBean {
     }
     public void setComponentSubstanceAdministrationEventCriterion(RecommendedDosageBean componentSubstanceAdministrationEventCriterion) {
         this.componentSubstanceAdministrationEventCriterion = componentSubstanceAdministrationEventCriterion;
-    }
-
-
-    @Hl7XmlMapping({"author"})
-    public PrescribedByBean getAuthor() {
-        return this.author;
-    }
-    public void setAuthor(PrescribedByBean author) {
-        this.author = author;
-    }
-
-
-    /**
-     * <p>IssueMonographId</p>
-     * 
-     * <p>A:Issue Monograph Id</p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Identifier getIssueMonographId() {
-        return this.issueMonographId.getValue();
-    }
-    public void setIssueMonographId(Identifier issueMonographId) {
-        this.issueMonographId.setValue(issueMonographId);
     }
 
 }

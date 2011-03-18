@@ -13,17 +13,8 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 public class AccidentInformationBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private INT sequenceNumber = new INTImpl();
     private AccidentInjuryCodingBean accidentInjuryCoding;
-
-
-    @Hl7XmlMapping({"sequenceNumber"})
-    public Integer getSequenceNumber() {
-        return this.sequenceNumber.getValue();
-    }
-    public void setSequenceNumber(Integer sequenceNumber) {
-        this.sequenceNumber.setValue(sequenceNumber);
-    }
+    private INT sequenceNumber = new INTImpl();
 
 
     @Hl7XmlMapping({"accidentInjuryCoding"})
@@ -32,6 +23,15 @@ public class AccidentInformationBean extends MessagePartBean {
     }
     public void setAccidentInjuryCoding(AccidentInjuryCodingBean accidentInjuryCoding) {
         this.accidentInjuryCoding = accidentInjuryCoding;
+    }
+
+
+    @Hl7XmlMapping({"sequenceNumber"})
+    public Integer getSequenceNumber() {
+        return this.sequenceNumber.getValue();
+    }
+    public void setSequenceNumber(Integer sequenceNumber) {
+        this.sequenceNumber.setValue(sequenceNumber);
     }
 
 }

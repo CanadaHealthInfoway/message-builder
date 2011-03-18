@@ -33,25 +33,25 @@ import java.util.Set;
 public class ServiceLocationBean extends MessagePartBean implements Recipient {
 
     private static final long serialVersionUID = 20110318L;
-    private AD serviceLocationAddress = new ADImpl();
-    private ST serviceLocationName = new STImpl();
-    private SET<TEL, TelecommunicationAddress> serviceLocationPhonesAndEMails = new SETImpl<TEL, TelecommunicationAddress>(TELImpl.class);
-    private List<GeographicCoordinatesBean> subjectOfPosition = new ArrayList<GeographicCoordinatesBean>();
-    private CV serviceLocationType = new CVImpl();
     private II serviceLocationIdentifier = new IIImpl();
+    private ST serviceLocationName = new STImpl();
+    private CV serviceLocationType = new CVImpl();
+    private AD serviceLocationAddress = new ADImpl();
+    private List<GeographicCoordinatesBean> subjectOfPosition = new ArrayList<GeographicCoordinatesBean>();
+    private SET<TEL, TelecommunicationAddress> serviceLocationPhonesAndEMails = new SETImpl<TEL, TelecommunicationAddress>(TELImpl.class);
 
 
     /**
-     * <p>ServiceLocationAddress</p>
+     * <p>ServiceLocationIdentifier</p>
      * 
-     * <p>D:Service Location Address</p>
+     * <p>C:Service Location Identifier</p>
      */
-    @Hl7XmlMapping({"addr"})
-    public PostalAddress getServiceLocationAddress() {
-        return this.serviceLocationAddress.getValue();
+    @Hl7XmlMapping({"id"})
+    public Identifier getServiceLocationIdentifier() {
+        return this.serviceLocationIdentifier.getValue();
     }
-    public void setServiceLocationAddress(PostalAddress serviceLocationAddress) {
-        this.serviceLocationAddress.setValue(serviceLocationAddress);
+    public void setServiceLocationIdentifier(Identifier serviceLocationIdentifier) {
+        this.serviceLocationIdentifier.setValue(serviceLocationIdentifier);
     }
 
 
@@ -70,23 +70,6 @@ public class ServiceLocationBean extends MessagePartBean implements Recipient {
 
 
     /**
-     * <p>ServiceLocationPhonesAndEMails</p>
-     * 
-     * <p>E:Service Location Phones and E-mails</p>
-     */
-    @Hl7XmlMapping({"telecom"})
-    public Set<TelecommunicationAddress> getServiceLocationPhonesAndEMails() {
-        return this.serviceLocationPhonesAndEMails.rawSet();
-    }
-
-
-    @Hl7XmlMapping({"subjectOf/position"})
-    public List<GeographicCoordinatesBean> getSubjectOfPosition() {
-        return this.subjectOfPosition;
-    }
-
-
-    /**
      * <p>ServiceLocationType</p>
      * 
      * <p>A: Service Location Type</p>
@@ -101,16 +84,33 @@ public class ServiceLocationBean extends MessagePartBean implements Recipient {
 
 
     /**
-     * <p>ServiceLocationIdentifier</p>
+     * <p>ServiceLocationAddress</p>
      * 
-     * <p>C:Service Location Identifier</p>
+     * <p>D:Service Location Address</p>
      */
-    @Hl7XmlMapping({"id"})
-    public Identifier getServiceLocationIdentifier() {
-        return this.serviceLocationIdentifier.getValue();
+    @Hl7XmlMapping({"addr"})
+    public PostalAddress getServiceLocationAddress() {
+        return this.serviceLocationAddress.getValue();
     }
-    public void setServiceLocationIdentifier(Identifier serviceLocationIdentifier) {
-        this.serviceLocationIdentifier.setValue(serviceLocationIdentifier);
+    public void setServiceLocationAddress(PostalAddress serviceLocationAddress) {
+        this.serviceLocationAddress.setValue(serviceLocationAddress);
+    }
+
+
+    @Hl7XmlMapping({"subjectOf/position"})
+    public List<GeographicCoordinatesBean> getSubjectOfPosition() {
+        return this.subjectOfPosition;
+    }
+
+
+    /**
+     * <p>ServiceLocationPhonesAndEMails</p>
+     * 
+     * <p>E:Service Location Phones and E-mails</p>
+     */
+    @Hl7XmlMapping({"telecom"})
+    public Set<TelecommunicationAddress> getServiceLocationPhonesAndEMails() {
+        return this.serviceLocationPhonesAndEMails.rawSet();
     }
 
 }

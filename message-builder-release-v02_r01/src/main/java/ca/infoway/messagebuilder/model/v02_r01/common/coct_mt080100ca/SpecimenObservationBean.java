@@ -23,8 +23,8 @@ public class SpecimenObservationBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
     private ANY<Object> specimenObservationValue = new ANYImpl<Object>();
-    private CV specimenObservationType = new CVImpl();
     private IVL<TS, Interval<Date>> specimenObservationDateTime = new IVLImpl<TS, Interval<Date>>();
+    private CV specimenObservationType = new CVImpl();
 
 
     /**
@@ -40,18 +40,6 @@ public class SpecimenObservationBean extends MessagePartBean {
 
 
     /**
-     * <p>Specimen Observation Type</p>
-     */
-    @Hl7XmlMapping({"code"})
-    public Code getSpecimenObservationType() {
-        return (Code) this.specimenObservationType.getValue();
-    }
-    public void setSpecimenObservationType(Code specimenObservationType) {
-        this.specimenObservationType.setValue(specimenObservationType);
-    }
-
-
-    /**
      * <p>Specimen Observation Date/Time</p>
      */
     @Hl7XmlMapping({"effectiveTime"})
@@ -60,6 +48,18 @@ public class SpecimenObservationBean extends MessagePartBean {
     }
     public void setSpecimenObservationDateTime(Interval<Date> specimenObservationDateTime) {
         this.specimenObservationDateTime.setValue(specimenObservationDateTime);
+    }
+
+
+    /**
+     * <p>Specimen Observation Type</p>
+     */
+    @Hl7XmlMapping({"code"})
+    public Code getSpecimenObservationType() {
+        return (Code) this.specimenObservationType.getValue();
+    }
+    public void setSpecimenObservationType(Code specimenObservationType) {
+        this.specimenObservationType.setValue(specimenObservationType);
     }
 
 }

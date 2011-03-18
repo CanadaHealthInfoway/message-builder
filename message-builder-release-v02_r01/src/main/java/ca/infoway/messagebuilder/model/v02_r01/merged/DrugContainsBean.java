@@ -21,26 +21,10 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 public class DrugContainsBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private ST ingredientName = new STImpl();
     private CV drugIngredientIdentifier = new CVImpl();
+    private ST ingredientName = new STImpl();
     private PQ quantity = new PQImpl();
     private BL negationInd = new BLImpl();
-
-
-    /**
-     * <p>K:Ingredient Name</p>
-     * 
-     * <p>Ingredient Name</p>
-     * 
-     * <p>B:Drug Ingredient Name</p>
-     */
-    @Hl7XmlMapping({"ingredient/name"})
-    public String getIngredientName() {
-        return this.ingredientName.getValue();
-    }
-    public void setIngredientName(String ingredientName) {
-        this.ingredientName.setValue(ingredientName);
-    }
 
 
     /**
@@ -58,6 +42,22 @@ public class DrugContainsBean extends MessagePartBean {
     }
     public void setDrugIngredientIdentifier(ActiveIngredientDrugEntityType drugIngredientIdentifier) {
         this.drugIngredientIdentifier.setValue(drugIngredientIdentifier);
+    }
+
+
+    /**
+     * <p>K:Ingredient Name</p>
+     * 
+     * <p>Ingredient Name</p>
+     * 
+     * <p>B:Drug Ingredient Name</p>
+     */
+    @Hl7XmlMapping({"ingredient/name"})
+    public String getIngredientName() {
+        return this.ingredientName.getValue();
+    }
+    public void setIngredientName(String ingredientName) {
+        this.ingredientName.setValue(ingredientName);
     }
 
 

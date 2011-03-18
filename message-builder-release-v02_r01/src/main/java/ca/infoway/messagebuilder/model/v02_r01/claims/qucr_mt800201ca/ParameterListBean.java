@@ -23,13 +23,13 @@ public class ParameterListBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
     private II payeeIdValue = new IIImpl();
+    private II providerIdValue = new IIImpl();
     private II adjudResultsGroupIdValue = new IIImpl();
+    private IVL<TS, Interval<Date>> adjudResultsGroupAuthorTimeValue = new IVLImpl<TS, Interval<Date>>();
     private II payorIdValue = new IIImpl();
     private II locationIdValue = new IIImpl();
-    private II providerIdValue = new IIImpl();
-    private IVL<TS, Interval<Date>> adjudResultsGroupAuthorTimeValue = new IVLImpl<TS, Interval<Date>>();
-    private II insuranceCarrierRoleIdValue = new IIImpl();
     private II sendingApplicationIdValue = new IIImpl();
+    private II insuranceCarrierRoleIdValue = new IIImpl();
     private II financialContractIdValue = new IIImpl();
 
 
@@ -42,12 +42,30 @@ public class ParameterListBean extends MessagePartBean {
     }
 
 
+    @Hl7XmlMapping({"providerId/value"})
+    public Identifier getProviderIdValue() {
+        return this.providerIdValue.getValue();
+    }
+    public void setProviderIdValue(Identifier providerIdValue) {
+        this.providerIdValue.setValue(providerIdValue);
+    }
+
+
     @Hl7XmlMapping({"adjudResultsGroupId/value"})
     public Identifier getAdjudResultsGroupIdValue() {
         return this.adjudResultsGroupIdValue.getValue();
     }
     public void setAdjudResultsGroupIdValue(Identifier adjudResultsGroupIdValue) {
         this.adjudResultsGroupIdValue.setValue(adjudResultsGroupIdValue);
+    }
+
+
+    @Hl7XmlMapping({"adjudResultsGroupAuthorTime/value"})
+    public Interval<Date> getAdjudResultsGroupAuthorTimeValue() {
+        return this.adjudResultsGroupAuthorTimeValue.getValue();
+    }
+    public void setAdjudResultsGroupAuthorTimeValue(Interval<Date> adjudResultsGroupAuthorTimeValue) {
+        this.adjudResultsGroupAuthorTimeValue.setValue(adjudResultsGroupAuthorTimeValue);
     }
 
 
@@ -69,21 +87,12 @@ public class ParameterListBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"providerId/value"})
-    public Identifier getProviderIdValue() {
-        return this.providerIdValue.getValue();
+    @Hl7XmlMapping({"sendingApplicationId/value"})
+    public Identifier getSendingApplicationIdValue() {
+        return this.sendingApplicationIdValue.getValue();
     }
-    public void setProviderIdValue(Identifier providerIdValue) {
-        this.providerIdValue.setValue(providerIdValue);
-    }
-
-
-    @Hl7XmlMapping({"adjudResultsGroupAuthorTime/value"})
-    public Interval<Date> getAdjudResultsGroupAuthorTimeValue() {
-        return this.adjudResultsGroupAuthorTimeValue.getValue();
-    }
-    public void setAdjudResultsGroupAuthorTimeValue(Interval<Date> adjudResultsGroupAuthorTimeValue) {
-        this.adjudResultsGroupAuthorTimeValue.setValue(adjudResultsGroupAuthorTimeValue);
+    public void setSendingApplicationIdValue(Identifier sendingApplicationIdValue) {
+        this.sendingApplicationIdValue.setValue(sendingApplicationIdValue);
     }
 
 
@@ -93,15 +102,6 @@ public class ParameterListBean extends MessagePartBean {
     }
     public void setInsuranceCarrierRoleIdValue(Identifier insuranceCarrierRoleIdValue) {
         this.insuranceCarrierRoleIdValue.setValue(insuranceCarrierRoleIdValue);
-    }
-
-
-    @Hl7XmlMapping({"sendingApplicationId/value"})
-    public Identifier getSendingApplicationIdValue() {
-        return this.sendingApplicationIdValue.getValue();
-    }
-    public void setSendingApplicationIdValue(Identifier sendingApplicationIdValue) {
-        this.sendingApplicationIdValue.setValue(sendingApplicationIdValue);
     }
 
 

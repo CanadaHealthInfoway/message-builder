@@ -17,22 +17,17 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 public class CoverageExtensions_1Bean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private CS extensionGrantedIndicator = new CSImpl();
-    private II coverageExtensionId = new IIImpl();
     private UnderwriterBean authorUnderwriter;
+    private II coverageExtensionId = new IIImpl();
+    private CS extensionGrantedIndicator = new CSImpl();
 
 
-    /**
-     * <p>ExtensionGrantedIndicator</p>
-     * 
-     * <p>Extension Granted Indicator</p>
-     */
-    @Hl7XmlMapping({"moodCode"})
-    public x_ActMoodOrderEvent getExtensionGrantedIndicator() {
-        return (x_ActMoodOrderEvent) this.extensionGrantedIndicator.getValue();
+    @Hl7XmlMapping({"author/underwriter"})
+    public UnderwriterBean getAuthorUnderwriter() {
+        return this.authorUnderwriter;
     }
-    public void setExtensionGrantedIndicator(x_ActMoodOrderEvent extensionGrantedIndicator) {
-        this.extensionGrantedIndicator.setValue(extensionGrantedIndicator);
+    public void setAuthorUnderwriter(UnderwriterBean authorUnderwriter) {
+        this.authorUnderwriter = authorUnderwriter;
     }
 
 
@@ -50,12 +45,17 @@ public class CoverageExtensions_1Bean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"author/underwriter"})
-    public UnderwriterBean getAuthorUnderwriter() {
-        return this.authorUnderwriter;
+    /**
+     * <p>ExtensionGrantedIndicator</p>
+     * 
+     * <p>Extension Granted Indicator</p>
+     */
+    @Hl7XmlMapping({"moodCode"})
+    public x_ActMoodOrderEvent getExtensionGrantedIndicator() {
+        return (x_ActMoodOrderEvent) this.extensionGrantedIndicator.getValue();
     }
-    public void setAuthorUnderwriter(UnderwriterBean authorUnderwriter) {
-        this.authorUnderwriter = authorUnderwriter;
+    public void setExtensionGrantedIndicator(x_ActMoodOrderEvent extensionGrantedIndicator) {
+        this.extensionGrantedIndicator.setValue(extensionGrantedIndicator);
     }
 
 }

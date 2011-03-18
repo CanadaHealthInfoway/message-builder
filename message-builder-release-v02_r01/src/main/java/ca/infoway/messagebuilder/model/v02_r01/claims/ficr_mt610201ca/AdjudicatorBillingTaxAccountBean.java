@@ -17,17 +17,8 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 public class AdjudicatorBillingTaxAccountBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private CV code = new CVImpl();
     private II id = new IIImpl();
-
-
-    @Hl7XmlMapping({"code"})
-    public Code getCode() {
-        return (Code) this.code.getValue();
-    }
-    public void setCode(Code code) {
-        this.code.setValue(code);
-    }
+    private CV code = new CVImpl();
 
 
     @Hl7XmlMapping({"id"})
@@ -36,6 +27,15 @@ public class AdjudicatorBillingTaxAccountBean extends MessagePartBean {
     }
     public void setId(Identifier id) {
         this.id.setValue(id);
+    }
+
+
+    @Hl7XmlMapping({"code"})
+    public Code getCode() {
+        return (Code) this.code.getValue();
+    }
+    public void setCode(Code code) {
+        this.code.setValue(code);
     }
 
 }

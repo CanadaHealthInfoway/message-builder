@@ -15,17 +15,8 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 public class AdjudicatedInvoiceAuthorBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private ED<String> signatureText = new EDImpl<String>();
     private ST adjudicatorRolePlayingAdjudicatorDeviceSoftwareName = new STImpl();
-
-
-    @Hl7XmlMapping({"signatureText"})
-    public String getSignatureText() {
-        return this.signatureText.getValue();
-    }
-    public void setSignatureText(String signatureText) {
-        this.signatureText.setValue(signatureText);
-    }
+    private ED<String> signatureText = new EDImpl<String>();
 
 
     @Hl7XmlMapping({"adjudicatorRole/playingAdjudicatorDevice/softwareName"})
@@ -34,6 +25,15 @@ public class AdjudicatedInvoiceAuthorBean extends MessagePartBean {
     }
     public void setAdjudicatorRolePlayingAdjudicatorDeviceSoftwareName(String adjudicatorRolePlayingAdjudicatorDeviceSoftwareName) {
         this.adjudicatorRolePlayingAdjudicatorDeviceSoftwareName.setValue(adjudicatorRolePlayingAdjudicatorDeviceSoftwareName);
+    }
+
+
+    @Hl7XmlMapping({"signatureText"})
+    public String getSignatureText() {
+        return this.signatureText.getValue();
+    }
+    public void setSignatureText(String signatureText) {
+        this.signatureText.setValue(signatureText);
     }
 
 }

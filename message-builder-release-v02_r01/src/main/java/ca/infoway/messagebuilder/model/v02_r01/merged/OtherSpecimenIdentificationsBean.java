@@ -21,6 +21,7 @@ import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.PersonName;
 import ca.infoway.messagebuilder.domainvalue.AdministrativeGender;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -31,26 +32,26 @@ import java.util.List;
 public class OtherSpecimenIdentificationsBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private ST organizationName = new STImpl();
-    private II organizationIdentifier = new IIImpl();
-    private CV otherSpecimenIdentifierType = new CVImpl();
     private II id = new IIImpl();
-    private CV clientGender = new CVImpl();
-    private LIST<PN, PersonName> clientName = new LISTImpl<PN, PersonName>(PNImpl.class);
+    private II organizationIdentifier = new IIImpl();
+    private ST organizationName = new STImpl();
+    private CV otherSpecimenIdentifierType = new CVImpl();
     private TS clientDateOfBirth = new TSImpl();
+    private LIST<PN, PersonName> clientName = new LISTImpl<PN, PersonName>(PNImpl.class);
+    private CV clientGender = new CVImpl();
 
 
     /**
-     * <p>OrganizationName</p>
+     * <p>Other Specimen Identifiers</p>
      * 
-     * <p>Organization Name</p>
+     * <p>Client Healthcare Identification Number</p>
      */
-    @Hl7XmlMapping({"assigningOrganization/name"})
-    public String getOrganizationName() {
-        return this.organizationName.getValue();
+    @Hl7XmlMapping({"id"})
+    public Identifier getId() {
+        return this.id.getValue();
     }
-    public void setOrganizationName(String organizationName) {
-        this.organizationName.setValue(organizationName);
+    public void setId(Identifier id) {
+        this.id.setValue(id);
     }
 
 
@@ -69,6 +70,20 @@ public class OtherSpecimenIdentificationsBean extends MessagePartBean {
 
 
     /**
+     * <p>OrganizationName</p>
+     * 
+     * <p>Organization Name</p>
+     */
+    @Hl7XmlMapping({"assigningOrganization/name"})
+    public String getOrganizationName() {
+        return this.organizationName.getValue();
+    }
+    public void setOrganizationName(String organizationName) {
+        this.organizationName.setValue(organizationName);
+    }
+
+
+    /**
      * <p>OtherSpecimenIdentifierType</p>
      * 
      * <p>Other Specimen Identifier Type</p>
@@ -83,30 +98,16 @@ public class OtherSpecimenIdentificationsBean extends MessagePartBean {
 
 
     /**
-     * <p>Other Specimen Identifiers</p>
+     * <p>ClientDateOfBirth</p>
      * 
-     * <p>Client Healthcare Identification Number</p>
+     * <p>Client Date of Birth</p>
      */
-    @Hl7XmlMapping({"id"})
-    public Identifier getId() {
-        return this.id.getValue();
+    @Hl7XmlMapping({"identifiedPerson/birthTime"})
+    public Date getClientDateOfBirth() {
+        return this.clientDateOfBirth.getValue();
     }
-    public void setId(Identifier id) {
-        this.id.setValue(id);
-    }
-
-
-    /**
-     * <p>ClientGender</p>
-     * 
-     * <p>Client Gender</p>
-     */
-    @Hl7XmlMapping({"identifiedPerson/administrativeGenderCode"})
-    public AdministrativeGender getClientGender() {
-        return (AdministrativeGender) this.clientGender.getValue();
-    }
-    public void setClientGender(AdministrativeGender clientGender) {
-        this.clientGender.setValue(clientGender);
+    public void setClientDateOfBirth(Date clientDateOfBirth) {
+        this.clientDateOfBirth.setValue(clientDateOfBirth);
     }
 
 
@@ -122,16 +123,16 @@ public class OtherSpecimenIdentificationsBean extends MessagePartBean {
 
 
     /**
-     * <p>ClientDateOfBirth</p>
+     * <p>ClientGender</p>
      * 
-     * <p>Client Date of Birth</p>
+     * <p>Client Gender</p>
      */
-    @Hl7XmlMapping({"identifiedPerson/birthTime"})
-    public Date getClientDateOfBirth() {
-        return this.clientDateOfBirth.getValue();
+    @Hl7XmlMapping({"identifiedPerson/administrativeGenderCode"})
+    public AdministrativeGender getClientGender() {
+        return (AdministrativeGender) this.clientGender.getValue();
     }
-    public void setClientDateOfBirth(Date clientDateOfBirth) {
-        this.clientDateOfBirth.setValue(clientDateOfBirth);
+    public void setClientGender(AdministrativeGender clientGender) {
+        this.clientGender.setValue(clientGender);
     }
 
 }

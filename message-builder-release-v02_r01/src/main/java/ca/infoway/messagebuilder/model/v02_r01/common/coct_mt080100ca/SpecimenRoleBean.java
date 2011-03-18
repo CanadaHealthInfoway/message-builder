@@ -28,20 +28,53 @@ import java.util.List;
 public class SpecimenRoleBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private List<OtherSpecimenIdentificationsBean> specimenMaterialAsIdentifiedEntity = new ArrayList<OtherSpecimenIdentificationsBean>();
-    private CV specimenContainerRisk = new CVImpl();
-    private CV specimenCode = new CVImpl();
-    private ST specimenText = new STImpl();
-    private List<SpecimenProcessStepsBean> subjectOf1TransportationEvent = new ArrayList<SpecimenProcessStepsBean>();
+    private CS classCode = new CSImpl();
     private List<SpecimenObservationBean> subjectOf2SpecimenObservationEvent = new ArrayList<SpecimenObservationBean>();
     private II specimenIdentifier = new IIImpl();
-    private CS classCode = new CSImpl();
+    private ST specimenText = new STImpl();
+    private CV specimenContainerRisk = new CVImpl();
+    private CV specimenCode = new CVImpl();
+    private List<OtherSpecimenIdentificationsBean> specimenMaterialAsIdentifiedEntity = new ArrayList<OtherSpecimenIdentificationsBean>();
     private SpecimenCollectionProcedureBean productOfSpecimenCollectionProcedureEvent;
+    private List<SpecimenProcessStepsBean> subjectOf1TransportationEvent = new ArrayList<SpecimenProcessStepsBean>();
 
 
-    @Hl7XmlMapping({"specimenMaterial/asIdentifiedEntity"})
-    public List<OtherSpecimenIdentificationsBean> getSpecimenMaterialAsIdentifiedEntity() {
-        return this.specimenMaterialAsIdentifiedEntity;
+    @Hl7XmlMapping({"classCode"})
+    public RoleClass getClassCode() {
+        return (RoleClass) this.classCode.getValue();
+    }
+    public void setClassCode(RoleClass classCode) {
+        this.classCode.setValue(classCode);
+    }
+
+
+    @Hl7XmlMapping({"subjectOf2/specimenObservationEvent"})
+    public List<SpecimenObservationBean> getSubjectOf2SpecimenObservationEvent() {
+        return this.subjectOf2SpecimenObservationEvent;
+    }
+
+
+    /**
+     * <p>A:Specimen Identifier</p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Identifier getSpecimenIdentifier() {
+        return this.specimenIdentifier.getValue();
+    }
+    public void setSpecimenIdentifier(Identifier specimenIdentifier) {
+        this.specimenIdentifier.setValue(specimenIdentifier);
+    }
+
+
+    /**
+     * <p>W:Specimen Text</p>
+     */
+    @Hl7XmlMapping({"specimenMaterial/desc"})
+    public String getSpecimenText() {
+        return this.specimenText.getValue();
+    }
+    public void setSpecimenText(String specimenText) {
+        this.specimenText.setValue(specimenText);
     }
 
 
@@ -69,48 +102,9 @@ public class SpecimenRoleBean extends MessagePartBean {
     }
 
 
-    /**
-     * <p>W:Specimen Text</p>
-     */
-    @Hl7XmlMapping({"specimenMaterial/desc"})
-    public String getSpecimenText() {
-        return this.specimenText.getValue();
-    }
-    public void setSpecimenText(String specimenText) {
-        this.specimenText.setValue(specimenText);
-    }
-
-
-    @Hl7XmlMapping({"subjectOf1/transportationEvent"})
-    public List<SpecimenProcessStepsBean> getSubjectOf1TransportationEvent() {
-        return this.subjectOf1TransportationEvent;
-    }
-
-
-    @Hl7XmlMapping({"subjectOf2/specimenObservationEvent"})
-    public List<SpecimenObservationBean> getSubjectOf2SpecimenObservationEvent() {
-        return this.subjectOf2SpecimenObservationEvent;
-    }
-
-
-    /**
-     * <p>A:Specimen Identifier</p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Identifier getSpecimenIdentifier() {
-        return this.specimenIdentifier.getValue();
-    }
-    public void setSpecimenIdentifier(Identifier specimenIdentifier) {
-        this.specimenIdentifier.setValue(specimenIdentifier);
-    }
-
-
-    @Hl7XmlMapping({"classCode"})
-    public RoleClass getClassCode() {
-        return (RoleClass) this.classCode.getValue();
-    }
-    public void setClassCode(RoleClass classCode) {
-        this.classCode.setValue(classCode);
+    @Hl7XmlMapping({"specimenMaterial/asIdentifiedEntity"})
+    public List<OtherSpecimenIdentificationsBean> getSpecimenMaterialAsIdentifiedEntity() {
+        return this.specimenMaterialAsIdentifiedEntity;
     }
 
 
@@ -120,6 +114,12 @@ public class SpecimenRoleBean extends MessagePartBean {
     }
     public void setProductOfSpecimenCollectionProcedureEvent(SpecimenCollectionProcedureBean productOfSpecimenCollectionProcedureEvent) {
         this.productOfSpecimenCollectionProcedureEvent = productOfSpecimenCollectionProcedureEvent;
+    }
+
+
+    @Hl7XmlMapping({"subjectOf1/transportationEvent"})
+    public List<SpecimenProcessStepsBean> getSubjectOf1TransportationEvent() {
+        return this.subjectOf1TransportationEvent;
     }
 
 }

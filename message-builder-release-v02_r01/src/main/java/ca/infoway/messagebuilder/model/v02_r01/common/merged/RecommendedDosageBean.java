@@ -26,27 +26,13 @@ public class RecommendedDosageBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
     private List<DosagePreconditionsBean> componentObservationEventCriterion = new ArrayList<DosagePreconditionsBean>();
-    private URG<PQ, PhysicalQuantity> dosageRange = new URGImpl<PQ, PhysicalQuantity>();
     private IVL<TS, Interval<Date>> doseDuration = new IVLImpl<TS, Interval<Date>>();
+    private URG<PQ, PhysicalQuantity> dosageRange = new URGImpl<PQ, PhysicalQuantity>();
 
 
     @Hl7XmlMapping({"component/observationEventCriterion"})
     public List<DosagePreconditionsBean> getComponentObservationEventCriterion() {
         return this.componentObservationEventCriterion;
-    }
-
-
-    /**
-     * <p>DosageRange</p>
-     * 
-     * <p>B:Dosage Range</p>
-     */
-    @Hl7XmlMapping({"doseQuantity"})
-    public UncertainRange<PhysicalQuantity> getDosageRange() {
-        return this.dosageRange.getValue();
-    }
-    public void setDosageRange(UncertainRange<PhysicalQuantity> dosageRange) {
-        this.dosageRange.setValue(dosageRange);
     }
 
 
@@ -61,6 +47,20 @@ public class RecommendedDosageBean extends MessagePartBean {
     }
     public void setDoseDuration(Interval<Date> doseDuration) {
         this.doseDuration.setValue(doseDuration);
+    }
+
+
+    /**
+     * <p>DosageRange</p>
+     * 
+     * <p>B:Dosage Range</p>
+     */
+    @Hl7XmlMapping({"doseQuantity"})
+    public UncertainRange<PhysicalQuantity> getDosageRange() {
+        return this.dosageRange.getValue();
+    }
+    public void setDosageRange(UncertainRange<PhysicalQuantity> dosageRange) {
+        this.dosageRange.setValue(dosageRange);
     }
 
 }

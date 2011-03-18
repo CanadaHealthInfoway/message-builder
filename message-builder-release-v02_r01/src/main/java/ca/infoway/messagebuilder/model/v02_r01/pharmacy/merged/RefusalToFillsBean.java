@@ -22,26 +22,11 @@ import java.util.List;
 public class RefusalToFillsBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private List<IssuesBean> reasonDetectedIssueEvent = new ArrayList<IssuesBean>();
-    private CreatedAtBean location;
     private CV refusalToFillReason = new CVImpl();
     private RefusedByBean author;
     private TS refusalToFillDate = new TSImpl();
-
-
-    @Hl7XmlMapping({"reason/detectedIssueEvent"})
-    public List<IssuesBean> getReasonDetectedIssueEvent() {
-        return this.reasonDetectedIssueEvent;
-    }
-
-
-    @Hl7XmlMapping({"location"})
-    public CreatedAtBean getLocation() {
-        return this.location;
-    }
-    public void setLocation(CreatedAtBean location) {
-        this.location = location;
-    }
+    private List<IssuesBean> reasonDetectedIssueEvent = new ArrayList<IssuesBean>();
+    private CreatedAtBean location;
 
 
     /**
@@ -80,6 +65,21 @@ public class RefusalToFillsBean extends MessagePartBean {
     }
     public void setRefusalToFillDate(Date refusalToFillDate) {
         this.refusalToFillDate.setValue(refusalToFillDate);
+    }
+
+
+    @Hl7XmlMapping({"reason/detectedIssueEvent"})
+    public List<IssuesBean> getReasonDetectedIssueEvent() {
+        return this.reasonDetectedIssueEvent;
+    }
+
+
+    @Hl7XmlMapping({"location"})
+    public CreatedAtBean getLocation() {
+        return this.location;
+    }
+    public void setLocation(CreatedAtBean location) {
+        this.location = location;
     }
 
 }

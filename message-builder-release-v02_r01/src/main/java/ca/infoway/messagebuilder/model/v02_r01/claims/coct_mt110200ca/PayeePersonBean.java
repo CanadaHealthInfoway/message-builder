@@ -23,42 +23,12 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 public class PayeePersonBean extends MessagePartBean implements PayeeChoice {
 
     private static final long serialVersionUID = 20110318L;
-    private BL payeeLanguagePreferenceInd = new BLImpl();
-    private CV receivedWritten = new CVImpl();
-    private CV payeeLanguageLanguageCode = new CVImpl();
     private PayeeRelationshipRoleBean asPayeeRelationshipRole;
     private AD payeeAddress = new ADImpl();
     private PN payeeName = new PNImpl();
-
-
-    @Hl7XmlMapping({"payeeLanguage/preferenceInd"})
-    public Boolean getPayeeLanguagePreferenceInd() {
-        return this.payeeLanguagePreferenceInd.getValue();
-    }
-    public void setPayeeLanguagePreferenceInd(Boolean payeeLanguagePreferenceInd) {
-        this.payeeLanguagePreferenceInd.setValue(payeeLanguagePreferenceInd);
-    }
-
-
-    /**
-     * <p>Received Written</p>
-     */
-    @Hl7XmlMapping({"payeeLanguage/modeCode"})
-    public LanguageAbilityMode getReceivedWritten() {
-        return (LanguageAbilityMode) this.receivedWritten.getValue();
-    }
-    public void setReceivedWritten(LanguageAbilityMode receivedWritten) {
-        this.receivedWritten.setValue(receivedWritten);
-    }
-
-
-    @Hl7XmlMapping({"payeeLanguage/languageCode"})
-    public HumanLanguage getPayeeLanguageLanguageCode() {
-        return (HumanLanguage) this.payeeLanguageLanguageCode.getValue();
-    }
-    public void setPayeeLanguageLanguageCode(HumanLanguage payeeLanguageLanguageCode) {
-        this.payeeLanguageLanguageCode.setValue(payeeLanguageLanguageCode);
-    }
+    private BL payeeLanguagePreferenceInd = new BLImpl();
+    private CV payeeLanguageLanguageCode = new CVImpl();
+    private CV receivedWritten = new CVImpl();
 
 
     @Hl7XmlMapping({"asPayeeRelationshipRole"})
@@ -91,6 +61,36 @@ public class PayeePersonBean extends MessagePartBean implements PayeeChoice {
     }
     public void setPayeeName(PersonName payeeName) {
         this.payeeName.setValue(payeeName);
+    }
+
+
+    @Hl7XmlMapping({"payeeLanguage/preferenceInd"})
+    public Boolean getPayeeLanguagePreferenceInd() {
+        return this.payeeLanguagePreferenceInd.getValue();
+    }
+    public void setPayeeLanguagePreferenceInd(Boolean payeeLanguagePreferenceInd) {
+        this.payeeLanguagePreferenceInd.setValue(payeeLanguagePreferenceInd);
+    }
+
+
+    @Hl7XmlMapping({"payeeLanguage/languageCode"})
+    public HumanLanguage getPayeeLanguageLanguageCode() {
+        return (HumanLanguage) this.payeeLanguageLanguageCode.getValue();
+    }
+    public void setPayeeLanguageLanguageCode(HumanLanguage payeeLanguageLanguageCode) {
+        this.payeeLanguageLanguageCode.setValue(payeeLanguageLanguageCode);
+    }
+
+
+    /**
+     * <p>Received Written</p>
+     */
+    @Hl7XmlMapping({"payeeLanguage/modeCode"})
+    public LanguageAbilityMode getReceivedWritten() {
+        return (LanguageAbilityMode) this.receivedWritten.getValue();
+    }
+    public void setReceivedWritten(LanguageAbilityMode receivedWritten) {
+        this.receivedWritten.setValue(receivedWritten);
     }
 
 }

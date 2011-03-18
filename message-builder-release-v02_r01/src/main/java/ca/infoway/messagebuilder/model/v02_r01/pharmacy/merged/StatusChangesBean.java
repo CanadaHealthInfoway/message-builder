@@ -23,45 +23,11 @@ import java.util.Date;
 public class StatusChangesBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private HealthcareWorkerBean responsiblePartyAssignedEntity;
-    private ChangedByBean author;
-    private CV code = new CVImpl();
     private CV reasonCode = new CVImpl();
+    private ChangedByBean author;
+    private HealthcareWorkerBean responsiblePartyAssignedEntity;
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
-
-
-    @Hl7XmlMapping({"responsibleParty/assignedEntity"})
-    public HealthcareWorkerBean getResponsiblePartyAssignedEntity() {
-        return this.responsiblePartyAssignedEntity;
-    }
-    public void setResponsiblePartyAssignedEntity(HealthcareWorkerBean responsiblePartyAssignedEntity) {
-        this.responsiblePartyAssignedEntity = responsiblePartyAssignedEntity;
-    }
-
-
-    @Hl7XmlMapping({"author"})
-    public ChangedByBean getAuthor() {
-        return this.author;
-    }
-    public void setAuthor(ChangedByBean author) {
-        this.author = author;
-    }
-
-
-    /**
-     * <p>Dispense Status Change Type</p>
-     * 
-     * <p>Other Medication Status Change Type</p>
-     * 
-     * <p>Change Type</p>
-     */
-    @Hl7XmlMapping({"code"})
-    public HL7TriggerEventCode getCode() {
-        return (HL7TriggerEventCode) this.code.getValue();
-    }
-    public void setCode(HL7TriggerEventCode code) {
-        this.code.setValue(code);
-    }
+    private CV code = new CVImpl();
 
 
     /**
@@ -80,6 +46,24 @@ public class StatusChangesBean extends MessagePartBean {
     }
 
 
+    @Hl7XmlMapping({"author"})
+    public ChangedByBean getAuthor() {
+        return this.author;
+    }
+    public void setAuthor(ChangedByBean author) {
+        this.author = author;
+    }
+
+
+    @Hl7XmlMapping({"responsibleParty/assignedEntity"})
+    public HealthcareWorkerBean getResponsiblePartyAssignedEntity() {
+        return this.responsiblePartyAssignedEntity;
+    }
+    public void setResponsiblePartyAssignedEntity(HealthcareWorkerBean responsiblePartyAssignedEntity) {
+        this.responsiblePartyAssignedEntity = responsiblePartyAssignedEntity;
+    }
+
+
     /**
      * <p>Other Medication Status Change Effective Period</p>
      * 
@@ -93,6 +77,22 @@ public class StatusChangesBean extends MessagePartBean {
     }
     public void setEffectiveTime(Interval<Date> effectiveTime) {
         this.effectiveTime.setValue(effectiveTime);
+    }
+
+
+    /**
+     * <p>Dispense Status Change Type</p>
+     * 
+     * <p>Other Medication Status Change Type</p>
+     * 
+     * <p>Change Type</p>
+     */
+    @Hl7XmlMapping({"code"})
+    public HL7TriggerEventCode getCode() {
+        return (HL7TriggerEventCode) this.code.getValue();
+    }
+    public void setCode(HL7TriggerEventCode code) {
+        this.code.setValue(code);
     }
 
 }

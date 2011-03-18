@@ -42,15 +42,15 @@ public class InvoiceTypeBean extends MessagePartBean implements ca.infoway.messa
     private II id = new IIImpl();
     private MO invoiceSubTotal = new MOImpl();
     private CV invoiceType = new CVImpl();
-    private List<InvoiceComponentBean> component = new ArrayList<InvoiceComponentBean>();
-    private List<CrossReferenceIdentifierBean> predecessorInvoiceElementCrossReference = new ArrayList<CrossReferenceIdentifierBean>();
-    private BusinessArrangementBean inFulfillmentOfFinancialContract;
-    private List<PolicyIdentifierBean> coveragePolicyOrAccount = new ArrayList<PolicyIdentifierBean>();
-    private List<A_BillableActChoice> reasonOfBillableActChoice = new ArrayList<A_BillableActChoice>();
-    private List<AdjudicatedInvoiceElementGroupBean> referenceAdjudicatedInvoiceElementGroup = new ArrayList<AdjudicatedInvoiceElementGroupBean>();
-    private List<InvoiceOverrideDetailsBean> triggerForInvoiceElementOverride = new ArrayList<InvoiceOverrideDetailsBean>();
     private List<AttachmentsBean> pertinentInformation = new ArrayList<AttachmentsBean>();
+    private List<A_BillableActChoice> reasonOfBillableActChoice = new ArrayList<A_BillableActChoice>();
+    private BusinessArrangementBean inFulfillmentOfFinancialContract;
     private IVL<TS, Interval<Date>> timePeriodForInvoice = new IVLImpl<TS, Interval<Date>>();
+    private List<PolicyIdentifierBean> coveragePolicyOrAccount = new ArrayList<PolicyIdentifierBean>();
+    private List<InvoiceOverrideDetailsBean> triggerForInvoiceElementOverride = new ArrayList<InvoiceOverrideDetailsBean>();
+    private List<InvoiceComponentBean> component = new ArrayList<InvoiceComponentBean>();
+    private List<AdjudicatedInvoiceElementGroupBean> referenceAdjudicatedInvoiceElementGroup = new ArrayList<AdjudicatedInvoiceElementGroupBean>();
+    private List<CrossReferenceIdentifierBean> predecessorInvoiceElementCrossReference = new ArrayList<CrossReferenceIdentifierBean>();
 
 
     /**
@@ -99,30 +99,9 @@ public class InvoiceTypeBean extends MessagePartBean implements ca.infoway.messa
     }
 
 
-    @Hl7XmlMapping({"component"})
-    public List<InvoiceComponentBean> getComponent() {
-        return this.component;
-    }
-
-
-    @Hl7XmlMapping({"predecessor/invoiceElementCrossReference"})
-    public List<CrossReferenceIdentifierBean> getPredecessorInvoiceElementCrossReference() {
-        return this.predecessorInvoiceElementCrossReference;
-    }
-
-
-    @Hl7XmlMapping({"inFulfillmentOf/financialContract"})
-    public BusinessArrangementBean getInFulfillmentOfFinancialContract() {
-        return this.inFulfillmentOfFinancialContract;
-    }
-    public void setInFulfillmentOfFinancialContract(BusinessArrangementBean inFulfillmentOfFinancialContract) {
-        this.inFulfillmentOfFinancialContract = inFulfillmentOfFinancialContract;
-    }
-
-
-    @Hl7XmlMapping({"coverage/policyOrAccount"})
-    public List<PolicyIdentifierBean> getCoveragePolicyOrAccount() {
-        return this.coveragePolicyOrAccount;
+    @Hl7XmlMapping({"pertinentInformation"})
+    public List<AttachmentsBean> getPertinentInformation() {
+        return this.pertinentInformation;
     }
 
 
@@ -132,21 +111,12 @@ public class InvoiceTypeBean extends MessagePartBean implements ca.infoway.messa
     }
 
 
-    @Hl7XmlMapping({"reference/adjudicatedInvoiceElementGroup"})
-    public List<AdjudicatedInvoiceElementGroupBean> getReferenceAdjudicatedInvoiceElementGroup() {
-        return this.referenceAdjudicatedInvoiceElementGroup;
+    @Hl7XmlMapping({"inFulfillmentOf/financialContract"})
+    public BusinessArrangementBean getInFulfillmentOfFinancialContract() {
+        return this.inFulfillmentOfFinancialContract;
     }
-
-
-    @Hl7XmlMapping({"triggerFor/invoiceElementOverride"})
-    public List<InvoiceOverrideDetailsBean> getTriggerForInvoiceElementOverride() {
-        return this.triggerForInvoiceElementOverride;
-    }
-
-
-    @Hl7XmlMapping({"pertinentInformation"})
-    public List<AttachmentsBean> getPertinentInformation() {
-        return this.pertinentInformation;
+    public void setInFulfillmentOfFinancialContract(BusinessArrangementBean inFulfillmentOfFinancialContract) {
+        this.inFulfillmentOfFinancialContract = inFulfillmentOfFinancialContract;
     }
 
 
@@ -161,6 +131,36 @@ public class InvoiceTypeBean extends MessagePartBean implements ca.infoway.messa
     }
     public void setTimePeriodForInvoice(Interval<Date> timePeriodForInvoice) {
         this.timePeriodForInvoice.setValue(timePeriodForInvoice);
+    }
+
+
+    @Hl7XmlMapping({"coverage/policyOrAccount"})
+    public List<PolicyIdentifierBean> getCoveragePolicyOrAccount() {
+        return this.coveragePolicyOrAccount;
+    }
+
+
+    @Hl7XmlMapping({"triggerFor/invoiceElementOverride"})
+    public List<InvoiceOverrideDetailsBean> getTriggerForInvoiceElementOverride() {
+        return this.triggerForInvoiceElementOverride;
+    }
+
+
+    @Hl7XmlMapping({"component"})
+    public List<InvoiceComponentBean> getComponent() {
+        return this.component;
+    }
+
+
+    @Hl7XmlMapping({"reference/adjudicatedInvoiceElementGroup"})
+    public List<AdjudicatedInvoiceElementGroupBean> getReferenceAdjudicatedInvoiceElementGroup() {
+        return this.referenceAdjudicatedInvoiceElementGroup;
+    }
+
+
+    @Hl7XmlMapping({"predecessor/invoiceElementCrossReference"})
+    public List<CrossReferenceIdentifierBean> getPredecessorInvoiceElementCrossReference() {
+        return this.predecessorInvoiceElementCrossReference;
     }
 
 }

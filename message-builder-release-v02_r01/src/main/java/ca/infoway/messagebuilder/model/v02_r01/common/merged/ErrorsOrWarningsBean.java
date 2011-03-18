@@ -14,6 +14,8 @@ import ca.infoway.messagebuilder.datatype.impl.STImpl;
 import ca.infoway.messagebuilder.domainvalue.AcknowledgementDetailCode;
 import ca.infoway.messagebuilder.domainvalue.AcknowledgementDetailType;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 
@@ -22,23 +24,23 @@ import java.util.Set;
 public class ErrorsOrWarningsBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private ST messageDescription = new STImpl();
+    private CS messageType = new CSImpl();
     private SET<ST, String> referencedMessageLocations = new SETImpl<ST, String>(STImpl.class);
     private CV responseCode = new CVImpl();
-    private CS messageType = new CSImpl();
+    private ST messageDescription = new STImpl();
 
 
     /**
-     * <p>MessageDescription</p>
+     * <p>MessageType</p>
      * 
-     * <p>C:Message Description</p>
+     * <p>Message type</p>
      */
-    @Hl7XmlMapping({"text"})
-    public String getMessageDescription() {
-        return this.messageDescription.getValue();
+    @Hl7XmlMapping({"typeCode"})
+    public AcknowledgementDetailType getMessageType() {
+        return (AcknowledgementDetailType) this.messageType.getValue();
     }
-    public void setMessageDescription(String messageDescription) {
-        this.messageDescription.setValue(messageDescription);
+    public void setMessageType(AcknowledgementDetailType messageType) {
+        this.messageType.setValue(messageType);
     }
 
 
@@ -68,16 +70,16 @@ public class ErrorsOrWarningsBean extends MessagePartBean {
 
 
     /**
-     * <p>MessageType</p>
+     * <p>MessageDescription</p>
      * 
-     * <p>Message type</p>
+     * <p>C:Message Description</p>
      */
-    @Hl7XmlMapping({"typeCode"})
-    public AcknowledgementDetailType getMessageType() {
-        return (AcknowledgementDetailType) this.messageType.getValue();
+    @Hl7XmlMapping({"text"})
+    public String getMessageDescription() {
+        return this.messageDescription.getValue();
     }
-    public void setMessageType(AcknowledgementDetailType messageType) {
-        this.messageType.setValue(messageType);
+    public void setMessageDescription(String messageDescription) {
+        this.messageDescription.setValue(messageDescription);
     }
 
 }

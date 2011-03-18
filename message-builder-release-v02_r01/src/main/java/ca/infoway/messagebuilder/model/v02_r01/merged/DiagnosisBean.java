@@ -17,18 +17,9 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 public class DiagnosisBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private ST text = new STImpl();
     private CV diagnosis = new CVImpl();
     private CV diagnosisType = new CVImpl();
-
-
-    @Hl7XmlMapping({"text"})
-    public String getText() {
-        return this.text.getValue();
-    }
-    public void setText(String text) {
-        this.text.setValue(text);
-    }
+    private ST text = new STImpl();
 
 
     /**
@@ -56,6 +47,15 @@ public class DiagnosisBean extends MessagePartBean {
     }
     public void setDiagnosisType(ActCode diagnosisType) {
         this.diagnosisType.setValue(diagnosisType);
+    }
+
+
+    @Hl7XmlMapping({"text"})
+    public String getText() {
+        return this.text.getValue();
+    }
+    public void setText(String text) {
+        this.text.setValue(text);
     }
 
 }

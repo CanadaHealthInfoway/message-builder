@@ -34,18 +34,66 @@ import java.util.List;
 public class ParameterListBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private CV clientGender = new CVImpl();
-    private MultipleBirthOrderNumberBean multipleBirthOrderNumber;
-    private LanguageCodeBean languageCode;
-    private DeceasedTimeBean deceasedTime;
     private DeceasedIndicatorBean deceasedIndicator;
+    private TS clientDateOfBirth = new TSImpl();
+    private MultipleBirthOrderNumberBean multipleBirthOrderNumber;
     private List<II> clientHealthcareIdentificationNumberAndOrNonHealthcareIdentification = new ArrayList<II>();
+    private DeceasedTimeBean deceasedTime;
+    private CV clientGender = new CVImpl();
+    private List<AD> clientAddress = new ArrayList<AD>();
+    private MultipleBirthIndicatorBean multipleBirthIndicator;
     private PersonalRelationshipCodeBean personalRelationshipCode;
     private List<TEL> clientTelecom = new ArrayList<TEL>();
     private List<PN> clientName = new ArrayList<PN>();
-    private List<AD> clientAddress = new ArrayList<AD>();
-    private MultipleBirthIndicatorBean multipleBirthIndicator;
-    private TS clientDateOfBirth = new TSImpl();
+    private LanguageCodeBean languageCode;
+
+
+    @Hl7XmlMapping({"deceasedIndicator"})
+    public DeceasedIndicatorBean getDeceasedIndicator() {
+        return this.deceasedIndicator;
+    }
+    public void setDeceasedIndicator(DeceasedIndicatorBean deceasedIndicator) {
+        this.deceasedIndicator = deceasedIndicator;
+    }
+
+
+    /**
+     * <p>Client Date of Birth</p>
+     */
+    @Hl7XmlMapping({"personBirthtime/value"})
+    public Date getClientDateOfBirth() {
+        return this.clientDateOfBirth.getValue();
+    }
+    public void setClientDateOfBirth(Date clientDateOfBirth) {
+        this.clientDateOfBirth.setValue(clientDateOfBirth);
+    }
+
+
+    @Hl7XmlMapping({"multipleBirthOrderNumber"})
+    public MultipleBirthOrderNumberBean getMultipleBirthOrderNumber() {
+        return this.multipleBirthOrderNumber;
+    }
+    public void setMultipleBirthOrderNumber(MultipleBirthOrderNumberBean multipleBirthOrderNumber) {
+        this.multipleBirthOrderNumber = multipleBirthOrderNumber;
+    }
+
+
+    /**
+     * <p>Identification</p>
+     */
+    @Hl7XmlMapping({"clientId/value"})
+    public List<Identifier> getClientHealthcareIdentificationNumberAndOrNonHealthcareIdentification() {
+        return new RawListWrapper<II, Identifier>(clientHealthcareIdentificationNumberAndOrNonHealthcareIdentification, IIImpl.class);
+    }
+
+
+    @Hl7XmlMapping({"deceasedTime"})
+    public DeceasedTimeBean getDeceasedTime() {
+        return this.deceasedTime;
+    }
+    public void setDeceasedTime(DeceasedTimeBean deceasedTime) {
+        this.deceasedTime = deceasedTime;
+    }
 
 
     /**
@@ -60,48 +108,21 @@ public class ParameterListBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"multipleBirthOrderNumber"})
-    public MultipleBirthOrderNumberBean getMultipleBirthOrderNumber() {
-        return this.multipleBirthOrderNumber;
-    }
-    public void setMultipleBirthOrderNumber(MultipleBirthOrderNumberBean multipleBirthOrderNumber) {
-        this.multipleBirthOrderNumber = multipleBirthOrderNumber;
-    }
-
-
-    @Hl7XmlMapping({"languageCode"})
-    public LanguageCodeBean getLanguageCode() {
-        return this.languageCode;
-    }
-    public void setLanguageCode(LanguageCodeBean languageCode) {
-        this.languageCode = languageCode;
-    }
-
-
-    @Hl7XmlMapping({"deceasedTime"})
-    public DeceasedTimeBean getDeceasedTime() {
-        return this.deceasedTime;
-    }
-    public void setDeceasedTime(DeceasedTimeBean deceasedTime) {
-        this.deceasedTime = deceasedTime;
-    }
-
-
-    @Hl7XmlMapping({"deceasedIndicator"})
-    public DeceasedIndicatorBean getDeceasedIndicator() {
-        return this.deceasedIndicator;
-    }
-    public void setDeceasedIndicator(DeceasedIndicatorBean deceasedIndicator) {
-        this.deceasedIndicator = deceasedIndicator;
-    }
-
-
     /**
-     * <p>Identification</p>
+     * <p>Client Address</p>
      */
-    @Hl7XmlMapping({"clientId/value"})
-    public List<Identifier> getClientHealthcareIdentificationNumberAndOrNonHealthcareIdentification() {
-        return new RawListWrapper<II, Identifier>(clientHealthcareIdentificationNumberAndOrNonHealthcareIdentification, IIImpl.class);
+    @Hl7XmlMapping({"personAddress/value"})
+    public List<PostalAddress> getClientAddress() {
+        return new RawListWrapper<AD, PostalAddress>(clientAddress, ADImpl.class);
+    }
+
+
+    @Hl7XmlMapping({"multipleBirthIndicator"})
+    public MultipleBirthIndicatorBean getMultipleBirthIndicator() {
+        return this.multipleBirthIndicator;
+    }
+    public void setMultipleBirthIndicator(MultipleBirthIndicatorBean multipleBirthIndicator) {
+        this.multipleBirthIndicator = multipleBirthIndicator;
     }
 
 
@@ -132,33 +153,12 @@ public class ParameterListBean extends MessagePartBean {
     }
 
 
-    /**
-     * <p>Client Address</p>
-     */
-    @Hl7XmlMapping({"personAddress/value"})
-    public List<PostalAddress> getClientAddress() {
-        return new RawListWrapper<AD, PostalAddress>(clientAddress, ADImpl.class);
+    @Hl7XmlMapping({"languageCode"})
+    public LanguageCodeBean getLanguageCode() {
+        return this.languageCode;
     }
-
-
-    @Hl7XmlMapping({"multipleBirthIndicator"})
-    public MultipleBirthIndicatorBean getMultipleBirthIndicator() {
-        return this.multipleBirthIndicator;
-    }
-    public void setMultipleBirthIndicator(MultipleBirthIndicatorBean multipleBirthIndicator) {
-        this.multipleBirthIndicator = multipleBirthIndicator;
-    }
-
-
-    /**
-     * <p>Client Date of Birth</p>
-     */
-    @Hl7XmlMapping({"personBirthtime/value"})
-    public Date getClientDateOfBirth() {
-        return this.clientDateOfBirth.getValue();
-    }
-    public void setClientDateOfBirth(Date clientDateOfBirth) {
-        this.clientDateOfBirth.setValue(clientDateOfBirth);
+    public void setLanguageCode(LanguageCodeBean languageCode) {
+        this.languageCode = languageCode;
     }
 
 }

@@ -31,25 +31,25 @@ import java.util.Date;
 public class PharmacyDispenseBean extends MessagePartBean implements ca.infoway.messagebuilder.model.v02_r01.claims.coct_mt280001ca.A_BillableActChoice {
 
     private static final long serialVersionUID = 20110318L;
-    private CS moodCode = new CSImpl();
-    private ServiceLocationBean destinationServiceDeliveryLocation;
     private ServiceLocationBean originServiceDeliveryLocation;
-    private DrugDispensedInBean productContent;
+    private ServiceLocationBean destinationServiceDeliveryLocation;
     private PQ totalDispensed = new PQImpl();
+    private TS dispenseTime = new TSImpl();
+    private CV typeOfDispense = new CVImpl();
+    private DrugDispensedInBean productContent;
+    private DispenseInstructionsBean pertinentInformation;
     private PharmacistRoleBean performerPharmacistRole;
     private PatientEncounterBean componentOfPatientEncounter;
-    private CV typeOfDispense = new CVImpl();
-    private DispenseInstructionsBean pertinentInformation;
     private IVL<TS, Interval<Date>> dispensedDaysSupply = new IVLImpl<TS, Interval<Date>>();
-    private TS dispenseTime = new TSImpl();
+    private CS moodCode = new CSImpl();
 
 
-    @Hl7XmlMapping({"moodCode"})
-    public x_ActMoodIntentEvent getMoodCode() {
-        return (x_ActMoodIntentEvent) this.moodCode.getValue();
+    @Hl7XmlMapping({"origin/serviceDeliveryLocation"})
+    public ServiceLocationBean getOriginServiceDeliveryLocation() {
+        return this.originServiceDeliveryLocation;
     }
-    public void setMoodCode(x_ActMoodIntentEvent moodCode) {
-        this.moodCode.setValue(moodCode);
+    public void setOriginServiceDeliveryLocation(ServiceLocationBean originServiceDeliveryLocation) {
+        this.originServiceDeliveryLocation = originServiceDeliveryLocation;
     }
 
 
@@ -62,12 +62,39 @@ public class PharmacyDispenseBean extends MessagePartBean implements ca.infoway.
     }
 
 
-    @Hl7XmlMapping({"origin/serviceDeliveryLocation"})
-    public ServiceLocationBean getOriginServiceDeliveryLocation() {
-        return this.originServiceDeliveryLocation;
+    /**
+     * <p>Total Dispensed</p>
+     */
+    @Hl7XmlMapping({"quantity"})
+    public PhysicalQuantity getTotalDispensed() {
+        return this.totalDispensed.getValue();
     }
-    public void setOriginServiceDeliveryLocation(ServiceLocationBean originServiceDeliveryLocation) {
-        this.originServiceDeliveryLocation = originServiceDeliveryLocation;
+    public void setTotalDispensed(PhysicalQuantity totalDispensed) {
+        this.totalDispensed.setValue(totalDispensed);
+    }
+
+
+    /**
+     * <p>Dispense Time</p>
+     */
+    @Hl7XmlMapping({"effectiveTime"})
+    public Date getDispenseTime() {
+        return this.dispenseTime.getValue();
+    }
+    public void setDispenseTime(Date dispenseTime) {
+        this.dispenseTime.setValue(dispenseTime);
+    }
+
+
+    /**
+     * <p>Type of Dispense</p>
+     */
+    @Hl7XmlMapping({"code"})
+    public ActPharmacySupplyType getTypeOfDispense() {
+        return (ActPharmacySupplyType) this.typeOfDispense.getValue();
+    }
+    public void setTypeOfDispense(ActPharmacySupplyType typeOfDispense) {
+        this.typeOfDispense.setValue(typeOfDispense);
     }
 
 
@@ -80,15 +107,12 @@ public class PharmacyDispenseBean extends MessagePartBean implements ca.infoway.
     }
 
 
-    /**
-     * <p>Total Dispensed</p>
-     */
-    @Hl7XmlMapping({"quantity"})
-    public PhysicalQuantity getTotalDispensed() {
-        return this.totalDispensed.getValue();
+    @Hl7XmlMapping({"pertinentInformation"})
+    public DispenseInstructionsBean getPertinentInformation() {
+        return this.pertinentInformation;
     }
-    public void setTotalDispensed(PhysicalQuantity totalDispensed) {
-        this.totalDispensed.setValue(totalDispensed);
+    public void setPertinentInformation(DispenseInstructionsBean pertinentInformation) {
+        this.pertinentInformation = pertinentInformation;
     }
 
 
@@ -111,27 +135,6 @@ public class PharmacyDispenseBean extends MessagePartBean implements ca.infoway.
 
 
     /**
-     * <p>Type of Dispense</p>
-     */
-    @Hl7XmlMapping({"code"})
-    public ActPharmacySupplyType getTypeOfDispense() {
-        return (ActPharmacySupplyType) this.typeOfDispense.getValue();
-    }
-    public void setTypeOfDispense(ActPharmacySupplyType typeOfDispense) {
-        this.typeOfDispense.setValue(typeOfDispense);
-    }
-
-
-    @Hl7XmlMapping({"pertinentInformation"})
-    public DispenseInstructionsBean getPertinentInformation() {
-        return this.pertinentInformation;
-    }
-    public void setPertinentInformation(DispenseInstructionsBean pertinentInformation) {
-        this.pertinentInformation = pertinentInformation;
-    }
-
-
-    /**
      * <p>Dispensed Days Supply</p>
      */
     @Hl7XmlMapping({"expectedUseTime"})
@@ -143,15 +146,12 @@ public class PharmacyDispenseBean extends MessagePartBean implements ca.infoway.
     }
 
 
-    /**
-     * <p>Dispense Time</p>
-     */
-    @Hl7XmlMapping({"effectiveTime"})
-    public Date getDispenseTime() {
-        return this.dispenseTime.getValue();
+    @Hl7XmlMapping({"moodCode"})
+    public x_ActMoodIntentEvent getMoodCode() {
+        return (x_ActMoodIntentEvent) this.moodCode.getValue();
     }
-    public void setDispenseTime(Date dispenseTime) {
-        this.dispenseTime.setValue(dispenseTime);
+    public void setMoodCode(x_ActMoodIntentEvent moodCode) {
+        this.moodCode.setValue(moodCode);
     }
 
 }

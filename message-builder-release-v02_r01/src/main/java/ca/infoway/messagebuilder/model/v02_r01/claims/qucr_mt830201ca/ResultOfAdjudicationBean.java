@@ -16,14 +16,8 @@ import java.util.List;
 public class ResultOfAdjudicationBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private List<AdjudicationResultReferenceBean> reference = new ArrayList<AdjudicationResultReferenceBean>();
     private II adjudicationID = new IIImpl();
-
-
-    @Hl7XmlMapping({"reference"})
-    public List<AdjudicationResultReferenceBean> getReference() {
-        return this.reference;
-    }
+    private List<AdjudicationResultReferenceBean> reference = new ArrayList<AdjudicationResultReferenceBean>();
 
 
     /**
@@ -35,6 +29,12 @@ public class ResultOfAdjudicationBean extends MessagePartBean {
     }
     public void setAdjudicationID(Identifier adjudicationID) {
         this.adjudicationID.setValue(adjudicationID);
+    }
+
+
+    @Hl7XmlMapping({"reference"})
+    public List<AdjudicationResultReferenceBean> getReference() {
+        return this.reference;
     }
 
 }

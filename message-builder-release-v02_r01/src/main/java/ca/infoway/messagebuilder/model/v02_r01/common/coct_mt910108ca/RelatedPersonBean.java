@@ -22,6 +22,8 @@ import ca.infoway.messagebuilder.datatype.lang.PostalAddress;
 import ca.infoway.messagebuilder.datatype.lang.TelecommunicationAddress;
 import ca.infoway.messagebuilder.domainvalue.x_SimplePersonalRelationship;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 
@@ -32,10 +34,10 @@ public class RelatedPersonBean extends MessagePartBean implements ca.infoway.mes
 
     private static final long serialVersionUID = 20110318L;
     private AD relatedPersonAddress = new ADImpl();
-    private SET<TEL, TelecommunicationAddress> relatedPersonPhonesAndEmails = new SETImpl<TEL, TelecommunicationAddress>(TELImpl.class);
     private PN relatedPersonName = new PNImpl();
-    private CV responsiblePersonType = new CVImpl();
+    private SET<TEL, TelecommunicationAddress> relatedPersonPhonesAndEmails = new SETImpl<TEL, TelecommunicationAddress>(TELImpl.class);
     private II relatedPersonIdentifier = new IIImpl();
+    private CV responsiblePersonType = new CVImpl();
 
 
     /**
@@ -47,15 +49,6 @@ public class RelatedPersonBean extends MessagePartBean implements ca.infoway.mes
     }
     public void setRelatedPersonAddress(PostalAddress relatedPersonAddress) {
         this.relatedPersonAddress.setValue(relatedPersonAddress);
-    }
-
-
-    /**
-     * <p>E:Related Person Phones and Emails</p>
-     */
-    @Hl7XmlMapping({"relationshipHolder/telecom"})
-    public Set<TelecommunicationAddress> getRelatedPersonPhonesAndEmails() {
-        return this.relatedPersonPhonesAndEmails.rawSet();
     }
 
 
@@ -72,14 +65,11 @@ public class RelatedPersonBean extends MessagePartBean implements ca.infoway.mes
 
 
     /**
-     * <p>C:Responsible Person Type</p>
+     * <p>E:Related Person Phones and Emails</p>
      */
-    @Hl7XmlMapping({"code"})
-    public x_SimplePersonalRelationship getResponsiblePersonType() {
-        return (x_SimplePersonalRelationship) this.responsiblePersonType.getValue();
-    }
-    public void setResponsiblePersonType(x_SimplePersonalRelationship responsiblePersonType) {
-        this.responsiblePersonType.setValue(responsiblePersonType);
+    @Hl7XmlMapping({"relationshipHolder/telecom"})
+    public Set<TelecommunicationAddress> getRelatedPersonPhonesAndEmails() {
+        return this.relatedPersonPhonesAndEmails.rawSet();
     }
 
 
@@ -92,6 +82,18 @@ public class RelatedPersonBean extends MessagePartBean implements ca.infoway.mes
     }
     public void setRelatedPersonIdentifier(Identifier relatedPersonIdentifier) {
         this.relatedPersonIdentifier.setValue(relatedPersonIdentifier);
+    }
+
+
+    /**
+     * <p>C:Responsible Person Type</p>
+     */
+    @Hl7XmlMapping({"code"})
+    public x_SimplePersonalRelationship getResponsiblePersonType() {
+        return (x_SimplePersonalRelationship) this.responsiblePersonType.getValue();
+    }
+    public void setResponsiblePersonType(x_SimplePersonalRelationship responsiblePersonType) {
+        this.responsiblePersonType.setValue(responsiblePersonType);
     }
 
 }

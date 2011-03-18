@@ -20,27 +20,18 @@ import java.util.Date;
 public class AdjudicatorBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
+    private CS contextControlCode = new CSImpl();
+    private TS adjudicationDateTime = new TSImpl();
     private CV modeCode = new CVImpl();
     private AdjudicatorRoleBean adjudicatorRole;
-    private TS adjudicationDateTime = new TSImpl();
-    private CS contextControlCode = new CSImpl();
 
 
-    @Hl7XmlMapping({"modeCode"})
-    public ParticipationMode getModeCode() {
-        return (ParticipationMode) this.modeCode.getValue();
+    @Hl7XmlMapping({"contextControlCode"})
+    public ContextControl getContextControlCode() {
+        return (ContextControl) this.contextControlCode.getValue();
     }
-    public void setModeCode(ParticipationMode modeCode) {
-        this.modeCode.setValue(modeCode);
-    }
-
-
-    @Hl7XmlMapping({"adjudicatorRole"})
-    public AdjudicatorRoleBean getAdjudicatorRole() {
-        return this.adjudicatorRole;
-    }
-    public void setAdjudicatorRole(AdjudicatorRoleBean adjudicatorRole) {
-        this.adjudicatorRole = adjudicatorRole;
+    public void setContextControlCode(ContextControl contextControlCode) {
+        this.contextControlCode.setValue(contextControlCode);
     }
 
 
@@ -60,12 +51,21 @@ public class AdjudicatorBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"contextControlCode"})
-    public ContextControl getContextControlCode() {
-        return (ContextControl) this.contextControlCode.getValue();
+    @Hl7XmlMapping({"modeCode"})
+    public ParticipationMode getModeCode() {
+        return (ParticipationMode) this.modeCode.getValue();
     }
-    public void setContextControlCode(ContextControl contextControlCode) {
-        this.contextControlCode.setValue(contextControlCode);
+    public void setModeCode(ParticipationMode modeCode) {
+        this.modeCode.setValue(modeCode);
+    }
+
+
+    @Hl7XmlMapping({"adjudicatorRole"})
+    public AdjudicatorRoleBean getAdjudicatorRole() {
+        return this.adjudicatorRole;
+    }
+    public void setAdjudicatorRole(AdjudicatorRoleBean adjudicatorRole) {
+        this.adjudicatorRole = adjudicatorRole;
     }
 
 }

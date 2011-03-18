@@ -34,50 +34,26 @@ import java.util.List;
 public class BillableClinicalProductBean extends MessagePartBean implements ca.infoway.messagebuilder.model.v02_r01.claims.coct_mt280001ca.A_BillableActChoice {
 
     private static final long serialVersionUID = 20110318L;
-    private CS moodCode = new CSImpl();
-    private ServiceLocationBean locationServiceDeliveryLocation;
-    private List<DiagnosisInformationBean> pertinentInformation = new ArrayList<DiagnosisInformationBean>();
-    private HealthCareProviderBean consultantHealthCareProvider;
+    private ServiceLocationBean destinationServiceDeliveryLocation;
     private ServiceLocationBean originServiceDeliveryLocation;
-    private CV code = new CVImpl();
     private II id = new IIImpl();
     private HealthCareProviderBean performerHealthCareProvider;
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
-    private ServiceLocationBean destinationServiceDeliveryLocation;
-    private HealthCareProviderBean referrerHealthCareProvider;
+    private CV code = new CVImpl();
+    private List<DiagnosisInformationBean> pertinentInformation = new ArrayList<DiagnosisInformationBean>();
+    private HealthCareProviderBean consultantHealthCareProvider;
     private ManufacturedProductBean productManufacturedProduct;
+    private CS moodCode = new CSImpl();
+    private ServiceLocationBean locationServiceDeliveryLocation;
+    private HealthCareProviderBean referrerHealthCareProvider;
 
 
-    @Hl7XmlMapping({"moodCode"})
-    public x_ActMoodIntentEvent getMoodCode() {
-        return (x_ActMoodIntentEvent) this.moodCode.getValue();
+    @Hl7XmlMapping({"destination/serviceDeliveryLocation"})
+    public ServiceLocationBean getDestinationServiceDeliveryLocation() {
+        return this.destinationServiceDeliveryLocation;
     }
-    public void setMoodCode(x_ActMoodIntentEvent moodCode) {
-        this.moodCode.setValue(moodCode);
-    }
-
-
-    @Hl7XmlMapping({"location/serviceDeliveryLocation"})
-    public ServiceLocationBean getLocationServiceDeliveryLocation() {
-        return this.locationServiceDeliveryLocation;
-    }
-    public void setLocationServiceDeliveryLocation(ServiceLocationBean locationServiceDeliveryLocation) {
-        this.locationServiceDeliveryLocation = locationServiceDeliveryLocation;
-    }
-
-
-    @Hl7XmlMapping({"pertinentInformation"})
-    public List<DiagnosisInformationBean> getPertinentInformation() {
-        return this.pertinentInformation;
-    }
-
-
-    @Hl7XmlMapping({"consultant/healthCareProvider"})
-    public HealthCareProviderBean getConsultantHealthCareProvider() {
-        return this.consultantHealthCareProvider;
-    }
-    public void setConsultantHealthCareProvider(HealthCareProviderBean consultantHealthCareProvider) {
-        this.consultantHealthCareProvider = consultantHealthCareProvider;
+    public void setDestinationServiceDeliveryLocation(ServiceLocationBean destinationServiceDeliveryLocation) {
+        this.destinationServiceDeliveryLocation = destinationServiceDeliveryLocation;
     }
 
 
@@ -87,15 +63,6 @@ public class BillableClinicalProductBean extends MessagePartBean implements ca.i
     }
     public void setOriginServiceDeliveryLocation(ServiceLocationBean originServiceDeliveryLocation) {
         this.originServiceDeliveryLocation = originServiceDeliveryLocation;
-    }
-
-
-    @Hl7XmlMapping({"code"})
-    public Code getCode() {
-        return (Code) this.code.getValue();
-    }
-    public void setCode(Code code) {
-        this.code.setValue(code);
     }
 
 
@@ -126,21 +93,27 @@ public class BillableClinicalProductBean extends MessagePartBean implements ca.i
     }
 
 
-    @Hl7XmlMapping({"destination/serviceDeliveryLocation"})
-    public ServiceLocationBean getDestinationServiceDeliveryLocation() {
-        return this.destinationServiceDeliveryLocation;
+    @Hl7XmlMapping({"code"})
+    public Code getCode() {
+        return (Code) this.code.getValue();
     }
-    public void setDestinationServiceDeliveryLocation(ServiceLocationBean destinationServiceDeliveryLocation) {
-        this.destinationServiceDeliveryLocation = destinationServiceDeliveryLocation;
+    public void setCode(Code code) {
+        this.code.setValue(code);
     }
 
 
-    @Hl7XmlMapping({"referrer/healthCareProvider"})
-    public HealthCareProviderBean getReferrerHealthCareProvider() {
-        return this.referrerHealthCareProvider;
+    @Hl7XmlMapping({"pertinentInformation"})
+    public List<DiagnosisInformationBean> getPertinentInformation() {
+        return this.pertinentInformation;
     }
-    public void setReferrerHealthCareProvider(HealthCareProviderBean referrerHealthCareProvider) {
-        this.referrerHealthCareProvider = referrerHealthCareProvider;
+
+
+    @Hl7XmlMapping({"consultant/healthCareProvider"})
+    public HealthCareProviderBean getConsultantHealthCareProvider() {
+        return this.consultantHealthCareProvider;
+    }
+    public void setConsultantHealthCareProvider(HealthCareProviderBean consultantHealthCareProvider) {
+        this.consultantHealthCareProvider = consultantHealthCareProvider;
     }
 
 
@@ -150,6 +123,33 @@ public class BillableClinicalProductBean extends MessagePartBean implements ca.i
     }
     public void setProductManufacturedProduct(ManufacturedProductBean productManufacturedProduct) {
         this.productManufacturedProduct = productManufacturedProduct;
+    }
+
+
+    @Hl7XmlMapping({"moodCode"})
+    public x_ActMoodIntentEvent getMoodCode() {
+        return (x_ActMoodIntentEvent) this.moodCode.getValue();
+    }
+    public void setMoodCode(x_ActMoodIntentEvent moodCode) {
+        this.moodCode.setValue(moodCode);
+    }
+
+
+    @Hl7XmlMapping({"location/serviceDeliveryLocation"})
+    public ServiceLocationBean getLocationServiceDeliveryLocation() {
+        return this.locationServiceDeliveryLocation;
+    }
+    public void setLocationServiceDeliveryLocation(ServiceLocationBean locationServiceDeliveryLocation) {
+        this.locationServiceDeliveryLocation = locationServiceDeliveryLocation;
+    }
+
+
+    @Hl7XmlMapping({"referrer/healthCareProvider"})
+    public HealthCareProviderBean getReferrerHealthCareProvider() {
+        return this.referrerHealthCareProvider;
+    }
+    public void setReferrerHealthCareProvider(HealthCareProviderBean referrerHealthCareProvider) {
+        this.referrerHealthCareProvider = referrerHealthCareProvider;
     }
 
 }

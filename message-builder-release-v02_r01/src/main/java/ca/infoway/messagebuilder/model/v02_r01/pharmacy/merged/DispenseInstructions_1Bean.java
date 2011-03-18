@@ -33,24 +33,44 @@ import java.util.List;
 public class DispenseInstructions_1Bean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
+    private IVL<TS, Interval<Date>> dispensingAllowedPeriod = new IVLImpl<TS, Interval<Date>>();
     private List<DrugDispenseInstructionsBean> componentSupplyRequestItem = new ArrayList<DrugDispenseInstructionsBean>();
+    private List<RelatedPersonBean> receiverPersonalRelationship = new ArrayList<RelatedPersonBean>();
     private DispenseShipToLocationBean destinationServiceDeliveryLocation;
     private CreatedAtBean location;
-    private List<RelatedPersonBean> receiverPersonalRelationship = new ArrayList<RelatedPersonBean>();
-    private IVL<TS, Interval<Date>> dispensingAllowedPeriod = new IVLImpl<TS, Interval<Date>>();
     private INT totalPrescribedQuantity = new INTImpl();
     private SubstanceAdministrationRequestBean componentOfActRequest;
     private List<RemainingDispensesBean> fulfillmentSupplyEvent = new ArrayList<RemainingDispensesBean>();
-    private BL sourceOfContextConductionInd = new BLImpl();
-    private SupplementalFillInformationBean sourceOfSupplementalFillInformation;
-    private CS sourceOfTypeCode = new CSImpl();
-    private CS sourceOfContextControlCode = new CSImpl();
     private IVL<TS, Interval<Date>> totalDaysSupply = new IVLImpl<TS, Interval<Date>>();
+    private BL sourceOfContextConductionInd = new BLImpl();
+    private CS sourceOfContextControlCode = new CSImpl();
+    private CS sourceOfTypeCode = new CSImpl();
+    private SupplementalFillInformationBean sourceOfSupplementalFillInformation;
+
+
+    /**
+     * <p>DispensingAllowedPeriod</p>
+     * 
+     * <p>A:Dispensing Allowed Period</p>
+     */
+    @Hl7XmlMapping({"effectiveTime"})
+    public Interval<Date> getDispensingAllowedPeriod() {
+        return this.dispensingAllowedPeriod.getValue();
+    }
+    public void setDispensingAllowedPeriod(Interval<Date> dispensingAllowedPeriod) {
+        this.dispensingAllowedPeriod.setValue(dispensingAllowedPeriod);
+    }
 
 
     @Hl7XmlMapping({"component/supplyRequestItem"})
     public List<DrugDispenseInstructionsBean> getComponentSupplyRequestItem() {
         return this.componentSupplyRequestItem;
+    }
+
+
+    @Hl7XmlMapping({"receiver/personalRelationship"})
+    public List<RelatedPersonBean> getReceiverPersonalRelationship() {
+        return this.receiverPersonalRelationship;
     }
 
 
@@ -69,26 +89,6 @@ public class DispenseInstructions_1Bean extends MessagePartBean {
     }
     public void setLocation(CreatedAtBean location) {
         this.location = location;
-    }
-
-
-    @Hl7XmlMapping({"receiver/personalRelationship"})
-    public List<RelatedPersonBean> getReceiverPersonalRelationship() {
-        return this.receiverPersonalRelationship;
-    }
-
-
-    /**
-     * <p>DispensingAllowedPeriod</p>
-     * 
-     * <p>A:Dispensing Allowed Period</p>
-     */
-    @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getDispensingAllowedPeriod() {
-        return this.dispensingAllowedPeriod.getValue();
-    }
-    public void setDispensingAllowedPeriod(Interval<Date> dispensingAllowedPeriod) {
-        this.dispensingAllowedPeriod.setValue(dispensingAllowedPeriod);
     }
 
 
@@ -121,30 +121,26 @@ public class DispenseInstructions_1Bean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>TotalDaysSupply</p>
+     * 
+     * <p>C:Total Days Supply</p>
+     */
+    @Hl7XmlMapping({"expectedUseTime"})
+    public Interval<Date> getTotalDaysSupply() {
+        return this.totalDaysSupply.getValue();
+    }
+    public void setTotalDaysSupply(Interval<Date> totalDaysSupply) {
+        this.totalDaysSupply.setValue(totalDaysSupply);
+    }
+
+
     @Hl7XmlMapping({"sourceOf/contextConductionInd"})
     public Boolean getSourceOfContextConductionInd() {
         return this.sourceOfContextConductionInd.getValue();
     }
     public void setSourceOfContextConductionInd(Boolean sourceOfContextConductionInd) {
         this.sourceOfContextConductionInd.setValue(sourceOfContextConductionInd);
-    }
-
-
-    @Hl7XmlMapping({"sourceOf/supplementalFillInformation"})
-    public SupplementalFillInformationBean getSourceOfSupplementalFillInformation() {
-        return this.sourceOfSupplementalFillInformation;
-    }
-    public void setSourceOfSupplementalFillInformation(SupplementalFillInformationBean sourceOfSupplementalFillInformation) {
-        this.sourceOfSupplementalFillInformation = sourceOfSupplementalFillInformation;
-    }
-
-
-    @Hl7XmlMapping({"sourceOf/typeCode"})
-    public ActRelationshipType getSourceOfTypeCode() {
-        return (ActRelationshipType) this.sourceOfTypeCode.getValue();
-    }
-    public void setSourceOfTypeCode(ActRelationshipType sourceOfTypeCode) {
-        this.sourceOfTypeCode.setValue(sourceOfTypeCode);
     }
 
 
@@ -157,17 +153,21 @@ public class DispenseInstructions_1Bean extends MessagePartBean {
     }
 
 
-    /**
-     * <p>TotalDaysSupply</p>
-     * 
-     * <p>C:Total Days Supply</p>
-     */
-    @Hl7XmlMapping({"expectedUseTime"})
-    public Interval<Date> getTotalDaysSupply() {
-        return this.totalDaysSupply.getValue();
+    @Hl7XmlMapping({"sourceOf/typeCode"})
+    public ActRelationshipType getSourceOfTypeCode() {
+        return (ActRelationshipType) this.sourceOfTypeCode.getValue();
     }
-    public void setTotalDaysSupply(Interval<Date> totalDaysSupply) {
-        this.totalDaysSupply.setValue(totalDaysSupply);
+    public void setSourceOfTypeCode(ActRelationshipType sourceOfTypeCode) {
+        this.sourceOfTypeCode.setValue(sourceOfTypeCode);
+    }
+
+
+    @Hl7XmlMapping({"sourceOf/supplementalFillInformation"})
+    public SupplementalFillInformationBean getSourceOfSupplementalFillInformation() {
+        return this.sourceOfSupplementalFillInformation;
+    }
+    public void setSourceOfSupplementalFillInformation(SupplementalFillInformationBean sourceOfSupplementalFillInformation) {
+        this.sourceOfSupplementalFillInformation = sourceOfSupplementalFillInformation;
     }
 
 }

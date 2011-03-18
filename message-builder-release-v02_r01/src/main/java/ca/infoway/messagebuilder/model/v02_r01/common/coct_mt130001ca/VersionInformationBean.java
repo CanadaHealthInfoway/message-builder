@@ -27,11 +27,23 @@ import java.util.Date;
 public class VersionInformationBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private ChangedByBean author;
-    private CV changeType = new CVImpl();
-    private II changeIdentifier = new IIImpl();
     private CV changeReason = new CVImpl();
+    private ChangedByBean author;
+    private II changeIdentifier = new IIImpl();
     private IVL<TS, Interval<Date>> changeEffectiveDateAndEndDate = new IVLImpl<TS, Interval<Date>>();
+    private CV changeType = new CVImpl();
+
+
+    /**
+     * <p>D:Change Reason</p>
+     */
+    @Hl7XmlMapping({"reasonCode"})
+    public ControlActReason getChangeReason() {
+        return (ControlActReason) this.changeReason.getValue();
+    }
+    public void setChangeReason(ControlActReason changeReason) {
+        this.changeReason.setValue(changeReason);
+    }
 
 
     @Hl7XmlMapping({"author"})
@@ -40,18 +52,6 @@ public class VersionInformationBean extends MessagePartBean {
     }
     public void setAuthor(ChangedByBean author) {
         this.author = author;
-    }
-
-
-    /**
-     * <p>A:Change Type</p>
-     */
-    @Hl7XmlMapping({"code"})
-    public HL7TriggerEventCode getChangeType() {
-        return (HL7TriggerEventCode) this.changeType.getValue();
-    }
-    public void setChangeType(HL7TriggerEventCode changeType) {
-        this.changeType.setValue(changeType);
     }
 
 
@@ -68,18 +68,6 @@ public class VersionInformationBean extends MessagePartBean {
 
 
     /**
-     * <p>D:Change Reason</p>
-     */
-    @Hl7XmlMapping({"reasonCode"})
-    public ControlActReason getChangeReason() {
-        return (ControlActReason) this.changeReason.getValue();
-    }
-    public void setChangeReason(ControlActReason changeReason) {
-        this.changeReason.setValue(changeReason);
-    }
-
-
-    /**
      * <p>C:Change Effective Date and End Date</p>
      */
     @Hl7XmlMapping({"effectiveTime"})
@@ -88,6 +76,18 @@ public class VersionInformationBean extends MessagePartBean {
     }
     public void setChangeEffectiveDateAndEndDate(Interval<Date> changeEffectiveDateAndEndDate) {
         this.changeEffectiveDateAndEndDate.setValue(changeEffectiveDateAndEndDate);
+    }
+
+
+    /**
+     * <p>A:Change Type</p>
+     */
+    @Hl7XmlMapping({"code"})
+    public HL7TriggerEventCode getChangeType() {
+        return (HL7TriggerEventCode) this.changeType.getValue();
+    }
+    public void setChangeType(HL7TriggerEventCode changeType) {
+        this.changeType.setValue(changeType);
     }
 
 }

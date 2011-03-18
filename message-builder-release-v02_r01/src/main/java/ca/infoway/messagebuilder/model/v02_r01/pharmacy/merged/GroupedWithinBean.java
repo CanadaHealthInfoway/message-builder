@@ -17,23 +17,9 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 public class GroupedWithinBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private ST drugName = new STImpl();
     private CV drugCode = new CVImpl();
+    private ST drugName = new STImpl();
     private CV drugCategoryCode = new CVImpl();
-
-
-    /**
-     * <p>DrugName</p>
-     * 
-     * <p>Drug Name</p>
-     */
-    @Hl7XmlMapping({"generalizedMedicineClass/name"})
-    public String getDrugName() {
-        return this.drugName.getValue();
-    }
-    public void setDrugName(String drugName) {
-        this.drugName.setValue(drugName);
-    }
 
 
     /**
@@ -47,6 +33,20 @@ public class GroupedWithinBean extends MessagePartBean {
     }
     public void setDrugCode(ClinicalDrug drugCode) {
         this.drugCode.setValue(drugCode);
+    }
+
+
+    /**
+     * <p>DrugName</p>
+     * 
+     * <p>Drug Name</p>
+     */
+    @Hl7XmlMapping({"generalizedMedicineClass/name"})
+    public String getDrugName() {
+        return this.drugName.getValue();
+    }
+    public void setDrugName(String drugName) {
+        this.drugName.setValue(drugName);
     }
 
 

@@ -30,15 +30,27 @@ import java.util.List;
 public class DrugProductBean extends MessagePartBean implements ca.infoway.messagebuilder.model.v02_r01.common.coct_mt270010ca.Medication {
 
     private static final long serialVersionUID = 20110318L;
+    private ST drugDescription = new STImpl();
     private ST drugLotNumber = new STImpl();
+    private CV drugCode = new CVImpl();
+    private ST drugName = new STImpl();
+    private IVL<TS, Interval<Date>> drugExpiryDate = new IVLImpl<TS, Interval<Date>>();
+    private DrugDispensedInBean administerableMedicineAsContent;
     private CV drugForm = new CVImpl();
     private List<DrugContainsBean> administerableMedicineIngredient = new ArrayList<DrugContainsBean>();
-    private DrugDispensedInBean administerableMedicineAsContent;
     private ManufacturerBean administerableMedicineAsManufacturedProductManufacturer;
-    private ST drugName = new STImpl();
-    private CV drugCode = new CVImpl();
-    private ST drugDescription = new STImpl();
-    private IVL<TS, Interval<Date>> drugExpiryDate = new IVLImpl<TS, Interval<Date>>();
+
+
+    /**
+     * <p>C:Drug Description</p>
+     */
+    @Hl7XmlMapping({"administerableMedicine/desc"})
+    public String getDrugDescription() {
+        return this.drugDescription.getValue();
+    }
+    public void setDrugDescription(String drugDescription) {
+        this.drugDescription.setValue(drugDescription);
+    }
 
 
     /**
@@ -50,6 +62,51 @@ public class DrugProductBean extends MessagePartBean implements ca.infoway.messa
     }
     public void setDrugLotNumber(String drugLotNumber) {
         this.drugLotNumber.setValue(drugLotNumber);
+    }
+
+
+    /**
+     * <p>A:Drug Code</p>
+     */
+    @Hl7XmlMapping({"administerableMedicine/code"})
+    public ManufacturedDrug getDrugCode() {
+        return (ManufacturedDrug) this.drugCode.getValue();
+    }
+    public void setDrugCode(ManufacturedDrug drugCode) {
+        this.drugCode.setValue(drugCode);
+    }
+
+
+    /**
+     * <p>B:Drug Name</p>
+     */
+    @Hl7XmlMapping({"administerableMedicine/name"})
+    public String getDrugName() {
+        return this.drugName.getValue();
+    }
+    public void setDrugName(String drugName) {
+        this.drugName.setValue(drugName);
+    }
+
+
+    /**
+     * <p>F:Drug Expiry Date</p>
+     */
+    @Hl7XmlMapping({"administerableMedicine/expirationTime"})
+    public Interval<Date> getDrugExpiryDate() {
+        return this.drugExpiryDate.getValue();
+    }
+    public void setDrugExpiryDate(Interval<Date> drugExpiryDate) {
+        this.drugExpiryDate.setValue(drugExpiryDate);
+    }
+
+
+    @Hl7XmlMapping({"administerableMedicine/asContent"})
+    public DrugDispensedInBean getAdministerableMedicineAsContent() {
+        return this.administerableMedicineAsContent;
+    }
+    public void setAdministerableMedicineAsContent(DrugDispensedInBean administerableMedicineAsContent) {
+        this.administerableMedicineAsContent = administerableMedicineAsContent;
     }
 
 
@@ -71,69 +128,12 @@ public class DrugProductBean extends MessagePartBean implements ca.infoway.messa
     }
 
 
-    @Hl7XmlMapping({"administerableMedicine/asContent"})
-    public DrugDispensedInBean getAdministerableMedicineAsContent() {
-        return this.administerableMedicineAsContent;
-    }
-    public void setAdministerableMedicineAsContent(DrugDispensedInBean administerableMedicineAsContent) {
-        this.administerableMedicineAsContent = administerableMedicineAsContent;
-    }
-
-
     @Hl7XmlMapping({"administerableMedicine/asManufacturedProduct/manufacturer"})
     public ManufacturerBean getAdministerableMedicineAsManufacturedProductManufacturer() {
         return this.administerableMedicineAsManufacturedProductManufacturer;
     }
     public void setAdministerableMedicineAsManufacturedProductManufacturer(ManufacturerBean administerableMedicineAsManufacturedProductManufacturer) {
         this.administerableMedicineAsManufacturedProductManufacturer = administerableMedicineAsManufacturedProductManufacturer;
-    }
-
-
-    /**
-     * <p>B:Drug Name</p>
-     */
-    @Hl7XmlMapping({"administerableMedicine/name"})
-    public String getDrugName() {
-        return this.drugName.getValue();
-    }
-    public void setDrugName(String drugName) {
-        this.drugName.setValue(drugName);
-    }
-
-
-    /**
-     * <p>A:Drug Code</p>
-     */
-    @Hl7XmlMapping({"administerableMedicine/code"})
-    public ManufacturedDrug getDrugCode() {
-        return (ManufacturedDrug) this.drugCode.getValue();
-    }
-    public void setDrugCode(ManufacturedDrug drugCode) {
-        this.drugCode.setValue(drugCode);
-    }
-
-
-    /**
-     * <p>C:Drug Description</p>
-     */
-    @Hl7XmlMapping({"administerableMedicine/desc"})
-    public String getDrugDescription() {
-        return this.drugDescription.getValue();
-    }
-    public void setDrugDescription(String drugDescription) {
-        this.drugDescription.setValue(drugDescription);
-    }
-
-
-    /**
-     * <p>F:Drug Expiry Date</p>
-     */
-    @Hl7XmlMapping({"administerableMedicine/expirationTime"})
-    public Interval<Date> getDrugExpiryDate() {
-        return this.drugExpiryDate.getValue();
-    }
-    public void setDrugExpiryDate(Interval<Date> drugExpiryDate) {
-        this.drugExpiryDate.setValue(drugExpiryDate);
     }
 
 }

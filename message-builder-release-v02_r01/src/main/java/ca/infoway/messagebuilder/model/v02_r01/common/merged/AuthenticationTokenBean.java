@@ -16,22 +16,8 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 public class AuthenticationTokenBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private ST authorizationToken = new STImpl();
     private II authorizationTokenAsId = new IIImpl();
-
-
-    /**
-     * <p>AuthorizationToken</p>
-     * 
-     * <p>Authorization Token</p>
-     */
-    @Hl7XmlMapping({"text"})
-    public String getAuthorizationToken() {
-        return this.authorizationToken.getValue();
-    }
-    public void setAuthorizationToken(String authorizationToken) {
-        this.authorizationToken.setValue(authorizationToken);
-    }
+    private ST authorizationToken = new STImpl();
 
 
     /**
@@ -45,6 +31,20 @@ public class AuthenticationTokenBean extends MessagePartBean {
     }
     public void setAuthorizationTokenAsId(Identifier authorizationTokenAsId) {
         this.authorizationTokenAsId.setValue(authorizationTokenAsId);
+    }
+
+
+    /**
+     * <p>AuthorizationToken</p>
+     * 
+     * <p>Authorization Token</p>
+     */
+    @Hl7XmlMapping({"text"})
+    public String getAuthorizationToken() {
+        return this.authorizationToken.getValue();
+    }
+    public void setAuthorizationToken(String authorizationToken) {
+        this.authorizationToken.setValue(authorizationToken);
     }
 
 }

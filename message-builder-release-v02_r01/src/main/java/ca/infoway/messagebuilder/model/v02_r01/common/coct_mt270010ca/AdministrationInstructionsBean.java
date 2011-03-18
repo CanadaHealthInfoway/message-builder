@@ -45,40 +45,25 @@ import java.util.Set;
 public class AdministrationInstructionsBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private ST renderedDosageInstruction = new STImpl();
-    private CS dosageUsageContext = new CSImpl();
-    private CV dosageUnit = new CVImpl();
-    private SET<RTO<PhysicalQuantity, PhysicalQuantity>, Ratio<PhysicalQuantity, PhysicalQuantity>> maximumDailyWeeklyDoses = new SETImpl<RTO<PhysicalQuantity, PhysicalQuantity>, Ratio<PhysicalQuantity, PhysicalQuantity>>(RTOImpl.class);
-    private CV routeCode = new CVImpl();
-    private Medication consumableMedication1;
-    private AdditionalSIGInstructionBean component1SupplementalInstruction;
-    private List<ConsistsOfBean> component2 = new ArrayList<ConsistsOfBean>();
     private SET<CV, Code> administrationSites = new SETImpl<CV, Code>(CVImpl.class);
-    private CD dosageType = new CDImpl();
+    private CV dosageUnit = new CVImpl();
+    private Medication consumableMedication1;
     private IVL<TS, Interval<Date>> administrationPeriod = new IVLImpl<TS, Interval<Date>>();
+    private CD dosageType = new CDImpl();
+    private SET<RTO<PhysicalQuantity, PhysicalQuantity>, Ratio<PhysicalQuantity, PhysicalQuantity>> maximumDailyWeeklyDoses = new SETImpl<RTO<PhysicalQuantity, PhysicalQuantity>, Ratio<PhysicalQuantity, PhysicalQuantity>>(RTOImpl.class);
+    private ST renderedDosageInstruction = new STImpl();
+    private List<ConsistsOfBean> component2 = new ArrayList<ConsistsOfBean>();
+    private CV routeCode = new CVImpl();
+    private CS dosageUsageContext = new CSImpl();
+    private AdditionalSIGInstructionBean component1SupplementalInstruction;
 
 
     /**
-     * <p>C:Rendered Dosage Instruction</p>
+     * <p>Administration Sites</p>
      */
-    @Hl7XmlMapping({"text"})
-    public String getRenderedDosageInstruction() {
-        return this.renderedDosageInstruction.getValue();
-    }
-    public void setRenderedDosageInstruction(String renderedDosageInstruction) {
-        this.renderedDosageInstruction.setValue(renderedDosageInstruction);
-    }
-
-
-    /**
-     * <p>Dosage Usage Context</p>
-     */
-    @Hl7XmlMapping({"moodCode"})
-    public x_ActMoodDefEvnRqo getDosageUsageContext() {
-        return (x_ActMoodDefEvnRqo) this.dosageUsageContext.getValue();
-    }
-    public void setDosageUsageContext(x_ActMoodDefEvnRqo dosageUsageContext) {
-        this.dosageUsageContext.setValue(dosageUsageContext);
+    @Hl7XmlMapping({"approachSiteCode"})
+    public Set<HumanSubstanceAdministrationSite> getAdministrationSites() {
+        return this.administrationSites.rawSet(HumanSubstanceAdministrationSite.class);
     }
 
 
@@ -91,27 +76,6 @@ public class AdministrationInstructionsBean extends MessagePartBean {
     }
     public void setDosageUnit(AdministrableDrugForm dosageUnit) {
         this.dosageUnit.setValue(dosageUnit);
-    }
-
-
-    /**
-     * <p>D:Maximum Daily/Weekly Doses</p>
-     */
-    @Hl7XmlMapping({"maxDoseQuantity"})
-    public Set<Ratio<PhysicalQuantity, PhysicalQuantity>> getMaximumDailyWeeklyDoses() {
-        return this.maximumDailyWeeklyDoses.rawSet();
-    }
-
-
-    /**
-     * <p>A:Route Code</p>
-     */
-    @Hl7XmlMapping({"routeCode"})
-    public RouteOfAdministration getRouteCode() {
-        return (RouteOfAdministration) this.routeCode.getValue();
-    }
-    public void setRouteCode(RouteOfAdministration routeCode) {
-        this.routeCode.setValue(routeCode);
     }
 
 
@@ -152,27 +116,15 @@ public class AdministrationInstructionsBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"component1/supplementalInstruction"})
-    public AdditionalSIGInstructionBean getComponent1SupplementalInstruction() {
-        return this.component1SupplementalInstruction;
-    }
-    public void setComponent1SupplementalInstruction(AdditionalSIGInstructionBean component1SupplementalInstruction) {
-        this.component1SupplementalInstruction = component1SupplementalInstruction;
-    }
-
-
-    @Hl7XmlMapping({"component2"})
-    public List<ConsistsOfBean> getComponent2() {
-        return this.component2;
-    }
-
-
     /**
-     * <p>Administration Sites</p>
+     * <p>A:Administration Period</p>
      */
-    @Hl7XmlMapping({"approachSiteCode"})
-    public Set<HumanSubstanceAdministrationSite> getAdministrationSites() {
-        return this.administrationSites.rawSet(HumanSubstanceAdministrationSite.class);
+    @Hl7XmlMapping({"effectiveTime"})
+    public Interval<Date> getAdministrationPeriod() {
+        return this.administrationPeriod.getValue();
+    }
+    public void setAdministrationPeriod(Interval<Date> administrationPeriod) {
+        this.administrationPeriod.setValue(administrationPeriod);
     }
 
 
@@ -189,14 +141,62 @@ public class AdministrationInstructionsBean extends MessagePartBean {
 
 
     /**
-     * <p>A:Administration Period</p>
+     * <p>D:Maximum Daily/Weekly Doses</p>
      */
-    @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getAdministrationPeriod() {
-        return this.administrationPeriod.getValue();
+    @Hl7XmlMapping({"maxDoseQuantity"})
+    public Set<Ratio<PhysicalQuantity, PhysicalQuantity>> getMaximumDailyWeeklyDoses() {
+        return this.maximumDailyWeeklyDoses.rawSet();
     }
-    public void setAdministrationPeriod(Interval<Date> administrationPeriod) {
-        this.administrationPeriod.setValue(administrationPeriod);
+
+
+    /**
+     * <p>C:Rendered Dosage Instruction</p>
+     */
+    @Hl7XmlMapping({"text"})
+    public String getRenderedDosageInstruction() {
+        return this.renderedDosageInstruction.getValue();
+    }
+    public void setRenderedDosageInstruction(String renderedDosageInstruction) {
+        this.renderedDosageInstruction.setValue(renderedDosageInstruction);
+    }
+
+
+    @Hl7XmlMapping({"component2"})
+    public List<ConsistsOfBean> getComponent2() {
+        return this.component2;
+    }
+
+
+    /**
+     * <p>A:Route Code</p>
+     */
+    @Hl7XmlMapping({"routeCode"})
+    public RouteOfAdministration getRouteCode() {
+        return (RouteOfAdministration) this.routeCode.getValue();
+    }
+    public void setRouteCode(RouteOfAdministration routeCode) {
+        this.routeCode.setValue(routeCode);
+    }
+
+
+    /**
+     * <p>Dosage Usage Context</p>
+     */
+    @Hl7XmlMapping({"moodCode"})
+    public x_ActMoodDefEvnRqo getDosageUsageContext() {
+        return (x_ActMoodDefEvnRqo) this.dosageUsageContext.getValue();
+    }
+    public void setDosageUsageContext(x_ActMoodDefEvnRqo dosageUsageContext) {
+        this.dosageUsageContext.setValue(dosageUsageContext);
+    }
+
+
+    @Hl7XmlMapping({"component1/supplementalInstruction"})
+    public AdditionalSIGInstructionBean getComponent1SupplementalInstruction() {
+        return this.component1SupplementalInstruction;
+    }
+    public void setComponent1SupplementalInstruction(AdditionalSIGInstructionBean component1SupplementalInstruction) {
+        this.component1SupplementalInstruction = component1SupplementalInstruction;
     }
 
 }
