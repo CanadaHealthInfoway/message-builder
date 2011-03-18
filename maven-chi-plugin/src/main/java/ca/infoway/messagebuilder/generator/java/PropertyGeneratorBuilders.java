@@ -1,6 +1,5 @@
 package ca.infoway.messagebuilder.generator.java;
 
-import static ca.infoway.messagebuilder.generator.lang.ProgrammingLanguage.JAVA;
 import ca.infoway.messagebuilder.generator.lang.ProgrammingLanguage;
 
 public class PropertyGeneratorBuilders {
@@ -26,18 +25,6 @@ public class PropertyGeneratorBuilders {
 		
 		builder.setFieldDefinition(new DerivedChoiceFieldDefinition(choiceAssociation, choice, language));
 		
-		return builder;
-	}
-	
-	public static PropertyGeneratorBuilder newAssociationCardinalityChangedFromSingleToMultipleBuilder(RegeneratedAssociation association) {
-		PropertyGeneratorBuilder builder = newAssociationBuilder(ProgrammingLanguage.JAVA, association.getNewRelationship());
-
-		return builder;
-	}
-
-	public static PropertyGeneratorBuilder newAttributeTypeChangedFromSimpleToListOrSetBuilder(RegeneratedAttribute attribute) {
-		PropertyGeneratorBuilder builder = newAttributeBuilder(JAVA, attribute.getNewRelationship());
-
 		return builder;
 	}
 	

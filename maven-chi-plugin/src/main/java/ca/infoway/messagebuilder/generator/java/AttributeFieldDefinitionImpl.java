@@ -38,7 +38,9 @@ class AttributeFieldDefinitionImpl implements FieldDefinition {
 
 	public GetterBodyStyle getGetterBodyStyle() {
 		GetterBodyStyle getterStyle = GetterBodyStyle.ATTRIBUTE;
-		if (this.attribute instanceof InlinedAttribute && attribute.isCardinalityMultiple() && !this.attribute.isCollection()) {
+		if (!StandardDataType.isSetOrList(getDataType().getShortWrappedName()) 
+				&& attribute.isCardinalityMultiple()
+				&& !this.attribute.isCollection()) {
 			getterStyle = GetterBodyStyle.ASSOCIATION_COLLAPSED_TO_ATTRIBUTE;
 		} else {
 			if (StandardDataType.isList(getDataType().getShortWrappedName())) {
@@ -89,7 +91,9 @@ class AttributeFieldDefinitionImpl implements FieldDefinition {
 	}
 	
 	private TypeDecorator getTypeDecorator() {
-		if (this.attribute instanceof InlinedAttribute && this.attribute.isCardinalityMultiple() && !this.attribute.isCollection()) {
+		if (!StandardDataType.isSetOrList(getDataType().getShortWrappedName()) 
+				&& this.attribute.isCardinalityMultiple()
+				&& !this.attribute.isCollection()) {
 			return TypeDecorator.LIST;
 		} else {
 			return TypeDecorator.NULL;

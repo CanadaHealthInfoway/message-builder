@@ -1,9 +1,5 @@
 package ca.infoway.messagebuilder.generator.java;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
-
 import org.apache.commons.lang.WordUtils;
 
 import ca.infoway.messagebuilder.xml.Cardinality;
@@ -57,16 +53,6 @@ public class InlinedAttribute extends Attribute {
 		}
 	}
 	
-	@Override
-	public Set<Object> getImportTypes() {
-		Set<Object> result = super.getImportTypes();
-		if (this.elidedRelationship.isCardinalityMultiple()) {
-			result.add(List.class.getName());
-			result.add(ArrayList.class.getName());
-		}
-		return result;
-	}
-
 	BaseRelationship getElidedRelationship() {
 		return this.elidedRelationship;
 	}

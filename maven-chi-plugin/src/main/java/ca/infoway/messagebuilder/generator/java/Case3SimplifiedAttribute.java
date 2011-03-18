@@ -3,7 +3,6 @@ package ca.infoway.messagebuilder.generator.java;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-
 import org.apache.commons.lang.StringUtils;
 
 import ca.infoway.messagebuilder.datatype.StandardDataType;
@@ -84,4 +83,5 @@ class Case3SimplifiedAttribute extends Attribute implements MergedRelationshipSu
 	public Documentation getDocumentation() {
 		return this.mergedDocumentation;
 	}
+	
 }

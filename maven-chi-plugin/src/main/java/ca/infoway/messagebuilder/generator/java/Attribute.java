@@ -1,5 +1,7 @@
 package ca.infoway.messagebuilder.generator.java;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 import ca.infoway.messagebuilder.Code;
@@ -66,6 +68,10 @@ public class Attribute extends BaseRelationship {
 			result.add(RawListWrapper.class.getName());
 		}
 		
+		if (isCardinalityMultiple()) {
+			result.add(List.class.getName());
+			result.add(ArrayList.class.getName());
+		}
 		return result;
 	}
 	
