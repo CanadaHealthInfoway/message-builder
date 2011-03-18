@@ -24,29 +24,8 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 public class HasCharacteristicBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private CV drugCharacteristicTypeCode = new CVImpl();
     private ST drugCharacteristic = new STImpl();
-
-
-    /**
-     * <p>H:Drug Characteristic Type Code</p>
-     * 
-     * <p><p>A coded value denoting the type of physical 
-     * characteristic of a drug. Characteristics include: Color, 
-     * Shape, Markings, Size, etc.</p></p>
-     * 
-     * <p><p>Allows retrieval based on specific characteristic of a 
-     * drug. The attribute is mandatory because there's no point 
-     * searching for a characteristic without identifying what kind 
-     * of characteristic is being searched by.</p></p>
-     */
-    @Hl7XmlMapping({"drugCharacteristicType/value"})
-    public MedicationObservationType getDrugCharacteristicTypeCode() {
-        return (MedicationObservationType) this.drugCharacteristicTypeCode.getValue();
-    }
-    public void setDrugCharacteristicTypeCode(MedicationObservationType drugCharacteristicTypeCode) {
-        this.drugCharacteristicTypeCode.setValue(drugCharacteristicTypeCode);
-    }
+    private CV drugCharacteristicTypeCode = new CVImpl();
 
 
     /**
@@ -104,6 +83,27 @@ public class HasCharacteristicBean extends MessagePartBean {
     }
     public void setDrugCharacteristic(String drugCharacteristic) {
         this.drugCharacteristic.setValue(drugCharacteristic);
+    }
+
+
+    /**
+     * <p>H:Drug Characteristic Type Code</p>
+     * 
+     * <p><p>A coded value denoting the type of physical 
+     * characteristic of a drug. Characteristics include: Color, 
+     * Shape, Markings, Size, etc.</p></p>
+     * 
+     * <p><p>Allows retrieval based on specific characteristic of a 
+     * drug. The attribute is mandatory because there's no point 
+     * searching for a characteristic without identifying what kind 
+     * of characteristic is being searched by.</p></p>
+     */
+    @Hl7XmlMapping({"drugCharacteristicType/value"})
+    public MedicationObservationType getDrugCharacteristicTypeCode() {
+        return (MedicationObservationType) this.drugCharacteristicTypeCode.getValue();
+    }
+    public void setDrugCharacteristicTypeCode(MedicationObservationType drugCharacteristicTypeCode) {
+        this.drugCharacteristicTypeCode.setValue(drugCharacteristicTypeCode);
     }
 
 }

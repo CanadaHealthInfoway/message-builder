@@ -15,6 +15,8 @@ import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.domainvalue.ActInformationCategoryCode;
 import ca.infoway.messagebuilder.domainvalue.x_NormalRestrictedTabooConfidentialityKind;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 
@@ -33,11 +35,35 @@ import java.util.Set;
 public class MaskableRecordBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
+    private II recordIdentifier = new IIImpl();
     private RoleBean directTargetRole;
     private CV recordType = new CVImpl();
     private DiagnosisBean reasonDiagnosis;
-    private II recordIdentifier = new IIImpl();
     private SET<CV, Code> maskedIndicator = new SETImpl<CV, Code>(CVImpl.class);
+
+
+    /**
+     * <p>C:Record Identifier</p>
+     * 
+     * <p><p>The identifier of the prescription, dispense, allergy, 
+     * lab test result or other record for which the masking status 
+     * is being changed.</p></p>
+     * 
+     * <p><p>Allows unique reference to a particular record to be 
+     * masked or unmasked.</p></p>
+     * 
+     * <p><p>In many systems, masking a 'child' may result in 
+     * automatic masking of the parent. For example, masking a 
+     * dispense record may cause the prescription to become masked 
+     * as well.</p></p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Identifier getRecordIdentifier() {
+        return this.recordIdentifier.getValue();
+    }
+    public void setRecordIdentifier(Identifier recordIdentifier) {
+        this.recordIdentifier.setValue(recordIdentifier);
+    }
 
 
     @Hl7XmlMapping({"directTarget/role"})
@@ -74,30 +100,6 @@ public class MaskableRecordBean extends MessagePartBean {
     }
     public void setReasonDiagnosis(DiagnosisBean reasonDiagnosis) {
         this.reasonDiagnosis = reasonDiagnosis;
-    }
-
-
-    /**
-     * <p>C:Record Identifier</p>
-     * 
-     * <p><p>The identifier of the prescription, dispense, allergy, 
-     * lab test result or other record for which the masking status 
-     * is being changed.</p></p>
-     * 
-     * <p><p>Allows unique reference to a particular record to be 
-     * masked or unmasked.</p></p>
-     * 
-     * <p><p>In many systems, masking a 'child' may result in 
-     * automatic masking of the parent. For example, masking a 
-     * dispense record may cause the prescription to become masked 
-     * as well.</p></p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Identifier getRecordIdentifier() {
-        return this.recordIdentifier.getValue();
-    }
-    public void setRecordIdentifier(Identifier recordIdentifier) {
-        this.recordIdentifier.setValue(recordIdentifier);
     }
 
 

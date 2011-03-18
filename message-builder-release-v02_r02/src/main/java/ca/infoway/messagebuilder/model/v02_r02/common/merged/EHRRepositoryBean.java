@@ -34,31 +34,10 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 public class EHRRepositoryBean extends MessagePartBean implements ca.infoway.messagebuilder.model.v02_r02.pharmacy.merged.ChangedBy {
 
     private static final long serialVersionUID = 20110318L;
-    private ST repositoryJurisdictionName = new STImpl();
     private ST repositoryName = new STImpl();
     private II id = new IIImpl();
+    private ST repositoryJurisdictionName = new STImpl();
     private ST applicationName = new STImpl();
-
-
-    /**
-     * <p>RepositoryJurisdictionName</p>
-     * 
-     * <p>Repository Jurisdiction Name</p>
-     * 
-     * <p><p>The name of the jurisdiction that is responsible for 
-     * the EHR infostructure that contains and manages the 
-     * record.</p></p>
-     * 
-     * <p><p>Establishes business context for determining 
-     * custodianship, and is therefore mandatory.</p></p>
-     */
-    @Hl7XmlMapping({"representedRepositoryJurisdiction/name"})
-    public String getRepositoryJurisdictionName() {
-        return this.repositoryJurisdictionName.getValue();
-    }
-    public void setRepositoryJurisdictionName(String repositoryJurisdictionName) {
-        this.repositoryJurisdictionName.setValue(repositoryJurisdictionName);
-    }
 
 
     /**
@@ -132,6 +111,27 @@ public class EHRRepositoryBean extends MessagePartBean implements ca.infoway.mes
     }
     public void setId(Identifier id) {
         this.id.setValue(id);
+    }
+
+
+    /**
+     * <p>RepositoryJurisdictionName</p>
+     * 
+     * <p>Repository Jurisdiction Name</p>
+     * 
+     * <p><p>The name of the jurisdiction that is responsible for 
+     * the EHR infostructure that contains and manages the 
+     * record.</p></p>
+     * 
+     * <p><p>Establishes business context for determining 
+     * custodianship, and is therefore mandatory.</p></p>
+     */
+    @Hl7XmlMapping({"representedRepositoryJurisdiction/name"})
+    public String getRepositoryJurisdictionName() {
+        return this.repositoryJurisdictionName.getValue();
+    }
+    public void setRepositoryJurisdictionName(String repositoryJurisdictionName) {
+        this.repositoryJurisdictionName.setValue(repositoryJurisdictionName);
     }
 
 

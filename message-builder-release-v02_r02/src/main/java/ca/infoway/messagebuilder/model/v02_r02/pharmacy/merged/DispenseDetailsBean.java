@@ -25,44 +25,13 @@ import java.util.Date;
 public class DispenseDetailsBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private DispenseShipToLocationBean destinationServiceDeliveryLocation;
-    private CV dispenseType = new CVImpl();
     private IVL<TS, Interval<Date>> dispenseProcessingAndPickupDate = new IVLImpl<TS, Interval<Date>>();
-    private DeviceProductBean productManufacturedProduct;
-    private INT dispensedQuantity = new INTImpl();
+    private CV dispenseType = new CVImpl();
     private IVL<TS, Interval<Date>> expectedUseTime = new IVLImpl<TS, Interval<Date>>();
+    private INT dispensedQuantity = new INTImpl();
+    private DispenseShipToLocationBean destinationServiceDeliveryLocation;
+    private DeviceProductBean productManufacturedProduct;
     private RelatedPersonBean receiverPersonalRelationship;
-
-
-    @Hl7XmlMapping({"destination/serviceDeliveryLocation"})
-    public DispenseShipToLocationBean getDestinationServiceDeliveryLocation() {
-        return this.destinationServiceDeliveryLocation;
-    }
-    public void setDestinationServiceDeliveryLocation(DispenseShipToLocationBean destinationServiceDeliveryLocation) {
-        this.destinationServiceDeliveryLocation = destinationServiceDeliveryLocation;
-    }
-
-
-    /**
-     * <p>DispenseType</p>
-     * 
-     * <p>Dispense Type</p>
-     * 
-     * <p><p>Indicates the type of dispensing event that is 
-     * performed. Examples include: Trial Fill, Completion of 
-     * Trial, Partial Fill, Emergency Fill, Samples, etc.</p></p>
-     * 
-     * <p><p>Indicates reason for the size of dispense. Because it 
-     * defines what type of dispense is occurring, the attribute is 
-     * mandatory.</p></p>
-     */
-    @Hl7XmlMapping({"code"})
-    public ActPharmacySupplyType getDispenseType() {
-        return (ActPharmacySupplyType) this.dispenseType.getValue();
-    }
-    public void setDispenseType(ActPharmacySupplyType dispenseType) {
-        this.dispenseType.setValue(dispenseType);
-    }
 
 
     /**
@@ -130,46 +99,25 @@ public class DispenseDetailsBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"product/manufacturedProduct"})
-    public DeviceProductBean getProductManufacturedProduct() {
-        return this.productManufacturedProduct;
-    }
-    public void setProductManufacturedProduct(DeviceProductBean productManufacturedProduct) {
-        this.productManufacturedProduct = productManufacturedProduct;
-    }
-
-
     /**
-     * <p>DispensedQuantity</p>
+     * <p>DispenseType</p>
      * 
-     * <p>Dispensed Quantity</p>
+     * <p>Dispense Type</p>
      * 
-     * <p><p>The number of devices that have been dispensed.</p></p>
+     * <p><p>Indicates the type of dispensing event that is 
+     * performed. Examples include: Trial Fill, Completion of 
+     * Trial, Partial Fill, Emergency Fill, Samples, etc.</p></p>
      * 
-     * <p><p>Critical in understanding the patient's profile, both 
-     * past and current, This is also mandatory to allow 
-     * determination of the amount that remains to be dispensed 
-     * against the prescription.</p></p>
-     * 
-     * <p>Dispensed Quantity</p>
-     * 
-     * <p><p>The number of devices that have been dispensed.</p></p>
-     * 
-     * <p><p>D58</p><p>ZPB3.4</p></p>
-     * 
-     * <p><p>D58</p><p>ZPB3.4</p></p>
-     * 
-     * <p><p>Critical in understanding the patient's profile, both 
-     * past and current, This is also mandatory to allow 
-     * determination of the amount that remains to be dispensed 
-     * against the prescription.</p></p>
+     * <p><p>Indicates reason for the size of dispense. Because it 
+     * defines what type of dispense is occurring, the attribute is 
+     * mandatory.</p></p>
      */
-    @Hl7XmlMapping({"quantity"})
-    public Integer getDispensedQuantity() {
-        return this.dispensedQuantity.getValue();
+    @Hl7XmlMapping({"code"})
+    public ActPharmacySupplyType getDispenseType() {
+        return (ActPharmacySupplyType) this.dispenseType.getValue();
     }
-    public void setDispensedQuantity(Integer dispensedQuantity) {
-        this.dispensedQuantity.setValue(dispensedQuantity);
+    public void setDispenseType(ActPharmacySupplyType dispenseType) {
+        this.dispenseType.setValue(dispenseType);
     }
 
 
@@ -241,6 +189,58 @@ public class DispenseDetailsBean extends MessagePartBean {
     }
     public void setExpectedUseTime(Interval<Date> expectedUseTime) {
         this.expectedUseTime.setValue(expectedUseTime);
+    }
+
+
+    /**
+     * <p>DispensedQuantity</p>
+     * 
+     * <p>Dispensed Quantity</p>
+     * 
+     * <p><p>The number of devices that have been dispensed.</p></p>
+     * 
+     * <p><p>Critical in understanding the patient's profile, both 
+     * past and current, This is also mandatory to allow 
+     * determination of the amount that remains to be dispensed 
+     * against the prescription.</p></p>
+     * 
+     * <p>Dispensed Quantity</p>
+     * 
+     * <p><p>The number of devices that have been dispensed.</p></p>
+     * 
+     * <p><p>D58</p><p>ZPB3.4</p></p>
+     * 
+     * <p><p>D58</p><p>ZPB3.4</p></p>
+     * 
+     * <p><p>Critical in understanding the patient's profile, both 
+     * past and current, This is also mandatory to allow 
+     * determination of the amount that remains to be dispensed 
+     * against the prescription.</p></p>
+     */
+    @Hl7XmlMapping({"quantity"})
+    public Integer getDispensedQuantity() {
+        return this.dispensedQuantity.getValue();
+    }
+    public void setDispensedQuantity(Integer dispensedQuantity) {
+        this.dispensedQuantity.setValue(dispensedQuantity);
+    }
+
+
+    @Hl7XmlMapping({"destination/serviceDeliveryLocation"})
+    public DispenseShipToLocationBean getDestinationServiceDeliveryLocation() {
+        return this.destinationServiceDeliveryLocation;
+    }
+    public void setDestinationServiceDeliveryLocation(DispenseShipToLocationBean destinationServiceDeliveryLocation) {
+        this.destinationServiceDeliveryLocation = destinationServiceDeliveryLocation;
+    }
+
+
+    @Hl7XmlMapping({"product/manufacturedProduct"})
+    public DeviceProductBean getProductManufacturedProduct() {
+        return this.productManufacturedProduct;
+    }
+    public void setProductManufacturedProduct(DeviceProductBean productManufacturedProduct) {
+        this.productManufacturedProduct = productManufacturedProduct;
     }
 
 

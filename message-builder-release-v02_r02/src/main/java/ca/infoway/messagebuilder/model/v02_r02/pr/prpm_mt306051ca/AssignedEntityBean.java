@@ -18,6 +18,7 @@ import ca.infoway.messagebuilder.datatype.lang.PersonName;
 import ca.infoway.messagebuilder.domainvalue.AssignedRoleType;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.v02_r02.pr.merged.PrinicpalPerson_2Bean;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
@@ -44,52 +45,11 @@ import java.util.Set;
 public class AssignedEntityBean extends MessagePartBean implements RoleChoice {
 
     private static final long serialVersionUID = 20110318L;
-    private PrinicpalPerson_2Bean assignedPrincipalPerson;
-    private CV functionalRoleType = new CVImpl();
-    private LIST<PN, PersonName> functionalRoleName = new LISTImpl<PN, PersonName>(PNImpl.class);
     private SET<II, Identifier> functionalRoleIdentifier = new SETImpl<II, Identifier>(IIImpl.class);
     private OrganizationBean representedOrganization;
-
-
-    @Hl7XmlMapping({"assignedPrincipalPerson"})
-    public PrinicpalPerson_2Bean getAssignedPrincipalPerson() {
-        return this.assignedPrincipalPerson;
-    }
-    public void setAssignedPrincipalPerson(PrinicpalPerson_2Bean assignedPrincipalPerson) {
-        this.assignedPrincipalPerson = assignedPrincipalPerson;
-    }
-
-
-    /**
-     * <p>Functional Role Type</p>
-     * 
-     * <p><p>The code identifying the specific functional role.</p></p>
-     * 
-     * <p><p>Mandatory attribute supports the identification of the 
-     * healthcare provider</p></p>
-     */
-    @Hl7XmlMapping({"code"})
-    public AssignedRoleType getFunctionalRoleType() {
-        return (AssignedRoleType) this.functionalRoleType.getValue();
-    }
-    public void setFunctionalRoleType(AssignedRoleType functionalRoleType) {
-        this.functionalRoleType.setValue(functionalRoleType);
-    }
-
-
-    /**
-     * <p>Functional Role Name</p>
-     * 
-     * <p><p>The provider'''s name pertaining to the specific 
-     * functional role.</p></p>
-     * 
-     * <p><p>Required attribute supports the identification of the 
-     * healthcare provider</p></p>
-     */
-    @Hl7XmlMapping({"name"})
-    public List<PersonName> getFunctionalRoleName() {
-        return this.functionalRoleName.rawList();
-    }
+    private CV functionalRoleType = new CVImpl();
+    private PrinicpalPerson_2Bean assignedPrincipalPerson;
+    private LIST<PN, PersonName> functionalRoleName = new LISTImpl<PN, PersonName>(PNImpl.class);
 
 
     /**
@@ -113,6 +73,47 @@ public class AssignedEntityBean extends MessagePartBean implements RoleChoice {
     }
     public void setRepresentedOrganization(OrganizationBean representedOrganization) {
         this.representedOrganization = representedOrganization;
+    }
+
+
+    /**
+     * <p>Functional Role Type</p>
+     * 
+     * <p><p>The code identifying the specific functional role.</p></p>
+     * 
+     * <p><p>Mandatory attribute supports the identification of the 
+     * healthcare provider</p></p>
+     */
+    @Hl7XmlMapping({"code"})
+    public AssignedRoleType getFunctionalRoleType() {
+        return (AssignedRoleType) this.functionalRoleType.getValue();
+    }
+    public void setFunctionalRoleType(AssignedRoleType functionalRoleType) {
+        this.functionalRoleType.setValue(functionalRoleType);
+    }
+
+
+    @Hl7XmlMapping({"assignedPrincipalPerson"})
+    public PrinicpalPerson_2Bean getAssignedPrincipalPerson() {
+        return this.assignedPrincipalPerson;
+    }
+    public void setAssignedPrincipalPerson(PrinicpalPerson_2Bean assignedPrincipalPerson) {
+        this.assignedPrincipalPerson = assignedPrincipalPerson;
+    }
+
+
+    /**
+     * <p>Functional Role Name</p>
+     * 
+     * <p><p>The provider'''s name pertaining to the specific 
+     * functional role.</p></p>
+     * 
+     * <p><p>Required attribute supports the identification of the 
+     * healthcare provider</p></p>
+     */
+    @Hl7XmlMapping({"name"})
+    public List<PersonName> getFunctionalRoleName() {
+        return this.functionalRoleName.rawList();
     }
 
 }

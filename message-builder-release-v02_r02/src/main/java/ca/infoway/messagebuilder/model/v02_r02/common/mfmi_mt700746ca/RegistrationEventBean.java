@@ -27,14 +27,17 @@ import java.util.List;
 public class RegistrationEventBean<RR> extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private List<ReplacesBean> replacementOf = new ArrayList<ReplacesBean>();
-    private EHRRepositoryBean custodianAssignedDevice;
     private RegisteredItemBean<RR> subject;
+    private EHRRepositoryBean custodianAssignedDevice;
+    private List<ReplacesBean> replacementOf = new ArrayList<ReplacesBean>();
 
 
-    @Hl7XmlMapping({"replacementOf"})
-    public List<ReplacesBean> getReplacementOf() {
-        return this.replacementOf;
+    @Hl7XmlMapping({"subject"})
+    public RegisteredItemBean<RR> getSubject() {
+        return this.subject;
+    }
+    public void setSubject(RegisteredItemBean<RR> subject) {
+        this.subject = subject;
     }
 
 
@@ -47,12 +50,9 @@ public class RegistrationEventBean<RR> extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"subject"})
-    public RegisteredItemBean<RR> getSubject() {
-        return this.subject;
-    }
-    public void setSubject(RegisteredItemBean<RR> subject) {
-        this.subject = subject;
+    @Hl7XmlMapping({"replacementOf"})
+    public List<ReplacesBean> getReplacementOf() {
+        return this.replacementOf;
     }
 
 }

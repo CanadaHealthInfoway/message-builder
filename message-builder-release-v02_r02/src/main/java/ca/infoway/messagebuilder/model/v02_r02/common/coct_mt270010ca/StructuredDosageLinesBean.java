@@ -51,12 +51,12 @@ public class StructuredDosageLinesBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
     private GTS dosageTimingFrequency = new GTSImpl();
-    private URG<PQ, PhysicalQuantity> dosageRange = new URGImpl<PQ, PhysicalQuantity>();
-    private URG<PQ, PhysicalQuantity> dosageRate = new URGImpl<PQ, PhysicalQuantity>();
-    private AdministrationPreconditionBean triggerActEventCriterion;
     private AdditionalSIGInstructionBean componentSupplementalInstruction;
-    private ST adHocDosageInstruction = new STImpl();
+    private URG<PQ, PhysicalQuantity> dosageRange = new URGImpl<PQ, PhysicalQuantity>();
+    private AdministrationPreconditionBean triggerActEventCriterion;
     private CS dosageUsageContext = new CSImpl();
+    private ST adHocDosageInstruction = new STImpl();
+    private URG<PQ, PhysicalQuantity> dosageRate = new URGImpl<PQ, PhysicalQuantity>();
 
 
     /**
@@ -180,6 +180,15 @@ public class StructuredDosageLinesBean extends MessagePartBean {
     }
 
 
+    @Hl7XmlMapping({"component/supplementalInstruction"})
+    public AdditionalSIGInstructionBean getComponentSupplementalInstruction() {
+        return this.componentSupplementalInstruction;
+    }
+    public void setComponentSupplementalInstruction(AdditionalSIGInstructionBean componentSupplementalInstruction) {
+        this.componentSupplementalInstruction = componentSupplementalInstruction;
+    }
+
+
     /**
      * <p>D:Dosage Range</p>
      * 
@@ -209,25 +218,6 @@ public class StructuredDosageLinesBean extends MessagePartBean {
     }
 
 
-    /**
-     * <p>E:Dosage Rate</p>
-     * 
-     * <p><p>For intravenous and other such routes, this is the 
-     * time period over which one dose is to be administered. The 
-     * flow rate is determined by dividing the dose quantity by the 
-     * Dosage rate.</p></p>
-     * 
-     * <p><p>Required for intravenous administration</p></p>
-     */
-    @Hl7XmlMapping({"rateQuantity"})
-    public UncertainRange<PhysicalQuantity> getDosageRate() {
-        return this.dosageRate.getValue();
-    }
-    public void setDosageRate(UncertainRange<PhysicalQuantity> dosageRate) {
-        this.dosageRate.setValue(dosageRate);
-    }
-
-
     @Hl7XmlMapping({"trigger/actEventCriterion"})
     public AdministrationPreconditionBean getTriggerActEventCriterion() {
         return this.triggerActEventCriterion;
@@ -237,12 +227,46 @@ public class StructuredDosageLinesBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"component/supplementalInstruction"})
-    public AdditionalSIGInstructionBean getComponentSupplementalInstruction() {
-        return this.componentSupplementalInstruction;
+    /**
+     * <p>Dosage Usage Context</p>
+     * 
+     * <p><p>Indicates the context of the 
+     * administration.</p><p>moodCode = RQO, for administration 
+     * instruction on orders</p><p>moodCode = EVN, for 
+     * administration instruction on dispenses</p><p>moodCode = 
+     * DEF, for administration instruction on medication definition 
+     * documents/references (typically, monographs).</p></p>
+     * 
+     * <p><p>Indicates the context of the 
+     * administration.</p><p>moodCode = RQO, for administration 
+     * instruction on orders</p><p>moodCode = EVN, for 
+     * administration instruction on dispenses</p><p>moodCode = 
+     * DEF, for administration instruction on medication definition 
+     * documents/references (typically, monographs).</p></p>
+     * 
+     * <p><p>Indicates the context of the 
+     * administration.</p><p>moodCode = RQO, for administration 
+     * instruction on orders</p><p>moodCode = EVN, for 
+     * administration instruction on dispenses</p><p>moodCode = 
+     * DEF, for administration instruction on medication definition 
+     * documents/references (typically, monographs).</p></p>
+     * 
+     * <p><p>Indicates the context of the 
+     * administration.</p><p>moodCode = RQO, for administration 
+     * instruction on orders</p><p>moodCode = EVN, for 
+     * administration instruction on dispenses</p><p>moodCode = 
+     * DEF, for administration instruction on medication definition 
+     * documents/references (typically, monographs).</p></p>
+     * 
+     * <p><p>Puts the class in context, and is therefore 
+     * mandatory.</p></p>
+     */
+    @Hl7XmlMapping({"moodCode"})
+    public x_ActMoodDefEvnRqo getDosageUsageContext() {
+        return (x_ActMoodDefEvnRqo) this.dosageUsageContext.getValue();
     }
-    public void setComponentSupplementalInstruction(AdditionalSIGInstructionBean componentSupplementalInstruction) {
-        this.componentSupplementalInstruction = componentSupplementalInstruction;
+    public void setDosageUsageContext(x_ActMoodDefEvnRqo dosageUsageContext) {
+        this.dosageUsageContext.setValue(dosageUsageContext);
     }
 
 
@@ -288,45 +312,21 @@ public class StructuredDosageLinesBean extends MessagePartBean {
 
 
     /**
-     * <p>Dosage Usage Context</p>
+     * <p>E:Dosage Rate</p>
      * 
-     * <p><p>Indicates the context of the 
-     * administration.</p><p>moodCode = RQO, for administration 
-     * instruction on orders</p><p>moodCode = EVN, for 
-     * administration instruction on dispenses</p><p>moodCode = 
-     * DEF, for administration instruction on medication definition 
-     * documents/references (typically, monographs).</p></p>
+     * <p><p>For intravenous and other such routes, this is the 
+     * time period over which one dose is to be administered. The 
+     * flow rate is determined by dividing the dose quantity by the 
+     * Dosage rate.</p></p>
      * 
-     * <p><p>Indicates the context of the 
-     * administration.</p><p>moodCode = RQO, for administration 
-     * instruction on orders</p><p>moodCode = EVN, for 
-     * administration instruction on dispenses</p><p>moodCode = 
-     * DEF, for administration instruction on medication definition 
-     * documents/references (typically, monographs).</p></p>
-     * 
-     * <p><p>Indicates the context of the 
-     * administration.</p><p>moodCode = RQO, for administration 
-     * instruction on orders</p><p>moodCode = EVN, for 
-     * administration instruction on dispenses</p><p>moodCode = 
-     * DEF, for administration instruction on medication definition 
-     * documents/references (typically, monographs).</p></p>
-     * 
-     * <p><p>Indicates the context of the 
-     * administration.</p><p>moodCode = RQO, for administration 
-     * instruction on orders</p><p>moodCode = EVN, for 
-     * administration instruction on dispenses</p><p>moodCode = 
-     * DEF, for administration instruction on medication definition 
-     * documents/references (typically, monographs).</p></p>
-     * 
-     * <p><p>Puts the class in context, and is therefore 
-     * mandatory.</p></p>
+     * <p><p>Required for intravenous administration</p></p>
      */
-    @Hl7XmlMapping({"moodCode"})
-    public x_ActMoodDefEvnRqo getDosageUsageContext() {
-        return (x_ActMoodDefEvnRqo) this.dosageUsageContext.getValue();
+    @Hl7XmlMapping({"rateQuantity"})
+    public UncertainRange<PhysicalQuantity> getDosageRate() {
+        return this.dosageRate.getValue();
     }
-    public void setDosageUsageContext(x_ActMoodDefEvnRqo dosageUsageContext) {
-        this.dosageUsageContext.setValue(dosageUsageContext);
+    public void setDosageRate(UncertainRange<PhysicalQuantity> dosageRate) {
+        this.dosageRate.setValue(dosageRate);
     }
 
 }

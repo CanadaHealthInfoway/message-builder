@@ -18,6 +18,8 @@ import ca.infoway.messagebuilder.datatype.lang.PersonName;
 import ca.infoway.messagebuilder.datatype.lang.PostalAddress;
 import ca.infoway.messagebuilder.datatype.lang.TelecommunicationAddress;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 
@@ -37,27 +39,10 @@ import java.util.Set;
 public class AnimalPatientBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private AD ownerAddress = new ADImpl();
     private PN ownerName = new PNImpl();
+    private AD ownerAddress = new ADImpl();
     private SET<TEL, TelecommunicationAddress> ownerPhonesAndEmails = new SETImpl<TEL, TelecommunicationAddress>(TELImpl.class);
     private ST animalName = new STImpl();
-
-
-    /**
-     * <p>Owner address</p>
-     * 
-     * <p><p>The mail and/or physical address associated with the 
-     * owner or contact person for the animal.</p></p>
-     * 
-     * <p><p>Used to contact the owner or contact person</p></p>
-     */
-    @Hl7XmlMapping({"patientNonPersonLivingSubject/contactParty/addr"})
-    public PostalAddress getOwnerAddress() {
-        return this.ownerAddress.getValue();
-    }
-    public void setOwnerAddress(PostalAddress ownerAddress) {
-        this.ownerAddress.setValue(ownerAddress);
-    }
 
 
     /**
@@ -75,6 +60,23 @@ public class AnimalPatientBean extends MessagePartBean {
     }
     public void setOwnerName(PersonName ownerName) {
         this.ownerName.setValue(ownerName);
+    }
+
+
+    /**
+     * <p>Owner address</p>
+     * 
+     * <p><p>The mail and/or physical address associated with the 
+     * owner or contact person for the animal.</p></p>
+     * 
+     * <p><p>Used to contact the owner or contact person</p></p>
+     */
+    @Hl7XmlMapping({"patientNonPersonLivingSubject/contactParty/addr"})
+    public PostalAddress getOwnerAddress() {
+        return this.ownerAddress.getValue();
+    }
+    public void setOwnerAddress(PostalAddress ownerAddress) {
+        this.ownerAddress.setValue(ownerAddress);
     }
 
 

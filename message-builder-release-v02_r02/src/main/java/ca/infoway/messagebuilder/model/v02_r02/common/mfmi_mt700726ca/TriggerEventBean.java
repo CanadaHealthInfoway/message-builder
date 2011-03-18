@@ -48,31 +48,37 @@ import java.util.List;
 public class TriggerEventBean<RR> extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private CV eventType = new CVImpl();
-    private IVL<TS, Interval<Date>> eventEffectivePeriod = new IVLImpl<TS, Interval<Date>>();
-    private List<IssuesBean> subjectOfDetectedIssueEvent = new ArrayList<IssuesBean>();
-    private List<ReplacesBean> subjectRegistrationEventReplacementOf = new ArrayList<ReplacesBean>();
-    private EHRRepositoryBean subjectRegistrationEventCustodianAssignedDevice;
-    private RegisteredItemBean<RR> subjectRegistrationEventSubject;
-    private BL cascadeResponsibilityIndicator = new BLImpl();
     private II eventIdentifier = new IIImpl();
+    private IVL<TS, Interval<Date>> eventEffectivePeriod = new IVLImpl<TS, Interval<Date>>();
+    private CV eventType = new CVImpl();
     private CV eventReason = new CVImpl();
+    private List<IssuesBean> subjectOfDetectedIssueEvent = new ArrayList<IssuesBean>();
+    private BL cascadeResponsibilityIndicator = new BLImpl();
+    private RegisteredItemBean<RR> subjectRegistrationEventSubject;
+    private EHRRepositoryBean subjectRegistrationEventCustodianAssignedDevice;
+    private List<ReplacesBean> subjectRegistrationEventReplacementOf = new ArrayList<ReplacesBean>();
 
 
     /**
-     * <p>A:Event Type</p>
+     * <p>B:Event Identifier</p>
      * 
-     * <p><p>Identifies the trigger event that occurred.</p></p>
+     * <p><p>A unique identifier for this particular event assigned 
+     * by the system in which the event occurred.</p></p>
      * 
-     * <p><p>This is mandatory because it is essential to 
-     * understanding the meaning of the event.</p></p>
+     * <p><p>Allows the event to be referenced (for undos) and also 
+     * indicates whether multiple interactions were caused by the 
+     * same triggering event. Also used for audit purposes.</p></p>
+     * 
+     * <p><p>Identifier needs to be persisted by receiving 
+     * applications, except for queries (queries cannot be 
+     * retracted or undone).</p></p>
      */
-    @Hl7XmlMapping({"code"})
-    public HL7TriggerEventCode getEventType() {
-        return (HL7TriggerEventCode) this.eventType.getValue();
+    @Hl7XmlMapping({"id"})
+    public Identifier getEventIdentifier() {
+        return this.eventIdentifier.getValue();
     }
-    public void setEventType(HL7TriggerEventCode eventType) {
-        this.eventType.setValue(eventType);
+    public void setEventIdentifier(Identifier eventIdentifier) {
+        this.eventIdentifier.setValue(eventIdentifier);
     }
 
 
@@ -97,33 +103,50 @@ public class TriggerEventBean<RR> extends MessagePartBean {
     }
 
 
+    /**
+     * <p>A:Event Type</p>
+     * 
+     * <p><p>Identifies the trigger event that occurred.</p></p>
+     * 
+     * <p><p>This is mandatory because it is essential to 
+     * understanding the meaning of the event.</p></p>
+     */
+    @Hl7XmlMapping({"code"})
+    public HL7TriggerEventCode getEventType() {
+        return (HL7TriggerEventCode) this.eventType.getValue();
+    }
+    public void setEventType(HL7TriggerEventCode eventType) {
+        this.eventType.setValue(eventType);
+    }
+
+
+    /**
+     * <p>E:Event Reason</p>
+     * 
+     * <p><p>Identifies why this specific message interaction (e.g. 
+     * query, activation request, modification request) 
+     * occurred.</p></p>
+     * 
+     * <p><p>Allows identifying a reason for a specific action, 
+     * such as 'reason for hold' or 'reason for accessing 
+     * information'.</p></p>
+     * 
+     * <p><p>The domain associated with this attribute will vary 
+     * for each interaction and will be noted as part of the 
+     * interaction description.</p></p>
+     */
+    @Hl7XmlMapping({"reasonCode"})
+    public ControlActReason getEventReason() {
+        return (ControlActReason) this.eventReason.getValue();
+    }
+    public void setEventReason(ControlActReason eventReason) {
+        this.eventReason.setValue(eventReason);
+    }
+
+
     @Hl7XmlMapping({"subjectOf/detectedIssueEvent"})
     public List<IssuesBean> getSubjectOfDetectedIssueEvent() {
         return this.subjectOfDetectedIssueEvent;
-    }
-
-
-    @Hl7XmlMapping({"subject/registrationEvent/replacementOf"})
-    public List<ReplacesBean> getSubjectRegistrationEventReplacementOf() {
-        return this.subjectRegistrationEventReplacementOf;
-    }
-
-
-    @Hl7XmlMapping({"subject/registrationEvent/custodian/assignedDevice"})
-    public EHRRepositoryBean getSubjectRegistrationEventCustodianAssignedDevice() {
-        return this.subjectRegistrationEventCustodianAssignedDevice;
-    }
-    public void setSubjectRegistrationEventCustodianAssignedDevice(EHRRepositoryBean subjectRegistrationEventCustodianAssignedDevice) {
-        this.subjectRegistrationEventCustodianAssignedDevice = subjectRegistrationEventCustodianAssignedDevice;
-    }
-
-
-    @Hl7XmlMapping({"subject/registrationEvent/subject"})
-    public RegisteredItemBean<RR> getSubjectRegistrationEventSubject() {
-        return this.subjectRegistrationEventSubject;
-    }
-    public void setSubjectRegistrationEventSubject(RegisteredItemBean<RR> subjectRegistrationEventSubject) {
-        this.subjectRegistrationEventSubject = subjectRegistrationEventSubject;
     }
 
 
@@ -192,50 +215,27 @@ public class TriggerEventBean<RR> extends MessagePartBean {
     }
 
 
-    /**
-     * <p>B:Event Identifier</p>
-     * 
-     * <p><p>A unique identifier for this particular event assigned 
-     * by the system in which the event occurred.</p></p>
-     * 
-     * <p><p>Allows the event to be referenced (for undos) and also 
-     * indicates whether multiple interactions were caused by the 
-     * same triggering event. Also used for audit purposes.</p></p>
-     * 
-     * <p><p>Identifier needs to be persisted by receiving 
-     * applications, except for queries (queries cannot be 
-     * retracted or undone).</p></p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Identifier getEventIdentifier() {
-        return this.eventIdentifier.getValue();
+    @Hl7XmlMapping({"subject/registrationEvent/subject"})
+    public RegisteredItemBean<RR> getSubjectRegistrationEventSubject() {
+        return this.subjectRegistrationEventSubject;
     }
-    public void setEventIdentifier(Identifier eventIdentifier) {
-        this.eventIdentifier.setValue(eventIdentifier);
+    public void setSubjectRegistrationEventSubject(RegisteredItemBean<RR> subjectRegistrationEventSubject) {
+        this.subjectRegistrationEventSubject = subjectRegistrationEventSubject;
     }
 
 
-    /**
-     * <p>E:Event Reason</p>
-     * 
-     * <p><p>Identifies why this specific message interaction (e.g. 
-     * query, activation request, modification request) 
-     * occurred.</p></p>
-     * 
-     * <p><p>Allows identifying a reason for a specific action, 
-     * such as 'reason for hold' or 'reason for accessing 
-     * information'.</p></p>
-     * 
-     * <p><p>The domain associated with this attribute will vary 
-     * for each interaction and will be noted as part of the 
-     * interaction description.</p></p>
-     */
-    @Hl7XmlMapping({"reasonCode"})
-    public ControlActReason getEventReason() {
-        return (ControlActReason) this.eventReason.getValue();
+    @Hl7XmlMapping({"subject/registrationEvent/custodian/assignedDevice"})
+    public EHRRepositoryBean getSubjectRegistrationEventCustodianAssignedDevice() {
+        return this.subjectRegistrationEventCustodianAssignedDevice;
     }
-    public void setEventReason(ControlActReason eventReason) {
-        this.eventReason.setValue(eventReason);
+    public void setSubjectRegistrationEventCustodianAssignedDevice(EHRRepositoryBean subjectRegistrationEventCustodianAssignedDevice) {
+        this.subjectRegistrationEventCustodianAssignedDevice = subjectRegistrationEventCustodianAssignedDevice;
+    }
+
+
+    @Hl7XmlMapping({"subject/registrationEvent/replacementOf"})
+    public List<ReplacesBean> getSubjectRegistrationEventReplacementOf() {
+        return this.subjectRegistrationEventReplacementOf;
     }
 
 }

@@ -31,27 +31,10 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 public class LanguageOfCommunicationBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private CE languageOfCommunicationCode = new CEImpl();
     private BL languageOfCommunicationPreferenceIndicator = new BLImpl();
-    private CV languageOfCommunicationProficiencyLevelCode = new CVImpl();
     private CV languageOfCommunicationSkillsCode = new CVImpl();
-
-
-    /**
-     * <p>Language of Communication Code</p>
-     * 
-     * <p><p>A code indicating the language of communication</p></p>
-     * 
-     * <p><p>Mandatory attribute conveying the expected language 
-     * message elements are to be transmitted in</p></p>
-     */
-    @Hl7XmlMapping({"languageCode"})
-    public HumanLanguage getLanguageOfCommunicationCode() {
-        return (HumanLanguage) this.languageOfCommunicationCode.getValue();
-    }
-    public void setLanguageOfCommunicationCode(HumanLanguage languageOfCommunicationCode) {
-        this.languageOfCommunicationCode.setValue(languageOfCommunicationCode);
-    }
+    private CV languageOfCommunicationProficiencyLevelCode = new CVImpl();
+    private CE languageOfCommunicationCode = new CEImpl();
 
 
     /**
@@ -70,6 +53,26 @@ public class LanguageOfCommunicationBean extends MessagePartBean {
     }
     public void setLanguageOfCommunicationPreferenceIndicator(Boolean languageOfCommunicationPreferenceIndicator) {
         this.languageOfCommunicationPreferenceIndicator.setValue(languageOfCommunicationPreferenceIndicator);
+    }
+
+
+    /**
+     * <p>Language of Communication Skills Code</p>
+     * 
+     * <p><p>Indicates the healthcare provider's ability to 
+     * communicate in the indicated language i.e. written, spoken, 
+     * read</p></p>
+     * 
+     * <p><p>Required attribute provides additional information 
+     * about the healthcare provider's communication skills in a 
+     * given language</p></p>
+     */
+    @Hl7XmlMapping({"modeCode"})
+    public LanguageAbilityMode getLanguageOfCommunicationSkillsCode() {
+        return (LanguageAbilityMode) this.languageOfCommunicationSkillsCode.getValue();
+    }
+    public void setLanguageOfCommunicationSkillsCode(LanguageAbilityMode languageOfCommunicationSkillsCode) {
+        this.languageOfCommunicationSkillsCode.setValue(languageOfCommunicationSkillsCode);
     }
 
 
@@ -94,22 +97,19 @@ public class LanguageOfCommunicationBean extends MessagePartBean {
 
 
     /**
-     * <p>Language of Communication Skills Code</p>
+     * <p>Language of Communication Code</p>
      * 
-     * <p><p>Indicates the healthcare provider's ability to 
-     * communicate in the indicated language i.e. written, spoken, 
-     * read</p></p>
+     * <p><p>A code indicating the language of communication</p></p>
      * 
-     * <p><p>Required attribute provides additional information 
-     * about the healthcare provider's communication skills in a 
-     * given language</p></p>
+     * <p><p>Mandatory attribute conveying the expected language 
+     * message elements are to be transmitted in</p></p>
      */
-    @Hl7XmlMapping({"modeCode"})
-    public LanguageAbilityMode getLanguageOfCommunicationSkillsCode() {
-        return (LanguageAbilityMode) this.languageOfCommunicationSkillsCode.getValue();
+    @Hl7XmlMapping({"languageCode"})
+    public HumanLanguage getLanguageOfCommunicationCode() {
+        return (HumanLanguage) this.languageOfCommunicationCode.getValue();
     }
-    public void setLanguageOfCommunicationSkillsCode(LanguageAbilityMode languageOfCommunicationSkillsCode) {
-        this.languageOfCommunicationSkillsCode.setValue(languageOfCommunicationSkillsCode);
+    public void setLanguageOfCommunicationCode(HumanLanguage languageOfCommunicationCode) {
+        this.languageOfCommunicationCode.setValue(languageOfCommunicationCode);
     }
 
 }

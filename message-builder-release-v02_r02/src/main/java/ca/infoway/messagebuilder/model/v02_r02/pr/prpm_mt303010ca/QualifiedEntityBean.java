@@ -41,21 +41,50 @@ import java.util.List;
 public class QualifiedEntityBean extends MessagePartBean implements RoleChoice {
 
     private static final long serialVersionUID = 20110318L;
-    private PrinicpalPerson_1Bean qualifiedPrincipalPerson;
-    private CV expertiseOrCredentialsRoleType = new CVImpl();
-    private OrganizationBean qualificationGrantingOrganization;
-    private IVL<TS, Interval<Date>> expertiseOrCredentialsRoleEffectiveDate = new IVLImpl<TS, Interval<Date>>();
-    private List<PrivilegeBean> responsibleForPrivilege = new ArrayList<PrivilegeBean>();
-    private List<RelatedToBean> relatedTo = new ArrayList<RelatedToBean>();
     private II expertiseOrCredentialsRoleIdentifier = new IIImpl();
+    private IVL<TS, Interval<Date>> expertiseOrCredentialsRoleEffectiveDate = new IVLImpl<TS, Interval<Date>>();
+    private CV expertiseOrCredentialsRoleType = new CVImpl();
+    private List<RelatedToBean> relatedTo = new ArrayList<RelatedToBean>();
+    private OrganizationBean qualificationGrantingOrganization;
+    private PrinicpalPerson_1Bean qualifiedPrincipalPerson;
+    private List<PrivilegeBean> responsibleForPrivilege = new ArrayList<PrivilegeBean>();
 
 
-    @Hl7XmlMapping({"qualifiedPrincipalPerson"})
-    public PrinicpalPerson_1Bean getQualifiedPrincipalPerson() {
-        return this.qualifiedPrincipalPerson;
+    /**
+     * <p>Expertise or Credentials Role Identifier</p>
+     * 
+     * <p><p>Unique identifier for the Expertise or Credential.</p></p>
+     * 
+     * <p><p>Mandatory attribute supports the identification of the 
+     * healthcare provider credentials</p></p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Identifier getExpertiseOrCredentialsRoleIdentifier() {
+        return this.expertiseOrCredentialsRoleIdentifier.getValue();
     }
-    public void setQualifiedPrincipalPerson(PrinicpalPerson_1Bean qualifiedPrincipalPerson) {
-        this.qualifiedPrincipalPerson = qualifiedPrincipalPerson;
+    public void setExpertiseOrCredentialsRoleIdentifier(Identifier expertiseOrCredentialsRoleIdentifier) {
+        this.expertiseOrCredentialsRoleIdentifier.setValue(expertiseOrCredentialsRoleIdentifier);
+    }
+
+
+    /**
+     * <p>Expertise or Credentials Role Effective Date</p>
+     * 
+     * <p><p>The effective date of the provider expertise or 
+     * credentials in the healthcare provider role.</p></p>
+     * 
+     * <p><p>Mandatory attribute supports the identification of the 
+     * healthcare provider credentials</p></p>
+     * 
+     * <p><p>If Expertise or Credentials are included in the 
+     * message, then Role Effective Date Must Exist</p></p>
+     */
+    @Hl7XmlMapping({"effectiveTime"})
+    public Interval<Date> getExpertiseOrCredentialsRoleEffectiveDate() {
+        return this.expertiseOrCredentialsRoleEffectiveDate.getValue();
+    }
+    public void setExpertiseOrCredentialsRoleEffectiveDate(Interval<Date> expertiseOrCredentialsRoleEffectiveDate) {
+        this.expertiseOrCredentialsRoleEffectiveDate.setValue(expertiseOrCredentialsRoleEffectiveDate);
     }
 
 
@@ -81,6 +110,12 @@ public class QualifiedEntityBean extends MessagePartBean implements RoleChoice {
     }
 
 
+    @Hl7XmlMapping({"relatedTo"})
+    public List<RelatedToBean> getRelatedTo() {
+        return this.relatedTo;
+    }
+
+
     @Hl7XmlMapping({"qualificationGrantingOrganization"})
     public OrganizationBean getQualificationGrantingOrganization() {
         return this.qualificationGrantingOrganization;
@@ -90,53 +125,18 @@ public class QualifiedEntityBean extends MessagePartBean implements RoleChoice {
     }
 
 
-    /**
-     * <p>Expertise or Credentials Role Effective Date</p>
-     * 
-     * <p><p>The effective date of the provider expertise or 
-     * credentials in the healthcare provider role.</p></p>
-     * 
-     * <p><p>Mandatory attribute supports the identification of the 
-     * healthcare provider credentials</p></p>
-     * 
-     * <p><p>If Expertise or Credentials are included in the 
-     * message, then Role Effective Date Must Exist</p></p>
-     */
-    @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getExpertiseOrCredentialsRoleEffectiveDate() {
-        return this.expertiseOrCredentialsRoleEffectiveDate.getValue();
+    @Hl7XmlMapping({"qualifiedPrincipalPerson"})
+    public PrinicpalPerson_1Bean getQualifiedPrincipalPerson() {
+        return this.qualifiedPrincipalPerson;
     }
-    public void setExpertiseOrCredentialsRoleEffectiveDate(Interval<Date> expertiseOrCredentialsRoleEffectiveDate) {
-        this.expertiseOrCredentialsRoleEffectiveDate.setValue(expertiseOrCredentialsRoleEffectiveDate);
+    public void setQualifiedPrincipalPerson(PrinicpalPerson_1Bean qualifiedPrincipalPerson) {
+        this.qualifiedPrincipalPerson = qualifiedPrincipalPerson;
     }
 
 
     @Hl7XmlMapping({"responsibleFor/privilege"})
     public List<PrivilegeBean> getResponsibleForPrivilege() {
         return this.responsibleForPrivilege;
-    }
-
-
-    @Hl7XmlMapping({"relatedTo"})
-    public List<RelatedToBean> getRelatedTo() {
-        return this.relatedTo;
-    }
-
-
-    /**
-     * <p>Expertise or Credentials Role Identifier</p>
-     * 
-     * <p><p>Unique identifier for the Expertise or Credential.</p></p>
-     * 
-     * <p><p>Mandatory attribute supports the identification of the 
-     * healthcare provider credentials</p></p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Identifier getExpertiseOrCredentialsRoleIdentifier() {
-        return this.expertiseOrCredentialsRoleIdentifier.getValue();
-    }
-    public void setExpertiseOrCredentialsRoleIdentifier(Identifier expertiseOrCredentialsRoleIdentifier) {
-        this.expertiseOrCredentialsRoleIdentifier.setValue(expertiseOrCredentialsRoleIdentifier);
     }
 
 }

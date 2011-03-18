@@ -54,14 +54,128 @@ import java.util.List;
 public class PrinicpalPerson_1Bean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
+    private CV principalPersonGender = new CVImpl();
+    private II principalPersonAggregateIdentifier = new IIImpl();
+    private BL principalPersonDeceasedIndicator = new BLImpl();
+    private List<LanguageCommunicationBean> languageCommunication = new ArrayList<LanguageCommunicationBean>();
+    private LIST<PN, PersonName> principalPersonName = new LISTImpl<PN, PersonName>(PNImpl.class);
     private TS principalPersonDateOfBirth = new TSImpl();
     private AD birthplaceAddress = new ADImpl();
-    private CV principalPersonGender = new CVImpl();
-    private BL principalPersonDeceasedIndicator = new BLImpl();
-    private LIST<PN, PersonName> principalPersonName = new LISTImpl<PN, PersonName>(PNImpl.class);
-    private II principalPersonAggregateIdentifier = new IIImpl();
     private TS principalPersonDeceasedDate = new TSImpl();
-    private List<LanguageCommunicationBean> languageCommunication = new ArrayList<LanguageCommunicationBean>();
+
+
+    /**
+     * <p>PrincipalPersonGender</p>
+     * 
+     * <p>Principal Person Gender</p>
+     * 
+     * <p><p>The principal person'''s gender.</p></p>
+     * 
+     * <p><p>Mandatory attribute supports the identification of the 
+     * healthcare provider</p></p>
+     * 
+     * <p><p>If Principal Person is included in the message, then 
+     * Person Gender is Expected to Exist.</p></p>
+     * 
+     * <p>Principal Person Gender</p>
+     * 
+     * <p><p>The principal person'''s gender.</p></p>
+     * 
+     * <p><p>STF.5</p></p>
+     * 
+     * <p><p>Mandatory attribute supports the identification of the 
+     * healthcare provider</p></p>
+     * 
+     * <p><p>If Principal Person is included in the message, then 
+     * Person Gender is Expected to Exist.</p></p>
+     */
+    @Hl7XmlMapping({"administrativeGenderCode"})
+    public AdministrativeGender getPrincipalPersonGender() {
+        return (AdministrativeGender) this.principalPersonGender.getValue();
+    }
+    public void setPrincipalPersonGender(AdministrativeGender principalPersonGender) {
+        this.principalPersonGender.setValue(principalPersonGender);
+    }
+
+
+    /**
+     * <p>PrincipalPersonAggregateIdentifier</p>
+     * 
+     * <p>Principal Person Aggregate Identifier</p>
+     * 
+     * <p><p>A unique identifier for the person who may play 
+     * various healthcare provider roles. This identifier is 
+     * specific to the person not their roles.</p></p>
+     * 
+     * <p><p>Required attribute supports the identification of the 
+     * healthcare provider</p></p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Identifier getPrincipalPersonAggregateIdentifier() {
+        return this.principalPersonAggregateIdentifier.getValue();
+    }
+    public void setPrincipalPersonAggregateIdentifier(Identifier principalPersonAggregateIdentifier) {
+        this.principalPersonAggregateIdentifier.setValue(principalPersonAggregateIdentifier);
+    }
+
+
+    /**
+     * <p>PrincipalPersonDeceasedIndicator</p>
+     * 
+     * <p>Principal Person Deceased Indicator</p>
+     * 
+     * <p><p>An indication that the principal person is 
+     * deceased.</p></p>
+     * 
+     * <p><p>Required attribute supports the identification of the 
+     * healthcare provider</p></p>
+     */
+    @Hl7XmlMapping({"deceasedInd"})
+    public Boolean getPrincipalPersonDeceasedIndicator() {
+        return this.principalPersonDeceasedIndicator.getValue();
+    }
+    public void setPrincipalPersonDeceasedIndicator(Boolean principalPersonDeceasedIndicator) {
+        this.principalPersonDeceasedIndicator.setValue(principalPersonDeceasedIndicator);
+    }
+
+
+    @Hl7XmlMapping({"languageCommunication"})
+    public List<LanguageCommunicationBean> getLanguageCommunication() {
+        return this.languageCommunication;
+    }
+
+
+    /**
+     * <p>PrincipalPersonName</p>
+     * 
+     * <p>Principal Person Name</p>
+     * 
+     * <p><p>The person'''s name independent of any role they may 
+     * play.</p></p>
+     * 
+     * <p><p>13, STF:3; ROL:4:2-7,10,16,21</p></p>
+     * 
+     * <p><p>Required attribute supports the identification of the 
+     * healthcare provider</p></p>
+     * 
+     * <p><p>If Principal Person is included in the message, then 
+     * Prinicpal Person Name Must Exist.</p></p>
+     * 
+     * <p>Principal Person Name</p>
+     * 
+     * <p><p>The person'''s name independent of any role they may 
+     * play.</p></p>
+     * 
+     * <p><p>Required attribute supports the identification of the 
+     * healthcare provider</p></p>
+     * 
+     * <p><p>If Principal Person is included in the message, then 
+     * Person Name Must Exist.</p></p>
+     */
+    @Hl7XmlMapping({"name"})
+    public List<PersonName> getPrincipalPersonName() {
+        return this.principalPersonName.rawList();
+    }
 
 
     /**
@@ -109,114 +223,6 @@ public class PrinicpalPerson_1Bean extends MessagePartBean {
 
 
     /**
-     * <p>PrincipalPersonGender</p>
-     * 
-     * <p>Principal Person Gender</p>
-     * 
-     * <p><p>The principal person'''s gender.</p></p>
-     * 
-     * <p><p>Mandatory attribute supports the identification of the 
-     * healthcare provider</p></p>
-     * 
-     * <p><p>If Principal Person is included in the message, then 
-     * Person Gender is Expected to Exist.</p></p>
-     * 
-     * <p>Principal Person Gender</p>
-     * 
-     * <p><p>The principal person'''s gender.</p></p>
-     * 
-     * <p><p>STF.5</p></p>
-     * 
-     * <p><p>Mandatory attribute supports the identification of the 
-     * healthcare provider</p></p>
-     * 
-     * <p><p>If Principal Person is included in the message, then 
-     * Person Gender is Expected to Exist.</p></p>
-     */
-    @Hl7XmlMapping({"administrativeGenderCode"})
-    public AdministrativeGender getPrincipalPersonGender() {
-        return (AdministrativeGender) this.principalPersonGender.getValue();
-    }
-    public void setPrincipalPersonGender(AdministrativeGender principalPersonGender) {
-        this.principalPersonGender.setValue(principalPersonGender);
-    }
-
-
-    /**
-     * <p>PrincipalPersonDeceasedIndicator</p>
-     * 
-     * <p>Principal Person Deceased Indicator</p>
-     * 
-     * <p><p>An indication that the principal person is 
-     * deceased.</p></p>
-     * 
-     * <p><p>Required attribute supports the identification of the 
-     * healthcare provider</p></p>
-     */
-    @Hl7XmlMapping({"deceasedInd"})
-    public Boolean getPrincipalPersonDeceasedIndicator() {
-        return this.principalPersonDeceasedIndicator.getValue();
-    }
-    public void setPrincipalPersonDeceasedIndicator(Boolean principalPersonDeceasedIndicator) {
-        this.principalPersonDeceasedIndicator.setValue(principalPersonDeceasedIndicator);
-    }
-
-
-    /**
-     * <p>PrincipalPersonName</p>
-     * 
-     * <p>Principal Person Name</p>
-     * 
-     * <p><p>The person'''s name independent of any role they may 
-     * play.</p></p>
-     * 
-     * <p><p>13, STF:3; ROL:4:2-7,10,16,21</p></p>
-     * 
-     * <p><p>Required attribute supports the identification of the 
-     * healthcare provider</p></p>
-     * 
-     * <p><p>If Principal Person is included in the message, then 
-     * Prinicpal Person Name Must Exist.</p></p>
-     * 
-     * <p>Principal Person Name</p>
-     * 
-     * <p><p>The person'''s name independent of any role they may 
-     * play.</p></p>
-     * 
-     * <p><p>Required attribute supports the identification of the 
-     * healthcare provider</p></p>
-     * 
-     * <p><p>If Principal Person is included in the message, then 
-     * Person Name Must Exist.</p></p>
-     */
-    @Hl7XmlMapping({"name"})
-    public List<PersonName> getPrincipalPersonName() {
-        return this.principalPersonName.rawList();
-    }
-
-
-    /**
-     * <p>PrincipalPersonAggregateIdentifier</p>
-     * 
-     * <p>Principal Person Aggregate Identifier</p>
-     * 
-     * <p><p>A unique identifier for the person who may play 
-     * various healthcare provider roles. This identifier is 
-     * specific to the person not their roles.</p></p>
-     * 
-     * <p><p>Required attribute supports the identification of the 
-     * healthcare provider</p></p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Identifier getPrincipalPersonAggregateIdentifier() {
-        return this.principalPersonAggregateIdentifier.getValue();
-    }
-    public void setPrincipalPersonAggregateIdentifier(Identifier principalPersonAggregateIdentifier) {
-        this.principalPersonAggregateIdentifier.setValue(principalPersonAggregateIdentifier);
-    }
-
-
-    /**
      * <p>PrincipalPersonDeceasedDate</p>
      * 
      * <p>Principal Person Deceased Date</p>
@@ -233,12 +239,6 @@ public class PrinicpalPerson_1Bean extends MessagePartBean {
     }
     public void setPrincipalPersonDeceasedDate(Date principalPersonDeceasedDate) {
         this.principalPersonDeceasedDate.setValue(principalPersonDeceasedDate);
-    }
-
-
-    @Hl7XmlMapping({"languageCommunication"})
-    public List<LanguageCommunicationBean> getLanguageCommunication() {
-        return this.languageCommunication;
     }
 
 }

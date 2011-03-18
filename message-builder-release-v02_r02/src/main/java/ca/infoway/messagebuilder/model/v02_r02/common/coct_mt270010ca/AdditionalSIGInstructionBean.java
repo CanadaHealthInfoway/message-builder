@@ -31,37 +31,8 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 public class AdditionalSIGInstructionBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private ST additionalDosageInstruction = new STImpl();
     private CS dosageUsageContext = new CSImpl();
-
-
-    /**
-     * <p>F:Additional Dosage Instruction</p>
-     * 
-     * <p><p>A free form textual description of extended 
-     * instruction regarding the administration of the drug.</p></p>
-     * 
-     * <p><p>ZDP.13.8</p></p>
-     * 
-     * <p><p>Allows for expression of non-codable qualifiers such 
-     * as: 'on an empty stomach', 'add water' etc; which do not 
-     * affect calculations of frequencies or quantity.</p><p>This 
-     * attribute is marked as 'mandatory' as it is the only 
-     * information that can be specified here.</p></p>
-     * 
-     * <p><p>Allows for expression of non-codable qualifiers such 
-     * as: 'on an empty stomach', 'add water' etc; which do not 
-     * affect calculations of frequencies or quantity.</p><p>This 
-     * attribute is marked as 'mandatory' as it is the only 
-     * information that can be specified here.</p></p>
-     */
-    @Hl7XmlMapping({"text"})
-    public String getAdditionalDosageInstruction() {
-        return this.additionalDosageInstruction.getValue();
-    }
-    public void setAdditionalDosageInstruction(String additionalDosageInstruction) {
-        this.additionalDosageInstruction.setValue(additionalDosageInstruction);
-    }
+    private ST additionalDosageInstruction = new STImpl();
 
 
     /**
@@ -104,6 +75,35 @@ public class AdditionalSIGInstructionBean extends MessagePartBean {
     }
     public void setDosageUsageContext(x_ActMoodDefEvnRqo dosageUsageContext) {
         this.dosageUsageContext.setValue(dosageUsageContext);
+    }
+
+
+    /**
+     * <p>F:Additional Dosage Instruction</p>
+     * 
+     * <p><p>A free form textual description of extended 
+     * instruction regarding the administration of the drug.</p></p>
+     * 
+     * <p><p>ZDP.13.8</p></p>
+     * 
+     * <p><p>Allows for expression of non-codable qualifiers such 
+     * as: 'on an empty stomach', 'add water' etc; which do not 
+     * affect calculations of frequencies or quantity.</p><p>This 
+     * attribute is marked as 'mandatory' as it is the only 
+     * information that can be specified here.</p></p>
+     * 
+     * <p><p>Allows for expression of non-codable qualifiers such 
+     * as: 'on an empty stomach', 'add water' etc; which do not 
+     * affect calculations of frequencies or quantity.</p><p>This 
+     * attribute is marked as 'mandatory' as it is the only 
+     * information that can be specified here.</p></p>
+     */
+    @Hl7XmlMapping({"text"})
+    public String getAdditionalDosageInstruction() {
+        return this.additionalDosageInstruction.getValue();
+    }
+    public void setAdditionalDosageInstruction(String additionalDosageInstruction) {
+        this.additionalDosageInstruction.setValue(additionalDosageInstruction);
     }
 
 }

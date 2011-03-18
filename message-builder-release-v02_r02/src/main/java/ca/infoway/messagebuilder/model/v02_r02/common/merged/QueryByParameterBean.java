@@ -32,31 +32,12 @@ import java.util.List;
 public class QueryByParameterBean<PL> extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private II queryIdentifier = new IIImpl();
     private CV queryLimitType = new CVImpl();
     private INT queryLimit = new INTImpl();
     private CS expeditedQueryIndicator = new CSImpl();
     private PL parameterList;
+    private II queryIdentifier = new IIImpl();
     private List<SortControlBean> sortControl = new ArrayList<SortControlBean>();
-
-
-    /**
-     * <p>QueryIdentifier</p>
-     * 
-     * <p>H:Query Identifier</p>
-     * 
-     * <p><p>Unique number for this particular query.</p></p>
-     * 
-     * <p><p>Needed to allow continuation of queries and linking of 
-     * query requests and responses and therefore mandatory.</p></p>
-     */
-    @Hl7XmlMapping({"queryId"})
-    public Identifier getQueryIdentifier() {
-        return this.queryIdentifier.getValue();
-    }
-    public void setQueryIdentifier(Identifier queryIdentifier) {
-        this.queryIdentifier.setValue(queryIdentifier);
-    }
 
 
     /**
@@ -165,6 +146,25 @@ public class QueryByParameterBean<PL> extends MessagePartBean {
     }
     public void setParameterList(PL parameterList) {
         this.parameterList = parameterList;
+    }
+
+
+    /**
+     * <p>QueryIdentifier</p>
+     * 
+     * <p>H:Query Identifier</p>
+     * 
+     * <p><p>Unique number for this particular query.</p></p>
+     * 
+     * <p><p>Needed to allow continuation of queries and linking of 
+     * query requests and responses and therefore mandatory.</p></p>
+     */
+    @Hl7XmlMapping({"queryId"})
+    public Identifier getQueryIdentifier() {
+        return this.queryIdentifier.getValue();
+    }
+    public void setQueryIdentifier(Identifier queryIdentifier) {
+        this.queryIdentifier.setValue(queryIdentifier);
     }
 
 

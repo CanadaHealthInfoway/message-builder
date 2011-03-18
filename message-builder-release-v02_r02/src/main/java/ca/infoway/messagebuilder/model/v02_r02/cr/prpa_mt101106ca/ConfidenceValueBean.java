@@ -30,27 +30,8 @@ import java.math.BigDecimal;
 public class ConfidenceValueBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private CD probabilityMatchCode = new CDImpl();
     private REAL confidenceValue = new REALImpl();
-
-
-    /**
-     * <p>*Probability Match Code</p>
-     * 
-     * <p><p>Supports the business requirement to identify type of 
-     * confidence matching used i.e. the code would be the name for 
-     * the algorithm for the confidence value</p></p>
-     * 
-     * <p><p>Mandatory attribute supports confident identification 
-     * of intended client</p></p>
-     */
-    @Hl7XmlMapping({"code"})
-    public ActCode getProbabilityMatchCode() {
-        return (ActCode) this.probabilityMatchCode.getValue();
-    }
-    public void setProbabilityMatchCode(ActCode probabilityMatchCode) {
-        this.probabilityMatchCode.setValue(probabilityMatchCode);
-    }
+    private CD probabilityMatchCode = new CDImpl();
 
 
     /**
@@ -69,6 +50,25 @@ public class ConfidenceValueBean extends MessagePartBean {
     }
     public void setConfidenceValue(BigDecimal confidenceValue) {
         this.confidenceValue.setValue(confidenceValue);
+    }
+
+
+    /**
+     * <p>*Probability Match Code</p>
+     * 
+     * <p><p>Supports the business requirement to identify type of 
+     * confidence matching used i.e. the code would be the name for 
+     * the algorithm for the confidence value</p></p>
+     * 
+     * <p><p>Mandatory attribute supports confident identification 
+     * of intended client</p></p>
+     */
+    @Hl7XmlMapping({"code"})
+    public ActCode getProbabilityMatchCode() {
+        return (ActCode) this.probabilityMatchCode.getValue();
+    }
+    public void setProbabilityMatchCode(ActCode probabilityMatchCode) {
+        this.probabilityMatchCode.setValue(probabilityMatchCode);
     }
 
 }

@@ -57,13 +57,13 @@ public class PrescriptionDispenseResponseBean extends MessagePartBean {
     private II id = new IIImpl();
     private II prescriptionOrderNumber = new IIImpl();
     private RelatedPersonBean receiverPersonalRelationship;
-    private CV dispenseType = new CVImpl();
-    private TS supplyDate = new TSImpl();
-    private DrugProductBean productMedication;
     private II shipToFacilityId = new IIImpl();
+    private DrugProductBean productMedication;
+    private TS supplyDate = new TSImpl();
+    private CV dispenseType = new CVImpl();
+    private PQ suppliedQuantity = new PQImpl();
     private NotesBean subjectOfAnnotation;
     private SupplyOrderBean fulfillmentSupplyRequest;
-    private PQ suppliedQuantity = new PQImpl();
 
 
     /**
@@ -143,28 +143,32 @@ public class PrescriptionDispenseResponseBean extends MessagePartBean {
 
 
     /**
-     * <p>DispenseType</p>
+     * <p>ShipToFacilityId</p>
      * 
-     * <p>Dispense Type</p>
+     * <p>C:Ship-to Facility Id</p>
      * 
-     * <p><p>Indicates the type of dispensing event that is being 
-     * performed.</p><p>This is a fixed dispense type of 'Office 
-     * Supply' unless using SNOMED.</p></p>
+     * <p><p>Identifier of the facility where the dispensed 
+     * medication was shipped.</p></p>
      * 
-     * <p><p>Indicates the type of dispensing event that is being 
-     * performed.</p><p>This is a fixed dispense type of 'Office 
-     * Supply' unless using SNOMED.</p></p>
-     * 
-     * <p><p>Indicates reason for the size of dispense. Because it 
-     * defines what type of dispense is occurring, the attribute is 
-     * mandatory.</p></p>
+     * <p><p>Allows tracking what drugs are dispensed to a 
+     * facility. The attribute is mandatory because identification 
+     * of the facility must be known.</p></p>
      */
-    @Hl7XmlMapping({"code"})
-    public ActCode getDispenseType() {
-        return (ActCode) this.dispenseType.getValue();
+    @Hl7XmlMapping({"destination/serviceDeliveryLocation/id"})
+    public Identifier getShipToFacilityId() {
+        return this.shipToFacilityId.getValue();
     }
-    public void setDispenseType(ActCode dispenseType) {
-        this.dispenseType.setValue(dispenseType);
+    public void setShipToFacilityId(Identifier shipToFacilityId) {
+        this.shipToFacilityId.setValue(shipToFacilityId);
+    }
+
+
+    @Hl7XmlMapping({"product/medication"})
+    public DrugProductBean getProductMedication() {
+        return this.productMedication;
+    }
+    public void setProductMedication(DrugProductBean productMedication) {
+        this.productMedication = productMedication;
     }
 
 
@@ -193,51 +197,29 @@ public class PrescriptionDispenseResponseBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"product/medication"})
-    public DrugProductBean getProductMedication() {
-        return this.productMedication;
-    }
-    public void setProductMedication(DrugProductBean productMedication) {
-        this.productMedication = productMedication;
-    }
-
-
     /**
-     * <p>ShipToFacilityId</p>
+     * <p>DispenseType</p>
      * 
-     * <p>C:Ship-to Facility Id</p>
+     * <p>Dispense Type</p>
      * 
-     * <p><p>Identifier of the facility where the dispensed 
-     * medication was shipped.</p></p>
+     * <p><p>Indicates the type of dispensing event that is being 
+     * performed.</p><p>This is a fixed dispense type of 'Office 
+     * Supply' unless using SNOMED.</p></p>
      * 
-     * <p><p>Allows tracking what drugs are dispensed to a 
-     * facility. The attribute is mandatory because identification 
-     * of the facility must be known.</p></p>
+     * <p><p>Indicates the type of dispensing event that is being 
+     * performed.</p><p>This is a fixed dispense type of 'Office 
+     * Supply' unless using SNOMED.</p></p>
+     * 
+     * <p><p>Indicates reason for the size of dispense. Because it 
+     * defines what type of dispense is occurring, the attribute is 
+     * mandatory.</p></p>
      */
-    @Hl7XmlMapping({"destination/serviceDeliveryLocation/id"})
-    public Identifier getShipToFacilityId() {
-        return this.shipToFacilityId.getValue();
+    @Hl7XmlMapping({"code"})
+    public ActCode getDispenseType() {
+        return (ActCode) this.dispenseType.getValue();
     }
-    public void setShipToFacilityId(Identifier shipToFacilityId) {
-        this.shipToFacilityId.setValue(shipToFacilityId);
-    }
-
-
-    @Hl7XmlMapping({"subjectOf/annotation"})
-    public NotesBean getSubjectOfAnnotation() {
-        return this.subjectOfAnnotation;
-    }
-    public void setSubjectOfAnnotation(NotesBean subjectOfAnnotation) {
-        this.subjectOfAnnotation = subjectOfAnnotation;
-    }
-
-
-    @Hl7XmlMapping({"fulfillment/supplyRequest"})
-    public SupplyOrderBean getFulfillmentSupplyRequest() {
-        return this.fulfillmentSupplyRequest;
-    }
-    public void setFulfillmentSupplyRequest(SupplyOrderBean fulfillmentSupplyRequest) {
-        this.fulfillmentSupplyRequest = fulfillmentSupplyRequest;
+    public void setDispenseType(ActCode dispenseType) {
+        this.dispenseType.setValue(dispenseType);
     }
 
 
@@ -259,6 +241,24 @@ public class PrescriptionDispenseResponseBean extends MessagePartBean {
     }
     public void setSuppliedQuantity(PhysicalQuantity suppliedQuantity) {
         this.suppliedQuantity.setValue(suppliedQuantity);
+    }
+
+
+    @Hl7XmlMapping({"subjectOf/annotation"})
+    public NotesBean getSubjectOfAnnotation() {
+        return this.subjectOfAnnotation;
+    }
+    public void setSubjectOfAnnotation(NotesBean subjectOfAnnotation) {
+        this.subjectOfAnnotation = subjectOfAnnotation;
+    }
+
+
+    @Hl7XmlMapping({"fulfillment/supplyRequest"})
+    public SupplyOrderBean getFulfillmentSupplyRequest() {
+        return this.fulfillmentSupplyRequest;
+    }
+    public void setFulfillmentSupplyRequest(SupplyOrderBean fulfillmentSupplyRequest) {
+        this.fulfillmentSupplyRequest = fulfillmentSupplyRequest;
     }
 
 }

@@ -57,50 +57,10 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 public class PatientMeasurableObservationsBean extends MessagePartBean implements CausalActs {
 
     private static final long serialVersionUID = 20110318L;
-    private CD observationType = new CDImpl();
     private PQ observationValue = new PQImpl();
     private II observationIdentifier = new IIImpl();
+    private CD observationType = new CDImpl();
     private CV confidentialityCode = new CVImpl();
-
-
-    /**
-     * <p>ObservationType</p>
-     * 
-     * <p>B:Observation Type</p>
-     * 
-     * <p><p>Distinguishes between the kinds of measurable 
-     * observations that can trigger clinical issues. Measurable 
-     * observation types include: Lab Result, Height, Weight, and 
-     * other measurable information about a person that may be 
-     * deemed as a possible trigger for clinical issue 
-     * detection.</p></p>
-     * 
-     * <p><p>Indicates the type of observation record being 
-     * referenced. The attribute is mandatory because it is 
-     * essential to interpreting the rest of the information on the 
-     * class.</p></p>
-     * 
-     * <p>B:Observation Type</p>
-     * 
-     * <p><p>Distinguishes between the kinds of measurable 
-     * observation that could be the trigger for clinical issue 
-     * detection. Measurable observation types include: Lab Result, 
-     * Height, Weight, and other measurable information about a 
-     * person that may be deemed as a possible trigger for clinical 
-     * issue detection.</p></p>
-     * 
-     * <p><p>Indicates the type of observation record being 
-     * referenced. The attribute is mandatory because it is 
-     * essential to interpreting the rest of the information on the 
-     * class.</p></p>
-     */
-    @Hl7XmlMapping({"code"})
-    public ActCode getObservationType() {
-        return (ActCode) this.observationType.getValue();
-    }
-    public void setObservationType(ActCode observationType) {
-        this.observationType.setValue(observationType);
-    }
 
 
     /**
@@ -151,6 +111,46 @@ public class PatientMeasurableObservationsBean extends MessagePartBean implement
     }
     public void setObservationIdentifier(Identifier observationIdentifier) {
         this.observationIdentifier.setValue(observationIdentifier);
+    }
+
+
+    /**
+     * <p>ObservationType</p>
+     * 
+     * <p>B:Observation Type</p>
+     * 
+     * <p><p>Distinguishes between the kinds of measurable 
+     * observations that can trigger clinical issues. Measurable 
+     * observation types include: Lab Result, Height, Weight, and 
+     * other measurable information about a person that may be 
+     * deemed as a possible trigger for clinical issue 
+     * detection.</p></p>
+     * 
+     * <p><p>Indicates the type of observation record being 
+     * referenced. The attribute is mandatory because it is 
+     * essential to interpreting the rest of the information on the 
+     * class.</p></p>
+     * 
+     * <p>B:Observation Type</p>
+     * 
+     * <p><p>Distinguishes between the kinds of measurable 
+     * observation that could be the trigger for clinical issue 
+     * detection. Measurable observation types include: Lab Result, 
+     * Height, Weight, and other measurable information about a 
+     * person that may be deemed as a possible trigger for clinical 
+     * issue detection.</p></p>
+     * 
+     * <p><p>Indicates the type of observation record being 
+     * referenced. The attribute is mandatory because it is 
+     * essential to interpreting the rest of the information on the 
+     * class.</p></p>
+     */
+    @Hl7XmlMapping({"code"})
+    public ActCode getObservationType() {
+        return (ActCode) this.observationType.getValue();
+    }
+    public void setObservationType(ActCode observationType) {
+        this.observationType.setValue(observationType);
     }
 
 

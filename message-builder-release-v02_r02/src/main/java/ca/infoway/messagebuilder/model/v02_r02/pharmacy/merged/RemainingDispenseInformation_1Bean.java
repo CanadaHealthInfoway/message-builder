@@ -67,8 +67,39 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 public class RemainingDispenseInformation_1Bean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private INT repeatNumber = new INTImpl();
     private PQ quantity = new PQImpl();
+    private INT repeatNumber = new INTImpl();
+
+
+    /**
+     * <p>Remaining Total Quantity</p>
+     * 
+     * <p><p>Indicates the total remaining undispensed quantity 
+     * authorized against the prescription.</p></p>
+     * 
+     * <p><p>Indicates how much can still be dispensed.</p></p>
+     * 
+     * <p>B:Total Quantity Remaining</p>
+     * 
+     * <p><p>Indicates the total remaining undispensed quantity 
+     * authorized against the prescription.</p></p>
+     * 
+     * <p><p>Indicates how much can still be dispensed.</p></p>
+     * 
+     * <p>B:Remaining Total Quantity</p>
+     * 
+     * <p><p>Indicates the total remaining undispensed quantity 
+     * authorized against the prescription.</p></p>
+     * 
+     * <p><p>Indicates how much can still be dispensed.</p></p>
+     */
+    @Hl7XmlMapping({"quantity"})
+    public PhysicalQuantity getQuantity() {
+        return this.quantity.getValue();
+    }
+    public void setQuantity(PhysicalQuantity quantity) {
+        this.quantity.setValue(quantity);
+    }
 
 
     /**
@@ -105,37 +136,6 @@ public class RemainingDispenseInformation_1Bean extends MessagePartBean {
     }
     public void setRepeatNumber(Integer repeatNumber) {
         this.repeatNumber.setValue(repeatNumber);
-    }
-
-
-    /**
-     * <p>Remaining Total Quantity</p>
-     * 
-     * <p><p>Indicates the total remaining undispensed quantity 
-     * authorized against the prescription.</p></p>
-     * 
-     * <p><p>Indicates how much can still be dispensed.</p></p>
-     * 
-     * <p>B:Total Quantity Remaining</p>
-     * 
-     * <p><p>Indicates the total remaining undispensed quantity 
-     * authorized against the prescription.</p></p>
-     * 
-     * <p><p>Indicates how much can still be dispensed.</p></p>
-     * 
-     * <p>B:Remaining Total Quantity</p>
-     * 
-     * <p><p>Indicates the total remaining undispensed quantity 
-     * authorized against the prescription.</p></p>
-     * 
-     * <p><p>Indicates how much can still be dispensed.</p></p>
-     */
-    @Hl7XmlMapping({"quantity"})
-    public PhysicalQuantity getQuantity() {
-        return this.quantity.getValue();
-    }
-    public void setQuantity(PhysicalQuantity quantity) {
-        this.quantity.setValue(quantity);
     }
 
 }

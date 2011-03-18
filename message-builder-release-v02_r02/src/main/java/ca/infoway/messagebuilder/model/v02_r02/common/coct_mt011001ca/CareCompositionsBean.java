@@ -32,8 +32,28 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 public class CareCompositionsBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private CV careCompositionType = new CVImpl();
     private II careCompositionIdentifier = new IIImpl();
+    private CV careCompositionType = new CVImpl();
+
+
+    /**
+     * <p>B: Care Composition Identifier</p>
+     * 
+     * <p><p>Unique identifier of an encounter, condition or 
+     * care-based collection.</p></p>
+     * 
+     * <p><p>IMMUNIZATION INTERPRETATION.REFERENCED DATA</p></p>
+     * 
+     * <p><p>Allows care compositions to be uniquely identified and 
+     * referenced, and is therefore mandatory</p></p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Identifier getCareCompositionIdentifier() {
+        return this.careCompositionIdentifier.getValue();
+    }
+    public void setCareCompositionIdentifier(Identifier careCompositionIdentifier) {
+        this.careCompositionIdentifier.setValue(careCompositionIdentifier);
+    }
 
 
     /**
@@ -62,26 +82,6 @@ public class CareCompositionsBean extends MessagePartBean {
     }
     public void setCareCompositionType(ActCareEventType careCompositionType) {
         this.careCompositionType.setValue(careCompositionType);
-    }
-
-
-    /**
-     * <p>B: Care Composition Identifier</p>
-     * 
-     * <p><p>Unique identifier of an encounter, condition or 
-     * care-based collection.</p></p>
-     * 
-     * <p><p>IMMUNIZATION INTERPRETATION.REFERENCED DATA</p></p>
-     * 
-     * <p><p>Allows care compositions to be uniquely identified and 
-     * referenced, and is therefore mandatory</p></p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Identifier getCareCompositionIdentifier() {
-        return this.careCompositionIdentifier.getValue();
-    }
-    public void setCareCompositionIdentifier(Identifier careCompositionIdentifier) {
-        this.careCompositionIdentifier.setValue(careCompositionIdentifier);
     }
 
 }

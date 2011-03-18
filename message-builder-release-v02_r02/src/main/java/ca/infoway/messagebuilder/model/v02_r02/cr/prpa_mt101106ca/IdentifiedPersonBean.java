@@ -48,35 +48,12 @@ import java.util.Set;
 public class IdentifiedPersonBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private IVL<TS, Interval<Date>> clientEffectiveTime = new IVLImpl<TS, Interval<Date>>();
-    private List<OtherIDsNonHealthcareIdentifiersBean> identifiedPersonAsOtherIDs = new ArrayList<OtherIDsNonHealthcareIdentifiersBean>();
     private ConfidenceValueBean subjectOfObservationEvent;
+    private List<OtherIDsNonHealthcareIdentifiersBean> identifiedPersonAsOtherIDs = new ArrayList<OtherIDsNonHealthcareIdentifiersBean>();
     private SET<II, Identifier> clientHealthcareIdentificationNumber = new SETImpl<II, Identifier>(IIImpl.class);
-    private CV clientMaskedInformation = new CVImpl();
+    private IVL<TS, Interval<Date>> clientEffectiveTime = new IVLImpl<TS, Interval<Date>>();
     private CS clientStatusCode = new CSImpl();
-
-
-    /**
-     * <p>Client Effective Time</p>
-     * 
-     * <p><p>Indicates the effective time of the Client role</p></p>
-     * 
-     * <p><p>Required attribute supports the identification of the 
-     * client</p></p>
-     */
-    @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getClientEffectiveTime() {
-        return this.clientEffectiveTime.getValue();
-    }
-    public void setClientEffectiveTime(Interval<Date> clientEffectiveTime) {
-        this.clientEffectiveTime.setValue(clientEffectiveTime);
-    }
-
-
-    @Hl7XmlMapping({"identifiedPerson/asOtherIDs"})
-    public List<OtherIDsNonHealthcareIdentifiersBean> getIdentifiedPersonAsOtherIDs() {
-        return this.identifiedPersonAsOtherIDs;
-    }
+    private CV clientMaskedInformation = new CVImpl();
 
 
     @Hl7XmlMapping({"subjectOf/observationEvent"})
@@ -85,6 +62,12 @@ public class IdentifiedPersonBean extends MessagePartBean {
     }
     public void setSubjectOfObservationEvent(ConfidenceValueBean subjectOfObservationEvent) {
         this.subjectOfObservationEvent = subjectOfObservationEvent;
+    }
+
+
+    @Hl7XmlMapping({"identifiedPerson/asOtherIDs"})
+    public List<OtherIDsNonHealthcareIdentifiersBean> getIdentifiedPersonAsOtherIDs() {
+        return this.identifiedPersonAsOtherIDs;
     }
 
 
@@ -105,6 +88,41 @@ public class IdentifiedPersonBean extends MessagePartBean {
     @Hl7XmlMapping({"id"})
     public Set<Identifier> getClientHealthcareIdentificationNumber() {
         return this.clientHealthcareIdentificationNumber.rawSet();
+    }
+
+
+    /**
+     * <p>Client Effective Time</p>
+     * 
+     * <p><p>Indicates the effective time of the Client role</p></p>
+     * 
+     * <p><p>Required attribute supports the identification of the 
+     * client</p></p>
+     */
+    @Hl7XmlMapping({"effectiveTime"})
+    public Interval<Date> getClientEffectiveTime() {
+        return this.clientEffectiveTime.getValue();
+    }
+    public void setClientEffectiveTime(Interval<Date> clientEffectiveTime) {
+        this.clientEffectiveTime.setValue(clientEffectiveTime);
+    }
+
+
+    /**
+     * <p>Client Status Code</p>
+     * 
+     * <p><p>Indicates the status of the Client role (e.g. 
+     * Active)</p></p>
+     * 
+     * <p><p>Populated attribute supports the identification of the 
+     * client</p></p>
+     */
+    @Hl7XmlMapping({"statusCode"})
+    public RoleStatus getClientStatusCode() {
+        return (RoleStatus) this.clientStatusCode.getValue();
+    }
+    public void setClientStatusCode(RoleStatus clientStatusCode) {
+        this.clientStatusCode.setValue(clientStatusCode);
     }
 
 
@@ -137,24 +155,6 @@ public class IdentifiedPersonBean extends MessagePartBean {
     }
     public void setClientMaskedInformation(Code clientMaskedInformation) {
         this.clientMaskedInformation.setValue(clientMaskedInformation);
-    }
-
-
-    /**
-     * <p>Client Status Code</p>
-     * 
-     * <p><p>Indicates the status of the Client role (e.g. 
-     * Active)</p></p>
-     * 
-     * <p><p>Populated attribute supports the identification of the 
-     * client</p></p>
-     */
-    @Hl7XmlMapping({"statusCode"})
-    public RoleStatus getClientStatusCode() {
-        return (RoleStatus) this.clientStatusCode.getValue();
-    }
-    public void setClientStatusCode(RoleStatus clientStatusCode) {
-        this.clientStatusCode.setValue(clientStatusCode);
     }
 
 }

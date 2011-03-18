@@ -66,31 +66,10 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 public class OtherIDsNonHealthcareIdentifiersBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private CV nonHealthcareIdentificationCode = new CVImpl();
     private II nonHealthcareIdentification = new IIImpl();
-    private ST nonHealthcareOrganizationName = new STImpl();
     private II nonHealthcareOrganizationIdentifier = new IIImpl();
-
-
-    /**
-     * <p>NonHealthcareIdentificationCode</p>
-     * 
-     * <p>NonHealthcare Identification Code</p>
-     * 
-     * <p><p>A pan Canadian code further specifying the kind of 
-     * Role such as Drivers License, RCMP, DND, Social Insurance 
-     * Number</p></p>
-     * 
-     * <p><p>Populated attribute supports the identification of the 
-     * client</p></p>
-     */
-    @Hl7XmlMapping({"code"})
-    public OtherIDsRoleCode getNonHealthcareIdentificationCode() {
-        return (OtherIDsRoleCode) this.nonHealthcareIdentificationCode.getValue();
-    }
-    public void setNonHealthcareIdentificationCode(OtherIDsRoleCode nonHealthcareIdentificationCode) {
-        this.nonHealthcareIdentificationCode.setValue(nonHealthcareIdentificationCode);
-    }
+    private ST nonHealthcareOrganizationName = new STImpl();
+    private CV nonHealthcareIdentificationCode = new CVImpl();
 
 
     /**
@@ -122,6 +101,26 @@ public class OtherIDsNonHealthcareIdentifiersBean extends MessagePartBean {
 
 
     /**
+     * <p>NonHealthcareOrganizationIdentifier</p>
+     * 
+     * <p>NonHealthcare Organization Identifier</p>
+     * 
+     * <p><p>Unique identifier for the organization that assigned 
+     * the non-healthcare identifier for the client.</p></p>
+     * 
+     * <p><p>Mandatory attribute supports the identification of the 
+     * organization assigning the identifier to the client</p></p>
+     */
+    @Hl7XmlMapping({"assigningIdOrganization/id"})
+    public Identifier getNonHealthcareOrganizationIdentifier() {
+        return this.nonHealthcareOrganizationIdentifier.getValue();
+    }
+    public void setNonHealthcareOrganizationIdentifier(Identifier nonHealthcareOrganizationIdentifier) {
+        this.nonHealthcareOrganizationIdentifier.setValue(nonHealthcareOrganizationIdentifier);
+    }
+
+
+    /**
      * <p>NonHealthcareOrganizationName</p>
      * 
      * <p>NonHealthcare Organization Name</p>
@@ -141,22 +140,23 @@ public class OtherIDsNonHealthcareIdentifiersBean extends MessagePartBean {
 
 
     /**
-     * <p>NonHealthcareOrganizationIdentifier</p>
+     * <p>NonHealthcareIdentificationCode</p>
      * 
-     * <p>NonHealthcare Organization Identifier</p>
+     * <p>NonHealthcare Identification Code</p>
      * 
-     * <p><p>Unique identifier for the organization that assigned 
-     * the non-healthcare identifier for the client.</p></p>
+     * <p><p>A pan Canadian code further specifying the kind of 
+     * Role such as Drivers License, RCMP, DND, Social Insurance 
+     * Number</p></p>
      * 
-     * <p><p>Mandatory attribute supports the identification of the 
-     * organization assigning the identifier to the client</p></p>
+     * <p><p>Populated attribute supports the identification of the 
+     * client</p></p>
      */
-    @Hl7XmlMapping({"assigningIdOrganization/id"})
-    public Identifier getNonHealthcareOrganizationIdentifier() {
-        return this.nonHealthcareOrganizationIdentifier.getValue();
+    @Hl7XmlMapping({"code"})
+    public OtherIDsRoleCode getNonHealthcareIdentificationCode() {
+        return (OtherIDsRoleCode) this.nonHealthcareIdentificationCode.getValue();
     }
-    public void setNonHealthcareOrganizationIdentifier(Identifier nonHealthcareOrganizationIdentifier) {
-        this.nonHealthcareOrganizationIdentifier.setValue(nonHealthcareOrganizationIdentifier);
+    public void setNonHealthcareIdentificationCode(OtherIDsRoleCode nonHealthcareIdentificationCode) {
+        this.nonHealthcareIdentificationCode.setValue(nonHealthcareIdentificationCode);
     }
 
 }

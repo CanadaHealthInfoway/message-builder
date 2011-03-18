@@ -25,33 +25,35 @@ import java.util.Date;
 public class SenderBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private ST sendingApplicationSoftwareName = new STImpl();
-    private II sendingOrganizationIdentifier = new IIImpl();
-    private ST sendingApplicationConfigurationInformation = new STImpl();
-    private IVL<TS, Interval<Date>> sendingApplicationVersionDate = new IVLImpl<TS, Interval<Date>>();
-    private ST sendingSoftwareVersionNumber = new STImpl();
-    private ST sendingApplicationName = new STImpl();
     private II sendingApplicationIdentifier = new IIImpl();
+    private II sendingOrganizationIdentifier = new IIImpl();
+    private IVL<TS, Interval<Date>> sendingApplicationVersionDate = new IVLImpl<TS, Interval<Date>>();
+    private ST sendingApplicationName = new STImpl();
+    private ST sendingSoftwareVersionNumber = new STImpl();
+    private ST sendingApplicationConfigurationInformation = new STImpl();
+    private ST sendingApplicationSoftwareName = new STImpl();
     private TEL sendingNetworkAddress = new TELImpl();
 
 
     /**
-     * <p>SendingApplicationSoftwareName</p>
+     * <p>SendingApplicationIdentifier</p>
      * 
-     * <p>IF:Sending Application Software Name</p>
+     * <p>IA:Sending Application Identifier</p>
      * 
-     * <p><p>Indicates the name of the software used to construct 
-     * the message.</p></p>
+     * <p><p>The unique identifier of the application or system to 
+     * whom the message is being routed.</p></p>
      * 
-     * <p><p>May be used to filter messages based on sending 
-     * application compliance testing.</p></p>
+     * <p><p>soap:Header\wsa:From\@endpointID</p></p>
+     * 
+     * <p><p>Because this is the key identifier of where the 
+     * message is intended to go, this attribute is mandatory.</p></p>
      */
-    @Hl7XmlMapping({"device/softwareName"})
-    public String getSendingApplicationSoftwareName() {
-        return this.sendingApplicationSoftwareName.getValue();
+    @Hl7XmlMapping({"device/id"})
+    public Identifier getSendingApplicationIdentifier() {
+        return this.sendingApplicationIdentifier.getValue();
     }
-    public void setSendingApplicationSoftwareName(String sendingApplicationSoftwareName) {
-        this.sendingApplicationSoftwareName.setValue(sendingApplicationSoftwareName);
+    public void setSendingApplicationIdentifier(Identifier sendingApplicationIdentifier) {
+        this.sendingApplicationIdentifier.setValue(sendingApplicationIdentifier);
     }
 
 
@@ -85,27 +87,6 @@ public class SenderBean extends MessagePartBean {
 
 
     /**
-     * <p>SendingApplicationConfigurationInformation</p>
-     * 
-     * <p>II:Sending Application Configuration Information</p>
-     * 
-     * <p><p>Provides additional information about the 
-     * configuration of the sending application. Useful when 
-     * debugging.</p></p>
-     * 
-     * <p><p>Provides additional information that may assist in 
-     * debugging interactions.</p></p>
-     */
-    @Hl7XmlMapping({"device/desc"})
-    public String getSendingApplicationConfigurationInformation() {
-        return this.sendingApplicationConfigurationInformation.getValue();
-    }
-    public void setSendingApplicationConfigurationInformation(String sendingApplicationConfigurationInformation) {
-        this.sendingApplicationConfigurationInformation.setValue(sendingApplicationConfigurationInformation);
-    }
-
-
-    /**
      * <p>SendingApplicationVersionDate</p>
      * 
      * <p>IH:Sending Application Version Date</p>
@@ -122,6 +103,25 @@ public class SenderBean extends MessagePartBean {
     }
     public void setSendingApplicationVersionDate(Interval<Date> sendingApplicationVersionDate) {
         this.sendingApplicationVersionDate.setValue(sendingApplicationVersionDate);
+    }
+
+
+    /**
+     * <p>SendingApplicationName</p>
+     * 
+     * <p>IE:Sending Application Name</p>
+     * 
+     * <p><p>This is the name associated with the system or 
+     * application sending the message.</p></p>
+     * 
+     * <p><p>Provides useful information when debugging.</p></p>
+     */
+    @Hl7XmlMapping({"device/name"})
+    public String getSendingApplicationName() {
+        return this.sendingApplicationName.getValue();
+    }
+    public void setSendingApplicationName(String sendingApplicationName) {
+        this.sendingApplicationName.setValue(sendingApplicationName);
     }
 
 
@@ -146,43 +146,43 @@ public class SenderBean extends MessagePartBean {
 
 
     /**
-     * <p>SendingApplicationName</p>
+     * <p>SendingApplicationConfigurationInformation</p>
      * 
-     * <p>IE:Sending Application Name</p>
+     * <p>II:Sending Application Configuration Information</p>
      * 
-     * <p><p>This is the name associated with the system or 
-     * application sending the message.</p></p>
+     * <p><p>Provides additional information about the 
+     * configuration of the sending application. Useful when 
+     * debugging.</p></p>
      * 
-     * <p><p>Provides useful information when debugging.</p></p>
+     * <p><p>Provides additional information that may assist in 
+     * debugging interactions.</p></p>
      */
-    @Hl7XmlMapping({"device/name"})
-    public String getSendingApplicationName() {
-        return this.sendingApplicationName.getValue();
+    @Hl7XmlMapping({"device/desc"})
+    public String getSendingApplicationConfigurationInformation() {
+        return this.sendingApplicationConfigurationInformation.getValue();
     }
-    public void setSendingApplicationName(String sendingApplicationName) {
-        this.sendingApplicationName.setValue(sendingApplicationName);
+    public void setSendingApplicationConfigurationInformation(String sendingApplicationConfigurationInformation) {
+        this.sendingApplicationConfigurationInformation.setValue(sendingApplicationConfigurationInformation);
     }
 
 
     /**
-     * <p>SendingApplicationIdentifier</p>
+     * <p>SendingApplicationSoftwareName</p>
      * 
-     * <p>IA:Sending Application Identifier</p>
+     * <p>IF:Sending Application Software Name</p>
      * 
-     * <p><p>The unique identifier of the application or system to 
-     * whom the message is being routed.</p></p>
+     * <p><p>Indicates the name of the software used to construct 
+     * the message.</p></p>
      * 
-     * <p><p>soap:Header\wsa:From\@endpointID</p></p>
-     * 
-     * <p><p>Because this is the key identifier of where the 
-     * message is intended to go, this attribute is mandatory.</p></p>
+     * <p><p>May be used to filter messages based on sending 
+     * application compliance testing.</p></p>
      */
-    @Hl7XmlMapping({"device/id"})
-    public Identifier getSendingApplicationIdentifier() {
-        return this.sendingApplicationIdentifier.getValue();
+    @Hl7XmlMapping({"device/softwareName"})
+    public String getSendingApplicationSoftwareName() {
+        return this.sendingApplicationSoftwareName.getValue();
     }
-    public void setSendingApplicationIdentifier(Identifier sendingApplicationIdentifier) {
-        this.sendingApplicationIdentifier.setValue(sendingApplicationIdentifier);
+    public void setSendingApplicationSoftwareName(String sendingApplicationSoftwareName) {
+        this.sendingApplicationSoftwareName.setValue(sendingApplicationSoftwareName);
     }
 
 

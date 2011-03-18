@@ -59,69 +59,15 @@ import java.util.Set;
 public class ReportedReactionBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private List<ReportedReactionsBean> subjectOf2CausalityAssessment = new ArrayList<ReportedReactionsBean>();
-    private CD diagnosisType = new CDImpl();
-    private IVL<TS, Interval<Date>> reactionOnsetDate = new IVLImpl<TS, Interval<Date>>();
-    private ReportedByBean informant;
     private CV reaction = new CVImpl();
-    private ST description = new STImpl();
     private II reactionRecordId = new IIImpl();
+    private IVL<TS, Interval<Date>> reactionOnsetDate = new IVLImpl<TS, Interval<Date>>();
+    private CD diagnosisType = new CDImpl();
     private AllergyIntoleranceSeverityLevelBean subjectOf1SeverityObservation;
+    private List<ReportedReactionsBean> subjectOf2CausalityAssessment = new ArrayList<ReportedReactionsBean>();
+    private ReportedByBean informant;
+    private ST description = new STImpl();
     private SET<CV, Code> adverseReactionMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);
-
-
-    @Hl7XmlMapping({"subjectOf2/causalityAssessment"})
-    public List<ReportedReactionsBean> getSubjectOf2CausalityAssessment() {
-        return this.subjectOf2CausalityAssessment;
-    }
-
-
-    /**
-     * <p>Diagnosis Type</p>
-     * 
-     * <p><p>Indicates the type of diagnosis being captured.</p></p>
-     * 
-     * <p><p>Indicates that the observation is actually a diagnosis 
-     * and is therefore mandatory. The datatype is CD to support 
-     * SNOMED post-coordination.</p></p>
-     * 
-     * <p><p>If using SNOMED, this will contain the diagnosis. 
-     * Otherwise it will be a fixed value of 'DX'.</p></p>
-     */
-    @Hl7XmlMapping({"code"})
-    public ActCode getDiagnosisType() {
-        return (ActCode) this.diagnosisType.getValue();
-    }
-    public void setDiagnosisType(ActCode diagnosisType) {
-        this.diagnosisType.setValue(diagnosisType);
-    }
-
-
-    /**
-     * <p>F:Reaction Onset Date</p>
-     * 
-     * <p><p>The date on which the reaction occurrence began.</p></p>
-     * 
-     * <p><p>Indicates when evidence of the condition first 
-     * appeared. May also provide information on the duration of 
-     * the reaction.</p></p>
-     */
-    @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getReactionOnsetDate() {
-        return this.reactionOnsetDate.getValue();
-    }
-    public void setReactionOnsetDate(Interval<Date> reactionOnsetDate) {
-        this.reactionOnsetDate.setValue(reactionOnsetDate);
-    }
-
-
-    @Hl7XmlMapping({"informant"})
-    public ReportedByBean getInformant() {
-        return this.informant;
-    }
-    public void setInformant(ReportedByBean informant) {
-        this.informant = informant;
-    }
 
 
     /**
@@ -147,23 +93,6 @@ public class ReportedReactionBean extends MessagePartBean {
 
 
     /**
-     * <p>G:Description</p>
-     * 
-     * <p><p>A free form description of the reaction.</p></p>
-     * 
-     * <p><p>Allows for flexibility in the recording and reporting 
-     * of the reaction.</p></p>
-     */
-    @Hl7XmlMapping({"text"})
-    public String getDescription() {
-        return this.description.getValue();
-    }
-    public void setDescription(String description) {
-        this.description.setValue(description);
-    }
-
-
-    /**
      * <p>C:Reaction Record Id</p>
      * 
      * <p><p>An identifier assigned to the record of the adverse 
@@ -181,12 +110,83 @@ public class ReportedReactionBean extends MessagePartBean {
     }
 
 
+    /**
+     * <p>F:Reaction Onset Date</p>
+     * 
+     * <p><p>The date on which the reaction occurrence began.</p></p>
+     * 
+     * <p><p>Indicates when evidence of the condition first 
+     * appeared. May also provide information on the duration of 
+     * the reaction.</p></p>
+     */
+    @Hl7XmlMapping({"effectiveTime"})
+    public Interval<Date> getReactionOnsetDate() {
+        return this.reactionOnsetDate.getValue();
+    }
+    public void setReactionOnsetDate(Interval<Date> reactionOnsetDate) {
+        this.reactionOnsetDate.setValue(reactionOnsetDate);
+    }
+
+
+    /**
+     * <p>Diagnosis Type</p>
+     * 
+     * <p><p>Indicates the type of diagnosis being captured.</p></p>
+     * 
+     * <p><p>Indicates that the observation is actually a diagnosis 
+     * and is therefore mandatory. The datatype is CD to support 
+     * SNOMED post-coordination.</p></p>
+     * 
+     * <p><p>If using SNOMED, this will contain the diagnosis. 
+     * Otherwise it will be a fixed value of 'DX'.</p></p>
+     */
+    @Hl7XmlMapping({"code"})
+    public ActCode getDiagnosisType() {
+        return (ActCode) this.diagnosisType.getValue();
+    }
+    public void setDiagnosisType(ActCode diagnosisType) {
+        this.diagnosisType.setValue(diagnosisType);
+    }
+
+
     @Hl7XmlMapping({"subjectOf1/severityObservation"})
     public AllergyIntoleranceSeverityLevelBean getSubjectOf1SeverityObservation() {
         return this.subjectOf1SeverityObservation;
     }
     public void setSubjectOf1SeverityObservation(AllergyIntoleranceSeverityLevelBean subjectOf1SeverityObservation) {
         this.subjectOf1SeverityObservation = subjectOf1SeverityObservation;
+    }
+
+
+    @Hl7XmlMapping({"subjectOf2/causalityAssessment"})
+    public List<ReportedReactionsBean> getSubjectOf2CausalityAssessment() {
+        return this.subjectOf2CausalityAssessment;
+    }
+
+
+    @Hl7XmlMapping({"informant"})
+    public ReportedByBean getInformant() {
+        return this.informant;
+    }
+    public void setInformant(ReportedByBean informant) {
+        this.informant = informant;
+    }
+
+
+    /**
+     * <p>G:Description</p>
+     * 
+     * <p><p>A free form description of the reaction.</p></p>
+     * 
+     * <p><p>Allows for flexibility in the recording and reporting 
+     * of the reaction.</p></p>
+     */
+    @Hl7XmlMapping({"text"})
+    public String getDescription() {
+        return this.description.getValue();
+    }
+    public void setDescription(String description) {
+        this.description.setValue(description);
     }
 
 

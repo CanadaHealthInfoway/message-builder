@@ -82,9 +82,18 @@ import ca.infoway.messagebuilder.model.v02_r02.merged.ChangedByBean;
 public class IssueManagementsBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
+    private ChangedByBean author;
     private CV managementType = new CVImpl();
     private ST managementDescription = new STImpl();
-    private ChangedByBean author;
+
+
+    @Hl7XmlMapping({"author"})
+    public ChangedByBean getAuthor() {
+        return this.author;
+    }
+    public void setAuthor(ChangedByBean author) {
+        this.author = author;
+    }
 
 
     /**
@@ -310,15 +319,6 @@ public class IssueManagementsBean extends MessagePartBean {
     }
     public void setManagementDescription(String managementDescription) {
         this.managementDescription.setValue(managementDescription);
-    }
-
-
-    @Hl7XmlMapping({"author"})
-    public ChangedByBean getAuthor() {
-        return this.author;
-    }
-    public void setAuthor(ChangedByBean author) {
-        this.author = author;
     }
 
 }

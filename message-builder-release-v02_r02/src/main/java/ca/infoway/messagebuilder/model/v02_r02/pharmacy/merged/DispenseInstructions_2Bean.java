@@ -37,18 +37,57 @@ import java.util.Date;
 public class DispenseInstructions_2Bean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private CreatedAtBean location;
-    private PQ totalPrescribedQuantity = new PQImpl();
     private CS statusCode = new CSImpl();
+    private PQ totalPrescribedQuantity = new PQImpl();
+    private CreatedAtBean location;
     private IVL<TS, Interval<Date>> totalDaysSupply = new IVLImpl<TS, Interval<Date>>();
 
 
-    @Hl7XmlMapping({"location"})
-    public CreatedAtBean getLocation() {
-        return this.location;
+    /**
+     * <p>A:Prescription Dispense Indicator</p>
+     * 
+     * <p><p>This generally mirrors the status for the 
+     * prescription, but in some circumstances may be changed to 
+     * 'aborted' while the prescription is still active. When this 
+     * occurs, it means the prescription may no longer be 
+     * dispensed, though it may still be administered.</p></p>
+     * 
+     * <p><p>Allows a prescriber to say &quot;Finish what you have 
+     * on hand, but don't get any more.&quot;</p><p>Because the 
+     * status should always be known, this element is 
+     * mandatory.</p></p>
+     * 
+     * <p><p>Allows a prescriber to say &quot;Finish what you have 
+     * on hand, but don't get any more.&quot;</p><p>Because the 
+     * status should always be known, this element is 
+     * mandatory.</p></p>
+     * 
+     * <p>A:Prescription Dispensable Indicator</p>
+     * 
+     * <p><p>This generally mirrors the status for the 
+     * prescription, but in some circumstances may be changed to 
+     * 'aborted' while the prescription is still active. When this 
+     * occurs, it means the prescription may no longer be 
+     * dispensed, though it may still be administered.</p></p>
+     * 
+     * <p><p>Allows the dispensing authorization of the 
+     * prescription to be controlled/manipulates as 
+     * needed.</p><p>Attribute is marked as &quot;mandatory&quot; 
+     * as the dispensing authority of the prescription will always 
+     * be known.</p></p>
+     * 
+     * <p><p>Allows the dispensing authorization of the 
+     * prescription to be controlled/manipulates as 
+     * needed.</p><p>Attribute is marked as &quot;mandatory&quot; 
+     * as the dispensing authority of the prescription will always 
+     * be known.</p></p>
+     */
+    @Hl7XmlMapping({"statusCode"})
+    public ActStatus getStatusCode() {
+        return (ActStatus) this.statusCode.getValue();
     }
-    public void setLocation(CreatedAtBean location) {
-        this.location = location;
+    public void setStatusCode(ActStatus statusCode) {
+        this.statusCode.setValue(statusCode);
     }
 
 
@@ -110,51 +149,12 @@ public class DispenseInstructions_2Bean extends MessagePartBean {
     }
 
 
-    /**
-     * <p>A:Prescription Dispense Indicator</p>
-     * 
-     * <p><p>This generally mirrors the status for the 
-     * prescription, but in some circumstances may be changed to 
-     * 'aborted' while the prescription is still active. When this 
-     * occurs, it means the prescription may no longer be 
-     * dispensed, though it may still be administered.</p></p>
-     * 
-     * <p><p>Allows a prescriber to say &quot;Finish what you have 
-     * on hand, but don't get any more.&quot;</p><p>Because the 
-     * status should always be known, this element is 
-     * mandatory.</p></p>
-     * 
-     * <p><p>Allows a prescriber to say &quot;Finish what you have 
-     * on hand, but don't get any more.&quot;</p><p>Because the 
-     * status should always be known, this element is 
-     * mandatory.</p></p>
-     * 
-     * <p>A:Prescription Dispensable Indicator</p>
-     * 
-     * <p><p>This generally mirrors the status for the 
-     * prescription, but in some circumstances may be changed to 
-     * 'aborted' while the prescription is still active. When this 
-     * occurs, it means the prescription may no longer be 
-     * dispensed, though it may still be administered.</p></p>
-     * 
-     * <p><p>Allows the dispensing authorization of the 
-     * prescription to be controlled/manipulates as 
-     * needed.</p><p>Attribute is marked as &quot;mandatory&quot; 
-     * as the dispensing authority of the prescription will always 
-     * be known.</p></p>
-     * 
-     * <p><p>Allows the dispensing authorization of the 
-     * prescription to be controlled/manipulates as 
-     * needed.</p><p>Attribute is marked as &quot;mandatory&quot; 
-     * as the dispensing authority of the prescription will always 
-     * be known.</p></p>
-     */
-    @Hl7XmlMapping({"statusCode"})
-    public ActStatus getStatusCode() {
-        return (ActStatus) this.statusCode.getValue();
+    @Hl7XmlMapping({"location"})
+    public CreatedAtBean getLocation() {
+        return this.location;
     }
-    public void setStatusCode(ActStatus statusCode) {
-        this.statusCode.setValue(statusCode);
+    public void setLocation(CreatedAtBean location) {
+        this.location = location;
     }
 
 

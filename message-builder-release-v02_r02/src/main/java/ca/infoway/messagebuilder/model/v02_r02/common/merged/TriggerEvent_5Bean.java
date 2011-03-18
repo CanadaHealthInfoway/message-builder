@@ -58,41 +58,50 @@ import java.util.List;
 public class TriggerEvent_5Bean<ACT,PL> extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private List<RefersTo_1Bean<ACT>> subject = new ArrayList<RefersTo_1Bean<ACT>>();
-    private CV eventType = new CVImpl();
+    private II eventIdentifier = new IIImpl();
+    private QueryByParameterBean<PL> queryByParameter;
     private IVL<TS, Interval<Date>> eventEffectivePeriod = new IVLImpl<TS, Interval<Date>>();
+    private CV eventType = new CVImpl();
+    private CV eventReason = new CVImpl();
     private List<IssuesBean> subjectOf1DetectedIssueEvent = new ArrayList<IssuesBean>();
     private QueryAckBean queryAck;
-    private QueryByParameterBean<PL> queryByParameter;
     private AuthorizedByBean subjectOf2;
-    private II eventIdentifier = new IIImpl();
-    private CV eventReason = new CVImpl();
-    private StoredInBean recordTarget;
+    private List<RefersTo_1Bean<ACT>> subject = new ArrayList<RefersTo_1Bean<ACT>>();
     private List<CareCompositionsBean> componentOf = new ArrayList<CareCompositionsBean>();
-
-
-    @Hl7XmlMapping({"subject"})
-    public List<RefersTo_1Bean<ACT>> getSubject() {
-        return this.subject;
-    }
+    private StoredInBean recordTarget;
 
 
     /**
-     * <p>EventType</p>
+     * <p>EventIdentifier</p>
      * 
-     * <p>A:Event Type</p>
+     * <p>B:Event Identifier</p>
      * 
-     * <p><p>Identifies the trigger event that occurred.</p></p>
+     * <p><p>A unique identifier for this particular event assigned 
+     * by the system in which the event occurred.</p></p>
      * 
-     * <p><p>This is mandatory because it is essential to 
-     * understanding the meaning of the event.</p></p>
+     * <p><p>Allows the event to be referenced (for undos) and also 
+     * indicates whether multiple interactions were caused by the 
+     * same triggering event. Also used for audit purposes.</p></p>
+     * 
+     * <p><p>Identifier needs to be persisted by receiving 
+     * applications, except for queries (queries cannot be 
+     * retracted or undone).</p></p>
      */
-    @Hl7XmlMapping({"code"})
-    public HL7TriggerEventCode getEventType() {
-        return (HL7TriggerEventCode) this.eventType.getValue();
+    @Hl7XmlMapping({"id"})
+    public Identifier getEventIdentifier() {
+        return this.eventIdentifier.getValue();
     }
-    public void setEventType(HL7TriggerEventCode eventType) {
-        this.eventType.setValue(eventType);
+    public void setEventIdentifier(Identifier eventIdentifier) {
+        this.eventIdentifier.setValue(eventIdentifier);
+    }
+
+
+    @Hl7XmlMapping({"queryByParameter"})
+    public QueryByParameterBean<PL> getQueryByParameter() {
+        return this.queryByParameter;
+    }
+    public void setQueryByParameter(QueryByParameterBean<PL> queryByParameter) {
+        this.queryByParameter = queryByParameter;
     }
 
 
@@ -119,61 +128,22 @@ public class TriggerEvent_5Bean<ACT,PL> extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"subjectOf1/detectedIssueEvent"})
-    public List<IssuesBean> getSubjectOf1DetectedIssueEvent() {
-        return this.subjectOf1DetectedIssueEvent;
-    }
-
-
-    @Hl7XmlMapping({"queryAck"})
-    public QueryAckBean getQueryAck() {
-        return this.queryAck;
-    }
-    public void setQueryAck(QueryAckBean queryAck) {
-        this.queryAck = queryAck;
-    }
-
-
-    @Hl7XmlMapping({"queryByParameter"})
-    public QueryByParameterBean<PL> getQueryByParameter() {
-        return this.queryByParameter;
-    }
-    public void setQueryByParameter(QueryByParameterBean<PL> queryByParameter) {
-        this.queryByParameter = queryByParameter;
-    }
-
-
-    @Hl7XmlMapping({"subjectOf2"})
-    public AuthorizedByBean getSubjectOf2() {
-        return this.subjectOf2;
-    }
-    public void setSubjectOf2(AuthorizedByBean subjectOf2) {
-        this.subjectOf2 = subjectOf2;
-    }
-
-
     /**
-     * <p>EventIdentifier</p>
+     * <p>EventType</p>
      * 
-     * <p>B:Event Identifier</p>
+     * <p>A:Event Type</p>
      * 
-     * <p><p>A unique identifier for this particular event assigned 
-     * by the system in which the event occurred.</p></p>
+     * <p><p>Identifies the trigger event that occurred.</p></p>
      * 
-     * <p><p>Allows the event to be referenced (for undos) and also 
-     * indicates whether multiple interactions were caused by the 
-     * same triggering event. Also used for audit purposes.</p></p>
-     * 
-     * <p><p>Identifier needs to be persisted by receiving 
-     * applications, except for queries (queries cannot be 
-     * retracted or undone).</p></p>
+     * <p><p>This is mandatory because it is essential to 
+     * understanding the meaning of the event.</p></p>
      */
-    @Hl7XmlMapping({"id"})
-    public Identifier getEventIdentifier() {
-        return this.eventIdentifier.getValue();
+    @Hl7XmlMapping({"code"})
+    public HL7TriggerEventCode getEventType() {
+        return (HL7TriggerEventCode) this.eventType.getValue();
     }
-    public void setEventIdentifier(Identifier eventIdentifier) {
-        this.eventIdentifier.setValue(eventIdentifier);
+    public void setEventType(HL7TriggerEventCode eventType) {
+        this.eventType.setValue(eventType);
     }
 
 
@@ -203,18 +173,48 @@ public class TriggerEvent_5Bean<ACT,PL> extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"recordTarget"})
-    public StoredInBean getRecordTarget() {
-        return this.recordTarget;
+    @Hl7XmlMapping({"subjectOf1/detectedIssueEvent"})
+    public List<IssuesBean> getSubjectOf1DetectedIssueEvent() {
+        return this.subjectOf1DetectedIssueEvent;
     }
-    public void setRecordTarget(StoredInBean recordTarget) {
-        this.recordTarget = recordTarget;
+
+
+    @Hl7XmlMapping({"queryAck"})
+    public QueryAckBean getQueryAck() {
+        return this.queryAck;
+    }
+    public void setQueryAck(QueryAckBean queryAck) {
+        this.queryAck = queryAck;
+    }
+
+
+    @Hl7XmlMapping({"subjectOf2"})
+    public AuthorizedByBean getSubjectOf2() {
+        return this.subjectOf2;
+    }
+    public void setSubjectOf2(AuthorizedByBean subjectOf2) {
+        this.subjectOf2 = subjectOf2;
+    }
+
+
+    @Hl7XmlMapping({"subject"})
+    public List<RefersTo_1Bean<ACT>> getSubject() {
+        return this.subject;
     }
 
 
     @Hl7XmlMapping({"componentOf"})
     public List<CareCompositionsBean> getComponentOf() {
         return this.componentOf;
+    }
+
+
+    @Hl7XmlMapping({"recordTarget"})
+    public StoredInBean getRecordTarget() {
+        return this.recordTarget;
+    }
+    public void setRecordTarget(StoredInBean recordTarget) {
+        this.recordTarget = recordTarget;
     }
 
 }

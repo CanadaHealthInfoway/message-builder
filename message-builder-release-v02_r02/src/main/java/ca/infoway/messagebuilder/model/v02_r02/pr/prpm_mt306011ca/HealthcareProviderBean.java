@@ -53,52 +53,31 @@ import java.util.Set;
 public class HealthcareProviderBean extends MessagePartBean implements ca.infoway.messagebuilder.model.v02_r02.merged.Choice, RoleChoice {
 
     private static final long serialVersionUID = 20110318L;
-    private OrganizationBean issuingOrganization;
-    private PrinicpalPerson_2Bean healthCarePrincipalPerson;
-    private CV healthcareProviderRoleType = new CVImpl();
-    private IVL<TS, Interval<Date>> healthcareProviderRoleEffectiveDate = new IVLImpl<TS, Interval<Date>>();
-    private List<ResponsiblePartyBean> responsibleFor = new ArrayList<ResponsiblePartyBean>();
-    private LIST<AD, PostalAddress> healthcareProviderRoleAddress = new LISTImpl<AD, PostalAddress>(ADImpl.class);
-    private LIST<PN, PersonName> healthcareProviderRoleName = new LISTImpl<PN, PersonName>(PNImpl.class);
     private SET<II, Identifier> healthcareProviderRoleIdentification = new SETImpl<II, Identifier>(IIImpl.class);
-    private LIST<TEL, TelecommunicationAddress> healthcareProviderRoleTelecom = new LISTImpl<TEL, TelecommunicationAddress>(TELImpl.class);
-    private List<RelatedToBean> relatedTo = new ArrayList<RelatedToBean>();
+    private IVL<TS, Interval<Date>> healthcareProviderRoleEffectiveDate = new IVLImpl<TS, Interval<Date>>();
+    private CV healthcareProviderRoleType = new CVImpl();
+    private PrinicpalPerson_2Bean healthCarePrincipalPerson;
+    private LIST<PN, PersonName> healthcareProviderRoleName = new LISTImpl<PN, PersonName>(PNImpl.class);
     private CS healthcareProviderRoleStatusCode = new CSImpl();
-
-
-    @Hl7XmlMapping({"issuingOrganization"})
-    public OrganizationBean getIssuingOrganization() {
-        return this.issuingOrganization;
-    }
-    public void setIssuingOrganization(OrganizationBean issuingOrganization) {
-        this.issuingOrganization = issuingOrganization;
-    }
-
-
-    @Hl7XmlMapping({"healthCarePrincipalPerson"})
-    public PrinicpalPerson_2Bean getHealthCarePrincipalPerson() {
-        return this.healthCarePrincipalPerson;
-    }
-    public void setHealthCarePrincipalPerson(PrinicpalPerson_2Bean healthCarePrincipalPerson) {
-        this.healthCarePrincipalPerson = healthCarePrincipalPerson;
-    }
+    private LIST<AD, PostalAddress> healthcareProviderRoleAddress = new LISTImpl<AD, PostalAddress>(ADImpl.class);
+    private List<ResponsiblePartyBean> responsibleFor = new ArrayList<ResponsiblePartyBean>();
+    private List<RelatedToBean> relatedTo = new ArrayList<RelatedToBean>();
+    private LIST<TEL, TelecommunicationAddress> healthcareProviderRoleTelecom = new LISTImpl<TEL, TelecommunicationAddress>(TELImpl.class);
+    private OrganizationBean issuingOrganization;
 
 
     /**
-     * <p>Healthcare Provider Role Type</p>
+     * <p>Healthcare Provider Role Identification</p>
      * 
-     * <p><p>The code identifying the specific healthcare provider 
-     * role.</p></p>
+     * <p><p>A unique identifier for a provider in a specific 
+     * healthcare role.</p></p>
      * 
      * <p><p>Mandatory attribute supports the identification of the 
      * healthcare provider</p></p>
      */
-    @Hl7XmlMapping({"code"})
-    public HealthcareProviderRoleType getHealthcareProviderRoleType() {
-        return (HealthcareProviderRoleType) this.healthcareProviderRoleType.getValue();
-    }
-    public void setHealthcareProviderRoleType(HealthcareProviderRoleType healthcareProviderRoleType) {
-        this.healthcareProviderRoleType.setValue(healthcareProviderRoleType);
+    @Hl7XmlMapping({"id"})
+    public Set<Identifier> getHealthcareProviderRoleIdentification() {
+        return this.healthcareProviderRoleIdentification.rawSet();
     }
 
 
@@ -120,24 +99,30 @@ public class HealthcareProviderBean extends MessagePartBean implements ca.infowa
     }
 
 
-    @Hl7XmlMapping({"responsibleFor"})
-    public List<ResponsiblePartyBean> getResponsibleFor() {
-        return this.responsibleFor;
-    }
-
-
     /**
-     * <p>Healthcare Provider Role Address</p>
+     * <p>Healthcare Provider Role Type</p>
      * 
-     * <p><p>The address for the provider when playing the role of 
-     * healthcare provider.</p></p>
+     * <p><p>The code identifying the specific healthcare provider 
+     * role.</p></p>
      * 
      * <p><p>Mandatory attribute supports the identification of the 
      * healthcare provider</p></p>
      */
-    @Hl7XmlMapping({"addr"})
-    public List<PostalAddress> getHealthcareProviderRoleAddress() {
-        return this.healthcareProviderRoleAddress.rawList();
+    @Hl7XmlMapping({"code"})
+    public HealthcareProviderRoleType getHealthcareProviderRoleType() {
+        return (HealthcareProviderRoleType) this.healthcareProviderRoleType.getValue();
+    }
+    public void setHealthcareProviderRoleType(HealthcareProviderRoleType healthcareProviderRoleType) {
+        this.healthcareProviderRoleType.setValue(healthcareProviderRoleType);
+    }
+
+
+    @Hl7XmlMapping({"healthCarePrincipalPerson"})
+    public PrinicpalPerson_2Bean getHealthCarePrincipalPerson() {
+        return this.healthCarePrincipalPerson;
+    }
+    public void setHealthCarePrincipalPerson(PrinicpalPerson_2Bean healthCarePrincipalPerson) {
+        this.healthCarePrincipalPerson = healthCarePrincipalPerson;
     }
 
 
@@ -157,17 +142,47 @@ public class HealthcareProviderBean extends MessagePartBean implements ca.infowa
 
 
     /**
-     * <p>Healthcare Provider Role Identification</p>
+     * <p>Healthcare Provider Role Status Code</p>
      * 
-     * <p><p>A unique identifier for a provider in a specific 
-     * healthcare role.</p></p>
+     * <p><p>The status of the provider in the healthcare provider 
+     * role i.e. Active</p></p>
+     * 
+     * <p><p>Required attribute supports the identification of the 
+     * healthcare provider</p></p>
+     */
+    @Hl7XmlMapping({"statusCode"})
+    public RoleStatus getHealthcareProviderRoleStatusCode() {
+        return (RoleStatus) this.healthcareProviderRoleStatusCode.getValue();
+    }
+    public void setHealthcareProviderRoleStatusCode(RoleStatus healthcareProviderRoleStatusCode) {
+        this.healthcareProviderRoleStatusCode.setValue(healthcareProviderRoleStatusCode);
+    }
+
+
+    /**
+     * <p>Healthcare Provider Role Address</p>
+     * 
+     * <p><p>The address for the provider when playing the role of 
+     * healthcare provider.</p></p>
      * 
      * <p><p>Mandatory attribute supports the identification of the 
      * healthcare provider</p></p>
      */
-    @Hl7XmlMapping({"id"})
-    public Set<Identifier> getHealthcareProviderRoleIdentification() {
-        return this.healthcareProviderRoleIdentification.rawSet();
+    @Hl7XmlMapping({"addr"})
+    public List<PostalAddress> getHealthcareProviderRoleAddress() {
+        return this.healthcareProviderRoleAddress.rawList();
+    }
+
+
+    @Hl7XmlMapping({"responsibleFor"})
+    public List<ResponsiblePartyBean> getResponsibleFor() {
+        return this.responsibleFor;
+    }
+
+
+    @Hl7XmlMapping({"relatedTo"})
+    public List<RelatedToBean> getRelatedTo() {
+        return this.relatedTo;
     }
 
 
@@ -186,27 +201,12 @@ public class HealthcareProviderBean extends MessagePartBean implements ca.infowa
     }
 
 
-    @Hl7XmlMapping({"relatedTo"})
-    public List<RelatedToBean> getRelatedTo() {
-        return this.relatedTo;
+    @Hl7XmlMapping({"issuingOrganization"})
+    public OrganizationBean getIssuingOrganization() {
+        return this.issuingOrganization;
     }
-
-
-    /**
-     * <p>Healthcare Provider Role Status Code</p>
-     * 
-     * <p><p>The status of the provider in the healthcare provider 
-     * role i.e. Active</p></p>
-     * 
-     * <p><p>Required attribute supports the identification of the 
-     * healthcare provider</p></p>
-     */
-    @Hl7XmlMapping({"statusCode"})
-    public RoleStatus getHealthcareProviderRoleStatusCode() {
-        return (RoleStatus) this.healthcareProviderRoleStatusCode.getValue();
-    }
-    public void setHealthcareProviderRoleStatusCode(RoleStatus healthcareProviderRoleStatusCode) {
-        this.healthcareProviderRoleStatusCode.setValue(healthcareProviderRoleStatusCode);
+    public void setIssuingOrganization(OrganizationBean issuingOrganization) {
+        this.issuingOrganization = issuingOrganization;
     }
 
 }

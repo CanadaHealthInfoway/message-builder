@@ -25,26 +25,8 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 public class DiagnosisIndicationsBean extends MessagePartBean implements Indications {
 
     private static final long serialVersionUID = 20110318L;
-    private CV diagnosisType = new CVImpl();
     private CD diagnosisCode = new CDImpl();
-
-
-    /**
-     * <p>Diagnosis Type</p>
-     * 
-     * <p><p>Identifies the type of condition described (diagnosis 
-     * or indication)</p></p>
-     * 
-     * <p><p>Identifies this measurement as a type of diagnosis and 
-     * is therefore mandatory.</p></p>
-     */
-    @Hl7XmlMapping({"code"})
-    public ActCode getDiagnosisType() {
-        return (ActCode) this.diagnosisType.getValue();
-    }
-    public void setDiagnosisType(ActCode diagnosisType) {
-        this.diagnosisType.setValue(diagnosisType);
-    }
+    private CV diagnosisType = new CVImpl();
 
 
     /**
@@ -63,6 +45,24 @@ public class DiagnosisIndicationsBean extends MessagePartBean implements Indicat
     }
     public void setDiagnosisCode(DiagnosisValue diagnosisCode) {
         this.diagnosisCode.setValue(diagnosisCode);
+    }
+
+
+    /**
+     * <p>Diagnosis Type</p>
+     * 
+     * <p><p>Identifies the type of condition described (diagnosis 
+     * or indication)</p></p>
+     * 
+     * <p><p>Identifies this measurement as a type of diagnosis and 
+     * is therefore mandatory.</p></p>
+     */
+    @Hl7XmlMapping({"code"})
+    public ActCode getDiagnosisType() {
+        return (ActCode) this.diagnosisType.getValue();
+    }
+    public void setDiagnosisType(ActCode diagnosisType) {
+        this.diagnosisType.setValue(diagnosisType);
     }
 
 }

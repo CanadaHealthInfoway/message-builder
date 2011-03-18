@@ -14,6 +14,7 @@ import ca.infoway.messagebuilder.datatype.impl.BLImpl;
 import ca.infoway.messagebuilder.datatype.impl.CVImpl;
 import ca.infoway.messagebuilder.datatype.impl.IIImpl;
 import ca.infoway.messagebuilder.datatype.impl.IVLImpl;
+import ca.infoway.messagebuilder.datatype.impl.RawListWrapper;
 import ca.infoway.messagebuilder.datatype.impl.STImpl;
 import ca.infoway.messagebuilder.datatype.impl.TSImpl;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
@@ -93,64 +94,37 @@ import java.util.List;
 public class GenericQueryParametersBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private CV issueFilterCode = new CVImpl();
     private BL mostRecentByDrugIndicator = new BLImpl();
+    private List<CV> prescriptionStatuses = new ArrayList<CV>();
     private CV diagnosisCode = new CVImpl();
-    private BL includeEventHistoryIndicator = new BLImpl();
-    private BL includeIssuesIndicator = new BLImpl();
-    private IVL<TS, Interval<Date>> amendedInTimeRange = new IVLImpl<TS, Interval<Date>>();
     private BL includeNotesIndicator = new BLImpl();
     private BL includePendingChangesIndicator = new BLImpl();
+    private BL includeEventHistoryIndicator = new BLImpl();
+    private BL includeIssuesIndicator = new BLImpl();
     private BL mostRecentDispenseForEachRxIndicator = new BLImpl();
-    private CV rxDispenserIndicators = new CVImpl();
-    private CV otherIndicationCode = new CVImpl();
-    private CV prescriptionStatuses = new CVImpl();
-    private II prescriptionDispenseNumber = new IIImpl();
-    private CV symptomCode = new CVImpl();
-    private II otherMedicationRecordId = new IIImpl();
-    private II prescriberProviderID = new IIImpl();
-    private CV careCompositionTypes = new CVImpl();
-    private II careCompositionIDs = new IIImpl();
-    private IVL<TS, Interval<Date>> administrationEffectivePeriod = new IVLImpl<TS, Interval<Date>>();
-    private II prescriptionOrderNumber = new IIImpl();
-    private CV treatmentTypes = new CVImpl();
+    private List<CV> rxDispenserIndicators = new ArrayList<CV>();
+    private CV issueFilterCode = new CVImpl();
     private CV drugCode = new CVImpl();
-    private CV prescribingIndicationSymptomCode = new CVImpl();
-    private II medicationDocumentID = new IIImpl();
+    private II otherMedicationRecordId = new IIImpl();
+    private CV symptomCode = new CVImpl();
+    private II prescriptionOrderNumber = new IIImpl();
+    private CV otherIndicationCode = new CVImpl();
+    private List<CV> careCompositionTypes = new ArrayList<CV>();
+    private II prescriptionDispenseNumber = new IIImpl();
+    private List<II> careCompositionIDs = new ArrayList<II>();
+    private II prescriberProviderID = new IIImpl();
+    private IVL<TS, Interval<Date>> amendedInTimeRange = new IVLImpl<TS, Interval<Date>>();
+    private List<CV> treatmentTypes = new ArrayList<CV>();
+    private IVL<TS, Interval<Date>> administrationEffectivePeriod = new IVLImpl<TS, Interval<Date>>();
     private CV prescribingIndicationDiagnosisCode = new CVImpl();
+    private CV prescribingIndicationSymptomCode = new CVImpl();
     private CV medicationDocumentType = new CVImpl();
+    private II medicationDocumentID = new IIImpl();
     private CV orderableDrugForm = new CVImpl();
-    private List<HasCharacteristicBean> drugCharacteristics = new ArrayList<HasCharacteristicBean>();
     private ST drugManufacturerName = new STImpl();
-    private CV drugRouteCode = new CVImpl();
+    private List<HasCharacteristicBean> drugCharacteristics = new ArrayList<HasCharacteristicBean>();
     private ST drugName = new STImpl();
-
-
-    /**
-     * <p>IssueFilterCode</p>
-     * 
-     * <p>Issue Filter Code</p>
-     * 
-     * <p><p>Indicates whether records to be returned (e.g. 
-     * prescription order, prescription dispense and/or other 
-     * medication) should be filtered to those with at least one 
-     * persistent un-managed issue (against the record), with at 
-     * least one persistent issues or should return all records, 
-     * independent of the presence of persistent issues.</p></p>
-     * 
-     * <p><p>By filtering returned records to include only those 
-     * which have unmanaged issues or any issues at all, allows a 
-     * provider to focus on those aspects of care where extra 
-     * attention is needed. Because the attribute must be known, it 
-     * is mandatory.</p></p>
-     */
-    @Hl7XmlMapping({"issueFilterCode/value"})
-    public IssueFilterCode getIssueFilterCode() {
-        return (IssueFilterCode) this.issueFilterCode.getValue();
-    }
-    public void setIssueFilterCode(IssueFilterCode issueFilterCode) {
-        this.issueFilterCode.setValue(issueFilterCode);
-    }
+    private CV drugRouteCode = new CVImpl();
 
 
     /**
@@ -189,6 +163,26 @@ public class GenericQueryParametersBean extends MessagePartBean {
 
 
     /**
+     * <p>PrescriptionStatuses</p>
+     * 
+     * <p>Prescription Statuses</p>
+     * 
+     * <p><p>Indicates that prescriptions of a specific statuses 
+     * are to be included in the result set. Specific prescription 
+     * statuses are: 'active', completed', 'aborted', 
+     * 'suspended'.</p></p>
+     * 
+     * <p><p>Allows for the retrieval of patient prescriptions and 
+     * dispenses based on the lifecycle state of the 
+     * prescription.</p></p>
+     */
+    @Hl7XmlMapping({"prescriptionStatus/value"})
+    public List<ActStatus> getPrescriptionStatuses() {
+        return new RawListWrapper<CV, ActStatus>(prescriptionStatuses, CVImpl.class);
+    }
+
+
+    /**
      * <p>DiagnosisCode</p>
      * 
      * <p>Diagnosis Code</p>
@@ -206,6 +200,68 @@ public class GenericQueryParametersBean extends MessagePartBean {
     }
     public void setDiagnosisCode(DiagnosisValue diagnosisCode) {
         this.diagnosisCode.setValue(diagnosisCode);
+    }
+
+
+    /**
+     * <p>IncludeNotesIndicator</p>
+     * 
+     * <p>Include Notes Indicator</p>
+     * 
+     * <p><p>Indicates whether or not notes attached to the 
+     * prescription, dispenses and other active medication records 
+     * are to be returned along with the detailed information.</p></p>
+     * 
+     * <p><p>Allows for the flexibility of omitting/including notes 
+     * in the retrieval of information for medication profile 
+     * detail data.</p><p>Because the attribute is boolean, it must 
+     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
+     * mandatory.</p></p>
+     * 
+     * <p><p>Allows for the flexibility of omitting/including notes 
+     * in the retrieval of information for medication profile 
+     * detail data.</p><p>Because the attribute is boolean, it must 
+     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
+     * mandatory.</p></p>
+     */
+    @Hl7XmlMapping({"includeNotesIndicator/value"})
+    public Boolean getIncludeNotesIndicator() {
+        return this.includeNotesIndicator.getValue();
+    }
+    public void setIncludeNotesIndicator(Boolean includeNotesIndicator) {
+        this.includeNotesIndicator.setValue(includeNotesIndicator);
+    }
+
+
+    /**
+     * <p>IncludePendingChangesIndicator</p>
+     * 
+     * <p>Include Pending Changes Indicator</p>
+     * 
+     * <p><p>Indicates whether to include future changes (e.g. 
+     * status changes that aren't effective yet) associated with a 
+     * prescription order, prescription dispense and/or active 
+     * medications are to be returned along with the detailed 
+     * information.</p></p>
+     * 
+     * <p><p>Allows for the flexibility of omitting/including 
+     * future events in the retrieval of the requested 
+     * information.</p><p>Because the attribute is boolean, it must 
+     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
+     * mandatory.</p></p>
+     * 
+     * <p><p>Allows for the flexibility of omitting/including 
+     * future events in the retrieval of the requested 
+     * information.</p><p>Because the attribute is boolean, it must 
+     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
+     * mandatory.</p></p>
+     */
+    @Hl7XmlMapping({"includePendingChangesIndicator/value"})
+    public Boolean getIncludePendingChangesIndicator() {
+        return this.includePendingChangesIndicator.getValue();
+    }
+    public void setIncludePendingChangesIndicator(Boolean includePendingChangesIndicator) {
+        this.includePendingChangesIndicator.setValue(includePendingChangesIndicator);
     }
 
 
@@ -305,114 +361,6 @@ public class GenericQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>AmendedInTimeRange</p>
-     * 
-     * <p>Amended in Time Range</p>
-     * 
-     * <p><p>Indicates that the returned records should be filtered 
-     * to only include those which have been amended in some way 
-     * (had status changed, been annotated, prescription was 
-     * dispensed, etc.) within the indicated time-period. This will 
-     * commonly be used to '''retrieve everything that has been 
-     * amended since xxx'''.</p></p>
-     * 
-     * <p><p>Allows the requester to specify the event period of 
-     * interest for the retrieval of medication 
-     * records.</p><p>Useful for constraining run-away queries.</p></p>
-     * 
-     * <p><p>Allows the requester to specify the event period of 
-     * interest for the retrieval of medication 
-     * records.</p><p>Useful for constraining run-away queries.</p></p>
-     * 
-     * <p>Amended In Time Range</p>
-     * 
-     * <p><p>Indicates that the returned records should be filtered 
-     * to only include those which have been amended in some way 
-     * (had status changed, been annotated, prescription was 
-     * dispensed, etc.) within the indicated time-period. This will 
-     * commonly be used to 'retrieve everything that has been 
-     * amended since xxx'.</p></p>
-     * 
-     * <p><p>Allows the requester to specify the event period of 
-     * interest for the retrieval of medication 
-     * records.</p><p>Useful for constraining run-away queries.</p></p>
-     * 
-     * <p><p>Allows the requester to specify the event period of 
-     * interest for the retrieval of medication 
-     * records.</p><p>Useful for constraining run-away queries.</p></p>
-     */
-    @Hl7XmlMapping({"amendedInTimeRange/value"})
-    public Interval<Date> getAmendedInTimeRange() {
-        return this.amendedInTimeRange.getValue();
-    }
-    public void setAmendedInTimeRange(Interval<Date> amendedInTimeRange) {
-        this.amendedInTimeRange.setValue(amendedInTimeRange);
-    }
-
-
-    /**
-     * <p>IncludeNotesIndicator</p>
-     * 
-     * <p>Include Notes Indicator</p>
-     * 
-     * <p><p>Indicates whether or not notes attached to the 
-     * prescription, dispenses and other active medication records 
-     * are to be returned along with the detailed information.</p></p>
-     * 
-     * <p><p>Allows for the flexibility of omitting/including notes 
-     * in the retrieval of information for medication profile 
-     * detail data.</p><p>Because the attribute is boolean, it must 
-     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
-     * mandatory.</p></p>
-     * 
-     * <p><p>Allows for the flexibility of omitting/including notes 
-     * in the retrieval of information for medication profile 
-     * detail data.</p><p>Because the attribute is boolean, it must 
-     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
-     * mandatory.</p></p>
-     */
-    @Hl7XmlMapping({"includeNotesIndicator/value"})
-    public Boolean getIncludeNotesIndicator() {
-        return this.includeNotesIndicator.getValue();
-    }
-    public void setIncludeNotesIndicator(Boolean includeNotesIndicator) {
-        this.includeNotesIndicator.setValue(includeNotesIndicator);
-    }
-
-
-    /**
-     * <p>IncludePendingChangesIndicator</p>
-     * 
-     * <p>Include Pending Changes Indicator</p>
-     * 
-     * <p><p>Indicates whether to include future changes (e.g. 
-     * status changes that aren't effective yet) associated with a 
-     * prescription order, prescription dispense and/or active 
-     * medications are to be returned along with the detailed 
-     * information.</p></p>
-     * 
-     * <p><p>Allows for the flexibility of omitting/including 
-     * future events in the retrieval of the requested 
-     * information.</p><p>Because the attribute is boolean, it must 
-     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
-     * mandatory.</p></p>
-     * 
-     * <p><p>Allows for the flexibility of omitting/including 
-     * future events in the retrieval of the requested 
-     * information.</p><p>Because the attribute is boolean, it must 
-     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
-     * mandatory.</p></p>
-     */
-    @Hl7XmlMapping({"includePendingChangesIndicator/value"})
-    public Boolean getIncludePendingChangesIndicator() {
-        return this.includePendingChangesIndicator.getValue();
-    }
-    public void setIncludePendingChangesIndicator(Boolean includePendingChangesIndicator) {
-        this.includePendingChangesIndicator.setValue(includePendingChangesIndicator);
-    }
-
-
-    /**
      * <p>MostRecentDispenseForEachRxIndicator</p>
      * 
      * <p>Most Recent Dispense for each Rx Indicator</p>
@@ -485,307 +433,35 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * retrieved based on the fill status of the prescription.</p></p>
      */
     @Hl7XmlMapping({"rxDispenseIndicator/value"})
-    public PrescriptionDispenseFilterCode getRxDispenserIndicators() {
-        return (PrescriptionDispenseFilterCode) this.rxDispenserIndicators.getValue();
-    }
-    public void setRxDispenserIndicators(PrescriptionDispenseFilterCode rxDispenserIndicators) {
-        this.rxDispenserIndicators.setValue(rxDispenserIndicators);
+    public List<PrescriptionDispenseFilterCode> getRxDispenserIndicators() {
+        return new RawListWrapper<CV, PrescriptionDispenseFilterCode>(rxDispenserIndicators, CVImpl.class);
     }
 
 
     /**
-     * <p>OtherIndicationCode</p>
+     * <p>IssueFilterCode</p>
      * 
-     * <p>Other Indication Code</p>
+     * <p>Issue Filter Code</p>
      * 
-     * <p><p>Indicates that the result set is to be filtered to 
-     * include only those records pertaining to the specified 
-     * non-condition-related indication code.</p></p>
+     * <p><p>Indicates whether records to be returned (e.g. 
+     * prescription order, prescription dispense and/or other 
+     * medication) should be filtered to those with at least one 
+     * persistent un-managed issue (against the record), with at 
+     * least one persistent issues or should return all records, 
+     * independent of the presence of persistent issues.</p></p>
      * 
-     * <p><p>Allows for the retrieval of patient's prescriptions 
-     * and/or dispenses based on prescribing indications.</p></p>
+     * <p><p>By filtering returned records to include only those 
+     * which have unmanaged issues or any issues at all, allows a 
+     * provider to focus on those aspects of care where extra 
+     * attention is needed. Because the attribute must be known, it 
+     * is mandatory.</p></p>
      */
-    @Hl7XmlMapping({"otherIndicationCode/value"})
-    public ActNonConditionIndicationCode getOtherIndicationCode() {
-        return (ActNonConditionIndicationCode) this.otherIndicationCode.getValue();
+    @Hl7XmlMapping({"issueFilterCode/value"})
+    public IssueFilterCode getIssueFilterCode() {
+        return (IssueFilterCode) this.issueFilterCode.getValue();
     }
-    public void setOtherIndicationCode(ActNonConditionIndicationCode otherIndicationCode) {
-        this.otherIndicationCode.setValue(otherIndicationCode);
-    }
-
-
-    /**
-     * <p>PrescriptionStatuses</p>
-     * 
-     * <p>Prescription Statuses</p>
-     * 
-     * <p><p>Indicates that prescriptions of a specific statuses 
-     * are to be included in the result set. Specific prescription 
-     * statuses are: 'active', completed', 'aborted', 
-     * 'suspended'.</p></p>
-     * 
-     * <p><p>Allows for the retrieval of patient prescriptions and 
-     * dispenses based on the lifecycle state of the 
-     * prescription.</p></p>
-     */
-    @Hl7XmlMapping({"prescriptionStatus/value"})
-    public ActStatus getPrescriptionStatuses() {
-        return (ActStatus) this.prescriptionStatuses.getValue();
-    }
-    public void setPrescriptionStatuses(ActStatus prescriptionStatuses) {
-        this.prescriptionStatuses.setValue(prescriptionStatuses);
-    }
-
-
-    /**
-     * <p>PrescriptionDispenseNumber</p>
-     * 
-     * <p>E:Prescription Dispense Number</p>
-     * 
-     * <p><p>Identifies which prescription dispense record should 
-     * be retrieved.</p></p>
-     * 
-     * <p><p>Allows for the retrieval of medication records 
-     * relating to a specific dispense record.</p></p>
-     */
-    @Hl7XmlMapping({"prescriptionDispenseNumber/value"})
-    public Identifier getPrescriptionDispenseNumber() {
-        return this.prescriptionDispenseNumber.getValue();
-    }
-    public void setPrescriptionDispenseNumber(Identifier prescriptionDispenseNumber) {
-        this.prescriptionDispenseNumber.setValue(prescriptionDispenseNumber);
-    }
-
-
-    /**
-     * <p>SymptomCode</p>
-     * 
-     * <p>Symptom Code</p>
-     * 
-     * <p><p>Indicates that the result set is to be filtered to 
-     * include only those records pertaining to the specified 
-     * symptom indication code.</p></p>
-     * 
-     * <p><p>Allows for the retrieval of patient's prescriptions 
-     * and/or dispenses based on prescribing indications.</p></p>
-     */
-    @Hl7XmlMapping({"symptomCode/value"})
-    public SymptomValue getSymptomCode() {
-        return (SymptomValue) this.symptomCode.getValue();
-    }
-    public void setSymptomCode(SymptomValue symptomCode) {
-        this.symptomCode.setValue(symptomCode);
-    }
-
-
-    /**
-     * <p>OtherMedicationRecordId</p>
-     * 
-     * <p>E:Other Medication Record Id</p>
-     * 
-     * <p><p>Identifier of the other active medication record for 
-     * which detailed information is to be retrieved.</p></p>
-     * 
-     * <p><p>Allows for the retrieval of medication records based 
-     * on a specific active medication record.</p></p>
-     */
-    @Hl7XmlMapping({"otherMedicationRecordId/value"})
-    public Identifier getOtherMedicationRecordId() {
-        return this.otherMedicationRecordId.getValue();
-    }
-    public void setOtherMedicationRecordId(Identifier otherMedicationRecordId) {
-        this.otherMedicationRecordId.setValue(otherMedicationRecordId);
-    }
-
-
-    /**
-     * <p>PrescriberProviderID</p>
-     * 
-     * <p>Prescriber Provider ID</p>
-     * 
-     * <p><p>Identifier of the prescriber who created and/or 
-     * supervised the prescriptions being retrieved.</p><p>The 
-     * result set will be filtered to only include records which 
-     * were either directly created by this provider, or were 
-     * created 'under the supervision' of this provider.</p></p>
-     * 
-     * <p><p>Identifier of the prescriber who created and/or 
-     * supervised the prescriptions being retrieved.</p><p>The 
-     * result set will be filtered to only include records which 
-     * were either directly created by this provider, or were 
-     * created 'under the supervision' of this provider.</p></p>
-     * 
-     * <p><p>Allows for the retrieval of prescriptions based on the 
-     * specific prescribers.</p></p>
-     */
-    @Hl7XmlMapping({"prescriberProviderID/value"})
-    public Identifier getPrescriberProviderID() {
-        return this.prescriberProviderID.getValue();
-    }
-    public void setPrescriberProviderID(Identifier prescriberProviderID) {
-        this.prescriberProviderID.setValue(prescriberProviderID);
-    }
-
-
-    /**
-     * <p>CareCompositionTypes</p>
-     * 
-     * <p>Care Composition Types</p>
-     * 
-     * <p><p>Filters the records retrieved to only include those 
-     * associated with the specified 'kind' of encounter, episode 
-     * or care event. If unspecified, no filter is applied.</p></p>
-     * 
-     * <p><p>Allows retrieving all records associated with a 
-     * particular type of encounter, episode or care event. 
-     * E.g.Orthopedic Clinic Encounter, ER encounter, Walk-in 
-     * encounter, etc.</p></p>
-     */
-    @Hl7XmlMapping({"careCompositionType/value"})
-    public ActCareEventType getCareCompositionTypes() {
-        return (ActCareEventType) this.careCompositionTypes.getValue();
-    }
-    public void setCareCompositionTypes(ActCareEventType careCompositionTypes) {
-        this.careCompositionTypes.setValue(careCompositionTypes);
-    }
-
-
-    /**
-     * <p>CareCompositionIDs</p>
-     * 
-     * <p>Care Composition IDs</p>
-     * 
-     * <p><p>Filters the records retrieved to only include those 
-     * associated with the specified encounter, episode or care 
-     * event. If unspecified, no filter is applied.</p><p>Note: 
-     * When matching on care composition id, systems should also 
-     * retrieve records with a fulfillment id to requisitions 
-     * associated with the care composition. E.g. When retrieving 
-     * records associated with an encounter which includes a 
-     * referral, the retrieved records should also include the care 
-     * summary created in fulfillment of the referral.</p></p>
-     * 
-     * <p><p>Filters the records retrieved to only include those 
-     * associated with the specified encounter, episode or care 
-     * event. If unspecified, no filter is applied.</p><p>Note: 
-     * When matching on care composition id, systems should also 
-     * retrieve records with a fulfillment id to requisitions 
-     * associated with the care composition. E.g. When retrieving 
-     * records associated with an encounter which includes a 
-     * referral, the retrieved records should also include the care 
-     * summary created in fulfillment of the referral.</p></p>
-     * 
-     * <p><p>Allows retrieving all records associated with an 
-     * encounter, episode or care event.</p></p>
-     */
-    @Hl7XmlMapping({"careCompositionID/value"})
-    public Identifier getCareCompositionIDs() {
-        return this.careCompositionIDs.getValue();
-    }
-    public void setCareCompositionIDs(Identifier careCompositionIDs) {
-        this.careCompositionIDs.setValue(careCompositionIDs);
-    }
-
-
-    /**
-     * <p>AdministrationEffectivePeriod</p>
-     * 
-     * <p>Administration Effective Period</p>
-     * 
-     * <p><p>For a prescription indicates the period for which the 
-     * patient was deemed to be taking the drug.</p><p>Filter the 
-     * result set to include only those medication records 
-     * (prescription order, prescription dispense and other 
-     * medication) for which the patient was deemed to be taking 
-     * the drug.</p></p>
-     * 
-     * <p><p>For a prescription indicates the period for which the 
-     * patient was deemed to be taking the drug.</p><p>Filter the 
-     * result set to include only those medication records 
-     * (prescription order, prescription dispense and other 
-     * medication) for which the patient was deemed to be taking 
-     * the drug.</p></p>
-     * 
-     * <p><p>Allows the requester to specify the administration 
-     * period of interest for the retrieval. Useful for 
-     * constraining run-away queries.</p></p>
-     * 
-     * <p>Administration Effective Period</p>
-     * 
-     * <p><p>Indicates the administration period for which the 
-     * request/query applies.</p><p>Filter the result set to 
-     * include only those medication records (prescription order, 
-     * prescription dispense and other active medication) for which 
-     * the patient was deemed to be taking the drug within the 
-     * specified period.</p></p>
-     * 
-     * <p><p>Indicates the administration period for which the 
-     * request/query applies.</p><p>Filter the result set to 
-     * include only those medication records (prescription order, 
-     * prescription dispense and other active medication) for which 
-     * the patient was deemed to be taking the drug within the 
-     * specified period.</p></p>
-     * 
-     * <p><p>Allows the requester to specify the administration 
-     * period of interest for the retrieval. Useful for 
-     * constraining run-away queries.</p></p>
-     */
-    @Hl7XmlMapping({"administrationEffectivePeriod/value"})
-    public Interval<Date> getAdministrationEffectivePeriod() {
-        return this.administrationEffectivePeriod.getValue();
-    }
-    public void setAdministrationEffectivePeriod(Interval<Date> administrationEffectivePeriod) {
-        this.administrationEffectivePeriod.setValue(administrationEffectivePeriod);
-    }
-
-
-    /**
-     * <p>PrescriptionOrderNumber</p>
-     * 
-     * <p>D:Prescription Order Number</p>
-     * 
-     * <p><p>Identifier of the prescription for which detailed 
-     * information is required.</p><p>The result set will be 
-     * filtered to only the specific prescription.</p></p>
-     * 
-     * <p><p>Identifier of the prescription for which detailed 
-     * information is required.</p><p>The result set will be 
-     * filtered to only the specific prescription.</p></p>
-     * 
-     * <p><p>Identifies the prescription that is to be 
-     * retrieved.</p></p>
-     */
-    @Hl7XmlMapping({"prescriptionOrderNumber/value"})
-    public Identifier getPrescriptionOrderNumber() {
-        return this.prescriptionOrderNumber.getValue();
-    }
-    public void setPrescriptionOrderNumber(Identifier prescriptionOrderNumber) {
-        this.prescriptionOrderNumber.setValue(prescriptionOrderNumber);
-    }
-
-
-    /**
-     * <p>TreatmentTypes</p>
-     * 
-     * <p>Treatment Types</p>
-     * 
-     * <p><p>Indicates that the result set is to be filtered to 
-     * only include those records pertaining to the specified 
-     * treatment type (categories). The specific values are 
-     * &quot;Continuous/Chronic&quot;, &quot;Short-Term/Acute&quot; 
-     * and &quot;As-Needed/PRN&quot;.</p></p>
-     * 
-     * <p><p>Allows for the retrieval of prescriptions and 
-     * dispensed based on the intended treatment type of the 
-     * prescription. Repetition of 2 will allow for the result set 
-     * to be filtered based on 1 or two treatment types.</p></p>
-     */
-    @Hl7XmlMapping({"treatmentType/value"})
-    public ActTherapyDurationWorkingListCode getTreatmentTypes() {
-        return (ActTherapyDurationWorkingListCode) this.treatmentTypes.getValue();
-    }
-    public void setTreatmentTypes(ActTherapyDurationWorkingListCode treatmentTypes) {
-        this.treatmentTypes.setValue(treatmentTypes);
+    public void setIssueFilterCode(IssueFilterCode issueFilterCode) {
+        this.issueFilterCode.setValue(issueFilterCode);
     }
 
 
@@ -923,45 +599,312 @@ public class GenericQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>PrescribingIndicationSymptomCode</p>
+     * <p>OtherMedicationRecordId</p>
      * 
-     * <p>Prescribing Indication Symptom Code</p>
+     * <p>E:Other Medication Record Id</p>
      * 
-     * <p><p>Returns documents which relate to a particular 
-     * symptom</p></p>
+     * <p><p>Identifier of the other active medication record for 
+     * which detailed information is to be retrieved.</p></p>
      * 
-     * <p><p>Useful for finding protocols and drug monographs 
-     * associated with an indication</p></p>
+     * <p><p>Allows for the retrieval of medication records based 
+     * on a specific active medication record.</p></p>
      */
-    @Hl7XmlMapping({"prescribingSymptomCode/value"})
-    public SymptomValue getPrescribingIndicationSymptomCode() {
-        return (SymptomValue) this.prescribingIndicationSymptomCode.getValue();
+    @Hl7XmlMapping({"otherMedicationRecordId/value"})
+    public Identifier getOtherMedicationRecordId() {
+        return this.otherMedicationRecordId.getValue();
     }
-    public void setPrescribingIndicationSymptomCode(SymptomValue prescribingIndicationSymptomCode) {
-        this.prescribingIndicationSymptomCode.setValue(prescribingIndicationSymptomCode);
+    public void setOtherMedicationRecordId(Identifier otherMedicationRecordId) {
+        this.otherMedicationRecordId.setValue(otherMedicationRecordId);
     }
 
 
     /**
-     * <p>MedicationDocumentID</p>
+     * <p>SymptomCode</p>
      * 
-     * <p>E:Medication Document ID</p>
+     * <p>Symptom Code</p>
      * 
-     * <p><p>Unique identifier for a particular medication 
-     * document. This will reference a specific kind of 
-     * documentation (e.g. DDI Monograph, Patient Education 
-     * Monograph, Allergy Monograph, etc) created by a specific 
-     * author organization (e.g. Health Canada, FDB, WHO, etc).</p></p>
+     * <p><p>Indicates that the result set is to be filtered to 
+     * include only those records pertaining to the specified 
+     * symptom indication code.</p></p>
      * 
-     * <p><p>Use of an identifier allows for a quick retrieval of 
-     * the information of interest.</p></p>
+     * <p><p>Allows for the retrieval of patient's prescriptions 
+     * and/or dispenses based on prescribing indications.</p></p>
      */
-    @Hl7XmlMapping({"medicationDocumentID/value"})
-    public Identifier getMedicationDocumentID() {
-        return this.medicationDocumentID.getValue();
+    @Hl7XmlMapping({"symptomCode/value"})
+    public SymptomValue getSymptomCode() {
+        return (SymptomValue) this.symptomCode.getValue();
     }
-    public void setMedicationDocumentID(Identifier medicationDocumentID) {
-        this.medicationDocumentID.setValue(medicationDocumentID);
+    public void setSymptomCode(SymptomValue symptomCode) {
+        this.symptomCode.setValue(symptomCode);
+    }
+
+
+    /**
+     * <p>PrescriptionOrderNumber</p>
+     * 
+     * <p>D:Prescription Order Number</p>
+     * 
+     * <p><p>Identifier of the prescription for which detailed 
+     * information is required.</p><p>The result set will be 
+     * filtered to only the specific prescription.</p></p>
+     * 
+     * <p><p>Identifier of the prescription for which detailed 
+     * information is required.</p><p>The result set will be 
+     * filtered to only the specific prescription.</p></p>
+     * 
+     * <p><p>Identifies the prescription that is to be 
+     * retrieved.</p></p>
+     */
+    @Hl7XmlMapping({"prescriptionOrderNumber/value"})
+    public Identifier getPrescriptionOrderNumber() {
+        return this.prescriptionOrderNumber.getValue();
+    }
+    public void setPrescriptionOrderNumber(Identifier prescriptionOrderNumber) {
+        this.prescriptionOrderNumber.setValue(prescriptionOrderNumber);
+    }
+
+
+    /**
+     * <p>OtherIndicationCode</p>
+     * 
+     * <p>Other Indication Code</p>
+     * 
+     * <p><p>Indicates that the result set is to be filtered to 
+     * include only those records pertaining to the specified 
+     * non-condition-related indication code.</p></p>
+     * 
+     * <p><p>Allows for the retrieval of patient's prescriptions 
+     * and/or dispenses based on prescribing indications.</p></p>
+     */
+    @Hl7XmlMapping({"otherIndicationCode/value"})
+    public ActNonConditionIndicationCode getOtherIndicationCode() {
+        return (ActNonConditionIndicationCode) this.otherIndicationCode.getValue();
+    }
+    public void setOtherIndicationCode(ActNonConditionIndicationCode otherIndicationCode) {
+        this.otherIndicationCode.setValue(otherIndicationCode);
+    }
+
+
+    /**
+     * <p>CareCompositionTypes</p>
+     * 
+     * <p>Care Composition Types</p>
+     * 
+     * <p><p>Filters the records retrieved to only include those 
+     * associated with the specified 'kind' of encounter, episode 
+     * or care event. If unspecified, no filter is applied.</p></p>
+     * 
+     * <p><p>Allows retrieving all records associated with a 
+     * particular type of encounter, episode or care event. 
+     * E.g.Orthopedic Clinic Encounter, ER encounter, Walk-in 
+     * encounter, etc.</p></p>
+     */
+    @Hl7XmlMapping({"careCompositionType/value"})
+    public List<ActCareEventType> getCareCompositionTypes() {
+        return new RawListWrapper<CV, ActCareEventType>(careCompositionTypes, CVImpl.class);
+    }
+
+
+    /**
+     * <p>PrescriptionDispenseNumber</p>
+     * 
+     * <p>E:Prescription Dispense Number</p>
+     * 
+     * <p><p>Identifies which prescription dispense record should 
+     * be retrieved.</p></p>
+     * 
+     * <p><p>Allows for the retrieval of medication records 
+     * relating to a specific dispense record.</p></p>
+     */
+    @Hl7XmlMapping({"prescriptionDispenseNumber/value"})
+    public Identifier getPrescriptionDispenseNumber() {
+        return this.prescriptionDispenseNumber.getValue();
+    }
+    public void setPrescriptionDispenseNumber(Identifier prescriptionDispenseNumber) {
+        this.prescriptionDispenseNumber.setValue(prescriptionDispenseNumber);
+    }
+
+
+    /**
+     * <p>CareCompositionIDs</p>
+     * 
+     * <p>Care Composition IDs</p>
+     * 
+     * <p><p>Filters the records retrieved to only include those 
+     * associated with the specified encounter, episode or care 
+     * event. If unspecified, no filter is applied.</p><p>Note: 
+     * When matching on care composition id, systems should also 
+     * retrieve records with a fulfillment id to requisitions 
+     * associated with the care composition. E.g. When retrieving 
+     * records associated with an encounter which includes a 
+     * referral, the retrieved records should also include the care 
+     * summary created in fulfillment of the referral.</p></p>
+     * 
+     * <p><p>Filters the records retrieved to only include those 
+     * associated with the specified encounter, episode or care 
+     * event. If unspecified, no filter is applied.</p><p>Note: 
+     * When matching on care composition id, systems should also 
+     * retrieve records with a fulfillment id to requisitions 
+     * associated with the care composition. E.g. When retrieving 
+     * records associated with an encounter which includes a 
+     * referral, the retrieved records should also include the care 
+     * summary created in fulfillment of the referral.</p></p>
+     * 
+     * <p><p>Allows retrieving all records associated with an 
+     * encounter, episode or care event.</p></p>
+     */
+    @Hl7XmlMapping({"careCompositionID/value"})
+    public List<Identifier> getCareCompositionIDs() {
+        return new RawListWrapper<II, Identifier>(careCompositionIDs, IIImpl.class);
+    }
+
+
+    /**
+     * <p>PrescriberProviderID</p>
+     * 
+     * <p>Prescriber Provider ID</p>
+     * 
+     * <p><p>Identifier of the prescriber who created and/or 
+     * supervised the prescriptions being retrieved.</p><p>The 
+     * result set will be filtered to only include records which 
+     * were either directly created by this provider, or were 
+     * created 'under the supervision' of this provider.</p></p>
+     * 
+     * <p><p>Identifier of the prescriber who created and/or 
+     * supervised the prescriptions being retrieved.</p><p>The 
+     * result set will be filtered to only include records which 
+     * were either directly created by this provider, or were 
+     * created 'under the supervision' of this provider.</p></p>
+     * 
+     * <p><p>Allows for the retrieval of prescriptions based on the 
+     * specific prescribers.</p></p>
+     */
+    @Hl7XmlMapping({"prescriberProviderID/value"})
+    public Identifier getPrescriberProviderID() {
+        return this.prescriberProviderID.getValue();
+    }
+    public void setPrescriberProviderID(Identifier prescriberProviderID) {
+        this.prescriberProviderID.setValue(prescriberProviderID);
+    }
+
+
+    /**
+     * <p>AmendedInTimeRange</p>
+     * 
+     * <p>Amended in Time Range</p>
+     * 
+     * <p><p>Indicates that the returned records should be filtered 
+     * to only include those which have been amended in some way 
+     * (had status changed, been annotated, prescription was 
+     * dispensed, etc.) within the indicated time-period. This will 
+     * commonly be used to '''retrieve everything that has been 
+     * amended since xxx'''.</p></p>
+     * 
+     * <p><p>Allows the requester to specify the event period of 
+     * interest for the retrieval of medication 
+     * records.</p><p>Useful for constraining run-away queries.</p></p>
+     * 
+     * <p><p>Allows the requester to specify the event period of 
+     * interest for the retrieval of medication 
+     * records.</p><p>Useful for constraining run-away queries.</p></p>
+     * 
+     * <p>Amended In Time Range</p>
+     * 
+     * <p><p>Indicates that the returned records should be filtered 
+     * to only include those which have been amended in some way 
+     * (had status changed, been annotated, prescription was 
+     * dispensed, etc.) within the indicated time-period. This will 
+     * commonly be used to 'retrieve everything that has been 
+     * amended since xxx'.</p></p>
+     * 
+     * <p><p>Allows the requester to specify the event period of 
+     * interest for the retrieval of medication 
+     * records.</p><p>Useful for constraining run-away queries.</p></p>
+     * 
+     * <p><p>Allows the requester to specify the event period of 
+     * interest for the retrieval of medication 
+     * records.</p><p>Useful for constraining run-away queries.</p></p>
+     */
+    @Hl7XmlMapping({"amendedInTimeRange/value"})
+    public Interval<Date> getAmendedInTimeRange() {
+        return this.amendedInTimeRange.getValue();
+    }
+    public void setAmendedInTimeRange(Interval<Date> amendedInTimeRange) {
+        this.amendedInTimeRange.setValue(amendedInTimeRange);
+    }
+
+
+    /**
+     * <p>TreatmentTypes</p>
+     * 
+     * <p>Treatment Types</p>
+     * 
+     * <p><p>Indicates that the result set is to be filtered to 
+     * only include those records pertaining to the specified 
+     * treatment type (categories). The specific values are 
+     * &quot;Continuous/Chronic&quot;, &quot;Short-Term/Acute&quot; 
+     * and &quot;As-Needed/PRN&quot;.</p></p>
+     * 
+     * <p><p>Allows for the retrieval of prescriptions and 
+     * dispensed based on the intended treatment type of the 
+     * prescription. Repetition of 2 will allow for the result set 
+     * to be filtered based on 1 or two treatment types.</p></p>
+     */
+    @Hl7XmlMapping({"treatmentType/value"})
+    public List<ActTherapyDurationWorkingListCode> getTreatmentTypes() {
+        return new RawListWrapper<CV, ActTherapyDurationWorkingListCode>(treatmentTypes, CVImpl.class);
+    }
+
+
+    /**
+     * <p>AdministrationEffectivePeriod</p>
+     * 
+     * <p>Administration Effective Period</p>
+     * 
+     * <p><p>For a prescription indicates the period for which the 
+     * patient was deemed to be taking the drug.</p><p>Filter the 
+     * result set to include only those medication records 
+     * (prescription order, prescription dispense and other 
+     * medication) for which the patient was deemed to be taking 
+     * the drug.</p></p>
+     * 
+     * <p><p>For a prescription indicates the period for which the 
+     * patient was deemed to be taking the drug.</p><p>Filter the 
+     * result set to include only those medication records 
+     * (prescription order, prescription dispense and other 
+     * medication) for which the patient was deemed to be taking 
+     * the drug.</p></p>
+     * 
+     * <p><p>Allows the requester to specify the administration 
+     * period of interest for the retrieval. Useful for 
+     * constraining run-away queries.</p></p>
+     * 
+     * <p>Administration Effective Period</p>
+     * 
+     * <p><p>Indicates the administration period for which the 
+     * request/query applies.</p><p>Filter the result set to 
+     * include only those medication records (prescription order, 
+     * prescription dispense and other active medication) for which 
+     * the patient was deemed to be taking the drug within the 
+     * specified period.</p></p>
+     * 
+     * <p><p>Indicates the administration period for which the 
+     * request/query applies.</p><p>Filter the result set to 
+     * include only those medication records (prescription order, 
+     * prescription dispense and other active medication) for which 
+     * the patient was deemed to be taking the drug within the 
+     * specified period.</p></p>
+     * 
+     * <p><p>Allows the requester to specify the administration 
+     * period of interest for the retrieval. Useful for 
+     * constraining run-away queries.</p></p>
+     */
+    @Hl7XmlMapping({"administrationEffectivePeriod/value"})
+    public Interval<Date> getAdministrationEffectivePeriod() {
+        return this.administrationEffectivePeriod.getValue();
+    }
+    public void setAdministrationEffectivePeriod(Interval<Date> administrationEffectivePeriod) {
+        this.administrationEffectivePeriod.setValue(administrationEffectivePeriod);
     }
 
 
@@ -982,6 +925,26 @@ public class GenericQueryParametersBean extends MessagePartBean {
     }
     public void setPrescribingIndicationDiagnosisCode(DiagnosisValue prescribingIndicationDiagnosisCode) {
         this.prescribingIndicationDiagnosisCode.setValue(prescribingIndicationDiagnosisCode);
+    }
+
+
+    /**
+     * <p>PrescribingIndicationSymptomCode</p>
+     * 
+     * <p>Prescribing Indication Symptom Code</p>
+     * 
+     * <p><p>Returns documents which relate to a particular 
+     * symptom</p></p>
+     * 
+     * <p><p>Useful for finding protocols and drug monographs 
+     * associated with an indication</p></p>
+     */
+    @Hl7XmlMapping({"prescribingSymptomCode/value"})
+    public SymptomValue getPrescribingIndicationSymptomCode() {
+        return (SymptomValue) this.prescribingIndicationSymptomCode.getValue();
+    }
+    public void setPrescribingIndicationSymptomCode(SymptomValue prescribingIndicationSymptomCode) {
+        this.prescribingIndicationSymptomCode.setValue(prescribingIndicationSymptomCode);
     }
 
 
@@ -1015,6 +978,29 @@ public class GenericQueryParametersBean extends MessagePartBean {
 
 
     /**
+     * <p>MedicationDocumentID</p>
+     * 
+     * <p>E:Medication Document ID</p>
+     * 
+     * <p><p>Unique identifier for a particular medication 
+     * document. This will reference a specific kind of 
+     * documentation (e.g. DDI Monograph, Patient Education 
+     * Monograph, Allergy Monograph, etc) created by a specific 
+     * author organization (e.g. Health Canada, FDB, WHO, etc).</p></p>
+     * 
+     * <p><p>Use of an identifier allows for a quick retrieval of 
+     * the information of interest.</p></p>
+     */
+    @Hl7XmlMapping({"medicationDocumentID/value"})
+    public Identifier getMedicationDocumentID() {
+        return this.medicationDocumentID.getValue();
+    }
+    public void setMedicationDocumentID(Identifier medicationDocumentID) {
+        this.medicationDocumentID.setValue(medicationDocumentID);
+    }
+
+
+    /**
      * <p>OrderableDrugForm</p>
      * 
      * <p>D:Orderable Drug Form</p>
@@ -1032,12 +1018,6 @@ public class GenericQueryParametersBean extends MessagePartBean {
     }
     public void setOrderableDrugForm(OrderableDrugForm orderableDrugForm) {
         this.orderableDrugForm.setValue(orderableDrugForm);
-    }
-
-
-    @Hl7XmlMapping({"drugCharacteristics"})
-    public List<HasCharacteristicBean> getDrugCharacteristics() {
-        return this.drugCharacteristics;
     }
 
 
@@ -1063,23 +1043,9 @@ public class GenericQueryParametersBean extends MessagePartBean {
     }
 
 
-    /**
-     * <p>DrugRouteCode</p>
-     * 
-     * <p>E:Drug Route Code</p>
-     * 
-     * <p><p>A filter based on how the drug should be introduced 
-     * into the patient's body (e.g. Oral, topical, etc.)</p></p>
-     * 
-     * <p><p>Allows limiting the returned list of drugs to a single 
-     * route.</p></p>
-     */
-    @Hl7XmlMapping({"drugRoute/value"})
-    public RouteOfAdministration getDrugRouteCode() {
-        return (RouteOfAdministration) this.drugRouteCode.getValue();
-    }
-    public void setDrugRouteCode(RouteOfAdministration drugRouteCode) {
-        this.drugRouteCode.setValue(drugRouteCode);
+    @Hl7XmlMapping({"drugCharacteristics"})
+    public List<HasCharacteristicBean> getDrugCharacteristics() {
+        return this.drugCharacteristics;
     }
 
 
@@ -1099,6 +1065,26 @@ public class GenericQueryParametersBean extends MessagePartBean {
     }
     public void setDrugName(String drugName) {
         this.drugName.setValue(drugName);
+    }
+
+
+    /**
+     * <p>DrugRouteCode</p>
+     * 
+     * <p>E:Drug Route Code</p>
+     * 
+     * <p><p>A filter based on how the drug should be introduced 
+     * into the patient's body (e.g. Oral, topical, etc.)</p></p>
+     * 
+     * <p><p>Allows limiting the returned list of drugs to a single 
+     * route.</p></p>
+     */
+    @Hl7XmlMapping({"drugRoute/value"})
+    public RouteOfAdministration getDrugRouteCode() {
+        return (RouteOfAdministration) this.drugRouteCode.getValue();
+    }
+    public void setDrugRouteCode(RouteOfAdministration drugRouteCode) {
+        this.drugRouteCode.setValue(drugRouteCode);
     }
 
 }

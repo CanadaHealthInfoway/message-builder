@@ -17,29 +17,10 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 public class SupplementalFillInformationBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private INT numberOfFills = new INTImpl();
     private CS classCode = new CSImpl();
-    private INT fillQuantity = new INTImpl();
     private CS moodCode = new CSImpl();
-
-
-    /**
-     * <p>NumberOfFills</p>
-     * 
-     * <p>Number of Fills</p>
-     * 
-     * <p><p>Allows the prescriber to specify the number of fills 
-     * authorized by this prescription.</p></p>
-     * 
-     * <p><p>A prescription can authorize multiple fills.</p></p>
-     */
-    @Hl7XmlMapping({"repeatNumber"})
-    public Integer getNumberOfFills() {
-        return this.numberOfFills.getValue();
-    }
-    public void setNumberOfFills(Integer numberOfFills) {
-        this.numberOfFills.setValue(numberOfFills);
-    }
+    private INT fillQuantity = new INTImpl();
+    private INT numberOfFills = new INTImpl();
 
 
     @Hl7XmlMapping({"classCode"})
@@ -48,6 +29,15 @@ public class SupplementalFillInformationBean extends MessagePartBean {
     }
     public void setClassCode(ActClass classCode) {
         this.classCode.setValue(classCode);
+    }
+
+
+    @Hl7XmlMapping({"moodCode"})
+    public ActMood getMoodCode() {
+        return (ActMood) this.moodCode.getValue();
+    }
+    public void setMoodCode(ActMood moodCode) {
+        this.moodCode.setValue(moodCode);
     }
 
 
@@ -70,12 +60,22 @@ public class SupplementalFillInformationBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"moodCode"})
-    public ActMood getMoodCode() {
-        return (ActMood) this.moodCode.getValue();
+    /**
+     * <p>NumberOfFills</p>
+     * 
+     * <p>Number of Fills</p>
+     * 
+     * <p><p>Allows the prescriber to specify the number of fills 
+     * authorized by this prescription.</p></p>
+     * 
+     * <p><p>A prescription can authorize multiple fills.</p></p>
+     */
+    @Hl7XmlMapping({"repeatNumber"})
+    public Integer getNumberOfFills() {
+        return this.numberOfFills.getValue();
     }
-    public void setMoodCode(ActMood moodCode) {
-        this.moodCode.setValue(moodCode);
+    public void setNumberOfFills(Integer numberOfFills) {
+        this.numberOfFills.setValue(numberOfFills);
     }
 
 }

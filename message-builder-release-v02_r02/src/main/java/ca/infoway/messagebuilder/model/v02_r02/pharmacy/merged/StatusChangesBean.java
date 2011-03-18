@@ -84,54 +84,19 @@ import java.util.Date;
 public class StatusChangesBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private HealthcareWorkerBean responsiblePartyAssignedEntity;
-    private CV code = new CVImpl();
-    private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private ChangedByBean author;
+    private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
+    private CV code = new CVImpl();
     private CV reasonCode = new CVImpl();
+    private HealthcareWorkerBean responsiblePartyAssignedEntity;
 
 
-    @Hl7XmlMapping({"responsibleParty/assignedEntity"})
-    public HealthcareWorkerBean getResponsiblePartyAssignedEntity() {
-        return this.responsiblePartyAssignedEntity;
+    @Hl7XmlMapping({"author"})
+    public ChangedByBean getAuthor() {
+        return this.author;
     }
-    public void setResponsiblePartyAssignedEntity(HealthcareWorkerBean responsiblePartyAssignedEntity) {
-        this.responsiblePartyAssignedEntity = responsiblePartyAssignedEntity;
-    }
-
-
-    /**
-     * <p>Change Type</p>
-     * 
-     * <p><p>Identifies what kind of change occurred. Examples 
-     * include Suspended, Superseded, Released, Aborted (stopped), 
-     * etc.</p></p>
-     * 
-     * <p><p>This attribute is mandatory to ensure that change 
-     * types are distinguishable.</p></p>
-     * 
-     * <p>Other Medication Status Change Type</p>
-     * 
-     * <p><p>Identifies what kind of change occurred. Examples 
-     * include Completed, Aborted, etc.</p></p>
-     * 
-     * <p><p>This attribute is mandatory to ensure that change 
-     * types are distinguishable</p></p>
-     * 
-     * <p>Dispense Status Change Type</p>
-     * 
-     * <p><p>Identifies what kind of change occurred. Examples 
-     * include Suspended, Aborted, etc.</p></p>
-     * 
-     * <p><p>This attribute is mandatory to ensure that change 
-     * types are distinguishable.</p></p>
-     */
-    @Hl7XmlMapping({"code"})
-    public HL7TriggerEventCode getCode() {
-        return (HL7TriggerEventCode) this.code.getValue();
-    }
-    public void setCode(HL7TriggerEventCode code) {
-        this.code.setValue(code);
+    public void setAuthor(ChangedByBean author) {
+        this.author = author;
     }
 
 
@@ -190,12 +155,38 @@ public class StatusChangesBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"author"})
-    public ChangedByBean getAuthor() {
-        return this.author;
+    /**
+     * <p>Change Type</p>
+     * 
+     * <p><p>Identifies what kind of change occurred. Examples 
+     * include Suspended, Superseded, Released, Aborted (stopped), 
+     * etc.</p></p>
+     * 
+     * <p><p>This attribute is mandatory to ensure that change 
+     * types are distinguishable.</p></p>
+     * 
+     * <p>Other Medication Status Change Type</p>
+     * 
+     * <p><p>Identifies what kind of change occurred. Examples 
+     * include Completed, Aborted, etc.</p></p>
+     * 
+     * <p><p>This attribute is mandatory to ensure that change 
+     * types are distinguishable</p></p>
+     * 
+     * <p>Dispense Status Change Type</p>
+     * 
+     * <p><p>Identifies what kind of change occurred. Examples 
+     * include Suspended, Aborted, etc.</p></p>
+     * 
+     * <p><p>This attribute is mandatory to ensure that change 
+     * types are distinguishable.</p></p>
+     */
+    @Hl7XmlMapping({"code"})
+    public HL7TriggerEventCode getCode() {
+        return (HL7TriggerEventCode) this.code.getValue();
     }
-    public void setAuthor(ChangedByBean author) {
-        this.author = author;
+    public void setCode(HL7TriggerEventCode code) {
+        this.code.setValue(code);
     }
 
 
@@ -233,6 +224,15 @@ public class StatusChangesBean extends MessagePartBean {
     }
     public void setReasonCode(ControlActReason reasonCode) {
         this.reasonCode.setValue(reasonCode);
+    }
+
+
+    @Hl7XmlMapping({"responsibleParty/assignedEntity"})
+    public HealthcareWorkerBean getResponsiblePartyAssignedEntity() {
+        return this.responsiblePartyAssignedEntity;
+    }
+    public void setResponsiblePartyAssignedEntity(HealthcareWorkerBean responsiblePartyAssignedEntity) {
+        this.responsiblePartyAssignedEntity = responsiblePartyAssignedEntity;
     }
 
 }

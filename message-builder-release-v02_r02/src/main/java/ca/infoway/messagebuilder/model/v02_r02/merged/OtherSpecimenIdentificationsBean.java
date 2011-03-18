@@ -21,6 +21,7 @@ import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.PersonName;
 import ca.infoway.messagebuilder.domainvalue.AdministrativeGender;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -54,73 +55,13 @@ import java.util.List;
 public class OtherSpecimenIdentificationsBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private ST organizationName = new STImpl();
-    private II organizationIdentifier = new IIImpl();
-    private CV otherSpecimenIdentifierType = new CVImpl();
     private II id = new IIImpl();
-    private TS clientDateOfBirth = new TSImpl();
+    private CV otherSpecimenIdentifierType = new CVImpl();
+    private II organizationIdentifier = new IIImpl();
+    private ST organizationName = new STImpl();
     private CV clientGender = new CVImpl();
     private LIST<PN, PersonName> clientName = new LISTImpl<PN, PersonName>(PNImpl.class);
-
-
-    /**
-     * <p>OrganizationName</p>
-     * 
-     * <p>Organization Name</p>
-     * 
-     * <p><p>Identifies the name of the organization</p></p>
-     * 
-     * <p><p>Allows for human recognition of the organization as 
-     * well as confirmation of the identifier. As a result, the 
-     * attribute is mandatory.</p></p>
-     */
-    @Hl7XmlMapping({"assigningOrganization/name"})
-    public String getOrganizationName() {
-        return this.organizationName.getValue();
-    }
-    public void setOrganizationName(String organizationName) {
-        this.organizationName.setValue(organizationName);
-    }
-
-
-    /**
-     * <p>OrganizationIdentifier</p>
-     * 
-     * <p>Organization Identifier</p>
-     * 
-     * <p><p>A unique identifier for the organization</p></p>
-     * 
-     * <p><p>Allows the organization to be referenced when 
-     * determining privileges and for drill-downs to retrieve 
-     * additional information. Because of its importance, the 
-     * attribute is mandatory.</p></p>
-     */
-    @Hl7XmlMapping({"assigningOrganization/id"})
-    public Identifier getOrganizationIdentifier() {
-        return this.organizationIdentifier.getValue();
-    }
-    public void setOrganizationIdentifier(Identifier organizationIdentifier) {
-        this.organizationIdentifier.setValue(organizationIdentifier);
-    }
-
-
-    /**
-     * <p>OtherSpecimenIdentifierType</p>
-     * 
-     * <p>Other Specimen Identifier Type</p>
-     * 
-     * <p><p>Describes the type of other specimen identifier 
-     * (referral, primary, etc.)</p></p>
-     * 
-     * <p><p>Categorized the type of role identifier.</p></p>
-     */
-    @Hl7XmlMapping({"code"})
-    public Code getOtherSpecimenIdentifierType() {
-        return (Code) this.otherSpecimenIdentifierType.getValue();
-    }
-    public void setOtherSpecimenIdentifierType(Code otherSpecimenIdentifierType) {
-        this.otherSpecimenIdentifierType.setValue(otherSpecimenIdentifierType);
-    }
+    private TS clientDateOfBirth = new TSImpl();
 
 
     /**
@@ -152,21 +93,62 @@ public class OtherSpecimenIdentificationsBean extends MessagePartBean {
 
 
     /**
-     * <p>ClientDateOfBirth</p>
+     * <p>OtherSpecimenIdentifierType</p>
      * 
-     * <p>Client Date of Birth</p>
+     * <p>Other Specimen Identifier Type</p>
      * 
-     * <p><p>Date of birth of the Client</p></p>
+     * <p><p>Describes the type of other specimen identifier 
+     * (referral, primary, etc.)</p></p>
      * 
-     * <p><p>Populated attribute supports the identification of the 
-     * client</p></p>
+     * <p><p>Categorized the type of role identifier.</p></p>
      */
-    @Hl7XmlMapping({"identifiedPerson/birthTime"})
-    public Date getClientDateOfBirth() {
-        return this.clientDateOfBirth.getValue();
+    @Hl7XmlMapping({"code"})
+    public Code getOtherSpecimenIdentifierType() {
+        return (Code) this.otherSpecimenIdentifierType.getValue();
     }
-    public void setClientDateOfBirth(Date clientDateOfBirth) {
-        this.clientDateOfBirth.setValue(clientDateOfBirth);
+    public void setOtherSpecimenIdentifierType(Code otherSpecimenIdentifierType) {
+        this.otherSpecimenIdentifierType.setValue(otherSpecimenIdentifierType);
+    }
+
+
+    /**
+     * <p>OrganizationIdentifier</p>
+     * 
+     * <p>Organization Identifier</p>
+     * 
+     * <p><p>A unique identifier for the organization</p></p>
+     * 
+     * <p><p>Allows the organization to be referenced when 
+     * determining privileges and for drill-downs to retrieve 
+     * additional information. Because of its importance, the 
+     * attribute is mandatory.</p></p>
+     */
+    @Hl7XmlMapping({"assigningOrganization/id"})
+    public Identifier getOrganizationIdentifier() {
+        return this.organizationIdentifier.getValue();
+    }
+    public void setOrganizationIdentifier(Identifier organizationIdentifier) {
+        this.organizationIdentifier.setValue(organizationIdentifier);
+    }
+
+
+    /**
+     * <p>OrganizationName</p>
+     * 
+     * <p>Organization Name</p>
+     * 
+     * <p><p>Identifies the name of the organization</p></p>
+     * 
+     * <p><p>Allows for human recognition of the organization as 
+     * well as confirmation of the identifier. As a result, the 
+     * attribute is mandatory.</p></p>
+     */
+    @Hl7XmlMapping({"assigningOrganization/name"})
+    public String getOrganizationName() {
+        return this.organizationName.getValue();
+    }
+    public void setOrganizationName(String organizationName) {
+        this.organizationName.setValue(organizationName);
     }
 
 
@@ -205,6 +187,25 @@ public class OtherSpecimenIdentificationsBean extends MessagePartBean {
     @Hl7XmlMapping({"identifiedPerson/name"})
     public List<PersonName> getClientName() {
         return this.clientName.rawList();
+    }
+
+
+    /**
+     * <p>ClientDateOfBirth</p>
+     * 
+     * <p>Client Date of Birth</p>
+     * 
+     * <p><p>Date of birth of the Client</p></p>
+     * 
+     * <p><p>Populated attribute supports the identification of the 
+     * client</p></p>
+     */
+    @Hl7XmlMapping({"identifiedPerson/birthTime"})
+    public Date getClientDateOfBirth() {
+        return this.clientDateOfBirth.getValue();
+    }
+    public void setClientDateOfBirth(Date clientDateOfBirth) {
+        this.clientDateOfBirth.setValue(clientDateOfBirth);
     }
 
 }

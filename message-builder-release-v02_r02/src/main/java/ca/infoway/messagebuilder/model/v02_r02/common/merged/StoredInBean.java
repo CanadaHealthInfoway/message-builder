@@ -578,8 +578,17 @@ import ca.infoway.messagebuilder.model.v02_r02.common.coct_mt050202ca.PatientBea
 public class StoredInBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private Patient_2 patient1;
     private CS typeCode = new CSImpl();
+    private Patient_2 patient1;
+
+
+    @Hl7XmlMapping({"typeCode"})
+    public ParticipationType getTypeCode() {
+        return (ParticipationType) this.typeCode.getValue();
+    }
+    public void setTypeCode(ParticipationType typeCode) {
+        this.typeCode.setValue(typeCode);
+    }
 
 
     @Hl7XmlMapping({"patient1"})
@@ -609,15 +618,6 @@ public class StoredInBean extends MessagePartBean {
     }
     public boolean hasPatient1AsPatient3() {
         return (this.patient1 instanceof ca.infoway.messagebuilder.model.v02_r02.common.coct_mt050201ca.PatientBean);
-    }
-
-
-    @Hl7XmlMapping({"typeCode"})
-    public ParticipationType getTypeCode() {
-        return (ParticipationType) this.typeCode.getValue();
-    }
-    public void setTypeCode(ParticipationType typeCode) {
-        this.typeCode.setValue(typeCode);
     }
 
 }

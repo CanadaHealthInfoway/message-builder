@@ -31,8 +31,8 @@ public class ConsentedToByBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
     private ED<String> keyword = new EDImpl<String>();
-    private RelatedPersonBean personalRelationship;
     private CV patientConsentMechanism = new CVImpl();
+    private RelatedPersonBean personalRelationship;
 
 
     /**
@@ -53,15 +53,6 @@ public class ConsentedToByBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"personalRelationship"})
-    public RelatedPersonBean getPersonalRelationship() {
-        return this.personalRelationship;
-    }
-    public void setPersonalRelationship(RelatedPersonBean personalRelationship) {
-        this.personalRelationship = personalRelationship;
-    }
-
-
     /**
      * <p>Patient Consent Mechanism</p>
      * 
@@ -77,6 +68,15 @@ public class ConsentedToByBean extends MessagePartBean {
     }
     public void setPatientConsentMechanism(x_PhysicalVerbalParticipationMode patientConsentMechanism) {
         this.patientConsentMechanism.setValue(patientConsentMechanism);
+    }
+
+
+    @Hl7XmlMapping({"personalRelationship"})
+    public RelatedPersonBean getPersonalRelationship() {
+        return this.personalRelationship;
+    }
+    public void setPersonalRelationship(RelatedPersonBean personalRelationship) {
+        this.personalRelationship = personalRelationship;
     }
 
 }

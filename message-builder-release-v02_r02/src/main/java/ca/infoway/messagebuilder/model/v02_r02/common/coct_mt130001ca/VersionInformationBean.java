@@ -37,50 +37,11 @@ import java.util.Date;
 public class VersionInformationBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private CV changeType = new CVImpl();
-    private IVL<TS, Interval<Date>> changeEffectiveDateAndEndDate = new IVLImpl<TS, Interval<Date>>();
     private II changeIdentifier = new IIImpl();
     private ChangedByBean author;
+    private IVL<TS, Interval<Date>> changeEffectiveDateAndEndDate = new IVLImpl<TS, Interval<Date>>();
+    private CV changeType = new CVImpl();
     private CV changeReason = new CVImpl();
-
-
-    /**
-     * <p>A:Change Type</p>
-     * 
-     * <p><p>Identifies what kind of change occurred.</p></p>
-     * 
-     * <p><p>This attribute is mandatory to ensure that change 
-     * types are distinguishable.</p></p>
-     */
-    @Hl7XmlMapping({"code"})
-    public HL7TriggerEventCode getChangeType() {
-        return (HL7TriggerEventCode) this.changeType.getValue();
-    }
-    public void setChangeType(HL7TriggerEventCode changeType) {
-        this.changeType.setValue(changeType);
-    }
-
-
-    /**
-     * <p>C:Change Effective Date and End Date</p>
-     * 
-     * <p><p>The date on which the various changes of an event 
-     * become valid and applicable and potentially when the change 
-     * is supposed to cease.</p></p>
-     * 
-     * <p><p>Allows applications to sort and filter by time. The 
-     * date on which a change is effective should always be known 
-     * and thus is mandatory. The end date may be left unspecified 
-     * if there isn't a specific targetted end date (e.g. with a 
-     * suspend including a planned release date).</p></p>
-     */
-    @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getChangeEffectiveDateAndEndDate() {
-        return this.changeEffectiveDateAndEndDate.getValue();
-    }
-    public void setChangeEffectiveDateAndEndDate(Interval<Date> changeEffectiveDateAndEndDate) {
-        this.changeEffectiveDateAndEndDate.setValue(changeEffectiveDateAndEndDate);
-    }
 
 
     /**
@@ -107,6 +68,45 @@ public class VersionInformationBean extends MessagePartBean {
     }
     public void setAuthor(ChangedByBean author) {
         this.author = author;
+    }
+
+
+    /**
+     * <p>C:Change Effective Date and End Date</p>
+     * 
+     * <p><p>The date on which the various changes of an event 
+     * become valid and applicable and potentially when the change 
+     * is supposed to cease.</p></p>
+     * 
+     * <p><p>Allows applications to sort and filter by time. The 
+     * date on which a change is effective should always be known 
+     * and thus is mandatory. The end date may be left unspecified 
+     * if there isn't a specific targetted end date (e.g. with a 
+     * suspend including a planned release date).</p></p>
+     */
+    @Hl7XmlMapping({"effectiveTime"})
+    public Interval<Date> getChangeEffectiveDateAndEndDate() {
+        return this.changeEffectiveDateAndEndDate.getValue();
+    }
+    public void setChangeEffectiveDateAndEndDate(Interval<Date> changeEffectiveDateAndEndDate) {
+        this.changeEffectiveDateAndEndDate.setValue(changeEffectiveDateAndEndDate);
+    }
+
+
+    /**
+     * <p>A:Change Type</p>
+     * 
+     * <p><p>Identifies what kind of change occurred.</p></p>
+     * 
+     * <p><p>This attribute is mandatory to ensure that change 
+     * types are distinguishable.</p></p>
+     */
+    @Hl7XmlMapping({"code"})
+    public HL7TriggerEventCode getChangeType() {
+        return (HL7TriggerEventCode) this.changeType.getValue();
+    }
+    public void setChangeType(HL7TriggerEventCode changeType) {
+        this.changeType.setValue(changeType);
     }
 
 

@@ -25,8 +25,28 @@ import java.math.BigDecimal;
 public class CoordinateAxisBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private CV coordinateAxisType = new CVImpl();
     private REAL coordinateAxisValue = new REALImpl();
+    private CV coordinateAxisType = new CVImpl();
+
+
+    /**
+     * <p>Coordinate Axis Value</p>
+     * 
+     * <p><p>Denotes the individual coordinate value as a a 
+     * physical quantity. For example, lot number, range number, 
+     * latitude, etc.</p></p>
+     * 
+     * <p><p>Actually expresses the location along the axis. 
+     * Because unknown axis positions can simply be omitted, this 
+     * attribute is mandatory.</p></p>
+     */
+    @Hl7XmlMapping({"value"})
+    public BigDecimal getCoordinateAxisValue() {
+        return this.coordinateAxisValue.getValue();
+    }
+    public void setCoordinateAxisValue(BigDecimal coordinateAxisValue) {
+        this.coordinateAxisValue.setValue(coordinateAxisValue);
+    }
 
 
     /**
@@ -53,26 +73,6 @@ public class CoordinateAxisBean extends MessagePartBean {
     }
     public void setCoordinateAxisType(PositionCoordinateObservationCode coordinateAxisType) {
         this.coordinateAxisType.setValue(coordinateAxisType);
-    }
-
-
-    /**
-     * <p>Coordinate Axis Value</p>
-     * 
-     * <p><p>Denotes the individual coordinate value as a a 
-     * physical quantity. For example, lot number, range number, 
-     * latitude, etc.</p></p>
-     * 
-     * <p><p>Actually expresses the location along the axis. 
-     * Because unknown axis positions can simply be omitted, this 
-     * attribute is mandatory.</p></p>
-     */
-    @Hl7XmlMapping({"value"})
-    public BigDecimal getCoordinateAxisValue() {
-        return this.coordinateAxisValue.getValue();
-    }
-    public void setCoordinateAxisValue(BigDecimal coordinateAxisValue) {
-        this.coordinateAxisValue.setValue(coordinateAxisValue);
     }
 
 }

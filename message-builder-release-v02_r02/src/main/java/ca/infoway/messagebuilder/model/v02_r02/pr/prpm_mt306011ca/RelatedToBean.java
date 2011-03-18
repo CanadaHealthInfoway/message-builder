@@ -21,8 +21,8 @@ public class RelatedToBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
-    private RoleChoice roleChoice;
     private CS typeCode = new CSImpl();
+    private RoleChoice roleChoice;
 
 
     @Hl7XmlMapping({"effectiveTime"})
@@ -31,6 +31,15 @@ public class RelatedToBean extends MessagePartBean {
     }
     public void setEffectiveTime(Interval<Date> effectiveTime) {
         this.effectiveTime.setValue(effectiveTime);
+    }
+
+
+    @Hl7XmlMapping({"typeCode"})
+    public RoleLinkType getTypeCode() {
+        return (RoleLinkType) this.typeCode.getValue();
+    }
+    public void setTypeCode(RoleLinkType typeCode) {
+        this.typeCode.setValue(typeCode);
     }
 
 
@@ -61,15 +70,6 @@ public class RelatedToBean extends MessagePartBean {
     }
     public boolean hasRoleChoiceAsHealthCareProvider() {
         return (this.roleChoice instanceof HealthcareProviderBean);
-    }
-
-
-    @Hl7XmlMapping({"typeCode"})
-    public RoleLinkType getTypeCode() {
-        return (RoleLinkType) this.typeCode.getValue();
-    }
-    public void setTypeCode(RoleLinkType typeCode) {
-        this.typeCode.setValue(typeCode);
     }
 
 }

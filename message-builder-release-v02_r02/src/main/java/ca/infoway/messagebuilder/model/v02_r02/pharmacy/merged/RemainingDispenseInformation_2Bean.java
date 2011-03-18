@@ -40,8 +40,27 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 public class RemainingDispenseInformation_2Bean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private INT fillsRemaining = new INTImpl();
     private INT remainingTotalQuantity = new INTImpl();
+    private INT fillsRemaining = new INTImpl();
+
+
+    /**
+     * <p>RemainingTotalQuantity</p>
+     * 
+     * <p>B:Remaining Total Quantity</p>
+     * 
+     * <p><p>Indicates the total remaining undispensed quantity 
+     * authorized against the prescription.</p></p>
+     * 
+     * <p><p>Indicates how much can still be dispensed.</p></p>
+     */
+    @Hl7XmlMapping({"quantity"})
+    public Integer getRemainingTotalQuantity() {
+        return this.remainingTotalQuantity.getValue();
+    }
+    public void setRemainingTotalQuantity(Integer remainingTotalQuantity) {
+        this.remainingTotalQuantity.setValue(remainingTotalQuantity);
+    }
 
 
     /**
@@ -62,25 +81,6 @@ public class RemainingDispenseInformation_2Bean extends MessagePartBean {
     }
     public void setFillsRemaining(Integer fillsRemaining) {
         this.fillsRemaining.setValue(fillsRemaining);
-    }
-
-
-    /**
-     * <p>RemainingTotalQuantity</p>
-     * 
-     * <p>B:Remaining Total Quantity</p>
-     * 
-     * <p><p>Indicates the total remaining undispensed quantity 
-     * authorized against the prescription.</p></p>
-     * 
-     * <p><p>Indicates how much can still be dispensed.</p></p>
-     */
-    @Hl7XmlMapping({"quantity"})
-    public Integer getRemainingTotalQuantity() {
-        return this.remainingTotalQuantity.getValue();
-    }
-    public void setRemainingTotalQuantity(Integer remainingTotalQuantity) {
-        this.remainingTotalQuantity.setValue(remainingTotalQuantity);
     }
 
 }

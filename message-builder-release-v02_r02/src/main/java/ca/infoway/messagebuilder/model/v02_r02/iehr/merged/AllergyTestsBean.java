@@ -72,50 +72,10 @@ import java.util.Date;
 public class AllergyTestsBean extends MessagePartBean implements Records {
 
     private static final long serialVersionUID = 20110318L;
-    private CD allergyTestType = new CDImpl();
-    private TS allergyTestDate = new TSImpl();
     private CV allergyTestResult = new CVImpl();
     private II allergyTestRecordId = new IIImpl();
-
-
-    /**
-     * <p>AllergyTestType</p>
-     * 
-     * <p>A:Allergy Test Type</p>
-     * 
-     * <p><p>A coded value denoting the type of allergy test 
-     * conducted.</p></p>
-     * 
-     * <p><p>Allows different kinds of allergy/intolerance tests to 
-     * be distinguishable and is therefore mandatory. It uses the 
-     * CD type to support SNOMED post-coordination.</p></p>
-     */
-    @Hl7XmlMapping({"code"})
-    public ObservationAllergyTestType getAllergyTestType() {
-        return (ObservationAllergyTestType) this.allergyTestType.getValue();
-    }
-    public void setAllergyTestType(ObservationAllergyTestType allergyTestType) {
-        this.allergyTestType.setValue(allergyTestType);
-    }
-
-
-    /**
-     * <p>AllergyTestDate</p>
-     * 
-     * <p>D:Allergy Test Date</p>
-     * 
-     * <p><p>The date on which the allergy test was performed.</p></p>
-     * 
-     * <p><p>Allows providers to evaluate the currency of the 
-     * test.</p></p>
-     */
-    @Hl7XmlMapping({"effectiveTime"})
-    public Date getAllergyTestDate() {
-        return this.allergyTestDate.getValue();
-    }
-    public void setAllergyTestDate(Date allergyTestDate) {
-        this.allergyTestDate.setValue(allergyTestDate);
-    }
+    private TS allergyTestDate = new TSImpl();
+    private CD allergyTestType = new CDImpl();
 
 
     /**
@@ -157,6 +117,46 @@ public class AllergyTestsBean extends MessagePartBean implements Records {
     }
     public void setAllergyTestRecordId(Identifier allergyTestRecordId) {
         this.allergyTestRecordId.setValue(allergyTestRecordId);
+    }
+
+
+    /**
+     * <p>AllergyTestDate</p>
+     * 
+     * <p>D:Allergy Test Date</p>
+     * 
+     * <p><p>The date on which the allergy test was performed.</p></p>
+     * 
+     * <p><p>Allows providers to evaluate the currency of the 
+     * test.</p></p>
+     */
+    @Hl7XmlMapping({"effectiveTime"})
+    public Date getAllergyTestDate() {
+        return this.allergyTestDate.getValue();
+    }
+    public void setAllergyTestDate(Date allergyTestDate) {
+        this.allergyTestDate.setValue(allergyTestDate);
+    }
+
+
+    /**
+     * <p>AllergyTestType</p>
+     * 
+     * <p>A:Allergy Test Type</p>
+     * 
+     * <p><p>A coded value denoting the type of allergy test 
+     * conducted.</p></p>
+     * 
+     * <p><p>Allows different kinds of allergy/intolerance tests to 
+     * be distinguishable and is therefore mandatory. It uses the 
+     * CD type to support SNOMED post-coordination.</p></p>
+     */
+    @Hl7XmlMapping({"code"})
+    public ObservationAllergyTestType getAllergyTestType() {
+        return (ObservationAllergyTestType) this.allergyTestType.getValue();
+    }
+    public void setAllergyTestType(ObservationAllergyTestType allergyTestType) {
+        this.allergyTestType.setValue(allergyTestType);
     }
 
 }

@@ -29,13 +29,30 @@ public class OrganizationBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
     private List<TerritorialAuthorityBean> territorialAuthority = new ArrayList<TerritorialAuthorityBean>();
-    private ST issuingRepresentingQualificationGrantingOrganizationNameS = new STImpl();
     private II organizationId = new IIImpl();
+    private ST issuingRepresentingQualificationGrantingOrganizationNameS = new STImpl();
 
 
     @Hl7XmlMapping({"territorialAuthority"})
     public List<TerritorialAuthorityBean> getTerritorialAuthority() {
         return this.territorialAuthority;
+    }
+
+
+    /**
+     * <p>Organization Id</p>
+     * 
+     * <p><p>The unique identifier of the Organization.</p></p>
+     * 
+     * <p><p>Mandatory attribute supports the validation and 
+     * identification of the healthcare provider</p></p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Identifier getOrganizationId() {
+        return this.organizationId.getValue();
+    }
+    public void setOrganizationId(Identifier organizationId) {
+        this.organizationId.setValue(organizationId);
     }
 
 
@@ -80,23 +97,6 @@ public class OrganizationBean extends MessagePartBean {
     }
     public void setIssuingRepresentingQualificationGrantingOrganizationNameS(String issuingRepresentingQualificationGrantingOrganizationNameS) {
         this.issuingRepresentingQualificationGrantingOrganizationNameS.setValue(issuingRepresentingQualificationGrantingOrganizationNameS);
-    }
-
-
-    /**
-     * <p>Organization Id</p>
-     * 
-     * <p><p>The unique identifier of the Organization.</p></p>
-     * 
-     * <p><p>Mandatory attribute supports the validation and 
-     * identification of the healthcare provider</p></p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Identifier getOrganizationId() {
-        return this.organizationId.getValue();
-    }
-    public void setOrganizationId(Identifier organizationId) {
-        this.organizationId.setValue(organizationId);
     }
 
 }

@@ -32,25 +32,20 @@ import java.util.Date;
 public class SpecimenObservationBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private CV specimenObservationType = new CVImpl();
-    private IVL<TS, Interval<Date>> specimenObservationDateTime = new IVLImpl<TS, Interval<Date>>();
     private ANY<Object> specimenObservationValue = new ANYImpl<Object>();
+    private IVL<TS, Interval<Date>> specimenObservationDateTime = new IVLImpl<TS, Interval<Date>>();
+    private CV specimenObservationType = new CVImpl();
 
 
     /**
-     * <p>Specimen Observation Type</p>
-     * 
-     * <p><p>Describes the specific observation being 
-     * performed/documented.</p></p>
-     * 
-     * <p><p>Type of observation.</p></p>
+     * <p>Specimen Observation Value</p>
      */
-    @Hl7XmlMapping({"code"})
-    public Code getSpecimenObservationType() {
-        return (Code) this.specimenObservationType.getValue();
+    @Hl7XmlMapping({"value"})
+    public Object getSpecimenObservationValue() {
+        return this.specimenObservationValue.getValue();
     }
-    public void setSpecimenObservationType(Code specimenObservationType) {
-        this.specimenObservationType.setValue(specimenObservationType);
+    public void setSpecimenObservationValue(Object specimenObservationValue) {
+        this.specimenObservationValue.setValue(specimenObservationValue);
     }
 
 
@@ -74,14 +69,19 @@ public class SpecimenObservationBean extends MessagePartBean {
 
 
     /**
-     * <p>Specimen Observation Value</p>
+     * <p>Specimen Observation Type</p>
+     * 
+     * <p><p>Describes the specific observation being 
+     * performed/documented.</p></p>
+     * 
+     * <p><p>Type of observation.</p></p>
      */
-    @Hl7XmlMapping({"value"})
-    public Object getSpecimenObservationValue() {
-        return this.specimenObservationValue.getValue();
+    @Hl7XmlMapping({"code"})
+    public Code getSpecimenObservationType() {
+        return (Code) this.specimenObservationType.getValue();
     }
-    public void setSpecimenObservationValue(Object specimenObservationValue) {
-        this.specimenObservationValue.setValue(specimenObservationValue);
+    public void setSpecimenObservationType(Code specimenObservationType) {
+        this.specimenObservationType.setValue(specimenObservationType);
     }
 
 }

@@ -157,31 +157,31 @@ import java.util.Date;
 public class DispenseShipToLocationBean extends MessagePartBean implements Choice {
 
     private static final long serialVersionUID = 20110318L;
-    private CV serviceDeliveryLocationType = new CVImpl();
-    private IVL<TS, Interval<Date>> serviceDeliveryLocationEffectiveDate = new IVLImpl<TS, Interval<Date>>();
-    private AD addr = new ADImpl();
     private II serviceDeliveryLocationIdentifier = new IIImpl();
-    private TEL serviceDeliveryLocationTelecom = new TELImpl();
+    private IVL<TS, Interval<Date>> serviceDeliveryLocationEffectiveDate = new IVLImpl<TS, Interval<Date>>();
+    private CV serviceDeliveryLocationType = new CVImpl();
+    private AD addr = new ADImpl();
     private ST serviceDeliveryLocationName = new STImpl();
+    private TEL serviceDeliveryLocationTelecom = new TELImpl();
 
 
     /**
-     * <p>ServiceDeliveryLocationType</p>
+     * <p>ServiceDeliveryLocationIdentifier</p>
      * 
-     * <p>Service Delivery Location Type</p>
+     * <p>Service Delivery Location Identifier</p>
      * 
-     * <p><p>The code identifying the specific service delivery 
-     * location</p></p>
+     * <p><p>A unique identifier for the service delivery 
+     * location.</p></p>
      * 
-     * <p><p>Mandatory attribute supports the validation and 
+     * <p><p>Required attribute supports the validation and 
      * identification of the service delivery location</p></p>
      */
-    @Hl7XmlMapping({"code"})
-    public ServiceDeliveryLocationRoleType getServiceDeliveryLocationType() {
-        return (ServiceDeliveryLocationRoleType) this.serviceDeliveryLocationType.getValue();
+    @Hl7XmlMapping({"id"})
+    public Identifier getServiceDeliveryLocationIdentifier() {
+        return this.serviceDeliveryLocationIdentifier.getValue();
     }
-    public void setServiceDeliveryLocationType(ServiceDeliveryLocationRoleType serviceDeliveryLocationType) {
-        this.serviceDeliveryLocationType.setValue(serviceDeliveryLocationType);
+    public void setServiceDeliveryLocationIdentifier(Identifier serviceDeliveryLocationIdentifier) {
+        this.serviceDeliveryLocationIdentifier.setValue(serviceDeliveryLocationIdentifier);
     }
 
 
@@ -202,6 +202,26 @@ public class DispenseShipToLocationBean extends MessagePartBean implements Choic
     }
     public void setServiceDeliveryLocationEffectiveDate(Interval<Date> serviceDeliveryLocationEffectiveDate) {
         this.serviceDeliveryLocationEffectiveDate.setValue(serviceDeliveryLocationEffectiveDate);
+    }
+
+
+    /**
+     * <p>ServiceDeliveryLocationType</p>
+     * 
+     * <p>Service Delivery Location Type</p>
+     * 
+     * <p><p>The code identifying the specific service delivery 
+     * location</p></p>
+     * 
+     * <p><p>Mandatory attribute supports the validation and 
+     * identification of the service delivery location</p></p>
+     */
+    @Hl7XmlMapping({"code"})
+    public ServiceDeliveryLocationRoleType getServiceDeliveryLocationType() {
+        return (ServiceDeliveryLocationRoleType) this.serviceDeliveryLocationType.getValue();
+    }
+    public void setServiceDeliveryLocationType(ServiceDeliveryLocationRoleType serviceDeliveryLocationType) {
+        this.serviceDeliveryLocationType.setValue(serviceDeliveryLocationType);
     }
 
 
@@ -265,22 +285,21 @@ public class DispenseShipToLocationBean extends MessagePartBean implements Choic
 
 
     /**
-     * <p>ServiceDeliveryLocationIdentifier</p>
+     * <p>ServiceDeliveryLocationName</p>
      * 
-     * <p>Service Delivery Location Identifier</p>
+     * <p>Service Delivery Location Name</p>
      * 
-     * <p><p>A unique identifier for the service delivery 
-     * location.</p></p>
+     * <p><p>The name of the service delivery location</p></p>
      * 
-     * <p><p>Required attribute supports the validation and 
+     * <p><p>Mandatory attribute supports the validation and 
      * identification of the service delivery location</p></p>
      */
-    @Hl7XmlMapping({"id"})
-    public Identifier getServiceDeliveryLocationIdentifier() {
-        return this.serviceDeliveryLocationIdentifier.getValue();
+    @Hl7XmlMapping({"location/name"})
+    public String getServiceDeliveryLocationName() {
+        return this.serviceDeliveryLocationName.getValue();
     }
-    public void setServiceDeliveryLocationIdentifier(Identifier serviceDeliveryLocationIdentifier) {
-        this.serviceDeliveryLocationIdentifier.setValue(serviceDeliveryLocationIdentifier);
+    public void setServiceDeliveryLocationName(String serviceDeliveryLocationName) {
+        this.serviceDeliveryLocationName.setValue(serviceDeliveryLocationName);
     }
 
 
@@ -301,25 +320,6 @@ public class DispenseShipToLocationBean extends MessagePartBean implements Choic
     }
     public void setServiceDeliveryLocationTelecom(TelecommunicationAddress serviceDeliveryLocationTelecom) {
         this.serviceDeliveryLocationTelecom.setValue(serviceDeliveryLocationTelecom);
-    }
-
-
-    /**
-     * <p>ServiceDeliveryLocationName</p>
-     * 
-     * <p>Service Delivery Location Name</p>
-     * 
-     * <p><p>The name of the service delivery location</p></p>
-     * 
-     * <p><p>Mandatory attribute supports the validation and 
-     * identification of the service delivery location</p></p>
-     */
-    @Hl7XmlMapping({"location/name"})
-    public String getServiceDeliveryLocationName() {
-        return this.serviceDeliveryLocationName.getValue();
-    }
-    public void setServiceDeliveryLocationName(String serviceDeliveryLocationName) {
-        this.serviceDeliveryLocationName.setValue(serviceDeliveryLocationName);
     }
 
 }

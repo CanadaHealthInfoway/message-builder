@@ -46,88 +46,47 @@ import java.util.Date;
 public class MonographsBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
+    private II id = new IIImpl();
+    private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private CV code = new CVImpl();
     private AssignedEntity3Bean authorAssignedEntity;
-    private CV writtenIn = new CVImpl();
-    private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
     private ED<EncapsulatedData> monographContent = new EDImpl<EncapsulatedData>();
-    private II id = new IIImpl();
+    private CV writtenIn = new CVImpl();
     private ED<EncapsulatedData> medicationDocumentContentLanguage = new EDImpl<EncapsulatedData>();
 
 
     /**
-     * <p>Monograph Type</p>
+     * <p>B:Medication Document Id</p>
      * 
-     * <p><p>Distinguishes between different kinds of documents and 
-     * monographs. Kinds of monographs include: Clinical Monograph, 
-     * Patient Education Monograph, etc.</p></p>
+     * <p><p>Unique identifier assigned to a medication document 
+     * record.</p></p>
      * 
-     * <p><p>Allows monograph types to be distinguished for 
-     * display, printing, etc.</p><p>Code is mandatory because an 
-     * application can't know what to do with a monograph without 
-     * knowing its type.</p></p>
+     * <p><p>Allows matching and replacing of locally-stored 
+     * medication documents.</p><p>This attribute is marked as 
+     * 'mandatory', as it is always available.</p></p>
      * 
-     * <p><p>Allows monograph types to be distinguished for 
-     * display, printing, etc.</p><p>Code is mandatory because an 
-     * application can't know what to do with a monograph without 
-     * knowing its type.</p></p>
+     * <p><p>Allows matching and replacing of locally-stored 
+     * medication documents.</p><p>This attribute is marked as 
+     * 'mandatory', as it is always available.</p></p>
      * 
-     * <p>A:Medication Document Type</p>
+     * <p>Monograph Id</p>
      * 
-     * <p><p>Distinguishes between different kinds of documents and 
-     * medication documents. Kinds of medication documents include: 
-     * Clinical Medication document, Patient Education Medication 
-     * document, Indication Protocol, etc</p></p>
+     * <p><p>Unique identifier assigned to a monograph record.</p></p>
      * 
-     * <p><p>Allows medication document types to be distinguished 
-     * for display, printing, etc. Code is mandatory because an 
-     * application can't know what to do with a medication document 
-     * without knowing its type.</p></p>
+     * <p><p>Allows matching and replacing of locally-stored 
+     * monographs.</p><p>This attribute is marked as 'mandatory', 
+     * as it is always available.</p></p>
+     * 
+     * <p><p>Allows matching and replacing of locally-stored 
+     * monographs.</p><p>This attribute is marked as 'mandatory', 
+     * as it is always available.</p></p>
      */
-    @Hl7XmlMapping({"code"})
-    public ActMedicationDocumentCode getCode() {
-        return (ActMedicationDocumentCode) this.code.getValue();
+    @Hl7XmlMapping({"id"})
+    public Identifier getId() {
+        return this.id.getValue();
     }
-    public void setCode(ActMedicationDocumentCode code) {
-        this.code.setValue(code);
-    }
-
-
-    @Hl7XmlMapping({"author/assignedEntity"})
-    public AssignedEntity3Bean getAuthorAssignedEntity() {
-        return this.authorAssignedEntity;
-    }
-    public void setAuthorAssignedEntity(AssignedEntity3Bean authorAssignedEntity) {
-        this.authorAssignedEntity = authorAssignedEntity;
-    }
-
-
-    /**
-     * <p>WrittenIn</p>
-     * 
-     * <p>Written in</p>
-     * 
-     * <p><p>A coded value denoting the language in which the 
-     * monograph is written.</p></p>
-     * 
-     * <p><p>Allows providers to request or display monographs in 
-     * the language of their choice.</p><p>This attribute is marked 
-     * as 'populated' because the language of the monograph must 
-     * always be known/available or a null flavor must be 
-     * specified.</p></p>
-     * 
-     * <p><p>Allows providers to request or display monographs in 
-     * the language of their choice.</p><p>This attribute is marked 
-     * as 'populated' because the language of the monograph must 
-     * always be known/available or a null flavor must be 
-     * specified.</p></p>
-     */
-    @Hl7XmlMapping({"languageCode"})
-    public HumanLanguage getWrittenIn() {
-        return (HumanLanguage) this.writtenIn.getValue();
-    }
-    public void setWrittenIn(HumanLanguage writtenIn) {
-        this.writtenIn.setValue(writtenIn);
+    public void setId(Identifier id) {
+        this.id.setValue(id);
     }
 
 
@@ -186,6 +145,53 @@ public class MonographsBean extends MessagePartBean {
 
 
     /**
+     * <p>Monograph Type</p>
+     * 
+     * <p><p>Distinguishes between different kinds of documents and 
+     * monographs. Kinds of monographs include: Clinical Monograph, 
+     * Patient Education Monograph, etc.</p></p>
+     * 
+     * <p><p>Allows monograph types to be distinguished for 
+     * display, printing, etc.</p><p>Code is mandatory because an 
+     * application can't know what to do with a monograph without 
+     * knowing its type.</p></p>
+     * 
+     * <p><p>Allows monograph types to be distinguished for 
+     * display, printing, etc.</p><p>Code is mandatory because an 
+     * application can't know what to do with a monograph without 
+     * knowing its type.</p></p>
+     * 
+     * <p>A:Medication Document Type</p>
+     * 
+     * <p><p>Distinguishes between different kinds of documents and 
+     * medication documents. Kinds of medication documents include: 
+     * Clinical Medication document, Patient Education Medication 
+     * document, Indication Protocol, etc</p></p>
+     * 
+     * <p><p>Allows medication document types to be distinguished 
+     * for display, printing, etc. Code is mandatory because an 
+     * application can't know what to do with a medication document 
+     * without knowing its type.</p></p>
+     */
+    @Hl7XmlMapping({"code"})
+    public ActMedicationDocumentCode getCode() {
+        return (ActMedicationDocumentCode) this.code.getValue();
+    }
+    public void setCode(ActMedicationDocumentCode code) {
+        this.code.setValue(code);
+    }
+
+
+    @Hl7XmlMapping({"author/assignedEntity"})
+    public AssignedEntity3Bean getAuthorAssignedEntity() {
+        return this.authorAssignedEntity;
+    }
+    public void setAuthorAssignedEntity(AssignedEntity3Bean authorAssignedEntity) {
+        this.authorAssignedEntity = authorAssignedEntity;
+    }
+
+
+    /**
      * <p>MonographContent</p>
      * 
      * <p>Monograph Content</p>
@@ -208,37 +214,31 @@ public class MonographsBean extends MessagePartBean {
 
 
     /**
-     * <p>B:Medication Document Id</p>
+     * <p>WrittenIn</p>
      * 
-     * <p><p>Unique identifier assigned to a medication document 
-     * record.</p></p>
+     * <p>Written in</p>
      * 
-     * <p><p>Allows matching and replacing of locally-stored 
-     * medication documents.</p><p>This attribute is marked as 
-     * 'mandatory', as it is always available.</p></p>
+     * <p><p>A coded value denoting the language in which the 
+     * monograph is written.</p></p>
      * 
-     * <p><p>Allows matching and replacing of locally-stored 
-     * medication documents.</p><p>This attribute is marked as 
-     * 'mandatory', as it is always available.</p></p>
+     * <p><p>Allows providers to request or display monographs in 
+     * the language of their choice.</p><p>This attribute is marked 
+     * as 'populated' because the language of the monograph must 
+     * always be known/available or a null flavor must be 
+     * specified.</p></p>
      * 
-     * <p>Monograph Id</p>
-     * 
-     * <p><p>Unique identifier assigned to a monograph record.</p></p>
-     * 
-     * <p><p>Allows matching and replacing of locally-stored 
-     * monographs.</p><p>This attribute is marked as 'mandatory', 
-     * as it is always available.</p></p>
-     * 
-     * <p><p>Allows matching and replacing of locally-stored 
-     * monographs.</p><p>This attribute is marked as 'mandatory', 
-     * as it is always available.</p></p>
+     * <p><p>Allows providers to request or display monographs in 
+     * the language of their choice.</p><p>This attribute is marked 
+     * as 'populated' because the language of the monograph must 
+     * always be known/available or a null flavor must be 
+     * specified.</p></p>
      */
-    @Hl7XmlMapping({"id"})
-    public Identifier getId() {
-        return this.id.getValue();
+    @Hl7XmlMapping({"languageCode"})
+    public HumanLanguage getWrittenIn() {
+        return (HumanLanguage) this.writtenIn.getValue();
     }
-    public void setId(Identifier id) {
-        this.id.setValue(id);
+    public void setWrittenIn(HumanLanguage writtenIn) {
+        this.writtenIn.setValue(writtenIn);
     }
 
 

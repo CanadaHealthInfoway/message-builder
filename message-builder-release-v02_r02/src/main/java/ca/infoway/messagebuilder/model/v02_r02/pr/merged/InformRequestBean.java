@@ -52,10 +52,33 @@ import ca.infoway.messagebuilder.model.v02_r02.pr.prpm_mt303010ca.RoleChoice;
 public class InformRequestBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
+    private Choice indirectTargetChoice;
     private CV informRequestCode = new CVImpl();
     private CV subjectModeCode = new CVImpl();
     private DispenseShipToLocationBean subjectServiceDeliveryLocation;
-    private Choice indirectTargetChoice;
+
+
+    @Hl7XmlMapping({"indirectTarget/choice"})
+    public Choice getIndirectTargetChoice() {
+        return this.indirectTargetChoice;
+    }
+    public void setIndirectTargetChoice(Choice indirectTargetChoice) {
+        this.indirectTargetChoice = indirectTargetChoice;
+    }
+
+    public RoleChoice getIndirectTargetChoiceAsServiceDeliveryLocation() {
+        return this.indirectTargetChoice instanceof RoleChoice ? (RoleChoice) this.indirectTargetChoice : null;
+    }
+    public boolean hasIndirectTargetChoiceAsServiceDeliveryLocation() {
+        return (this.indirectTargetChoice instanceof RoleChoice);
+    }
+
+    public HealthcareProviderBean getIndirectTargetChoiceAsHealthCareProvider() {
+        return this.indirectTargetChoice instanceof HealthcareProviderBean ? (HealthcareProviderBean) this.indirectTargetChoice : null;
+    }
+    public boolean hasIndirectTargetChoiceAsHealthCareProvider() {
+        return (this.indirectTargetChoice instanceof HealthcareProviderBean);
+    }
 
 
     /**
@@ -108,29 +131,6 @@ public class InformRequestBean extends MessagePartBean {
     }
     public void setSubjectServiceDeliveryLocation(DispenseShipToLocationBean subjectServiceDeliveryLocation) {
         this.subjectServiceDeliveryLocation = subjectServiceDeliveryLocation;
-    }
-
-
-    @Hl7XmlMapping({"indirectTarget/choice"})
-    public Choice getIndirectTargetChoice() {
-        return this.indirectTargetChoice;
-    }
-    public void setIndirectTargetChoice(Choice indirectTargetChoice) {
-        this.indirectTargetChoice = indirectTargetChoice;
-    }
-
-    public RoleChoice getIndirectTargetChoiceAsServiceDeliveryLocation() {
-        return this.indirectTargetChoice instanceof RoleChoice ? (RoleChoice) this.indirectTargetChoice : null;
-    }
-    public boolean hasIndirectTargetChoiceAsServiceDeliveryLocation() {
-        return (this.indirectTargetChoice instanceof RoleChoice);
-    }
-
-    public HealthcareProviderBean getIndirectTargetChoiceAsHealthCareProvider() {
-        return this.indirectTargetChoice instanceof HealthcareProviderBean ? (HealthcareProviderBean) this.indirectTargetChoice : null;
-    }
-    public boolean hasIndirectTargetChoiceAsHealthCareProvider() {
-        return (this.indirectTargetChoice instanceof HealthcareProviderBean);
     }
 
 }

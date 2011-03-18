@@ -54,20 +54,11 @@ import java.util.Date;
 public class ExtendedDispenseInstructionsBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private DrugProductBean productMedication;
     private SubsequentSupplyRequestBean component1SubsequentSupplyRequest;
     private FirstFillBean component2InitialSupplyRequest;
-    private PQ totalPrescribedQuantity = new PQImpl();
     private IVL<TS, Interval<Date>> totalDaysSupply = new IVLImpl<TS, Interval<Date>>();
-
-
-    @Hl7XmlMapping({"product/medication"})
-    public DrugProductBean getProductMedication() {
-        return this.productMedication;
-    }
-    public void setProductMedication(DrugProductBean productMedication) {
-        this.productMedication = productMedication;
-    }
+    private PQ totalPrescribedQuantity = new PQImpl();
+    private DrugProductBean productMedication;
 
 
     @Hl7XmlMapping({"component1/subsequentSupplyRequest","component2/subsequentSupplyRequest"})
@@ -95,6 +86,32 @@ public class ExtendedDispenseInstructionsBean extends MessagePartBean {
     }
     public void setComponent2InitialSupplyRequest(FirstFillBean component2InitialSupplyRequest) {
         this.component2InitialSupplyRequest = component2InitialSupplyRequest;
+    }
+
+
+    /**
+     * <p>TotalDaysSupply</p>
+     * 
+     * <p>A:Total Days Supply</p>
+     * 
+     * <p><p>The number of days that the overall prescribed item is 
+     * expected to last, if the patient is compliant with the 
+     * dispensing and administration of the prescription.</p></p>
+     * 
+     * <p><p>Used to specify a total authorization as a duration 
+     * rather than a quantity with refills. E.g. dispense 30 at a 
+     * time, refill for 1 year. May also be sent as an estimate of 
+     * the expected overall duration of the prescription based on 
+     * the quantity prescribed. This attribute is mandatory because 
+     * the prescriber (in discussion with the patient) has a better 
+     * understanding of the days supply needed by the patient.</p></p>
+     */
+    @Hl7XmlMapping({"expectedUseTime"})
+    public Interval<Date> getTotalDaysSupply() {
+        return this.totalDaysSupply.getValue();
+    }
+    public void setTotalDaysSupply(Interval<Date> totalDaysSupply) {
+        this.totalDaysSupply.setValue(totalDaysSupply);
     }
 
 
@@ -131,29 +148,12 @@ public class ExtendedDispenseInstructionsBean extends MessagePartBean {
     }
 
 
-    /**
-     * <p>TotalDaysSupply</p>
-     * 
-     * <p>A:Total Days Supply</p>
-     * 
-     * <p><p>The number of days that the overall prescribed item is 
-     * expected to last, if the patient is compliant with the 
-     * dispensing and administration of the prescription.</p></p>
-     * 
-     * <p><p>Used to specify a total authorization as a duration 
-     * rather than a quantity with refills. E.g. dispense 30 at a 
-     * time, refill for 1 year. May also be sent as an estimate of 
-     * the expected overall duration of the prescription based on 
-     * the quantity prescribed. This attribute is mandatory because 
-     * the prescriber (in discussion with the patient) has a better 
-     * understanding of the days supply needed by the patient.</p></p>
-     */
-    @Hl7XmlMapping({"expectedUseTime"})
-    public Interval<Date> getTotalDaysSupply() {
-        return this.totalDaysSupply.getValue();
+    @Hl7XmlMapping({"product/medication"})
+    public DrugProductBean getProductMedication() {
+        return this.productMedication;
     }
-    public void setTotalDaysSupply(Interval<Date> totalDaysSupply) {
-        this.totalDaysSupply.setValue(totalDaysSupply);
+    public void setProductMedication(DrugProductBean productMedication) {
+        this.productMedication = productMedication;
     }
 
 }

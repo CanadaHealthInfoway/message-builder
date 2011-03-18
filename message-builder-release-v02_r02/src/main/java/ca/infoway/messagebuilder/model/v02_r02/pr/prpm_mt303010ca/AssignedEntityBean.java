@@ -59,119 +59,18 @@ import java.util.List;
 public class AssignedEntityBean extends MessagePartBean implements RoleChoice {
 
     private static final long serialVersionUID = 20110318L;
-    private List<ActDefinitionOrEventName_1Bean> performanceActDefinitionOrEvent = new ArrayList<ActDefinitionOrEventName_1Bean>();
-    private PrinicpalPerson_1Bean assignedPrincipalPerson;
-    private CV functionalRoleType = new CVImpl();
-    private OrganizationBean representedOrganization;
-    private IVL<TS, Interval<Date>> functionalRoleEffectiveDate = new IVLImpl<TS, Interval<Date>>();
-    private List<PrivilegeBean> responsibleForPrivilege = new ArrayList<PrivilegeBean>();
-    private LIST<AD, PostalAddress> functionalRoleAddress = new LISTImpl<AD, PostalAddress>(ADImpl.class);
-    private List<RelatedToBean> relatedTo = new ArrayList<RelatedToBean>();
-    private LIST<PN, PersonName> functionalRoleName = new LISTImpl<PN, PersonName>(PNImpl.class);
     private II functionalRoleIdentifier = new IIImpl();
-    private LIST<TEL, TelecommunicationAddress> functionalRoleTelecom = new LISTImpl<TEL, TelecommunicationAddress>(TELImpl.class);
+    private IVL<TS, Interval<Date>> functionalRoleEffectiveDate = new IVLImpl<TS, Interval<Date>>();
+    private CV functionalRoleType = new CVImpl();
+    private List<RelatedToBean> relatedTo = new ArrayList<RelatedToBean>();
+    private List<ActDefinitionOrEventName_1Bean> performanceActDefinitionOrEvent = new ArrayList<ActDefinitionOrEventName_1Bean>();
+    private OrganizationBean representedOrganization;
+    private LIST<PN, PersonName> functionalRoleName = new LISTImpl<PN, PersonName>(PNImpl.class);
+    private PrinicpalPerson_1Bean assignedPrincipalPerson;
     private CS functionalRoleStatusCode = new CSImpl();
-
-
-    @Hl7XmlMapping({"performance/actDefinitionOrEvent"})
-    public List<ActDefinitionOrEventName_1Bean> getPerformanceActDefinitionOrEvent() {
-        return this.performanceActDefinitionOrEvent;
-    }
-
-
-    @Hl7XmlMapping({"assignedPrincipalPerson"})
-    public PrinicpalPerson_1Bean getAssignedPrincipalPerson() {
-        return this.assignedPrincipalPerson;
-    }
-    public void setAssignedPrincipalPerson(PrinicpalPerson_1Bean assignedPrincipalPerson) {
-        this.assignedPrincipalPerson = assignedPrincipalPerson;
-    }
-
-
-    /**
-     * <p>Functional Role Type</p>
-     * 
-     * <p><p>The code identifying the specific functional role.</p></p>
-     * 
-     * <p><p>Mandatory attribute supports the identification of the 
-     * healthcare provider</p></p>
-     */
-    @Hl7XmlMapping({"code"})
-    public AssignedRoleType getFunctionalRoleType() {
-        return (AssignedRoleType) this.functionalRoleType.getValue();
-    }
-    public void setFunctionalRoleType(AssignedRoleType functionalRoleType) {
-        this.functionalRoleType.setValue(functionalRoleType);
-    }
-
-
-    @Hl7XmlMapping({"representedOrganization"})
-    public OrganizationBean getRepresentedOrganization() {
-        return this.representedOrganization;
-    }
-    public void setRepresentedOrganization(OrganizationBean representedOrganization) {
-        this.representedOrganization = representedOrganization;
-    }
-
-
-    /**
-     * <p>Functional Role Effective Date</p>
-     * 
-     * <p><p>The effective date of the provider in the functional 
-     * role.</p></p>
-     * 
-     * <p><p>Required attribute supports the identification of the 
-     * healthcare provider</p></p>
-     */
-    @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getFunctionalRoleEffectiveDate() {
-        return this.functionalRoleEffectiveDate.getValue();
-    }
-    public void setFunctionalRoleEffectiveDate(Interval<Date> functionalRoleEffectiveDate) {
-        this.functionalRoleEffectiveDate.setValue(functionalRoleEffectiveDate);
-    }
-
-
-    @Hl7XmlMapping({"responsibleFor/privilege"})
-    public List<PrivilegeBean> getResponsibleForPrivilege() {
-        return this.responsibleForPrivilege;
-    }
-
-
-    /**
-     * <p>Functional Role Address</p>
-     * 
-     * <p><p>Address of the provider when playing the functional 
-     * role.</p></p>
-     * 
-     * <p><p>Required attribute supports the identification of the 
-     * healthcare provider</p></p>
-     */
-    @Hl7XmlMapping({"addr"})
-    public List<PostalAddress> getFunctionalRoleAddress() {
-        return this.functionalRoleAddress.rawList();
-    }
-
-
-    @Hl7XmlMapping({"relatedTo"})
-    public List<RelatedToBean> getRelatedTo() {
-        return this.relatedTo;
-    }
-
-
-    /**
-     * <p>Functional Role Name</p>
-     * 
-     * <p><p>The provider'''s name pertaining to the specific 
-     * functional role.</p></p>
-     * 
-     * <p><p>Required attribute supports the identification of the 
-     * healthcare provider</p></p>
-     */
-    @Hl7XmlMapping({"name"})
-    public List<PersonName> getFunctionalRoleName() {
-        return this.functionalRoleName.rawList();
-    }
+    private LIST<AD, PostalAddress> functionalRoleAddress = new LISTImpl<AD, PostalAddress>(ADImpl.class);
+    private List<PrivilegeBean> responsibleForPrivilege = new ArrayList<PrivilegeBean>();
+    private LIST<TEL, TelecommunicationAddress> functionalRoleTelecom = new LISTImpl<TEL, TelecommunicationAddress>(TELImpl.class);
 
 
     /**
@@ -193,17 +92,82 @@ public class AssignedEntityBean extends MessagePartBean implements RoleChoice {
 
 
     /**
-     * <p>Functional Role Telecom</p>
+     * <p>Functional Role Effective Date</p>
      * 
-     * <p><p>Telecom of the provider when playing the functional 
+     * <p><p>The effective date of the provider in the functional 
      * role.</p></p>
      * 
      * <p><p>Required attribute supports the identification of the 
      * healthcare provider</p></p>
      */
-    @Hl7XmlMapping({"telecom"})
-    public List<TelecommunicationAddress> getFunctionalRoleTelecom() {
-        return this.functionalRoleTelecom.rawList();
+    @Hl7XmlMapping({"effectiveTime"})
+    public Interval<Date> getFunctionalRoleEffectiveDate() {
+        return this.functionalRoleEffectiveDate.getValue();
+    }
+    public void setFunctionalRoleEffectiveDate(Interval<Date> functionalRoleEffectiveDate) {
+        this.functionalRoleEffectiveDate.setValue(functionalRoleEffectiveDate);
+    }
+
+
+    /**
+     * <p>Functional Role Type</p>
+     * 
+     * <p><p>The code identifying the specific functional role.</p></p>
+     * 
+     * <p><p>Mandatory attribute supports the identification of the 
+     * healthcare provider</p></p>
+     */
+    @Hl7XmlMapping({"code"})
+    public AssignedRoleType getFunctionalRoleType() {
+        return (AssignedRoleType) this.functionalRoleType.getValue();
+    }
+    public void setFunctionalRoleType(AssignedRoleType functionalRoleType) {
+        this.functionalRoleType.setValue(functionalRoleType);
+    }
+
+
+    @Hl7XmlMapping({"relatedTo"})
+    public List<RelatedToBean> getRelatedTo() {
+        return this.relatedTo;
+    }
+
+
+    @Hl7XmlMapping({"performance/actDefinitionOrEvent"})
+    public List<ActDefinitionOrEventName_1Bean> getPerformanceActDefinitionOrEvent() {
+        return this.performanceActDefinitionOrEvent;
+    }
+
+
+    @Hl7XmlMapping({"representedOrganization"})
+    public OrganizationBean getRepresentedOrganization() {
+        return this.representedOrganization;
+    }
+    public void setRepresentedOrganization(OrganizationBean representedOrganization) {
+        this.representedOrganization = representedOrganization;
+    }
+
+
+    /**
+     * <p>Functional Role Name</p>
+     * 
+     * <p><p>The provider'''s name pertaining to the specific 
+     * functional role.</p></p>
+     * 
+     * <p><p>Required attribute supports the identification of the 
+     * healthcare provider</p></p>
+     */
+    @Hl7XmlMapping({"name"})
+    public List<PersonName> getFunctionalRoleName() {
+        return this.functionalRoleName.rawList();
+    }
+
+
+    @Hl7XmlMapping({"assignedPrincipalPerson"})
+    public PrinicpalPerson_1Bean getAssignedPrincipalPerson() {
+        return this.assignedPrincipalPerson;
+    }
+    public void setAssignedPrincipalPerson(PrinicpalPerson_1Bean assignedPrincipalPerson) {
+        this.assignedPrincipalPerson = assignedPrincipalPerson;
     }
 
 
@@ -222,6 +186,42 @@ public class AssignedEntityBean extends MessagePartBean implements RoleChoice {
     }
     public void setFunctionalRoleStatusCode(RoleStatus functionalRoleStatusCode) {
         this.functionalRoleStatusCode.setValue(functionalRoleStatusCode);
+    }
+
+
+    /**
+     * <p>Functional Role Address</p>
+     * 
+     * <p><p>Address of the provider when playing the functional 
+     * role.</p></p>
+     * 
+     * <p><p>Required attribute supports the identification of the 
+     * healthcare provider</p></p>
+     */
+    @Hl7XmlMapping({"addr"})
+    public List<PostalAddress> getFunctionalRoleAddress() {
+        return this.functionalRoleAddress.rawList();
+    }
+
+
+    @Hl7XmlMapping({"responsibleFor/privilege"})
+    public List<PrivilegeBean> getResponsibleForPrivilege() {
+        return this.responsibleForPrivilege;
+    }
+
+
+    /**
+     * <p>Functional Role Telecom</p>
+     * 
+     * <p><p>Telecom of the provider when playing the functional 
+     * role.</p></p>
+     * 
+     * <p><p>Required attribute supports the identification of the 
+     * healthcare provider</p></p>
+     */
+    @Hl7XmlMapping({"telecom"})
+    public List<TelecommunicationAddress> getFunctionalRoleTelecom() {
+        return this.functionalRoleTelecom.rawList();
     }
 
 }

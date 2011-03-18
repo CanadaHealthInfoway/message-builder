@@ -46,31 +46,28 @@ import java.util.Set;
 public class AssignedEntityBean extends MessagePartBean implements RoleChoice {
 
     private static final long serialVersionUID = 20110318L;
-    private PrinicpalPersonBean assignedPrincipalPerson;
-    private OrganizationBean representedOrganization;
+    private SET<II, Identifier> functionalRoleIdentifier = new SETImpl<II, Identifier>(IIImpl.class);
     private CV functionalRoleType = new CVImpl();
+    private OrganizationBean representedOrganization;
+    private LIST<PN, PersonName> functionalRoleName = new LISTImpl<PN, PersonName>(PNImpl.class);
+    private PrinicpalPersonBean assignedPrincipalPerson;
+    private List<PrimaryPerformer3Bean> performance = new ArrayList<PrimaryPerformer3Bean>();
     private List<ResponsiblePartyBean> responsibleFor = new ArrayList<ResponsiblePartyBean>();
     private List<RelatedToBean> relatedTo = new ArrayList<RelatedToBean>();
-    private LIST<PN, PersonName> functionalRoleName = new LISTImpl<PN, PersonName>(PNImpl.class);
-    private SET<II, Identifier> functionalRoleIdentifier = new SETImpl<II, Identifier>(IIImpl.class);
-    private List<PrimaryPerformer3Bean> performance = new ArrayList<PrimaryPerformer3Bean>();
 
 
-    @Hl7XmlMapping({"assignedPrincipalPerson"})
-    public PrinicpalPersonBean getAssignedPrincipalPerson() {
-        return this.assignedPrincipalPerson;
-    }
-    public void setAssignedPrincipalPerson(PrinicpalPersonBean assignedPrincipalPerson) {
-        this.assignedPrincipalPerson = assignedPrincipalPerson;
-    }
-
-
-    @Hl7XmlMapping({"representedOrganization"})
-    public OrganizationBean getRepresentedOrganization() {
-        return this.representedOrganization;
-    }
-    public void setRepresentedOrganization(OrganizationBean representedOrganization) {
-        this.representedOrganization = representedOrganization;
+    /**
+     * <p>Functional Role Identifier</p>
+     * 
+     * <p><p>Identifies specific functional role that a provider 
+     * may play within an organization.</p></p>
+     * 
+     * <p><p>Required attribute supports the identification of the 
+     * healthcare provider</p></p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Set<Identifier> getFunctionalRoleIdentifier() {
+        return this.functionalRoleIdentifier.rawSet();
     }
 
 
@@ -91,15 +88,12 @@ public class AssignedEntityBean extends MessagePartBean implements RoleChoice {
     }
 
 
-    @Hl7XmlMapping({"responsibleFor"})
-    public List<ResponsiblePartyBean> getResponsibleFor() {
-        return this.responsibleFor;
+    @Hl7XmlMapping({"representedOrganization"})
+    public OrganizationBean getRepresentedOrganization() {
+        return this.representedOrganization;
     }
-
-
-    @Hl7XmlMapping({"relatedTo"})
-    public List<RelatedToBean> getRelatedTo() {
-        return this.relatedTo;
+    public void setRepresentedOrganization(OrganizationBean representedOrganization) {
+        this.representedOrganization = representedOrganization;
     }
 
 
@@ -118,24 +112,30 @@ public class AssignedEntityBean extends MessagePartBean implements RoleChoice {
     }
 
 
-    /**
-     * <p>Functional Role Identifier</p>
-     * 
-     * <p><p>Identifies specific functional role that a provider 
-     * may play within an organization.</p></p>
-     * 
-     * <p><p>Required attribute supports the identification of the 
-     * healthcare provider</p></p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Set<Identifier> getFunctionalRoleIdentifier() {
-        return this.functionalRoleIdentifier.rawSet();
+    @Hl7XmlMapping({"assignedPrincipalPerson"})
+    public PrinicpalPersonBean getAssignedPrincipalPerson() {
+        return this.assignedPrincipalPerson;
+    }
+    public void setAssignedPrincipalPerson(PrinicpalPersonBean assignedPrincipalPerson) {
+        this.assignedPrincipalPerson = assignedPrincipalPerson;
     }
 
 
     @Hl7XmlMapping({"performance"})
     public List<PrimaryPerformer3Bean> getPerformance() {
         return this.performance;
+    }
+
+
+    @Hl7XmlMapping({"responsibleFor"})
+    public List<ResponsiblePartyBean> getResponsibleFor() {
+        return this.responsibleFor;
+    }
+
+
+    @Hl7XmlMapping({"relatedTo"})
+    public List<RelatedToBean> getRelatedTo() {
+        return this.relatedTo;
     }
 
 }

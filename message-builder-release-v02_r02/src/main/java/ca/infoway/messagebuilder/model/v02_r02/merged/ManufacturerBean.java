@@ -51,8 +51,36 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 public class ManufacturerBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private ST manufacturerName = new STImpl();
     private II id = new IIImpl();
+    private ST manufacturerName = new STImpl();
+
+
+    /**
+     * <p>Organization Id</p>
+     * 
+     * <p><p>An identifier denoting a specific drug 
+     * manufacturer.</p></p>
+     * 
+     * <p><p>Allows sending of identifiers in place of manufacturer 
+     * name. May be used in drug search where specific manufacturer 
+     * is a criterion.</p></p>
+     * 
+     * <p>Manufacturer Id</p>
+     * 
+     * <p><p>An identifier denoting a specific drug 
+     * manufacturer.</p></p>
+     * 
+     * <p><p>Allows sending of identifiers in place of manufacturer 
+     * name. May be used in drug search where specific manufacturer 
+     * is a criterion.</p></p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Identifier getId() {
+        return this.id.getValue();
+    }
+    public void setId(Identifier id) {
+        this.id.setValue(id);
+    }
 
 
     /**
@@ -88,34 +116,6 @@ public class ManufacturerBean extends MessagePartBean {
     }
     public void setManufacturerName(String manufacturerName) {
         this.manufacturerName.setValue(manufacturerName);
-    }
-
-
-    /**
-     * <p>Organization Id</p>
-     * 
-     * <p><p>An identifier denoting a specific drug 
-     * manufacturer.</p></p>
-     * 
-     * <p><p>Allows sending of identifiers in place of manufacturer 
-     * name. May be used in drug search where specific manufacturer 
-     * is a criterion.</p></p>
-     * 
-     * <p>Manufacturer Id</p>
-     * 
-     * <p><p>An identifier denoting a specific drug 
-     * manufacturer.</p></p>
-     * 
-     * <p><p>Allows sending of identifiers in place of manufacturer 
-     * name. May be used in drug search where specific manufacturer 
-     * is a criterion.</p></p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Identifier getId() {
-        return this.id.getValue();
-    }
-    public void setId(Identifier id) {
-        this.id.setValue(id);
     }
 
 }

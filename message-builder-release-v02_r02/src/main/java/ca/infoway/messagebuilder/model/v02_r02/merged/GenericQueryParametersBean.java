@@ -15,6 +15,7 @@ import ca.infoway.messagebuilder.datatype.impl.CDImpl;
 import ca.infoway.messagebuilder.datatype.impl.CVImpl;
 import ca.infoway.messagebuilder.datatype.impl.IIImpl;
 import ca.infoway.messagebuilder.datatype.impl.IVLImpl;
+import ca.infoway.messagebuilder.datatype.impl.RawListWrapper;
 import ca.infoway.messagebuilder.datatype.impl.TSImpl;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.Interval;
@@ -23,7 +24,9 @@ import ca.infoway.messagebuilder.domainvalue.ActStatus;
 import ca.infoway.messagebuilder.domainvalue.ObservationIntoleranceType;
 import ca.infoway.messagebuilder.domainvalue.SubjectReaction;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 
 
@@ -64,43 +67,20 @@ import java.util.Date;
 public class GenericQueryParametersBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private IVL<TS, Interval<Date>> reactionPeriod = new IVLImpl<TS, Interval<Date>>();
     private BL includeNotesIndicator = new BLImpl();
     private CV reactionTypeValue = new CVImpl();
-    private CV careCompositionTypes = new CVImpl();
-    private II careCompositionIDs = new IIImpl();
+    private List<CV> careCompositionTypes = new ArrayList<CV>();
+    private List<II> careCompositionIDs = new ArrayList<II>();
+    private IVL<TS, Interval<Date>> reactionPeriod = new IVLImpl<TS, Interval<Date>>();
+    private BL includePendingChangesIndicator = new BLImpl();
     private BL includeEventHistoryIndicator = new BLImpl();
     private BL includeIssuesIndicator = new BLImpl();
-    private IVL<TS, Interval<Date>> amendedInTimeRange = new IVLImpl<TS, Interval<Date>>();
-    private BL includePendingChangesIndicator = new BLImpl();
     private II prescriptionOrderNumber = new IIImpl();
+    private IVL<TS, Interval<Date>> amendedInTimeRange = new IVLImpl<TS, Interval<Date>>();
+    private CD allergyIntoleranceType = new CDImpl();
     private IVL<TS, Interval<Date>> allergyIntoleranceChangePeriod = new IVLImpl<TS, Interval<Date>>();
     private CV allergyIntoleranceStatus = new CVImpl();
-    private CD allergyIntoleranceType = new CDImpl();
     private II prescriptionDispenseNumber = new IIImpl();
-
-
-    /**
-     * <p>ReactionPeriod</p>
-     * 
-     * <p>F:Reaction Period</p>
-     * 
-     * <p><p>The period in which the recorded adverse reaction 
-     * occurred or was updated. I.e. Filters the result-set to 
-     * those reactions whose onset occurred within the time-range 
-     * specified by this parameter.</p></p>
-     * 
-     * <p><p>Allows the requester to specify the adverse reaction 
-     * period of interest for retrieval of adverse reaction 
-     * records. Useful to avoid run-away queries.</p></p>
-     */
-    @Hl7XmlMapping({"reactionPeriod/value"})
-    public Interval<Date> getReactionPeriod() {
-        return this.reactionPeriod.getValue();
-    }
-    public void setReactionPeriod(Interval<Date> reactionPeriod) {
-        this.reactionPeriod.setValue(reactionPeriod);
-    }
 
 
     /**
@@ -238,11 +218,8 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * encounter, etc.</p></p>
      */
     @Hl7XmlMapping({"careCompositionType/value"})
-    public ActCareEventType getCareCompositionTypes() {
-        return (ActCareEventType) this.careCompositionTypes.getValue();
-    }
-    public void setCareCompositionTypes(ActCareEventType careCompositionTypes) {
-        this.careCompositionTypes.setValue(careCompositionTypes);
+    public List<ActCareEventType> getCareCompositionTypes() {
+        return new RawListWrapper<CV, ActCareEventType>(careCompositionTypes, CVImpl.class);
     }
 
 
@@ -302,11 +279,62 @@ public class GenericQueryParametersBean extends MessagePartBean {
      * encounter, episode or care event.</p></p>
      */
     @Hl7XmlMapping({"careCompositionID/value"})
-    public Identifier getCareCompositionIDs() {
-        return this.careCompositionIDs.getValue();
+    public List<Identifier> getCareCompositionIDs() {
+        return new RawListWrapper<II, Identifier>(careCompositionIDs, IIImpl.class);
     }
-    public void setCareCompositionIDs(Identifier careCompositionIDs) {
-        this.careCompositionIDs.setValue(careCompositionIDs);
+
+
+    /**
+     * <p>ReactionPeriod</p>
+     * 
+     * <p>F:Reaction Period</p>
+     * 
+     * <p><p>The period in which the recorded adverse reaction 
+     * occurred or was updated. I.e. Filters the result-set to 
+     * those reactions whose onset occurred within the time-range 
+     * specified by this parameter.</p></p>
+     * 
+     * <p><p>Allows the requester to specify the adverse reaction 
+     * period of interest for retrieval of adverse reaction 
+     * records. Useful to avoid run-away queries.</p></p>
+     */
+    @Hl7XmlMapping({"reactionPeriod/value"})
+    public Interval<Date> getReactionPeriod() {
+        return this.reactionPeriod.getValue();
+    }
+    public void setReactionPeriod(Interval<Date> reactionPeriod) {
+        this.reactionPeriod.setValue(reactionPeriod);
+    }
+
+
+    /**
+     * <p>IncludePendingChangesIndicator</p>
+     * 
+     * <p>Include Pending Changes Indicator</p>
+     * 
+     * <p><p>Indicates whether to include future changes (e.g. 
+     * status changes that aren't effective yet) associated with a 
+     * prescription order and/or prescription dispense are to be 
+     * returned along with the detailed information.</p></p>
+     * 
+     * <p><p>Allows for the flexibility of omitting/including 
+     * future events in the retrieval of the requested 
+     * information.</p><p>Because the attribute is boolean, it must 
+     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
+     * mandatory.</p></p>
+     * 
+     * <p><p>Allows for the flexibility of omitting/including 
+     * future events in the retrieval of the requested 
+     * information.</p><p>Because the attribute is boolean, it must 
+     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
+     * mandatory.</p></p>
+     */
+    @Hl7XmlMapping({"includePendingChangesIndicator/value"})
+    public Boolean getIncludePendingChangesIndicator() {
+        return this.includePendingChangesIndicator.getValue();
+    }
+    public void setIncludePendingChangesIndicator(Boolean includePendingChangesIndicator) {
+        this.includePendingChangesIndicator.setValue(includePendingChangesIndicator);
     }
 
 
@@ -394,6 +422,31 @@ public class GenericQueryParametersBean extends MessagePartBean {
 
 
     /**
+     * <p>PrescriptionOrderNumber</p>
+     * 
+     * <p>Prescription order Number</p>
+     * 
+     * <p><p>Identifier of the prescription for which detailed 
+     * information is required.</p><p>The result set will be 
+     * filtered to only the specific prescription.</p></p>
+     * 
+     * <p><p>Identifier of the prescription for which detailed 
+     * information is required.</p><p>The result set will be 
+     * filtered to only the specific prescription.</p></p>
+     * 
+     * <p><p>Identifies the prescription that is to be retrieved, 
+     * and is therefore mandatory.</p></p>
+     */
+    @Hl7XmlMapping({"prescriptionOrderNumber/value"})
+    public Identifier getPrescriptionOrderNumber() {
+        return this.prescriptionOrderNumber.getValue();
+    }
+    public void setPrescriptionOrderNumber(Identifier prescriptionOrderNumber) {
+        this.prescriptionOrderNumber.setValue(prescriptionOrderNumber);
+    }
+
+
+    /**
      * <p>AmendedInTimeRange</p>
      * 
      * <p>Amended in Time Range</p>
@@ -423,58 +476,24 @@ public class GenericQueryParametersBean extends MessagePartBean {
 
 
     /**
-     * <p>IncludePendingChangesIndicator</p>
+     * <p>AllergyIntoleranceType</p>
      * 
-     * <p>Include Pending Changes Indicator</p>
+     * <p>H:Allergy/Intolerance Type</p>
      * 
-     * <p><p>Indicates whether to include future changes (e.g. 
-     * status changes that aren't effective yet) associated with a 
-     * prescription order and/or prescription dispense are to be 
-     * returned along with the detailed information.</p></p>
+     * <p><p>A coded value indicating whether to return an allergy 
+     * record or an intolerance record. The result set will be 
+     * filtered to include only allergy records or intolerance 
+     * records accordingly.</p></p>
      * 
-     * <p><p>Allows for the flexibility of omitting/including 
-     * future events in the retrieval of the requested 
-     * information.</p><p>Because the attribute is boolean, it must 
-     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
-     * mandatory.</p></p>
-     * 
-     * <p><p>Allows for the flexibility of omitting/including 
-     * future events in the retrieval of the requested 
-     * information.</p><p>Because the attribute is boolean, it must 
-     * explicitly indicate a 'TRUE' or 'FALSE', and thus it is 
-     * mandatory.</p></p>
+     * <p><p>Allows allergy/intolerance records to be selectively 
+     * searched and retrieved.</p></p>
      */
-    @Hl7XmlMapping({"includePendingChangesIndicator/value"})
-    public Boolean getIncludePendingChangesIndicator() {
-        return this.includePendingChangesIndicator.getValue();
+    @Hl7XmlMapping({"allergyIntoleranceType/value"})
+    public ObservationIntoleranceType getAllergyIntoleranceType() {
+        return (ObservationIntoleranceType) this.allergyIntoleranceType.getValue();
     }
-    public void setIncludePendingChangesIndicator(Boolean includePendingChangesIndicator) {
-        this.includePendingChangesIndicator.setValue(includePendingChangesIndicator);
-    }
-
-
-    /**
-     * <p>PrescriptionOrderNumber</p>
-     * 
-     * <p>Prescription order Number</p>
-     * 
-     * <p><p>Identifier of the prescription for which detailed 
-     * information is required.</p><p>The result set will be 
-     * filtered to only the specific prescription.</p></p>
-     * 
-     * <p><p>Identifier of the prescription for which detailed 
-     * information is required.</p><p>The result set will be 
-     * filtered to only the specific prescription.</p></p>
-     * 
-     * <p><p>Identifies the prescription that is to be retrieved, 
-     * and is therefore mandatory.</p></p>
-     */
-    @Hl7XmlMapping({"prescriptionOrderNumber/value"})
-    public Identifier getPrescriptionOrderNumber() {
-        return this.prescriptionOrderNumber.getValue();
-    }
-    public void setPrescriptionOrderNumber(Identifier prescriptionOrderNumber) {
-        this.prescriptionOrderNumber.setValue(prescriptionOrderNumber);
+    public void setAllergyIntoleranceType(ObservationIntoleranceType allergyIntoleranceType) {
+        this.allergyIntoleranceType.setValue(allergyIntoleranceType);
     }
 
 
@@ -519,28 +538,6 @@ public class GenericQueryParametersBean extends MessagePartBean {
     }
     public void setAllergyIntoleranceStatus(ActStatus allergyIntoleranceStatus) {
         this.allergyIntoleranceStatus.setValue(allergyIntoleranceStatus);
-    }
-
-
-    /**
-     * <p>AllergyIntoleranceType</p>
-     * 
-     * <p>H:Allergy/Intolerance Type</p>
-     * 
-     * <p><p>A coded value indicating whether to return an allergy 
-     * record or an intolerance record. The result set will be 
-     * filtered to include only allergy records or intolerance 
-     * records accordingly.</p></p>
-     * 
-     * <p><p>Allows allergy/intolerance records to be selectively 
-     * searched and retrieved.</p></p>
-     */
-    @Hl7XmlMapping({"allergyIntoleranceType/value"})
-    public ObservationIntoleranceType getAllergyIntoleranceType() {
-        return (ObservationIntoleranceType) this.allergyIntoleranceType.getValue();
-    }
-    public void setAllergyIntoleranceType(ObservationIntoleranceType allergyIntoleranceType) {
-        this.allergyIntoleranceType.setValue(allergyIntoleranceType);
     }
 
 

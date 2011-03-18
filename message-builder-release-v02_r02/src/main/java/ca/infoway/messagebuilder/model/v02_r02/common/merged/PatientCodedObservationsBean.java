@@ -54,49 +54,10 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 public class PatientCodedObservationsBean extends MessagePartBean implements CausalActs {
 
     private static final long serialVersionUID = 20110318L;
-    private CD observationType = new CDImpl();
     private CV observationValue = new CVImpl();
     private II observationIdentifier = new IIImpl();
+    private CD observationType = new CDImpl();
     private CV confidentialityCode = new CVImpl();
-
-
-    /**
-     * <p>ObservationType</p>
-     * 
-     * <p>B:Observation Type</p>
-     * 
-     * <p><p>Distinguishes the kinds of coded observation that 
-     * could be the trigger for clinical issue detection. Coded 
-     * Observation types include: Allergy, Intolerance, Medical 
-     * Condition, Indication, Pregnancy status, Lactation status 
-     * and other observable information about a person that may be 
-     * deemed as a possible trigger for clinical issue 
-     * detection.</p></p>
-     * 
-     * <p><p>Differentiates DAI from DPD 
-     * Contraindications</p><p>DRU.100-04 
-     * (mnemonic)</p><p>DRU.100-05 (code system)</p></p>
-     * 
-     * <p><p>Differentiates DAI from DPD 
-     * Contraindications</p><p>DRU.100-04 
-     * (mnemonic)</p><p>DRU.100-05 (code system)</p></p>
-     * 
-     * <p><p>Differentiates DAI from DPD 
-     * Contraindications</p><p>DRU.100-04 
-     * (mnemonic)</p><p>DRU.100-05 (code system)</p></p>
-     * 
-     * <p><p>Indicates the type of recorded observation being 
-     * referenced. The attribute is mandatory because it is 
-     * essential to interpreting the rest of the information on the 
-     * class.</p></p>
-     */
-    @Hl7XmlMapping({"code"})
-    public ActCode getObservationType() {
-        return (ActCode) this.observationType.getValue();
-    }
-    public void setObservationType(ActCode observationType) {
-        this.observationType.setValue(observationType);
-    }
 
 
     /**
@@ -288,6 +249,45 @@ public class PatientCodedObservationsBean extends MessagePartBean implements Cau
     }
     public void setObservationIdentifier(Identifier observationIdentifier) {
         this.observationIdentifier.setValue(observationIdentifier);
+    }
+
+
+    /**
+     * <p>ObservationType</p>
+     * 
+     * <p>B:Observation Type</p>
+     * 
+     * <p><p>Distinguishes the kinds of coded observation that 
+     * could be the trigger for clinical issue detection. Coded 
+     * Observation types include: Allergy, Intolerance, Medical 
+     * Condition, Indication, Pregnancy status, Lactation status 
+     * and other observable information about a person that may be 
+     * deemed as a possible trigger for clinical issue 
+     * detection.</p></p>
+     * 
+     * <p><p>Differentiates DAI from DPD 
+     * Contraindications</p><p>DRU.100-04 
+     * (mnemonic)</p><p>DRU.100-05 (code system)</p></p>
+     * 
+     * <p><p>Differentiates DAI from DPD 
+     * Contraindications</p><p>DRU.100-04 
+     * (mnemonic)</p><p>DRU.100-05 (code system)</p></p>
+     * 
+     * <p><p>Differentiates DAI from DPD 
+     * Contraindications</p><p>DRU.100-04 
+     * (mnemonic)</p><p>DRU.100-05 (code system)</p></p>
+     * 
+     * <p><p>Indicates the type of recorded observation being 
+     * referenced. The attribute is mandatory because it is 
+     * essential to interpreting the rest of the information on the 
+     * class.</p></p>
+     */
+    @Hl7XmlMapping({"code"})
+    public ActCode getObservationType() {
+        return (ActCode) this.observationType.getValue();
+    }
+    public void setObservationType(ActCode observationType) {
+        this.observationType.setValue(observationType);
     }
 
 

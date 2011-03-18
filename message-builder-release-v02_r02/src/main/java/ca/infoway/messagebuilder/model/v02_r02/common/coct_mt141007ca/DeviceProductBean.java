@@ -38,8 +38,8 @@ public class DeviceProductBean extends MessagePartBean {
     private BL manufacturedClinicalDeviceAsContentContainerPackagedDevice = new BLImpl();
     private INT devicePackageQuantity = new INTImpl();
     private CV deviceCode = new CVImpl();
-    private ST deviceDescription = new STImpl();
     private ST deviceName = new STImpl();
+    private ST deviceDescription = new STImpl();
 
 
     @Hl7XmlMapping({"manufacturedClinicalDevice/asContent/containerPackagedDevice"})
@@ -99,26 +99,6 @@ public class DeviceProductBean extends MessagePartBean {
 
 
     /**
-     * <p>C:Device Description</p>
-     * 
-     * <p><p>A free form textual description of a device and its 
-     * characteristics (e.g. size, shape, etc.). This is used when 
-     * additional information must be conveyed that is not apparent 
-     * by just specifying code and name.</p></p>
-     * 
-     * <p><p>Allows description of characteristics of the device 
-     * not necessarily conveyed by the code or name.</p></p>
-     */
-    @Hl7XmlMapping({"manufacturedClinicalDevice/desc"})
-    public String getDeviceDescription() {
-        return this.deviceDescription.getValue();
-    }
-    public void setDeviceDescription(String deviceDescription) {
-        this.deviceDescription.setValue(deviceDescription);
-    }
-
-
-    /**
      * <p>B:Device Name</p>
      * 
      * <p><p>The name assigned to a type of device.</p></p>
@@ -137,6 +117,26 @@ public class DeviceProductBean extends MessagePartBean {
     }
     public void setDeviceName(String deviceName) {
         this.deviceName.setValue(deviceName);
+    }
+
+
+    /**
+     * <p>C:Device Description</p>
+     * 
+     * <p><p>A free form textual description of a device and its 
+     * characteristics (e.g. size, shape, etc.). This is used when 
+     * additional information must be conveyed that is not apparent 
+     * by just specifying code and name.</p></p>
+     * 
+     * <p><p>Allows description of characteristics of the device 
+     * not necessarily conveyed by the code or name.</p></p>
+     */
+    @Hl7XmlMapping({"manufacturedClinicalDevice/desc"})
+    public String getDeviceDescription() {
+        return this.deviceDescription.getValue();
+    }
+    public void setDeviceDescription(String deviceDescription) {
+        this.deviceDescription.setValue(deviceDescription);
     }
 
 }

@@ -103,9 +103,9 @@ public class DrugContainsBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
     private BL negationInd = new BLImpl();
+    private PQ quantity = new PQImpl();
     private CV drugIngredientIdentifier = new CVImpl();
     private ST ingredientName = new STImpl();
-    private PQ quantity = new PQImpl();
 
 
     /**
@@ -176,6 +176,130 @@ public class DrugContainsBean extends MessagePartBean {
     }
     public void setNegationInd(Boolean negationInd) {
         this.negationInd.setValue(negationInd);
+    }
+
+
+    /**
+     * <p>M:Ingredient Quantity</p>
+     * 
+     * <p><p>The quantity of the ingredient in a drug. This is 
+     * represented/measured in various forms/units including: mg, 
+     * mg/vol, %, etc.</p></p>
+     * 
+     * <p><p>Essential for evaluating appropriate dosage based on 
+     * strength, as well as for creating custom compounds with 
+     * proper composition.</p></p>
+     * 
+     * <p>C:Drug Ingredient Quantity</p>
+     * 
+     * <p><p>The quantity of the ingredient in a drug. This is 
+     * represented/measured in various forms/units including: mg, 
+     * mg/vol, %, etc.</p></p>
+     * 
+     * <p><p>CompoundIngredient.amount(numerator)</p><p>CompoundIngredient.proportionOfFinal(e.g. 
+     * 10% = 
+     * .1mg/1mg)</p><p>ZPC.4(quantity)</p><p>ZPC.5(unit)</p><p>ZPJ1.4(quantity)</p><p>ZPJ1.5(unit)</p><p>ZPJ1.6(e.g. 
+     * 10% = 
+     * .1mg/1mg)</p><p>ZCP.3</p><p>ZDU.4.3</p><p>ZDU.6.1.2</p><p>Compound.448-ED 
+     * (quantity)</p><p>Compound.451-EG (unit)</p></p>
+     * 
+     * <p><p>CompoundIngredient.amount(numerator)</p><p>CompoundIngredient.proportionOfFinal(e.g. 
+     * 10% = 
+     * .1mg/1mg)</p><p>ZPC.4(quantity)</p><p>ZPC.5(unit)</p><p>ZPJ1.4(quantity)</p><p>ZPJ1.5(unit)</p><p>ZPJ1.6(e.g. 
+     * 10% = 
+     * .1mg/1mg)</p><p>ZCP.3</p><p>ZDU.4.3</p><p>ZDU.6.1.2</p><p>Compound.448-ED 
+     * (quantity)</p><p>Compound.451-EG (unit)</p></p>
+     * 
+     * <p><p>CompoundIngredient.amount(numerator)</p><p>CompoundIngredient.proportionOfFinal(e.g. 
+     * 10% = 
+     * .1mg/1mg)</p><p>ZPC.4(quantity)</p><p>ZPC.5(unit)</p><p>ZPJ1.4(quantity)</p><p>ZPJ1.5(unit)</p><p>ZPJ1.6(e.g. 
+     * 10% = 
+     * .1mg/1mg)</p><p>ZCP.3</p><p>ZDU.4.3</p><p>ZDU.6.1.2</p><p>Compound.448-ED 
+     * (quantity)</p><p>Compound.451-EG (unit)</p></p>
+     * 
+     * <p><p>CompoundIngredient.amount(numerator)</p><p>CompoundIngredient.proportionOfFinal(e.g. 
+     * 10% = 
+     * .1mg/1mg)</p><p>ZPC.4(quantity)</p><p>ZPC.5(unit)</p><p>ZPJ1.4(quantity)</p><p>ZPJ1.5(unit)</p><p>ZPJ1.6(e.g. 
+     * 10% = 
+     * .1mg/1mg)</p><p>ZCP.3</p><p>ZDU.4.3</p><p>ZDU.6.1.2</p><p>Compound.448-ED 
+     * (quantity)</p><p>Compound.451-EG (unit)</p></p>
+     * 
+     * <p><p>CompoundIngredient.amount(numerator)</p><p>CompoundIngredient.proportionOfFinal(e.g. 
+     * 10% = 
+     * .1mg/1mg)</p><p>ZPC.4(quantity)</p><p>ZPC.5(unit)</p><p>ZPJ1.4(quantity)</p><p>ZPJ1.5(unit)</p><p>ZPJ1.6(e.g. 
+     * 10% = 
+     * .1mg/1mg)</p><p>ZCP.3</p><p>ZDU.4.3</p><p>ZDU.6.1.2</p><p>Compound.448-ED 
+     * (quantity)</p><p>Compound.451-EG (unit)</p></p>
+     * 
+     * <p><p>CompoundIngredient.amount(numerator)</p><p>CompoundIngredient.proportionOfFinal(e.g. 
+     * 10% = 
+     * .1mg/1mg)</p><p>ZPC.4(quantity)</p><p>ZPC.5(unit)</p><p>ZPJ1.4(quantity)</p><p>ZPJ1.5(unit)</p><p>ZPJ1.6(e.g. 
+     * 10% = 
+     * .1mg/1mg)</p><p>ZCP.3</p><p>ZDU.4.3</p><p>ZDU.6.1.2</p><p>Compound.448-ED 
+     * (quantity)</p><p>Compound.451-EG (unit)</p></p>
+     * 
+     * <p><p>CompoundIngredient.amount(numerator)</p><p>CompoundIngredient.proportionOfFinal(e.g. 
+     * 10% = 
+     * .1mg/1mg)</p><p>ZPC.4(quantity)</p><p>ZPC.5(unit)</p><p>ZPJ1.4(quantity)</p><p>ZPJ1.5(unit)</p><p>ZPJ1.6(e.g. 
+     * 10% = 
+     * .1mg/1mg)</p><p>ZCP.3</p><p>ZDU.4.3</p><p>ZDU.6.1.2</p><p>Compound.448-ED 
+     * (quantity)</p><p>Compound.451-EG (unit)</p></p>
+     * 
+     * <p><p>CompoundIngredient.amount(numerator)</p><p>CompoundIngredient.proportionOfFinal(e.g. 
+     * 10% = 
+     * .1mg/1mg)</p><p>ZPC.4(quantity)</p><p>ZPC.5(unit)</p><p>ZPJ1.4(quantity)</p><p>ZPJ1.5(unit)</p><p>ZPJ1.6(e.g. 
+     * 10% = 
+     * .1mg/1mg)</p><p>ZCP.3</p><p>ZDU.4.3</p><p>ZDU.6.1.2</p><p>Compound.448-ED 
+     * (quantity)</p><p>Compound.451-EG (unit)</p></p>
+     * 
+     * <p><p>CompoundIngredient.amount(numerator)</p><p>CompoundIngredient.proportionOfFinal(e.g. 
+     * 10% = 
+     * .1mg/1mg)</p><p>ZPC.4(quantity)</p><p>ZPC.5(unit)</p><p>ZPJ1.4(quantity)</p><p>ZPJ1.5(unit)</p><p>ZPJ1.6(e.g. 
+     * 10% = 
+     * .1mg/1mg)</p><p>ZCP.3</p><p>ZDU.4.3</p><p>ZDU.6.1.2</p><p>Compound.448-ED 
+     * (quantity)</p><p>Compound.451-EG (unit)</p></p>
+     * 
+     * <p><p>CompoundIngredient.amount(numerator)</p><p>CompoundIngredient.proportionOfFinal(e.g. 
+     * 10% = 
+     * .1mg/1mg)</p><p>ZPC.4(quantity)</p><p>ZPC.5(unit)</p><p>ZPJ1.4(quantity)</p><p>ZPJ1.5(unit)</p><p>ZPJ1.6(e.g. 
+     * 10% = 
+     * .1mg/1mg)</p><p>ZCP.3</p><p>ZDU.4.3</p><p>ZDU.6.1.2</p><p>Compound.448-ED 
+     * (quantity)</p><p>Compound.451-EG (unit)</p></p>
+     * 
+     * <p><p>CompoundIngredient.amount(numerator)</p><p>CompoundIngredient.proportionOfFinal(e.g. 
+     * 10% = 
+     * .1mg/1mg)</p><p>ZPC.4(quantity)</p><p>ZPC.5(unit)</p><p>ZPJ1.4(quantity)</p><p>ZPJ1.5(unit)</p><p>ZPJ1.6(e.g. 
+     * 10% = 
+     * .1mg/1mg)</p><p>ZCP.3</p><p>ZDU.4.3</p><p>ZDU.6.1.2</p><p>Compound.448-ED 
+     * (quantity)</p><p>Compound.451-EG (unit)</p></p>
+     * 
+     * <p><p>CompoundIngredient.amount(numerator)</p><p>CompoundIngredient.proportionOfFinal(e.g. 
+     * 10% = 
+     * .1mg/1mg)</p><p>ZPC.4(quantity)</p><p>ZPC.5(unit)</p><p>ZPJ1.4(quantity)</p><p>ZPJ1.5(unit)</p><p>ZPJ1.6(e.g. 
+     * 10% = 
+     * .1mg/1mg)</p><p>ZCP.3</p><p>ZDU.4.3</p><p>ZDU.6.1.2</p><p>Compound.448-ED 
+     * (quantity)</p><p>Compound.451-EG (unit)</p></p>
+     * 
+     * <p><p>Essential for evaluating appropriate dosage based on 
+     * strength, as well as for creating custom compounds with 
+     * proper composition.</p></p>
+     * 
+     * <p>Ingredient Quantity</p>
+     * 
+     * <p><p>The quantity of the ingredient in a drug. This is 
+     * represented/measured in various forms/units including: mg, 
+     * mg/vol, %, etc.</p></p>
+     * 
+     * <p><p>Essential for evaluating appropriate dosage based on 
+     * strength, as well as for creating custom compounds with 
+     * proper composition.</p></p>
+     */
+    @Hl7XmlMapping({"quantity"})
+    public PhysicalQuantity getQuantity() {
+        return this.quantity.getValue();
+    }
+    public void setQuantity(PhysicalQuantity quantity) {
+        this.quantity.setValue(quantity);
     }
 
 
@@ -413,130 +537,6 @@ public class DrugContainsBean extends MessagePartBean {
     }
     public void setIngredientName(String ingredientName) {
         this.ingredientName.setValue(ingredientName);
-    }
-
-
-    /**
-     * <p>M:Ingredient Quantity</p>
-     * 
-     * <p><p>The quantity of the ingredient in a drug. This is 
-     * represented/measured in various forms/units including: mg, 
-     * mg/vol, %, etc.</p></p>
-     * 
-     * <p><p>Essential for evaluating appropriate dosage based on 
-     * strength, as well as for creating custom compounds with 
-     * proper composition.</p></p>
-     * 
-     * <p>C:Drug Ingredient Quantity</p>
-     * 
-     * <p><p>The quantity of the ingredient in a drug. This is 
-     * represented/measured in various forms/units including: mg, 
-     * mg/vol, %, etc.</p></p>
-     * 
-     * <p><p>CompoundIngredient.amount(numerator)</p><p>CompoundIngredient.proportionOfFinal(e.g. 
-     * 10% = 
-     * .1mg/1mg)</p><p>ZPC.4(quantity)</p><p>ZPC.5(unit)</p><p>ZPJ1.4(quantity)</p><p>ZPJ1.5(unit)</p><p>ZPJ1.6(e.g. 
-     * 10% = 
-     * .1mg/1mg)</p><p>ZCP.3</p><p>ZDU.4.3</p><p>ZDU.6.1.2</p><p>Compound.448-ED 
-     * (quantity)</p><p>Compound.451-EG (unit)</p></p>
-     * 
-     * <p><p>CompoundIngredient.amount(numerator)</p><p>CompoundIngredient.proportionOfFinal(e.g. 
-     * 10% = 
-     * .1mg/1mg)</p><p>ZPC.4(quantity)</p><p>ZPC.5(unit)</p><p>ZPJ1.4(quantity)</p><p>ZPJ1.5(unit)</p><p>ZPJ1.6(e.g. 
-     * 10% = 
-     * .1mg/1mg)</p><p>ZCP.3</p><p>ZDU.4.3</p><p>ZDU.6.1.2</p><p>Compound.448-ED 
-     * (quantity)</p><p>Compound.451-EG (unit)</p></p>
-     * 
-     * <p><p>CompoundIngredient.amount(numerator)</p><p>CompoundIngredient.proportionOfFinal(e.g. 
-     * 10% = 
-     * .1mg/1mg)</p><p>ZPC.4(quantity)</p><p>ZPC.5(unit)</p><p>ZPJ1.4(quantity)</p><p>ZPJ1.5(unit)</p><p>ZPJ1.6(e.g. 
-     * 10% = 
-     * .1mg/1mg)</p><p>ZCP.3</p><p>ZDU.4.3</p><p>ZDU.6.1.2</p><p>Compound.448-ED 
-     * (quantity)</p><p>Compound.451-EG (unit)</p></p>
-     * 
-     * <p><p>CompoundIngredient.amount(numerator)</p><p>CompoundIngredient.proportionOfFinal(e.g. 
-     * 10% = 
-     * .1mg/1mg)</p><p>ZPC.4(quantity)</p><p>ZPC.5(unit)</p><p>ZPJ1.4(quantity)</p><p>ZPJ1.5(unit)</p><p>ZPJ1.6(e.g. 
-     * 10% = 
-     * .1mg/1mg)</p><p>ZCP.3</p><p>ZDU.4.3</p><p>ZDU.6.1.2</p><p>Compound.448-ED 
-     * (quantity)</p><p>Compound.451-EG (unit)</p></p>
-     * 
-     * <p><p>CompoundIngredient.amount(numerator)</p><p>CompoundIngredient.proportionOfFinal(e.g. 
-     * 10% = 
-     * .1mg/1mg)</p><p>ZPC.4(quantity)</p><p>ZPC.5(unit)</p><p>ZPJ1.4(quantity)</p><p>ZPJ1.5(unit)</p><p>ZPJ1.6(e.g. 
-     * 10% = 
-     * .1mg/1mg)</p><p>ZCP.3</p><p>ZDU.4.3</p><p>ZDU.6.1.2</p><p>Compound.448-ED 
-     * (quantity)</p><p>Compound.451-EG (unit)</p></p>
-     * 
-     * <p><p>CompoundIngredient.amount(numerator)</p><p>CompoundIngredient.proportionOfFinal(e.g. 
-     * 10% = 
-     * .1mg/1mg)</p><p>ZPC.4(quantity)</p><p>ZPC.5(unit)</p><p>ZPJ1.4(quantity)</p><p>ZPJ1.5(unit)</p><p>ZPJ1.6(e.g. 
-     * 10% = 
-     * .1mg/1mg)</p><p>ZCP.3</p><p>ZDU.4.3</p><p>ZDU.6.1.2</p><p>Compound.448-ED 
-     * (quantity)</p><p>Compound.451-EG (unit)</p></p>
-     * 
-     * <p><p>CompoundIngredient.amount(numerator)</p><p>CompoundIngredient.proportionOfFinal(e.g. 
-     * 10% = 
-     * .1mg/1mg)</p><p>ZPC.4(quantity)</p><p>ZPC.5(unit)</p><p>ZPJ1.4(quantity)</p><p>ZPJ1.5(unit)</p><p>ZPJ1.6(e.g. 
-     * 10% = 
-     * .1mg/1mg)</p><p>ZCP.3</p><p>ZDU.4.3</p><p>ZDU.6.1.2</p><p>Compound.448-ED 
-     * (quantity)</p><p>Compound.451-EG (unit)</p></p>
-     * 
-     * <p><p>CompoundIngredient.amount(numerator)</p><p>CompoundIngredient.proportionOfFinal(e.g. 
-     * 10% = 
-     * .1mg/1mg)</p><p>ZPC.4(quantity)</p><p>ZPC.5(unit)</p><p>ZPJ1.4(quantity)</p><p>ZPJ1.5(unit)</p><p>ZPJ1.6(e.g. 
-     * 10% = 
-     * .1mg/1mg)</p><p>ZCP.3</p><p>ZDU.4.3</p><p>ZDU.6.1.2</p><p>Compound.448-ED 
-     * (quantity)</p><p>Compound.451-EG (unit)</p></p>
-     * 
-     * <p><p>CompoundIngredient.amount(numerator)</p><p>CompoundIngredient.proportionOfFinal(e.g. 
-     * 10% = 
-     * .1mg/1mg)</p><p>ZPC.4(quantity)</p><p>ZPC.5(unit)</p><p>ZPJ1.4(quantity)</p><p>ZPJ1.5(unit)</p><p>ZPJ1.6(e.g. 
-     * 10% = 
-     * .1mg/1mg)</p><p>ZCP.3</p><p>ZDU.4.3</p><p>ZDU.6.1.2</p><p>Compound.448-ED 
-     * (quantity)</p><p>Compound.451-EG (unit)</p></p>
-     * 
-     * <p><p>CompoundIngredient.amount(numerator)</p><p>CompoundIngredient.proportionOfFinal(e.g. 
-     * 10% = 
-     * .1mg/1mg)</p><p>ZPC.4(quantity)</p><p>ZPC.5(unit)</p><p>ZPJ1.4(quantity)</p><p>ZPJ1.5(unit)</p><p>ZPJ1.6(e.g. 
-     * 10% = 
-     * .1mg/1mg)</p><p>ZCP.3</p><p>ZDU.4.3</p><p>ZDU.6.1.2</p><p>Compound.448-ED 
-     * (quantity)</p><p>Compound.451-EG (unit)</p></p>
-     * 
-     * <p><p>CompoundIngredient.amount(numerator)</p><p>CompoundIngredient.proportionOfFinal(e.g. 
-     * 10% = 
-     * .1mg/1mg)</p><p>ZPC.4(quantity)</p><p>ZPC.5(unit)</p><p>ZPJ1.4(quantity)</p><p>ZPJ1.5(unit)</p><p>ZPJ1.6(e.g. 
-     * 10% = 
-     * .1mg/1mg)</p><p>ZCP.3</p><p>ZDU.4.3</p><p>ZDU.6.1.2</p><p>Compound.448-ED 
-     * (quantity)</p><p>Compound.451-EG (unit)</p></p>
-     * 
-     * <p><p>CompoundIngredient.amount(numerator)</p><p>CompoundIngredient.proportionOfFinal(e.g. 
-     * 10% = 
-     * .1mg/1mg)</p><p>ZPC.4(quantity)</p><p>ZPC.5(unit)</p><p>ZPJ1.4(quantity)</p><p>ZPJ1.5(unit)</p><p>ZPJ1.6(e.g. 
-     * 10% = 
-     * .1mg/1mg)</p><p>ZCP.3</p><p>ZDU.4.3</p><p>ZDU.6.1.2</p><p>Compound.448-ED 
-     * (quantity)</p><p>Compound.451-EG (unit)</p></p>
-     * 
-     * <p><p>Essential for evaluating appropriate dosage based on 
-     * strength, as well as for creating custom compounds with 
-     * proper composition.</p></p>
-     * 
-     * <p>Ingredient Quantity</p>
-     * 
-     * <p><p>The quantity of the ingredient in a drug. This is 
-     * represented/measured in various forms/units including: mg, 
-     * mg/vol, %, etc.</p></p>
-     * 
-     * <p><p>Essential for evaluating appropriate dosage based on 
-     * strength, as well as for creating custom compounds with 
-     * proper composition.</p></p>
-     */
-    @Hl7XmlMapping({"quantity"})
-    public PhysicalQuantity getQuantity() {
-        return this.quantity.getValue();
-    }
-    public void setQuantity(PhysicalQuantity quantity) {
-        this.quantity.setValue(quantity);
     }
 
 }

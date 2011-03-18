@@ -14,17 +14,8 @@ import ca.infoway.messagebuilder.model.v02_r02.merged.DispenseShipToLocationBean
 public class Location_1Bean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private INT sequenceNumber = new INTImpl();
     private DispenseShipToLocationBean serviceDeliveryLocation;
-
-
-    @Hl7XmlMapping({"sequenceNumber"})
-    public Integer getSequenceNumber() {
-        return this.sequenceNumber.getValue();
-    }
-    public void setSequenceNumber(Integer sequenceNumber) {
-        this.sequenceNumber.setValue(sequenceNumber);
-    }
+    private INT sequenceNumber = new INTImpl();
 
 
     @Hl7XmlMapping({"serviceDeliveryLocation"})
@@ -33,6 +24,15 @@ public class Location_1Bean extends MessagePartBean {
     }
     public void setServiceDeliveryLocation(DispenseShipToLocationBean serviceDeliveryLocation) {
         this.serviceDeliveryLocation = serviceDeliveryLocation;
+    }
+
+
+    @Hl7XmlMapping({"sequenceNumber"})
+    public Integer getSequenceNumber() {
+        return this.sequenceNumber.getValue();
+    }
+    public void setSequenceNumber(Integer sequenceNumber) {
+        this.sequenceNumber.setValue(sequenceNumber);
     }
 
 }

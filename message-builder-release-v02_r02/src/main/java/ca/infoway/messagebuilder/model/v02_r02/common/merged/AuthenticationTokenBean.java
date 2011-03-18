@@ -324,35 +324,8 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 public class AuthenticationTokenBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private ST authorizationToken = new STImpl();
     private II authorizationTokenAsId = new IIImpl();
-
-
-    /**
-     * <p>AuthorizationToken</p>
-     * 
-     * <p>Authorization Token</p>
-     * 
-     * <p><p>An authentication token expressed as a non-GUID 
-     * string.</p><p>The Authorization token may represent the 
-     * concepts of author, data enterer, supervisor (responsible 
-     * party), responsible location and/or data entry location.</p></p>
-     * 
-     * <p><p>An authentication token expressed as a non-GUID 
-     * string.</p><p>The Authorization token may represent the 
-     * concepts of author, data enterer, supervisor (responsible 
-     * party), responsible location and/or data entry location.</p></p>
-     * 
-     * <p><p>Some systems may choose to use a hashcode or other 
-     * approach to token construction.</p></p>
-     */
-    @Hl7XmlMapping({"text"})
-    public String getAuthorizationToken() {
-        return this.authorizationToken.getValue();
-    }
-    public void setAuthorizationToken(String authorizationToken) {
-        this.authorizationToken.setValue(authorizationToken);
-    }
+    private ST authorizationToken = new STImpl();
 
 
     /**
@@ -379,6 +352,33 @@ public class AuthenticationTokenBean extends MessagePartBean {
     }
     public void setAuthorizationTokenAsId(Identifier authorizationTokenAsId) {
         this.authorizationTokenAsId.setValue(authorizationTokenAsId);
+    }
+
+
+    /**
+     * <p>AuthorizationToken</p>
+     * 
+     * <p>Authorization Token</p>
+     * 
+     * <p><p>An authentication token expressed as a non-GUID 
+     * string.</p><p>The Authorization token may represent the 
+     * concepts of author, data enterer, supervisor (responsible 
+     * party), responsible location and/or data entry location.</p></p>
+     * 
+     * <p><p>An authentication token expressed as a non-GUID 
+     * string.</p><p>The Authorization token may represent the 
+     * concepts of author, data enterer, supervisor (responsible 
+     * party), responsible location and/or data entry location.</p></p>
+     * 
+     * <p><p>Some systems may choose to use a hashcode or other 
+     * approach to token construction.</p></p>
+     */
+    @Hl7XmlMapping({"text"})
+    public String getAuthorizationToken() {
+        return this.authorizationToken.getValue();
+    }
+    public void setAuthorizationToken(String authorizationToken) {
+        this.authorizationToken.setValue(authorizationToken);
     }
 
 }

@@ -28,8 +28,8 @@ public class TerritorialAuthorityBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
     private CV territorialAuthorityType = new CVImpl();
-    private CV jurisdictionType = new CVImpl();
     private List<PartBean> part = new ArrayList<PartBean>();
+    private CV jurisdictionType = new CVImpl();
 
 
     /**
@@ -47,6 +47,12 @@ public class TerritorialAuthorityBean extends MessagePartBean {
     }
     public void setTerritorialAuthorityType(RoleCode territorialAuthorityType) {
         this.territorialAuthorityType.setValue(territorialAuthorityType);
+    }
+
+
+    @Hl7XmlMapping({"part"})
+    public List<PartBean> getPart() {
+        return this.part;
     }
 
 
@@ -72,12 +78,6 @@ public class TerritorialAuthorityBean extends MessagePartBean {
     }
     public void setJurisdictionType(PlaceEntityType jurisdictionType) {
         this.jurisdictionType.setValue(jurisdictionType);
-    }
-
-
-    @Hl7XmlMapping({"part"})
-    public List<PartBean> getPart() {
-        return this.part;
     }
 
 }

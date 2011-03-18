@@ -68,12 +68,12 @@ public class ConsentBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
     private AccessTypeBean subject2InformDefinition;
-    private IVL<TS, Interval<Date>> consentEffectiveAndEndTime = new IVLImpl<TS, Interval<Date>>();
     private ConsentedToByBean author2;
-    private II consentFormNumber = new IIImpl();
-    private SubjectChoice subject1SubjectChoice;
     private PrescribedByBean author1;
+    private II consentFormNumber = new IIImpl();
+    private IVL<TS, Interval<Date>> consentEffectiveAndEndTime = new IVLImpl<TS, Interval<Date>>();
     private CV consentOverrideReason = new CVImpl();
+    private SubjectChoice subject1SubjectChoice;
 
 
     @Hl7XmlMapping({"subject2/informDefinition"})
@@ -82,6 +82,44 @@ public class ConsentBean extends MessagePartBean {
     }
     public void setSubject2InformDefinition(AccessTypeBean subject2InformDefinition) {
         this.subject2InformDefinition = subject2InformDefinition;
+    }
+
+
+    @Hl7XmlMapping({"author2"})
+    public ConsentedToByBean getAuthor2() {
+        return this.author2;
+    }
+    public void setAuthor2(ConsentedToByBean author2) {
+        this.author2 = author2;
+    }
+
+
+    @Hl7XmlMapping({"author1"})
+    public PrescribedByBean getAuthor1() {
+        return this.author1;
+    }
+    public void setAuthor1(PrescribedByBean author1) {
+        this.author1 = author1;
+    }
+
+
+    /**
+     * <p>D:Consent Form Number</p>
+     * 
+     * <p><p>A unique identifier for a specific consent for a 
+     * patient.</p></p>
+     * 
+     * <p><p>Authorization.formNumber</p></p>
+     * 
+     * <p><p>Provides a traceable audit link between a physical 
+     * consent form and its electronic record</p></p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Identifier getConsentFormNumber() {
+        return this.consentFormNumber.getValue();
+    }
+    public void setConsentFormNumber(Identifier consentFormNumber) {
+        this.consentFormNumber.setValue(consentFormNumber);
     }
 
 
@@ -105,32 +143,26 @@ public class ConsentBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"author2"})
-    public ConsentedToByBean getAuthor2() {
-        return this.author2;
-    }
-    public void setAuthor2(ConsentedToByBean author2) {
-        this.author2 = author2;
-    }
-
-
     /**
-     * <p>D:Consent Form Number</p>
+     * <p>E:Consent Override Reason</p>
      * 
-     * <p><p>A unique identifier for a specific consent for a 
-     * patient.</p></p>
+     * <p><p>Indicates a reason for overriding a patient's consent 
+     * rules.</p></p>
      * 
-     * <p><p>Authorization.formNumber</p></p>
+     * <p><p>Authorization.reason 
+     * (mnemonic)</p><p>Authorization.comment (original text)</p></p>
      * 
-     * <p><p>Provides a traceable audit link between a physical 
-     * consent form and its electronic record</p></p>
+     * <p><p>Authorization.reason 
+     * (mnemonic)</p><p>Authorization.comment (original text)</p></p>
+     * 
+     * <p><p>Important for audit purposes</p></p>
      */
-    @Hl7XmlMapping({"id"})
-    public Identifier getConsentFormNumber() {
-        return this.consentFormNumber.getValue();
+    @Hl7XmlMapping({"reasonCode"})
+    public ActConsentInformationAccessReason getConsentOverrideReason() {
+        return (ActConsentInformationAccessReason) this.consentOverrideReason.getValue();
     }
-    public void setConsentFormNumber(Identifier consentFormNumber) {
-        this.consentFormNumber.setValue(consentFormNumber);
+    public void setConsentOverrideReason(ActConsentInformationAccessReason consentOverrideReason) {
+        this.consentOverrideReason.setValue(consentOverrideReason);
     }
 
 
@@ -175,38 +207,6 @@ public class ConsentBean extends MessagePartBean {
     }
     public boolean hasSubject1SubjectChoiceAsActingPerson() {
         return (this.subject1SubjectChoice instanceof ActingPerson);
-    }
-
-
-    @Hl7XmlMapping({"author1"})
-    public PrescribedByBean getAuthor1() {
-        return this.author1;
-    }
-    public void setAuthor1(PrescribedByBean author1) {
-        this.author1 = author1;
-    }
-
-
-    /**
-     * <p>E:Consent Override Reason</p>
-     * 
-     * <p><p>Indicates a reason for overriding a patient's consent 
-     * rules.</p></p>
-     * 
-     * <p><p>Authorization.reason 
-     * (mnemonic)</p><p>Authorization.comment (original text)</p></p>
-     * 
-     * <p><p>Authorization.reason 
-     * (mnemonic)</p><p>Authorization.comment (original text)</p></p>
-     * 
-     * <p><p>Important for audit purposes</p></p>
-     */
-    @Hl7XmlMapping({"reasonCode"})
-    public ActConsentInformationAccessReason getConsentOverrideReason() {
-        return (ActConsentInformationAccessReason) this.consentOverrideReason.getValue();
-    }
-    public void setConsentOverrideReason(ActConsentInformationAccessReason consentOverrideReason) {
-        this.consentOverrideReason.setValue(consentOverrideReason);
     }
 
 }

@@ -74,8 +74,46 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 public class DrugDispensedInBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private CV drugContainerType = new CVImpl();
     private PQ drugPackageQuantity = new PQImpl();
+    private CV drugContainerType = new CVImpl();
+
+
+    /**
+     * <p>DrugPackageQuantity</p>
+     * 
+     * <p>B:Drug Package Quantity</p>
+     * 
+     * <p><p>The quantity of the medication dosage form contained 
+     * in the package given or to be given to the patient.</p></p>
+     * 
+     * <p><p>ZDP.10.2.2</p><p>ZDP.9.2.2</p></p>
+     * 
+     * <p><p>ZDP.10.2.2</p><p>ZDP.9.2.2</p></p>
+     * 
+     * <p><p>Sometimes ordering and dispensing is by package rather 
+     * than individual units, and package is important in 
+     * calculating total amount supplied.</p></p>
+     * 
+     * <p>F:Drug Package Quantity</p>
+     * 
+     * <p><p>The quantity of the medication dosage form contained 
+     * in the package given or to be given to the patient.</p></p>
+     * 
+     * <p><p>ZDP.10.2.2</p><p>ZDP.9.2.2</p></p>
+     * 
+     * <p><p>ZDP.10.2.2</p><p>ZDP.9.2.2</p></p>
+     * 
+     * <p><p>Sometimes ordering and dispensing is by package rather 
+     * than individual units, and package is important in 
+     * calculating total amount supplied.</p></p>
+     */
+    @Hl7XmlMapping({"quantity"})
+    public PhysicalQuantity getDrugPackageQuantity() {
+        return this.drugPackageQuantity.getValue();
+    }
+    public void setDrugPackageQuantity(PhysicalQuantity drugPackageQuantity) {
+        this.drugPackageQuantity.setValue(drugPackageQuantity);
+    }
 
 
     /**
@@ -117,44 +155,6 @@ public class DrugDispensedInBean extends MessagePartBean {
     }
     public void setDrugContainerType(CompliancePackageEntityType drugContainerType) {
         this.drugContainerType.setValue(drugContainerType);
-    }
-
-
-    /**
-     * <p>DrugPackageQuantity</p>
-     * 
-     * <p>B:Drug Package Quantity</p>
-     * 
-     * <p><p>The quantity of the medication dosage form contained 
-     * in the package given or to be given to the patient.</p></p>
-     * 
-     * <p><p>ZDP.10.2.2</p><p>ZDP.9.2.2</p></p>
-     * 
-     * <p><p>ZDP.10.2.2</p><p>ZDP.9.2.2</p></p>
-     * 
-     * <p><p>Sometimes ordering and dispensing is by package rather 
-     * than individual units, and package is important in 
-     * calculating total amount supplied.</p></p>
-     * 
-     * <p>F:Drug Package Quantity</p>
-     * 
-     * <p><p>The quantity of the medication dosage form contained 
-     * in the package given or to be given to the patient.</p></p>
-     * 
-     * <p><p>ZDP.10.2.2</p><p>ZDP.9.2.2</p></p>
-     * 
-     * <p><p>ZDP.10.2.2</p><p>ZDP.9.2.2</p></p>
-     * 
-     * <p><p>Sometimes ordering and dispensing is by package rather 
-     * than individual units, and package is important in 
-     * calculating total amount supplied.</p></p>
-     */
-    @Hl7XmlMapping({"quantity"})
-    public PhysicalQuantity getDrugPackageQuantity() {
-        return this.drugPackageQuantity.getValue();
-    }
-    public void setDrugPackageQuantity(PhysicalQuantity drugPackageQuantity) {
-        this.drugPackageQuantity.setValue(drugPackageQuantity);
     }
 
 }

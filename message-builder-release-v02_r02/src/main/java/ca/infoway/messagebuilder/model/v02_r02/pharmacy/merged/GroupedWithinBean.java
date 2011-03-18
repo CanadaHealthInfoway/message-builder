@@ -46,9 +46,29 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 public class GroupedWithinBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
+    private CV drugCategoryCode = new CVImpl();
     private CV drugCode = new CVImpl();
     private ST drugName = new STImpl();
-    private CV drugCategoryCode = new CVImpl();
+
+
+    /**
+     * <p>DrugCategoryCode</p>
+     * 
+     * <p>Drug Category Code</p>
+     * 
+     * <p><p>A coded value denoting a specific level in the 
+     * hierarchical definition of drugs.</p></p>
+     * 
+     * <p><p>Describes the relationship between two levels of drug 
+     * products (e.g. Drug A is the generic for Drug B)</p></p>
+     */
+    @Hl7XmlMapping({"code"})
+    public MedicationGeneralizationRoleType getDrugCategoryCode() {
+        return (MedicationGeneralizationRoleType) this.drugCategoryCode.getValue();
+    }
+    public void setDrugCategoryCode(MedicationGeneralizationRoleType drugCategoryCode) {
+        this.drugCategoryCode.setValue(drugCategoryCode);
+    }
 
 
     /**
@@ -136,26 +156,6 @@ public class GroupedWithinBean extends MessagePartBean {
     }
     public void setDrugName(String drugName) {
         this.drugName.setValue(drugName);
-    }
-
-
-    /**
-     * <p>DrugCategoryCode</p>
-     * 
-     * <p>Drug Category Code</p>
-     * 
-     * <p><p>A coded value denoting a specific level in the 
-     * hierarchical definition of drugs.</p></p>
-     * 
-     * <p><p>Describes the relationship between two levels of drug 
-     * products (e.g. Drug A is the generic for Drug B)</p></p>
-     */
-    @Hl7XmlMapping({"code"})
-    public MedicationGeneralizationRoleType getDrugCategoryCode() {
-        return (MedicationGeneralizationRoleType) this.drugCategoryCode.getValue();
-    }
-    public void setDrugCategoryCode(MedicationGeneralizationRoleType drugCategoryCode) {
-        this.drugCategoryCode.setValue(drugCategoryCode);
     }
 
 }

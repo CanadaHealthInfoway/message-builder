@@ -138,45 +138,15 @@ import java.util.List;
 public class IssuesBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private CV issuePriority = new CVImpl();
-    private List<CausalActs> subjectCausalActs = new ArrayList<CausalActs>();
     private CV issueType = new CVImpl();
-    private IssueDescriptionBean instantiationDetectedIssueDefinition;
-    private List<IssueManagementsBean> mitigatedByDetectedIssueManagement = new ArrayList<IssueManagementsBean>();
-    private ST text = new STImpl();
     private CV severityCode = new CVImpl();
+    private CV issuePriority = new CVImpl();
+    private IssueDescriptionBean instantiationDetectedIssueDefinition;
+    private ST text = new STImpl();
+    private List<IssueManagementsBean> mitigatedByDetectedIssueManagement = new ArrayList<IssueManagementsBean>();
+    private List<CausalActs> subjectCausalActs = new ArrayList<CausalActs>();
     private BL triggerForActRequest = new BLImpl();
     private BL subjectOf1StorageIntent = new BLImpl();
-
-
-    /**
-     * <p>IssuePriority</p>
-     * 
-     * <p>C:Issue Priority</p>
-     * 
-     * <p><p>A coded value denoting the importance of a detectable 
-     * issue. Valid codes are: I - for Information, E - for Error, 
-     * and W - for Warning.</p></p>
-     * 
-     * <p><p>Allows the provider to make informed decision on the 
-     * importance and criticality of an issue. May also be used by 
-     * the DIS to determine the order of returning issues. 
-     * Attribute is mandatory because every issue needs to be 
-     * prioritized.</p></p>
-     */
-    @Hl7XmlMapping({"priorityCode"})
-    public ActIssuePriority getIssuePriority() {
-        return (ActIssuePriority) this.issuePriority.getValue();
-    }
-    public void setIssuePriority(ActIssuePriority issuePriority) {
-        this.issuePriority.setValue(issuePriority);
-    }
-
-
-    @Hl7XmlMapping({"subject/causalActs"})
-    public List<CausalActs> getSubjectCausalActs() {
-        return this.subjectCausalActs;
-    }
 
 
     /**
@@ -898,83 +868,6 @@ public class IssuesBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"instantiation/detectedIssueDefinition"})
-    public IssueDescriptionBean getInstantiationDetectedIssueDefinition() {
-        return this.instantiationDetectedIssueDefinition;
-    }
-    public void setInstantiationDetectedIssueDefinition(IssueDescriptionBean instantiationDetectedIssueDefinition) {
-        this.instantiationDetectedIssueDefinition = instantiationDetectedIssueDefinition;
-    }
-
-
-    @Hl7XmlMapping({"mitigatedBy/detectedIssueManagement"})
-    public List<IssueManagementsBean> getMitigatedByDetectedIssueManagement() {
-        return this.mitigatedByDetectedIssueManagement;
-    }
-
-
-    /**
-     * <p>Issue Comment</p>
-     * 
-     * <p><p>A free form textual description regarding the issue. 
-     * This may be specified in place of, or in addition to the 
-     * coded issue.</p></p>
-     * 
-     * <p><p>Enables extra or more detailed description of the 
-     * alert</p></p>
-     * 
-     * <p>Issue Comment</p>
-     * 
-     * <p><p>A free form textual description regarding the issue of 
-     * fraudulence. This may be specified in place of, or in 
-     * addition to the coded issue.</p></p>
-     * 
-     * <p><p>Enables extra or more detailed description of the 
-     * alert</p></p>
-     * 
-     * <p>B:Issue Comment</p>
-     * 
-     * <p><p>A free form textual description regarding the issue of 
-     * fraudulence. This may be specified in place of, or in 
-     * addition to the coded issue.</p></p>
-     * 
-     * <p><p>Enables extra or more detailed description of the 
-     * alert</p></p>
-     * 
-     * <p>D:Issue Details</p>
-     * 
-     * <p><p>A free form textual description of a detected issue. 
-     * This textual information is provided to either augment the 
-     * coded information or in place of the coded information.</p></p>
-     * 
-     * <p><p>Contraindication.DDIDescription</p><p>E20(for 
-     * contraindication errors are handled at transmission or 
-     * controlact wrapper level)</p><p>ZPE.4</p><p>ZDU.11.1</p></p>
-     * 
-     * <p><p>Contraindication.DDIDescription</p><p>E20(for 
-     * contraindication errors are handled at transmission or 
-     * controlact wrapper level)</p><p>ZPE.4</p><p>ZDU.11.1</p></p>
-     * 
-     * <p><p>Contraindication.DDIDescription</p><p>E20(for 
-     * contraindication errors are handled at transmission or 
-     * controlact wrapper level)</p><p>ZPE.4</p><p>ZDU.11.1</p></p>
-     * 
-     * <p><p>Contraindication.DDIDescription</p><p>E20(for 
-     * contraindication errors are handled at transmission or 
-     * controlact wrapper level)</p><p>ZPE.4</p><p>ZDU.11.1</p></p>
-     * 
-     * <p><p>Lets providers see textual explanation of the 
-     * issue.</p></p>
-     */
-    @Hl7XmlMapping({"text"})
-    public String getText() {
-        return this.text.getValue();
-    }
-    public void setText(String text) {
-        this.text.setValue(text);
-    }
-
-
     /**
      * <p>SeverityCode</p>
      * 
@@ -1049,6 +942,113 @@ public class IssuesBean extends MessagePartBean {
     }
     public void setSeverityCode(SeverityObservation severityCode) {
         this.severityCode.setValue(severityCode);
+    }
+
+
+    /**
+     * <p>IssuePriority</p>
+     * 
+     * <p>C:Issue Priority</p>
+     * 
+     * <p><p>A coded value denoting the importance of a detectable 
+     * issue. Valid codes are: I - for Information, E - for Error, 
+     * and W - for Warning.</p></p>
+     * 
+     * <p><p>Allows the provider to make informed decision on the 
+     * importance and criticality of an issue. May also be used by 
+     * the DIS to determine the order of returning issues. 
+     * Attribute is mandatory because every issue needs to be 
+     * prioritized.</p></p>
+     */
+    @Hl7XmlMapping({"priorityCode"})
+    public ActIssuePriority getIssuePriority() {
+        return (ActIssuePriority) this.issuePriority.getValue();
+    }
+    public void setIssuePriority(ActIssuePriority issuePriority) {
+        this.issuePriority.setValue(issuePriority);
+    }
+
+
+    @Hl7XmlMapping({"instantiation/detectedIssueDefinition"})
+    public IssueDescriptionBean getInstantiationDetectedIssueDefinition() {
+        return this.instantiationDetectedIssueDefinition;
+    }
+    public void setInstantiationDetectedIssueDefinition(IssueDescriptionBean instantiationDetectedIssueDefinition) {
+        this.instantiationDetectedIssueDefinition = instantiationDetectedIssueDefinition;
+    }
+
+
+    /**
+     * <p>Issue Comment</p>
+     * 
+     * <p><p>A free form textual description regarding the issue. 
+     * This may be specified in place of, or in addition to the 
+     * coded issue.</p></p>
+     * 
+     * <p><p>Enables extra or more detailed description of the 
+     * alert</p></p>
+     * 
+     * <p>Issue Comment</p>
+     * 
+     * <p><p>A free form textual description regarding the issue of 
+     * fraudulence. This may be specified in place of, or in 
+     * addition to the coded issue.</p></p>
+     * 
+     * <p><p>Enables extra or more detailed description of the 
+     * alert</p></p>
+     * 
+     * <p>B:Issue Comment</p>
+     * 
+     * <p><p>A free form textual description regarding the issue of 
+     * fraudulence. This may be specified in place of, or in 
+     * addition to the coded issue.</p></p>
+     * 
+     * <p><p>Enables extra or more detailed description of the 
+     * alert</p></p>
+     * 
+     * <p>D:Issue Details</p>
+     * 
+     * <p><p>A free form textual description of a detected issue. 
+     * This textual information is provided to either augment the 
+     * coded information or in place of the coded information.</p></p>
+     * 
+     * <p><p>Contraindication.DDIDescription</p><p>E20(for 
+     * contraindication errors are handled at transmission or 
+     * controlact wrapper level)</p><p>ZPE.4</p><p>ZDU.11.1</p></p>
+     * 
+     * <p><p>Contraindication.DDIDescription</p><p>E20(for 
+     * contraindication errors are handled at transmission or 
+     * controlact wrapper level)</p><p>ZPE.4</p><p>ZDU.11.1</p></p>
+     * 
+     * <p><p>Contraindication.DDIDescription</p><p>E20(for 
+     * contraindication errors are handled at transmission or 
+     * controlact wrapper level)</p><p>ZPE.4</p><p>ZDU.11.1</p></p>
+     * 
+     * <p><p>Contraindication.DDIDescription</p><p>E20(for 
+     * contraindication errors are handled at transmission or 
+     * controlact wrapper level)</p><p>ZPE.4</p><p>ZDU.11.1</p></p>
+     * 
+     * <p><p>Lets providers see textual explanation of the 
+     * issue.</p></p>
+     */
+    @Hl7XmlMapping({"text"})
+    public String getText() {
+        return this.text.getValue();
+    }
+    public void setText(String text) {
+        this.text.setValue(text);
+    }
+
+
+    @Hl7XmlMapping({"mitigatedBy/detectedIssueManagement"})
+    public List<IssueManagementsBean> getMitigatedByDetectedIssueManagement() {
+        return this.mitigatedByDetectedIssueManagement;
+    }
+
+
+    @Hl7XmlMapping({"subject/causalActs"})
+    public List<CausalActs> getSubjectCausalActs() {
+        return this.subjectCausalActs;
     }
 
 

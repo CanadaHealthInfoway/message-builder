@@ -14,17 +14,8 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 public class ResponsiblePartyBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private PrivilegeBean privilege;
     private CS typeCode = new CSImpl();
-
-
-    @Hl7XmlMapping({"privilege"})
-    public PrivilegeBean getPrivilege() {
-        return this.privilege;
-    }
-    public void setPrivilege(PrivilegeBean privilege) {
-        this.privilege = privilege;
-    }
+    private PrivilegeBean privilege;
 
 
     @Hl7XmlMapping({"typeCode"})
@@ -33,6 +24,15 @@ public class ResponsiblePartyBean extends MessagePartBean {
     }
     public void setTypeCode(ParticipationType typeCode) {
         this.typeCode.setValue(typeCode);
+    }
+
+
+    @Hl7XmlMapping({"privilege"})
+    public PrivilegeBean getPrivilege() {
+        return this.privilege;
+    }
+    public void setPrivilege(PrivilegeBean privilege) {
+        this.privilege = privilege;
     }
 
 }

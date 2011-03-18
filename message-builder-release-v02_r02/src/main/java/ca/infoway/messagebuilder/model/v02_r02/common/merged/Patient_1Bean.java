@@ -24,6 +24,7 @@ import ca.infoway.messagebuilder.datatype.lang.PostalAddress;
 import ca.infoway.messagebuilder.datatype.lang.TelecommunicationAddress;
 import ca.infoway.messagebuilder.domainvalue.AdministrativeGender;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -60,12 +61,1425 @@ import java.util.List;
 public class Patient_1Bean extends MessagePartBean implements Patient_2, ActingPerson {
 
     private static final long serialVersionUID = 20110318L;
-    private AD patientContactAddress = new ADImpl();
-    private TS patientBirthDate = new TSImpl();
+    private II patientIdentifier = new IIImpl();
     private CV patientGender = new CVImpl();
     private PN patientName = new PNImpl();
-    private II patientIdentifier = new IIImpl();
+    private TS patientBirthDate = new TSImpl();
+    private AD patientContactAddress = new ADImpl();
     private LIST<TEL, TelecommunicationAddress> patientContactPhoneAndEMails = new LISTImpl<TEL, TelecommunicationAddress>(TELImpl.class);
+
+
+    /**
+     * <p>PatientIdentifier</p>
+     * 
+     * <p>A:Patient Identifier</p>
+     * 
+     * <p><p>Unique identifier assigned to a person by Federal, 
+     * Provincial and Territorial jurisdiction for the purposes of 
+     * uniquely identifying the person within the EHR.</p><p>The 
+     * EHR will define which identifier to use within a 
+     * jurisdiction.</p></p>
+     * 
+     * <p><p>Unique identifier assigned to a person by Federal, 
+     * Provincial and Territorial jurisdiction for the purposes of 
+     * uniquely identifying the person within the EHR.</p><p>The 
+     * EHR will define which identifier to use within a 
+     * jurisdiction.</p></p>
+     * 
+     * <p><p>C39 (Extension)</p><p>PTT.050.01 
+     * (Extension)</p><p>PTT.050.02 
+     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
+     * (Extension)</p><p>Patient.331-CX 
+     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
+     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
+     * (Root)</p><p>Person.PHN (Extension)</p></p>
+     * 
+     * <p><p>C39 (Extension)</p><p>PTT.050.01 
+     * (Extension)</p><p>PTT.050.02 
+     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
+     * (Extension)</p><p>Patient.331-CX 
+     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
+     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
+     * (Root)</p><p>Person.PHN (Extension)</p></p>
+     * 
+     * <p><p>C39 (Extension)</p><p>PTT.050.01 
+     * (Extension)</p><p>PTT.050.02 
+     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
+     * (Extension)</p><p>Patient.331-CX 
+     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
+     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
+     * (Root)</p><p>Person.PHN (Extension)</p></p>
+     * 
+     * <p><p>C39 (Extension)</p><p>PTT.050.01 
+     * (Extension)</p><p>PTT.050.02 
+     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
+     * (Extension)</p><p>Patient.331-CX 
+     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
+     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
+     * (Root)</p><p>Person.PHN (Extension)</p></p>
+     * 
+     * <p><p>C39 (Extension)</p><p>PTT.050.01 
+     * (Extension)</p><p>PTT.050.02 
+     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
+     * (Extension)</p><p>Patient.331-CX 
+     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
+     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
+     * (Root)</p><p>Person.PHN (Extension)</p></p>
+     * 
+     * <p><p>C39 (Extension)</p><p>PTT.050.01 
+     * (Extension)</p><p>PTT.050.02 
+     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
+     * (Extension)</p><p>Patient.331-CX 
+     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
+     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
+     * (Root)</p><p>Person.PHN (Extension)</p></p>
+     * 
+     * <p><p>C39 (Extension)</p><p>PTT.050.01 
+     * (Extension)</p><p>PTT.050.02 
+     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
+     * (Extension)</p><p>Patient.331-CX 
+     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
+     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
+     * (Root)</p><p>Person.PHN (Extension)</p></p>
+     * 
+     * <p><p>C39 (Extension)</p><p>PTT.050.01 
+     * (Extension)</p><p>PTT.050.02 
+     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
+     * (Extension)</p><p>Patient.331-CX 
+     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
+     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
+     * (Root)</p><p>Person.PHN (Extension)</p></p>
+     * 
+     * <p><p>C39 (Extension)</p><p>PTT.050.01 
+     * (Extension)</p><p>PTT.050.02 
+     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
+     * (Extension)</p><p>Patient.331-CX 
+     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
+     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
+     * (Root)</p><p>Person.PHN (Extension)</p></p>
+     * 
+     * <p><p>C39 (Extension)</p><p>PTT.050.01 
+     * (Extension)</p><p>PTT.050.02 
+     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
+     * (Extension)</p><p>Patient.331-CX 
+     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
+     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
+     * (Root)</p><p>Person.PHN (Extension)</p></p>
+     * 
+     * <p><p>C39 (Extension)</p><p>PTT.050.01 
+     * (Extension)</p><p>PTT.050.02 
+     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
+     * (Extension)</p><p>Patient.331-CX 
+     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
+     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
+     * (Root)</p><p>Person.PHN (Extension)</p></p>
+     * 
+     * <p><p>C39 (Extension)</p><p>PTT.050.01 
+     * (Extension)</p><p>PTT.050.02 
+     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
+     * (Extension)</p><p>Patient.331-CX 
+     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
+     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
+     * (Root)</p><p>Person.PHN (Extension)</p></p>
+     * 
+     * <p><p>C39 (Extension)</p><p>PTT.050.01 
+     * (Extension)</p><p>PTT.050.02 
+     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
+     * (Extension)</p><p>Patient.331-CX 
+     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
+     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
+     * (Root)</p><p>Person.PHN (Extension)</p></p>
+     * 
+     * <p><p>C39 (Extension)</p><p>PTT.050.01 
+     * (Extension)</p><p>PTT.050.02 
+     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
+     * (Extension)</p><p>Patient.331-CX 
+     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
+     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
+     * (Root)</p><p>Person.PHN (Extension)</p></p>
+     * 
+     * <p><p>C39 (Extension)</p><p>PTT.050.01 
+     * (Extension)</p><p>PTT.050.02 
+     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
+     * (Extension)</p><p>Patient.331-CX 
+     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
+     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
+     * (Root)</p><p>Person.PHN (Extension)</p></p>
+     * 
+     * <p><p>Allows a patient to be referred to unambiguously. 
+     * Because this is the principal mechanism for identifying 
+     * patients to computer systems, the attribute is 
+     * mandatory.</p></p>
+     * 
+     * <p>A:Patient Identifier</p>
+     * 
+     * <p><p>Unique identifier assigned to a person, possibly by a 
+     * local system or some other non-client-registry 
+     * identifier.</p></p>
+     * 
+     * <p><p>C39 (Extension)</p><p>PTT.050.01 
+     * (Extension)</p><p>PTT.050.02 
+     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
+     * (Extension)</p><p>Patient.331-CX 
+     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
+     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
+     * (Root)</p><p>Person.PHN (Extension)</p></p>
+     * 
+     * <p><p>C39 (Extension)</p><p>PTT.050.01 
+     * (Extension)</p><p>PTT.050.02 
+     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
+     * (Extension)</p><p>Patient.331-CX 
+     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
+     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
+     * (Root)</p><p>Person.PHN (Extension)</p></p>
+     * 
+     * <p><p>C39 (Extension)</p><p>PTT.050.01 
+     * (Extension)</p><p>PTT.050.02 
+     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
+     * (Extension)</p><p>Patient.331-CX 
+     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
+     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
+     * (Root)</p><p>Person.PHN (Extension)</p></p>
+     * 
+     * <p><p>C39 (Extension)</p><p>PTT.050.01 
+     * (Extension)</p><p>PTT.050.02 
+     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
+     * (Extension)</p><p>Patient.331-CX 
+     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
+     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
+     * (Root)</p><p>Person.PHN (Extension)</p></p>
+     * 
+     * <p><p>C39 (Extension)</p><p>PTT.050.01 
+     * (Extension)</p><p>PTT.050.02 
+     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
+     * (Extension)</p><p>Patient.331-CX 
+     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
+     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
+     * (Root)</p><p>Person.PHN (Extension)</p></p>
+     * 
+     * <p><p>C39 (Extension)</p><p>PTT.050.01 
+     * (Extension)</p><p>PTT.050.02 
+     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
+     * (Extension)</p><p>Patient.331-CX 
+     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
+     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
+     * (Root)</p><p>Person.PHN (Extension)</p></p>
+     * 
+     * <p><p>C39 (Extension)</p><p>PTT.050.01 
+     * (Extension)</p><p>PTT.050.02 
+     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
+     * (Extension)</p><p>Patient.331-CX 
+     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
+     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
+     * (Root)</p><p>Person.PHN (Extension)</p></p>
+     * 
+     * <p><p>C39 (Extension)</p><p>PTT.050.01 
+     * (Extension)</p><p>PTT.050.02 
+     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
+     * (Extension)</p><p>Patient.331-CX 
+     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
+     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
+     * (Root)</p><p>Person.PHN (Extension)</p></p>
+     * 
+     * <p><p>C39 (Extension)</p><p>PTT.050.01 
+     * (Extension)</p><p>PTT.050.02 
+     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
+     * (Extension)</p><p>Patient.331-CX 
+     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
+     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
+     * (Root)</p><p>Person.PHN (Extension)</p></p>
+     * 
+     * <p><p>C39 (Extension)</p><p>PTT.050.01 
+     * (Extension)</p><p>PTT.050.02 
+     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
+     * (Extension)</p><p>Patient.331-CX 
+     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
+     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
+     * (Root)</p><p>Person.PHN (Extension)</p></p>
+     * 
+     * <p><p>C39 (Extension)</p><p>PTT.050.01 
+     * (Extension)</p><p>PTT.050.02 
+     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
+     * (Extension)</p><p>Patient.331-CX 
+     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
+     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
+     * (Root)</p><p>Person.PHN (Extension)</p></p>
+     * 
+     * <p><p>C39 (Extension)</p><p>PTT.050.01 
+     * (Extension)</p><p>PTT.050.02 
+     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
+     * (Extension)</p><p>Patient.331-CX 
+     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
+     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
+     * (Root)</p><p>Person.PHN (Extension)</p></p>
+     * 
+     * <p><p>C39 (Extension)</p><p>PTT.050.01 
+     * (Extension)</p><p>PTT.050.02 
+     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
+     * (Extension)</p><p>Patient.331-CX 
+     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
+     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
+     * (Root)</p><p>Person.PHN (Extension)</p></p>
+     * 
+     * <p><p>C39 (Extension)</p><p>PTT.050.01 
+     * (Extension)</p><p>PTT.050.02 
+     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
+     * (Extension)</p><p>Patient.331-CX 
+     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
+     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
+     * (Root)</p><p>Person.PHN (Extension)</p></p>
+     * 
+     * <p><p>C39 (Extension)</p><p>PTT.050.01 
+     * (Extension)</p><p>PTT.050.02 
+     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
+     * (Extension)</p><p>Patient.331-CX 
+     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
+     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
+     * (Root)</p><p>Person.PHN (Extension)</p></p>
+     * 
+     * <p><p>Allows a patient to be referred to unambiguously. 
+     * Because this CMET deals with patients not confirmable 
+     * against a client registry, it's possible that no identifier 
+     * will be known and therefore the attribute is only 
+     * 'populated'.</p></p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Identifier getPatientIdentifier() {
+        return this.patientIdentifier.getValue();
+    }
+    public void setPatientIdentifier(Identifier patientIdentifier) {
+        this.patientIdentifier.setValue(patientIdentifier);
+    }
+
+
+    /**
+     * <p>PatientGender</p>
+     * 
+     * <p>F:Patient Gender</p>
+     * 
+     * <p><p>Indicates the gender (sex) of the patient as known by 
+     * the client registry. Complex genetic genders are handled as 
+     * observations if they are considered relevant.</p></p>
+     * 
+     * <p><p>C40 
+     * eScript:PTT.040</p><p>3</p><p>Sex</p><p>PID.8</p><p>Patient.305-C5</p><p>PID.8</p></p>
+     * 
+     * <p><p>C40 
+     * eScript:PTT.040</p><p>3</p><p>Sex</p><p>PID.8</p><p>Patient.305-C5</p><p>PID.8</p></p>
+     * 
+     * <p><p>C40 
+     * eScript:PTT.040</p><p>3</p><p>Sex</p><p>PID.8</p><p>Patient.305-C5</p><p>PID.8</p></p>
+     * 
+     * <p><p>C40 
+     * eScript:PTT.040</p><p>3</p><p>Sex</p><p>PID.8</p><p>Patient.305-C5</p><p>PID.8</p></p>
+     * 
+     * <p><p>C40 
+     * eScript:PTT.040</p><p>3</p><p>Sex</p><p>PID.8</p><p>Patient.305-C5</p><p>PID.8</p></p>
+     * 
+     * <p><p>C40 
+     * eScript:PTT.040</p><p>3</p><p>Sex</p><p>PID.8</p><p>Patient.305-C5</p><p>PID.8</p></p>
+     * 
+     * <p><p>Used to confirm patient identity. May affect clinical 
+     * decision support such as drug dosing, lab test 
+     * appropriateness, etc.</p><p>Element is mandatory because the 
+     * patient's gender is necessary for positive identification of 
+     * the patient in the jurisdictional client registry and should 
+     * always be known.</p></p>
+     * 
+     * <p><p>Used to confirm patient identity. May affect clinical 
+     * decision support such as drug dosing, lab test 
+     * appropriateness, etc.</p><p>Element is mandatory because the 
+     * patient's gender is necessary for positive identification of 
+     * the patient in the jurisdictional client registry and should 
+     * always be known.</p></p>
+     * 
+     * <p>F:Patient Gender</p>
+     * 
+     * <p><p>Indicates the gender (sex) of the patient as known by 
+     * the client registry. Complex genetic genders are handled as 
+     * observations if they are considered relevant.</p></p>
+     * 
+     * <p><p>C40 
+     * eScript:PTT.040</p><p>3</p><p>Sex</p><p>PID.8</p><p>Patient.305-C5</p><p>PID.8</p></p>
+     * 
+     * <p><p>C40 
+     * eScript:PTT.040</p><p>3</p><p>Sex</p><p>PID.8</p><p>Patient.305-C5</p><p>PID.8</p></p>
+     * 
+     * <p><p>C40 
+     * eScript:PTT.040</p><p>3</p><p>Sex</p><p>PID.8</p><p>Patient.305-C5</p><p>PID.8</p></p>
+     * 
+     * <p><p>C40 
+     * eScript:PTT.040</p><p>3</p><p>Sex</p><p>PID.8</p><p>Patient.305-C5</p><p>PID.8</p></p>
+     * 
+     * <p><p>C40 
+     * eScript:PTT.040</p><p>3</p><p>Sex</p><p>PID.8</p><p>Patient.305-C5</p><p>PID.8</p></p>
+     * 
+     * <p><p>C40 
+     * eScript:PTT.040</p><p>3</p><p>Sex</p><p>PID.8</p><p>Patient.305-C5</p><p>PID.8</p></p>
+     * 
+     * <p><p>Used to confirm patient identity. May affect clinical 
+     * decision support such as drug dosing, lab test 
+     * appropriateness, etc.</p><p>The element is 'populated' 
+     * because there are some situations where the patient's gender 
+     * may not be known by the sending system when dealing with 
+     * non-client registry patients.</p></p>
+     * 
+     * <p><p>Used to confirm patient identity. May affect clinical 
+     * decision support such as drug dosing, lab test 
+     * appropriateness, etc.</p><p>The element is 'populated' 
+     * because there are some situations where the patient's gender 
+     * may not be known by the sending system when dealing with 
+     * non-client registry patients.</p></p>
+     */
+    @Hl7XmlMapping({"patientPerson/administrativeGenderCode"})
+    public AdministrativeGender getPatientGender() {
+        return (AdministrativeGender) this.patientGender.getValue();
+    }
+    public void setPatientGender(AdministrativeGender patientGender) {
+        this.patientGender.setValue(patientGender);
+    }
+
+
+    /**
+     * <p>PatientName</p>
+     * 
+     * <p>B:Patient Name</p>
+     * 
+     * <p><p>The name by which the patient is known to the client 
+     * registry.</p></p>
+     * 
+     * <p><p>ZPA.1 (partType=Given)</p><p>ZPA.2 
+     * (partType=Family)</p><p>ZPA.3 (partType=Given - all 
+     * repetitions except first)</p><p>C37 
+     * (partType=Given)</p><p>C38 
+     * (partType=Family)</p><p>PTT.030-01 
+     * (partType=Family)</p><p>PTT.030-02 (partType=Given - 1st 
+     * occurrence)</p><p>PTT.030-03 (partType=Given - subsequen 
+     * occurrences)</p><p>PTT.030-04 
+     * (partType=Suffix)</p><p>PTT.030-05 
+     * (partType=Prefix)</p><p>patient 
+     * Initials</p><p>PID.5</p><p>Patient.310-CA 
+     * (partType=Given)</p><p>Patient.311-CB 
+     * (partType=Family)</p><p>Recipient Name First 
+     * (partType=Given)</p><p>Recipient Name Last 
+     * (partType=Family)</p><p>PID.5</p><p>PID.9 (any name other 
+     * than first repetition is an 
+     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p></p>
+     * 
+     * <p><p>ZPA.1 (partType=Given)</p><p>ZPA.2 
+     * (partType=Family)</p><p>ZPA.3 (partType=Given - all 
+     * repetitions except first)</p><p>C37 
+     * (partType=Given)</p><p>C38 
+     * (partType=Family)</p><p>PTT.030-01 
+     * (partType=Family)</p><p>PTT.030-02 (partType=Given - 1st 
+     * occurrence)</p><p>PTT.030-03 (partType=Given - subsequen 
+     * occurrences)</p><p>PTT.030-04 
+     * (partType=Suffix)</p><p>PTT.030-05 
+     * (partType=Prefix)</p><p>patient 
+     * Initials</p><p>PID.5</p><p>Patient.310-CA 
+     * (partType=Given)</p><p>Patient.311-CB 
+     * (partType=Family)</p><p>Recipient Name First 
+     * (partType=Given)</p><p>Recipient Name Last 
+     * (partType=Family)</p><p>PID.5</p><p>PID.9 (any name other 
+     * than first repetition is an 
+     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p></p>
+     * 
+     * <p><p>ZPA.1 (partType=Given)</p><p>ZPA.2 
+     * (partType=Family)</p><p>ZPA.3 (partType=Given - all 
+     * repetitions except first)</p><p>C37 
+     * (partType=Given)</p><p>C38 
+     * (partType=Family)</p><p>PTT.030-01 
+     * (partType=Family)</p><p>PTT.030-02 (partType=Given - 1st 
+     * occurrence)</p><p>PTT.030-03 (partType=Given - subsequen 
+     * occurrences)</p><p>PTT.030-04 
+     * (partType=Suffix)</p><p>PTT.030-05 
+     * (partType=Prefix)</p><p>patient 
+     * Initials</p><p>PID.5</p><p>Patient.310-CA 
+     * (partType=Given)</p><p>Patient.311-CB 
+     * (partType=Family)</p><p>Recipient Name First 
+     * (partType=Given)</p><p>Recipient Name Last 
+     * (partType=Family)</p><p>PID.5</p><p>PID.9 (any name other 
+     * than first repetition is an 
+     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p></p>
+     * 
+     * <p><p>ZPA.1 (partType=Given)</p><p>ZPA.2 
+     * (partType=Family)</p><p>ZPA.3 (partType=Given - all 
+     * repetitions except first)</p><p>C37 
+     * (partType=Given)</p><p>C38 
+     * (partType=Family)</p><p>PTT.030-01 
+     * (partType=Family)</p><p>PTT.030-02 (partType=Given - 1st 
+     * occurrence)</p><p>PTT.030-03 (partType=Given - subsequen 
+     * occurrences)</p><p>PTT.030-04 
+     * (partType=Suffix)</p><p>PTT.030-05 
+     * (partType=Prefix)</p><p>patient 
+     * Initials</p><p>PID.5</p><p>Patient.310-CA 
+     * (partType=Given)</p><p>Patient.311-CB 
+     * (partType=Family)</p><p>Recipient Name First 
+     * (partType=Given)</p><p>Recipient Name Last 
+     * (partType=Family)</p><p>PID.5</p><p>PID.9 (any name other 
+     * than first repetition is an 
+     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p></p>
+     * 
+     * <p><p>ZPA.1 (partType=Given)</p><p>ZPA.2 
+     * (partType=Family)</p><p>ZPA.3 (partType=Given - all 
+     * repetitions except first)</p><p>C37 
+     * (partType=Given)</p><p>C38 
+     * (partType=Family)</p><p>PTT.030-01 
+     * (partType=Family)</p><p>PTT.030-02 (partType=Given - 1st 
+     * occurrence)</p><p>PTT.030-03 (partType=Given - subsequen 
+     * occurrences)</p><p>PTT.030-04 
+     * (partType=Suffix)</p><p>PTT.030-05 
+     * (partType=Prefix)</p><p>patient 
+     * Initials</p><p>PID.5</p><p>Patient.310-CA 
+     * (partType=Given)</p><p>Patient.311-CB 
+     * (partType=Family)</p><p>Recipient Name First 
+     * (partType=Given)</p><p>Recipient Name Last 
+     * (partType=Family)</p><p>PID.5</p><p>PID.9 (any name other 
+     * than first repetition is an 
+     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p></p>
+     * 
+     * <p><p>ZPA.1 (partType=Given)</p><p>ZPA.2 
+     * (partType=Family)</p><p>ZPA.3 (partType=Given - all 
+     * repetitions except first)</p><p>C37 
+     * (partType=Given)</p><p>C38 
+     * (partType=Family)</p><p>PTT.030-01 
+     * (partType=Family)</p><p>PTT.030-02 (partType=Given - 1st 
+     * occurrence)</p><p>PTT.030-03 (partType=Given - subsequen 
+     * occurrences)</p><p>PTT.030-04 
+     * (partType=Suffix)</p><p>PTT.030-05 
+     * (partType=Prefix)</p><p>patient 
+     * Initials</p><p>PID.5</p><p>Patient.310-CA 
+     * (partType=Given)</p><p>Patient.311-CB 
+     * (partType=Family)</p><p>Recipient Name First 
+     * (partType=Given)</p><p>Recipient Name Last 
+     * (partType=Family)</p><p>PID.5</p><p>PID.9 (any name other 
+     * than first repetition is an 
+     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p></p>
+     * 
+     * <p><p>ZPA.1 (partType=Given)</p><p>ZPA.2 
+     * (partType=Family)</p><p>ZPA.3 (partType=Given - all 
+     * repetitions except first)</p><p>C37 
+     * (partType=Given)</p><p>C38 
+     * (partType=Family)</p><p>PTT.030-01 
+     * (partType=Family)</p><p>PTT.030-02 (partType=Given - 1st 
+     * occurrence)</p><p>PTT.030-03 (partType=Given - subsequen 
+     * occurrences)</p><p>PTT.030-04 
+     * (partType=Suffix)</p><p>PTT.030-05 
+     * (partType=Prefix)</p><p>patient 
+     * Initials</p><p>PID.5</p><p>Patient.310-CA 
+     * (partType=Given)</p><p>Patient.311-CB 
+     * (partType=Family)</p><p>Recipient Name First 
+     * (partType=Given)</p><p>Recipient Name Last 
+     * (partType=Family)</p><p>PID.5</p><p>PID.9 (any name other 
+     * than first repetition is an 
+     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p></p>
+     * 
+     * <p><p>ZPA.1 (partType=Given)</p><p>ZPA.2 
+     * (partType=Family)</p><p>ZPA.3 (partType=Given - all 
+     * repetitions except first)</p><p>C37 
+     * (partType=Given)</p><p>C38 
+     * (partType=Family)</p><p>PTT.030-01 
+     * (partType=Family)</p><p>PTT.030-02 (partType=Given - 1st 
+     * occurrence)</p><p>PTT.030-03 (partType=Given - subsequen 
+     * occurrences)</p><p>PTT.030-04 
+     * (partType=Suffix)</p><p>PTT.030-05 
+     * (partType=Prefix)</p><p>patient 
+     * Initials</p><p>PID.5</p><p>Patient.310-CA 
+     * (partType=Given)</p><p>Patient.311-CB 
+     * (partType=Family)</p><p>Recipient Name First 
+     * (partType=Given)</p><p>Recipient Name Last 
+     * (partType=Family)</p><p>PID.5</p><p>PID.9 (any name other 
+     * than first repetition is an 
+     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p></p>
+     * 
+     * <p><p>ZPA.1 (partType=Given)</p><p>ZPA.2 
+     * (partType=Family)</p><p>ZPA.3 (partType=Given - all 
+     * repetitions except first)</p><p>C37 
+     * (partType=Given)</p><p>C38 
+     * (partType=Family)</p><p>PTT.030-01 
+     * (partType=Family)</p><p>PTT.030-02 (partType=Given - 1st 
+     * occurrence)</p><p>PTT.030-03 (partType=Given - subsequen 
+     * occurrences)</p><p>PTT.030-04 
+     * (partType=Suffix)</p><p>PTT.030-05 
+     * (partType=Prefix)</p><p>patient 
+     * Initials</p><p>PID.5</p><p>Patient.310-CA 
+     * (partType=Given)</p><p>Patient.311-CB 
+     * (partType=Family)</p><p>Recipient Name First 
+     * (partType=Given)</p><p>Recipient Name Last 
+     * (partType=Family)</p><p>PID.5</p><p>PID.9 (any name other 
+     * than first repetition is an 
+     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p></p>
+     * 
+     * <p><p>ZPA.1 (partType=Given)</p><p>ZPA.2 
+     * (partType=Family)</p><p>ZPA.3 (partType=Given - all 
+     * repetitions except first)</p><p>C37 
+     * (partType=Given)</p><p>C38 
+     * (partType=Family)</p><p>PTT.030-01 
+     * (partType=Family)</p><p>PTT.030-02 (partType=Given - 1st 
+     * occurrence)</p><p>PTT.030-03 (partType=Given - subsequen 
+     * occurrences)</p><p>PTT.030-04 
+     * (partType=Suffix)</p><p>PTT.030-05 
+     * (partType=Prefix)</p><p>patient 
+     * Initials</p><p>PID.5</p><p>Patient.310-CA 
+     * (partType=Given)</p><p>Patient.311-CB 
+     * (partType=Family)</p><p>Recipient Name First 
+     * (partType=Given)</p><p>Recipient Name Last 
+     * (partType=Family)</p><p>PID.5</p><p>PID.9 (any name other 
+     * than first repetition is an 
+     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p></p>
+     * 
+     * <p><p>ZPA.1 (partType=Given)</p><p>ZPA.2 
+     * (partType=Family)</p><p>ZPA.3 (partType=Given - all 
+     * repetitions except first)</p><p>C37 
+     * (partType=Given)</p><p>C38 
+     * (partType=Family)</p><p>PTT.030-01 
+     * (partType=Family)</p><p>PTT.030-02 (partType=Given - 1st 
+     * occurrence)</p><p>PTT.030-03 (partType=Given - subsequen 
+     * occurrences)</p><p>PTT.030-04 
+     * (partType=Suffix)</p><p>PTT.030-05 
+     * (partType=Prefix)</p><p>patient 
+     * Initials</p><p>PID.5</p><p>Patient.310-CA 
+     * (partType=Given)</p><p>Patient.311-CB 
+     * (partType=Family)</p><p>Recipient Name First 
+     * (partType=Given)</p><p>Recipient Name Last 
+     * (partType=Family)</p><p>PID.5</p><p>PID.9 (any name other 
+     * than first repetition is an 
+     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p></p>
+     * 
+     * <p><p>ZPA.1 (partType=Given)</p><p>ZPA.2 
+     * (partType=Family)</p><p>ZPA.3 (partType=Given - all 
+     * repetitions except first)</p><p>C37 
+     * (partType=Given)</p><p>C38 
+     * (partType=Family)</p><p>PTT.030-01 
+     * (partType=Family)</p><p>PTT.030-02 (partType=Given - 1st 
+     * occurrence)</p><p>PTT.030-03 (partType=Given - subsequen 
+     * occurrences)</p><p>PTT.030-04 
+     * (partType=Suffix)</p><p>PTT.030-05 
+     * (partType=Prefix)</p><p>patient 
+     * Initials</p><p>PID.5</p><p>Patient.310-CA 
+     * (partType=Given)</p><p>Patient.311-CB 
+     * (partType=Family)</p><p>Recipient Name First 
+     * (partType=Given)</p><p>Recipient Name Last 
+     * (partType=Family)</p><p>PID.5</p><p>PID.9 (any name other 
+     * than first repetition is an 
+     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p></p>
+     * 
+     * <p><p>ZPA.1 (partType=Given)</p><p>ZPA.2 
+     * (partType=Family)</p><p>ZPA.3 (partType=Given - all 
+     * repetitions except first)</p><p>C37 
+     * (partType=Given)</p><p>C38 
+     * (partType=Family)</p><p>PTT.030-01 
+     * (partType=Family)</p><p>PTT.030-02 (partType=Given - 1st 
+     * occurrence)</p><p>PTT.030-03 (partType=Given - subsequen 
+     * occurrences)</p><p>PTT.030-04 
+     * (partType=Suffix)</p><p>PTT.030-05 
+     * (partType=Prefix)</p><p>patient 
+     * Initials</p><p>PID.5</p><p>Patient.310-CA 
+     * (partType=Given)</p><p>Patient.311-CB 
+     * (partType=Family)</p><p>Recipient Name First 
+     * (partType=Given)</p><p>Recipient Name Last 
+     * (partType=Family)</p><p>PID.5</p><p>PID.9 (any name other 
+     * than first repetition is an 
+     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p></p>
+     * 
+     * <p><p>ZPA.1 (partType=Given)</p><p>ZPA.2 
+     * (partType=Family)</p><p>ZPA.3 (partType=Given - all 
+     * repetitions except first)</p><p>C37 
+     * (partType=Given)</p><p>C38 
+     * (partType=Family)</p><p>PTT.030-01 
+     * (partType=Family)</p><p>PTT.030-02 (partType=Given - 1st 
+     * occurrence)</p><p>PTT.030-03 (partType=Given - subsequen 
+     * occurrences)</p><p>PTT.030-04 
+     * (partType=Suffix)</p><p>PTT.030-05 
+     * (partType=Prefix)</p><p>patient 
+     * Initials</p><p>PID.5</p><p>Patient.310-CA 
+     * (partType=Given)</p><p>Patient.311-CB 
+     * (partType=Family)</p><p>Recipient Name First 
+     * (partType=Given)</p><p>Recipient Name Last 
+     * (partType=Family)</p><p>PID.5</p><p>PID.9 (any name other 
+     * than first repetition is an 
+     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p></p>
+     * 
+     * <p><p>ZPA.1 (partType=Given)</p><p>ZPA.2 
+     * (partType=Family)</p><p>ZPA.3 (partType=Given - all 
+     * repetitions except first)</p><p>C37 
+     * (partType=Given)</p><p>C38 
+     * (partType=Family)</p><p>PTT.030-01 
+     * (partType=Family)</p><p>PTT.030-02 (partType=Given - 1st 
+     * occurrence)</p><p>PTT.030-03 (partType=Given - subsequen 
+     * occurrences)</p><p>PTT.030-04 
+     * (partType=Suffix)</p><p>PTT.030-05 
+     * (partType=Prefix)</p><p>patient 
+     * Initials</p><p>PID.5</p><p>Patient.310-CA 
+     * (partType=Given)</p><p>Patient.311-CB 
+     * (partType=Family)</p><p>Recipient Name First 
+     * (partType=Given)</p><p>Recipient Name Last 
+     * (partType=Family)</p><p>PID.5</p><p>PID.9 (any name other 
+     * than first repetition is an 
+     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p></p>
+     * 
+     * <p><p>ZPA.1 (partType=Given)</p><p>ZPA.2 
+     * (partType=Family)</p><p>ZPA.3 (partType=Given - all 
+     * repetitions except first)</p><p>C37 
+     * (partType=Given)</p><p>C38 
+     * (partType=Family)</p><p>PTT.030-01 
+     * (partType=Family)</p><p>PTT.030-02 (partType=Given - 1st 
+     * occurrence)</p><p>PTT.030-03 (partType=Given - subsequen 
+     * occurrences)</p><p>PTT.030-04 
+     * (partType=Suffix)</p><p>PTT.030-05 
+     * (partType=Prefix)</p><p>patient 
+     * Initials</p><p>PID.5</p><p>Patient.310-CA 
+     * (partType=Given)</p><p>Patient.311-CB 
+     * (partType=Family)</p><p>Recipient Name First 
+     * (partType=Given)</p><p>Recipient Name Last 
+     * (partType=Family)</p><p>PID.5</p><p>PID.9 (any name other 
+     * than first repetition is an 
+     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p></p>
+     * 
+     * <p><p>ZPA.1 (partType=Given)</p><p>ZPA.2 
+     * (partType=Family)</p><p>ZPA.3 (partType=Given - all 
+     * repetitions except first)</p><p>C37 
+     * (partType=Given)</p><p>C38 
+     * (partType=Family)</p><p>PTT.030-01 
+     * (partType=Family)</p><p>PTT.030-02 (partType=Given - 1st 
+     * occurrence)</p><p>PTT.030-03 (partType=Given - subsequen 
+     * occurrences)</p><p>PTT.030-04 
+     * (partType=Suffix)</p><p>PTT.030-05 
+     * (partType=Prefix)</p><p>patient 
+     * Initials</p><p>PID.5</p><p>Patient.310-CA 
+     * (partType=Given)</p><p>Patient.311-CB 
+     * (partType=Family)</p><p>Recipient Name First 
+     * (partType=Given)</p><p>Recipient Name Last 
+     * (partType=Family)</p><p>PID.5</p><p>PID.9 (any name other 
+     * than first repetition is an 
+     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p></p>
+     * 
+     * <p><p>ZPA.1 (partType=Given)</p><p>ZPA.2 
+     * (partType=Family)</p><p>ZPA.3 (partType=Given - all 
+     * repetitions except first)</p><p>C37 
+     * (partType=Given)</p><p>C38 
+     * (partType=Family)</p><p>PTT.030-01 
+     * (partType=Family)</p><p>PTT.030-02 (partType=Given - 1st 
+     * occurrence)</p><p>PTT.030-03 (partType=Given - subsequen 
+     * occurrences)</p><p>PTT.030-04 
+     * (partType=Suffix)</p><p>PTT.030-05 
+     * (partType=Prefix)</p><p>patient 
+     * Initials</p><p>PID.5</p><p>Patient.310-CA 
+     * (partType=Given)</p><p>Patient.311-CB 
+     * (partType=Family)</p><p>Recipient Name First 
+     * (partType=Given)</p><p>Recipient Name Last 
+     * (partType=Family)</p><p>PID.5</p><p>PID.9 (any name other 
+     * than first repetition is an 
+     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p></p>
+     * 
+     * <p><p>ZPA.1 (partType=Given)</p><p>ZPA.2 
+     * (partType=Family)</p><p>ZPA.3 (partType=Given - all 
+     * repetitions except first)</p><p>C37 
+     * (partType=Given)</p><p>C38 
+     * (partType=Family)</p><p>PTT.030-01 
+     * (partType=Family)</p><p>PTT.030-02 (partType=Given - 1st 
+     * occurrence)</p><p>PTT.030-03 (partType=Given - subsequen 
+     * occurrences)</p><p>PTT.030-04 
+     * (partType=Suffix)</p><p>PTT.030-05 
+     * (partType=Prefix)</p><p>patient 
+     * Initials</p><p>PID.5</p><p>Patient.310-CA 
+     * (partType=Given)</p><p>Patient.311-CB 
+     * (partType=Family)</p><p>Recipient Name First 
+     * (partType=Given)</p><p>Recipient Name Last 
+     * (partType=Family)</p><p>PID.5</p><p>PID.9 (any name other 
+     * than first repetition is an 
+     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p></p>
+     * 
+     * <p><p>ZPA.1 (partType=Given)</p><p>ZPA.2 
+     * (partType=Family)</p><p>ZPA.3 (partType=Given - all 
+     * repetitions except first)</p><p>C37 
+     * (partType=Given)</p><p>C38 
+     * (partType=Family)</p><p>PTT.030-01 
+     * (partType=Family)</p><p>PTT.030-02 (partType=Given - 1st 
+     * occurrence)</p><p>PTT.030-03 (partType=Given - subsequen 
+     * occurrences)</p><p>PTT.030-04 
+     * (partType=Suffix)</p><p>PTT.030-05 
+     * (partType=Prefix)</p><p>patient 
+     * Initials</p><p>PID.5</p><p>Patient.310-CA 
+     * (partType=Given)</p><p>Patient.311-CB 
+     * (partType=Family)</p><p>Recipient Name First 
+     * (partType=Given)</p><p>Recipient Name Last 
+     * (partType=Family)</p><p>PID.5</p><p>PID.9 (any name other 
+     * than first repetition is an 
+     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p></p>
+     * 
+     * <p><p>ZPA.1 (partType=Given)</p><p>ZPA.2 
+     * (partType=Family)</p><p>ZPA.3 (partType=Given - all 
+     * repetitions except first)</p><p>C37 
+     * (partType=Given)</p><p>C38 
+     * (partType=Family)</p><p>PTT.030-01 
+     * (partType=Family)</p><p>PTT.030-02 (partType=Given - 1st 
+     * occurrence)</p><p>PTT.030-03 (partType=Given - subsequen 
+     * occurrences)</p><p>PTT.030-04 
+     * (partType=Suffix)</p><p>PTT.030-05 
+     * (partType=Prefix)</p><p>patient 
+     * Initials</p><p>PID.5</p><p>Patient.310-CA 
+     * (partType=Given)</p><p>Patient.311-CB 
+     * (partType=Family)</p><p>Recipient Name First 
+     * (partType=Given)</p><p>Recipient Name Last 
+     * (partType=Family)</p><p>PID.5</p><p>PID.9 (any name other 
+     * than first repetition is an 
+     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p></p>
+     * 
+     * <p><p>ZPA.1 (partType=Given)</p><p>ZPA.2 
+     * (partType=Family)</p><p>ZPA.3 (partType=Given - all 
+     * repetitions except first)</p><p>C37 
+     * (partType=Given)</p><p>C38 
+     * (partType=Family)</p><p>PTT.030-01 
+     * (partType=Family)</p><p>PTT.030-02 (partType=Given - 1st 
+     * occurrence)</p><p>PTT.030-03 (partType=Given - subsequen 
+     * occurrences)</p><p>PTT.030-04 
+     * (partType=Suffix)</p><p>PTT.030-05 
+     * (partType=Prefix)</p><p>patient 
+     * Initials</p><p>PID.5</p><p>Patient.310-CA 
+     * (partType=Given)</p><p>Patient.311-CB 
+     * (partType=Family)</p><p>Recipient Name First 
+     * (partType=Given)</p><p>Recipient Name Last 
+     * (partType=Family)</p><p>PID.5</p><p>PID.9 (any name other 
+     * than first repetition is an 
+     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p></p>
+     * 
+     * <p><p>ZPA.1 (partType=Given)</p><p>ZPA.2 
+     * (partType=Family)</p><p>ZPA.3 (partType=Given - all 
+     * repetitions except first)</p><p>C37 
+     * (partType=Given)</p><p>C38 
+     * (partType=Family)</p><p>PTT.030-01 
+     * (partType=Family)</p><p>PTT.030-02 (partType=Given - 1st 
+     * occurrence)</p><p>PTT.030-03 (partType=Given - subsequen 
+     * occurrences)</p><p>PTT.030-04 
+     * (partType=Suffix)</p><p>PTT.030-05 
+     * (partType=Prefix)</p><p>patient 
+     * Initials</p><p>PID.5</p><p>Patient.310-CA 
+     * (partType=Given)</p><p>Patient.311-CB 
+     * (partType=Family)</p><p>Recipient Name First 
+     * (partType=Given)</p><p>Recipient Name Last 
+     * (partType=Family)</p><p>PID.5</p><p>PID.9 (any name other 
+     * than first repetition is an 
+     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p></p>
+     * 
+     * <p><p>ZPA.1 (partType=Given)</p><p>ZPA.2 
+     * (partType=Family)</p><p>ZPA.3 (partType=Given - all 
+     * repetitions except first)</p><p>C37 
+     * (partType=Given)</p><p>C38 
+     * (partType=Family)</p><p>PTT.030-01 
+     * (partType=Family)</p><p>PTT.030-02 (partType=Given - 1st 
+     * occurrence)</p><p>PTT.030-03 (partType=Given - subsequen 
+     * occurrences)</p><p>PTT.030-04 
+     * (partType=Suffix)</p><p>PTT.030-05 
+     * (partType=Prefix)</p><p>patient 
+     * Initials</p><p>PID.5</p><p>Patient.310-CA 
+     * (partType=Given)</p><p>Patient.311-CB 
+     * (partType=Family)</p><p>Recipient Name First 
+     * (partType=Given)</p><p>Recipient Name Last 
+     * (partType=Family)</p><p>PID.5</p><p>PID.9 (any name other 
+     * than first repetition is an 
+     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p></p>
+     * 
+     * <p><p>ZPA.1 (partType=Given)</p><p>ZPA.2 
+     * (partType=Family)</p><p>ZPA.3 (partType=Given - all 
+     * repetitions except first)</p><p>C37 
+     * (partType=Given)</p><p>C38 
+     * (partType=Family)</p><p>PTT.030-01 
+     * (partType=Family)</p><p>PTT.030-02 (partType=Given - 1st 
+     * occurrence)</p><p>PTT.030-03 (partType=Given - subsequen 
+     * occurrences)</p><p>PTT.030-04 
+     * (partType=Suffix)</p><p>PTT.030-05 
+     * (partType=Prefix)</p><p>patient 
+     * Initials</p><p>PID.5</p><p>Patient.310-CA 
+     * (partType=Given)</p><p>Patient.311-CB 
+     * (partType=Family)</p><p>Recipient Name First 
+     * (partType=Given)</p><p>Recipient Name Last 
+     * (partType=Family)</p><p>PID.5</p><p>PID.9 (any name other 
+     * than first repetition is an 
+     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p></p>
+     * 
+     * <p><p>Potentially used by PoS systems to confirm patient 
+     * identity. Also acts as the visual confirmation to the user 
+     * about the patient being viewed.</p><p>The element is 
+     * populated because the patient's name is important for 
+     * display. However, there may be circumstances where a name is 
+     * not available in the registry (e.g. newborns).</p></p>
+     * 
+     * <p><p>Potentially used by PoS systems to confirm patient 
+     * identity. Also acts as the visual confirmation to the user 
+     * about the patient being viewed.</p><p>The element is 
+     * populated because the patient's name is important for 
+     * display. However, there may be circumstances where a name is 
+     * not available in the registry (e.g. newborns).</p></p>
+     * 
+     * <p>B:Patient Name</p>
+     * 
+     * <p><p>The name by which the patient is known.</p></p>
+     * 
+     * <p><p>ZPA.1 (partType=Given)</p><p>ZPA.2 
+     * (partType=Family)</p><p>ZPA.3 (partType=Given - all 
+     * repetitions except first)</p><p>C37 
+     * (partType=Given)</p><p>C38 
+     * (partType=Family)</p><p>PTT.030-01 
+     * (partType=Family)</p><p>PTT.030-02 (partType=Given - 1st 
+     * occurrence)</p><p>PTT.030-03 (partType=Given - subsequen 
+     * occurrences)</p><p>PTT.030-04 
+     * (partType=Suffix)</p><p>PTT.030-05 
+     * (partType=Prefix)</p><p>patient 
+     * Initials</p><p>PID.5</p><p>Patient.310-CA 
+     * (partType=Given)</p><p>Patient.311-CB 
+     * (partType=Family)</p><p>Recipient Name First 
+     * (partType=Given)</p><p>Recipient Name Last 
+     * (partType=Family)</p><p>PID.5</p><p>PID.9 (any name other 
+     * than first repetition is an 
+     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p></p>
+     * 
+     * <p><p>ZPA.1 (partType=Given)</p><p>ZPA.2 
+     * (partType=Family)</p><p>ZPA.3 (partType=Given - all 
+     * repetitions except first)</p><p>C37 
+     * (partType=Given)</p><p>C38 
+     * (partType=Family)</p><p>PTT.030-01 
+     * (partType=Family)</p><p>PTT.030-02 (partType=Given - 1st 
+     * occurrence)</p><p>PTT.030-03 (partType=Given - subsequen 
+     * occurrences)</p><p>PTT.030-04 
+     * (partType=Suffix)</p><p>PTT.030-05 
+     * (partType=Prefix)</p><p>patient 
+     * Initials</p><p>PID.5</p><p>Patient.310-CA 
+     * (partType=Given)</p><p>Patient.311-CB 
+     * (partType=Family)</p><p>Recipient Name First 
+     * (partType=Given)</p><p>Recipient Name Last 
+     * (partType=Family)</p><p>PID.5</p><p>PID.9 (any name other 
+     * than first repetition is an 
+     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p></p>
+     * 
+     * <p><p>ZPA.1 (partType=Given)</p><p>ZPA.2 
+     * (partType=Family)</p><p>ZPA.3 (partType=Given - all 
+     * repetitions except first)</p><p>C37 
+     * (partType=Given)</p><p>C38 
+     * (partType=Family)</p><p>PTT.030-01 
+     * (partType=Family)</p><p>PTT.030-02 (partType=Given - 1st 
+     * occurrence)</p><p>PTT.030-03 (partType=Given - subsequen 
+     * occurrences)</p><p>PTT.030-04 
+     * (partType=Suffix)</p><p>PTT.030-05 
+     * (partType=Prefix)</p><p>patient 
+     * Initials</p><p>PID.5</p><p>Patient.310-CA 
+     * (partType=Given)</p><p>Patient.311-CB 
+     * (partType=Family)</p><p>Recipient Name First 
+     * (partType=Given)</p><p>Recipient Name Last 
+     * (partType=Family)</p><p>PID.5</p><p>PID.9 (any name other 
+     * than first repetition is an 
+     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p></p>
+     * 
+     * <p><p>ZPA.1 (partType=Given)</p><p>ZPA.2 
+     * (partType=Family)</p><p>ZPA.3 (partType=Given - all 
+     * repetitions except first)</p><p>C37 
+     * (partType=Given)</p><p>C38 
+     * (partType=Family)</p><p>PTT.030-01 
+     * (partType=Family)</p><p>PTT.030-02 (partType=Given - 1st 
+     * occurrence)</p><p>PTT.030-03 (partType=Given - subsequen 
+     * occurrences)</p><p>PTT.030-04 
+     * (partType=Suffix)</p><p>PTT.030-05 
+     * (partType=Prefix)</p><p>patient 
+     * Initials</p><p>PID.5</p><p>Patient.310-CA 
+     * (partType=Given)</p><p>Patient.311-CB 
+     * (partType=Family)</p><p>Recipient Name First 
+     * (partType=Given)</p><p>Recipient Name Last 
+     * (partType=Family)</p><p>PID.5</p><p>PID.9 (any name other 
+     * than first repetition is an 
+     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p></p>
+     * 
+     * <p><p>ZPA.1 (partType=Given)</p><p>ZPA.2 
+     * (partType=Family)</p><p>ZPA.3 (partType=Given - all 
+     * repetitions except first)</p><p>C37 
+     * (partType=Given)</p><p>C38 
+     * (partType=Family)</p><p>PTT.030-01 
+     * (partType=Family)</p><p>PTT.030-02 (partType=Given - 1st 
+     * occurrence)</p><p>PTT.030-03 (partType=Given - subsequen 
+     * occurrences)</p><p>PTT.030-04 
+     * (partType=Suffix)</p><p>PTT.030-05 
+     * (partType=Prefix)</p><p>patient 
+     * Initials</p><p>PID.5</p><p>Patient.310-CA 
+     * (partType=Given)</p><p>Patient.311-CB 
+     * (partType=Family)</p><p>Recipient Name First 
+     * (partType=Given)</p><p>Recipient Name Last 
+     * (partType=Family)</p><p>PID.5</p><p>PID.9 (any name other 
+     * than first repetition is an 
+     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p></p>
+     * 
+     * <p><p>ZPA.1 (partType=Given)</p><p>ZPA.2 
+     * (partType=Family)</p><p>ZPA.3 (partType=Given - all 
+     * repetitions except first)</p><p>C37 
+     * (partType=Given)</p><p>C38 
+     * (partType=Family)</p><p>PTT.030-01 
+     * (partType=Family)</p><p>PTT.030-02 (partType=Given - 1st 
+     * occurrence)</p><p>PTT.030-03 (partType=Given - subsequen 
+     * occurrences)</p><p>PTT.030-04 
+     * (partType=Suffix)</p><p>PTT.030-05 
+     * (partType=Prefix)</p><p>patient 
+     * Initials</p><p>PID.5</p><p>Patient.310-CA 
+     * (partType=Given)</p><p>Patient.311-CB 
+     * (partType=Family)</p><p>Recipient Name First 
+     * (partType=Given)</p><p>Recipient Name Last 
+     * (partType=Family)</p><p>PID.5</p><p>PID.9 (any name other 
+     * than first repetition is an 
+     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p></p>
+     * 
+     * <p><p>ZPA.1 (partType=Given)</p><p>ZPA.2 
+     * (partType=Family)</p><p>ZPA.3 (partType=Given - all 
+     * repetitions except first)</p><p>C37 
+     * (partType=Given)</p><p>C38 
+     * (partType=Family)</p><p>PTT.030-01 
+     * (partType=Family)</p><p>PTT.030-02 (partType=Given - 1st 
+     * occurrence)</p><p>PTT.030-03 (partType=Given - subsequen 
+     * occurrences)</p><p>PTT.030-04 
+     * (partType=Suffix)</p><p>PTT.030-05 
+     * (partType=Prefix)</p><p>patient 
+     * Initials</p><p>PID.5</p><p>Patient.310-CA 
+     * (partType=Given)</p><p>Patient.311-CB 
+     * (partType=Family)</p><p>Recipient Name First 
+     * (partType=Given)</p><p>Recipient Name Last 
+     * (partType=Family)</p><p>PID.5</p><p>PID.9 (any name other 
+     * than first repetition is an 
+     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p></p>
+     * 
+     * <p><p>ZPA.1 (partType=Given)</p><p>ZPA.2 
+     * (partType=Family)</p><p>ZPA.3 (partType=Given - all 
+     * repetitions except first)</p><p>C37 
+     * (partType=Given)</p><p>C38 
+     * (partType=Family)</p><p>PTT.030-01 
+     * (partType=Family)</p><p>PTT.030-02 (partType=Given - 1st 
+     * occurrence)</p><p>PTT.030-03 (partType=Given - subsequen 
+     * occurrences)</p><p>PTT.030-04 
+     * (partType=Suffix)</p><p>PTT.030-05 
+     * (partType=Prefix)</p><p>patient 
+     * Initials</p><p>PID.5</p><p>Patient.310-CA 
+     * (partType=Given)</p><p>Patient.311-CB 
+     * (partType=Family)</p><p>Recipient Name First 
+     * (partType=Given)</p><p>Recipient Name Last 
+     * (partType=Family)</p><p>PID.5</p><p>PID.9 (any name other 
+     * than first repetition is an 
+     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p></p>
+     * 
+     * <p><p>ZPA.1 (partType=Given)</p><p>ZPA.2 
+     * (partType=Family)</p><p>ZPA.3 (partType=Given - all 
+     * repetitions except first)</p><p>C37 
+     * (partType=Given)</p><p>C38 
+     * (partType=Family)</p><p>PTT.030-01 
+     * (partType=Family)</p><p>PTT.030-02 (partType=Given - 1st 
+     * occurrence)</p><p>PTT.030-03 (partType=Given - subsequen 
+     * occurrences)</p><p>PTT.030-04 
+     * (partType=Suffix)</p><p>PTT.030-05 
+     * (partType=Prefix)</p><p>patient 
+     * Initials</p><p>PID.5</p><p>Patient.310-CA 
+     * (partType=Given)</p><p>Patient.311-CB 
+     * (partType=Family)</p><p>Recipient Name First 
+     * (partType=Given)</p><p>Recipient Name Last 
+     * (partType=Family)</p><p>PID.5</p><p>PID.9 (any name other 
+     * than first repetition is an 
+     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p></p>
+     * 
+     * <p><p>ZPA.1 (partType=Given)</p><p>ZPA.2 
+     * (partType=Family)</p><p>ZPA.3 (partType=Given - all 
+     * repetitions except first)</p><p>C37 
+     * (partType=Given)</p><p>C38 
+     * (partType=Family)</p><p>PTT.030-01 
+     * (partType=Family)</p><p>PTT.030-02 (partType=Given - 1st 
+     * occurrence)</p><p>PTT.030-03 (partType=Given - subsequen 
+     * occurrences)</p><p>PTT.030-04 
+     * (partType=Suffix)</p><p>PTT.030-05 
+     * (partType=Prefix)</p><p>patient 
+     * Initials</p><p>PID.5</p><p>Patient.310-CA 
+     * (partType=Given)</p><p>Patient.311-CB 
+     * (partType=Family)</p><p>Recipient Name First 
+     * (partType=Given)</p><p>Recipient Name Last 
+     * (partType=Family)</p><p>PID.5</p><p>PID.9 (any name other 
+     * than first repetition is an 
+     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p></p>
+     * 
+     * <p><p>ZPA.1 (partType=Given)</p><p>ZPA.2 
+     * (partType=Family)</p><p>ZPA.3 (partType=Given - all 
+     * repetitions except first)</p><p>C37 
+     * (partType=Given)</p><p>C38 
+     * (partType=Family)</p><p>PTT.030-01 
+     * (partType=Family)</p><p>PTT.030-02 (partType=Given - 1st 
+     * occurrence)</p><p>PTT.030-03 (partType=Given - subsequen 
+     * occurrences)</p><p>PTT.030-04 
+     * (partType=Suffix)</p><p>PTT.030-05 
+     * (partType=Prefix)</p><p>patient 
+     * Initials</p><p>PID.5</p><p>Patient.310-CA 
+     * (partType=Given)</p><p>Patient.311-CB 
+     * (partType=Family)</p><p>Recipient Name First 
+     * (partType=Given)</p><p>Recipient Name Last 
+     * (partType=Family)</p><p>PID.5</p><p>PID.9 (any name other 
+     * than first repetition is an 
+     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p></p>
+     * 
+     * <p><p>ZPA.1 (partType=Given)</p><p>ZPA.2 
+     * (partType=Family)</p><p>ZPA.3 (partType=Given - all 
+     * repetitions except first)</p><p>C37 
+     * (partType=Given)</p><p>C38 
+     * (partType=Family)</p><p>PTT.030-01 
+     * (partType=Family)</p><p>PTT.030-02 (partType=Given - 1st 
+     * occurrence)</p><p>PTT.030-03 (partType=Given - subsequen 
+     * occurrences)</p><p>PTT.030-04 
+     * (partType=Suffix)</p><p>PTT.030-05 
+     * (partType=Prefix)</p><p>patient 
+     * Initials</p><p>PID.5</p><p>Patient.310-CA 
+     * (partType=Given)</p><p>Patient.311-CB 
+     * (partType=Family)</p><p>Recipient Name First 
+     * (partType=Given)</p><p>Recipient Name Last 
+     * (partType=Family)</p><p>PID.5</p><p>PID.9 (any name other 
+     * than first repetition is an 
+     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p></p>
+     * 
+     * <p><p>ZPA.1 (partType=Given)</p><p>ZPA.2 
+     * (partType=Family)</p><p>ZPA.3 (partType=Given - all 
+     * repetitions except first)</p><p>C37 
+     * (partType=Given)</p><p>C38 
+     * (partType=Family)</p><p>PTT.030-01 
+     * (partType=Family)</p><p>PTT.030-02 (partType=Given - 1st 
+     * occurrence)</p><p>PTT.030-03 (partType=Given - subsequen 
+     * occurrences)</p><p>PTT.030-04 
+     * (partType=Suffix)</p><p>PTT.030-05 
+     * (partType=Prefix)</p><p>patient 
+     * Initials</p><p>PID.5</p><p>Patient.310-CA 
+     * (partType=Given)</p><p>Patient.311-CB 
+     * (partType=Family)</p><p>Recipient Name First 
+     * (partType=Given)</p><p>Recipient Name Last 
+     * (partType=Family)</p><p>PID.5</p><p>PID.9 (any name other 
+     * than first repetition is an 
+     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p></p>
+     * 
+     * <p><p>ZPA.1 (partType=Given)</p><p>ZPA.2 
+     * (partType=Family)</p><p>ZPA.3 (partType=Given - all 
+     * repetitions except first)</p><p>C37 
+     * (partType=Given)</p><p>C38 
+     * (partType=Family)</p><p>PTT.030-01 
+     * (partType=Family)</p><p>PTT.030-02 (partType=Given - 1st 
+     * occurrence)</p><p>PTT.030-03 (partType=Given - subsequen 
+     * occurrences)</p><p>PTT.030-04 
+     * (partType=Suffix)</p><p>PTT.030-05 
+     * (partType=Prefix)</p><p>patient 
+     * Initials</p><p>PID.5</p><p>Patient.310-CA 
+     * (partType=Given)</p><p>Patient.311-CB 
+     * (partType=Family)</p><p>Recipient Name First 
+     * (partType=Given)</p><p>Recipient Name Last 
+     * (partType=Family)</p><p>PID.5</p><p>PID.9 (any name other 
+     * than first repetition is an 
+     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p></p>
+     * 
+     * <p><p>ZPA.1 (partType=Given)</p><p>ZPA.2 
+     * (partType=Family)</p><p>ZPA.3 (partType=Given - all 
+     * repetitions except first)</p><p>C37 
+     * (partType=Given)</p><p>C38 
+     * (partType=Family)</p><p>PTT.030-01 
+     * (partType=Family)</p><p>PTT.030-02 (partType=Given - 1st 
+     * occurrence)</p><p>PTT.030-03 (partType=Given - subsequen 
+     * occurrences)</p><p>PTT.030-04 
+     * (partType=Suffix)</p><p>PTT.030-05 
+     * (partType=Prefix)</p><p>patient 
+     * Initials</p><p>PID.5</p><p>Patient.310-CA 
+     * (partType=Given)</p><p>Patient.311-CB 
+     * (partType=Family)</p><p>Recipient Name First 
+     * (partType=Given)</p><p>Recipient Name Last 
+     * (partType=Family)</p><p>PID.5</p><p>PID.9 (any name other 
+     * than first repetition is an 
+     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p></p>
+     * 
+     * <p><p>ZPA.1 (partType=Given)</p><p>ZPA.2 
+     * (partType=Family)</p><p>ZPA.3 (partType=Given - all 
+     * repetitions except first)</p><p>C37 
+     * (partType=Given)</p><p>C38 
+     * (partType=Family)</p><p>PTT.030-01 
+     * (partType=Family)</p><p>PTT.030-02 (partType=Given - 1st 
+     * occurrence)</p><p>PTT.030-03 (partType=Given - subsequen 
+     * occurrences)</p><p>PTT.030-04 
+     * (partType=Suffix)</p><p>PTT.030-05 
+     * (partType=Prefix)</p><p>patient 
+     * Initials</p><p>PID.5</p><p>Patient.310-CA 
+     * (partType=Given)</p><p>Patient.311-CB 
+     * (partType=Family)</p><p>Recipient Name First 
+     * (partType=Given)</p><p>Recipient Name Last 
+     * (partType=Family)</p><p>PID.5</p><p>PID.9 (any name other 
+     * than first repetition is an 
+     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p></p>
+     * 
+     * <p><p>ZPA.1 (partType=Given)</p><p>ZPA.2 
+     * (partType=Family)</p><p>ZPA.3 (partType=Given - all 
+     * repetitions except first)</p><p>C37 
+     * (partType=Given)</p><p>C38 
+     * (partType=Family)</p><p>PTT.030-01 
+     * (partType=Family)</p><p>PTT.030-02 (partType=Given - 1st 
+     * occurrence)</p><p>PTT.030-03 (partType=Given - subsequen 
+     * occurrences)</p><p>PTT.030-04 
+     * (partType=Suffix)</p><p>PTT.030-05 
+     * (partType=Prefix)</p><p>patient 
+     * Initials</p><p>PID.5</p><p>Patient.310-CA 
+     * (partType=Given)</p><p>Patient.311-CB 
+     * (partType=Family)</p><p>Recipient Name First 
+     * (partType=Given)</p><p>Recipient Name Last 
+     * (partType=Family)</p><p>PID.5</p><p>PID.9 (any name other 
+     * than first repetition is an 
+     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p></p>
+     * 
+     * <p><p>ZPA.1 (partType=Given)</p><p>ZPA.2 
+     * (partType=Family)</p><p>ZPA.3 (partType=Given - all 
+     * repetitions except first)</p><p>C37 
+     * (partType=Given)</p><p>C38 
+     * (partType=Family)</p><p>PTT.030-01 
+     * (partType=Family)</p><p>PTT.030-02 (partType=Given - 1st 
+     * occurrence)</p><p>PTT.030-03 (partType=Given - subsequen 
+     * occurrences)</p><p>PTT.030-04 
+     * (partType=Suffix)</p><p>PTT.030-05 
+     * (partType=Prefix)</p><p>patient 
+     * Initials</p><p>PID.5</p><p>Patient.310-CA 
+     * (partType=Given)</p><p>Patient.311-CB 
+     * (partType=Family)</p><p>Recipient Name First 
+     * (partType=Given)</p><p>Recipient Name Last 
+     * (partType=Family)</p><p>PID.5</p><p>PID.9 (any name other 
+     * than first repetition is an 
+     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p></p>
+     * 
+     * <p><p>ZPA.1 (partType=Given)</p><p>ZPA.2 
+     * (partType=Family)</p><p>ZPA.3 (partType=Given - all 
+     * repetitions except first)</p><p>C37 
+     * (partType=Given)</p><p>C38 
+     * (partType=Family)</p><p>PTT.030-01 
+     * (partType=Family)</p><p>PTT.030-02 (partType=Given - 1st 
+     * occurrence)</p><p>PTT.030-03 (partType=Given - subsequen 
+     * occurrences)</p><p>PTT.030-04 
+     * (partType=Suffix)</p><p>PTT.030-05 
+     * (partType=Prefix)</p><p>patient 
+     * Initials</p><p>PID.5</p><p>Patient.310-CA 
+     * (partType=Given)</p><p>Patient.311-CB 
+     * (partType=Family)</p><p>Recipient Name First 
+     * (partType=Given)</p><p>Recipient Name Last 
+     * (partType=Family)</p><p>PID.5</p><p>PID.9 (any name other 
+     * than first repetition is an 
+     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p></p>
+     * 
+     * <p><p>ZPA.1 (partType=Given)</p><p>ZPA.2 
+     * (partType=Family)</p><p>ZPA.3 (partType=Given - all 
+     * repetitions except first)</p><p>C37 
+     * (partType=Given)</p><p>C38 
+     * (partType=Family)</p><p>PTT.030-01 
+     * (partType=Family)</p><p>PTT.030-02 (partType=Given - 1st 
+     * occurrence)</p><p>PTT.030-03 (partType=Given - subsequen 
+     * occurrences)</p><p>PTT.030-04 
+     * (partType=Suffix)</p><p>PTT.030-05 
+     * (partType=Prefix)</p><p>patient 
+     * Initials</p><p>PID.5</p><p>Patient.310-CA 
+     * (partType=Given)</p><p>Patient.311-CB 
+     * (partType=Family)</p><p>Recipient Name First 
+     * (partType=Given)</p><p>Recipient Name Last 
+     * (partType=Family)</p><p>PID.5</p><p>PID.9 (any name other 
+     * than first repetition is an 
+     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p></p>
+     * 
+     * <p><p>ZPA.1 (partType=Given)</p><p>ZPA.2 
+     * (partType=Family)</p><p>ZPA.3 (partType=Given - all 
+     * repetitions except first)</p><p>C37 
+     * (partType=Given)</p><p>C38 
+     * (partType=Family)</p><p>PTT.030-01 
+     * (partType=Family)</p><p>PTT.030-02 (partType=Given - 1st 
+     * occurrence)</p><p>PTT.030-03 (partType=Given - subsequen 
+     * occurrences)</p><p>PTT.030-04 
+     * (partType=Suffix)</p><p>PTT.030-05 
+     * (partType=Prefix)</p><p>patient 
+     * Initials</p><p>PID.5</p><p>Patient.310-CA 
+     * (partType=Given)</p><p>Patient.311-CB 
+     * (partType=Family)</p><p>Recipient Name First 
+     * (partType=Given)</p><p>Recipient Name Last 
+     * (partType=Family)</p><p>PID.5</p><p>PID.9 (any name other 
+     * than first repetition is an 
+     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p></p>
+     * 
+     * <p><p>ZPA.1 (partType=Given)</p><p>ZPA.2 
+     * (partType=Family)</p><p>ZPA.3 (partType=Given - all 
+     * repetitions except first)</p><p>C37 
+     * (partType=Given)</p><p>C38 
+     * (partType=Family)</p><p>PTT.030-01 
+     * (partType=Family)</p><p>PTT.030-02 (partType=Given - 1st 
+     * occurrence)</p><p>PTT.030-03 (partType=Given - subsequen 
+     * occurrences)</p><p>PTT.030-04 
+     * (partType=Suffix)</p><p>PTT.030-05 
+     * (partType=Prefix)</p><p>patient 
+     * Initials</p><p>PID.5</p><p>Patient.310-CA 
+     * (partType=Given)</p><p>Patient.311-CB 
+     * (partType=Family)</p><p>Recipient Name First 
+     * (partType=Given)</p><p>Recipient Name Last 
+     * (partType=Family)</p><p>PID.5</p><p>PID.9 (any name other 
+     * than first repetition is an 
+     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p></p>
+     * 
+     * <p><p>ZPA.1 (partType=Given)</p><p>ZPA.2 
+     * (partType=Family)</p><p>ZPA.3 (partType=Given - all 
+     * repetitions except first)</p><p>C37 
+     * (partType=Given)</p><p>C38 
+     * (partType=Family)</p><p>PTT.030-01 
+     * (partType=Family)</p><p>PTT.030-02 (partType=Given - 1st 
+     * occurrence)</p><p>PTT.030-03 (partType=Given - subsequen 
+     * occurrences)</p><p>PTT.030-04 
+     * (partType=Suffix)</p><p>PTT.030-05 
+     * (partType=Prefix)</p><p>patient 
+     * Initials</p><p>PID.5</p><p>Patient.310-CA 
+     * (partType=Given)</p><p>Patient.311-CB 
+     * (partType=Family)</p><p>Recipient Name First 
+     * (partType=Given)</p><p>Recipient Name Last 
+     * (partType=Family)</p><p>PID.5</p><p>PID.9 (any name other 
+     * than first repetition is an 
+     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p></p>
+     * 
+     * <p><p>ZPA.1 (partType=Given)</p><p>ZPA.2 
+     * (partType=Family)</p><p>ZPA.3 (partType=Given - all 
+     * repetitions except first)</p><p>C37 
+     * (partType=Given)</p><p>C38 
+     * (partType=Family)</p><p>PTT.030-01 
+     * (partType=Family)</p><p>PTT.030-02 (partType=Given - 1st 
+     * occurrence)</p><p>PTT.030-03 (partType=Given - subsequen 
+     * occurrences)</p><p>PTT.030-04 
+     * (partType=Suffix)</p><p>PTT.030-05 
+     * (partType=Prefix)</p><p>patient 
+     * Initials</p><p>PID.5</p><p>Patient.310-CA 
+     * (partType=Given)</p><p>Patient.311-CB 
+     * (partType=Family)</p><p>Recipient Name First 
+     * (partType=Given)</p><p>Recipient Name Last 
+     * (partType=Family)</p><p>PID.5</p><p>PID.9 (any name other 
+     * than first repetition is an 
+     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p></p>
+     * 
+     * <p><p>ZPA.1 (partType=Given)</p><p>ZPA.2 
+     * (partType=Family)</p><p>ZPA.3 (partType=Given - all 
+     * repetitions except first)</p><p>C37 
+     * (partType=Given)</p><p>C38 
+     * (partType=Family)</p><p>PTT.030-01 
+     * (partType=Family)</p><p>PTT.030-02 (partType=Given - 1st 
+     * occurrence)</p><p>PTT.030-03 (partType=Given - subsequen 
+     * occurrences)</p><p>PTT.030-04 
+     * (partType=Suffix)</p><p>PTT.030-05 
+     * (partType=Prefix)</p><p>patient 
+     * Initials</p><p>PID.5</p><p>Patient.310-CA 
+     * (partType=Given)</p><p>Patient.311-CB 
+     * (partType=Family)</p><p>Recipient Name First 
+     * (partType=Given)</p><p>Recipient Name Last 
+     * (partType=Family)</p><p>PID.5</p><p>PID.9 (any name other 
+     * than first repetition is an 
+     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p></p>
+     * 
+     * <p><p>Used by to help identify the patient and also when 
+     * referring to the patient</p><p>The element is populated 
+     * because the patient's name is important for display. 
+     * However, there may be circumstances where a name is not 
+     * known by the reporting system.</p></p>
+     * 
+     * <p><p>Used by to help identify the patient and also when 
+     * referring to the patient</p><p>The element is populated 
+     * because the patient's name is important for display. 
+     * However, there may be circumstances where a name is not 
+     * known by the reporting system.</p></p>
+     */
+    @Hl7XmlMapping({"patientPerson/name"})
+    public PersonName getPatientName() {
+        return this.patientName.getValue();
+    }
+    public void setPatientName(PersonName patientName) {
+        this.patientName.setValue(patientName);
+    }
+
+
+    /**
+     * <p>PatientBirthDate</p>
+     * 
+     * <p>E:Patient Birth Date</p>
+     * 
+     * <p><p>Indicates the date on which the patient was born as 
+     * known by the client registry.</p></p>
+     * 
+     * <p><p>C34</p><p>PTT.020</p><p>A.2b</p><p>HC-SA</p><p>PID.7</p><p>patient.304-C4</p><p>PID.7</p></p>
+     * 
+     * <p><p>C34</p><p>PTT.020</p><p>A.2b</p><p>HC-SA</p><p>PID.7</p><p>patient.304-C4</p><p>PID.7</p></p>
+     * 
+     * <p><p>C34</p><p>PTT.020</p><p>A.2b</p><p>HC-SA</p><p>PID.7</p><p>patient.304-C4</p><p>PID.7</p></p>
+     * 
+     * <p><p>C34</p><p>PTT.020</p><p>A.2b</p><p>HC-SA</p><p>PID.7</p><p>patient.304-C4</p><p>PID.7</p></p>
+     * 
+     * <p><p>C34</p><p>PTT.020</p><p>A.2b</p><p>HC-SA</p><p>PID.7</p><p>patient.304-C4</p><p>PID.7</p></p>
+     * 
+     * <p><p>C34</p><p>PTT.020</p><p>A.2b</p><p>HC-SA</p><p>PID.7</p><p>patient.304-C4</p><p>PID.7</p></p>
+     * 
+     * <p><p>C34</p><p>PTT.020</p><p>A.2b</p><p>HC-SA</p><p>PID.7</p><p>patient.304-C4</p><p>PID.7</p></p>
+     * 
+     * <p><p>Used to confirm patient identity.</p><p>May also 
+     * influence clinical decision support such as dosage and 
+     * therapy appropriateness.</p><p>The element is populated 
+     * because the patient's birth date may not be known, 
+     * particularly for patients not found in the client 
+     * registry.</p></p>
+     * 
+     * <p><p>Used to confirm patient identity.</p><p>May also 
+     * influence clinical decision support such as dosage and 
+     * therapy appropriateness.</p><p>The element is populated 
+     * because the patient's birth date may not be known, 
+     * particularly for patients not found in the client 
+     * registry.</p></p>
+     * 
+     * <p><p>Used to confirm patient identity.</p><p>May also 
+     * influence clinical decision support such as dosage and 
+     * therapy appropriateness.</p><p>The element is populated 
+     * because the patient's birth date may not be known, 
+     * particularly for patients not found in the client 
+     * registry.</p></p>
+     * 
+     * <p>E:Patient Birth Date</p>
+     * 
+     * <p><p>Indicates the date on which the patient was born as 
+     * known by the client registry.</p></p>
+     * 
+     * <p><p>C34</p><p>PTT.020</p><p>A.2b</p><p>HC-SA</p><p>PID.7</p><p>patient.304-C4</p><p>PID.7</p></p>
+     * 
+     * <p><p>C34</p><p>PTT.020</p><p>A.2b</p><p>HC-SA</p><p>PID.7</p><p>patient.304-C4</p><p>PID.7</p></p>
+     * 
+     * <p><p>C34</p><p>PTT.020</p><p>A.2b</p><p>HC-SA</p><p>PID.7</p><p>patient.304-C4</p><p>PID.7</p></p>
+     * 
+     * <p><p>C34</p><p>PTT.020</p><p>A.2b</p><p>HC-SA</p><p>PID.7</p><p>patient.304-C4</p><p>PID.7</p></p>
+     * 
+     * <p><p>C34</p><p>PTT.020</p><p>A.2b</p><p>HC-SA</p><p>PID.7</p><p>patient.304-C4</p><p>PID.7</p></p>
+     * 
+     * <p><p>C34</p><p>PTT.020</p><p>A.2b</p><p>HC-SA</p><p>PID.7</p><p>patient.304-C4</p><p>PID.7</p></p>
+     * 
+     * <p><p>C34</p><p>PTT.020</p><p>A.2b</p><p>HC-SA</p><p>PID.7</p><p>patient.304-C4</p><p>PID.7</p></p>
+     * 
+     * <p><p>Used to confirm patient identity.</p><p>May also 
+     * influence clinical decision support such as dosage and 
+     * therapy appropriateness.</p><p>The element is populated 
+     * because the patient's birth date is necessary for positive 
+     * identification of the patient in the jurisdictional client 
+     * registry. However, in some cases the date of birth may not 
+     * be known to the client registry</p></p>
+     * 
+     * <p><p>Used to confirm patient identity.</p><p>May also 
+     * influence clinical decision support such as dosage and 
+     * therapy appropriateness.</p><p>The element is populated 
+     * because the patient's birth date is necessary for positive 
+     * identification of the patient in the jurisdictional client 
+     * registry. However, in some cases the date of birth may not 
+     * be known to the client registry</p></p>
+     * 
+     * <p><p>Used to confirm patient identity.</p><p>May also 
+     * influence clinical decision support such as dosage and 
+     * therapy appropriateness.</p><p>The element is populated 
+     * because the patient's birth date is necessary for positive 
+     * identification of the patient in the jurisdictional client 
+     * registry. However, in some cases the date of birth may not 
+     * be known to the client registry</p></p>
+     */
+    @Hl7XmlMapping({"patientPerson/birthTime"})
+    public Date getPatientBirthDate() {
+        return this.patientBirthDate.getValue();
+    }
+    public void setPatientBirthDate(Date patientBirthDate) {
+        this.patientBirthDate.setValue(patientBirthDate);
+    }
 
 
     /**
@@ -1344,1419 +2758,6 @@ public class Patient_1Bean extends MessagePartBean implements Patient_2, ActingP
     }
     public void setPatientContactAddress(PostalAddress patientContactAddress) {
         this.patientContactAddress.setValue(patientContactAddress);
-    }
-
-
-    /**
-     * <p>PatientBirthDate</p>
-     * 
-     * <p>E:Patient Birth Date</p>
-     * 
-     * <p><p>Indicates the date on which the patient was born as 
-     * known by the client registry.</p></p>
-     * 
-     * <p><p>C34</p><p>PTT.020</p><p>A.2b</p><p>HC-SA</p><p>PID.7</p><p>patient.304-C4</p><p>PID.7</p></p>
-     * 
-     * <p><p>C34</p><p>PTT.020</p><p>A.2b</p><p>HC-SA</p><p>PID.7</p><p>patient.304-C4</p><p>PID.7</p></p>
-     * 
-     * <p><p>C34</p><p>PTT.020</p><p>A.2b</p><p>HC-SA</p><p>PID.7</p><p>patient.304-C4</p><p>PID.7</p></p>
-     * 
-     * <p><p>C34</p><p>PTT.020</p><p>A.2b</p><p>HC-SA</p><p>PID.7</p><p>patient.304-C4</p><p>PID.7</p></p>
-     * 
-     * <p><p>C34</p><p>PTT.020</p><p>A.2b</p><p>HC-SA</p><p>PID.7</p><p>patient.304-C4</p><p>PID.7</p></p>
-     * 
-     * <p><p>C34</p><p>PTT.020</p><p>A.2b</p><p>HC-SA</p><p>PID.7</p><p>patient.304-C4</p><p>PID.7</p></p>
-     * 
-     * <p><p>C34</p><p>PTT.020</p><p>A.2b</p><p>HC-SA</p><p>PID.7</p><p>patient.304-C4</p><p>PID.7</p></p>
-     * 
-     * <p><p>Used to confirm patient identity.</p><p>May also 
-     * influence clinical decision support such as dosage and 
-     * therapy appropriateness.</p><p>The element is populated 
-     * because the patient's birth date may not be known, 
-     * particularly for patients not found in the client 
-     * registry.</p></p>
-     * 
-     * <p><p>Used to confirm patient identity.</p><p>May also 
-     * influence clinical decision support such as dosage and 
-     * therapy appropriateness.</p><p>The element is populated 
-     * because the patient's birth date may not be known, 
-     * particularly for patients not found in the client 
-     * registry.</p></p>
-     * 
-     * <p><p>Used to confirm patient identity.</p><p>May also 
-     * influence clinical decision support such as dosage and 
-     * therapy appropriateness.</p><p>The element is populated 
-     * because the patient's birth date may not be known, 
-     * particularly for patients not found in the client 
-     * registry.</p></p>
-     * 
-     * <p>E:Patient Birth Date</p>
-     * 
-     * <p><p>Indicates the date on which the patient was born as 
-     * known by the client registry.</p></p>
-     * 
-     * <p><p>C34</p><p>PTT.020</p><p>A.2b</p><p>HC-SA</p><p>PID.7</p><p>patient.304-C4</p><p>PID.7</p></p>
-     * 
-     * <p><p>C34</p><p>PTT.020</p><p>A.2b</p><p>HC-SA</p><p>PID.7</p><p>patient.304-C4</p><p>PID.7</p></p>
-     * 
-     * <p><p>C34</p><p>PTT.020</p><p>A.2b</p><p>HC-SA</p><p>PID.7</p><p>patient.304-C4</p><p>PID.7</p></p>
-     * 
-     * <p><p>C34</p><p>PTT.020</p><p>A.2b</p><p>HC-SA</p><p>PID.7</p><p>patient.304-C4</p><p>PID.7</p></p>
-     * 
-     * <p><p>C34</p><p>PTT.020</p><p>A.2b</p><p>HC-SA</p><p>PID.7</p><p>patient.304-C4</p><p>PID.7</p></p>
-     * 
-     * <p><p>C34</p><p>PTT.020</p><p>A.2b</p><p>HC-SA</p><p>PID.7</p><p>patient.304-C4</p><p>PID.7</p></p>
-     * 
-     * <p><p>C34</p><p>PTT.020</p><p>A.2b</p><p>HC-SA</p><p>PID.7</p><p>patient.304-C4</p><p>PID.7</p></p>
-     * 
-     * <p><p>Used to confirm patient identity.</p><p>May also 
-     * influence clinical decision support such as dosage and 
-     * therapy appropriateness.</p><p>The element is populated 
-     * because the patient's birth date is necessary for positive 
-     * identification of the patient in the jurisdictional client 
-     * registry. However, in some cases the date of birth may not 
-     * be known to the client registry</p></p>
-     * 
-     * <p><p>Used to confirm patient identity.</p><p>May also 
-     * influence clinical decision support such as dosage and 
-     * therapy appropriateness.</p><p>The element is populated 
-     * because the patient's birth date is necessary for positive 
-     * identification of the patient in the jurisdictional client 
-     * registry. However, in some cases the date of birth may not 
-     * be known to the client registry</p></p>
-     * 
-     * <p><p>Used to confirm patient identity.</p><p>May also 
-     * influence clinical decision support such as dosage and 
-     * therapy appropriateness.</p><p>The element is populated 
-     * because the patient's birth date is necessary for positive 
-     * identification of the patient in the jurisdictional client 
-     * registry. However, in some cases the date of birth may not 
-     * be known to the client registry</p></p>
-     */
-    @Hl7XmlMapping({"patientPerson/birthTime"})
-    public Date getPatientBirthDate() {
-        return this.patientBirthDate.getValue();
-    }
-    public void setPatientBirthDate(Date patientBirthDate) {
-        this.patientBirthDate.setValue(patientBirthDate);
-    }
-
-
-    /**
-     * <p>PatientGender</p>
-     * 
-     * <p>F:Patient Gender</p>
-     * 
-     * <p><p>Indicates the gender (sex) of the patient as known by 
-     * the client registry. Complex genetic genders are handled as 
-     * observations if they are considered relevant.</p></p>
-     * 
-     * <p><p>C40 
-     * eScript:PTT.040</p><p>3</p><p>Sex</p><p>PID.8</p><p>Patient.305-C5</p><p>PID.8</p></p>
-     * 
-     * <p><p>C40 
-     * eScript:PTT.040</p><p>3</p><p>Sex</p><p>PID.8</p><p>Patient.305-C5</p><p>PID.8</p></p>
-     * 
-     * <p><p>C40 
-     * eScript:PTT.040</p><p>3</p><p>Sex</p><p>PID.8</p><p>Patient.305-C5</p><p>PID.8</p></p>
-     * 
-     * <p><p>C40 
-     * eScript:PTT.040</p><p>3</p><p>Sex</p><p>PID.8</p><p>Patient.305-C5</p><p>PID.8</p></p>
-     * 
-     * <p><p>C40 
-     * eScript:PTT.040</p><p>3</p><p>Sex</p><p>PID.8</p><p>Patient.305-C5</p><p>PID.8</p></p>
-     * 
-     * <p><p>C40 
-     * eScript:PTT.040</p><p>3</p><p>Sex</p><p>PID.8</p><p>Patient.305-C5</p><p>PID.8</p></p>
-     * 
-     * <p><p>Used to confirm patient identity. May affect clinical 
-     * decision support such as drug dosing, lab test 
-     * appropriateness, etc.</p><p>Element is mandatory because the 
-     * patient's gender is necessary for positive identification of 
-     * the patient in the jurisdictional client registry and should 
-     * always be known.</p></p>
-     * 
-     * <p><p>Used to confirm patient identity. May affect clinical 
-     * decision support such as drug dosing, lab test 
-     * appropriateness, etc.</p><p>Element is mandatory because the 
-     * patient's gender is necessary for positive identification of 
-     * the patient in the jurisdictional client registry and should 
-     * always be known.</p></p>
-     * 
-     * <p>F:Patient Gender</p>
-     * 
-     * <p><p>Indicates the gender (sex) of the patient as known by 
-     * the client registry. Complex genetic genders are handled as 
-     * observations if they are considered relevant.</p></p>
-     * 
-     * <p><p>C40 
-     * eScript:PTT.040</p><p>3</p><p>Sex</p><p>PID.8</p><p>Patient.305-C5</p><p>PID.8</p></p>
-     * 
-     * <p><p>C40 
-     * eScript:PTT.040</p><p>3</p><p>Sex</p><p>PID.8</p><p>Patient.305-C5</p><p>PID.8</p></p>
-     * 
-     * <p><p>C40 
-     * eScript:PTT.040</p><p>3</p><p>Sex</p><p>PID.8</p><p>Patient.305-C5</p><p>PID.8</p></p>
-     * 
-     * <p><p>C40 
-     * eScript:PTT.040</p><p>3</p><p>Sex</p><p>PID.8</p><p>Patient.305-C5</p><p>PID.8</p></p>
-     * 
-     * <p><p>C40 
-     * eScript:PTT.040</p><p>3</p><p>Sex</p><p>PID.8</p><p>Patient.305-C5</p><p>PID.8</p></p>
-     * 
-     * <p><p>C40 
-     * eScript:PTT.040</p><p>3</p><p>Sex</p><p>PID.8</p><p>Patient.305-C5</p><p>PID.8</p></p>
-     * 
-     * <p><p>Used to confirm patient identity. May affect clinical 
-     * decision support such as drug dosing, lab test 
-     * appropriateness, etc.</p><p>The element is 'populated' 
-     * because there are some situations where the patient's gender 
-     * may not be known by the sending system when dealing with 
-     * non-client registry patients.</p></p>
-     * 
-     * <p><p>Used to confirm patient identity. May affect clinical 
-     * decision support such as drug dosing, lab test 
-     * appropriateness, etc.</p><p>The element is 'populated' 
-     * because there are some situations where the patient's gender 
-     * may not be known by the sending system when dealing with 
-     * non-client registry patients.</p></p>
-     */
-    @Hl7XmlMapping({"patientPerson/administrativeGenderCode"})
-    public AdministrativeGender getPatientGender() {
-        return (AdministrativeGender) this.patientGender.getValue();
-    }
-    public void setPatientGender(AdministrativeGender patientGender) {
-        this.patientGender.setValue(patientGender);
-    }
-
-
-    /**
-     * <p>PatientName</p>
-     * 
-     * <p>B:Patient Name</p>
-     * 
-     * <p><p>The name by which the patient is known to the client 
-     * registry.</p></p>
-     * 
-     * <p><p>ZPA.1 (partType=Given)</p><p>ZPA.2 
-     * (partType=Family)</p><p>ZPA.3 (partType=Given - all 
-     * repetitions except first)</p><p>C37 
-     * (partType=Given)</p><p>C38 
-     * (partType=Family)</p><p>PTT.030-01 
-     * (partType=Family)</p><p>PTT.030-02 (partType=Given - 1st 
-     * occurrence)</p><p>PTT.030-03 (partType=Given - subsequen 
-     * occurrences)</p><p>PTT.030-04 
-     * (partType=Suffix)</p><p>PTT.030-05 
-     * (partType=Prefix)</p><p>patient 
-     * Initials</p><p>PID.5</p><p>Patient.310-CA 
-     * (partType=Given)</p><p>Patient.311-CB 
-     * (partType=Family)</p><p>Recipient Name First 
-     * (partType=Given)</p><p>Recipient Name Last 
-     * (partType=Family)</p><p>PID.5</p><p>PID.9 (any name other 
-     * than first repetition is an 
-     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p></p>
-     * 
-     * <p><p>ZPA.1 (partType=Given)</p><p>ZPA.2 
-     * (partType=Family)</p><p>ZPA.3 (partType=Given - all 
-     * repetitions except first)</p><p>C37 
-     * (partType=Given)</p><p>C38 
-     * (partType=Family)</p><p>PTT.030-01 
-     * (partType=Family)</p><p>PTT.030-02 (partType=Given - 1st 
-     * occurrence)</p><p>PTT.030-03 (partType=Given - subsequen 
-     * occurrences)</p><p>PTT.030-04 
-     * (partType=Suffix)</p><p>PTT.030-05 
-     * (partType=Prefix)</p><p>patient 
-     * Initials</p><p>PID.5</p><p>Patient.310-CA 
-     * (partType=Given)</p><p>Patient.311-CB 
-     * (partType=Family)</p><p>Recipient Name First 
-     * (partType=Given)</p><p>Recipient Name Last 
-     * (partType=Family)</p><p>PID.5</p><p>PID.9 (any name other 
-     * than first repetition is an 
-     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p></p>
-     * 
-     * <p><p>ZPA.1 (partType=Given)</p><p>ZPA.2 
-     * (partType=Family)</p><p>ZPA.3 (partType=Given - all 
-     * repetitions except first)</p><p>C37 
-     * (partType=Given)</p><p>C38 
-     * (partType=Family)</p><p>PTT.030-01 
-     * (partType=Family)</p><p>PTT.030-02 (partType=Given - 1st 
-     * occurrence)</p><p>PTT.030-03 (partType=Given - subsequen 
-     * occurrences)</p><p>PTT.030-04 
-     * (partType=Suffix)</p><p>PTT.030-05 
-     * (partType=Prefix)</p><p>patient 
-     * Initials</p><p>PID.5</p><p>Patient.310-CA 
-     * (partType=Given)</p><p>Patient.311-CB 
-     * (partType=Family)</p><p>Recipient Name First 
-     * (partType=Given)</p><p>Recipient Name Last 
-     * (partType=Family)</p><p>PID.5</p><p>PID.9 (any name other 
-     * than first repetition is an 
-     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p></p>
-     * 
-     * <p><p>ZPA.1 (partType=Given)</p><p>ZPA.2 
-     * (partType=Family)</p><p>ZPA.3 (partType=Given - all 
-     * repetitions except first)</p><p>C37 
-     * (partType=Given)</p><p>C38 
-     * (partType=Family)</p><p>PTT.030-01 
-     * (partType=Family)</p><p>PTT.030-02 (partType=Given - 1st 
-     * occurrence)</p><p>PTT.030-03 (partType=Given - subsequen 
-     * occurrences)</p><p>PTT.030-04 
-     * (partType=Suffix)</p><p>PTT.030-05 
-     * (partType=Prefix)</p><p>patient 
-     * Initials</p><p>PID.5</p><p>Patient.310-CA 
-     * (partType=Given)</p><p>Patient.311-CB 
-     * (partType=Family)</p><p>Recipient Name First 
-     * (partType=Given)</p><p>Recipient Name Last 
-     * (partType=Family)</p><p>PID.5</p><p>PID.9 (any name other 
-     * than first repetition is an 
-     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p></p>
-     * 
-     * <p><p>ZPA.1 (partType=Given)</p><p>ZPA.2 
-     * (partType=Family)</p><p>ZPA.3 (partType=Given - all 
-     * repetitions except first)</p><p>C37 
-     * (partType=Given)</p><p>C38 
-     * (partType=Family)</p><p>PTT.030-01 
-     * (partType=Family)</p><p>PTT.030-02 (partType=Given - 1st 
-     * occurrence)</p><p>PTT.030-03 (partType=Given - subsequen 
-     * occurrences)</p><p>PTT.030-04 
-     * (partType=Suffix)</p><p>PTT.030-05 
-     * (partType=Prefix)</p><p>patient 
-     * Initials</p><p>PID.5</p><p>Patient.310-CA 
-     * (partType=Given)</p><p>Patient.311-CB 
-     * (partType=Family)</p><p>Recipient Name First 
-     * (partType=Given)</p><p>Recipient Name Last 
-     * (partType=Family)</p><p>PID.5</p><p>PID.9 (any name other 
-     * than first repetition is an 
-     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p></p>
-     * 
-     * <p><p>ZPA.1 (partType=Given)</p><p>ZPA.2 
-     * (partType=Family)</p><p>ZPA.3 (partType=Given - all 
-     * repetitions except first)</p><p>C37 
-     * (partType=Given)</p><p>C38 
-     * (partType=Family)</p><p>PTT.030-01 
-     * (partType=Family)</p><p>PTT.030-02 (partType=Given - 1st 
-     * occurrence)</p><p>PTT.030-03 (partType=Given - subsequen 
-     * occurrences)</p><p>PTT.030-04 
-     * (partType=Suffix)</p><p>PTT.030-05 
-     * (partType=Prefix)</p><p>patient 
-     * Initials</p><p>PID.5</p><p>Patient.310-CA 
-     * (partType=Given)</p><p>Patient.311-CB 
-     * (partType=Family)</p><p>Recipient Name First 
-     * (partType=Given)</p><p>Recipient Name Last 
-     * (partType=Family)</p><p>PID.5</p><p>PID.9 (any name other 
-     * than first repetition is an 
-     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p></p>
-     * 
-     * <p><p>ZPA.1 (partType=Given)</p><p>ZPA.2 
-     * (partType=Family)</p><p>ZPA.3 (partType=Given - all 
-     * repetitions except first)</p><p>C37 
-     * (partType=Given)</p><p>C38 
-     * (partType=Family)</p><p>PTT.030-01 
-     * (partType=Family)</p><p>PTT.030-02 (partType=Given - 1st 
-     * occurrence)</p><p>PTT.030-03 (partType=Given - subsequen 
-     * occurrences)</p><p>PTT.030-04 
-     * (partType=Suffix)</p><p>PTT.030-05 
-     * (partType=Prefix)</p><p>patient 
-     * Initials</p><p>PID.5</p><p>Patient.310-CA 
-     * (partType=Given)</p><p>Patient.311-CB 
-     * (partType=Family)</p><p>Recipient Name First 
-     * (partType=Given)</p><p>Recipient Name Last 
-     * (partType=Family)</p><p>PID.5</p><p>PID.9 (any name other 
-     * than first repetition is an 
-     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p></p>
-     * 
-     * <p><p>ZPA.1 (partType=Given)</p><p>ZPA.2 
-     * (partType=Family)</p><p>ZPA.3 (partType=Given - all 
-     * repetitions except first)</p><p>C37 
-     * (partType=Given)</p><p>C38 
-     * (partType=Family)</p><p>PTT.030-01 
-     * (partType=Family)</p><p>PTT.030-02 (partType=Given - 1st 
-     * occurrence)</p><p>PTT.030-03 (partType=Given - subsequen 
-     * occurrences)</p><p>PTT.030-04 
-     * (partType=Suffix)</p><p>PTT.030-05 
-     * (partType=Prefix)</p><p>patient 
-     * Initials</p><p>PID.5</p><p>Patient.310-CA 
-     * (partType=Given)</p><p>Patient.311-CB 
-     * (partType=Family)</p><p>Recipient Name First 
-     * (partType=Given)</p><p>Recipient Name Last 
-     * (partType=Family)</p><p>PID.5</p><p>PID.9 (any name other 
-     * than first repetition is an 
-     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p></p>
-     * 
-     * <p><p>ZPA.1 (partType=Given)</p><p>ZPA.2 
-     * (partType=Family)</p><p>ZPA.3 (partType=Given - all 
-     * repetitions except first)</p><p>C37 
-     * (partType=Given)</p><p>C38 
-     * (partType=Family)</p><p>PTT.030-01 
-     * (partType=Family)</p><p>PTT.030-02 (partType=Given - 1st 
-     * occurrence)</p><p>PTT.030-03 (partType=Given - subsequen 
-     * occurrences)</p><p>PTT.030-04 
-     * (partType=Suffix)</p><p>PTT.030-05 
-     * (partType=Prefix)</p><p>patient 
-     * Initials</p><p>PID.5</p><p>Patient.310-CA 
-     * (partType=Given)</p><p>Patient.311-CB 
-     * (partType=Family)</p><p>Recipient Name First 
-     * (partType=Given)</p><p>Recipient Name Last 
-     * (partType=Family)</p><p>PID.5</p><p>PID.9 (any name other 
-     * than first repetition is an 
-     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p></p>
-     * 
-     * <p><p>ZPA.1 (partType=Given)</p><p>ZPA.2 
-     * (partType=Family)</p><p>ZPA.3 (partType=Given - all 
-     * repetitions except first)</p><p>C37 
-     * (partType=Given)</p><p>C38 
-     * (partType=Family)</p><p>PTT.030-01 
-     * (partType=Family)</p><p>PTT.030-02 (partType=Given - 1st 
-     * occurrence)</p><p>PTT.030-03 (partType=Given - subsequen 
-     * occurrences)</p><p>PTT.030-04 
-     * (partType=Suffix)</p><p>PTT.030-05 
-     * (partType=Prefix)</p><p>patient 
-     * Initials</p><p>PID.5</p><p>Patient.310-CA 
-     * (partType=Given)</p><p>Patient.311-CB 
-     * (partType=Family)</p><p>Recipient Name First 
-     * (partType=Given)</p><p>Recipient Name Last 
-     * (partType=Family)</p><p>PID.5</p><p>PID.9 (any name other 
-     * than first repetition is an 
-     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p></p>
-     * 
-     * <p><p>ZPA.1 (partType=Given)</p><p>ZPA.2 
-     * (partType=Family)</p><p>ZPA.3 (partType=Given - all 
-     * repetitions except first)</p><p>C37 
-     * (partType=Given)</p><p>C38 
-     * (partType=Family)</p><p>PTT.030-01 
-     * (partType=Family)</p><p>PTT.030-02 (partType=Given - 1st 
-     * occurrence)</p><p>PTT.030-03 (partType=Given - subsequen 
-     * occurrences)</p><p>PTT.030-04 
-     * (partType=Suffix)</p><p>PTT.030-05 
-     * (partType=Prefix)</p><p>patient 
-     * Initials</p><p>PID.5</p><p>Patient.310-CA 
-     * (partType=Given)</p><p>Patient.311-CB 
-     * (partType=Family)</p><p>Recipient Name First 
-     * (partType=Given)</p><p>Recipient Name Last 
-     * (partType=Family)</p><p>PID.5</p><p>PID.9 (any name other 
-     * than first repetition is an 
-     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p></p>
-     * 
-     * <p><p>ZPA.1 (partType=Given)</p><p>ZPA.2 
-     * (partType=Family)</p><p>ZPA.3 (partType=Given - all 
-     * repetitions except first)</p><p>C37 
-     * (partType=Given)</p><p>C38 
-     * (partType=Family)</p><p>PTT.030-01 
-     * (partType=Family)</p><p>PTT.030-02 (partType=Given - 1st 
-     * occurrence)</p><p>PTT.030-03 (partType=Given - subsequen 
-     * occurrences)</p><p>PTT.030-04 
-     * (partType=Suffix)</p><p>PTT.030-05 
-     * (partType=Prefix)</p><p>patient 
-     * Initials</p><p>PID.5</p><p>Patient.310-CA 
-     * (partType=Given)</p><p>Patient.311-CB 
-     * (partType=Family)</p><p>Recipient Name First 
-     * (partType=Given)</p><p>Recipient Name Last 
-     * (partType=Family)</p><p>PID.5</p><p>PID.9 (any name other 
-     * than first repetition is an 
-     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p></p>
-     * 
-     * <p><p>ZPA.1 (partType=Given)</p><p>ZPA.2 
-     * (partType=Family)</p><p>ZPA.3 (partType=Given - all 
-     * repetitions except first)</p><p>C37 
-     * (partType=Given)</p><p>C38 
-     * (partType=Family)</p><p>PTT.030-01 
-     * (partType=Family)</p><p>PTT.030-02 (partType=Given - 1st 
-     * occurrence)</p><p>PTT.030-03 (partType=Given - subsequen 
-     * occurrences)</p><p>PTT.030-04 
-     * (partType=Suffix)</p><p>PTT.030-05 
-     * (partType=Prefix)</p><p>patient 
-     * Initials</p><p>PID.5</p><p>Patient.310-CA 
-     * (partType=Given)</p><p>Patient.311-CB 
-     * (partType=Family)</p><p>Recipient Name First 
-     * (partType=Given)</p><p>Recipient Name Last 
-     * (partType=Family)</p><p>PID.5</p><p>PID.9 (any name other 
-     * than first repetition is an 
-     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p></p>
-     * 
-     * <p><p>ZPA.1 (partType=Given)</p><p>ZPA.2 
-     * (partType=Family)</p><p>ZPA.3 (partType=Given - all 
-     * repetitions except first)</p><p>C37 
-     * (partType=Given)</p><p>C38 
-     * (partType=Family)</p><p>PTT.030-01 
-     * (partType=Family)</p><p>PTT.030-02 (partType=Given - 1st 
-     * occurrence)</p><p>PTT.030-03 (partType=Given - subsequen 
-     * occurrences)</p><p>PTT.030-04 
-     * (partType=Suffix)</p><p>PTT.030-05 
-     * (partType=Prefix)</p><p>patient 
-     * Initials</p><p>PID.5</p><p>Patient.310-CA 
-     * (partType=Given)</p><p>Patient.311-CB 
-     * (partType=Family)</p><p>Recipient Name First 
-     * (partType=Given)</p><p>Recipient Name Last 
-     * (partType=Family)</p><p>PID.5</p><p>PID.9 (any name other 
-     * than first repetition is an 
-     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p></p>
-     * 
-     * <p><p>ZPA.1 (partType=Given)</p><p>ZPA.2 
-     * (partType=Family)</p><p>ZPA.3 (partType=Given - all 
-     * repetitions except first)</p><p>C37 
-     * (partType=Given)</p><p>C38 
-     * (partType=Family)</p><p>PTT.030-01 
-     * (partType=Family)</p><p>PTT.030-02 (partType=Given - 1st 
-     * occurrence)</p><p>PTT.030-03 (partType=Given - subsequen 
-     * occurrences)</p><p>PTT.030-04 
-     * (partType=Suffix)</p><p>PTT.030-05 
-     * (partType=Prefix)</p><p>patient 
-     * Initials</p><p>PID.5</p><p>Patient.310-CA 
-     * (partType=Given)</p><p>Patient.311-CB 
-     * (partType=Family)</p><p>Recipient Name First 
-     * (partType=Given)</p><p>Recipient Name Last 
-     * (partType=Family)</p><p>PID.5</p><p>PID.9 (any name other 
-     * than first repetition is an 
-     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p></p>
-     * 
-     * <p><p>ZPA.1 (partType=Given)</p><p>ZPA.2 
-     * (partType=Family)</p><p>ZPA.3 (partType=Given - all 
-     * repetitions except first)</p><p>C37 
-     * (partType=Given)</p><p>C38 
-     * (partType=Family)</p><p>PTT.030-01 
-     * (partType=Family)</p><p>PTT.030-02 (partType=Given - 1st 
-     * occurrence)</p><p>PTT.030-03 (partType=Given - subsequen 
-     * occurrences)</p><p>PTT.030-04 
-     * (partType=Suffix)</p><p>PTT.030-05 
-     * (partType=Prefix)</p><p>patient 
-     * Initials</p><p>PID.5</p><p>Patient.310-CA 
-     * (partType=Given)</p><p>Patient.311-CB 
-     * (partType=Family)</p><p>Recipient Name First 
-     * (partType=Given)</p><p>Recipient Name Last 
-     * (partType=Family)</p><p>PID.5</p><p>PID.9 (any name other 
-     * than first repetition is an 
-     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p></p>
-     * 
-     * <p><p>ZPA.1 (partType=Given)</p><p>ZPA.2 
-     * (partType=Family)</p><p>ZPA.3 (partType=Given - all 
-     * repetitions except first)</p><p>C37 
-     * (partType=Given)</p><p>C38 
-     * (partType=Family)</p><p>PTT.030-01 
-     * (partType=Family)</p><p>PTT.030-02 (partType=Given - 1st 
-     * occurrence)</p><p>PTT.030-03 (partType=Given - subsequen 
-     * occurrences)</p><p>PTT.030-04 
-     * (partType=Suffix)</p><p>PTT.030-05 
-     * (partType=Prefix)</p><p>patient 
-     * Initials</p><p>PID.5</p><p>Patient.310-CA 
-     * (partType=Given)</p><p>Patient.311-CB 
-     * (partType=Family)</p><p>Recipient Name First 
-     * (partType=Given)</p><p>Recipient Name Last 
-     * (partType=Family)</p><p>PID.5</p><p>PID.9 (any name other 
-     * than first repetition is an 
-     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p></p>
-     * 
-     * <p><p>ZPA.1 (partType=Given)</p><p>ZPA.2 
-     * (partType=Family)</p><p>ZPA.3 (partType=Given - all 
-     * repetitions except first)</p><p>C37 
-     * (partType=Given)</p><p>C38 
-     * (partType=Family)</p><p>PTT.030-01 
-     * (partType=Family)</p><p>PTT.030-02 (partType=Given - 1st 
-     * occurrence)</p><p>PTT.030-03 (partType=Given - subsequen 
-     * occurrences)</p><p>PTT.030-04 
-     * (partType=Suffix)</p><p>PTT.030-05 
-     * (partType=Prefix)</p><p>patient 
-     * Initials</p><p>PID.5</p><p>Patient.310-CA 
-     * (partType=Given)</p><p>Patient.311-CB 
-     * (partType=Family)</p><p>Recipient Name First 
-     * (partType=Given)</p><p>Recipient Name Last 
-     * (partType=Family)</p><p>PID.5</p><p>PID.9 (any name other 
-     * than first repetition is an 
-     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p></p>
-     * 
-     * <p><p>ZPA.1 (partType=Given)</p><p>ZPA.2 
-     * (partType=Family)</p><p>ZPA.3 (partType=Given - all 
-     * repetitions except first)</p><p>C37 
-     * (partType=Given)</p><p>C38 
-     * (partType=Family)</p><p>PTT.030-01 
-     * (partType=Family)</p><p>PTT.030-02 (partType=Given - 1st 
-     * occurrence)</p><p>PTT.030-03 (partType=Given - subsequen 
-     * occurrences)</p><p>PTT.030-04 
-     * (partType=Suffix)</p><p>PTT.030-05 
-     * (partType=Prefix)</p><p>patient 
-     * Initials</p><p>PID.5</p><p>Patient.310-CA 
-     * (partType=Given)</p><p>Patient.311-CB 
-     * (partType=Family)</p><p>Recipient Name First 
-     * (partType=Given)</p><p>Recipient Name Last 
-     * (partType=Family)</p><p>PID.5</p><p>PID.9 (any name other 
-     * than first repetition is an 
-     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p></p>
-     * 
-     * <p><p>ZPA.1 (partType=Given)</p><p>ZPA.2 
-     * (partType=Family)</p><p>ZPA.3 (partType=Given - all 
-     * repetitions except first)</p><p>C37 
-     * (partType=Given)</p><p>C38 
-     * (partType=Family)</p><p>PTT.030-01 
-     * (partType=Family)</p><p>PTT.030-02 (partType=Given - 1st 
-     * occurrence)</p><p>PTT.030-03 (partType=Given - subsequen 
-     * occurrences)</p><p>PTT.030-04 
-     * (partType=Suffix)</p><p>PTT.030-05 
-     * (partType=Prefix)</p><p>patient 
-     * Initials</p><p>PID.5</p><p>Patient.310-CA 
-     * (partType=Given)</p><p>Patient.311-CB 
-     * (partType=Family)</p><p>Recipient Name First 
-     * (partType=Given)</p><p>Recipient Name Last 
-     * (partType=Family)</p><p>PID.5</p><p>PID.9 (any name other 
-     * than first repetition is an 
-     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p></p>
-     * 
-     * <p><p>ZPA.1 (partType=Given)</p><p>ZPA.2 
-     * (partType=Family)</p><p>ZPA.3 (partType=Given - all 
-     * repetitions except first)</p><p>C37 
-     * (partType=Given)</p><p>C38 
-     * (partType=Family)</p><p>PTT.030-01 
-     * (partType=Family)</p><p>PTT.030-02 (partType=Given - 1st 
-     * occurrence)</p><p>PTT.030-03 (partType=Given - subsequen 
-     * occurrences)</p><p>PTT.030-04 
-     * (partType=Suffix)</p><p>PTT.030-05 
-     * (partType=Prefix)</p><p>patient 
-     * Initials</p><p>PID.5</p><p>Patient.310-CA 
-     * (partType=Given)</p><p>Patient.311-CB 
-     * (partType=Family)</p><p>Recipient Name First 
-     * (partType=Given)</p><p>Recipient Name Last 
-     * (partType=Family)</p><p>PID.5</p><p>PID.9 (any name other 
-     * than first repetition is an 
-     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p></p>
-     * 
-     * <p><p>ZPA.1 (partType=Given)</p><p>ZPA.2 
-     * (partType=Family)</p><p>ZPA.3 (partType=Given - all 
-     * repetitions except first)</p><p>C37 
-     * (partType=Given)</p><p>C38 
-     * (partType=Family)</p><p>PTT.030-01 
-     * (partType=Family)</p><p>PTT.030-02 (partType=Given - 1st 
-     * occurrence)</p><p>PTT.030-03 (partType=Given - subsequen 
-     * occurrences)</p><p>PTT.030-04 
-     * (partType=Suffix)</p><p>PTT.030-05 
-     * (partType=Prefix)</p><p>patient 
-     * Initials</p><p>PID.5</p><p>Patient.310-CA 
-     * (partType=Given)</p><p>Patient.311-CB 
-     * (partType=Family)</p><p>Recipient Name First 
-     * (partType=Given)</p><p>Recipient Name Last 
-     * (partType=Family)</p><p>PID.5</p><p>PID.9 (any name other 
-     * than first repetition is an 
-     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p></p>
-     * 
-     * <p><p>ZPA.1 (partType=Given)</p><p>ZPA.2 
-     * (partType=Family)</p><p>ZPA.3 (partType=Given - all 
-     * repetitions except first)</p><p>C37 
-     * (partType=Given)</p><p>C38 
-     * (partType=Family)</p><p>PTT.030-01 
-     * (partType=Family)</p><p>PTT.030-02 (partType=Given - 1st 
-     * occurrence)</p><p>PTT.030-03 (partType=Given - subsequen 
-     * occurrences)</p><p>PTT.030-04 
-     * (partType=Suffix)</p><p>PTT.030-05 
-     * (partType=Prefix)</p><p>patient 
-     * Initials</p><p>PID.5</p><p>Patient.310-CA 
-     * (partType=Given)</p><p>Patient.311-CB 
-     * (partType=Family)</p><p>Recipient Name First 
-     * (partType=Given)</p><p>Recipient Name Last 
-     * (partType=Family)</p><p>PID.5</p><p>PID.9 (any name other 
-     * than first repetition is an 
-     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p></p>
-     * 
-     * <p><p>ZPA.1 (partType=Given)</p><p>ZPA.2 
-     * (partType=Family)</p><p>ZPA.3 (partType=Given - all 
-     * repetitions except first)</p><p>C37 
-     * (partType=Given)</p><p>C38 
-     * (partType=Family)</p><p>PTT.030-01 
-     * (partType=Family)</p><p>PTT.030-02 (partType=Given - 1st 
-     * occurrence)</p><p>PTT.030-03 (partType=Given - subsequen 
-     * occurrences)</p><p>PTT.030-04 
-     * (partType=Suffix)</p><p>PTT.030-05 
-     * (partType=Prefix)</p><p>patient 
-     * Initials</p><p>PID.5</p><p>Patient.310-CA 
-     * (partType=Given)</p><p>Patient.311-CB 
-     * (partType=Family)</p><p>Recipient Name First 
-     * (partType=Given)</p><p>Recipient Name Last 
-     * (partType=Family)</p><p>PID.5</p><p>PID.9 (any name other 
-     * than first repetition is an 
-     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p></p>
-     * 
-     * <p><p>ZPA.1 (partType=Given)</p><p>ZPA.2 
-     * (partType=Family)</p><p>ZPA.3 (partType=Given - all 
-     * repetitions except first)</p><p>C37 
-     * (partType=Given)</p><p>C38 
-     * (partType=Family)</p><p>PTT.030-01 
-     * (partType=Family)</p><p>PTT.030-02 (partType=Given - 1st 
-     * occurrence)</p><p>PTT.030-03 (partType=Given - subsequen 
-     * occurrences)</p><p>PTT.030-04 
-     * (partType=Suffix)</p><p>PTT.030-05 
-     * (partType=Prefix)</p><p>patient 
-     * Initials</p><p>PID.5</p><p>Patient.310-CA 
-     * (partType=Given)</p><p>Patient.311-CB 
-     * (partType=Family)</p><p>Recipient Name First 
-     * (partType=Given)</p><p>Recipient Name Last 
-     * (partType=Family)</p><p>PID.5</p><p>PID.9 (any name other 
-     * than first repetition is an 
-     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p></p>
-     * 
-     * <p><p>Potentially used by PoS systems to confirm patient 
-     * identity. Also acts as the visual confirmation to the user 
-     * about the patient being viewed.</p><p>The element is 
-     * populated because the patient's name is important for 
-     * display. However, there may be circumstances where a name is 
-     * not available in the registry (e.g. newborns).</p></p>
-     * 
-     * <p><p>Potentially used by PoS systems to confirm patient 
-     * identity. Also acts as the visual confirmation to the user 
-     * about the patient being viewed.</p><p>The element is 
-     * populated because the patient's name is important for 
-     * display. However, there may be circumstances where a name is 
-     * not available in the registry (e.g. newborns).</p></p>
-     * 
-     * <p>B:Patient Name</p>
-     * 
-     * <p><p>The name by which the patient is known.</p></p>
-     * 
-     * <p><p>ZPA.1 (partType=Given)</p><p>ZPA.2 
-     * (partType=Family)</p><p>ZPA.3 (partType=Given - all 
-     * repetitions except first)</p><p>C37 
-     * (partType=Given)</p><p>C38 
-     * (partType=Family)</p><p>PTT.030-01 
-     * (partType=Family)</p><p>PTT.030-02 (partType=Given - 1st 
-     * occurrence)</p><p>PTT.030-03 (partType=Given - subsequen 
-     * occurrences)</p><p>PTT.030-04 
-     * (partType=Suffix)</p><p>PTT.030-05 
-     * (partType=Prefix)</p><p>patient 
-     * Initials</p><p>PID.5</p><p>Patient.310-CA 
-     * (partType=Given)</p><p>Patient.311-CB 
-     * (partType=Family)</p><p>Recipient Name First 
-     * (partType=Given)</p><p>Recipient Name Last 
-     * (partType=Family)</p><p>PID.5</p><p>PID.9 (any name other 
-     * than first repetition is an 
-     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p></p>
-     * 
-     * <p><p>ZPA.1 (partType=Given)</p><p>ZPA.2 
-     * (partType=Family)</p><p>ZPA.3 (partType=Given - all 
-     * repetitions except first)</p><p>C37 
-     * (partType=Given)</p><p>C38 
-     * (partType=Family)</p><p>PTT.030-01 
-     * (partType=Family)</p><p>PTT.030-02 (partType=Given - 1st 
-     * occurrence)</p><p>PTT.030-03 (partType=Given - subsequen 
-     * occurrences)</p><p>PTT.030-04 
-     * (partType=Suffix)</p><p>PTT.030-05 
-     * (partType=Prefix)</p><p>patient 
-     * Initials</p><p>PID.5</p><p>Patient.310-CA 
-     * (partType=Given)</p><p>Patient.311-CB 
-     * (partType=Family)</p><p>Recipient Name First 
-     * (partType=Given)</p><p>Recipient Name Last 
-     * (partType=Family)</p><p>PID.5</p><p>PID.9 (any name other 
-     * than first repetition is an 
-     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p></p>
-     * 
-     * <p><p>ZPA.1 (partType=Given)</p><p>ZPA.2 
-     * (partType=Family)</p><p>ZPA.3 (partType=Given - all 
-     * repetitions except first)</p><p>C37 
-     * (partType=Given)</p><p>C38 
-     * (partType=Family)</p><p>PTT.030-01 
-     * (partType=Family)</p><p>PTT.030-02 (partType=Given - 1st 
-     * occurrence)</p><p>PTT.030-03 (partType=Given - subsequen 
-     * occurrences)</p><p>PTT.030-04 
-     * (partType=Suffix)</p><p>PTT.030-05 
-     * (partType=Prefix)</p><p>patient 
-     * Initials</p><p>PID.5</p><p>Patient.310-CA 
-     * (partType=Given)</p><p>Patient.311-CB 
-     * (partType=Family)</p><p>Recipient Name First 
-     * (partType=Given)</p><p>Recipient Name Last 
-     * (partType=Family)</p><p>PID.5</p><p>PID.9 (any name other 
-     * than first repetition is an 
-     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p></p>
-     * 
-     * <p><p>ZPA.1 (partType=Given)</p><p>ZPA.2 
-     * (partType=Family)</p><p>ZPA.3 (partType=Given - all 
-     * repetitions except first)</p><p>C37 
-     * (partType=Given)</p><p>C38 
-     * (partType=Family)</p><p>PTT.030-01 
-     * (partType=Family)</p><p>PTT.030-02 (partType=Given - 1st 
-     * occurrence)</p><p>PTT.030-03 (partType=Given - subsequen 
-     * occurrences)</p><p>PTT.030-04 
-     * (partType=Suffix)</p><p>PTT.030-05 
-     * (partType=Prefix)</p><p>patient 
-     * Initials</p><p>PID.5</p><p>Patient.310-CA 
-     * (partType=Given)</p><p>Patient.311-CB 
-     * (partType=Family)</p><p>Recipient Name First 
-     * (partType=Given)</p><p>Recipient Name Last 
-     * (partType=Family)</p><p>PID.5</p><p>PID.9 (any name other 
-     * than first repetition is an 
-     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p></p>
-     * 
-     * <p><p>ZPA.1 (partType=Given)</p><p>ZPA.2 
-     * (partType=Family)</p><p>ZPA.3 (partType=Given - all 
-     * repetitions except first)</p><p>C37 
-     * (partType=Given)</p><p>C38 
-     * (partType=Family)</p><p>PTT.030-01 
-     * (partType=Family)</p><p>PTT.030-02 (partType=Given - 1st 
-     * occurrence)</p><p>PTT.030-03 (partType=Given - subsequen 
-     * occurrences)</p><p>PTT.030-04 
-     * (partType=Suffix)</p><p>PTT.030-05 
-     * (partType=Prefix)</p><p>patient 
-     * Initials</p><p>PID.5</p><p>Patient.310-CA 
-     * (partType=Given)</p><p>Patient.311-CB 
-     * (partType=Family)</p><p>Recipient Name First 
-     * (partType=Given)</p><p>Recipient Name Last 
-     * (partType=Family)</p><p>PID.5</p><p>PID.9 (any name other 
-     * than first repetition is an 
-     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p></p>
-     * 
-     * <p><p>ZPA.1 (partType=Given)</p><p>ZPA.2 
-     * (partType=Family)</p><p>ZPA.3 (partType=Given - all 
-     * repetitions except first)</p><p>C37 
-     * (partType=Given)</p><p>C38 
-     * (partType=Family)</p><p>PTT.030-01 
-     * (partType=Family)</p><p>PTT.030-02 (partType=Given - 1st 
-     * occurrence)</p><p>PTT.030-03 (partType=Given - subsequen 
-     * occurrences)</p><p>PTT.030-04 
-     * (partType=Suffix)</p><p>PTT.030-05 
-     * (partType=Prefix)</p><p>patient 
-     * Initials</p><p>PID.5</p><p>Patient.310-CA 
-     * (partType=Given)</p><p>Patient.311-CB 
-     * (partType=Family)</p><p>Recipient Name First 
-     * (partType=Given)</p><p>Recipient Name Last 
-     * (partType=Family)</p><p>PID.5</p><p>PID.9 (any name other 
-     * than first repetition is an 
-     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p></p>
-     * 
-     * <p><p>ZPA.1 (partType=Given)</p><p>ZPA.2 
-     * (partType=Family)</p><p>ZPA.3 (partType=Given - all 
-     * repetitions except first)</p><p>C37 
-     * (partType=Given)</p><p>C38 
-     * (partType=Family)</p><p>PTT.030-01 
-     * (partType=Family)</p><p>PTT.030-02 (partType=Given - 1st 
-     * occurrence)</p><p>PTT.030-03 (partType=Given - subsequen 
-     * occurrences)</p><p>PTT.030-04 
-     * (partType=Suffix)</p><p>PTT.030-05 
-     * (partType=Prefix)</p><p>patient 
-     * Initials</p><p>PID.5</p><p>Patient.310-CA 
-     * (partType=Given)</p><p>Patient.311-CB 
-     * (partType=Family)</p><p>Recipient Name First 
-     * (partType=Given)</p><p>Recipient Name Last 
-     * (partType=Family)</p><p>PID.5</p><p>PID.9 (any name other 
-     * than first repetition is an 
-     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p></p>
-     * 
-     * <p><p>ZPA.1 (partType=Given)</p><p>ZPA.2 
-     * (partType=Family)</p><p>ZPA.3 (partType=Given - all 
-     * repetitions except first)</p><p>C37 
-     * (partType=Given)</p><p>C38 
-     * (partType=Family)</p><p>PTT.030-01 
-     * (partType=Family)</p><p>PTT.030-02 (partType=Given - 1st 
-     * occurrence)</p><p>PTT.030-03 (partType=Given - subsequen 
-     * occurrences)</p><p>PTT.030-04 
-     * (partType=Suffix)</p><p>PTT.030-05 
-     * (partType=Prefix)</p><p>patient 
-     * Initials</p><p>PID.5</p><p>Patient.310-CA 
-     * (partType=Given)</p><p>Patient.311-CB 
-     * (partType=Family)</p><p>Recipient Name First 
-     * (partType=Given)</p><p>Recipient Name Last 
-     * (partType=Family)</p><p>PID.5</p><p>PID.9 (any name other 
-     * than first repetition is an 
-     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p></p>
-     * 
-     * <p><p>ZPA.1 (partType=Given)</p><p>ZPA.2 
-     * (partType=Family)</p><p>ZPA.3 (partType=Given - all 
-     * repetitions except first)</p><p>C37 
-     * (partType=Given)</p><p>C38 
-     * (partType=Family)</p><p>PTT.030-01 
-     * (partType=Family)</p><p>PTT.030-02 (partType=Given - 1st 
-     * occurrence)</p><p>PTT.030-03 (partType=Given - subsequen 
-     * occurrences)</p><p>PTT.030-04 
-     * (partType=Suffix)</p><p>PTT.030-05 
-     * (partType=Prefix)</p><p>patient 
-     * Initials</p><p>PID.5</p><p>Patient.310-CA 
-     * (partType=Given)</p><p>Patient.311-CB 
-     * (partType=Family)</p><p>Recipient Name First 
-     * (partType=Given)</p><p>Recipient Name Last 
-     * (partType=Family)</p><p>PID.5</p><p>PID.9 (any name other 
-     * than first repetition is an 
-     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p></p>
-     * 
-     * <p><p>ZPA.1 (partType=Given)</p><p>ZPA.2 
-     * (partType=Family)</p><p>ZPA.3 (partType=Given - all 
-     * repetitions except first)</p><p>C37 
-     * (partType=Given)</p><p>C38 
-     * (partType=Family)</p><p>PTT.030-01 
-     * (partType=Family)</p><p>PTT.030-02 (partType=Given - 1st 
-     * occurrence)</p><p>PTT.030-03 (partType=Given - subsequen 
-     * occurrences)</p><p>PTT.030-04 
-     * (partType=Suffix)</p><p>PTT.030-05 
-     * (partType=Prefix)</p><p>patient 
-     * Initials</p><p>PID.5</p><p>Patient.310-CA 
-     * (partType=Given)</p><p>Patient.311-CB 
-     * (partType=Family)</p><p>Recipient Name First 
-     * (partType=Given)</p><p>Recipient Name Last 
-     * (partType=Family)</p><p>PID.5</p><p>PID.9 (any name other 
-     * than first repetition is an 
-     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p></p>
-     * 
-     * <p><p>ZPA.1 (partType=Given)</p><p>ZPA.2 
-     * (partType=Family)</p><p>ZPA.3 (partType=Given - all 
-     * repetitions except first)</p><p>C37 
-     * (partType=Given)</p><p>C38 
-     * (partType=Family)</p><p>PTT.030-01 
-     * (partType=Family)</p><p>PTT.030-02 (partType=Given - 1st 
-     * occurrence)</p><p>PTT.030-03 (partType=Given - subsequen 
-     * occurrences)</p><p>PTT.030-04 
-     * (partType=Suffix)</p><p>PTT.030-05 
-     * (partType=Prefix)</p><p>patient 
-     * Initials</p><p>PID.5</p><p>Patient.310-CA 
-     * (partType=Given)</p><p>Patient.311-CB 
-     * (partType=Family)</p><p>Recipient Name First 
-     * (partType=Given)</p><p>Recipient Name Last 
-     * (partType=Family)</p><p>PID.5</p><p>PID.9 (any name other 
-     * than first repetition is an 
-     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p></p>
-     * 
-     * <p><p>ZPA.1 (partType=Given)</p><p>ZPA.2 
-     * (partType=Family)</p><p>ZPA.3 (partType=Given - all 
-     * repetitions except first)</p><p>C37 
-     * (partType=Given)</p><p>C38 
-     * (partType=Family)</p><p>PTT.030-01 
-     * (partType=Family)</p><p>PTT.030-02 (partType=Given - 1st 
-     * occurrence)</p><p>PTT.030-03 (partType=Given - subsequen 
-     * occurrences)</p><p>PTT.030-04 
-     * (partType=Suffix)</p><p>PTT.030-05 
-     * (partType=Prefix)</p><p>patient 
-     * Initials</p><p>PID.5</p><p>Patient.310-CA 
-     * (partType=Given)</p><p>Patient.311-CB 
-     * (partType=Family)</p><p>Recipient Name First 
-     * (partType=Given)</p><p>Recipient Name Last 
-     * (partType=Family)</p><p>PID.5</p><p>PID.9 (any name other 
-     * than first repetition is an 
-     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p></p>
-     * 
-     * <p><p>ZPA.1 (partType=Given)</p><p>ZPA.2 
-     * (partType=Family)</p><p>ZPA.3 (partType=Given - all 
-     * repetitions except first)</p><p>C37 
-     * (partType=Given)</p><p>C38 
-     * (partType=Family)</p><p>PTT.030-01 
-     * (partType=Family)</p><p>PTT.030-02 (partType=Given - 1st 
-     * occurrence)</p><p>PTT.030-03 (partType=Given - subsequen 
-     * occurrences)</p><p>PTT.030-04 
-     * (partType=Suffix)</p><p>PTT.030-05 
-     * (partType=Prefix)</p><p>patient 
-     * Initials</p><p>PID.5</p><p>Patient.310-CA 
-     * (partType=Given)</p><p>Patient.311-CB 
-     * (partType=Family)</p><p>Recipient Name First 
-     * (partType=Given)</p><p>Recipient Name Last 
-     * (partType=Family)</p><p>PID.5</p><p>PID.9 (any name other 
-     * than first repetition is an 
-     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p></p>
-     * 
-     * <p><p>ZPA.1 (partType=Given)</p><p>ZPA.2 
-     * (partType=Family)</p><p>ZPA.3 (partType=Given - all 
-     * repetitions except first)</p><p>C37 
-     * (partType=Given)</p><p>C38 
-     * (partType=Family)</p><p>PTT.030-01 
-     * (partType=Family)</p><p>PTT.030-02 (partType=Given - 1st 
-     * occurrence)</p><p>PTT.030-03 (partType=Given - subsequen 
-     * occurrences)</p><p>PTT.030-04 
-     * (partType=Suffix)</p><p>PTT.030-05 
-     * (partType=Prefix)</p><p>patient 
-     * Initials</p><p>PID.5</p><p>Patient.310-CA 
-     * (partType=Given)</p><p>Patient.311-CB 
-     * (partType=Family)</p><p>Recipient Name First 
-     * (partType=Given)</p><p>Recipient Name Last 
-     * (partType=Family)</p><p>PID.5</p><p>PID.9 (any name other 
-     * than first repetition is an 
-     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p></p>
-     * 
-     * <p><p>ZPA.1 (partType=Given)</p><p>ZPA.2 
-     * (partType=Family)</p><p>ZPA.3 (partType=Given - all 
-     * repetitions except first)</p><p>C37 
-     * (partType=Given)</p><p>C38 
-     * (partType=Family)</p><p>PTT.030-01 
-     * (partType=Family)</p><p>PTT.030-02 (partType=Given - 1st 
-     * occurrence)</p><p>PTT.030-03 (partType=Given - subsequen 
-     * occurrences)</p><p>PTT.030-04 
-     * (partType=Suffix)</p><p>PTT.030-05 
-     * (partType=Prefix)</p><p>patient 
-     * Initials</p><p>PID.5</p><p>Patient.310-CA 
-     * (partType=Given)</p><p>Patient.311-CB 
-     * (partType=Family)</p><p>Recipient Name First 
-     * (partType=Given)</p><p>Recipient Name Last 
-     * (partType=Family)</p><p>PID.5</p><p>PID.9 (any name other 
-     * than first repetition is an 
-     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p></p>
-     * 
-     * <p><p>ZPA.1 (partType=Given)</p><p>ZPA.2 
-     * (partType=Family)</p><p>ZPA.3 (partType=Given - all 
-     * repetitions except first)</p><p>C37 
-     * (partType=Given)</p><p>C38 
-     * (partType=Family)</p><p>PTT.030-01 
-     * (partType=Family)</p><p>PTT.030-02 (partType=Given - 1st 
-     * occurrence)</p><p>PTT.030-03 (partType=Given - subsequen 
-     * occurrences)</p><p>PTT.030-04 
-     * (partType=Suffix)</p><p>PTT.030-05 
-     * (partType=Prefix)</p><p>patient 
-     * Initials</p><p>PID.5</p><p>Patient.310-CA 
-     * (partType=Given)</p><p>Patient.311-CB 
-     * (partType=Family)</p><p>Recipient Name First 
-     * (partType=Given)</p><p>Recipient Name Last 
-     * (partType=Family)</p><p>PID.5</p><p>PID.9 (any name other 
-     * than first repetition is an 
-     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p></p>
-     * 
-     * <p><p>ZPA.1 (partType=Given)</p><p>ZPA.2 
-     * (partType=Family)</p><p>ZPA.3 (partType=Given - all 
-     * repetitions except first)</p><p>C37 
-     * (partType=Given)</p><p>C38 
-     * (partType=Family)</p><p>PTT.030-01 
-     * (partType=Family)</p><p>PTT.030-02 (partType=Given - 1st 
-     * occurrence)</p><p>PTT.030-03 (partType=Given - subsequen 
-     * occurrences)</p><p>PTT.030-04 
-     * (partType=Suffix)</p><p>PTT.030-05 
-     * (partType=Prefix)</p><p>patient 
-     * Initials</p><p>PID.5</p><p>Patient.310-CA 
-     * (partType=Given)</p><p>Patient.311-CB 
-     * (partType=Family)</p><p>Recipient Name First 
-     * (partType=Given)</p><p>Recipient Name Last 
-     * (partType=Family)</p><p>PID.5</p><p>PID.9 (any name other 
-     * than first repetition is an 
-     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p></p>
-     * 
-     * <p><p>ZPA.1 (partType=Given)</p><p>ZPA.2 
-     * (partType=Family)</p><p>ZPA.3 (partType=Given - all 
-     * repetitions except first)</p><p>C37 
-     * (partType=Given)</p><p>C38 
-     * (partType=Family)</p><p>PTT.030-01 
-     * (partType=Family)</p><p>PTT.030-02 (partType=Given - 1st 
-     * occurrence)</p><p>PTT.030-03 (partType=Given - subsequen 
-     * occurrences)</p><p>PTT.030-04 
-     * (partType=Suffix)</p><p>PTT.030-05 
-     * (partType=Prefix)</p><p>patient 
-     * Initials</p><p>PID.5</p><p>Patient.310-CA 
-     * (partType=Given)</p><p>Patient.311-CB 
-     * (partType=Family)</p><p>Recipient Name First 
-     * (partType=Given)</p><p>Recipient Name Last 
-     * (partType=Family)</p><p>PID.5</p><p>PID.9 (any name other 
-     * than first repetition is an 
-     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p></p>
-     * 
-     * <p><p>ZPA.1 (partType=Given)</p><p>ZPA.2 
-     * (partType=Family)</p><p>ZPA.3 (partType=Given - all 
-     * repetitions except first)</p><p>C37 
-     * (partType=Given)</p><p>C38 
-     * (partType=Family)</p><p>PTT.030-01 
-     * (partType=Family)</p><p>PTT.030-02 (partType=Given - 1st 
-     * occurrence)</p><p>PTT.030-03 (partType=Given - subsequen 
-     * occurrences)</p><p>PTT.030-04 
-     * (partType=Suffix)</p><p>PTT.030-05 
-     * (partType=Prefix)</p><p>patient 
-     * Initials</p><p>PID.5</p><p>Patient.310-CA 
-     * (partType=Given)</p><p>Patient.311-CB 
-     * (partType=Family)</p><p>Recipient Name First 
-     * (partType=Given)</p><p>Recipient Name Last 
-     * (partType=Family)</p><p>PID.5</p><p>PID.9 (any name other 
-     * than first repetition is an 
-     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p></p>
-     * 
-     * <p><p>ZPA.1 (partType=Given)</p><p>ZPA.2 
-     * (partType=Family)</p><p>ZPA.3 (partType=Given - all 
-     * repetitions except first)</p><p>C37 
-     * (partType=Given)</p><p>C38 
-     * (partType=Family)</p><p>PTT.030-01 
-     * (partType=Family)</p><p>PTT.030-02 (partType=Given - 1st 
-     * occurrence)</p><p>PTT.030-03 (partType=Given - subsequen 
-     * occurrences)</p><p>PTT.030-04 
-     * (partType=Suffix)</p><p>PTT.030-05 
-     * (partType=Prefix)</p><p>patient 
-     * Initials</p><p>PID.5</p><p>Patient.310-CA 
-     * (partType=Given)</p><p>Patient.311-CB 
-     * (partType=Family)</p><p>Recipient Name First 
-     * (partType=Given)</p><p>Recipient Name Last 
-     * (partType=Family)</p><p>PID.5</p><p>PID.9 (any name other 
-     * than first repetition is an 
-     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p></p>
-     * 
-     * <p><p>ZPA.1 (partType=Given)</p><p>ZPA.2 
-     * (partType=Family)</p><p>ZPA.3 (partType=Given - all 
-     * repetitions except first)</p><p>C37 
-     * (partType=Given)</p><p>C38 
-     * (partType=Family)</p><p>PTT.030-01 
-     * (partType=Family)</p><p>PTT.030-02 (partType=Given - 1st 
-     * occurrence)</p><p>PTT.030-03 (partType=Given - subsequen 
-     * occurrences)</p><p>PTT.030-04 
-     * (partType=Suffix)</p><p>PTT.030-05 
-     * (partType=Prefix)</p><p>patient 
-     * Initials</p><p>PID.5</p><p>Patient.310-CA 
-     * (partType=Given)</p><p>Patient.311-CB 
-     * (partType=Family)</p><p>Recipient Name First 
-     * (partType=Given)</p><p>Recipient Name Last 
-     * (partType=Family)</p><p>PID.5</p><p>PID.9 (any name other 
-     * than first repetition is an 
-     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p></p>
-     * 
-     * <p><p>ZPA.1 (partType=Given)</p><p>ZPA.2 
-     * (partType=Family)</p><p>ZPA.3 (partType=Given - all 
-     * repetitions except first)</p><p>C37 
-     * (partType=Given)</p><p>C38 
-     * (partType=Family)</p><p>PTT.030-01 
-     * (partType=Family)</p><p>PTT.030-02 (partType=Given - 1st 
-     * occurrence)</p><p>PTT.030-03 (partType=Given - subsequen 
-     * occurrences)</p><p>PTT.030-04 
-     * (partType=Suffix)</p><p>PTT.030-05 
-     * (partType=Prefix)</p><p>patient 
-     * Initials</p><p>PID.5</p><p>Patient.310-CA 
-     * (partType=Given)</p><p>Patient.311-CB 
-     * (partType=Family)</p><p>Recipient Name First 
-     * (partType=Given)</p><p>Recipient Name Last 
-     * (partType=Family)</p><p>PID.5</p><p>PID.9 (any name other 
-     * than first repetition is an 
-     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p></p>
-     * 
-     * <p><p>ZPA.1 (partType=Given)</p><p>ZPA.2 
-     * (partType=Family)</p><p>ZPA.3 (partType=Given - all 
-     * repetitions except first)</p><p>C37 
-     * (partType=Given)</p><p>C38 
-     * (partType=Family)</p><p>PTT.030-01 
-     * (partType=Family)</p><p>PTT.030-02 (partType=Given - 1st 
-     * occurrence)</p><p>PTT.030-03 (partType=Given - subsequen 
-     * occurrences)</p><p>PTT.030-04 
-     * (partType=Suffix)</p><p>PTT.030-05 
-     * (partType=Prefix)</p><p>patient 
-     * Initials</p><p>PID.5</p><p>Patient.310-CA 
-     * (partType=Given)</p><p>Patient.311-CB 
-     * (partType=Family)</p><p>Recipient Name First 
-     * (partType=Given)</p><p>Recipient Name Last 
-     * (partType=Family)</p><p>PID.5</p><p>PID.9 (any name other 
-     * than first repetition is an 
-     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p></p>
-     * 
-     * <p><p>ZPA.1 (partType=Given)</p><p>ZPA.2 
-     * (partType=Family)</p><p>ZPA.3 (partType=Given - all 
-     * repetitions except first)</p><p>C37 
-     * (partType=Given)</p><p>C38 
-     * (partType=Family)</p><p>PTT.030-01 
-     * (partType=Family)</p><p>PTT.030-02 (partType=Given - 1st 
-     * occurrence)</p><p>PTT.030-03 (partType=Given - subsequen 
-     * occurrences)</p><p>PTT.030-04 
-     * (partType=Suffix)</p><p>PTT.030-05 
-     * (partType=Prefix)</p><p>patient 
-     * Initials</p><p>PID.5</p><p>Patient.310-CA 
-     * (partType=Given)</p><p>Patient.311-CB 
-     * (partType=Family)</p><p>Recipient Name First 
-     * (partType=Given)</p><p>Recipient Name Last 
-     * (partType=Family)</p><p>PID.5</p><p>PID.9 (any name other 
-     * than first repetition is an 
-     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p></p>
-     * 
-     * <p><p>ZPA.1 (partType=Given)</p><p>ZPA.2 
-     * (partType=Family)</p><p>ZPA.3 (partType=Given - all 
-     * repetitions except first)</p><p>C37 
-     * (partType=Given)</p><p>C38 
-     * (partType=Family)</p><p>PTT.030-01 
-     * (partType=Family)</p><p>PTT.030-02 (partType=Given - 1st 
-     * occurrence)</p><p>PTT.030-03 (partType=Given - subsequen 
-     * occurrences)</p><p>PTT.030-04 
-     * (partType=Suffix)</p><p>PTT.030-05 
-     * (partType=Prefix)</p><p>patient 
-     * Initials</p><p>PID.5</p><p>Patient.310-CA 
-     * (partType=Given)</p><p>Patient.311-CB 
-     * (partType=Family)</p><p>Recipient Name First 
-     * (partType=Given)</p><p>Recipient Name Last 
-     * (partType=Family)</p><p>PID.5</p><p>PID.9 (any name other 
-     * than first repetition is an 
-     * alias)</p><p>ZDU.3</p><p>ZKW.2</p><p>Person.givenName</p><p>Person.lastName</p><p>Person.middleName</p><p>Person.namePrefix</p><p>Person.nameSuffix</p></p>
-     * 
-     * <p><p>Used by to help identify the patient and also when 
-     * referring to the patient</p><p>The element is populated 
-     * because the patient's name is important for display. 
-     * However, there may be circumstances where a name is not 
-     * known by the reporting system.</p></p>
-     * 
-     * <p><p>Used by to help identify the patient and also when 
-     * referring to the patient</p><p>The element is populated 
-     * because the patient's name is important for display. 
-     * However, there may be circumstances where a name is not 
-     * known by the reporting system.</p></p>
-     */
-    @Hl7XmlMapping({"patientPerson/name"})
-    public PersonName getPatientName() {
-        return this.patientName.getValue();
-    }
-    public void setPatientName(PersonName patientName) {
-        this.patientName.setValue(patientName);
-    }
-
-
-    /**
-     * <p>PatientIdentifier</p>
-     * 
-     * <p>A:Patient Identifier</p>
-     * 
-     * <p><p>Unique identifier assigned to a person by Federal, 
-     * Provincial and Territorial jurisdiction for the purposes of 
-     * uniquely identifying the person within the EHR.</p><p>The 
-     * EHR will define which identifier to use within a 
-     * jurisdiction.</p></p>
-     * 
-     * <p><p>Unique identifier assigned to a person by Federal, 
-     * Provincial and Territorial jurisdiction for the purposes of 
-     * uniquely identifying the person within the EHR.</p><p>The 
-     * EHR will define which identifier to use within a 
-     * jurisdiction.</p></p>
-     * 
-     * <p><p>C39 (Extension)</p><p>PTT.050.01 
-     * (Extension)</p><p>PTT.050.02 
-     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
-     * (Extension)</p><p>Patient.331-CX 
-     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
-     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
-     * (Root)</p><p>Person.PHN (Extension)</p></p>
-     * 
-     * <p><p>C39 (Extension)</p><p>PTT.050.01 
-     * (Extension)</p><p>PTT.050.02 
-     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
-     * (Extension)</p><p>Patient.331-CX 
-     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
-     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
-     * (Root)</p><p>Person.PHN (Extension)</p></p>
-     * 
-     * <p><p>C39 (Extension)</p><p>PTT.050.01 
-     * (Extension)</p><p>PTT.050.02 
-     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
-     * (Extension)</p><p>Patient.331-CX 
-     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
-     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
-     * (Root)</p><p>Person.PHN (Extension)</p></p>
-     * 
-     * <p><p>C39 (Extension)</p><p>PTT.050.01 
-     * (Extension)</p><p>PTT.050.02 
-     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
-     * (Extension)</p><p>Patient.331-CX 
-     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
-     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
-     * (Root)</p><p>Person.PHN (Extension)</p></p>
-     * 
-     * <p><p>C39 (Extension)</p><p>PTT.050.01 
-     * (Extension)</p><p>PTT.050.02 
-     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
-     * (Extension)</p><p>Patient.331-CX 
-     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
-     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
-     * (Root)</p><p>Person.PHN (Extension)</p></p>
-     * 
-     * <p><p>C39 (Extension)</p><p>PTT.050.01 
-     * (Extension)</p><p>PTT.050.02 
-     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
-     * (Extension)</p><p>Patient.331-CX 
-     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
-     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
-     * (Root)</p><p>Person.PHN (Extension)</p></p>
-     * 
-     * <p><p>C39 (Extension)</p><p>PTT.050.01 
-     * (Extension)</p><p>PTT.050.02 
-     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
-     * (Extension)</p><p>Patient.331-CX 
-     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
-     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
-     * (Root)</p><p>Person.PHN (Extension)</p></p>
-     * 
-     * <p><p>C39 (Extension)</p><p>PTT.050.01 
-     * (Extension)</p><p>PTT.050.02 
-     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
-     * (Extension)</p><p>Patient.331-CX 
-     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
-     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
-     * (Root)</p><p>Person.PHN (Extension)</p></p>
-     * 
-     * <p><p>C39 (Extension)</p><p>PTT.050.01 
-     * (Extension)</p><p>PTT.050.02 
-     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
-     * (Extension)</p><p>Patient.331-CX 
-     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
-     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
-     * (Root)</p><p>Person.PHN (Extension)</p></p>
-     * 
-     * <p><p>C39 (Extension)</p><p>PTT.050.01 
-     * (Extension)</p><p>PTT.050.02 
-     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
-     * (Extension)</p><p>Patient.331-CX 
-     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
-     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
-     * (Root)</p><p>Person.PHN (Extension)</p></p>
-     * 
-     * <p><p>C39 (Extension)</p><p>PTT.050.01 
-     * (Extension)</p><p>PTT.050.02 
-     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
-     * (Extension)</p><p>Patient.331-CX 
-     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
-     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
-     * (Root)</p><p>Person.PHN (Extension)</p></p>
-     * 
-     * <p><p>C39 (Extension)</p><p>PTT.050.01 
-     * (Extension)</p><p>PTT.050.02 
-     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
-     * (Extension)</p><p>Patient.331-CX 
-     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
-     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
-     * (Root)</p><p>Person.PHN (Extension)</p></p>
-     * 
-     * <p><p>C39 (Extension)</p><p>PTT.050.01 
-     * (Extension)</p><p>PTT.050.02 
-     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
-     * (Extension)</p><p>Patient.331-CX 
-     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
-     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
-     * (Root)</p><p>Person.PHN (Extension)</p></p>
-     * 
-     * <p><p>C39 (Extension)</p><p>PTT.050.01 
-     * (Extension)</p><p>PTT.050.02 
-     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
-     * (Extension)</p><p>Patient.331-CX 
-     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
-     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
-     * (Root)</p><p>Person.PHN (Extension)</p></p>
-     * 
-     * <p><p>C39 (Extension)</p><p>PTT.050.01 
-     * (Extension)</p><p>PTT.050.02 
-     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
-     * (Extension)</p><p>Patient.331-CX 
-     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
-     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
-     * (Root)</p><p>Person.PHN (Extension)</p></p>
-     * 
-     * <p><p>Allows a patient to be referred to unambiguously. 
-     * Because this is the principal mechanism for identifying 
-     * patients to computer systems, the attribute is 
-     * mandatory.</p></p>
-     * 
-     * <p>A:Patient Identifier</p>
-     * 
-     * <p><p>Unique identifier assigned to a person, possibly by a 
-     * local system or some other non-client-registry 
-     * identifier.</p></p>
-     * 
-     * <p><p>C39 (Extension)</p><p>PTT.050.01 
-     * (Extension)</p><p>PTT.050.02 
-     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
-     * (Extension)</p><p>Patient.331-CX 
-     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
-     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
-     * (Root)</p><p>Person.PHN (Extension)</p></p>
-     * 
-     * <p><p>C39 (Extension)</p><p>PTT.050.01 
-     * (Extension)</p><p>PTT.050.02 
-     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
-     * (Extension)</p><p>Patient.331-CX 
-     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
-     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
-     * (Root)</p><p>Person.PHN (Extension)</p></p>
-     * 
-     * <p><p>C39 (Extension)</p><p>PTT.050.01 
-     * (Extension)</p><p>PTT.050.02 
-     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
-     * (Extension)</p><p>Patient.331-CX 
-     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
-     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
-     * (Root)</p><p>Person.PHN (Extension)</p></p>
-     * 
-     * <p><p>C39 (Extension)</p><p>PTT.050.01 
-     * (Extension)</p><p>PTT.050.02 
-     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
-     * (Extension)</p><p>Patient.331-CX 
-     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
-     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
-     * (Root)</p><p>Person.PHN (Extension)</p></p>
-     * 
-     * <p><p>C39 (Extension)</p><p>PTT.050.01 
-     * (Extension)</p><p>PTT.050.02 
-     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
-     * (Extension)</p><p>Patient.331-CX 
-     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
-     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
-     * (Root)</p><p>Person.PHN (Extension)</p></p>
-     * 
-     * <p><p>C39 (Extension)</p><p>PTT.050.01 
-     * (Extension)</p><p>PTT.050.02 
-     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
-     * (Extension)</p><p>Patient.331-CX 
-     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
-     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
-     * (Root)</p><p>Person.PHN (Extension)</p></p>
-     * 
-     * <p><p>C39 (Extension)</p><p>PTT.050.01 
-     * (Extension)</p><p>PTT.050.02 
-     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
-     * (Extension)</p><p>Patient.331-CX 
-     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
-     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
-     * (Root)</p><p>Person.PHN (Extension)</p></p>
-     * 
-     * <p><p>C39 (Extension)</p><p>PTT.050.01 
-     * (Extension)</p><p>PTT.050.02 
-     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
-     * (Extension)</p><p>Patient.331-CX 
-     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
-     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
-     * (Root)</p><p>Person.PHN (Extension)</p></p>
-     * 
-     * <p><p>C39 (Extension)</p><p>PTT.050.01 
-     * (Extension)</p><p>PTT.050.02 
-     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
-     * (Extension)</p><p>Patient.331-CX 
-     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
-     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
-     * (Root)</p><p>Person.PHN (Extension)</p></p>
-     * 
-     * <p><p>C39 (Extension)</p><p>PTT.050.01 
-     * (Extension)</p><p>PTT.050.02 
-     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
-     * (Extension)</p><p>Patient.331-CX 
-     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
-     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
-     * (Root)</p><p>Person.PHN (Extension)</p></p>
-     * 
-     * <p><p>C39 (Extension)</p><p>PTT.050.01 
-     * (Extension)</p><p>PTT.050.02 
-     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
-     * (Extension)</p><p>Patient.331-CX 
-     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
-     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
-     * (Root)</p><p>Person.PHN (Extension)</p></p>
-     * 
-     * <p><p>C39 (Extension)</p><p>PTT.050.01 
-     * (Extension)</p><p>PTT.050.02 
-     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
-     * (Extension)</p><p>Patient.331-CX 
-     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
-     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
-     * (Root)</p><p>Person.PHN (Extension)</p></p>
-     * 
-     * <p><p>C39 (Extension)</p><p>PTT.050.01 
-     * (Extension)</p><p>PTT.050.02 
-     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
-     * (Extension)</p><p>Patient.331-CX 
-     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
-     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
-     * (Root)</p><p>Person.PHN (Extension)</p></p>
-     * 
-     * <p><p>C39 (Extension)</p><p>PTT.050.01 
-     * (Extension)</p><p>PTT.050.02 
-     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
-     * (Extension)</p><p>Patient.331-CX 
-     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
-     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
-     * (Root)</p><p>Person.PHN (Extension)</p></p>
-     * 
-     * <p><p>C39 (Extension)</p><p>PTT.050.01 
-     * (Extension)</p><p>PTT.050.02 
-     * (Root)</p><p>A.1</p><p>PID.2</p><p>Patient.332-CY 
-     * (Extension)</p><p>Patient.331-CX 
-     * (Root)</p><p>Claim.330-CW</p><p>Health Card 
-     * Number</p><p>PID.2</p><p>PID.4</p><p>ZDU.2</p><p>ZKW.3</p><p>Jurisdiction 
-     * (Root)</p><p>Person.PHN (Extension)</p></p>
-     * 
-     * <p><p>Allows a patient to be referred to unambiguously. 
-     * Because this CMET deals with patients not confirmable 
-     * against a client registry, it's possible that no identifier 
-     * will be known and therefore the attribute is only 
-     * 'populated'.</p></p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Identifier getPatientIdentifier() {
-        return this.patientIdentifier.getValue();
-    }
-    public void setPatientIdentifier(Identifier patientIdentifier) {
-        this.patientIdentifier.setValue(patientIdentifier);
     }
 
 

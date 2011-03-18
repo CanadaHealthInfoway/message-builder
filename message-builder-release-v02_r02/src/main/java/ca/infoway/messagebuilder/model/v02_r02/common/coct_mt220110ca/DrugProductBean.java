@@ -40,11 +40,11 @@ public class DrugProductBean extends MessagePartBean implements ca.infoway.messa
 
     private static final long serialVersionUID = 20110318L;
     private CV drugCode = new CVImpl();
-    private ST drugDescription = new STImpl();
-    private ManufacturerBean administerableMedicineAsManufacturedProductManufacturer;
-    private List<DrugContainsBean> administerableMedicineIngredient = new ArrayList<DrugContainsBean>();
     private CV drugForm = new CVImpl();
+    private List<DrugContainsBean> administerableMedicineIngredient = new ArrayList<DrugContainsBean>();
+    private ManufacturerBean administerableMedicineAsManufacturedProductManufacturer;
     private ST drugName = new STImpl();
+    private ST drugDescription = new STImpl();
     private DrugDispensedInBean administerableMedicineAsContent;
 
 
@@ -740,53 +740,6 @@ public class DrugProductBean extends MessagePartBean implements ca.infoway.messa
 
 
     /**
-     * <p>C:Drug Description</p>
-     * 
-     * <p><p>A free form textual description of a drug. This 
-     * usually is only populated for custom compounds, providing 
-     * instructions on the composition and creation of the 
-     * compound.</p></p>
-     * 
-     * <p><p>DrugProduct.description</p><p>CompoundedDrugProduct.adhocSpecification</p><p>DRU.010-06</p><p>DIN 
-     * Description</p></p>
-     * 
-     * <p><p>DrugProduct.description</p><p>CompoundedDrugProduct.adhocSpecification</p><p>DRU.010-06</p><p>DIN 
-     * Description</p></p>
-     * 
-     * <p><p>DrugProduct.description</p><p>CompoundedDrugProduct.adhocSpecification</p><p>DRU.010-06</p><p>DIN 
-     * Description</p></p>
-     * 
-     * <p><p>DrugProduct.description</p><p>CompoundedDrugProduct.adhocSpecification</p><p>DRU.010-06</p><p>DIN 
-     * Description</p></p>
-     * 
-     * <p><p>Allows description of compound ingredients and/or 
-     * recipe in free text form.</p></p>
-     */
-    @Hl7XmlMapping({"administerableMedicine/desc"})
-    public String getDrugDescription() {
-        return this.drugDescription.getValue();
-    }
-    public void setDrugDescription(String drugDescription) {
-        this.drugDescription.setValue(drugDescription);
-    }
-
-
-    @Hl7XmlMapping({"administerableMedicine/asManufacturedProduct/manufacturer"})
-    public ManufacturerBean getAdministerableMedicineAsManufacturedProductManufacturer() {
-        return this.administerableMedicineAsManufacturedProductManufacturer;
-    }
-    public void setAdministerableMedicineAsManufacturedProductManufacturer(ManufacturerBean administerableMedicineAsManufacturedProductManufacturer) {
-        this.administerableMedicineAsManufacturedProductManufacturer = administerableMedicineAsManufacturedProductManufacturer;
-    }
-
-
-    @Hl7XmlMapping({"administerableMedicine/ingredient"})
-    public List<DrugContainsBean> getAdministerableMedicineIngredient() {
-        return this.administerableMedicineIngredient;
-    }
-
-
-    /**
      * <p>D:Drug Form</p>
      * 
      * <p><p>Indicates the form in which the drug product must be, 
@@ -865,6 +818,21 @@ public class DrugProductBean extends MessagePartBean implements ca.infoway.messa
     }
     public void setDrugForm(OrderableDrugForm drugForm) {
         this.drugForm.setValue(drugForm);
+    }
+
+
+    @Hl7XmlMapping({"administerableMedicine/ingredient"})
+    public List<DrugContainsBean> getAdministerableMedicineIngredient() {
+        return this.administerableMedicineIngredient;
+    }
+
+
+    @Hl7XmlMapping({"administerableMedicine/asManufacturedProduct/manufacturer"})
+    public ManufacturerBean getAdministerableMedicineAsManufacturedProductManufacturer() {
+        return this.administerableMedicineAsManufacturedProductManufacturer;
+    }
+    public void setAdministerableMedicineAsManufacturedProductManufacturer(ManufacturerBean administerableMedicineAsManufacturedProductManufacturer) {
+        this.administerableMedicineAsManufacturedProductManufacturer = administerableMedicineAsManufacturedProductManufacturer;
     }
 
 
@@ -992,6 +960,38 @@ public class DrugProductBean extends MessagePartBean implements ca.infoway.messa
     }
     public void setDrugName(String drugName) {
         this.drugName.setValue(drugName);
+    }
+
+
+    /**
+     * <p>C:Drug Description</p>
+     * 
+     * <p><p>A free form textual description of a drug. This 
+     * usually is only populated for custom compounds, providing 
+     * instructions on the composition and creation of the 
+     * compound.</p></p>
+     * 
+     * <p><p>DrugProduct.description</p><p>CompoundedDrugProduct.adhocSpecification</p><p>DRU.010-06</p><p>DIN 
+     * Description</p></p>
+     * 
+     * <p><p>DrugProduct.description</p><p>CompoundedDrugProduct.adhocSpecification</p><p>DRU.010-06</p><p>DIN 
+     * Description</p></p>
+     * 
+     * <p><p>DrugProduct.description</p><p>CompoundedDrugProduct.adhocSpecification</p><p>DRU.010-06</p><p>DIN 
+     * Description</p></p>
+     * 
+     * <p><p>DrugProduct.description</p><p>CompoundedDrugProduct.adhocSpecification</p><p>DRU.010-06</p><p>DIN 
+     * Description</p></p>
+     * 
+     * <p><p>Allows description of compound ingredients and/or 
+     * recipe in free text form.</p></p>
+     */
+    @Hl7XmlMapping({"administerableMedicine/desc"})
+    public String getDrugDescription() {
+        return this.drugDescription.getValue();
+    }
+    public void setDrugDescription(String drugDescription) {
+        this.drugDescription.setValue(drugDescription);
     }
 
 

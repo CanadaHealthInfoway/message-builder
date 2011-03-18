@@ -35,39 +35,15 @@ import java.util.List;
 public class SpecimenRoleBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private SpecimenCollectionProcedureBean productOfSpecimenCollectionProcedureEvent;
-    private List<SpecimenProcessStepsBean> subjectOf1TransportationEvent = new ArrayList<SpecimenProcessStepsBean>();
-    private CS classCode = new CSImpl();
     private II specimenIdentifier = new IIImpl();
-    private List<SpecimenObservationBean> subjectOf2SpecimenObservationEvent = new ArrayList<SpecimenObservationBean>();
-    private CV specimenContainerRisk = new CVImpl();
+    private SpecimenCollectionProcedureBean productOfSpecimenCollectionProcedureEvent;
+    private CS classCode = new CSImpl();
     private CV specimenCode = new CVImpl();
-    private ST specimenText = new STImpl();
+    private CV specimenContainerRisk = new CVImpl();
     private List<OtherSpecimenIdentificationsBean> specimenMaterialAsIdentifiedEntity = new ArrayList<OtherSpecimenIdentificationsBean>();
-
-
-    @Hl7XmlMapping({"productOf/specimenCollectionProcedureEvent"})
-    public SpecimenCollectionProcedureBean getProductOfSpecimenCollectionProcedureEvent() {
-        return this.productOfSpecimenCollectionProcedureEvent;
-    }
-    public void setProductOfSpecimenCollectionProcedureEvent(SpecimenCollectionProcedureBean productOfSpecimenCollectionProcedureEvent) {
-        this.productOfSpecimenCollectionProcedureEvent = productOfSpecimenCollectionProcedureEvent;
-    }
-
-
-    @Hl7XmlMapping({"subjectOf1/transportationEvent"})
-    public List<SpecimenProcessStepsBean> getSubjectOf1TransportationEvent() {
-        return this.subjectOf1TransportationEvent;
-    }
-
-
-    @Hl7XmlMapping({"classCode"})
-    public RoleClass getClassCode() {
-        return (RoleClass) this.classCode.getValue();
-    }
-    public void setClassCode(RoleClass classCode) {
-        this.classCode.setValue(classCode);
-    }
+    private ST specimenText = new STImpl();
+    private List<SpecimenObservationBean> subjectOf2SpecimenObservationEvent = new ArrayList<SpecimenObservationBean>();
+    private List<SpecimenProcessStepsBean> subjectOf1TransportationEvent = new ArrayList<SpecimenProcessStepsBean>();
 
 
     /**
@@ -109,27 +85,21 @@ public class SpecimenRoleBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"subjectOf2/specimenObservationEvent"})
-    public List<SpecimenObservationBean> getSubjectOf2SpecimenObservationEvent() {
-        return this.subjectOf2SpecimenObservationEvent;
+    @Hl7XmlMapping({"productOf/specimenCollectionProcedureEvent"})
+    public SpecimenCollectionProcedureBean getProductOfSpecimenCollectionProcedureEvent() {
+        return this.productOfSpecimenCollectionProcedureEvent;
+    }
+    public void setProductOfSpecimenCollectionProcedureEvent(SpecimenCollectionProcedureBean productOfSpecimenCollectionProcedureEvent) {
+        this.productOfSpecimenCollectionProcedureEvent = productOfSpecimenCollectionProcedureEvent;
     }
 
 
-    /**
-     * <p>Y:Specimen Container Risk</p>
-     * 
-     * <p><p>Describes any risk to the handlers of this container 
-     * (containing a specimen).</p></p>
-     * 
-     * <p><p>Used to document container risks to those who handle 
-     * the container.</p></p>
-     */
-    @Hl7XmlMapping({"specimenMaterial/asContent/container/riskCode"})
-    public EntityRisk getSpecimenContainerRisk() {
-        return (EntityRisk) this.specimenContainerRisk.getValue();
+    @Hl7XmlMapping({"classCode"})
+    public RoleClass getClassCode() {
+        return (RoleClass) this.classCode.getValue();
     }
-    public void setSpecimenContainerRisk(EntityRisk specimenContainerRisk) {
-        this.specimenContainerRisk.setValue(specimenContainerRisk);
+    public void setClassCode(RoleClass classCode) {
+        this.classCode.setValue(classCode);
     }
 
 
@@ -152,6 +122,30 @@ public class SpecimenRoleBean extends MessagePartBean {
 
 
     /**
+     * <p>Y:Specimen Container Risk</p>
+     * 
+     * <p><p>Describes any risk to the handlers of this container 
+     * (containing a specimen).</p></p>
+     * 
+     * <p><p>Used to document container risks to those who handle 
+     * the container.</p></p>
+     */
+    @Hl7XmlMapping({"specimenMaterial/asContent/container/riskCode"})
+    public EntityRisk getSpecimenContainerRisk() {
+        return (EntityRisk) this.specimenContainerRisk.getValue();
+    }
+    public void setSpecimenContainerRisk(EntityRisk specimenContainerRisk) {
+        this.specimenContainerRisk.setValue(specimenContainerRisk);
+    }
+
+
+    @Hl7XmlMapping({"specimenMaterial/asIdentifiedEntity"})
+    public List<OtherSpecimenIdentificationsBean> getSpecimenMaterialAsIdentifiedEntity() {
+        return this.specimenMaterialAsIdentifiedEntity;
+    }
+
+
+    /**
      * <p>W:Specimen Text</p>
      * 
      * <p><p>Any descriptive specimen information not sufficiently 
@@ -169,9 +163,15 @@ public class SpecimenRoleBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"specimenMaterial/asIdentifiedEntity"})
-    public List<OtherSpecimenIdentificationsBean> getSpecimenMaterialAsIdentifiedEntity() {
-        return this.specimenMaterialAsIdentifiedEntity;
+    @Hl7XmlMapping({"subjectOf2/specimenObservationEvent"})
+    public List<SpecimenObservationBean> getSubjectOf2SpecimenObservationEvent() {
+        return this.subjectOf2SpecimenObservationEvent;
+    }
+
+
+    @Hl7XmlMapping({"subjectOf1/transportationEvent"})
+    public List<SpecimenProcessStepsBean> getSubjectOf1TransportationEvent() {
+        return this.subjectOf1TransportationEvent;
     }
 
 }

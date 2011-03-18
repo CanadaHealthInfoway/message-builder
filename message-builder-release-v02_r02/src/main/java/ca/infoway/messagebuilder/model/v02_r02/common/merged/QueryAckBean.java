@@ -19,30 +19,29 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 public class QueryAckBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private II queryIdentifier = new IIImpl();
+    private CS queryStatus = new CSImpl();
     private INT returnedRows = new INTImpl();
     private INT remainingRows = new INTImpl();
-    private CS queryStatus = new CSImpl();
     private INT totalMatchingRows = new INTImpl();
+    private II queryIdentifier = new IIImpl();
 
 
     /**
-     * <p>QueryIdentifier</p>
+     * <p>QueryStatus</p>
      * 
-     * <p>H:Query Identifier</p>
+     * <p>I:Query Status</p>
      * 
-     * <p><p>Identifies the query being acknowledged</p></p>
+     * <p><p>Indicates whether the query was successful or not.</p></p>
      * 
-     * <p><p>Allows linking of a response back to the request that 
-     * triggered it and is therefore mandatory. Particularly useful 
-     * when responses are deferred or queued.</p></p>
+     * <p><p>Used to control receiver logic and is therefore 
+     * mandatory.</p></p>
      */
-    @Hl7XmlMapping({"queryId"})
-    public Identifier getQueryIdentifier() {
-        return this.queryIdentifier.getValue();
+    @Hl7XmlMapping({"queryResponseCode"})
+    public QueryResponse getQueryStatus() {
+        return (QueryResponse) this.queryStatus.getValue();
     }
-    public void setQueryIdentifier(Identifier queryIdentifier) {
-        this.queryIdentifier.setValue(queryIdentifier);
+    public void setQueryStatus(QueryResponse queryStatus) {
+        this.queryStatus.setValue(queryStatus);
     }
 
 
@@ -95,25 +94,6 @@ public class QueryAckBean extends MessagePartBean {
 
 
     /**
-     * <p>QueryStatus</p>
-     * 
-     * <p>I:Query Status</p>
-     * 
-     * <p><p>Indicates whether the query was successful or not.</p></p>
-     * 
-     * <p><p>Used to control receiver logic and is therefore 
-     * mandatory.</p></p>
-     */
-    @Hl7XmlMapping({"queryResponseCode"})
-    public QueryResponse getQueryStatus() {
-        return (QueryResponse) this.queryStatus.getValue();
-    }
-    public void setQueryStatus(QueryResponse queryStatus) {
-        this.queryStatus.setValue(queryStatus);
-    }
-
-
-    /**
      * <p>TotalMatchingRows</p>
      * 
      * <p>J:Total Matching Rows</p>
@@ -131,6 +111,26 @@ public class QueryAckBean extends MessagePartBean {
     }
     public void setTotalMatchingRows(Integer totalMatchingRows) {
         this.totalMatchingRows.setValue(totalMatchingRows);
+    }
+
+
+    /**
+     * <p>QueryIdentifier</p>
+     * 
+     * <p>H:Query Identifier</p>
+     * 
+     * <p><p>Identifies the query being acknowledged</p></p>
+     * 
+     * <p><p>Allows linking of a response back to the request that 
+     * triggered it and is therefore mandatory. Particularly useful 
+     * when responses are deferred or queued.</p></p>
+     */
+    @Hl7XmlMapping({"queryId"})
+    public Identifier getQueryIdentifier() {
+        return this.queryIdentifier.getValue();
+    }
+    public void setQueryIdentifier(Identifier queryIdentifier) {
+        this.queryIdentifier.setValue(queryIdentifier);
     }
 
 }

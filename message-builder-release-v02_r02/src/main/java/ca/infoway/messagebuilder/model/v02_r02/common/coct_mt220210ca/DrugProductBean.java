@@ -44,15 +44,39 @@ import java.util.List;
 public class DrugProductBean extends MessagePartBean implements ca.infoway.messagebuilder.model.v02_r02.common.coct_mt270010ca.Medication {
 
     private static final long serialVersionUID = 20110318L;
+    private ST drugLotNumber = new STImpl();
     private IVL<TS, Interval<Date>> drugExpiryDate = new IVLImpl<TS, Interval<Date>>();
     private CV drugCode = new CVImpl();
-    private ST drugDescription = new STImpl();
-    private ManufacturerBean administerableMedicineAsManufacturedProductManufacturer;
-    private List<DrugContainsBean> administerableMedicineIngredient = new ArrayList<DrugContainsBean>();
     private CV drugForm = new CVImpl();
+    private List<DrugContainsBean> administerableMedicineIngredient = new ArrayList<DrugContainsBean>();
+    private ManufacturerBean administerableMedicineAsManufacturedProductManufacturer;
     private ST drugName = new STImpl();
+    private ST drugDescription = new STImpl();
     private DrugDispensedInBean administerableMedicineAsContent;
-    private ST drugLotNumber = new STImpl();
+
+
+    /**
+     * <p>E:Drug Lot Number</p>
+     * 
+     * <p><p>Identification of a batch in which a specific 
+     * manufactured drug belongs.</p></p>
+     * 
+     * <p><p>X0301</p><p>RXA.15</p><p>C.6</p></p>
+     * 
+     * <p><p>X0301</p><p>RXA.15</p><p>C.6</p></p>
+     * 
+     * <p><p>X0301</p><p>RXA.15</p><p>C.6</p></p>
+     * 
+     * <p><p>Useful in tracking for recalls but may not always 
+     * exist.</p></p>
+     */
+    @Hl7XmlMapping({"administerableMedicine/lotNumberText"})
+    public String getDrugLotNumber() {
+        return this.drugLotNumber.getValue();
+    }
+    public void setDrugLotNumber(String drugLotNumber) {
+        this.drugLotNumber.setValue(drugLotNumber);
+    }
 
 
     /**
@@ -783,53 +807,6 @@ public class DrugProductBean extends MessagePartBean implements ca.infoway.messa
 
 
     /**
-     * <p>C:Drug Description</p>
-     * 
-     * <p><p>A free form textual description of a drug. This 
-     * usually is only populated for custom compounds, providing 
-     * instructions on the composition and creation of the 
-     * compound.</p></p>
-     * 
-     * <p><p>DrugProduct.description</p><p>CompoundedDrugProduct.adhocSpecification</p><p>DRU.010-06</p><p>DIN 
-     * Description</p></p>
-     * 
-     * <p><p>DrugProduct.description</p><p>CompoundedDrugProduct.adhocSpecification</p><p>DRU.010-06</p><p>DIN 
-     * Description</p></p>
-     * 
-     * <p><p>DrugProduct.description</p><p>CompoundedDrugProduct.adhocSpecification</p><p>DRU.010-06</p><p>DIN 
-     * Description</p></p>
-     * 
-     * <p><p>DrugProduct.description</p><p>CompoundedDrugProduct.adhocSpecification</p><p>DRU.010-06</p><p>DIN 
-     * Description</p></p>
-     * 
-     * <p><p>Allows description of compound ingredients and/or 
-     * recipe in free text form.</p></p>
-     */
-    @Hl7XmlMapping({"administerableMedicine/desc"})
-    public String getDrugDescription() {
-        return this.drugDescription.getValue();
-    }
-    public void setDrugDescription(String drugDescription) {
-        this.drugDescription.setValue(drugDescription);
-    }
-
-
-    @Hl7XmlMapping({"administerableMedicine/asManufacturedProduct/manufacturer"})
-    public ManufacturerBean getAdministerableMedicineAsManufacturedProductManufacturer() {
-        return this.administerableMedicineAsManufacturedProductManufacturer;
-    }
-    public void setAdministerableMedicineAsManufacturedProductManufacturer(ManufacturerBean administerableMedicineAsManufacturedProductManufacturer) {
-        this.administerableMedicineAsManufacturedProductManufacturer = administerableMedicineAsManufacturedProductManufacturer;
-    }
-
-
-    @Hl7XmlMapping({"administerableMedicine/ingredient"})
-    public List<DrugContainsBean> getAdministerableMedicineIngredient() {
-        return this.administerableMedicineIngredient;
-    }
-
-
-    /**
      * <p>D:Drug Form</p>
      * 
      * <p><p>Indicates the form in which the drug product must be, 
@@ -908,6 +885,21 @@ public class DrugProductBean extends MessagePartBean implements ca.infoway.messa
     }
     public void setDrugForm(OrderableDrugForm drugForm) {
         this.drugForm.setValue(drugForm);
+    }
+
+
+    @Hl7XmlMapping({"administerableMedicine/ingredient"})
+    public List<DrugContainsBean> getAdministerableMedicineIngredient() {
+        return this.administerableMedicineIngredient;
+    }
+
+
+    @Hl7XmlMapping({"administerableMedicine/asManufacturedProduct/manufacturer"})
+    public ManufacturerBean getAdministerableMedicineAsManufacturedProductManufacturer() {
+        return this.administerableMedicineAsManufacturedProductManufacturer;
+    }
+    public void setAdministerableMedicineAsManufacturedProductManufacturer(ManufacturerBean administerableMedicineAsManufacturedProductManufacturer) {
+        this.administerableMedicineAsManufacturedProductManufacturer = administerableMedicineAsManufacturedProductManufacturer;
     }
 
 
@@ -1038,36 +1030,44 @@ public class DrugProductBean extends MessagePartBean implements ca.infoway.messa
     }
 
 
+    /**
+     * <p>C:Drug Description</p>
+     * 
+     * <p><p>A free form textual description of a drug. This 
+     * usually is only populated for custom compounds, providing 
+     * instructions on the composition and creation of the 
+     * compound.</p></p>
+     * 
+     * <p><p>DrugProduct.description</p><p>CompoundedDrugProduct.adhocSpecification</p><p>DRU.010-06</p><p>DIN 
+     * Description</p></p>
+     * 
+     * <p><p>DrugProduct.description</p><p>CompoundedDrugProduct.adhocSpecification</p><p>DRU.010-06</p><p>DIN 
+     * Description</p></p>
+     * 
+     * <p><p>DrugProduct.description</p><p>CompoundedDrugProduct.adhocSpecification</p><p>DRU.010-06</p><p>DIN 
+     * Description</p></p>
+     * 
+     * <p><p>DrugProduct.description</p><p>CompoundedDrugProduct.adhocSpecification</p><p>DRU.010-06</p><p>DIN 
+     * Description</p></p>
+     * 
+     * <p><p>Allows description of compound ingredients and/or 
+     * recipe in free text form.</p></p>
+     */
+    @Hl7XmlMapping({"administerableMedicine/desc"})
+    public String getDrugDescription() {
+        return this.drugDescription.getValue();
+    }
+    public void setDrugDescription(String drugDescription) {
+        this.drugDescription.setValue(drugDescription);
+    }
+
+
     @Hl7XmlMapping({"administerableMedicine/asContent"})
     public DrugDispensedInBean getAdministerableMedicineAsContent() {
         return this.administerableMedicineAsContent;
     }
     public void setAdministerableMedicineAsContent(DrugDispensedInBean administerableMedicineAsContent) {
         this.administerableMedicineAsContent = administerableMedicineAsContent;
-    }
-
-
-    /**
-     * <p>E:Drug Lot Number</p>
-     * 
-     * <p><p>Identification of a batch in which a specific 
-     * manufactured drug belongs.</p></p>
-     * 
-     * <p><p>X0301</p><p>RXA.15</p><p>C.6</p></p>
-     * 
-     * <p><p>X0301</p><p>RXA.15</p><p>C.6</p></p>
-     * 
-     * <p><p>X0301</p><p>RXA.15</p><p>C.6</p></p>
-     * 
-     * <p><p>Useful in tracking for recalls but may not always 
-     * exist.</p></p>
-     */
-    @Hl7XmlMapping({"administerableMedicine/lotNumberText"})
-    public String getDrugLotNumber() {
-        return this.drugLotNumber.getValue();
-    }
-    public void setDrugLotNumber(String drugLotNumber) {
-        this.drugLotNumber.setValue(drugLotNumber);
     }
 
 }

@@ -21,6 +21,8 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.v02_r02.common.merged.HealthcareWorkerBean;
 import ca.infoway.messagebuilder.model.v02_r02.merged.CreatedAtBean;
 import ca.infoway.messagebuilder.model.v02_r02.si.comt_mt300003ca.AnnotatedByBean;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 
@@ -63,10 +65,10 @@ public class CommentBean extends MessagePartBean {
     private CV patientNoteCategory = new CVImpl();
     private ST text = new STImpl();
     private SET<CV, Code> restrictedPatientAccess = new SETImpl<CV, Code>(CVImpl.class);
+    private II patientNoteId = new IIImpl();
+    private AnnotatedByBean author;
     private HealthcareWorkerBean responsiblePartyAssignedEntity;
     private CreatedAtBean location;
-    private AnnotatedByBean author;
-    private II patientNoteId = new IIImpl();
     private II recordId = new IIImpl();
     private CV writtenIn = new CVImpl();
 
@@ -228,33 +230,6 @@ public class CommentBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"responsibleParty/assignedEntity"})
-    public HealthcareWorkerBean getResponsiblePartyAssignedEntity() {
-        return this.responsiblePartyAssignedEntity;
-    }
-    public void setResponsiblePartyAssignedEntity(HealthcareWorkerBean responsiblePartyAssignedEntity) {
-        this.responsiblePartyAssignedEntity = responsiblePartyAssignedEntity;
-    }
-
-
-    @Hl7XmlMapping({"location"})
-    public CreatedAtBean getLocation() {
-        return this.location;
-    }
-    public void setLocation(CreatedAtBean location) {
-        this.location = location;
-    }
-
-
-    @Hl7XmlMapping({"author"})
-    public AnnotatedByBean getAuthor() {
-        return this.author;
-    }
-    public void setAuthor(AnnotatedByBean author) {
-        this.author = author;
-    }
-
-
     /**
      * <p>PatientNoteId</p>
      * 
@@ -278,6 +253,33 @@ public class CommentBean extends MessagePartBean {
     }
     public void setPatientNoteId(Identifier patientNoteId) {
         this.patientNoteId.setValue(patientNoteId);
+    }
+
+
+    @Hl7XmlMapping({"author"})
+    public AnnotatedByBean getAuthor() {
+        return this.author;
+    }
+    public void setAuthor(AnnotatedByBean author) {
+        this.author = author;
+    }
+
+
+    @Hl7XmlMapping({"responsibleParty/assignedEntity"})
+    public HealthcareWorkerBean getResponsiblePartyAssignedEntity() {
+        return this.responsiblePartyAssignedEntity;
+    }
+    public void setResponsiblePartyAssignedEntity(HealthcareWorkerBean responsiblePartyAssignedEntity) {
+        this.responsiblePartyAssignedEntity = responsiblePartyAssignedEntity;
+    }
+
+
+    @Hl7XmlMapping({"location"})
+    public CreatedAtBean getLocation() {
+        return this.location;
+    }
+    public void setLocation(CreatedAtBean location) {
+        this.location = location;
     }
 
 

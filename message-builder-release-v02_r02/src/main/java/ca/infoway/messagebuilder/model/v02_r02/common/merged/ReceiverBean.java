@@ -19,10 +19,34 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 public class ReceiverBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
+    private II receiverApplicationIdentifier = new IIImpl();
     private II receiverOrganizationIdentifier = new IIImpl();
     private ST deviceName = new STImpl();
-    private II receiverApplicationIdentifier = new IIImpl();
     private TEL receiverNetworkAddress = new TELImpl();
+
+
+    /**
+     * <p>ReceiverApplicationIdentifier</p>
+     * 
+     * <p>JA:Receiver Application Identifier</p>
+     * 
+     * <p><p>The unique identifier of the application to which the 
+     * message is being sent.</p></p>
+     * 
+     * <p><p>soap:Header\wsa:To\@endpointID</p></p>
+     * 
+     * <p><p>Used for routing and for verification that &quot;yes, 
+     * this message is intended for me.&quot; This is mandatory 
+     * because it is the key identifier of the receiving 
+     * application.</p></p>
+     */
+    @Hl7XmlMapping({"device/id"})
+    public Identifier getReceiverApplicationIdentifier() {
+        return this.receiverApplicationIdentifier.getValue();
+    }
+    public void setReceiverApplicationIdentifier(Identifier receiverApplicationIdentifier) {
+        this.receiverApplicationIdentifier.setValue(receiverApplicationIdentifier);
+    }
 
 
     /**
@@ -101,30 +125,6 @@ public class ReceiverBean extends MessagePartBean {
     }
     public void setDeviceName(String deviceName) {
         this.deviceName.setValue(deviceName);
-    }
-
-
-    /**
-     * <p>ReceiverApplicationIdentifier</p>
-     * 
-     * <p>JA:Receiver Application Identifier</p>
-     * 
-     * <p><p>The unique identifier of the application to which the 
-     * message is being sent.</p></p>
-     * 
-     * <p><p>soap:Header\wsa:To\@endpointID</p></p>
-     * 
-     * <p><p>Used for routing and for verification that &quot;yes, 
-     * this message is intended for me.&quot; This is mandatory 
-     * because it is the key identifier of the receiving 
-     * application.</p></p>
-     */
-    @Hl7XmlMapping({"device/id"})
-    public Identifier getReceiverApplicationIdentifier() {
-        return this.receiverApplicationIdentifier.getValue();
-    }
-    public void setReceiverApplicationIdentifier(Identifier receiverApplicationIdentifier) {
-        this.receiverApplicationIdentifier.setValue(receiverApplicationIdentifier);
     }
 
 

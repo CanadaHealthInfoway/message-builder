@@ -41,8 +41,34 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 public class DispensedInBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private CV containerType = new CVImpl();
     private RTO<PhysicalQuantity, PhysicalQuantity> packageQuantity = new RTOImpl<PhysicalQuantity, PhysicalQuantity>();
+    private CV containerType = new CVImpl();
+
+
+    /**
+     * <p>PackageQuantity</p>
+     * 
+     * <p>Package Quantity</p>
+     * 
+     * <p><p>The quantity of the medication dosage form contained 
+     * in the package given or to be given to the patient.</p></p>
+     * 
+     * <p><p>Sometimes ordering and dispensing is by package rather 
+     * than individual units, and package is important in 
+     * calculating total amount supplied.</p></p>
+     * 
+     * <p><p>Because of the constraint imposed by the RIM that in a 
+     * role, PQ.DRUG must be expressed as a ratio, the numerator 
+     * should be the package quantity and the denominator a 
+     * '1'.</p></p>
+     */
+    @Hl7XmlMapping({"quantity"})
+    public Ratio<PhysicalQuantity, PhysicalQuantity> getPackageQuantity() {
+        return this.packageQuantity.getValue();
+    }
+    public void setPackageQuantity(Ratio<PhysicalQuantity, PhysicalQuantity> packageQuantity) {
+        this.packageQuantity.setValue(packageQuantity);
+    }
 
 
     /**
@@ -74,32 +100,6 @@ public class DispensedInBean extends MessagePartBean {
     }
     public void setContainerType(CompliancePackageEntityType containerType) {
         this.containerType.setValue(containerType);
-    }
-
-
-    /**
-     * <p>PackageQuantity</p>
-     * 
-     * <p>Package Quantity</p>
-     * 
-     * <p><p>The quantity of the medication dosage form contained 
-     * in the package given or to be given to the patient.</p></p>
-     * 
-     * <p><p>Sometimes ordering and dispensing is by package rather 
-     * than individual units, and package is important in 
-     * calculating total amount supplied.</p></p>
-     * 
-     * <p><p>Because of the constraint imposed by the RIM that in a 
-     * role, PQ.DRUG must be expressed as a ratio, the numerator 
-     * should be the package quantity and the denominator a 
-     * '1'.</p></p>
-     */
-    @Hl7XmlMapping({"quantity"})
-    public Ratio<PhysicalQuantity, PhysicalQuantity> getPackageQuantity() {
-        return this.packageQuantity.getValue();
-    }
-    public void setPackageQuantity(Ratio<PhysicalQuantity, PhysicalQuantity> packageQuantity) {
-        this.packageQuantity.setValue(packageQuantity);
     }
 
 }

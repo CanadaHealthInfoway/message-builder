@@ -24,6 +24,8 @@ import ca.infoway.messagebuilder.datatype.lang.TelecommunicationAddress;
 import ca.infoway.messagebuilder.domainvalue.HealthcareOrganizationRoleType;
 import ca.infoway.messagebuilder.domainvalue.HealthcareProviderRoleType;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 
@@ -62,13 +64,13 @@ public class HealthcareWorkerBean extends MessagePartBean implements EntererChoi
 
     private static final long serialVersionUID = 20110318L;
     private ST assignedOrganizationName = new STImpl();
-    private CV organizationType = new CVImpl();
-    private SET<TEL, TelecommunicationAddress> organizationPhoneAndEmails = new SETImpl<TEL, TelecommunicationAddress>(TELImpl.class);
-    private II organizationIdentifier = new IIImpl();
+    private II healthcareWorkerIdentifier = new IIImpl();
     private CV healthcareWorkerType = new CVImpl();
     private II licenseNumber = new IIImpl();
     private PN healthcareWorkerName = new PNImpl();
-    private II healthcareWorkerIdentifier = new IIImpl();
+    private II organizationIdentifier = new IIImpl();
+    private CV organizationType = new CVImpl();
+    private SET<TEL, TelecommunicationAddress> organizationPhoneAndEmails = new SETImpl<TEL, TelecommunicationAddress>(TELImpl.class);
     private SET<TEL, TelecommunicationAddress> healthcareWorkerPhoneAndEmails = new SETImpl<TEL, TelecommunicationAddress>(TELImpl.class);
 
 
@@ -118,71 +120,32 @@ public class HealthcareWorkerBean extends MessagePartBean implements EntererChoi
 
 
     /**
-     * <p>OrganizationType</p>
+     * <p>HealthcareWorkerIdentifier</p>
      * 
-     * <p>G: Organization Type</p>
+     * <p>A:Healthcare Worker Identifier</p>
      * 
-     * <p><p>Identifies the type of organization on whose behalf 
-     * the action was taken. E.g. Pharmacy, Clinic, Hospital, 
-     * etc.</p></p>
+     * <p><p>Unique identifier the person involved in the 
+     * action.</p></p>
      * 
-     * <p><p>Provides context to the action and is therefore 
-     * mandatory.</p></p>
+     * <p><p>Allows unique identification of the person which can 
+     * be critical for authentication, permissions, drill-down and 
+     * traceability and is therefore mandatory.</p></p>
+     * 
+     * <p>A: Healthcare Worker Identifier</p>
+     * 
+     * <p><p>Unique identifier the person involved in the 
+     * action.</p></p>
+     * 
+     * <p><p>Allows unique identification of the person which can 
+     * be critical for authentication, permissions, drill-down and 
+     * traceability and is therefore mandatory.</p></p>
      */
-    @Hl7XmlMapping({"representedOrganization/assignedOrganization/code"})
-    public HealthcareOrganizationRoleType getOrganizationType() {
-        return (HealthcareOrganizationRoleType) this.organizationType.getValue();
+    @Hl7XmlMapping({"id"})
+    public Identifier getHealthcareWorkerIdentifier() {
+        return this.healthcareWorkerIdentifier.getValue();
     }
-    public void setOrganizationType(HealthcareOrganizationRoleType organizationType) {
-        this.organizationType.setValue(organizationType);
-    }
-
-
-    /**
-     * <p>OrganizationPhoneAndEmails</p>
-     * 
-     * <p>I: Organization Phone and Emails</p>
-     * 
-     * <p><p>Identifies contact information for the responsible 
-     * organization.</p></p>
-     * 
-     * <p><p>This is the most commonly used contact information and 
-     * is returned to avoid unnecessary queries against the client 
-     * registry.</p></p>
-     */
-    @Hl7XmlMapping({"representedOrganization/assignedOrganization/telecom"})
-    public Set<TelecommunicationAddress> getOrganizationPhoneAndEmails() {
-        return this.organizationPhoneAndEmails.rawSet();
-    }
-
-
-    /**
-     * <p>OrganizationIdentifier</p>
-     * 
-     * <p>D: Organization identifier</p>
-     * 
-     * <p><p>A unique identifier for the organization</p></p>
-     * 
-     * <p><p>Allows the organization to be referenced when 
-     * determining privileges and for drill-downs to retrieve 
-     * additional information. Because of its importance, the 
-     * attribute is mandatory.</p></p>
-     * 
-     * <p>F: Organization identifier</p>
-     * 
-     * <p><p>A unique identifier for the organization</p></p>
-     * 
-     * <p><p>Allows the organization to be referenced when 
-     * determining privileges and for drill-downs to retrieve 
-     * additional information. Because of its importance, the 
-     * attribute is mandatory.</p></p>
-     */
-    @Hl7XmlMapping({"representedOrganization/id"})
-    public Identifier getOrganizationIdentifier() {
-        return this.organizationIdentifier.getValue();
-    }
-    public void setOrganizationIdentifier(Identifier organizationIdentifier) {
-        this.organizationIdentifier.setValue(organizationIdentifier);
+    public void setHealthcareWorkerIdentifier(Identifier healthcareWorkerIdentifier) {
+        this.healthcareWorkerIdentifier.setValue(healthcareWorkerIdentifier);
     }
 
 
@@ -283,32 +246,71 @@ public class HealthcareWorkerBean extends MessagePartBean implements EntererChoi
 
 
     /**
-     * <p>HealthcareWorkerIdentifier</p>
+     * <p>OrganizationIdentifier</p>
      * 
-     * <p>A:Healthcare Worker Identifier</p>
+     * <p>D: Organization identifier</p>
      * 
-     * <p><p>Unique identifier the person involved in the 
-     * action.</p></p>
+     * <p><p>A unique identifier for the organization</p></p>
      * 
-     * <p><p>Allows unique identification of the person which can 
-     * be critical for authentication, permissions, drill-down and 
-     * traceability and is therefore mandatory.</p></p>
+     * <p><p>Allows the organization to be referenced when 
+     * determining privileges and for drill-downs to retrieve 
+     * additional information. Because of its importance, the 
+     * attribute is mandatory.</p></p>
      * 
-     * <p>A: Healthcare Worker Identifier</p>
+     * <p>F: Organization identifier</p>
      * 
-     * <p><p>Unique identifier the person involved in the 
-     * action.</p></p>
+     * <p><p>A unique identifier for the organization</p></p>
      * 
-     * <p><p>Allows unique identification of the person which can 
-     * be critical for authentication, permissions, drill-down and 
-     * traceability and is therefore mandatory.</p></p>
+     * <p><p>Allows the organization to be referenced when 
+     * determining privileges and for drill-downs to retrieve 
+     * additional information. Because of its importance, the 
+     * attribute is mandatory.</p></p>
      */
-    @Hl7XmlMapping({"id"})
-    public Identifier getHealthcareWorkerIdentifier() {
-        return this.healthcareWorkerIdentifier.getValue();
+    @Hl7XmlMapping({"representedOrganization/id"})
+    public Identifier getOrganizationIdentifier() {
+        return this.organizationIdentifier.getValue();
     }
-    public void setHealthcareWorkerIdentifier(Identifier healthcareWorkerIdentifier) {
-        this.healthcareWorkerIdentifier.setValue(healthcareWorkerIdentifier);
+    public void setOrganizationIdentifier(Identifier organizationIdentifier) {
+        this.organizationIdentifier.setValue(organizationIdentifier);
+    }
+
+
+    /**
+     * <p>OrganizationType</p>
+     * 
+     * <p>G: Organization Type</p>
+     * 
+     * <p><p>Identifies the type of organization on whose behalf 
+     * the action was taken. E.g. Pharmacy, Clinic, Hospital, 
+     * etc.</p></p>
+     * 
+     * <p><p>Provides context to the action and is therefore 
+     * mandatory.</p></p>
+     */
+    @Hl7XmlMapping({"representedOrganization/assignedOrganization/code"})
+    public HealthcareOrganizationRoleType getOrganizationType() {
+        return (HealthcareOrganizationRoleType) this.organizationType.getValue();
+    }
+    public void setOrganizationType(HealthcareOrganizationRoleType organizationType) {
+        this.organizationType.setValue(organizationType);
+    }
+
+
+    /**
+     * <p>OrganizationPhoneAndEmails</p>
+     * 
+     * <p>I: Organization Phone and Emails</p>
+     * 
+     * <p><p>Identifies contact information for the responsible 
+     * organization.</p></p>
+     * 
+     * <p><p>This is the most commonly used contact information and 
+     * is returned to avoid unnecessary queries against the client 
+     * registry.</p></p>
+     */
+    @Hl7XmlMapping({"representedOrganization/assignedOrganization/telecom"})
+    public Set<TelecommunicationAddress> getOrganizationPhoneAndEmails() {
+        return this.organizationPhoneAndEmails.rawSet();
     }
 
 

@@ -51,8 +51,8 @@ public class FirstFillBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
     private IVL<TS, Interval<Date>> firstFillExpiryDate = new IVLImpl<TS, Interval<Date>>();
-    private PQ firstFillQuantity = new PQImpl();
     private IVL<TS, Interval<Date>> firstFillDaysSupply = new IVLImpl<TS, Interval<Date>>();
+    private PQ firstFillQuantity = new PQImpl();
 
 
     /**
@@ -110,6 +110,28 @@ public class FirstFillBean extends MessagePartBean {
 
 
     /**
+     * <p>FirstFillDaysSupply</p>
+     * 
+     * <p>First Fill Days Supply</p>
+     * 
+     * <p><p>The number of days that the first fill is expected to 
+     * last, if the patient is compliant with the dispensing of the 
+     * first fill and with administration of the prescription.</p></p>
+     * 
+     * <p><p>Used when the prescriber cannot or does not wish to 
+     * calculate the quantity necessary to last for the trial or 
+     * synchronization time.</p></p>
+     */
+    @Hl7XmlMapping({"expectedUseTime"})
+    public Interval<Date> getFirstFillDaysSupply() {
+        return this.firstFillDaysSupply.getValue();
+    }
+    public void setFirstFillDaysSupply(Interval<Date> firstFillDaysSupply) {
+        this.firstFillDaysSupply.setValue(firstFillDaysSupply);
+    }
+
+
+    /**
      * <p>FirstFillQuantity</p>
      * 
      * <p>First Fill Quantity</p>
@@ -136,28 +158,6 @@ public class FirstFillBean extends MessagePartBean {
     }
     public void setFirstFillQuantity(PhysicalQuantity firstFillQuantity) {
         this.firstFillQuantity.setValue(firstFillQuantity);
-    }
-
-
-    /**
-     * <p>FirstFillDaysSupply</p>
-     * 
-     * <p>First Fill Days Supply</p>
-     * 
-     * <p><p>The number of days that the first fill is expected to 
-     * last, if the patient is compliant with the dispensing of the 
-     * first fill and with administration of the prescription.</p></p>
-     * 
-     * <p><p>Used when the prescriber cannot or does not wish to 
-     * calculate the quantity necessary to last for the trial or 
-     * synchronization time.</p></p>
-     */
-    @Hl7XmlMapping({"expectedUseTime"})
-    public Interval<Date> getFirstFillDaysSupply() {
-        return this.firstFillDaysSupply.getValue();
-    }
-    public void setFirstFillDaysSupply(Interval<Date> firstFillDaysSupply) {
-        this.firstFillDaysSupply.setValue(firstFillDaysSupply);
     }
 
 }

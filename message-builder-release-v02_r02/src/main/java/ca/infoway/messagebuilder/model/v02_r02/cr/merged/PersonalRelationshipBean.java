@@ -109,8 +109,8 @@ public class PersonalRelationshipBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
     private CV clientNextOfKin = new CVImpl();
-    private PN nextOfKinName = new PNImpl();
     private II nextOfKinIdentifier = new IIImpl();
+    private PN nextOfKinName = new PNImpl();
 
 
     /**
@@ -142,25 +142,6 @@ public class PersonalRelationshipBean extends MessagePartBean {
 
 
     /**
-     * <p>NextOfKinName</p>
-     * 
-     * <p>Next of Kin Name</p>
-     * 
-     * <p><p>A name for the next of kin</p></p>
-     * 
-     * <p><p>Required attribute supports the identification of the 
-     * next of kin</p></p>
-     */
-    @Hl7XmlMapping({"relationshipHolder/name"})
-    public PersonName getNextOfKinName() {
-        return this.nextOfKinName.getValue();
-    }
-    public void setNextOfKinName(PersonName nextOfKinName) {
-        this.nextOfKinName.setValue(nextOfKinName);
-    }
-
-
-    /**
      * <p>NextOfKinIdentifier</p>
      * 
      * <p>Next of Kin Identifier</p>
@@ -176,6 +157,25 @@ public class PersonalRelationshipBean extends MessagePartBean {
     }
     public void setNextOfKinIdentifier(Identifier nextOfKinIdentifier) {
         this.nextOfKinIdentifier.setValue(nextOfKinIdentifier);
+    }
+
+
+    /**
+     * <p>NextOfKinName</p>
+     * 
+     * <p>Next of Kin Name</p>
+     * 
+     * <p><p>A name for the next of kin</p></p>
+     * 
+     * <p><p>Required attribute supports the identification of the 
+     * next of kin</p></p>
+     */
+    @Hl7XmlMapping({"relationshipHolder/name"})
+    public PersonName getNextOfKinName() {
+        return this.nextOfKinName.getValue();
+    }
+    public void setNextOfKinName(PersonName nextOfKinName) {
+        this.nextOfKinName.setValue(nextOfKinName);
     }
 
 }

@@ -34,19 +34,38 @@ import java.util.Date;
 public class AllergyIntoleranceStatusChangesBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private HealthcareWorkerBean responsiblePartyAssignedEntity;
-    private CV allergyIntoleranceStatusChangeType = new CVImpl();
-    private IVL<TS, Interval<Date>> allergyIntoleranceStatusChangeEffectiveDate = new IVLImpl<TS, Interval<Date>>();
     private ChangedByBean author;
+    private IVL<TS, Interval<Date>> allergyIntoleranceStatusChangeEffectiveDate = new IVLImpl<TS, Interval<Date>>();
+    private CV allergyIntoleranceStatusChangeType = new CVImpl();
     private CV allergyIntoleranceStatusChangeReason = new CVImpl();
+    private HealthcareWorkerBean responsiblePartyAssignedEntity;
 
 
-    @Hl7XmlMapping({"responsibleParty/assignedEntity"})
-    public HealthcareWorkerBean getResponsiblePartyAssignedEntity() {
-        return this.responsiblePartyAssignedEntity;
+    @Hl7XmlMapping({"author"})
+    public ChangedByBean getAuthor() {
+        return this.author;
     }
-    public void setResponsiblePartyAssignedEntity(HealthcareWorkerBean responsiblePartyAssignedEntity) {
-        this.responsiblePartyAssignedEntity = responsiblePartyAssignedEntity;
+    public void setAuthor(ChangedByBean author) {
+        this.author = author;
+    }
+
+
+    /**
+     * <p>B:Allergy/intolerance Status Change Effective Date</p>
+     * 
+     * <p><p>The date on which the various changes of an 
+     * allergy/intolerance become valid and applicable.</p></p>
+     * 
+     * <p><p>Allows applications to sort and filter by time. The 
+     * date on which a change is effective should always be known 
+     * and thus is mandatory.</p></p>
+     */
+    @Hl7XmlMapping({"effectiveTime"})
+    public Interval<Date> getAllergyIntoleranceStatusChangeEffectiveDate() {
+        return this.allergyIntoleranceStatusChangeEffectiveDate.getValue();
+    }
+    public void setAllergyIntoleranceStatusChangeEffectiveDate(Interval<Date> allergyIntoleranceStatusChangeEffectiveDate) {
+        this.allergyIntoleranceStatusChangeEffectiveDate.setValue(allergyIntoleranceStatusChangeEffectiveDate);
     }
 
 
@@ -70,34 +89,6 @@ public class AllergyIntoleranceStatusChangesBean extends MessagePartBean {
 
 
     /**
-     * <p>B:Allergy/intolerance Status Change Effective Date</p>
-     * 
-     * <p><p>The date on which the various changes of an 
-     * allergy/intolerance become valid and applicable.</p></p>
-     * 
-     * <p><p>Allows applications to sort and filter by time. The 
-     * date on which a change is effective should always be known 
-     * and thus is mandatory.</p></p>
-     */
-    @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getAllergyIntoleranceStatusChangeEffectiveDate() {
-        return this.allergyIntoleranceStatusChangeEffectiveDate.getValue();
-    }
-    public void setAllergyIntoleranceStatusChangeEffectiveDate(Interval<Date> allergyIntoleranceStatusChangeEffectiveDate) {
-        this.allergyIntoleranceStatusChangeEffectiveDate.setValue(allergyIntoleranceStatusChangeEffectiveDate);
-    }
-
-
-    @Hl7XmlMapping({"author"})
-    public ChangedByBean getAuthor() {
-        return this.author;
-    }
-    public void setAuthor(ChangedByBean author) {
-        this.author = author;
-    }
-
-
-    /**
      * <p>C:Allergy/Intolerance Status Change Reason</p>
      * 
      * <p><p>Denotes the reason the the allergy/intolerance was 
@@ -113,6 +104,15 @@ public class AllergyIntoleranceStatusChangesBean extends MessagePartBean {
     }
     public void setAllergyIntoleranceStatusChangeReason(ControlActReason allergyIntoleranceStatusChangeReason) {
         this.allergyIntoleranceStatusChangeReason.setValue(allergyIntoleranceStatusChangeReason);
+    }
+
+
+    @Hl7XmlMapping({"responsibleParty/assignedEntity"})
+    public HealthcareWorkerBean getResponsiblePartyAssignedEntity() {
+        return this.responsiblePartyAssignedEntity;
+    }
+    public void setResponsiblePartyAssignedEntity(HealthcareWorkerBean responsiblePartyAssignedEntity) {
+        this.responsiblePartyAssignedEntity = responsiblePartyAssignedEntity;
     }
 
 }

@@ -32,8 +32,8 @@ public class FormulariesBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
     private ST formularyName = new STImpl();
-    private AssignedEntity3Bean performerAssignedEntity;
     private II formularyId = new IIImpl();
+    private AssignedEntity3Bean performerAssignedEntity;
 
 
     /**
@@ -53,15 +53,6 @@ public class FormulariesBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"performer/assignedEntity"})
-    public AssignedEntity3Bean getPerformerAssignedEntity() {
-        return this.performerAssignedEntity;
-    }
-    public void setPerformerAssignedEntity(AssignedEntity3Bean performerAssignedEntity) {
-        this.performerAssignedEntity = performerAssignedEntity;
-    }
-
-
     /**
      * <p>Formulary Id</p>
      * 
@@ -76,6 +67,15 @@ public class FormulariesBean extends MessagePartBean {
     }
     public void setFormularyId(Identifier formularyId) {
         this.formularyId.setValue(formularyId);
+    }
+
+
+    @Hl7XmlMapping({"performer/assignedEntity"})
+    public AssignedEntity3Bean getPerformerAssignedEntity() {
+        return this.performerAssignedEntity;
+    }
+    public void setPerformerAssignedEntity(AssignedEntity3Bean performerAssignedEntity) {
+        this.performerAssignedEntity = performerAssignedEntity;
     }
 
 }

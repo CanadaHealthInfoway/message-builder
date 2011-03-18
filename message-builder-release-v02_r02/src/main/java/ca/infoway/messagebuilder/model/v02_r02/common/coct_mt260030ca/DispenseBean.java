@@ -37,12 +37,31 @@ import java.util.Date;
 public class DispenseBean extends MessagePartBean implements ca.infoway.messagebuilder.model.v02_r02.common.merged.CausalActs {
 
     private static final long serialVersionUID = 20110318L;
-    private IVL<TS, Interval<Date>> dispensedDate = new IVLImpl<TS, Interval<Date>>();
-    private CreatedAtBean location;
-    private DispensedBean product;
     private II prescriptionDispenseNumber = new IIImpl();
-    private CV dispenseMaskingIndicator = new CVImpl();
+    private IVL<TS, Interval<Date>> dispensedDate = new IVLImpl<TS, Interval<Date>>();
+    private DispensedBean product;
     private CS dispenseStatus = new CSImpl();
+    private CV dispenseMaskingIndicator = new CVImpl();
+    private CreatedAtBean location;
+
+
+    /**
+     * <p>A:Prescription Dispense Number</p>
+     * 
+     * <p><p>Unique identifier of the dispensed event that 
+     * triggered the issue.</p></p>
+     * 
+     * <p><p>Allows provider to drill down and retrieve additional 
+     * information about the dispense event for consideration in 
+     * their issue management decision.</p></p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Identifier getPrescriptionDispenseNumber() {
+        return this.prescriptionDispenseNumber.getValue();
+    }
+    public void setPrescriptionDispenseNumber(Identifier prescriptionDispenseNumber) {
+        this.prescriptionDispenseNumber.setValue(prescriptionDispenseNumber);
+    }
 
 
     /**
@@ -76,15 +95,6 @@ public class DispenseBean extends MessagePartBean implements ca.infoway.messageb
     }
 
 
-    @Hl7XmlMapping({"location"})
-    public CreatedAtBean getLocation() {
-        return this.location;
-    }
-    public void setLocation(CreatedAtBean location) {
-        this.location = location;
-    }
-
-
     @Hl7XmlMapping({"product"})
     public DispensedBean getProduct() {
         return this.product;
@@ -95,21 +105,25 @@ public class DispenseBean extends MessagePartBean implements ca.infoway.messageb
 
 
     /**
-     * <p>A:Prescription Dispense Number</p>
+     * <p>B:Dispense Status</p>
      * 
-     * <p><p>Unique identifier of the dispensed event that 
-     * triggered the issue.</p></p>
+     * <p><p>Indicates the status of the dispense record created on 
+     * the EHR/DIS. If 'Active' it means that the dispense has been 
+     * processed but not yet given to the patient. If 'Complete', 
+     * it indicates that the medication has been delivered to the 
+     * patient.</p></p>
      * 
-     * <p><p>Allows provider to drill down and retrieve additional 
-     * information about the dispense event for consideration in 
-     * their issue management decision.</p></p>
+     * <p><p>Important in understanding what medication the patient 
+     * actually has on hand, thus the attribute is mandatory. May 
+     * also influence the ability of a different pharmacy to 
+     * dispense the medication.</p></p>
      */
-    @Hl7XmlMapping({"id"})
-    public Identifier getPrescriptionDispenseNumber() {
-        return this.prescriptionDispenseNumber.getValue();
+    @Hl7XmlMapping({"statusCode"})
+    public ActStatus getDispenseStatus() {
+        return (ActStatus) this.dispenseStatus.getValue();
     }
-    public void setPrescriptionDispenseNumber(Identifier prescriptionDispenseNumber) {
-        this.prescriptionDispenseNumber.setValue(prescriptionDispenseNumber);
+    public void setDispenseStatus(ActStatus dispenseStatus) {
+        this.dispenseStatus.setValue(dispenseStatus);
     }
 
 
@@ -137,26 +151,12 @@ public class DispenseBean extends MessagePartBean implements ca.infoway.messageb
     }
 
 
-    /**
-     * <p>B:Dispense Status</p>
-     * 
-     * <p><p>Indicates the status of the dispense record created on 
-     * the EHR/DIS. If 'Active' it means that the dispense has been 
-     * processed but not yet given to the patient. If 'Complete', 
-     * it indicates that the medication has been delivered to the 
-     * patient.</p></p>
-     * 
-     * <p><p>Important in understanding what medication the patient 
-     * actually has on hand, thus the attribute is mandatory. May 
-     * also influence the ability of a different pharmacy to 
-     * dispense the medication.</p></p>
-     */
-    @Hl7XmlMapping({"statusCode"})
-    public ActStatus getDispenseStatus() {
-        return (ActStatus) this.dispenseStatus.getValue();
+    @Hl7XmlMapping({"location"})
+    public CreatedAtBean getLocation() {
+        return this.location;
     }
-    public void setDispenseStatus(ActStatus dispenseStatus) {
-        this.dispenseStatus.setValue(dispenseStatus);
+    public void setLocation(CreatedAtBean location) {
+        this.location = location;
     }
 
 }

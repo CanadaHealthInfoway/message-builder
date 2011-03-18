@@ -38,30 +38,44 @@ import ca.infoway.messagebuilder.model.v02_r02.pr.merged.ServiceDeliveryLocation
 public class InformRequestBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private ServiceDeliveryLocationBean subjectServiceDeliveryLocation;
-    private CE subjectModeCode = new CEImpl();
+    private CS indirectTargetTypeCode = new CSImpl();
+    private Choice indirectTargetChoice;
     private CD informRequestCode = new CDImpl();
     private CS classCode = new CSImpl();
-    private Choice indirectTargetChoice;
-    private CS indirectTargetTypeCode = new CSImpl();
     private CS moodCode = new CSImpl();
+    private CE subjectModeCode = new CEImpl();
+    private ServiceDeliveryLocationBean subjectServiceDeliveryLocation;
 
 
-    @Hl7XmlMapping({"subject/serviceDeliveryLocation"})
-    public ServiceDeliveryLocationBean getSubjectServiceDeliveryLocation() {
-        return this.subjectServiceDeliveryLocation;
+    @Hl7XmlMapping({"indirectTarget/typeCode"})
+    public ParticipationType getIndirectTargetTypeCode() {
+        return (ParticipationType) this.indirectTargetTypeCode.getValue();
     }
-    public void setSubjectServiceDeliveryLocation(ServiceDeliveryLocationBean subjectServiceDeliveryLocation) {
-        this.subjectServiceDeliveryLocation = subjectServiceDeliveryLocation;
+    public void setIndirectTargetTypeCode(ParticipationType indirectTargetTypeCode) {
+        this.indirectTargetTypeCode.setValue(indirectTargetTypeCode);
     }
 
 
-    @Hl7XmlMapping({"subject/modeCode"})
-    public ParticipationMode getSubjectModeCode() {
-        return (ParticipationMode) this.subjectModeCode.getValue();
+    @Hl7XmlMapping({"indirectTarget/choice"})
+    public Choice getIndirectTargetChoice() {
+        return this.indirectTargetChoice;
     }
-    public void setSubjectModeCode(ParticipationMode subjectModeCode) {
-        this.subjectModeCode.setValue(subjectModeCode);
+    public void setIndirectTargetChoice(Choice indirectTargetChoice) {
+        this.indirectTargetChoice = indirectTargetChoice;
+    }
+
+    public RoleChoice getIndirectTargetChoiceAsServiceDeliveryLocation() {
+        return this.indirectTargetChoice instanceof RoleChoice ? (RoleChoice) this.indirectTargetChoice : null;
+    }
+    public boolean hasIndirectTargetChoiceAsServiceDeliveryLocation() {
+        return (this.indirectTargetChoice instanceof RoleChoice);
+    }
+
+    public HealthcareProviderBean getIndirectTargetChoiceAsHealthCareProvider() {
+        return this.indirectTargetChoice instanceof HealthcareProviderBean ? (HealthcareProviderBean) this.indirectTargetChoice : null;
+    }
+    public boolean hasIndirectTargetChoiceAsHealthCareProvider() {
+        return (this.indirectTargetChoice instanceof HealthcareProviderBean);
     }
 
 
@@ -94,44 +108,30 @@ public class InformRequestBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"indirectTarget/choice"})
-    public Choice getIndirectTargetChoice() {
-        return this.indirectTargetChoice;
-    }
-    public void setIndirectTargetChoice(Choice indirectTargetChoice) {
-        this.indirectTargetChoice = indirectTargetChoice;
-    }
-
-    public RoleChoice getIndirectTargetChoiceAsServiceDeliveryLocation() {
-        return this.indirectTargetChoice instanceof RoleChoice ? (RoleChoice) this.indirectTargetChoice : null;
-    }
-    public boolean hasIndirectTargetChoiceAsServiceDeliveryLocation() {
-        return (this.indirectTargetChoice instanceof RoleChoice);
-    }
-
-    public HealthcareProviderBean getIndirectTargetChoiceAsHealthCareProvider() {
-        return this.indirectTargetChoice instanceof HealthcareProviderBean ? (HealthcareProviderBean) this.indirectTargetChoice : null;
-    }
-    public boolean hasIndirectTargetChoiceAsHealthCareProvider() {
-        return (this.indirectTargetChoice instanceof HealthcareProviderBean);
-    }
-
-
-    @Hl7XmlMapping({"indirectTarget/typeCode"})
-    public ParticipationType getIndirectTargetTypeCode() {
-        return (ParticipationType) this.indirectTargetTypeCode.getValue();
-    }
-    public void setIndirectTargetTypeCode(ParticipationType indirectTargetTypeCode) {
-        this.indirectTargetTypeCode.setValue(indirectTargetTypeCode);
-    }
-
-
     @Hl7XmlMapping({"moodCode"})
     public ActMood getMoodCode() {
         return (ActMood) this.moodCode.getValue();
     }
     public void setMoodCode(ActMood moodCode) {
         this.moodCode.setValue(moodCode);
+    }
+
+
+    @Hl7XmlMapping({"subject/modeCode"})
+    public ParticipationMode getSubjectModeCode() {
+        return (ParticipationMode) this.subjectModeCode.getValue();
+    }
+    public void setSubjectModeCode(ParticipationMode subjectModeCode) {
+        this.subjectModeCode.setValue(subjectModeCode);
+    }
+
+
+    @Hl7XmlMapping({"subject/serviceDeliveryLocation"})
+    public ServiceDeliveryLocationBean getSubjectServiceDeliveryLocation() {
+        return this.subjectServiceDeliveryLocation;
+    }
+    public void setSubjectServiceDeliveryLocation(ServiceDeliveryLocationBean subjectServiceDeliveryLocation) {
+        this.subjectServiceDeliveryLocation = subjectServiceDeliveryLocation;
     }
 
 }

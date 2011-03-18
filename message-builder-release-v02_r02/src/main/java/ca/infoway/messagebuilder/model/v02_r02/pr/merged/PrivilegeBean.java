@@ -84,46 +84,40 @@ import java.util.List;
 public class PrivilegeBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private CV restrictionsToPracticeType = new CVImpl();
-    private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
-    private List<Subject4Bean> subjectOf = new ArrayList<Subject4Bean>();
-    private BL restrictionsToPracticeNegationIndicator = new BLImpl();
-    private ST restrictionsToPracticeText = new STImpl();
     private II restrictionsToPracticeIdentifier = new IIImpl();
+    private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
+    private CV restrictionsToPracticeType = new CVImpl();
+    private BL restrictionsToPracticeNegationIndicator = new BLImpl();
+    private List<Subject4Bean> subjectOf = new ArrayList<Subject4Bean>();
+    private ST restrictionsToPracticeText = new STImpl();
     private CV restrictionsToPracticeConfidentialityCode = new CVImpl();
 
 
     /**
-     * <p>RestrictionsToPracticeType</p>
+     * <p>RestrictionsToPracticeIdentifier</p>
      * 
-     * <p>Restrictions to Practice Type</p>
+     * <p>Restrictions to Practice Identifier</p>
      * 
-     * <p><p>Type of restriction.</p></p>
+     * <p><p>Unique identifier for the restriction.</p></p>
+     * 
+     * <p><p>Populated attribute supports the validation and 
+     * identification of the healthcare provider and his/her given 
+     * privileges</p></p>
+     * 
+     * <p>Restrictions to Practice Identifier</p>
+     * 
+     * <p><p>Unique identifier for the restriction.</p></p>
      * 
      * <p><p>Required attribute supports the validation and 
      * identification of the healthcare provider and his/her given 
      * privileges</p></p>
-     * 
-     * <p><p>If Restrictions to Practice are included in the 
-     * message, then Type Must Exist</p></p>
-     * 
-     * <p>Restrictions to Practice Type</p>
-     * 
-     * <p><p>Type of restriction.</p></p>
-     * 
-     * <p><p>Mandatory attribute supports the validation and 
-     * identification of the healthcare provider and his/her given 
-     * privileges</p></p>
-     * 
-     * <p><p>If Restrictions to Practice are included in the 
-     * message, then Type Must Exist</p></p>
      */
-    @Hl7XmlMapping({"code"})
-    public ActCode getRestrictionsToPracticeType() {
-        return (ActCode) this.restrictionsToPracticeType.getValue();
+    @Hl7XmlMapping({"id"})
+    public Identifier getRestrictionsToPracticeIdentifier() {
+        return this.restrictionsToPracticeIdentifier.getValue();
     }
-    public void setRestrictionsToPracticeType(ActCode restrictionsToPracticeType) {
-        this.restrictionsToPracticeType.setValue(restrictionsToPracticeType);
+    public void setRestrictionsToPracticeIdentifier(Identifier restrictionsToPracticeIdentifier) {
+        this.restrictionsToPracticeIdentifier.setValue(restrictionsToPracticeIdentifier);
     }
 
 
@@ -170,9 +164,37 @@ public class PrivilegeBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"subjectOf"})
-    public List<Subject4Bean> getSubjectOf() {
-        return this.subjectOf;
+    /**
+     * <p>RestrictionsToPracticeType</p>
+     * 
+     * <p>Restrictions to Practice Type</p>
+     * 
+     * <p><p>Type of restriction.</p></p>
+     * 
+     * <p><p>Required attribute supports the validation and 
+     * identification of the healthcare provider and his/her given 
+     * privileges</p></p>
+     * 
+     * <p><p>If Restrictions to Practice are included in the 
+     * message, then Type Must Exist</p></p>
+     * 
+     * <p>Restrictions to Practice Type</p>
+     * 
+     * <p><p>Type of restriction.</p></p>
+     * 
+     * <p><p>Mandatory attribute supports the validation and 
+     * identification of the healthcare provider and his/her given 
+     * privileges</p></p>
+     * 
+     * <p><p>If Restrictions to Practice are included in the 
+     * message, then Type Must Exist</p></p>
+     */
+    @Hl7XmlMapping({"code"})
+    public ActCode getRestrictionsToPracticeType() {
+        return (ActCode) this.restrictionsToPracticeType.getValue();
+    }
+    public void setRestrictionsToPracticeType(ActCode restrictionsToPracticeType) {
+        this.restrictionsToPracticeType.setValue(restrictionsToPracticeType);
     }
 
 
@@ -196,6 +218,12 @@ public class PrivilegeBean extends MessagePartBean {
     }
 
 
+    @Hl7XmlMapping({"subjectOf"})
+    public List<Subject4Bean> getSubjectOf() {
+        return this.subjectOf;
+    }
+
+
     /**
      * <p>RestrictionsToPracticeText</p>
      * 
@@ -213,34 +241,6 @@ public class PrivilegeBean extends MessagePartBean {
     }
     public void setRestrictionsToPracticeText(String restrictionsToPracticeText) {
         this.restrictionsToPracticeText.setValue(restrictionsToPracticeText);
-    }
-
-
-    /**
-     * <p>RestrictionsToPracticeIdentifier</p>
-     * 
-     * <p>Restrictions to Practice Identifier</p>
-     * 
-     * <p><p>Unique identifier for the restriction.</p></p>
-     * 
-     * <p><p>Populated attribute supports the validation and 
-     * identification of the healthcare provider and his/her given 
-     * privileges</p></p>
-     * 
-     * <p>Restrictions to Practice Identifier</p>
-     * 
-     * <p><p>Unique identifier for the restriction.</p></p>
-     * 
-     * <p><p>Required attribute supports the validation and 
-     * identification of the healthcare provider and his/her given 
-     * privileges</p></p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Identifier getRestrictionsToPracticeIdentifier() {
-        return this.restrictionsToPracticeIdentifier.getValue();
-    }
-    public void setRestrictionsToPracticeIdentifier(Identifier restrictionsToPracticeIdentifier) {
-        this.restrictionsToPracticeIdentifier.setValue(restrictionsToPracticeIdentifier);
     }
 
 

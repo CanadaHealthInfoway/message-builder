@@ -17,8 +17,8 @@ public class Location_2Bean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
     private ServiceDeliveryLocationBean serviceDeliveryLocation;
-    private INT sequenceNumber = new INTImpl();
     private CS typeCode = new CSImpl();
+    private INT sequenceNumber = new INTImpl();
 
 
     @Hl7XmlMapping({"serviceDeliveryLocation"})
@@ -30,21 +30,21 @@ public class Location_2Bean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"sequenceNumber"})
-    public Integer getSequenceNumber() {
-        return this.sequenceNumber.getValue();
-    }
-    public void setSequenceNumber(Integer sequenceNumber) {
-        this.sequenceNumber.setValue(sequenceNumber);
-    }
-
-
     @Hl7XmlMapping({"typeCode"})
     public ParticipationType getTypeCode() {
         return (ParticipationType) this.typeCode.getValue();
     }
     public void setTypeCode(ParticipationType typeCode) {
         this.typeCode.setValue(typeCode);
+    }
+
+
+    @Hl7XmlMapping({"sequenceNumber"})
+    public Integer getSequenceNumber() {
+        return this.sequenceNumber.getValue();
+    }
+    public void setSequenceNumber(Integer sequenceNumber) {
+        this.sequenceNumber.setValue(sequenceNumber);
     }
 
 }

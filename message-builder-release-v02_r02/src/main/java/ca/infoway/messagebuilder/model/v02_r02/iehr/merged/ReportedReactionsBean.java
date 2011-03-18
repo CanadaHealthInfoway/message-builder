@@ -193,15 +193,51 @@ import java.util.Date;
 public class ReportedReactionsBean extends MessagePartBean implements Records {
 
     private static final long serialVersionUID = 20110318L;
-    private CD code = new CDImpl();
     private CV value = new CVImpl();
+    private CD code = new CDImpl();
     private ExposuresBean startsAfterStartOfExposureEvent;
     private ReportedReactionsBean subjectObservationEvent;
+    private II reactionRecordId = new IIImpl();
     private IVL<TS, Interval<Date>> reactionOnsetDate = new IVLImpl<TS, Interval<Date>>();
     private BL noReactionOccurred = new BLImpl();
-    private ST description = new STImpl();
-    private II reactionRecordId = new IIImpl();
     private AllergyIntoleranceSeverityLevelBean subjectOfSeverityObservation;
+    private ST description = new STImpl();
+
+
+    /**
+     * <p>Relatedness Assessment</p>
+     * 
+     * <p><p>Indicates whether the reaction is deemed to be related 
+     * to the exposure.</p></p>
+     * 
+     * <p><p>Creates the link between the exposure and the 
+     * reaction. Because the details of the assessment will be 
+     * communicated in the 'code' attribute for SNOMED, this 
+     * element is optional.</p></p>
+     * 
+     * <p><p>This attribute will not be populated if using SNOMED. 
+     * Otherwise it should have a fixed value of 
+     * &quot;RELATED&quot;.</p></p>
+     * 
+     * <p>B:Reaction</p>
+     * 
+     * <p><p>Specifies the kind of reaction, as experienced by the 
+     * patient.</p></p>
+     * 
+     * <p><p>Ensures consistency in tracking and categorizing the 
+     * reaction type. Helps ensure that only proper allergies are 
+     * categorized as allergy. The attribute is optional because it 
+     * will not be used for SNOMED. The attribute is CWE because 
+     * not all possible types of reactions are expressible by coded 
+     * values.</p></p>
+     */
+    @Hl7XmlMapping({"value"})
+    public SubjectReaction getValue() {
+        return (SubjectReaction) this.value.getValue();
+    }
+    public void setValue(SubjectReaction value) {
+        this.value.setValue(value);
+    }
 
 
     /**
@@ -249,42 +285,6 @@ public class ReportedReactionsBean extends MessagePartBean implements Records {
     }
 
 
-    /**
-     * <p>Relatedness Assessment</p>
-     * 
-     * <p><p>Indicates whether the reaction is deemed to be related 
-     * to the exposure.</p></p>
-     * 
-     * <p><p>Creates the link between the exposure and the 
-     * reaction. Because the details of the assessment will be 
-     * communicated in the 'code' attribute for SNOMED, this 
-     * element is optional.</p></p>
-     * 
-     * <p><p>This attribute will not be populated if using SNOMED. 
-     * Otherwise it should have a fixed value of 
-     * &quot;RELATED&quot;.</p></p>
-     * 
-     * <p>B:Reaction</p>
-     * 
-     * <p><p>Specifies the kind of reaction, as experienced by the 
-     * patient.</p></p>
-     * 
-     * <p><p>Ensures consistency in tracking and categorizing the 
-     * reaction type. Helps ensure that only proper allergies are 
-     * categorized as allergy. The attribute is optional because it 
-     * will not be used for SNOMED. The attribute is CWE because 
-     * not all possible types of reactions are expressible by coded 
-     * values.</p></p>
-     */
-    @Hl7XmlMapping({"value"})
-    public SubjectReaction getValue() {
-        return (SubjectReaction) this.value.getValue();
-    }
-    public void setValue(SubjectReaction value) {
-        this.value.setValue(value);
-    }
-
-
     @Hl7XmlMapping({"startsAfterStartOf/exposureEvent"})
     public ExposuresBean getStartsAfterStartOfExposureEvent() {
         return this.startsAfterStartOfExposureEvent;
@@ -300,6 +300,26 @@ public class ReportedReactionsBean extends MessagePartBean implements Records {
     }
     public void setSubjectObservationEvent(ReportedReactionsBean subjectObservationEvent) {
         this.subjectObservationEvent = subjectObservationEvent;
+    }
+
+
+    /**
+     * <p>ReactionRecordId</p>
+     * 
+     * <p>C:Reaction Record Id</p>
+     * 
+     * <p><p>An identifier assigned to the record of the adverse 
+     * reaction.</p></p>
+     * 
+     * <p><p>Allows for direct referencing of an adverse reaction 
+     * record which was previously recorded.</p></p>
+     */
+    @Hl7XmlMapping({"id"})
+    public Identifier getReactionRecordId() {
+        return this.reactionRecordId.getValue();
+    }
+    public void setReactionRecordId(Identifier reactionRecordId) {
+        this.reactionRecordId.setValue(reactionRecordId);
     }
 
 
@@ -425,6 +445,15 @@ public class ReportedReactionsBean extends MessagePartBean implements Records {
     }
 
 
+    @Hl7XmlMapping({"subjectOf/severityObservation"})
+    public AllergyIntoleranceSeverityLevelBean getSubjectOfSeverityObservation() {
+        return this.subjectOfSeverityObservation;
+    }
+    public void setSubjectOfSeverityObservation(AllergyIntoleranceSeverityLevelBean subjectOfSeverityObservation) {
+        this.subjectOfSeverityObservation = subjectOfSeverityObservation;
+    }
+
+
     /**
      * <p>Description</p>
      * 
@@ -441,35 +470,6 @@ public class ReportedReactionsBean extends MessagePartBean implements Records {
     }
     public void setDescription(String description) {
         this.description.setValue(description);
-    }
-
-
-    /**
-     * <p>ReactionRecordId</p>
-     * 
-     * <p>C:Reaction Record Id</p>
-     * 
-     * <p><p>An identifier assigned to the record of the adverse 
-     * reaction.</p></p>
-     * 
-     * <p><p>Allows for direct referencing of an adverse reaction 
-     * record which was previously recorded.</p></p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Identifier getReactionRecordId() {
-        return this.reactionRecordId.getValue();
-    }
-    public void setReactionRecordId(Identifier reactionRecordId) {
-        this.reactionRecordId.setValue(reactionRecordId);
-    }
-
-
-    @Hl7XmlMapping({"subjectOf/severityObservation"})
-    public AllergyIntoleranceSeverityLevelBean getSubjectOfSeverityObservation() {
-        return this.subjectOfSeverityObservation;
-    }
-    public void setSubjectOfSeverityObservation(AllergyIntoleranceSeverityLevelBean subjectOfSeverityObservation) {
-        this.subjectOfSeverityObservation = subjectOfSeverityObservation;
     }
 
 }

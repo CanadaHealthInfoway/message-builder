@@ -33,29 +33,9 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 public class PatientCharacteristicsBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private CV patientCharacteristicType = new CVImpl();
     private IVL<PQ, Interval<PhysicalQuantity>> patientCharacteristicValue = new IVLImpl<PQ, Interval<PhysicalQuantity>>();
+    private CV patientCharacteristicType = new CVImpl();
     private BL excludeCharacteristic = new BLImpl();
-
-
-    /**
-     * <p>Patient Characteristic Type</p>
-     * 
-     * <p><p>Indicates the type of patient characteristic being 
-     * expressed. E.g. Height, weight, age, lab values, etc. If 
-     * negation indicator is true, then this indicates a 
-     * characteristic the patient should *not* have.</p></p>
-     * 
-     * <p><p>Needed to identify what type of characteristic is 
-     * being expressed, and therefore mandatory.</p></p>
-     */
-    @Hl7XmlMapping({"code"})
-    public ObservationDosageDefinitionPreconditionType getPatientCharacteristicType() {
-        return (ObservationDosageDefinitionPreconditionType) this.patientCharacteristicType.getValue();
-    }
-    public void setPatientCharacteristicType(ObservationDosageDefinitionPreconditionType patientCharacteristicType) {
-        this.patientCharacteristicType.setValue(patientCharacteristicType);
-    }
 
 
     /**
@@ -83,6 +63,26 @@ public class PatientCharacteristicsBean extends MessagePartBean {
     }
     public void setPatientCharacteristicValue(Interval<PhysicalQuantity> patientCharacteristicValue) {
         this.patientCharacteristicValue.setValue(patientCharacteristicValue);
+    }
+
+
+    /**
+     * <p>Patient Characteristic Type</p>
+     * 
+     * <p><p>Indicates the type of patient characteristic being 
+     * expressed. E.g. Height, weight, age, lab values, etc. If 
+     * negation indicator is true, then this indicates a 
+     * characteristic the patient should *not* have.</p></p>
+     * 
+     * <p><p>Needed to identify what type of characteristic is 
+     * being expressed, and therefore mandatory.</p></p>
+     */
+    @Hl7XmlMapping({"code"})
+    public ObservationDosageDefinitionPreconditionType getPatientCharacteristicType() {
+        return (ObservationDosageDefinitionPreconditionType) this.patientCharacteristicType.getValue();
+    }
+    public void setPatientCharacteristicType(ObservationDosageDefinitionPreconditionType patientCharacteristicType) {
+        this.patientCharacteristicType.setValue(patientCharacteristicType);
     }
 
 

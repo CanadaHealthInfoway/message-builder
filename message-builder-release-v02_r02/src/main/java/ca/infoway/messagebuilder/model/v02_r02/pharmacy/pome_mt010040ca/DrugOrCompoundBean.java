@@ -45,14 +45,14 @@ public class DrugOrCompoundBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
     private CS regulatoryStatusCode = new CSImpl();
-    private List<GroupedWithinBean> asSpecializedKind = new ArrayList<GroupedWithinBean>();
     private CV drugCode = new CVImpl();
+    private CV drugForm = new CVImpl();
+    private List<DrugContainsBean> ingredient = new ArrayList<DrugContainsBean>();
+    private ManufacturerBean asManufacturedProductManufacturer;
+    private List<GroupedWithinBean> asSpecializedKind = new ArrayList<GroupedWithinBean>();
+    private SET<TN, TrivialName> drugNames = new SETImpl<TN, TrivialName>(TNImpl.class);
     private DispensedInBean asContent;
     private ST description = new STImpl();
-    private ManufacturerBean asManufacturedProductManufacturer;
-    private List<DrugContainsBean> ingredient = new ArrayList<DrugContainsBean>();
-    private CV drugForm = new CVImpl();
-    private SET<TN, TrivialName> drugNames = new SETImpl<TN, TrivialName>(TNImpl.class);
 
 
     /**
@@ -71,12 +71,6 @@ public class DrugOrCompoundBean extends MessagePartBean {
     }
     public void setRegulatoryStatusCode(RoleStatusNormal regulatoryStatusCode) {
         this.regulatoryStatusCode.setValue(regulatoryStatusCode);
-    }
-
-
-    @Hl7XmlMapping({"asSpecializedKind"})
-    public List<GroupedWithinBean> getAsSpecializedKind() {
-        return this.asSpecializedKind;
     }
 
 
@@ -103,50 +97,6 @@ public class DrugOrCompoundBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"asContent"})
-    public DispensedInBean getAsContent() {
-        return this.asContent;
-    }
-    public void setAsContent(DispensedInBean asContent) {
-        this.asContent = asContent;
-    }
-
-
-    /**
-     * <p>Description</p>
-     * 
-     * <p><p>A free form textual description of a drug. This 
-     * usually is only populated for custom compounds, providing 
-     * instructions on the composition and creation of the 
-     * compound.</p></p>
-     * 
-     * <p><p>Allows description of compound ingredients and/or 
-     * recipe in free text form.</p></p>
-     */
-    @Hl7XmlMapping({"desc"})
-    public String getDescription() {
-        return this.description.getValue();
-    }
-    public void setDescription(String description) {
-        this.description.setValue(description);
-    }
-
-
-    @Hl7XmlMapping({"asManufacturedProduct/manufacturer"})
-    public ManufacturerBean getAsManufacturedProductManufacturer() {
-        return this.asManufacturedProductManufacturer;
-    }
-    public void setAsManufacturedProductManufacturer(ManufacturerBean asManufacturedProductManufacturer) {
-        this.asManufacturedProductManufacturer = asManufacturedProductManufacturer;
-    }
-
-
-    @Hl7XmlMapping({"ingredient"})
-    public List<DrugContainsBean> getIngredient() {
-        return this.ingredient;
-    }
-
-
     /**
      * <p>Drug Form</p>
      * 
@@ -163,6 +113,27 @@ public class DrugOrCompoundBean extends MessagePartBean {
     }
     public void setDrugForm(OrderableDrugForm drugForm) {
         this.drugForm.setValue(drugForm);
+    }
+
+
+    @Hl7XmlMapping({"ingredient"})
+    public List<DrugContainsBean> getIngredient() {
+        return this.ingredient;
+    }
+
+
+    @Hl7XmlMapping({"asManufacturedProduct/manufacturer"})
+    public ManufacturerBean getAsManufacturedProductManufacturer() {
+        return this.asManufacturedProductManufacturer;
+    }
+    public void setAsManufacturedProductManufacturer(ManufacturerBean asManufacturedProductManufacturer) {
+        this.asManufacturedProductManufacturer = asManufacturedProductManufacturer;
+    }
+
+
+    @Hl7XmlMapping({"asSpecializedKind"})
+    public List<GroupedWithinBean> getAsSpecializedKind() {
+        return this.asSpecializedKind;
     }
 
 
@@ -192,6 +163,35 @@ public class DrugOrCompoundBean extends MessagePartBean {
     @Hl7XmlMapping({"name"})
     public Set<TrivialName> getDrugNames() {
         return this.drugNames.rawSet();
+    }
+
+
+    @Hl7XmlMapping({"asContent"})
+    public DispensedInBean getAsContent() {
+        return this.asContent;
+    }
+    public void setAsContent(DispensedInBean asContent) {
+        this.asContent = asContent;
+    }
+
+
+    /**
+     * <p>Description</p>
+     * 
+     * <p><p>A free form textual description of a drug. This 
+     * usually is only populated for custom compounds, providing 
+     * instructions on the composition and creation of the 
+     * compound.</p></p>
+     * 
+     * <p><p>Allows description of compound ingredients and/or 
+     * recipe in free text form.</p></p>
+     */
+    @Hl7XmlMapping({"desc"})
+    public String getDescription() {
+        return this.description.getValue();
+    }
+    public void setDescription(String description) {
+        this.description.setValue(description);
     }
 
 }

@@ -63,18 +63,191 @@ import java.util.Set;
 public class AllergyIntoleranceBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private CV confirmedIndicator = new CVImpl();
-    private CD allergyIntoleranceType = new CDImpl();
-    private TS allergyIntoleranceDate = new TSImpl();
     private List<Records> supportRecords = new ArrayList<Records>();
-    private ReportedByBean informant;
     private CV agent = new CVImpl();
+    private TS allergyIntoleranceDate = new TSImpl();
+    private CD allergyIntoleranceType = new CDImpl();
     private BL allergyIntoleranceRefuted = new BLImpl();
     private AllergyIntoleranceSeverityLevelBean subjectOfSeverityObservation;
-    private NotesBean subjectOf1Annotation;
-    private SET<CV, Code> allergyIntoleranceMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);
     private CS allergyIntoleranceStatus = new CSImpl();
+    private ReportedByBean informant;
+    private NotesBean subjectOf1Annotation;
+    private CV confirmedIndicator = new CVImpl();
+    private SET<CV, Code> allergyIntoleranceMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);
     private II allergyIntoleranceRecordId = new IIImpl();
+
+
+    @Hl7XmlMapping({"support/records"})
+    public List<Records> getSupportRecords() {
+        return this.supportRecords;
+    }
+
+
+    /**
+     * <p>Agent</p>
+     * 
+     * <p>B:Agent</p>
+     * 
+     * <p><p>Indicates the substance to which the patient is 
+     * allergic</p></p>
+     * 
+     * <p><p>Critical for identifying the allergy or intolerance. 
+     * However, because the attribute is not used for SNOMED, it is 
+     * optional.</p></p>
+     */
+    @Hl7XmlMapping({"value"})
+    public IntoleranceValue getAgent() {
+        return (IntoleranceValue) this.agent.getValue();
+    }
+    public void setAgent(IntoleranceValue agent) {
+        this.agent.setValue(agent);
+    }
+
+
+    /**
+     * <p>AllergyIntoleranceDate</p>
+     * 
+     * <p>I:Allergy/Intolerance Date</p>
+     * 
+     * <p><p>The date on which the recorded allergy is considered 
+     * active.</p></p>
+     * 
+     * <p><p>Allows providers to evaluate the period of relevance 
+     * for the allergy/intolerance record.</p></p>
+     */
+    @Hl7XmlMapping({"effectiveTime"})
+    public Date getAllergyIntoleranceDate() {
+        return this.allergyIntoleranceDate.getValue();
+    }
+    public void setAllergyIntoleranceDate(Date allergyIntoleranceDate) {
+        this.allergyIntoleranceDate.setValue(allergyIntoleranceDate);
+    }
+
+
+    /**
+     * <p>AllergyIntoleranceType</p>
+     * 
+     * <p>A:Allergy/Intolerance Type</p>
+     * 
+     * <p><p>A coded value denoting whether the record pertains to 
+     * an intolerance or a true allergy. (Allergies result from 
+     * immunologic reactions. Intolerances do not.)</p></p>
+     * 
+     * <p><p>Allows for the separation of allergy and intolerance 
+     * records. The type of condition is critical to understanding 
+     * the record and is therefore mandatory. It is expressed as a 
+     * CD to allow for SNOMED post-coordination.</p></p>
+     */
+    @Hl7XmlMapping({"code"})
+    public ObservationIntoleranceType getAllergyIntoleranceType() {
+        return (ObservationIntoleranceType) this.allergyIntoleranceType.getValue();
+    }
+    public void setAllergyIntoleranceType(ObservationIntoleranceType allergyIntoleranceType) {
+        this.allergyIntoleranceType.setValue(allergyIntoleranceType);
+    }
+
+
+    /**
+     * <p>AllergyIntoleranceRefuted</p>
+     * 
+     * <p>G:Allergy/Intolerance Refuted</p>
+     * 
+     * <p><p>An indication that the allergy/intolerance has been 
+     * refuted. I.e. A clinician has positively determined that the 
+     * patient does not suffer from a particular allergy or 
+     * intolerance.</p></p>
+     * 
+     * <p><p>Allows providers to refute a previously confirmed or 
+     * suspected allergy. The attribute is mandatory because it is 
+     * essential to know whether a record is refuted or not.</p></p>
+     * 
+     * <p>G:Allergy/Intolerance Refuted</p>
+     * 
+     * <p><p>An indication that the allergy/intolerance has been 
+     * refuted. I.e. A clinician has positively determined that the 
+     * patient does not suffer from a particular allergy or 
+     * intolerance.</p></p>
+     * 
+     * <p><p>Allows providers to refute a previously confirmed or 
+     * suspected allergy. Because it is essential to know whether 
+     * the allergy or intolerance is being refuted or affirmed, 
+     * this attribute is mandatory.</p></p>
+     */
+    @Hl7XmlMapping({"negationInd"})
+    public Boolean getAllergyIntoleranceRefuted() {
+        return this.allergyIntoleranceRefuted.getValue();
+    }
+    public void setAllergyIntoleranceRefuted(Boolean allergyIntoleranceRefuted) {
+        this.allergyIntoleranceRefuted.setValue(allergyIntoleranceRefuted);
+    }
+
+
+    @Hl7XmlMapping({"subjectOf/severityObservation","subjectOf2/severityObservation"})
+    @Hl7MapByPartTypes({
+        @Hl7MapByPartType(name="subjectOf", type="REPC_MT000013CA.Subject1"),
+        @Hl7MapByPartType(name="subjectOf/severityObservation", type="REPC_MT000013CA.SeverityObservation"),
+        @Hl7MapByPartType(name="subjectOf2", type="REPC_MT000001CA.Subject1"),
+        @Hl7MapByPartType(name="subjectOf2/severityObservation", type="REPC_MT000001CA.SeverityObservation")})
+    public AllergyIntoleranceSeverityLevelBean getSubjectOfSeverityObservation() {
+        return this.subjectOfSeverityObservation;
+    }
+    public void setSubjectOfSeverityObservation(AllergyIntoleranceSeverityLevelBean subjectOfSeverityObservation) {
+        this.subjectOfSeverityObservation = subjectOfSeverityObservation;
+    }
+
+
+    /**
+     * <p>AllergyIntoleranceStatus</p>
+     * 
+     * <p>E:Allergy/Intolerance Status</p>
+     * 
+     * <p><p>A coded value that indicates whether an 
+     * allergy/intolerance is 'active' or 'completed' (indicating 
+     * no longer active).</p></p>
+     * 
+     * <p><p>Allows providers to evaluate the relevance of a 
+     * recorded allergy/intolerance. The status has a default value 
+     * of 'active' and is therefore mandatory.</p></p>
+     * 
+     * <p><p>System must default the status to 'active'.</p></p>
+     * 
+     * <p>E:Allergy/Intolerance Status</p>
+     * 
+     * <p><p>A coded value that indicates whether an 
+     * allergy/intolerance is 'ACTIVE' or 'COMPLETE' (indicating no 
+     * longer active).</p></p>
+     * 
+     * <p><p>Allows providers to evaluate the relevance of a 
+     * recorded allergy/intolerance. The status has a default value 
+     * of 'ACTIVE' and is therefore mandatory.</p></p>
+     * 
+     * <p><p>System must default the status to 'ACTIVE'.</p></p>
+     */
+    @Hl7XmlMapping({"statusCode"})
+    public ActStatus getAllergyIntoleranceStatus() {
+        return (ActStatus) this.allergyIntoleranceStatus.getValue();
+    }
+    public void setAllergyIntoleranceStatus(ActStatus allergyIntoleranceStatus) {
+        this.allergyIntoleranceStatus.setValue(allergyIntoleranceStatus);
+    }
+
+
+    @Hl7XmlMapping({"informant"})
+    public ReportedByBean getInformant() {
+        return this.informant;
+    }
+    public void setInformant(ReportedByBean informant) {
+        this.informant = informant;
+    }
+
+
+    @Hl7XmlMapping({"subjectOf1/annotation"})
+    public NotesBean getSubjectOf1Annotation() {
+        return this.subjectOf1Annotation;
+    }
+    public void setSubjectOf1Annotation(NotesBean subjectOf1Annotation) {
+        this.subjectOf1Annotation = subjectOf1Annotation;
+    }
 
 
     /**
@@ -288,143 +461,6 @@ public class AllergyIntoleranceBean extends MessagePartBean {
 
 
     /**
-     * <p>AllergyIntoleranceType</p>
-     * 
-     * <p>A:Allergy/Intolerance Type</p>
-     * 
-     * <p><p>A coded value denoting whether the record pertains to 
-     * an intolerance or a true allergy. (Allergies result from 
-     * immunologic reactions. Intolerances do not.)</p></p>
-     * 
-     * <p><p>Allows for the separation of allergy and intolerance 
-     * records. The type of condition is critical to understanding 
-     * the record and is therefore mandatory. It is expressed as a 
-     * CD to allow for SNOMED post-coordination.</p></p>
-     */
-    @Hl7XmlMapping({"code"})
-    public ObservationIntoleranceType getAllergyIntoleranceType() {
-        return (ObservationIntoleranceType) this.allergyIntoleranceType.getValue();
-    }
-    public void setAllergyIntoleranceType(ObservationIntoleranceType allergyIntoleranceType) {
-        this.allergyIntoleranceType.setValue(allergyIntoleranceType);
-    }
-
-
-    /**
-     * <p>AllergyIntoleranceDate</p>
-     * 
-     * <p>I:Allergy/Intolerance Date</p>
-     * 
-     * <p><p>The date on which the recorded allergy is considered 
-     * active.</p></p>
-     * 
-     * <p><p>Allows providers to evaluate the period of relevance 
-     * for the allergy/intolerance record.</p></p>
-     */
-    @Hl7XmlMapping({"effectiveTime"})
-    public Date getAllergyIntoleranceDate() {
-        return this.allergyIntoleranceDate.getValue();
-    }
-    public void setAllergyIntoleranceDate(Date allergyIntoleranceDate) {
-        this.allergyIntoleranceDate.setValue(allergyIntoleranceDate);
-    }
-
-
-    @Hl7XmlMapping({"support/records"})
-    public List<Records> getSupportRecords() {
-        return this.supportRecords;
-    }
-
-
-    @Hl7XmlMapping({"informant"})
-    public ReportedByBean getInformant() {
-        return this.informant;
-    }
-    public void setInformant(ReportedByBean informant) {
-        this.informant = informant;
-    }
-
-
-    /**
-     * <p>Agent</p>
-     * 
-     * <p>B:Agent</p>
-     * 
-     * <p><p>Indicates the substance to which the patient is 
-     * allergic</p></p>
-     * 
-     * <p><p>Critical for identifying the allergy or intolerance. 
-     * However, because the attribute is not used for SNOMED, it is 
-     * optional.</p></p>
-     */
-    @Hl7XmlMapping({"value"})
-    public IntoleranceValue getAgent() {
-        return (IntoleranceValue) this.agent.getValue();
-    }
-    public void setAgent(IntoleranceValue agent) {
-        this.agent.setValue(agent);
-    }
-
-
-    /**
-     * <p>AllergyIntoleranceRefuted</p>
-     * 
-     * <p>G:Allergy/Intolerance Refuted</p>
-     * 
-     * <p><p>An indication that the allergy/intolerance has been 
-     * refuted. I.e. A clinician has positively determined that the 
-     * patient does not suffer from a particular allergy or 
-     * intolerance.</p></p>
-     * 
-     * <p><p>Allows providers to refute a previously confirmed or 
-     * suspected allergy. The attribute is mandatory because it is 
-     * essential to know whether a record is refuted or not.</p></p>
-     * 
-     * <p>G:Allergy/Intolerance Refuted</p>
-     * 
-     * <p><p>An indication that the allergy/intolerance has been 
-     * refuted. I.e. A clinician has positively determined that the 
-     * patient does not suffer from a particular allergy or 
-     * intolerance.</p></p>
-     * 
-     * <p><p>Allows providers to refute a previously confirmed or 
-     * suspected allergy. Because it is essential to know whether 
-     * the allergy or intolerance is being refuted or affirmed, 
-     * this attribute is mandatory.</p></p>
-     */
-    @Hl7XmlMapping({"negationInd"})
-    public Boolean getAllergyIntoleranceRefuted() {
-        return this.allergyIntoleranceRefuted.getValue();
-    }
-    public void setAllergyIntoleranceRefuted(Boolean allergyIntoleranceRefuted) {
-        this.allergyIntoleranceRefuted.setValue(allergyIntoleranceRefuted);
-    }
-
-
-    @Hl7XmlMapping({"subjectOf/severityObservation","subjectOf2/severityObservation"})
-    @Hl7MapByPartTypes({
-        @Hl7MapByPartType(name="subjectOf", type="REPC_MT000013CA.Subject1"),
-        @Hl7MapByPartType(name="subjectOf/severityObservation", type="REPC_MT000013CA.SeverityObservation"),
-        @Hl7MapByPartType(name="subjectOf2", type="REPC_MT000001CA.Subject1"),
-        @Hl7MapByPartType(name="subjectOf2/severityObservation", type="REPC_MT000001CA.SeverityObservation")})
-    public AllergyIntoleranceSeverityLevelBean getSubjectOfSeverityObservation() {
-        return this.subjectOfSeverityObservation;
-    }
-    public void setSubjectOfSeverityObservation(AllergyIntoleranceSeverityLevelBean subjectOfSeverityObservation) {
-        this.subjectOfSeverityObservation = subjectOfSeverityObservation;
-    }
-
-
-    @Hl7XmlMapping({"subjectOf1/annotation"})
-    public NotesBean getSubjectOf1Annotation() {
-        return this.subjectOf1Annotation;
-    }
-    public void setSubjectOf1Annotation(NotesBean subjectOf1Annotation) {
-        this.subjectOf1Annotation = subjectOf1Annotation;
-    }
-
-
-    /**
      * <p>AllergyIntoleranceMaskingIndicators</p>
      * 
      * <p>H:Allergy/Intolerance Masking Indicators</p>
@@ -582,42 +618,6 @@ public class AllergyIntoleranceBean extends MessagePartBean {
     @Hl7XmlMapping({"confidentialityCode"})
     public Set<x_NormalRestrictedTabooConfidentialityKind> getAllergyIntoleranceMaskingIndicators() {
         return this.allergyIntoleranceMaskingIndicators.rawSet(x_NormalRestrictedTabooConfidentialityKind.class);
-    }
-
-
-    /**
-     * <p>AllergyIntoleranceStatus</p>
-     * 
-     * <p>E:Allergy/Intolerance Status</p>
-     * 
-     * <p><p>A coded value that indicates whether an 
-     * allergy/intolerance is 'active' or 'completed' (indicating 
-     * no longer active).</p></p>
-     * 
-     * <p><p>Allows providers to evaluate the relevance of a 
-     * recorded allergy/intolerance. The status has a default value 
-     * of 'active' and is therefore mandatory.</p></p>
-     * 
-     * <p><p>System must default the status to 'active'.</p></p>
-     * 
-     * <p>E:Allergy/Intolerance Status</p>
-     * 
-     * <p><p>A coded value that indicates whether an 
-     * allergy/intolerance is 'ACTIVE' or 'COMPLETE' (indicating no 
-     * longer active).</p></p>
-     * 
-     * <p><p>Allows providers to evaluate the relevance of a 
-     * recorded allergy/intolerance. The status has a default value 
-     * of 'ACTIVE' and is therefore mandatory.</p></p>
-     * 
-     * <p><p>System must default the status to 'ACTIVE'.</p></p>
-     */
-    @Hl7XmlMapping({"statusCode"})
-    public ActStatus getAllergyIntoleranceStatus() {
-        return (ActStatus) this.allergyIntoleranceStatus.getValue();
-    }
-    public void setAllergyIntoleranceStatus(ActStatus allergyIntoleranceStatus) {
-        this.allergyIntoleranceStatus.setValue(allergyIntoleranceStatus);
     }
 
 

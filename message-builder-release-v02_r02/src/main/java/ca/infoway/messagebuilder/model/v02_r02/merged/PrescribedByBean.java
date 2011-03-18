@@ -192,19 +192,10 @@ import java.util.Date;
 public class PrescribedByBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private HealthcareWorkerBean assignedEntity;
     private ED<String> signature = new EDImpl<String>();
-    private TS time = new TSImpl();
     private CV prescriptionTransmissionMethod = new CVImpl();
-
-
-    @Hl7XmlMapping({"assignedEntity"})
-    public HealthcareWorkerBean getAssignedEntity() {
-        return this.assignedEntity;
-    }
-    public void setAssignedEntity(HealthcareWorkerBean assignedEntity) {
-        this.assignedEntity = assignedEntity;
-    }
+    private TS time = new TSImpl();
+    private HealthcareWorkerBean assignedEntity;
 
 
     /**
@@ -225,6 +216,28 @@ public class PrescribedByBean extends MessagePartBean {
     }
     public void setSignature(String signature) {
         this.signature.setValue(signature);
+    }
+
+
+    /**
+     * <p>PrescriptionTransmissionMethod</p>
+     * 
+     * <p>Prescription Transmission Method</p>
+     * 
+     * <p><p>Indicates the medium in which a prescription was 
+     * transmitted to or received by the person who entered it into 
+     * the electronic record.</p></p>
+     * 
+     * <p><p>Some jurisdictions have a requirement to track how an 
+     * order was received. May also be important when orders are 
+     * entered into a central repository from the pharmacy.</p></p>
+     */
+    @Hl7XmlMapping({"modeCode"})
+    public ParticipationMode getPrescriptionTransmissionMethod() {
+        return (ParticipationMode) this.prescriptionTransmissionMethod.getValue();
+    }
+    public void setPrescriptionTransmissionMethod(ParticipationMode prescriptionTransmissionMethod) {
+        this.prescriptionTransmissionMethod.setValue(prescriptionTransmissionMethod);
     }
 
 
@@ -400,25 +413,12 @@ public class PrescribedByBean extends MessagePartBean {
     }
 
 
-    /**
-     * <p>PrescriptionTransmissionMethod</p>
-     * 
-     * <p>Prescription Transmission Method</p>
-     * 
-     * <p><p>Indicates the medium in which a prescription was 
-     * transmitted to or received by the person who entered it into 
-     * the electronic record.</p></p>
-     * 
-     * <p><p>Some jurisdictions have a requirement to track how an 
-     * order was received. May also be important when orders are 
-     * entered into a central repository from the pharmacy.</p></p>
-     */
-    @Hl7XmlMapping({"modeCode"})
-    public ParticipationMode getPrescriptionTransmissionMethod() {
-        return (ParticipationMode) this.prescriptionTransmissionMethod.getValue();
+    @Hl7XmlMapping({"assignedEntity"})
+    public HealthcareWorkerBean getAssignedEntity() {
+        return this.assignedEntity;
     }
-    public void setPrescriptionTransmissionMethod(ParticipationMode prescriptionTransmissionMethod) {
-        this.prescriptionTransmissionMethod.setValue(prescriptionTransmissionMethod);
+    public void setAssignedEntity(HealthcareWorkerBean assignedEntity) {
+        this.assignedEntity = assignedEntity;
     }
 
 }

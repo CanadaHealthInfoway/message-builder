@@ -99,18 +99,9 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 public class CareCompositionsBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private BL contextConductionInd = new BLImpl();
     private ca.infoway.messagebuilder.model.v02_r02.common.coct_mt011001ca.CareCompositionsBean patientCareProvisionEvent;
+    private BL contextConductionInd = new BLImpl();
     private CS typeCode = new CSImpl();
-
-
-    @Hl7XmlMapping({"contextConductionInd"})
-    public Boolean getContextConductionInd() {
-        return this.contextConductionInd.getValue();
-    }
-    public void setContextConductionInd(Boolean contextConductionInd) {
-        this.contextConductionInd.setValue(contextConductionInd);
-    }
 
 
     @Hl7XmlMapping({"patientCareProvisionEvent"})
@@ -119,6 +110,15 @@ public class CareCompositionsBean extends MessagePartBean {
     }
     public void setPatientCareProvisionEvent(ca.infoway.messagebuilder.model.v02_r02.common.coct_mt011001ca.CareCompositionsBean patientCareProvisionEvent) {
         this.patientCareProvisionEvent = patientCareProvisionEvent;
+    }
+
+
+    @Hl7XmlMapping({"contextConductionInd"})
+    public Boolean getContextConductionInd() {
+        return this.contextConductionInd.getValue();
+    }
+    public void setContextConductionInd(Boolean contextConductionInd) {
+        this.contextConductionInd.setValue(contextConductionInd);
     }
 
 

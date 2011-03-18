@@ -40,8 +40,8 @@ public class SortControlBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
     private INT sequenceNumber = new INTImpl();
-    private CS sortControlDirection = new CSImpl();
     private ST sortElementName = new STImpl();
+    private CS sortControlDirection = new CSImpl();
 
 
     /**
@@ -65,6 +65,24 @@ public class SortControlBean extends MessagePartBean {
 
 
     /**
+     * <p>SortElementName</p>
+     * 
+     * <p>Sort Element Name</p>
+     * 
+     * <p><p>Name of the element to sort.</p></p>
+     * 
+     * <p><p>The name of the element is mandatory.</p></p>
+     */
+    @Hl7XmlMapping({"elementName"})
+    public String getSortElementName() {
+        return this.sortElementName.getValue();
+    }
+    public void setSortElementName(String sortElementName) {
+        this.sortElementName.setValue(sortElementName);
+    }
+
+
+    /**
      * <p>SortControlDirection</p>
      * 
      * <p>Sort Control Direction</p>
@@ -80,24 +98,6 @@ public class SortControlBean extends MessagePartBean {
     }
     public void setSortControlDirection(Sequencing sortControlDirection) {
         this.sortControlDirection.setValue(sortControlDirection);
-    }
-
-
-    /**
-     * <p>SortElementName</p>
-     * 
-     * <p>Sort Element Name</p>
-     * 
-     * <p><p>Name of the element to sort.</p></p>
-     * 
-     * <p><p>The name of the element is mandatory.</p></p>
-     */
-    @Hl7XmlMapping({"elementName"})
-    public String getSortElementName() {
-        return this.sortElementName.getValue();
-    }
-    public void setSortElementName(String sortElementName) {
-        this.sortElementName.setValue(sortElementName);
     }
 
 }

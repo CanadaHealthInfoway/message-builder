@@ -53,83 +53,9 @@ import java.util.Date;
 public class PrescriptionPatientMeasurementsBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private CV prescriptionPatientMeasurementType = new CVImpl();
-    private TS effectiveTime = new TSImpl();
     private PQ prescriptionPatientMeasuredValue = new PQImpl();
-
-
-    /**
-     * <p>PrescriptionPatientMeasurementType</p>
-     * 
-     * <p>Prescription Patient Measurement Type</p>
-     * 
-     * <p><p>Identification of the type of observation that was 
-     * made about the patient. The only two allowable types are 
-     * height and weight.</p></p>
-     * 
-     * <p><p>Distinguishes height from weight.</p><p>Code is 
-     * mandatory to ensure that measurements/observations are 
-     * distinguishable.</p></p>
-     * 
-     * <p><p>Distinguishes height from weight.</p><p>Code is 
-     * mandatory to ensure that measurements/observations are 
-     * distinguishable.</p></p>
-     * 
-     * <p>Prescription Patient Measurement Type</p>
-     * 
-     * <p><p>Identification of the type of measurement/observation 
-     * that was made about the patient. The only two allowable 
-     * types are height and weight.</p></p>
-     * 
-     * <p><p>Distinguishes what kind of information is being 
-     * specified. Code is mandatory to ensure that 
-     * measurements/observations are distinguishable.</p></p>
-     */
-    @Hl7XmlMapping({"code"})
-    public x_ActObservationHeightOrWeight getPrescriptionPatientMeasurementType() {
-        return (x_ActObservationHeightOrWeight) this.prescriptionPatientMeasurementType.getValue();
-    }
-    public void setPrescriptionPatientMeasurementType(x_ActObservationHeightOrWeight prescriptionPatientMeasurementType) {
-        this.prescriptionPatientMeasurementType.setValue(prescriptionPatientMeasurementType);
-    }
-
-
-    /**
-     * <p>Prescription Patient Measurement Time</p>
-     * 
-     * <p><p>The date on which the measurement was made.</p></p>
-     * 
-     * <p><p>Allows provider to evaluate currency of the 
-     * information.</p><p>The attribute is populated because the 
-     * measurement time must be known or a null flavor must be 
-     * specified.</p></p>
-     * 
-     * <p><p>Allows provider to evaluate currency of the 
-     * information.</p><p>The attribute is populated because the 
-     * measurement time must be known or a null flavor must be 
-     * specified.</p></p>
-     * 
-     * <p>Prescription Patient Measurement Timestamp</p>
-     * 
-     * <p><p>The date on which the measurement was made</p></p>
-     * 
-     * <p><p>Allows providers to evaluate currency of the 
-     * information.</p><p>Because the date of measurement 
-     * determines the relevance of the information, this attribute 
-     * is defined as 'populated'.</p></p>
-     * 
-     * <p><p>Allows providers to evaluate currency of the 
-     * information.</p><p>Because the date of measurement 
-     * determines the relevance of the information, this attribute 
-     * is defined as 'populated'.</p></p>
-     */
-    @Hl7XmlMapping({"effectiveTime"})
-    public Date getEffectiveTime() {
-        return this.effectiveTime.getValue();
-    }
-    public void setEffectiveTime(Date effectiveTime) {
-        this.effectiveTime.setValue(effectiveTime);
-    }
+    private TS effectiveTime = new TSImpl();
+    private CV prescriptionPatientMeasurementType = new CVImpl();
 
 
     /**
@@ -187,6 +113,80 @@ public class PrescriptionPatientMeasurementsBean extends MessagePartBean {
     }
     public void setPrescriptionPatientMeasuredValue(PhysicalQuantity prescriptionPatientMeasuredValue) {
         this.prescriptionPatientMeasuredValue.setValue(prescriptionPatientMeasuredValue);
+    }
+
+
+    /**
+     * <p>Prescription Patient Measurement Time</p>
+     * 
+     * <p><p>The date on which the measurement was made.</p></p>
+     * 
+     * <p><p>Allows provider to evaluate currency of the 
+     * information.</p><p>The attribute is populated because the 
+     * measurement time must be known or a null flavor must be 
+     * specified.</p></p>
+     * 
+     * <p><p>Allows provider to evaluate currency of the 
+     * information.</p><p>The attribute is populated because the 
+     * measurement time must be known or a null flavor must be 
+     * specified.</p></p>
+     * 
+     * <p>Prescription Patient Measurement Timestamp</p>
+     * 
+     * <p><p>The date on which the measurement was made</p></p>
+     * 
+     * <p><p>Allows providers to evaluate currency of the 
+     * information.</p><p>Because the date of measurement 
+     * determines the relevance of the information, this attribute 
+     * is defined as 'populated'.</p></p>
+     * 
+     * <p><p>Allows providers to evaluate currency of the 
+     * information.</p><p>Because the date of measurement 
+     * determines the relevance of the information, this attribute 
+     * is defined as 'populated'.</p></p>
+     */
+    @Hl7XmlMapping({"effectiveTime"})
+    public Date getEffectiveTime() {
+        return this.effectiveTime.getValue();
+    }
+    public void setEffectiveTime(Date effectiveTime) {
+        this.effectiveTime.setValue(effectiveTime);
+    }
+
+
+    /**
+     * <p>PrescriptionPatientMeasurementType</p>
+     * 
+     * <p>Prescription Patient Measurement Type</p>
+     * 
+     * <p><p>Identification of the type of observation that was 
+     * made about the patient. The only two allowable types are 
+     * height and weight.</p></p>
+     * 
+     * <p><p>Distinguishes height from weight.</p><p>Code is 
+     * mandatory to ensure that measurements/observations are 
+     * distinguishable.</p></p>
+     * 
+     * <p><p>Distinguishes height from weight.</p><p>Code is 
+     * mandatory to ensure that measurements/observations are 
+     * distinguishable.</p></p>
+     * 
+     * <p>Prescription Patient Measurement Type</p>
+     * 
+     * <p><p>Identification of the type of measurement/observation 
+     * that was made about the patient. The only two allowable 
+     * types are height and weight.</p></p>
+     * 
+     * <p><p>Distinguishes what kind of information is being 
+     * specified. Code is mandatory to ensure that 
+     * measurements/observations are distinguishable.</p></p>
+     */
+    @Hl7XmlMapping({"code"})
+    public x_ActObservationHeightOrWeight getPrescriptionPatientMeasurementType() {
+        return (x_ActObservationHeightOrWeight) this.prescriptionPatientMeasurementType.getValue();
+    }
+    public void setPrescriptionPatientMeasurementType(x_ActObservationHeightOrWeight prescriptionPatientMeasurementType) {
+        this.prescriptionPatientMeasurementType.setValue(prescriptionPatientMeasurementType);
     }
 
 }

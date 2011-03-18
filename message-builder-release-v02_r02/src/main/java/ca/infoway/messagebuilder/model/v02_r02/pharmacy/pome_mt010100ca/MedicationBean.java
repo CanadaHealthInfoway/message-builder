@@ -46,16 +46,16 @@ public class MedicationBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
     private DrugCostBean subjectOf1PotentialCharge;
+    private List<AppearanceCharacteristicsBean> subjectOf2Characteristic = new ArrayList<AppearanceCharacteristicsBean>();
     private CS regulatoryStatusCode = new CSImpl();
-    private List<GroupedWithinBean> playerAsSpecializedKind = new ArrayList<GroupedWithinBean>();
     private CV drugCode = new CVImpl();
+    private CV drugForm = new CVImpl();
+    private List<DrugContainsBean> playerIngredient = new ArrayList<DrugContainsBean>();
+    private ManufacturerBean playerAsManufacturedProductManufacturer;
+    private List<GroupedWithinBean> playerAsSpecializedKind = new ArrayList<GroupedWithinBean>();
+    private SET<TN, TrivialName> drugNames = new SETImpl<TN, TrivialName>(TNImpl.class);
     private DispensedInBean playerAsContent;
     private ST description = new STImpl();
-    private ManufacturerBean playerAsManufacturedProductManufacturer;
-    private List<DrugContainsBean> playerIngredient = new ArrayList<DrugContainsBean>();
-    private CV drugForm = new CVImpl();
-    private SET<TN, TrivialName> drugNames = new SETImpl<TN, TrivialName>(TNImpl.class);
-    private List<AppearanceCharacteristicsBean> subjectOf2Characteristic = new ArrayList<AppearanceCharacteristicsBean>();
 
 
     @Hl7XmlMapping({"subjectOf1/potentialCharge"})
@@ -64,6 +64,12 @@ public class MedicationBean extends MessagePartBean {
     }
     public void setSubjectOf1PotentialCharge(DrugCostBean subjectOf1PotentialCharge) {
         this.subjectOf1PotentialCharge = subjectOf1PotentialCharge;
+    }
+
+
+    @Hl7XmlMapping({"subjectOf2/characteristic"})
+    public List<AppearanceCharacteristicsBean> getSubjectOf2Characteristic() {
+        return this.subjectOf2Characteristic;
     }
 
 
@@ -83,12 +89,6 @@ public class MedicationBean extends MessagePartBean {
     }
     public void setRegulatoryStatusCode(RoleStatusNormal regulatoryStatusCode) {
         this.regulatoryStatusCode.setValue(regulatoryStatusCode);
-    }
-
-
-    @Hl7XmlMapping({"player/asSpecializedKind"})
-    public List<GroupedWithinBean> getPlayerAsSpecializedKind() {
-        return this.playerAsSpecializedKind;
     }
 
 
@@ -113,6 +113,65 @@ public class MedicationBean extends MessagePartBean {
     }
     public void setDrugCode(ClinicalDrug drugCode) {
         this.drugCode.setValue(drugCode);
+    }
+
+
+    /**
+     * <p>D:Drug Form</p>
+     * 
+     * <p><p>Indicates the form in which the drug product must be, 
+     * or has been manufactured or custom prepared.</p></p>
+     * 
+     * <p><p>Provides a constrained vocabulary for describing dose 
+     * forms. The form of the drug influences how it can be used by 
+     * the patient.</p></p>
+     */
+    @Hl7XmlMapping({"player/formCode"})
+    public OrderableDrugForm getDrugForm() {
+        return (OrderableDrugForm) this.drugForm.getValue();
+    }
+    public void setDrugForm(OrderableDrugForm drugForm) {
+        this.drugForm.setValue(drugForm);
+    }
+
+
+    @Hl7XmlMapping({"player/ingredient"})
+    public List<DrugContainsBean> getPlayerIngredient() {
+        return this.playerIngredient;
+    }
+
+
+    @Hl7XmlMapping({"player/asManufacturedProduct/manufacturer"})
+    public ManufacturerBean getPlayerAsManufacturedProductManufacturer() {
+        return this.playerAsManufacturedProductManufacturer;
+    }
+    public void setPlayerAsManufacturedProductManufacturer(ManufacturerBean playerAsManufacturedProductManufacturer) {
+        this.playerAsManufacturedProductManufacturer = playerAsManufacturedProductManufacturer;
+    }
+
+
+    @Hl7XmlMapping({"player/asSpecializedKind"})
+    public List<GroupedWithinBean> getPlayerAsSpecializedKind() {
+        return this.playerAsSpecializedKind;
+    }
+
+
+    /**
+     * <p>B:Drug Names</p>
+     * 
+     * <p><p>The name assigned to a drug.</p></p>
+     * 
+     * <p><p>Names are used for human reference communication, to 
+     * allow selection from dropdowns and for local searching. Up 
+     * to two names are supported: a 'search name' which is fully 
+     * formed with no abbreviations, and a 'display name' which may 
+     * contain abbreviations to fit within a smaller area on the 
+     * screen. Because names are the one attribute that exist for 
+     * all attributes, this element is mandatory.</p></p>
+     */
+    @Hl7XmlMapping({"player/name"})
+    public Set<TrivialName> getDrugNames() {
+        return this.drugNames.rawSet();
     }
 
 
@@ -142,65 +201,6 @@ public class MedicationBean extends MessagePartBean {
     }
     public void setDescription(String description) {
         this.description.setValue(description);
-    }
-
-
-    @Hl7XmlMapping({"player/asManufacturedProduct/manufacturer"})
-    public ManufacturerBean getPlayerAsManufacturedProductManufacturer() {
-        return this.playerAsManufacturedProductManufacturer;
-    }
-    public void setPlayerAsManufacturedProductManufacturer(ManufacturerBean playerAsManufacturedProductManufacturer) {
-        this.playerAsManufacturedProductManufacturer = playerAsManufacturedProductManufacturer;
-    }
-
-
-    @Hl7XmlMapping({"player/ingredient"})
-    public List<DrugContainsBean> getPlayerIngredient() {
-        return this.playerIngredient;
-    }
-
-
-    /**
-     * <p>D:Drug Form</p>
-     * 
-     * <p><p>Indicates the form in which the drug product must be, 
-     * or has been manufactured or custom prepared.</p></p>
-     * 
-     * <p><p>Provides a constrained vocabulary for describing dose 
-     * forms. The form of the drug influences how it can be used by 
-     * the patient.</p></p>
-     */
-    @Hl7XmlMapping({"player/formCode"})
-    public OrderableDrugForm getDrugForm() {
-        return (OrderableDrugForm) this.drugForm.getValue();
-    }
-    public void setDrugForm(OrderableDrugForm drugForm) {
-        this.drugForm.setValue(drugForm);
-    }
-
-
-    /**
-     * <p>B:Drug Names</p>
-     * 
-     * <p><p>The name assigned to a drug.</p></p>
-     * 
-     * <p><p>Names are used for human reference communication, to 
-     * allow selection from dropdowns and for local searching. Up 
-     * to two names are supported: a 'search name' which is fully 
-     * formed with no abbreviations, and a 'display name' which may 
-     * contain abbreviations to fit within a smaller area on the 
-     * screen. Because names are the one attribute that exist for 
-     * all attributes, this element is mandatory.</p></p>
-     */
-    @Hl7XmlMapping({"player/name"})
-    public Set<TrivialName> getDrugNames() {
-        return this.drugNames.rawSet();
-    }
-
-
-    @Hl7XmlMapping({"subjectOf2/characteristic"})
-    public List<AppearanceCharacteristicsBean> getSubjectOf2Characteristic() {
-        return this.subjectOf2Characteristic;
     }
 
 }

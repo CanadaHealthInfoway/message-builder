@@ -352,9 +352,9 @@ public class CreatedBy_1Bean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
     private ED<String> digitalSignature = new EDImpl<String>();
+    private CV informationReceivedMethod = new CVImpl();
     private TS timeOfCreation = new TSImpl();
     private AuthorPerson authorPerson;
-    private CV informationReceivedMethod = new CVImpl();
 
 
     /**
@@ -376,6 +376,26 @@ public class CreatedBy_1Bean extends MessagePartBean {
     }
     public void setDigitalSignature(String digitalSignature) {
         this.digitalSignature.setValue(digitalSignature);
+    }
+
+
+    /**
+     * <p>InformationReceivedMethod</p>
+     * 
+     * <p>F:Information Received Method</p>
+     * 
+     * <p><p>Indicates how the person who recorded the event became 
+     * aware of it.. E.g. Verbal, written, fax, etc.</p></p>
+     * 
+     * <p><p>May have ramifications for the audit trail and 
+     * reliability of the information.</p></p>
+     */
+    @Hl7XmlMapping({"modeCode"})
+    public ParticipationMode getInformationReceivedMethod() {
+        return (ParticipationMode) this.informationReceivedMethod.getValue();
+    }
+    public void setInformationReceivedMethod(ParticipationMode informationReceivedMethod) {
+        this.informationReceivedMethod.setValue(informationReceivedMethod);
     }
 
 
@@ -453,26 +473,6 @@ public class CreatedBy_1Bean extends MessagePartBean {
     }
     public boolean hasAuthorPersonAsActingPerson() {
         return (this.authorPerson instanceof ActingPerson);
-    }
-
-
-    /**
-     * <p>InformationReceivedMethod</p>
-     * 
-     * <p>F:Information Received Method</p>
-     * 
-     * <p><p>Indicates how the person who recorded the event became 
-     * aware of it.. E.g. Verbal, written, fax, etc.</p></p>
-     * 
-     * <p><p>May have ramifications for the audit trail and 
-     * reliability of the information.</p></p>
-     */
-    @Hl7XmlMapping({"modeCode"})
-    public ParticipationMode getInformationReceivedMethod() {
-        return (ParticipationMode) this.informationReceivedMethod.getValue();
-    }
-    public void setInformationReceivedMethod(ParticipationMode informationReceivedMethod) {
-        this.informationReceivedMethod.setValue(informationReceivedMethod);
     }
 
 }

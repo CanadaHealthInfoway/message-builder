@@ -119,11 +119,17 @@ import java.util.List;
 public class RefusalToFillsBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private TS refusalToFillDate = new TSImpl();
-    private CreatedAtBean location;
-    private RefusedByBean author;
     private List<IssuesBean> reasonDetectedIssueEvent = new ArrayList<IssuesBean>();
+    private TS refusalToFillDate = new TSImpl();
     private CV refusalToFillReason = new CVImpl();
+    private RefusedByBean author;
+    private CreatedAtBean location;
+
+
+    @Hl7XmlMapping({"reason/detectedIssueEvent"})
+    public List<IssuesBean> getReasonDetectedIssueEvent() {
+        return this.reasonDetectedIssueEvent;
+    }
 
 
     /**
@@ -165,30 +171,6 @@ public class RefusalToFillsBean extends MessagePartBean {
     }
     public void setRefusalToFillDate(Date refusalToFillDate) {
         this.refusalToFillDate.setValue(refusalToFillDate);
-    }
-
-
-    @Hl7XmlMapping({"location"})
-    public CreatedAtBean getLocation() {
-        return this.location;
-    }
-    public void setLocation(CreatedAtBean location) {
-        this.location = location;
-    }
-
-
-    @Hl7XmlMapping({"author"})
-    public RefusedByBean getAuthor() {
-        return this.author;
-    }
-    public void setAuthor(RefusedByBean author) {
-        this.author = author;
-    }
-
-
-    @Hl7XmlMapping({"reason/detectedIssueEvent"})
-    public List<IssuesBean> getReasonDetectedIssueEvent() {
-        return this.reasonDetectedIssueEvent;
     }
 
 
@@ -254,6 +236,24 @@ public class RefusalToFillsBean extends MessagePartBean {
     }
     public void setRefusalToFillReason(ActSupplyFulfillmentRefusalReason refusalToFillReason) {
         this.refusalToFillReason.setValue(refusalToFillReason);
+    }
+
+
+    @Hl7XmlMapping({"author"})
+    public RefusedByBean getAuthor() {
+        return this.author;
+    }
+    public void setAuthor(RefusedByBean author) {
+        this.author = author;
+    }
+
+
+    @Hl7XmlMapping({"location"})
+    public CreatedAtBean getLocation() {
+        return this.location;
+    }
+    public void setLocation(CreatedAtBean location) {
+        this.location = location;
     }
 
 }

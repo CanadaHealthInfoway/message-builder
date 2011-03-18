@@ -14,6 +14,8 @@ import ca.infoway.messagebuilder.datatype.impl.STImpl;
 import ca.infoway.messagebuilder.domainvalue.AcknowledgementDetailCode;
 import ca.infoway.messagebuilder.domainvalue.AcknowledgementDetailType;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 
@@ -42,9 +44,9 @@ public class ErrorsOrWarningsBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
     private CV responseCode = new CVImpl();
-    private ST messageDescription = new STImpl();
     private CS messageType = new CSImpl();
     private SET<ST, String> referencedMessageLocations = new SETImpl<ST, String>(STImpl.class);
+    private ST messageDescription = new STImpl();
 
 
     /**
@@ -87,28 +89,6 @@ public class ErrorsOrWarningsBean extends MessagePartBean {
 
 
     /**
-     * <p>MessageDescription</p>
-     * 
-     * <p>C:Message Description</p>
-     * 
-     * <p><p>The human-readable description of the error, warning 
-     * or information message. May convey additional details not 
-     * present in the 'code', but is not intended to be 
-     * human-processable.</p></p>
-     * 
-     * <p><p>Allows supplementing the 'computer' information for 
-     * human-readability.</p></p>
-     */
-    @Hl7XmlMapping({"text"})
-    public String getMessageDescription() {
-        return this.messageDescription.getValue();
-    }
-    public void setMessageDescription(String messageDescription) {
-        this.messageDescription.setValue(messageDescription);
-    }
-
-
-    /**
      * <p>MessageType</p>
      * 
      * <p>Message type</p>
@@ -147,6 +127,28 @@ public class ErrorsOrWarningsBean extends MessagePartBean {
     @Hl7XmlMapping({"location"})
     public Set<String> getReferencedMessageLocations() {
         return this.referencedMessageLocations.rawSet();
+    }
+
+
+    /**
+     * <p>MessageDescription</p>
+     * 
+     * <p>C:Message Description</p>
+     * 
+     * <p><p>The human-readable description of the error, warning 
+     * or information message. May convey additional details not 
+     * present in the 'code', but is not intended to be 
+     * human-processable.</p></p>
+     * 
+     * <p><p>Allows supplementing the 'computer' information for 
+     * human-readability.</p></p>
+     */
+    @Hl7XmlMapping({"text"})
+    public String getMessageDescription() {
+        return this.messageDescription.getValue();
+    }
+    public void setMessageDescription(String messageDescription) {
+        this.messageDescription.setValue(messageDescription);
     }
 
 }

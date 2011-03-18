@@ -27,6 +27,7 @@ import ca.infoway.messagebuilder.datatype.lang.PostalAddress;
 import ca.infoway.messagebuilder.datatype.lang.TelecommunicationAddress;
 import ca.infoway.messagebuilder.domainvalue.ServiceDeliveryLocationRoleType;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Set;
@@ -102,68 +103,12 @@ import java.util.Set;
 public class ServiceDeliveryLocationBean extends MessagePartBean implements ca.infoway.messagebuilder.model.v02_r02.merged.Choice {
 
     private static final long serialVersionUID = 20110318L;
-    private CV serviceDeliveryLocationType = new CVImpl();
-    private IVL<TS, Interval<Date>> serviceDeliveryLocationEffectiveDate = new IVLImpl<TS, Interval<Date>>();
-    private LIST<AD, PostalAddress> serviceDeliveryLocationAddress = new LISTImpl<AD, PostalAddress>(ADImpl.class);
     private SET<II, Identifier> serviceDeliveryLocationIdentifier = new SETImpl<II, Identifier>(IIImpl.class);
-    private LIST<TEL, TelecommunicationAddress> serviceDeliveryLocationTelecom = new LISTImpl<TEL, TelecommunicationAddress>(TELImpl.class);
+    private IVL<TS, Interval<Date>> serviceDeliveryLocationEffectiveDate = new IVLImpl<TS, Interval<Date>>();
+    private CV serviceDeliveryLocationType = new CVImpl();
+    private LIST<AD, PostalAddress> serviceDeliveryLocationAddress = new LISTImpl<AD, PostalAddress>(ADImpl.class);
     private ST serviceDeliveryLocationName = new STImpl();
-
-
-    /**
-     * <p>ServiceDeliveryLocationType</p>
-     * 
-     * <p>Service Delivery Location Type</p>
-     * 
-     * <p><p>The code identifying the specific service delivery 
-     * location</p></p>
-     * 
-     * <p><p>Populated attribute supports the validation and 
-     * identification of the service delivery location</p></p>
-     */
-    @Hl7XmlMapping({"code"})
-    public ServiceDeliveryLocationRoleType getServiceDeliveryLocationType() {
-        return (ServiceDeliveryLocationRoleType) this.serviceDeliveryLocationType.getValue();
-    }
-    public void setServiceDeliveryLocationType(ServiceDeliveryLocationRoleType serviceDeliveryLocationType) {
-        this.serviceDeliveryLocationType.setValue(serviceDeliveryLocationType);
-    }
-
-
-    /**
-     * <p>ServiceDeliveryLocationEffectiveDate</p>
-     * 
-     * <p>Service Delivery Location Effective Date</p>
-     * 
-     * <p><p>Effective date of the specific service delivery 
-     * location</p></p>
-     * 
-     * <p><p>Required attribute supports the validation and 
-     * identification of the service delivery location</p></p>
-     */
-    @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getServiceDeliveryLocationEffectiveDate() {
-        return this.serviceDeliveryLocationEffectiveDate.getValue();
-    }
-    public void setServiceDeliveryLocationEffectiveDate(Interval<Date> serviceDeliveryLocationEffectiveDate) {
-        this.serviceDeliveryLocationEffectiveDate.setValue(serviceDeliveryLocationEffectiveDate);
-    }
-
-
-    /**
-     * <p>ServiceDeliveryLocationAddress</p>
-     * 
-     * <p>Service Delivery Location Address</p>
-     * 
-     * <p><p>Address of the specific service delivery location</p></p>
-     * 
-     * <p><p>Required attribute supports the validation and 
-     * identification of the service delivery location</p></p>
-     */
-    @Hl7XmlMapping({"addr"})
-    public List<PostalAddress> getServiceDeliveryLocationAddress() {
-        return this.serviceDeliveryLocationAddress.rawList();
-    }
+    private LIST<TEL, TelecommunicationAddress> serviceDeliveryLocationTelecom = new LISTImpl<TEL, TelecommunicationAddress>(TELImpl.class);
 
 
     /**
@@ -192,19 +137,58 @@ public class ServiceDeliveryLocationBean extends MessagePartBean implements ca.i
 
 
     /**
-     * <p>ServiceDeliveryLocationTelecom</p>
+     * <p>ServiceDeliveryLocationEffectiveDate</p>
      * 
-     * <p>Service Delivery Location Telecom</p>
+     * <p>Service Delivery Location Effective Date</p>
      * 
-     * <p><p>The telecom for the specific service delivery 
+     * <p><p>Effective date of the specific service delivery 
      * location</p></p>
      * 
      * <p><p>Required attribute supports the validation and 
      * identification of the service delivery location</p></p>
      */
-    @Hl7XmlMapping({"telecom"})
-    public List<TelecommunicationAddress> getServiceDeliveryLocationTelecom() {
-        return this.serviceDeliveryLocationTelecom.rawList();
+    @Hl7XmlMapping({"effectiveTime"})
+    public Interval<Date> getServiceDeliveryLocationEffectiveDate() {
+        return this.serviceDeliveryLocationEffectiveDate.getValue();
+    }
+    public void setServiceDeliveryLocationEffectiveDate(Interval<Date> serviceDeliveryLocationEffectiveDate) {
+        this.serviceDeliveryLocationEffectiveDate.setValue(serviceDeliveryLocationEffectiveDate);
+    }
+
+
+    /**
+     * <p>ServiceDeliveryLocationType</p>
+     * 
+     * <p>Service Delivery Location Type</p>
+     * 
+     * <p><p>The code identifying the specific service delivery 
+     * location</p></p>
+     * 
+     * <p><p>Populated attribute supports the validation and 
+     * identification of the service delivery location</p></p>
+     */
+    @Hl7XmlMapping({"code"})
+    public ServiceDeliveryLocationRoleType getServiceDeliveryLocationType() {
+        return (ServiceDeliveryLocationRoleType) this.serviceDeliveryLocationType.getValue();
+    }
+    public void setServiceDeliveryLocationType(ServiceDeliveryLocationRoleType serviceDeliveryLocationType) {
+        this.serviceDeliveryLocationType.setValue(serviceDeliveryLocationType);
+    }
+
+
+    /**
+     * <p>ServiceDeliveryLocationAddress</p>
+     * 
+     * <p>Service Delivery Location Address</p>
+     * 
+     * <p><p>Address of the specific service delivery location</p></p>
+     * 
+     * <p><p>Required attribute supports the validation and 
+     * identification of the service delivery location</p></p>
+     */
+    @Hl7XmlMapping({"addr"})
+    public List<PostalAddress> getServiceDeliveryLocationAddress() {
+        return this.serviceDeliveryLocationAddress.rawList();
     }
 
 
@@ -224,6 +208,23 @@ public class ServiceDeliveryLocationBean extends MessagePartBean implements ca.i
     }
     public void setServiceDeliveryLocationName(String serviceDeliveryLocationName) {
         this.serviceDeliveryLocationName.setValue(serviceDeliveryLocationName);
+    }
+
+
+    /**
+     * <p>ServiceDeliveryLocationTelecom</p>
+     * 
+     * <p>Service Delivery Location Telecom</p>
+     * 
+     * <p><p>The telecom for the specific service delivery 
+     * location</p></p>
+     * 
+     * <p><p>Required attribute supports the validation and 
+     * identification of the service delivery location</p></p>
+     */
+    @Hl7XmlMapping({"telecom"})
+    public List<TelecommunicationAddress> getServiceDeliveryLocationTelecom() {
+        return this.serviceDeliveryLocationTelecom.rawList();
     }
 
 }

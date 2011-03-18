@@ -297,17 +297,8 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 public class RefersTo_1Bean<ACT> extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private ACT act;
     private BL cascadeResponsibilityIndicator = new BLImpl();
-
-
-    @Hl7XmlMapping({"act"})
-    public ACT getAct() {
-        return this.act;
-    }
-    public void setAct(ACT act) {
-        this.act = act;
-    }
+    private ACT act;
 
 
     /**
@@ -582,6 +573,15 @@ public class RefersTo_1Bean<ACT> extends MessagePartBean {
     }
     public void setCascadeResponsibilityIndicator(Boolean cascadeResponsibilityIndicator) {
         this.cascadeResponsibilityIndicator.setValue(cascadeResponsibilityIndicator);
+    }
+
+
+    @Hl7XmlMapping({"act"})
+    public ACT getAct() {
+        return this.act;
+    }
+    public void setAct(ACT act) {
+        this.act = act;
     }
 
 }

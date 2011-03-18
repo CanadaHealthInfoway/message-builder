@@ -34,41 +34,28 @@ import java.util.Set;
 public class OrganizationBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private SET<AD, PostalAddress> issuingRepresentingQualificationGrantingOrganizationAddressEs = new SETImpl<AD, PostalAddress>(ADImpl.class);
-    private ST issuingRepresentingQualificationGrantingOrganizationNameS = new STImpl();
     private II organizationId = new IIImpl();
+    private ST issuingRepresentingQualificationGrantingOrganizationNameS = new STImpl();
+    private SET<AD, PostalAddress> issuingRepresentingQualificationGrantingOrganizationAddressEs = new SETImpl<AD, PostalAddress>(ADImpl.class);
     private List<TerritorialAuthorityBean> territorialAuthority = new ArrayList<TerritorialAuthorityBean>();
 
 
     /**
-     * <p>Address(es</p>
+     * <p>Organization Id</p>
      * 
-     * <p><p>Address for any of the supported roles</p><p>1. 
-     * Issuing Oganization</p><p>2. Representing 
-     * Organization</p><p>3. Qualification Granting 
-     * Organization</p></p>
+     * <p><p>Unique identifier for the organization that assigned 
+     * the specified roleClass identifier.</p></p>
      * 
-     * <p><p>Address for any of the supported roles</p><p>1. 
-     * Issuing Oganization</p><p>2. Representing 
-     * Organization</p><p>3. Qualification Granting 
-     * Organization</p></p>
-     * 
-     * <p><p>Address for any of the supported roles</p><p>1. 
-     * Issuing Oganization</p><p>2. Representing 
-     * Organization</p><p>3. Qualification Granting 
-     * Organization</p></p>
-     * 
-     * <p><p>Address for any of the supported roles</p><p>1. 
-     * Issuing Oganization</p><p>2. Representing 
-     * Organization</p><p>3. Qualification Granting 
-     * Organization</p></p>
-     * 
-     * <p><p>Required attribute supports the validation and 
-     * identification of the healthcare provider</p></p>
+     * <p><p>Mandatory attribute supports the validation and 
+     * identification of the scoping organization assigning the id 
+     * to the specified roleClass</p></p>
      */
-    @Hl7XmlMapping({"addr"})
-    public Set<PostalAddress> getIssuingRepresentingQualificationGrantingOrganizationAddressEs() {
-        return this.issuingRepresentingQualificationGrantingOrganizationAddressEs.rawSet();
+    @Hl7XmlMapping({"id"})
+    public Identifier getOrganizationId() {
+        return this.organizationId.getValue();
+    }
+    public void setOrganizationId(Identifier organizationId) {
+        this.organizationId.setValue(organizationId);
     }
 
 
@@ -107,21 +94,34 @@ public class OrganizationBean extends MessagePartBean {
 
 
     /**
-     * <p>Organization Id</p>
+     * <p>Address(es</p>
      * 
-     * <p><p>Unique identifier for the organization that assigned 
-     * the specified roleClass identifier.</p></p>
+     * <p><p>Address for any of the supported roles</p><p>1. 
+     * Issuing Oganization</p><p>2. Representing 
+     * Organization</p><p>3. Qualification Granting 
+     * Organization</p></p>
      * 
-     * <p><p>Mandatory attribute supports the validation and 
-     * identification of the scoping organization assigning the id 
-     * to the specified roleClass</p></p>
+     * <p><p>Address for any of the supported roles</p><p>1. 
+     * Issuing Oganization</p><p>2. Representing 
+     * Organization</p><p>3. Qualification Granting 
+     * Organization</p></p>
+     * 
+     * <p><p>Address for any of the supported roles</p><p>1. 
+     * Issuing Oganization</p><p>2. Representing 
+     * Organization</p><p>3. Qualification Granting 
+     * Organization</p></p>
+     * 
+     * <p><p>Address for any of the supported roles</p><p>1. 
+     * Issuing Oganization</p><p>2. Representing 
+     * Organization</p><p>3. Qualification Granting 
+     * Organization</p></p>
+     * 
+     * <p><p>Required attribute supports the validation and 
+     * identification of the healthcare provider</p></p>
      */
-    @Hl7XmlMapping({"id"})
-    public Identifier getOrganizationId() {
-        return this.organizationId.getValue();
-    }
-    public void setOrganizationId(Identifier organizationId) {
-        this.organizationId.setValue(organizationId);
+    @Hl7XmlMapping({"addr"})
+    public Set<PostalAddress> getIssuingRepresentingQualificationGrantingOrganizationAddressEs() {
+        return this.issuingRepresentingQualificationGrantingOrganizationAddressEs.rawSet();
     }
 
 

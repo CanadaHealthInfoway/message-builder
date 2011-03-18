@@ -16,17 +16,17 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 public class SequelToBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private INT sequenceNumber = new INTImpl();
-    private CS typeCode = new CSImpl();
     private InformRequestBean informRequest;
+    private CS typeCode = new CSImpl();
+    private INT sequenceNumber = new INTImpl();
 
 
-    @Hl7XmlMapping({"sequenceNumber"})
-    public Integer getSequenceNumber() {
-        return this.sequenceNumber.getValue();
+    @Hl7XmlMapping({"informRequest"})
+    public InformRequestBean getInformRequest() {
+        return this.informRequest;
     }
-    public void setSequenceNumber(Integer sequenceNumber) {
-        this.sequenceNumber.setValue(sequenceNumber);
+    public void setInformRequest(InformRequestBean informRequest) {
+        this.informRequest = informRequest;
     }
 
 
@@ -39,12 +39,12 @@ public class SequelToBean extends MessagePartBean {
     }
 
 
-    @Hl7XmlMapping({"informRequest"})
-    public InformRequestBean getInformRequest() {
-        return this.informRequest;
+    @Hl7XmlMapping({"sequenceNumber"})
+    public Integer getSequenceNumber() {
+        return this.sequenceNumber.getValue();
     }
-    public void setInformRequest(InformRequestBean informRequest) {
-        this.informRequest = informRequest;
+    public void setSequenceNumber(Integer sequenceNumber) {
+        this.sequenceNumber.setValue(sequenceNumber);
     }
 
 }

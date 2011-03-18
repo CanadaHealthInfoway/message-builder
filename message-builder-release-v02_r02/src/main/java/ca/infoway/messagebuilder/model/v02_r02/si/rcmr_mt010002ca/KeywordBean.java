@@ -33,35 +33,28 @@ import java.util.List;
 public class KeywordBean extends MessagePartBean {
 
     private static final long serialVersionUID = 20110318L;
-    private List<CV> consentInformationTypes = new ArrayList<CV>();
-    private Consenter authorConsenter;
     private ST keyword = new STImpl();
+    private Consenter authorConsenter;
+    private List<CV> consentInformationTypes = new ArrayList<CV>();
 
 
     /**
-     * <p>B:Consent Information Types</p>
+     * <p>Keyword</p>
      * 
-     * <p><p>The type of patient information that can be accessed 
-     * or modified. Examples are: demographics, medications, lab, 
-     * DI, etc</p><p>The keyword revisioning process may also 
-     * involve revising the list of information types covered by 
-     * the keyword.</p></p>
+     * <p><p>Indicate the keyword associated with a particular 
+     * consent.</p></p>
      * 
-     * <p><p>The type of patient information that can be accessed 
-     * or modified. Examples are: demographics, medications, lab, 
-     * DI, etc</p><p>The keyword revisioning process may also 
-     * involve revising the list of information types covered by 
-     * the keyword.</p></p>
-     * 
-     * <p><p>Different keywords may be needed to access different 
-     * types of patient information (e.g. demographics, 
-     * medications, allergies, lab results). Understanding the type 
-     * of information the keyword applies to is critical, and 
-     * therefore the attribute is mandatory.</p></p>
+     * <p><p>Allows patients to change their keyword. If explicitly 
+     * set to null, removes the keyword for the identified record 
+     * types. Because of this, the attribute is set to 
+     * 'populated'.</p></p>
      */
-    @Hl7XmlMapping({"subject/recordType/code"})
-    public List<ActInformationAccessTypeCode> getConsentInformationTypes() {
-        return new RawListWrapper<CV, ActInformationAccessTypeCode>(consentInformationTypes, CVImpl.class);
+    @Hl7XmlMapping({"author/signatureText"})
+    public String getKeyword() {
+        return this.keyword.getValue();
+    }
+    public void setKeyword(String keyword) {
+        this.keyword.setValue(keyword);
     }
 
 
@@ -89,22 +82,29 @@ public class KeywordBean extends MessagePartBean {
 
 
     /**
-     * <p>Keyword</p>
+     * <p>B:Consent Information Types</p>
      * 
-     * <p><p>Indicate the keyword associated with a particular 
-     * consent.</p></p>
+     * <p><p>The type of patient information that can be accessed 
+     * or modified. Examples are: demographics, medications, lab, 
+     * DI, etc</p><p>The keyword revisioning process may also 
+     * involve revising the list of information types covered by 
+     * the keyword.</p></p>
      * 
-     * <p><p>Allows patients to change their keyword. If explicitly 
-     * set to null, removes the keyword for the identified record 
-     * types. Because of this, the attribute is set to 
-     * 'populated'.</p></p>
+     * <p><p>The type of patient information that can be accessed 
+     * or modified. Examples are: demographics, medications, lab, 
+     * DI, etc</p><p>The keyword revisioning process may also 
+     * involve revising the list of information types covered by 
+     * the keyword.</p></p>
+     * 
+     * <p><p>Different keywords may be needed to access different 
+     * types of patient information (e.g. demographics, 
+     * medications, allergies, lab results). Understanding the type 
+     * of information the keyword applies to is critical, and 
+     * therefore the attribute is mandatory.</p></p>
      */
-    @Hl7XmlMapping({"author/signatureText"})
-    public String getKeyword() {
-        return this.keyword.getValue();
-    }
-    public void setKeyword(String keyword) {
-        this.keyword.setValue(keyword);
+    @Hl7XmlMapping({"subject/recordType/code"})
+    public List<ActInformationAccessTypeCode> getConsentInformationTypes() {
+        return new RawListWrapper<CV, ActInformationAccessTypeCode>(consentInformationTypes, CVImpl.class);
     }
 
 }
