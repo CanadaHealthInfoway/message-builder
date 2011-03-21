@@ -306,10 +306,10 @@ class Hl7SourceMapper {
 			if (valid) {
 				if ("BL".equals(relationship.getType()) && value instanceof BL) {
 					String valueAsString = ((BL) value).getValue().toString();
-					valid = StringUtils.equalsIgnoreCase(relationship.getFixedValue(), valueAsString);
+					valid = relationship.getFixedValue().equalsIgnoreCase(valueAsString);
 				} else if ("INT.POS".equals(relationship.getType()) && value instanceof INT) {
 					String valueAsString = ((INT) value).getValue().toString();
-					valid = StringUtils.equalsIgnoreCase(relationship.getFixedValue(), valueAsString);
+					valid = relationship.getFixedValue().equalsIgnoreCase(valueAsString);
 				} else if (relationship.isCodedType() && value instanceof CD) {
 					Code code = ((CD) value).getValue();
 					valid = (code.getCodeValue() != null && StringUtils.equals(relationship.getFixedValue(), code.getCodeValue()));
