@@ -46,14 +46,14 @@ public class RelationshipSorterTest {
 		Object object = sorter.get(relationship);
 		assertNotNull("type exists", object);
 		assertTrue("type", object instanceof BeanProperty);
-		assertEquals("property name", "type2", ((BeanProperty) object).getName());
-
+		assertPropertyNamesEqual("property name", "type2", object);
+		
 		Relationship otherRelationship = new Relationship(
 				"theType", "MOCK_MT123456CA.SubType", Cardinality.create("1"));
 		Object otherObject = sorter.get(otherRelationship);
 		assertNotNull("other type exists", otherObject);
 		assertTrue("other type", otherObject instanceof BeanProperty);
-		assertEquals("other property name", "type", ((BeanProperty) otherObject).getName());
+		assertPropertyNamesEqual("other property name", "type", otherObject);
 	}
 	
 	@Test
@@ -87,7 +87,7 @@ public class RelationshipSorterTest {
 		object = tempSorter.get(relationship3);
 		assertNotNull("type exists", object);
 		assertTrue("type", object instanceof BeanProperty);
-		assertEquals("property name", "type2", ((BeanProperty) object).getName());
+		assertPropertyNamesEqual("property name", "type2", object);
 
 		Relationship otherRelationship1 = new Relationship(
 				"theType", "MOCK_MT123458CA.SubTypeA", Cardinality.create("1"));
@@ -116,7 +116,7 @@ public class RelationshipSorterTest {
 		object = tempSorter.get(otherRelationship3);
 		assertNotNull("other type exists", object);
 		assertTrue("other type", object instanceof BeanProperty);
-		assertEquals("other property name", "type", ((BeanProperty) object).getName());
+		assertPropertyNamesEqual("other property name", "type", object);
 		
 	}
 	
@@ -153,12 +153,12 @@ public class RelationshipSorterTest {
 		object = innerSorter.get(nameRelationship);
 		assertNotNull("type exists", object);
 		assertTrue("type", object instanceof BeanProperty);
-		assertEquals("property name", "assignedOrganizationName", ((BeanProperty) object).getName());
+		assertPropertyNamesEqual("property name", "assignedOrganizationName", object);
 
 		object = innerSorter.get(idRelationship);
 		assertNotNull("type exists", object);
 		assertTrue("type", object instanceof BeanProperty);
-		assertEquals("property id", "organizationIdentifier", ((BeanProperty) object).getName());
+		assertPropertyNamesEqual("property id", "organizationIdentifier", object);
 
 		object = innerSorter.get(otherIdRelationship);
 		assertNull("type does not exists", object);
@@ -177,7 +177,7 @@ public class RelationshipSorterTest {
 		object = innerSorter.get(idRelationship);
 		assertNotNull("type exists", object);
 		assertTrue("type", object instanceof BeanProperty);
-		assertEquals("property id", "organizationIdentifier", ((BeanProperty) object).getName());
+		assertPropertyNamesEqual("property id", "organizationIdentifier", object);
 
 		object = innerSorter.get(otherIdRelationship);
 		assertNull("type does not exist", object);
@@ -193,7 +193,7 @@ public class RelationshipSorterTest {
 		object = innerSorter.get(nameRelationship);
 		assertNotNull("type exists", object);
 		assertTrue("type", object instanceof BeanProperty);
-		assertEquals("property name", "assignedOrganizationName", ((BeanProperty) object).getName());
+		assertPropertyNamesEqual("property name", "assignedOrganizationName", object);
 
 		object = innerSorter.get(idRelationship);
 		assertNull("type should not exist", object);
@@ -201,7 +201,15 @@ public class RelationshipSorterTest {
 		object = innerSorter.get(otherIdRelationship);
 		assertNotNull("type exists", object);
 		assertTrue("type", object instanceof BeanProperty);
-		assertEquals("other property id", "otherOrganizationIdentifier", ((BeanProperty) object).getName());
+		assertPropertyNamesEqual("other property id", "otherOrganizationIdentifier", object);
 
+	}
+
+	private void assertPropertyNamesEqual(String message, String expected, Object beanProperty) {
+		assertEquals(message, expected.toLowerCase(), getNameFromProperty(beanProperty).toLowerCase());
+	}
+	
+	private String getNameFromProperty(Object beanProperty) {
+		return ((BeanProperty) beanProperty).getName();
 	}
 }
