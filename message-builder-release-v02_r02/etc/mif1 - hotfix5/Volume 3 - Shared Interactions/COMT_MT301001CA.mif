@@ -1,0 +1,312 @@
+<mif:serializedStaticModel xmlns:mif="urn:hl7-org:v3/mif"
+                           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                           xsi:schemaLocation=""
+                           packageKind="realm"
+                           representationKind="serialized"
+                           isSerializable="true"
+                           isAbstract="false"
+                           name="CA">
+   <mif:packageLocation root="DEFN" section="IM" subSection="CO" domain="MT" artifact="MT-deprecated"
+                        realm="CA"
+                        id="301001"/>
+   <mif:header>
+      <mif:renderingInformation schemaVersion="1" application="Visio to MIF transform"/>
+      <mif:legalese copyrightOwner="Health Level Seven" copyrightYears="2007"/>
+   </mif:header>
+   <mif:graphicRepresentation presentation="HL7">
+      <mif:graphElement name="Main">
+         <mif:position x="0.0" y="0.0"/>
+         <mif:size width="7.497" height="2.260"/>
+      </mif:graphElement>
+   </mif:graphicRepresentation>
+   <mif:derivationSupplier staticModelDerivationId="1">
+      <mif:targetStaticModel root="DEFN" artifact="RIM" version="00"/>
+   </mif:derivationSupplier>
+   <mif:ownedEntryPoint id="COMT_MT301001CA" name="Annotation" isAbstract="false">
+      <mif:graphicRepresentation>
+         <mif:graphElement shapeId="Sheet.5" containerDiagramName="Main">
+            <mif:position x="5.262" y="0.007"/>
+            <mif:size width="1.075" height="0.453"/>
+            <mif:anchorage connectToShapeId="Sheet.5">
+               <mif:position x="5.800" y="0.460"/>
+               <mif:graphEdge>
+                  <mif:anchor connectToShapeId="Sheet.1">
+                     <mif:position x="5.800" y="0.960"/>
+                  </mif:anchor>
+               </mif:graphEdge>
+            </mif:anchorage>
+         </mif:graphElement>
+      </mif:graphicRepresentation>
+      <mif:specializedClass>
+         <mif:class name="Annotation" isAbstract="false">
+            <mif:businessName name="Comment"/>
+            <mif:derivationSupplier staticModelDerivationId="1" className="Act"/>
+            <mif:graphicRepresentation presentation="HL7">
+               <mif:graphElement shapeId="Sheet.1" containerDiagramName="Main" shapeTemplate="Act"
+                                 isWidthAutoSize="true"
+                                 isHeightAutoSize="true">
+                  <mif:position x="4.110" y="0.960"/>
+                  <mif:size width="3.381" height="0.781"/>
+               </mif:graphElement>
+            </mif:graphicRepresentation>
+            <mif:annotations>
+               <mif:definition>
+                  <mif:text>
+                     <mif:p>
+                        <mif:p>Identifies the comments to be recorded against a Patient's record.</mif:p>
+                     </mif:p>
+                  </mif:text>
+               </mif:definition>
+               <mif:rationale>
+                  <mif:text>
+                     <mif:p>
+                        <mif:p>Allows comments to be attached to a Patient record. A Patient record can pertain to demographic or clinical (Drug, Condition, Lab, DI, etc) information.</mif:p>
+                     </mif:p>
+                  </mif:text>
+               </mif:rationale>
+            </mif:annotations>
+            <mif:attribute name="classCode" sortKey="1" minimumMultiplicity="1" maximumMultiplicity="1"
+                           conformance="R"
+                           isMandatory="true"
+                           fixedValue="ACT"
+                           isStructural="true">
+               <mif:annotations>
+                  <mif:definition>
+                     <mif:text/>
+                  </mif:definition>
+               </mif:annotations>
+               <mif:derivationSupplier staticModelDerivationId="1" className="Act" attributeName="classCode"/>
+               <mif:type name="CS"/>
+               <mif:supplierDomainSpecification codingStrength="CNE" codeSystemName="ActClass" mnemonic="ACT"/>
+            </mif:attribute>
+            <mif:attribute name="moodCode" sortKey="2" minimumMultiplicity="1" maximumMultiplicity="1"
+                           conformance="R"
+                           isMandatory="true"
+                           fixedValue="EVN"
+                           isStructural="true">
+               <mif:annotations>
+                  <mif:definition>
+                     <mif:text/>
+                  </mif:definition>
+               </mif:annotations>
+               <mif:derivationSupplier staticModelDerivationId="1" className="Act" attributeName="moodCode"/>
+               <mif:type name="CS"/>
+               <mif:supplierDomainSpecification codingStrength="CNE" codeSystemName="ActMood" mnemonic="EVN"/>
+            </mif:attribute>
+            <mif:attribute name="text" sortKey="3" minimumMultiplicity="1" maximumMultiplicity="1"
+                           conformance="R"
+                           isMandatory="true"
+                           maximumLength="2000"
+                           isStructural="false">
+               <mif:businessName name="C:Annotation Text"/>
+               <mif:annotations>
+                  <mif:definition>
+                     <mif:text>
+                        <mif:p>
+                           <mif:p>Free text comment to be attached to a record.</mif:p>
+                        </mif:p>
+                     </mif:text>
+                  </mif:definition>
+                  <mif:rationale>
+                     <mif:text>
+                        <mif:p>
+                           <mif:p>Allows a provider to attach arbitrary comments to clinical records (prescription, dispenses, lab results, allergies, etc) for communication. This attribute is mandatory because there's no point in having an annotation unless there's actually content in the note.</mif:p>
+                        </mif:p>
+                     </mif:text>
+                  </mif:rationale>
+               </mif:annotations>
+               <mif:derivationSupplier staticModelDerivationId="1" className="Act" attributeName="text"/>
+               <mif:type name="ST"/>
+            </mif:attribute>
+            <mif:attribute name="languageCode" sortKey="4" minimumMultiplicity="1" maximumMultiplicity="1"
+                           conformance="R"
+                           isMandatory="true"
+                           isStructural="false">
+               <mif:businessName name="D:Written in"/>
+               <mif:annotations>
+                  <mif:definition>
+                     <mif:text/>
+                  </mif:definition>
+               </mif:annotations>
+               <mif:derivationSupplier staticModelDerivationId="1" className="Act" attributeName="languageCode"/>
+               <mif:type name="CV"/>
+               <mif:supplierDomainSpecification codingStrength="CNE" domainName="HumanLanguage"/>
+            </mif:attribute>
+            <mif:association sortKey="0">
+               <mif:graphicRepresentation>
+                  <mif:graphElement connectToShapeId="Sheet.1" containerDiagramName="Main">
+                     <mif:position x="4.110" y="1.350"/>
+                     <mif:graphEdge>
+                        <mif:anchor connectToShapeId="Sheet.28">
+                           <mif:position x="4.110" y="1.350"/>
+                        </mif:anchor>
+                     </mif:graphEdge>
+                  </mif:graphElement>
+               </mif:graphicRepresentation>
+               <mif:targetConnection name="subject" minimumMultiplicity="1" maximumMultiplicity="1" conformance="R"
+                                     isMandatory="true"
+                                     sortKey="BDB#######">
+                  <mif:annotations>
+                     <mif:definition>
+                        <mif:text/>
+                     </mif:definition>
+                  </mif:annotations>
+                  <mif:derivationSupplier staticModelDerivationId="1" className="Act"
+                                          associationEndName="outboundRelationship"/>
+                  <mif:participantClass>
+                     <mif:class name="Subject" isAbstract="false">
+                        <mif:businessName name="annotates"/>
+                        <mif:derivationSupplier staticModelDerivationId="1" className="ActRelationship"/>
+                        <mif:graphicRepresentation presentation="HL7">
+                           <mif:graphElement shapeId="Sheet.28" containerDiagramName="Main" shapeTemplate="ActRelationship"
+                                             textWrappingWidth="66.0"
+                                             nodeOrientation="Left">
+                              <mif:position x="1.765" y="1.153"/>
+                              <mif:size width="2.344" height="0.303"/>
+                           </mif:graphElement>
+                        </mif:graphicRepresentation>
+                        <mif:annotations>
+                           <mif:definition>
+                              <mif:text>
+                                 <mif:p>
+                                    <mif:p>Indicates the particular record to which the annotation applies.</mif:p>
+                                 </mif:p>
+                              </mif:text>
+                           </mif:definition>
+                           <mif:rationale>
+                              <mif:text>
+                                 <mif:p>
+                                    <mif:p>Ensures the annotation is connected to the correct record, and therefore mandatory.</mif:p>
+                                 </mif:p>
+                              </mif:text>
+                           </mif:rationale>
+                        </mif:annotations>
+                        <mif:attribute name="typeCode" sortKey="1" minimumMultiplicity="1" maximumMultiplicity="1"
+                                       conformance="R"
+                                       isMandatory="true"
+                                       fixedValue="SUBJ"
+                                       isStructural="true">
+                           <mif:annotations>
+                              <mif:definition>
+                                 <mif:text/>
+                              </mif:definition>
+                           </mif:annotations>
+                           <mif:derivationSupplier staticModelDerivationId="1" className="ActRelationship"
+                                                   attributeName="typeCode"/>
+                           <mif:type name="CS"/>
+                           <mif:supplierDomainSpecification codingStrength="CNE" codeSystemName="ActRelationshipType" mnemonic="SUBJ"/>
+                        </mif:attribute>
+                        <mif:association sortKey="2">
+                           <mif:graphicRepresentation>
+                              <mif:graphElement connectToShapeId="Sheet.28" containerDiagramName="Main">
+                                 <mif:position x="1.765" y="1.260"/>
+                                 <mif:graphEdge>
+                                    <mif:anchor connectToShapeId="Sheet.12">
+                                       <mif:position x="1.765" y="1.260"/>
+                                    </mif:anchor>
+                                 </mif:graphEdge>
+                              </mif:graphElement>
+                           </mif:graphicRepresentation>
+                           <mif:targetConnection name="annotatedAct" minimumMultiplicity="1" maximumMultiplicity="1"
+                                                 conformance="R"
+                                                 isMandatory="true"
+                                                 sortKey="BZ">
+                              <mif:annotations>
+                                 <mif:definition>
+                                    <mif:text/>
+                                 </mif:definition>
+                              </mif:annotations>
+                              <mif:derivationSupplier staticModelDerivationId="1" className="ActRelationship"
+                                                      associationEndName="target"/>
+                              <mif:participantClass>
+                                 <mif:class name="AnnotatedAct" isAbstract="false">
+                                    <mif:derivationSupplier staticModelDerivationId="1" className="Act"/>
+                                    <mif:graphicRepresentation presentation="HL7">
+                                       <mif:graphElement shapeId="Sheet.12" containerDiagramName="Main" shapeTemplate="Act"
+                                                         isWidthAutoSize="true"
+                                                         isHeightAutoSize="true">
+                                          <mif:position x="0.235" y="0.960"/>
+                                          <mif:size width="1.531" height="0.750"/>
+                                       </mif:graphElement>
+                                    </mif:graphicRepresentation>
+                                    <mif:annotations>
+                                       <mif:definition>
+                                          <mif:text/>
+                                       </mif:definition>
+                                    </mif:annotations>
+                                    <mif:attribute name="classCode" sortKey="1" minimumMultiplicity="1" maximumMultiplicity="1"
+                                                   conformance="R"
+                                                   isMandatory="true"
+                                                   fixedValue="ACT"
+                                                   isStructural="true">
+                                       <mif:annotations>
+                                          <mif:definition>
+                                             <mif:text/>
+                                          </mif:definition>
+                                       </mif:annotations>
+                                       <mif:derivationSupplier staticModelDerivationId="1" className="Act" attributeName="classCode"/>
+                                       <mif:type name="CS"/>
+                                       <mif:supplierDomainSpecification codingStrength="CNE" codeSystemName="ActClass" mnemonic="ACT"/>
+                                    </mif:attribute>
+                                    <mif:attribute name="moodCode" sortKey="2" minimumMultiplicity="1" maximumMultiplicity="1"
+                                                   conformance="R"
+                                                   isMandatory="true"
+                                                   fixedValue="EVNINT.CRT"
+                                                   isStructural="true">
+                                       <mif:annotations>
+                                          <mif:definition>
+                                             <mif:text/>
+                                          </mif:definition>
+                                       </mif:annotations>
+                                       <mif:derivationSupplier staticModelDerivationId="1" className="Act" attributeName="moodCode"/>
+                                       <mif:type name="CS"/>
+                                       <mif:supplierDomainSpecification codingStrength="CNE" codeSystemName="ActMood" mnemonic="EVNINT.CRT"/>
+                                    </mif:attribute>
+                                    <mif:attribute name="id" sortKey="3" minimumMultiplicity="1" maximumMultiplicity="1"
+                                                   conformance="R"
+                                                   isMandatory="true"
+                                                   isStructural="false">
+                                       <mif:businessName name="A:Record Id"/>
+                                       <mif:annotations>
+                                          <mif:definition>
+                                             <mif:text>
+                                                <mif:p>
+                                                   <mif:p>The identifier assigned by the central system (EHR) to the record item being annotated.</mif:p>
+                                                </mif:p>
+                                             </mif:text>
+                                          </mif:definition>
+                                          <mif:rationale>
+                                             <mif:text>
+                                                <mif:p>
+                                                   <mif:p>Allows the record to be uniquely referenced and is therefore mandatory.</mif:p>
+                                                </mif:p>
+                                             </mif:text>
+                                          </mif:rationale>
+                                       </mif:annotations>
+                                       <mif:derivationSupplier staticModelDerivationId="1" className="Act" attributeName="id"/>
+                                       <mif:type name="II"/>
+                                    </mif:attribute>
+                                 </mif:class>
+                              </mif:participantClass>
+                           </mif:targetConnection>
+                           <mif:sourceConnection>
+                              <mif:nonTraversableConnection participantClassName="Subject">
+                                 <mif:derivationSupplier staticModelDerivationId="1" className="Act"
+                                                         associationEndName="inboundRelationship"/>
+                              </mif:nonTraversableConnection>
+                           </mif:sourceConnection>
+                        </mif:association>
+                     </mif:class>
+                  </mif:participantClass>
+               </mif:targetConnection>
+               <mif:sourceConnection>
+                  <mif:nonTraversableConnection participantClassName="Annotation">
+                     <mif:derivationSupplier staticModelDerivationId="1" className="ActRelationship"
+                                             associationEndName="source"/>
+                  </mif:nonTraversableConnection>
+               </mif:sourceConnection>
+            </mif:association>
+         </mif:class>
+      </mif:specializedClass>
+   </mif:ownedEntryPoint>
+</mif:serializedStaticModel>

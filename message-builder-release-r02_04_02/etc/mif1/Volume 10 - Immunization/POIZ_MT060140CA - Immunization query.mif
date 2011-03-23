@@ -1,0 +1,425 @@
+<!--
+/*******************************************************************************
+ * Copyright (c) 2010 Health Level Seven, Inc.
+ * All rights reserved. This file and the model designs it contains 
+ * are made available under terms of a proprietary license implicitly 
+ * established by the terms expressed in the Bylaws of Health 
+ * Level Seven, Inc. (HL7), in combination with the agreements under 
+ * which individual and organizational memberships are established with HL7.
+ * Links to the HL7 Bylaws may be found at http://www.hl7.org 
+ *******************************************************************************/ 
+				--><mif:serializedStaticModel xmlns:mif="urn:hl7-org:v3/mif" packageKind="realm"
+                           representationKind="serialized"
+                           isAbstract="false"
+                           title="Immunization query"
+                           isSerializable="true"
+                           name="CA">
+   <mif:packageLocation root="DEFN" section="HM" subSection="PO" domain="IZ" artifact="MT-deprecated"
+                        realm="CA"
+                        id="060140"/>
+   <mif:header>
+      <mif:renderingInformation schemaVersion="1" application="Visio to MIF transform"/>
+      <mif:legalese copyrightOwner="Health Level Seven" copyrightYears="2010">
+         <mif:notation>All rights reserved.</mif:notation>
+      </mif:legalese>
+   </mif:header>
+   <mif:graphicRepresentation presentation="HL7">
+      <mif:graphElement name="Main">
+         <mif:position x="0.0" y="0.0"/>
+         <mif:size width="11.019" height="5.027"/>
+      </mif:graphElement>
+   </mif:graphicRepresentation>
+   <mif:derivationSupplier staticModelDerivationId="1">
+      <mif:targetStaticModel root="DEFN" artifact="RIM" version="0226"/>
+   </mif:derivationSupplier>
+   <mif:importedDatatypeModelPackage root="DEFN" artifact="DT" realm="CA" version="R02.04.xx"/>
+   <mif:importedVocabularyModelPackage root="DEFN" artifact="VO" realm="CA" version="R02.04.xx"/>
+   <mif:importedCommonModelElementPackage root="DEFN" artifact="CMET" realm="CA" version="R02.04.xx"/>
+   <mif:ownedEntryPoint id="POIZ_MT060140CA" name="Immunization query" isAbstract="false">
+      <mif:annotations>
+         <mif:description>
+            <mif:text>
+               <mif:p>Entry point for Immunization Query message. The intent of this query is to find detailed information with respect to a specific immunization event.</mif:p>
+            </mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:graphicRepresentation>
+         <mif:graphElement shapeId="Sheet.9" containerDiagramName="Main">
+            <mif:position x="0.040" y="1.372"/>
+            <mif:size width="2.687" height="0.719"/>
+            <mif:anchorage connectToShapeId="Sheet.9">
+               <mif:position x="2.727" y="2.415"/>
+               <mif:graphEdge>
+                  <mif:anchor connectToShapeId="Sheet.1">
+                     <mif:position x="3.864" y="2.540"/>
+                  </mif:anchor>
+               </mif:graphEdge>
+            </mif:anchorage>
+         </mif:graphElement>
+      </mif:graphicRepresentation>
+      <mif:specializedClass>
+         <mif:class name="ParameterList" isAbstract="false">
+            <mif:businessName name="Immunization Query Parameters"/>
+            <mif:derivationSupplier staticModelDerivationId="1" className="ParameterList"/>
+            <mif:graphicRepresentation presentation="HL7">
+               <mif:graphElement shapeId="Sheet.1" containerDiagramName="Main" shapeTemplate="OtherClass"
+                                 isWidthAutoSize="true"
+                                 isHeightAutoSize="true">
+                  <mif:position x="3.864" y="1.977"/>
+                  <mif:size width="1.250" height="0.750"/>
+               </mif:graphElement>
+            </mif:graphicRepresentation>
+            <mif:annotations>
+               <mif:definition>
+                  <mif:text>
+                     <mif:p>
+                        <mif:p>Defines the set of parameters that may be used to filter the query response.</mif:p>
+                     </mif:p>
+                  </mif:text>
+               </mif:definition>
+               <mif:rationale>
+                  <mif:text>
+                     <mif:p>
+                        <mif:p>Root class for query.</mif:p>
+                     </mif:p>
+                  </mif:text>
+               </mif:rationale>
+            </mif:annotations>
+            <mif:association sortKey="3">
+               <mif:graphicRepresentation>
+                  <mif:graphElement connectToShapeId="Sheet.1" containerDiagramName="Main" shapeId="Sheet.26">
+                     <mif:position x="4.177" y="1.977"/>
+                     <mif:graphEdge>
+                        <mif:waypoint x="4.177" y="1.835"/>
+                        <mif:waypoint x="4.177" y="0.552"/>
+                        <mif:anchor connectToShapeId="Sheet.89">
+                           <mif:position x="3.716" y="0.552"/>
+                        </mif:anchor>
+                     </mif:graphEdge>
+                  </mif:graphElement>
+               </mif:graphicRepresentation>
+               <mif:targetConnection name="immunizationEventID" minimumMultiplicity="1" maximumMultiplicity="1"
+                                     conformance="R"
+                                     isMandatory="true"
+                                     sortKey="Z ZZ">
+                  <mif:derivationSupplier staticModelDerivationId="1" className="ParameterList"
+                                          associationEndName="parameter"/>
+                  <mif:participantClass>
+                     <mif:class name="ImmunizationEventID" isAbstract="false">
+                        <mif:derivationSupplier staticModelDerivationId="1" className="ParameterItem"/>
+                        <mif:graphicRepresentation presentation="HL7">
+                           <mif:graphElement shapeId="Sheet.89" containerDiagramName="Main" shapeTemplate="OtherClass"
+                                             isWidthAutoSize="true"
+                                             isHeightAutoSize="true">
+                              <mif:position x="1.144" y="0.177"/>
+                              <mif:size width="2.572" height="0.750"/>
+                           </mif:graphElement>
+                        </mif:graphicRepresentation>
+                        <mif:attribute name="value" sortKey="1" minimumMultiplicity="1" maximumMultiplicity="1"
+                                       conformance="R"
+                                       isMandatory="true"
+                                       isStructural="false">
+                           <mif:businessName name="A:Immunization Event ID"/>
+                           <mif:annotations>
+                              <mif:definition>
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>Specifies the identifier of the immunization event</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:definition>
+                              <mif:rationale>
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>Allows for filtering of queries by immuniation event ID. As a result, this attribute is mandatory.</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:rationale>
+                           </mif:annotations>
+                           <mif:derivationSupplier staticModelDerivationId="1" className="ParameterItem" attributeName="value"/>
+                           <mif:type name="II.PUBLIC"/>
+                        </mif:attribute>
+                     </mif:class>
+                  </mif:participantClass>
+               </mif:targetConnection>
+               <mif:sourceConnection>
+                  <mif:nonTraversableConnection participantClassName="ParameterList">
+                     <mif:derivationSupplier staticModelDerivationId="1" className="Parameter"
+                                             associationEndName="parameterList"/>
+                  </mif:nonTraversableConnection>
+               </mif:sourceConnection>
+            </mif:association>
+            <mif:association sortKey="2">
+               <mif:graphicRepresentation>
+                  <mif:graphElement connectToShapeId="Sheet.1" containerDiagramName="Main" shapeId="Sheet.56">
+                     <mif:position x="4.802" y="2.727"/>
+                     <mif:graphEdge>
+                        <mif:waypoint x="4.802" y="2.795"/>
+                        <mif:waypoint x="4.802" y="3.405"/>
+                        <mif:anchor connectToShapeId="Sheet.264">
+                           <mif:position x="7.209" y="3.405"/>
+                        </mif:anchor>
+                     </mif:graphEdge>
+                  </mif:graphElement>
+               </mif:graphicRepresentation>
+               <mif:targetConnection name="patientBirthDate" minimumMultiplicity="0" maximumMultiplicity="1"
+                                     conformance="R"
+                                     isMandatory="false"
+                                     sortKey="Z ZZ">
+                  <mif:derivationSupplier staticModelDerivationId="1" className="ParameterList"
+                                          associationEndName="parameter"/>
+                  <mif:participantClass>
+                     <mif:class name="PatientBirthDate" isAbstract="false">
+                        <mif:derivationSupplier staticModelDerivationId="1" className="ParameterItem"/>
+                        <mif:graphicRepresentation presentation="HL7">
+                           <mif:graphElement shapeId="Sheet.264" containerDiagramName="Main" shapeTemplate="OtherClass"
+                                             isWidthAutoSize="true"
+                                             isHeightAutoSize="true">
+                              <mif:position x="7.209" y="3.217"/>
+                              <mif:size width="2.572" height="0.750"/>
+                           </mif:graphElement>
+                        </mif:graphicRepresentation>
+                        <mif:attribute name="value" sortKey="1" minimumMultiplicity="1" maximumMultiplicity="1"
+                                       conformance="R"
+                                       isMandatory="true"
+                                       isStructural="false">
+                           <mif:businessName name="E:Patient Birth Date"/>
+                           <mif:annotations>
+                              <mif:definition>
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>Indicates the date on which the patient was born.</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:definition>
+                              <mif:rationale>
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>Use to confirm identity of the patient for the query. As a result, this attribute is required.</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:rationale>
+                           </mif:annotations>
+                           <mif:derivationSupplier staticModelDerivationId="1" className="ParameterItem" attributeName="value"/>
+                           <mif:type name="TS.FULLDATE"/>
+                        </mif:attribute>
+                     </mif:class>
+                  </mif:participantClass>
+               </mif:targetConnection>
+               <mif:sourceConnection>
+                  <mif:nonTraversableConnection participantClassName="ParameterList">
+                     <mif:derivationSupplier staticModelDerivationId="1" className="Parameter"
+                                             associationEndName="parameterList"/>
+                  </mif:nonTraversableConnection>
+               </mif:sourceConnection>
+            </mif:association>
+            <mif:association sortKey="0">
+               <mif:graphicRepresentation>
+                  <mif:graphElement connectToShapeId="Sheet.1" containerDiagramName="Main" shapeId="Sheet.46">
+                     <mif:position x="5.114" y="2.352"/>
+                     <mif:graphEdge>
+                        <mif:waypoint x="6.231" y="2.352"/>
+                        <mif:waypoint x="6.231" y="2.442"/>
+                        <mif:anchor connectToShapeId="Sheet.250">
+                           <mif:position x="7.348" y="2.442"/>
+                        </mif:anchor>
+                     </mif:graphEdge>
+                  </mif:graphElement>
+               </mif:graphicRepresentation>
+               <mif:targetConnection name="patientGender" minimumMultiplicity="0" maximumMultiplicity="1"
+                                     conformance="R"
+                                     isMandatory="false"
+                                     sortKey="Z ZZ">
+                  <mif:derivationSupplier staticModelDerivationId="1" className="ParameterList"
+                                          associationEndName="parameter"/>
+                  <mif:participantClass>
+                     <mif:class name="PatientGender" isAbstract="false">
+                        <mif:derivationSupplier staticModelDerivationId="1" className="ParameterItem"/>
+                        <mif:graphicRepresentation presentation="HL7">
+                           <mif:graphElement shapeId="Sheet.250" containerDiagramName="Main" shapeTemplate="OtherClass"
+                                             isWidthAutoSize="true"
+                                             isHeightAutoSize="true">
+                              <mif:position x="7.348" y="2.067"/>
+                              <mif:size width="3.393" height="0.750"/>
+                           </mif:graphElement>
+                        </mif:graphicRepresentation>
+                        <mif:attribute name="value" sortKey="1" minimumMultiplicity="1" maximumMultiplicity="1"
+                                       conformance="R"
+                                       isMandatory="true"
+                                       isStructural="false">
+                           <mif:businessName name="D:Patient Gender"/>
+                           <mif:annotations>
+                              <mif:definition>
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>Indicates the gender (sex) of the patient.</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:definition>
+                              <mif:rationale>
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>Used to confirm the identity of the patient for the query. As a result, this attribute is required.</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:rationale>
+                           </mif:annotations>
+                           <mif:derivationSupplier staticModelDerivationId="1" className="ParameterItem" attributeName="value"/>
+                           <mif:type name="CV"/>
+                           <mif:supplierDomainSpecification codingStrength="CNE" domainName="AdministrativeGender"/>
+                        </mif:attribute>
+                     </mif:class>
+                  </mif:participantClass>
+               </mif:targetConnection>
+               <mif:sourceConnection>
+                  <mif:nonTraversableConnection participantClassName="ParameterList">
+                     <mif:derivationSupplier staticModelDerivationId="1" className="Parameter"
+                                             associationEndName="parameterList"/>
+                  </mif:nonTraversableConnection>
+               </mif:sourceConnection>
+            </mif:association>
+            <mif:association sortKey="4">
+               <mif:graphicRepresentation>
+                  <mif:graphElement connectToShapeId="Sheet.1" containerDiagramName="Main" shapeId="Sheet.272">
+                     <mif:position x="4.802" y="1.977"/>
+                     <mif:graphEdge>
+                        <mif:waypoint x="4.802" y="1.820"/>
+                        <mif:waypoint x="4.802" y="0.402"/>
+                        <mif:anchor connectToShapeId="Sheet.268">
+                           <mif:position x="6.883" y="0.402"/>
+                        </mif:anchor>
+                     </mif:graphEdge>
+                  </mif:graphElement>
+               </mif:graphicRepresentation>
+               <mif:targetConnection name="patientID" minimumMultiplicity="0" maximumMultiplicity="1"
+                                     conformance="R"
+                                     isMandatory="false"
+                                     sortKey="Z ZZ">
+                  <mif:derivationSupplier staticModelDerivationId="1" className="ParameterList"
+                                          associationEndName="parameter"/>
+                  <mif:participantClass>
+                     <mif:class name="PatientID" isAbstract="false">
+                        <mif:businessName name="Patient ID"/>
+                        <mif:derivationSupplier staticModelDerivationId="1" className="ParameterItem"/>
+                        <mif:graphicRepresentation presentation="HL7">
+                           <mif:graphElement shapeId="Sheet.268" containerDiagramName="Main" shapeTemplate="OtherClass"
+                                             isWidthAutoSize="true"
+                                             isHeightAutoSize="true">
+                              <mif:position x="6.883" y="0.027"/>
+                              <mif:size width="2.659" height="0.750"/>
+                           </mif:graphElement>
+                        </mif:graphicRepresentation>
+                        <mif:attribute name="value" sortKey="1" minimumMultiplicity="1" maximumMultiplicity="5"
+                                       conformance="R"
+                                       isMandatory="true"
+                                       isStructural="false">
+                           <mif:businessName name="B:Patient Identifiers"/>
+                           <mif:annotations>
+                              <mif:definition>
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>Identifier of the patient who is the subject of the patient immunization query. Filter the result set to include only those records pertaining to the patient with this Id.</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:definition>
+                              <mif:rationale>
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>Allows filtering of result set by patient ID. This information is used to verify the record. As a result, this attribute is required.</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:rationale>
+                           </mif:annotations>
+                           <mif:derivationSupplier staticModelDerivationId="1" className="ParameterItem" attributeName="value"/>
+                           <mif:type name="SET">
+                              <supplierBindingArgumentDatatype xmlns="urn:hl7-org:v3/mif" name="II.PUBLIC"/>
+                           </mif:type>
+                        </mif:attribute>
+                     </mif:class>
+                  </mif:participantClass>
+               </mif:targetConnection>
+               <mif:sourceConnection>
+                  <mif:nonTraversableConnection participantClassName="ParameterList">
+                     <mif:derivationSupplier staticModelDerivationId="1" className="Parameter"
+                                             associationEndName="parameterList"/>
+                  </mif:nonTraversableConnection>
+               </mif:sourceConnection>
+            </mif:association>
+            <mif:association sortKey="1">
+               <mif:graphicRepresentation>
+                  <mif:graphElement connectToShapeId="Sheet.1" containerDiagramName="Main" shapeId="Sheet.36">
+                     <mif:position x="5.114" y="2.165"/>
+                     <mif:graphEdge>
+                        <mif:waypoint x="6.228" y="2.165"/>
+                        <mif:waypoint x="6.228" y="1.392"/>
+                        <mif:anchor connectToShapeId="Sheet.222">
+                           <mif:position x="7.342" y="1.392"/>
+                        </mif:anchor>
+                     </mif:graphEdge>
+                  </mif:graphElement>
+               </mif:graphicRepresentation>
+               <mif:targetConnection name="patientName" minimumMultiplicity="0" maximumMultiplicity="1"
+                                     conformance="R"
+                                     isMandatory="false"
+                                     sortKey="Z ZZ">
+                  <mif:derivationSupplier staticModelDerivationId="1" className="ParameterList"
+                                          associationEndName="parameter"/>
+                  <mif:participantClass>
+                     <mif:class name="PatientName" isAbstract="false">
+                        <mif:derivationSupplier staticModelDerivationId="1" className="ParameterItem"/>
+                        <mif:graphicRepresentation presentation="HL7">
+                           <mif:graphElement shapeId="Sheet.222" containerDiagramName="Main" shapeTemplate="OtherClass"
+                                             isWidthAutoSize="true"
+                                             isHeightAutoSize="true">
+                              <mif:position x="7.342" y="1.017"/>
+                              <mif:size width="2.158" height="0.750"/>
+                           </mif:graphElement>
+                        </mif:graphicRepresentation>
+                        <mif:attribute name="value" sortKey="1" minimumMultiplicity="1" maximumMultiplicity="1"
+                                       conformance="R"
+                                       isMandatory="true"
+                                       isStructural="false">
+                           <mif:businessName name="C:Patient Name"/>
+                           <mif:annotations>
+                              <mif:definition>
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>The name of the patient who is the subject of the patient immunization query.</mif:p>
+                                    </mif:p>
+                                    <mif:p>
+                                       <mif:p>Filter the result set to include only those records pertaining to the patient with this name.</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:definition>
+                              <mif:usageNotes>
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>Names are messaged as iterations of the PN datatype, with specific name parts identified as a type declaration in addition to the text string.</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:usageNotes>
+                              <mif:rationale>
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>Allows filtering of result set by patient name. This information is used to verify the record. As a result, this attribute is required.</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:rationale>
+                           </mif:annotations>
+                           <mif:derivationSupplier staticModelDerivationId="1" className="ParameterItem" attributeName="value"/>
+                           <mif:type name="PN.BASIC"/>
+                        </mif:attribute>
+                     </mif:class>
+                  </mif:participantClass>
+               </mif:targetConnection>
+               <mif:sourceConnection>
+                  <mif:nonTraversableConnection participantClassName="ParameterList">
+                     <mif:derivationSupplier staticModelDerivationId="1" className="Parameter"
+                                             associationEndName="parameterList"/>
+                  </mif:nonTraversableConnection>
+               </mif:sourceConnection>
+            </mif:association>
+         </mif:class>
+      </mif:specializedClass>
+   </mif:ownedEntryPoint>
+</mif:serializedStaticModel>

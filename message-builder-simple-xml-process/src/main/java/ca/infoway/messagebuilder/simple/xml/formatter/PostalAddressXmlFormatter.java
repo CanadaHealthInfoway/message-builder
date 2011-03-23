@@ -1,0 +1,115 @@
+package ca.infoway.messagebuilder.simple.xml.formatter;
+
+import java.util.LinkedHashSet;
+import java.util.Set;
+import java.util.StringTokenizer;
+
+import org.apache.commons.lang.StringUtils;
+import org.w3c.dom.Element;
+import org.w3c.dom.NodeList;
+
+import ca.infoway.messagebuilder.datatype.AD;
+import ca.infoway.messagebuilder.datatype.impl.ADImpl;
+import ca.infoway.messagebuilder.datatype.lang.PostalAddress;
+import ca.infoway.messagebuilder.datatype.lang.PostalAddressPart;
+import ca.infoway.messagebuilder.datatype.lang.PostalAddressPartType;
+import ca.infoway.messagebuilder.datatype.lang.PostalAddressUse;
+import ca.infoway.messagebuilder.resolver.CodeResolverRegistry;
+import ca.infoway.messagebuilder.simple.xml.FormatContext;
+import ca.infoway.messagebuilder.simple.xml.FormatterConfiguration;
+import ca.infoway.messagebuilder.simple.xml.FormatterException;
+
+public class PostalAddressXmlFormatter extends AbstractSimpleXmlFormatter {
+
+	protected PostalAddressXmlFormatter(FormatterConfiguration configuration) {
+		super(configuration);
+	}
+
+	public AD format(FormatContext formatContext, Element value) throws FormatterException {
+		PostalAddress postalAddress = null;
+			
+		NodeList postalAddressPartNodes = value.getElementsByTagName("addressPart");
+		if (postalAddressPartNodes.getLength() == 0) {
+			postalAddress = buildPostalAddressFromSimplifiedElements(value);
+		} else {
+			postalAddress = buildPostalAddressFromPostalAddressParts(postalAddressPartNodes, formatContext, value);
+		}
+		
+		AD result = null;
+		if (postalAddress != null) {
+			Set<PostalAddressUse> postalAddressUses = getPostalAddressUses(value.getAttribute("use"));
+			postalAddress.getUses().addAll(postalAddressUses);
+			result = new ADImpl(postalAddress);
+		}
+		
+		return result;
+	}
+
+	private PostalAddress buildPostalAddressFromPostalAddressParts(NodeList postalAddressNodes, FormatContext formatContext, Element value) throws FormatterException {
+		PostalAddress postalAddress = new PostalAddress();
+		for (int i = 0, length = postalAddressNodes.getLength(); i < length; i++) {
+			Element item = (Element) postalAddressNodes.item(i);
+			
+			String originalPartType = item.getAttribute("type");
+			String partTypeString = StringUtils.upperCase(originalPartType);
+			PostalAddressPartType partType = null;
+			if (partTypeString != null) {
+				// while part type is optional, if a part type code is given we have to be able to find it
+				partType = CodeResolverRegistry.lookup(PostalAddressPartType.class, partTypeString);
+				if (partType == null) {
+					processError(formatContext, "No address part type found for [" + originalPartType + "]", value);
+				}
+			}
+
+			// part type is optional, so null value is ok
+			String textContent = item.getTextContent();
+			postalAddress.getParts().add(new PostalAddressPart(partType, textContent));
+			
+		}
+		return postalAddress;
+	}
+
+	private PostalAddress buildPostalAddressFromSimplifiedElements(Element value) {
+		NodeList addressLineNodes = value.getElementsByTagName("addressLine");
+		NodeList cityNodes = value.getElementsByTagName("city");
+		NodeList provinceNodes = value.getElementsByTagName("province");
+		NodeList postalCodeNodes = value.getElementsByTagName("postalCode");
+		NodeList stateNodes = value.getElementsByTagName("state");
+		NodeList zipCodeNodes = value.getElementsByTagName("zipCode");
+		NodeList countryNodes = value.getElementsByTagName("country");
+		
+		PostalAddress postalAddress = new PostalAddress();
+		addPostalAddressParts(addressLineNodes, postalAddress, PostalAddressPartType.ADDRESS_LINE);
+		addPostalAddressParts(cityNodes, postalAddress, PostalAddressPartType.CITY);
+		addPostalAddressParts(provinceNodes, postalAddress, PostalAddressPartType.STATE);
+		addPostalAddressParts(postalCodeNodes, postalAddress, PostalAddressPartType.POSTAL_CODE);
+		addPostalAddressParts(stateNodes, postalAddress, PostalAddressPartType.STATE);
+		addPostalAddressParts(zipCodeNodes, postalAddress, PostalAddressPartType.POSTAL_CODE);
+		addPostalAddressParts(countryNodes, postalAddress, PostalAddressPartType.COUNTRY);
+		
+		return postalAddress;
+	}
+
+	private void addPostalAddressParts(NodeList nodeList, PostalAddress postalAddress, PostalAddressPartType partType) {
+		for (int i = 0, length = nodeList.getLength(); i < length; i++) {
+			String partValue = nodeList.item(i).getTextContent();
+			postalAddress.getParts().add(new PostalAddressPart(partType, partValue));
+		}
+	}
+
+	// taken from AdElementParser
+    private Set<PostalAddressUse> getPostalAddressUses(String postAddressUseAttribute) {
+        Set<PostalAddressUse> uses = new LinkedHashSet<PostalAddressUse>();
+        if (postAddressUseAttribute != null) {
+            StringTokenizer tokenizer = new StringTokenizer(postAddressUseAttribute);
+            while (tokenizer.hasMoreElements()) {
+                String token = tokenizer.nextToken();
+                PostalAddressUse postalAddressUse = CodeResolverRegistry.lookup(PostalAddressUse.class, token);
+                if (postalAddressUse != null) {
+                    uses.add(postalAddressUse);
+                }
+            }
+        }
+        return uses;
+    }
+}

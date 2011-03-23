@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:chi="urn:ca.infoway.messagebuilder.simplexml.v1" elementFormDefault="qualified" targetNamespace="urn:ca.infoway.messagebuilder.simplexml.v1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include schemaLocation="COCT_MT130001CA.xsd"/>
+  <xs:include schemaLocation="COCT_MT120600CA.xsd"/>
+  <xs:include schemaLocation="COCT_MT011001CA.xsd"/>
+  <xs:include schemaLocation="COCT_MT090502CA.xsd"/>
+  <xs:include schemaLocation="COCT_MT090102CA.xsd"/>
+  <xs:include schemaLocation="../../../../../../classes/simpleDataTypes.xsd"/>
+  <xs:complexType name="POLB_MT001001CA.BatteryRequest">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="batteryIdentifier" type="chi:InstanceIdentifier"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="batteryType" type="chi:CodedType"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="batteryStatus" type="chi:SimpleCodedType"/>
+      <xs:element maxOccurs="9" minOccurs="0" name="batteryRequestTimeSpecification" type="chi:BoundedPeriodicIntervalOfTime"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="batteryPriorityCode" type="chi:CodedValue"/>
+      <xs:element maxOccurs="2" minOccurs="0" name="batteryMaskingIndicator" type="chi:CodedValue"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="POLB_MT001001CA.Component2">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="sortKeyType" type="chi:CodedValue"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="sortKeyText" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="POLB_MT001001CA.Component3">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="priorTestIdentifier" type="chi:InstanceIdentifier"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="priorTestStatus" type="chi:SimpleCodedType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="POLB_MT001001CA.ObservationRequest">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="testIdentifier" type="chi:InstanceIdentifier"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="testCode" type="chi:CodedType"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="testStatus" type="chi:SimpleCodedType"/>
+      <xs:element maxOccurs="9" minOccurs="0" name="testRequestTimeSpecification" type="chi:BoundedPeriodicIntervalOfTime"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="testRequestAvailabilityTime" type="chi:PartialDateTime"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="testPriorityCode" type="chi:CodedValue"/>
+      <xs:element maxOccurs="2" minOccurs="0" name="testMaskingIndicator" type="chi:CodedValue"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="POLB_MT001001CA.PertinentInformation">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="supportingClinicalObservationCode" type="chi:CodedType"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="supportingClinicalObservationValue" type="xs:anyType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="POLB_MT001001CA.PlacerGroup">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="placerGroupIdentifier" type="chi:InstanceIdentifier"/>
+      <xs:element maxOccurs="2" minOccurs="0" name="placerGroupMaskingIndicator" type="chi:CodedValue"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="POLB_MT001001CA.RecipientChoice">
+    <xs:choice>
+      <xs:element name="healthcareWorker" type="chi:COCT_MT090102CA.AssignedEntity"/>
+      <xs:element name="healthcareOrganization" type="chi:COCT_MT090502CA.AssignedEntity"/>
+    </xs:choice>
+  </xs:group>
+  <xs:complexType name="POLB_MT001001CA.RequestChoice">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="0" name="labInitiatedOrderIndicator" type="xs:boolean"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="referralRedirectIndicator" type="chi:CodedType"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="component3" type="chi:POLB_MT001001CA.Component2"/>
+      <xs:group maxOccurs="100" minOccurs="0" ref="chi:POLB_MT001001CA.RequestChoice"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="componentOf1" type="chi:POLB_MT001001CA.Component3"/>
+      <xs:element maxOccurs="100" minOccurs="0" name="componentOf2PatientCareProvisionEvent" type="chi:COCT_MT011001CA.PatientCareProvisionEvent"/>
+      <xs:group maxOccurs="20" minOccurs="0" ref="chi:POLB_MT001001CA.RecipientChoice"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="parentTestIdentifier" type="chi:InstanceIdentifier"/>
+      <xs:element maxOccurs="100" minOccurs="0" name="pertinentInformation" type="chi:POLB_MT001001CA.PertinentInformation"/>
+      <xs:element maxOccurs="100" minOccurs="0" name="subjectOf1Annotation" type="chi:COCT_MT120600CA.Annotation"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="subjectOf2ControlActEvent" type="chi:COCT_MT130001CA.ControlActEvent"/>
+      <xs:element maxOccurs="3" minOccurs="0" name="verifierAssignedEntity" type="chi:COCT_MT090102CA.AssignedEntity"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

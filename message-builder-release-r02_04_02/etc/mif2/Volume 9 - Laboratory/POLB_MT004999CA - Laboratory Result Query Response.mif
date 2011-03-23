@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/*******************************************************************************
+ * Copyright (c) 2010 Health Level Seven, Inc.
+ * All rights reserved. This file and the model designs it contains 
+ * are made available under terms of a proprietary license implicitly 
+ * established by the terms expressed in the Bylaws of Health 
+ * Level Seven, Inc. (HL7), in combination with the agreements under 
+ * which individual and organizational memberships are established with HL7.
+ * Links to the HL7 Bylaws may be found at http://www.hl7.org 
+ *******************************************************************************/ 
+				--><mif:staticModel xmlns:mif="urn:hl7-org:v3/mif2" conformanceLevel="RealmExtension"
+                 schemaVersion="2.1.3"
+                 packageKind="realmNamespace"
+                 representationKind="flat"
+                 isAbstract="false"
+                 title="Laboratory Result Query Response"
+                 isSerializable="true"
+                 name="CA">
+   <mif:packageLocation realmNamespace="CA" artifact="MT" root="DEFN" section="HM" subSection="PO"
+                        domain="LB"
+                        id="004999"/>
+   <mif:header>
+      <mif:renderingInformation application="Visio to MIF transform"/>
+      <mif:legalese copyrightOwner="Health Level Seven" copyrightYears="2010">
+         <mif:notation>All rights reserved.</mif:notation>
+         <mif:licenseTerms>
+            <p xmlns="http://www.w3.org/1999/xhtml">This file and the model designs it contains are made available under terms of a proprietary license implicitly established by the terms expressed in the Bylaws of Health Level Seven, Inc. (HL7), in combination with the agreements under which individual and organizational memberships are established with HL7.
+					Links to the HL7 Bylaws may be found at <a href="http://www.hl7.org">http://www.hl7.org</a>
+				        </p>
+         </mif:licenseTerms>
+      </mif:legalese>
+   </mif:header>
+   <mif:graphicRepresentation presentation="HL7">
+      <mif:graphElement name="Main">
+         <mif:position x="0.0" y="0.0"/>
+         <mif:size width="6.000" height="4.000"/>
+      </mif:graphElement>
+      <mif:entryPoint semanticLinkId="2CC10BBF-54E5-561F-0A00-55D95C2CD44A">
+         <mif:graphElement shapeId="Sheet.1">
+            <mif:position x="1.693" y="0.247"/>
+            <mif:size width="2.414" height="0.453"/>
+            <mif:anchorage connectToShapeId="Sheet.1">
+               <mif:position x="2.900" y="0.700"/>
+               <mif:graphEdge>
+                  <mif:anchor connectToShapeId="Sheet.30">
+                     <mif:position x="2.900" y="1.200"/>
+                  </mif:anchor>
+               </mif:graphEdge>
+            </mif:anchorage>
+         </mif:graphElement>
+      </mif:entryPoint>
+      <mif:class semanticLinkId="1C4193E8-7FE1-6505-DD74-C64CA84C8122" presentation="HL7">
+         <mif:graphElement shapeId="Sheet.12" shapeTemplate="CMET" isWidthAutoSize="true"
+                           isHeightAutoSize="true">
+            <mif:position x="1.853" y="1.450"/>
+            <mif:size width="1.649" height="0.628"/>
+         </mif:graphElement>
+      </mif:class>
+      <mif:class semanticLinkId="9FF0F9FD-A847-C764-7AC3-E8629DF21F81" presentation="HL7">
+         <mif:graphElement shapeId="Sheet.18" shapeTemplate="CMET" isWidthAutoSize="true"
+                           isHeightAutoSize="true">
+            <mif:position x="1.853" y="2.203"/>
+            <mif:size width="1.791" height="0.628"/>
+         </mif:graphElement>
+      </mif:class>
+      <mif:class semanticLinkId="F5FCDBE7-442F-6427-0B65-730807FA6596" presentation="HL7">
+         <mif:graphElement shapeId="Sheet.24" shapeTemplate="CMET" isWidthAutoSize="true"
+                           isHeightAutoSize="true">
+            <mif:position x="1.853" y="2.956"/>
+            <mif:size width="1.463" height="0.628"/>
+         </mif:graphElement>
+      </mif:class>
+      <mif:class semanticLinkId="F5C75593-DC4E-823A-10A1-B99D06515E91" presentation="HL7">
+         <mif:graphElement shapeId="Sheet.30" shapeTemplate="Choice" isWidthAutoSize="true"
+                           isHeightAutoSize="true"
+                           nodeOrientation="Portrait">
+            <mif:position x="1.728" y="1.200"/>
+            <mif:size width="2.345" height="2.508"/>
+         </mif:graphElement>
+      </mif:class>
+   </mif:graphicRepresentation>
+   <mif:derivedFrom staticModelDerivationId="1">
+      <mif:targetStaticModel artifact="RIM" root="DEFN" version="0226"/>
+   </mif:derivedFrom>
+   <mif:importedDatatypeModelPackage realmNamespace="CA" artifact="DT" root="DEFN" version="R02.04.xx"/>
+   <mif:importedVocabularyModelPackage realmNamespace="CA" artifact="VO" root="DEFN" version="R02.04.xx"/>
+   <mif:importedCommonModelElementPackage realmNamespace="CA" artifact="IFC" root="DEFN" version="R02.04.xx"/>
+   <mif:entryPoint graphicLinkId="2CC10BBF-54E5-561F-0A00-55D95C2CD44A" id="POLB_MT004999CA"
+                   name="Laboratory Result Query Response"
+                   className="ResultInstancePayloadChoice">
+      <mif:annotations>
+         <mif:documentation>
+            <mif:description>
+               <mif:text>
+                  <html:p xmlns:html="http://www.w3.org/1999/xhtml">Entry point into Lab Result patterns.</html:p>
+               </mif:text>
+            </mif:description>
+         </mif:documentation>
+      </mif:annotations>
+   </mif:entryPoint>
+   <mif:containedClass>
+      <mif:commonModelElementRef graphicLinkId="1C4193E8-7FE1-6505-DD74-C64CA84C8122"
+                                 name="A_LaboratoryResultGenericUniversal"
+                                 cmetName="A_LaboratoryResultGenericUniversal">
+         <mif:derivedFrom staticModelDerivationId="1" className="Act"/>
+         <mif:definingVocabulary>
+            <mif:conceptDomain name="ActClass"/>
+         </mif:definingVocabulary>
+      </mif:commonModelElementRef>
+   </mif:containedClass>
+   <mif:containedClass>
+      <mif:commonModelElementRef graphicLinkId="9FF0F9FD-A847-C764-7AC3-E8629DF21F81"
+                                 name="A_LaboratoryResultSensitivityUniversal"
+                                 cmetName="A_LaboratoryResultSensitivityUniversal">
+         <mif:derivedFrom staticModelDerivationId="1" className="Act"/>
+         <mif:definingVocabulary>
+            <mif:conceptDomain name="ActClass"/>
+         </mif:definingVocabulary>
+      </mif:commonModelElementRef>
+   </mif:containedClass>
+   <mif:containedClass>
+      <mif:commonModelElementRef graphicLinkId="F5FCDBE7-442F-6427-0B65-730807FA6596"
+                                 name="A_LaboratoryResultTextUniversal"
+                                 cmetName="A_LaboratoryResultTextUniversal">
+         <mif:derivedFrom staticModelDerivationId="1" className="Act"/>
+         <mif:definingVocabulary>
+            <mif:conceptDomain name="ActClass"/>
+         </mif:definingVocabulary>
+      </mif:commonModelElementRef>
+   </mif:containedClass>
+   <mif:containedClass>
+      <mif:class graphicLinkId="F5C75593-DC4E-823A-10A1-B99D06515E91"
+                 name="ResultInstancePayloadChoice"
+                 isAbstract="true">
+         <mif:derivedFrom staticModelDerivationId="1" className="Act"/>
+         <mif:childClass graphicLinkId="BD54F56A-995F-8258-13E7-032F8D09EAFA" sortKey="001"
+                         name="A_LaboratoryResultGenericUniversal"/>
+         <mif:childClass graphicLinkId="6B76B207-8238-5D74-D76F-2D8AC9C2A750" sortKey="002"
+                         name="A_LaboratoryResultSensitivityUniversal"/>
+         <mif:childClass graphicLinkId="D1D3B1F1-3FFB-F637-930A-61295EC407D6" sortKey="003"
+                         name="A_LaboratoryResultTextUniversal"/>
+      </mif:class>
+   </mif:containedClass>
+</mif:staticModel>

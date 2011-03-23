@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PRLO_IN202010CA xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:hl7-org:v3" ITSVersion="XML_1.0">
+  <id root="1ee83ff1-08ab-4fe7-b573-ea777e9bad51"/>
+  <creationTime value="20080625141610-0400"/>
+  <responseModeCode code="I"/>
+  <versionCode code="V3-2007-05"/>
+  <interactionId extension="PRLO_IN202010CA" root="2.16.840.1.113883.1.6"/>
+  <processingCode code="P"/>
+  <processingModeCode code="T"/>
+  <acceptAckCode code="AL"/>
+  <receiver typeCode="RCV">
+    <telecom value="http://123.255.255.10"/>
+    <device classCode="DEV" determinerCode="INSTANCE">
+	  <id extension="123" root="2.16.840.1.113883.4.262.12" />
+    </device>
+  </receiver>
+  <sender typeCode="SND">
+    <telecom value="http://987.654.321.0"/>
+    <device classCode="DEV" determinerCode="INSTANCE">
+	  <id extension="123" root="2.16.840.1.113883.4.262.12" />
+      <manufacturerModelName>1.0</manufacturerModelName>
+      <softwareName>Panacea Pharmacy</softwareName>
+    </device>
+  </sender>
+  <controlActEvent classCode="CACT" moodCode="EVN">
+  	<id root="1ee83ff1-08ab-4fe7-b573-ea777e9bad21" />
+	<code code="PRLO_TE202010CA" codeSystem="2.16.840.1.113883.5.4" />
+	<statusCode code="completed" />
+	<location typeCode="LOC" contextControlCode="AP">
+      <serviceDeliveryLocation classCode="SDLOC">
+        <id extension="1" root="2.16.124.113620.1.1.11111"/>
+        <location classCode="PLC" determinerCode="INSTANCE">
+          <name>Intelliware&apos;s Pharmacy</name>
+        </location>
+      </serviceDeliveryLocation>
+    </location>	
+	<queryByParameter>
+    	<queryId root="1ee83ff1-08ab-4fe7-b573-ea777e9bad31" />
+    	<parameterList>
+   			<nameContains>
+   				<value>Greg Betty Memorial</value>
+   			</nameContains>
+		</parameterList>		
+	</queryByParameter>
+  </controlActEvent>
+</PRLO_IN202010CA>

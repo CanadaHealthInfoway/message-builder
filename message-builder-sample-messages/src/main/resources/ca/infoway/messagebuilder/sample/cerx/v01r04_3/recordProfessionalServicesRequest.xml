@@ -1,0 +1,106 @@
+<REPC_IN000044CA xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:hl7-org:v3" ITSVersion="XML_1.0">
+    <id root="1ee83ff1-08ab-4fe7-b573-ea777e9bad51"/>
+    <creationTime value="20080625141610-0400"/>
+    <versionCode code="V3-2007-05"/>
+    <interactionId extension="REPC_IN000044CA" root="2.16.840.1.113883.1.6"/>
+    <processingCode code="P"/>
+    <processingModeCode code="T"/>
+    <acceptAckCode code="AL"/>
+    <receiver typeCode="RCV">
+      <telecom value="http://123.255.255.10"/>
+      <device classCode="DEV" determinerCode="INSTANCE">
+        <id extension="222" root="2.16.124.113620.1.2.100"/>
+      </device>
+    </receiver>
+    <sender typeCode="SND">
+      <telecom value="http://987.654.321.0"/>
+      <device classCode="DEV" determinerCode="INSTANCE">
+        <id extension="111" root="2.16.124.113620.1.2.100"/>
+        <manufacturerModelName>1.0</manufacturerModelName>
+        <softwareName>Panacea Pharmacy</softwareName>
+      </device>
+    </sender>
+    <controlActEvent classCode="CACT" moodCode="EVN">
+      <id extension="8141234" root="2.16.840.1.113883.1.6"/>
+      <code code="REPC_TE000043UV" codeSystem="2.16.840.1.113883.5.4"/>
+      <statusCode code="completed"/>
+      <effectiveTime>
+        <low value="20080918"/>
+      </effectiveTime>
+      <author typeCode="AUT" contextControlCode="AP">
+        <time value="20080918181800-0400"/>
+        <assignedPerson classCode="ASSIGNED">
+          <id extension="EHR ID EXT" root="2.16.840.1.113883.4.267"/>
+          <representedPerson classCode="PSN" determinerCode="INSTANCE">
+            <name use="L"><given>Jane</given><family>Doe</family></name>
+            <asLicensedEntity classCode="LIC">
+              <id extension="55555" root="2.16.840.1.113883.4.268"/>
+            </asLicensedEntity>
+          </representedPerson>
+        </assignedPerson>
+      </author>
+      <location typeCode="LOC" contextControlCode="AP">
+        <serviceDeliveryLocation classCode="SDLOC">
+          <id extension="1" root="2.16.124.113620.1.1.11111"/>
+          <addr nullFlavor="NI"/>
+          <telecom nullFlavor="NI"/>
+          <location classCode="PLC" determinerCode="INSTANCE">
+            <name>Intelliware&apos;s Pharmacy</name>
+          </location>
+        </serviceDeliveryLocation>
+      </location>
+      <subject typeCode="SUBJ" contextControlCode="ON" contextConductionInd="false">
+        <procedureEvent classCode="PROC" moodCode="EVN">
+          <code code="SMC" codeSystem="2.16.840.1.113883.6.95"/>
+          <statusCode code="completed"/>
+          <effectiveTime value="20090101000000-0500"/>
+          <subject typeCode="SBJ" contextControlCode="OP">
+            <patient classCode="PAT">
+              <id extension="9283488" root="2.16.840.1.113883.4.260"/>
+              <addr use="H">Bloor</addr>
+              <telecom value="http://123.456.789.10"/>
+              <patientPerson classCode="PSN" determinerCode="INSTANCE">
+                <name><given>Mabel</given><family>Hauptman</family></name>
+                <administrativeGenderCode code="F" codeSystem="2.16.840.1.113883.5.1"/>
+                <birthTime value="19321228"/>
+              </patientPerson>
+            </patient>
+          </subject>
+		<inFulfillmentOf typeCode="FLFS" contextControlCode="ON" contextConductionInd="true">
+            <actRequest classCode="ACT" moodCode="RQO">
+              <author typeCode="AUT" contextControlCode="ON">
+                <assignedPerson classCode="ASSIGNED">
+                  <id extension="1" root="1.1.1"/>
+                  <representedPerson classCode="PSN" determinerCode="INSTANCE">
+                    <name><given>John</given><family>Doe</family></name>
+                    <asLicensedEntity classCode="LIC">
+                      <id extension="1" root="2.2.2"/>
+                    </asLicensedEntity>
+                  </representedPerson>
+                </assignedPerson>
+              </author>
+            </actRequest>
+          </inFulfillmentOf>
+          <subjectOf typeCode="SUBJ" contextControlCode="AN" contextConductionInd="false">
+            <annotation classCode="ACT" moodCode="EVN">
+              <text>note text</text>
+              <statusCode code="completed"/>
+              <languageCode code="en" codeSystem="2.16.840.1.113883.6.84"/>
+              <author typeCode="AUT">
+                <time value="19691231190000-0500"/>
+                <assignedPerson classCode="ASSIGNED">
+                  <id extension="1" root="1.1.1"/>
+                  <representedPerson classCode="PSN" determinerCode="INSTANCE">
+                    <name><given>John</given><family>Doe</family></name>
+                    <asLicensedEntity classCode="LIC">
+                      <id extension="1" root="2.2.2"/>
+                    </asLicensedEntity>
+                  </representedPerson>
+                </assignedPerson>
+              </author>
+            </annotation>
+          </subjectOf>
+        </procedureEvent>
+      </subject>
+    </controlActEvent>
+</REPC_IN000044CA>

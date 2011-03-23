@@ -1,0 +1,1526 @@
+<!--
+/*******************************************************************************
+ * Copyright (c) 2010 Health Level Seven, Inc.
+ * All rights reserved. This file and the model designs it contains 
+ * are made available under terms of a proprietary license implicitly 
+ * established by the terms expressed in the Bylaws of Health 
+ * Level Seven, Inc. (HL7), in combination with the agreements under 
+ * which individual and organizational memberships are established with HL7.
+ * Links to the HL7 Bylaws may be found at http://www.hl7.org 
+ *******************************************************************************/ 
+				--><mif:serializedStaticModel xmlns:mif="urn:hl7-org:v3/mif" packageKind="realm"
+                           representationKind="serialized"
+                           isAbstract="false"
+                           title="Adverse Reaction Update"
+                           isSerializable="true"
+                           name="CA">
+   <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="MT-deprecated"
+                        realm="CA"
+                        id="000012"/>
+   <mif:header>
+      <mif:renderingInformation schemaVersion="1" application="Visio to MIF transform"/>
+      <mif:legalese copyrightOwner="Health Level Seven" copyrightYears="2010">
+         <mif:notation>All rights reserved.</mif:notation>
+      </mif:legalese>
+   </mif:header>
+   <mif:graphicRepresentation presentation="HL7">
+      <mif:graphElement name="Main">
+         <mif:position x="0.0" y="0.0"/>
+         <mif:size width="14.123" height="6.591"/>
+      </mif:graphElement>
+   </mif:graphicRepresentation>
+   <mif:derivationSupplier staticModelDerivationId="1">
+      <mif:targetStaticModel root="DEFN" artifact="RIM" version="0226"/>
+   </mif:derivationSupplier>
+   <mif:importedDatatypeModelPackage root="DEFN" artifact="DT" realm="CA" version="R02.04.xx"/>
+   <mif:importedVocabularyModelPackage root="DEFN" artifact="VO" realm="CA" version="R02.04.xx"/>
+   <mif:importedCommonModelElementPackage root="DEFN" artifact="CMET" realm="CA" version="R02.04.xx"/>
+   <mif:ownedEntryPoint id="REPC_MT000012CA" name="Adverse Reaction Update" isAbstract="false">
+      <mif:graphicRepresentation>
+         <mif:graphElement shapeId="Sheet.87" containerDiagramName="Main">
+            <mif:position x="5.838" y="0.028"/>
+            <mif:size width="1.766" height="0.453"/>
+            <mif:anchorage connectToShapeId="Sheet.87">
+               <mif:position x="6.710" y="0.481"/>
+               <mif:graphEdge>
+                  <mif:anchor connectToShapeId="Sheet.41">
+                     <mif:position x="6.731" y="1.481"/>
+                  </mif:anchor>
+               </mif:graphEdge>
+            </mif:anchorage>
+         </mif:graphElement>
+      </mif:graphicRepresentation>
+      <mif:specializedClass>
+         <mif:class name="ReactionObservationEvent" isAbstract="false">
+            <mif:businessName name="Reported Reaction"/>
+            <mif:derivationSupplier staticModelDerivationId="1" className="Observation"/>
+            <mif:graphicRepresentation presentation="HL7">
+               <mif:graphElement shapeId="Sheet.41" containerDiagramName="Main" shapeTemplate="Act"
+                                 isWidthAutoSize="true"
+                                 isHeightAutoSize="false">
+                  <mif:position x="5.025" y="1.481"/>
+                  <mif:size width="3.412" height="3.210"/>
+               </mif:graphElement>
+            </mif:graphicRepresentation>
+            <mif:annotations>
+               <mif:definition>
+                  <mif:text>
+                     <mif:p>
+                        <mif:p>This is a record of an adverse reaction considered relevant to the patient's clinical record.</mif:p>
+                     </mif:p>
+                  </mif:text>
+               </mif:definition>
+               <mif:rationale>
+                  <mif:text>
+                     <mif:p>
+                        <mif:p>Useful in tracking reactions when it is not known precisely what product they are associated with and whether the reaction is due to an allergy or intolerance, a drug interaction or some other cause. Effectively gives a 'heads up' to clinicians using the drug or combination of drugs.</mif:p>
+                     </mif:p>
+                  </mif:text>
+               </mif:rationale>
+            </mif:annotations>
+            <mif:attribute name="classCode" sortKey="1" minimumMultiplicity="1" maximumMultiplicity="1"
+                           conformance="R"
+                           isMandatory="true"
+                           fixedValue="OBS"
+                           isStructural="true">
+               <mif:derivationSupplier staticModelDerivationId="1" className="Observation" attributeName="classCode"/>
+               <mif:type name="CS"/>
+               <mif:supplierDomainSpecification codingStrength="CNE" codeSystemName="ActClass" mnemonic="OBS"/>
+            </mif:attribute>
+            <mif:attribute name="moodCode" sortKey="2" minimumMultiplicity="1" maximumMultiplicity="1"
+                           conformance="R"
+                           isMandatory="true"
+                           fixedValue="EVN"
+                           isStructural="true">
+               <mif:derivationSupplier staticModelDerivationId="1" className="Observation" attributeName="moodCode"/>
+               <mif:type name="CS"/>
+               <mif:supplierDomainSpecification codingStrength="CNE" codeSystemName="ActMood" mnemonic="EVN"/>
+            </mif:attribute>
+            <mif:attribute name="id" sortKey="3" minimumMultiplicity="1" maximumMultiplicity="1"
+                           conformance="R"
+                           isMandatory="true"
+                           isStructural="false">
+               <mif:businessName name="C:Reaction Record Id"/>
+               <mif:annotations>
+                  <mif:definition>
+                     <mif:text>
+                        <mif:p>
+                           <mif:p>An identifier assigned to the record of the adverse reaction.</mif:p>
+                        </mif:p>
+                     </mif:text>
+                  </mif:definition>
+                  <mif:rationale>
+                     <mif:text>
+                        <mif:p>
+                           <mif:p>Uniquely identifies the specific reaction record and is therefore mandatory.</mif:p>
+                        </mif:p>
+                     </mif:text>
+                  </mif:rationale>
+               </mif:annotations>
+               <mif:derivationSupplier staticModelDerivationId="1" className="Observation" attributeName="id"/>
+               <mif:type name="II.BUS_AND_VER"/>
+            </mif:attribute>
+            <mif:attribute name="code" sortKey="4" minimumMultiplicity="1" maximumMultiplicity="1"
+                           conformance="R"
+                           isMandatory="true"
+                           isStructural="false">
+               <mif:businessName name="Diagnosis Type"/>
+               <mif:annotations>
+                  <mif:definition>
+                     <mif:text>
+                        <mif:p>
+                           <mif:p>Indicates the type of diagnosis being captured.</mif:p>
+                        </mif:p>
+                     </mif:text>
+                  </mif:definition>
+                  <mif:usageNotes>
+                     <mif:text>
+                        <mif:p>
+                           <mif:p>If using SNOMED, this will contain the diagnosis. Otherwise it will be a fixed value of 'DX'.</mif:p>
+                        </mif:p>
+                     </mif:text>
+                  </mif:usageNotes>
+                  <mif:rationale>
+                     <mif:text>
+                        <mif:p>
+                           <mif:p>Indicates that the observation is actually a diagnosis and is therefore mandatory. The datatype is CD to support SNOMED post-coordination.</mif:p>
+                        </mif:p>
+                     </mif:text>
+                  </mif:rationale>
+                  <mif:constraint>
+                     <mif:text>
+                        <mif:p>
+                           <mif:p>Code must be fixed to DX if not using SNOMED</mif:p>
+                        </mif:p>
+                     </mif:text>
+                     <mif:graphicRepresentation>
+                        <mif:graphElement shapeId="Sheet.243" containerDiagramName="Main" isWidthAutoSize="true"
+                                          isHeightAutoSize="true">
+                           <mif:position x="3.010" y="1.636"/>
+                           <mif:size width="1.456" height="0.444"/>
+                           <mif:anchorage connectToShapeId="Sheet.243">
+                              <mif:position x="3.738" y="1.858"/>
+                              <mif:graphEdge>
+                                 <mif:anchor connectToShapeId="Sheet.41">
+                                    <mif:position x="5.025" y="1.802"/>
+                                 </mif:anchor>
+                              </mif:graphEdge>
+                           </mif:anchorage>
+                        </mif:graphElement>
+                     </mif:graphicRepresentation>
+                  </mif:constraint>
+               </mif:annotations>
+               <mif:derivationSupplier staticModelDerivationId="1" className="Observation" attributeName="code"/>
+               <mif:type name="CD"/>
+               <mif:supplierDomainSpecification codingStrength="CNE" domainName="ActDiagnosisCode"/>
+            </mif:attribute>
+            <mif:attribute name="text" sortKey="5" minimumMultiplicity="0" maximumMultiplicity="1"
+                           conformance="R"
+                           isMandatory="false"
+                           maximumLength="2000"
+                           isStructural="false">
+               <mif:businessName name="G:Description"/>
+               <mif:annotations>
+                  <mif:definition>
+                     <mif:text>
+                        <mif:p>
+                           <mif:p>A free form description of the reaction.</mif:p>
+                        </mif:p>
+                     </mif:text>
+                  </mif:definition>
+                  <mif:rationale>
+                     <mif:text>
+                        <mif:p>
+                           <mif:p>Allows for flexibility in the recording and reporting of the reaction.</mif:p>
+                        </mif:p>
+                     </mif:text>
+                  </mif:rationale>
+               </mif:annotations>
+               <mif:derivationSupplier staticModelDerivationId="1" className="Observation" attributeName="text"/>
+               <mif:type name="ST"/>
+            </mif:attribute>
+            <mif:attribute name="statusCode" sortKey="6" minimumMultiplicity="1" maximumMultiplicity="1"
+                           conformance="R"
+                           isMandatory="true"
+                           fixedValue="completed"
+                           isStructural="false">
+               <mif:derivationSupplier staticModelDerivationId="1" className="Observation" attributeName="statusCode"/>
+               <mif:type name="CS"/>
+               <mif:supplierDomainSpecification codingStrength="CNE" codeSystemName="ActStatus" mnemonic="completed"/>
+            </mif:attribute>
+            <mif:attribute name="effectiveTime" sortKey="7" minimumMultiplicity="0"
+                           maximumMultiplicity="1"
+                           conformance="R"
+                           isMandatory="false"
+                           isStructural="false">
+               <mif:businessName name="F:Reaction Onset Date"/>
+               <mif:annotations>
+                  <mif:definition>
+                     <mif:text>
+                        <mif:p>
+                           <mif:p>The date on which the reaction occurrence began.</mif:p>
+                        </mif:p>
+                     </mif:text>
+                  </mif:definition>
+                  <mif:rationale>
+                     <mif:text>
+                        <mif:p>
+                           <mif:p>Indicates when evidence of the condition first appeared. May also provide information on the duration of the reaction.</mif:p>
+                        </mif:p>
+                     </mif:text>
+                  </mif:rationale>
+               </mif:annotations>
+               <mif:derivationSupplier staticModelDerivationId="1" className="Observation"
+                                       attributeName="effectiveTime"/>
+               <mif:type name="IVL.LOW">
+                  <supplierBindingArgumentDatatype xmlns="urn:hl7-org:v3/mif" name="TS.DATE"/>
+               </mif:type>
+            </mif:attribute>
+            <mif:attribute name="confidentialityCode" sortKey="8" minimumMultiplicity="0"
+                           maximumMultiplicity="2"
+                           conformance="R"
+                           isMandatory="false"
+                           isStructural="false">
+               <mif:businessName name="G:Adverse Reaction Masking Indicators"/>
+               <mif:annotations>
+                  <mif:definition>
+                     <mif:text>
+                        <mif:p>
+                           <mif:p>Communicates the desire of the patient to restrict access to this Health Condition record. Provides support for additional confidentiality constraint, giving patients a level of control over their information. Methods for accessing masked event records will be governed by each jurisdiction (e.g. court orders, shared secret/consent, etc.). Can also be used to communicate that the information is deemed to be sensitive and should not be communicated or exposed to the patient (at least without the guidance of the authoring or other responsible healthcare provider). Valid values are: 'normal' (denotes 'Not Masked'); 'restricted' (denotes 'Masked'); ‘very restricted’ (denotes ‘Masked by Regulation’); and 'taboo' (denotes 'patient restricted'). The default is 'normal' signifying 'Not Masked'. Either or both of the other codes can be asserted to indicate masking by the patient from providers or masking by a provider from the patient, respectively. 'normal' should never be asserted with one of the other codes.</mif:p>
+                        </mif:p>
+                     </mif:text>
+                  </mif:definition>
+                  <mif:rationale>
+                     <mif:text>
+                        <mif:p>
+                           <mif:p>Allows the patient to have discrete control over access to their adverse reaction data.</mif:p>
+                        </mif:p>
+                        <mif:p>
+                           <mif:p>Taboo allows the provider to request restricted access to patient or their care giver.</mif:p>
+                        </mif:p>
+                        <mif:p>
+                           <mif:p>Constraint: Can’t have both normal and one of the other codes simultaneously.</mif:p>
+                        </mif:p>
+                        <mif:p>
+                           <mif:p>The attribute is optional because not all systems will support masking.</mif:p>
+                        </mif:p>
+                     </mif:text>
+                  </mif:rationale>
+               </mif:annotations>
+               <mif:derivationSupplier staticModelDerivationId="1" className="Observation"
+                                       attributeName="confidentialityCode"/>
+               <mif:type name="SET">
+                  <supplierBindingArgumentDatatype xmlns="urn:hl7-org:v3/mif" name="CV"/>
+               </mif:type>
+               <mif:supplierDomainSpecification codingStrength="CNE" valueSetName="x_BasicConfidentialityKind"/>
+            </mif:attribute>
+            <mif:attribute name="value" sortKey="9" minimumMultiplicity="0" maximumMultiplicity="1"
+                           isMandatory="false"
+                           isStructural="false">
+               <mif:businessName name="B:Reaction"/>
+               <mif:annotations>
+                  <mif:definition>
+                     <mif:text>
+                        <mif:p>
+                           <mif:p>Specifies the kind of reaction, as experienced by the patient.</mif:p>
+                        </mif:p>
+                     </mif:text>
+                  </mif:definition>
+                  <mif:rationale>
+                     <mif:text>
+                        <mif:p>
+                           <mif:p>Ensures consistency in tracking and categorizing the reaction type. Helps ensure that only proper allergies are categorized as allergy. The attribute is optional because it will not be used for SNOMED. The attribute is CWE because not all possible types of reactions are expressible by coded values.</mif:p>
+                        </mif:p>
+                     </mif:text>
+                  </mif:rationale>
+                  <mif:constraint>
+                     <mif:text>
+                        <mif:p>
+                           <mif:p>Value must be mandatory if not using SNOMED</mif:p>
+                        </mif:p>
+                     </mif:text>
+                     <mif:graphicRepresentation>
+                        <mif:graphElement shapeId="Sheet.247" containerDiagramName="Main" isWidthAutoSize="true"
+                                          isHeightAutoSize="true">
+                           <mif:position x="3.013" y="2.381"/>
+                           <mif:size width="1.397" height="0.444"/>
+                           <mif:anchorage connectToShapeId="Sheet.247">
+                              <mif:position x="3.711" y="2.603"/>
+                              <mif:graphEdge>
+                                 <mif:anchor connectToShapeId="Sheet.41">
+                                    <mif:position x="5.025" y="2.123"/>
+                                 </mif:anchor>
+                              </mif:graphEdge>
+                           </mif:anchorage>
+                        </mif:graphElement>
+                     </mif:graphicRepresentation>
+                  </mif:constraint>
+               </mif:annotations>
+               <mif:derivationSupplier staticModelDerivationId="1" className="Observation" attributeName="value"/>
+               <mif:type name="CV"/>
+               <mif:supplierDomainSpecification codingStrength="CWE" domainName="SubjectReaction"/>
+            </mif:attribute>
+            <mif:association sortKey="1">
+               <mif:graphicRepresentation>
+                  <mif:graphElement connectToShapeId="Sheet.41" containerDiagramName="Main">
+                     <mif:position x="8.437" y="2.444"/>
+                     <mif:graphEdge>
+                        <mif:anchor connectToShapeId="Sheet.265">
+                           <mif:position x="8.437" y="2.444"/>
+                        </mif:anchor>
+                     </mif:graphEdge>
+                  </mif:graphElement>
+               </mif:graphicRepresentation>
+               <mif:targetConnection name="informant" minimumMultiplicity="0" maximumMultiplicity="1"
+                                     conformance="R"
+                                     isMandatory="false"
+                                     sortKey="AEC_______">
+                  <mif:derivationSupplier staticModelDerivationId="1" className="Act" associationEndName="participation"/>
+                  <mif:participantClass>
+                     <mif:class name="Informant" isAbstract="false">
+                        <mif:businessName name="d:reported by"/>
+                        <mif:derivationSupplier staticModelDerivationId="1" className="Participation"/>
+                        <mif:graphicRepresentation presentation="HL7">
+                           <mif:graphElement shapeId="Sheet.265" containerDiagramName="Main" shapeTemplate="Participation"
+                                             textWrappingWidth="66.0"
+                                             nodeOrientation="Right">
+                              <mif:position x="8.437" y="2.132"/>
+                              <mif:size width="3.277" height="0.569"/>
+                           </mif:graphElement>
+                        </mif:graphicRepresentation>
+                        <mif:annotations>
+                           <mif:definition>
+                              <mif:text>
+                                 <mif:p>
+                                    <mif:p>Indicates where the information that led to the recording of this information came from. The possible 3 sources of the information are: the patient, the patient's representative or a health-care provider.</mif:p>
+                                 </mif:p>
+                              </mif:text>
+                           </mif:definition>
+                           <mif:rationale>
+                              <mif:text>
+                                 <mif:p>
+                                    <mif:p>The original source of the information can be important in evaluating its accuracy and importance.</mif:p>
+                                 </mif:p>
+                              </mif:text>
+                           </mif:rationale>
+                        </mif:annotations>
+                        <mif:attribute name="typeCode" sortKey="1" minimumMultiplicity="1" maximumMultiplicity="1"
+                                       conformance="R"
+                                       isMandatory="true"
+                                       fixedValue="INF"
+                                       isStructural="true">
+                           <mif:derivationSupplier staticModelDerivationId="1" className="Participation" attributeName="typeCode"/>
+                           <mif:type name="CS"/>
+                           <mif:supplierDomainSpecification codingStrength="CNE" codeSystemName="ParticipationType" mnemonic="INF"/>
+                        </mif:attribute>
+                        <mif:attribute name="contextControlCode" sortKey="2" minimumMultiplicity="1"
+                                       maximumMultiplicity="1"
+                                       conformance="R"
+                                       isMandatory="true"
+                                       fixedValue="AP"
+                                       isStructural="true">
+                           <mif:derivationSupplier staticModelDerivationId="1" className="Participation"
+                                                   attributeName="contextControlCode"/>
+                           <mif:type name="CS"/>
+                           <mif:supplierDomainSpecification codingStrength="CNE" codeSystemName="ContextControl" mnemonic="AP"/>
+                        </mif:attribute>
+                        <mif:attribute name="time" sortKey="3" minimumMultiplicity="1" maximumMultiplicity="1"
+                                       conformance="R"
+                                       isMandatory="true"
+                                       isStructural="false">
+                           <mif:businessName name="Reported date"/>
+                           <mif:annotations>
+                              <mif:definition>
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>The date on which the adverse reaction was reported.</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:definition>
+                              <mif:rationale>
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>Allows for establishment of timelines between reaction onset date, reported date and recorded date, and is therefore mandatory.</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:rationale>
+                           </mif:annotations>
+                           <mif:derivationSupplier staticModelDerivationId="1" className="Participation" attributeName="time"/>
+                           <mif:type name="TS.FULLDATE"/>
+                        </mif:attribute>
+                        <mif:association sortKey="7">
+                           <mif:graphicRepresentation>
+                              <mif:graphElement connectToShapeId="Sheet.265" containerDiagramName="Main">
+                                 <mif:position x="11.713" y="2.391"/>
+                                 <mif:graphEdge>
+                                    <mif:anchor connectToShapeId="Sheet.263">
+                                       <mif:position x="11.713" y="2.391"/>
+                                    </mif:anchor>
+                                 </mif:graphEdge>
+                              </mif:graphElement>
+                           </mif:graphicRepresentation>
+                           <mif:targetConnection name="choice" minimumMultiplicity="1" maximumMultiplicity="1" conformance="R"
+                                                 isMandatory="false"
+                                                 sortKey="BZ">
+                              <mif:derivationSupplier staticModelDerivationId="1" className="Participation" associationEndName="role"/>
+                              <participantClassSpecialization xmlns="urn:hl7-org:v3/mif" className="R_PatientPersonIdentified-confirmable"
+                                                              traversalName="patient"/>
+                              <participantClassSpecialization xmlns="urn:hl7-org:v3/mif" className="R_RelatedPersonInformational"
+                                                              traversalName="personalRelationship"/>
+                              <participantClassSpecialization xmlns="urn:hl7-org:v3/mif" className="R_AssignedPersonIdentified-informational"
+                                                              traversalName="assignedEntity"/>
+                              <mif:participantClass>
+                                 <mif:class name="Choice" isAbstract="true">
+                                    <mif:derivationSupplier staticModelDerivationId="1" className="Role"/>
+                                    <mif:graphicRepresentation presentation="HL7">
+                                       <mif:graphElement shapeId="Sheet.263" containerDiagramName="Main" shapeTemplate="Choice"
+                                                         isWidthAutoSize="true"
+                                                         isHeightAutoSize="true"
+                                                         nodeOrientation="Portrait">
+                                          <mif:position x="11.713" y="1.136"/>
+                                          <mif:size width="1.670" height="2.508"/>
+                                       </mif:graphElement>
+                                    </mif:graphicRepresentation>
+                                    <mif:specializationChild>
+                                       <mif:graphicRepresentation>
+                                          <mif:graphElement shapeId="Sheet.29" containerDiagramName="Main" shapeTemplate="CMET"
+                                                            isWidthAutoSize="true"
+                                                            isHeightAutoSize="true">
+                                             <mif:position x="11.838" y="1.386"/>
+                                             <mif:size width="1.346" height="0.628"/>
+                                          </mif:graphElement>
+                                       </mif:graphicRepresentation>
+                                       <mif:specializedClass>
+                                          <mif:commonModelElementRef name="R_PatientPersonIdentified-confirmable">
+                                             <mif:derivationSupplier staticModelDerivationId="1" className="Patient"/>
+                                             <mif:supplierStructuralDomain domainName="RoleClass" mnemonic="PAT"/>
+                                             <mif:graphicRepresentation presentation="HL7">
+                                                <mif:graphElement shapeId="Sheet.29" containerDiagramName="Main" shapeTemplate="CMET"
+                                                                  isWidthAutoSize="true"
+                                                                  isHeightAutoSize="true">
+                                                   <mif:position x="11.838" y="1.386"/>
+                                                   <mif:size width="1.346" height="0.628"/>
+                                                </mif:graphElement>
+                                             </mif:graphicRepresentation>
+                                             <mif:generalizationParent name="COCT_MT050202CA"/>
+                                          </mif:commonModelElementRef>
+                                       </mif:specializedClass>
+                                    </mif:specializationChild>
+                                    <mif:specializationChild>
+                                       <mif:graphicRepresentation>
+                                          <mif:graphElement shapeId="Sheet.251" containerDiagramName="Main" shapeTemplate="CMET"
+                                                            isWidthAutoSize="true"
+                                                            isHeightAutoSize="true">
+                                             <mif:position x="11.838" y="2.139"/>
+                                             <mif:size width="1.103" height="0.628"/>
+                                          </mif:graphElement>
+                                       </mif:graphicRepresentation>
+                                       <mif:specializedClass>
+                                          <mif:commonModelElementRef name="R_RelatedPersonInformational">
+                                             <mif:derivationSupplier staticModelDerivationId="1" className="Role"/>
+                                             <mif:supplierStructuralDomain domainName="RoleClass" mnemonic="REL"/>
+                                             <mif:graphicRepresentation presentation="HL7">
+                                                <mif:graphElement shapeId="Sheet.251" containerDiagramName="Main" shapeTemplate="CMET"
+                                                                  isWidthAutoSize="true"
+                                                                  isHeightAutoSize="true">
+                                                   <mif:position x="11.838" y="2.139"/>
+                                                   <mif:size width="1.103" height="0.628"/>
+                                                </mif:graphElement>
+                                             </mif:graphicRepresentation>
+                                             <mif:generalizationParent name="COCT_MT910107CA"/>
+                                          </mif:commonModelElementRef>
+                                       </mif:specializedClass>
+                                    </mif:specializationChild>
+                                    <mif:specializationChild>
+                                       <mif:graphicRepresentation>
+                                          <mif:graphElement shapeId="Sheet.257" containerDiagramName="Main" shapeTemplate="CMET"
+                                                            isWidthAutoSize="true"
+                                                            isHeightAutoSize="true">
+                                             <mif:position x="11.838" y="2.892"/>
+                                             <mif:size width="1.420" height="0.628"/>
+                                          </mif:graphElement>
+                                       </mif:graphicRepresentation>
+                                       <mif:specializedClass>
+                                          <mif:commonModelElementRef name="R_AssignedPersonIdentified-informational">
+                                             <mif:derivationSupplier staticModelDerivationId="1" className="Role"/>
+                                             <mif:supplierStructuralDomain domainName="RoleClass" mnemonic="ASSIGNED"/>
+                                             <mif:graphicRepresentation presentation="HL7">
+                                                <mif:graphElement shapeId="Sheet.257" containerDiagramName="Main" shapeTemplate="CMET"
+                                                                  isWidthAutoSize="true"
+                                                                  isHeightAutoSize="true">
+                                                   <mif:position x="11.838" y="2.892"/>
+                                                   <mif:size width="1.420" height="0.628"/>
+                                                </mif:graphElement>
+                                             </mif:graphicRepresentation>
+                                             <mif:generalizationParent name="COCT_MT090108CA"/>
+                                          </mif:commonModelElementRef>
+                                       </mif:specializedClass>
+                                    </mif:specializationChild>
+                                 </mif:class>
+                              </mif:participantClass>
+                           </mif:targetConnection>
+                           <mif:sourceConnection>
+                              <mif:nonTraversableConnection participantClassName="Informant">
+                                 <mif:derivationSupplier staticModelDerivationId="1" className="Role" associationEndName="participation"/>
+                              </mif:nonTraversableConnection>
+                           </mif:sourceConnection>
+                        </mif:association>
+                     </mif:class>
+                  </mif:participantClass>
+               </mif:targetConnection>
+               <mif:sourceConnection>
+                  <mif:nonTraversableConnection participantClassName="ReactionObservationEvent">
+                     <mif:derivationSupplier staticModelDerivationId="1" className="Participation" associationEndName="act"/>
+                  </mif:nonTraversableConnection>
+               </mif:sourceConnection>
+            </mif:association>
+            <mif:association sortKey="0">
+               <mif:graphicRepresentation>
+                  <mif:graphElement connectToShapeId="Sheet.41" containerDiagramName="Main">
+                     <mif:position x="8.437" y="4.370"/>
+                     <mif:graphEdge>
+                        <mif:anchor connectToShapeId="Sheet.55">
+                           <mif:position x="8.437" y="4.370"/>
+                        </mif:anchor>
+                     </mif:graphEdge>
+                  </mif:graphElement>
+               </mif:graphicRepresentation>
+               <mif:targetConnection name="subjectOf1" minimumMultiplicity="0" maximumMultiplicity="1"
+                                     isMandatory="false"
+                                     sortKey="CDB_______">
+                  <mif:derivationSupplier staticModelDerivationId="1" className="Act"
+                                          associationEndName="inboundRelationship"/>
+                  <mif:participantClass>
+                     <mif:class name="Subject1" isAbstract="false">
+                        <mif:businessName name="has"/>
+                        <mif:derivationSupplier staticModelDerivationId="1" className="ActRelationship"/>
+                        <mif:graphicRepresentation presentation="HL7">
+                           <mif:graphElement shapeId="Sheet.55" containerDiagramName="Main" shapeTemplate="ActRelationship"
+                                             textWrappingWidth="66.0"
+                                             nodeOrientation="Left">
+                              <mif:position x="8.437" y="4.050"/>
+                              <mif:size width="2.432" height="0.569"/>
+                           </mif:graphElement>
+                        </mif:graphicRepresentation>
+                        <mif:annotations>
+                           <mif:definition>
+                              <mif:text>
+                                 <mif:p>
+                                    <mif:p>Indicates the severity of the allergy/intolerance.</mif:p>
+                                 </mif:p>
+                              </mif:text>
+                           </mif:definition>
+                           <mif:rationale>
+                              <mif:text>
+                                 <mif:p>
+                                    <mif:p>Useful for determining severity of an allergy/intolerance contraindication and the management of same. Because severity is communicated as part of code for SNOMED, this association is optional.</mif:p>
+                                 </mif:p>
+                              </mif:text>
+                           </mif:rationale>
+                           <mif:constraint>
+                              <mif:text>
+                                 <mif:p>
+                                    <mif:p>Not permitted for SNOMED</mif:p>
+                                 </mif:p>
+                              </mif:text>
+                              <mif:graphicRepresentation>
+                                 <mif:graphElement shapeId="Sheet.231" containerDiagramName="Main" isWidthAutoSize="true"
+                                                   isHeightAutoSize="true">
+                                    <mif:position x="10.187" y="5.258"/>
+                                    <mif:size width="1.047" height="0.444"/>
+                                    <mif:anchorage connectToShapeId="Sheet.231">
+                                       <mif:position x="10.711" y="5.481"/>
+                                       <mif:graphEdge>
+                                          <mif:anchor connectToShapeId="Sheet.55">
+                                             <mif:position x="9.716" y="4.620"/>
+                                          </mif:anchor>
+                                       </mif:graphEdge>
+                                    </mif:anchorage>
+                                 </mif:graphElement>
+                              </mif:graphicRepresentation>
+                           </mif:constraint>
+                        </mif:annotations>
+                        <mif:attribute name="typeCode" sortKey="1" minimumMultiplicity="1" maximumMultiplicity="1"
+                                       conformance="R"
+                                       isMandatory="true"
+                                       fixedValue="SUBJ"
+                                       isStructural="true">
+                           <mif:derivationSupplier staticModelDerivationId="1" className="ActRelationship"
+                                                   attributeName="typeCode"/>
+                           <mif:type name="CS"/>
+                           <mif:supplierDomainSpecification codingStrength="CNE" codeSystemName="ActRelationshipType" mnemonic="SUBJ"/>
+                        </mif:attribute>
+                        <mif:attribute name="contextControlCode" sortKey="2" minimumMultiplicity="1"
+                                       maximumMultiplicity="1"
+                                       conformance="R"
+                                       isMandatory="true"
+                                       fixedValue="AN"
+                                       isStructural="true">
+                           <mif:derivationSupplier staticModelDerivationId="1" className="ActRelationship"
+                                                   attributeName="contextControlCode"/>
+                           <mif:type name="CS"/>
+                           <mif:supplierDomainSpecification codingStrength="CNE" codeSystemName="ContextControl" mnemonic="AN"/>
+                        </mif:attribute>
+                        <mif:attribute name="contextConductionInd" sortKey="3" minimumMultiplicity="1"
+                                       maximumMultiplicity="1"
+                                       conformance="R"
+                                       isMandatory="true"
+                                       fixedValue="false"
+                                       isStructural="true">
+                           <mif:derivationSupplier staticModelDerivationId="1" className="ActRelationship"
+                                                   attributeName="contextConductionInd"/>
+                           <mif:type name="BL"/>
+                        </mif:attribute>
+                        <mif:association sortKey="3">
+                           <mif:graphicRepresentation>
+                              <mif:graphElement connectToShapeId="Sheet.55" containerDiagramName="Main">
+                                 <mif:position x="10.869" y="4.300"/>
+                                 <mif:graphEdge>
+                                    <mif:anchor connectToShapeId="Sheet.51">
+                                       <mif:position x="10.869" y="4.300"/>
+                                    </mif:anchor>
+                                 </mif:graphEdge>
+                              </mif:graphElement>
+                           </mif:graphicRepresentation>
+                           <mif:targetConnection name="severityObservation" minimumMultiplicity="1" maximumMultiplicity="1"
+                                                 isMandatory="false"
+                                                 sortKey="AZ">
+                              <mif:derivationSupplier staticModelDerivationId="1" className="ActRelationship"
+                                                      associationEndName="source"/>
+                              <mif:participantClass>
+                                 <mif:class name="SeverityObservation" isAbstract="false">
+                                    <mif:businessName name="Allergy/Intolerance Severity Level"/>
+                                    <mif:derivationSupplier staticModelDerivationId="1" className="Observation"/>
+                                    <mif:graphicRepresentation presentation="HL7">
+                                       <mif:graphElement shapeId="Sheet.51" containerDiagramName="Main" shapeTemplate="Act"
+                                                         isWidthAutoSize="true"
+                                                         isHeightAutoSize="true">
+                                          <mif:position x="10.869" y="3.935"/>
+                                          <mif:size width="3.211" height="0.914"/>
+                                       </mif:graphElement>
+                                    </mif:graphicRepresentation>
+                                    <mif:annotations>
+                                       <mif:definition>
+                                          <mif:text>
+                                             <mif:p>
+                                                <mif:p>This is a ranking/ an assertion of the seriousness of the diagnosed/reported medical condition.</mif:p>
+                                             </mif:p>
+                                          </mif:text>
+                                       </mif:definition>
+                                       <mif:rationale>
+                                          <mif:text>
+                                             <mif:p>
+                                                <mif:p>Allows providers to determine appropriate managements for contraindications involving such medical conditions.</mif:p>
+                                             </mif:p>
+                                          </mif:text>
+                                       </mif:rationale>
+                                    </mif:annotations>
+                                    <mif:attribute name="classCode" sortKey="1" minimumMultiplicity="1" maximumMultiplicity="1"
+                                                   conformance="R"
+                                                   isMandatory="true"
+                                                   fixedValue="OBS"
+                                                   isStructural="true">
+                                       <mif:derivationSupplier staticModelDerivationId="1" className="Observation" attributeName="classCode"/>
+                                       <mif:type name="CS"/>
+                                       <mif:supplierDomainSpecification codingStrength="CNE" codeSystemName="ActClass" mnemonic="OBS"/>
+                                    </mif:attribute>
+                                    <mif:attribute name="moodCode" sortKey="2" minimumMultiplicity="1" maximumMultiplicity="1"
+                                                   conformance="R"
+                                                   isMandatory="true"
+                                                   fixedValue="EVN"
+                                                   isStructural="true">
+                                       <mif:derivationSupplier staticModelDerivationId="1" className="Observation" attributeName="moodCode"/>
+                                       <mif:type name="CS"/>
+                                       <mif:supplierDomainSpecification codingStrength="CNE" codeSystemName="ActMood" mnemonic="EVN"/>
+                                    </mif:attribute>
+                                    <mif:attribute name="code" sortKey="3" minimumMultiplicity="1" maximumMultiplicity="1"
+                                                   conformance="R"
+                                                   isMandatory="true"
+                                                   fixedValue="SEV"
+                                                   isStructural="false">
+                                       <mif:annotations>
+                                          <mif:definition>
+                                             <mif:text/>
+                                          </mif:definition>
+                                          <mif:rationale>
+                                             <mif:text>
+                                                <mif:p>
+                                                   <mif:p>.</mif:p>
+                                                </mif:p>
+                                             </mif:text>
+                                          </mif:rationale>
+                                       </mif:annotations>
+                                       <mif:derivationSupplier staticModelDerivationId="1" className="Observation" attributeName="code"/>
+                                       <mif:type name="CV"/>
+                                       <mif:supplierDomainSpecification codingStrength="CWE" codeSystemName="ActCode" mnemonic="SEV"/>
+                                    </mif:attribute>
+                                    <mif:attribute name="statusCode" sortKey="4" minimumMultiplicity="1" maximumMultiplicity="1"
+                                                   conformance="R"
+                                                   isMandatory="true"
+                                                   fixedValue="completed"
+                                                   isStructural="false">
+                                       <mif:derivationSupplier staticModelDerivationId="1" className="Observation" attributeName="statusCode"/>
+                                       <mif:type name="CS"/>
+                                       <mif:supplierDomainSpecification codingStrength="CNE" codeSystemName="ActStatus" mnemonic="completed"/>
+                                    </mif:attribute>
+                                    <mif:attribute name="value" sortKey="5" minimumMultiplicity="1" maximumMultiplicity="1"
+                                                   conformance="R"
+                                                   isMandatory="true"
+                                                   isStructural="false">
+                                       <mif:businessName name="C:Severity Level"/>
+                                       <mif:annotations>
+                                          <mif:definition>
+                                             <mif:text>
+                                                <mif:p>
+                                                   <mif:p>Indicates the gravity of the allergy, intolerance or reaction in terms of its actual or potential impact on the patient.</mif:p>
+                                                </mif:p>
+                                             </mif:text>
+                                          </mif:definition>
+                                          <mif:rationale>
+                                             <mif:text>
+                                                <mif:p>
+                                                   <mif:p>Allows for sorting of reactions. May influence whether contraindications must be managed.</mif:p>
+                                                </mif:p>
+                                                <mif:p>
+                                                   <mif:p>Because SNOMED pre-coordinates severity into code, this association is optional</mif:p>
+                                                </mif:p>
+                                             </mif:text>
+                                          </mif:rationale>
+                                          <mif:mapping sourceName="PIN">
+                                             <mif:text>
+                                                <mif:p>
+                                                   <mif:p>AllergyIntolerance.severity</mif:p>
+                                                </mif:p>
+                                             </mif:text>
+                                          </mif:mapping>
+                                       </mif:annotations>
+                                       <mif:derivationSupplier staticModelDerivationId="1" className="Observation" attributeName="value"/>
+                                       <mif:type name="CV"/>
+                                       <mif:supplierDomainSpecification codingStrength="CNE" domainName="SeverityObservation"/>
+                                    </mif:attribute>
+                                 </mif:class>
+                              </mif:participantClass>
+                           </mif:targetConnection>
+                           <mif:sourceConnection>
+                              <mif:nonTraversableConnection participantClassName="Subject1">
+                                 <mif:derivationSupplier staticModelDerivationId="1" className="Act"
+                                                         associationEndName="outboundRelationship"/>
+                              </mif:nonTraversableConnection>
+                           </mif:sourceConnection>
+                        </mif:association>
+                     </mif:class>
+                  </mif:participantClass>
+               </mif:targetConnection>
+               <mif:sourceConnection>
+                  <mif:nonTraversableConnection participantClassName="ReactionObservationEvent">
+                     <mif:derivationSupplier staticModelDerivationId="1" className="ActRelationship"
+                                             associationEndName="target"/>
+                  </mif:nonTraversableConnection>
+               </mif:sourceConnection>
+            </mif:association>
+            <mif:association sortKey="2">
+               <mif:graphicRepresentation>
+                  <mif:graphElement connectToShapeId="Sheet.41" containerDiagramName="Main">
+                     <mif:position x="6.731" y="4.691"/>
+                     <mif:graphEdge>
+                        <mif:anchor connectToShapeId="Sheet.225">
+                           <mif:position x="6.731" y="4.691"/>
+                        </mif:anchor>
+                     </mif:graphEdge>
+                  </mif:graphElement>
+               </mif:graphicRepresentation>
+               <mif:targetConnection name="subjectOf2" minimumMultiplicity="0" maximumMultiplicity="10"
+                                     conformance="R"
+                                     isMandatory="false"
+                                     sortKey="CDB_______">
+                  <mif:derivationSupplier staticModelDerivationId="1" className="Act"
+                                          associationEndName="inboundRelationship"/>
+                  <mif:participantClass>
+                     <mif:class name="Subject6" isAbstract="false">
+                        <mif:businessName name="caused by exposure to"/>
+                        <mif:derivationSupplier staticModelDerivationId="1" className="ActRelationship"/>
+                        <mif:graphicRepresentation presentation="HL7">
+                           <mif:graphElement shapeId="Sheet.225" containerDiagramName="Main" shapeTemplate="ActRelationship"
+                                             textWrappingWidth="66.0"
+                                             nodeOrientation="Up">
+                              <mif:position x="5.598" y="4.691"/>
+                              <mif:size width="2.235" height="0.752"/>
+                           </mif:graphElement>
+                        </mif:graphicRepresentation>
+                        <mif:annotations>
+                           <mif:definition>
+                              <mif:text>
+                                 <mif:p>
+                                    <mif:p>Indicates the agent(s) that are suspected to have been involved in the adverse reaction.</mif:p>
+                                 </mif:p>
+                              </mif:text>
+                           </mif:definition>
+                           <mif:rationale>
+                              <mif:text>
+                                 <mif:p>
+                                    <mif:p>Allows linking the reaction to one or more drugs so that they can be flagged in the future when prescribed or dispensed.</mif:p>
+                                 </mif:p>
+                              </mif:text>
+                           </mif:rationale>
+                        </mif:annotations>
+                        <mif:attribute name="typeCode" sortKey="1" minimumMultiplicity="1" maximumMultiplicity="1"
+                                       conformance="R"
+                                       isMandatory="true"
+                                       fixedValue="SUBJ"
+                                       isStructural="true">
+                           <mif:derivationSupplier staticModelDerivationId="1" className="ActRelationship"
+                                                   attributeName="typeCode"/>
+                           <mif:type name="CS"/>
+                           <mif:supplierDomainSpecification codingStrength="CNE" codeSystemName="ActRelationshipType" mnemonic="SUBJ"/>
+                        </mif:attribute>
+                        <mif:attribute name="contextControlCode" sortKey="2" minimumMultiplicity="1"
+                                       maximumMultiplicity="1"
+                                       conformance="R"
+                                       isMandatory="true"
+                                       fixedValue="AN"
+                                       isStructural="true">
+                           <mif:derivationSupplier staticModelDerivationId="1" className="ActRelationship"
+                                                   attributeName="contextControlCode"/>
+                           <mif:type name="CS"/>
+                           <mif:supplierDomainSpecification codingStrength="CNE" codeSystemName="ContextControl" mnemonic="AN"/>
+                        </mif:attribute>
+                        <mif:attribute name="contextConductionInd" sortKey="3" minimumMultiplicity="1"
+                                       maximumMultiplicity="1"
+                                       conformance="R"
+                                       isMandatory="true"
+                                       fixedValue="true"
+                                       isStructural="true">
+                           <mif:derivationSupplier staticModelDerivationId="1" className="ActRelationship"
+                                                   attributeName="contextConductionInd"/>
+                           <mif:type name="BL"/>
+                        </mif:attribute>
+                        <mif:association sortKey="9">
+                           <mif:graphicRepresentation>
+                              <mif:graphElement connectToShapeId="Sheet.225" containerDiagramName="Main">
+                                 <mif:position x="6.700" y="5.443"/>
+                                 <mif:graphEdge>
+                                    <mif:anchor connectToShapeId="Sheet.221">
+                                       <mif:position x="6.700" y="5.443"/>
+                                    </mif:anchor>
+                                 </mif:graphEdge>
+                              </mif:graphElement>
+                           </mif:graphicRepresentation>
+                           <mif:targetConnection name="causalityAssessment" minimumMultiplicity="1" maximumMultiplicity="1"
+                                                 conformance="R"
+                                                 isMandatory="false"
+                                                 sortKey="AZ">
+                              <mif:derivationSupplier staticModelDerivationId="1" className="ActRelationship"
+                                                      associationEndName="source"/>
+                              <mif:participantClass>
+                                 <mif:class name="CausalityAssessment" isAbstract="false">
+                                    <mif:businessName name="Reaction Assessments"/>
+                                    <mif:derivationSupplier staticModelDerivationId="1" className="Observation"/>
+                                    <mif:graphicRepresentation presentation="HL7">
+                                       <mif:graphElement shapeId="Sheet.221" containerDiagramName="Main" shapeTemplate="Act"
+                                                         isWidthAutoSize="true"
+                                                         isHeightAutoSize="true">
+                                          <mif:position x="5.107" y="5.443"/>
+                                          <mif:size width="3.186" height="1.314"/>
+                                       </mif:graphElement>
+                                    </mif:graphicRepresentation>
+                                    <mif:annotations>
+                                       <mif:definition>
+                                          <mif:text>
+                                             <mif:p>
+                                                <mif:p>This is a recording of the exposures and causality assessment deemed to be related to the reaction.</mif:p>
+                                             </mif:p>
+                                          </mif:text>
+                                       </mif:definition>
+                                       <mif:rationale>
+                                          <mif:text>
+                                             <mif:p>
+                                                <mif:p>Indicates both the product and how related they are determined to be to the reaction.</mif:p>
+                                             </mif:p>
+                                          </mif:text>
+                                       </mif:rationale>
+                                    </mif:annotations>
+                                    <mif:attribute name="classCode" sortKey="1" minimumMultiplicity="1" maximumMultiplicity="1"
+                                                   conformance="R"
+                                                   isMandatory="true"
+                                                   fixedValue="OBS"
+                                                   isStructural="true">
+                                       <mif:derivationSupplier staticModelDerivationId="1" className="Observation" attributeName="classCode"/>
+                                       <mif:type name="CS"/>
+                                       <mif:supplierDomainSpecification codingStrength="CNE" codeSystemName="ActClass" mnemonic="OBS"/>
+                                    </mif:attribute>
+                                    <mif:attribute name="moodCode" sortKey="2" minimumMultiplicity="1" maximumMultiplicity="1"
+                                                   conformance="R"
+                                                   isMandatory="true"
+                                                   fixedValue="EVN"
+                                                   isStructural="true">
+                                       <mif:derivationSupplier staticModelDerivationId="1" className="Observation" attributeName="moodCode"/>
+                                       <mif:type name="CS"/>
+                                       <mif:supplierDomainSpecification codingStrength="CNE" codeSystemName="ActMood" mnemonic="EVN"/>
+                                    </mif:attribute>
+                                    <mif:attribute name="code" sortKey="3" minimumMultiplicity="1" maximumMultiplicity="1"
+                                                   conformance="R"
+                                                   isMandatory="true"
+                                                   isStructural="false">
+                                       <mif:businessName name="Assessment Type"/>
+                                       <mif:annotations>
+                                          <mif:definition>
+                                             <mif:text>
+                                                <mif:p>
+                                                   <mif:p>Indicates the type of assessment being made</mif:p>
+                                                </mif:p>
+                                             </mif:text>
+                                          </mif:definition>
+                                          <mif:usageNotes>
+                                             <mif:text>
+                                                <mif:p>
+                                                   <mif:p>For SNOMED this will include the actual assessment code. For non-SNOMED, this should be fixed to RXNASSESS.</mif:p>
+                                                </mif:p>
+                                             </mif:text>
+                                          </mif:usageNotes>
+                                          <mif:rationale>
+                                             <mif:text>
+                                                <mif:p>
+                                                   <mif:p>Communicates the relatedness assessment of the exposure to the reaction and is therefore mandatory. For SNOMED this will communicate the full assessment. It is expressed as a CD to allow for SNOMED post-coordination.</mif:p>
+                                                </mif:p>
+                                             </mif:text>
+                                          </mif:rationale>
+                                          <mif:constraint>
+                                             <mif:text>
+                                                <mif:p>
+                                                   <mif:p>Code must be fixed to RXNASSESS if not using SNOMED</mif:p>
+                                                </mif:p>
+                                             </mif:text>
+                                             <mif:graphicRepresentation>
+                                                <mif:graphElement shapeId="Sheet.239" containerDiagramName="Main" isWidthAutoSize="true"
+                                                                  isHeightAutoSize="true">
+                                                   <mif:position x="9.576" y="5.958"/>
+                                                   <mif:size width="1.864" height="0.444"/>
+                                                   <mif:anchorage connectToShapeId="Sheet.239">
+                                                      <mif:position x="10.508" y="6.181"/>
+                                                      <mif:graphEdge>
+                                                         <mif:anchor connectToShapeId="Sheet.221">
+                                                            <mif:position x="8.293" y="6.231"/>
+                                                         </mif:anchor>
+                                                      </mif:graphEdge>
+                                                   </mif:anchorage>
+                                                </mif:graphElement>
+                                             </mif:graphicRepresentation>
+                                          </mif:constraint>
+                                       </mif:annotations>
+                                       <mif:derivationSupplier staticModelDerivationId="1" className="Observation" attributeName="code"/>
+                                       <mif:type name="CD"/>
+                                       <mif:supplierDomainSpecification codingStrength="CNE" domainName="ObservationCausalityAssessmentType"/>
+                                    </mif:attribute>
+                                    <mif:attribute name="statusCode" sortKey="4" minimumMultiplicity="1" maximumMultiplicity="1"
+                                                   conformance="R"
+                                                   isMandatory="true"
+                                                   fixedValue="completed"
+                                                   isStructural="false">
+                                       <mif:derivationSupplier staticModelDerivationId="1" className="Observation" attributeName="statusCode"/>
+                                       <mif:type name="CS"/>
+                                       <mif:supplierDomainSpecification codingStrength="CNE" codeSystemName="ActStatus" mnemonic="completed"/>
+                                    </mif:attribute>
+                                    <mif:attribute name="value" sortKey="5" minimumMultiplicity="0" maximumMultiplicity="1"
+                                                   isMandatory="false"
+                                                   isStructural="false">
+                                       <mif:businessName name="Relatedness Assessment"/>
+                                       <mif:annotations>
+                                          <mif:definition>
+                                             <mif:text>
+                                                <mif:p>
+                                                   <mif:p>Indicates whether the reaction is deemed to be related to the exposure.</mif:p>
+                                                </mif:p>
+                                             </mif:text>
+                                          </mif:definition>
+                                          <mif:usageNotes>
+                                             <mif:text>
+                                                <mif:p>
+                                                   <mif:p>This attribute will not be populated if using SNOMED. Otherwise it should have a fixed value of "RELATED".</mif:p>
+                                                </mif:p>
+                                             </mif:text>
+                                          </mif:usageNotes>
+                                          <mif:rationale>
+                                             <mif:text>
+                                                <mif:p>
+                                                   <mif:p>Creates the link between the exposure and the reaction. Because the details of the assessment will be communicated in the 'code' attribute for SNOMED, this element is optional.</mif:p>
+                                                </mif:p>
+                                             </mif:text>
+                                          </mif:rationale>
+                                          <mif:constraint>
+                                             <mif:text>
+                                                <mif:p>
+                                                   <mif:p>Value is mandatory and fixed to RELATED if not using SNOMED</mif:p>
+                                                </mif:p>
+                                             </mif:text>
+                                             <mif:graphicRepresentation>
+                                                <mif:graphElement shapeId="Sheet.271" containerDiagramName="Main" isWidthAutoSize="true"
+                                                                  isHeightAutoSize="true">
+                                                   <mif:position x="11.400" y="5.546"/>
+                                                   <mif:size width="1.864" height="0.444"/>
+                                                   <mif:anchorage connectToShapeId="Sheet.271">
+                                                      <mif:position x="12.332" y="5.768"/>
+                                                      <mif:graphEdge>
+                                                         <mif:anchor connectToShapeId="Sheet.221">
+                                                            <mif:position x="8.293" y="5.837"/>
+                                                         </mif:anchor>
+                                                      </mif:graphEdge>
+                                                   </mif:anchorage>
+                                                </mif:graphElement>
+                                             </mif:graphicRepresentation>
+                                          </mif:constraint>
+                                       </mif:annotations>
+                                       <mif:derivationSupplier staticModelDerivationId="1" className="Observation" attributeName="value"/>
+                                       <mif:type name="CV"/>
+                                       <mif:supplierDomainSpecification codingStrength="CNE" domainName="ReactionRelatednessAssessmentObservationValue"/>
+                                    </mif:attribute>
+                                    <mif:association sortKey="11">
+                                       <mif:graphicRepresentation>
+                                          <mif:graphElement connectToShapeId="Sheet.221" containerDiagramName="Main">
+                                             <mif:position x="5.107" y="6.100"/>
+                                             <mif:graphEdge>
+                                                <mif:anchor connectToShapeId="Sheet.104">
+                                                   <mif:position x="5.107" y="6.100"/>
+                                                </mif:anchor>
+                                             </mif:graphEdge>
+                                          </mif:graphElement>
+                                       </mif:graphicRepresentation>
+                                       <mif:targetConnection name="startsAfterStartOf" minimumMultiplicity="1" maximumMultiplicity="1"
+                                                             conformance="R"
+                                                             isMandatory="true"
+                                                             sortKey="BDNA______">
+                                          <mif:derivationSupplier staticModelDerivationId="1" className="Act"
+                                                                  associationEndName="outboundRelationship"/>
+                                          <mif:participantClass>
+                                             <mif:class name="StartsAfterStartOf" isAbstract="false">
+                                                <mif:businessName name="caused by exposure to"/>
+                                                <mif:derivationSupplier staticModelDerivationId="1" className="ActRelationship"/>
+                                                <mif:graphicRepresentation presentation="HL7">
+                                                   <mif:graphElement shapeId="Sheet.104" containerDiagramName="Main" shapeTemplate="ActRelationship"
+                                                                     textWrappingWidth="66.0"
+                                                                     nodeOrientation="Left">
+                                                      <mif:position x="2.692" y="5.794"/>
+                                                      <mif:size width="2.415" height="0.569"/>
+                                                   </mif:graphElement>
+                                                </mif:graphicRepresentation>
+                                                <mif:attribute name="typeCode" sortKey="1" minimumMultiplicity="1" maximumMultiplicity="1"
+                                                               conformance="R"
+                                                               isMandatory="true"
+                                                               fixedValue="SAS"
+                                                               isStructural="true">
+                                                   <mif:derivationSupplier staticModelDerivationId="1" className="ActRelationship"
+                                                                           attributeName="typeCode"/>
+                                                   <mif:type name="CS"/>
+                                                   <mif:supplierDomainSpecification codingStrength="CNE" codeSystemName="ActRelationshipType" mnemonic="SAS"/>
+                                                </mif:attribute>
+                                                <mif:attribute name="contextControlCode" sortKey="2" minimumMultiplicity="1"
+                                                               maximumMultiplicity="1"
+                                                               conformance="R"
+                                                               isMandatory="true"
+                                                               fixedValue="AN"
+                                                               isStructural="true">
+                                                   <mif:derivationSupplier staticModelDerivationId="1" className="ActRelationship"
+                                                                           attributeName="contextControlCode"/>
+                                                   <mif:type name="CS"/>
+                                                   <mif:supplierDomainSpecification codingStrength="CNE" codeSystemName="ContextControl" mnemonic="AN"/>
+                                                </mif:attribute>
+                                                <mif:attribute name="contextConductionInd" sortKey="3" minimumMultiplicity="1"
+                                                               maximumMultiplicity="1"
+                                                               conformance="R"
+                                                               isMandatory="true"
+                                                               fixedValue="true"
+                                                               isStructural="true">
+                                                   <mif:derivationSupplier staticModelDerivationId="1" className="ActRelationship"
+                                                                           attributeName="contextConductionInd"/>
+                                                   <mif:type name="BL"/>
+                                                </mif:attribute>
+                                                <mif:association sortKey="14">
+                                                   <mif:graphicRepresentation>
+                                                      <mif:graphElement connectToShapeId="Sheet.104" containerDiagramName="Main">
+                                                         <mif:position x="2.692" y="6.057"/>
+                                                         <mif:graphEdge>
+                                                            <mif:anchor connectToShapeId="Sheet.110">
+                                                               <mif:position x="2.692" y="6.057"/>
+                                                            </mif:anchor>
+                                                         </mif:graphEdge>
+                                                      </mif:graphElement>
+                                                   </mif:graphicRepresentation>
+                                                   <mif:targetConnection name="exposureEvent" minimumMultiplicity="1" maximumMultiplicity="1"
+                                                                         conformance="R"
+                                                                         isMandatory="true"
+                                                                         sortKey="BZ">
+                                                      <mif:derivationSupplier staticModelDerivationId="1" className="ActRelationship"
+                                                                              associationEndName="target"/>
+                                                      <mif:participantClass>
+                                                         <mif:class name="ExposureEvent" isAbstract="false">
+                                                            <mif:businessName name="Exposures"/>
+                                                            <mif:derivationSupplier staticModelDerivationId="1" className="SubstanceAdministration"/>
+                                                            <mif:graphicRepresentation presentation="HL7">
+                                                               <mif:graphElement shapeId="Sheet.110" containerDiagramName="Main" shapeTemplate="Act"
+                                                                                 isWidthAutoSize="true"
+                                                                                 isHeightAutoSize="true">
+                                                                  <mif:position x="0.042" y="5.533"/>
+                                                                  <mif:size width="2.649" height="1.048"/>
+                                                               </mif:graphElement>
+                                                            </mif:graphicRepresentation>
+                                                            <mif:annotations>
+                                                               <mif:definition>
+                                                                  <mif:text>
+                                                                     <mif:p>
+                                                                        <mif:p>Incidence of the patient's exposure to (or contact with) with some material that might have caused the adverse reaction.</mif:p>
+                                                                     </mif:p>
+                                                                     <mif:p>
+                                                                        <mif:p>Examples of exposures include: Administering a substance (drug, food, etc) to the patient, Patient coming into contact with an environmental material, etc.</mif:p>
+                                                                     </mif:p>
+                                                                  </mif:text>
+                                                               </mif:definition>
+                                                               <mif:rationale>
+                                                                  <mif:text>
+                                                                     <mif:p>
+                                                                        <mif:p>Communicates the cause of the adverse reaction.</mif:p>
+                                                                     </mif:p>
+                                                                  </mif:text>
+                                                               </mif:rationale>
+                                                            </mif:annotations>
+                                                            <mif:attribute name="classCode" sortKey="1" minimumMultiplicity="1" maximumMultiplicity="1"
+                                                                           conformance="R"
+                                                                           isMandatory="true"
+                                                                           fixedValue="SBADM"
+                                                                           isStructural="true">
+                                                               <mif:derivationSupplier staticModelDerivationId="1" className="SubstanceAdministration"
+                                                                                       attributeName="classCode"/>
+                                                               <mif:type name="CS"/>
+                                                               <mif:supplierDomainSpecification codingStrength="CNE" codeSystemName="ActClass" mnemonic="SBADM"/>
+                                                            </mif:attribute>
+                                                            <mif:attribute name="moodCode" sortKey="2" minimumMultiplicity="1" maximumMultiplicity="1"
+                                                                           conformance="R"
+                                                                           isMandatory="true"
+                                                                           fixedValue="EVN"
+                                                                           isStructural="true">
+                                                               <mif:derivationSupplier staticModelDerivationId="1" className="SubstanceAdministration"
+                                                                                       attributeName="moodCode"/>
+                                                               <mif:type name="CS"/>
+                                                               <mif:supplierDomainSpecification codingStrength="CNE" codeSystemName="ActMood" mnemonic="EVN"/>
+                                                            </mif:attribute>
+                                                            <mif:attribute name="id" sortKey="3" minimumMultiplicity="0" maximumMultiplicity="1"
+                                                                           conformance="R"
+                                                                           isMandatory="false"
+                                                                           isStructural="false">
+                                                               <mif:businessName name="B:Incidence Identifier"/>
+                                                               <mif:annotations>
+                                                                  <mif:definition>
+                                                                     <mif:text>
+                                                                        <mif:p>
+                                                                           <mif:p>Identifier of the exposure event that caused the adverse reaction. This could be an identifier for a prescription, immunization, or other active medication record.</mif:p>
+                                                                        </mif:p>
+                                                                     </mif:text>
+                                                                  </mif:definition>
+                                                                  <mif:rationale>
+                                                                     <mif:text>
+                                                                        <mif:p>
+                                                                           <mif:p>Allows for drilling down to retrieve further information about the exposure</mif:p>
+                                                                        </mif:p>
+                                                                     </mif:text>
+                                                                  </mif:rationale>
+                                                               </mif:annotations>
+                                                               <mif:derivationSupplier staticModelDerivationId="1" className="SubstanceAdministration"
+                                                                                       attributeName="id"/>
+                                                               <mif:type name="II.BUS"/>
+                                                            </mif:attribute>
+                                                            <mif:attribute name="statusCode" sortKey="4" minimumMultiplicity="1" maximumMultiplicity="1"
+                                                                           conformance="R"
+                                                                           isMandatory="true"
+                                                                           fixedValue="completed"
+                                                                           isStructural="false">
+                                                               <mif:derivationSupplier staticModelDerivationId="1" className="SubstanceAdministration"
+                                                                                       attributeName="statusCode"/>
+                                                               <mif:type name="CS"/>
+                                                               <mif:supplierDomainSpecification codingStrength="CNE" codeSystemName="ActStatus" mnemonic="completed"/>
+                                                            </mif:attribute>
+                                                            <mif:attribute name="routeCode" sortKey="5" minimumMultiplicity="0" maximumMultiplicity="1"
+                                                                           conformance="R"
+                                                                           isMandatory="false"
+                                                                           isStructural="false">
+                                                               <mif:businessName name="C:Exposure Method"/>
+                                                               <mif:annotations>
+                                                                  <mif:definition>
+                                                                     <mif:text>
+                                                                        <mif:p>
+                                                                           <mif:p>The method by which the patient was exposed to the substance.</mif:p>
+                                                                        </mif:p>
+                                                                     </mif:text>
+                                                                  </mif:definition>
+                                                                  <mif:rationale>
+                                                                     <mif:text>
+                                                                        <mif:p>
+                                                                           <mif:p>Helps evaluate the cause of the reaction.</mif:p>
+                                                                        </mif:p>
+                                                                     </mif:text>
+                                                                  </mif:rationale>
+                                                               </mif:annotations>
+                                                               <mif:derivationSupplier staticModelDerivationId="1" className="SubstanceAdministration"
+                                                                                       attributeName="routeCode"/>
+                                                               <mif:type name="CV"/>
+                                                               <mif:supplierDomainSpecification codingStrength="CNE" domainName="RouteOfAdministration"/>
+                                                            </mif:attribute>
+                                                            <mif:association sortKey="16">
+                                                               <mif:graphicRepresentation>
+                                                                  <mif:graphElement connectToShapeId="Sheet.110" containerDiagramName="Main">
+                                                                     <mif:position x="1.367" y="5.533"/>
+                                                                     <mif:graphEdge>
+                                                                        <mif:anchor connectToShapeId="Sheet.114">
+                                                                           <mif:position x="1.367" y="5.533"/>
+                                                                        </mif:anchor>
+                                                                     </mif:graphEdge>
+                                                                  </mif:graphElement>
+                                                               </mif:graphicRepresentation>
+                                                               <mif:targetConnection name="consumable" minimumMultiplicity="1" maximumMultiplicity="1"
+                                                                                     conformance="R"
+                                                                                     isMandatory="true"
+                                                                                     sortKey="AAE_______">
+                                                                  <mif:derivationSupplier staticModelDerivationId="1" className="Act" associationEndName="participation"/>
+                                                                  <mif:participantClass>
+                                                                     <mif:class name="Consumable" isAbstract="false">
+                                                                        <mif:businessName name="involved"/>
+                                                                        <mif:derivationSupplier staticModelDerivationId="1" className="Participation"/>
+                                                                        <mif:graphicRepresentation presentation="HL7">
+                                                                           <mif:graphElement shapeId="Sheet.114" containerDiagramName="Main" shapeTemplate="Participation"
+                                                                                             textWrappingWidth="66.0"
+                                                                                             nodeOrientation="Up">
+                                                                              <mif:position x="0.259" y="4.881"/>
+                                                                              <mif:size width="2.235" height="0.652"/>
+                                                                           </mif:graphElement>
+                                                                        </mif:graphicRepresentation>
+                                                                        <mif:annotations>
+                                                                           <mif:definition>
+                                                                              <mif:text>
+                                                                                 <mif:p>
+                                                                                    <mif:p>Indicates the specific substance involved in the incidence that caused the reaction.</mif:p>
+                                                                                 </mif:p>
+                                                                              </mif:text>
+                                                                           </mif:definition>
+                                                                           <mif:rationale>
+                                                                              <mif:text>
+                                                                                 <mif:p>
+                                                                                    <mif:p>Identification of offending substance is needed for management of the reaction.</mif:p>
+                                                                                 </mif:p>
+                                                                              </mif:text>
+                                                                           </mif:rationale>
+                                                                        </mif:annotations>
+                                                                        <mif:attribute name="typeCode" sortKey="1" minimumMultiplicity="1" maximumMultiplicity="1"
+                                                                                       conformance="R"
+                                                                                       isMandatory="true"
+                                                                                       fixedValue="CSM"
+                                                                                       isStructural="true">
+                                                                           <mif:derivationSupplier staticModelDerivationId="1" className="Participation" attributeName="typeCode"/>
+                                                                           <mif:type name="CS"/>
+                                                                           <mif:supplierDomainSpecification codingStrength="CNE" codeSystemName="ParticipationType" mnemonic="CSM"/>
+                                                                        </mif:attribute>
+                                                                        <mif:attribute name="contextControlCode" sortKey="2" minimumMultiplicity="1"
+                                                                                       maximumMultiplicity="1"
+                                                                                       conformance="R"
+                                                                                       isMandatory="true"
+                                                                                       fixedValue="AN"
+                                                                                       isStructural="true">
+                                                                           <mif:derivationSupplier staticModelDerivationId="1" className="Participation"
+                                                                                                   attributeName="contextControlCode"/>
+                                                                           <mif:type name="CS"/>
+                                                                           <mif:supplierDomainSpecification codingStrength="CNE" codeSystemName="ContextControl" mnemonic="AN"/>
+                                                                        </mif:attribute>
+                                                                        <mif:association sortKey="18">
+                                                                           <mif:graphicRepresentation>
+                                                                              <mif:graphElement connectToShapeId="Sheet.114" containerDiagramName="Main">
+                                                                                 <mif:position x="1.385" y="4.881"/>
+                                                                                 <mif:graphEdge>
+                                                                                    <mif:anchor connectToShapeId="Sheet.120">
+                                                                                       <mif:position x="1.385" y="4.881"/>
+                                                                                    </mif:anchor>
+                                                                                 </mif:graphEdge>
+                                                                              </mif:graphElement>
+                                                                           </mif:graphicRepresentation>
+                                                                           <mif:targetConnection name="administerableMaterial" minimumMultiplicity="1" maximumMultiplicity="1"
+                                                                                                 conformance="R"
+                                                                                                 isMandatory="true"
+                                                                                                 sortKey="BZ">
+                                                                              <mif:derivationSupplier staticModelDerivationId="1" className="Participation" associationEndName="role"/>
+                                                                              <mif:participantClass>
+                                                                                 <mif:class name="AdministerableMaterial" isAbstract="false">
+                                                                                    <mif:businessName name="Exposed Material"/>
+                                                                                    <mif:derivationSupplier staticModelDerivationId="1" className="Role"/>
+                                                                                    <mif:graphicRepresentation presentation="HL7">
+                                                                                       <mif:graphElement shapeId="Sheet.120" containerDiagramName="Main" shapeTemplate="Role"
+                                                                                                         isWidthAutoSize="true"
+                                                                                                         isHeightAutoSize="true">
+                                                                                          <mif:position x="0.579" y="4.381"/>
+                                                                                          <mif:size width="1.612" height="0.500"/>
+                                                                                       </mif:graphElement>
+                                                                                    </mif:graphicRepresentation>
+                                                                                    <mif:annotations>
+                                                                                       <mif:definition>
+                                                                                          <mif:text>
+                                                                                             <mif:p>
+                                                                                                <mif:p>A specific material or agent that to which the patient was exposed. Examples are: Codein (Drug), Peanut (Food), etc.</mif:p>
+                                                                                             </mif:p>
+                                                                                          </mif:text>
+                                                                                       </mif:definition>
+                                                                                       <mif:rationale>
+                                                                                          <mif:text>
+                                                                                             <mif:p>
+                                                                                                <mif:p>Allows the provider to zero in on specific culprits for the adverse reaction.</mif:p>
+                                                                                             </mif:p>
+                                                                                          </mif:text>
+                                                                                       </mif:rationale>
+                                                                                    </mif:annotations>
+                                                                                    <mif:attribute name="classCode" sortKey="1" minimumMultiplicity="1" maximumMultiplicity="1"
+                                                                                                   conformance="R"
+                                                                                                   isMandatory="true"
+                                                                                                   fixedValue="ADMM"
+                                                                                                   isStructural="true">
+                                                                                       <mif:derivationSupplier staticModelDerivationId="1" className="Role" attributeName="classCode"/>
+                                                                                       <mif:type name="CS"/>
+                                                                                       <mif:supplierDomainSpecification codingStrength="CNE" codeSystemName="RoleClass" mnemonic="ADMM"/>
+                                                                                    </mif:attribute>
+                                                                                    <mif:association sortKey="19">
+                                                                                       <mif:graphicRepresentation>
+                                                                                          <mif:graphElement connectToShapeId="Sheet.120" containerDiagramName="Main">
+                                                                                             <mif:position x="2.030" y="4.831"/>
+                                                                                             <mif:graphEdge>
+                                                                                                <mif:anchor connectToShapeId="Sheet.130">
+                                                                                                   <mif:position x="2.461" y="4.028"/>
+                                                                                                </mif:anchor>
+                                                                                             </mif:graphEdge>
+                                                                                          </mif:graphElement>
+                                                                                       </mif:graphicRepresentation>
+                                                                                       <mif:targetConnection name="administerableMaterialKind" minimumMultiplicity="1"
+                                                                                                             maximumMultiplicity="1"
+                                                                                                             conformance="R"
+                                                                                                             isMandatory="true"
+                                                                                                             sortKey="AZ">
+                                                                                          <mif:derivationSupplier staticModelDerivationId="1" className="Role" associationEndName="player"/>
+                                                                                          <mif:participantClass>
+                                                                                             <mif:class name="MaterialKind" isAbstract="false">
+                                                                                                <mif:businessName name="Agent Category"/>
+                                                                                                <mif:derivationSupplier staticModelDerivationId="1" className="Material"/>
+                                                                                                <mif:graphicRepresentation presentation="HL7">
+                                                                                                   <mif:graphElement shapeId="Sheet.130" containerDiagramName="Main" shapeTemplate="Entity"
+                                                                                                                     isWidthAutoSize="true"
+                                                                                                                     isHeightAutoSize="true">
+                                                                                                      <mif:position x="0.322" y="3.114"/>
+                                                                                                      <mif:size width="2.853" height="0.914"/>
+                                                                                                   </mif:graphElement>
+                                                                                                </mif:graphicRepresentation>
+                                                                                                <mif:annotations>
+                                                                                                   <mif:definition>
+                                                                                                      <mif:text>
+                                                                                                         <mif:p>
+                                                                                                            <mif:p>Category of material or agent to which the patient was exposed.</mif:p>
+                                                                                                         </mif:p>
+                                                                                                      </mif:text>
+                                                                                                   </mif:definition>
+                                                                                                   <mif:rationale>
+                                                                                                      <mif:text>
+                                                                                                         <mif:p>
+                                                                                                            <mif:p>Allows exposed materials or agents to be collectively referenced.</mif:p>
+                                                                                                         </mif:p>
+                                                                                                      </mif:text>
+                                                                                                   </mif:rationale>
+                                                                                                </mif:annotations>
+                                                                                                <mif:attribute name="classCode" sortKey="1" minimumMultiplicity="1" maximumMultiplicity="1"
+                                                                                                               conformance="R"
+                                                                                                               isMandatory="true"
+                                                                                                               fixedValue="MAT"
+                                                                                                               isStructural="true">
+                                                                                                   <mif:derivationSupplier staticModelDerivationId="1" className="Material" attributeName="classCode"/>
+                                                                                                   <mif:type name="CS"/>
+                                                                                                   <mif:supplierDomainSpecification codingStrength="CNE" codeSystemName="EntityClass" mnemonic="MAT"/>
+                                                                                                </mif:attribute>
+                                                                                                <mif:attribute name="determinerCode" sortKey="2" minimumMultiplicity="1"
+                                                                                                               maximumMultiplicity="1"
+                                                                                                               conformance="R"
+                                                                                                               isMandatory="true"
+                                                                                                               fixedValue="KIND"
+                                                                                                               isStructural="true">
+                                                                                                   <mif:derivationSupplier staticModelDerivationId="1" className="Material" attributeName="determinerCode"/>
+                                                                                                   <mif:type name="CS"/>
+                                                                                                   <mif:supplierDomainSpecification codingStrength="CNE" codeSystemName="EntityDeterminer" mnemonic="KIND"/>
+                                                                                                </mif:attribute>
+                                                                                                <mif:attribute name="code" sortKey="3" minimumMultiplicity="1" maximumMultiplicity="1"
+                                                                                                               conformance="R"
+                                                                                                               isMandatory="false"
+                                                                                                               isStructural="false">
+                                                                                                   <mif:businessName name="A:Exposed Material Type"/>
+                                                                                                   <mif:annotations>
+                                                                                                      <mif:definition>
+                                                                                                         <mif:text>
+                                                                                                            <mif:p>
+                                                                                                               <mif:p>Indicates the type of agent that the patient was exposed to which caused the adverse reaction. This includes Drug, Food, Latex, Dust, etc.</mif:p>
+                                                                                                            </mif:p>
+                                                                                                         </mif:text>
+                                                                                                      </mif:definition>
+                                                                                                      <mif:rationale>
+                                                                                                         <mif:text>
+                                                                                                            <mif:p>
+                                                                                                               <mif:p>Allows different kinds of reaction agents to be distinguished. Coding strength is set to CWE because the exposure agent type may not always be codified. The attribute is populated because there is little point in communicating about the exposure to an agent if it is not known what the agent is, however it may not always be coded.</mif:p>
+                                                                                                            </mif:p>
+                                                                                                         </mif:text>
+                                                                                                      </mif:rationale>
+                                                                                                   </mif:annotations>
+                                                                                                   <mif:derivationSupplier staticModelDerivationId="1" className="Material" attributeName="code"/>
+                                                                                                   <mif:type name="CV"/>
+                                                                                                   <mif:supplierDomainSpecification codingStrength="CWE" domainName="ExposureAgentEntityType"/>
+                                                                                                </mif:attribute>
+                                                                                                <mif:attribute name="name" sortKey="4" minimumMultiplicity="0" maximumMultiplicity="1"
+                                                                                                               conformance="R"
+                                                                                                               isMandatory="false"
+                                                                                                               maximumLength="100"
+                                                                                                               isStructural="false">
+                                                                                                   <mif:businessName name="Exposed Material Name"/>
+                                                                                                   <mif:annotations>
+                                                                                                      <mif:definition>
+                                                                                                         <mif:text>
+                                                                                                            <mif:p>
+                                                                                                               <mif:p>Indicates the name of the agent identified by MaterialKind.code.</mif:p>
+                                                                                                            </mif:p>
+                                                                                                         </mif:text>
+                                                                                                      </mif:definition>
+                                                                                                      <mif:rationale>
+                                                                                                         <mif:text>
+                                                                                                            <mif:p>
+                                                                                                               <mif:p>Provides a human-readable name in circumstances where the agent is captured as a code.</mif:p>
+                                                                                                            </mif:p>
+                                                                                                         </mif:text>
+                                                                                                      </mif:rationale>
+                                                                                                   </mif:annotations>
+                                                                                                   <mif:derivationSupplier staticModelDerivationId="1" className="Material" attributeName="name"/>
+                                                                                                   <mif:type name="ST"/>
+                                                                                                </mif:attribute>
+                                                                                             </mif:class>
+                                                                                          </mif:participantClass>
+                                                                                       </mif:targetConnection>
+                                                                                       <mif:sourceConnection>
+                                                                                          <mif:nonTraversableConnection participantClassName="AdministerableMaterial">
+                                                                                             <mif:derivationSupplier staticModelDerivationId="1" className="Entity" associationEndName="playedRole"/>
+                                                                                          </mif:nonTraversableConnection>
+                                                                                       </mif:sourceConnection>
+                                                                                    </mif:association>
+                                                                                 </mif:class>
+                                                                              </mif:participantClass>
+                                                                           </mif:targetConnection>
+                                                                           <mif:sourceConnection>
+                                                                              <mif:nonTraversableConnection participantClassName="Consumable">
+                                                                                 <mif:derivationSupplier staticModelDerivationId="1" className="Role" associationEndName="participation"/>
+                                                                              </mif:nonTraversableConnection>
+                                                                           </mif:sourceConnection>
+                                                                        </mif:association>
+                                                                     </mif:class>
+                                                                  </mif:participantClass>
+                                                               </mif:targetConnection>
+                                                               <mif:sourceConnection>
+                                                                  <mif:nonTraversableConnection participantClassName="ExposureEvent">
+                                                                     <mif:derivationSupplier staticModelDerivationId="1" className="Participation" associationEndName="act"/>
+                                                                  </mif:nonTraversableConnection>
+                                                               </mif:sourceConnection>
+                                                            </mif:association>
+                                                         </mif:class>
+                                                      </mif:participantClass>
+                                                   </mif:targetConnection>
+                                                   <mif:sourceConnection>
+                                                      <mif:nonTraversableConnection participantClassName="StartsAfterStartOf">
+                                                         <mif:derivationSupplier staticModelDerivationId="1" className="Act"
+                                                                                 associationEndName="inboundRelationship"/>
+                                                      </mif:nonTraversableConnection>
+                                                   </mif:sourceConnection>
+                                                </mif:association>
+                                             </mif:class>
+                                          </mif:participantClass>
+                                       </mif:targetConnection>
+                                       <mif:sourceConnection>
+                                          <mif:nonTraversableConnection participantClassName="CausalityAssessment">
+                                             <mif:derivationSupplier staticModelDerivationId="1" className="ActRelationship"
+                                                                     associationEndName="source"/>
+                                          </mif:nonTraversableConnection>
+                                       </mif:sourceConnection>
+                                    </mif:association>
+                                 </mif:class>
+                              </mif:participantClass>
+                           </mif:targetConnection>
+                           <mif:sourceConnection>
+                              <mif:nonTraversableConnection participantClassName="Subject6">
+                                 <mif:derivationSupplier staticModelDerivationId="1" className="Act"
+                                                         associationEndName="outboundRelationship"/>
+                              </mif:nonTraversableConnection>
+                           </mif:sourceConnection>
+                        </mif:association>
+                     </mif:class>
+                  </mif:participantClass>
+               </mif:targetConnection>
+               <mif:sourceConnection>
+                  <mif:nonTraversableConnection participantClassName="ReactionObservationEvent">
+                     <mif:derivationSupplier staticModelDerivationId="1" className="ActRelationship"
+                                             associationEndName="target"/>
+                  </mif:nonTraversableConnection>
+               </mif:sourceConnection>
+            </mif:association>
+         </mif:class>
+      </mif:specializedClass>
+   </mif:ownedEntryPoint>
+</mif:serializedStaticModel>

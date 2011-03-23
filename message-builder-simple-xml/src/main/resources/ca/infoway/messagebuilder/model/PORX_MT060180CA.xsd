@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:chi="urn:ca.infoway.messagebuilder.simplexml.v1" elementFormDefault="qualified" targetNamespace="urn:ca.infoway.messagebuilder.simplexml.v1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include schemaLocation="../../../../../../classes/simpleDataTypes.xsd"/>
+  <xs:complexType name="PORX_MT060180CA.ParameterList">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="0" name="administrationEffectivePeriod" type="chi:DateInterval"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="amendedInTimeRange" type="chi:DateInterval"/>
+      <xs:element maxOccurs="10" minOccurs="0" name="careCompositionIDs" type="chi:InstanceIdentifier"/>
+      <xs:element maxOccurs="5" minOccurs="0" name="careCompositionTypes" type="chi:CodedValue"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="diagnosisCode" type="chi:CodedValue"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="drugCode" type="chi:CodedValue"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="includeEventHistoryIndicator" type="xs:boolean"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="includeIssuesIndicator" type="xs:boolean"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="includeNotesIndicator" type="xs:boolean"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="includePendingChangesIndicator" type="xs:boolean"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="issueFilterCode" type="chi:CodedValue"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="mostRecentByDrugIndicator" type="xs:boolean"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="mostRecentDispenseForEachRxIndicator" type="xs:boolean"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="otherIndicationCode" type="chi:CodedValue"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="otherMedicationRecordId" type="chi:InstanceIdentifier"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="prescriberProviderID" type="chi:InstanceIdentifier"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="prescriptionDispenseNumber" type="chi:InstanceIdentifier"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="prescriptionOrderNumber" type="chi:InstanceIdentifier"/>
+      <xs:element maxOccurs="5" minOccurs="0" name="prescriptionStatuses" type="chi:CodedValue"/>
+      <xs:element maxOccurs="3" minOccurs="0" name="rxDispenserIndicators" type="chi:CodedValue"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="symptomCode" type="chi:CodedValue"/>
+      <xs:element maxOccurs="2" minOccurs="0" name="treatmentTypes" type="chi:CodedValue"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

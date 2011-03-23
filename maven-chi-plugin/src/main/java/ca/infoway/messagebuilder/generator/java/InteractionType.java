@@ -1,0 +1,76 @@
+package ca.infoway.messagebuilder.generator.java;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
+
+import ca.infoway.messagebuilder.xml.Argument;
+import ca.infoway.messagebuilder.xml.TypeName;
+
+public class InteractionType extends Type {
+
+	private static final long serialVersionUID = 6689684820345539035L;
+
+	public static class ArgumentType {
+		private final TypeName typeName;
+		private final Argument argument;
+		private final List<ArgumentType> argumentTypes = Collections.synchronizedList(new ArrayList<ArgumentType>());
+
+		public ArgumentType(Argument argument, TypeName typeName) {
+			this.argument = argument;
+			this.typeName = typeName;
+		}
+		public TypeName getType() {
+			return this.typeName;
+		}
+		
+		public Argument getArgument() {
+			return this.argument;
+		}
+		public List<ArgumentType> getArgumentTypes() {
+			return this.argumentTypes;
+		}
+		/**
+		 * <p>We've taken some care to ensure that template variables use names like 
+		 * "PL" for "ParameterList" and "RR" for "RegisteredRole", so that we can 
+		 * later try to more easily associate one with the other.  We're always going to 
+		 * show those template parameters in alphabetical order.
+		 */
+		public static List<ArgumentType> sort(List<ArgumentType> arguments) {
+			TemplateVariableGenerator generator = new TemplateVariableGenerator();
+			Map<String,ArgumentType> result = new TreeMap<String, ArgumentType>();
+			for (ArgumentType argumentType : arguments) {
+				TemplateVariable variable = generator.getNext(argumentType.getArgument().getTemplateParameterName());
+				result.put(variable.getType(), argumentType);
+			}
+			return new ArrayList<ArgumentType>(result.values());
+		}
+		
+		
+	}
+	
+	private final List<ArgumentType> arguments = Collections.synchronizedList(new ArrayList<ArgumentType>());
+	private TypeName parentType;
+
+	public TypeName getParentType() {
+		return this.parentType;
+	}
+
+	public InteractionType(TypeName typeName) {
+		super(typeName);
+	}
+
+	public List<ArgumentType> getArguments() {
+		return this.arguments;
+	}
+
+	public void setParentType(TypeName typeName) {
+		this.parentType = typeName;
+	}
+
+	public boolean hasParent() {
+		return this.parentType != null;
+	}
+}

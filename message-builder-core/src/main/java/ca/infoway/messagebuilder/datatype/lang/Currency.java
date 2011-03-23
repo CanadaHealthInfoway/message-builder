@@ -1,0 +1,45 @@
+package ca.infoway.messagebuilder.datatype.lang;
+
+import ca.infoway.messagebuilder.Code;
+import ca.infoway.messagebuilder.lang.EnumPattern;
+
+/**
+ * <p>An enum for Currency.
+ * 
+ * @author <a href="http://www.intelliware.ca/">Intelliware Development</a>
+ *
+ * @sharpen.ignore - datatype - translated manually
+ */
+public class Currency extends EnumPattern implements Code {
+    
+	private static final long serialVersionUID = -4782912717651803398L;
+	
+	public static final Currency CANADIAN_DOLLAR = new Currency("CANADIAN_DOLLAR", "CAD");
+	public static final Currency US_DOLLAR = new Currency("US_DOLLAR", "USD");
+	public static final Currency EURO = new Currency("EURO", "EUR");
+
+    private final String codeValue;
+
+    private Currency(String name, String codeValue) {
+    	super(name);
+        this.codeValue = codeValue;
+    }
+    
+    /**
+     * <p>Returns the code system for currency.
+     * 
+     * @return the code system for currency.
+     */
+    public String getCodeSystem() {
+        return "2.16.840.1.113883.5.1058";
+    }
+
+    /**
+     * <p>Returns the code value.
+     * 
+     * @return the code value.
+     */
+    public String getCodeValue() {
+        return this.codeValue;
+    }
+}

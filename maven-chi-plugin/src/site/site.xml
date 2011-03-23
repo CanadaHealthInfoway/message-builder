@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="Message Builder Generator Tools">
+	<skin>
+		<groupId>ca.infoway.messagebuilder</groupId>
+		<artifactId>stylesheet</artifactId>
+		<version>1.0b1-SNAPSHOT</version>
+	</skin>
+
+	<bannerLeft>
+		<name>Maven CHI Plugin</name>
+	</bannerLeft>
+
+	<bannerRight>
+		<name>Message Builder Tool</name>
+		<src>./images/mbt.png</src>
+	</bannerRight>
+	<body>
+		<links>
+			<item name="Intelliware" href="http://www.intelliware.ca/ehealth/" />
+		</links>
+
+		<menu name="Links">
+			<item name="Home" href="index.html" />
+			<item name="Overview" href="overview.html" />
+			<item name="Simplification algorithms" href="simplification.html" />
+		</menu>
+
+		<menu name="Maven Goals">
+			<item name="mif-to-xml" href="messageSetGeneration.html" />
+			<item name="xml-to-java" href="java.html" />
+			<item name="xml-to-csharp" href="csharp.html" />
+			<item name="terminology-load" href="terminology.html" />
+		</menu>
+
+		<menu ref="reports" />
+
+	</body>
+</project>

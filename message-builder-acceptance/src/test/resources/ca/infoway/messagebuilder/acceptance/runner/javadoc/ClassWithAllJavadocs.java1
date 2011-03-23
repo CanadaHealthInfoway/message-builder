@@ -1,0 +1,29 @@
+package ca.infoway.messagebuilder.acceptance.runner.javadoc.javadoc;
+
+
+/**
+ * This is a good example of a type javadoc.
+ */
+public class ClassWithAllJavadocs {
+
+	/**
+	 * good method javadoc that must end with a period.
+	 * 
+	 * <a href="sads"/>
+	 * 
+	 * @param param Parameter javadoc.
+	 * @throws Exception Exception javadoc.
+	 */
+	public void method(String param) throws Exception {
+	}
+	
+	protected void method1() {
+	}
+
+	void method2() {
+	}
+	
+	private void method3() {
+	}
+
+}

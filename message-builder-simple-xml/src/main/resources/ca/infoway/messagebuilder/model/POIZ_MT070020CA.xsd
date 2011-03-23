@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:chi="urn:ca.infoway.messagebuilder.simplexml.v1" elementFormDefault="qualified" targetNamespace="urn:ca.infoway.messagebuilder.simplexml.v1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include schemaLocation="COCT_MT050208CA.xsd"/>
+  <xs:include schemaLocation="../../../../../../classes/simpleDataTypes.xsd"/>
+  <xs:complexType name="POIZ_MT070020CA.ImmunizationProfile">
+    <xs:sequence>
+      <xs:element maxOccurs="50" minOccurs="0" name="subject2" type="chi:POIZ_MT070020CA.Subject3"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="attachmentIdentifier" type="chi:InstanceIdentifier"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="attachmentContent" type="chi:EncapsulatedDocumentType"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="subject1Patient" type="chi:COCT_MT050208CA.Patient"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="POIZ_MT070020CA.Subject3">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="eligibilityPeriod" type="chi:DateInterval"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="doseNumber" type="xs:integer"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="immunizationForecastConsumableMedicationAdministerableMedicineDeterminerCode" type="chi:SimpleCodedType"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="immunizingAgentCode" type="chi:CodedValue"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="immunizationStatus" type="chi:CodedValue"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

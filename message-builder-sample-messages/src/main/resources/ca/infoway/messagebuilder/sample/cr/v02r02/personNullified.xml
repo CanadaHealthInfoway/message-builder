@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PRPA_IN101999CA xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  xmlns="urn:hl7-org:v3" ITSVersion="XML_1.0">
+	<id root="1ee83ff1-08ab-4fe7-b573-ea777e9bad51" />
+	<creationTime value="20080625141610-0400" />
+	<responseModeCode code="I" />
+	<versionCode code="V3-2007-05" />
+	<interactionId extension="PRPA_IN101999CA" root="2.16.840.1.113883.1.6" displayable="true" />
+	<processingCode code="P" />
+	<processingModeCode code="T" />
+	<acceptAckCode code="NE" />
+	<receiver typeCode="RCV">
+		<telecom value="http://123.255.255.10" />
+		<device classCode="DEV" determinerCode="INSTANCE">
+	  <id extension="222" root="2.16.124.113620.1.2.100" use="BUS" />
+		</device>
+	</receiver>
+	<sender typeCode="SND">
+		<telecom value="http://987.654.321.0" />
+		<device classCode="DEV" determinerCode="INSTANCE">
+	  <id extension="111" root="2.16.124.113620.1.2.100" use="BUS" />
+			<manufacturerModelName>1.0</manufacturerModelName>
+			<softwareName>Panacea Pharmacy</softwareName>
+		</device>
+	</sender>
+	<controlActEvent classCode="CACT" moodCode="EVN">
+		<id root="1ee83ff1-08ab-4fe7-b573-ea777e9bae22" use="BUS" />
+		<code code="PRPA_TE101999CA" codeSystem="2.16.840.1.113883.5.4" />
+		<statusCode code="completed" />
+		<effectiveTime>
+	        <low value="20080918"/>
+	    </effectiveTime>    
+		<subject typeCode="SUBJ" contextControlCode="ON" contextConductionInd="false">
+			<registrationRequest classCode="REG" moodCode="RQO">
+				<statusCode code="active" />
+				<subject typeCode="SBJ" contextControlCode="AN">
+					<identifiedEntity classCode="IDENT">
+						<id root="2.16.840.1.113883.1.133" extension="9283488" displayable="true" />
+						<identifiedPerson classCode="PSN" determinerCode="INSTANCE">
+	    					<name>
+	    						<given>Mabel</given>
+	    						<family>Hauptman</family>
+	    					</name>
+							<administrativeGenderCode code="F" codeSystem="2.16.840.1.113883.5.1"/>
+							<birthTime value="19321228000000-0500"/>
+						</identifiedPerson>
+					</identifiedEntity>
+				</subject>
+				<custodian typeCode="CST" contextControlCode="AP">
+	    			<assignedDevice classCode="ASSIGNED">
+	    				<id root="1.2.3" extension="112233" use="BUS" />
+	    				<assignedRepository classCode="DEV" determinerCode="INSTANCE">
+	    					<name>Newfoundland/Panacea</name>
+	    				</assignedRepository>
+	    				<representedRepositoryJurisdiction classCode="STATE" determinerCode="INSTANCE">
+	    					<name>Newfoundland</name>
+	    				</representedRepositoryJurisdiction>
+	   				</assignedDevice>
+				</custodian>
+			</registrationRequest>
+		</subject>
+	</controlActEvent>
+</PRPA_IN101999CA>

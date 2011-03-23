@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:chi="urn:ca.infoway.messagebuilder.simplexml.v1" elementFormDefault="qualified" targetNamespace="urn:ca.infoway.messagebuilder.simplexml.v1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include schemaLocation="PRPM_MT301010CA.xsd"/>
+  <xs:include schemaLocation="MFMI_MT700717CA.xsd"/>
+  <xs:include schemaLocation="MCCI_MT002100CA.xsd"/>
+  <xs:complexType name="PRPM_IN301030CA.MFMI_MT700717CA.Subject2">
+    <xs:complexContent>
+      <xs:extension base="chi:MFMI_MT700717CA.Subject2">
+        <xs:sequence>
+          <xs:element name="registeredRole" type="chi:PRPM_MT301010CA.RoleChoice"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="PRPM_IN301030CA.MFMI_MT700717CA.ControlActEvent">
+    <xs:complexContent>
+      <xs:extension base="chi:MFMI_MT700717CA.ControlActEvent">
+        <xs:sequence>
+          <xs:element name="subject" type="chi:PRPM_IN301030CA.MFMI_MT700717CA.Subject2"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="PRPM_IN301030CA">
+    <xs:complexContent>
+      <xs:extension base="chi:MCCI_MT002100CA.Message">
+        <xs:sequence>
+          <xs:element name="controlActEvent" type="chi:PRPM_IN301030CA.MFMI_MT700717CA.ControlActEvent"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="addProviderNotification" type="chi:PRPM_IN301030CA"/>
+</xs:schema>

@@ -1,0 +1,8 @@
+package ca.infoway.messagebuilder.acceptance.runner.javadoc.javadoc;
+
+public class ClassMissingJavadocs {
+
+	public void method(String param) throws Exception {
+	}
+
+}

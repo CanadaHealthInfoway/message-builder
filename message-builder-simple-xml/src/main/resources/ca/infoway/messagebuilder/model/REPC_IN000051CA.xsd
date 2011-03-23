@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:chi="urn:ca.infoway.messagebuilder.simplexml.v1" elementFormDefault="qualified" targetNamespace="urn:ca.infoway.messagebuilder.simplexml.v1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include schemaLocation="REPC_MT410001CA.xsd"/>
+  <xs:include schemaLocation="MCAI_MT700210CA.xsd"/>
+  <xs:include schemaLocation="MCCI_MT002100CA.xsd"/>
+  <xs:complexType name="REPC_IN000051CA.MCAI_MT700210CA.Subject2">
+    <xs:complexContent>
+      <xs:extension base="chi:MCAI_MT700210CA.Subject2">
+        <xs:sequence>
+          <xs:element name="act" type="chi:REPC_MT410001CA.CommonObservationEvent"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="REPC_IN000051CA.MCAI_MT700210CA.ControlActEvent">
+    <xs:complexContent>
+      <xs:extension base="chi:MCAI_MT700210CA.ControlActEvent">
+        <xs:sequence>
+          <xs:element name="subject" type="chi:REPC_IN000051CA.MCAI_MT700210CA.Subject2"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="REPC_IN000051CA">
+    <xs:complexContent>
+      <xs:extension base="chi:MCCI_MT002100CA.Message">
+        <xs:sequence>
+          <xs:element name="controlActEvent" type="chi:REPC_IN000051CA.MCAI_MT700210CA.ControlActEvent"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="recordPatientMeasurementObsRequest" type="chi:REPC_IN000051CA"/>
+</xs:schema>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:chi="urn:ca.infoway.messagebuilder.simplexml.v1" elementFormDefault="qualified" targetNamespace="urn:ca.infoway.messagebuilder.simplexml.v1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include schemaLocation="COCT_MT050202CA.xsd"/>
+  <xs:include schemaLocation="COCT_MT050207CA.xsd"/>
+  <xs:include schemaLocation="COCT_MT050201CA.xsd"/>
+  <xs:include schemaLocation="COCT_MT260012CA.xsd"/>
+  <xs:include schemaLocation="COCT_MT470002CA.xsd"/>
+  <xs:include schemaLocation="COCT_MT090102CA.xsd"/>
+  <xs:include schemaLocation="COCT_MT240002CA.xsd"/>
+  <xs:include schemaLocation="COCT_MT011001CA.xsd"/>
+  <xs:include schemaLocation="COCT_MT911102CA.xsd"/>
+  <xs:include schemaLocation="../../../../../../classes/simpleDataTypes.xsd"/>
+  <xs:complexType name="MCAI_MT700211CA.Author">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="timeOfCreation" type="chi:FullDateTime"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="informationReceivedMethod" type="chi:CodedValue"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="digitalSignature" type="chi:EncapsulatedSignatureType"/>
+      <xs:group maxOccurs="1" minOccurs="1" ref="chi:MCAI_MT700211CA.AuthorPerson"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="MCAI_MT700211CA.AuthorPerson">
+    <xs:choice>
+      <xs:group ref="chi:COCT_MT911102CA.ActingPerson"/>
+      <xs:element name="nullAuthorRole" type="chi:MCAI_MT700211CA.AuthorRole"/>
+    </xs:choice>
+  </xs:group>
+  <xs:complexType name="MCAI_MT700211CA.AuthorRole">
+    <xs:sequence/>
+  </xs:complexType>
+  <xs:complexType name="MCAI_MT700211CA.ControlActEvent">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="eventIdentifier" type="chi:InstanceIdentifier"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="eventType" type="chi:CodedValue"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="eventEffectivePeriod" type="chi:DateInterval"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="eventReason" type="chi:CodedValue"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="messageLanguage" type="chi:CodedType"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="author" type="chi:MCAI_MT700211CA.Author"/>
+      <xs:element maxOccurs="100" minOccurs="0" name="componentOfPatientCareProvisionEvent" type="chi:COCT_MT011001CA.PatientCareProvisionEvent"/>
+      <xs:group maxOccurs="1" minOccurs="0" ref="chi:COCT_MT911102CA.ActingPerson"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="dataEntryLocationServiceDeliveryLocation" type="chi:COCT_MT240002CA.ServiceDeliveryLocation"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="locationServiceDeliveryLocation" type="chi:COCT_MT240002CA.ServiceDeliveryLocation"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="pertinentInformation" type="chi:MCAI_MT700211CA.PertinentInformation"/>
+      <xs:group maxOccurs="1" minOccurs="1" ref="chi:MCAI_MT700211CA.Patient"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="responsiblePartyAssignedEntity" type="chi:COCT_MT090102CA.AssignedEntity"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="subjectOf1ConsentEvent" type="chi:COCT_MT470002CA.ConsentEvent"/>
+      <xs:element maxOccurs="50" minOccurs="0" name="subjectOf2DetectedIssueEvent" type="chi:COCT_MT260012CA.DetectedIssueEvent"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="MCAI_MT700211CA.Patient">
+    <xs:choice>
+      <xs:element name="patient" type="chi:COCT_MT050201CA.Patient"/>
+      <xs:element name="patient" type="chi:COCT_MT050207CA.Patient"/>
+      <xs:element name="patient" type="chi:COCT_MT050202CA.Patient"/>
+    </xs:choice>
+  </xs:group>
+  <xs:complexType name="MCAI_MT700211CA.PertinentInformation">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="0" name="authorizationTokenAsId" type="chi:InstanceIdentifier"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="authorizationToken" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="MCAI_MT700211CA.Subject2">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="cascadeResponsibilityIndicator" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

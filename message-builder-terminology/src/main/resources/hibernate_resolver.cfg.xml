@@ -1,0 +1,13 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+ "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+ "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+   <session-factory>
+      <mapping class="ca.infoway.messagebuilder.terminology.codeset.domain.CodedValue"/>
+      <mapping class="ca.infoway.messagebuilder.terminology.codeset.domain.CodeSystem"/>
+      <mapping class="ca.infoway.messagebuilder.terminology.codeset.domain.ValueSetEntry"/>
+      <mapping class="ca.infoway.messagebuilder.terminology.codeset.domain.ValueSet"/>
+      <mapping class="ca.infoway.messagebuilder.terminology.codeset.domain.VocabularyDomain"/>
+   </session-factory>
+</hibernate-configuration>

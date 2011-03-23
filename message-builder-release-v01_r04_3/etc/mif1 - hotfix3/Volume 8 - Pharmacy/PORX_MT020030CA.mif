@@ -1,0 +1,452 @@
+<mif:serializedStaticModel xmlns:mif="urn:hl7-org:v3/mif"
+                           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                           xsi:schemaLocation="urn:hl7-org:v3/mif C:\PROGRA~1\HL7\XMLITS\ToolFiles\MIFSchemas\mifStaticModelFlat.xsd"
+                           packageKind="realm"
+                           representationKind="serialized"
+                           isSerializable="true"
+                           isAbstract="false"
+                           name="CA">
+   <mif:packageLocation root="DEFN" section="HM" subSection="PO" domain="RX" artifact="MT-deprecated"
+                        realm="CA"
+                        id="020030"/>
+   <mif:header>
+      <mif:renderingInformation schemaVersion="1" application="Visio to MIF transform"/>
+      <mif:legalese copyrightOwner="Health Level Seven" copyrightYears="2007"/>
+   </mif:header>
+   <mif:graphicRepresentation presentation="HL7">
+      <mif:graphElement name="Main">
+         <mif:position x="0.0" y="0.0"/>
+         <mif:size width="5.124" height="2.634"/>
+      </mif:graphElement>
+   </mif:graphicRepresentation>
+   <mif:derivationSupplier staticModelDerivationId="1">
+      <mif:targetStaticModel root="DEFN" artifact="RIM" version="00"/>
+   </mif:derivationSupplier>
+   <mif:ownedEntryPoint id="PORX_MT020030CA" name="Dispense Response" isAbstract="false">
+      <mif:graphicRepresentation>
+         <mif:graphElement shapeId="Sheet.41" containerDiagramName="Main">
+            <mif:position x="0.028" y="0.752"/>
+            <mif:size width="1.403" height="0.453"/>
+            <mif:anchorage connectToShapeId="Sheet.41">
+               <mif:position x="1.431" y="0.714"/>
+               <mif:graphEdge>
+                  <mif:anchor connectToShapeId="Sheet.64">
+                     <mif:position x="1.879" y="0.714"/>
+                  </mif:anchor>
+               </mif:graphEdge>
+            </mif:anchorage>
+         </mif:graphElement>
+      </mif:graphicRepresentation>
+      <mif:specializedClass>
+         <mif:class name="SupplyEvent" isAbstract="false">
+            <mif:businessName name="Prescription Dispense Response"/>
+            <mif:derivationSupplier staticModelDerivationId="1" className="Supply"/>
+            <mif:graphicRepresentation presentation="HL7">
+               <mif:graphElement shapeId="Sheet.64" containerDiagramName="Main" shapeTemplate="Act"
+                                 isWidthAutoSize="true"
+                                 isHeightAutoSize="true">
+                  <mif:position x="1.879" y="0.339"/>
+                  <mif:size width="1.652" height="0.750"/>
+               </mif:graphElement>
+            </mif:graphicRepresentation>
+            <mif:annotations>
+               <mif:definition>
+                  <mif:text>
+                     <mif:p>
+                        <mif:p>Represents the information returned when a dispense has been accepted</mif:p>
+                     </mif:p>
+                  </mif:text>
+               </mif:definition>
+               <mif:rationale>
+                  <mif:text>
+                     <mif:p>
+                        <mif:p>Allows communication of the identifiers assigned to the dispense and the prescription by the DIS.</mif:p>
+                     </mif:p>
+                  </mif:text>
+               </mif:rationale>
+            </mif:annotations>
+            <mif:attribute name="classCode" sortKey="1" minimumMultiplicity="1" maximumMultiplicity="1"
+                           conformance="R"
+                           isMandatory="true"
+                           fixedValue="SPLY"
+                           isStructural="true">
+               <mif:annotations>
+                  <mif:definition>
+                     <mif:text/>
+                  </mif:definition>
+               </mif:annotations>
+               <mif:derivationSupplier staticModelDerivationId="1" className="Supply" attributeName="classCode"/>
+               <mif:type name="CS"/>
+               <mif:supplierDomainSpecification codingStrength="CNE" codeSystemName="ActClass" mnemonic="SPLY"/>
+            </mif:attribute>
+            <mif:attribute name="moodCode" sortKey="2" minimumMultiplicity="1" maximumMultiplicity="1"
+                           conformance="R"
+                           isMandatory="true"
+                           fixedValue="EVN"
+                           isStructural="true">
+               <mif:annotations>
+                  <mif:definition>
+                     <mif:text/>
+                  </mif:definition>
+               </mif:annotations>
+               <mif:derivationSupplier staticModelDerivationId="1" className="Supply" attributeName="moodCode"/>
+               <mif:type name="CS"/>
+               <mif:supplierDomainSpecification codingStrength="CNE" codeSystemName="ActMood" mnemonic="EVN"/>
+            </mif:attribute>
+            <mif:attribute name="id" sortKey="3" minimumMultiplicity="1" maximumMultiplicity="1"
+                           conformance="R"
+                           isMandatory="true"
+                           isStructural="false">
+               <mif:businessName name="Dispense Identifier"/>
+               <mif:annotations>
+                  <mif:definition>
+                     <mif:text>
+                        <mif:p>
+                           <mif:p>Identifier of a dispense event to be used by the requesting dispenser.</mif:p>
+                        </mif:p>
+                     </mif:text>
+                  </mif:definition>
+                  <mif:rationale>
+                     <mif:text>
+                        <mif:p>
+                           <mif:p>Establishes a record of impending dispense on the prescription. Attribute is mandatory to ensure that successful request to dispense has been acknowledged by the DIS.</mif:p>
+                        </mif:p>
+                     </mif:text>
+                  </mif:rationale>
+               </mif:annotations>
+               <mif:derivationSupplier staticModelDerivationId="1" className="Supply" attributeName="id"/>
+               <mif:type name="II"/>
+            </mif:attribute>
+            <mif:association sortKey="3">
+               <mif:graphicRepresentation>
+                  <mif:graphElement connectToShapeId="Sheet.64" containerDiagramName="Main">
+                     <mif:position x="2.705" y="1.089"/>
+                     <mif:graphEdge>
+                        <mif:anchor connectToShapeId="Sheet.68">
+                           <mif:position x="2.705" y="1.089"/>
+                        </mif:anchor>
+                     </mif:graphEdge>
+                  </mif:graphElement>
+               </mif:graphicRepresentation>
+               <mif:targetConnection name="inFulfillmentOf" minimumMultiplicity="1" maximumMultiplicity="1"
+                                     conformance="R"
+                                     isMandatory="true"
+                                     sortKey="BBA_______">
+                  <mif:annotations>
+                     <mif:definition>
+                        <mif:text/>
+                     </mif:definition>
+                  </mif:annotations>
+                  <mif:derivationSupplier staticModelDerivationId="1" className="Act"
+                                          associationEndName="outboundRelationship"/>
+                  <mif:participantClass>
+                     <mif:class name="InFulfillmentOf" isAbstract="false">
+                        <mif:businessName name="Dispense To Be Identified As"/>
+                        <mif:derivationSupplier staticModelDerivationId="1" className="ActRelationship"/>
+                        <mif:graphicRepresentation presentation="HL7">
+                           <mif:graphElement shapeId="Sheet.68" containerDiagramName="Main" shapeTemplate="ActRelationship"
+                                             textWrappingWidth="66.0"
+                                             nodeOrientation="Down">
+                              <mif:position x="1.620" y="1.089"/>
+                              <mif:size width="2.247" height="0.785"/>
+                           </mif:graphElement>
+                        </mif:graphicRepresentation>
+                        <mif:annotations>
+                           <mif:definition>
+                              <mif:text/>
+                           </mif:definition>
+                        </mif:annotations>
+                        <mif:attribute name="typeCode" sortKey="1" minimumMultiplicity="1" maximumMultiplicity="1"
+                                       conformance="R"
+                                       isMandatory="true"
+                                       fixedValue="FLFS"
+                                       isStructural="true">
+                           <mif:annotations>
+                              <mif:definition>
+                                 <mif:text/>
+                              </mif:definition>
+                           </mif:annotations>
+                           <mif:derivationSupplier staticModelDerivationId="1" className="ActRelationship"
+                                                   attributeName="typeCode"/>
+                           <mif:type name="CS"/>
+                           <mif:supplierDomainSpecification codingStrength="CNE" codeSystemName="ActRelationshipType" mnemonic="FLFS"/>
+                        </mif:attribute>
+                        <mif:attribute name="contextControlCode" sortKey="2" minimumMultiplicity="1"
+                                       maximumMultiplicity="1"
+                                       conformance="R"
+                                       isMandatory="true"
+                                       fixedValue="ON"
+                                       isStructural="true">
+                           <mif:annotations>
+                              <mif:definition>
+                                 <mif:text/>
+                              </mif:definition>
+                           </mif:annotations>
+                           <mif:derivationSupplier staticModelDerivationId="1" className="ActRelationship"
+                                                   attributeName="contextControlCode"/>
+                           <mif:type name="CS"/>
+                           <mif:supplierDomainSpecification codingStrength="CNE" codeSystemName="ContextControl" mnemonic="ON"/>
+                        </mif:attribute>
+                        <mif:attribute name="contextConductionInd" sortKey="3" minimumMultiplicity="1"
+                                       maximumMultiplicity="1"
+                                       conformance="R"
+                                       isMandatory="true"
+                                       fixedValue="true"
+                                       isStructural="true">
+                           <mif:annotations>
+                              <mif:definition>
+                                 <mif:text/>
+                              </mif:definition>
+                           </mif:annotations>
+                           <mif:derivationSupplier staticModelDerivationId="1" className="ActRelationship"
+                                                   attributeName="contextConductionInd"/>
+                           <mif:type name="BL"/>
+                        </mif:attribute>
+                        <mif:association sortKey="2">
+                           <mif:graphicRepresentation>
+                              <mif:graphElement connectToShapeId="Sheet.68" containerDiagramName="Main">
+                                 <mif:position x="2.782" y="1.874"/>
+                                 <mif:graphEdge>
+                                    <mif:anchor connectToShapeId="Sheet.5">
+                                       <mif:position x="2.782" y="1.874"/>
+                                    </mif:anchor>
+                                 </mif:graphEdge>
+                              </mif:graphElement>
+                           </mif:graphicRepresentation>
+                           <mif:targetConnection name="actRequest" minimumMultiplicity="1" maximumMultiplicity="1"
+                                                 conformance="R"
+                                                 isMandatory="true"
+                                                 sortKey="BZ">
+                              <mif:annotations>
+                                 <mif:definition>
+                                    <mif:text/>
+                                 </mif:definition>
+                              </mif:annotations>
+                              <mif:derivationSupplier staticModelDerivationId="1" className="ActRelationship"
+                                                      associationEndName="target"/>
+                              <mif:participantClass>
+                                 <mif:class name="ActRequest" isAbstract="false">
+                                    <mif:businessName name="Prescription"/>
+                                    <mif:derivationSupplier staticModelDerivationId="1" className="Act"/>
+                                    <mif:graphicRepresentation presentation="HL7">
+                                       <mif:graphElement shapeId="Sheet.5" containerDiagramName="Main" shapeTemplate="Act"
+                                                         isWidthAutoSize="true"
+                                                         isHeightAutoSize="true">
+                                          <mif:position x="1.700" y="1.874"/>
+                                          <mif:size width="2.164" height="0.750"/>
+                                       </mif:graphElement>
+                                    </mif:graphicRepresentation>
+                                    <mif:annotations>
+                                       <mif:definition>
+                                          <mif:text>
+                                             <mif:p>
+                                                <mif:p>Information pertaining to a prescriber's authorization for a drug to be dispensed to a patient, as well as the instruction on when and how the drug is to be administered to the patient.</mif:p>
+                                             </mif:p>
+                                          </mif:text>
+                                       </mif:definition>
+                                       <mif:rationale>
+                                          <mif:text>
+                                             <mif:p>
+                                                <mif:p>This is a 'core' class of the medication model and is important for understanding what drugs the patient is intended to be receiving. Also needed for e-prescribing.</mif:p>
+                                             </mif:p>
+                                          </mif:text>
+                                       </mif:rationale>
+                                    </mif:annotations>
+                                    <mif:attribute name="classCode" sortKey="1" minimumMultiplicity="1" maximumMultiplicity="1"
+                                                   conformance="R"
+                                                   isMandatory="true"
+                                                   fixedValue="ACT"
+                                                   isStructural="true">
+                                       <mif:annotations>
+                                          <mif:definition>
+                                             <mif:text/>
+                                          </mif:definition>
+                                       </mif:annotations>
+                                       <mif:derivationSupplier staticModelDerivationId="1" className="Act" attributeName="classCode"/>
+                                       <mif:type name="CS"/>
+                                       <mif:supplierDomainSpecification codingStrength="CNE" codeSystemName="ActClass" mnemonic="ACT"/>
+                                    </mif:attribute>
+                                    <mif:attribute name="moodCode" sortKey="2" minimumMultiplicity="1" maximumMultiplicity="1"
+                                                   conformance="R"
+                                                   isMandatory="true"
+                                                   fixedValue="RQO"
+                                                   isStructural="true">
+                                       <mif:annotations>
+                                          <mif:definition>
+                                             <mif:text/>
+                                          </mif:definition>
+                                       </mif:annotations>
+                                       <mif:derivationSupplier staticModelDerivationId="1" className="Act" attributeName="moodCode"/>
+                                       <mif:type name="CS"/>
+                                       <mif:supplierDomainSpecification codingStrength="CNE" codeSystemName="ActMood" mnemonic="RQO"/>
+                                    </mif:attribute>
+                                    <mif:attribute name="id" sortKey="3" minimumMultiplicity="1" maximumMultiplicity="1"
+                                                   conformance="R"
+                                                   isMandatory="true"
+                                                   isStructural="false">
+                                       <mif:businessName name="A:Prescription Order Number"/>
+                                       <mif:annotations>
+                                          <mif:definition>
+                                             <mif:text>
+                                                <mif:p>
+                                                   <mif:p>This is an identifier assigned to a specific medication order. The number remains constant across the lifetime of the order, regardless of the number of providers or pharmacies involved in fulfilling the order.</mif:p>
+                                                </mif:p>
+                                             </mif:text>
+                                          </mif:definition>
+                                          <mif:rationale>
+                                             <mif:text>
+                                                <mif:p>
+                                                   <mif:p>Allows prescriptions to be uniquely referenced. Multiple identifiers are allowed to support assigning of prescription ids by the prescriber, EHR, and potentially by pharmacies.</mif:p>
+                                                </mif:p>
+                                                <mif:p>
+                                                   <mif:p>The ID is mandatory to allow every prescription record to be uniquely identified.</mif:p>
+                                                </mif:p>
+                                             </mif:text>
+                                          </mif:rationale>
+                                          <mif:mapping sourceName="PIN">
+                                             <mif:text>
+                                                <mif:p>
+                                                   <mif:p>Prescription.prescriptionNumber</mif:p>
+                                                </mif:p>
+                                             </mif:text>
+                                          </mif:mapping>
+                                          <mif:mapping sourceName="PIN">
+                                             <mif:text>
+                                                <mif:p>
+                                                   <mif:p>Prescription.prescriptionExternalKey</mif:p>
+                                                </mif:p>
+                                             </mif:text>
+                                          </mif:mapping>
+                                          <mif:mapping sourceName="CPhAv3">
+                                             <mif:text>
+                                                <mif:p>
+                                                   <mif:p>D53(ID for the prescription assigned by pharmacy)</mif:p>
+                                                </mif:p>
+                                             </mif:text>
+                                          </mif:mapping>
+                                          <mif:mapping sourceName="CPhAv3">
+                                             <mif:text>
+                                                <mif:p>
+                                                   <mif:p>D55(ID for the dispense event)</mif:p>
+                                                </mif:p>
+                                             </mif:text>
+                                          </mif:mapping>
+                                          <mif:mapping sourceName="MOXXI">
+                                             <mif:text>
+                                                <mif:p>
+                                                   <mif:p>D99.01</mif:p>
+                                                </mif:p>
+                                             </mif:text>
+                                          </mif:mapping>
+                                          <mif:mapping sourceName="PEI">
+                                             <mif:text>
+                                                <mif:p>
+                                                   <mif:p>X0101(id for prescription)</mif:p>
+                                                </mif:p>
+                                             </mif:text>
+                                          </mif:mapping>
+                                          <mif:mapping sourceName="PECS">
+                                             <mif:text>
+                                                <mif:p>
+                                                   <mif:p>ZDP.5</mif:p>
+                                                </mif:p>
+                                             </mif:text>
+                                          </mif:mapping>
+                                          <mif:mapping sourceName="PECS">
+                                             <mif:text>
+                                                <mif:p>
+                                                   <mif:p>ZDP.6</mif:p>
+                                                </mif:p>
+                                             </mif:text>
+                                          </mif:mapping>
+                                          <mif:mapping sourceName="PECS">
+                                             <mif:text>
+                                                <mif:p>
+                                                   <mif:p>ZDP.22</mif:p>
+                                                </mif:p>
+                                             </mif:text>
+                                          </mif:mapping>
+                                          <mif:mapping sourceName="PECS">
+                                             <mif:text>
+                                                <mif:p>
+                                                   <mif:p>ZRV.5</mif:p>
+                                                </mif:p>
+                                             </mif:text>
+                                          </mif:mapping>
+                                          <mif:mapping sourceName="eScript">
+                                             <mif:text>
+                                                <mif:p>
+                                                   <mif:p>DRU.080-01(extension)</mif:p>
+                                                </mif:p>
+                                             </mif:text>
+                                          </mif:mapping>
+                                          <mif:mapping sourceName="eScript">
+                                             <mif:text>
+                                                <mif:p>
+                                                   <mif:p>DRU.080-02(route)</mif:p>
+                                                </mif:p>
+                                             </mif:text>
+                                          </mif:mapping>
+                                          <mif:mapping sourceName="NCPDP">
+                                             <mif:text>
+                                                <mif:p>
+                                                   <mif:p>Claim.455-EM (route)</mif:p>
+                                                </mif:p>
+                                             </mif:text>
+                                          </mif:mapping>
+                                          <mif:mapping sourceName="NCPDP">
+                                             <mif:text>
+                                                <mif:p>
+                                                   <mif:p>Claim.402-D2 (extension)</mif:p>
+                                                </mif:p>
+                                             </mif:text>
+                                          </mif:mapping>
+                                          <mif:mapping sourceName="NCPDP">
+                                             <mif:text>
+                                                <mif:p>
+                                                   <mif:p>Claim.456-EN</mif:p>
+                                                </mif:p>
+                                             </mif:text>
+                                          </mif:mapping>
+                                          <mif:mapping sourceName="NCPDP">
+                                             <mif:text>
+                                                <mif:p>
+                                                   <mif:p>Claim.454-EK</mif:p>
+                                                </mif:p>
+                                             </mif:text>
+                                          </mif:mapping>
+                                          <mif:mapping sourceName="NeCST">
+                                             <mif:text>
+                                                <mif:p>
+                                                   <mif:p>A_BillablePharmacyDispense</mif:p>
+                                                </mif:p>
+                                             </mif:text>
+                                          </mif:mapping>
+                                       </mif:annotations>
+                                       <mif:derivationSupplier staticModelDerivationId="1" className="Act" attributeName="id"/>
+                                       <mif:type name="II"/>
+                                    </mif:attribute>
+                                 </mif:class>
+                              </mif:participantClass>
+                           </mif:targetConnection>
+                           <mif:sourceConnection>
+                              <mif:nonTraversableConnection participantClassName="InFulfillmentOf">
+                                 <mif:derivationSupplier staticModelDerivationId="1" className="Act"
+                                                         associationEndName="inboundRelationship"/>
+                              </mif:nonTraversableConnection>
+                           </mif:sourceConnection>
+                        </mif:association>
+                     </mif:class>
+                  </mif:participantClass>
+               </mif:targetConnection>
+               <mif:sourceConnection>
+                  <mif:nonTraversableConnection participantClassName="SupplyEvent">
+                     <mif:derivationSupplier staticModelDerivationId="1" className="ActRelationship"
+                                             associationEndName="source"/>
+                  </mif:nonTraversableConnection>
+               </mif:sourceConnection>
+            </mif:association>
+         </mif:class>
+      </mif:specializedClass>
+   </mif:ownedEntryPoint>
+</mif:serializedStaticModel>

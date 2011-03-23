@@ -1,0 +1,1052 @@
+<mif:dynamicModel xmlns:mif="urn:hl7-org:v3/mif">
+   <mif:header>
+      <mif:renderingInformation schemaVersion="1" application="RoseTree 4.2.43">
+         <mif:renderingNotes>This document was rendered into XML using software provided to HL7 by Beeler Consulting LLC.
+ PubDB to MIF Transform: $RCSfile: PubDbXmlToMIF.xsl,v $ $Revision: 1.11 $ $Date: 2007/10/19 05:55:13 $
+  Fix names transform: $Id: FixMifNames.xsl 7634 2009-03-23 00:42:50Z wbeeler $
+  HTML to MIF Markup transform: $Id: HtmlToMIFMarkup.xsl 7375 2009-01-26 19:26:53Z wbeeler $
+  Base transform: $Id: ConvertBase.xsl 7375 2009-01-26 19:26:53Z wbeeler $
+  Package Id Conversion: $Id: TransformPackageIds.xsl 7375 2009-01-26 19:26:53Z wbeeler $</mif:renderingNotes>
+      </mif:renderingInformation>
+      <mif:legalese copyrightOwner="Health Level Seven, Inc." copyrightYears="2010">
+         <mif:notation>All rights reserved.</mif:notation>
+      </mif:legalese>
+   </mif:header>
+   <mif:triggerEvent name="600101" title="Invoice Topic Activate Request"
+                     invokingInteractionId="FICR_IN600102CA">
+      <mif:businessName name="Invoice Activate Request"/>
+      <mif:packageLocation root="DEFN" section="AM" subSection="FI" domain="CR" artifact="TE" realm="CA"
+                           id="600101"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>A trigger to send an Invoice Adjudication Request for adjudication of services and/or products.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="610101" title="Invoice Topic Invoice Complete"
+                     invokingInteractionId="FICR_IN610102CA">
+      <mif:businessName name="Invoice Complete"/>
+      <mif:packageLocation root="DEFN" section="AM" subSection="FI" domain="CR" artifact="TE" realm="CA"
+                           id="610101"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>A trigger to send a completed Invoice Adjudication Result.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="620101" title="Invoice Topic Nullify Request"
+                     invokingInteractionId="FICR_IN620102CA">
+      <mif:businessName name="Invoice Adjudication Nullify Request"/>
+      <mif:packageLocation root="DEFN" section="AM" subSection="FI" domain="CR" artifact="TE" realm="CA"
+                           id="620101"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>A trigger to send an Invoice Nullify Request.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="820101" title="SOFA Topic Event Detail Query"
+                     invokingInteractionId="QUCR_IN820102CA">
+      <mif:businessName name="SOFA Detail Query"/>
+      <mif:packageLocation root="DEFN" section="IM" subSection="QU" domain="CR" artifact="TE" realm="CA"
+                           id="820101"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>A trigger to send a SOFA Detail Query to obtain detailed financial activity information for a specified date range.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="830101" title="SOFA Topic Event Detail Query Response"
+                     invokingInteractionId="QUCR_IN830102CA">
+      <mif:businessName name="SOFA Detail Query Response"/>
+      <mif:packageLocation root="DEFN" section="IM" subSection="QU" domain="CR" artifact="TE" realm="CA"
+                           id="830101"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>A trigger to send a SOFA Detail Query Response with details of financial activity for a Payee.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="800101" title="SOFA Topic Event Payment Advice Query"
+                     invokingInteractionId="QUCR_IN800102CA">
+      <mif:businessName name="SOFA Payment Advice Query"/>
+      <mif:packageLocation root="DEFN" section="IM" subSection="QU" domain="CR" artifact="TE" realm="CA"
+                           id="800101"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>A trigger to send a SOFA Payment Advice Query to obtain summary financial activity information for a specified date.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="810101" title="SOFA Topic Event Payment Advice Query Response"
+                     invokingInteractionId="QUCR_IN810102CA">
+      <mif:businessName name="SOFA Payment Advice Query Response"/>
+      <mif:packageLocation root="DEFN" section="IM" subSection="QU" domain="CR" artifact="TE" realm="CA"
+                           id="810101"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>A trigger to send a SOFA Payment Advice Query Response with details of financial activity for a Payee.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="630101" title="Invoice Topic Nullify Notification"
+                     invokingInteractionId="FICR_IN630102CA">
+      <mif:businessName name="Invoice Adjudication Nullify Notification"/>
+      <mif:packageLocation root="DEFN" section="AM" subSection="FI" domain="CR" artifact="TE" realm="CA"
+                           id="630101"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>A trigger that indicated successful completion of an Invoice Nullify Request. In other words, the request has been nullified.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="630202" title="Invoice Topic Nullify Rejection"
+                     invokingInteractionId="FICR_IN630202CA">
+      <mif:businessName name="Invoice Adjudication Nullify Rejection"/>
+      <mif:packageLocation root="DEFN" section="AM" subSection="FI" domain="CR" artifact="TE" realm="CA"
+                           id="630202"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>A trigger that indicated unsuccessful completion of an Invoice Nullify Request. In other words, the request has NOT been nullified.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="400011" title="Special Authorization Additional Information Requested"
+                     invokingInteractionId="FICR_IN404001CA">
+      <mif:businessName name="Additional Special Authorization Information Reque"/>
+      <mif:packageLocation root="DEFN" section="AM" subSection="FI" domain="CR" artifact="TE" realm="CA"
+                           id="400011"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>More information is required from the requesting provider before a decision can be rendered regarding a special authorization request.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="400005" title="Special Authorization Cancellation Requested"
+                     invokingInteractionId="FICR_IN400005CA">
+      <mif:businessName name="Special Authorization Cancellation Requested"/>
+      <mif:packageLocation root="DEFN" section="AM" subSection="FI" domain="CR" artifact="TE" realm="CA"
+                           id="400005"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>A provider requests that a previously submitted special authorization request be cancelled.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="400002" title="Special Authorization Request Accepted"
+                     invokingInteractionId="FICR_IN400002CA">
+      <mif:businessName name="Special Authorization Request Accepted"/>
+      <mif:packageLocation root="DEFN" section="AM" subSection="FI" domain="CR" artifact="TE" realm="UV"
+                           id="400002"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>The patient's request for special authorization has been approved.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="400003" title="Special Authorization Request Refused"
+                     invokingInteractionId="FICR_IN400003CA">
+      <mif:businessName name="Special Authorization Request Refused"/>
+      <mif:packageLocation root="DEFN" section="AM" subSection="FI" domain="CR" artifact="TE" realm="UV"
+                           id="400003"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>The patient's request for special authorization has been denied.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="400013" title="Special Authorization Candidate Query Requested"
+                     invokingInteractionId="FICR_IN404002CA">
+      <mif:businessName name="Special Authorization Summary Query Requested"/>
+      <mif:packageLocation root="DEFN" section="AM" subSection="FI" domain="CR" artifact="TE" realm="CA"
+                           id="400013"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>A request is made for a list of special authorizations that correspond to the specified criteria.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="400015" title="Special Authorization Detail Query Requested"
+                     invokingInteractionId="FICR_IN404003CA">
+      <mif:businessName name="Special Authorization Detail Query Requested"/>
+      <mif:packageLocation root="DEFN" section="AM" subSection="FI" domain="CR" artifact="TE" realm="CA"
+                           id="400015"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>A request is made for detailed information about an identified special authorization.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="400001" title="Special Authorization Requested"
+                     invokingInteractionId="FICR_IN400001CA">
+      <mif:businessName name="Special Authorization Requested"/>
+      <mif:packageLocation root="DEFN" section="AM" subSection="FI" domain="CR" artifact="TE" realm="CA"
+                           id="400001"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>A provider has completed their assessment and determines that a special authorization request needs to be submitted on a patient's behalf.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="400012" title="Special Authorization Additional Information Supplied"
+                     invokingInteractionId="FICR_IN404101CA">
+      <mif:businessName name="Additional Special Authorization Information Suppl"/>
+      <mif:packageLocation root="DEFN" section="AM" subSection="FI" domain="CR" artifact="TE" realm="CA"
+                           id="400012"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>A provider responds to a request for additional information.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="400006" title="Special Authorization Cancellation Accepted"
+                     invokingInteractionId="FICR_IN400006CA">
+      <mif:businessName name="Special Authorization Cancellation Accepted"/>
+      <mif:packageLocation root="DEFN" section="AM" subSection="FI" domain="CR" artifact="TE" realm="CA"
+                           id="400006"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>The provider's request to cancel a previously submitted special authorization has been accepted.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="400007" title="Special Authorization Cancellation Refused"
+                     invokingInteractionId="FICR_IN400007CA">
+      <mif:businessName name="Special Authorization Cancellation Refused"/>
+      <mif:packageLocation root="DEFN" section="AM" subSection="FI" domain="CR" artifact="TE" realm="CA"
+                           id="400007"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>The provider's request to cancel a previously submitted special authorization has been denied.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="400014" title="Special Authorization Candidate Results Ready"
+                     invokingInteractionId="FICR_IN404102CA">
+      <mif:businessName name="Special Authorization Summary Results Ready"/>
+      <mif:packageLocation root="DEFN" section="AM" subSection="FI" domain="CR" artifact="TE" realm="CA"
+                           id="400014"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>The result of a summary query are ready to be sent.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="400016" title="Special Authorization Detail Results Ready"
+                     invokingInteractionId="FICR_IN404103CA">
+      <mif:businessName name="Special Authorization Detail Results Ready"/>
+      <mif:packageLocation root="DEFN" section="AM" subSection="FI" domain="CR" artifact="TE" realm="CA"
+                           id="400016"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>he results of a detail query request are ready to be sent.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="400018" title="Special Authorization Information Ready">
+      <mif:businessName name="Additional Special Authorization Information Ready"/>
+      <mif:packageLocation root="DEFN" section="AM" subSection="FI" domain="CR" artifact="TE" realm="CA"
+                           id="400018"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>A provider has compiled the necessary supplementary information requested.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="400017" title="Special Authorization Results Ready"
+                     invokingInteractionId="FICR_IN400011CA">
+      <mif:businessName name="Special Authorization Results Ready"/>
+      <mif:packageLocation root="DEFN" section="AM" subSection="FI" domain="CR" artifact="TE" realm="CA"
+                           id="400017"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>The final disposition of a special authorization request is ready to be sent to the requesting provider.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="500101" title="Pre-Determination  Event Activate Request"
+                     invokingInteractionId="FICR_IN500102CA">
+      <mif:businessName name="Pre-Determination Request"/>
+      <mif:packageLocation root="DEFN" section="AM" subSection="FI" domain="CR" artifact="TE" realm="CA"
+                           id="500101"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>A trigger to send a Pre-Determination Request for adjudication of services and/or products.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="510101" title="Pre-Determination  Event Complete"
+                     invokingInteractionId="FICR_IN510102CA">
+      <mif:businessName name="Pre-Determination Complete"/>
+      <mif:packageLocation root="DEFN" section="AM" subSection="FI" domain="CR" artifact="TE" realm="CA"
+                           id="510101"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>A trigger to send a completed Pre-Determination Result.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:hl7Interaction name="600102" title="Invoice Topic Event Activate Request">
+      <mif:businessName name="Invoice Request, Rx"/>
+      <mif:packageLocation root="DEFN" section="AM" subSection="FI" domain="CR" artifact="IN" realm="CA"
+                           id="600102"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>The sender sends an Invoice Adjudication Request message for Pharmacy services and/or products.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="AM" subSection="FI" domain="CR" artifact="TE" realm="CA"
+                      id="600101"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002100">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="MC"
+                                      domain="AI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="700211"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="Act" root="DEFN" section="AM" subSection="FI"
+                                         domain="CR"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="600201"
+                                         traversalName="paymentRequest"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+      <mif:receiverResponsibility triggerEventName="Invoice Topic Invoice Complete"
+                                  interactionName="Invoice Topic Event Activate Confirmation"/>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="610102" title="Invoice Topic Event Activate Confirmation">
+      <mif:businessName name="Invoice Results, Rx"/>
+      <mif:packageLocation root="DEFN" section="AM" subSection="FI" domain="CR" artifact="IN" realm="CA"
+                           id="610102"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>The sender sends an Invoice Adjudication Results message containing the completed results of an Invoice Adjudication Request for Pharmacy services and/or products.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="AM" subSection="FI" domain="CR" artifact="TE" realm="CA"
+                      id="610101"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002300">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="MC"
+                                      domain="AI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="700227"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="Act" root="DEFN" section="AM" subSection="FI"
+                                         domain="CR"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="610201"
+                                         traversalName="paymentIntent"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="620102" title="Invoice Topic Event Nullify Request">
+      <mif:businessName name="Invoice Nullify Request, Rx"/>
+      <mif:packageLocation root="DEFN" section="AM" subSection="FI" domain="CR" artifact="IN" realm="CA"
+                           id="620102"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>The sender sends an Invoice Nullify Request message to request the nullification of a previously submitted Invoice Adjudication Request for Pharmacy services and/or products.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="AM" subSection="FI" domain="CR" artifact="TE" realm="CA"
+                      id="620101"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002100">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="MC"
+                                      domain="AI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="700211"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="Act" root="DEFN" section="AM" subSection="FI"
+                                         domain="CR"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="620000"
+                                         traversalName="invoiceElementGroup"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+      <mif:receiverResponsibility triggerEventName="Invoice Topic Nullify Notification"
+                                  interactionName="Invoice Topic Event Nullify Confirmation"/>
+      <mif:receiverResponsibility triggerEventName="Invoice Topic Nullify Rejection"
+                                  interactionName="Invoice Topic Event Nullify Rejection"/>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="630102" title="Invoice Topic Event Nullify Confirmation">
+      <mif:businessName name="Invoice Nullify Results, Rx"/>
+      <mif:packageLocation root="DEFN" section="AM" subSection="FI" domain="CR" artifact="IN" realm="CA"
+                           id="630102"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>The sender sends an Invoice Nullify Results message containing the completed results of an Invoice Nullify Request for Pharmacy services and/or products.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="AM" subSection="FI" domain="CR" artifact="TE" realm="CA"
+                      id="630101"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002300">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="MC"
+                                      domain="AI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="700227"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="Act" root="DEFN" section="AM" subSection="FI"
+                                         domain="CR"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="630000"
+                                         traversalName="invoiceElementGroup"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="630202" title="Invoice Topic Event Nullify Rejection">
+      <mif:businessName name="Invoice Nullify Rejection, Rx"/>
+      <mif:packageLocation root="DEFN" section="AM" subSection="FI" domain="CR" artifact="IN" realm="CA"
+                           id="630202"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>The sender sends an ACK to acknowledge of the request and indicate that the nullification was rejected and the adjudication results not reversed.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="AM" subSection="FI" domain="CR" artifact="TE" realm="CA"
+                      id="630202"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002300">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="MC"
+                                      domain="AI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="700227"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="Act" root="DEFN" section="IM" subSection="CO"
+                                         domain="MT"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="001103"
+                                         traversalName="actEvent"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="800102" title="SOFA Topic Event Query">
+      <mif:businessName name="SOFA Payment Advice Query, Rx"/>
+      <mif:packageLocation root="DEFN" section="IM" subSection="QU" domain="CR" artifact="IN" realm="CA"
+                           id="800102"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>The sender sends a SOFA (Statement of Financial Activity) Payment Advice Query message for Pharmacy services and/or products.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="IM" subSection="QU" domain="CR" artifact="TE" realm="CA"
+                      id="800101"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002100">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="QU"
+                                      domain="QI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="020002"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="ParameterList" root="DEFN" section="IM" subSection="QU"
+                                         domain="CR"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="800201"
+                                         traversalName="parameterList"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+      <mif:receiverResponsibility triggerEventName="SOFA Topic Event Payment Advice Query Response"
+                                  interactionName="SOFA Topic Event Query Response"/>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="820102" title="SOFA Topic Event Query Detail">
+      <mif:businessName name="SOFA Detail Query Request, Rx"/>
+      <mif:packageLocation root="DEFN" section="IM" subSection="QU" domain="CR" artifact="IN" realm="CA"
+                           id="820102"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>The sender sends a SOFA (Statement of Financial Activity) Detail Query message for Pharmacy services and/or products. The request is for detailed account activity information, including references to previously adjudicated Invoices.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="IM" subSection="QU" domain="CR" artifact="TE" realm="CA"
+                      id="820101"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002100">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="QU"
+                                      domain="QI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="020002"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="ParameterList" root="DEFN" section="IM" subSection="QU"
+                                         domain="CR"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="820201"
+                                         traversalName="parameterList"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+      <mif:receiverResponsibility triggerEventName="SOFA Topic Event Detail Query Response"
+                                  interactionName="SOFA Topic Event Query Response Detail"/>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="810102" title="SOFA Topic Event Query Response">
+      <mif:businessName name="SOFA Payment Advice Query Response, Rx"/>
+      <mif:packageLocation root="DEFN" section="IM" subSection="QU" domain="CR" artifact="IN" realm="CA"
+                           id="810102"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>The sender sends a SOFA (Statement of Financial Activity) Payment Advice Query Response message for Pharmacy services and/or products.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="IM" subSection="QU" domain="CR" artifact="TE" realm="CA"
+                      id="810101"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002300">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="QU"
+                                      domain="QI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="120008"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="Act" root="DEFN" section="IM" subSection="QU"
+                                         domain="CR"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="810201"
+                                         traversalName="adjudResultsGroup"/>
+            <mif:supplierBindingArgument templateParameterName="ParameterList" root="DEFN" section="IM" subSection="QU"
+                                         domain="CR"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="800201"
+                                         traversalName="parameterList"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="830102" title="SOFA Topic Event Query Response Detail">
+      <mif:businessName name="SOFA Detail Query Results, Rx"/>
+      <mif:packageLocation root="DEFN" section="IM" subSection="QU" domain="CR" artifact="IN" realm="CA"
+                           id="830102"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>The sender sends a SOFA (Statement of Financial Activity) Detail Query Response message for Pharmacy services and/or products.The response is for detailed account activity information, including references to previously adjudicated Invoices.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="IM" subSection="QU" domain="CR" artifact="TE" realm="CA"
+                      id="830101"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002300">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="QU"
+                                      domain="QI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="120008"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="Act" root="DEFN" section="IM" subSection="QU"
+                                         domain="CR"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="830201"
+                                         traversalName="adjudResultsGroup"/>
+            <mif:supplierBindingArgument templateParameterName="ParameterList" root="DEFN" section="IM" subSection="QU"
+                                         domain="CR"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="820201"
+                                         traversalName="parameterList"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="400001" title="Special Authorization Event Activate Request">
+      <mif:businessName name="Create Special Authorization Request"/>
+      <mif:packageLocation root="DEFN" section="AM" subSection="FI" domain="CR" artifact="IN" realm="CA"
+                           id="400001"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>Requests that a Special Authorization for full coverage of a non or partial benefit drug be applied to a patient record.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="AM" subSection="FI" domain="CR" artifact="TE" realm="CA"
+                      id="400001"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002100">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="MC"
+                                      domain="AI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="700211"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="Act" root="DEFN" section="AM" subSection="FI"
+                                         domain="CR"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="400001"
+                                         traversalName="specialAuthorizationRequest"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+      <mif:receiverResponsibility triggerEventName="Special Authorization Request Accepted"
+                                  interactionName="Special Authorization Event Activate Confirmation"/>
+      <mif:receiverResponsibility triggerEventName="Special Authorization Request Refused"
+                                  interactionName="Special Authorization Event Activate Rejection"/>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="400002" title="Special Authorization Event Activate Confirmation">
+      <mif:businessName name="Special Authorization Request Accept Response"/>
+      <mif:packageLocation root="DEFN" section="AM" subSection="FI" domain="CR" artifact="IN" realm="CA"
+                           id="400002"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>Indicates that processing of the Create SA Request for a specific product (e.g. drug), device or service was either: - Approved (SA status of ""active""); or - Pended (SA status of ""suspended""); or - Pended and Request Additional Information (SA status of ""suspended"") with request for additional information from the Payor conveyed in the response message payload</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="AM" subSection="FI" domain="CR" artifact="TE" realm="UV"
+                      id="400002"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002300">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="MC"
+                                      domain="AI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="700227"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="Act" root="DEFN" section="AM" subSection="FI"
+                                         domain="CR"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="400004"
+                                         traversalName="specialAuthorizationRequest"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="400003" title="Special Authorization Event Activate Rejection">
+      <mif:businessName name="Special Authorization Request Refuse Response"/>
+      <mif:packageLocation root="DEFN" section="AM" subSection="FI" domain="CR" artifact="IN" realm="CA"
+                           id="400003"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>Indicates that processing of the Create SA Request for a specific product (e.g. drug), device or service was not approved).</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="AM" subSection="FI" domain="CR" artifact="TE" realm="UV"
+                      id="400003"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002300">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="MC"
+                                      domain="AI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="700237"
+                                      traversalName="controlActEvent"/>
+      </mif:parameterTypeModel>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="400005" title="Special Authorization Event Nullify Request">
+      <mif:businessName name="Cancel Special Authorization Request"/>
+      <mif:packageLocation root="DEFN" section="AM" subSection="FI" domain="CR" artifact="IN" realm="CA"
+                           id="400005"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>The Cancel Special Authorization Request is submitted to cancel processing of a previously submitted Special Authorization Request. This interaction is typically submitted when a provider determines that the requirement for an SA Request is no longer appropriate.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="AM" subSection="FI" domain="CR" artifact="TE" realm="CA"
+                      id="400005"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002100">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="MC"
+                                      domain="AI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="700211"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="Act" root="DEFN" section="IM" subSection="CO"
+                                         domain="MT"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="001101"
+                                         traversalName="actRequest"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+      <mif:receiverResponsibility triggerEventName="Special Authorization Cancellation Accepted"
+                                  interactionName="Special Authorization Event Nullify Confirmation"/>
+      <mif:receiverResponsibility triggerEventName="Special Authorization Cancellation Refused"
+                                  interactionName="Special Authorization Event Nullify Rejection"/>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="400006" title="Special Authorization Event Nullify Confirmation">
+      <mif:businessName name="Cancel Special Authorization Request Accept Respon"/>
+      <mif:packageLocation root="DEFN" section="AM" subSection="FI" domain="CR" artifact="IN" realm="CA"
+                           id="400006"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>Indicates that the Special Authorization Request has been cancelled.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="AM" subSection="FI" domain="CR" artifact="TE" realm="CA"
+                      id="400006"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002300">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="MC"
+                                      domain="AI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="700227"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="Act" root="DEFN" section="IM" subSection="CO"
+                                         domain="MT"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="001101"
+                                         traversalName="actRequest"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="400007" title="Special Authorization Event Nullify Rejection">
+      <mif:businessName name="Cancel Special Authorization Request Refuse Respon"/>
+      <mif:packageLocation root="DEFN" section="AM" subSection="FI" domain="CR" artifact="IN" realm="CA"
+                           id="400007"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>Indicates that the Special Authorization Request has not been cancelled. Supplementary reasons such as ""unable to cancel"", ""unable to find"" may be provided.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="AM" subSection="FI" domain="CR" artifact="TE" realm="CA"
+                      id="400007"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002300">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="MC"
+                                      domain="AI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="700227"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="Act" root="DEFN" section="IM" subSection="CO"
+                                         domain="MT"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="001101"
+                                         traversalName="actRequest"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="400011" title="Special Authorization Event Notification Result">
+      <mif:businessName name="Special Authorization Result Notification"/>
+      <mif:packageLocation root="DEFN" section="AM" subSection="FI" domain="CR" artifact="IN" realm="CA"
+                           id="400011"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>Indicates that adjudication of a previously pended Special Authorization has been completed. The Special Authorization Request status will either be ""active"" if approved or ""aborted"" if not approved.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="AM" subSection="FI" domain="CR" artifact="TE" realm="CA"
+                      id="400017"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002100">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="MC"
+                                      domain="AI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="700211"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="Act" root="DEFN" section="AM" subSection="FI"
+                                         domain="CR"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="400003"
+                                         traversalName="specialAuthorizationRequest"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="404001" title="Special Authorization Event Request">
+      <mif:businessName name="Special Authorization Additional Information Reque"/>
+      <mif:packageLocation root="DEFN" section="AM" subSection="FI" domain="CR" artifact="IN" realm="CA"
+                           id="404001"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>Indicates that the Payor requires additional information in order to adjudicate the Special Authorization Request.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="AM" subSection="FI" domain="CR" artifact="TE" realm="CA"
+                      id="400011"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002100">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="MC"
+                                      domain="AI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="700211"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="Act" root="DEFN" section="AM" subSection="FI"
+                                         domain="CR"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="490003"
+                                         traversalName="specialAuthorizationAdditionalInformationRequest"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+      <mif:receiverResponsibility triggerEventName="Special Authorization Additional Information Supplied"
+                                  interactionName="Special Authorization Event Confirmation"/>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="404101" title="Special Authorization Event Confirmation">
+      <mif:businessName name="Special Authorization Additional Information  Resp"/>
+      <mif:packageLocation root="DEFN" section="AM" subSection="FI" domain="CR" artifact="IN" realm="CA"
+                           id="404101"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>Allows a provider to respond to a request for additional information for Special Authorization.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="AM" subSection="FI" domain="CR" artifact="TE" realm="CA"
+                      id="400012"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002300">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="MC"
+                                      domain="AI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="700227"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="Act" root="DEFN" section="AM" subSection="FI"
+                                         domain="CR"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="490103"
+                                         traversalName="specialAuthorizationAdditionalInformationResponse"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="404003" title="Special Authorization Event Query Detail">
+      <mif:businessName name="Special Authorization Detail Query Request"/>
+      <mif:packageLocation root="DEFN" section="AM" subSection="FI" domain="CR" artifact="IN" realm="CA"
+                           id="404003"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>Requests retrieval of a specific Special Authorization Request based on submitted query parameters.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="AM" subSection="FI" domain="CR" artifact="TE" realm="CA"
+                      id="400015"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002100">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="QU"
+                                      domain="QI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="020002"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="ParameterList" root="DEFN" section="AM" subSection="FI"
+                                         domain="CR"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="490002"
+                                         traversalName="parameterList"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+      <mif:receiverResponsibility triggerEventName="Special Authorization Detail Results Ready"
+                                  interactionName="Special Authorization Event Query Response Detail"/>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="404002" title="Special Authorization Event Query Summary">
+      <mif:businessName name="Special Authorization Summary Query Request"/>
+      <mif:packageLocation root="DEFN" section="AM" subSection="FI" domain="CR" artifact="IN" realm="CA"
+                           id="404002"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>Requests retrieval of summary level Special Authorization Requests based on submitted query parameters.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="AM" subSection="FI" domain="CR" artifact="TE" realm="CA"
+                      id="400013"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002100">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="QU"
+                                      domain="QI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="020002"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="ParameterList" root="DEFN" section="AM" subSection="FI"
+                                         domain="CR"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="490001"
+                                         traversalName="parameterList"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+      <mif:receiverResponsibility triggerEventName="Special Authorization Candidate Results Ready"
+                                  interactionName="Special Authorization Event Query Response Summary"/>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="404103" title="Special Authorization Event Query Response Detail">
+      <mif:businessName name="Special Authorization Detail Query Response"/>
+      <mif:packageLocation root="DEFN" section="AM" subSection="FI" domain="CR" artifact="IN" realm="CA"
+                           id="404103"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>Returns a specific Special Authorization Request based on submitted query parameters.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="AM" subSection="FI" domain="CR" artifact="TE" realm="CA"
+                      id="400016"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002300">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="QU"
+                                      domain="QI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="120008"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="Act" root="DEFN" section="AM" subSection="FI"
+                                         domain="CR"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="490102"
+                                         traversalName="specialAuthorizationRequest"/>
+            <mif:supplierBindingArgument templateParameterName="ParameterList" root="DEFN" section="AM" subSection="FI"
+                                         domain="CR"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="490002"
+                                         traversalName="parameterList"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="404102" title="Special Authorization Event Query Response Summary">
+      <mif:businessName name="Special Authorization Summary Query Response"/>
+      <mif:packageLocation root="DEFN" section="AM" subSection="FI" domain="CR" artifact="IN" realm="CA"
+                           id="404102"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>Returns summary level Special Authorization Requests based on submitted query parameters.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="AM" subSection="FI" domain="CR" artifact="TE" realm="CA"
+                      id="400014"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002300">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="QU"
+                                      domain="QI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="120008"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="Act" root="DEFN" section="AM" subSection="FI"
+                                         domain="CR"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="490101"
+                                         traversalName="specialAuthorizationRequest"/>
+            <mif:supplierBindingArgument templateParameterName="ParameterList" root="DEFN" section="AM" subSection="FI"
+                                         domain="CR"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="490001"
+                                         traversalName="parameterList"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="500102" title="Pre-Determination Event Request">
+      <mif:businessName name="Pre-Determination Request, Rx"/>
+      <mif:packageLocation root="DEFN" section="AM" subSection="FI" domain="CR" artifact="IN" realm="CA"
+                           id="500102"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>The sender sends a Pre-Determination Request message for Pharmacy services and/or products. The receiver will provide completed Pre-Determination Results, NOT initial results. Pre-Determination Results indicate adjudication results for specified services and/or products, but does not generate a payment.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="AM" subSection="FI" domain="CR" artifact="TE" realm="CA"
+                      id="500101"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002100">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="MC"
+                                      domain="AI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="700211"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="Act" root="DEFN" section="AM" subSection="FI"
+                                         domain="CR"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="500201"
+                                         traversalName="paymentRequest"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+      <mif:receiverResponsibility triggerEventName="Pre-Determination  Event Complete"
+                                  interactionName="Pre-Determination Event Confirmation"/>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="510102" title="Pre-Determination Event Confirmation">
+      <mif:businessName name="Pre-Determination Results, Rx"/>
+      <mif:packageLocation root="DEFN" section="AM" subSection="FI" domain="CR" artifact="IN" realm="CA"
+                           id="510102"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>The sender sends a Pre-Determination Results message containing the completed results of a Pre-Determination Request for Pharmacy services and/or products. Pre-Determination Results indicate adjudication results for specified services and/or products, but does not generate a payment.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="AM" subSection="FI" domain="CR" artifact="TE" realm="CA"
+                      id="510101"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002300">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="MC"
+                                      domain="AI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="700227"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="Act" root="DEFN" section="AM" subSection="FI"
+                                         domain="CR"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="510201"
+                                         traversalName="financialTransactionIntent"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+   </mif:hl7Interaction>
+</mif:dynamicModel>

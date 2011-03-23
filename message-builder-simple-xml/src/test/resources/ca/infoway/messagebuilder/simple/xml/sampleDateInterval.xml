@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ParameterList xmlns="urn:ca.infoway.messagebuilder.simplexml.v1" >
+	<dateInterval>
+		<from value="199902301232-0930" />
+		<to value="199902301232-0930" />
+	</dateInterval>
+	<dateInterval>
+		<to value="199902301232-0930" />
+		<duration value="4" unit="day"/>
+	</dateInterval>
+	<dateInterval>
+		<from value="199902301232-0930" />
+		<duration value="4" unit="day"/>
+	</dateInterval>
+	<dateInterval>
+		<fromNullFlavor value="NI" />
+		<to value="199902301232-0930" />
+	</dateInterval>
+	<dateInterval>
+		<toNullFlavor value="NI" />
+		<duration value="4" unit="day"/>
+	</dateInterval>
+	<dateInterval>
+		<from value="199902301232-0930" />
+		<durationNullFlavor value="NI" />
+	</dateInterval>
+	<dateInterval>
+		<fromNullFlavor value="NI" />
+		<durationNullFlavor value="NI" />
+	</dateInterval>
+</ParameterList>

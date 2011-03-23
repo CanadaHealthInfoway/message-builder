@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<POME_IN010060CA xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:hl7-org:v3"  ITSVersion="XML_1.0">
+  <id root="4e92601d-0933-4bc8-b782-d94fa8a1a8a5"/>
+  <creationTime value="20090916112259"/>
+  <versionCode code="V3-2007-05"/>
+  <interactionId extension="POME_IN010060CA" root="2.16.840.1.113883.1.6"/>
+  <processingCode code="P"/>
+  <processingModeCode code="T"/>
+  <acceptAckCode code="NE"/>
+  <receiver typeCode="RCV">
+    <telecom value="http://987.654.321.0"/>
+    <device classCode="DEV" determinerCode="INSTANCE">
+      <id extension="123" root="1.2.3"/>
+    </device>
+  </receiver>
+  <sender typeCode="SND">
+    <telecom value="http://panaceatest.intelliware.ca"/>
+    <device classCode="DEV" determinerCode="INSTANCE">
+      <id root="2.16.124.113620.1.1.4.1"/>
+      <manufacturerModelName>1.13-SNAPSHOT</manufacturerModelName>
+      <softwareName>Test Level 7</softwareName>
+    </device>
+  </sender>
+  <acknowledgement>
+    <typeCode code="AA"/>
+    <messageWaitingNumber value="0"/>
+    <targetMessage>
+      <id root="1ee83ff1-08ab-4fe7-b573-ea777e9bad51"/>
+    </targetMessage>
+  </acknowledgement>
+  <controlActEvent classCode="CACT" moodCode="EVN">
+    <id extension="8141234" root="2.16.840.1.113883.1.6"/>
+    <code code="POME_TE010020UV" codeSystem="2.16.840.1.113883.5.4"/>
+    <statusCode code="completed"/>
+    <subject typeCode="SUBJ" contextConductionInd="false">
+      <medication classCode="MED">
+        <player classCode="MMAT" determinerCode="KIND">
+          <code code="02150352" codeSystem="2.16.840.1.113883.5.1105"/>
+          <name>Aspirin - Children&apos;s Size - Tablets</name>
+          <desc></desc>
+          <asManufacturedProduct classCode="MANU">
+            <manufacturer classCode="ORG" determinerCode="INSTANCE">
+              <id extension="5348" root="2.16.124.101.1.277"/>
+              <name>Bayer Inc., Consumer Care Division</name>
+            </manufacturer>
+          </asManufacturedProduct>
+          <asRegulatedProduct classCode="RGPR">
+            <statusCode code="active"/>
+          </asRegulatedProduct>
+          <ingredient classCode="INGR">
+            <quantity unit="mg" value="80"/>
+            <ingredient classCode="MMAT" determinerCode="KIND">
+              <name>Acetylsalicylic Acid</name>
+            </ingredient>
+          </ingredient>
+        </player>
+      </medication>
+    </subject>
+    <queryAck>
+      <queryId extension="1" root="1.2.3.4.5"/>
+      <queryResponseCode code="OK"/>
+      <resultTotalQuantity value="1"/>
+      <resultCurrentQuantity value="1"/>
+      <resultRemainingQuantity value="0"/>
+    </queryAck>
+    <queryByParameter>
+      <queryId extension="1" root="1.2.3.4.5"/>
+      <parameterList>
+        <drugCode>
+          <value code="02150352" codeSystem="2.16.840.1.113883.5.1105"/>
+        </drugCode>
+      </parameterList>
+    </queryByParameter>
+  </controlActEvent>
+</POME_IN010060CA>

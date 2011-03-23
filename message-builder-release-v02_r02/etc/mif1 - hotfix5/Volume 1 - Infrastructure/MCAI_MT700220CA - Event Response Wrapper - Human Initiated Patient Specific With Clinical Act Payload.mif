@@ -1,0 +1,1859 @@
+<mif:serializedStaticModel xmlns:mif="urn:hl7-org:v3/mif"
+                           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                           xsi:schemaLocation=""
+                           packageKind="realm"
+                           representationKind="serialized"
+                           isSerializable="true"
+                           isAbstract="false"
+                           name="CA">
+   <mif:packageLocation root="DEFN" section="IM" subSection="MC" domain="AI" artifact="MT-deprecated"
+                        realm="CA"
+                        id="700220"/>
+   <mif:header>
+      <mif:renderingInformation schemaVersion="1" application="Visio to MIF transform"/>
+      <mif:legalese copyrightOwner="Health Level Seven" copyrightYears="2008"/>
+   </mif:header>
+   <mif:graphicRepresentation presentation="HL7">
+      <mif:graphElement name="Main">
+         <mif:position x="0.0" y="0.0"/>
+         <mif:size width="17.000" height="15.000"/>
+      </mif:graphElement>
+   </mif:graphicRepresentation>
+   <mif:derivationSupplier staticModelDerivationId="1">
+      <mif:targetStaticModel root="DEFN" artifact="RIM" version="00"/>
+   </mif:derivationSupplier>
+   <mif:ownedEntryPoint id="MCAI_MT700220CA"
+                        name="Event Response Wrapper - Human Initiated Patient Specific With Clinical Act Payload"
+                        isAbstract="false">
+      <mif:graphicRepresentation>
+         <mif:graphElement shapeId="Sheet.78" containerDiagramName="Main">
+            <mif:position x="3.897" y="0.547"/>
+            <mif:size width="5.709" height="0.453"/>
+            <mif:anchorage connectToShapeId="Sheet.78">
+               <mif:position x="6.750" y="1.000"/>
+               <mif:graphEdge>
+                  <mif:anchor connectToShapeId="Sheet.168">
+                     <mif:position x="6.753" y="2.524"/>
+                  </mif:anchor>
+               </mif:graphEdge>
+            </mif:anchorage>
+         </mif:graphElement>
+      </mif:graphicRepresentation>
+      <mif:specializedClass>
+         <mif:class name="ControlActEvent" isAbstract="false">
+            <mif:businessName name="Trigger Event"/>
+            <mif:derivationSupplier staticModelDerivationId="1" className="ControlAct"/>
+            <mif:graphicRepresentation presentation="HL7">
+               <mif:graphElement shapeId="Sheet.168" containerDiagramName="Main" shapeTemplate="Act"
+                                 isWidthAutoSize="true"
+                                 isHeightAutoSize="false">
+                  <mif:position x="5.027" y="2.524"/>
+                  <mif:size width="3.452" height="7.903"/>
+               </mif:graphElement>
+            </mif:graphicRepresentation>
+            <mif:annotations>
+               <mif:definition>
+                  <mif:text>
+                     <mif:p>
+                        <mif:p>Identifies the action that resulted in this message being sent.</mif:p>
+                     </mif:p>
+                  </mif:text>
+               </mif:definition>
+               <mif:usageNotes>
+                  <mif:text>
+                     <mif:p>
+                        <mif:p>There may be constraints on the usage of the effectiveTime and reasonCode attributes in the definition of the interaction or the trigger events which are conveyed with this wrapper.</mif:p>
+                     </mif:p>
+                  </mif:text>
+               </mif:usageNotes>
+               <mif:rationale>
+                  <mif:text>
+                     <mif:p>
+                        <mif:p>Key to understanding what action a message represents.</mif:p>
+                     </mif:p>
+                  </mif:text>
+               </mif:rationale>
+            </mif:annotations>
+            <mif:attribute name="classCode" sortKey="1" minimumMultiplicity="1" maximumMultiplicity="1"
+                           conformance="R"
+                           isMandatory="true"
+                           fixedValue="CACT"
+                           isStructural="true">
+               <mif:derivationSupplier staticModelDerivationId="1" className="ControlAct" attributeName="classCode"/>
+               <mif:type name="CS"/>
+               <mif:supplierDomainSpecification codingStrength="CNE" codeSystemName="ActClass" mnemonic="CACT"/>
+            </mif:attribute>
+            <mif:attribute name="moodCode" sortKey="2" minimumMultiplicity="1" maximumMultiplicity="1"
+                           conformance="R"
+                           isMandatory="true"
+                           fixedValue="EVN"
+                           isStructural="true">
+               <mif:derivationSupplier staticModelDerivationId="1" className="ControlAct" attributeName="moodCode"/>
+               <mif:type name="CS"/>
+               <mif:supplierDomainSpecification codingStrength="CNE" codeSystemName="ActMood" mnemonic="EVN"/>
+            </mif:attribute>
+            <mif:attribute name="id" sortKey="3" minimumMultiplicity="1" maximumMultiplicity="1"
+                           conformance="R"
+                           isMandatory="true"
+                           isStructural="false">
+               <mif:businessName name="B:Event Identifier"/>
+               <mif:annotations>
+                  <mif:definition>
+                     <mif:text>
+                        <mif:p>
+                           <mif:p>A unique identifier for this particular event assigned by the system in which the event occurred.</mif:p>
+                        </mif:p>
+                     </mif:text>
+                  </mif:definition>
+                  <mif:usageNotes>
+                     <mif:text>
+                        <mif:p>
+                           <mif:p>Identifier needs to be persisted by receiving applications, except for queries (queries cannot be retracted or undone).</mif:p>
+                        </mif:p>
+                     </mif:text>
+                  </mif:usageNotes>
+                  <mif:rationale>
+                     <mif:text>
+                        <mif:p>
+                           <mif:p>Allows the event to be referenced (for undos) and also indicates whether multiple interactions were caused by the same triggering event. Also used for audit purposes.</mif:p>
+                        </mif:p>
+                     </mif:text>
+                  </mif:rationale>
+               </mif:annotations>
+               <mif:derivationSupplier staticModelDerivationId="1" className="ControlAct" attributeName="id"/>
+               <mif:type name="II.BUS"/>
+            </mif:attribute>
+            <mif:attribute name="code" sortKey="4" minimumMultiplicity="1" maximumMultiplicity="1"
+                           conformance="R"
+                           isMandatory="true"
+                           isStructural="false">
+               <mif:businessName name="A:Event Type"/>
+               <mif:annotations>
+                  <mif:definition>
+                     <mif:text>
+                        <mif:p>
+                           <mif:p>Identifies the trigger event that occurred.</mif:p>
+                        </mif:p>
+                     </mif:text>
+                  </mif:definition>
+                  <mif:rationale>
+                     <mif:text>
+                        <mif:p>
+                           <mif:p>This is mandatory because it is essential to understanding the meaning of the event.</mif:p>
+                        </mif:p>
+                     </mif:text>
+                  </mif:rationale>
+               </mif:annotations>
+               <mif:derivationSupplier staticModelDerivationId="1" className="ControlAct" attributeName="code"/>
+               <mif:type name="CV"/>
+               <mif:supplierDomainSpecification codingStrength="CNE" domainName="HL7TriggerEventCode"/>
+            </mif:attribute>
+            <mif:attribute name="statusCode" sortKey="5" minimumMultiplicity="1" maximumMultiplicity="1"
+                           conformance="R"
+                           isMandatory="true"
+                           fixedValue="completed"
+                           isStructural="false">
+               <mif:annotations>
+                  <mif:definition>
+                     <mif:text>
+                        <mif:p>
+                           <mif:p>Describes the status of the control act, which is always complete (it happened).</mif:p>
+                        </mif:p>
+                     </mif:text>
+                  </mif:definition>
+                  <mif:rationale>
+                     <mif:text>
+                        <mif:p>
+                           <mif:p>Required for completeness of specification.</mif:p>
+                        </mif:p>
+                     </mif:text>
+                  </mif:rationale>
+               </mif:annotations>
+               <mif:derivationSupplier staticModelDerivationId="1" className="ControlAct" attributeName="statusCode"/>
+               <mif:type name="CS"/>
+               <mif:supplierDomainSpecification codingStrength="CNE" codeSystemName="ActStatus" mnemonic="completed"/>
+            </mif:attribute>
+            <mif:attribute name="effectiveTime" sortKey="6" minimumMultiplicity="0"
+                           maximumMultiplicity="1"
+                           conformance="R"
+                           isMandatory="false"
+                           isStructural="false">
+               <mif:businessName name="C:Event Effective Period"/>
+               <mif:annotations>
+                  <mif:definition>
+                     <mif:text>
+                        <mif:p>
+                           <mif:p>Indicates the time the event (e.g. query, change, activation) should begin and occasionally when it should end.</mif:p>
+                        </mif:p>
+                     </mif:text>
+                  </mif:definition>
+                  <mif:rationale>
+                     <mif:text>
+                        <mif:p>
+                           <mif:p>The time an event becomes effective may differ from the time the event is recorded (i.e. it may be in the future or the past). For events such as 'suspend', an intended end date may also be indicated.</mif:p>
+                        </mif:p>
+                     </mif:text>
+                  </mif:rationale>
+               </mif:annotations>
+               <mif:derivationSupplier staticModelDerivationId="1" className="ControlAct"
+                                       attributeName="effectiveTime"/>
+               <mif:type name="IVL">
+                  <supplierBindingArgumentDatatype xmlns="urn:hl7-org:v3/mif" name="TS.FULLDATE"/>
+               </mif:type>
+            </mif:attribute>
+            <mif:attribute name="reasonCode" sortKey="7" minimumMultiplicity="0" maximumMultiplicity="1"
+                           conformance="R"
+                           isMandatory="false"
+                           isStructural="false">
+               <mif:businessName name="E:Event Reason"/>
+               <mif:annotations>
+                  <mif:definition>
+                     <mif:text>
+                        <mif:p>
+                           <mif:p>Identifies why this specific message interaction (e.g. query, activation request, modification request) occurred.</mif:p>
+                        </mif:p>
+                     </mif:text>
+                  </mif:definition>
+                  <mif:usageNotes>
+                     <mif:text>
+                        <mif:p>
+                           <mif:p>The domain associated with this attribute will vary for each interaction and will be noted as part of the interaction description.</mif:p>
+                        </mif:p>
+                     </mif:text>
+                  </mif:usageNotes>
+                  <mif:rationale>
+                     <mif:text>
+                        <mif:p>
+                           <mif:p>Allows identifying a reason for a specific action, such as 'reason for hold' or 'reason for accessing information'.</mif:p>
+                        </mif:p>
+                     </mif:text>
+                  </mif:rationale>
+               </mif:annotations>
+               <mif:derivationSupplier staticModelDerivationId="1" className="ControlAct" attributeName="reasonCode"/>
+               <mif:type name="CV"/>
+               <mif:supplierDomainSpecification codingStrength="CWE" domainName="ControlActReason"/>
+            </mif:attribute>
+            <mif:association sortKey="7">
+               <mif:graphicRepresentation>
+                  <mif:graphElement connectToShapeId="Sheet.168" containerDiagramName="Main">
+                     <mif:position x="8.479" y="3.315"/>
+                     <mif:graphEdge>
+                        <mif:anchor connectToShapeId="Sheet.225">
+                           <mif:position x="8.479" y="3.315"/>
+                        </mif:anchor>
+                     </mif:graphEdge>
+                  </mif:graphElement>
+               </mif:graphicRepresentation>
+               <mif:targetConnection name="recordTarget" minimumMultiplicity="1" maximumMultiplicity="1"
+                                     conformance="R"
+                                     isMandatory="true"
+                                     sortKey="ABA_______">
+                  <mif:derivationSupplier staticModelDerivationId="1" className="Act" associationEndName="participation"/>
+                  <mif:participantClass>
+                     <mif:class name="RecordTarget" isAbstract="false">
+                        <mif:derivationSupplier staticModelDerivationId="1" className="Participation"/>
+                        <mif:graphicRepresentation presentation="HL7">
+                           <mif:graphElement shapeId="Sheet.225" containerDiagramName="Main" shapeTemplate="Participation"
+                                             textWrappingWidth="66.0"
+                                             nodeOrientation="Right">
+                              <mif:position x="8.479" y="3.004"/>
+                              <mif:size width="2.638" height="0.436"/>
+                           </mif:graphElement>
+                        </mif:graphicRepresentation>
+                        <mif:annotations>
+                           <mif:definition>
+                              <mif:text>
+                                 <mif:p>
+                                    <mif:p>Associated patient record for which this message applies. Record target can be one of either identified patient (id, name, gender, date of birth), indeterminate patient (name, gender, date of birth) or a patient token (suggesting client identity).</mif:p>
+                                 </mif:p>
+                              </mif:text>
+                           </mif:definition>
+                           <mif:rationale>
+                              <mif:text>
+                                 <mif:p>
+                                    <mif:p>Inferring patient identity opens up the potential for privacy breach through the mis-keying of identifiers. Also, inclusion of patient identity simplifies logging, processing and application of data access constraints such as masking and consent. Finally, patient id is required to support both EHR Index (record and update) and Patient Profile Summary query (list).</mif:p>
+                                 </mif:p>
+                                 <mif:p>
+                                    <mif:p>Patient identity is key to successful operation of the EHR.</mif:p>
+                                 </mif:p>
+                                 <mif:p>
+                                    <mif:p>A bare identifier exposes the patient to potential privacy violation.</mif:p>
+                                 </mif:p>
+                              </mif:text>
+                           </mif:rationale>
+                        </mif:annotations>
+                        <mif:attribute name="typeCode" sortKey="1" minimumMultiplicity="1" maximumMultiplicity="1"
+                                       conformance="R"
+                                       isMandatory="true"
+                                       fixedValue="RCT"
+                                       isStructural="true">
+                           <mif:derivationSupplier staticModelDerivationId="1" className="Participation" attributeName="typeCode"/>
+                           <mif:type name="CS"/>
+                           <mif:supplierDomainSpecification codingStrength="CNE" codeSystemName="ParticipationType" mnemonic="RCT"/>
+                        </mif:attribute>
+                        <mif:attribute name="contextControlCode" sortKey="2" minimumMultiplicity="1"
+                                       maximumMultiplicity="1"
+                                       conformance="R"
+                                       isMandatory="true"
+                                       fixedValue="AP"
+                                       isStructural="true">
+                           <mif:derivationSupplier staticModelDerivationId="1" className="Participation"
+                                                   attributeName="contextControlCode"/>
+                           <mif:type name="CS"/>
+                           <mif:supplierDomainSpecification codingStrength="CNE" codeSystemName="ContextControl" mnemonic="AP"/>
+                        </mif:attribute>
+                        <mif:association sortKey="32">
+                           <mif:graphicRepresentation>
+                              <mif:graphElement connectToShapeId="Sheet.225" containerDiagramName="Main">
+                                 <mif:position x="11.117" y="3.129"/>
+                                 <mif:graphEdge>
+                                    <mif:anchor connectToShapeId="Sheet.288">
+                                       <mif:position x="11.117" y="3.129"/>
+                                    </mif:anchor>
+                                 </mif:graphEdge>
+                              </mif:graphElement>
+                           </mif:graphicRepresentation>
+                           <mif:targetConnection name="patient1" minimumMultiplicity="1" maximumMultiplicity="1" conformance="R"
+                                                 isMandatory="true"
+                                                 sortKey="BZ">
+                              <mif:derivationSupplier staticModelDerivationId="1" className="Participation" associationEndName="role"/>
+                              <participantClassSpecialization xmlns="urn:hl7-org:v3/mif" className="R_PatientPersonIdentified-confirmable"
+                                                              traversalName="patient1"/>
+                              <participantClassSpecialization xmlns="urn:hl7-org:v3/mif" className="R_PatientPersonInformational"
+                                                              traversalName="patient2"/>
+                              <participantClassSpecialization xmlns="urn:hl7-org:v3/mif" className="R_PatientPersonIdentified"
+                                                              traversalName="patient3"/>
+                              <mif:participantClass>
+                                 <mif:class name="Patient" isAbstract="true">
+                                    <mif:derivationSupplier staticModelDerivationId="1" className="Role"/>
+                                    <mif:graphicRepresentation presentation="HL7">
+                                       <mif:graphElement shapeId="Sheet.288" containerDiagramName="Main" shapeTemplate="Choice"
+                                                         isWidthAutoSize="true"
+                                                         isHeightAutoSize="true"
+                                                         nodeOrientation="Portrait">
+                                          <mif:position x="11.117" y="2.628"/>
+                                          <mif:size width="1.851" height="2.508"/>
+                                       </mif:graphElement>
+                                    </mif:graphicRepresentation>
+                                    <mif:specializationChild>
+                                       <mif:graphicRepresentation>
+                                          <mif:graphElement shapeId="Sheet.231" containerDiagramName="Main" shapeTemplate="CMET"
+                                                            isWidthAutoSize="false"
+                                                            isHeightAutoSize="false">
+                                             <mif:position x="11.242" y="2.878"/>
+                                             <mif:size width="1.608" height="0.628"/>
+                                          </mif:graphElement>
+                                       </mif:graphicRepresentation>
+                                       <mif:specializedClass>
+                                          <mif:commonModelElementRef name="R_PatientPersonIdentified-confirmable">
+                                             <mif:derivationSupplier staticModelDerivationId="1" className="Patient"/>
+                                             <mif:supplierStructuralDomain domainName="RoleClass" mnemonic="PAT"/>
+                                             <mif:graphicRepresentation presentation="HL7">
+                                                <mif:graphElement shapeId="Sheet.231" containerDiagramName="Main" shapeTemplate="CMET"
+                                                                  isWidthAutoSize="false"
+                                                                  isHeightAutoSize="false">
+                                                   <mif:position x="11.242" y="2.878"/>
+                                                   <mif:size width="1.608" height="0.628"/>
+                                                </mif:graphElement>
+                                             </mif:graphicRepresentation>
+                                             <mif:generalizationParent name="COCT_MT050202CA"/>
+                                          </mif:commonModelElementRef>
+                                       </mif:specializedClass>
+                                    </mif:specializationChild>
+                                    <mif:specializationChild>
+                                       <mif:graphicRepresentation>
+                                          <mif:graphElement shapeId="Sheet.254" containerDiagramName="Main" shapeTemplate="CMET"
+                                                            isWidthAutoSize="false"
+                                                            isHeightAutoSize="false">
+                                             <mif:position x="11.242" y="3.631"/>
+                                             <mif:size width="1.601" height="0.628"/>
+                                          </mif:graphElement>
+                                       </mif:graphicRepresentation>
+                                       <mif:specializedClass>
+                                          <mif:commonModelElementRef name="R_PatientPersonInformational">
+                                             <mif:derivationSupplier staticModelDerivationId="1" className="Patient"/>
+                                             <mif:supplierStructuralDomain domainName="RoleClass" mnemonic="PAT"/>
+                                             <mif:graphicRepresentation presentation="HL7">
+                                                <mif:graphElement shapeId="Sheet.254" containerDiagramName="Main" shapeTemplate="CMET"
+                                                                  isWidthAutoSize="false"
+                                                                  isHeightAutoSize="false">
+                                                   <mif:position x="11.242" y="3.631"/>
+                                                   <mif:size width="1.601" height="0.628"/>
+                                                </mif:graphElement>
+                                             </mif:graphicRepresentation>
+                                             <mif:generalizationParent name="COCT_MT050207CA"/>
+                                          </mif:commonModelElementRef>
+                                       </mif:specializedClass>
+                                    </mif:specializationChild>
+                                    <mif:specializationChild>
+                                       <mif:graphicRepresentation>
+                                          <mif:graphElement shapeId="Sheet.282" containerDiagramName="Main" shapeTemplate="CMET"
+                                                            isWidthAutoSize="false"
+                                                            isHeightAutoSize="true">
+                                             <mif:position x="11.242" y="4.383"/>
+                                             <mif:size width="1.608" height="0.628"/>
+                                          </mif:graphElement>
+                                       </mif:graphicRepresentation>
+                                       <mif:specializedClass>
+                                          <mif:commonModelElementRef name="R_PatientPersonIdentified">
+                                             <mif:derivationSupplier staticModelDerivationId="1" className="Patient"/>
+                                             <mif:supplierStructuralDomain domainName="RoleClass" mnemonic="PAT"/>
+                                             <mif:graphicRepresentation presentation="HL7">
+                                                <mif:graphElement shapeId="Sheet.282" containerDiagramName="Main" shapeTemplate="CMET"
+                                                                  isWidthAutoSize="false"
+                                                                  isHeightAutoSize="true">
+                                                   <mif:position x="11.242" y="4.383"/>
+                                                   <mif:size width="1.608" height="0.628"/>
+                                                </mif:graphElement>
+                                             </mif:graphicRepresentation>
+                                             <mif:generalizationParent name="COCT_MT050201CA"/>
+                                          </mif:commonModelElementRef>
+                                       </mif:specializedClass>
+                                    </mif:specializationChild>
+                                 </mif:class>
+                              </mif:participantClass>
+                           </mif:targetConnection>
+                           <mif:sourceConnection>
+                              <mif:nonTraversableConnection participantClassName="RecordTarget">
+                                 <mif:derivationSupplier staticModelDerivationId="1" className="Role" associationEndName="participation"/>
+                              </mif:nonTraversableConnection>
+                           </mif:sourceConnection>
+                        </mif:association>
+                     </mif:class>
+                  </mif:participantClass>
+               </mif:targetConnection>
+               <mif:sourceConnection>
+                  <mif:nonTraversableConnection participantClassName="ControlActEvent">
+                     <mif:derivationSupplier staticModelDerivationId="1" className="Participation" associationEndName="act"/>
+                  </mif:nonTraversableConnection>
+               </mif:sourceConnection>
+            </mif:association>
+            <mif:association sortKey="3">
+               <mif:graphicRepresentation>
+                  <mif:graphElement connectToShapeId="Sheet.168" containerDiagramName="Main">
+                     <mif:position x="5.027" y="4.105"/>
+                     <mif:graphEdge>
+                        <mif:anchor connectToShapeId="Sheet.215">
+                           <mif:position x="5.027" y="4.105"/>
+                        </mif:anchor>
+                     </mif:graphEdge>
+                  </mif:graphElement>
+               </mif:graphicRepresentation>
+               <mif:targetConnection name="responsibleParty" minimumMultiplicity="0" maximumMultiplicity="1"
+                                     isMandatory="false"
+                                     sortKey="AC________">
+                  <mif:derivationSupplier staticModelDerivationId="1" className="Act" associationEndName="participation"/>
+                  <mif:participantClass>
+                     <mif:class name="ResponsibleParty" isAbstract="false">
+                        <mif:businessName name="supervised by"/>
+                        <mif:derivationSupplier staticModelDerivationId="1" className="Participation"/>
+                        <mif:graphicRepresentation presentation="HL7">
+                           <mif:graphElement shapeId="Sheet.215" containerDiagramName="Main" shapeTemplate="Participation"
+                                             textWrappingWidth="66.0"
+                                             nodeOrientation="Left">
+                              <mif:position x="2.236" y="3.959"/>
+                              <mif:size width="2.791" height="0.436"/>
+                           </mif:graphElement>
+                        </mif:graphicRepresentation>
+                        <mif:annotations>
+                           <mif:definition>
+                              <mif:text>
+                                 <mif:p>
+                                    <mif:p>Allows for the trail of responsibility for the action. The association is optional because in some jurisdictions, the supervisor may be conveyed by he authentication token.</mif:p>
+                                 </mif:p>
+                              </mif:text>
+                           </mif:definition>
+                           <mif:rationale>
+                              <mif:text>
+                                 <mif:p>
+                                    <mif:p>If AuthorizationToken not specified, association is mandatory. If AuthorizationToken specified, association is mandatory if authorization does not cover this participation.</mif:p>
+                                 </mif:p>
+                              </mif:text>
+                           </mif:rationale>
+                           <mif:constraint>
+                              <mif:text>
+                                 <mif:p>
+                                    <mif:p>If AuthorizationToken not specified, association is mandatory. If AuthorizationToken specified, association is mandatory if authorization does not cover this participation.</mif:p>
+                                 </mif:p>
+                              </mif:text>
+                              <mif:graphicRepresentation>
+                                 <mif:graphElement shapeId="Sheet.48" containerDiagramName="Main" isWidthAutoSize="true"
+                                                   isHeightAutoSize="true">
+                                    <mif:position x="1.150" y="4.661"/>
+                                    <mif:size width="3.500" height="0.678"/>
+                                    <mif:anchorage connectToShapeId="Sheet.48">
+                                       <mif:position x="2.900" y="5.000"/>
+                                       <mif:graphEdge>
+                                          <mif:anchor connectToShapeId="Sheet.215">
+                                             <mif:position x="3.694" y="4.395"/>
+                                          </mif:anchor>
+                                       </mif:graphEdge>
+                                    </mif:anchorage>
+                                 </mif:graphElement>
+                              </mif:graphicRepresentation>
+                           </mif:constraint>
+                        </mif:annotations>
+                        <mif:attribute name="typeCode" sortKey="1" minimumMultiplicity="1" maximumMultiplicity="1"
+                                       conformance="R"
+                                       isMandatory="true"
+                                       fixedValue="RESP"
+                                       isStructural="true">
+                           <mif:derivationSupplier staticModelDerivationId="1" className="Participation" attributeName="typeCode"/>
+                           <mif:type name="CS"/>
+                           <mif:supplierDomainSpecification codingStrength="CNE" codeSystemName="ParticipationType" mnemonic="RESP"/>
+                        </mif:attribute>
+                        <mif:attribute name="contextControlCode" sortKey="2" minimumMultiplicity="1"
+                                       maximumMultiplicity="1"
+                                       conformance="R"
+                                       isMandatory="true"
+                                       fixedValue="AP"
+                                       isStructural="true">
+                           <mif:derivationSupplier staticModelDerivationId="1" className="Participation"
+                                                   attributeName="contextControlCode"/>
+                           <mif:type name="CS"/>
+                           <mif:supplierDomainSpecification codingStrength="CNE" codeSystemName="ContextControl" mnemonic="AP"/>
+                        </mif:attribute>
+                        <mif:association sortKey="23">
+                           <mif:graphicRepresentation>
+                              <mif:graphElement connectToShapeId="Sheet.215" containerDiagramName="Main">
+                                 <mif:position x="2.236" y="4.249"/>
+                                 <mif:graphEdge>
+                                    <mif:anchor connectToShapeId="Sheet.271">
+                                       <mif:position x="2.236" y="4.249"/>
+                                    </mif:anchor>
+                                 </mif:graphEdge>
+                              </mif:graphElement>
+                           </mif:graphicRepresentation>
+                           <mif:targetConnection name="assignedEntity" minimumMultiplicity="1" maximumMultiplicity="1"
+                                                 isMandatory="false"
+                                                 sortKey="BZ">
+                              <mif:derivationSupplier staticModelDerivationId="1" className="Participation" associationEndName="role"/>
+                              <mif:participantClass>
+                                 <mif:commonModelElementRef name="R_AssignedPersonIdentified-confirmable">
+                                    <mif:derivationSupplier staticModelDerivationId="1" className="Role"/>
+                                    <mif:supplierStructuralDomain domainName="RoleClass" mnemonic="ASSIGNED"/>
+                                    <mif:graphicRepresentation presentation="HL7">
+                                       <mif:graphElement shapeId="Sheet.271" containerDiagramName="Main" shapeTemplate="CMET"
+                                                         isWidthAutoSize="false"
+                                                         isHeightAutoSize="false">
+                                          <mif:position x="0.664" y="3.872"/>
+                                          <mif:size width="1.573" height="0.628"/>
+                                       </mif:graphElement>
+                                    </mif:graphicRepresentation>
+                                    <mif:generalizationParent name="COCT_MT090102CA"/>
+                                 </mif:commonModelElementRef>
+                              </mif:participantClass>
+                           </mif:targetConnection>
+                           <mif:sourceConnection>
+                              <mif:nonTraversableConnection participantClassName="ResponsibleParty">
+                                 <mif:derivationSupplier staticModelDerivationId="1" className="Role" associationEndName="participation"/>
+                              </mif:nonTraversableConnection>
+                           </mif:sourceConnection>
+                        </mif:association>
+                     </mif:class>
+                  </mif:participantClass>
+               </mif:targetConnection>
+               <mif:sourceConnection>
+                  <mif:nonTraversableConnection participantClassName="ControlActEvent">
+                     <mif:derivationSupplier staticModelDerivationId="1" className="Participation" associationEndName="act"/>
+                  </mif:nonTraversableConnection>
+               </mif:sourceConnection>
+            </mif:association>
+            <mif:association sortKey="4">
+               <mif:graphicRepresentation>
+                  <mif:graphElement connectToShapeId="Sheet.168" containerDiagramName="Main">
+                     <mif:position x="5.027" y="3.315"/>
+                     <mif:graphEdge>
+                        <mif:anchor connectToShapeId="Sheet.144">
+                           <mif:position x="5.027" y="3.315"/>
+                        </mif:anchor>
+                     </mif:graphEdge>
+                  </mif:graphElement>
+               </mif:graphicRepresentation>
+               <mif:targetConnection name="author" minimumMultiplicity="0" maximumMultiplicity="1"
+                                     isMandatory="false"
+                                     sortKey="AEA_______">
+                  <mif:derivationSupplier staticModelDerivationId="1" className="Act" associationEndName="participation"/>
+                  <mif:participantClass>
+                     <mif:class name="Author" isAbstract="false">
+                        <mif:businessName name="a:*created by"/>
+                        <mif:derivationSupplier staticModelDerivationId="1" className="Participation"/>
+                        <mif:graphicRepresentation presentation="HL7">
+                           <mif:graphElement shapeId="Sheet.144" containerDiagramName="Main" shapeTemplate="Participation"
+                                             textWrappingWidth="50.0"
+                                             nodeOrientation="Left">
+                              <mif:position x="2.350" y="2.560"/>
+                              <mif:size width="2.677" height="1.058"/>
+                           </mif:graphElement>
+                        </mif:graphicRepresentation>
+                        <mif:annotations>
+                           <mif:definition>
+                              <mif:text>
+                                 <mif:p>
+                                    <mif:p>Indicates the person responsible for the event that caused this message.</mif:p>
+                                 </mif:p>
+                              </mif:text>
+                           </mif:definition>
+                           <mif:usageNotes>
+                              <mif:text>
+                                 <mif:p>
+                                    <mif:p>Choice of Patient CMET is as follows:</mif:p>
+                                 </mif:p>
+                                 <mif:p>
+                                    <mif:p>1. 'identified' when supporting Patient Session Tokens.</mif:p>
+                                 </mif:p>
+                                 <mif:p>
+                                    <mif:p>2. 'informational' when passing through non Client- Registry patient for PHS or similar processing.</mif:p>
+                                 </mif:p>
+                                 <mif:p>
+                                    <mif:p>3. 'identified-confirmable' otherwise.</mif:p>
+                                 </mif:p>
+                              </mif:text>
+                           </mif:usageNotes>
+                           <mif:rationale>
+                              <mif:text>
+                                 <mif:p>
+                                    <mif:p>Critical for auditing and for validating permissions and therefore mandatory.</mif:p>
+                                 </mif:p>
+                              </mif:text>
+                           </mif:rationale>
+                           <mif:constraint>
+                              <mif:text>
+                                 <mif:p>
+                                    <mif:p>If AuthorizationToken is specified and communicates author, the bare AuthorRole class must be specified, otherwise the R_ActingPerson CMET must be specified.</mif:p>
+                                 </mif:p>
+                              </mif:text>
+                              <mif:graphicRepresentation>
+                                 <mif:graphElement shapeId="Sheet.16" containerDiagramName="Main" isWidthAutoSize="true"
+                                                   isHeightAutoSize="true">
+                                    <mif:position x="1.218" y="1.219"/>
+                                    <mif:size width="3.478" height="0.561"/>
+                                    <mif:anchorage connectToShapeId="Sheet.16">
+                                       <mif:position x="2.957" y="1.500"/>
+                                       <mif:graphEdge>
+                                          <mif:anchor connectToShapeId="Sheet.144">
+                                             <mif:position x="3.751" y="2.560"/>
+                                          </mif:anchor>
+                                       </mif:graphEdge>
+                                    </mif:anchorage>
+                                 </mif:graphElement>
+                              </mif:graphicRepresentation>
+                           </mif:constraint>
+                        </mif:annotations>
+                        <mif:attribute name="typeCode" sortKey="1" minimumMultiplicity="1" maximumMultiplicity="1"
+                                       conformance="R"
+                                       isMandatory="true"
+                                       fixedValue="AUT"
+                                       isStructural="true">
+                           <mif:annotations>
+                              <mif:definition>
+                                 <mif:text/>
+                              </mif:definition>
+                              <mif:usageNotes>
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>Value should always be AUT</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:usageNotes>
+                           </mif:annotations>
+                           <mif:derivationSupplier staticModelDerivationId="1" className="Participation" attributeName="typeCode"/>
+                           <mif:type name="CS"/>
+                           <mif:supplierDomainSpecification codingStrength="CNE" codeSystemName="ParticipationType" mnemonic="AUT"/>
+                        </mif:attribute>
+                        <mif:attribute name="contextControlCode" sortKey="2" minimumMultiplicity="1"
+                                       maximumMultiplicity="1"
+                                       conformance="R"
+                                       isMandatory="true"
+                                       fixedValue="AP"
+                                       isStructural="true">
+                           <mif:derivationSupplier staticModelDerivationId="1" className="Participation"
+                                                   attributeName="contextControlCode"/>
+                           <mif:type name="CS"/>
+                           <mif:supplierDomainSpecification codingStrength="CNE" codeSystemName="ContextControl" mnemonic="AP"/>
+                        </mif:attribute>
+                        <mif:attribute name="time" sortKey="3" minimumMultiplicity="1" maximumMultiplicity="1"
+                                       conformance="R"
+                                       isMandatory="true"
+                                       isStructural="false">
+                           <mif:businessName name="D:Time of Creation"/>
+                           <mif:annotations>
+                              <mif:definition>
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>The time the person responsible for the event made the decision for it to occur. This may be different than the time the change became effective. (E.g. If a provider decides today to put a prescription on hold starting next Tuesday, the time of creation would be today and the change effective period would be next Tuesday.)</mif:p>
+                                    </mif:p>
+                                    <mif:p>
+                                       <mif:p>This date can be back-dated.</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:definition>
+                              <mif:rationale>
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>The time a change is made is a critical piece of audit information and is therefore mandatory.</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:rationale>
+                           </mif:annotations>
+                           <mif:derivationSupplier staticModelDerivationId="1" className="Participation" attributeName="time"/>
+                           <mif:type name="TS.FULLDATETIME"/>
+                        </mif:attribute>
+                        <mif:attribute name="modeCode" sortKey="4" minimumMultiplicity="0" maximumMultiplicity="1"
+                                       conformance="R"
+                                       isMandatory="false"
+                                       isStructural="false">
+                           <mif:businessName name="F:Information Received Method"/>
+                           <mif:annotations>
+                              <mif:definition>
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>Indicates how the person who recorded the event became aware of it.. E.g. Verbal, written, fax, etc.</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:definition>
+                              <mif:rationale>
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>May have ramifications for the audit trail and reliability of the information.</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:rationale>
+                           </mif:annotations>
+                           <mif:derivationSupplier staticModelDerivationId="1" className="Participation" attributeName="modeCode"/>
+                           <mif:type name="CV"/>
+                           <mif:supplierDomainSpecification codingStrength="CNE" domainName="ParticipationMode"/>
+                        </mif:attribute>
+                        <mif:attribute name="signatureText" sortKey="5" minimumMultiplicity="0"
+                                       maximumMultiplicity="1"
+                                       isMandatory="false"
+                                       isStructural="false">
+                           <mif:businessName name="G:Digital Signature"/>
+                           <mif:annotations>
+                              <mif:definition>
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>Indicates the formal digital signature of the message content.</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:definition>
+                              <mif:rationale>
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>Digital signatures may be needed for authentication of message content. The attribute is marked as optional because it is not yet clear whether there is a use-case for this, or where it will be used.</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:rationale>
+                           </mif:annotations>
+                           <mif:derivationSupplier staticModelDerivationId="1" className="Participation"
+                                                   attributeName="signatureText"/>
+                           <mif:type name="ED.SIGNATURE"/>
+                        </mif:attribute>
+                        <mif:association sortKey="21">
+                           <mif:graphicRepresentation>
+                              <mif:graphElement connectToShapeId="Sheet.144" containerDiagramName="Main">
+                                 <mif:position x="2.350" y="2.864"/>
+                                 <mif:graphEdge>
+                                    <mif:anchor connectToShapeId="Sheet.341">
+                                       <mif:position x="2.350" y="2.864"/>
+                                    </mif:anchor>
+                                 </mif:graphEdge>
+                              </mif:graphElement>
+                           </mif:graphicRepresentation>
+                           <mif:targetConnection name="authorPerson" minimumMultiplicity="1" maximumMultiplicity="1"
+                                                 isMandatory="false"
+                                                 sortKey="BZ">
+                              <mif:derivationSupplier staticModelDerivationId="1" className="Participation" associationEndName="role"/>
+                              <participantClassSpecialization xmlns="urn:hl7-org:v3/mif" className="AuthorRole" traversalName="authorRole1"/>
+                              <participantClassSpecialization xmlns="urn:hl7-org:v3/mif" className="R_ActingPersonIdentified-confirmable"
+                                                              traversalName="actingPerson">
+                                 <specialization className="AssignedEntity" traversalName="assignedEntity1"/>
+                                 <specialization className="AssignedEntity" traversalName="assignedEntity2"/>
+                                 <specialization className="PersonalRelationship" traversalName="personalRelationship"/>
+                              </participantClassSpecialization>
+                              <mif:participantClass>
+                                 <mif:class name="AuthorPerson" isAbstract="true">
+                                    <mif:derivationSupplier staticModelDerivationId="1" className="Role"/>
+                                    <mif:graphicRepresentation presentation="HL7">
+                                       <mif:graphElement shapeId="Sheet.341" containerDiagramName="Main" shapeTemplate="Choice"
+                                                         isWidthAutoSize="true"
+                                                         isHeightAutoSize="true"
+                                                         nodeOrientation="Portrait">
+                                          <mif:position x="0.500" y="2.000"/>
+                                          <mif:size width="1.850" height="1.728"/>
+                                       </mif:graphElement>
+                                    </mif:graphicRepresentation>
+                                    <mif:specializationChild>
+                                       <mif:graphicRepresentation>
+                                          <mif:graphElement shapeId="Sheet.325" containerDiagramName="Main" shapeTemplate="Role"
+                                                            isWidthAutoSize="false"
+                                                            isHeightAutoSize="true">
+                                             <mif:position x="0.625" y="2.250"/>
+                                             <mif:size width="1.600" height="0.500"/>
+                                          </mif:graphElement>
+                                       </mif:graphicRepresentation>
+                                       <mif:specializedClass>
+                                          <mif:class name="AuthorRole" isAbstract="false">
+                                             <mif:businessName name="Null Author Role"/>
+                                             <mif:derivationSupplier staticModelDerivationId="1" className="Role"/>
+                                             <mif:graphicRepresentation presentation="HL7">
+                                                <mif:graphElement shapeId="Sheet.325" containerDiagramName="Main" shapeTemplate="Role"
+                                                                  isWidthAutoSize="false"
+                                                                  isHeightAutoSize="true">
+                                                   <mif:position x="0.625" y="2.250"/>
+                                                   <mif:size width="1.600" height="0.500"/>
+                                                </mif:graphElement>
+                                             </mif:graphicRepresentation>
+                                             <mif:annotations>
+                                                <mif:definition>
+                                                   <mif:text>
+                                                      <mif:p>
+                                                         <mif:p>This is a messaging artifact used by HL7 to allow the time, signiture and method to be captured when the author is not sent. This will happen in circumstances where the author information is sent as part of the authentication token.</mif:p>
+                                                      </mif:p>
+                                                   </mif:text>
+                                                </mif:definition>
+                                             </mif:annotations>
+                                             <mif:attribute name="classCode" sortKey="1" minimumMultiplicity="1" maximumMultiplicity="1"
+                                                            conformance="R"
+                                                            isMandatory="true"
+                                                            isStructural="true">
+                                                <mif:derivationSupplier staticModelDerivationId="1" className="Role" attributeName="classCode"/>
+                                                <mif:type name="CS"/>
+                                                <mif:supplierDomainSpecification codingStrength="CNE" codeSystemName="RoleClass" mnemonic="ROL"/>
+                                             </mif:attribute>
+                                          </mif:class>
+                                       </mif:specializedClass>
+                                    </mif:specializationChild>
+                                    <mif:specializationChild>
+                                       <mif:graphicRepresentation>
+                                          <mif:graphElement shapeId="Sheet.260" containerDiagramName="Main" shapeTemplate="CMET"
+                                                            isWidthAutoSize="false"
+                                                            isHeightAutoSize="false">
+                                             <mif:position x="0.625" y="2.875"/>
+                                             <mif:size width="1.600" height="0.728"/>
+                                          </mif:graphElement>
+                                       </mif:graphicRepresentation>
+                                       <mif:specializedClass>
+                                          <mif:commonModelElementRef name="R_ActingPersonIdentified-confirmable">
+                                             <mif:derivationSupplier staticModelDerivationId="1" className="Role"/>
+                                             <mif:supplierStructuralDomain domainName="RoleClass" mnemonic="ROL"/>
+                                             <mif:graphicRepresentation presentation="HL7">
+                                                <mif:graphElement shapeId="Sheet.335" containerDiagramName="Main" shapeTemplate="CMET"
+                                                                  isWidthAutoSize="false"
+                                                                  isHeightAutoSize="true">
+                                                   <mif:position x="0.677" y="6.686"/>
+                                                   <mif:size width="1.573" height="0.628"/>
+                                                </mif:graphElement>
+                                             </mif:graphicRepresentation>
+                                             <mif:graphicRepresentation presentation="HL7">
+                                                <mif:graphElement shapeId="Sheet.260" containerDiagramName="Main" shapeTemplate="CMET"
+                                                                  isWidthAutoSize="false"
+                                                                  isHeightAutoSize="false">
+                                                   <mif:position x="0.625" y="2.875"/>
+                                                   <mif:size width="1.600" height="0.728"/>
+                                                </mif:graphElement>
+                                             </mif:graphicRepresentation>
+                                             <mif:generalizationParent name="COCT_MT911102CA"/>
+                                          </mif:commonModelElementRef>
+                                       </mif:specializedClass>
+                                    </mif:specializationChild>
+                                 </mif:class>
+                              </mif:participantClass>
+                           </mif:targetConnection>
+                           <mif:sourceConnection>
+                              <mif:nonTraversableConnection participantClassName="Author">
+                                 <mif:derivationSupplier staticModelDerivationId="1" className="Role" associationEndName="participation"/>
+                              </mif:nonTraversableConnection>
+                           </mif:sourceConnection>
+                        </mif:association>
+                     </mif:class>
+                  </mif:participantClass>
+               </mif:targetConnection>
+               <mif:sourceConnection>
+                  <mif:nonTraversableConnection participantClassName="ControlActEvent">
+                     <mif:derivationSupplier staticModelDerivationId="1" className="Participation" associationEndName="act"/>
+                  </mif:nonTraversableConnection>
+               </mif:sourceConnection>
+            </mif:association>
+            <mif:association sortKey="2">
+               <mif:graphicRepresentation>
+                  <mif:graphElement connectToShapeId="Sheet.168" containerDiagramName="Main">
+                     <mif:position x="5.027" y="7.266"/>
+                     <mif:graphEdge>
+                        <mif:anchor connectToShapeId="Sheet.156">
+                           <mif:position x="5.027" y="7.266"/>
+                        </mif:anchor>
+                     </mif:graphEdge>
+                  </mif:graphElement>
+               </mif:graphicRepresentation>
+               <mif:targetConnection name="dataEnterer" minimumMultiplicity="0" maximumMultiplicity="1"
+                                     isMandatory="false"
+                                     sortKey="AEBB______">
+                  <mif:derivationSupplier staticModelDerivationId="1" className="Act" associationEndName="participation"/>
+                  <mif:participantClass>
+                     <mif:class name="DataEnterer" isAbstract="false">
+                        <mif:businessName name="b:*entered by"/>
+                        <mif:derivationSupplier staticModelDerivationId="1" className="Participation"/>
+                        <mif:graphicRepresentation presentation="HL7">
+                           <mif:graphElement shapeId="Sheet.156" containerDiagramName="Main" shapeTemplate="Participation"
+                                             textWrappingWidth="50.0"
+                                             nodeOrientation="Left">
+                              <mif:position x="2.250" y="6.812"/>
+                              <mif:size width="2.777" height="0.392"/>
+                           </mif:graphElement>
+                        </mif:graphicRepresentation>
+                        <mif:annotations>
+                           <mif:definition>
+                              <mif:text>
+                                 <mif:p>
+                                    <mif:p>Indicates the person responsible for entering the query into the system. Used when different from the person responsible for the request (author). For example, physician requests administrative assistant to print off a patient's medication profile.</mif:p>
+                                 </mif:p>
+                              </mif:text>
+                           </mif:definition>
+                           <mif:usageNotes>
+                              <mif:text>
+                                 <mif:p>
+                                    <mif:p>This should only be specified if different from the author.</mif:p>
+                                 </mif:p>
+                              </mif:text>
+                           </mif:usageNotes>
+                           <mif:rationale>
+                              <mif:text>
+                                 <mif:p>
+                                    <mif:p>Important for audit information and determining permissions.</mif:p>
+                                 </mif:p>
+                                 <mif:p>
+                                    <mif:p>The association is optional because in some jurisdictions this information will be conveyed as part of the authentication token.</mif:p>
+                                 </mif:p>
+                              </mif:text>
+                           </mif:rationale>
+                           <mif:constraint>
+                              <mif:text>
+                                 <mif:p>
+                                    <mif:p>If AuthorizationToken not specified, association is mandatory. If AuthorizationToken specified, association is mandatory if authorization does not cover this participation.</mif:p>
+                                 </mif:p>
+                              </mif:text>
+                              <mif:graphicRepresentation>
+                                 <mif:graphElement shapeId="Sheet.44" containerDiagramName="Main" isWidthAutoSize="true"
+                                                   isHeightAutoSize="true">
+                                    <mif:position x="1.177" y="5.800"/>
+                                    <mif:size width="3.473" height="0.678"/>
+                                    <mif:anchorage connectToShapeId="Sheet.44">
+                                       <mif:position x="2.914" y="6.139"/>
+                                       <mif:graphEdge>
+                                          <mif:anchor connectToShapeId="Sheet.156">
+                                             <mif:position x="3.701" y="6.812"/>
+                                          </mif:anchor>
+                                       </mif:graphEdge>
+                                    </mif:anchorage>
+                                 </mif:graphElement>
+                              </mif:graphicRepresentation>
+                           </mif:constraint>
+                        </mif:annotations>
+                        <mif:attribute name="typeCode" sortKey="1" minimumMultiplicity="1" maximumMultiplicity="1"
+                                       conformance="R"
+                                       isMandatory="true"
+                                       fixedValue="ENT"
+                                       isStructural="true">
+                           <mif:derivationSupplier staticModelDerivationId="1" className="Participation" attributeName="typeCode"/>
+                           <mif:type name="CS"/>
+                           <mif:supplierDomainSpecification codingStrength="CNE" codeSystemName="ParticipationType" mnemonic="ENT"/>
+                        </mif:attribute>
+                        <mif:attribute name="contextControlCode" sortKey="2" minimumMultiplicity="1"
+                                       maximumMultiplicity="1"
+                                       conformance="R"
+                                       isMandatory="true"
+                                       fixedValue="AP"
+                                       isStructural="true">
+                           <mif:derivationSupplier staticModelDerivationId="1" className="Participation"
+                                                   attributeName="contextControlCode"/>
+                           <mif:type name="CS"/>
+                           <mif:supplierDomainSpecification codingStrength="CNE" codeSystemName="ContextControl" mnemonic="AP"/>
+                        </mif:attribute>
+                        <mif:association sortKey="16">
+                           <mif:graphicRepresentation>
+                              <mif:graphElement connectToShapeId="Sheet.156" containerDiagramName="Main">
+                                 <mif:position x="2.250" y="6.749"/>
+                                 <mif:graphEdge>
+                                    <mif:anchor connectToShapeId="Sheet.335">
+                                       <mif:position x="2.250" y="6.749"/>
+                                    </mif:anchor>
+                                 </mif:graphEdge>
+                              </mif:graphElement>
+                           </mif:graphicRepresentation>
+                           <mif:targetConnection name="actingPerson" minimumMultiplicity="1" maximumMultiplicity="1"
+                                                 isMandatory="false"
+                                                 sortKey="BZ">
+                              <mif:derivationSupplier staticModelDerivationId="1" className="Participation" associationEndName="role"/>
+                              <participantClassSpecialization xmlns="urn:hl7-org:v3/mif" className="AssignedEntity"
+                                                              traversalName="assignedEntity1"/>
+                              <participantClassSpecialization xmlns="urn:hl7-org:v3/mif" className="AssignedEntity"
+                                                              traversalName="assignedEntity2"/>
+                              <participantClassSpecialization xmlns="urn:hl7-org:v3/mif" className="PersonalRelationship"
+                                                              traversalName="personalRelationship"/>
+                              <mif:participantClass>
+                                 <mif:reference name="R_ActingPersonIdentified-confirmable"/>
+                              </mif:participantClass>
+                           </mif:targetConnection>
+                           <mif:sourceConnection>
+                              <mif:nonTraversableConnection participantClassName="DataEnterer">
+                                 <mif:derivationSupplier staticModelDerivationId="1" className="Role" associationEndName="participation"/>
+                              </mif:nonTraversableConnection>
+                           </mif:sourceConnection>
+                        </mif:association>
+                     </mif:class>
+                  </mif:participantClass>
+               </mif:targetConnection>
+               <mif:sourceConnection>
+                  <mif:nonTraversableConnection participantClassName="ControlActEvent">
+                     <mif:derivationSupplier staticModelDerivationId="1" className="Participation" associationEndName="act"/>
+                  </mif:nonTraversableConnection>
+               </mif:sourceConnection>
+            </mif:association>
+            <mif:association sortKey="0">
+               <mif:graphicRepresentation>
+                  <mif:graphElement connectToShapeId="Sheet.168" containerDiagramName="Main">
+                     <mif:position x="5.027" y="9.637"/>
+                     <mif:graphEdge>
+                        <mif:anchor connectToShapeId="Sheet.209">
+                           <mif:position x="5.027" y="9.637"/>
+                        </mif:anchor>
+                     </mif:graphEdge>
+                  </mif:graphElement>
+               </mif:graphicRepresentation>
+               <mif:targetConnection name="dataEntryLocation" minimumMultiplicity="0" maximumMultiplicity="1"
+                                     isMandatory="false"
+                                     sortKey="AJD_______">
+                  <mif:derivationSupplier staticModelDerivationId="1" className="Act" associationEndName="participation"/>
+                  <mif:participantClass>
+                     <mif:class name="DataEntryLocation" isAbstract="false">
+                        <mif:businessName name="*b1:recorded at"/>
+                        <mif:derivationSupplier staticModelDerivationId="1" className="Participation"/>
+                        <mif:graphicRepresentation presentation="HL7">
+                           <mif:graphElement shapeId="Sheet.209" containerDiagramName="Main" shapeTemplate="Participation"
+                                             textWrappingWidth="66.0"
+                                             nodeOrientation="Left">
+                              <mif:position x="2.243" y="9.471"/>
+                              <mif:size width="2.784" height="0.436"/>
+                           </mif:graphElement>
+                        </mif:graphicRepresentation>
+                        <mif:annotations>
+                           <mif:definition>
+                              <mif:text>
+                                 <mif:p>
+                                    <mif:p>Indicates the location where the record of this event was entered.</mif:p>
+                                 </mif:p>
+                              </mif:text>
+                           </mif:definition>
+                           <mif:usageNotes>
+                              <mif:text>
+                                 <mif:p>
+                                    <mif:p>This should only be specified if different from the location where the event was authored.</mif:p>
+                                 </mif:p>
+                              </mif:text>
+                           </mif:usageNotes>
+                           <mif:rationale>
+                              <mif:text>
+                                 <mif:p>
+                                    <mif:p>Indicates a potential location for written records, and may also be important for authentication purposes.</mif:p>
+                                 </mif:p>
+                                 <mif:p>
+                                    <mif:p>The association is optional because in some jurisdictions this information will be conveyed as part of the authentication token.</mif:p>
+                                 </mif:p>
+                              </mif:text>
+                           </mif:rationale>
+                           <mif:constraint>
+                              <mif:text>
+                                 <mif:p>
+                                    <mif:p>If AuthorizationToken not specified, association is mandatory. If AuthorizationToken specified, association is mandatory if authorization does not cover this participation.</mif:p>
+                                 </mif:p>
+                              </mif:text>
+                              <mif:graphicRepresentation>
+                                 <mif:graphElement shapeId="Sheet.299" containerDiagramName="Main" isWidthAutoSize="true"
+                                                   isHeightAutoSize="true">
+                                    <mif:position x="1.236" y="10.161"/>
+                                    <mif:size width="3.507" height="0.678"/>
+                                    <mif:anchorage connectToShapeId="Sheet.299">
+                                       <mif:position x="2.989" y="10.500"/>
+                                       <mif:graphEdge>
+                                          <mif:anchor connectToShapeId="Sheet.209">
+                                             <mif:position x="3.698" y="9.907"/>
+                                          </mif:anchor>
+                                       </mif:graphEdge>
+                                    </mif:anchorage>
+                                 </mif:graphElement>
+                              </mif:graphicRepresentation>
+                           </mif:constraint>
+                        </mif:annotations>
+                        <mif:attribute name="typeCode" sortKey="1" minimumMultiplicity="1" maximumMultiplicity="1"
+                                       conformance="R"
+                                       isMandatory="true"
+                                       fixedValue="ELOC"
+                                       isStructural="true">
+                           <mif:derivationSupplier staticModelDerivationId="1" className="Participation" attributeName="typeCode"/>
+                           <mif:type name="CS"/>
+                           <mif:supplierDomainSpecification codingStrength="CNE" codeSystemName="ParticipationType" mnemonic="ELOC"/>
+                        </mif:attribute>
+                        <mif:attribute name="contextControlCode" sortKey="2" minimumMultiplicity="1"
+                                       maximumMultiplicity="1"
+                                       conformance="R"
+                                       isMandatory="true"
+                                       fixedValue="AP"
+                                       isStructural="true">
+                           <mif:derivationSupplier staticModelDerivationId="1" className="Participation"
+                                                   attributeName="contextControlCode"/>
+                           <mif:type name="CS"/>
+                           <mif:supplierDomainSpecification codingStrength="CNE" codeSystemName="ContextControl" mnemonic="AP"/>
+                        </mif:attribute>
+                        <mif:association sortKey="10">
+                           <mif:graphicRepresentation>
+                              <mif:graphElement connectToShapeId="Sheet.209" containerDiagramName="Main">
+                                 <mif:position x="2.243" y="9.740"/>
+                                 <mif:graphEdge>
+                                    <mif:anchor connectToShapeId="Sheet.197">
+                                       <mif:position x="2.243" y="9.740"/>
+                                    </mif:anchor>
+                                 </mif:graphEdge>
+                              </mif:graphElement>
+                           </mif:graphicRepresentation>
+                           <mif:targetConnection name="serviceDeliveryLocation" minimumMultiplicity="1" maximumMultiplicity="1"
+                                                 isMandatory="false"
+                                                 sortKey="BZ">
+                              <mif:derivationSupplier staticModelDerivationId="1" className="Participation" associationEndName="role"/>
+                              <mif:participantClass>
+                                 <mif:commonModelElementRef name="R_ServiceDeliveryLocationIdentified-confirmable">
+                                    <mif:derivationSupplier staticModelDerivationId="1" className="Role"/>
+                                    <mif:supplierStructuralDomain domainName="RoleClass" mnemonic="SDLOC"/>
+                                    <mif:graphicRepresentation presentation="HL7">
+                                       <mif:graphElement shapeId="Sheet.197" containerDiagramName="Main" shapeTemplate="CMET"
+                                                         isWidthAutoSize="false"
+                                                         isHeightAutoSize="false">
+                                          <mif:position x="0.669" y="8.700"/>
+                                          <mif:size width="1.574" height="1.300"/>
+                                       </mif:graphElement>
+                                    </mif:graphicRepresentation>
+                                    <mif:generalizationParent name="COCT_MT240002CA"/>
+                                 </mif:commonModelElementRef>
+                              </mif:participantClass>
+                           </mif:targetConnection>
+                           <mif:sourceConnection>
+                              <mif:nonTraversableConnection participantClassName="DataEntryLocation">
+                                 <mif:derivationSupplier staticModelDerivationId="1" className="Role" associationEndName="participation"/>
+                              </mif:nonTraversableConnection>
+                           </mif:sourceConnection>
+                        </mif:association>
+                     </mif:class>
+                  </mif:participantClass>
+               </mif:targetConnection>
+               <mif:sourceConnection>
+                  <mif:nonTraversableConnection participantClassName="ControlActEvent">
+                     <mif:derivationSupplier staticModelDerivationId="1" className="Participation" associationEndName="act"/>
+                  </mif:nonTraversableConnection>
+               </mif:sourceConnection>
+            </mif:association>
+            <mif:association sortKey="1">
+               <mif:graphicRepresentation>
+                  <mif:graphElement connectToShapeId="Sheet.168" containerDiagramName="Main">
+                     <mif:position x="5.027" y="8.847"/>
+                     <mif:graphEdge>
+                        <mif:anchor connectToShapeId="Sheet.203">
+                           <mif:position x="5.027" y="8.847"/>
+                        </mif:anchor>
+                     </mif:graphEdge>
+                  </mif:graphElement>
+               </mif:graphicRepresentation>
+               <mif:targetConnection name="location" minimumMultiplicity="0" maximumMultiplicity="1"
+                                     isMandatory="false"
+                                     sortKey="AJ________">
+                  <mif:derivationSupplier staticModelDerivationId="1" className="Act" associationEndName="participation"/>
+                  <mif:participantClass>
+                     <mif:class name="Location" isAbstract="false">
+                        <mif:businessName name="*a1:created at"/>
+                        <mif:derivationSupplier staticModelDerivationId="1" className="Participation"/>
+                        <mif:graphicRepresentation presentation="HL7">
+                           <mif:graphElement shapeId="Sheet.203" containerDiagramName="Main" shapeTemplate="Participation"
+                                             textWrappingWidth="66.0"
+                                             nodeOrientation="Left">
+                              <mif:position x="2.243" y="8.686"/>
+                              <mif:size width="2.784" height="0.436"/>
+                           </mif:graphElement>
+                        </mif:graphicRepresentation>
+                        <mif:annotations>
+                           <mif:definition>
+                              <mif:text>
+                                 <mif:p>
+                                    <mif:p>Indicates the service delivery location where the event occurred.</mif:p>
+                                 </mif:p>
+                              </mif:text>
+                           </mif:definition>
+                           <mif:rationale>
+                              <mif:text>
+                                 <mif:p>
+                                    <mif:p>Indicates where paper records may be located, and may be important to determining authorization.</mif:p>
+                                 </mif:p>
+                                 <mif:p>
+                                    <mif:p>The association is optional because in some jurisdictions this information will be conveyed as part of the authentication token.</mif:p>
+                                 </mif:p>
+                              </mif:text>
+                           </mif:rationale>
+                           <mif:constraint>
+                              <mif:text>
+                                 <mif:p>
+                                    <mif:p>If AuthorizationToken not specified, association is required. If AuthorizationToken specified, association is required if authorization does not cover this participation.</mif:p>
+                                 </mif:p>
+                              </mif:text>
+                              <mif:graphicRepresentation>
+                                 <mif:graphElement shapeId="Sheet.295" containerDiagramName="Main" isWidthAutoSize="true"
+                                                   isHeightAutoSize="true">
+                                    <mif:position x="1.243" y="7.722"/>
+                                    <mif:size width="3.500" height="0.678"/>
+                                    <mif:anchorage connectToShapeId="Sheet.295">
+                                       <mif:position x="2.993" y="8.061"/>
+                                       <mif:graphEdge>
+                                          <mif:anchor connectToShapeId="Sheet.203">
+                                             <mif:position x="3.698" y="8.686"/>
+                                          </mif:anchor>
+                                       </mif:graphEdge>
+                                    </mif:anchorage>
+                                 </mif:graphElement>
+                              </mif:graphicRepresentation>
+                           </mif:constraint>
+                        </mif:annotations>
+                        <mif:attribute name="typeCode" sortKey="1" minimumMultiplicity="1" maximumMultiplicity="1"
+                                       conformance="R"
+                                       isMandatory="true"
+                                       fixedValue="LOC"
+                                       isStructural="true">
+                           <mif:derivationSupplier staticModelDerivationId="1" className="Participation" attributeName="typeCode"/>
+                           <mif:type name="CS"/>
+                           <mif:supplierDomainSpecification codingStrength="CNE" codeSystemName="ParticipationType" mnemonic="LOC"/>
+                        </mif:attribute>
+                        <mif:attribute name="contextControlCode" sortKey="2" minimumMultiplicity="1"
+                                       maximumMultiplicity="1"
+                                       conformance="R"
+                                       isMandatory="true"
+                                       fixedValue="AP"
+                                       isStructural="true">
+                           <mif:derivationSupplier staticModelDerivationId="1" className="Participation"
+                                                   attributeName="contextControlCode"/>
+                           <mif:type name="CS"/>
+                           <mif:supplierDomainSpecification codingStrength="CNE" codeSystemName="ContextControl" mnemonic="AP"/>
+                        </mif:attribute>
+                        <mif:association sortKey="14">
+                           <mif:graphicRepresentation>
+                              <mif:graphElement connectToShapeId="Sheet.203" containerDiagramName="Main">
+                                 <mif:position x="2.243" y="8.960"/>
+                                 <mif:graphEdge>
+                                    <mif:anchor connectToShapeId="Sheet.197">
+                                       <mif:position x="2.243" y="8.960"/>
+                                    </mif:anchor>
+                                 </mif:graphEdge>
+                              </mif:graphElement>
+                           </mif:graphicRepresentation>
+                           <mif:targetConnection name="serviceDeliveryLocation" minimumMultiplicity="1" maximumMultiplicity="1"
+                                                 isMandatory="false"
+                                                 sortKey="BZ">
+                              <mif:derivationSupplier staticModelDerivationId="1" className="Participation" associationEndName="role"/>
+                              <mif:participantClass>
+                                 <mif:reference name="R_ServiceDeliveryLocationIdentified-confirmable"/>
+                              </mif:participantClass>
+                           </mif:targetConnection>
+                           <mif:sourceConnection>
+                              <mif:nonTraversableConnection participantClassName="Location">
+                                 <mif:derivationSupplier staticModelDerivationId="1" className="Role" associationEndName="participation"/>
+                              </mif:nonTraversableConnection>
+                           </mif:sourceConnection>
+                        </mif:association>
+                     </mif:class>
+                  </mif:participantClass>
+               </mif:targetConnection>
+               <mif:sourceConnection>
+                  <mif:nonTraversableConnection participantClassName="ControlActEvent">
+                     <mif:derivationSupplier staticModelDerivationId="1" className="Participation" associationEndName="act"/>
+                  </mif:nonTraversableConnection>
+               </mif:sourceConnection>
+            </mif:association>
+            <mif:association sortKey="8">
+               <mif:graphicRepresentation>
+                  <mif:graphElement connectToShapeId="Sheet.168" containerDiagramName="Main">
+                     <mif:position x="6.753" y="10.428"/>
+                     <mif:graphEdge>
+                        <mif:anchor connectToShapeId="Sheet.126">
+                           <mif:position x="6.753" y="10.428"/>
+                        </mif:anchor>
+                     </mif:graphEdge>
+                  </mif:graphElement>
+               </mif:graphicRepresentation>
+               <mif:targetConnection name="subject" minimumMultiplicity="1" maximumMultiplicity="1" conformance="R"
+                                     isMandatory="true"
+                                     sortKey="BDB_______">
+                  <mif:derivationSupplier staticModelDerivationId="1" className="Act"
+                                          associationEndName="outboundRelationship"/>
+                  <mif:participantClass>
+                     <mif:class name="Subject2" isAbstract="false">
+                        <mif:businessName name="f:refers to"/>
+                        <mif:derivationSupplier staticModelDerivationId="1" className="ActRelationship"/>
+                        <mif:graphicRepresentation presentation="HL7">
+                           <mif:graphElement shapeId="Sheet.126" containerDiagramName="Main" shapeTemplate="ActRelationship"
+                                             textWrappingWidth="66.0"
+                                             nodeOrientation="Down">
+                              <mif:position x="5.600" y="10.428"/>
+                              <mif:size width="2.314" height="1.150"/>
+                           </mif:graphElement>
+                        </mif:graphicRepresentation>
+                        <mif:annotations>
+                           <mif:definition>
+                              <mif:text>
+                                 <mif:p>
+                                    <mif:p>Indicates the item(s) being acted upon by this trigger event.</mif:p>
+                                 </mif:p>
+                                 <mif:p>
+                                    <mif:p>Will be mandatory in wrappers with payload messages, otherwise not present.</mif:p>
+                                 </mif:p>
+                              </mif:text>
+                           </mif:definition>
+                           <mif:usageNotes>
+                              <mif:text>
+                                 <mif:p>
+                                    <mif:p>If there are multiple subject items, the changes to all of them must be either accepted or rejected as a single action. I.e. One trigger event = 1 unit of work.</mif:p>
+                                 </mif:p>
+                              </mif:text>
+                           </mif:usageNotes>
+                           <mif:rationale>
+                              <mif:text>
+                                 <mif:p>
+                                    <mif:p>Provides information about the thing being created, modified or removed.</mif:p>
+                                 </mif:p>
+                              </mif:text>
+                           </mif:rationale>
+                           <mif:constraint>
+                              <mif:text>
+                                 <mif:p>
+                                    <mif:p>On ‘creation’ interactions where the state transition is null-&gt;active, contextConductionInd must be true, otherwise it must be false.</mif:p>
+                                 </mif:p>
+                              </mif:text>
+                              <mif:graphicRepresentation>
+                                 <mif:graphElement shapeId="Sheet.221" containerDiagramName="Main" isWidthAutoSize="true"
+                                                   isHeightAutoSize="true">
+                                    <mif:position x="8.072" y="10.600"/>
+                                    <mif:size width="2.156" height="0.678"/>
+                                    <mif:anchorage connectToShapeId="Sheet.221">
+                                       <mif:position x="9.150" y="10.939"/>
+                                       <mif:graphEdge>
+                                          <mif:anchor connectToShapeId="Sheet.126">
+                                             <mif:position x="7.913" y="10.940"/>
+                                          </mif:anchor>
+                                       </mif:graphEdge>
+                                    </mif:anchorage>
+                                 </mif:graphElement>
+                              </mif:graphicRepresentation>
+                           </mif:constraint>
+                        </mif:annotations>
+                        <mif:attribute name="typeCode" sortKey="1" minimumMultiplicity="1" maximumMultiplicity="1"
+                                       conformance="R"
+                                       isMandatory="true"
+                                       fixedValue="SUBJ"
+                                       isStructural="true">
+                           <mif:derivationSupplier staticModelDerivationId="1" className="ActRelationship"
+                                                   attributeName="typeCode"/>
+                           <mif:type name="CS"/>
+                           <mif:supplierDomainSpecification codingStrength="CNE" codeSystemName="ActRelationshipType" mnemonic="SUBJ"/>
+                        </mif:attribute>
+                        <mif:attribute name="contextControlCode" sortKey="2" minimumMultiplicity="1"
+                                       maximumMultiplicity="1"
+                                       conformance="R"
+                                       isMandatory="true"
+                                       fixedValue="AN"
+                                       isStructural="true">
+                           <mif:derivationSupplier staticModelDerivationId="1" className="ActRelationship"
+                                                   attributeName="contextControlCode"/>
+                           <mif:type name="CS"/>
+                           <mif:supplierDomainSpecification codingStrength="CNE" codeSystemName="ContextControl" mnemonic="AN"/>
+                        </mif:attribute>
+                        <mif:attribute name="contextConductionInd" sortKey="3" minimumMultiplicity="1"
+                                       maximumMultiplicity="1"
+                                       conformance="R"
+                                       isMandatory="true"
+                                       isStructural="true">
+                           <mif:businessName name="Cascade Responsibility Indicator"/>
+                           <mif:annotations>
+                              <mif:definition>
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>Indicates whether or not objects of the trigger event are to be cascaded to the payload.</mif:p>
+                                    </mif:p>
+                                    <mif:p>
+                                       <mif:p>If true, associations in the parent act are conducted across the ActRelationship to the message payload (act). Conduction for each association is specifically indicated by each associations' contextControlCode value.</mif:p>
+                                    </mif:p>
+                                    <mif:p>
+                                       <mif:p>In other words, if the "subject" act relationship has contextConductionInd=true; THEN the dataEnterer association is carried (to the payload) according to the dataEnterer.contextControlCode (AP = propogate to the payload and add to any data enterer(s) already present in the payload).</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:definition>
+                              <mif:rationale>
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>Cascading of trigger event objects allows different messages to employ consistent and common objects.</mif:p>
+                                    </mif:p>
+                                    <mif:p>
+                                       <mif:p>Attribute is mandatory to ensure that cascading will be specified one way or another.</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:rationale>
+                           </mif:annotations>
+                           <mif:derivationSupplier staticModelDerivationId="1" className="ActRelationship"
+                                                   attributeName="contextConductionInd"/>
+                           <mif:type name="BL"/>
+                        </mif:attribute>
+                        <mif:association sortKey="35">
+                           <mif:graphicRepresentation>
+                              <mif:graphElement connectToShapeId="Sheet.126" containerDiagramName="Main">
+                                 <mif:position x="6.760" y="11.578"/>
+                                 <mif:graphEdge>
+                                    <mif:anchor connectToShapeId="Sheet.176">
+                                       <mif:position x="6.760" y="11.578"/>
+                                    </mif:anchor>
+                                 </mif:graphEdge>
+                              </mif:graphElement>
+                           </mif:graphicRepresentation>
+                           <mif:targetConnection name="act" minimumMultiplicity="1" maximumMultiplicity="1" conformance="R"
+                                                 isMandatory="true"
+                                                 sortKey="BZ">
+                              <mif:derivationSupplier staticModelDerivationId="1" className="ActRelationship"
+                                                      associationEndName="target"/>
+                              <mif:participantClass>
+                                 <mif:templateParameter name="Act" isAbstract="false">
+                                    <mif:businessName name="*Message Contents"/>
+                                    <mif:derivationSupplier staticModelDerivationId="1" className="Act"/>
+                                    <mif:graphicRepresentation presentation="HL7">
+                                       <mif:graphElement shapeId="Sheet.176" containerDiagramName="Main" shapeTemplate="Act"
+                                                         isWidthAutoSize="true"
+                                                         isHeightAutoSize="true">
+                                          <mif:position x="6.108" y="11.578"/>
+                                          <mif:size width="1.303" height="0.750"/>
+                                       </mif:graphElement>
+                                    </mif:graphicRepresentation>
+                                    <mif:annotations>
+                                       <mif:definition>
+                                          <mif:text>
+                                             <mif:p>
+                                                <mif:p>Contains the content being conveyed or manipulated by this trigger event (e.g. the prescription, the allergy, the lab result, etc.).</mif:p>
+                                             </mif:p>
+                                          </mif:text>
+                                       </mif:definition>
+                                       <mif:rationale>
+                                          <mif:text>
+                                             <mif:p>
+                                                <mif:p>Identifies or conveys the distinguishing information about the data being manipulated.</mif:p>
+                                             </mif:p>
+                                          </mif:text>
+                                       </mif:rationale>
+                                    </mif:annotations>
+                                 </mif:templateParameter>
+                              </mif:participantClass>
+                           </mif:targetConnection>
+                           <mif:sourceConnection>
+                              <mif:nonTraversableConnection participantClassName="Subject2">
+                                 <mif:derivationSupplier staticModelDerivationId="1" className="Act"
+                                                         associationEndName="inboundRelationship"/>
+                              </mif:nonTraversableConnection>
+                           </mif:sourceConnection>
+                        </mif:association>
+                     </mif:class>
+                  </mif:participantClass>
+               </mif:targetConnection>
+               <mif:sourceConnection>
+                  <mif:nonTraversableConnection participantClassName="ControlActEvent">
+                     <mif:derivationSupplier staticModelDerivationId="1" className="ActRelationship"
+                                             associationEndName="source"/>
+                  </mif:nonTraversableConnection>
+               </mif:sourceConnection>
+            </mif:association>
+            <mif:association sortKey="5">
+               <mif:graphicRepresentation>
+                  <mif:graphElement connectToShapeId="Sheet.168" containerDiagramName="Main">
+                     <mif:position x="8.479" y="9.637"/>
+                     <mif:graphEdge>
+                        <mif:anchor connectToShapeId="Sheet.52">
+                           <mif:position x="8.479" y="9.637"/>
+                        </mif:anchor>
+                     </mif:graphEdge>
+                  </mif:graphElement>
+               </mif:graphicRepresentation>
+               <mif:targetConnection name="pertinentInformation" minimumMultiplicity="0" maximumMultiplicity="1"
+                                     isMandatory="false"
+                                     sortKey="BD________">
+                  <mif:derivationSupplier staticModelDerivationId="1" className="Act"
+                                          associationEndName="outboundRelationship"/>
+                  <mif:participantClass>
+                     <mif:class name="PertinentInformation" isAbstract="false">
+                        <mif:businessName name="Authentication Token"/>
+                        <mif:derivationSupplier staticModelDerivationId="1" className="ActRelationship"/>
+                        <mif:graphicRepresentation presentation="HL7">
+                           <mif:graphElement shapeId="Sheet.52" containerDiagramName="Main" shapeTemplate="ActRelationship"
+                                             textWrappingWidth="66.0"
+                                             nodeOrientation="Right">
+                              <mif:position x="8.479" y="9.328"/>
+                              <mif:size width="2.660" height="0.569"/>
+                           </mif:graphElement>
+                        </mif:graphicRepresentation>
+                        <mif:annotations>
+                           <mif:definition>
+                              <mif:text>
+                                 <mif:p>
+                                    <mif:p>Identifies the authentication token that references information about the people and/or places responsible for the event.</mif:p>
+                                 </mif:p>
+                              </mif:text>
+                           </mif:definition>
+                           <mif:rationale>
+                              <mif:text>
+                                 <mif:p>
+                                    <mif:p>Some systems perform centralized authentication of providers and/or locations. The association is optional because not all systems will make use of a token-based authentication process.</mif:p>
+                                 </mif:p>
+                              </mif:text>
+                           </mif:rationale>
+                        </mif:annotations>
+                        <mif:attribute name="typeCode" sortKey="1" minimumMultiplicity="1" maximumMultiplicity="1"
+                                       conformance="R"
+                                       isMandatory="true"
+                                       fixedValue="PERT"
+                                       isStructural="true">
+                           <mif:derivationSupplier staticModelDerivationId="1" className="ActRelationship"
+                                                   attributeName="typeCode"/>
+                           <mif:type name="CS"/>
+                           <mif:supplierDomainSpecification codingStrength="CNE" codeSystemName="ActRelationshipType" mnemonic="PERT"/>
+                        </mif:attribute>
+                        <mif:attribute name="contextControlCode" sortKey="2" minimumMultiplicity="1"
+                                       maximumMultiplicity="1"
+                                       conformance="R"
+                                       isMandatory="true"
+                                       fixedValue="AP"
+                                       isStructural="true">
+                           <mif:derivationSupplier staticModelDerivationId="1" className="ActRelationship"
+                                                   attributeName="contextControlCode"/>
+                           <mif:type name="CS"/>
+                           <mif:supplierDomainSpecification codingStrength="CNE" codeSystemName="ContextControl" mnemonic="AP"/>
+                        </mif:attribute>
+                        <mif:attribute name="contextConductionInd" sortKey="3" minimumMultiplicity="1"
+                                       maximumMultiplicity="1"
+                                       conformance="R"
+                                       isMandatory="true"
+                                       fixedValue="false"
+                                       isStructural="true">
+                           <mif:derivationSupplier staticModelDerivationId="1" className="ActRelationship"
+                                                   attributeName="contextConductionInd"/>
+                           <mif:type name="BL"/>
+                        </mif:attribute>
+                        <mif:association sortKey="26">
+                           <mif:graphicRepresentation>
+                              <mif:graphElement connectToShapeId="Sheet.52" containerDiagramName="Main">
+                                 <mif:position x="11.139" y="9.589"/>
+                                 <mif:graphEdge>
+                                    <mif:anchor connectToShapeId="Sheet.58">
+                                       <mif:position x="11.139" y="9.589"/>
+                                    </mif:anchor>
+                                 </mif:graphEdge>
+                              </mif:graphElement>
+                           </mif:graphicRepresentation>
+                           <mif:targetConnection name="authorizationToken" minimumMultiplicity="1" maximumMultiplicity="1"
+                                                 isMandatory="false"
+                                                 sortKey="BZ">
+                              <mif:derivationSupplier staticModelDerivationId="1" className="ActRelationship"
+                                                      associationEndName="target"/>
+                              <mif:participantClass>
+                                 <mif:class name="AuthorizationToken" isAbstract="false">
+                                    <mif:businessName name="Authentication Token"/>
+                                    <mif:derivationSupplier staticModelDerivationId="1" className="Observation"/>
+                                    <mif:graphicRepresentation presentation="HL7">
+                                       <mif:graphElement shapeId="Sheet.58" containerDiagramName="Main" shapeTemplate="Act"
+                                                         isWidthAutoSize="true"
+                                                         isHeightAutoSize="true">
+                                          <mif:position x="11.139" y="9.198"/>
+                                          <mif:size width="2.557" height="0.781"/>
+                                       </mif:graphElement>
+                                    </mif:graphicRepresentation>
+                                    <mif:annotations>
+                                       <mif:definition>
+                                          <mif:text>
+                                             <mif:p>
+                                                <mif:p>Conveys an authentication token associated with the event.</mif:p>
+                                             </mif:p>
+                                             <mif:p>
+                                                <mif:p>The token may represent one or all of the following concepts: author, dataEnterer, responsibleParty, location and dataEntryLocation.</mif:p>
+                                             </mif:p>
+                                          </mif:text>
+                                       </mif:definition>
+                                       <mif:rationale>
+                                          <mif:text>
+                                             <mif:p>
+                                                <mif:p>Conveys information related to the individuals and/or locations involved with the action in situations where the authentication happens on a one-time basis rather than on a per-message basis.</mif:p>
+                                             </mif:p>
+                                          </mif:text>
+                                       </mif:rationale>
+                                       <mif:constraint>
+                                          <mif:text>
+                                             <mif:p>
+                                                <mif:p>If specified, then the concepts covered by the token must not be specified (i.e. at least one participation of author, dataEnterer, responsibleParty, location and dataEntryLocation must not be specified)</mif:p>
+                                             </mif:p>
+                                          </mif:text>
+                                          <mif:graphicRepresentation>
+                                             <mif:graphElement shapeId="Sheet.62" containerDiagramName="Main" isWidthAutoSize="true"
+                                                               isHeightAutoSize="true">
+                                                <mif:position x="10.231" y="10.300"/>
+                                                <mif:size width="4.373" height="0.561"/>
+                                                <mif:anchorage connectToShapeId="Sheet.62">
+                                                   <mif:position x="12.418" y="10.581"/>
+                                                   <mif:graphEdge>
+                                                      <mif:anchor connectToShapeId="Sheet.58">
+                                                         <mif:position x="12.418" y="9.979"/>
+                                                      </mif:anchor>
+                                                   </mif:graphEdge>
+                                                </mif:anchorage>
+                                             </mif:graphElement>
+                                          </mif:graphicRepresentation>
+                                       </mif:constraint>
+                                       <mif:constraint>
+                                          <mif:text>
+                                             <mif:p>
+                                                <mif:p>Only one of Id or Text must be specified.</mif:p>
+                                             </mif:p>
+                                          </mif:text>
+                                          <mif:graphicRepresentation>
+                                             <mif:graphElement shapeId="Sheet.343" containerDiagramName="Main" isWidthAutoSize="true"
+                                                               isHeightAutoSize="true">
+                                                <mif:position x="11.202" y="8.636"/>
+                                                <mif:size width="2.448" height="0.328"/>
+                                                <mif:anchorage connectToShapeId="Sheet.343">
+                                                   <mif:position x="12.426" y="8.800"/>
+                                                   <mif:graphEdge>
+                                                      <mif:anchor connectToShapeId="Sheet.58">
+                                                         <mif:position x="12.418" y="9.198"/>
+                                                      </mif:anchor>
+                                                   </mif:graphEdge>
+                                                </mif:anchorage>
+                                             </mif:graphElement>
+                                          </mif:graphicRepresentation>
+                                       </mif:constraint>
+                                    </mif:annotations>
+                                    <mif:attribute name="classCode" sortKey="1" minimumMultiplicity="1" maximumMultiplicity="1"
+                                                   conformance="R"
+                                                   isMandatory="true"
+                                                   fixedValue="VERIF"
+                                                   isStructural="true">
+                                       <mif:derivationSupplier staticModelDerivationId="1" className="Observation" attributeName="classCode"/>
+                                       <mif:type name="CS"/>
+                                       <mif:supplierDomainSpecification codingStrength="CNE" codeSystemName="ActClass" mnemonic="VERIF"/>
+                                    </mif:attribute>
+                                    <mif:attribute name="moodCode" sortKey="2" minimumMultiplicity="1" maximumMultiplicity="1"
+                                                   conformance="R"
+                                                   isMandatory="true"
+                                                   fixedValue="EVN"
+                                                   isStructural="true">
+                                       <mif:derivationSupplier staticModelDerivationId="1" className="Observation" attributeName="moodCode"/>
+                                       <mif:type name="CS"/>
+                                       <mif:supplierDomainSpecification codingStrength="CNE" codeSystemName="ActMood" mnemonic="EVN"/>
+                                    </mif:attribute>
+                                    <mif:attribute name="id" sortKey="3" minimumMultiplicity="0" maximumMultiplicity="1"
+                                                   isMandatory="false"
+                                                   isStructural="false">
+                                       <mif:businessName name="Authorization Token as Id"/>
+                                       <mif:annotations>
+                                          <mif:definition>
+                                             <mif:text>
+                                                <mif:p>
+                                                   <mif:p>An authorization token expressed as a GUID.</mif:p>
+                                                </mif:p>
+                                                <mif:p>
+                                                   <mif:p>The Authorization token may represent the concepts of author, data enterer, supervisor (responsible party), responsible location and/or data entry location.</mif:p>
+                                                </mif:p>
+                                             </mif:text>
+                                          </mif:definition>
+                                          <mif:rationale>
+                                             <mif:text>
+                                                <mif:p>
+                                                   <mif:p>GUIDs are an effective way of conveying a temporary authentication token</mif:p>
+                                                </mif:p>
+                                             </mif:text>
+                                          </mif:rationale>
+                                       </mif:annotations>
+                                       <mif:derivationSupplier staticModelDerivationId="1" className="Observation" attributeName="id"/>
+                                       <mif:type name="II.TOKEN"/>
+                                    </mif:attribute>
+                                    <mif:attribute name="text" sortKey="4" minimumMultiplicity="0" maximumMultiplicity="1"
+                                                   conformance="R"
+                                                   isMandatory="false"
+                                                   maximumLength="500"
+                                                   isStructural="false">
+                                       <mif:businessName name="Authorization Token"/>
+                                       <mif:annotations>
+                                          <mif:definition>
+                                             <mif:text>
+                                                <mif:p>
+                                                   <mif:p>An authentication token expressed as a non-GUID string.</mif:p>
+                                                </mif:p>
+                                                <mif:p>
+                                                   <mif:p>The Authorization token may represent the concepts of author, data enterer, supervisor (responsible party), responsible location and/or data entry location.</mif:p>
+                                                </mif:p>
+                                             </mif:text>
+                                          </mif:definition>
+                                          <mif:rationale>
+                                             <mif:text>
+                                                <mif:p>
+                                                   <mif:p>Some systems may choose to use a hashcode or other approach to token construction.</mif:p>
+                                                </mif:p>
+                                             </mif:text>
+                                          </mif:rationale>
+                                       </mif:annotations>
+                                       <mif:derivationSupplier staticModelDerivationId="1" className="Observation" attributeName="text"/>
+                                       <mif:type name="ST"/>
+                                    </mif:attribute>
+                                 </mif:class>
+                              </mif:participantClass>
+                           </mif:targetConnection>
+                           <mif:sourceConnection>
+                              <mif:nonTraversableConnection participantClassName="PertinentInformation">
+                                 <mif:derivationSupplier staticModelDerivationId="1" className="Act"
+                                                         associationEndName="inboundRelationship"/>
+                              </mif:nonTraversableConnection>
+                           </mif:sourceConnection>
+                        </mif:association>
+                     </mif:class>
+                  </mif:participantClass>
+               </mif:targetConnection>
+               <mif:sourceConnection>
+                  <mif:nonTraversableConnection participantClassName="ControlActEvent">
+                     <mif:derivationSupplier staticModelDerivationId="1" className="ActRelationship"
+                                             associationEndName="source"/>
+                  </mif:nonTraversableConnection>
+               </mif:sourceConnection>
+            </mif:association>
+            <mif:association sortKey="6">
+               <mif:graphicRepresentation>
+                  <mif:graphElement connectToShapeId="Sheet.168" containerDiagramName="Main">
+                     <mif:position x="8.479" y="7.266"/>
+                     <mif:graphEdge>
+                        <mif:anchor connectToShapeId="Sheet.24">
+                           <mif:position x="8.479" y="7.266"/>
+                        </mif:anchor>
+                     </mif:graphEdge>
+                  </mif:graphElement>
+               </mif:graphicRepresentation>
+               <mif:targetConnection name="subjectOf" minimumMultiplicity="0" maximumMultiplicity="50"
+                                     conformance="R"
+                                     isMandatory="false"
+                                     sortKey="CDB_______">
+                  <mif:derivationSupplier staticModelDerivationId="1" className="Act"
+                                          associationEndName="inboundRelationship"/>
+                  <mif:participantClass>
+                     <mif:class name="Subject" isAbstract="false">
+                        <mif:businessName name="d:caused"/>
+                        <mif:derivationSupplier staticModelDerivationId="1" className="ActRelationship"/>
+                        <mif:graphicRepresentation presentation="HL7">
+                           <mif:graphElement shapeId="Sheet.24" containerDiagramName="Main" shapeTemplate="ActRelationship"
+                                             textWrappingWidth="66.0"
+                                             nodeOrientation="Left">
+                              <mif:position x="8.479" y="6.811"/>
+                              <mif:size width="4.669" height="0.569"/>
+                           </mif:graphElement>
+                        </mif:graphicRepresentation>
+                        <mif:annotations>
+                           <mif:definition>
+                              <mif:text>
+                                 <mif:p>
+                                    <mif:p>This is the list of clinical and business issues that have been detected and/or managed involving the current action.</mif:p>
+                                 </mif:p>
+                              </mif:text>
+                           </mif:definition>
+                           <mif:rationale>
+                              <mif:text>
+                                 <mif:p>
+                                    <mif:p>Any trigger event can result in errors or may allow for errors to be overridden or managed.</mif:p>
+                                 </mif:p>
+                              </mif:text>
+                           </mif:rationale>
+                        </mif:annotations>
+                        <mif:attribute name="typeCode" sortKey="1" minimumMultiplicity="1" maximumMultiplicity="1"
+                                       conformance="R"
+                                       isMandatory="true"
+                                       fixedValue="SUBJ"
+                                       isStructural="true">
+                           <mif:derivationSupplier staticModelDerivationId="1" className="ActRelationship"
+                                                   attributeName="typeCode"/>
+                           <mif:type name="CS"/>
+                           <mif:supplierDomainSpecification codingStrength="CNE" codeSystemName="ActRelationshipType" mnemonic="SUBJ"/>
+                        </mif:attribute>
+                        <mif:attribute name="contextControlCode" sortKey="2" minimumMultiplicity="1"
+                                       maximumMultiplicity="1"
+                                       conformance="R"
+                                       isMandatory="true"
+                                       fixedValue="AP"
+                                       isStructural="true">
+                           <mif:derivationSupplier staticModelDerivationId="1" className="ActRelationship"
+                                                   attributeName="contextControlCode"/>
+                           <mif:type name="CS"/>
+                           <mif:supplierDomainSpecification codingStrength="CNE" codeSystemName="ContextControl" mnemonic="AP"/>
+                        </mif:attribute>
+                        <mif:attribute name="contextConductionInd" sortKey="3" minimumMultiplicity="1"
+                                       maximumMultiplicity="1"
+                                       conformance="R"
+                                       isMandatory="true"
+                                       fixedValue="false"
+                                       isStructural="true">
+                           <mif:derivationSupplier staticModelDerivationId="1" className="ActRelationship"
+                                                   attributeName="contextConductionInd"/>
+                           <mif:type name="BL"/>
+                        </mif:attribute>
+                        <mif:association sortKey="28">
+                           <mif:graphicRepresentation>
+                              <mif:graphElement connectToShapeId="Sheet.24" containerDiagramName="Main">
+                                 <mif:position x="13.149" y="6.926"/>
+                                 <mif:graphEdge>
+                                    <mif:anchor connectToShapeId="Sheet.349">
+                                       <mif:position x="13.149" y="6.926"/>
+                                    </mif:anchor>
+                                 </mif:graphEdge>
+                              </mif:graphElement>
+                           </mif:graphicRepresentation>
+                           <mif:targetConnection name="detectedIssueEvent" minimumMultiplicity="1" maximumMultiplicity="1"
+                                                 conformance="R"
+                                                 isMandatory="false"
+                                                 sortKey="AZ">
+                              <mif:derivationSupplier staticModelDerivationId="1" className="ActRelationship"
+                                                      associationEndName="source"/>
+                              <mif:participantClass>
+                                 <mif:commonModelElementRef name="A_IssueEventDetected-clinical">
+                                    <mif:derivationSupplier staticModelDerivationId="1" className="Observation"/>
+                                    <mif:supplierStructuralDomain domainName="ActClass" mnemonic="ALRT"/>
+                                    <mif:graphicRepresentation presentation="HL7">
+                                       <mif:graphElement shapeId="Sheet.349" containerDiagramName="Main" shapeTemplate="CMET"
+                                                         isWidthAutoSize="true"
+                                                         isHeightAutoSize="true">
+                                          <mif:position x="13.149" y="6.800"/>
+                                          <mif:size width="1.103" height="0.628"/>
+                                       </mif:graphElement>
+                                    </mif:graphicRepresentation>
+                                    <mif:generalizationParent name="COCT_MT260020CA"/>
+                                 </mif:commonModelElementRef>
+                              </mif:participantClass>
+                           </mif:targetConnection>
+                           <mif:sourceConnection>
+                              <mif:nonTraversableConnection participantClassName="Subject">
+                                 <mif:derivationSupplier staticModelDerivationId="1" className="Act"
+                                                         associationEndName="outboundRelationship"/>
+                              </mif:nonTraversableConnection>
+                           </mif:sourceConnection>
+                        </mif:association>
+                     </mif:class>
+                  </mif:participantClass>
+               </mif:targetConnection>
+               <mif:sourceConnection>
+                  <mif:nonTraversableConnection participantClassName="ControlActEvent">
+                     <mif:derivationSupplier staticModelDerivationId="1" className="ActRelationship"
+                                             associationEndName="target"/>
+                  </mif:nonTraversableConnection>
+               </mif:sourceConnection>
+            </mif:association>
+         </mif:class>
+      </mif:specializedClass>
+   </mif:ownedEntryPoint>
+</mif:serializedStaticModel>

@@ -1,0 +1,523 @@
+<mif:dynamicModel xmlns:mif="urn:hl7-org:v3/mif">
+   <mif:header>
+      <mif:renderingInformation schemaVersion="1" application="RoseTree 4.0.12">
+         <mif:renderingNotes>This document was rendered into XML using software provided to HL7 by Beeler Consulting LLC.
+ PubDB to MIF Transform: $RCSfile: PubDbXmlToMIF.xsl,v $ $Revision: 1.9 $ $Date: 2006/01/23 23:52:56 $
+  Fix names transform: $Id: FixMifNames.xsl,v 1.7 2006/01/23 23:59:36 lmckenzi Exp $
+  HTML to MIF Markup transform: $Id: HtmlToMIFMarkup.xsl,v 1.3 2006/01/23 23:50:14 lmckenzi Exp $
+  Base transform: $Id: ConvertBase.xsl,v 1.3 2006/01/24 00:00:00 lmckenzi Exp $
+  Package Id Conversion: $Id: TransformPackageIds.xsl,v 1.4 2006/01/24 00:00:00 lmckenzi Exp $</mif:renderingNotes>
+      </mif:renderingInformation>
+      <mif:legalese copyrightOwner="Health Level Seven, Inc." copyrightYears="2007">
+         <mif:notation>All rights reserved.</mif:notation>
+      </mif:legalese>
+   </mif:header>
+   <mif:hl7Interaction name="000012" title="Allergy Intolerance Event Activate Request">
+      <mif:businessName name="Add allergy/intolerance request"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="IN" realm="CA"
+                           id="000012"/>
+      <mif:annotations>
+         <mif:description>Requests that a new allergy or intolerance record be recorded against the specified patient.</mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                      id="000001"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002100">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="MC"
+                                      domain="AI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="700210"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="Act" root="DEFN" section="HM" subSection="RE"
+                                         domain="PC"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="000001"
+                                         traversalName="intoleranceCondition"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="000013" title="Allergy Intolerance Event Activate Confirmation">
+      <mif:businessName name="Add allergy/intolerance request accepted"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="IN" realm="CA"
+                           id="000013"/>
+      <mif:annotations>
+         <mif:description>Indicates that the requested allergy or intolerance record has been successfully added to the patient's record.</mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                      id="000002"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002300">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="MC"
+                                      domain="AI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="700226"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="Act" root="DEFN" section="IM" subSection="CO"
+                                         domain="MT"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="001103"
+                                         traversalName="actEvent"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="000014" title="Allergy Intolerance Event Activate Rejection">
+      <mif:businessName name="Add allergy/intolerance request refused"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="IN" realm="CA"
+                           id="000014"/>
+      <mif:annotations>
+         <mif:description>Indicates that the request to add the specified allergy or intolerance to the patient record has been denied.</mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                      id="000003"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002300">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="MC"
+                                      domain="AI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="700236"
+                                      traversalName="controlActEvent"/>
+      </mif:parameterTypeModel>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="000020" title="Allergy Intolerance Event Revise Request">
+      <mif:businessName name="Update allergy/intolerance request"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="IN" realm="CA"
+                           id="000020"/>
+      <mif:annotations>
+         <mif:description>Requests that status, severity or other information about an existing allergy or intolerance record be updated.</mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                      id="000023"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002100">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="MC"
+                                      domain="AI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="700210"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="Act" root="DEFN" section="HM" subSection="RE"
+                                         domain="PC"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="000013"
+                                         traversalName="intoleranceCondition"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="000021" title="Allergy Intolerance Event Revise Confirmation">
+      <mif:businessName name="Update allergy/intolerance request accepted"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="IN" realm="CA"
+                           id="000021"/>
+      <mif:annotations>
+         <mif:description>Indicates that the status, severity and/or other information about the requested allergy or intolerance record has been updated.</mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                      id="000024"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002300">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="MC"
+                                      domain="AI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="700226"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="Act" root="DEFN" section="IM" subSection="CO"
+                                         domain="MT"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="001103"
+                                         traversalName="actEvent"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="000022" title="Allergy Intolerance Event Revise Rejection">
+      <mif:businessName name="Update allergy/intolerance request refused"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="IN" realm="CA"
+                           id="000022"/>
+      <mif:annotations>
+         <mif:description>Indicates that the requested modification to the defined allergy or intolerance record has been denied.</mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                      id="000025"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002300">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="MC"
+                                      domain="AI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="700226"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="Act" root="DEFN" section="IM" subSection="CO"
+                                         domain="MT"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="001103"
+                                         traversalName="actEvent"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="000015" title="Allergy Intolerance Event Query">
+      <mif:businessName name="Patient allergy/intolerance query"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="IN" realm="CA"
+                           id="000015"/>
+      <mif:annotations>
+         <mif:description>Requests retrieval of all allergies or intolerances that have been recorded for a particular patient, optionally filtered by time-range when the allergy or intolerance record has last been changed.</mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                      id="000006"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002100">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="QU"
+                                      domain="QI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="020000"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="ParameterList" root="DEFN" section="HM" subSection="RE"
+                                         domain="PC"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="000004"
+                                         traversalName="parameterList"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="000017" title="Allergy Intolerance Event Query With History">
+      <mif:businessName name="Patient allergy/intolerance with hist. query"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="IN" realm="CA"
+                           id="000017"/>
+      <mif:annotations>
+         <mif:description>Requests retrieval of the history of a particular allergy or intolerance record identified by patient id and allergy or intolerance record id, including changes to severity, status, annotations, etc.</mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                      id="000008"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002100">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="QU"
+                                      domain="QI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="020000"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="ParameterList" root="DEFN" section="HM" subSection="RE"
+                                         domain="PC"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="000019"
+                                         traversalName="parameterList"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="000016" title="Allergy Intolerance Event Query Response">
+      <mif:businessName name="Patient allergy/intolerance query response"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="IN" realm="CA"
+                           id="000016"/>
+      <mif:annotations>
+         <mif:description>Returns the details of one or more allergy and intolerance records.</mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                      id="000007"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002300">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="QU"
+                                      domain="QI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="120006"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="Act" root="DEFN" section="HM" subSection="RE"
+                                         domain="PC"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="000005"
+                                         traversalName="intoleranceCondition"/>
+            <mif:supplierBindingArgument templateParameterName="ParameterList" root="DEFN" section="HM" subSection="RE"
+                                         domain="PC"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="000004"
+                                         traversalName="parameterList"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="000018" title="Allergy Intolerance Event Query Response With History">
+      <mif:businessName name="Patient allergy/intolerance with hist. query resp."/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="IN" realm="CA"
+                           id="000018"/>
+      <mif:annotations>
+         <mif:description>Returns information about a single allergy or intolerance record, including all revisions to severity, status and annotations.</mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                      id="000009"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002300">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="QU"
+                                      domain="QI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="120006"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="Act" root="DEFN" section="HM" subSection="RE"
+                                         domain="PC"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="000009"
+                                         traversalName="intoleranceCondition"/>
+            <mif:supplierBindingArgument templateParameterName="ParameterList" root="DEFN" section="HM" subSection="RE"
+                                         domain="PC"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="000019"
+                                         traversalName="parameterList"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="000008" title="Adverse Reaction Event Revise Request">
+      <mif:businessName name="Update adverse reaction request"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="IN" realm="CA"
+                           id="000008"/>
+      <mif:annotations>
+         <mif:description>Requests that information such as severity, outcome and suspected cause of a previously-recorded adverse reaction be updated.</mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                      id="000020"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002100">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="MC"
+                                      domain="AI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="700210"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="Act" root="DEFN" section="HM" subSection="RE"
+                                         domain="PC"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="000012"
+                                         traversalName="reactionObservationEvent"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="000009" title="Adverse Reaction Event Revise Confirmation">
+      <mif:businessName name="Update adverse reaction request accepted"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="IN" realm="CA"
+                           id="000009"/>
+      <mif:annotations>
+         <mif:description>Indicates that the requested severity, outcome, suspected cause or other information about a previously-recorded adverse reaction has been successfully updated.</mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                      id="000021"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002300">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="MC"
+                                      domain="AI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="700226"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="Act" root="DEFN" section="IM" subSection="CO"
+                                         domain="MT"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="001103"
+                                         traversalName="actEvent"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="000010" title="Adverse Reaction Event Revise Rejection">
+      <mif:businessName name="Update adverse reaction request refused"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="IN" realm="CA"
+                           id="000010"/>
+      <mif:annotations>
+         <mif:description>Indicates that the requested modification to the previously-recorded adverse reaction has been refused.</mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                      id="000022"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002300">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="MC"
+                                      domain="AI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="700226"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="Act" root="DEFN" section="IM" subSection="CO"
+                                         domain="MT"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="001103"
+                                         traversalName="actEvent"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="000004" title="Adverse Reaction Event Complete Request">
+      <mif:businessName name="Record adverse reaction request"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="IN" realm="CA"
+                           id="000004"/>
+      <mif:annotations>
+         <mif:description>Requests that information about an adverse reaction be recorded against a patient's record.</mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                      id="000014"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002100">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="MC"
+                                      domain="AI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="700210"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="Act" root="DEFN" section="HM" subSection="RE"
+                                         domain="PC"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="000002"
+                                         traversalName="reactionObservationEvent"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="000005" title="Adverse Reaction Event Complete Confirmation">
+      <mif:businessName name="Record adverse reaction request accepted"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="IN" realm="CA"
+                           id="000005"/>
+      <mif:annotations>
+         <mif:description>Indicates that the requested adverse reaction information has been successfully recorded against the patient.</mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                      id="000015"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002300">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="MC"
+                                      domain="AI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="700226"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="Act" root="DEFN" section="IM" subSection="CO"
+                                         domain="MT"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="001103"
+                                         traversalName="actEvent"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="000006" title="Adverse Reaction Event Complete Rejection">
+      <mif:businessName name="Record adverse reaction request refused"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="IN" realm="CA"
+                           id="000006"/>
+      <mif:annotations>
+         <mif:description>Indicates that the request to record the specified reaction against the patient's record has been refused.</mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                      id="000016"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002300">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="MC"
+                                      domain="AI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="700236"
+                                      traversalName="controlActEvent"/>
+      </mif:parameterTypeModel>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="000001" title="Adverse Reaction Event Query">
+      <mif:businessName name="Patient adverse reactions query"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="IN" realm="CA"
+                           id="000001"/>
+      <mif:annotations>
+         <mif:description/>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                      id="000004"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002100">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="QU"
+                                      domain="QI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="020000"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="ParameterList" root="DEFN" section="HM" subSection="RE"
+                                         domain="PC"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="000016"
+                                         traversalName="parameterList"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="000002" title="Adverse Reaction Event Query Response">
+      <mif:businessName name="Patient adverse reactions query response"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="IN" realm="CA"
+                           id="000002"/>
+      <mif:annotations>
+         <mif:description>Returns information about the current status of one or more adverse reactions for a patient.</mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                      id="000005"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002300">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="QU"
+                                      domain="QI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="120006"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="Act" root="DEFN" section="HM" subSection="RE"
+                                         domain="PC"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="000006"
+                                         traversalName="reactionObservationEvent"/>
+            <mif:supplierBindingArgument templateParameterName="ParameterList" root="DEFN" section="HM" subSection="RE"
+                                         domain="PC"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="000016"
+                                         traversalName="parameterList"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+   </mif:hl7Interaction>
+</mif:dynamicModel>

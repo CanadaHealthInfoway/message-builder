@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:chi="urn:ca.infoway.messagebuilder.simplexml.v1" elementFormDefault="qualified" targetNamespace="urn:ca.infoway.messagebuilder.simplexml.v1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include schemaLocation="COCT_MT260020CA.xsd"/>
+  <xs:include schemaLocation="PORX_MT050010CA.xsd"/>
+  <xs:include schemaLocation="QUQI_MT120008CA.xsd"/>
+  <xs:include schemaLocation="MCCI_MT002300CA.xsd"/>
+  <xs:complexType name="PORX_IN050020CA.QUQI_MT120008CA.QueryByParameter">
+    <xs:complexContent>
+      <xs:extension base="chi:QUQI_MT120008CA.QueryByParameter">
+        <xs:sequence>
+          <xs:element name="parameterList" type="chi:PORX_MT050010CA.ParameterList"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="PORX_IN050020CA.QUQI_MT120008CA.Subject2">
+    <xs:complexContent>
+      <xs:extension base="chi:QUQI_MT120008CA.Subject2">
+        <xs:sequence>
+          <xs:element name="act" type="chi:COCT_MT260020CA.DetectedIssueEvent"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="PORX_IN050020CA.QUQI_MT120008CA.ControlActEvent">
+    <xs:complexContent>
+      <xs:extension base="chi:QUQI_MT120008CA.ControlActEvent">
+        <xs:sequence>
+          <xs:element name="queryByParameter" type="chi:PORX_IN050020CA.QUQI_MT120008CA.QueryByParameter"/>
+          <xs:element name="subject" type="chi:PORX_IN050020CA.QUQI_MT120008CA.Subject2"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="PORX_IN050020CA">
+    <xs:complexContent>
+      <xs:extension base="chi:MCCI_MT002300CA.Message">
+        <xs:sequence>
+          <xs:element name="controlActEvent" type="chi:PORX_IN050020CA.QUQI_MT120008CA.ControlActEvent"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="drugRegimenContraindicationsQueryResponse" type="chi:PORX_IN050020CA"/>
+</xs:schema>

@@ -1,0 +1,206 @@
+<REPC_IN000016CA xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:hl7-org:v3" ITSVersion="XML_1.0">
+    <!-- Message rendered by Intelliware TEAL version 1.6-SNAPSHOT -->
+    <id root="1ee83ff1-08ab-4fe7-b573-ea777e9bad51"/>
+    <creationTime value="20080625141610-0400"/>
+    <versionCode code="V3-2007-05"/>
+    <interactionId extension="REPC_IN000016CA" root="2.16.840.1.113883.1.6"/>
+    <processingCode code="P"/>
+    <processingModeCode code="T"/>
+    <acceptAckCode code="AL"/>
+    <receiver typeCode="RCV">
+      <telecom value="http://123.255.255.10"/>
+      <device classCode="DEV" determinerCode="INSTANCE">
+        <id extension="222" root="2.16.124.113620.1.2.100"/>
+      </device>
+    </receiver>
+    <sender typeCode="SND">
+      <telecom value="http://987.654.321.0"/>
+      <device classCode="DEV" determinerCode="INSTANCE">
+        <id extension="111" root="2.16.124.113620.1.2.100"/>
+        <manufacturerModelName>1.0</manufacturerModelName>
+        <softwareName>Panacea Pharmacy</softwareName>
+      </device>
+    </sender>
+    <acknowledgement>
+      <typeCode code="AA"/>
+      <targetMessage>
+        <id root="1ee83ff1-08ab-4fe7-b573-ea777e9bad41"/>
+      </targetMessage>
+    </acknowledgement>
+    <controlActEvent classCode="CACT" moodCode="EVN">
+      <id extension="8141234" root="2.16.840.1.113883.1.6"/>
+      <code code="REPC_TE000013UV" codeSystem="2.16.840.1.113883.5.4"/>
+      <statusCode code="completed"/>
+      <effectiveTime value="20080918000000-0400"/>
+      <subject typeCode="SUBJ" contextConductionInd="false">
+        <intoleranceCondition classCode="COND" moodCode="EVN" negationInd="true">
+          <id extension="7" root="2.16.840.1.113883.1.13"/>
+          <code code="OINT" codeSystem="2.16.840.1.113883.5.4"/>
+          <statusCode code="active"/>
+          <effectiveTime value="20090422"/>
+          <confidentialityCode code="N" codeSystem="2.16.840.1.113883.5.25"/>
+          <uncertaintyCode code="N" codeSystem="2.16.840.1.113883.5.1053"/>
+          <value code="NDA02" codeSystem="2.16.840.1.113883.5.1060"/>
+          <subject typeCode="SBJ" contextControlCode="AP">
+            <patient classCode="PAT">
+              <id extension="9283488" root="2.16.840.1.113883.1.133"/>
+              <telecom nullFlavor="NI"/>
+              <patientPerson classCode="PSN" determinerCode="INSTANCE">
+                <name><given>Mabel</given><family>Hauptman</family></name>
+                <administrativeGenderCode code="F" codeSystem="2.16.840.1.113883.5.1"/>
+                <birthTime value="19321228"/>
+              </patientPerson>
+            </patient>
+          </subject>
+          <author typeCode="AUT" contextControlCode="AP">
+            <time value="19691231190000-0500"/>
+            <assignedPerson classCode="ASSIGNED">
+              <id extension="1" root="1.1.1"/>
+              <representedPerson classCode="PSN" determinerCode="INSTANCE">
+                <name><given>John</given><family>Doe</family></name>
+                <asLicensedEntity classCode="LIC">
+                  <id extension="1" root="2.2.2"/>
+                </asLicensedEntity>
+              </representedPerson>
+            </assignedPerson>
+          </author>
+          <informant typeCode="INF" contextControlCode="AP">
+            <time value="19991228"/>
+            <assignedPerson classCode="ASSIGNED">
+              <id extension="665544" root="2.16.840.1.113883.1.133"/>
+              <representedPerson classCode="PSN" determinerCode="INSTANCE">
+                <name><given>George</given><family>Jungle</family></name>
+              </representedPerson>
+            </assignedPerson>
+          </informant>
+          <location typeCode="LOC" contextControlCode="AP">
+            <serviceDeliveryLocation classCode="SDLOC">
+              <id extension="3" root="2.2.2"/>
+              <addr use="H">Bloor</addr>
+              <telecom value="http://123.456.789.10"/>
+              <location classCode="PLC" determinerCode="INSTANCE">
+                <name>Intelliware&apos;s Pharmacy</name>
+              </location>
+            </serviceDeliveryLocation>
+          </location>
+            <support typeCode="SPRT" contextControlCode="AN" contextConductionInd="true">
+              <allergyTestEvent classCode="OBS" moodCode="EVN">
+                <id extension="995" root="2.16.840.1.113883.1.13"/>
+                <code code="10921-5" codeSystem="2.16.840.1.113883.6.1"/>
+                <statusCode code="completed"/>
+                <effectiveTime value="20090410"/>
+                <value code="A3" codeSystem="2.16.840.1.113883.5.1063"/>
+              </allergyTestEvent>
+            </support>
+            <support typeCode="SPRT" contextControlCode="AN" contextConductionInd="true">
+              <causalityAssessment classCode="OBS" moodCode="EVN">
+                <code code="DX" codeSystem="2.16.840.1.113883.5.4"/>
+                <statusCode code="completed"/>
+                <value code="371627004" codeSystem="2.16.840.1.113883.6.96"/>
+                <subject typeCode="SUBJ" contextControlCode="AN" contextConductionInd="true">
+                  <observationEvent classCode="OBS" moodCode="EVN" negationInd="true">
+                    <id extension="1456" root="2.16.840.1.113883.1.133"/>
+                    <code code="DX" codeSystem="2.16.840.1.113883.5.4"/>
+                    <text>text goes here</text>
+                    <statusCode code="completed"/>
+                    <effectiveTime>
+                      <low value="20080417"/>
+                    </effectiveTime>
+                    <value code="Y45.1" codeSystem="2.16.840.1.113883.6.3"/>
+                    <subjectOf typeCode="SUBJ" contextControlCode="AN" contextConductionInd="false">
+                      <severityObservation classCode="OBS" moodCode="EVN">
+                        <code code="SEV" codeSystem="2.16.840.1.113883.5.4"/>
+                        <statusCode code="completed"/>
+                        <value code="H" codeSystem="2.16.840.1.113883.5.1063"/>
+                      </severityObservation>
+                    </subjectOf>
+                  </observationEvent>
+                </subject>
+                <startsAfterStartOf typeCode="SAS" contextControlCode="AN" contextConductionInd="true">
+                  <exposureEvent classCode="SBADM" moodCode="EVN">
+                    <id extension="12" root="2.16.840.1.113883.1.133"/>
+                    <routeCode code="CHEW" codeSystem="2.16.840.1.113883.5.112"/>
+                    <consumable typeCode="CSM" contextControlCode="AN">
+                      <administrableMaterial classCode="ADMM">
+                        <administerableMaterialKind classCode="MAT" determinerCode="KIND">
+                          <code code="NDA05" codeSystem="2.16.840.1.113883.5.1060"/>
+                        </administerableMaterialKind>
+                      </administrableMaterial>
+                    </consumable>
+                  </exposureEvent>
+                </startsAfterStartOf>
+              </causalityAssessment>
+            </support>
+            <subjectOf1 typeCode="SUBJ" contextControlCode="AN" contextConductionInd="false">
+              <annotation classCode="ACT" moodCode="EVN">
+                <text>condition note</text>
+                <statusCode code="completed"/>
+                <languageCode code="en" codeSystem="2.16.840.1.113883.6.84"/>
+                <author typeCode="AUT">
+                  <time value="20080920000000-0400"/>
+                  <assignedPerson classCode="ASSIGNED">
+                    <id extension="112233" root="2.16.840.1.113883.1.133"/>
+                    <representedPerson classCode="PSN" determinerCode="INSTANCE">
+                      <name><given>Michelle</given><family>Obama</family></name>
+                      <asLicensedEntity classCode="LIC">
+                        <id extension="332211" root="2.16.840.1.113883.1.133"/>
+                      </asLicensedEntity>
+                    </representedPerson>
+                  </assignedPerson>
+                </author>
+              </annotation>
+            </subjectOf1>
+          <subjectOf2 typeCode="SUBJ" contextControlCode="AN" contextConductionInd="false">
+            <severityObservation classCode="OBS" moodCode="EVN">
+              <code code="SEV" codeSystem="2.16.840.1.113883.5.4"/>
+              <statusCode code="completed"/>
+              <value code="H" codeSystem="2.16.840.1.113883.5.1063"/>
+            </severityObservation>
+          </subjectOf2>
+        </intoleranceCondition>
+      </subject>
+        <subjectOf typeCode="SUBJ" contextControlCode="AP" contextConductionInd="false">
+          <detectedIssueEvent classCode="ALRT" moodCode="EVN">
+            <code code="VALIDAT" codeSystem="2.16.840.1.113883.5.4"/>
+            <text>patient not found</text>
+            <statusCode code="completed"/>
+            <priorityCode code="I" codeSystem="2.16.840.1.113883.5.1082"/>
+            <subjectOf typeCode="SUBJ" contextControlCode="ON" contextConductionInd="false">
+              <severityObservation classCode="OBS" moodCode="EVN">
+                <code code="SEV" codeSystem="2.16.840.1.113883.5.4"/>
+                <statusCode code="completed"/>
+                <value nullFlavor="NI"/>
+              </severityObservation>
+            </subjectOf>
+          </detectedIssueEvent>
+        </subjectOf>
+      <queryAck>
+        <queryId extension="4" root="1.2.3"/>
+        <queryResponseCode code="OK"/>
+        <resultTotalQuantity value="1"/>
+        <resultCurrentQuantity value="1"/>
+        <resultRemainingQuantity value="0"/>
+      </queryAck>
+      <queryByParameter>
+        <queryId root="1ee83ff1-08ab-4fe7-b573-ea777e9bad31"/>
+        <initialQuantityCode code="RD" codeSystem="2.16.840.1.113883.5.1112"/>
+        <parameterList>
+          <includeNotesIndicator>
+            <value value="true"/>
+          </includeNotesIndicator>
+          <patientBirthDate>
+            <value value="19871201"/>
+          </patientBirthDate>
+          <patientGender>
+            <value code="M" codeSystem="2.16.840.1.113883.5.1"/>
+          </patientGender>
+          <patientID>
+            <value extension="8048151067070480384" root="2.16.840.1.113883.1.133"/>
+          </patientID>
+          <patientName>
+            <value><given>Tim</given><family>Eapen</family></value>
+          </patientName>
+        </parameterList>
+      </queryByParameter>
+    </controlActEvent>
+</REPC_IN000016CA>

@@ -1,0 +1,460 @@
+<mif:serializedStaticModel xmlns:mif="urn:hl7-org:v3/mif"
+                           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                           xsi:schemaLocation=""
+                           packageKind="realm"
+                           representationKind="serialized"
+                           isSerializable="true"
+                           isAbstract="false"
+                           name="CA">
+   <mif:packageLocation root="DEFN" section="IM" subSection="CO" domain="CT" artifact="MT-deprecated"
+                        realm="CA"
+                        id="141007"/>
+   <mif:header>
+      <mif:renderingInformation schemaVersion="1" application="Visio to MIF transform"/>
+      <mif:legalese copyrightOwner="Health Level Seven" copyrightYears="2008"/>
+   </mif:header>
+   <mif:graphicRepresentation presentation="HL7">
+      <mif:graphElement name="Main">
+         <mif:position x="0.0" y="0.0"/>
+         <mif:size width="9.742" height="2.104"/>
+      </mif:graphElement>
+   </mif:graphicRepresentation>
+   <mif:derivationSupplier staticModelDerivationId="1">
+      <mif:targetStaticModel root="DEFN" artifact="RIM" version="00"/>
+   </mif:derivationSupplier>
+   <mif:ownedEntryPoint id="COCT_MT141007CA" name="Device Minimal" isAbstract="false">
+      <mif:graphicRepresentation>
+         <mif:graphElement shapeId="Sheet.99" containerDiagramName="Main">
+            <mif:position x="0.242" y="0.028"/>
+            <mif:size width="1.087" height="0.453"/>
+            <mif:anchorage connectToShapeId="Sheet.99">
+               <mif:position x="0.798" y="0.481"/>
+               <mif:graphEdge>
+                  <mif:anchor connectToShapeId="Sheet.23">
+                     <mif:position x="0.773" y="0.881"/>
+                  </mif:anchor>
+               </mif:graphEdge>
+            </mif:anchorage>
+         </mif:graphElement>
+      </mif:graphicRepresentation>
+      <mif:specializedClass>
+         <mif:class name="ManufacturedProduct" isAbstract="false">
+            <mif:businessName name="Device Product"/>
+            <mif:derivationSupplier staticModelDerivationId="1" className="Role"/>
+            <mif:graphicRepresentation presentation="HL7">
+               <mif:graphElement shapeId="Sheet.23" containerDiagramName="Main" shapeTemplate="Role"
+                                 isWidthAutoSize="true"
+                                 isHeightAutoSize="true">
+                  <mif:position x="0.014" y="0.881"/>
+                  <mif:size width="1.519" height="0.500"/>
+               </mif:graphElement>
+            </mif:graphicRepresentation>
+            <mif:annotations>
+               <mif:definition>
+                  <mif:text>
+                     <mif:p>
+                        <mif:p>A medical device product intended to be supplied and/or used by a patient. Encompasses supplies, aids, etc.</mif:p>
+                     </mif:p>
+                  </mif:text>
+               </mif:definition>
+               <mif:rationale>
+                  <mif:text>
+                     <mif:p>
+                        <mif:p>Allows devices to be clearly described and referenced. Also allows searching for and examining information about devices that can be or are being used by a patient.</mif:p>
+                     </mif:p>
+                  </mif:text>
+               </mif:rationale>
+               <mif:mapping sourceName="NeCST">
+                  <mif:text>
+                     <mif:p>
+                        <mif:p>A_BillablePharmacyDispense</mif:p>
+                     </mif:p>
+                  </mif:text>
+               </mif:mapping>
+            </mif:annotations>
+            <mif:attribute name="classCode" sortKey="1" minimumMultiplicity="1" maximumMultiplicity="1"
+                           conformance="R"
+                           isMandatory="true"
+                           fixedValue="MANU"
+                           isStructural="true">
+               <mif:annotations>
+                  <mif:definition>
+                     <mif:text/>
+                  </mif:definition>
+               </mif:annotations>
+               <mif:derivationSupplier staticModelDerivationId="1" className="Role" attributeName="classCode"/>
+               <mif:type name="CS"/>
+               <mif:supplierDomainSpecification codingStrength="CNE" codeSystemName="RoleClass" mnemonic="MANU"/>
+            </mif:attribute>
+            <mif:association sortKey="2">
+               <mif:graphicRepresentation>
+                  <mif:graphElement connectToShapeId="Sheet.23" containerDiagramName="Main">
+                     <mif:position x="1.381" y="1.331"/>
+                     <mif:graphEdge>
+                        <mif:anchor connectToShapeId="Sheet.1">
+                           <mif:position x="2.365" y="1.637"/>
+                        </mif:anchor>
+                     </mif:graphEdge>
+                  </mif:graphElement>
+               </mif:graphicRepresentation>
+               <mif:targetConnection name="manufacturedClinicalDevice" minimumMultiplicity="1"
+                                     maximumMultiplicity="1"
+                                     conformance="R"
+                                     isMandatory="true"
+                                     sortKey="AZ">
+                  <mif:annotations>
+                     <mif:definition>
+                        <mif:text/>
+                     </mif:definition>
+                  </mif:annotations>
+                  <mif:derivationSupplier staticModelDerivationId="1" className="Role" associationEndName="player"/>
+                  <mif:participantClass>
+                     <mif:class name="ClinicalDevice" isAbstract="false">
+                        <mif:businessName name="Device"/>
+                        <mif:derivationSupplier staticModelDerivationId="1" className="Device"/>
+                        <mif:graphicRepresentation presentation="HL7">
+                           <mif:graphElement shapeId="Sheet.1" containerDiagramName="Main" shapeTemplate="Entity"
+                                             isWidthAutoSize="true"
+                                             isHeightAutoSize="true">
+                              <mif:position x="2.365" y="1.180"/>
+                              <mif:size width="3.140" height="0.914"/>
+                           </mif:graphElement>
+                        </mif:graphicRepresentation>
+                        <mif:annotations>
+                           <mif:definition>
+                              <mif:text>
+                                 <mif:p>
+                                    <mif:p>A catalog of devices (manufactured material) from which devices may be selected for prescribing/dispensing.</mif:p>
+                                 </mif:p>
+                              </mif:text>
+                           </mif:definition>
+                           <mif:rationale>
+                              <mif:text>
+                                 <mif:p>
+                                    <mif:p>Provides a list of devices available for prescribing/dispensing.</mif:p>
+                                 </mif:p>
+                              </mif:text>
+                           </mif:rationale>
+                           <mif:mapping sourceName="NeCST">
+                              <mif:text>
+                                 <mif:p>
+                                    <mif:p>A_BillablePharmacyDispense</mif:p>
+                                 </mif:p>
+                              </mif:text>
+                           </mif:mapping>
+                        </mif:annotations>
+                        <mif:attribute name="classCode" sortKey="1" minimumMultiplicity="1" maximumMultiplicity="1"
+                                       conformance="R"
+                                       isMandatory="true"
+                                       fixedValue="DEV"
+                                       isStructural="true">
+                           <mif:annotations>
+                              <mif:definition>
+                                 <mif:text/>
+                              </mif:definition>
+                           </mif:annotations>
+                           <mif:derivationSupplier staticModelDerivationId="1" className="Device" attributeName="classCode"/>
+                           <mif:type name="CS"/>
+                           <mif:supplierDomainSpecification codingStrength="CNE" codeSystemName="EntityClass" mnemonic="DEV"/>
+                        </mif:attribute>
+                        <mif:attribute name="determinerCode" sortKey="2" minimumMultiplicity="1"
+                                       maximumMultiplicity="1"
+                                       conformance="R"
+                                       isMandatory="true"
+                                       fixedValue="KIND"
+                                       isStructural="true">
+                           <mif:annotations>
+                              <mif:definition>
+                                 <mif:text/>
+                              </mif:definition>
+                           </mif:annotations>
+                           <mif:derivationSupplier staticModelDerivationId="1" className="Device" attributeName="determinerCode"/>
+                           <mif:type name="CS"/>
+                           <mif:supplierDomainSpecification codingStrength="CNE" codeSystemName="EntityDeterminer" mnemonic="KIND"/>
+                        </mif:attribute>
+                        <mif:attribute name="code" sortKey="3" minimumMultiplicity="1" maximumMultiplicity="1"
+                                       conformance="R"
+                                       isMandatory="false"
+                                       isStructural="false">
+                           <mif:businessName name="A:Device Code"/>
+                           <mif:annotations>
+                              <mif:definition>
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>An identifier for a type of device.</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:definition>
+                              <mif:rationale>
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>Used to ensure clear communication by uniquely identifying a particular device product when prescribing or dispensing. This attribute is only marked as 'populated' because some devices will not have codes associated with them.</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:rationale>
+                           </mif:annotations>
+                           <mif:derivationSupplier staticModelDerivationId="1" className="Device" attributeName="code"/>
+                           <mif:type name="CV"/>
+                           <mif:supplierDomainSpecification codingStrength="CNE" domainName="ClinicalDeviceEntity"/>
+                        </mif:attribute>
+                        <mif:attribute name="name" sortKey="4" minimumMultiplicity="1" maximumMultiplicity="1"
+                                       conformance="R"
+                                       isMandatory="true"
+                                       maximumLength="100"
+                                       isStructural="false">
+                           <mif:businessName name="B:Device Name"/>
+                           <mif:annotations>
+                              <mif:definition>
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>The name assigned to a type of device.</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:definition>
+                              <mif:usageNotes>
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>First occurrence is preferred for display.</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:usageNotes>
+                              <mif:rationale>
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>Names are used for human reference communication, to allow selection from dropdowns and for local searching. If a code is available, the name acts as a cross-check. If the code is not available the name acts as the primary identifier. The attribute is therefore mandatory.</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:rationale>
+                           </mif:annotations>
+                           <mif:derivationSupplier staticModelDerivationId="1" className="Device" attributeName="name"/>
+                           <mif:type name="ST"/>
+                        </mif:attribute>
+                        <mif:attribute name="desc" sortKey="5" minimumMultiplicity="0" maximumMultiplicity="1"
+                                       conformance="R"
+                                       isMandatory="false"
+                                       maximumLength="2000"
+                                       isStructural="false">
+                           <mif:businessName name="C:Device Description"/>
+                           <mif:annotations>
+                              <mif:definition>
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>A free form textual description of a device and its characteristics (e.g. size, shape, etc.). This is used when additional information must be conveyed that is not apparent by just specifying code and name.</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:definition>
+                              <mif:rationale>
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>Allows description of characteristics of the device not necessarily conveyed by the code or name.</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:rationale>
+                           </mif:annotations>
+                           <mif:derivationSupplier staticModelDerivationId="1" className="Device" attributeName="desc"/>
+                           <mif:type name="ST"/>
+                        </mif:attribute>
+                        <mif:association sortKey="1">
+                           <mif:graphicRepresentation>
+                              <mif:graphElement connectToShapeId="Sheet.1" containerDiagramName="Main">
+                                 <mif:position x="5.505" y="1.409"/>
+                                 <mif:graphEdge>
+                                    <mif:anchor connectToShapeId="Sheet.124">
+                                       <mif:position x="6.955" y="0.710"/>
+                                    </mif:anchor>
+                                 </mif:graphEdge>
+                              </mif:graphElement>
+                           </mif:graphicRepresentation>
+                           <mif:targetConnection name="asContent" minimumMultiplicity="0" maximumMultiplicity="1"
+                                                 conformance="R"
+                                                 isMandatory="false"
+                                                 sortKey="AABB######">
+                              <mif:annotations>
+                                 <mif:definition>
+                                    <mif:text/>
+                                 </mif:definition>
+                              </mif:annotations>
+                              <mif:derivationSupplier staticModelDerivationId="1" className="Entity" associationEndName="playedRole"/>
+                              <mif:participantClass>
+                                 <mif:class name="Content" isAbstract="false">
+                                    <mif:businessName name="packaged in"/>
+                                    <mif:derivationSupplier staticModelDerivationId="1" className="Role"/>
+                                    <mif:graphicRepresentation presentation="HL7">
+                                       <mif:graphElement shapeId="Sheet.124" containerDiagramName="Main" shapeTemplate="Role"
+                                                         isWidthAutoSize="true"
+                                                         isHeightAutoSize="true">
+                                          <mif:position x="6.624" y="0.247"/>
+                                          <mif:size width="3.319" height="0.514"/>
+                                       </mif:graphElement>
+                                    </mif:graphicRepresentation>
+                                    <mif:annotations>
+                                       <mif:definition>
+                                          <mif:text>
+                                             <mif:p>
+                                                <mif:p>Information about how the device is packaged.</mif:p>
+                                             </mif:p>
+                                          </mif:text>
+                                       </mif:definition>
+                                       <mif:rationale>
+                                          <mif:text>
+                                             <mif:p>
+                                                <mif:p>May influence prescribing quantities.</mif:p>
+                                             </mif:p>
+                                          </mif:text>
+                                       </mif:rationale>
+                                    </mif:annotations>
+                                    <mif:attribute name="classCode" sortKey="1" minimumMultiplicity="1" maximumMultiplicity="1"
+                                                   conformance="R"
+                                                   isMandatory="true"
+                                                   fixedValue="CONT"
+                                                   isStructural="true">
+                                       <mif:annotations>
+                                          <mif:definition>
+                                             <mif:text/>
+                                          </mif:definition>
+                                       </mif:annotations>
+                                       <mif:derivationSupplier staticModelDerivationId="1" className="Role" attributeName="classCode"/>
+                                       <mif:type name="CS"/>
+                                       <mif:supplierDomainSpecification codingStrength="CNE" codeSystemName="RoleClass" mnemonic="CONT"/>
+                                    </mif:attribute>
+                                    <mif:attribute name="quantity" sortKey="2" minimumMultiplicity="1" maximumMultiplicity="1"
+                                                   conformance="R"
+                                                   isMandatory="true"
+                                                   maximumLength="5"
+                                                   isStructural="false">
+                                       <mif:businessName name="F:Device Package Quantity"/>
+                                       <mif:annotations>
+                                          <mif:definition>
+                                             <mif:text>
+                                                <mif:p>
+                                                   <mif:p>The quantity of devices contained in the package given or to be given to the patient.</mif:p>
+                                                </mif:p>
+                                             </mif:text>
+                                          </mif:definition>
+                                          <mif:rationale>
+                                             <mif:text>
+                                                <mif:p>
+                                                   <mif:p>Sometimes ordering and dispensing is by package rather than individual units, and package is important in calculating total amount supplied.</mif:p>
+                                                </mif:p>
+                                                <mif:p>
+                                                   <mif:p>Attribute is marked as "mandatory" to ensure that quantity in a package is always known.</mif:p>
+                                                </mif:p>
+                                             </mif:text>
+                                          </mif:rationale>
+                                       </mif:annotations>
+                                       <mif:derivationSupplier staticModelDerivationId="1" className="Role" attributeName="quantity"/>
+                                       <mif:type name="INT.POS"/>
+                                    </mif:attribute>
+                                    <mif:association sortKey="4">
+                                       <mif:graphicRepresentation>
+                                          <mif:graphElement connectToShapeId="Sheet.124" containerDiagramName="Main">
+                                             <mif:position x="6.955" y="0.299"/>
+                                             <mif:graphEdge>
+                                                <mif:anchor connectToShapeId="Sheet.134">
+                                                   <mif:position x="4.600" y="0.379"/>
+                                                </mif:anchor>
+                                             </mif:graphEdge>
+                                          </mif:graphElement>
+                                       </mif:graphicRepresentation>
+                                       <mif:targetConnection name="containerPackagedDevice" minimumMultiplicity="1" maximumMultiplicity="1"
+                                                             conformance="R"
+                                                             isMandatory="true"
+                                                             sortKey="BZ">
+                                          <mif:annotations>
+                                             <mif:definition>
+                                                <mif:text/>
+                                             </mif:definition>
+                                          </mif:annotations>
+                                          <mif:derivationSupplier staticModelDerivationId="1" className="Role" associationEndName="scoper"/>
+                                          <mif:participantClass>
+                                             <mif:class name="PackagedDevice" isAbstract="false">
+                                                <mif:businessName name="Device Package"/>
+                                                <mif:derivationSupplier staticModelDerivationId="1" className="Container"/>
+                                                <mif:graphicRepresentation presentation="HL7">
+                                                   <mif:graphElement shapeId="Sheet.134" containerDiagramName="Main" shapeTemplate="Entity"
+                                                                     isWidthAutoSize="true"
+                                                                     isHeightAutoSize="true">
+                                                      <mif:position x="3.198" y="0.004"/>
+                                                      <mif:size width="1.402" height="0.750"/>
+                                                   </mif:graphElement>
+                                                </mif:graphicRepresentation>
+                                                <mif:annotations>
+                                                   <mif:definition>
+                                                      <mif:text>
+                                                         <mif:p>
+                                                            <mif:p>Describes the container in which a device can be or should be provided to the patient.</mif:p>
+                                                         </mif:p>
+                                                      </mif:text>
+                                                   </mif:definition>
+                                                   <mif:rationale>
+                                                      <mif:text>
+                                                         <mif:p>
+                                                            <mif:p>Used for informing dispenser of the need and authorization to dispense device in a clinically approved container. Aids patients in adhering to usage instructions. May also influence the quantity prescribed.</mif:p>
+                                                         </mif:p>
+                                                         <mif:p>
+                                                            <mif:p>The empty class is mandatory for HL7 alignment and modeling reasons.</mif:p>
+                                                         </mif:p>
+                                                      </mif:text>
+                                                   </mif:rationale>
+                                                </mif:annotations>
+                                                <mif:attribute name="classCode" sortKey="1" minimumMultiplicity="1" maximumMultiplicity="1"
+                                                               conformance="R"
+                                                               isMandatory="true"
+                                                               fixedValue="CONT"
+                                                               isStructural="true">
+                                                   <mif:annotations>
+                                                      <mif:definition>
+                                                         <mif:text/>
+                                                      </mif:definition>
+                                                   </mif:annotations>
+                                                   <mif:derivationSupplier staticModelDerivationId="1" className="Container" attributeName="classCode"/>
+                                                   <mif:type name="CS"/>
+                                                   <mif:supplierDomainSpecification codingStrength="CNE" codeSystemName="EntityClass" mnemonic="CONT"/>
+                                                </mif:attribute>
+                                                <mif:attribute name="determinerCode" sortKey="2" minimumMultiplicity="1"
+                                                               maximumMultiplicity="1"
+                                                               conformance="R"
+                                                               isMandatory="true"
+                                                               fixedValue="KIND"
+                                                               isStructural="true">
+                                                   <mif:annotations>
+                                                      <mif:definition>
+                                                         <mif:text/>
+                                                      </mif:definition>
+                                                   </mif:annotations>
+                                                   <mif:derivationSupplier staticModelDerivationId="1" className="Container"
+                                                                           attributeName="determinerCode"/>
+                                                   <mif:type name="CS"/>
+                                                   <mif:supplierDomainSpecification codingStrength="CNE" codeSystemName="EntityDeterminer" mnemonic="KIND"/>
+                                                </mif:attribute>
+                                             </mif:class>
+                                          </mif:participantClass>
+                                       </mif:targetConnection>
+                                       <mif:sourceConnection>
+                                          <mif:nonTraversableConnection participantClassName="Content">
+                                             <mif:derivationSupplier staticModelDerivationId="1" className="Entity" associationEndName="scopedRole"/>
+                                          </mif:nonTraversableConnection>
+                                       </mif:sourceConnection>
+                                    </mif:association>
+                                 </mif:class>
+                              </mif:participantClass>
+                           </mif:targetConnection>
+                           <mif:sourceConnection>
+                              <mif:nonTraversableConnection participantClassName="ClinicalDevice">
+                                 <mif:derivationSupplier staticModelDerivationId="1" className="Role" associationEndName="player"/>
+                              </mif:nonTraversableConnection>
+                           </mif:sourceConnection>
+                        </mif:association>
+                     </mif:class>
+                  </mif:participantClass>
+               </mif:targetConnection>
+               <mif:sourceConnection>
+                  <mif:nonTraversableConnection participantClassName="ManufacturedProduct">
+                     <mif:derivationSupplier staticModelDerivationId="1" className="Entity" associationEndName="playedRole"/>
+                  </mif:nonTraversableConnection>
+               </mif:sourceConnection>
+            </mif:association>
+         </mif:class>
+      </mif:specializedClass>
+   </mif:ownedEntryPoint>
+</mif:serializedStaticModel>

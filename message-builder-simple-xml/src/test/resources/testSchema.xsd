@@ -1,0 +1,129 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+	xmlns:chi="urn:ca.infoway.messagebuilder.simplexml.v1" targetNamespace="urn:ca.infoway.messagebuilder.simplexml.v1" 
+	elementFormDefault="qualified">
+   <xs:include schemaLocation="../classes/simpleDataTypes.xsd"/>
+   
+	<xs:element name="ParameterList" type="chi:ParameterList" />
+	
+	<xs:complexType name="ParameterList">
+		<xs:sequence>
+			<xs:choice minOccurs="0" maxOccurs="unbounded">
+				<xs:element name="id" type="chi:InstanceIdentifier" />
+				<xs:element name="idNullFlavor" type="chi:NullType" />
+			</xs:choice>
+			<xs:choice minOccurs="0" maxOccurs="unbounded">
+				<xs:element name="name" type="xs:string" />
+				<xs:element name="nameNullFlavor" type="chi:NullType" />
+			</xs:choice>
+			<xs:choice minOccurs="0" maxOccurs="unbounded">
+				<xs:element name="message" type="chi:LocalizedString" />
+				<xs:element name="messageNullFlavor" type="chi:NullType" />
+			</xs:choice>
+			<xs:choice minOccurs="0" maxOccurs="unbounded">
+				<xs:element name="money" type="chi:Money" />
+				<xs:element name="moneyNullFlavor" type="chi:NullType" />
+			</xs:choice>
+			<xs:choice minOccurs="0" maxOccurs="unbounded">
+				<xs:element name="address" type="chi:PostalAddress" />
+				<xs:element name="addressNullFlavor" type="chi:NullType" />
+			</xs:choice>
+			<xs:choice minOccurs="0" maxOccurs="unbounded">
+				<xs:element name="phone" type="chi:PhoneNumber" />
+				<xs:element name="phoneNullFlavor" type="chi:NullType" />
+			</xs:choice>
+			<xs:choice minOccurs="0" maxOccurs="unbounded">
+				<xs:element name="email" type="chi:EmailAddress" />
+				<xs:element name="emailNullFlavor" type="chi:NullType" />
+			</xs:choice>
+			<xs:choice minOccurs="0" maxOccurs="unbounded">
+				<xs:element name="uri" type="chi:Uri" />
+				<xs:element name="uriNullFlavor" type="chi:NullType" />
+			</xs:choice>
+			<xs:choice minOccurs="0" maxOccurs="unbounded">
+				<xs:element name="amount" type="chi:PhysicalQuantityInterval" />
+				<xs:element name="amountNullFlavor" type="chi:NullType" />
+			</xs:choice>
+			<xs:choice minOccurs="0" maxOccurs="unbounded">
+				<xs:element name="signatureDoc" type="chi:EncapsulatedSignatureType" />
+				<xs:element name="signatureDocNullFlavor" type="chi:NullType" />
+			</xs:choice>
+			<xs:choice minOccurs="0" maxOccurs="unbounded">
+				<xs:element name="docOrRef" type="chi:EncapsulatedDocumentOrReference" />
+				<xs:element name="docOrRefNullFlavor" type="chi:NullType" />
+			</xs:choice>
+			<xs:choice minOccurs="0" maxOccurs="unbounded">
+				<xs:element name="document" type="chi:EncapsulatedDocumentType" />
+				<xs:element name="documentNullFlavor" type="chi:NullType" />
+			</xs:choice>
+			<xs:choice minOccurs="0" maxOccurs="unbounded">
+				<xs:element name="reference" type="chi:EncapsulatedReferenceType" />
+				<xs:element name="referenceNullFlavor" type="chi:NullType" />
+			</xs:choice>
+			<xs:choice minOccurs="0" maxOccurs="unbounded">
+				<xs:element name="drugOverTime" type="chi:RatioDrugQuantityPerTime" />
+				<xs:element name="drugOverTimeNullFlavor" type="chi:NullType" />
+			</xs:choice>
+			<xs:choice minOccurs="0" maxOccurs="unbounded">
+				<xs:element name="moneyPerUnit" type="chi:RatioMoneyPerUnit" />
+				<xs:element name="moneyPerUnitNullFlavor" type="chi:NullType" />
+			</xs:choice>
+			<xs:choice minOccurs="0" maxOccurs="unbounded">
+				<xs:element name="partialDate" type="chi:PartialDate" />
+				<xs:element name="partialDateNullFlavor" type="chi:NullType" />
+			</xs:choice>
+			<xs:choice minOccurs="0" maxOccurs="unbounded">
+				<xs:element name="fullDate" type="chi:FullDate" />
+				<xs:element name="fullDateNullFlavor" type="chi:NullType" />
+			</xs:choice>
+			<xs:choice minOccurs="0" maxOccurs="unbounded">
+				<xs:element name="partialDateTime" type="chi:PartialDateTime" />
+				<xs:element name="partialDateTimeNullFlavor" type="chi:NullType" />
+			</xs:choice>
+			<xs:choice minOccurs="0" maxOccurs="unbounded">
+				<xs:element name="fullDateTime" type="chi:FullDateTime" />
+				<xs:element name="fullDateTimeNullFlavor" type="chi:NullType" />
+			</xs:choice>
+			<xs:choice minOccurs="0" maxOccurs="unbounded">
+				<xs:element name="pivl" type="chi:PeriodicIntervalOfTime" />
+				<xs:element name="pivlNullFlavor" type="chi:NullType" />
+			</xs:choice>
+			<xs:choice minOccurs="0" maxOccurs="unbounded">
+				<xs:element name="boundedPivl" type="chi:BoundedPeriodicIntervalOfTime" />
+				<xs:element name="boundedPivlNullFlavor" type="chi:NullType" />
+			</xs:choice>
+			<xs:choice minOccurs="0" maxOccurs="unbounded">
+				<xs:element name="dateInterval" type="chi:DateInterval" />
+				<xs:element name="dateIntervalNullFlavor" type="chi:NullType" />
+			</xs:choice>
+			<xs:choice minOccurs="0" maxOccurs="unbounded">
+				<xs:element name="dateUncertainRange" type="chi:DateUncertainRange" />
+				<xs:element name="dateUncertainRangeNullFlavor" type="chi:NullType" />
+			</xs:choice>
+			<xs:choice minOccurs="0" maxOccurs="unbounded">
+				<xs:element name="simpleCodedType" type="chi:SimpleCodedType" />
+				<xs:element name="simpleCodedTypeNullFlavor" type="chi:NullType" />
+			</xs:choice>
+			<xs:choice minOccurs="0" maxOccurs="unbounded">
+				<xs:element name="codedValue" type="chi:CodedValue" />
+				<xs:element name="codedValueNullFlavor" type="chi:NullType" />
+			</xs:choice>
+			<xs:choice minOccurs="0" maxOccurs="unbounded">
+				<xs:element name="codedType" type="chi:CodedType" />
+				<xs:element name="codedTypeNullFlavor" type="chi:NullType" />
+			</xs:choice>
+			<xs:choice minOccurs="0" maxOccurs="unbounded">
+				<xs:element name="codedTypeLab" type="chi:CodedTypeLab" />
+				<xs:element name="codedTypeLabNullFlavor" type="chi:NullType" />
+			</xs:choice>
+			<xs:choice minOccurs="0" maxOccurs="unbounded">
+				<xs:element name="personName" type="chi:PersonName" />
+				<xs:element name="personNameNullFlavor" type="chi:NullType" />
+			</xs:choice>
+			<xs:choice minOccurs="0" maxOccurs="unbounded">
+				<xs:element name="simpleName" type="chi:SimpleName" />
+				<xs:element name="simpleNameNullFlavor" type="chi:NullType" />
+			</xs:choice>
+		</xs:sequence>
+	</xs:complexType>
+   
+</xs:schema>

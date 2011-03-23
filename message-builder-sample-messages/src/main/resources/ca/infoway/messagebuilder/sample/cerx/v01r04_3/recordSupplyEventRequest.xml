@@ -1,0 +1,92 @@
+<PORX_IN020210CA xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:hl7-org:v3" ITSVersion="XML_1.0">
+    <!-- Message rendered by Intelliware TEAL version 1.6-SNAPSHOT -->
+    <id root="1ee83ff1-08ab-4fe7-b573-ea777e9bad51"/>
+    <creationTime value="20080625141610-0400"/>
+    <versionCode code="V3-2007-05"/>
+    <interactionId extension="PORX_IN020210CA" root="2.16.840.1.113883.1.6"/>
+    <processingCode code="P"/>
+    <processingModeCode code="T"/>
+    <acceptAckCode code="AL"/>
+    <receiver typeCode="RCV">
+      <telecom value="http://123.456.789.10"/>
+      <device classCode="DEV" determinerCode="INSTANCE">
+        <id extension="123" root="1.2.3"/>
+      </device>
+    </receiver>
+    <sender typeCode="SND">
+      <telecom value="http://987.654.321.0"/>
+      <device classCode="DEV" determinerCode="INSTANCE">
+        <id extension="123" root="1.2.3"/>
+        <manufacturerModelName>1.0</manufacturerModelName>
+        <softwareName>Panacea Pharmacy</softwareName>
+      </device>
+    </sender>
+    <controlActEvent classCode="CACT" moodCode="EVN">
+      <id extension="8141234" root="2.16.840.1.113883.1.6"/>
+      <code code="PORX_TE020130UV" codeSystem="2.16.840.1.113883.5.4"/>
+      <statusCode code="completed"/>
+      <effectiveTime>
+        <low value="20080918"/>
+      </effectiveTime>
+      <author typeCode="AUT" contextControlCode="AP">
+        <time value="20080918181800-0400"/>
+        <assignedPerson classCode="ASSIGNED">
+          <id extension="EHR ID EXT" root="2.16.840.1.113883.4.267"/>
+          <representedPerson classCode="PSN" determinerCode="INSTANCE">
+            <name use="L"><given>Jane</given><family>Doe</family></name>
+            <asLicensedEntity classCode="LIC">
+              <id extension="55555" root="2.16.840.1.113883.4.268"/>
+            </asLicensedEntity>
+          </representedPerson>
+        </assignedPerson>
+      </author>
+      <location typeCode="LOC" contextControlCode="AP">
+        <serviceDeliveryLocation classCode="SDLOC">
+          <id extension="1" root="2.16.124.113620.1.1.11111"/>
+          <addr nullFlavor="NI"/>
+          <telecom nullFlavor="NI"/>
+          <location classCode="PLC" determinerCode="INSTANCE">
+            <name>Intelliware&apos;s Pharmacy</name>
+          </location>
+        </serviceDeliveryLocation>
+      </location>
+      <subject typeCode="SUBJ" contextControlCode="ON" contextConductionInd="false">
+        <supplyEvent classCode="SPLY" moodCode="EVN">
+          <id extension="dispenseIdExtension" root="dispenseIdRoot"/>
+          <code code="INFA" codeSystem="2.16.840.1.113883.5.4"/>
+          <effectiveTime value="19691231190000-0500"/>
+          <quantity unit="g" value="12"/>
+          <product typeCode="PRD" contextControlCode="OP">
+            <medication classCode="MED">
+              <player classCode="MMAT" determinerCode="KIND">
+                <code code="00888982" codeSystem="2.16.840.1.113883.5.1105"/>
+                <name>advil extra strength</name>
+                <desc>some medicine containing ibuprofen</desc>
+                <formCode code="DROP" codeSystem="2.16.840.1.113883.19.5.3"/>
+                <lotNumberText>lot number 123</lotNumberText>
+                <expirationTime value="20090101"/>
+                <asContent classCode="CONT">
+                  <quantity unit="g" value="12"/>
+                  <containerPackagedMedicine classCode="CONT" determinerCode="KIND">
+                    <formCode code="BLSTRPK" codeSystem="2.16.840.1.113883.5.1060"/>
+                  </containerPackagedMedicine>
+                </asContent>
+                <ingredient classCode="INGR" negationInd="false">
+                  <quantity unit="g" value="250"/>
+                  <ingredient classCode="MMAT" determinerCode="KIND">
+                    <code code="00888982" codeSystem="2.16.840.1.113883.5.1105"/>
+                    <name>ibuprofen</name>
+                  </ingredient>
+                </ingredient>
+              </player>
+            </medication>
+          </product>
+          <destination typeCode="DST" contextControlCode="OP">
+            <serviceDeliveryLocation classCode="SDLOC">
+              <id extension="3" root="2.2.2"/>
+            </serviceDeliveryLocation>
+          </destination>
+        </supplyEvent>
+      </subject>
+    </controlActEvent>
+</PORX_IN020210CA>

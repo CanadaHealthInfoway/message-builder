@@ -1,0 +1,72 @@
+<REPC_IN000085CA xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="urn:hl7-org:v3" ITSVersion="XML_1.0">
+	<id root="1ee83ff1-08ab-4fe7-b573-ea777e9bad51" />
+	<creationTime value="20080625141610-0400" />
+	<responseModeCode code="I" />
+	<versionCode code="V3-2007-05" />
+	<interactionId extension="REPC_IN000085CA" root="2.16.840.1.113883.1.6" />
+	<processingCode code="P" />
+	<processingModeCode code="T" />
+  <acceptAckCode code="AL"/>
+	<receiver typeCode="RCV">
+		<telecom value="http://123.255.255.10" />
+		<device classCode="DEV" determinerCode="INSTANCE">
+	  <id extension="222" root="2.16.124.113620.1.2.100" use="BUS" />
+		</device>
+	</receiver>
+	<sender typeCode="SND">
+		<telecom value="http://987.654.321.0" />
+		<device classCode="DEV" determinerCode="INSTANCE">
+	  <id extension="111" root="2.16.124.113620.1.2.100" use="BUS" />
+			<manufacturerModelName>1.0</manufacturerModelName>
+			<softwareName>Panacea Pharmacy</softwareName>
+		</device>
+	</sender>
+	<acknowledgement>
+		<typeCode code="AE" />
+		<targetMessage>
+			<id root="1ee83ff1-08ab-4fe7-b573-ea777e9bad41" />
+		</targetMessage>
+		<acknowledgementDetail typeCode="I">
+			<code code="SYN100" codeSystem="2.16.840.1.113883.5.1100" />
+			<text>The element &quot;name&quot; of /COMT_IN300201CA/controlActProcess/author/assignedPerson/representedPerson is mandatory and cannot be null.</text>
+	    </acknowledgementDetail>
+	    <acknowledgementDetail typeCode="I">
+	      <code code="SYN100" codeSystem="2.16.840.1.113883.5.1100"/>
+	      <text>The element &quot;id&quot; of /COMT_IN300201CA/controlActProcess/location is mandatory and cannot be null.</text>
+	    </acknowledgementDetail>
+	</acknowledgement>
+	<controlActEvent classCode="CACT" moodCode="EVN">
+		<id extension="8141234" root="2.16.840.1.113883.1.6" />
+		<code code="REPC_TE000085UV" codeSystem="2.16.840.1.113883.5.4" />
+		<statusCode code="completed" />
+		<effectiveTime>
+			<low value="20080918" />
+		</effectiveTime>
+		<recordTarget contextControlCode="AP">
+			<patient1 classCode="PAT">
+				<id nullFlavor="NI" />
+				<patientPerson classCode="PSN" determinerCode="INSTANCE">
+					<name nullFlavor="NI" />
+					<administrativeGenderCode nullFlavor="NI" />
+					<birthTime nullFlavor="NI" />
+				</patientPerson>
+			</patient1>
+		</recordTarget>
+		<queryAck>
+			<queryId nullFlavor="NI" />
+			<queryResponseCode nullFlavor="NI" />
+			<resultTotalQuantity nullFlavor="NI" />
+			<resultCurrentQuantity nullFlavor="NI" />
+			<resultRemainingQuantity nullFlavor="NI" />
+		</queryAck>
+		<queryByParameter>
+			<queryId root="1ee83ff1-08ab-4fe7-b573-ea777e9bad31" />
+			<parameterList>
+				<mostRecentByTypeIndicator>
+					<value value="true" />
+				</mostRecentByTypeIndicator>
+			</parameterList>
+		</queryByParameter>
+	</controlActEvent>
+</REPC_IN000085CA>

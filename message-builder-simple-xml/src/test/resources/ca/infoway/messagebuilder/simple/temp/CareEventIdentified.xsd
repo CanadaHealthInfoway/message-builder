@@ -1,0 +1,30 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:chi="urn:ca.infoway.messagebuilder.simplexml.v1" 
+	targetNamespace="urn:ca.infoway.messagebuilder.simplexml.v1"
+	elementFormDefault="qualified">
+	
+	<xs:include schemaLocation="../../../../../../classes/simpleDataTypes.xsd"/>
+	<xs:include schemaLocation="AssigningPersonIdentified-confirmable.xsd"/>
+	<xs:include schemaLocation="AssigningOrganizationIdentified-confirmable.xsd"/>
+	
+	<xs:element name="careCompositions" type="chi:COCT_MT011001CA.PatientCareProvisionEvent" />
+
+	<xs:complexType name="COCT_MT011001CA.PatientCareProvisionEvent">
+		<xs:sequence>
+			<xs:element name="careCompositionIdentifier" type="chi:InstanceIdentifier" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="careCompositionType" type="chi:CodedType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="careCompositionEffectiveDate" type="chi:DateInterval" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="admitterAssignees" type="chi:COCT_MT011001CA.Assignees" minOccurs="0" maxOccurs="10"/>
+			<xs:element name="attenderAssignees" type="chi:COCT_MT011001CA.Assignees" minOccurs="0" maxOccurs="10"/>
+			<xs:element name="locationServiceDeliveryLocationClassCode" type="chi:SimpleCodedType" maxOccurs="1" minOccurs="0"/>
+			<xs:element name="locationServiceDeliveryLocationCode" type="chi:CodedValue" maxOccurs="1" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="COCT_MT011001CA.Assignees">
+		<xs:choice>
+			<xs:element name="healthcareOrganization" type="chi:COCT_MT090502CA.AssignedEntity" />
+			<xs:element name="healthcareWorker" type="chi:COCT_MT090102CA.AssignedEntity" />
+		</xs:choice>
+	</xs:complexType>
+</xs:schema>

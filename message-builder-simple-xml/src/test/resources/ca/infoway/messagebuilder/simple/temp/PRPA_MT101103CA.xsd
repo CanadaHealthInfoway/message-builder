@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:chi="urn:ca.infoway.messagebuilder.simplexml.v1" elementFormDefault="qualified" targetNamespace="urn:ca.infoway.messagebuilder.simplexml.v1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include schemaLocation="../../../../../../classes/simpleDataTypes.xsd"/>
+  <xs:complexType name="PRPA_MT101103CA.DeceasedIndicator">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="0" name="deceasedIndicator" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PRPA_MT101103CA.DeceasedTime">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="0" name="deceasedDate" type="chi:PartialDateTime"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PRPA_MT101103CA.LanguageCode">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="0" name="languageOfCommunicationCode" type="chi:CodedValue"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PRPA_MT101103CA.MultipleBirthIndicator">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="0" name="clientMultipleBirthIndicator" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PRPA_MT101103CA.MultipleBirthOrderNumber">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="0" name="clientMultipleBirthOrderNumber" type="xs:integer"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PRPA_MT101103CA.ParameterList">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="0" name="clientGender" type="chi:CodedValue"/>
+      <xs:element maxOccurs="10" minOccurs="0" name="clientHealthcareIdentificationNumberAndOrNonHealthcareIdentification" type="chi:InstanceIdentifier"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="deceasedIndicator" type="chi:PRPA_MT101103CA.DeceasedIndicator"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="deceasedTime" type="chi:PRPA_MT101103CA.DeceasedTime"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="languageCode" type="chi:PRPA_MT101103CA.LanguageCode"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="multipleBirthIndicator" type="chi:PRPA_MT101103CA.MultipleBirthIndicator"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="multipleBirthOrderNumber" type="chi:PRPA_MT101103CA.MultipleBirthOrderNumber"/>
+      <xs:element maxOccurs="10" minOccurs="0" name="clientAddress" type="chi:PostalAddress"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="clientDateOfBirth" type="chi:PartialDateTime"/>
+      <xs:element maxOccurs="10" minOccurs="0" name="clientName" type="chi:PersonName"/>
+      <xs:element maxOccurs="10" minOccurs="0" name="clientTelecom" type="chi:PhonemailTelecommunicationAddress"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="personalRelationshipCode" type="chi:PRPA_MT101103CA.PersonalRelationshipCode"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PRPA_MT101103CA.PersonalRelationshipCode">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="0" name="clientNextOfKin" type="chi:CodedValue"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PRPA_IN101999CA ITSVersion="XML_1.0" xmlns="urn:hl7-org:v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <id root="d12a9015-7c4a-4201-8b46-b83872f6da42"/>
+    <creationTime value="20090526170139.0208-0400"/>
+    <responseModeCode code="D"/>
+    <versionCode code="NE2006"/>
+    <interactionId displayable="true" extension="PRPA_IN101999CA" root="2.16.840.1.113883.1.6"/>
+    <profileId extension="tbd" root="tbd" use="BUS"/>
+    <processingCode code="P"/>
+    <processingModeCode code="T"/>
+    <acceptAckCode code="ER"/>
+    <receiver typeCode="RCV">
+        <telecom value="ftp://198.203.1.23"/>
+        <device classCode="DEV" determinerCode="INSTANCE">
+            <id extension="123456"
+                root="2.16.840.1.113883.3.133.1.5.101" use="BUS"/>
+        </device>
+    </receiver>
+    <sender typeCode="SND">
+        <telecom value="ftp://198.203.1.23"/>
+        <device classCode="DEV" determinerCode="INSTANCE">
+            <id extension="123456" root="2.16.124.113618.1234.1.1.x" use="BUS"/>
+            <manufacturerModelName>0.1</manufacturerModelName>
+            <softwareName>Panacea Pharmacy</softwareName>
+        </device>
+    </sender>
+    <controlActEvent classCode="CACT" moodCode="EVN">
+        <id extension="23"
+            root="2.16.124.113618.1234.1.1.2.1243365086473.2183" use="BUS"/>
+        <code code="PRPA_TE101999UV" codeSystem="2.16.840.1.113883.5.4">
+            <originalText/>
+        </code>
+        <statusCode code="completed"/>
+        <effectiveTime>
+            <low value="20090526"/>
+        </effectiveTime>
+        <subject contextConductionInd="" contextControlCode="ON" typeCode="SUBJ">
+            <registrationRequest classCode="REG" moodCode="RQO">
+                <statusCode code="active"/>
+                <subject contextControlCode="AN" typeCode="SBJ">
+                    <identifiedEntity classCode="IDENT">
+                        <id displayable="true" root="2.16.840.1.113883.4.52.1243365086786.2183"/>
+                        <identifiedPerson classCode="PSN" determinerCode="INSTANCE">
+                            <name use="L">
+                                <family>LEUNG</family>
+                                <given qualifier="">EIN3</given>
+                                <prefix/>
+                            </name>
+                            <administrativeGenderCode code="M" codeSystem="2.16.840.1.113883.5.1">
+                                <originalText/>
+                            </administrativeGenderCode>
+                            <birthTime value="20060601"/>
+                        </identifiedPerson>
+                    </identifiedEntity>
+                </subject>
+                <custodian contextControlCode="AP" typeCode="CST">
+                    <assignedDevice classCode="ASSIGNED">
+                        <id use="BUS"/>
+                        <assignedRepository classCode="DEV" determinerCode="INSTANCE">
+                            <name/>
+                        </assignedRepository>
+                        <representedRepositoryJurisdiction
+                            classCode="STATE" determinerCode="INSTANCE">
+                            <name/>
+                        </representedRepositoryJurisdiction>
+                    </assignedDevice>
+                </custodian>
+            </registrationRequest>
+        </subject>
+    </controlActEvent>
+</PRPA_IN101999CA>

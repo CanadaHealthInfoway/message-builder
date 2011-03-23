@@ -1,0 +1,95 @@
+                         ---------------------------
+                         mif-to-xml Tool
+                         ---------------------------
+
+                         
+Message Set Generation
+
+  Message sets are XML documents that contain details of the complex types that make
+  up HL7 messages, plus information about the interactions themselves.  Message sets
+  are derived from MIF files; the salient data is extracted from the MIF and concatenated
+  into a message set file.  Message sets are used both at generation time (to create
+  Java and C# code) and at runtime to marshall/unmarshall the HL7 messages.
+  
+Maven Configuration
+
+  The mif-to-xml generator is run using Maven.  A typical configuration 
+  looks like this:
+
++----
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>ca.infoway.messagebuilder</groupId>
+        <artifactId>maven-chi-plugin</artifactId>
+        <version>1.0b2-SNAPSHOT</version>
+        <configuration>
+          <sourceDirectory>./etc/mr2009</sourceDirectory>
+          <fileSets>
+            <fileSet>
+              <name>common</name>
+              <directory>./etc/mr2009/Volume 1</directory>
+            </fileSet>
+            <fileSet>
+              <name>terminology</name>
+              <directory>./etc/mr2009/Volume 2</directory>
+            </fileSet>
+            <fileSet>
+              <name>si</name>
+              <directory>./etc/mr2009/Volume 3</directory>
+            </fileSet>
+            <fileSet>
+              <name>cr</name>
+              <directory>./etc/mr2009/Volume 4</directory>
+            </fileSet>
+            <fileSet>
+              <name>pr</name>
+              <directory>./etc/mr2009/Volume 5</directory>
+            </fileSet>
+            <fileSet>
+              <name>lr</name>
+              <directory>./etc/mr2009/Volume 6</directory>
+            </fileSet>
+            <fileSet>
+              <name>iehr</name>
+              <directory>./etc/mr2009/Volume 7</directory>
+            </fileSet>
+            <fileSet>
+              <name>pharmacy</name>
+              <directory>./etc/mr2009/Volume 8</directory>
+            </fileSet>
+            <fileSet>
+              <name>lab</name>
+              <directory>./etc/mr2009/Volume 9</directory>
+            </fileSet>
+            <fileSet>
+              <name>immunization</name>
+              <directory>./etc/mr2009/Volume 10</directory>
+            </fileSet>
+            <fileSet>
+              <name>claims</name>
+              <directory>./etc/mr2009/Volume 12</directory>
+            </fileSet>
+            <fileSet>
+              <name>consent</name>
+              <directory>./etc/mr2009/Volume 13</directory>
+            </fileSet>
+          </fileSets>
+          <messageSet>./path/to/messageSet.xml</messageSet>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
++----
+
+  This configuration uses multiple "file sets" to help categorize the different MIFs
+  into categories -- typically, you want to use commonly-recognized categories like
+  'cr' or 'pr'.  Currently, the only time we use these categories occurs when we 
+  derive a package name (for Java) or namespace (for C#) in which the model class is 
+  contained.
+
+  To execute the generator, type the following command:
+  
++----
+  mvn chi:mif-to-xml
++----

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:chi="urn:ca.infoway.messagebuilder.simplexml.v1" elementFormDefault="qualified" targetNamespace="urn:ca.infoway.messagebuilder.simplexml.v1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include schemaLocation="COCT_MT050207CA.xsd"/>
+  <xs:include schemaLocation="../../../../../../classes/simpleDataTypes.xsd"/>
+  <xs:complexType name="POIZ_MT061150CA.CauseOf">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="adverseEventReportID" type="chi:InstanceIdentifier"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="reportType" type="chi:CodedValue"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="adverseEventText" type="xs:string"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="reportStatus" type="chi:SimpleCodedType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="POIZ_MT061150CA.Consumable">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="vaccineCode" type="chi:CodedValue"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="vaccineName" type="xs:string"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="vaccineDescription" type="xs:string"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="drugForm" type="chi:CodedValue"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="vaccineLotNumber" type="xs:string"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="vaccineExpiryDate" type="chi:DateInterval"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="administerableMedicineAdministerableVaccineAsManufacturedProduct" type="chi:POIZ_MT061150CA.ManufacturedProduct"/>
+      <xs:element maxOccurs="15" minOccurs="0" name="administerableMedicineAdministerableVaccineIngredients" type="chi:POIZ_MT061150CA.Ingredients"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="POIZ_MT061150CA.Immunization">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="immunizationRecordId" type="chi:InstanceIdentifier"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="notImmunized" type="xs:boolean"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="immunizationEventStatus" type="chi:SimpleCodedType"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="immunizationDate" type="chi:PartialDate"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="uncertaintyCode" type="chi:CodedValue"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="cause" type="chi:POIZ_MT061150CA.CauseOf"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="consumable" type="chi:POIZ_MT061150CA.Consumable"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="subjectPatient" type="chi:COCT_MT050207CA.Patient"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="subjectOf1" type="chi:POIZ_MT061150CA.Subject5"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="subjectOf2" type="chi:POIZ_MT061150CA.Subject2"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="POIZ_MT061150CA.Ingredients">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="0" name="antigenCode" type="chi:CodedValue"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="antigenName" type="xs:string"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="antigenCountValue" type="xs:integer"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="invalidAntigenReasonCode" type="chi:CodedValue"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="antigenValidityIndicator" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="POIZ_MT061150CA.ManufacturedProduct">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="0" name="manufacturerID" type="chi:InstanceIdentifier"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="manufacturerName" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="POIZ_MT061150CA.Subject2">
+    <xs:sequence/>
+  </xs:complexType>
+  <xs:complexType name="POIZ_MT061150CA.Subject5">
+    <xs:sequence/>
+  </xs:complexType>
+</xs:schema>

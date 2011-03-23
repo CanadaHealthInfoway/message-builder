@@ -1,0 +1,1688 @@
+<mif:serializedStaticModel xmlns:mif="urn:hl7-org:v3/mif"
+                           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                           xsi:schemaLocation=""
+                           packageKind="realm"
+                           representationKind="serialized"
+                           isSerializable="true"
+                           isAbstract="false"
+                           name="CA">
+   <mif:packageLocation root="DEFN" section="IM" subSection="QU" domain="CR" artifact="MT-deprecated"
+                        realm="CA"
+                        id="810201"/>
+   <mif:header>
+      <mif:renderingInformation schemaVersion="1" application="Visio to MIF transform"/>
+      <mif:legalese copyrightOwner="Health Level Seven" copyrightYears="2007"/>
+   </mif:header>
+   <mif:graphicRepresentation presentation="HL7">
+      <mif:graphElement name="Main">
+         <mif:position x="0.0" y="0.0"/>
+         <mif:size width="42.000" height="30.000"/>
+      </mif:graphElement>
+   </mif:graphicRepresentation>
+   <mif:derivationSupplier staticModelDerivationId="1">
+      <mif:targetStaticModel root="DEFN" artifact="RIM" version="00"/>
+   </mif:derivationSupplier>
+   <mif:ownedEntryPoint id="QUCR_MT810201CA" name="SOFA Payment Advice Query Results"
+                        isAbstract="false">
+      <mif:annotations>
+         <mif:description>
+            <mif:text>
+               <mif:p>Entry point for SOFA Payment Advice Query Results message</mif:p>
+            </mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:graphicRepresentation>
+         <mif:graphElement shapeId="Sheet.331" containerDiagramName="Main">
+            <mif:position x="18.650" y="7.056"/>
+            <mif:size width="3.186" height="0.453"/>
+            <mif:anchorage connectToShapeId="Sheet.331">
+               <mif:position x="21.837" y="8.808"/>
+               <mif:graphEdge>
+                  <mif:anchor connectToShapeId="Sheet.183">
+                     <mif:position x="23.599" y="8.805"/>
+                  </mif:anchor>
+               </mif:graphEdge>
+            </mif:anchorage>
+         </mif:graphElement>
+      </mif:graphicRepresentation>
+      <mif:specializedClass>
+         <mif:class name="AdjudResultsGroup" isAbstract="false">
+            <mif:businessName name="Adjudicated Results Group"/>
+            <mif:derivationSupplier staticModelDerivationId="1" className="InvoiceElement"/>
+            <mif:graphicRepresentation presentation="HL7">
+               <mif:graphElement shapeId="Sheet.183" containerDiagramName="Main" shapeTemplate="Act"
+                                 isWidthAutoSize="false"
+                                 isHeightAutoSize="false">
+                  <mif:position x="23.599" y="6.500"/>
+                  <mif:size width="3.192" height="11.524"/>
+               </mif:graphElement>
+            </mif:graphicRepresentation>
+            <mif:annotations>
+               <mif:definition>
+                  <mif:text>
+                     <mif:p>
+                        <mif:p>Associations to the right are used for breaking down</mif:p>
+                     </mif:p>
+                     <mif:p>
+                        <mif:p>a Payment Advice (e.g. provider, sending appl) or</mif:p>
+                     </mif:p>
+                     <mif:p>
+                        <mif:p>a Statement of Financial Activity (e.g. payee, payor).</mif:p>
+                     </mif:p>
+                     <mif:p>
+                        <mif:p>Only 1 association can be specified per instance of this act.</mif:p>
+                     </mif:p>
+                  </mif:text>
+                  <mif:graphicRepresentation>
+                     <mif:graphElement shapeId="Sheet.238" containerDiagramName="Main" isWidthAutoSize="true"
+                                       isHeightAutoSize="true">
+                        <mif:position x="20.500" y="13.211"/>
+                        <mif:size width="2.631" height="0.989"/>
+                        <mif:anchorage connectToShapeId="Sheet.238">
+                           <mif:position x="21.815" y="13.706"/>
+                           <mif:graphEdge>
+                              <mif:anchor connectToShapeId="Sheet.183">
+                                 <mif:position x="26.791" y="13.414"/>
+                              </mif:anchor>
+                           </mif:graphEdge>
+                        </mif:anchorage>
+                     </mif:graphElement>
+                  </mif:graphicRepresentation>
+               </mif:definition>
+               <mif:constraint>
+                  <mif:text>
+                     <mif:p>
+                        <mif:p>The AdjudResultsGroup.netAmt must equal the sum of all immediate children AdjudResultsGroup.netAmt</mif:p>
+                     </mif:p>
+                  </mif:text>
+                  <mif:graphicRepresentation>
+                     <mif:graphElement shapeId="Sheet.338" containerDiagramName="Main" isWidthAutoSize="true"
+                                       isHeightAutoSize="true">
+                        <mif:position x="20.732" y="9.639"/>
+                        <mif:size width="2.331" height="0.561"/>
+                        <mif:anchorage connectToShapeId="Sheet.338">
+                           <mif:position x="21.898" y="9.919"/>
+                           <mif:graphEdge>
+                              <mif:anchor connectToShapeId="Sheet.183">
+                                 <mif:position x="23.599" y="9.957"/>
+                              </mif:anchor>
+                           </mif:graphEdge>
+                        </mif:anchorage>
+                     </mif:graphElement>
+                  </mif:graphicRepresentation>
+               </mif:constraint>
+            </mif:annotations>
+            <mif:attribute name="classCode" sortKey="1" minimumMultiplicity="1" maximumMultiplicity="1"
+                           conformance="R"
+                           isMandatory="true"
+                           fixedValue="INVE"
+                           isStructural="true">
+               <mif:annotations>
+                  <mif:definition>
+                     <mif:text/>
+                  </mif:definition>
+               </mif:annotations>
+               <mif:derivationSupplier staticModelDerivationId="1" className="InvoiceElement"
+                                       attributeName="classCode"/>
+               <mif:type name="CS"/>
+               <mif:supplierDomainSpecification codingStrength="CNE" codeSystemName="ActClass" mnemonic="INVE"/>
+            </mif:attribute>
+            <mif:attribute name="moodCode" sortKey="2" minimumMultiplicity="1" maximumMultiplicity="1"
+                           conformance="R"
+                           isMandatory="true"
+                           fixedValue="EVN"
+                           isStructural="true">
+               <mif:annotations>
+                  <mif:definition>
+                     <mif:text/>
+                  </mif:definition>
+               </mif:annotations>
+               <mif:derivationSupplier staticModelDerivationId="1" className="InvoiceElement" attributeName="moodCode"/>
+               <mif:type name="CS"/>
+               <mif:supplierDomainSpecification codingStrength="CNE" codeSystemName="ActMood" mnemonic="EVN"/>
+            </mif:attribute>
+            <mif:attribute name="id" sortKey="3" minimumMultiplicity="1" maximumMultiplicity="1"
+                           conformance="R"
+                           isMandatory="false"
+                           isStructural="false">
+               <mif:businessName name="Adjudicated Results Group ID"/>
+               <mif:annotations>
+                  <mif:definition>
+                     <mif:text>
+                        <mif:p>
+                           <mif:p>ID of Results Group</mif:p>
+                        </mif:p>
+                     </mif:text>
+                  </mif:definition>
+                  <mif:usageNotes>
+                     <mif:text>
+                        <mif:p>
+                           <mif:p>(If specified on a Payment Advice Summary, can be used to request additional detail with a Payment Advice Query message</mif:p>
+                        </mif:p>
+                     </mif:text>
+                  </mif:usageNotes>
+                  <mif:rationale>
+                     <mif:text>
+                        <mif:p>
+                           <mif:p>If specified on a Payment Advice Summary, can be used to request additional detail with a Payment Advice Query message</mif:p>
+                        </mif:p>
+                     </mif:text>
+                  </mif:rationale>
+               </mif:annotations>
+               <mif:derivationSupplier staticModelDerivationId="1" className="InvoiceElement" attributeName="id"/>
+               <mif:type name="II.BUS"/>
+            </mif:attribute>
+            <mif:attribute name="code" sortKey="4" minimumMultiplicity="1" maximumMultiplicity="1"
+                           conformance="R"
+                           isMandatory="true"
+                           isStructural="false">
+               <mif:businessName name="Type of summary"/>
+               <mif:annotations>
+                  <mif:definition>
+                     <mif:text>
+                        <mif:p>
+                           <mif:p>Type of summary</mif:p>
+                        </mif:p>
+                     </mif:text>
+                  </mif:definition>
+                  <mif:usageNotes>
+                     <mif:text>
+                        <mif:p>
+                           <mif:p>-For Payment Advice: For Vision Care payment advices, RETRO adjustments will always include references to the EOBs that made up the retroactive adjustment.</mif:p>
+                        </mif:p>
+                        <mif:p>
+                           <mif:p>For Payment Advice: For Pharmacy payment advices, RETRO adjustments will not include references to the EOBs that made up the retroactive adjustment. Providers must submit a Payment Advice Query message to get the EOBs referenced by the RETRO amount. The Payment Advice Detail message, however, is not currently supported in Pharmacy.</mif:p>
+                        </mif:p>
+                        <mif:p>
+                           <mif:p>For Payment Advice: Code also specifies the type of adjustment for a payment advice (e.g. CFWD - carry forward adjustment).</mif:p>
+                        </mif:p>
+                     </mif:text>
+                  </mif:usageNotes>
+                  <mif:rationale>
+                     <mif:text>
+                        <mif:p>
+                           <mif:p>This code describes the breakdown of the financial activity.</mif:p>
+                        </mif:p>
+                     </mif:text>
+                  </mif:rationale>
+               </mif:annotations>
+               <mif:derivationSupplier staticModelDerivationId="1" className="InvoiceElement" attributeName="code"/>
+               <mif:type name="CV"/>
+               <mif:supplierDomainSpecification codingStrength="CNE" domainName="ActInvoiceAdjudicationPaymentCode"/>
+            </mif:attribute>
+            <mif:attribute name="effectiveTime" sortKey="5" minimumMultiplicity="1"
+                           maximumMultiplicity="1"
+                           conformance="R"
+                           isMandatory="false"
+                           isStructural="false">
+               <mif:businessName name="Time period for the payment"/>
+               <mif:annotations>
+                  <mif:definition>
+                     <mif:text/>
+                  </mif:definition>
+                  <mif:usageNotes>
+                     <mif:text>
+                        <mif:p>
+                           <mif:p>For Payment Advice: Can also indicate time period over which the clawback and/or retro adjustment applies.</mif:p>
+                        </mif:p>
+                     </mif:text>
+                  </mif:usageNotes>
+                  <mif:rationale>
+                     <mif:text>
+                        <mif:p>
+                           <mif:p>Time period for the payment or summary period.</mif:p>
+                        </mif:p>
+                     </mif:text>
+                  </mif:rationale>
+               </mif:annotations>
+               <mif:derivationSupplier staticModelDerivationId="1" className="InvoiceElement"
+                                       attributeName="effectiveTime"/>
+               <mif:type name="IVL">
+                  <mif:supplierBindingArgumentDatatype name="TS.FULLDATE"/>
+               </mif:type>
+            </mif:attribute>
+            <mif:attribute name="netAmt" sortKey="6" minimumMultiplicity="1" maximumMultiplicity="1"
+                           conformance="R"
+                           isMandatory="true"
+                           isStructural="false">
+               <mif:businessName name="Summary Period Amt"/>
+               <mif:annotations>
+                  <mif:definition>
+                     <mif:text>
+                        <mif:p>
+                           <mif:p>Summary Period Amt</mif:p>
+                        </mif:p>
+                     </mif:text>
+                  </mif:definition>
+                  <mif:usageNotes>
+                     <mif:text>
+                        <mif:p>
+                           <mif:p>On SOFA Summary, this could be used to specify the amount that will be included in the Payment Advice. In this situation, it should equal the net effect of all AdjudResultsGroupSummaryData elements that would appear in the Payment Advice.</mif:p>
+                        </mif:p>
+                     </mif:text>
+                  </mif:usageNotes>
+                  <mif:rationale>
+                     <mif:text>
+                        <mif:p>
+                           <mif:p>Can also indicate time period over which the clawback and/or retro adjustment applies</mif:p>
+                        </mif:p>
+                     </mif:text>
+                  </mif:rationale>
+               </mif:annotations>
+               <mif:derivationSupplier staticModelDerivationId="1" className="InvoiceElement" attributeName="netAmt"/>
+               <mif:type name="MO.CAD"/>
+            </mif:attribute>
+            <mif:association sortKey="7">
+               <mif:graphicRepresentation>
+                  <mif:graphElement connectToShapeId="Sheet.183" containerDiagramName="Main">
+                     <mif:position x="26.791" y="9.957"/>
+                     <mif:graphEdge>
+                        <mif:anchor connectToShapeId="Sheet.248">
+                           <mif:position x="26.791" y="9.957"/>
+                        </mif:anchor>
+                     </mif:graphEdge>
+                  </mif:graphElement>
+               </mif:graphicRepresentation>
+               <mif:targetConnection name="device" minimumMultiplicity="0" maximumMultiplicity="1" conformance="R"
+                                     isMandatory="false"
+                                     sortKey="AAD#######">
+                  <mif:annotations>
+                     <mif:definition>
+                        <mif:text/>
+                     </mif:definition>
+                  </mif:annotations>
+                  <mif:derivationSupplier staticModelDerivationId="1" className="Act" associationEndName="participation"/>
+                  <mif:participantClass>
+                     <mif:class name="Device" isAbstract="false">
+                        <mif:derivationSupplier staticModelDerivationId="1" className="Participation"/>
+                        <mif:graphicRepresentation presentation="HL7">
+                           <mif:graphElement shapeId="Sheet.248" containerDiagramName="Main" shapeTemplate="Participation"
+                                             textWrappingWidth="66.0"
+                                             nodeOrientation="Right">
+                              <mif:position x="26.791" y="9.789"/>
+                              <mif:size width="2.495" height="0.303"/>
+                           </mif:graphElement>
+                        </mif:graphicRepresentation>
+                        <mif:annotations>
+                           <mif:definition>
+                              <mif:text/>
+                           </mif:definition>
+                        </mif:annotations>
+                        <mif:attribute name="typeCode" sortKey="1" minimumMultiplicity="1" maximumMultiplicity="1"
+                                       conformance="R"
+                                       isMandatory="true"
+                                       fixedValue="DEV"
+                                       isStructural="true">
+                           <mif:annotations>
+                              <mif:definition>
+                                 <mif:text/>
+                              </mif:definition>
+                           </mif:annotations>
+                           <mif:derivationSupplier staticModelDerivationId="1" className="Participation" attributeName="typeCode"/>
+                           <mif:type name="CS"/>
+                           <mif:supplierDomainSpecification codingStrength="CNE" codeSystemName="ParticipationType" mnemonic="DEV"/>
+                        </mif:attribute>
+                        <mif:association sortKey="31">
+                           <mif:graphicRepresentation>
+                              <mif:graphElement connectToShapeId="Sheet.248" containerDiagramName="Main">
+                                 <mif:position x="29.286" y="9.924"/>
+                                 <mif:graphEdge>
+                                    <mif:anchor connectToShapeId="Sheet.254">
+                                       <mif:position x="29.286" y="9.924"/>
+                                    </mif:anchor>
+                                 </mif:graphEdge>
+                              </mif:graphElement>
+                           </mif:graphicRepresentation>
+                           <mif:targetConnection name="adjudResultsSendingAppRole" minimumMultiplicity="1"
+                                                 maximumMultiplicity="1"
+                                                 conformance="R"
+                                                 isMandatory="false"
+                                                 sortKey="BZ">
+                              <mif:annotations>
+                                 <mif:definition>
+                                    <mif:text/>
+                                 </mif:definition>
+                              </mif:annotations>
+                              <mif:derivationSupplier staticModelDerivationId="1" className="Participation" associationEndName="role"/>
+                              <mif:participantClass>
+                                 <mif:class name="AdjudResultsSendingAppRole" isAbstract="false">
+                                    <mif:businessName name="Device playing the Sending Application Role"/>
+                                    <mif:derivationSupplier staticModelDerivationId="1" className="Role"/>
+                                    <mif:graphicRepresentation presentation="HL7">
+                                       <mif:graphElement shapeId="Sheet.254" containerDiagramName="Main" shapeTemplate="Role"
+                                                         isWidthAutoSize="true"
+                                                         isHeightAutoSize="true">
+                                          <mif:position x="29.286" y="9.674"/>
+                                          <mif:size width="2.097" height="0.500"/>
+                                       </mif:graphElement>
+                                    </mif:graphicRepresentation>
+                                    <mif:annotations>
+                                       <mif:definition>
+                                          <mif:text>
+                                             <mif:p>
+                                                <mif:p>Device playing the Sending Application Role</mif:p>
+                                             </mif:p>
+                                          </mif:text>
+                                       </mif:definition>
+                                    </mif:annotations>
+                                    <mif:attribute name="classCode" sortKey="1" minimumMultiplicity="1" maximumMultiplicity="1"
+                                                   conformance="R"
+                                                   isMandatory="true"
+                                                   fixedValue="ROL"
+                                                   isStructural="true">
+                                       <mif:annotations>
+                                          <mif:definition>
+                                             <mif:text/>
+                                          </mif:definition>
+                                       </mif:annotations>
+                                       <mif:derivationSupplier staticModelDerivationId="1" className="Role" attributeName="classCode"/>
+                                       <mif:type name="CS"/>
+                                       <mif:supplierDomainSpecification codingStrength="CNE" codeSystemName="RoleClass" mnemonic="ROL"/>
+                                    </mif:attribute>
+                                    <mif:association sortKey="32">
+                                       <mif:graphicRepresentation>
+                                          <mif:graphElement connectToShapeId="Sheet.254" containerDiagramName="Main">
+                                             <mif:position x="31.174" y="10.124"/>
+                                             <mif:graphEdge>
+                                                <mif:anchor connectToShapeId="Sheet.264">
+                                                   <mif:position x="32.024" y="9.486"/>
+                                                </mif:anchor>
+                                             </mif:graphEdge>
+                                          </mif:graphElement>
+                                       </mif:graphicRepresentation>
+                                       <mif:targetConnection name="playingAdjudResultsSendingAppDevice" minimumMultiplicity="1"
+                                                             maximumMultiplicity="1"
+                                                             conformance="R"
+                                                             isMandatory="true"
+                                                             sortKey="AZ">
+                                          <mif:annotations>
+                                             <mif:definition>
+                                                <mif:text/>
+                                             </mif:definition>
+                                          </mif:annotations>
+                                          <mif:derivationSupplier staticModelDerivationId="1" className="Role" associationEndName="player"/>
+                                          <mif:participantClass>
+                                             <mif:class name="AdjudResultsSendingAppDevice" isAbstract="false">
+                                                <mif:businessName name="Sending Application Device"/>
+                                                <mif:derivationSupplier staticModelDerivationId="1" className="Device"/>
+                                                <mif:graphicRepresentation presentation="HL7">
+                                                   <mif:graphElement shapeId="Sheet.264" containerDiagramName="Main" shapeTemplate="Entity"
+                                                                     isWidthAutoSize="true"
+                                                                     isHeightAutoSize="true">
+                                                      <mif:position x="32.024" y="8.924"/>
+                                                      <mif:size width="2.244" height="0.750"/>
+                                                   </mif:graphElement>
+                                                </mif:graphicRepresentation>
+                                                <mif:annotations>
+                                                   <mif:definition>
+                                                      <mif:text/>
+                                                   </mif:definition>
+                                                </mif:annotations>
+                                                <mif:attribute name="classCode" sortKey="1" minimumMultiplicity="1" maximumMultiplicity="1"
+                                                               conformance="R"
+                                                               isMandatory="true"
+                                                               fixedValue="DEV"
+                                                               isStructural="true">
+                                                   <mif:annotations>
+                                                      <mif:definition>
+                                                         <mif:text/>
+                                                      </mif:definition>
+                                                   </mif:annotations>
+                                                   <mif:derivationSupplier staticModelDerivationId="1" className="Device" attributeName="classCode"/>
+                                                   <mif:type name="CS"/>
+                                                   <mif:supplierDomainSpecification codingStrength="CNE" codeSystemName="EntityClass" mnemonic="DEV"/>
+                                                </mif:attribute>
+                                                <mif:attribute name="determinerCode" sortKey="2" minimumMultiplicity="1"
+                                                               maximumMultiplicity="1"
+                                                               conformance="R"
+                                                               isMandatory="true"
+                                                               fixedValue="INSTANCE"
+                                                               isStructural="true">
+                                                   <mif:annotations>
+                                                      <mif:definition>
+                                                         <mif:text/>
+                                                      </mif:definition>
+                                                   </mif:annotations>
+                                                   <mif:derivationSupplier staticModelDerivationId="1" className="Device" attributeName="determinerCode"/>
+                                                   <mif:type name="CS"/>
+                                                   <mif:supplierDomainSpecification codingStrength="CNE" codeSystemName="EntityDeterminer" mnemonic="INSTANCE"/>
+                                                </mif:attribute>
+                                                <mif:attribute name="id" sortKey="3" minimumMultiplicity="1" maximumMultiplicity="1"
+                                                               conformance="R"
+                                                               isMandatory="true"
+                                                               isStructural="false">
+                                                   <mif:annotations>
+                                                      <mif:definition>
+                                                         <mif:text>
+                                                            <mif:p>
+                                                               <mif:p>Sending application identifier</mif:p>
+                                                            </mif:p>
+                                                         </mif:text>
+                                                      </mif:definition>
+                                                   </mif:annotations>
+                                                   <mif:derivationSupplier staticModelDerivationId="1" className="Device" attributeName="id"/>
+                                                   <mif:type name="II.BUS"/>
+                                                </mif:attribute>
+                                             </mif:class>
+                                          </mif:participantClass>
+                                       </mif:targetConnection>
+                                       <mif:sourceConnection>
+                                          <mif:nonTraversableConnection participantClassName="AdjudResultsSendingAppRole">
+                                             <mif:derivationSupplier staticModelDerivationId="1" className="Entity" associationEndName="playedRole"/>
+                                          </mif:nonTraversableConnection>
+                                       </mif:sourceConnection>
+                                    </mif:association>
+                                 </mif:class>
+                              </mif:participantClass>
+                           </mif:targetConnection>
+                           <mif:sourceConnection>
+                              <mif:nonTraversableConnection participantClassName="Device">
+                                 <mif:derivationSupplier staticModelDerivationId="1" className="Role" associationEndName="participation"/>
+                              </mif:nonTraversableConnection>
+                           </mif:sourceConnection>
+                        </mif:association>
+                     </mif:class>
+                  </mif:participantClass>
+               </mif:targetConnection>
+               <mif:sourceConnection>
+                  <mif:nonTraversableConnection participantClassName="AdjudResultsGroup">
+                     <mif:derivationSupplier staticModelDerivationId="1" className="Participation" associationEndName="act"/>
+                  </mif:nonTraversableConnection>
+               </mif:sourceConnection>
+            </mif:association>
+            <mif:association sortKey="5">
+               <mif:graphicRepresentation>
+                  <mif:graphElement connectToShapeId="Sheet.183" containerDiagramName="Main">
+                     <mif:position x="26.791" y="13.414"/>
+                     <mif:graphEdge>
+                        <mif:anchor connectToShapeId="Sheet.122">
+                           <mif:position x="26.791" y="13.414"/>
+                        </mif:anchor>
+                     </mif:graphEdge>
+                  </mif:graphElement>
+               </mif:graphicRepresentation>
+               <mif:targetConnection name="performer" minimumMultiplicity="0" maximumMultiplicity="1"
+                                     conformance="R"
+                                     isMandatory="false"
+                                     sortKey="AD########">
+                  <mif:annotations>
+                     <mif:definition>
+                        <mif:text/>
+                     </mif:definition>
+                  </mif:annotations>
+                  <mif:derivationSupplier staticModelDerivationId="1" className="Act" associationEndName="participation"/>
+                  <mif:participantClass>
+                     <mif:class name="Performer" isAbstract="false">
+                        <mif:derivationSupplier staticModelDerivationId="1" className="Participation"/>
+                        <mif:graphicRepresentation presentation="HL7">
+                           <mif:graphElement shapeId="Sheet.122" containerDiagramName="Main" shapeTemplate="Participation"
+                                             textWrappingWidth="66.0"
+                                             nodeOrientation="Right">
+                              <mif:position x="26.791" y="13.339"/>
+                              <mif:size width="2.433" height="0.303"/>
+                           </mif:graphElement>
+                        </mif:graphicRepresentation>
+                        <mif:annotations>
+                           <mif:definition>
+                              <mif:text>
+                                 <mif:p>
+                                    <mif:p>Provider is the health care practitioner or goods provider that is providing the service or good that is being invoiced (e.g. Pharmacist and not Ordering Physician).</mif:p>
+                                 </mif:p>
+                              </mif:text>
+                              <mif:graphicRepresentation>
+                                 <mif:graphElement shapeId="Sheet.198" containerDiagramName="Main" isWidthAutoSize="true"
+                                                   isHeightAutoSize="true">
+                                    <mif:position x="26.945" y="12.624"/>
+                                    <mif:size width="2.878" height="0.589"/>
+                                    <mif:anchorage connectToShapeId="Sheet.198">
+                                       <mif:position x="28.384" y="12.918"/>
+                                       <mif:graphEdge>
+                                          <mif:anchor connectToShapeId="Sheet.122">
+                                             <mif:position x="27.945" y="13.339"/>
+                                          </mif:anchor>
+                                       </mif:graphEdge>
+                                    </mif:anchorage>
+                                 </mif:graphElement>
+                              </mif:graphicRepresentation>
+                           </mif:definition>
+                        </mif:annotations>
+                        <mif:attribute name="typeCode" sortKey="1" minimumMultiplicity="1" maximumMultiplicity="1"
+                                       conformance="R"
+                                       isMandatory="true"
+                                       fixedValue="PRF"
+                                       isStructural="true">
+                           <mif:annotations>
+                              <mif:definition>
+                                 <mif:text/>
+                              </mif:definition>
+                           </mif:annotations>
+                           <mif:derivationSupplier staticModelDerivationId="1" className="Participation" attributeName="typeCode"/>
+                           <mif:type name="CS"/>
+                           <mif:supplierDomainSpecification codingStrength="CNE" codeSystemName="ParticipationType" mnemonic="PRF"/>
+                        </mif:attribute>
+                        <mif:association sortKey="25">
+                           <mif:graphicRepresentation>
+                              <mif:graphElement connectToShapeId="Sheet.122" containerDiagramName="Main">
+                                 <mif:position x="29.224" y="13.567"/>
+                                 <mif:graphEdge>
+                                    <mif:anchor connectToShapeId="Sheet.203">
+                                       <mif:position x="29.224" y="13.567"/>
+                                    </mif:anchor>
+                                 </mif:graphEdge>
+                              </mif:graphElement>
+                           </mif:graphicRepresentation>
+                           <mif:targetConnection name="adjudResultsProviderRole" minimumMultiplicity="1" maximumMultiplicity="1"
+                                                 conformance="R"
+                                                 isMandatory="false"
+                                                 sortKey="BZ">
+                              <mif:annotations>
+                                 <mif:definition>
+                                    <mif:text/>
+                                 </mif:definition>
+                              </mif:annotations>
+                              <mif:derivationSupplier staticModelDerivationId="1" className="Participation" associationEndName="role"/>
+                              <mif:participantClass>
+                                 <mif:class name="AdjudResultsProviderRole" isAbstract="false">
+                                    <mif:businessName name="Provider ID"/>
+                                    <mif:derivationSupplier staticModelDerivationId="1" className="Role"/>
+                                    <mif:graphicRepresentation presentation="HL7">
+                                       <mif:graphElement shapeId="Sheet.203" containerDiagramName="Main" shapeTemplate="Role"
+                                                         isWidthAutoSize="true"
+                                                         isHeightAutoSize="true">
+                                          <mif:position x="29.224" y="13.309"/>
+                                          <mif:size width="1.843" height="0.514"/>
+                                       </mif:graphElement>
+                                    </mif:graphicRepresentation>
+                                    <mif:annotations>
+                                       <mif:definition>
+                                          <mif:text>
+                                             <mif:p>
+                                                <mif:p>Provider is the health care practitioner or goods provider that is providing the service or good that is being invoiced (e.g. Pharmacist and not Ordering Physician).</mif:p>
+                                             </mif:p>
+                                          </mif:text>
+                                       </mif:definition>
+                                    </mif:annotations>
+                                    <mif:attribute name="classCode" sortKey="1" minimumMultiplicity="1" maximumMultiplicity="1"
+                                                   conformance="R"
+                                                   isMandatory="true"
+                                                   fixedValue="ROL"
+                                                   isStructural="true">
+                                       <mif:annotations>
+                                          <mif:definition>
+                                             <mif:text/>
+                                          </mif:definition>
+                                       </mif:annotations>
+                                       <mif:derivationSupplier staticModelDerivationId="1" className="Role" attributeName="classCode"/>
+                                       <mif:type name="CS"/>
+                                       <mif:supplierDomainSpecification codingStrength="CNE" codeSystemName="RoleClass" mnemonic="ROL"/>
+                                    </mif:attribute>
+                                    <mif:attribute name="id" sortKey="2" minimumMultiplicity="1" maximumMultiplicity="1"
+                                                   conformance="R"
+                                                   isMandatory="true"
+                                                   isStructural="false">
+                                       <mif:annotations>
+                                          <mif:definition>
+                                             <mif:text>
+                                                <mif:p>
+                                                   <mif:p>Identity of provider for summary breakdowns.</mif:p>
+                                                </mif:p>
+                                             </mif:text>
+                                          </mif:definition>
+                                       </mif:annotations>
+                                       <mif:derivationSupplier staticModelDerivationId="1" className="Role" attributeName="id"/>
+                                       <mif:type name="II.PUBLIC"/>
+                                    </mif:attribute>
+                                 </mif:class>
+                              </mif:participantClass>
+                           </mif:targetConnection>
+                           <mif:sourceConnection>
+                              <mif:nonTraversableConnection participantClassName="Performer">
+                                 <mif:derivationSupplier staticModelDerivationId="1" className="Role" associationEndName="participation"/>
+                              </mif:nonTraversableConnection>
+                           </mif:sourceConnection>
+                        </mif:association>
+                     </mif:class>
+                  </mif:participantClass>
+               </mif:targetConnection>
+               <mif:sourceConnection>
+                  <mif:nonTraversableConnection participantClassName="AdjudResultsGroup">
+                     <mif:derivationSupplier staticModelDerivationId="1" className="Participation" associationEndName="act"/>
+                  </mif:nonTraversableConnection>
+               </mif:sourceConnection>
+            </mif:association>
+            <mif:association sortKey="3">
+               <mif:graphicRepresentation>
+                  <mif:graphElement connectToShapeId="Sheet.183" containerDiagramName="Main">
+                     <mif:position x="26.791" y="15.719"/>
+                     <mif:graphEdge>
+                        <mif:anchor connectToShapeId="Sheet.282">
+                           <mif:position x="26.791" y="15.719"/>
+                        </mif:anchor>
+                     </mif:graphEdge>
+                  </mif:graphElement>
+               </mif:graphicRepresentation>
+               <mif:targetConnection name="author" minimumMultiplicity="0" maximumMultiplicity="1" conformance="R"
+                                     isMandatory="false"
+                                     sortKey="AEA#######">
+                  <mif:annotations>
+                     <mif:definition>
+                        <mif:text/>
+                     </mif:definition>
+                  </mif:annotations>
+                  <mif:derivationSupplier staticModelDerivationId="1" className="Act" associationEndName="participation"/>
+                  <mif:participantClass>
+                     <mif:class name="Author" isAbstract="false">
+                        <mif:derivationSupplier staticModelDerivationId="1" className="Participation"/>
+                        <mif:graphicRepresentation presentation="HL7">
+                           <mif:graphElement shapeId="Sheet.282" containerDiagramName="Main" shapeTemplate="Participation"
+                                             textWrappingWidth="66.0"
+                                             nodeOrientation="Right">
+                              <mif:position x="26.791" y="15.343"/>
+                              <mif:size width="2.433" height="0.303"/>
+                           </mif:graphElement>
+                        </mif:graphicRepresentation>
+                        <mif:annotations>
+                           <mif:definition>
+                              <mif:text/>
+                           </mif:definition>
+                        </mif:annotations>
+                        <mif:attribute name="typeCode" sortKey="1" minimumMultiplicity="1" maximumMultiplicity="1"
+                                       conformance="R"
+                                       isMandatory="true"
+                                       fixedValue="AUT"
+                                       isStructural="true">
+                           <mif:annotations>
+                              <mif:definition>
+                                 <mif:text/>
+                              </mif:definition>
+                           </mif:annotations>
+                           <mif:derivationSupplier staticModelDerivationId="1" className="Participation" attributeName="typeCode"/>
+                           <mif:type name="CS"/>
+                           <mif:supplierDomainSpecification codingStrength="CNE" codeSystemName="ParticipationType" mnemonic="AUT"/>
+                        </mif:attribute>
+                        <mif:association sortKey="19">
+                           <mif:graphicRepresentation>
+                              <mif:graphElement connectToShapeId="Sheet.282" containerDiagramName="Main">
+                                 <mif:position x="29.224" y="15.270"/>
+                                 <mif:graphEdge>
+                                    <mif:anchor connectToShapeId="Sheet.288">
+                                       <mif:position x="29.224" y="15.270"/>
+                                    </mif:anchor>
+                                 </mif:graphEdge>
+                              </mif:graphElement>
+                           </mif:graphicRepresentation>
+                           <mif:targetConnection name="adjudResultsCarrierRole" minimumMultiplicity="1" maximumMultiplicity="1"
+                                                 conformance="R"
+                                                 isMandatory="false"
+                                                 sortKey="BZ">
+                              <mif:annotations>
+                                 <mif:definition>
+                                    <mif:text/>
+                                 </mif:definition>
+                              </mif:annotations>
+                              <mif:derivationSupplier staticModelDerivationId="1" className="Participation" associationEndName="role"/>
+                              <mif:participantClass>
+                                 <mif:class name="AdjudResultsCarrierRole" isAbstract="false">
+                                    <mif:businessName name="Carrier or Third Party Administrator"/>
+                                    <mif:derivationSupplier staticModelDerivationId="1" className="Role"/>
+                                    <mif:graphicRepresentation presentation="HL7">
+                                       <mif:graphElement shapeId="Sheet.288" containerDiagramName="Main" shapeTemplate="Role"
+                                                         isWidthAutoSize="false"
+                                                         isHeightAutoSize="false">
+                                          <mif:position x="29.224" y="15.219"/>
+                                          <mif:size width="2.200" height="0.514"/>
+                                       </mif:graphElement>
+                                    </mif:graphicRepresentation>
+                                    <mif:annotations>
+                                       <mif:definition>
+                                          <mif:text>
+                                             <mif:p>
+                                                <mif:p>An organization that establishes insurance policies, determines eligibility and benefits under those insurance policies, and underwrites payments for products and/or services provided to a beneficiary (person or organization).</mif:p>
+                                             </mif:p>
+                                             <mif:p>
+                                                <mif:p>A Carrier may retain a TPA (Third Party Administrator) to perform some or all invoice validation, adjudication and payment.</mif:p>
+                                             </mif:p>
+                                             <mif:p>
+                                                <mif:p>This may also be known as the insurance company or public insurance carrier.</mif:p>
+                                             </mif:p>
+                                             <mif:p>
+                                                <mif:p>A Carrier or TPA (Third Party Administrator) who performs some or all invoice validation, adjudication and payment.</mif:p>
+                                             </mif:p>
+                                          </mif:text>
+                                       </mif:definition>
+                                    </mif:annotations>
+                                    <mif:attribute name="classCode" sortKey="1" minimumMultiplicity="1" maximumMultiplicity="1"
+                                                   conformance="R"
+                                                   isMandatory="true"
+                                                   fixedValue="ROL"
+                                                   isStructural="true">
+                                       <mif:annotations>
+                                          <mif:definition>
+                                             <mif:text/>
+                                          </mif:definition>
+                                       </mif:annotations>
+                                       <mif:derivationSupplier staticModelDerivationId="1" className="Role" attributeName="classCode"/>
+                                       <mif:type name="CS"/>
+                                       <mif:supplierDomainSpecification codingStrength="CNE" codeSystemName="RoleClass" mnemonic="ROL"/>
+                                    </mif:attribute>
+                                    <mif:attribute name="id" sortKey="2" minimumMultiplicity="1" maximumMultiplicity="1"
+                                                   conformance="R"
+                                                   isMandatory="true"
+                                                   isStructural="false">
+                                       <mif:businessName name="Carrier Id"/>
+                                       <mif:annotations>
+                                          <mif:definition>
+                                             <mif:text/>
+                                          </mif:definition>
+                                       </mif:annotations>
+                                       <mif:derivationSupplier staticModelDerivationId="1" className="Role" attributeName="id"/>
+                                       <mif:type name="II.PUBLIC"/>
+                                    </mif:attribute>
+                                 </mif:class>
+                              </mif:participantClass>
+                           </mif:targetConnection>
+                           <mif:sourceConnection>
+                              <mif:nonTraversableConnection participantClassName="Author">
+                                 <mif:derivationSupplier staticModelDerivationId="1" className="Role" associationEndName="participation"/>
+                              </mif:nonTraversableConnection>
+                           </mif:sourceConnection>
+                        </mif:association>
+                     </mif:class>
+                  </mif:participantClass>
+               </mif:targetConnection>
+               <mif:sourceConnection>
+                  <mif:nonTraversableConnection participantClassName="AdjudResultsGroup">
+                     <mif:derivationSupplier staticModelDerivationId="1" className="Participation" associationEndName="act"/>
+                  </mif:nonTraversableConnection>
+               </mif:sourceConnection>
+            </mif:association>
+            <mif:association sortKey="6">
+               <mif:graphicRepresentation>
+                  <mif:graphElement connectToShapeId="Sheet.183" containerDiagramName="Main">
+                     <mif:position x="26.791" y="12.262"/>
+                     <mif:graphEdge>
+                        <mif:anchor connectToShapeId="Sheet.116">
+                           <mif:position x="26.791" y="12.262"/>
+                        </mif:anchor>
+                     </mif:graphEdge>
+                  </mif:graphElement>
+               </mif:graphicRepresentation>
+               <mif:targetConnection name="location" minimumMultiplicity="0" maximumMultiplicity="1" conformance="R"
+                                     isMandatory="false"
+                                     sortKey="AJ########">
+                  <mif:annotations>
+                     <mif:definition>
+                        <mif:text/>
+                     </mif:definition>
+                  </mif:annotations>
+                  <mif:derivationSupplier staticModelDerivationId="1" className="Act" associationEndName="participation"/>
+                  <mif:participantClass>
+                     <mif:class name="AdjudResultsGroupLocation" isAbstract="false">
+                        <mif:businessName name="Healthcare Location"/>
+                        <mif:derivationSupplier staticModelDerivationId="1" className="Participation"/>
+                        <mif:graphicRepresentation presentation="HL7">
+                           <mif:graphElement shapeId="Sheet.116" containerDiagramName="Main" shapeTemplate="Participation"
+                                             textWrappingWidth="66.0"
+                                             nodeOrientation="Right">
+                              <mif:position x="26.791" y="12.053"/>
+                              <mif:size width="2.493" height="0.303"/>
+                           </mif:graphElement>
+                        </mif:graphicRepresentation>
+                        <mif:annotations>
+                           <mif:definition>
+                              <mif:text>
+                                 <mif:p>
+                                    <mif:p>Location is the health care facility where the service or good is being provided as specified in the Billable Act (e.g. store location, hospital).</mif:p>
+                                 </mif:p>
+                              </mif:text>
+                              <mif:graphicRepresentation>
+                                 <mif:graphElement shapeId="Sheet.223" containerDiagramName="Main" isWidthAutoSize="true"
+                                                   isHeightAutoSize="true">
+                                    <mif:position x="26.941" y="11.011"/>
+                                    <mif:size width="2.365" height="0.589"/>
+                                    <mif:anchorage connectToShapeId="Sheet.223">
+                                       <mif:position x="28.124" y="11.306"/>
+                                       <mif:graphEdge>
+                                          <mif:anchor connectToShapeId="Sheet.116">
+                                             <mif:position x="27.975" y="12.053"/>
+                                          </mif:anchor>
+                                       </mif:graphEdge>
+                                    </mif:anchorage>
+                                 </mif:graphElement>
+                              </mif:graphicRepresentation>
+                           </mif:definition>
+                        </mif:annotations>
+                        <mif:attribute name="typeCode" sortKey="1" minimumMultiplicity="1" maximumMultiplicity="1"
+                                       conformance="R"
+                                       isMandatory="true"
+                                       fixedValue="LOC"
+                                       isStructural="true">
+                           <mif:annotations>
+                              <mif:definition>
+                                 <mif:text/>
+                              </mif:definition>
+                           </mif:annotations>
+                           <mif:derivationSupplier staticModelDerivationId="1" className="Participation" attributeName="typeCode"/>
+                           <mif:type name="CS"/>
+                           <mif:supplierDomainSpecification codingStrength="CNE" codeSystemName="ParticipationType" mnemonic="LOC"/>
+                        </mif:attribute>
+                        <mif:association sortKey="28">
+                           <mif:graphicRepresentation>
+                              <mif:graphElement connectToShapeId="Sheet.116" containerDiagramName="Main">
+                                 <mif:position x="29.283" y="12.147"/>
+                                 <mif:graphEdge>
+                                    <mif:anchor connectToShapeId="Sheet.161">
+                                       <mif:position x="29.283" y="12.147"/>
+                                    </mif:anchor>
+                                 </mif:graphEdge>
+                              </mif:graphElement>
+                           </mif:graphicRepresentation>
+                           <mif:targetConnection name="serviceDeliveryLocation" minimumMultiplicity="1" maximumMultiplicity="1"
+                                                 conformance="R"
+                                                 isMandatory="false"
+                                                 sortKey="BZ">
+                              <mif:annotations>
+                                 <mif:definition>
+                                    <mif:text/>
+                                 </mif:definition>
+                              </mif:annotations>
+                              <mif:derivationSupplier staticModelDerivationId="1" className="Participation" associationEndName="role"/>
+                              <mif:participantClass>
+                                 <mif:commonModelElementRef name="R_ServiceDeliveryLocationContact">
+                                    <mif:derivationSupplier staticModelDerivationId="1" className="Role"/>
+                                    <mif:supplierStructuralDomain domainName="RoleClass" mnemonic="SDLOC"/>
+                                    <mif:graphicRepresentation presentation="HL7">
+                                       <mif:graphElement shapeId="Sheet.161" containerDiagramName="Main" shapeTemplate="CMET"
+                                                         isWidthAutoSize="true"
+                                                         isHeightAutoSize="true">
+                                          <mif:position x="29.283" y="11.896"/>
+                                          <mif:size width="1.606" height="0.628"/>
+                                       </mif:graphElement>
+                                    </mif:graphicRepresentation>
+                                    <mif:generalizationParent name="COCT_MT240003CA"/>
+                                 </mif:commonModelElementRef>
+                              </mif:participantClass>
+                           </mif:targetConnection>
+                           <mif:sourceConnection>
+                              <mif:nonTraversableConnection participantClassName="AdjudResultsGroupLocation">
+                                 <mif:derivationSupplier staticModelDerivationId="1" className="Role" associationEndName="participation"/>
+                              </mif:nonTraversableConnection>
+                           </mif:sourceConnection>
+                        </mif:association>
+                     </mif:class>
+                  </mif:participantClass>
+               </mif:targetConnection>
+               <mif:sourceConnection>
+                  <mif:nonTraversableConnection participantClassName="AdjudResultsGroup">
+                     <mif:derivationSupplier staticModelDerivationId="1" className="Participation" associationEndName="act"/>
+                  </mif:nonTraversableConnection>
+               </mif:sourceConnection>
+            </mif:association>
+            <mif:association sortKey="4">
+               <mif:graphicRepresentation>
+                  <mif:graphElement connectToShapeId="Sheet.183" containerDiagramName="Main">
+                     <mif:position x="26.791" y="14.567"/>
+                     <mif:graphEdge>
+                        <mif:anchor connectToShapeId="Sheet.137">
+                           <mif:position x="26.791" y="14.567"/>
+                        </mif:anchor>
+                     </mif:graphEdge>
+                  </mif:graphElement>
+               </mif:graphicRepresentation>
+               <mif:targetConnection name="reference" minimumMultiplicity="0" maximumMultiplicity="1"
+                                     conformance="R"
+                                     isMandatory="false"
+                                     sortKey="BDK#######">
+                  <mif:annotations>
+                     <mif:definition>
+                        <mif:text/>
+                     </mif:definition>
+                  </mif:annotations>
+                  <mif:derivationSupplier staticModelDerivationId="1" className="Act"
+                                          associationEndName="outboundRelationship"/>
+                  <mif:participantClass>
+                     <mif:class name="AdjudResultsGroupRef" isAbstract="false">
+                        <mif:businessName name="Business Arrangement Identifier"/>
+                        <mif:derivationSupplier staticModelDerivationId="1" className="ActRelationship"/>
+                        <mif:graphicRepresentation presentation="HL7">
+                           <mif:graphElement shapeId="Sheet.137" containerDiagramName="Main" shapeTemplate="ActRelationship"
+                                             textWrappingWidth="66.0"
+                                             nodeOrientation="Right">
+                              <mif:position x="26.791" y="14.307"/>
+                              <mif:size width="2.433" height="0.303"/>
+                           </mif:graphElement>
+                        </mif:graphicRepresentation>
+                        <mif:annotations>
+                           <mif:definition>
+                              <mif:text>
+                                 <mif:p>
+                                    <mif:p>The contract identifier used in the invoice.</mif:p>
+                                 </mif:p>
+                              </mif:text>
+                           </mif:definition>
+                        </mif:annotations>
+                        <mif:attribute name="typeCode" sortKey="1" minimumMultiplicity="1" maximumMultiplicity="1"
+                                       conformance="R"
+                                       isMandatory="true"
+                                       fixedValue="REFR"
+                                       isStructural="true">
+                           <mif:annotations>
+                              <mif:definition>
+                                 <mif:text/>
+                              </mif:definition>
+                           </mif:annotations>
+                           <mif:derivationSupplier staticModelDerivationId="1" className="ActRelationship"
+                                                   attributeName="typeCode"/>
+                           <mif:type name="CS"/>
+                           <mif:supplierDomainSpecification codingStrength="CNE" codeSystemName="ActRelationshipType" mnemonic="REFR"/>
+                        </mif:attribute>
+                        <mif:association sortKey="22">
+                           <mif:graphicRepresentation>
+                              <mif:graphElement connectToShapeId="Sheet.137" containerDiagramName="Main">
+                                 <mif:position x="29.224" y="14.350"/>
+                                 <mif:graphEdge>
+                                    <mif:anchor connectToShapeId="Sheet.187">
+                                       <mif:position x="29.224" y="14.350"/>
+                                    </mif:anchor>
+                                 </mif:graphEdge>
+                              </mif:graphElement>
+                           </mif:graphicRepresentation>
+                           <mif:targetConnection name="adjudResultsFinancialContract" minimumMultiplicity="1"
+                                                 maximumMultiplicity="1"
+                                                 conformance="R"
+                                                 isMandatory="false"
+                                                 sortKey="BZ">
+                              <mif:annotations>
+                                 <mif:definition>
+                                    <mif:text/>
+                                 </mif:definition>
+                              </mif:annotations>
+                              <mif:derivationSupplier staticModelDerivationId="1" className="ActRelationship"
+                                                      associationEndName="target"/>
+                              <mif:participantClass>
+                                 <mif:class name="AdjudResultsFinancialContract" isAbstract="false">
+                                    <mif:businessName name="Business Arrangement"/>
+                                    <mif:derivationSupplier staticModelDerivationId="1" className="FinancialContract"/>
+                                    <mif:graphicRepresentation presentation="HL7">
+                                       <mif:graphElement shapeId="Sheet.187" containerDiagramName="Main" shapeTemplate="Act"
+                                                         isWidthAutoSize="false"
+                                                         isHeightAutoSize="false">
+                                          <mif:position x="29.224" y="14.074"/>
+                                          <mif:size width="2.300" height="0.689"/>
+                                       </mif:graphElement>
+                                    </mif:graphicRepresentation>
+                                    <mif:annotations>
+                                       <mif:definition>
+                                          <mif:text>
+                                             <mif:p>
+                                                <mif:p>Business arrangement for payment purposes.</mif:p>
+                                             </mif:p>
+                                          </mif:text>
+                                       </mif:definition>
+                                    </mif:annotations>
+                                    <mif:attribute name="classCode" sortKey="1" minimumMultiplicity="1" maximumMultiplicity="1"
+                                                   conformance="R"
+                                                   isMandatory="true"
+                                                   fixedValue="FCNTRCT"
+                                                   isStructural="true">
+                                       <mif:annotations>
+                                          <mif:definition>
+                                             <mif:text/>
+                                          </mif:definition>
+                                       </mif:annotations>
+                                       <mif:derivationSupplier staticModelDerivationId="1" className="FinancialContract"
+                                                               attributeName="classCode"/>
+                                       <mif:type name="CS"/>
+                                       <mif:supplierDomainSpecification codingStrength="CNE" codeSystemName="ActClass" mnemonic="FCNTRCT"/>
+                                    </mif:attribute>
+                                    <mif:attribute name="moodCode" sortKey="2" minimumMultiplicity="1" maximumMultiplicity="1"
+                                                   conformance="R"
+                                                   isMandatory="true"
+                                                   fixedValue="EVN"
+                                                   isStructural="true">
+                                       <mif:annotations>
+                                          <mif:definition>
+                                             <mif:text/>
+                                          </mif:definition>
+                                       </mif:annotations>
+                                       <mif:derivationSupplier staticModelDerivationId="1" className="FinancialContract"
+                                                               attributeName="moodCode"/>
+                                       <mif:type name="CS"/>
+                                       <mif:supplierDomainSpecification codingStrength="CNE" codeSystemName="ActMood" mnemonic="EVN"/>
+                                    </mif:attribute>
+                                    <mif:attribute name="id" sortKey="3" minimumMultiplicity="1" maximumMultiplicity="1"
+                                                   conformance="R"
+                                                   isMandatory="true"
+                                                   isStructural="false">
+                                       <mif:businessName name="Business Arrangement ID"/>
+                                       <mif:annotations>
+                                          <mif:definition>
+                                             <mif:text>
+                                                <mif:p>
+                                                   <mif:p>Business arrangement identifier</mif:p>
+                                                </mif:p>
+                                             </mif:text>
+                                          </mif:definition>
+                                       </mif:annotations>
+                                       <mif:derivationSupplier staticModelDerivationId="1" className="FinancialContract" attributeName="id"/>
+                                       <mif:type name="II.BUS"/>
+                                    </mif:attribute>
+                                 </mif:class>
+                              </mif:participantClass>
+                           </mif:targetConnection>
+                           <mif:sourceConnection>
+                              <mif:nonTraversableConnection participantClassName="AdjudResultsGroupRef">
+                                 <mif:derivationSupplier staticModelDerivationId="1" className="Act"
+                                                         associationEndName="inboundRelationship"/>
+                              </mif:nonTraversableConnection>
+                           </mif:sourceConnection>
+                        </mif:association>
+                     </mif:class>
+                  </mif:participantClass>
+               </mif:targetConnection>
+               <mif:sourceConnection>
+                  <mif:nonTraversableConnection participantClassName="AdjudResultsGroup">
+                     <mif:derivationSupplier staticModelDerivationId="1" className="ActRelationship"
+                                             associationEndName="source"/>
+                  </mif:nonTraversableConnection>
+               </mif:sourceConnection>
+            </mif:association>
+            <mif:association sortKey="8">
+               <mif:graphicRepresentation>
+                  <mif:graphElement connectToShapeId="Sheet.183" containerDiagramName="Main">
+                     <mif:position x="25.195" y="18.024"/>
+                     <mif:graphEdge>
+                        <mif:anchor connectToShapeId="Sheet.155">
+                           <mif:position x="25.195" y="18.024"/>
+                        </mif:anchor>
+                     </mif:graphEdge>
+                  </mif:graphElement>
+               </mif:graphicRepresentation>
+               <mif:targetConnection name="summary" minimumMultiplicity="0" maximumMultiplicity="10" conformance="R"
+                                     isMandatory="false"
+                                     sortKey="BDM#######">
+                  <mif:annotations>
+                     <mif:definition>
+                        <mif:text/>
+                     </mif:definition>
+                  </mif:annotations>
+                  <mif:derivationSupplier staticModelDerivationId="1" className="Act"
+                                          associationEndName="outboundRelationship"/>
+                  <mif:participantClass>
+                     <mif:class name="AdjudResultsGroupSummary" isAbstract="false">
+                        <mif:derivationSupplier staticModelDerivationId="1" className="ActRelationship"/>
+                        <mif:graphicRepresentation presentation="HL7">
+                           <mif:graphElement shapeId="Sheet.155" containerDiagramName="Main" shapeTemplate="ActRelationship"
+                                             textWrappingWidth="66.0"
+                                             nodeOrientation="Down">
+                              <mif:position x="24.593" y="18.024"/>
+                              <mif:size width="1.209" height="0.696"/>
+                           </mif:graphElement>
+                        </mif:graphicRepresentation>
+                        <mif:annotations>
+                           <mif:definition>
+                              <mif:text/>
+                           </mif:definition>
+                           <mif:constraint>
+                              <mif:text>
+                                 <mif:p>
+                                    <mif:p>If specified, the association must be associated with a leaf source act.</mif:p>
+                                 </mif:p>
+                              </mif:text>
+                              <mif:graphicRepresentation>
+                                 <mif:graphElement shapeId="Sheet.228" containerDiagramName="Main" isWidthAutoSize="true"
+                                                   isHeightAutoSize="true">
+                                    <mif:position x="21.945" y="18.039"/>
+                                    <mif:size width="1.806" height="0.561"/>
+                                    <mif:anchorage connectToShapeId="Sheet.228">
+                                       <mif:position x="22.848" y="18.319"/>
+                                       <mif:graphEdge>
+                                          <mif:anchor connectToShapeId="Sheet.155">
+                                             <mif:position x="24.593" y="18.309"/>
+                                          </mif:anchor>
+                                       </mif:graphEdge>
+                                    </mif:anchorage>
+                                 </mif:graphElement>
+                              </mif:graphicRepresentation>
+                           </mif:constraint>
+                        </mif:annotations>
+                        <mif:attribute name="typeCode" sortKey="1" minimumMultiplicity="1" maximumMultiplicity="1"
+                                       conformance="R"
+                                       isMandatory="true"
+                                       fixedValue="SUMM"
+                                       isStructural="true">
+                           <mif:annotations>
+                              <mif:definition>
+                                 <mif:text/>
+                              </mif:definition>
+                           </mif:annotations>
+                           <mif:derivationSupplier staticModelDerivationId="1" className="ActRelationship"
+                                                   attributeName="typeCode"/>
+                           <mif:type name="CS"/>
+                           <mif:supplierDomainSpecification codingStrength="CNE" codeSystemName="ActRelationshipType" mnemonic="SUMM"/>
+                        </mif:attribute>
+                        <mif:association sortKey="36">
+                           <mif:graphicRepresentation>
+                              <mif:graphElement connectToShapeId="Sheet.155" containerDiagramName="Main">
+                                 <mif:position x="25.200" y="18.719"/>
+                                 <mif:graphEdge>
+                                    <mif:anchor connectToShapeId="Sheet.179">
+                                       <mif:position x="25.200" y="18.719"/>
+                                    </mif:anchor>
+                                 </mif:graphEdge>
+                              </mif:graphElement>
+                           </mif:graphicRepresentation>
+                           <mif:targetConnection name="adjudResultsGroupSummaryData" minimumMultiplicity="1"
+                                                 maximumMultiplicity="1"
+                                                 conformance="R"
+                                                 isMandatory="false"
+                                                 sortKey="BZ">
+                              <mif:annotations>
+                                 <mif:definition>
+                                    <mif:text/>
+                                 </mif:definition>
+                              </mif:annotations>
+                              <mif:derivationSupplier staticModelDerivationId="1" className="ActRelationship"
+                                                      associationEndName="target"/>
+                              <mif:participantClass>
+                                 <mif:class name="AdjudResultsGroupSummaryData" isAbstract="false">
+                                    <mif:businessName name="Adjudicated Results Group Summary Data"/>
+                                    <mif:derivationSupplier staticModelDerivationId="1" className="Observation"/>
+                                    <mif:graphicRepresentation presentation="HL7">
+                                       <mif:graphElement shapeId="Sheet.179" containerDiagramName="Main" shapeTemplate="Act"
+                                                         isWidthAutoSize="false"
+                                                         isHeightAutoSize="false">
+                                          <mif:position x="23.600" y="18.719"/>
+                                          <mif:size width="3.200" height="0.859"/>
+                                       </mif:graphElement>
+                                    </mif:graphicRepresentation>
+                                    <mif:annotations>
+                                       <mif:definition>
+                                          <mif:text>
+                                             <mif:p>
+                                                <mif:p>Used for SOFA queries only</mif:p>
+                                             </mif:p>
+                                          </mif:text>
+                                          <mif:graphicRepresentation>
+                                             <mif:graphElement shapeId="Sheet.243" containerDiagramName="Main" isWidthAutoSize="true"
+                                                               isHeightAutoSize="true">
+                                                <mif:position x="21.524" y="18.899"/>
+                                                <mif:size width="1.439" height="0.500"/>
+                                                <mif:anchorage connectToShapeId="Sheet.243">
+                                                   <mif:position x="22.243" y="19.149"/>
+                                                   <mif:graphEdge>
+                                                      <mif:anchor connectToShapeId="Sheet.179">
+                                                         <mif:position x="23.600" y="19.149"/>
+                                                      </mif:anchor>
+                                                   </mif:graphEdge>
+                                                </mif:anchorage>
+                                             </mif:graphElement>
+                                          </mif:graphicRepresentation>
+                                       </mif:definition>
+                                       <mif:constraint>
+                                          <mif:text>
+                                             <mif:p>
+                                                <mif:p>Constrain Value to PQ or MO data types only</mif:p>
+                                             </mif:p>
+                                          </mif:text>
+                                          <mif:graphicRepresentation>
+                                             <mif:graphElement shapeId="Sheet.112" containerDiagramName="Main" isWidthAutoSize="true"
+                                                               isHeightAutoSize="true">
+                                                <mif:position x="27.400" y="19.026"/>
+                                                <mif:size width="2.564" height="0.328"/>
+                                                <mif:anchorage connectToShapeId="Sheet.112">
+                                                   <mif:position x="28.682" y="19.190"/>
+                                                   <mif:graphEdge>
+                                                      <mif:anchor connectToShapeId="Sheet.179">
+                                                         <mif:position x="26.800" y="19.149"/>
+                                                      </mif:anchor>
+                                                   </mif:graphEdge>
+                                                </mif:anchorage>
+                                             </mif:graphElement>
+                                          </mif:graphicRepresentation>
+                                       </mif:constraint>
+                                    </mif:annotations>
+                                    <mif:attribute name="classCode" sortKey="1" minimumMultiplicity="1" maximumMultiplicity="1"
+                                                   conformance="R"
+                                                   isMandatory="true"
+                                                   fixedValue="OBS"
+                                                   isStructural="true">
+                                       <mif:annotations>
+                                          <mif:definition>
+                                             <mif:text/>
+                                          </mif:definition>
+                                       </mif:annotations>
+                                       <mif:derivationSupplier staticModelDerivationId="1" className="Observation" attributeName="classCode"/>
+                                       <mif:type name="CS"/>
+                                       <mif:supplierDomainSpecification codingStrength="CNE" codeSystemName="ActClass" mnemonic="OBS"/>
+                                    </mif:attribute>
+                                    <mif:attribute name="moodCode" sortKey="2" minimumMultiplicity="1" maximumMultiplicity="1"
+                                                   conformance="R"
+                                                   isMandatory="true"
+                                                   fixedValue="EVN"
+                                                   isStructural="true">
+                                       <mif:annotations>
+                                          <mif:definition>
+                                             <mif:text/>
+                                          </mif:definition>
+                                       </mif:annotations>
+                                       <mif:derivationSupplier staticModelDerivationId="1" className="Observation" attributeName="moodCode"/>
+                                       <mif:type name="CS"/>
+                                       <mif:supplierDomainSpecification codingStrength="CNE" codeSystemName="ActMood" mnemonic="EVN"/>
+                                    </mif:attribute>
+                                    <mif:attribute name="code" sortKey="3" minimumMultiplicity="1" maximumMultiplicity="1"
+                                                   conformance="R"
+                                                   isMandatory="false"
+                                                   isStructural="false">
+                                       <mif:businessName name="Code for Type of Adjudicated Result"/>
+                                       <mif:annotations>
+                                          <mif:definition>
+                                             <mif:text/>
+                                          </mif:definition>
+                                       </mif:annotations>
+                                       <mif:derivationSupplier staticModelDerivationId="1" className="Observation" attributeName="code"/>
+                                       <mif:type name="CV"/>
+                                       <mif:supplierDomainSpecification codingStrength="CNE" domainName="ActInvoiceElementSummaryCode"/>
+                                    </mif:attribute>
+                                    <mif:attribute name="value" sortKey="4" minimumMultiplicity="1" maximumMultiplicity="1"
+                                                   conformance="R"
+                                                   isMandatory="false"
+                                                   isStructural="false">
+                                       <mif:businessName name="Value of summary"/>
+                                       <mif:annotations>
+                                          <mif:definition>
+                                             <mif:text>
+                                                <mif:p>
+                                                   <mif:p>PQ or MO - Value of summary</mif:p>
+                                                </mif:p>
+                                             </mif:text>
+                                          </mif:definition>
+                                       </mif:annotations>
+                                       <mif:derivationSupplier staticModelDerivationId="1" className="Observation" attributeName="value"/>
+                                       <mif:type name="PQ.BASIC"/>
+                                    </mif:attribute>
+                                 </mif:class>
+                              </mif:participantClass>
+                           </mif:targetConnection>
+                           <mif:sourceConnection>
+                              <mif:nonTraversableConnection participantClassName="AdjudResultsGroupSummary">
+                                 <mif:derivationSupplier staticModelDerivationId="1" className="Act"
+                                                         associationEndName="inboundRelationship"/>
+                              </mif:nonTraversableConnection>
+                           </mif:sourceConnection>
+                        </mif:association>
+                     </mif:class>
+                  </mif:participantClass>
+               </mif:targetConnection>
+               <mif:sourceConnection>
+                  <mif:nonTraversableConnection participantClassName="AdjudResultsGroup">
+                     <mif:derivationSupplier staticModelDerivationId="1" className="ActRelationship"
+                                             associationEndName="source"/>
+                  </mif:nonTraversableConnection>
+               </mif:sourceConnection>
+            </mif:association>
+            <mif:association sortKey="1">
+               <mif:graphicRepresentation>
+                  <mif:graphElement connectToShapeId="Sheet.183" containerDiagramName="Main">
+                     <mif:position x="26.791" y="18.024"/>
+                     <mif:graphEdge>
+                        <mif:anchor connectToShapeId="Sheet.143">
+                           <mif:position x="26.791" y="18.024"/>
+                        </mif:anchor>
+                     </mif:graphEdge>
+                  </mif:graphElement>
+               </mif:graphicRepresentation>
+               <mif:targetConnection name="credit" minimumMultiplicity="0" maximumMultiplicity="1" conformance="R"
+                                     isMandatory="false"
+                                     sortKey="BDOAA#####">
+                  <mif:annotations>
+                     <mif:definition>
+                        <mif:text/>
+                     </mif:definition>
+                  </mif:annotations>
+                  <mif:derivationSupplier staticModelDerivationId="1" className="Act"
+                                          associationEndName="outboundRelationship"/>
+                  <mif:participantClass>
+                     <mif:class name="AdjudResultsGroupPayee" isAbstract="false">
+                        <mif:derivationSupplier staticModelDerivationId="1" className="ActRelationship"/>
+                        <mif:graphicRepresentation presentation="HL7">
+                           <mif:graphElement shapeId="Sheet.143" containerDiagramName="Main" shapeTemplate="ActRelationship"
+                                             textWrappingWidth="66.0"
+                                             nodeOrientation="Right">
+                              <mif:position x="26.791" y="17.721"/>
+                              <mif:size width="2.441" height="0.303"/>
+                           </mif:graphElement>
+                        </mif:graphicRepresentation>
+                        <mif:annotations>
+                           <mif:definition>
+                              <mif:text>
+                                 <mif:p>
+                                    <mif:p>Payee relationship is not present on Payment Advice messages</mif:p>
+                                 </mif:p>
+                              </mif:text>
+                              <mif:graphicRepresentation>
+                                 <mif:graphElement shapeId="Sheet.268" containerDiagramName="Main" isWidthAutoSize="true"
+                                                   isHeightAutoSize="true">
+                                    <mif:position x="27.114" y="17.024"/>
+                                    <mif:size width="1.668" height="0.500"/>
+                                    <mif:anchorage connectToShapeId="Sheet.268">
+                                       <mif:position x="27.948" y="17.274"/>
+                                       <mif:graphEdge>
+                                          <mif:anchor connectToShapeId="Sheet.143">
+                                             <mif:position x="27.949" y="17.721"/>
+                                          </mif:anchor>
+                                       </mif:graphEdge>
+                                    </mif:anchorage>
+                                 </mif:graphElement>
+                              </mif:graphicRepresentation>
+                           </mif:definition>
+                           <mif:usageNotes>
+                              <mif:text>
+                                 <mif:p>
+                                    <mif:p>Payee relationship is not present on Payment Advice messages</mif:p>
+                                 </mif:p>
+                              </mif:text>
+                           </mif:usageNotes>
+                        </mif:annotations>
+                        <mif:attribute name="typeCode" sortKey="1" minimumMultiplicity="1" maximumMultiplicity="1"
+                                       conformance="R"
+                                       isMandatory="true"
+                                       fixedValue="CREDIT"
+                                       isStructural="true">
+                           <mif:annotations>
+                              <mif:definition>
+                                 <mif:text/>
+                              </mif:definition>
+                           </mif:annotations>
+                           <mif:derivationSupplier staticModelDerivationId="1" className="ActRelationship"
+                                                   attributeName="typeCode"/>
+                           <mif:type name="CS"/>
+                           <mif:supplierDomainSpecification codingStrength="CNE" codeSystemName="ActRelationshipType" mnemonic="CREDIT"/>
+                        </mif:attribute>
+                        <mif:association sortKey="13">
+                           <mif:graphicRepresentation>
+                              <mif:graphElement connectToShapeId="Sheet.143" containerDiagramName="Main">
+                                 <mif:position x="29.232" y="17.720"/>
+                                 <mif:graphEdge>
+                                    <mif:anchor connectToShapeId="Sheet.173">
+                                       <mif:position x="29.232" y="17.720"/>
+                                    </mif:anchor>
+                                 </mif:graphEdge>
+                              </mif:graphElement>
+                           </mif:graphicRepresentation>
+                           <mif:targetConnection name="account" minimumMultiplicity="1" maximumMultiplicity="1" conformance="R"
+                                                 isMandatory="false"
+                                                 sortKey="BZ">
+                              <mif:annotations>
+                                 <mif:definition>
+                                    <mif:text/>
+                                 </mif:definition>
+                              </mif:annotations>
+                              <mif:derivationSupplier staticModelDerivationId="1" className="ActRelationship"
+                                                      associationEndName="target"/>
+                              <mif:participantClass>
+                                 <mif:commonModelElementRef name="A_AccountPayeeUniversal">
+                                    <mif:derivationSupplier staticModelDerivationId="1" className="Act"/>
+                                    <mif:supplierStructuralDomain domainName="ActClass" mnemonic="ACT"/>
+                                    <mif:graphicRepresentation presentation="HL7">
+                                       <mif:graphElement shapeId="Sheet.173" containerDiagramName="Main" shapeTemplate="CMET"
+                                                         isWidthAutoSize="true"
+                                                         isHeightAutoSize="false">
+                                          <mif:position x="29.232" y="17.524"/>
+                                          <mif:size width="1.103" height="0.655"/>
+                                       </mif:graphElement>
+                                    </mif:graphicRepresentation>
+                                    <mif:generalizationParent name="COCT_MT110200CA"/>
+                                 </mif:commonModelElementRef>
+                              </mif:participantClass>
+                           </mif:targetConnection>
+                           <mif:sourceConnection>
+                              <mif:nonTraversableConnection participantClassName="AdjudResultsGroupPayee">
+                                 <mif:derivationSupplier staticModelDerivationId="1" className="Act"
+                                                         associationEndName="inboundRelationship"/>
+                              </mif:nonTraversableConnection>
+                           </mif:sourceConnection>
+                        </mif:association>
+                     </mif:class>
+                  </mif:participantClass>
+               </mif:targetConnection>
+               <mif:sourceConnection>
+                  <mif:nonTraversableConnection participantClassName="AdjudResultsGroup">
+                     <mif:derivationSupplier staticModelDerivationId="1" className="ActRelationship"
+                                             associationEndName="source"/>
+                  </mif:nonTraversableConnection>
+               </mif:sourceConnection>
+            </mif:association>
+            <mif:association sortKey="2">
+               <mif:graphicRepresentation>
+                  <mif:graphElement connectToShapeId="Sheet.183" containerDiagramName="Main">
+                     <mif:position x="26.791" y="16.871"/>
+                     <mif:graphEdge>
+                        <mif:anchor connectToShapeId="Sheet.149">
+                           <mif:position x="26.791" y="16.871"/>
+                        </mif:anchor>
+                     </mif:graphEdge>
+                  </mif:graphElement>
+               </mif:graphicRepresentation>
+               <mif:targetConnection name="debit" minimumMultiplicity="0" maximumMultiplicity="1" conformance="R"
+                                     isMandatory="false"
+                                     sortKey="BDOAB#####">
+                  <mif:annotations>
+                     <mif:definition>
+                        <mif:text/>
+                     </mif:definition>
+                  </mif:annotations>
+                  <mif:derivationSupplier staticModelDerivationId="1" className="Act"
+                                          associationEndName="outboundRelationship"/>
+                  <mif:participantClass>
+                     <mif:class name="AdjudResultsGroupPayor" isAbstract="false">
+                        <mif:derivationSupplier staticModelDerivationId="1" className="ActRelationship"/>
+                        <mif:graphicRepresentation presentation="HL7">
+                           <mif:graphElement shapeId="Sheet.149" containerDiagramName="Main" shapeTemplate="ActRelationship"
+                                             textWrappingWidth="66.0"
+                                             nodeOrientation="Right">
+                              <mif:position x="26.791" y="16.677"/>
+                              <mif:size width="2.415" height="0.303"/>
+                           </mif:graphElement>
+                        </mif:graphicRepresentation>
+                        <mif:annotations>
+                           <mif:definition>
+                              <mif:text>
+                                 <mif:p>
+                                    <mif:p>Payor relationship is not present on Payment Advice messages</mif:p>
+                                 </mif:p>
+                              </mif:text>
+                              <mif:graphicRepresentation>
+                                 <mif:graphElement shapeId="Sheet.273" containerDiagramName="Main" isWidthAutoSize="true"
+                                                   isHeightAutoSize="true">
+                                    <mif:position x="27.126" y="16.024"/>
+                                    <mif:size width="1.643" height="0.500"/>
+                                    <mif:anchorage connectToShapeId="Sheet.273">
+                                       <mif:position x="27.948" y="16.274"/>
+                                       <mif:graphEdge>
+                                          <mif:anchor connectToShapeId="Sheet.149">
+                                             <mif:position x="27.936" y="16.677"/>
+                                          </mif:anchor>
+                                       </mif:graphEdge>
+                                    </mif:anchorage>
+                                 </mif:graphElement>
+                              </mif:graphicRepresentation>
+                           </mif:definition>
+                           <mif:usageNotes>
+                              <mif:text>
+                                 <mif:p>
+                                    <mif:p>Payor relationship is not present on Payment Advice messages</mif:p>
+                                 </mif:p>
+                              </mif:text>
+                           </mif:usageNotes>
+                        </mif:annotations>
+                        <mif:attribute name="typeCode" sortKey="1" minimumMultiplicity="1" maximumMultiplicity="1"
+                                       conformance="R"
+                                       isMandatory="true"
+                                       fixedValue="DEBIT"
+                                       isStructural="true">
+                           <mif:annotations>
+                              <mif:definition>
+                                 <mif:text/>
+                              </mif:definition>
+                           </mif:annotations>
+                           <mif:derivationSupplier staticModelDerivationId="1" className="ActRelationship"
+                                                   attributeName="typeCode"/>
+                           <mif:type name="CS"/>
+                           <mif:supplierDomainSpecification codingStrength="CNE" codeSystemName="ActRelationshipType" mnemonic="DEBIT"/>
+                        </mif:attribute>
+                        <mif:association sortKey="16">
+                           <mif:graphicRepresentation>
+                              <mif:graphElement connectToShapeId="Sheet.149" containerDiagramName="Main">
+                                 <mif:position x="29.206" y="16.786"/>
+                                 <mif:graphEdge>
+                                    <mif:anchor connectToShapeId="Sheet.167">
+                                       <mif:position x="29.206" y="16.786"/>
+                                    </mif:anchor>
+                                 </mif:graphEdge>
+                              </mif:graphElement>
+                           </mif:graphicRepresentation>
+                           <mif:targetConnection name="account" minimumMultiplicity="1" maximumMultiplicity="1" conformance="R"
+                                                 isMandatory="false"
+                                                 sortKey="BZ">
+                              <mif:annotations>
+                                 <mif:definition>
+                                    <mif:text/>
+                                 </mif:definition>
+                              </mif:annotations>
+                              <mif:derivationSupplier staticModelDerivationId="1" className="ActRelationship"
+                                                      associationEndName="target"/>
+                              <mif:participantClass>
+                                 <mif:commonModelElementRef name="A_AccountPayorUniversal">
+                                    <mif:derivationSupplier staticModelDerivationId="1" className="Act"/>
+                                    <mif:supplierStructuralDomain domainName="ActClass" mnemonic="ACT"/>
+                                    <mif:graphicRepresentation presentation="HL7">
+                                       <mif:graphElement shapeId="Sheet.167" containerDiagramName="Main" shapeTemplate="CMET"
+                                                         isWidthAutoSize="true"
+                                                         isHeightAutoSize="true">
+                                          <mif:position x="29.206" y="16.472"/>
+                                          <mif:size width="1.103" height="0.628"/>
+                                       </mif:graphElement>
+                                    </mif:graphicRepresentation>
+                                    <mif:generalizationParent name="COCT_MT110101CA"/>
+                                 </mif:commonModelElementRef>
+                              </mif:participantClass>
+                           </mif:targetConnection>
+                           <mif:sourceConnection>
+                              <mif:nonTraversableConnection participantClassName="AdjudResultsGroupPayor">
+                                 <mif:derivationSupplier staticModelDerivationId="1" className="Act"
+                                                         associationEndName="inboundRelationship"/>
+                              </mif:nonTraversableConnection>
+                           </mif:sourceConnection>
+                        </mif:association>
+                     </mif:class>
+                  </mif:participantClass>
+               </mif:targetConnection>
+               <mif:sourceConnection>
+                  <mif:nonTraversableConnection participantClassName="AdjudResultsGroup">
+                     <mif:derivationSupplier staticModelDerivationId="1" className="ActRelationship"
+                                             associationEndName="source"/>
+                  </mif:nonTraversableConnection>
+               </mif:sourceConnection>
+            </mif:association>
+            <mif:association sortKey="9">
+               <mif:graphicRepresentation>
+                  <mif:graphElement connectToShapeId="Sheet.183" containerDiagramName="Main">
+                     <mif:position x="23.918" y="6.500"/>
+                     <mif:graphEdge>
+                        <mif:anchor connectToShapeId="Sheet.128">
+                           <mif:position x="23.918" y="6.500"/>
+                        </mif:anchor>
+                     </mif:graphEdge>
+                  </mif:graphElement>
+               </mif:graphicRepresentation>
+               <mif:targetConnection name="component" minimumMultiplicity="0" maximumMultiplicity="10"
+                                     conformance="R"
+                                     isMandatory="false"
+                                     sortKey="BE########">
+                  <mif:annotations>
+                     <mif:definition>
+                        <mif:text/>
+                     </mif:definition>
+                  </mif:annotations>
+                  <mif:derivationSupplier staticModelDerivationId="1" className="Act"
+                                          associationEndName="outboundRelationship"/>
+                  <mif:participantClass>
+                     <mif:class name="AdjudResultsGroupComponent" isAbstract="false">
+                        <mif:derivationSupplier staticModelDerivationId="1" className="ActRelationship"/>
+                        <mif:graphicRepresentation presentation="HL7">
+                           <mif:graphElement shapeId="Sheet.128" containerDiagramName="Main"
+                                             shapeTemplate="ActRelationshipR"
+                                             textWrappingWidth="66.0"
+                                             nodeOrientation="DownLeft">
+                              <mif:position x="22.396" y="6.500"/>
+                              <mif:size width="1.550" height="1.203"/>
+                           </mif:graphElement>
+                        </mif:graphicRepresentation>
+                        <mif:annotations>
+                           <mif:definition>
+                              <mif:text/>
+                           </mif:definition>
+                        </mif:annotations>
+                        <mif:attribute name="typeCode" sortKey="1" minimumMultiplicity="1" maximumMultiplicity="1"
+                                       conformance="R"
+                                       isMandatory="true"
+                                       fixedValue="COMP"
+                                       isStructural="true">
+                           <mif:annotations>
+                              <mif:definition>
+                                 <mif:text/>
+                              </mif:definition>
+                           </mif:annotations>
+                           <mif:derivationSupplier staticModelDerivationId="1" className="ActRelationship"
+                                                   attributeName="typeCode"/>
+                           <mif:type name="CS"/>
+                           <mif:supplierDomainSpecification codingStrength="CNE" codeSystemName="ActRelationshipType" mnemonic="COMP"/>
+                        </mif:attribute>
+                        <mif:association sortKey="11">
+                           <mif:graphicRepresentation>
+                              <mif:graphElement connectToShapeId="Sheet.128" containerDiagramName="Main">
+                                 <mif:position x="23.599" y="7.652"/>
+                                 <mif:graphEdge>
+                                    <mif:anchor connectToShapeId="Sheet.183">
+                                       <mif:position x="23.599" y="7.652"/>
+                                    </mif:anchor>
+                                 </mif:graphEdge>
+                              </mif:graphElement>
+                           </mif:graphicRepresentation>
+                           <mif:targetConnection name="adjudResultsGroup" minimumMultiplicity="1" maximumMultiplicity="1"
+                                                 conformance="R"
+                                                 isMandatory="false"
+                                                 sortKey="BZ">
+                              <mif:annotations>
+                                 <mif:definition>
+                                    <mif:text/>
+                                 </mif:definition>
+                              </mif:annotations>
+                              <mif:derivationSupplier staticModelDerivationId="1" className="ActRelationship"
+                                                      associationEndName="target"/>
+                              <mif:participantClass>
+                                 <mif:reference name="AdjudResultsGroup"/>
+                              </mif:participantClass>
+                           </mif:targetConnection>
+                           <mif:sourceConnection>
+                              <mif:nonTraversableConnection participantClassName="AdjudResultsGroupComponent">
+                                 <mif:derivationSupplier staticModelDerivationId="1" className="Act"
+                                                         associationEndName="inboundRelationship"/>
+                              </mif:nonTraversableConnection>
+                           </mif:sourceConnection>
+                        </mif:association>
+                     </mif:class>
+                  </mif:participantClass>
+               </mif:targetConnection>
+               <mif:sourceConnection>
+                  <mif:nonTraversableConnection participantClassName="AdjudResultsGroup">
+                     <mif:derivationSupplier staticModelDerivationId="1" className="ActRelationship"
+                                             associationEndName="source"/>
+                  </mif:nonTraversableConnection>
+               </mif:sourceConnection>
+            </mif:association>
+         </mif:class>
+      </mif:specializedClass>
+   </mif:ownedEntryPoint>
+</mif:serializedStaticModel>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:chi="urn:ca.infoway.messagebuilder.simplexml.v1" elementFormDefault="qualified" targetNamespace="urn:ca.infoway.messagebuilder.simplexml.v1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include schemaLocation="PORX_MT060280CA.xsd"/>
+  <xs:include schemaLocation="QUQI_MT020000CA.xsd"/>
+  <xs:include schemaLocation="MCCI_MT002100CA.xsd"/>
+  <xs:complexType name="PORX_IN060250CA.QUQI_MT020000CA.QueryByParameter">
+    <xs:complexContent>
+      <xs:extension base="chi:QUQI_MT020000CA.QueryByParameter">
+        <xs:sequence>
+          <xs:element name="parameterList" type="chi:PORX_MT060280CA.ParameterList"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="PORX_IN060250CA.QUQI_MT020000CA.ControlActEvent">
+    <xs:complexContent>
+      <xs:extension base="chi:QUQI_MT020000CA.ControlActEvent">
+        <xs:sequence>
+          <xs:element name="queryByParameter" type="chi:PORX_IN060250CA.QUQI_MT020000CA.QueryByParameter"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="PORX_IN060250CA">
+    <xs:complexContent>
+      <xs:extension base="chi:MCCI_MT002100CA.Message">
+        <xs:sequence>
+          <xs:element name="controlActEvent" type="chi:PORX_IN060250CA.QUQI_MT020000CA.ControlActEvent"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="medicationPrescriptionDetailQuery" type="chi:PORX_IN060250CA"/>
+</xs:schema>

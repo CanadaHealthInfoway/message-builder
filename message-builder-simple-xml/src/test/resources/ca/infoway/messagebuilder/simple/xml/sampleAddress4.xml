@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ParameterList xmlns="urn:ca.infoway.messagebuilder.simplexml.v1" >
+	<address>
+		<addressPart>Rear entrance</addressPart>
+		<addressPart type="BNN">21</addressPart>
+		<addressPart type="STB">5th</addressPart>
+		<addressPart type="STT">Ave</addressPart>
+		<addressPart type="CTY">New York</addressPart>
+		<addressPart type="STA">New York</addressPart>
+		<addressPart type="ZIP">12345</addressPart>
+	</address>
+</ParameterList>

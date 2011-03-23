@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:chi="urn:ca.infoway.messagebuilder.simplexml.v1" elementFormDefault="qualified" targetNamespace="urn:ca.infoway.messagebuilder.simplexml.v1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include schemaLocation="COCT_MT090310CA.xsd"/>
+  <xs:include schemaLocation="COCT_MT260012CA.xsd"/>
+  <xs:include schemaLocation="COCT_MT470012CA.xsd"/>
+  <xs:include schemaLocation="COCT_MT240012CA.xsd"/>
+  <xs:include schemaLocation="COCT_MT090502CA.xsd"/>
+  <xs:include schemaLocation="COCT_MT090102CA.xsd"/>
+  <xs:include schemaLocation="../../../../../../classes/simpleDataTypes.xsd"/>
+  <xs:complexType name="MFMI_MT700711CA.Author">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="timeOfCreation" type="chi:FullDateTime"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="informationReceivedMethod" type="chi:CodedValue"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="digitalSignature" type="chi:EncapsulatedSignatureType"/>
+      <xs:group maxOccurs="1" minOccurs="1" ref="chi:MFMI_MT700711CA.AuthorPerson"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="MFMI_MT700711CA.AuthorPerson">
+    <xs:choice>
+      <xs:element name="healthcareWorker" type="chi:COCT_MT090102CA.AssignedEntity"/>
+      <xs:element name="nullAuthorRole" type="chi:MFMI_MT700711CA.AuthorRole"/>
+      <xs:element name="healthcareOrganization" type="chi:COCT_MT090502CA.AssignedEntity"/>
+    </xs:choice>
+  </xs:group>
+  <xs:complexType name="MFMI_MT700711CA.AuthorRole">
+    <xs:sequence/>
+  </xs:complexType>
+  <xs:complexType name="MFMI_MT700711CA.ControlActEvent">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="eventIdentifier" type="chi:InstanceIdentifier"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="eventType" type="chi:CodedValue"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="eventEffectivePeriod" type="chi:DateInterval"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="eventReason" type="chi:CodedValue"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="messageLanguage" type="chi:CodedType"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="author" type="chi:MFMI_MT700711CA.Author"/>
+      <xs:group maxOccurs="1" minOccurs="0" ref="chi:MFMI_MT700711CA.EntererChoice"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="dataEntryLocationServiceDeliveryLocation" type="chi:COCT_MT240012CA.ServiceDeliveryLocation"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="locationServiceDeliveryLocation" type="chi:COCT_MT240012CA.ServiceDeliveryLocation"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="pertinentInformation" type="chi:MFMI_MT700711CA.PertinentInformation"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="responsiblePartyAssignedEntity" type="chi:COCT_MT090102CA.AssignedEntity"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="subjectOf1ConsentEvent" type="chi:COCT_MT470012CA.ConsentEvent"/>
+      <xs:element maxOccurs="50" minOccurs="0" name="subjectOf2DetectedIssueEvent" type="chi:COCT_MT260012CA.DetectedIssueEvent"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="MFMI_MT700711CA.EntererChoice">
+    <xs:choice>
+      <xs:element name="healthcareWorker" type="chi:COCT_MT090102CA.AssignedEntity"/>
+      <xs:element name="healthcareOrganization" type="chi:COCT_MT090502CA.AssignedEntity"/>
+    </xs:choice>
+  </xs:group>
+  <xs:complexType name="MFMI_MT700711CA.PertinentInformation">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="0" name="authorizationTokenAsId" type="chi:InstanceIdentifier"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="authorizationToken" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="MFMI_MT700711CA.Subject2">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="cascadeResponsibilityIndicator" type="xs:boolean"/>
+      <xs:element maxOccurs="10" minOccurs="0" name="priorRegisteredRoleIds" type="chi:InstanceIdentifier"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="registrationRequestCustodianAssignedDevice" type="chi:COCT_MT090310CA.AssignedDevice"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

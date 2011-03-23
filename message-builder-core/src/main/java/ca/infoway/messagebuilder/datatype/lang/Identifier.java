@@ -1,0 +1,143 @@
+package ca.infoway.messagebuilder.datatype.lang;
+
+import java.io.Serializable;
+
+import org.apache.commons.lang.builder.EqualsBuilder;
+import org.apache.commons.lang.builder.HashCodeBuilder;
+
+import ca.infoway.messagebuilder.Oid;
+
+/**
+ * <p>An instance identifier. Backs the HL7 datatype II.
+ * 
+ * <p>An identifier that uniquely identifies a thing or object. Examples are object 
+ * identifier for HL7 RIM objects, medical record number, order id, service catalog 
+ * item id, Vehicle Identification Number (VIN), etc. Instance identifiers are 
+ * defined based on ISO object identifiers. 
+ * 
+ * @author <a href="http://www.intelliware.ca/">Intelliware Development</a>
+ *
+ * @sharpen.ignore - datatype - translated manually
+ */
+public class Identifier implements Serializable {
+    
+    private static final long serialVersionUID = -3182973493107028067L;
+    private String root;
+    private String extension;
+
+    /**
+     * <p>Constructs an empty identifier.
+     */
+    public Identifier() {
+    }
+    
+    /**
+     * <p>Constructs an Identifier with the supplied parameters.
+     * 
+     * @param oid the codesystem
+     * @param extension the extension
+     */
+    public Identifier(Oid oid, String extension) {
+    	this(oid == null ? null : oid.getRoot(), extension);
+    }
+    
+    /**
+     * <p>Constructs an Identifier with the supplied parameters.
+     * 
+     * @param root the root
+     * @param extension the extension
+     */
+    public Identifier(String root, String extension) {
+        this.root = root;
+        this.extension = extension;
+    }
+
+    /**
+     * <p>Constructs an Identifier with the supplied parameters.
+     * 
+     * @param root the root
+     */
+    public Identifier(String root) {
+        this(root, null);
+    }
+    
+    /**
+     * <p>Sets the extension.
+     * 
+     * @param extension the extension
+     */
+    public void setExtension(String extension) {
+        this.extension = extension;
+    }
+    
+    /**
+     * <p>Returns the extension.
+     * 
+     * @return the extension
+     */
+    public String getExtension() {
+        return extension;
+    }
+    
+    /**
+     * <p>Sets the root.
+     * 
+     * @param root the root.
+     */
+    public void setRoot(String root) {
+        this.root = root;
+    }
+    
+    /**
+     * <p>Returns the root.
+     * 
+     * @return the root
+     */
+    public String getRoot() {
+        return root;
+    }
+    
+    /**
+     * <p>Formats this object as a string.
+     * 
+     * @return the string representation of this object
+     */
+    public String toString() {
+        return "root={" + this.root + "},extension={" + this.extension + "}";
+    }
+    
+    /**
+     * <p>Calculates a hashcode for this object based on root and extension.
+     * 
+     * @return the hashcode of this object
+     */
+    public int hashCode() {
+        return new HashCodeBuilder()
+                .append(this.root)
+                .append(this.extension)
+                .toHashCode();
+    }
+
+    /**
+     * <p>Determines if the supplied object is equal to this object based on root and extension.
+     * 
+     * @param obj the object to compare
+     * @return whether the supplied object equals this object 
+     */
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        } else if (obj.getClass() != getClass()) {
+            return false;
+        } else {
+            return equals((Identifier) obj);
+        }
+    }
+
+    private boolean equals(Identifier that) {
+        return new EqualsBuilder()
+                .append(this.root, that.root)
+                .append(this.extension, that.extension)
+                .isEquals();
+    }
+}

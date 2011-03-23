@@ -1,0 +1,38 @@
+<PRPA_IN101101CA xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:hl7-org:v3" ITSVersion="XML_1.0">
+    <!-- Message rendered by Intelliware TEAL version 1.6-SNAPSHOT -->
+    <id root="1ee83ff1-08ab-4fe7-b573-ea777e9bad51"/>
+    <creationTime value="20080625141610-0400"/>
+    <responseModeCode code="I"/>
+    <versionCode code="V3-2007-05"/>
+    <interactionId displayable="true" extension="PRPA_IN101101CA" root="2.16.840.1.113883.1.6"/>
+    <processingCode code="P"/>
+    <processingModeCode code="T"/>
+    <acceptAckCode code="AL"/>
+  <receiver typeCode="RCV">
+    <telecom value="http://123.255.255.10"/>
+    <device classCode="DEV" determinerCode="INSTANCE">
+	  <id extension="123" root="2.16.840.1.113883.4.262.12" use="BUS" />
+    </device>
+  </receiver>
+  <sender typeCode="SND">
+    <telecom value="http://987.654.321.0"/>
+    <device classCode="DEV" determinerCode="INSTANCE">
+	  <id extension="123" root="2.16.840.1.113883.4.262.12" use="BUS"/>
+      <manufacturerModelName>1.0</manufacturerModelName>
+      <softwareName>Panacea Pharmacy</softwareName>
+    </device>
+  </sender>
+    <controlActEvent classCode="CACT" moodCode="EVN">
+    <id root="1ee83ff1-08ab-4fe7-b573-ea777e9bad11" use="BUS" />
+      <code code="PRPA_TE101101CA" codeSystem="2.16.840.1.113883.5.4"/>
+      <statusCode code="completed"/>
+      <queryByParameter>
+      <queryId root="1ee83ff1-08ab-4fe7-b573-ea777e9bad31"/>
+        <parameterList>
+          <clientIDBus>
+            <value extension="clientId" root="1.2.3.4.5.6" use="BUS"/>
+          </clientIDBus>
+        </parameterList>
+      </queryByParameter>
+    </controlActEvent>
+</PRPA_IN101101CA>

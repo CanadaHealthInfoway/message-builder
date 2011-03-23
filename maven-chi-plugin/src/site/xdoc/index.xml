@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<document>
+	<properties>
+		<title>Maven Plugin</title>
+	</properties>
+	<body>
+		<!-- ================================================== -->
+		<section name="Introduction">
+			<p>
+				The Generator Tools module of the Message Builder Tool is used to
+				transform the HL7 artifacts (MIFs) into runtime artifacts (Java or
+				.Net code, XML XSDs, and message set documents).
+			</p>
+		</section>
+		<section name="Maven Configuration">
+			<p>
+				The Generator Tools are executed as Maven plugins. For Maven
+				configuration information, check the
+				<a href="../maven-chi-plugin/index.html">Maven plugin documentation</a>
+				.
+			</p>
+		</section>
+	</body>
+</document>

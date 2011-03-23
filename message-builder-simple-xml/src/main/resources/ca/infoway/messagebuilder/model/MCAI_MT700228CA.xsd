@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:chi="urn:ca.infoway.messagebuilder.simplexml.v1" elementFormDefault="qualified" targetNamespace="urn:ca.infoway.messagebuilder.simplexml.v1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include schemaLocation="COCT_MT260020CA.xsd"/>
+  <xs:include schemaLocation="../../../../../../classes/simpleDataTypes.xsd"/>
+  <xs:complexType name="MCAI_MT700228CA.ControlActEvent">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="eventIdentifier" type="chi:InstanceIdentifier"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="eventType" type="chi:CodedValue"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="eventEffectivePeriod" type="chi:DateInterval"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="eventReason" type="chi:CodedValue"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="messageLanguage" type="chi:CodedType"/>
+      <xs:element maxOccurs="50" minOccurs="0" name="subjectOfDetectedIssueEvent" type="chi:COCT_MT260020CA.DetectedIssueEvent"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="MCAI_MT700228CA.Subject2">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="cascadeResponsibilityIndicator" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

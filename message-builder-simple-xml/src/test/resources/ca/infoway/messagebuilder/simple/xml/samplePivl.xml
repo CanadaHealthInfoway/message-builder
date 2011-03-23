@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ParameterList xmlns="urn:ca.infoway.messagebuilder.simplexml.v1" >
+	<pivl numberOfOccurrences="4">
+		<every value="7" unit="day"/>
+	</pivl>
+</ParameterList>

@@ -1,0 +1,97 @@
+                    ------------------
+                    Overview
+                    ------------------
+
+Overview
+
+  This section describes the high-level overview of how the 
+  generator tools work.
+  
+  
+* Typical Steps
+
+  A typical set of steps for working with the overview include:
+  
+    [[1]] Obtain a complete set of MIFs developed by the Standards Collaborative Process.
+  
+    [[2]] Generate a message set from the MIFs by running the <<<mif-to-xml>>> tool in Maven.
+  
+    [[3]] Generate code formats using one of the following Maven tools:
+  
+      [[a]] run <<<xml-to-java>>> to create Java classes.
+    
+      [[b]] run <<<xml-to-csharp>>> to create C# classes.
+    
+* Variations
+
+  There are a few other things one might want to do with the generator tools, but the
+  above steps describe the most common situations.  One of the more important variations
+  includes using the generator tools to create XSDs for a simplified XML API.
+  
+  
+Key Concepts
+
+  This section defines some key concepts associated with the generator.
+
+* Message Sets
+
+  A message set is an XML file in a simplified format that contains information about all
+  the parts of an HL7 message. 
+  
+  When the Standards Collaborative community defines messages, those message definitions
+  are saved in a series of MIF (Model Interchange Format) files.  These files are an
+  HL7-specific (and proprietary) XML format that describes two types of information:
+  
+    [[1]] Information about the structure of a part of an HL7 message; and
+    
+    [[2]] Information about how to draw a set of boxes that provide a graphical
+          representation of the structure.  This second type of information is used
+          by the graphic modelling editor. 
+          
+  MIF is a difficult file format to use in a runtime environment, for two reasons.  First,
+  the format is fairly complicated.  Second, the information about the graphical 
+  representation of the structure is not interesting from a HL7 message processing 
+  perspective, and will consume memory without adding value.
+  
+  Thus, our response has been to create an easier structure: the message set structure.
+  Each complex type defined by the MIFs get translated into a "message part" in the 
+  message set.
+  
+  The message set serves two purposes.  First, we use the message set to generate Java
+  or C# model classes that we can use to store the salient parts of an HL7 message.  
+  Second, we use the message set as a runtime descriptor of the message any time we want 
+  to process an HL7 XML message.  
+  
+* Simplification
+
+  One of the fundamental concerns that is frequently raised about HL7 messages is that
+  they're very complicated.  Our own experience is consistent with this finding.  
+  Compared to other XML-based APIs, HL7 XML messages have close to ten times as many
+  XML nodes, and a large number of variations and permutations.  
+  
+  Several of these "extra" nodes represent static data (such as fixed value "class codes",
+  "mood codes" and the like), and others seem to be artifacts of the modeling rules (often
+  we see unhelpful names such as "subjectOf2" or "component6").
+  
+  Most languages that make use of XML messaging architectures also make use of automatic
+  XML binding generators.  In Java, for example, there are several binding technologies 
+  (this is, by no means, an exhaustive list):
+  
+    [[1]] JAXB
+  
+    [[2]] Simple XML
+  
+    [[3]] XMLBeans
+  
+    [[4]] Aegis
+  
+  Anyone who has tried to use these binding technologies on the HL7 message definitions
+  quickly discover that an overwhelming number of model classes are created, so many that
+  it is hard to imagine that a developer will be productive writing code that uses those
+  classes.
+  
+  For this reason, a key feature of the generator is the ability to simplify the 
+  structure when we create the Java and C# model classes.  We talk more about 
+  simplification in {{{./simplification.html}our documentation about the simplification algorithms}}.
+  
+  

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:chi="urn:ca.infoway.messagebuilder.simplexml.v1" elementFormDefault="qualified" targetNamespace="urn:ca.infoway.messagebuilder.simplexml.v1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include schemaLocation="REPC_MT000008CA.xsd"/>
+  <xs:include schemaLocation="QUQI_MT020000CA.xsd"/>
+  <xs:include schemaLocation="MCCI_MT002100CA.xsd"/>
+  <xs:complexType name="COMT_IN100000CA.QUQI_MT020000CA.QueryByParameter">
+    <xs:complexContent>
+      <xs:extension base="chi:QUQI_MT020000CA.QueryByParameter">
+        <xs:sequence>
+          <xs:element name="parameterList" type="chi:REPC_MT000008CA.ParameterList"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="COMT_IN100000CA.QUQI_MT020000CA.ControlActEvent">
+    <xs:complexContent>
+      <xs:extension base="chi:QUQI_MT020000CA.ControlActEvent">
+        <xs:sequence>
+          <xs:element name="queryByParameter" type="chi:COMT_IN100000CA.QUQI_MT020000CA.QueryByParameter"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="COMT_IN100000CA">
+    <xs:complexContent>
+      <xs:extension base="chi:MCCI_MT002100CA.Message">
+        <xs:sequence>
+          <xs:element name="controlActEvent" type="chi:COMT_IN100000CA.QUQI_MT020000CA.ControlActEvent"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="clinicalSummaryProfileQuery" type="chi:COMT_IN100000CA"/>
+</xs:schema>

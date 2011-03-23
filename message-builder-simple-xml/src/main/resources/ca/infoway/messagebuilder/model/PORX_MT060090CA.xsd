@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:chi="urn:ca.infoway.messagebuilder.simplexml.v1" elementFormDefault="qualified" targetNamespace="urn:ca.infoway.messagebuilder.simplexml.v1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include schemaLocation="COCT_MT120600CA.xsd"/>
+  <xs:include schemaLocation="COCT_MT260030CA.xsd"/>
+  <xs:include schemaLocation="COCT_MT240003CA.xsd"/>
+  <xs:include schemaLocation="COCT_MT270010CA.xsd"/>
+  <xs:include schemaLocation="COCT_MT910107CA.xsd"/>
+  <xs:include schemaLocation="COCT_MT220210CA.xsd"/>
+  <xs:include schemaLocation="../../../../../../classes/simpleDataTypes.xsd"/>
+  <xs:include schemaLocation="COCT_MT090302CA.xsd"/>
+  <xs:include schemaLocation="COCT_MT090108CA.xsd"/>
+  <xs:group name="PORX_MT060090CA.ChangedBy">
+    <xs:choice>
+      <xs:element name="healthcareWorker" type="chi:COCT_MT090108CA.AssignedEntity"/>
+      <xs:element name="application" type="chi:COCT_MT090302CA.AssignedDevice"/>
+    </xs:choice>
+  </xs:group>
+  <xs:complexType name="PORX_MT060090CA.Component">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="dispenseType" type="chi:CodedValue"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="dispenseProcessingAndPickupDate" type="chi:DateInterval"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="dispensedQuantity" type="chi:PhysicalQuantity"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="dispensedDaysSupply" type="chi:DateInterval"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="shipToAddress" type="chi:PostalAddress"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="supplyEventProductMedication" type="chi:COCT_MT220210CA.Medication"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="supplyEventReceiverPersonalRelationship" type="chi:COCT_MT910107CA.PersonalRelationship"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PORX_MT060090CA.Component13">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="substitutionCode" type="chi:CodedValue"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="productSelectionReasonCode" type="chi:CodedValue"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="substitutingPersonIdentifier" type="chi:InstanceIdentifier"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PORX_MT060090CA.InFulfillmentOf">
+    <xs:sequence>
+      <xs:element maxOccurs="2" minOccurs="1" name="prescriptionOrderNumber" type="chi:InstanceIdentifier"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="prescriptionType" type="chi:CodedValue"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="prescriptionStatus" type="chi:SimpleCodedType"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="prescriptionOrderDate" type="chi:FullDate"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="substanceAdministrationRequestAuthorAssignedEntity" type="chi:COCT_MT090108CA.AssignedEntity"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="substanceAdministrationRequestResponsiblePartyAssignedEntity" type="chi:COCT_MT090108CA.AssignedEntity"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PORX_MT060090CA.MedicationDispense">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="prescriptionDispenseNumber" type="chi:InstanceIdentifier"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="dispenseStatus" type="chi:SimpleCodedType"/>
+      <xs:element maxOccurs="2" minOccurs="0" name="prescriptionMaskingIndicators" type="chi:CodedValue"/>
+      <xs:element maxOccurs="10" minOccurs="1" name="component1DosageInstruction" type="chi:COCT_MT270010CA.DosageInstruction"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="component2" type="chi:PORX_MT060090CA.Component13"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="component3" type="chi:PORX_MT060090CA.Component"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="inFulfillmentOf" type="chi:PORX_MT060090CA.InFulfillmentOf"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="locationServiceDeliveryLocation" type="chi:COCT_MT240003CA.ServiceDeliveryLocation"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="performerAssignedEntity" type="chi:COCT_MT090108CA.AssignedEntity"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="responsiblePartyAssignedEntity" type="chi:COCT_MT090108CA.AssignedEntity"/>
+      <xs:element maxOccurs="20" minOccurs="0" name="subjectOf1" type="chi:PORX_MT060090CA.Subject"/>
+      <xs:element maxOccurs="25" minOccurs="0" name="subjectOf2DetectedIssueEvent" type="chi:COCT_MT260030CA.DetectedIssueEvent"/>
+      <xs:element maxOccurs="99" minOccurs="0" name="subjectOf3Annotation" type="chi:COCT_MT120600CA.Annotation"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="subjectOf4" type="chi:PORX_MT060090CA.Subject13"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="subjectOf5" type="chi:PORX_MT060090CA.Subject12"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PORX_MT060090CA.Subject">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="dispenseStatusChangeType" type="chi:CodedValue"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="dispenseStatusChangeEffectiveDate" type="chi:DateInterval"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="dispenseStatusChangeReason" type="chi:CodedValue"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="changeTimestamp" type="chi:FullDateTime"/>
+      <xs:group maxOccurs="1" minOccurs="1" ref="chi:PORX_MT060090CA.ChangedBy"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="controlActEventResponsiblePartyAssignedEntity" type="chi:COCT_MT090108CA.AssignedEntity"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PORX_MT060090CA.Subject12">
+    <xs:sequence/>
+  </xs:complexType>
+  <xs:complexType name="PORX_MT060090CA.Subject13">
+    <xs:sequence/>
+  </xs:complexType>
+</xs:schema>

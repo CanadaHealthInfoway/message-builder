@@ -1,0 +1,114 @@
+package ca.infoway.messagebuilder.marshalling;
+
+import java.util.List;
+
+import org.apache.commons.lang.StringUtils;
+
+import ca.infoway.messagebuilder.xml.Argument;
+import ca.infoway.messagebuilder.xml.Interaction;
+import ca.infoway.messagebuilder.xml.MessagePart;
+import ca.infoway.messagebuilder.xml.Relationship;
+import ca.infoway.messagebuilder.xml.service.MessageDefinitionService;
+
+class ConversionContext {
+	private final MessageDefinitionService service;
+	private final String version;
+	private final Interaction interaction;
+	
+	ConversionContext(MessageDefinitionService service,
+			String version, String messageId) {
+		this.service = service;
+		this.version = version;
+		this.interaction = service.getInteraction(version, messageId);
+	}
+
+	public MessageDefinitionService getService() {
+		return this.service;
+	}
+
+	public String getVersion() {
+		return this.version;
+	}
+
+	public MessagePart getMessagePart(String type) {
+		return this.service.getMessagePart(this.version, type);
+	} 
+	
+	public MessagePart getMessagePartOfRelationship(Relationship relationship) {
+		return this.service.getMessagePart(this.version, relationship.getType());
+	} 
+	
+	public Interaction getInteraction() {
+		return this.interaction;
+	}
+	
+	public String resolveType(Relationship relationship, String selectedElementName){
+		String resolvedType;
+		if (relationship.isTemplateRelationship()){
+			resolvedType = resolveTemplateType(relationship.getTemplateParameterName(), selectedElementName, false);
+		} else if (relationship.isChoice()) {
+			resolvedType = resolveChoiceType(relationship, selectedElementName);
+		} else {
+			resolvedType = relationship.getType();
+		}
+		return resolvedType;
+	}
+
+	public String resolveTopmostType(Relationship relationship, String selectedElementName){
+		String resolvedType;
+		if (relationship.isTemplateRelationship()){
+			resolvedType = resolveTemplateType(relationship.getTemplateParameterName(), selectedElementName, true);
+		} else {
+			resolvedType = relationship.getType();
+		}
+		return resolvedType;
+	}
+
+	private String resolveTemplateType(String templateName, String elementName, boolean topmostOnly) {
+		RelationshipFormat format = resolveTemplateType(getInteraction().getArguments(), templateName);
+		if (format == null) {
+			throw new MarshallingException("Could not resolve Hl7 template information for template " + templateName);
+		} else if (!topmostOnly && format.getArgument().isChoice()) {
+			Relationship option = format.getArgument().findChoiceOption(Argument.choiceOptionNamePredicate(elementName));
+			if (option == null) {
+				throw new MarshallingException("Could not resolve Hl7 template choice information for template " + templateName + " and element name " + elementName);
+			} else {
+				return option.getType();
+			}
+		} else {
+			return format.getType();
+		}
+	}
+
+	RelationshipFormat resolveTemplateType(Relationship relationship) {
+		RelationshipFormat result = resolveTemplateType(getInteraction().getArguments(), relationship.getTemplateParameterName());
+		if (result == null) {
+			throw new MarshallingException("Could not resolve Hl7 type for template " + relationship.getTemplateParameterName());
+		} else {
+			return result;
+		}
+	}
+	
+	String resolveChoiceType(Relationship relationship, String selectedElementName) {
+		return relationship.findChoiceOption(Relationship.choiceOptionNamePredicate(selectedElementName)).getType();
+	}
+	
+	
+	private RelationshipFormat resolveTemplateType(List<Argument> arguments, String templateName){
+		RelationshipFormat templateFormatInfo = null;
+		for (Argument argument : arguments) {
+			if (StringUtils.equals(argument.getTemplateParameterName(), templateName)) {
+				templateFormatInfo = new RelationshipFormat(argument.getTraversalName(), argument.getName(), argument);
+			} else if (argument.getName() != null && argument.getName().endsWith("." + templateName)) {
+				// BCH: TODO: this looks suspicious.  Investigate later...
+				templateFormatInfo = new RelationshipFormat(argument.getTraversalName(), argument.getName(), argument);
+			} else {
+				templateFormatInfo = resolveTemplateType(argument.getArguments(), templateName);
+			}
+			if (templateFormatInfo != null) {
+				break;
+			}
+		}
+		return templateFormatInfo;
+	}
+}

@@ -1,0 +1,1838 @@
+<mif:serializedStaticModel xmlns:mif="urn:hl7-org:v3/mif"
+                           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                           xsi:schemaLocation="urn:hl7-org:v3/mif C:\PROGRA~1\HL7\XMLITS\ToolFiles\MIFSchemas\mifStaticModelFlat.xsd"
+                           packageKind="realm"
+                           representationKind="serialized"
+                           isSerializable="true"
+                           isAbstract="false"
+                           name="CA">
+   <mif:packageLocation root="DEFN" section="IM" subSection="CO" domain="CT" artifact="MT-deprecated"
+                        realm="CA"
+                        id="220210"/>
+   <mif:header>
+      <mif:renderingInformation schemaVersion="1" application="Visio to MIF transform"/>
+      <mif:legalese copyrightOwner="Health Level Seven" copyrightYears="2007"/>
+   </mif:header>
+   <mif:graphicRepresentation presentation="HL7">
+      <mif:graphElement name="Main">
+         <mif:position x="0.0" y="0.0"/>
+         <mif:size width="11.767" height="5.581"/>
+      </mif:graphElement>
+   </mif:graphicRepresentation>
+   <mif:derivationSupplier staticModelDerivationId="1">
+      <mif:targetStaticModel root="DEFN" artifact="RIM" version="00"/>
+   </mif:derivationSupplier>
+   <mif:ownedEntryPoint id="COCT_MT220210CA" name="Administrable Medication" isAbstract="false">
+      <mif:graphicRepresentation>
+         <mif:graphElement shapeId="Sheet.99" containerDiagramName="Main">
+            <mif:position x="1.348" y="0.028"/>
+            <mif:size width="1.773" height="0.453"/>
+            <mif:anchorage connectToShapeId="Sheet.99">
+               <mif:position x="2.298" y="0.481"/>
+               <mif:graphEdge>
+                  <mif:anchor connectToShapeId="Sheet.23">
+                     <mif:position x="2.173" y="1.181"/>
+                  </mif:anchor>
+               </mif:graphEdge>
+            </mif:anchorage>
+         </mif:graphElement>
+      </mif:graphicRepresentation>
+      <mif:specializedClass>
+         <mif:class name="Medication" isAbstract="false">
+            <mif:businessName name="Drug Product"/>
+            <mif:derivationSupplier staticModelDerivationId="1" className="Role"/>
+            <mif:graphicRepresentation presentation="HL7">
+               <mif:graphElement shapeId="Sheet.23" containerDiagramName="Main" shapeTemplate="Role"
+                                 isWidthAutoSize="true"
+                                 isHeightAutoSize="true">
+                  <mif:position x="1.548" y="1.181"/>
+                  <mif:size width="1.250" height="0.500"/>
+               </mif:graphElement>
+            </mif:graphicRepresentation>
+            <mif:annotations>
+               <mif:definition>
+                  <mif:text>
+                     <mif:p>
+                        <mif:p>A pharmaceutical product to be supplied and/or administered to a patient. Encompasses manufactured drug products, generic classifications, prescription medications, over-the-counter medications and recreational drugs.</mif:p>
+                     </mif:p>
+                  </mif:text>
+               </mif:definition>
+               <mif:rationale>
+                  <mif:text>
+                     <mif:p>
+                        <mif:p>Allows drugs to be clearly described and referenced. Also allows searching for and examining information about medications that can be or are being used by a patient.</mif:p>
+                     </mif:p>
+                  </mif:text>
+               </mif:rationale>
+               <mif:mapping sourceName="NeCST">
+                  <mif:text>
+                     <mif:p>
+                        <mif:p>A_BillablePharmacyDispense</mif:p>
+                     </mif:p>
+                  </mif:text>
+               </mif:mapping>
+            </mif:annotations>
+            <mif:attribute name="classCode" sortKey="1" minimumMultiplicity="1" maximumMultiplicity="1"
+                           conformance="R"
+                           isMandatory="true"
+                           fixedValue="MED"
+                           isStructural="true">
+               <mif:annotations>
+                  <mif:definition>
+                     <mif:text/>
+                  </mif:definition>
+               </mif:annotations>
+               <mif:derivationSupplier staticModelDerivationId="1" className="Role" attributeName="classCode"/>
+               <mif:type name="CS"/>
+               <mif:supplierDomainSpecification codingStrength="CNE" codeSystemName="RoleClass" mnemonic="MED"/>
+            </mif:attribute>
+            <mif:association sortKey="7">
+               <mif:graphicRepresentation>
+                  <mif:graphElement connectToShapeId="Sheet.23" containerDiagramName="Main">
+                     <mif:position x="2.673" y="1.631"/>
+                     <mif:graphEdge>
+                        <mif:anchor connectToShapeId="Sheet.1">
+                           <mif:position x="3.903" y="2.337"/>
+                        </mif:anchor>
+                     </mif:graphEdge>
+                  </mif:graphElement>
+               </mif:graphicRepresentation>
+               <mif:targetConnection name="player" minimumMultiplicity="1" maximumMultiplicity="1" conformance="R"
+                                     isMandatory="true"
+                                     sortKey="AZ">
+                  <mif:annotations>
+                     <mif:definition>
+                        <mif:text/>
+                     </mif:definition>
+                  </mif:annotations>
+                  <mif:derivationSupplier staticModelDerivationId="1" className="Role" associationEndName="player"/>
+                  <mif:participantClass>
+                     <mif:class name="Medicine" isAbstract="false">
+                        <mif:businessName name="Drug or Compound"/>
+                        <mif:derivationSupplier staticModelDerivationId="1" className="ManufacturedMaterial"/>
+                        <mif:graphicRepresentation presentation="HL7">
+                           <mif:graphElement shapeId="Sheet.1" containerDiagramName="Main" shapeTemplate="Entity"
+                                             isWidthAutoSize="true"
+                                             isHeightAutoSize="true">
+                              <mif:position x="3.903" y="1.975"/>
+                              <mif:size width="3.242" height="1.448"/>
+                           </mif:graphElement>
+                        </mif:graphicRepresentation>
+                        <mif:annotations>
+                           <mif:definition>
+                              <mif:text/>
+                           </mif:definition>
+                        </mif:annotations>
+                        <mif:attribute name="classCode" sortKey="1" minimumMultiplicity="1" maximumMultiplicity="1"
+                                       conformance="R"
+                                       isMandatory="true"
+                                       fixedValue="MMAT"
+                                       isStructural="true">
+                           <mif:annotations>
+                              <mif:definition>
+                                 <mif:text/>
+                              </mif:definition>
+                           </mif:annotations>
+                           <mif:derivationSupplier staticModelDerivationId="1" className="ManufacturedMaterial"
+                                                   attributeName="classCode"/>
+                           <mif:type name="CS"/>
+                           <mif:supplierDomainSpecification codingStrength="CNE" codeSystemName="EntityClass" mnemonic="MMAT"/>
+                        </mif:attribute>
+                        <mif:attribute name="determinerCode" sortKey="2" minimumMultiplicity="1"
+                                       maximumMultiplicity="1"
+                                       conformance="R"
+                                       isMandatory="true"
+                                       fixedValue="KIND"
+                                       isStructural="true">
+                           <mif:annotations>
+                              <mif:definition>
+                                 <mif:text/>
+                              </mif:definition>
+                           </mif:annotations>
+                           <mif:derivationSupplier staticModelDerivationId="1" className="ManufacturedMaterial"
+                                                   attributeName="determinerCode"/>
+                           <mif:type name="CS"/>
+                           <mif:supplierDomainSpecification codingStrength="CNE" codeSystemName="EntityDeterminer" mnemonic="KIND"/>
+                        </mif:attribute>
+                        <mif:attribute name="code" sortKey="3" minimumMultiplicity="1" maximumMultiplicity="1"
+                                       conformance="R"
+                                       isMandatory="false"
+                                       isStructural="false">
+                           <mif:businessName name="A:Drug Code"/>
+                           <mif:annotations>
+                              <mif:definition>
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>An identifier for a type of drug. Depending on where the drug is being referenced, the drug may be identified at different levels of abstraction. E.g. Manufactured drug (including vaccine).</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:definition>
+                              <mif:rationale>
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>Used to ensure clear communication by uniquely identifying a particular drug product when prescribing or dispensing. This attribute is only marked as 'populated' because some custom compounds will not have unique identifiers. Datatype has been retained as CE (Translatable Code) to support translation between multiple code sets for drugs (e.g. DIN, GTIN, UPC).</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:rationale>
+                              <mif:mapping sourceName="PIN">
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>DrugProduct.activeIngredientId</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:mapping>
+                              <mif:mapping sourceName="PIN">
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>DrugProduct.ActiveIngredientGroupNumber</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:mapping>
+                              <mif:mapping sourceName="PIN">
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>DrugProduct.DIN</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:mapping>
+                              <mif:mapping sourceName="PIN">
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>DrugProduct.StandardProductId (Mnemonic)</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:mapping>
+                              <mif:mapping sourceName="PIN">
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>DrugProduct.StandardIDType(Code System)</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:mapping>
+                              <mif:mapping sourceName="CPhAv3">
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>D56(use code system to distinguish different types)</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:mapping>
+                              <mif:mapping sourceName="BC">
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>ZPB2.1</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:mapping>
+                              <mif:mapping sourceName="BC">
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>ZPB3.1</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:mapping>
+                              <mif:mapping sourceName="BC">
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>ZPC.1</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:mapping>
+                              <mif:mapping sourceName="BC">
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>ZPC1.3</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:mapping>
+                              <mif:mapping sourceName="BC">
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>ZPD.1</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:mapping>
+                              <mif:mapping sourceName="BC">
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>ZPD1.1</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:mapping>
+                              <mif:mapping sourceName="BC">
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>ZPD.6(scoping a specialized kind of therapeutic equivalent)</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:mapping>
+                              <mif:mapping sourceName="MB">
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>MB.05.03B</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:mapping>
+                              <mif:mapping sourceName="PECS">
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>ZPS.11</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:mapping>
+                              <mif:mapping sourceName="PECS">
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>ZDP.3a(code system)</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:mapping>
+                              <mif:mapping sourceName="PECS">
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>ZDU.4.1</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:mapping>
+                              <mif:mapping sourceName="PECS">
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>ZDP.7</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:mapping>
+                              <mif:mapping sourceName="eScript">
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>DRU.010-03(mnemonic)</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:mapping>
+                              <mif:mapping sourceName="eScript">
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>DRU.010-04(code system)</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:mapping>
+                              <mif:mapping sourceName="eScript">
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>DRU.010-08(mnemonic)</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:mapping>
+                              <mif:mapping sourceName="eScript">
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>DRU.010-09(code system)</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:mapping>
+                              <mif:mapping sourceName="eScript">
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>DRU.100-04 (mnemonic)</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:mapping>
+                              <mif:mapping sourceName="eScript">
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>DRU.100-05 (code system)</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:mapping>
+                              <mif:mapping sourceName="NCPDP">
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>Compound.488-RE (code system)</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:mapping>
+                              <mif:mapping sourceName="NCPDP">
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>Compound.489-TE (mnemonic)</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:mapping>
+                              <mif:mapping sourceName="NCPDP">
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>DUR/PPS.475-J9 (code system)</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:mapping>
+                              <mif:mapping sourceName="NCPDP">
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>DUR/PPS.476-H6 (mnemonic)</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:mapping>
+                              <mif:mapping sourceName="NCPDP">
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>Claim.436-E1 (code system)</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:mapping>
+                              <mif:mapping sourceName="NCPDP">
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>Claim.407-D7 (mnemonic)</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:mapping>
+                              <mif:mapping sourceName="NCPDP">
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>Claim.453-EJ (code system)</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:mapping>
+                              <mif:mapping sourceName="NCPDP">
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>Claim.445-EA (mnemonic)</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:mapping>
+                              <mif:mapping sourceName="NCPDP">
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>Claim.406-D6 (determined from code system)</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:mapping>
+                              <mif:mapping sourceName="Immunization">
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>RXA.5</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:mapping>
+                              <mif:mapping sourceName="NeCST">
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>A_BillablePharmacyDispense</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:mapping>
+                           </mif:annotations>
+                           <mif:derivationSupplier staticModelDerivationId="1" className="ManufacturedMaterial"
+                                                   attributeName="code"/>
+                           <mif:type name="CE"/>
+                           <mif:supplierDomainSpecification codingStrength="CNE" domainName="ManufacturedDrug"/>
+                        </mif:attribute>
+                        <mif:attribute name="name" sortKey="4" minimumMultiplicity="1" maximumMultiplicity="1"
+                                       conformance="R"
+                                       isMandatory="true"
+                                       maximumLength="200"
+                                       isStructural="false">
+                           <mif:businessName name="B:Drug Name"/>
+                           <mif:annotations>
+                              <mif:definition>
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>The name assigned to a drug.</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:definition>
+                              <mif:usageNotes>
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>First occurrence is preferred for display.</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:usageNotes>
+                              <mif:rationale>
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>Names are used for human reference communication, to allow selection from dropdowns and for local searching. If a code is available, the name acts as a cross-check. If the code is not available the name acts as the primary identifier. The attribute is therefore mandatory.</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:rationale>
+                              <mif:mapping sourceName="PIN">
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>DrugProduct.Name (Search)</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:mapping>
+                              <mif:mapping sourceName="PIN">
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>CoumpoundDrugProduct.name</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:mapping>
+                              <mif:mapping sourceName="PIN">
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>Contraindication.interactingDrugName</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:mapping>
+                              <mif:mapping sourceName="PIN">
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>DrugProduct.labelName(useCode=L)</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:mapping>
+                              <mif:mapping sourceName="BC">
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>ZPB2.2</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:mapping>
+                              <mif:mapping sourceName="BC">
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>ZPB3.2</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:mapping>
+                              <mif:mapping sourceName="BC">
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>ZPC.2</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:mapping>
+                              <mif:mapping sourceName="BC">
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>ZPD.2</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:mapping>
+                              <mif:mapping sourceName="BC">
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>ZPD1.2</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:mapping>
+                              <mif:mapping sourceName="BC">
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>ZPD.5</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:mapping>
+                              <mif:mapping sourceName="MB">
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>MB.01.03</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:mapping>
+                              <mif:mapping sourceName="PEI">
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>Drug Name</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:mapping>
+                              <mif:mapping sourceName="PECS">
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>ZDU.4.2</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:mapping>
+                              <mif:mapping sourceName="PECS">
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>ZDU.6.1.1</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:mapping>
+                              <mif:mapping sourceName="eScript">
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>DRU.010-02</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:mapping>
+                              <mif:mapping sourceName="Immunization">
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>RXA.TradeName</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:mapping>
+                              <mif:mapping sourceName="eScript">
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>DRU.010-10-&gt;12</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:mapping>
+                              <mif:mapping sourceName="Ontario">
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>Brand Name</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:mapping>
+                              <mif:mapping sourceName="HC-AE">
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>C.1a</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:mapping>
+                              <mif:mapping sourceName="HC-SA">
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>Trade Name</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:mapping>
+                              <mif:mapping sourceName="HC-SA">
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>Other Name</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:mapping>
+                           </mif:annotations>
+                           <mif:derivationSupplier staticModelDerivationId="1" className="ManufacturedMaterial"
+                                                   attributeName="name"/>
+                           <mif:type name="ST"/>
+                        </mif:attribute>
+                        <mif:attribute name="desc" sortKey="5" minimumMultiplicity="0" maximumMultiplicity="1"
+                                       conformance="R"
+                                       isMandatory="false"
+                                       maximumLength="2000"
+                                       isStructural="false">
+                           <mif:businessName name="C:Drug Description"/>
+                           <mif:annotations>
+                              <mif:definition>
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>A free form textual description of a drug. This usually is only populated for custom compounds, providing instructions on the composition and creation of the compound.</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:definition>
+                              <mif:rationale>
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>Allows description of compound ingredients and/or recipe in free text form.</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:rationale>
+                              <mif:mapping sourceName="PIN">
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>DrugProduct.description</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:mapping>
+                              <mif:mapping sourceName="PIN">
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>CompoundedDrugProduct.adhocSpecification</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:mapping>
+                              <mif:mapping sourceName="eScript">
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>DRU.010-06</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:mapping>
+                              <mif:mapping sourceName="PEI">
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>DIN Description</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:mapping>
+                           </mif:annotations>
+                           <mif:derivationSupplier staticModelDerivationId="1" className="ManufacturedMaterial"
+                                                   attributeName="desc"/>
+                           <mif:type name="ST"/>
+                        </mif:attribute>
+                        <mif:attribute name="formCode" sortKey="6" minimumMultiplicity="0" maximumMultiplicity="1"
+                                       conformance="R"
+                                       isMandatory="false"
+                                       isStructural="false">
+                           <mif:businessName name="D:Drug Form"/>
+                           <mif:annotations>
+                              <mif:definition>
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>Indicates the form in which the drug product must be, or has been manufactured or custom prepared.</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:definition>
+                              <mif:usageNotes>
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>Must be populated if the Drug Id does not specify the Drug Form.</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:usageNotes>
+                              <mif:rationale>
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>Provides a constrained vocabulary for describing dose forms. The form of the drug influences how it can be used by the patient.</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:rationale>
+                              <mif:mapping sourceName="PIN">
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>Prescription.dosageForm</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:mapping>
+                              <mif:mapping sourceName="PIN">
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>DrugProduct.dosageForm</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:mapping>
+                              <mif:mapping sourceName="PIN">
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>CompoundedDrugProduct.dosageForm</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:mapping>
+                              <mif:mapping sourceName="PIN">
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>DispensedItem.dosageForm</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:mapping>
+                              <mif:mapping sourceName="CPhAv3">
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>D63</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:mapping>
+                              <mif:mapping sourceName="BC">
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>ZPC.3</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:mapping>
+                              <mif:mapping sourceName="BC">
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>ZPD.3</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:mapping>
+                              <mif:mapping sourceName="PEI">
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>Drug form</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:mapping>
+                              <mif:mapping sourceName="PECS">
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>ZDP.14.1</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:mapping>
+                              <mif:mapping sourceName="PECS">
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>ZDP.3b</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:mapping>
+                              <mif:mapping sourceName="eScript">
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>DRU.010-05</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:mapping>
+                              <mif:mapping sourceName="NCPDP">
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>Compound.450-EF</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:mapping>
+                              <mif:mapping sourceName="NeCST">
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>A_BillablePharmacyDispense</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:mapping>
+                              <mif:mapping sourceName="Ontario">
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>Dosage Form</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:mapping>
+                              <mif:mapping sourceName="HC-SA">
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>Dosage Form</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:mapping>
+                           </mif:annotations>
+                           <mif:derivationSupplier staticModelDerivationId="1" className="ManufacturedMaterial"
+                                                   attributeName="formCode"/>
+                           <mif:type name="CV"/>
+                           <mif:supplierDomainSpecification codingStrength="CNE" domainName="OrderableDrugForm"/>
+                        </mif:attribute>
+                        <mif:attribute name="lotNumberText" sortKey="7" minimumMultiplicity="0"
+                                       maximumMultiplicity="1"
+                                       conformance="R"
+                                       isMandatory="false"
+                                       maximumLength="20"
+                                       isStructural="false">
+                           <mif:businessName name="E:Drug Lot Number"/>
+                           <mif:annotations>
+                              <mif:definition>
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>Identification of a batch in which a specific manufactured drug belongs.</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:definition>
+                              <mif:rationale>
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>Useful in tracking for recalls but may not always exist.</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:rationale>
+                              <mif:mapping sourceName="PEI">
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>X0301</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:mapping>
+                              <mif:mapping sourceName="Immunization">
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>RXA.15</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:mapping>
+                              <mif:mapping sourceName="HC-AE">
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>C.6</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:mapping>
+                           </mif:annotations>
+                           <mif:derivationSupplier staticModelDerivationId="1" className="ManufacturedMaterial"
+                                                   attributeName="lotNumberText"/>
+                           <mif:type name="ST"/>
+                        </mif:attribute>
+                        <mif:attribute name="expirationTime" sortKey="8" minimumMultiplicity="0"
+                                       maximumMultiplicity="1"
+                                       conformance="R"
+                                       isMandatory="false"
+                                       isStructural="false">
+                           <mif:businessName name="F:Drug Expiry Date"/>
+                           <mif:annotations>
+                              <mif:definition>
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>Indicates either the length of time a drug product can remain viable (when talking about a drug in general terms), or the date on which the drug product is no longer considered viable (when talking about a specific medication that has been dispensed).</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:definition>
+                              <mif:usageNotes>
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>To indicate the length of time after opening a product remains viable, specify the 'Width' property. To indicate a specific end date for an actual dispensed product, specify the 'High' property</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:usageNotes>
+                              <mif:rationale>
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>The potency, effectiveness and safety of drug products changes over time. When determining quantities to be supplied to a patient, one of the considerations is how long the drug will remain viable.</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:rationale>
+                              <mif:mapping sourceName="PIN">
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>DispensedItem.expiryDate</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:mapping>
+                              <mif:mapping sourceName="PEI">
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>Drug Expiry Date</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:mapping>
+                              <mif:mapping sourceName="HC-AE">
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>C7</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:mapping>
+                           </mif:annotations>
+                           <mif:derivationSupplier staticModelDerivationId="1" className="ManufacturedMaterial"
+                                                   attributeName="expirationTime"/>
+                           <mif:type name="IVL.HIGH">
+                              <mif:supplierBindingArgumentDatatype name="TS.FULLDATE"/>
+                           </mif:type>
+                        </mif:attribute>
+                        <mif:association sortKey="0">
+                           <mif:graphicRepresentation>
+                              <mif:graphElement connectToShapeId="Sheet.1" containerDiagramName="Main">
+                                 <mif:position x="3.903" y="3.061"/>
+                                 <mif:graphEdge>
+                                    <mif:anchor connectToShapeId="Sheet.142">
+                                       <mif:position x="1.946" y="2.831"/>
+                                    </mif:anchor>
+                                 </mif:graphEdge>
+                              </mif:graphElement>
+                           </mif:graphicRepresentation>
+                           <mif:targetConnection name="asManufacturedProduct" minimumMultiplicity="0" maximumMultiplicity="1"
+                                                 conformance="R"
+                                                 isMandatory="false"
+                                                 sortKey="AAABD#####">
+                              <mif:annotations>
+                                 <mif:definition>
+                                    <mif:text/>
+                                 </mif:definition>
+                              </mif:annotations>
+                              <mif:derivationSupplier staticModelDerivationId="1" className="Entity" associationEndName="playedRole"/>
+                              <mif:participantClass>
+                                 <mif:class name="ManufacturedProduct" isAbstract="false">
+                                    <mif:businessName name="manufactured by"/>
+                                    <mif:derivationSupplier staticModelDerivationId="1" className="Role"/>
+                                    <mif:graphicRepresentation presentation="HL7">
+                                       <mif:graphElement shapeId="Sheet.142" containerDiagramName="Main" shapeTemplate="Role"
+                                                         isWidthAutoSize="true"
+                                                         isHeightAutoSize="true">
+                                          <mif:position x="0.579" y="2.381"/>
+                                          <mif:size width="1.519" height="0.500"/>
+                                       </mif:graphElement>
+                                    </mif:graphicRepresentation>
+                                    <mif:annotations>
+                                       <mif:definition>
+                                          <mif:text>
+                                             <mif:p>
+                                                <mif:p>Associates a drug product with the organization responsible for producing it.</mif:p>
+                                             </mif:p>
+                                          </mif:text>
+                                       </mif:definition>
+                                       <mif:rationale>
+                                          <mif:text>
+                                             <mif:p>
+                                                <mif:p>May be important for tracing adverse events and for performing drug searches.</mif:p>
+                                             </mif:p>
+                                          </mif:text>
+                                       </mif:rationale>
+                                    </mif:annotations>
+                                    <mif:attribute name="classCode" sortKey="1" minimumMultiplicity="1" maximumMultiplicity="1"
+                                                   conformance="R"
+                                                   isMandatory="true"
+                                                   fixedValue="MANU"
+                                                   isStructural="true">
+                                       <mif:annotations>
+                                          <mif:definition>
+                                             <mif:text/>
+                                          </mif:definition>
+                                       </mif:annotations>
+                                       <mif:derivationSupplier staticModelDerivationId="1" className="Role" attributeName="classCode"/>
+                                       <mif:type name="CS"/>
+                                       <mif:supplierDomainSpecification codingStrength="CNE" codeSystemName="RoleClass" mnemonic="MANU"/>
+                                    </mif:attribute>
+                                    <mif:association sortKey="5">
+                                       <mif:graphicRepresentation>
+                                          <mif:graphElement connectToShapeId="Sheet.142" containerDiagramName="Main">
+                                             <mif:position x="1.946" y="2.431"/>
+                                             <mif:graphEdge>
+                                                <mif:anchor connectToShapeId="Sheet.152">
+                                                   <mif:position x="0.638" y="3.799"/>
+                                                </mif:anchor>
+                                             </mif:graphEdge>
+                                          </mif:graphElement>
+                                       </mif:graphicRepresentation>
+                                       <mif:targetConnection name="manufacturer" minimumMultiplicity="1" maximumMultiplicity="1"
+                                                             conformance="R"
+                                                             isMandatory="true"
+                                                             sortKey="BZ">
+                                          <mif:annotations>
+                                             <mif:definition>
+                                                <mif:text/>
+                                             </mif:definition>
+                                          </mif:annotations>
+                                          <mif:derivationSupplier staticModelDerivationId="1" className="Role" associationEndName="scoper"/>
+                                          <mif:participantClass>
+                                             <mif:class name="Manufacturer" isAbstract="false">
+                                                <mif:businessName name="Manufacturer"/>
+                                                <mif:derivationSupplier staticModelDerivationId="1" className="Organization"/>
+                                                <mif:graphicRepresentation presentation="HL7">
+                                                   <mif:graphElement shapeId="Sheet.152" containerDiagramName="Main" shapeTemplate="Entity"
+                                                                     isWidthAutoSize="true"
+                                                                     isHeightAutoSize="true">
+                                                      <mif:position x="-0.027" y="3.799"/>
+                                                      <mif:size width="2.662" height="0.781"/>
+                                                   </mif:graphElement>
+                                                </mif:graphicRepresentation>
+                                                <mif:annotations>
+                                                   <mif:definition>
+                                                      <mif:text>
+                                                         <mif:p>
+                                                            <mif:p>Identity of the organization that manufactured the drug product.</mif:p>
+                                                         </mif:p>
+                                                      </mif:text>
+                                                   </mif:definition>
+                                                   <mif:rationale>
+                                                      <mif:text>
+                                                         <mif:p>
+                                                            <mif:p>Useful in distinguishing and grouping drug products</mif:p>
+                                                         </mif:p>
+                                                      </mif:text>
+                                                   </mif:rationale>
+                                                </mif:annotations>
+                                                <mif:attribute name="classCode" sortKey="1" minimumMultiplicity="1" maximumMultiplicity="1"
+                                                               conformance="R"
+                                                               isMandatory="true"
+                                                               fixedValue="ORG"
+                                                               isStructural="true">
+                                                   <mif:annotations>
+                                                      <mif:definition>
+                                                         <mif:text/>
+                                                      </mif:definition>
+                                                   </mif:annotations>
+                                                   <mif:derivationSupplier staticModelDerivationId="1" className="Organization" attributeName="classCode"/>
+                                                   <mif:type name="CS"/>
+                                                   <mif:supplierDomainSpecification codingStrength="CNE" codeSystemName="EntityClass" mnemonic="ORG"/>
+                                                </mif:attribute>
+                                                <mif:attribute name="determinerCode" sortKey="2" minimumMultiplicity="1"
+                                                               maximumMultiplicity="1"
+                                                               conformance="R"
+                                                               isMandatory="true"
+                                                               fixedValue="INSTANCE"
+                                                               isStructural="true">
+                                                   <mif:annotations>
+                                                      <mif:definition>
+                                                         <mif:text/>
+                                                      </mif:definition>
+                                                   </mif:annotations>
+                                                   <mif:derivationSupplier staticModelDerivationId="1" className="Organization"
+                                                                           attributeName="determinerCode"/>
+                                                   <mif:type name="CS"/>
+                                                   <mif:supplierDomainSpecification codingStrength="CNE" codeSystemName="EntityDeterminer" mnemonic="INSTANCE"/>
+                                                </mif:attribute>
+                                                <mif:attribute name="id" sortKey="3" minimumMultiplicity="0" maximumMultiplicity="1"
+                                                               conformance="R"
+                                                               isMandatory="false"
+                                                               isStructural="false">
+                                                   <mif:businessName name="Manufacturer Id"/>
+                                                   <mif:annotations>
+                                                      <mif:definition>
+                                                         <mif:text>
+                                                            <mif:p>
+                                                               <mif:p>An identifier denoting a specific drug manufacturer.</mif:p>
+                                                            </mif:p>
+                                                         </mif:text>
+                                                      </mif:definition>
+                                                      <mif:rationale>
+                                                         <mif:text>
+                                                            <mif:p>
+                                                               <mif:p>Allows sending of identifiers in place of manufacturer name. May be used in drug search where specific manufacturer is a criterion.</mif:p>
+                                                            </mif:p>
+                                                         </mif:text>
+                                                      </mif:rationale>
+                                                   </mif:annotations>
+                                                   <mif:derivationSupplier staticModelDerivationId="1" className="Organization" attributeName="id"/>
+                                                   <mif:type name="II"/>
+                                                </mif:attribute>
+                                                <mif:attribute name="name" sortKey="4" minimumMultiplicity="1" maximumMultiplicity="1"
+                                                               conformance="R"
+                                                               isMandatory="true"
+                                                               maximumLength="200"
+                                                               isStructural="false">
+                                                   <mif:businessName name="Manufacturer Name"/>
+                                                   <mif:annotations>
+                                                      <mif:definition>
+                                                         <mif:text>
+                                                            <mif:p>
+                                                               <mif:p>The name of the drug manufacturer.</mif:p>
+                                                            </mif:p>
+                                                         </mif:text>
+                                                      </mif:definition>
+                                                      <mif:rationale>
+                                                         <mif:text>
+                                                            <mif:p>
+                                                               <mif:p>Used in reporting.</mif:p>
+                                                            </mif:p>
+                                                            <mif:p>
+                                                               <mif:p>The attribute is marked as "mandatory" because there will always be a name for an organization.</mif:p>
+                                                            </mif:p>
+                                                         </mif:text>
+                                                      </mif:rationale>
+                                                   </mif:annotations>
+                                                   <mif:derivationSupplier staticModelDerivationId="1" className="Organization" attributeName="name"/>
+                                                   <mif:type name="ST"/>
+                                                </mif:attribute>
+                                             </mif:class>
+                                          </mif:participantClass>
+                                       </mif:targetConnection>
+                                       <mif:sourceConnection>
+                                          <mif:nonTraversableConnection participantClassName="ManufacturedProduct">
+                                             <mif:derivationSupplier staticModelDerivationId="1" className="Entity" associationEndName="scopedRole"/>
+                                          </mif:nonTraversableConnection>
+                                       </mif:sourceConnection>
+                                    </mif:association>
+                                 </mif:class>
+                              </mif:participantClass>
+                           </mif:targetConnection>
+                           <mif:sourceConnection>
+                              <mif:nonTraversableConnection participantClassName="Medicine">
+                                 <mif:derivationSupplier staticModelDerivationId="1" className="Role" associationEndName="player"/>
+                              </mif:nonTraversableConnection>
+                           </mif:sourceConnection>
+                        </mif:association>
+                        <mif:association sortKey="3">
+                           <mif:graphicRepresentation>
+                              <mif:graphElement connectToShapeId="Sheet.1" containerDiagramName="Main">
+                                 <mif:position x="7.145" y="2.337"/>
+                                 <mif:graphEdge>
+                                    <mif:anchor connectToShapeId="Sheet.124">
+                                       <mif:position x="9.246" y="2.162"/>
+                                    </mif:anchor>
+                                 </mif:graphEdge>
+                              </mif:graphElement>
+                           </mif:graphicRepresentation>
+                           <mif:targetConnection name="asContent" minimumMultiplicity="0" maximumMultiplicity="1"
+                                                 conformance="R"
+                                                 isMandatory="false"
+                                                 sortKey="AABB######">
+                              <mif:annotations>
+                                 <mif:definition>
+                                    <mif:text/>
+                                 </mif:definition>
+                              </mif:annotations>
+                              <mif:derivationSupplier staticModelDerivationId="1" className="Entity" associationEndName="playedRole"/>
+                              <mif:participantClass>
+                                 <mif:class name="Content" isAbstract="false">
+                                    <mif:businessName name="drug dispensed in"/>
+                                    <mif:derivationSupplier staticModelDerivationId="1" className="Role"/>
+                                    <mif:graphicRepresentation presentation="HL7">
+                                       <mif:graphElement shapeId="Sheet.124" containerDiagramName="Main" shapeTemplate="Role"
+                                                         isWidthAutoSize="true"
+                                                         isHeightAutoSize="true">
+                                          <mif:position x="8.976" y="1.699"/>
+                                          <mif:size width="2.705" height="0.514"/>
+                                       </mif:graphElement>
+                                    </mif:graphicRepresentation>
+                                    <mif:annotations>
+                                       <mif:definition>
+                                          <mif:text>
+                                             <mif:p>
+                                                <mif:p>Information about how the dispensed drug is or should be contained</mif:p>
+                                             </mif:p>
+                                          </mif:text>
+                                       </mif:definition>
+                                       <mif:rationale>
+                                          <mif:text>
+                                             <mif:p>
+                                                <mif:p>May influence prescribing quantities, and also allows conveying instructions with respect to special packaging such as compliance packaging.</mif:p>
+                                             </mif:p>
+                                          </mif:text>
+                                       </mif:rationale>
+                                       <mif:mapping sourceName="NeCST">
+                                          <mif:text>
+                                             <mif:p>
+                                                <mif:p>A_BillablePharmacyDispense</mif:p>
+                                             </mif:p>
+                                          </mif:text>
+                                       </mif:mapping>
+                                       <mif:constraint>
+                                          <mif:text>
+                                             <mif:p>
+                                                <mif:p>Must specify at least one of Drug Package quantity and Drug Container Type.</mif:p>
+                                             </mif:p>
+                                          </mif:text>
+                                          <mif:graphicRepresentation>
+                                             <mif:graphElement shapeId="Sheet.138" containerDiagramName="Main" isWidthAutoSize="true"
+                                                               isHeightAutoSize="true">
+                                                <mif:position x="9.498" y="0.839"/>
+                                                <mif:size width="1.689" height="0.561"/>
+                                                <mif:anchorage connectToShapeId="Sheet.138">
+                                                   <mif:position x="10.342" y="1.119"/>
+                                                   <mif:graphEdge>
+                                                      <mif:anchor connectToShapeId="Sheet.124">
+                                                         <mif:position x="10.328" y="1.699"/>
+                                                      </mif:anchor>
+                                                   </mif:graphEdge>
+                                                </mif:anchorage>
+                                             </mif:graphElement>
+                                          </mif:graphicRepresentation>
+                                       </mif:constraint>
+                                    </mif:annotations>
+                                    <mif:attribute name="classCode" sortKey="1" minimumMultiplicity="1" maximumMultiplicity="1"
+                                                   conformance="R"
+                                                   isMandatory="true"
+                                                   fixedValue="CONT"
+                                                   isStructural="true">
+                                       <mif:annotations>
+                                          <mif:definition>
+                                             <mif:text/>
+                                          </mif:definition>
+                                       </mif:annotations>
+                                       <mif:derivationSupplier staticModelDerivationId="1" className="Role" attributeName="classCode"/>
+                                       <mif:type name="CS"/>
+                                       <mif:supplierDomainSpecification codingStrength="CNE" codeSystemName="RoleClass" mnemonic="CONT"/>
+                                    </mif:attribute>
+                                    <mif:attribute name="quantity" sortKey="2" minimumMultiplicity="0" maximumMultiplicity="1"
+                                                   conformance="R"
+                                                   isMandatory="false"
+                                                   isStructural="false">
+                                       <mif:businessName name="B:Drug Package Quantity"/>
+                                       <mif:annotations>
+                                          <mif:definition>
+                                             <mif:text>
+                                                <mif:p>
+                                                   <mif:p>The quantity of the medication dosage form contained in the package given or to be given to the patient.</mif:p>
+                                                </mif:p>
+                                             </mif:text>
+                                          </mif:definition>
+                                          <mif:rationale>
+                                             <mif:text>
+                                                <mif:p>
+                                                   <mif:p>Sometimes ordering and dispensing is by package rather than individual units, and package is important in calculating total amount supplied.</mif:p>
+                                                </mif:p>
+                                             </mif:text>
+                                          </mif:rationale>
+                                          <mif:mapping sourceName="PECS">
+                                             <mif:text>
+                                                <mif:p>
+                                                   <mif:p>ZDP.10.2.2</mif:p>
+                                                </mif:p>
+                                             </mif:text>
+                                          </mif:mapping>
+                                          <mif:mapping sourceName="PECS">
+                                             <mif:text>
+                                                <mif:p>
+                                                   <mif:p>ZDP.9.2.2</mif:p>
+                                                </mif:p>
+                                             </mif:text>
+                                          </mif:mapping>
+                                       </mif:annotations>
+                                       <mif:derivationSupplier staticModelDerivationId="1" className="Role" attributeName="quantity"/>
+                                       <mif:type name="PQ.DRUG"/>
+                                    </mif:attribute>
+                                    <mif:association sortKey="12">
+                                       <mif:graphicRepresentation>
+                                          <mif:graphElement connectToShapeId="Sheet.124" containerDiagramName="Main">
+                                             <mif:position x="9.246" y="1.750"/>
+                                             <mif:graphEdge>
+                                                <mif:anchor connectToShapeId="Sheet.120">
+                                                   <mif:position x="6.875" y="1.332"/>
+                                                </mif:anchor>
+                                             </mif:graphEdge>
+                                          </mif:graphElement>
+                                       </mif:graphicRepresentation>
+                                       <mif:targetConnection name="containerPackagedMedicine" minimumMultiplicity="0"
+                                                             maximumMultiplicity="1"
+                                                             conformance="R"
+                                                             isMandatory="false"
+                                                             sortKey="BZ">
+                                          <mif:annotations>
+                                             <mif:definition>
+                                                <mif:text/>
+                                             </mif:definition>
+                                          </mif:annotations>
+                                          <mif:derivationSupplier staticModelDerivationId="1" className="Role" associationEndName="scoper"/>
+                                          <mif:participantClass>
+                                             <mif:class name="PackagedMedicine" isAbstract="false">
+                                                <mif:businessName name="Drug Package"/>
+                                                <mif:derivationSupplier staticModelDerivationId="1" className="Container"/>
+                                                <mif:graphicRepresentation presentation="HL7">
+                                                   <mif:graphElement shapeId="Sheet.120" containerDiagramName="Main" shapeTemplate="Entity"
+                                                                     isWidthAutoSize="true"
+                                                                     isHeightAutoSize="true">
+                                                      <mif:position x="3.729" y="0.942"/>
+                                                      <mif:size width="3.146" height="0.781"/>
+                                                   </mif:graphElement>
+                                                </mif:graphicRepresentation>
+                                                <mif:annotations>
+                                                   <mif:definition>
+                                                      <mif:text>
+                                                         <mif:p>
+                                                            <mif:p>Describes the container in which a drug product can be or should be provided to the patient.</mif:p>
+                                                         </mif:p>
+                                                      </mif:text>
+                                                   </mif:definition>
+                                                   <mif:rationale>
+                                                      <mif:text>
+                                                         <mif:p>
+                                                            <mif:p>Aids patients in adhering to administration instructions (e.g. snap caps). May also influence the quantity prescribed.</mif:p>
+                                                         </mif:p>
+                                                      </mif:text>
+                                                   </mif:rationale>
+                                                   <mif:mapping sourceName="NeCST">
+                                                      <mif:text>
+                                                         <mif:p>
+                                                            <mif:p>A_BillablePharmacyDispense</mif:p>
+                                                         </mif:p>
+                                                      </mif:text>
+                                                   </mif:mapping>
+                                                </mif:annotations>
+                                                <mif:attribute name="classCode" sortKey="1" minimumMultiplicity="1" maximumMultiplicity="1"
+                                                               conformance="R"
+                                                               isMandatory="true"
+                                                               fixedValue="CONT"
+                                                               isStructural="true">
+                                                   <mif:annotations>
+                                                      <mif:definition>
+                                                         <mif:text/>
+                                                      </mif:definition>
+                                                   </mif:annotations>
+                                                   <mif:derivationSupplier staticModelDerivationId="1" className="Container" attributeName="classCode"/>
+                                                   <mif:type name="CS"/>
+                                                   <mif:supplierDomainSpecification codingStrength="CNE" codeSystemName="EntityClass" mnemonic="CONT"/>
+                                                </mif:attribute>
+                                                <mif:attribute name="determinerCode" sortKey="2" minimumMultiplicity="1"
+                                                               maximumMultiplicity="1"
+                                                               conformance="R"
+                                                               isMandatory="true"
+                                                               fixedValue="KIND"
+                                                               isStructural="true">
+                                                   <mif:annotations>
+                                                      <mif:definition>
+                                                         <mif:text/>
+                                                      </mif:definition>
+                                                   </mif:annotations>
+                                                   <mif:derivationSupplier staticModelDerivationId="1" className="Container"
+                                                                           attributeName="determinerCode"/>
+                                                   <mif:type name="CS"/>
+                                                   <mif:supplierDomainSpecification codingStrength="CNE" codeSystemName="EntityDeterminer" mnemonic="KIND"/>
+                                                </mif:attribute>
+                                                <mif:attribute name="formCode" sortKey="3" minimumMultiplicity="1" maximumMultiplicity="1"
+                                                               conformance="R"
+                                                               isMandatory="true"
+                                                               isStructural="false">
+                                                   <mif:businessName name="A:Drug Container Type"/>
+                                                   <mif:annotations>
+                                                      <mif:definition>
+                                                         <mif:text>
+                                                            <mif:p>
+                                                               <mif:p>A coded value denoting a specific kind of a container. Used to identify a requirement for a particular type of compliance packaging</mif:p>
+                                                            </mif:p>
+                                                         </mif:text>
+                                                      </mif:definition>
+                                                      <mif:rationale>
+                                                         <mif:text>
+                                                            <mif:p>
+                                                               <mif:p>Many insurance plans require that a prescriber specifically authorize the use of compliance packaging before it will be covered by the plan.</mif:p>
+                                                            </mif:p>
+                                                         </mif:text>
+                                                      </mif:rationale>
+                                                   </mif:annotations>
+                                                   <mif:derivationSupplier staticModelDerivationId="1" className="Container" attributeName="formCode"/>
+                                                   <mif:type name="CV"/>
+                                                   <mif:supplierDomainSpecification codingStrength="CNE" domainName="CompliancePackageEntityType"/>
+                                                </mif:attribute>
+                                             </mif:class>
+                                          </mif:participantClass>
+                                       </mif:targetConnection>
+                                       <mif:sourceConnection>
+                                          <mif:nonTraversableConnection participantClassName="Content">
+                                             <mif:derivationSupplier staticModelDerivationId="1" className="Entity" associationEndName="scopedRole"/>
+                                          </mif:nonTraversableConnection>
+                                       </mif:sourceConnection>
+                                    </mif:association>
+                                 </mif:class>
+                              </mif:participantClass>
+                           </mif:targetConnection>
+                           <mif:sourceConnection>
+                              <mif:nonTraversableConnection participantClassName="Medicine">
+                                 <mif:derivationSupplier staticModelDerivationId="1" className="Role" associationEndName="player"/>
+                              </mif:nonTraversableConnection>
+                           </mif:sourceConnection>
+                        </mif:association>
+                        <mif:association sortKey="2">
+                           <mif:graphicRepresentation>
+                              <mif:graphElement connectToShapeId="Sheet.1" containerDiagramName="Main">
+                                 <mif:position x="7.145" y="3.061"/>
+                                 <mif:graphEdge>
+                                    <mif:anchor connectToShapeId="Sheet.110">
+                                       <mif:position x="9.180" y="3.306"/>
+                                    </mif:anchor>
+                                 </mif:graphEdge>
+                              </mif:graphElement>
+                           </mif:graphicRepresentation>
+                           <mif:targetConnection name="ingredient" minimumMultiplicity="0" maximumMultiplicity="10"
+                                                 conformance="R"
+                                                 isMandatory="false"
+                                                 sortKey="BABD######">
+                              <mif:annotations>
+                                 <mif:definition>
+                                    <mif:text/>
+                                 </mif:definition>
+                              </mif:annotations>
+                              <mif:derivationSupplier staticModelDerivationId="1" className="Entity" associationEndName="scopedRole"/>
+                              <mif:participantClass>
+                                 <mif:class name="Ingredient" isAbstract="false">
+                                    <mif:businessName name="drug contains"/>
+                                    <mif:derivationSupplier staticModelDerivationId="1" className="Role"/>
+                                    <mif:graphicRepresentation presentation="HL7">
+                                       <mif:graphElement shapeId="Sheet.110" containerDiagramName="Main" shapeTemplate="Role"
+                                                         isWidthAutoSize="true"
+                                                         isHeightAutoSize="true">
+                                          <mif:position x="8.882" y="3.242"/>
+                                          <mif:size width="2.977" height="0.648"/>
+                                       </mif:graphElement>
+                                    </mif:graphicRepresentation>
+                                    <mif:annotations>
+                                       <mif:definition>
+                                          <mif:text>
+                                             <mif:p>
+                                                <mif:p>Identification of which ingredients are contained (or are not contained) in a drug, along with their respective quantities.</mif:p>
+                                             </mif:p>
+                                          </mif:text>
+                                       </mif:definition>
+                                       <mif:rationale>
+                                          <mif:text>
+                                             <mif:p>
+                                                <mif:p>Useful to providers in deciding appropriate use instruction (dosage specification) for patients. Also important in checking for potential adverse reactions to non-active ingredients. For compounds, allows contraindication checking against ingredients of custom compounds.</mif:p>
+                                             </mif:p>
+                                          </mif:text>
+                                       </mif:rationale>
+                                    </mif:annotations>
+                                    <mif:attribute name="classCode" sortKey="1" minimumMultiplicity="1" maximumMultiplicity="1"
+                                                   conformance="R"
+                                                   isMandatory="true"
+                                                   fixedValue="INGR"
+                                                   isStructural="true">
+                                       <mif:annotations>
+                                          <mif:definition>
+                                             <mif:text/>
+                                          </mif:definition>
+                                       </mif:annotations>
+                                       <mif:derivationSupplier staticModelDerivationId="1" className="Role" attributeName="classCode"/>
+                                       <mif:type name="CS"/>
+                                       <mif:supplierDomainSpecification codingStrength="CNE" codeSystemName="RoleClass" mnemonic="INGR"/>
+                                    </mif:attribute>
+                                    <mif:attribute name="negationInd" sortKey="2" minimumMultiplicity="1" maximumMultiplicity="1"
+                                                   conformance="R"
+                                                   isMandatory="false"
+                                                   isStructural="true">
+                                       <mif:businessName name="D:Drug Does Not Contain Indicator"/>
+                                       <mif:annotations>
+                                          <mif:definition>
+                                             <mif:text>
+                                                <mif:p>
+                                                   <mif:p>An indication that a drug does not contain the specified ingredient (active or inactive).</mif:p>
+                                                </mif:p>
+                                             </mif:text>
+                                          </mif:definition>
+                                          <mif:rationale>
+                                             <mif:text>
+                                                <mif:p>
+                                                   <mif:p>Useful for filtering searches. Allows providers to search for drugs not containing a specific active ingredients or excipients. E.g. lactose-free, gluten-free, etc.</mif:p>
+                                                </mif:p>
+                                                <mif:p>
+                                                   <mif:p>The attribute is 'populated' because the distinction between "does/must contain" and "does/must not contain" is essential, however in some circumstances it is necessary to say "may contain".</mif:p>
+                                                </mif:p>
+                                             </mif:text>
+                                          </mif:rationale>
+                                       </mif:annotations>
+                                       <mif:derivationSupplier staticModelDerivationId="1" className="Role" attributeName="negationInd"/>
+                                       <mif:type name="BL"/>
+                                    </mif:attribute>
+                                    <mif:attribute name="quantity" sortKey="3" minimumMultiplicity="0" maximumMultiplicity="1"
+                                                   conformance="R"
+                                                   isMandatory="false"
+                                                   isStructural="false">
+                                       <mif:businessName name="C:Drug Ingredient Quantity"/>
+                                       <mif:annotations>
+                                          <mif:definition>
+                                             <mif:text>
+                                                <mif:p>
+                                                   <mif:p>The quantity of the ingredient in a drug. This is represented/measured in various forms/units including: mg, mg/vol, %, etc.</mif:p>
+                                                </mif:p>
+                                             </mif:text>
+                                          </mif:definition>
+                                          <mif:rationale>
+                                             <mif:text>
+                                                <mif:p>
+                                                   <mif:p>Essential for evaluating appropriate dosage based on strength, as well as for creating custom compounds with proper composition.</mif:p>
+                                                </mif:p>
+                                             </mif:text>
+                                          </mif:rationale>
+                                          <mif:mapping sourceName="PIN">
+                                             <mif:text>
+                                                <mif:p>
+                                                   <mif:p>CompoundIngredient.amount(numerator)</mif:p>
+                                                </mif:p>
+                                             </mif:text>
+                                          </mif:mapping>
+                                          <mif:mapping sourceName="PIN">
+                                             <mif:text>
+                                                <mif:p>
+                                                   <mif:p>CompoundIngredient.proportionOfFinal(e.g. 10% = .1mg/1mg)</mif:p>
+                                                </mif:p>
+                                             </mif:text>
+                                          </mif:mapping>
+                                          <mif:mapping sourceName="BC">
+                                             <mif:text>
+                                                <mif:p>
+                                                   <mif:p>ZPC.4(quantity)</mif:p>
+                                                </mif:p>
+                                             </mif:text>
+                                          </mif:mapping>
+                                          <mif:mapping sourceName="BC">
+                                             <mif:text>
+                                                <mif:p>
+                                                   <mif:p>ZPC.5(unit)</mif:p>
+                                                </mif:p>
+                                             </mif:text>
+                                          </mif:mapping>
+                                          <mif:mapping sourceName="BC">
+                                             <mif:text>
+                                                <mif:p>
+                                                   <mif:p>ZPJ1.4(quantity)</mif:p>
+                                                </mif:p>
+                                             </mif:text>
+                                          </mif:mapping>
+                                          <mif:mapping sourceName="BC">
+                                             <mif:text>
+                                                <mif:p>
+                                                   <mif:p>ZPJ1.5(unit)</mif:p>
+                                                </mif:p>
+                                             </mif:text>
+                                          </mif:mapping>
+                                          <mif:mapping sourceName="BC">
+                                             <mif:text>
+                                                <mif:p>
+                                                   <mif:p>ZPJ1.6(e.g. 10% = .1mg/1mg)</mif:p>
+                                                </mif:p>
+                                             </mif:text>
+                                          </mif:mapping>
+                                          <mif:mapping sourceName="PECS">
+                                             <mif:text>
+                                                <mif:p>
+                                                   <mif:p>ZCP.3</mif:p>
+                                                </mif:p>
+                                             </mif:text>
+                                          </mif:mapping>
+                                          <mif:mapping sourceName="PECS">
+                                             <mif:text>
+                                                <mif:p>
+                                                   <mif:p>ZDU.4.3</mif:p>
+                                                </mif:p>
+                                             </mif:text>
+                                          </mif:mapping>
+                                          <mif:mapping sourceName="PECS">
+                                             <mif:text>
+                                                <mif:p>
+                                                   <mif:p>ZDU.6.1.2</mif:p>
+                                                </mif:p>
+                                             </mif:text>
+                                          </mif:mapping>
+                                          <mif:mapping sourceName="NCPDP">
+                                             <mif:text>
+                                                <mif:p>
+                                                   <mif:p>Compound.448-ED (quantity)</mif:p>
+                                                </mif:p>
+                                             </mif:text>
+                                          </mif:mapping>
+                                          <mif:mapping sourceName="NCPDP">
+                                             <mif:text>
+                                                <mif:p>
+                                                   <mif:p>Compound.451-EG (unit)</mif:p>
+                                                </mif:p>
+                                             </mif:text>
+                                          </mif:mapping>
+                                       </mif:annotations>
+                                       <mif:derivationSupplier staticModelDerivationId="1" className="Role" attributeName="quantity"/>
+                                       <mif:type name="PQ.DRUG"/>
+                                    </mif:attribute>
+                                    <mif:association sortKey="8">
+                                       <mif:graphicRepresentation>
+                                          <mif:graphElement connectToShapeId="Sheet.110" containerDiagramName="Main">
+                                             <mif:position x="9.180" y="3.825"/>
+                                             <mif:graphEdge>
+                                                <mif:anchor connectToShapeId="Sheet.106">
+                                                   <mif:position x="6.709" y="4.013"/>
+                                                </mif:anchor>
+                                             </mif:graphEdge>
+                                          </mif:graphElement>
+                                       </mif:graphicRepresentation>
+                                       <mif:targetConnection name="ingredient" minimumMultiplicity="1" maximumMultiplicity="1"
+                                                             conformance="R"
+                                                             isMandatory="false"
+                                                             sortKey="AZ">
+                                          <mif:annotations>
+                                             <mif:definition>
+                                                <mif:text/>
+                                             </mif:definition>
+                                          </mif:annotations>
+                                          <mif:derivationSupplier staticModelDerivationId="1" className="Role" associationEndName="player"/>
+                                          <mif:participantClass>
+                                             <mif:class name="Substance" isAbstract="false">
+                                                <mif:businessName name="Drug Ingredients"/>
+                                                <mif:derivationSupplier staticModelDerivationId="1" className="ManufacturedMaterial"/>
+                                                <mif:graphicRepresentation presentation="HL7">
+                                                   <mif:graphElement shapeId="Sheet.106" containerDiagramName="Main" shapeTemplate="Entity"
+                                                                     isWidthAutoSize="true"
+                                                                     isHeightAutoSize="true">
+                                                      <mif:position x="3.828" y="3.556"/>
+                                                      <mif:size width="2.881" height="0.914"/>
+                                                   </mif:graphElement>
+                                                </mif:graphicRepresentation>
+                                                <mif:annotations>
+                                                   <mif:definition>
+                                                      <mif:text>
+                                                         <mif:p>
+                                                            <mif:p>A list of drugs, chemicals or excipients that may or may not be present in a manufactured drug or a custom compound.</mif:p>
+                                                         </mif:p>
+                                                      </mif:text>
+                                                   </mif:definition>
+                                                   <mif:rationale>
+                                                      <mif:text>
+                                                         <mif:p>
+                                                            <mif:p>Important for expressing strength of active ingredients within a drug product, for expressing compound recipes, and for identifying potential causes for adverse reactions.</mif:p>
+                                                         </mif:p>
+                                                      </mif:text>
+                                                   </mif:rationale>
+                                                   <mif:constraint>
+                                                      <mif:text>
+                                                         <mif:p>
+                                                            <mif:p>Must specify at least one of Drug Ingredient Identifier and Drug Ingredient Name</mif:p>
+                                                         </mif:p>
+                                                      </mif:text>
+                                                      <mif:graphicRepresentation>
+                                                         <mif:graphElement shapeId="Sheet.134" containerDiagramName="Main" isWidthAutoSize="true"
+                                                                           isHeightAutoSize="true">
+                                                            <mif:position x="4.604" y="5.019"/>
+                                                            <mif:size width="1.806" height="0.561"/>
+                                                            <mif:anchorage connectToShapeId="Sheet.134">
+                                                               <mif:position x="5.507" y="5.300"/>
+                                                               <mif:graphEdge>
+                                                                  <mif:anchor connectToShapeId="Sheet.106">
+                                                                     <mif:position x="5.269" y="4.471"/>
+                                                                  </mif:anchor>
+                                                               </mif:graphEdge>
+                                                            </mif:anchorage>
+                                                         </mif:graphElement>
+                                                      </mif:graphicRepresentation>
+                                                   </mif:constraint>
+                                                </mif:annotations>
+                                                <mif:attribute name="classCode" sortKey="1" minimumMultiplicity="1" maximumMultiplicity="1"
+                                                               conformance="R"
+                                                               isMandatory="true"
+                                                               fixedValue="MMAT"
+                                                               isStructural="true">
+                                                   <mif:annotations>
+                                                      <mif:definition>
+                                                         <mif:text/>
+                                                      </mif:definition>
+                                                   </mif:annotations>
+                                                   <mif:derivationSupplier staticModelDerivationId="1" className="ManufacturedMaterial"
+                                                                           attributeName="classCode"/>
+                                                   <mif:type name="CS"/>
+                                                   <mif:supplierDomainSpecification codingStrength="CNE" codeSystemName="EntityClass" mnemonic="MMAT"/>
+                                                </mif:attribute>
+                                                <mif:attribute name="determinerCode" sortKey="2" minimumMultiplicity="1"
+                                                               maximumMultiplicity="1"
+                                                               conformance="R"
+                                                               isMandatory="true"
+                                                               fixedValue="KIND"
+                                                               isStructural="true">
+                                                   <mif:annotations>
+                                                      <mif:definition>
+                                                         <mif:text/>
+                                                      </mif:definition>
+                                                   </mif:annotations>
+                                                   <mif:derivationSupplier staticModelDerivationId="1" className="ManufacturedMaterial"
+                                                                           attributeName="determinerCode"/>
+                                                   <mif:type name="CS"/>
+                                                   <mif:supplierDomainSpecification codingStrength="CNE" codeSystemName="EntityDeterminer" mnemonic="KIND"/>
+                                                </mif:attribute>
+                                                <mif:attribute name="code" sortKey="3" minimumMultiplicity="0" maximumMultiplicity="1"
+                                                               conformance="R"
+                                                               isMandatory="false"
+                                                               isStructural="false">
+                                                   <mif:businessName name="A:Drug Ingredient Identifier"/>
+                                                   <mif:annotations>
+                                                      <mif:definition>
+                                                         <mif:text>
+                                                            <mif:p>
+                                                               <mif:p>The unique identifier for the drug or chemical.</mif:p>
+                                                            </mif:p>
+                                                         </mif:text>
+                                                      </mif:definition>
+                                                      <mif:rationale>
+                                                         <mif:text>
+                                                            <mif:p>
+                                                               <mif:p>Allows un-ambiguous identification of the ingredients of a drug for performing various alert checking.</mif:p>
+                                                            </mif:p>
+                                                            <mif:p>
+                                                               <mif:p>Also allows for the identification of antigens as specific class of ingredients in vaccines.</mif:p>
+                                                            </mif:p>
+                                                         </mif:text>
+                                                      </mif:rationale>
+                                                      <mif:mapping sourceName="PIN">
+                                                         <mif:text>
+                                                            <mif:p>
+                                                               <mif:p>CompoundIngredient.IngredientDrug.activeIngredientCode</mif:p>
+                                                            </mif:p>
+                                                         </mif:text>
+                                                      </mif:mapping>
+                                                      <mif:mapping sourceName="PIN">
+                                                         <mif:text>
+                                                            <mif:p>
+                                                               <mif:p>CompoundIngredient.IngredientDrug.DIN</mif:p>
+                                                            </mif:p>
+                                                         </mif:text>
+                                                      </mif:mapping>
+                                                      <mif:mapping sourceName="PIN">
+                                                         <mif:text>
+                                                            <mif:p>
+                                                               <mif:p>CompoundIngredient.IngredientDrug.hcAigNumber</mif:p>
+                                                            </mif:p>
+                                                         </mif:text>
+                                                      </mif:mapping>
+                                                      <mif:mapping sourceName="PIN">
+                                                         <mif:text>
+                                                            <mif:p>
+                                                               <mif:p>CompoundIngredient.IngredientDrug.standardProductId(mnemonic)</mif:p>
+                                                            </mif:p>
+                                                         </mif:text>
+                                                      </mif:mapping>
+                                                      <mif:mapping sourceName="PIN">
+                                                         <mif:text>
+                                                            <mif:p>
+                                                               <mif:p>CompoundIngredient.IngredientDrug.standardProductIdType(code system)</mif:p>
+                                                            </mif:p>
+                                                         </mif:text>
+                                                      </mif:mapping>
+                                                      <mif:mapping sourceName="BC">
+                                                         <mif:text>
+                                                            <mif:p>
+                                                               <mif:p>ZPB3.6(mnemonic)</mif:p>
+                                                            </mif:p>
+                                                         </mif:text>
+                                                      </mif:mapping>
+                                                      <mif:mapping sourceName="BC">
+                                                         <mif:text>
+                                                            <mif:p>
+                                                               <mif:p>ZPB3.7(print name)</mif:p>
+                                                            </mif:p>
+                                                         </mif:text>
+                                                      </mif:mapping>
+                                                      <mif:mapping sourceName="BC">
+                                                         <mif:text>
+                                                            <mif:p>
+                                                               <mif:p>ZPJ1.1(mnemonic)</mif:p>
+                                                            </mif:p>
+                                                         </mif:text>
+                                                      </mif:mapping>
+                                                      <mif:mapping sourceName="BC">
+                                                         <mif:text>
+                                                            <mif:p>
+                                                               <mif:p>ZPJ1.2(print name)</mif:p>
+                                                            </mif:p>
+                                                         </mif:text>
+                                                      </mif:mapping>
+                                                      <mif:mapping sourceName="PECS">
+                                                         <mif:text>
+                                                            <mif:p>
+                                                               <mif:p>ZCP.2</mif:p>
+                                                            </mif:p>
+                                                         </mif:text>
+                                                      </mif:mapping>
+                                                   </mif:annotations>
+                                                   <mif:derivationSupplier staticModelDerivationId="1" className="ManufacturedMaterial"
+                                                                           attributeName="code"/>
+                                                   <mif:type name="CV"/>
+                                                   <mif:supplierDomainSpecification codingStrength="CNE" domainName="ActiveIngredientDrugEntityType"/>
+                                                </mif:attribute>
+                                                <mif:attribute name="name" sortKey="4" minimumMultiplicity="0" maximumMultiplicity="1"
+                                                               conformance="R"
+                                                               isMandatory="false"
+                                                               maximumLength="60"
+                                                               isStructural="false">
+                                                   <mif:businessName name="B:Drug Ingredient Name"/>
+                                                   <mif:annotations>
+                                                      <mif:definition>
+                                                         <mif:text>
+                                                            <mif:p>
+                                                               <mif:p>The name of the contained drug or chemical.</mif:p>
+                                                            </mif:p>
+                                                         </mif:text>
+                                                      </mif:definition>
+                                                      <mif:rationale>
+                                                         <mif:text>
+                                                            <mif:p>
+                                                               <mif:p>Used for communication between and display to providers.</mif:p>
+                                                            </mif:p>
+                                                         </mif:text>
+                                                      </mif:rationale>
+                                                      <mif:mapping sourceName="PIN">
+                                                         <mif:text>
+                                                            <mif:p>
+                                                               <mif:p>CompoundIngredient.IngredientDrug.drugProductName</mif:p>
+                                                            </mif:p>
+                                                         </mif:text>
+                                                      </mif:mapping>
+                                                   </mif:annotations>
+                                                   <mif:derivationSupplier staticModelDerivationId="1" className="ManufacturedMaterial"
+                                                                           attributeName="name"/>
+                                                   <mif:type name="ST"/>
+                                                </mif:attribute>
+                                             </mif:class>
+                                          </mif:participantClass>
+                                       </mif:targetConnection>
+                                       <mif:sourceConnection>
+                                          <mif:nonTraversableConnection participantClassName="Ingredient">
+                                             <mif:derivationSupplier staticModelDerivationId="1" className="Entity" associationEndName="playedRole"/>
+                                          </mif:nonTraversableConnection>
+                                       </mif:sourceConnection>
+                                    </mif:association>
+                                 </mif:class>
+                              </mif:participantClass>
+                           </mif:targetConnection>
+                           <mif:sourceConnection>
+                              <mif:nonTraversableConnection participantClassName="Medicine">
+                                 <mif:derivationSupplier staticModelDerivationId="1" className="Role" associationEndName="scoper"/>
+                              </mif:nonTraversableConnection>
+                           </mif:sourceConnection>
+                        </mif:association>
+                     </mif:class>
+                  </mif:participantClass>
+               </mif:targetConnection>
+               <mif:sourceConnection>
+                  <mif:nonTraversableConnection participantClassName="Medication">
+                     <mif:derivationSupplier staticModelDerivationId="1" className="Entity" associationEndName="playedRole"/>
+                  </mif:nonTraversableConnection>
+               </mif:sourceConnection>
+            </mif:association>
+         </mif:class>
+      </mif:specializedClass>
+   </mif:ownedEntryPoint>
+</mif:serializedStaticModel>

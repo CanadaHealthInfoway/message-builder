@@ -1,0 +1,703 @@
+<mif:dynamicModel xmlns:mif="urn:hl7-org:v3/mif">
+   <mif:header>
+      <mif:renderingInformation schemaVersion="1" application="RoseTree 4.2.20">
+         <mif:renderingNotes>This document was rendered into XML using software provided to HL7 by Beeler Consulting LLC.
+ PubDB to MIF Transform: $RCSfile: PubDbXmlToMIF.xsl,v $ $Revision: 1.11 $ $Date: 2007/10/19 05:55:13 $
+  Fix names transform: $Id: FixMifNames.xsl 7634 2009-03-23 00:42:50Z wbeeler $
+  HTML to MIF Markup transform: $Id: HtmlToMIFMarkup.xsl 7375 2009-01-26 19:26:53Z wbeeler $
+  Base transform: $Id: ConvertBase.xsl 7375 2009-01-26 19:26:53Z wbeeler $
+  Package Id Conversion: $Id: TransformPackageIds.xsl 7375 2009-01-26 19:26:53Z wbeeler $</mif:renderingNotes>
+      </mif:renderingInformation>
+      <mif:legalese copyrightOwner="Health Level Seven, Inc." copyrightYears="2008">
+         <mif:notation>All rights reserved.</mif:notation>
+      </mif:legalese>
+   </mif:header>
+   <mif:triggerEvent name="101001" title="Identifiedperson Event Activate Notification"
+                     invokingInteractionId="PRPA_IN101001CA">
+      <mif:businessName name="New Person Added Notification"/>
+      <mif:packageLocation root="DEFN" section="AM" subSection="PR" domain="PA" artifact="TE" realm="CA"
+                           id="101001"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>The Add New Person trigger event signals that a new person needs to be added to a person registry.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="101201" title="Identifiedperson Event Activate Request"
+                     invokingInteractionId="PRPA_IN101201CA">
+      <mif:businessName name="New Person Added Request"/>
+      <mif:packageLocation root="DEFN" section="AM" subSection="PR" domain="PA" artifact="TE" realm="CA"
+                           id="101201"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>The Add New Person trigger event signals that a new person was added to a person registry.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="101202" title="Identifiedperson Event Activate Confirmation"
+                     invokingInteractionId="PRPA_IN101202CA">
+      <mif:businessName name="Person Create Event Accept"/>
+      <mif:packageLocation root="DEFN" section="AM" subSection="PR" domain="PA" artifact="TE" realm="CA"
+                           id="101202"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>This trigger event signals that a person registry has accepted a request to add a new record.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="101203" title="Identifiedperson Event Activate Rejection"
+                     invokingInteractionId="PRPA_IN101203CA">
+      <mif:businessName name="Person Create Event Reject"/>
+      <mif:packageLocation root="DEFN" section="AM" subSection="PR" domain="PA" artifact="TE" realm="CA"
+                           id="101203"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>This trigger event signals that a person registry has rejected a request to add a new record.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="101002" title="Identifiedperson Event Revise Notification"
+                     invokingInteractionId="PRPA_IN101002CA">
+      <mif:businessName name="Person Information Revised"/>
+      <mif:packageLocation root="DEFN" section="AM" subSection="PR" domain="PA" artifact="TE" realm="CA"
+                           id="101002"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>The Revise Person Information trigger event signals that information about a person was revised in a person registry.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="101204" title="Identifiedperson Event Revise Request"
+                     invokingInteractionId="PRPA_IN101204CA">
+      <mif:businessName name="Revise Person Request"/>
+      <mif:packageLocation root="DEFN" section="AM" subSection="PR" domain="PA" artifact="TE" realm="CA"
+                           id="101204"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>The Revise Person Information trigger event signals that information about a person needs to be revised in a person registry.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="101205" title="Identifiedperson Event Revise Confirmation"
+                     invokingInteractionId="PRPA_IN101205CA">
+      <mif:businessName name="Person Revise Event Accept"/>
+      <mif:packageLocation root="DEFN" section="AM" subSection="PR" domain="PA" artifact="TE" realm="CA"
+                           id="101205"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>This trigger event signals that a person registry has accepted a request to revise information it holds for a specified person.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="101206" title="Identifiedperson Event Revise Rejection"
+                     invokingInteractionId="PRPA_IN101206CA">
+      <mif:businessName name="Person Revise Event Reject"/>
+      <mif:packageLocation root="DEFN" section="AM" subSection="PR" domain="PA" artifact="TE" realm="CA"
+                           id="101206"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>This trigger event signals that a person registry has rejected a request to revise information it holds about a person.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="101999" title="Identifiedperson Event Nullify Notification"
+                     invokingInteractionId="PRPA_IN101999CA">
+      <mif:businessName name="Person Nullified"/>
+      <mif:packageLocation root="DEFN" section="AM" subSection="PR" domain="PA" artifact="TE" realm="CA"
+                           id="101999"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>The Nullify Person trigger event signals that a person record was nullified in a person registry.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="101004" title="Identifiedperson Event Obsolete Notification"
+                     invokingInteractionId="PRPA_IN101004CA">
+      <mif:businessName name="Person Duplicates Resolved"/>
+      <mif:packageLocation root="DEFN" section="AM" subSection="PR" domain="PA" artifact="TE" realm="CA"
+                           id="101004"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>This trigger event signals that duplicate records were resolved in a person registry.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="101103" title="Identifiedperson Event Find Candidates Query"
+                     invokingInteractionId="PRPA_IN101103CA">
+      <mif:businessName name="Find Candidates Query"/>
+      <mif:packageLocation root="DEFN" section="AM" subSection="PR" domain="PA" artifact="TE" realm="CA"
+                           id="101103"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>The Person Registry Find Candidates Query requests a list of persons matching a particular set of person demographics.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="101104" title="Identifiedperson Event Find Candidates Query Response"
+                     invokingInteractionId="PRPA_IN101104CA">
+      <mif:businessName name="Find Candidates Response"/>
+      <mif:packageLocation root="DEFN" section="AM" subSection="PR" domain="PA" artifact="TE" realm="CA"
+                           id="101104"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>The Person Registry Find Candidates Response returns the list of candidates that match a particular set of person demographics. The response may also include a matching criterion score indicating the probability of a particular match.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="101101" title="Identifiedperson Event Get Demographics Query"
+                     invokingInteractionId="PRPA_IN101101CA">
+      <mif:businessName name="Get Demographics Query"/>
+      <mif:packageLocation root="DEFN" section="AM" subSection="PR" domain="PA" artifact="TE" realm="CA"
+                           id="101101"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>A user initiates a query to a person registry requesting the demographic information the registry has recorded for a specified person.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="101102" title="Identifiedperson Event Get Demographics Query Respons"
+                     invokingInteractionId="PRPA_IN101102CA">
+      <mif:businessName name="Get Demographics Response"/>
+      <mif:packageLocation root="DEFN" section="AM" subSection="PR" domain="PA" artifact="TE" realm="CA"
+                           id="101102"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>The Person Registry Get Demographics Response returns demographic information for a specific person identifier.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="101105" title="Identifiedperson Event Get Identifiers Query"
+                     invokingInteractionId="PRPA_IN101105CA">
+      <mif:businessName name="Find Associated Person Identifiers Query"/>
+      <mif:packageLocation root="DEFN" section="AM" subSection="PR" domain="PA" artifact="TE" realm="CA"
+                           id="101105"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>The Person Registry Find Associated Identifiers Query requests all other identifiers associated with a particular person identifier.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="101106" title="Identifiedperson Event Get Identifiers Query Response"
+                     invokingInteractionId="PRPA_IN101106CA">
+      <mif:businessName name="Find Associated Identifiers Response"/>
+      <mif:packageLocation root="DEFN" section="AM" subSection="PR" domain="PA" artifact="TE" realm="CA"
+                           id="101106"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>The Person Registry Find Associated Identifiers Response returns all other identifiers associated with a particular person identifier.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:hl7Interaction name="101001" title="Identifiedperson Event Activate Notification">
+      <mif:businessName name="New Person Added Notification"/>
+      <mif:packageLocation root="DEFN" section="AM" subSection="PR" domain="PA" artifact="IN" realm="CA"
+                           id="101001"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>This interaction occurs after a new person is added to a person registry. An informer sends to a tracker a copy of the new person record.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="AM" subSection="PR" domain="PA" artifact="TE" realm="CA"
+                      id="101001"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002100">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="MF"
+                                      domain="MI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="700717"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="RegisteredRole" root="DEFN" section="AM" subSection="PR"
+                                         domain="PA"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="101001"
+                                         traversalName="identifiedEntity"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="101201" title="Identifiedperson Event Activate Request">
+      <mif:businessName name="Add Person Request"/>
+      <mif:packageLocation root="DEFN" section="AM" subSection="PR" domain="PA" artifact="IN" realm="CA"
+                           id="101201"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>This interaction occurs when a new person is to be added to a person registry.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="AM" subSection="PR" domain="PA" artifact="TE" realm="CA"
+                      id="101201"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002100">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="MF"
+                                      domain="MI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="700711"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="RegisteredRole" root="DEFN" section="AM" subSection="PR"
+                                         domain="PA"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="101001"
+                                         traversalName="identifiedEntity"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+      <mif:receiverResponsibility triggerEventName="Identifiedperson Event Activate Confirmation"
+                                  interactionName="Identifiedperson Event Activate Confirmation"/>
+      <mif:receiverResponsibility triggerEventName="Identifiedperson Event Activate Rejection"
+                                  interactionName="Identifiedperson Event Activate Rejection"/>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="101202" title="Identifiedperson Event Activate Confirmation">
+      <mif:businessName name="Person Create Event Accept"/>
+      <mif:packageLocation root="DEFN" section="AM" subSection="PR" domain="PA" artifact="IN" realm="CA"
+                           id="101202"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>A person registry accepts a request to add a record and responds back to the requesting application. The payload contains the identifier assigned to the new person record.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="AM" subSection="PR" domain="PA" artifact="TE" realm="CA"
+                      id="101202"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002300">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="MF"
+                                      domain="MI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="700726"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="RegisteredRole" root="DEFN" section="AM" subSection="PR"
+                                         domain="PA"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="101106"
+                                         traversalName="identifiedEntity"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="101203" title="Identifiedperson Event Activate Rejection">
+      <mif:businessName name="Person Create Event Reject"/>
+      <mif:packageLocation root="DEFN" section="AM" subSection="PR" domain="PA" artifact="IN" realm="CA"
+                           id="101203"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>person registry rejects a request to add a record and responds back to the requesting application. The reason for the rejection is returned as a Detected Issue in the Master File / Reg Notif. Control Act, Role Subject wrapper.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="AM" subSection="PR" domain="PA" artifact="TE" realm="CA"
+                      id="101203"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002300">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="MF"
+                                      domain="MI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="700726"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="RegisteredRole" root="DEFN" section="AM" subSection="PR"
+                                         domain="PA"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="101106"
+                                         traversalName="identifiedEntity"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="101002" title="Identifiedperson Event Revise Notification">
+      <mif:businessName name="Person Information Revised Notification"/>
+      <mif:packageLocation root="DEFN" section="AM" subSection="PR" domain="PA" artifact="IN" realm="CA"
+                           id="101002"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>This interaction occurs after when a person record is to be revised in a person registry.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="AM" subSection="PR" domain="PA" artifact="TE" realm="CA"
+                      id="101002"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002100">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="MF"
+                                      domain="MI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="700717"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="RegisteredRole" root="DEFN" section="AM" subSection="PR"
+                                         domain="PA"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="101002"
+                                         traversalName="identifiedEntity"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="101204" title="Identifiedperson Event Revise Request">
+      <mif:businessName name="Revise Person Request"/>
+      <mif:packageLocation root="DEFN" section="AM" subSection="PR" domain="PA" artifact="IN" realm="CA"
+                           id="101204"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>This interaction occurs after information about a person is revised in a person registry. An informer sends to a tracker updated person information.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="AM" subSection="PR" domain="PA" artifact="TE" realm="CA"
+                      id="101204"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002100">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="MF"
+                                      domain="MI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="700711"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="RegisteredRole" root="DEFN" section="AM" subSection="PR"
+                                         domain="PA"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="101002"
+                                         traversalName="identifiedEntity"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+      <mif:receiverResponsibility triggerEventName="Identifiedperson Event Revise Confirmation"
+                                  interactionName="Identifiedperson Event Revise Confirmation"/>
+      <mif:receiverResponsibility triggerEventName="Identifiedperson Event Revise Rejection"
+                                  interactionName="Identifiedperson Event Revise Rejection"/>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="101205" title="Identifiedperson Event Revise Confirmation">
+      <mif:businessName name="Person Revise Event Accept"/>
+      <mif:packageLocation root="DEFN" section="AM" subSection="PR" domain="PA" artifact="IN" realm="CA"
+                           id="101205"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>A person registry accepts a request to revise an existing record and responds back to the requesting application. The revised person record is sent in the payload.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="AM" subSection="PR" domain="PA" artifact="TE" realm="CA"
+                      id="101205"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002300">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="MF"
+                                      domain="MI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="700726"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="RegisteredRole" root="DEFN" section="AM" subSection="PR"
+                                         domain="PA"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="101102"
+                                         traversalName="identifiedEntity"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="101206" title="Identifiedperson Event Revise Rejection">
+      <mif:businessName name="Person Revise Event Reject"/>
+      <mif:packageLocation root="DEFN" section="AM" subSection="PR" domain="PA" artifact="IN" realm="CA"
+                           id="101206"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>A person registry rejects a request to revise an existing record and responds back to the requesting application. The reason for the rejection is returned as a Detected Issue in the Master File / Reg Notif. Control Act, Role Subject wrapper</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="AM" subSection="PR" domain="PA" artifact="TE" realm="CA"
+                      id="101206"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002300">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="MF"
+                                      domain="MI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="700726"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="RegisteredRole" root="DEFN" section="AM" subSection="PR"
+                                         domain="PA"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="101102"
+                                         traversalName="identifiedEntity"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="101999" title="Identifiedperson Event Nullify Notification">
+      <mif:businessName name="Person Nullified Notification"/>
+      <mif:packageLocation root="DEFN" section="AM" subSection="PR" domain="PA" artifact="IN" realm="CA"
+                           id="101999"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>This interaction occurs after an erroneously entered person record is nullified in a person registry. An informer sends to a tracker enough information to identify the nullified record.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="AM" subSection="PR" domain="PA" artifact="TE" realm="CA"
+                      id="101999"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002100">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="MF"
+                                      domain="MI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="700717"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="RegisteredRole" root="DEFN" section="AM" subSection="PR"
+                                         domain="PA"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="101003"
+                                         traversalName="identifiedEntity"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="101004" title="Identifiedperson Event Obsolete Notification">
+      <mif:businessName name="Resolve Duplicate Person Registrations"/>
+      <mif:packageLocation root="DEFN" section="AM" subSection="PR" domain="PA" artifact="IN" realm="CA"
+                           id="101004"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>A person registry sends this notification after resolving duplicate registrations in the registry. The surviving registration (RegistrationEvent.statusCode = ""active"") links via the replacementOf act relationship to the deprecated registration (PriorRegistration.statusCode = ""obsolete""). A copy of the surviving person record is sent in the payload message.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="AM" subSection="PR" domain="PA" artifact="TE" realm="CA"
+                      id="101004"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002100">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="MF"
+                                      domain="MI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="700717"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="RegisteredRole" root="DEFN" section="AM" subSection="PR"
+                                         domain="PA"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="101002"
+                                         traversalName="identifiedEntity"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="101103" title="Identifiedperson Event Find Candidates Query">
+      <mif:businessName name="Find Candidates Query"/>
+      <mif:packageLocation root="DEFN" section="AM" subSection="PR" domain="PA" artifact="IN" realm="CA"
+                           id="101103"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>This interaction sends a query to a Person Registry requesting a list of candidates that match a particular set of person demographics.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="AM" subSection="PR" domain="PA" artifact="TE" realm="CA"
+                      id="101103"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002100">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="MF"
+                                      domain="MI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="700751"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="ParameterList" root="DEFN" section="AM" subSection="PR"
+                                         domain="PA"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="101103"
+                                         traversalName="parameterList"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+      <mif:receiverResponsibility triggerEventName="Identifiedperson Event Find Candidates Query Response"
+                                  interactionName="Identifiedperson Event Find Candidates Query Response"/>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="101104" title="Identifiedperson Event Find Candidates Query Response">
+      <mif:businessName name="Find Candidates Response"/>
+      <mif:packageLocation root="DEFN" section="AM" subSection="PR" domain="PA" artifact="IN" realm="CA"
+                           id="101104"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>This interaction returns a list of candidates from a Person Registry that match a particular set of person demographics. The response may also include a score indicating the probability of match for each candidate.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="AM" subSection="PR" domain="PA" artifact="TE" realm="CA"
+                      id="101104"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002300">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="MF"
+                                      domain="MI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="700746"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="RegisteredRole" root="DEFN" section="AM" subSection="PR"
+                                         domain="PA"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="101104"
+                                         traversalName="identifiedEntity"/>
+            <mif:supplierBindingArgument templateParameterName="ParameterList" root="DEFN" section="AM" subSection="PR"
+                                         domain="PA"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="101103"
+                                         traversalName="parameterList"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="101101" title="Identifiedperson Event Get Demographics Query">
+      <mif:businessName name="Get Person Demographics Query"/>
+      <mif:packageLocation root="DEFN" section="AM" subSection="PR" domain="PA" artifact="IN" realm="CA"
+                           id="101101"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>This interaction sends a query to a Person Registry requesting demographic information for a specific person identifier.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="AM" subSection="PR" domain="PA" artifact="TE" realm="CA"
+                      id="101101"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002100">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="MF"
+                                      domain="MI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="700751"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="ParameterList" root="DEFN" section="AM" subSection="PR"
+                                         domain="PA"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="101101"
+                                         traversalName="parameterList"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+      <mif:receiverResponsibility triggerEventName="Identifiedperson Event Get Demographics Query Respons"
+                                  interactionName="Identifiedperson Event Get Demographics Query Response"/>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="101102" title="Identifiedperson Event Get Demographics Query Response">
+      <mif:businessName name="Get Demographics Query Response"/>
+      <mif:packageLocation root="DEFN" section="AM" subSection="PR" domain="PA" artifact="IN" realm="CA"
+                           id="101102"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>This interaction sends a response from a Person Registry with demographic information for a specific person identifier.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="AM" subSection="PR" domain="PA" artifact="TE" realm="CA"
+                      id="101102"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002300">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="MF"
+                                      domain="MI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="700746"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="RegisteredRole" root="DEFN" section="AM" subSection="PR"
+                                         domain="PA"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="101102"
+                                         traversalName="identifiedEntity"/>
+            <mif:supplierBindingArgument templateParameterName="ParameterList" root="DEFN" section="AM" subSection="PR"
+                                         domain="PA"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="101101"
+                                         traversalName="parameterList"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="101105" title="Identifiedperson Event Get Identifiers Query">
+      <mif:businessName name="Find Associated Person Identifiers Query"/>
+      <mif:packageLocation root="DEFN" section="AM" subSection="PR" domain="PA" artifact="IN" realm="CA"
+                           id="101105"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>This interaction sends a query to a Person Registry requesting all other identifiers associated with a specific person identifier.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="AM" subSection="PR" domain="PA" artifact="TE" realm="CA"
+                      id="101105"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002100">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="MF"
+                                      domain="MI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="700751"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="ParameterList" root="DEFN" section="AM" subSection="PR"
+                                         domain="PA"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="101101"
+                                         traversalName="parameterList"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+      <mif:receiverResponsibility triggerEventName="Identifiedperson Event Get Identifiers Query Response"
+                                  interactionName="Identifiedperson Event Get Identifiers Query Response"/>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="101106" title="Identifiedperson Event Get Identifiers Query Response">
+      <mif:businessName name="Find Associated Identifiers Response"/>
+      <mif:packageLocation root="DEFN" section="AM" subSection="PR" domain="PA" artifact="IN" realm="CA"
+                           id="101106"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>This interaction returns a set of identifiers associated with a particular person identifier in a Person Registry.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="AM" subSection="PR" domain="PA" artifact="TE" realm="CA"
+                      id="101106"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002300">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="MF"
+                                      domain="MI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="700746"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="RegisteredRole" root="DEFN" section="AM" subSection="PR"
+                                         domain="PA"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="101106"
+                                         traversalName="identifiedEntity"/>
+            <mif:supplierBindingArgument templateParameterName="ParameterList" root="DEFN" section="AM" subSection="PR"
+                                         domain="PA"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="101101"
+                                         traversalName="parameterList"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+   </mif:hl7Interaction>
+</mif:dynamicModel>

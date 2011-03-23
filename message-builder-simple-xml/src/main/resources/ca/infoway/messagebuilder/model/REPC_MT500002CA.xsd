@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:chi="urn:ca.infoway.messagebuilder.simplexml.v1" elementFormDefault="qualified" targetNamespace="urn:ca.infoway.messagebuilder.simplexml.v1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include schemaLocation="COCT_MT050202CA.xsd"/>
+  <xs:include schemaLocation="COCT_MT240007CA.xsd"/>
+  <xs:include schemaLocation="COCT_MT011001CA.xsd"/>
+  <xs:include schemaLocation="../../../../../../classes/simpleDataTypes.xsd"/>
+  <xs:complexType name="REPC_MT500002CA.Component2">
+    <xs:sequence>
+      <xs:element maxOccurs="200" minOccurs="1" name="patientCareProvisionEventPortionParticipant" type="chi:REPC_MT500002CA.Participant"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="locationIdReference" type="chi:InstanceIdentifier"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="REPC_MT500002CA.InFulfillmentOf">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="requestType" type="chi:SimpleCodedType"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="requestId" type="chi:InstanceIdentifier"/>
+      <xs:group maxOccurs="1" minOccurs="0" ref="chi:COCT_MT911108CA.ActingPerson"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="REPC_MT500002CA.Outcome">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="diagnosisType" type="chi:CodedType"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="diagnosisCode" type="chi:CodedValue"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="REPC_MT500002CA.Participant">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="0" name="participationMechanism" type="chi:CodedValue"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="participantIdReference" type="chi:InstanceIdentifier"/>
+      <xs:element maxOccurs="2" minOccurs="0" name="participantConfidentialities" type="chi:CodedValue"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="REPC_MT500002CA.PatientCareProvisionEvent">
+    <xs:sequence>
+      <xs:element maxOccurs="2" minOccurs="2" name="careCompositionIds" type="chi:InstanceIdentifier"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="careCompositionStatus" type="chi:SimpleCodedType"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="careCompositionPeriod" type="chi:DateInterval"/>
+      <xs:element maxOccurs="2" minOccurs="0" name="careCompositionMaskingIndicators" type="chi:CodedValue"/>
+      <xs:element maxOccurs="1000" minOccurs="0" name="containedServiceEventIds" type="chi:InstanceIdentifier"/>
+      <xs:element maxOccurs="100" minOccurs="0" name="component2" type="chi:REPC_MT500002CA.Component2"/>
+      <xs:element maxOccurs="100" minOccurs="0" name="componentOfPatientCareProvisionEvent" type="chi:COCT_MT011001CA.PatientCareProvisionEvent"/>
+      <xs:group maxOccurs="1" minOccurs="0" ref="chi:COCT_MT911108CA.ActingPerson"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="inFulfillmentOf" type="chi:REPC_MT500002CA.InFulfillmentOf"/>
+      <xs:group maxOccurs="1" minOccurs="0" ref="chi:COCT_MT911107CA.ActingPerson"/>
+      <xs:element maxOccurs="100" minOccurs="0" name="locationServiceDeliveryLocation" type="chi:COCT_MT240007CA.ServiceDeliveryLocation"/>
+      <xs:element maxOccurs="100" minOccurs="0" name="outcome" type="chi:REPC_MT500002CA.Outcome"/>
+      <xs:group maxOccurs="10" minOccurs="0" ref="chi:COCT_MT911108CA.ActingPerson"/>
+      <xs:group maxOccurs="10" minOccurs="0" ref="chi:COCT_MT120402CA.Indications"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="focusArea" type="xs:string"/>
+      <xs:element maxOccurs="100" minOccurs="1" name="subject2Patient" type="chi:COCT_MT050202CA.Patient"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

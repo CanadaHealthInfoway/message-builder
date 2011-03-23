@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/*******************************************************************************
+ * Copyright (c) 2010 Health Level Seven, Inc.
+ * All rights reserved. This file and the model designs it contains 
+ * are made available under terms of a proprietary license implicitly 
+ * established by the terms expressed in the Bylaws of Health 
+ * Level Seven, Inc. (HL7), in combination with the agreements under 
+ * which individual and organizational memberships are established with HL7.
+ * Links to the HL7 Bylaws may be found at http://www.hl7.org 
+ *******************************************************************************/ 
+				--><mif:staticModel xmlns:mif="urn:hl7-org:v3/mif2" conformanceLevel="RealmExtension"
+                 schemaVersion="2.1.3"
+                 packageKind="realmNamespace"
+                 representationKind="flat"
+                 isAbstract="false"
+                 title="Record Detail Query"
+                 isSerializable="true"
+                 name="CA">
+   <mif:packageLocation realmNamespace="CA" artifact="MT" root="DEFN" section="HM" subSection="RE"
+                        domain="PC"
+                        id="500006"/>
+   <mif:header>
+      <mif:renderingInformation application="Visio to MIF transform"/>
+      <mif:legalese copyrightOwner="Health Level Seven" copyrightYears="2010">
+         <mif:notation>All rights reserved.</mif:notation>
+         <mif:licenseTerms>
+            <p xmlns="http://www.w3.org/1999/xhtml">This file and the model designs it contains are made available under terms of a proprietary license implicitly established by the terms expressed in the Bylaws of Health Level Seven, Inc. (HL7), in combination with the agreements under which individual and organizational memberships are established with HL7.
+					Links to the HL7 Bylaws may be found at <a href="http://www.hl7.org">http://www.hl7.org</a>
+				        </p>
+         </mif:licenseTerms>
+      </mif:legalese>
+   </mif:header>
+   <mif:graphicRepresentation presentation="HL7">
+      <mif:graphElement name="Main">
+         <mif:position x="0.0" y="0.0"/>
+         <mif:size width="11.663" height="23.061"/>
+      </mif:graphElement>
+      <mif:entryPoint semanticLinkId="CAD01B25-8C60-43EA-C07F-D18269BFDE48">
+         <mif:graphElement shapeId="Sheet.811">
+            <mif:position x="5.001" y="0.028"/>
+            <mif:size width="1.419" height="0.453"/>
+            <mif:anchorage connectToShapeId="Sheet.811">
+               <mif:position x="5.659" y="0.481"/>
+               <mif:graphEdge>
+                  <mif:anchor connectToShapeId="Sheet.8">
+                     <mif:position x="5.761" y="0.896"/>
+                  </mif:anchor>
+               </mif:graphEdge>
+            </mif:anchorage>
+         </mif:graphElement>
+      </mif:entryPoint>
+      <mif:class semanticLinkId="A91B3730-DBE3-6B64-0A1D-FB20A5857E25" presentation="HL7">
+         <mif:graphElement shapeId="Sheet.44" shapeTemplate="OtherClass" isWidthAutoSize="true"
+                           isHeightAutoSize="true">
+            <mif:position x="0.888" y="2.973"/>
+            <mif:size width="2.676" height="0.750"/>
+         </mif:graphElement>
+      </mif:class>
+      <mif:class semanticLinkId="A0224733-6F64-6856-B648-7C122541F117" presentation="HL7">
+         <mif:graphElement shapeId="Sheet.138" shapeTemplate="OtherClass" isWidthAutoSize="true"
+                           isHeightAutoSize="true">
+            <mif:position x="1.005" y="1.924"/>
+            <mif:size width="2.558" height="0.750"/>
+         </mif:graphElement>
+      </mif:class>
+      <mif:class semanticLinkId="6882463E-BE4A-0709-DC77-53830B1ED735" presentation="HL7">
+         <mif:graphElement shapeId="Sheet.8" shapeTemplate="OtherClass" isWidthAutoSize="true"
+                           isHeightAutoSize="false">
+            <mif:position x="5.136" y="0.896"/>
+            <mif:size width="1.250" height="18.929"/>
+         </mif:graphElement>
+      </mif:class>
+      <mif:class semanticLinkId="095AD179-2B4D-50D6-99B1-942F25FEE925" presentation="HL7">
+         <mif:graphElement shapeId="Sheet.476" shapeTemplate="OtherClass" isWidthAutoSize="true"
+                           isHeightAutoSize="true">
+            <mif:position x="1.620" y="4.111"/>
+            <mif:size width="1.924" height="0.750"/>
+         </mif:graphElement>
+      </mif:class>
+      <mif:class semanticLinkId="9918CB88-4003-BC13-58F4-D4E4C0A1D335" presentation="HL7">
+         <mif:graphElement shapeId="Sheet.30" shapeTemplate="OtherClass" isWidthAutoSize="true"
+                           isHeightAutoSize="true">
+            <mif:position x="1.714" y="0.875"/>
+            <mif:size width="1.849" height="0.750"/>
+         </mif:graphElement>
+      </mif:class>
+      <mif:association semanticLinkId="402F370F-187D-924A-7DD0-79F673E09D32">
+         <mif:graphElement connectToShapeId="Sheet.8" shapeId="Sheet.99">
+            <mif:position x="5.136" y="3.017"/>
+            <mif:graphEdge>
+               <mif:waypoint x="4.350" y="3.017"/>
+               <mif:waypoint x="4.350" y="3.348"/>
+               <mif:anchor connectToShapeId="Sheet.44">
+                  <mif:position x="3.564" y="3.348"/>
+               </mif:anchor>
+            </mif:graphEdge>
+         </mif:graphElement>
+      </mif:association>
+      <mif:association semanticLinkId="01EECBD6-24C0-E1E1-5C11-0A20A770061F">
+         <mif:graphElement connectToShapeId="Sheet.8" shapeId="Sheet.80">
+            <mif:position x="5.136" y="2.079"/>
+            <mif:graphEdge>
+               <mif:waypoint x="4.350" y="2.079"/>
+               <mif:waypoint x="4.350" y="2.299"/>
+               <mif:anchor connectToShapeId="Sheet.138">
+                  <mif:position x="3.564" y="2.299"/>
+               </mif:anchor>
+            </mif:graphEdge>
+         </mif:graphElement>
+      </mif:association>
+      <mif:association semanticLinkId="127D07CA-A5C0-3A38-4642-EAF6BFA02DD1">
+         <mif:graphElement connectToShapeId="Sheet.8" shapeId="Sheet.734">
+            <mif:position x="5.136" y="3.874"/>
+            <mif:graphEdge>
+               <mif:waypoint x="4.340" y="3.874"/>
+               <mif:waypoint x="4.340" y="4.486"/>
+               <mif:anchor connectToShapeId="Sheet.476">
+                  <mif:position x="3.544" y="4.486"/>
+               </mif:anchor>
+            </mif:graphEdge>
+         </mif:graphElement>
+      </mif:association>
+      <mif:association semanticLinkId="1C5F7470-FEC7-A106-5700-C28B2A41B890">
+         <mif:graphElement connectToShapeId="Sheet.8" shapeId="Sheet.16">
+            <mif:position x="5.136" y="1.253"/>
+            <mif:graphEdge>
+               <mif:waypoint x="4.350" y="1.253"/>
+               <mif:waypoint x="4.350" y="1.250"/>
+               <mif:anchor connectToShapeId="Sheet.30">
+                  <mif:position x="3.564" y="1.250"/>
+               </mif:anchor>
+            </mif:graphEdge>
+         </mif:graphElement>
+      </mif:association>
+   </mif:graphicRepresentation>
+   <mif:derivedFrom staticModelDerivationId="1">
+      <mif:targetStaticModel artifact="RIM" root="DEFN" version="0226"/>
+   </mif:derivedFrom>
+   <mif:importedDatatypeModelPackage realmNamespace="CA" artifact="DT" root="DEFN" version="R02.04.xx"/>
+   <mif:importedVocabularyModelPackage realmNamespace="CA" artifact="VO" root="DEFN" version="R02.04.xx"/>
+   <mif:importedCommonModelElementPackage realmNamespace="CA" artifact="IFC" root="DEFN" version="R02.04.xx"/>
+   <mif:entryPoint graphicLinkId="CAD01B25-8C60-43EA-C07F-D18269BFDE48" id="REPC_MT500006CA"
+                   name="Record Detail Query"
+                   className="ParameterList"/>
+   <mif:containedClass>
+      <mif:class graphicLinkId="A91B3730-DBE3-6B64-0A1D-FB20A5857E25"
+                 name="IncludeHistoryIndicator"
+                 isAbstract="false">
+         <mif:derivedFrom staticModelDerivationId="1" className="ParameterItem"/>
+         <mif:attribute name="value" sortKey="1" minimumMultiplicity="1" maximumMultiplicity="1"
+                        conformance="R"
+                        isMandatory="true"
+                        defaultValue="false"
+                        isImmutable="false">
+            <mif:businessName name="G: Include History Indicator"/>
+            <mif:annotations>
+               <mif:documentation>
+                  <mif:definition>
+                     <mif:text>
+                        <html:p xmlns:html="http://www.w3.org/1999/xhtml">If true, indicates that historical versions of the record(s) should be included. If false, only the current version will be returned.</html:p>
+                     </mif:text>
+                  </mif:definition>
+                  <mif:rationale>
+                     <mif:text>
+                        <html:p xmlns:html="http://www.w3.org/1999/xhtml">Allows a user to filter whether historical information is needed. Retrieving historical information will be needed in some circumstances, but it makes sense to constrain. The attribute is mandatory because it must be known whether history is to be returned or not.</html:p>
+                     </mif:text>
+                  </mif:rationale>
+               </mif:documentation>
+            </mif:annotations>
+            <mif:derivedFrom staticModelDerivationId="1" className="ParameterItem" attributeName="value"/>
+            <mif:type name="BL"/>
+         </mif:attribute>
+      </mif:class>
+   </mif:containedClass>
+   <mif:containedClass>
+      <mif:class graphicLinkId="A0224733-6F64-6856-B648-7C122541F117"
+                 name="IncludeNotesIndicator"
+                 isAbstract="false">
+         <mif:derivedFrom staticModelDerivationId="1" className="ParameterItem"/>
+         <mif:attribute name="value" sortKey="1" minimumMultiplicity="1" maximumMultiplicity="1"
+                        conformance="R"
+                        isMandatory="true"
+                        defaultValue="true"
+                        isImmutable="false">
+            <mif:businessName name="F: Include Notes Indicator"/>
+            <mif:annotations>
+               <mif:documentation>
+                  <mif:definition>
+                     <mif:text>
+                        <html:p xmlns:html="http://www.w3.org/1999/xhtml">If true, indicates that notes should be included when retrieving the record(s). If false, notes will not be returned.</html:p>
+                     </mif:text>
+                  </mif:definition>
+                  <mif:rationale>
+                     <mif:text>
+                        <html:p xmlns:html="http://www.w3.org/1999/xhtml">Allows filtering whether supplemental comments should be retrieved or not. Some uses of the record do not require having the supplemental information available. The attribute is mandatory because it must be known whether notes are to be returned or not.</html:p>
+                     </mif:text>
+                  </mif:rationale>
+               </mif:documentation>
+            </mif:annotations>
+            <mif:derivedFrom staticModelDerivationId="1" className="ParameterItem" attributeName="value"/>
+            <mif:type name="BL"/>
+         </mif:attribute>
+      </mif:class>
+   </mif:containedClass>
+   <mif:containedClass>
+      <mif:class graphicLinkId="6882463E-BE4A-0709-DC77-53830B1ED735" name="ParameterList"
+                 isAbstract="false">
+         <mif:businessName name="Query Definition"/>
+         <mif:derivedFrom staticModelDerivationId="1" className="ParameterList"/>
+         <mif:annotations>
+            <mif:documentation>
+               <mif:definition>
+                  <mif:text>
+                     <html:p xmlns:html="http://www.w3.org/1999/xhtml">Identifies the various parameters that act as filters on the records to be retrieved.</html:p>
+                  </mif:text>
+               </mif:definition>
+               <mif:rationale>
+                  <mif:text>
+                     <html:p xmlns:html="http://www.w3.org/1999/xhtml">Allows the user and/or the point-of-service application to constrain what EHR information they wish to retrieve.</html:p>
+                  </mif:text>
+               </mif:rationale>
+            </mif:documentation>
+         </mif:annotations>
+      </mif:class>
+   </mif:containedClass>
+   <mif:containedClass>
+      <mif:class graphicLinkId="095AD179-2B4D-50D6-99B1-942F25FEE925" name="ProtocolId"
+                 isAbstract="false">
+         <mif:derivedFrom staticModelDerivationId="1" className="ParameterItem"/>
+         <mif:attribute name="value" sortKey="1" minimumMultiplicity="1" maximumMultiplicity="1"
+                        conformance="R"
+                        isMandatory="true"
+                        isImmutable="false">
+            <mif:businessName name="ZI: Protocol Ids"/>
+            <mif:annotations>
+               <mif:documentation>
+                  <mif:definition>
+                     <mif:text>
+                        <html:p xmlns:html="http://www.w3.org/1999/xhtml">Filters the records retrieved to only include those associated with the specified protocols. If unspecified, no filter is applied.</html:p>
+                     </mif:text>
+                  </mif:definition>
+                  <mif:rationale>
+                     <mif:text>
+                        <html:p xmlns:html="http://www.w3.org/1999/xhtml">Allows retrieving records associated with a particular protocol. Useful in clinical studies and other research.</html:p>
+                     
+                        <html:p xmlns:html="http://www.w3.org/1999/xhtml">The element is optional because support for protocols is not deemed a necessity for many healthcare providers.</html:p>
+                     </mif:text>
+                  </mif:rationale>
+               </mif:documentation>
+            </mif:annotations>
+            <mif:derivedFrom staticModelDerivationId="1" className="ParameterItem" attributeName="value"/>
+            <mif:type name="II.BUS"/>
+         </mif:attribute>
+      </mif:class>
+   </mif:containedClass>
+   <mif:containedClass>
+      <mif:class graphicLinkId="9918CB88-4003-BC13-58F4-D4E4C0A1D335" name="RecordId"
+                 isAbstract="false">
+         <mif:derivedFrom staticModelDerivationId="1" className="ParameterItem"/>
+         <mif:attribute name="value" sortKey="1" minimumMultiplicity="1" maximumMultiplicity="1"
+                        conformance="R"
+                        isMandatory="true"
+                        isImmutable="false">
+            <mif:businessName name="E: Record Ids"/>
+            <mif:annotations>
+               <mif:documentation>
+                  <mif:definition>
+                     <mif:text>
+                        <html:p xmlns:html="http://www.w3.org/1999/xhtml">A globally unique identifier assigned by the EHR to the record (or records) to be retrieved.</html:p>
+                     </mif:text>
+                  </mif:definition>
+                  <mif:rationale>
+                     <mif:text>
+                        <html:p xmlns:html="http://www.w3.org/1999/xhtml">Specifically identifies the record to be returned.</html:p>
+                     
+                        <html:p xmlns:html="http://www.w3.org/1999/xhtml">Because the primary purpose of the query is to retrieve identified records, the element is mandatory.</html:p>
+                     
+                        <html:p xmlns:html="http://www.w3.org/1999/xhtml">Multiple repetitions are allowed to support multiple detail records as part of one query for efficiency reasons.</html:p>
+                     </mif:text>
+                  </mif:rationale>
+               </mif:documentation>
+            </mif:annotations>
+            <mif:derivedFrom staticModelDerivationId="1" className="ParameterItem" attributeName="value"/>
+            <mif:type name="II.BUS"/>
+         </mif:attribute>
+      </mif:class>
+   </mif:containedClass>
+   <mif:association graphicLinkId="402F370F-187D-924A-7DD0-79F673E09D32" sortKey="2">
+      <mif:traversableConnection name="includeHistoryIndicator" minimumMultiplicity="1" maximumMultiplicity="1"
+                                 conformance="R"
+                                 isMandatory="true"
+                                 sortKey="Z ZZ"
+                                 participantClassName="IncludeHistoryIndicator">
+         <mif:derivedFrom staticModelDerivationId="1" className="ParameterList"
+                          associationEndName="parameter"/>
+      </mif:traversableConnection>
+      <mif:nonTraversableConnection participantClassName="ParameterList">
+         <mif:derivedFrom staticModelDerivationId="1" className="Parameter"
+                          associationEndName="parameterList"/>
+      </mif:nonTraversableConnection>
+   </mif:association>
+   <mif:association graphicLinkId="01EECBD6-24C0-E1E1-5C11-0A20A770061F" sortKey="1">
+      <mif:traversableConnection name="includeNotesIndicator" minimumMultiplicity="1" maximumMultiplicity="1"
+                                 conformance="R"
+                                 isMandatory="true"
+                                 sortKey="Z ZZ"
+                                 participantClassName="IncludeNotesIndicator">
+         <mif:derivedFrom staticModelDerivationId="1" className="ParameterList"
+                          associationEndName="parameter"/>
+      </mif:traversableConnection>
+      <mif:nonTraversableConnection participantClassName="ParameterList">
+         <mif:derivedFrom staticModelDerivationId="1" className="Parameter"
+                          associationEndName="parameterList"/>
+      </mif:nonTraversableConnection>
+   </mif:association>
+   <mif:association graphicLinkId="127D07CA-A5C0-3A38-4642-EAF6BFA02DD1" sortKey="3">
+      <mif:traversableConnection name="protocolId" minimumMultiplicity="0" maximumMultiplicity="5"
+                                 isMandatory="false"
+                                 sortKey="Z ZZ"
+                                 participantClassName="ProtocolId">
+         <mif:derivedFrom staticModelDerivationId="1" className="ParameterList"
+                          associationEndName="parameter"/>
+      </mif:traversableConnection>
+      <mif:nonTraversableConnection participantClassName="ParameterList">
+         <mif:derivedFrom staticModelDerivationId="1" className="Parameter"
+                          associationEndName="parameterList"/>
+      </mif:nonTraversableConnection>
+   </mif:association>
+   <mif:association graphicLinkId="1C5F7470-FEC7-A106-5700-C28B2A41B890" sortKey="0">
+      <mif:traversableConnection name="recordId" minimumMultiplicity="1" maximumMultiplicity="100"
+                                 conformance="R"
+                                 isMandatory="true"
+                                 sortKey="Z ZZ"
+                                 participantClassName="RecordId">
+         <mif:derivedFrom staticModelDerivationId="1" className="ParameterList"
+                          associationEndName="parameter"/>
+      </mif:traversableConnection>
+      <mif:nonTraversableConnection participantClassName="ParameterList">
+         <mif:derivedFrom staticModelDerivationId="1" className="Parameter"
+                          associationEndName="parameterList"/>
+      </mif:nonTraversableConnection>
+   </mif:association>
+</mif:staticModel>

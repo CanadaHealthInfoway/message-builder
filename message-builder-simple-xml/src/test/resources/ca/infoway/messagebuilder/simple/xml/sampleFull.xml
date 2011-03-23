@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ParameterList xmlns="urn:ca.infoway.messagebuilder.simplexml.v1" >
+	<id root="1.2.3" extension="Tom" />
+	<name>Fred</name>
+	<message language="fr-CA">Pour quoi?</message>
+	<amount>
+		<from unit="ml" value="5.3" />
+		<to unit="ml" value="10.2" />
+	</amount>
+	<amount>
+		<from unit="ml" value="5.3" />
+		<toNullFlavor value="PINF" />
+	</amount>
+	<amount>
+		<fromNullFlavor value="NINF" />
+		<to unit="ml" value="5.3" />
+	</amount>
+</ParameterList>

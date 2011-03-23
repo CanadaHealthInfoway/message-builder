@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:chi="urn:ca.infoway.messagebuilder.simplexml.v1" elementFormDefault="qualified" targetNamespace="urn:ca.infoway.messagebuilder.simplexml.v1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include schemaLocation="COCT_MT130001CA.xsd"/>
+  <xs:include schemaLocation="COCT_MT090108CA.xsd"/>
+  <xs:include schemaLocation="COCT_MT120600CA.xsd"/>
+  <xs:include schemaLocation="COCT_MT090508CA.xsd"/>
+  <xs:include schemaLocation="../../../../../../classes/simpleDataTypes.xsd"/>
+  <xs:complexType name="FICR_MT490102CA.DevicePassThru">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="deviceCode" type="chi:CodedValue"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="deviceName" type="xs:string"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="deviceDescription" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="FICR_MT490102CA.InFulfillmentOf">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="specialAuthorizationStatus" type="chi:SimpleCodedType"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="specialAuthorizationEffectiveDate" type="chi:DateInterval"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="specialAuthorizationAuthorAssignedEntity" type="chi:COCT_MT090508CA.AssignedEntity"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="specialAuthorizationCoveragePolicyOrAccount" type="chi:FICR_MT490102CA.PolicyOrAccount"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="specialAuthorizationLimitation1" type="chi:FICR_MT490102CA.Limitation2"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="specialAuthorizationLimitation2" type="chi:FICR_MT490102CA.Limitation"/>
+      <xs:element maxOccurs="100" minOccurs="1" name="specialAuthorizationSubject" type="chi:FICR_MT490102CA.Subject4"/>
+      <xs:element maxOccurs="100" minOccurs="0" name="specialAuthorizationSubjectOfAnnotation" type="chi:COCT_MT120600CA.Annotation"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="FICR_MT490102CA.Limitation">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="0" name="maximumFillsPermitted" type="xs:integer"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="maximumQuantitySupply" type="chi:PhysicalQuantity"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="maximumDaysSupply" type="chi:DateInterval"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="FICR_MT490102CA.Limitation2">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="0" name="remainingFillsPermitted" type="xs:integer"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="remainingQuantitySupply" type="chi:PhysicalQuantity"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="remainingDaysSupply" type="chi:DateInterval"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="FICR_MT490102CA.PertinentInformation">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="attachmentIdentifier" type="chi:InstanceIdentifier"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="attachmentType" type="chi:CodedValue"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="attachmentContent" type="chi:EncapsulatedDocumentType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="FICR_MT490102CA.PolicyHolderChoice">
+    <xs:choice>
+      <xs:element name="policyHolderPerson" type="chi:FICR_MT490102CA.PolicyHolderPerson"/>
+      <xs:element name="policyHolderOrganization" type="chi:FICR_MT490102CA.PolicyHolderOrganization"/>
+    </xs:choice>
+  </xs:group>
+  <xs:complexType name="FICR_MT490102CA.PolicyHolderOrganization">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="policyHolderOrganizationName" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="FICR_MT490102CA.PolicyHolderPerson">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="policyHolderName" type="chi:PersonName"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="FICR_MT490102CA.PolicyOrAccount">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="policyIdentifier" type="chi:InstanceIdentifier"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="policyType" type="chi:CodedValue"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="coveredPartyIdentifier" type="chi:InstanceIdentifier"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="relationshipToPolicyHolder" type="chi:CodedValue"/>
+      <xs:element maxOccurs="5" minOccurs="0" name="personalRelationshipType" type="chi:CodedValue"/>
+      <xs:element maxOccurs="5" minOccurs="1" name="coveredPartyPatientNameS" type="chi:PersonName"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="coveredPartyPatientGender" type="chi:CodedValue"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="coveredPartyPatientDateOfBirth" type="chi:PartialDate"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="coveredPartyPatientAddress" type="chi:PostalAddress"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="policyHolderIdentifier" type="chi:InstanceIdentifier"/>
+      <xs:group maxOccurs="1" minOccurs="0" ref="chi:FICR_MT490102CA.PolicyHolderChoice"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="carrierIdentifier" type="chi:InstanceIdentifier"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="FICR_MT490102CA.SpecialAuthorizationChoice">
+    <xs:choice>
+      <xs:element name="substanceAdministration" type="chi:FICR_MT490102CA.SubstanceAdministration"/>
+      <xs:element name="devicePassThru" type="chi:FICR_MT490102CA.DevicePassThru"/>
+    </xs:choice>
+  </xs:group>
+  <xs:complexType name="FICR_MT490102CA.SpecialAuthorizationRequest">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="specialAuthorityRequestID" type="chi:InstanceIdentifier"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="specialAuthorizationRequestType" type="chi:CodedValue"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="specialAuthorizationRequestEffectiveDate" type="chi:DateInterval"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="specialAuthorizationPriorityCode" type="chi:CodedValue"/>
+      <xs:element maxOccurs="2" minOccurs="0" name="confidentialityRestrictionS" type="chi:CodedValue"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="authorAssignedEntity" type="chi:COCT_MT090108CA.AssignedEntity"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="coveragePolicyOrAccount" type="chi:FICR_MT490102CA.PolicyOrAccount"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="fulfillment" type="chi:FICR_MT490102CA.InFulfillmentOf"/>
+      <xs:element maxOccurs="10" minOccurs="0" name="pertinentInformation" type="chi:FICR_MT490102CA.PertinentInformation"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="crossReferenceID" type="chi:InstanceIdentifier"/>
+      <xs:group maxOccurs="1" minOccurs="0" ref="chi:FICR_MT490102CA.SpecialAuthorizationChoice"/>
+      <xs:element maxOccurs="20" minOccurs="0" name="subject2" type="chi:FICR_MT490102CA.Subject5"/>
+      <xs:element maxOccurs="100" minOccurs="0" name="subjectOfAnnotation" type="chi:COCT_MT120600CA.Annotation"/>
+      <xs:element maxOccurs="200" minOccurs="0" name="support" type="chi:FICR_MT490102CA.Support2"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="FICR_MT490102CA.Subject4">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="includesExcludesProduct" type="xs:boolean"/>
+      <xs:group maxOccurs="1" minOccurs="1" ref="chi:FICR_MT490102CA.SpecialAuthorizationChoice"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="FICR_MT490102CA.Subject5">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="contextConductionInd" type="xs:boolean"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="controlActEvent" type="chi:COCT_MT130001CA.ControlActEvent"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="FICR_MT490102CA.Substance">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="0" name="drugIngredientIdentifier" type="chi:CodedValue"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="drugIngredientName" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="FICR_MT490102CA.SubstanceAdministration">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="0" name="drugDoseStrength" type="chi:PhysicalQuantity"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="drugCode" type="chi:CodedValue"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="drugName" type="xs:string"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="drugDescription" type="xs:string"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="drugForm" type="chi:CodedValue"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="drugDoesNotContainIndicator" type="xs:boolean"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="drugIngredientQuantity" type="chi:PhysicalQuantity"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="directTargetMedicationAdministerableMedicineIngredientIngredient" type="chi:FICR_MT490102CA.Substance"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="FICR_MT490102CA.Support2">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="generalSupportingInformationType" type="chi:CodedValue"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="generalSupportingInformationText" type="xs:string"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="generalSupportingInformationValue" type="xs:anyType"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ParameterList xmlns="urn:ca.infoway.messagebuilder.simplexml.v1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+	<signatureDoc>This is a signature</signatureDoc>
+	
+	<docOrRef xsi:type="EncapsulatedDocumentType">
+		<document>VG9tIGlzIGRyaXZpbmcgbWUgY3Jhenk=</document>
+	</docOrRef>
+	
+	<document mediaType="text/html" uri="http://www.i-proving.ca" compression="GZ" language="en-CA">
+		<document>VG9tIGlzIGRyaXZpbmcgbWUgY3Jhenk=</document>
+	</document>
+	
+	<document>
+		<document>VG9tIGlzIGRyaXZpbmcgbWUgY3Jhenk=</document>
+	</document>
+	
+	<reference mediaType="text/html" uri="http://www.i-proving.ca" compression="GZ" language="en-CA" />
+	
+	<reference uri="http://www.i-proving.ca"/>
+	
+</ParameterList>

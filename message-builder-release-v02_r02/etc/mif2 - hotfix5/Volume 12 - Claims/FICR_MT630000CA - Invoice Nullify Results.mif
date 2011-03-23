@@ -1,0 +1,1023 @@
+<?xml version="1.0" encoding="UTF-8"?><mif:staticModel xmlns:mif="urn:hl7-org:v3/mif" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:hl7-org:v3/mif" isAbstract="false" isSerializable="true" name="CA" packageKind="realmNamespace" representationKind="flat" schemaVersion="2.0" xsi:schemaLocation="">
+   <mif:packageLocation artifact="MT-deprecated" domain="CR" id="630000" realmNamespace="CA" root="DEFN" section="AM" subSection="FI"/>
+   <mif:header>
+      <mif:renderingInformation application="Visio to MIF transform"/>
+      <mif:legalese copyrightOwner="Health Level Seven" copyrightYears="2008"/>
+   </mif:header>
+   <mif:graphicRepresentation presentation="HL7">
+      <mif:graphElement name="Main">
+         <mif:position x="0" y="0"/>
+         <mif:size height="3072" width="4992"/>
+      </mif:graphElement>
+   <entryPoint name="Invoice Nullify Results"><mif:graphElement containerDiagramName="Main" shapeId="Sheet.245">
+            <mif:position x="2167" y="624"/>
+            <mif:size height="48" width="233"/>
+            <mif:anchorage connectToShapeId="Sheet.245">
+               <mif:position x="2246" y="672"/>
+               <mif:graphEdge>
+                  <mif:anchor connectToShapeId="Sheet.241">
+                     <mif:position x="2321" y="805"/>
+                  </mif:anchor>
+               </mif:graphEdge>
+            </mif:anchorage>
+         </mif:graphElement></entryPoint><class className="A_AccountPayeeUniversal" presentation="HL7"><mif:graphElement containerDiagramName="Main" isHeightAutoSize="false" isWidthAutoSize="true" shapeId="Sheet.414" shapeTemplate="CMET">
+               <mif:position x="3512" y="594"/>
+               <mif:size height="62" width="105"/>
+            </mif:graphElement></class><class className="A_AccountPayorUniversal" presentation="HL7"><mif:graphElement containerDiagramName="Main" isHeightAutoSize="true" isWidthAutoSize="true" shapeId="Sheet.408" shapeTemplate="CMET">
+               <mif:position x="3511" y="521"/>
+               <mif:size height="60" width="105"/>
+            </mif:graphElement></class><class className="AdjudResultsGroup" presentation="HL7"><mif:graphElement containerDiagramName="Main" isHeightAutoSize="false" isWidthAutoSize="false" shapeId="Sheet.501" shapeTemplate="Act">
+               <mif:position x="3984" y="819"/>
+               <mif:size height="227" width="306"/>
+            </mif:graphElement></class><class className="AdjudResultsGroupSummary" presentation="HL7"><mif:graphElement containerDiagramName="Main" nodeOrientation="Down" shapeId="Sheet.485" shapeTemplate="ActRelationship" textWrappingWidth="66.0">
+               <mif:position x="4134" y="1046"/>
+               <mif:size height="172" width="116"/>
+            </mif:graphElement></class><class className="AdjudResultsGroupSummaryData" presentation="HL7"><mif:graphElement containerDiagramName="Main" isHeightAutoSize="false" isWidthAutoSize="false" shapeId="Sheet.497" shapeTemplate="Act">
+               <mif:position x="4216" y="1219"/>
+               <mif:size height="82" width="307"/>
+            </mif:graphElement></class><class className="AdjudResultsRef" presentation="HL7"><mif:graphElement containerDiagramName="Main" nodeOrientation="Left" shapeId="Sheet.456" shapeTemplate="ActRelationship" textWrappingWidth="66.0">
+               <mif:position x="3370" y="860"/>
+               <mif:size height="29" width="614"/>
+            </mif:graphElement></class><class className="AdjudicatedInvoiceElementGroup" presentation="HL7"><mif:graphElement containerDiagramName="Main" isHeightAutoSize="false" isWidthAutoSize="false" shapeId="Sheet.304" shapeTemplate="Act">
+               <mif:position x="3073" y="745"/>
+               <mif:size height="262" width="297"/>
+            </mif:graphElement></class><class className="InvoiceElementGroup" presentation="HL7"><mif:graphElement containerDiagramName="Main" isHeightAutoSize="false" isWidthAutoSize="false" shapeId="Sheet.241" shapeTemplate="Act">
+               <mif:position x="2232" y="805"/>
+               <mif:size height="173" width="297"/>
+            </mif:graphElement></class><class className="PaymentIntent" presentation="HL7"><mif:graphElement containerDiagramName="Main" isHeightAutoSize="false" isWidthAutoSize="false" shapeId="Sheet.420" shapeTemplate="Act">
+               <mif:position x="3045" y="379"/>
+               <mif:size height="295" width="321"/>
+            </mif:graphElement></class><class className="PaymentIntentPayee" presentation="HL7"><mif:graphElement containerDiagramName="Main" nodeOrientation="Right" shapeId="Sheet.396" shapeTemplate="ActRelationship" textWrappingWidth="66.0">
+               <mif:position x="3366" y="609"/>
+               <mif:size height="29" width="145"/>
+            </mif:graphElement></class><class className="PaymentIntentPayor" presentation="HL7"><mif:graphElement containerDiagramName="Main" nodeOrientation="Right" shapeId="Sheet.402" shapeTemplate="ActRelationship" textWrappingWidth="66.0">
+               <mif:position x="3366" y="536"/>
+               <mif:size height="29" width="145"/>
+            </mif:graphElement></class><class className="PaymentIntentReason" presentation="HL7"><mif:graphElement containerDiagramName="Main" nodeOrientation="Up" shapeId="Sheet.320" shapeTemplate="ActRelationship" textWrappingWidth="66.0">
+               <mif:position x="3156" y="675"/>
+               <mif:size height="70" width="114"/>
+            </mif:graphElement></class><class className="PreviousAdjudicationResultReference" presentation="HL7"><mif:graphElement containerDiagramName="Main" nodeOrientation="Right" shapeId="Sheet.41" shapeTemplate="ActRelationship" textWrappingWidth="66.0">
+               <mif:position x="2529" y="808"/>
+               <mif:size height="29" width="543"/>
+            </mif:graphElement></class><class className="Reference" presentation="HL7"><mif:graphElement containerDiagramName="Main" nodeOrientation="DownLeft" shapeId="Sheet.1" shapeTemplate="ActRelationshipR" textWrappingWidth="66.0">
+               <mif:position x="2960" y="745"/>
+               <mif:size height="64" width="112"/>
+            </mif:graphElement></class><association className="AdjudResultsGroupSummary" relationshipName="summary"><mif:graphElement connectToShapeId="Sheet.501" containerDiagramName="Main">
+                                                                     <mif:position x="4107" y="1046"/>
+                                                                     <mif:graphEdge>
+                                                                        <mif:anchor connectToShapeId="Sheet.485">
+                                                                           <mif:position x="4107" y="1046"/>
+                                                                        </mif:anchor>
+                                                                     </mif:graphEdge>
+                                                                  </mif:graphElement></association><association className="AdjudResultsGroupSummaryData" relationshipName="adjudResultsGroupSummaryData"><mif:graphElement connectToShapeId="Sheet.485" containerDiagramName="Main">
+                                                                                 <mif:position x="4278" y="1219"/>
+                                                                                 <mif:graphEdge>
+                                                                                    <mif:anchor connectToShapeId="Sheet.497">
+                                                                                       <mif:position x="4278" y="1219"/>
+                                                                                    </mif:anchor>
+                                                                                 </mif:graphEdge>
+                                                                              </mif:graphElement></association><association className="AdjudResultsGroup" relationshipName="adjudResultsGroup"><mif:graphElement connectToShapeId="Sheet.456" containerDiagramName="Main">
+                                                         <mif:position x="3984" y="978"/>
+                                                         <mif:graphEdge>
+                                                            <mif:anchor connectToShapeId="Sheet.501">
+                                                               <mif:position x="3984" y="978"/>
+                                                            </mif:anchor>
+                                                         </mif:graphEdge>
+                                                      </mif:graphElement></association><association className="PaymentIntentReason" relationshipName="reason"><mif:graphElement connectToShapeId="Sheet.304" containerDiagramName="Main">
+                                             <mif:position x="3221" y="745"/>
+                                             <mif:graphEdge>
+                                                <mif:anchor connectToShapeId="Sheet.320">
+                                                   <mif:position x="3221" y="745"/>
+                                                </mif:anchor>
+                                             </mif:graphEdge>
+                                          </mif:graphElement></association><association className="Reference" relationshipName="reference"><mif:graphElement connectToShapeId="Sheet.304" containerDiagramName="Main">
+                                             <mif:position x="3102" y="745"/>
+                                             <mif:graphEdge>
+                                                <mif:anchor connectToShapeId="Sheet.1">
+                                                   <mif:position x="3102" y="745"/>
+                                                </mif:anchor>
+                                             </mif:graphEdge>
+                                          </mif:graphElement></association><association className="AdjudResultsRef" relationshipName="referencedBy"><mif:graphElement connectToShapeId="Sheet.304" containerDiagramName="Main">
+                                             <mif:position x="3370" y="771"/>
+                                             <mif:graphEdge>
+                                                <mif:anchor connectToShapeId="Sheet.456">
+                                                   <mif:position x="3370" y="771"/>
+                                                </mif:anchor>
+                                             </mif:graphEdge>
+                                          </mif:graphElement></association><association className="PreviousAdjudicationResultReference" relationshipName="reference"><mif:graphElement connectToShapeId="Sheet.241" containerDiagramName="Main">
+                     <mif:position x="2529" y="822"/>
+                     <mif:graphEdge>
+                        <mif:anchor connectToShapeId="Sheet.41">
+                           <mif:position x="2529" y="822"/>
+                        </mif:anchor>
+                     </mif:graphEdge>
+                  </mif:graphElement></association><association className="PaymentIntentPayee" relationshipName="credit"><mif:graphElement connectToShapeId="Sheet.420" containerDiagramName="Main">
+                                                                     <mif:position x="3366" y="616"/>
+                                                                     <mif:graphEdge>
+                                                                        <mif:anchor connectToShapeId="Sheet.396">
+                                                                           <mif:position x="3366" y="616"/>
+                                                                        </mif:anchor>
+                                                                     </mif:graphEdge>
+                                                                  </mif:graphElement></association><association className="PaymentIntentPayor" relationshipName="debit"><mif:graphElement connectToShapeId="Sheet.420" containerDiagramName="Main">
+                                                                     <mif:position x="3366" y="557"/>
+                                                                     <mif:graphEdge>
+                                                                        <mif:anchor connectToShapeId="Sheet.402">
+                                                                           <mif:position x="3366" y="557"/>
+                                                                        </mif:anchor>
+                                                                     </mif:graphEdge>
+                                                                  </mif:graphElement></association><association className="A_AccountPayeeUniversal" relationshipName="account"><mif:graphElement connectToShapeId="Sheet.396" containerDiagramName="Main">
+                                                                                 <mif:position x="3512" y="632"/>
+                                                                                 <mif:graphEdge>
+                                                                                    <mif:anchor connectToShapeId="Sheet.414">
+                                                                                       <mif:position x="3512" y="632"/>
+                                                                                    </mif:anchor>
+                                                                                 </mif:graphEdge>
+                                                                              </mif:graphElement></association><association className="A_AccountPayorUniversal" relationshipName="account"><mif:graphElement connectToShapeId="Sheet.402" containerDiagramName="Main">
+                                                                                 <mif:position x="3511" y="545"/>
+                                                                                 <mif:graphEdge>
+                                                                                    <mif:anchor connectToShapeId="Sheet.408">
+                                                                                       <mif:position x="3511" y="545"/>
+                                                                                    </mif:anchor>
+                                                                                 </mif:graphEdge>
+                                                                              </mif:graphElement></association><association className="PaymentIntent" relationshipName="paymentIntent"><mif:graphElement connectToShapeId="Sheet.320" containerDiagramName="Main">
+                                                         <mif:position x="3206" y="675"/>
+                                                         <mif:graphEdge>
+                                                            <mif:anchor connectToShapeId="Sheet.420">
+                                                               <mif:position x="3206" y="675"/>
+                                                            </mif:anchor>
+                                                         </mif:graphEdge>
+                                                      </mif:graphElement></association><association className="AdjudicatedInvoiceElementGroup" relationshipName="adjudicatedInvoiceElementGroup"><mif:graphElement connectToShapeId="Sheet.41" containerDiagramName="Main">
+                                 <mif:position x="3073" y="824"/>
+                                 <mif:graphEdge>
+                                    <mif:anchor connectToShapeId="Sheet.304">
+                                       <mif:position x="3073" y="824"/>
+                                    </mif:anchor>
+                                 </mif:graphEdge>
+                              </mif:graphElement></association><association className="AdjudicatedInvoiceElementGroup" relationshipName="adjudicatedInvoiceElementGroup"><mif:graphElement connectToShapeId="Sheet.1" containerDiagramName="Main">
+                                                         <mif:position x="3073" y="771"/>
+                                                         <mif:graphEdge>
+                                                            <mif:anchor connectToShapeId="Sheet.304">
+                                                               <mif:position x="3073" y="771"/>
+                                                            </mif:anchor>
+                                                         </mif:graphEdge>
+                                                      </mif:graphElement></association><annotation id="1B7C1241-1F6C-45DD-91A3-4FFE8970C284"><mif:graphElement containerDiagramName="Main" isHeightAutoSize="true" isWidthAutoSize="true" shapeId="Sheet.466">
+                     <mif:position x="3785" y="1126"/>
+                     <mif:size height="53" width="262"/>
+                     <mif:anchorage connectToShapeId="Sheet.466">
+                        <mif:position x="3917" y="1153"/>
+                        <mif:graphEdge>
+                           <mif:anchor connectToShapeId="Sheet.501">
+                              <mif:position x="3984" y="1000"/>
+                           </mif:anchor>
+                        </mif:graphEdge>
+                     </mif:anchorage>
+                  </mif:graphElement></annotation><annotation id="E0BD3F0B-0796-4345-9937-3745746C914D"><mif:graphElement containerDiagramName="Main" isHeightAutoSize="true" isWidthAutoSize="true" shapeId="Sheet.462">
+                     <mif:position x="4581" y="1590"/>
+                     <mif:size height="31" width="246"/>
+                     <mif:anchorage connectToShapeId="Sheet.462">
+                        <mif:position x="4704" y="1606"/>
+                        <mif:graphEdge>
+                           <mif:anchor connectToShapeId="Sheet.497">
+                              <mif:position x="4524" y="1260"/>
+                           </mif:anchor>
+                        </mif:graphEdge>
+                     </mif:anchorage>
+                  </mif:graphElement></annotation><annotation id="E9F14713-7892-4BF8-BB20-6198BD25CBD6"><mif:graphElement containerDiagramName="Main" isHeightAutoSize="true" isWidthAutoSize="true" shapeId="Sheet.433">
+                     <mif:position x="2688" y="523"/>
+                     <mif:size height="76" width="190"/>
+                     <mif:anchorage connectToShapeId="Sheet.433">
+                        <mif:position x="2783" y="562"/>
+                        <mif:graphEdge>
+                           <mif:anchor connectToShapeId="Sheet.420">
+                              <mif:position x="3045" y="557"/>
+                           </mif:anchor>
+                        </mif:graphEdge>
+                     </mif:anchorage>
+                  </mif:graphElement></annotation></mif:graphicRepresentation>
+   <derivedFrom staticModelDerivationId="1">
+      <mif:targetStaticModel artifact="RIM" root="DEFN" version="00"/>
+   </derivedFrom>
+   <entryPoint className="InvoiceElementGroup" id="FICR_MT630000CA" isAbstract="false" name="Invoice Nullify Results">
+      <mif:annotations>
+         
+      <documentation><mif:description>
+            <mif:text>
+               <xhtml:p>Entry point for Invoice Nullify Results message.</xhtml:p>
+            </mif:text>
+         </mif:description></documentation></mif:annotations>
+      
+   </entryPoint>
+   <containedClass>
+      <mif:commonModelElementRef name="A_AccountPayeeUniversal">
+         <derivedFrom className="Act" staticModelDerivationId="1"/>
+         <supplierVocabulary><vocabularyDomain xmlns="" name="ActClass"/></supplierVocabulary>
+         
+         <cmet name="COCT_MT110200CA"/>
+      </mif:commonModelElementRef>
+   </containedClass>
+   <containedClass>
+      <mif:commonModelElementRef name="A_AccountPayorUniversal">
+         <derivedFrom className="Act" staticModelDerivationId="1"/>
+         <supplierVocabulary><vocabularyDomain xmlns="" name="ActClass"/></supplierVocabulary>
+         
+         <cmet name="COCT_MT110101CA"/>
+      </mif:commonModelElementRef>
+   </containedClass>
+   <containedClass>
+      <mif:class isAbstract="false" name="AdjudResultsGroup">
+         <mif:businessName name="Adjudicated Results Group"><realmNamespace value="UV"/></mif:businessName>
+         <derivedFrom className="InvoiceElement" staticModelDerivationId="1"/>
+         
+         <mif:annotations>
+            
+            
+         <documentation><mif:definition>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>Group of results for line items/invoice elements previously adjudicated.</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:definition></documentation><appInfo><mif:constraint id="{1B7C1241-1F6C-45DD-91A3-4FFE8970C284}">
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>Payor must be specified for the root Act ONLY. Payee is optional, but may only be specified for the root Act.</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+               
+            </mif:constraint></appInfo></mif:annotations>
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="classCode" sortKey="1"><enumerationValues>INVE</enumerationValues>
+            <derivedFrom attributeName="classCode" className="InvoiceElement" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="INVE" codeSystemName="ActClass"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="moodCode" sortKey="2"><enumerationValues>EVN</enumerationValues>
+            <derivedFrom attributeName="moodCode" className="InvoiceElement" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="EVN" codeSystemName="ActMood"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="code" sortKey="3">
+            <mif:businessName name="Breakdown of Financial Activity"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>This code describes the breakdown of the financial activity and defines the 'categorization; Only really relevant for summaries.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:usageNotes>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>For Payment Advice: For Vision Care payment advices, RETRO adjustments will always include references to the EOBs that made up the retroactive adjustment.</xhtml:p>
+                     </xhtml:p>
+                     <xhtml:p>
+                        <xhtml:p>For Payment Advice: For Pharmacy payment advices, RETRO adjustments will not include references to the EOBs that made up the retroactive adjustment. Providers must submit a Payment Advice Query message to get the EOBs referenced by the RETRO amount. The Payment Advice Detail message, however, is not currently supported in Pharmacy.</xhtml:p>
+                     </xhtml:p>
+                     <xhtml:p>
+                        <xhtml:p>For Payment Advice: Code also specifies the type of adjustment for a payment advice (e.g. CFWD - carry forward adjustment).</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:usageNotes></documentation></mif:annotations>
+            <derivedFrom attributeName="code" className="InvoiceElement" staticModelDerivationId="1"/>
+            <mif:type name="CV"/>
+            <supplierVocabulary codingStrength="CNE"><vocabularyDomain name="ActInvoiceAdjudicationPaymentCode"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="false" maximumMultiplicity="1" minimumMultiplicity="1" name="effectiveTime" sortKey="4">
+            <mif:businessName name="Time period for the payment"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Time period for the payment or summary period.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:usageNotes>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>For Payment Advice: Can also indicate time period over which the clawback and/or retro adjustment applies.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:usageNotes></documentation></mif:annotations>
+            <derivedFrom attributeName="effectiveTime" className="InvoiceElement" staticModelDerivationId="1"/>
+            <mif:type name="IVL">
+               <argumentDatatype name="TS.FULLDATE"/>
+            </mif:type>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="netAmt" sortKey="5">
+            <mif:businessName name="Summary Period Amt"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Summary Period Amt - Grand total of all SOFA observations contained in this summary</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:usageNotes>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>On SOFA Summary, this could be used to specify the amount that will be included in the Payment Advice. In this situation, it should equal the net effect of all AdjudResultsGroupSummaryData elements that would appear in the Payment Advice.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:usageNotes></documentation></mif:annotations>
+            <derivedFrom attributeName="netAmt" className="InvoiceElement" staticModelDerivationId="1"/>
+            <mif:type name="MO.CAD"/>
+         </mif:attribute>
+      </mif:class>
+   </containedClass>
+   <containedClass>
+      <mif:class isAbstract="false" name="AdjudResultsGroupSummary">
+         <mif:businessName name="Summary Running Totals"><realmNamespace value="UV"/></mif:businessName>
+         <derivedFrom className="ActRelationship" staticModelDerivationId="1"/>
+         
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="typeCode" sortKey="1"><enumerationValues>SUMM</enumerationValues>
+            <derivedFrom attributeName="typeCode" className="ActRelationship" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="SUMM" codeSystemName="ActRelationshipType"/></supplierVocabulary>
+         </mif:attribute>
+      </mif:class>
+   </containedClass>
+   <containedClass>
+      <mif:class isAbstract="false" name="AdjudResultsGroupSummaryData">
+         <mif:businessName name="Summary Details"><realmNamespace value="UV"/></mif:businessName>
+         <derivedFrom className="Observation" staticModelDerivationId="1"/>
+         
+         <mif:annotations>
+            
+            
+         <documentation><mif:definition>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>Summarised Details of the Adjudicated Results for a group of Invoice elements/line items.</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:definition></documentation><appInfo><mif:constraint id="{E0BD3F0B-0796-4345-9937-3745746C914D}">
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>Constrain Value to PQ or MO data types only</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+               
+            </mif:constraint></appInfo></mif:annotations>
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="classCode" sortKey="1"><enumerationValues>OBS</enumerationValues>
+            <derivedFrom attributeName="classCode" className="Observation" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="OBS" codeSystemName="ActClass"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="moodCode" sortKey="2"><enumerationValues>EVN</enumerationValues>
+            <derivedFrom attributeName="moodCode" className="Observation" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="EVN" codeSystemName="ActMood"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="false" maximumMultiplicity="1" minimumMultiplicity="1" name="code" sortKey="3">
+            <mif:businessName name="Summary Period Amt"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Summary Period Amt</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>(defines the 'categorization'. Only really relevant for summaries.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation></mif:annotations>
+            <derivedFrom attributeName="code" className="Observation" staticModelDerivationId="1"/>
+            <mif:type name="CV"/>
+            <supplierVocabulary codingStrength="CNE"><vocabularyDomain name="ActInvoiceElementSummaryCode"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="false" maximumMultiplicity="1" minimumMultiplicity="1" name="value" sortKey="4">
+            <mif:businessName name="Summary Total Amt"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Summary Total Amt</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:usageNotes>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>PQ or MO only - Value of summary</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:usageNotes></documentation></mif:annotations>
+            <derivedFrom attributeName="value" className="Observation" staticModelDerivationId="1"/>
+            <mif:type name="PQ.BASIC"/>
+         </mif:attribute>
+      </mif:class>
+   </containedClass>
+   <containedClass>
+      <mif:class isAbstract="false" name="AdjudResultsRef">
+         <derivedFrom className="ActRelationship" staticModelDerivationId="1"/>
+         
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="typeCode" sortKey="1"><enumerationValues>REFR</enumerationValues>
+            <derivedFrom attributeName="typeCode" className="ActRelationship" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="REFR" codeSystemName="ActRelationshipType"/></supplierVocabulary>
+         </mif:attribute>
+      </mif:class>
+   </containedClass>
+   <containedClass>
+      <mif:class isAbstract="false" name="AdjudicatedInvoiceElementGroup">
+         <mif:businessName name="Adjudicated Invoice Element Group"><realmNamespace value="UV"/></mif:businessName>
+         <derivedFrom className="InvoiceElement" staticModelDerivationId="1"/>
+         
+         <mif:annotations>
+            
+         <documentation><mif:definition>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>Group of Invoice Elements being referenced; ie. group of billable items.</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:definition></documentation></mif:annotations>
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="classCode" sortKey="1"><enumerationValues>INVE</enumerationValues>
+            <derivedFrom attributeName="classCode" className="InvoiceElement" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="INVE" codeSystemName="ActClass"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="moodCode" sortKey="2"><enumerationValues>EVN</enumerationValues>
+            <derivedFrom attributeName="moodCode" className="InvoiceElement" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="EVN" codeSystemName="ActMood"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="id" sortKey="3">
+            <mif:businessName name="Adjudication Result Id"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Adjudication Result Id - Technique to identify that the EOB was not electronic (manual) is through the participation mode code for the adjudicator.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:usageNotes>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>May include data centre and sequence numbers</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:usageNotes></documentation></mif:annotations>
+            <derivedFrom attributeName="id" className="InvoiceElement" staticModelDerivationId="1"/>
+            <mif:type name="II.BUS"/>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="code" sortKey="4">
+            <mif:businessName name="Invoice Type"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Invoice Type e.g. Healthcare Services, Rx Dispense, Rx Compound</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:usageNotes>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>For Invoice (COB) : Invoice type (for root) cannot be different from submitted invoice. This would be a cause for rejecting the invoice.</xhtml:p>
+                     </xhtml:p>
+                     <xhtml:p>
+                        <xhtml:p>For Adjudication Results: code must match to the corresponding invoice element that was submitted.</xhtml:p>
+                     </xhtml:p>
+                     <xhtml:p>
+                        <xhtml:p>For Invoice Nullify Results: this is the identifier of the EOB that was previously messaged to the Provider.</xhtml:p>
+                     </xhtml:p>
+                     <xhtml:p>
+                        <xhtml:p>Modifiers for the codes are taken from the same domain (i.e ActInvoiceGroupCode).</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:usageNotes></documentation></mif:annotations>
+            <derivedFrom attributeName="code" className="InvoiceElement" staticModelDerivationId="1"/>
+            <mif:type name="CV"/>
+            <supplierVocabulary codingStrength="CNE"><vocabularyDomain name="ActInvoiceGroupCode"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="statusCode" sortKey="5">
+            <mif:annotations>
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Invoice Status - Completed when done, Suspended if waiting for external information, Active if delayed by Adjudicator</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:usageNotes>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Active EOBs are used to convey interim or preliminary adjudication results. They can also be used, with information codes, to indicate that the invoice grouping is held for manual review by the adjudicator, waiting for other third party information (e.g. from another provider, employer, etc.).</xhtml:p>
+                     </xhtml:p>
+                     <xhtml:p>
+                        <xhtml:p>Suspended EOBs are used to convey adjudication results that are awaiting additional information from the submitting Provider.</xhtml:p>
+                     </xhtml:p>
+                     <xhtml:p>
+                        <xhtml:p>Complete EOBs are used to convey final adjudication results, with an associated intent to pay.</xhtml:p>
+                     </xhtml:p>
+                     <xhtml:p>
+                        <xhtml:p>For Invoice (COB): Status code must be complete in order for EOB to be sent to downstream Adjudicators. If a Provider receives a non-complete EOB, this cannot be forwarded to a downstream Adjudicator.</xhtml:p>
+                     </xhtml:p>
+                     <xhtml:p>
+                        <xhtml:p>Field cannot be made mandatory, as it is not included in Payment Advice Detail messages (only completed EOBs can be included in a Payment Advice).</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:usageNotes></documentation></mif:annotations>
+            <derivedFrom attributeName="statusCode" className="InvoiceElement" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><vocabularyDomain name="nullified"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="netAmt" sortKey="6">
+            <mif:businessName name="Paid Amount"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Paid Amount</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:usageNotes>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>For Coverage Extension Results, this is typically not specified, as dollar limits are noted as information codes</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:usageNotes></documentation></mif:annotations>
+            <derivedFrom attributeName="netAmt" className="InvoiceElement" staticModelDerivationId="1"/>
+            <mif:type name="MO.CAD"/>
+         </mif:attribute>
+      </mif:class>
+   </containedClass>
+   <containedClass>
+      <mif:class isAbstract="false" name="InvoiceElementGroup">
+         <mif:businessName name="Invoice Element Group"><realmNamespace value="UV"/></mif:businessName>
+         <derivedFrom className="InvoiceElement" staticModelDerivationId="1"/>
+         
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="classCode" sortKey="1"><enumerationValues>INVE</enumerationValues>
+            <derivedFrom attributeName="classCode" className="InvoiceElement" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="INVE" codeSystemName="ActClass"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="moodCode" sortKey="2"><enumerationValues>RQO</enumerationValues>
+            <derivedFrom attributeName="moodCode" className="InvoiceElement" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="RQO" codeSystemName="ActMood"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="id" sortKey="3">
+            <mif:businessName name="Invoice Group ID"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Set of identifiers that uniquely identify the Invoice Grouping.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:usageNotes>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>May include data centre and sequence numbers</xhtml:p>
+                     </xhtml:p>
+                     <xhtml:p>
+                        <xhtml:p>1. unique invoice group identifier, independent of adjudicator recipient.</xhtml:p>
+                     </xhtml:p>
+                     <xhtml:p>
+                        <xhtml:p>2. sequential invoice grouping identifier by adjudicator.</xhtml:p>
+                     </xhtml:p>
+                     <xhtml:p>
+                        <xhtml:p>Obligation on adjudicator is to return and communicate about this item with all identifiers (i.e. identifier 1. and 2.).</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:usageNotes><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Invoice Grouping Identifier: There are some situations where more than 1 identifier for this object can be included in a message.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation></mif:annotations>
+            <derivedFrom attributeName="id" className="InvoiceElement" staticModelDerivationId="1"/>
+            <mif:type name="II.BUS"/>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="code" sortKey="4">
+            <mif:businessName name="Invoice Type"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Invoice Type - Health Care Services/Goods, Rx Dispense, Rx compound, Preferred Accom.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:usageNotes>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Invoice Type is the indication to the payor as to the content rules to apply when processing and adjudicating the invoice. Basically, the structure of the invoice grouping. Ie. Clinical Product, Clinical Service, Preferred Accom, Rx Dispense, Rx Compound</xhtml:p>
+                     </xhtml:p>
+                     <xhtml:p>
+                        <xhtml:p>This is used to indicate the type of Invoice Grouping.</xhtml:p>
+                     </xhtml:p>
+                     <xhtml:p>
+                        <xhtml:p>Each Invoice Type is used to specify 1. vocabulary, 2. structure of the Invoice Element Choice and 3. which Billable Act(s) can be included for the specified Invoice Type.</xhtml:p>
+                     </xhtml:p>
+                     <xhtml:p>
+                        <xhtml:p>Information on constraints for the Invoice Type will be found in the NeCST Message Specifications. Each Benefit Group will indicate which Invoice Types will be supported by that Benefit Group.</xhtml:p>
+                     </xhtml:p>
+                     <xhtml:p>
+                        <xhtml:p>Invoice Types will not generate unique and distinct XML schemas that can tested independent of each other. They must be tested together within an Message Type.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:usageNotes></documentation></mif:annotations>
+            <derivedFrom attributeName="code" className="InvoiceElement" staticModelDerivationId="1"/>
+            <mif:type name="CV"/>
+            <supplierVocabulary codingStrength="CNE"><vocabularyDomain name="ActInvoiceGroupCode"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="netAmt" sortKey="5">
+            <mif:businessName name="Invoice Sub-total"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Invoice Sub-total - Identifies the total monetary amount billed for the invoice element.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:usageNotes>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>For Cancel Request: This would serve as a cross-check for the Adjudicator for the Invoice Grouping that is being cancelled.</xhtml:p>
+                     </xhtml:p>
+                     <xhtml:p>
+                        <xhtml:p>Attribute cannot be mandatory as it may not be present for a Coverage Extension Request.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:usageNotes><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>This is the sum of the Submitted Invoice Line amounts.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation></mif:annotations>
+            <derivedFrom attributeName="netAmt" className="InvoiceElement" staticModelDerivationId="1"/>
+            <mif:type name="MO.CAD"/>
+         </mif:attribute>
+      </mif:class>
+   </containedClass>
+   <containedClass>
+      <mif:class isAbstract="false" name="PaymentIntent">
+         <mif:businessName name="Payment Intent"><realmNamespace value="UV"/></mif:businessName>
+         <derivedFrom className="FinancialTransaction" staticModelDerivationId="1"/>
+         
+         <mif:annotations>
+            
+            
+            
+         <documentation><mif:definition>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>Intention of Payor to pay invoice as previously adjudicated.</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:definition><mif:usageNotes>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>If an Adjudicator adjudicates for multiple insurance policies (EOBs) for multiple Payors and/or Payees, there would be more than 1 Payment Intent payload in the Results message</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:usageNotes></documentation><appInfo><mif:constraint id="{E9F14713-7892-4BF8-BB20-6198BD25CBD6}">
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>Net_amt must be positive or 0 for</xhtml:p>
+                  </xhtml:p>
+                  <xhtml:p>
+                     <xhtml:p>Adjudication Results messages</xhtml:p>
+                  </xhtml:p>
+                  <xhtml:p>
+                     <xhtml:p>Net_amt must be negative or 0 for Invoice Cancel messages</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+               
+            </mif:constraint></appInfo></mif:annotations>
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="classCode" sortKey="1"><enumerationValues>XACT</enumerationValues>
+            <derivedFrom attributeName="classCode" className="FinancialTransaction" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="XACT" codeSystemName="ActClass"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="moodCode" sortKey="2"><enumerationValues>PRMS</enumerationValues>
+            <derivedFrom attributeName="moodCode" className="FinancialTransaction" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="PRMS" codeSystemName="ActMood"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="false" maximumMultiplicity="1" minimumMultiplicity="0" name="effectiveTime" sortKey="3">
+            <mif:businessName name="Payment Intent Date/Time"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Parment Intent Date/Time - Time payor intends to make payment (e.g. date of cheque/EFT run).</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:usageNotes>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>For nullify, this would also be the date the payor intends to make the payment.</xhtml:p>
+                     </xhtml:p>
+                     <xhtml:p>
+                        <xhtml:p>For Invoice Nullify Results: Effective time of the cancel is noted in the control act wrapper.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:usageNotes></documentation></mif:annotations>
+            <derivedFrom attributeName="effectiveTime" className="FinancialTransaction" staticModelDerivationId="1"/>
+            <mif:type name="TS.DATE"/>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="amt" sortKey="4">
+            <mif:businessName name="payment amount"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>payment amount</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:usageNotes>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Adjudication Results: The payment intent amount cannot be mandatory for active adjudication results.</xhtml:p>
+                     </xhtml:p>
+                     <xhtml:p>
+                        <xhtml:p>For Invoice Nullify Results: the payment intent is completed only, and therefore the amount must be specified.</xhtml:p>
+                     </xhtml:p>
+                     <xhtml:p>
+                        <xhtml:p>For completed Payment Intents, this field is mandatory.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:usageNotes></documentation></mif:annotations>
+            <derivedFrom attributeName="amt" className="FinancialTransaction" staticModelDerivationId="1"/>
+            <mif:type name="MO.CAD"/>
+         </mif:attribute>
+      </mif:class>
+   </containedClass>
+   <containedClass>
+      <mif:class isAbstract="false" name="PaymentIntentPayee">
+         <mif:businessName name="Organisation/Individual receiving payment for claim."><realmNamespace value="UV"/></mif:businessName>
+         <derivedFrom className="ActRelationship" staticModelDerivationId="1"/>
+         
+         <mif:annotations>
+            
+            
+         <documentation><mif:definition>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>Organisation/Individual receiving payment for claim.</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:definition><mif:usageNotes>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>Mandatory for completed EOBs. May not be present for active/suspended EOBs</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:usageNotes></documentation></mif:annotations>
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="typeCode" sortKey="1"><enumerationValues>CREDIT</enumerationValues>
+            <derivedFrom attributeName="typeCode" className="ActRelationship" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="CREDIT" codeSystemName="ActRelationshipType"/></supplierVocabulary>
+         </mif:attribute>
+      </mif:class>
+   </containedClass>
+   <containedClass>
+      <mif:class isAbstract="false" name="PaymentIntentPayor">
+         <derivedFrom className="ActRelationship" staticModelDerivationId="1"/>
+         
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="typeCode" sortKey="1"><enumerationValues>DEBIT</enumerationValues>
+            <derivedFrom attributeName="typeCode" className="ActRelationship" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="DEBIT" codeSystemName="ActRelationshipType"/></supplierVocabulary>
+         </mif:attribute>
+      </mif:class>
+   </containedClass>
+   <containedClass>
+      <mif:class isAbstract="false" name="PaymentIntentReason">
+         <derivedFrom className="ActRelationship" staticModelDerivationId="1"/>
+         
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="typeCode" sortKey="1"><enumerationValues>RSON</enumerationValues>
+            <derivedFrom attributeName="typeCode" className="ActRelationship" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="RSON" codeSystemName="ActRelationshipType"/></supplierVocabulary>
+         </mif:attribute>
+      </mif:class>
+   </containedClass>
+   <containedClass>
+      <mif:class isAbstract="false" name="PreviousAdjudicationResultReference">
+         <derivedFrom className="ActRelationship" staticModelDerivationId="1"/>
+         
+         <mif:annotations>
+            
+            
+         <documentation><mif:definition>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>The reference to previous adjudication results received for the invoice from other adjudicators when there is Coordination of Benefits involved.</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:definition><mif:usageNotes>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>Required for Invoice Grouping Nullifys if the Invoice has already been adjudicated. A new PaymentIntent &amp; new EOB will be created to indicate the net effect of the nullify (reversal).</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:usageNotes></documentation></mif:annotations>
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="typeCode" sortKey="1"><enumerationValues>REFR</enumerationValues>
+            <derivedFrom attributeName="typeCode" className="ActRelationship" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="REFR" codeSystemName="ActRelationshipType"/></supplierVocabulary>
+         </mif:attribute>
+      </mif:class>
+   </containedClass>
+   <containedClass>
+      <mif:class isAbstract="false" name="Reference">
+         <derivedFrom className="ActRelationship" staticModelDerivationId="1"/>
+         
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="typeCode" sortKey="1"><enumerationValues>REFR</enumerationValues>
+            <derivedFrom attributeName="typeCode" className="ActRelationship" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="REFR" codeSystemName="ActRelationshipType"/></supplierVocabulary>
+         </mif:attribute>
+      </mif:class>
+   </containedClass>
+   <association sortKey="13">
+      
+      <mif:connections>
+         <mif:traversableConnection isMandatory="false" maximumMultiplicity="10" minimumMultiplicity="0" name="summary" participantClassName="AdjudResultsGroupSummary" sortKey="BDM_______">
+            <derivedFrom associationEndName="outboundRelationship" className="Act" staticModelDerivationId="1"/>
+         </mif:traversableConnection>
+         <mif:nonTraversableConnection participantClassName="AdjudResultsGroup">
+            <derivedFrom associationEndName="source" className="ActRelationship" staticModelDerivationId="1"/>
+         </mif:nonTraversableConnection>
+      </mif:connections>
+   </association>
+   <association sortKey="15">
+      
+      <mif:connections>
+         <mif:traversableConnection isMandatory="false" maximumMultiplicity="1" minimumMultiplicity="1" name="adjudResultsGroupSummaryData" participantClassName="AdjudResultsGroupSummaryData" sortKey="BZ">
+            <derivedFrom associationEndName="target" className="ActRelationship" staticModelDerivationId="1"/>
+         </mif:traversableConnection>
+         <mif:nonTraversableConnection participantClassName="AdjudResultsGroupSummary">
+            <derivedFrom associationEndName="inboundRelationship" className="Act" staticModelDerivationId="1"/>
+         </mif:nonTraversableConnection>
+      </mif:connections>
+   </association>
+   <association sortKey="10">
+      
+      <mif:connections>
+         <mif:traversableConnection conformance="R" isMandatory="false" maximumMultiplicity="1" minimumMultiplicity="1" name="adjudResultsGroup" participantClassName="AdjudResultsGroup" sortKey="AZ">
+            <derivedFrom associationEndName="source" className="ActRelationship" staticModelDerivationId="1"/>
+         </mif:traversableConnection>
+         <mif:nonTraversableConnection participantClassName="AdjudResultsRef">
+            <derivedFrom associationEndName="outboundRelationship" className="Act" staticModelDerivationId="1"/>
+         </mif:nonTraversableConnection>
+      </mif:connections>
+   </association>
+   <association sortKey="7">
+      
+      <mif:connections>
+         <mif:traversableConnection conformance="R" isMandatory="false" maximumMultiplicity="1" minimumMultiplicity="0" name="reason" participantClassName="PaymentIntentReason" sortKey="BCA_______">
+            <derivedFrom associationEndName="outboundRelationship" className="Act" staticModelDerivationId="1"/>
+         </mif:traversableConnection>
+         <mif:nonTraversableConnection participantClassName="AdjudicatedInvoiceElementGroup">
+            <derivedFrom associationEndName="source" className="ActRelationship" staticModelDerivationId="1"/>
+         </mif:nonTraversableConnection>
+      </mif:connections>
+   </association>
+   <association sortKey="6">
+      
+      <mif:connections>
+         <mif:traversableConnection conformance="R" isMandatory="false" maximumMultiplicity="1" minimumMultiplicity="0" name="reference" participantClassName="Reference" sortKey="BDK_______">
+            <derivedFrom associationEndName="outboundRelationship" className="Act" staticModelDerivationId="1"/>
+         </mif:traversableConnection>
+         <mif:nonTraversableConnection participantClassName="AdjudicatedInvoiceElementGroup">
+            <derivedFrom associationEndName="source" className="ActRelationship" staticModelDerivationId="1"/>
+         </mif:nonTraversableConnection>
+      </mif:connections>
+   </association>
+   <association sortKey="5">
+      
+      <mif:connections>
+         <mif:traversableConnection conformance="R" isMandatory="false" maximumMultiplicity="1" minimumMultiplicity="0" name="referencedBy" participantClassName="AdjudResultsRef" sortKey="CDK_______">
+            <derivedFrom associationEndName="inboundRelationship" className="Act" staticModelDerivationId="1"/>
+         </mif:traversableConnection>
+         <mif:nonTraversableConnection participantClassName="AdjudicatedInvoiceElementGroup">
+            <derivedFrom associationEndName="target" className="ActRelationship" staticModelDerivationId="1"/>
+         </mif:nonTraversableConnection>
+      </mif:connections>
+   </association>
+   <association sortKey="0">
+      
+      <mif:connections>
+         <mif:traversableConnection conformance="R" isMandatory="false" maximumMultiplicity="10" minimumMultiplicity="0" name="reference" participantClassName="PreviousAdjudicationResultReference" sortKey="BDK_______">
+            <derivedFrom associationEndName="outboundRelationship" className="Act" staticModelDerivationId="1"/>
+         </mif:traversableConnection>
+         <mif:nonTraversableConnection participantClassName="InvoiceElementGroup">
+            <derivedFrom associationEndName="source" className="ActRelationship" staticModelDerivationId="1"/>
+         </mif:nonTraversableConnection>
+      </mif:connections>
+   </association>
+   <association sortKey="19">
+      
+      <mif:connections>
+         <mif:traversableConnection conformance="R" isMandatory="false" maximumMultiplicity="1" minimumMultiplicity="0" name="credit" participantClassName="PaymentIntentPayee" sortKey="BDOAA_____">
+            <derivedFrom associationEndName="outboundRelationship" className="Act" staticModelDerivationId="1"/>
+         </mif:traversableConnection>
+         <mif:nonTraversableConnection participantClassName="PaymentIntent">
+            <derivedFrom associationEndName="source" className="ActRelationship" staticModelDerivationId="1"/>
+         </mif:nonTraversableConnection>
+      </mif:connections>
+   </association>
+   <association sortKey="20">
+      
+      <mif:connections>
+         <mif:traversableConnection conformance="R" isMandatory="false" maximumMultiplicity="1" minimumMultiplicity="0" name="debit" participantClassName="PaymentIntentPayor" sortKey="BDOAB_____">
+            <derivedFrom associationEndName="outboundRelationship" className="Act" staticModelDerivationId="1"/>
+         </mif:traversableConnection>
+         <mif:nonTraversableConnection participantClassName="PaymentIntent">
+            <derivedFrom associationEndName="source" className="ActRelationship" staticModelDerivationId="1"/>
+         </mif:nonTraversableConnection>
+      </mif:connections>
+   </association>
+   <association sortKey="23">
+      
+      <mif:connections>
+         <mif:traversableConnection conformance="R" isMandatory="false" maximumMultiplicity="1" minimumMultiplicity="1" name="account" participantClassName="A_AccountPayeeUniversal" sortKey="BZ">
+            <derivedFrom associationEndName="target" className="ActRelationship" staticModelDerivationId="1"/>
+         </mif:traversableConnection>
+         <mif:nonTraversableConnection participantClassName="PaymentIntentPayee">
+            <derivedFrom associationEndName="inboundRelationship" className="Act" staticModelDerivationId="1"/>
+         </mif:nonTraversableConnection>
+      </mif:connections>
+   </association>
+   <association sortKey="26">
+      
+      <mif:connections>
+         <mif:traversableConnection conformance="R" isMandatory="false" maximumMultiplicity="1" minimumMultiplicity="1" name="account" participantClassName="A_AccountPayorUniversal" sortKey="BZ">
+            <derivedFrom associationEndName="target" className="ActRelationship" staticModelDerivationId="1"/>
+         </mif:traversableConnection>
+         <mif:nonTraversableConnection participantClassName="PaymentIntentPayor">
+            <derivedFrom associationEndName="inboundRelationship" className="Act" staticModelDerivationId="1"/>
+         </mif:nonTraversableConnection>
+      </mif:connections>
+   </association>
+   <association sortKey="18">
+      
+      <mif:connections>
+         <mif:traversableConnection conformance="R" isMandatory="false" maximumMultiplicity="1" minimumMultiplicity="1" name="paymentIntent" participantClassName="PaymentIntent" sortKey="BZ">
+            <derivedFrom associationEndName="target" className="ActRelationship" staticModelDerivationId="1"/>
+         </mif:traversableConnection>
+         <mif:nonTraversableConnection participantClassName="PaymentIntentReason">
+            <derivedFrom associationEndName="inboundRelationship" className="Act" staticModelDerivationId="1"/>
+         </mif:nonTraversableConnection>
+      </mif:connections>
+   </association>
+   <association sortKey="2">
+      
+      <mif:connections>
+         <mif:traversableConnection conformance="R" isMandatory="false" maximumMultiplicity="1" minimumMultiplicity="1" name="adjudicatedInvoiceElementGroup" participantClassName="AdjudicatedInvoiceElementGroup" sortKey="BZ">
+            <derivedFrom associationEndName="target" className="ActRelationship" staticModelDerivationId="1"/>
+         </mif:traversableConnection>
+         <mif:nonTraversableConnection participantClassName="PreviousAdjudicationResultReference">
+            <derivedFrom associationEndName="inboundRelationship" className="Act" staticModelDerivationId="1"/>
+         </mif:nonTraversableConnection>
+      </mif:connections>
+   </association>
+   <association sortKey="9">
+      
+      <mif:connections>
+         <mif:traversableConnection conformance="R" isMandatory="false" maximumMultiplicity="1" minimumMultiplicity="1" name="adjudicatedInvoiceElementGroup" participantClassName="AdjudicatedInvoiceElementGroup" sortKey="BZ">
+            <derivedFrom associationEndName="target" className="ActRelationship" staticModelDerivationId="1"/>
+         </mif:traversableConnection>
+         <mif:nonTraversableConnection participantClassName="Reference">
+            <derivedFrom associationEndName="inboundRelationship" className="Act" staticModelDerivationId="1"/>
+         </mif:nonTraversableConnection>
+      </mif:connections>
+   </association>
+</mif:staticModel>

@@ -1,0 +1,135 @@
+                    ------------------
+                    Simplification
+                    ------------------
+
+Simplification Algorithms
+
+  As the generator tools are producing code artifacts from the 
+  message sets, they attempt to simplify the HL7 constructs into 
+  easier-to-use classes.  To do so, we make use of a number 
+  of simplification algorithms.  This section describes those 
+  algorithms.
+  
+Three Cases
+
+  The overall goal of simplification is to make HL7 systems easier to program, while 
+  retain complete fidelity to the HL7 messages and specifications.  There are three
+  main strategies that
+
+* Simplification Case 1
+
+  The first simplification case can be best understood with an example.  Consider the
+  HL7 complex message type PRPA_MT101103CA.ParameterList.  This complex type describes
+  the possible query parameters for a Find Candidates Query message.  One such query
+  parameter is the candidate birth date.  A simplified UML model for this part of the
+  parameter list would look like this:
+
+[./images/simplification_case_1_initial_parameter_list.png] Parameter List UML model
+
+  The PRPA_MT101103CA.ParameterList type has a member variable, personBirthtime, of 
+  type PRPA_MT101103CA.BirthTime.  PRPA_MT101103CA.BirthTime has exactly one member
+  variable, value, of type TS.FULLTIME.
+  
+  The XML representations of this complex type might look like this:
+  
++----
+<parameterList>
+  <personBirthtime>
+    <value value="19751231000000" />
+  </personBirthtime>
+</parameterList>
++----
+
+  Another example might look like this:
+  
++----
+<parameterList>
+  <personBirthtime nullFlavor="UNK" />
+</parameterList>
++----
+
+  Importantly, the complex type, PRPA_MT101103CA.BirthTime, is really serving very
+  little purpose.  In essence, you could consider the UML model as semantically identical
+  to this:
+  
+[./images/simplification_case_1_after_simplification.png] Simplified Parameter List UML model
+
+  It's also worth noting that the same kind of semantic similarity is true in a case with
+  multiple cardinality.  Consider a the same Parameter List type, which allows searches
+  by multiple telephone numbers:
+  
+[./images/simplification_case_1_initial_parameter_list_telecom.png] Parameter List UML model
+
+  As above, the above model is semantically identical to this simplified model:
+
+[./images/simplification_case_1_after_simplification_telecom.png] Simplified Parameter List UML model
+  
+  Our case 1 simplification algorithm, then, finds relationships like this, and omits (or elides)
+  the unimportant "middle" type.  
+
+  The key features of these elided types:
+  
+    [[1]] The elided type has exactly one non-fixed relationship
+
+    [[2]] There may be more than one elided types in a chain of relationships
+
+    [[3]] The leaf type has exactly one non-fixed relationship
+    
+    [[4]] Only one node in the chain can change the cardinality or conformance level.
+
+
+* Simplification Case 2
+
+  Case 2 is very similar to case 1, but with these two differences:
+  
+    [[1]] The leaf type may have more than one non-fixed relationship.
+    
+    [[2]] The elided types must retain single cardinality down the chain.
+    
+  A good example of this occurs in the high-level message classes.  Consider the following
+  diagram:
+  
+[./images/simplification_case_2_before.png] Base Request Message UML model
+  
+  In this diagram, we've called out the Receiver relationship -- a relationship that 
+  involves a number of classes but, really, very few properties.  One could apply
+  simplification on these types to reduce the model to this semantically identical 
+  model:
+  
+[./images/simplification_case_2_ideal.png] Simplified Base Request Message UML model
+  
+  It's worth noting that it's possible to go too far with this kind of simplification.  
+  For example, the original model is semantically equivalent to this:
+
+[./images/simplification_case_2_too_far.png] Over-simplified Base Request Message UML model
+  
+  The base message class already has a large number of properties; collapsing properties
+  this far is probably too far.  We include checks on the number of properties
+  in the original type before we try to collapse any further.
+
+* Simplification Case 3
+
+  While case 1 and case 2 simplification help reduce the amount of code that a programmer
+  is required to write to create an HL7-enabled system, the reduction is actually 
+  relatively small compared to the reduction that case 3 enables.
+  
+  Case 3 simplification involves recognizing that different complex types are almost
+  the same, with minor differences.  Consider the following example:
+  
+[./images/simplification_case_3_before.png] Base Request and Response Messages UML model
+  
+  In this example, we can see (some of) the UML models that define the base message types
+  for several request and response messages.  These class models are almost identical;
+  the one key difference relates to the response having an extra association -- an 
+  acknowledgement association that identifies the request message id that it is a 
+  response for, as well as information about processing.  Everything else about the
+  request and response is identical, and yet, from the point of view of the MIFs, the
+  types have no relationship to each other; they coincidentally have the same API, but
+  do not share any common ancestors.
+  
+  The simplification algorithm attempts to find reasonable matches between these 
+  complex types and collapses those types into a common type.
+  
+  One of the complexities of this simplification is that developers might mistakenly
+  believe that, for example, the request message has an acknowledgement property --
+  one must rely on documentation to understand that this is not so.

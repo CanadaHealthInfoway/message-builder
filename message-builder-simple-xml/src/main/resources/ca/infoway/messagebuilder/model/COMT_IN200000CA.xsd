@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:chi="urn:ca.infoway.messagebuilder.simplexml.v1" elementFormDefault="qualified" targetNamespace="urn:ca.infoway.messagebuilder.simplexml.v1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include schemaLocation="COMT_MT111111CA.xsd"/>
+  <xs:include schemaLocation="REPC_MT000008CA.xsd"/>
+  <xs:include schemaLocation="QUQI_MT120006CA.xsd"/>
+  <xs:include schemaLocation="MCCI_MT002300CA.xsd"/>
+  <xs:complexType name="COMT_IN200000CA.QUQI_MT120006CA.QueryByParameter">
+    <xs:complexContent>
+      <xs:extension base="chi:QUQI_MT120006CA.QueryByParameter">
+        <xs:sequence>
+          <xs:element name="parameterList" type="chi:REPC_MT000008CA.ParameterList"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="COMT_IN200000CA.QUQI_MT120006CA.Subject2">
+    <xs:complexContent>
+      <xs:extension base="chi:QUQI_MT120006CA.Subject2">
+        <xs:sequence>
+          <xs:element name="act" type="chi:COMT_MT111111CA.Summary"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="COMT_IN200000CA.QUQI_MT120006CA.ControlActEvent">
+    <xs:complexContent>
+      <xs:extension base="chi:QUQI_MT120006CA.ControlActEvent">
+        <xs:sequence>
+          <xs:element name="queryByParameter" type="chi:COMT_IN200000CA.QUQI_MT120006CA.QueryByParameter"/>
+          <xs:element name="subject" type="chi:COMT_IN200000CA.QUQI_MT120006CA.Subject2"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="COMT_IN200000CA">
+    <xs:complexContent>
+      <xs:extension base="chi:MCCI_MT002300CA.Message">
+        <xs:sequence>
+          <xs:element name="controlActEvent" type="chi:COMT_IN200000CA.QUQI_MT120006CA.ControlActEvent"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="clinicalSummaryProfileQueryResponse" type="chi:COMT_IN200000CA"/>
+</xs:schema>

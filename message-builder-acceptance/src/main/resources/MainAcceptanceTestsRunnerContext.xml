@@ -1,0 +1,563 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+  <bean id="ca.infoway.messagebuilder.acceptance.MainAcceptanceTestsRunner" class="ca.infoway.messagebuilder.acceptance.MainAcceptanceTestsRunner">
+  	<constructor-arg ref="ca.intelliware.commons.dependency.devcreek.DevCreekTransmitter"/>
+  	<constructor-arg>
+  		<list>
+  			<bean class="ca.infoway.messagebuilder.acceptance.AcceptanceTestsMetricsProcessor">
+				<constructor-arg value="Xml Parser Fidelity"/>
+				<constructor-arg value="Tests all sample xml messages to see if they can be converted into java objects and back into the exact same xml representation. The extra info popup displays the sample messages that did not pass. "/>
+				<constructor-arg value="JAVA"/>
+  				<constructor-arg>
+  					<list>
+  					
+		  				<bean class="ca.infoway.messagebuilder.acceptance.runner.AcceptanceTestGroupRunner">
+		  					<constructor-arg value="Client Registry"/>
+		  					<constructor-arg>
+		  						<list>
+		  							<bean class="ca.infoway.messagebuilder.acceptance.runner.MarshallingAcceptanceTestRunner">
+					  					<constructor-arg>
+					  						<list>
+				  								<value>classpath:ca/infoway/messagebuilder/sample/cr/v02r02/findCandidatesQuery.xml</value>
+				  								<value>classpath:ca/infoway/messagebuilder/sample/cr/v02r02/findCandidatesQuery_byName.xml</value>
+				  								<value>classpath:ca/infoway/messagebuilder/sample/cr/v02r02/findCandidatesResponse.xml</value>
+				  								<value>classpath:ca/infoway/messagebuilder/sample/cr/v02r02/getPersonDemographicsQuery.xml</value>
+					  						</list>
+					  					</constructor-arg>
+		  							</bean>
+		  						</list>
+		  					</constructor-arg>
+		  				</bean>
+		  				
+		  				<bean class="ca.infoway.messagebuilder.acceptance.runner.AcceptanceTestGroupRunner">
+		  					<constructor-arg value="Provider Registry"/>
+		  					<constructor-arg>
+		  						<list>
+		  							<bean class="ca.infoway.messagebuilder.acceptance.runner.MarshallingAcceptanceTestRunner">
+					  					<constructor-arg>
+					  						<list>
+				  								<value>classpath:ca/infoway/messagebuilder/sample/pr/v02r02/providerDetailsQuery.xml</value>
+				  								<value>classpath:ca/infoway/messagebuilder/sample/pr/v02r02/providerDetailsQueryResponse.xml</value>
+					  						</list>
+					  					</constructor-arg>
+		  							</bean>
+		  						</list>
+		  					</constructor-arg>
+		  				</bean>
+
+		  				<bean class="ca.infoway.messagebuilder.acceptance.runner.AcceptanceTestGroupRunner">
+		  					<constructor-arg value="Prescribing"/>
+		  					<constructor-arg>
+		  						<list>
+		  							<bean class="ca.infoway.messagebuilder.acceptance.runner.MarshallingAcceptanceTestRunner">
+					  					<constructor-arg>
+					  						<list>
+				  								<value>classpath:ca/infoway/messagebuilder/sample/cerx/v01r04_3/activatePrescriptionRequest.xml</value>
+				  								<value>classpath:ca/infoway/messagebuilder/sample/cerx/v01r04_3/recordOtherMedicationRequest.xml</value>
+				  								<value>classpath:ca/infoway/messagebuilder/sample/cerx/v01r04_3/updateOtherMedicationRequest.xml</value>
+												<!-- NOT SUPPORTED     Clinical Prescription Pre-Determination Request-->
+		  										<value>classpath:ca/infoway/messagebuilder/sample/cerx/v01r04_3/clinicalPrescriptionPreDeterminationRequest.xml</value>
+							  				</list>
+					  					</constructor-arg>
+		  							</bean>
+		  						</list>
+		  					</constructor-arg>
+		  				</bean>
+		  				
+		  				<bean class="ca.infoway.messagebuilder.acceptance.runner.AcceptanceTestGroupRunner">
+		  					<constructor-arg value="Professional Services"/>
+		  					<constructor-arg>
+		  						<list>
+		  							<bean class="ca.infoway.messagebuilder.acceptance.runner.MarshallingAcceptanceTestRunner">
+					  					<constructor-arg>
+					  						<list>
+		  										<value>classpath:ca/infoway/messagebuilder/sample/cerx/v01r04_3/recordProfessionalServiceRequest.xml</value>
+		  										<value>classpath:ca/infoway/messagebuilder/sample/cerx/v01r04_3/recordProfessionalServiceRequestAccepted.xml</value>
+		  										<value>classpath:ca/infoway/messagebuilder/sample/cerx/v01r04_3/recordProfessionalServiceRequestRefused.xml</value>
+		  										<value>classpath:ca/infoway/messagebuilder/sample/cerx/v01r04_3/patientPharmacyProfServicesQuery.xml</value>
+		  										<value>classpath:ca/infoway/messagebuilder/sample/cerx/v01r04_3/patientPharmacyProfServicesQueryResponse.xml</value>
+												<!-- NOT SUPPORTED     List Patient Professional Services -->
+		  										<value>classpath:ca/infoway/messagebuilder/sample/cerx/v01r04_3/listPatientProfessionalServices.xml</value>
+							  				</list>
+					  					</constructor-arg>
+					  				</bean>
+		  						</list>
+		  					</constructor-arg>
+		  				</bean>
+
+		  				<bean class="ca.infoway.messagebuilder.acceptance.runner.AcceptanceTestGroupRunner">
+		  					<constructor-arg value="Infrastructure"/>
+		  					<constructor-arg>
+		  						<list>
+		  							<bean class="ca.infoway.messagebuilder.acceptance.runner.MarshallingAcceptanceTestRunner">
+					  					<constructor-arg>
+					  						<list>
+				  								<value>classpath:ca/infoway/messagebuilder/sample/cerx/v01r04_3/addNoteToRecordRequest.xml</value>
+				  								<value>classpath:ca/infoway/messagebuilder/sample/cerx/v01r04_3/addNoteToRecordRequestAccepted.xml</value>
+				  								<value>classpath:ca/infoway/messagebuilder/sample/cerx/v01r04_3/addNoteToRecordRequestRefused.xml</value>
+				  								<value>classpath:ca/infoway/messagebuilder/sample/cerx/v01r04_3/addPatientNoteRequest.xml</value>
+				  								<value>classpath:ca/infoway/messagebuilder/sample/cerx/v01r04_3/addPatientNoteRequestAccepted.xml</value>
+				  								<value>classpath:ca/infoway/messagebuilder/sample/cerx/v01r04_3/addPatientNoteRequestRefused.xml</value>
+				  								<value>classpath:ca/infoway/messagebuilder/sample/cerx/v01r04_3/patientNoteQuery.xml</value>
+				  								<value>classpath:ca/infoway/messagebuilder/sample/cerx/v01r04_3/patientNoteQueryResponse.xml</value>
+				  								<value>classpath:ca/infoway/messagebuilder/sample/broadcast/newfoundland/acceptAckPollNextMessageRequest.xml</value>
+				  								<value>classpath:ca/infoway/messagebuilder/sample/broadcast/newfoundland/sendPollAcceptAcknowledgement.xml</value>
+				  								<value>classpath:ca/infoway/messagebuilder/sample/broadcast/newfoundland/sendPollRequest.xml</value>
+		  									</list>
+		  								</constructor-arg>
+		  							</bean>
+		  						</list>
+		  					</constructor-arg>
+		  				</bean>
+
+		  				<bean class="ca.infoway.messagebuilder.acceptance.runner.AcceptanceTestGroupRunner">
+		  					<constructor-arg value="Immunization"/>
+		  					<constructor-arg>
+		  						<list>
+		  							<bean class="ca.infoway.messagebuilder.acceptance.runner.MarshallingAcceptanceTestRunner">
+					  					<constructor-arg>
+					  						<list>
+				  								<value>classpath:ca/infoway/messagebuilder/sample/cerx/v01r04_3/recordImmunizationRequest.xml</value>
+				  								<value>classpath:ca/infoway/messagebuilder/sample/cerx/v01r04_3/recordImmunizationRequestAccepted.xml</value>
+				  								<value>classpath:ca/infoway/messagebuilder/sample/cerx/v01r04_3/recordImmunizationRequestRefused.xml</value>
+				  								<value>classpath:ca/infoway/messagebuilder/sample/cerx/v01r04_3/immunizationQuery.xml</value>
+				  								<value>classpath:ca/infoway/messagebuilder/sample/cerx/v01r04_3/immunizationQueryResponse.xml</value>
+												<!-- NOT SUPPORTED     Patient Immunization Profile Query -->
+				  								<value>classpath:ca/infoway/messagebuilder/sample/cerx/v01r04_3/patientImmunizationProfileQuery.xml</value>
+		  									</list>
+		  								</constructor-arg>
+		  							</bean>
+		  						</list>
+		  					</constructor-arg>
+		  				</bean>
+
+		  				<bean class="ca.infoway.messagebuilder.acceptance.runner.AcceptanceTestGroupRunner">
+		  					<constructor-arg value="Allergy"/>
+		  					<constructor-arg>
+		  						<list>
+		  							<bean class="ca.infoway.messagebuilder.acceptance.runner.MarshallingAcceptanceTestRunner">
+					  					<constructor-arg>
+					  						<list>
+				  								<value>classpath:ca/infoway/messagebuilder/sample/cerx/v01r04_3/addAllergyIntoleranceRequest.xml</value>
+				  								<value>classpath:ca/infoway/messagebuilder/sample/cerx/v01r04_3/addAllergyIntoleranceRequestAccepted.xml</value>
+				  								<value>classpath:ca/infoway/messagebuilder/sample/cerx/v01r04_3/addAllergyIntoleranceRequestRefused.xml</value>
+				  								<value>classpath:ca/infoway/messagebuilder/sample/cerx/v01r04_3/updateAllergyIntoleranceRequest.xml</value>
+				  								<value>classpath:ca/infoway/messagebuilder/sample/cerx/v01r04_3/updateAllergyIntoleranceRequestAccepted.xml</value>
+				  								<value>classpath:ca/infoway/messagebuilder/sample/cerx/v01r04_3/updateAllergyIntoleranceRequestRefused.xml</value>
+				  								<value>classpath:ca/infoway/messagebuilder/sample/cerx/v01r04_3/patientAllergyIntoleranceQuery.xml</value>
+				  								<value>classpath:ca/infoway/messagebuilder/sample/cerx/v01r04_3/patientAllergyIntoleranceQueryResponse.xml</value>
+				  								<value>classpath:ca/infoway/messagebuilder/sample/cerx/v01r04_3/patientAllergyIntoleranceWithHistoryQuery.xml</value>
+				  								<value>classpath:ca/infoway/messagebuilder/sample/cerx/v01r04_3/patientAllergyIntoleranceWithHistoryQueryResponse.xml</value>
+				  								<value>classpath:ca/infoway/messagebuilder/sample/cerx/v01r04_3/retractActionRequest.xml</value>
+				  								<value>classpath:ca/infoway/messagebuilder/sample/cerx/v01r04_3/retractActionRequestAccepted.xml</value>
+				  								<value>classpath:ca/infoway/messagebuilder/sample/cerx/v01r04_3/retractActionRequestRefused.xml</value>
+		  									</list>
+		  								</constructor-arg>
+		  							</bean>
+		  						</list>
+		  					</constructor-arg>
+		  				</bean>
+	
+		  				<bean class="ca.infoway.messagebuilder.acceptance.runner.AcceptanceTestGroupRunner">
+		  					<constructor-arg value="Lab"/>
+		  					<constructor-arg>
+		  						<list>
+		  							<bean class="ca.infoway.messagebuilder.acceptance.runner.MarshallingAcceptanceTestRunner">
+					  					<constructor-arg>
+					  						<list>
+												<!-- NOT SUPPORTED     Query Laboratory Test Results -->
+				  								<value>classpath:ca/infoway/messagebuilder/sample/cerx/v01r04_3/queryLaboratoryTestResults.xml</value>
+												<!-- NOT SUPPORTED     Unsolicited Lab Test Results Request -->
+				  								<value>classpath:ca/infoway/messagebuilder/sample/cerx/v01r04_3/unsolicitedLabTestResultsRequest.xml</value>
+		  									</list>
+		  								</constructor-arg>
+		  							</bean>
+		  						</list>
+		  					</constructor-arg>
+		  				</bean>
+									
+		  				<bean class="ca.infoway.messagebuilder.acceptance.runner.AcceptanceTestGroupRunner">
+		  					<constructor-arg value="Medication Queries"/>
+		  					<constructor-arg>
+		  						<list>
+		  							<bean class="ca.infoway.messagebuilder.acceptance.runner.MarshallingAcceptanceTestRunner">
+					  					<constructor-arg>
+					  						<list>
+				  								<value>classpath:ca/infoway/messagebuilder/sample/cerx/v01r04_3/medicationProfileSummaryQuery.xml</value>
+				  								<value>classpath:ca/infoway/messagebuilder/sample/cerx/v01r04_3/medicationProfileSummaryQueryResponse.xml</value>
+				  								<value>classpath:ca/infoway/messagebuilder/sample/cerx/v01r04_3/medPrescriptionWithHistoryAndDispensesQuery.xml</value>
+				  								<value>classpath:ca/infoway/messagebuilder/sample/cerx/v01r04_3/medPrescriptionWithHistoryAndDispensesQueryResponse.xml</value>
+												<!-- NOT SUPPORTED     Get Patient Drug Contraindications -->
+				  								<value>classpath:ca/infoway/messagebuilder/sample/cerx/v01r04_3/getPatientDrugContraindications.xml</value>
+												<!-- NOT SUPPORTED     Contraindication Checking Set of Drugs -->
+				  								<value>classpath:ca/infoway/messagebuilder/sample/cerx/v01r04_3/contraindicationCheckingSetOfDrugs.xml</value>
+		  									</list>
+		  								</constructor-arg>
+		  							</bean>
+		  						</list>
+		  					</constructor-arg>
+		  				</bean>
+  					
+		  				<bean class="ca.infoway.messagebuilder.acceptance.runner.AcceptanceTestGroupRunner">
+		  					<constructor-arg value="Dispensing (Pharmacy)"/>
+		  					<constructor-arg>
+		  						<list>
+		  							<bean class="ca.infoway.messagebuilder.acceptance.runner.MarshallingAcceptanceTestRunner">
+					  					<constructor-arg>
+					  						<list>
+				  								<value>classpath:ca/infoway/messagebuilder/sample/cerx/v01r04_3/abortDispenseAuthorizationRequest.xml</value>
+				  								<value>classpath:ca/infoway/messagebuilder/sample/cerx/v01r04_3/abortDispenseAuthorizationRequestAccepted.xml</value>
+				  								<value>classpath:ca/infoway/messagebuilder/sample/cerx/v01r04_3/abortDispenseAuthorizationRequestRefused.xml</value>
+				  								<value>classpath:ca/infoway/messagebuilder/sample/cerx/v01r04_3/recordDispensePickupRequest.xml</value>
+				  								<value>classpath:ca/infoway/messagebuilder/sample/cerx/v01r04_3/recordDispensePickupRequestAccepted.xml</value>
+				  								<value>classpath:ca/infoway/messagebuilder/sample/cerx/v01r04_3/recordDispensePickupRequestRefused.xml</value>
+				  								<value>classpath:ca/infoway/messagebuilder/sample/cerx/v01r04_3/recordDrugDispenseProcessingRequest.xml</value>
+				  								<value>classpath:ca/infoway/messagebuilder/sample/cerx/v01r04_3/recordDrugDispenseProcessingRequestAccepted.xml</value>
+				  								<value>classpath:ca/infoway/messagebuilder/sample/cerx/v01r04_3/recordRefusalToDispenseRequest.xml</value>
+				  								<value>classpath:ca/infoway/messagebuilder/sample/cerx/v01r04_3/recordRefusalToDispenseRequestAccepted.xml</value>
+				  								<value>classpath:ca/infoway/messagebuilder/sample/cerx/v01r04_3/recordRefusalToDispenseRequestRefused.xml</value>
+				  								<value>classpath:ca/infoway/messagebuilder/sample/cerx/v01r04_3/abortPrescriptionRequest.xml</value>
+				  								<value>classpath:ca/infoway/messagebuilder/sample/cerx/v01r04_3/abortPrescriptionRequestAccepted.xml</value>
+				  								<value>classpath:ca/infoway/messagebuilder/sample/cerx/v01r04_3/abortPrescriptionRequestRefused.xml</value>
+				  								<value>classpath:ca/infoway/messagebuilder/sample/cerx/v01r04_3/suspendPrescriptionRequest.xml</value>
+				  								<value>classpath:ca/infoway/messagebuilder/sample/cerx/v01r04_3/suspendPrescriptionRequestAccepted.xml</value>
+				  								<value>classpath:ca/infoway/messagebuilder/sample/cerx/v01r04_3/suspendPrescriptionRequestRefused.xml</value>
+				  								<value>classpath:ca/infoway/messagebuilder/sample/cerx/v01r04_3/resumePrescriptionRequest.xml</value>
+				  								<value>classpath:ca/infoway/messagebuilder/sample/cerx/v01r04_3/resumePrescriptionRequestAccepted.xml</value>
+				  								<value>classpath:ca/infoway/messagebuilder/sample/cerx/v01r04_3/resumePrescriptionRequestRefused.xml</value>
+				  								<value>classpath:ca/infoway/messagebuilder/sample/cerx/v01r04_3/recordDispenseReversalRequest.xml</value>
+				  								<value>classpath:ca/infoway/messagebuilder/sample/cerx/v01r04_3/recordDispenseReversalRequestAccepted.xml</value>
+				  								<value>classpath:ca/infoway/messagebuilder/sample/cerx/v01r04_3/recordDispenseReversalRequestRefused.xml</value>
+		  									</list>
+		  								</constructor-arg>
+		  							</bean>
+		  						</list>
+		  					</constructor-arg>
+		  				</bean>
+		  				
+  					</list>
+  				</constructor-arg>
+  			</bean>
+  			
+  			<!-- Message and Data Type Coverage Tests -->
+  			<bean class="ca.infoway.messagebuilder.acceptance.AcceptanceTestsMetricsProcessor">
+				<constructor-arg value="MessageSet Coverage Tests"/>
+				<constructor-arg value="Tests what percentage of the R02.04.02 messageset is covered by MessageBuilder's generated message beans. The extra info popup displays how many message parts have yet to be covered. "/>
+				<constructor-arg value="JAVA"/>
+  				<constructor-arg>
+  					<list>
+  					
+		  				<bean class="ca.infoway.messagebuilder.acceptance.runner.AcceptanceTestGroupRunner">
+		  					<constructor-arg value="Message set coverage"/>
+		  					<constructor-arg>
+		  						<list>
+		  							<bean class="ca.infoway.messagebuilder.acceptance.runner.MessageSetCoverageAcceptanceTestRunner" />
+		  						</list>
+		  					</constructor-arg>
+		  				</bean>
+		  				
+  					</list>
+  				</constructor-arg>
+  			</bean>
+  			
+  			<!-- Javadocs -->
+  			<bean class="ca.infoway.messagebuilder.acceptance.AcceptanceTestsMetricsProcessor">
+				<constructor-arg value="Javadocs"/>
+				<constructor-arg value="The percentage of java classes within the specified section that have full Javadocs implemented. The extra info popup displays the Java classes requiring more Javadocs. "/>
+				<constructor-arg value="JAVA"/>
+  				<constructor-arg>
+  					<list>
+		  				<bean class="ca.infoway.messagebuilder.acceptance.runner.javadoc.JavadocAcceptanceTestRunner">
+		  					<constructor-arg value="Generation"/>
+		  					<constructor-arg>
+		  						<bean class="ca.infoway.messagebuilder.acceptance.runner.javadoc.ProjectFilesProvider">
+			  					<constructor-arg>
+			  						<list>
+					  					<value>maven-chi-plugin</value>
+			  						</list>
+			  					</constructor-arg>
+		  						</bean>
+		  					</constructor-arg>
+		  				</bean>
+
+		  				<bean class="ca.infoway.messagebuilder.acceptance.runner.javadoc.JavadocAcceptanceTestRunner">
+		  					<constructor-arg value="Simplified Xml"/>
+		  					<constructor-arg>
+		  						<bean class="ca.infoway.messagebuilder.acceptance.runner.javadoc.ProjectFilesProvider">
+			  					<constructor-arg>
+			  						<list>
+					  					<value>message-builder-simple-xml-process</value>
+					  					<value>message-builder-simple-xml</value>
+			  						</list>
+			  					</constructor-arg>
+		  						</bean>
+		  					</constructor-arg>
+		  				</bean>		  				
+
+		  				<bean class="ca.infoway.messagebuilder.acceptance.runner.javadoc.JavadocAcceptanceTestRunner">
+		  					<constructor-arg value="Terminology"/>
+		  					<constructor-arg>
+		  						<bean class="ca.infoway.messagebuilder.acceptance.runner.javadoc.ProjectFilesProvider">
+			  					<constructor-arg>
+			  						<list>
+					  					<value>message-builder-terminology</value>
+			  						</list>
+			  					</constructor-arg>
+		  						</bean>
+		  					</constructor-arg>
+		  				</bean>
+
+		  				<bean class="ca.infoway.messagebuilder.acceptance.runner.javadoc.JavadocAcceptanceTestRunner">
+		  					<constructor-arg value="Core"/>
+		  					<constructor-arg>
+		  						<bean class="ca.infoway.messagebuilder.acceptance.runner.javadoc.ProjectFilesProvider">
+			  					<constructor-arg>
+			  						<list>
+					  					<value>message-builder-core</value>
+			  						</list>
+			  					</constructor-arg>
+		  						</bean>
+		  					</constructor-arg>
+		  				</bean>
+		  				
+		  				<bean class="ca.infoway.messagebuilder.acceptance.runner.javadoc.JavadocAcceptanceTestRunner">
+		  					<constructor-arg value="Samples"/>
+		  					<constructor-arg>
+		  						<bean class="ca.infoway.messagebuilder.acceptance.runner.javadoc.ProjectFilesProvider">
+			  					<constructor-arg>
+			  						<list>
+					  					<value>message-builder-sample-messages</value>
+					  					<value>message-builder-example</value>
+			  						</list>
+			  					</constructor-arg>
+		  						</bean>
+		  					</constructor-arg>
+		  				</bean>
+
+  					</list>
+  				</constructor-arg>
+  			</bean>
+
+  			<!-- Performance -->
+  			<bean class="ca.infoway.messagebuilder.acceptance.AcceptanceTestsMetricsProcessor">
+				<constructor-arg value="Performance"/>
+				<constructor-arg value="The percentage of sample HL7 messages that can transform to a message bean and back to HL7 xml in a specified time. The extra info popup displays the HL7 xml files that did not meet the given performance requirement. "/>
+				<constructor-arg value="JAVA"/>
+  				<constructor-arg>
+  					<list>
+		  				<bean class="ca.infoway.messagebuilder.acceptance.runner.performance.PerformanceAcceptanceTestRunner">
+		  					<constructor-arg value="Transform back and forth in under {0} ms"/>
+		  					<constructor-arg>
+		  						<list>
+	  								<value>classpath:ca/infoway/messagebuilder/sample/cr/v02r02/findCandidatesQuery.xml</value>
+	  								<value>classpath:ca/infoway/messagebuilder/sample/cr/v02r02/findCandidatesQuery_byName.xml</value>
+	  								<value>classpath:ca/infoway/messagebuilder/sample/cr/v02r02/findCandidatesResponse.xml</value>
+	  								<value>classpath:ca/infoway/messagebuilder/sample/cr/v02r02/getPersonDemographicsQuery.xml</value>
+	  								<value>classpath:ca/infoway/messagebuilder/sample/pr/v02r02/providerDetailsQuery.xml</value>
+	  								<value>classpath:ca/infoway/messagebuilder/sample/pr/v02r02/providerDetailsQueryResponse.xml</value>
+	  								<value>classpath:ca/infoway/messagebuilder/sample/cerx/v01r04_3/activatePrescriptionRequest.xml</value>
+	  								<value>classpath:ca/infoway/messagebuilder/sample/cerx/v01r04_3/recordOtherMedicationRequest.xml</value>
+	  								<value>classpath:ca/infoway/messagebuilder/sample/cerx/v01r04_3/updateOtherMedicationRequest.xml</value>
+									<!-- NOT SUPPORTED     Clinical Prescription Pre-Determination Request-->
+<!--									<value>classpath:ca/infoway/messagebuilder/sample/cerx/v01r04_3/clinicalPrescriptionPreDeterminationRequest.xml</value>-->
+									<value>classpath:ca/infoway/messagebuilder/sample/cerx/v01r04_3/recordProfessionalServiceRequest.xml</value>
+									<value>classpath:ca/infoway/messagebuilder/sample/cerx/v01r04_3/recordProfessionalServiceRequestAccepted.xml</value>
+									<value>classpath:ca/infoway/messagebuilder/sample/cerx/v01r04_3/recordProfessionalServiceRequestRefused.xml</value>
+									<value>classpath:ca/infoway/messagebuilder/sample/cerx/v01r04_3/patientPharmacyProfServicesQuery.xml</value>
+									<value>classpath:ca/infoway/messagebuilder/sample/cerx/v01r04_3/patientPharmacyProfServicesQueryResponse.xml</value>
+									<!-- NOT SUPPORTED     List Patient Professional Services -->
+<!--									<value>classpath:ca/infoway/messagebuilder/sample/cerx/v01r04_3/listPatientProfessionalServices.xml</value>-->
+	  								<value>classpath:ca/infoway/messagebuilder/sample/cerx/v01r04_3/addNoteToRecordRequest.xml</value>
+	  								<value>classpath:ca/infoway/messagebuilder/sample/cerx/v01r04_3/addNoteToRecordRequestAccepted.xml</value>
+	  								<value>classpath:ca/infoway/messagebuilder/sample/cerx/v01r04_3/addNoteToRecordRequestRefused.xml</value>
+	  								<value>classpath:ca/infoway/messagebuilder/sample/cerx/v01r04_3/addPatientNoteRequest.xml</value>
+	  								<value>classpath:ca/infoway/messagebuilder/sample/cerx/v01r04_3/addPatientNoteRequestAccepted.xml</value>
+	  								<value>classpath:ca/infoway/messagebuilder/sample/cerx/v01r04_3/addPatientNoteRequestRefused.xml</value>
+	  								<value>classpath:ca/infoway/messagebuilder/sample/cerx/v01r04_3/patientNoteQuery.xml</value>
+	  								<value>classpath:ca/infoway/messagebuilder/sample/cerx/v01r04_3/patientNoteQueryResponse.xml</value>
+	  								<value>classpath:ca/infoway/messagebuilder/sample/broadcast/newfoundland/acceptAckPollNextMessageRequest.xml</value>
+	  								<value>classpath:ca/infoway/messagebuilder/sample/broadcast/newfoundland/sendPollAcceptAcknowledgement.xml</value>
+	  								<value>classpath:ca/infoway/messagebuilder/sample/broadcast/newfoundland/sendPollRequest.xml</value>
+	  								<value>classpath:ca/infoway/messagebuilder/sample/cerx/v01r04_3/recordImmunizationRequest.xml</value>
+	  								<value>classpath:ca/infoway/messagebuilder/sample/cerx/v01r04_3/recordImmunizationRequestAccepted.xml</value>
+	  								<value>classpath:ca/infoway/messagebuilder/sample/cerx/v01r04_3/recordImmunizationRequestRefused.xml</value>
+	  								<value>classpath:ca/infoway/messagebuilder/sample/cerx/v01r04_3/immunizationQuery.xml</value>
+	  								<value>classpath:ca/infoway/messagebuilder/sample/cerx/v01r04_3/immunizationQueryResponse.xml</value>
+									<!-- NOT SUPPORTED     Patient Immunization Profile Query -->
+<!--	  								<value>classpath:ca/infoway/messagebuilder/sample/cerx/v01r04_3/patientImmunizationProfileQuery.xml</value>-->
+	  								<value>classpath:ca/infoway/messagebuilder/sample/cerx/v01r04_3/addAllergyIntoleranceRequest.xml</value>
+	  								<value>classpath:ca/infoway/messagebuilder/sample/cerx/v01r04_3/addAllergyIntoleranceRequestAccepted.xml</value>
+	  								<value>classpath:ca/infoway/messagebuilder/sample/cerx/v01r04_3/addAllergyIntoleranceRequestRefused.xml</value>
+	  								<value>classpath:ca/infoway/messagebuilder/sample/cerx/v01r04_3/updateAllergyIntoleranceRequest.xml</value>
+	  								<value>classpath:ca/infoway/messagebuilder/sample/cerx/v01r04_3/updateAllergyIntoleranceRequestAccepted.xml</value>
+	  								<value>classpath:ca/infoway/messagebuilder/sample/cerx/v01r04_3/updateAllergyIntoleranceRequestRefused.xml</value>
+	  								<value>classpath:ca/infoway/messagebuilder/sample/cerx/v01r04_3/patientAllergyIntoleranceQuery.xml</value>
+	  								<value>classpath:ca/infoway/messagebuilder/sample/cerx/v01r04_3/patientAllergyIntoleranceQueryResponse.xml</value>
+	  								<value>classpath:ca/infoway/messagebuilder/sample/cerx/v01r04_3/patientAllergyIntoleranceWithHistoryQuery.xml</value>
+	  								<value>classpath:ca/infoway/messagebuilder/sample/cerx/v01r04_3/patientAllergyIntoleranceWithHistoryQueryResponse.xml</value>
+	  								<value>classpath:ca/infoway/messagebuilder/sample/cerx/v01r04_3/retractActionRequest.xml</value>
+	  								<value>classpath:ca/infoway/messagebuilder/sample/cerx/v01r04_3/retractActionRequestAccepted.xml</value>
+	  								<value>classpath:ca/infoway/messagebuilder/sample/cerx/v01r04_3/retractActionRequestRefused.xml</value>
+									<!-- NOT SUPPORTED     Query Laboratory Test Results -->
+<!--	  								<value>classpath:ca/infoway/messagebuilder/sample/cerx/v01r04_3/queryLaboratoryTestResults.xml</value>-->
+									<!-- NOT SUPPORTED     Unsolicited Lab Test Results Request -->
+<!--	  								<value>classpath:ca/infoway/messagebuilder/sample/cerx/v01r04_3/unsolicitedLabTestResultsRequest.xml</value>-->
+	  								<value>classpath:ca/infoway/messagebuilder/sample/cerx/v01r04_3/medicationProfileSummaryQuery.xml</value>
+	  								<value>classpath:ca/infoway/messagebuilder/sample/cerx/v01r04_3/medicationProfileSummaryQueryResponse.xml</value>
+	  								<value>classpath:ca/infoway/messagebuilder/sample/cerx/v01r04_3/medPrescriptionWithHistoryAndDispensesQuery.xml</value>
+	  								<value>classpath:ca/infoway/messagebuilder/sample/cerx/v01r04_3/medPrescriptionWithHistoryAndDispensesQueryResponse.xml</value>
+									<!-- NOT SUPPORTED     Get Patient Drug Contraindications -->
+<!--	  								<value>classpath:ca/infoway/messagebuilder/sample/cerx/v01r04_3/getPatientDrugContraindications.xml</value>-->
+									<!-- NOT SUPPORTED     List Patient Professional Services -->
+<!--	  								<value>classpath:ca/infoway/messagebuilder/sample/cerx/v01r04_3/contraindicationCheckingSetOfDrugs.xml</value>-->
+	  								<value>classpath:ca/infoway/messagebuilder/sample/cerx/v01r04_3/abortDispenseAuthorizationRequest.xml</value>
+	  								<value>classpath:ca/infoway/messagebuilder/sample/cerx/v01r04_3/abortDispenseAuthorizationRequestAccepted.xml</value>
+	  								<value>classpath:ca/infoway/messagebuilder/sample/cerx/v01r04_3/abortDispenseAuthorizationRequestRefused.xml</value>
+	  								<value>classpath:ca/infoway/messagebuilder/sample/cerx/v01r04_3/recordDispensePickupRequest.xml</value>
+	  								<value>classpath:ca/infoway/messagebuilder/sample/cerx/v01r04_3/recordDispensePickupRequestAccepted.xml</value>
+	  								<value>classpath:ca/infoway/messagebuilder/sample/cerx/v01r04_3/recordDispensePickupRequestRefused.xml</value>
+	  								<value>classpath:ca/infoway/messagebuilder/sample/cerx/v01r04_3/recordDrugDispenseProcessingRequest.xml</value>
+	  								<value>classpath:ca/infoway/messagebuilder/sample/cerx/v01r04_3/recordDrugDispenseProcessingRequestAccepted.xml</value>
+	  								<value>classpath:ca/infoway/messagebuilder/sample/cerx/v01r04_3/recordRefusalToDispenseRequest.xml</value>
+	  								<value>classpath:ca/infoway/messagebuilder/sample/cerx/v01r04_3/recordRefusalToDispenseRequestAccepted.xml</value>
+	  								<value>classpath:ca/infoway/messagebuilder/sample/cerx/v01r04_3/recordRefusalToDispenseRequestRefused.xml</value>
+	  								<value>classpath:ca/infoway/messagebuilder/sample/cerx/v01r04_3/abortPrescriptionRequest.xml</value>
+	  								<value>classpath:ca/infoway/messagebuilder/sample/cerx/v01r04_3/abortPrescriptionRequestAccepted.xml</value>
+	  								<value>classpath:ca/infoway/messagebuilder/sample/cerx/v01r04_3/abortPrescriptionRequestRefused.xml</value>
+	  								<value>classpath:ca/infoway/messagebuilder/sample/cerx/v01r04_3/suspendPrescriptionRequest.xml</value>
+	  								<value>classpath:ca/infoway/messagebuilder/sample/cerx/v01r04_3/suspendPrescriptionRequestAccepted.xml</value>
+	  								<value>classpath:ca/infoway/messagebuilder/sample/cerx/v01r04_3/suspendPrescriptionRequestRefused.xml</value>
+	  								<value>classpath:ca/infoway/messagebuilder/sample/cerx/v01r04_3/resumePrescriptionRequest.xml</value>
+	  								<value>classpath:ca/infoway/messagebuilder/sample/cerx/v01r04_3/resumePrescriptionRequestAccepted.xml</value>
+	  								<value>classpath:ca/infoway/messagebuilder/sample/cerx/v01r04_3/resumePrescriptionRequestRefused.xml</value>
+	  								<value>classpath:ca/infoway/messagebuilder/sample/cerx/v01r04_3/recordDispenseReversalRequest.xml</value>
+	  								<value>classpath:ca/infoway/messagebuilder/sample/cerx/v01r04_3/recordDispenseReversalRequestAccepted.xml</value>
+	  								<value>classpath:ca/infoway/messagebuilder/sample/cerx/v01r04_3/recordDispenseReversalRequestRefused.xml</value>
+		  						</list>
+		  					</constructor-arg>
+		  				</bean>
+  					</list>
+  				</constructor-arg>
+  			</bean>
+  			
+			<!--  data types  -->
+  			<bean class="ca.infoway.messagebuilder.acceptance.AcceptanceTestsMetricsProcessor">
+				<constructor-arg value="Data Types"/>
+				<constructor-arg value="The percentage of required datatypes that MessageBuilder has a parser and formatter registed. The extra info popup displays the datatypes that are currently not fully supported."/>
+				<constructor-arg value="JAVA"/>
+  				<constructor-arg>
+  					<list>
+						<bean class="ca.infoway.messagebuilder.acceptance.runner.datatype.DataTypeAcceptanceTestRunner">
+							<constructor-arg value="Coverage"/>
+							<constructor-arg>
+								<list>
+									<value>TS.DATE</value>
+									<value>TS.DATETIME</value>
+									<value>TS.FULLDATEWITHTIME</value>
+									<value>TS.FULLDATE</value>
+									<value>TS.FULLDATETIME</value>
+									<value>IVL</value>
+									<value>IVL&lt;TS.DATE&gt;</value>
+									<value>URG</value>
+									<value>URG&lt;TS.DATE&gt;</value>
+									<value>IVL&lt;TS.DATETIME&gt;</value>
+									<value>IVL&lt;TS.FULLDATE&gt;</value>
+									<value>IVL&lt;TS.FULLDATETIME&gt;</value>
+									<value>IVL.LOW&lt;TS.DATE&gt;</value>
+									<value>IVL.LOW&lt;TS.FULLDATE&gt;</value>
+									<value>IVL.HIGH&lt;TS.FULLDATE&gt;</value>
+									<value>IVL.WIDTH&lt;TS.FULLDATE&gt;</value>
+									<value>PIVL&lt;TS.DATETIME&gt;</value>
+									<value>GTS.BOUNDEDPIVL</value>
+									<value>II</value>
+									<value>II.BUSVER</value>
+									<value>II.OID</value>
+									<value>II.PUBLIC</value>
+									<value>II.PUBLICVER</value>
+									<value>II.TOKEN</value>
+									<value>II.BUS_AND_VER</value>
+									<value>II.VER</value>
+									<value>II.BUS</value>
+									<value>CS</value>
+									<value>CV</value>
+									<value>CD</value>
+									<value>CE</value>
+									<value>CD.LAB</value>
+									<value>ST</value>
+									<value>ST.LANG</value>
+									<value>ED</value>
+									<value>ED.DOC</value>
+									<value>ED.DOCORREF</value>
+									<value>ED.DOCREF</value>
+									<value>ED.SIGNATURE</value>
+									<value>INT.POS</value>
+									<value>INT.NONNEG</value>
+									<value>REAL.COORD</value>
+									<value>REAL.CONF</value>
+									<value>MO.CAD</value>
+									<value>PQ.BASIC</value>
+									<value>PQ.DRUG</value>
+									<value>PQ.TIME</value>
+									<value>PQ.HEIGHTWEIGHT</value>
+									<value>PQ.DISTANCE</value>
+									<value>PQ.LAB</value>
+									<value>IVL&lt;PQ&gt;</value>
+									<value>URG&lt;PQ&gt;</value>
+									<value>RTO&lt;PQ.DRUG, PQ.TIME&gt;</value>
+									<value>RTO&lt;MO.CAD, PQ.BASIC&gt;</value>
+									<value>PN.BASIC</value>
+									<value>PN.SIMPLE</value>
+									<value>PN.FULL</value>
+									<value>PN.SEARCH</value>
+									<value>TN</value>
+									<value>AD.BASIC</value>
+									<value>AD.FULL</value>
+									<value>AD.SEARCH</value>
+									<value>TEL.PHONEMAIL</value>
+									<value>TEL.PHONE</value>
+									<value>TEL.EMAIL</value>
+									<value>TEL.URI</value>
+									<value>ANY</value>
+									<value>ANY.LAB</value>
+									<value>ANY.CA.IZ</value>
+									<value>ANY.PATH</value>
+									<value>BL</value>
+									<value>LIST</value>
+									<value>SET</value>
+								</list>
+							</constructor-arg>
+						</bean>
+		  				
+  					</list>
+  				</constructor-arg>
+  			</bean>
+  			
+  		</list>
+  	</constructor-arg>
+  </bean>
+  
+  <bean id="ca.intelliware.commons.dependency.devcreek.DevCreekTransmitter" class="ca.intelliware.commons.dependency.devcreek.DevCreekTransmitter">
+  	<constructor-arg>	
+  		<bean class="ca.intelliware.devcreek.client.DevCreekClient">
+		  	<constructor-arg value="AG"/>
+		  	<constructor-arg value="MessageBuilder"/>
+  			<constructor-arg value="alexei.guevara@intelliware.ca"/>
+  			<constructor-arg value="intelliware"/>
+  			<constructor-arg>
+  				<bean class="ca.intelliware.devcreek.client.PrefixedSessionIdGenerator">
+  					<constructor-arg value="AcceptanceTests-"/>
+  					<constructor-arg>
+  						<bean class="ca.intelliware.devcreek.client.UUIDSessionIdGenerator"/>
+  					</constructor-arg>
+  				</bean>
+  			</constructor-arg>
+  		</bean>
+  	</constructor-arg>
+  </bean>
+
+</beans>
+				  								

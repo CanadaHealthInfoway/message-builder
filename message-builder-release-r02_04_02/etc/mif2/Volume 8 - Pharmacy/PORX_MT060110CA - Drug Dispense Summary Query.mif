@@ -1,0 +1,362 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/*******************************************************************************
+ * Copyright (c) 2010 Health Level Seven, Inc.
+ * All rights reserved. This file and the model designs it contains 
+ * are made available under terms of a proprietary license implicitly 
+ * established by the terms expressed in the Bylaws of Health 
+ * Level Seven, Inc. (HL7), in combination with the agreements under 
+ * which individual and organizational memberships are established with HL7.
+ * Links to the HL7 Bylaws may be found at http://www.hl7.org 
+ *******************************************************************************/ 
+				--><mif:staticModel xmlns:mif="urn:hl7-org:v3/mif2" conformanceLevel="RealmExtension"
+                 schemaVersion="2.1.3"
+                 packageKind="realmNamespace"
+                 representationKind="flat"
+                 isAbstract="false"
+                 title="Drug Dispense Summary Query"
+                 isSerializable="true"
+                 name="CA">
+   <mif:packageLocation realmNamespace="CA" artifact="MT" root="DEFN" section="HM" subSection="PO"
+                        domain="RX"
+                        id="060110"/>
+   <mif:header>
+      <mif:renderingInformation application="Visio to MIF transform"/>
+      <mif:legalese copyrightOwner="Health Level Seven" copyrightYears="2010">
+         <mif:notation>All rights reserved.</mif:notation>
+         <mif:licenseTerms>
+            <p xmlns="http://www.w3.org/1999/xhtml">This file and the model designs it contains are made available under terms of a proprietary license implicitly established by the terms expressed in the Bylaws of Health Level Seven, Inc. (HL7), in combination with the agreements under which individual and organizational memberships are established with HL7.
+					Links to the HL7 Bylaws may be found at <a href="http://www.hl7.org">http://www.hl7.org</a>
+				        </p>
+         </mif:licenseTerms>
+      </mif:legalese>
+   </mif:header>
+   <mif:graphicRepresentation presentation="HL7">
+      <mif:graphElement name="Main">
+         <mif:position x="0.0" y="0.0"/>
+         <mif:size width="9.695" height="7.902"/>
+      </mif:graphElement>
+      <mif:entryPoint semanticLinkId="0343CB17-DE7B-08DE-0604-C38F25FA4853">
+         <mif:graphElement shapeId="Sheet.9">
+            <mif:position x="0.028" y="4.949"/>
+            <mif:size width="2.175" height="0.453"/>
+            <mif:anchorage connectToShapeId="Sheet.9">
+               <mif:position x="2.203" y="3.367"/>
+               <mif:graphEdge>
+                  <mif:anchor connectToShapeId="Sheet.5">
+                     <mif:position x="3.250" y="3.564"/>
+                  </mif:anchor>
+               </mif:graphEdge>
+            </mif:anchorage>
+         </mif:graphElement>
+      </mif:entryPoint>
+      <mif:class semanticLinkId="ED6D4B30-CE68-82B2-7A0D-806A184F26C6" presentation="HL7">
+         <mif:graphElement shapeId="Sheet.32" shapeTemplate="OtherClass" isWidthAutoSize="true"
+                           isHeightAutoSize="true">
+            <mif:position x="6.500" y="0.852"/>
+            <mif:size width="2.074" height="0.750"/>
+         </mif:graphElement>
+      </mif:class>
+      <mif:class semanticLinkId="2C755D44-D003-0F71-C5E7-55BDA993FF87" presentation="HL7">
+         <mif:graphElement shapeId="Sheet.264" shapeTemplate="OtherClass" isWidthAutoSize="true"
+                           isHeightAutoSize="true">
+            <mif:position x="6.490" y="4.952"/>
+            <mif:size width="3.020" height="0.750"/>
+         </mif:graphElement>
+      </mif:class>
+      <mif:class semanticLinkId="D4D7F444-8A71-0F3D-5640-A55ED909982E" presentation="HL7">
+         <mif:graphElement shapeId="Sheet.114" shapeTemplate="OtherClass" isWidthAutoSize="true"
+                           isHeightAutoSize="true">
+            <mif:position x="6.476" y="2.402"/>
+            <mif:size width="2.849" height="0.750"/>
+         </mif:graphElement>
+      </mif:class>
+      <mif:class semanticLinkId="3ABFEE4E-7512-B9F6-2FB9-CE005A685B4E" presentation="HL7">
+         <mif:graphElement shapeId="Sheet.118" shapeTemplate="OtherClass" isWidthAutoSize="true"
+                           isHeightAutoSize="true">
+            <mif:position x="6.800" y="3.802"/>
+            <mif:size width="2.808" height="0.750"/>
+         </mif:graphElement>
+      </mif:class>
+      <mif:class semanticLinkId="698AFCDD-8319-8065-97C0-ABFC38A46E98" presentation="HL7">
+         <mif:graphElement shapeId="Sheet.5" shapeTemplate="OtherClass" isWidthAutoSize="true"
+                           isHeightAutoSize="false">
+            <mif:position x="3.250" y="2.980"/>
+            <mif:size width="1.250" height="2.334"/>
+         </mif:graphElement>
+      </mif:class>
+      <mif:association semanticLinkId="6D91BE66-B5E6-C4EE-81E5-812BD305ACA9">
+         <mif:graphElement connectToShapeId="Sheet.5" shapeId="Sheet.80">
+            <mif:position x="4.500" y="2.980"/>
+            <mif:graphEdge>
+               <mif:waypoint x="4.500" y="2.980"/>
+               <mif:waypoint x="4.500" y="1.227"/>
+               <mif:anchor connectToShapeId="Sheet.32">
+                  <mif:position x="6.500" y="1.227"/>
+               </mif:anchor>
+            </mif:graphEdge>
+         </mif:graphElement>
+      </mif:association>
+      <mif:association semanticLinkId="49CEB407-1B83-A199-4214-69D88AF0BA84">
+         <mif:graphElement connectToShapeId="Sheet.5" shapeId="Sheet.268">
+            <mif:position x="4.500" y="5.314"/>
+            <mif:graphEdge>
+               <mif:waypoint x="5.495" y="5.314"/>
+               <mif:waypoint x="5.495" y="5.327"/>
+               <mif:anchor connectToShapeId="Sheet.264">
+                  <mif:position x="6.490" y="5.327"/>
+               </mif:anchor>
+            </mif:graphEdge>
+         </mif:graphElement>
+      </mif:association>
+      <mif:association semanticLinkId="8F61E867-B7FE-FFE6-40D0-C8A18E744C22">
+         <mif:graphElement connectToShapeId="Sheet.5" shapeId="Sheet.202">
+            <mif:position x="4.500" y="3.564"/>
+            <mif:graphEdge>
+               <mif:waypoint x="4.800" y="3.564"/>
+               <mif:waypoint x="4.800" y="2.777"/>
+               <mif:anchor connectToShapeId="Sheet.114">
+                  <mif:position x="6.476" y="2.777"/>
+               </mif:anchor>
+            </mif:graphEdge>
+         </mif:graphElement>
+      </mif:association>
+      <mif:association semanticLinkId="86AF30E1-E64B-6E3D-3235-267E760BAD82">
+         <mif:graphElement connectToShapeId="Sheet.5" shapeId="Sheet.156">
+            <mif:position x="4.500" y="4.147"/>
+            <mif:graphEdge>
+               <mif:waypoint x="5.650" y="4.147"/>
+               <mif:waypoint x="5.650" y="4.177"/>
+               <mif:anchor connectToShapeId="Sheet.118">
+                  <mif:position x="6.800" y="4.177"/>
+               </mif:anchor>
+            </mif:graphEdge>
+         </mif:graphElement>
+      </mif:association>
+   </mif:graphicRepresentation>
+   <mif:derivedFrom staticModelDerivationId="1">
+      <mif:targetStaticModel artifact="RIM" root="DEFN" version="0226"/>
+   </mif:derivedFrom>
+   <mif:importedDatatypeModelPackage realmNamespace="CA" artifact="DT" root="DEFN" version="R02.04.xx"/>
+   <mif:importedVocabularyModelPackage realmNamespace="CA" artifact="VO" root="DEFN" version="R02.04.xx"/>
+   <mif:importedCommonModelElementPackage realmNamespace="CA" artifact="IFC" root="DEFN" version="R02.04.xx"/>
+   <mif:entryPoint graphicLinkId="0343CB17-DE7B-08DE-0604-C38F25FA4853" id="PORX_MT060110CA"
+                   name="Drug Dispense Summary Query"
+                   className="ParameterList"/>
+   <mif:containedClass>
+      <mif:class graphicLinkId="ED6D4B30-CE68-82B2-7A0D-806A184F26C6"
+                 name="AdministrationEffectivePeriod"
+                 isAbstract="false">
+         <mif:derivedFrom staticModelDerivationId="1" className="ParameterItem"/>
+         <mif:attribute name="value" sortKey="1" minimumMultiplicity="1" maximumMultiplicity="1"
+                        conformance="R"
+                        isMandatory="true"
+                        isImmutable="false">
+            <mif:businessName name="D:Administration Effective Period"/>
+            <mif:annotations>
+               <mif:documentation>
+                  <mif:definition>
+                     <mif:text>
+                        <html:p xmlns:html="http://www.w3.org/1999/xhtml">Indicates the administration period for which the request/query applies.</html:p>
+                     
+                        <html:p xmlns:html="http://www.w3.org/1999/xhtml">Filter the result set to include only those medication records (prescription order, prescription dispense and other active medication) for which the patient was deemed to be taking the drug within the specified period.</html:p>
+                     </mif:text>
+                  </mif:definition>
+                  <mif:usageNotes>
+                     <mif:text>
+                        <html:p xmlns:html="http://www.w3.org/1999/xhtml">The determination for applicability for inclusion in the query response should be considered to be the 'Pick up date plus the days supply'</html:p>
+                     </mif:text>
+                  </mif:usageNotes>
+                  <mif:rationale>
+                     <mif:text>
+                        <html:p xmlns:html="http://www.w3.org/1999/xhtml">Allows the requester to specify the administration period of interest for the retrieval. Useful for constraining run-away queries.</html:p>
+                     </mif:text>
+                  </mif:rationale>
+               </mif:documentation>
+            </mif:annotations>
+            <mif:derivedFrom staticModelDerivationId="1" className="ParameterItem" attributeName="value"/>
+            <mif:type name="IVL">
+               <mif:argumentDatatype name="TS.FULLDATE"/>
+            </mif:type>
+         </mif:attribute>
+      </mif:class>
+   </mif:containedClass>
+   <mif:containedClass>
+      <mif:class graphicLinkId="2C755D44-D003-0F71-C5E7-55BDA993FF87" name="IssueFilterCode"
+                 isAbstract="false">
+         <mif:derivedFrom staticModelDerivationId="1" className="ParameterItem"/>
+         <mif:attribute name="value" sortKey="1" minimumMultiplicity="1" maximumMultiplicity="1"
+                        conformance="R"
+                        isMandatory="true"
+                        isImmutable="false">
+            <mif:businessName name="Issue Filter Code"/>
+            <mif:annotations>
+               <mif:documentation>
+                  <mif:definition>
+                     <mif:text>
+                        <html:p xmlns:html="http://www.w3.org/1999/xhtml">Indicates whether records to be returned (e.g. prescription order, prescription dispense and/or other medication) should be filtered to those with at least one persistent un-managed issue (against the record), with at least one persistent issues or should return all records, independent of the presence of persistent issues.</html:p>
+                     </mif:text>
+                  </mif:definition>
+                  <mif:rationale>
+                     <mif:text>
+                        <html:p xmlns:html="http://www.w3.org/1999/xhtml">By filtering returned records to include only those which have unmanaged issues or any issues at all, allows a provider to focus on those aspects of care where extra attention is needed. Because the attribute must be known, it is mandatory.</html:p>
+                     </mif:text>
+                  </mif:rationale>
+               </mif:documentation>
+            </mif:annotations>
+            <mif:derivedFrom staticModelDerivationId="1" className="ParameterItem" attributeName="value"/>
+            <mif:type name="CV"/>
+            <mif:vocabulary>
+               <mif:conceptDomain name="IssueFilterCode"/>
+            </mif:vocabulary>
+         </mif:attribute>
+      </mif:class>
+   </mif:containedClass>
+   <mif:containedClass>
+      <mif:class graphicLinkId="D4D7F444-8A71-0F3D-5640-A55ED909982E"
+                 name="MostRecentByDrugIndicator"
+                 isAbstract="false">
+         <mif:derivedFrom staticModelDerivationId="1" className="ParameterItem"/>
+         <mif:attribute name="value" sortKey="1" minimumMultiplicity="1" maximumMultiplicity="1"
+                        conformance="R"
+                        isMandatory="true"
+                        defaultValue="false"
+                        isImmutable="false">
+            <mif:businessName name="Most Recent By Drug Indicator"/>
+            <mif:annotations>
+               <mif:documentation>
+                  <mif:definition>
+                     <mif:text>
+                        <html:p xmlns:html="http://www.w3.org/1999/xhtml">Indicates whether or not the medication records are to be retrieved based on the most recent by Drug Code. If true, only the most recent prescription, dispense or other active medication for a particular drug generic classification will be returned. The default is 'FALSE' indicating that retrieval of prescription, dispense and other active medication records should not be limited to one per drug.</html:p>
+                     </mif:text>
+                  </mif:definition>
+                  <mif:rationale>
+                     <mif:text>
+                        <html:p xmlns:html="http://www.w3.org/1999/xhtml">Helps decrease the volume of records returned, while still maintaining information on all drugs that the patient is on.</html:p>
+                     
+                        <html:p xmlns:html="http://www.w3.org/1999/xhtml">Because this is a boolean attribute whose value must be known to evaluate the query, the attribute is mandatory.</html:p>
+                     </mif:text>
+                  </mif:rationale>
+               </mif:documentation>
+            </mif:annotations>
+            <mif:derivedFrom staticModelDerivationId="1" className="ParameterItem" attributeName="value"/>
+            <mif:type name="BL"/>
+         </mif:attribute>
+      </mif:class>
+   </mif:containedClass>
+   <mif:containedClass>
+      <mif:class graphicLinkId="3ABFEE4E-7512-B9F6-2FB9-CE005A685B4E"
+                 name="MostRecentDispenseForEachRxIndicator"
+                 isAbstract="false">
+         <mif:derivedFrom staticModelDerivationId="1" className="ParameterItem"/>
+         <mif:attribute name="value" sortKey="1" minimumMultiplicity="1" maximumMultiplicity="1"
+                        conformance="R"
+                        isMandatory="true"
+                        defaultValue="true"
+                        isImmutable="false">
+            <mif:businessName name="Most Recent Dispense for each Rx Indicator"/>
+            <mif:annotations>
+               <mif:documentation>
+                  <mif:definition>
+                     <mif:text>
+                        <html:p xmlns:html="http://www.w3.org/1999/xhtml">Indicates whether or not prescription dispenses returned on a query should be limited to only the most recent dispense for a prescription order.</html:p>
+                     
+                        <html:p xmlns:html="http://www.w3.org/1999/xhtml">Allows for the returning of at most one prescription dispense record per a prescription.</html:p>
+                     
+                        <html:p xmlns:html="http://www.w3.org/1999/xhtml">The default is 'TRUE' indicating that retrieval should be for only the most recent dispense for a prescription is to be included in a query result.</html:p>
+                     </mif:text>
+                  </mif:definition>
+                  <mif:rationale>
+                     <mif:text>
+                        <html:p xmlns:html="http://www.w3.org/1999/xhtml">Helps to trim down volume of query response by eliminating multiple prescription dispenses for the same prescription order.</html:p>
+                     
+                        <html:p xmlns:html="http://www.w3.org/1999/xhtml">Because this is a boolean attribute whose value must be known to evaluate the query, the attribute is mandatory.</html:p>
+                     </mif:text>
+                  </mif:rationale>
+               </mif:documentation>
+            </mif:annotations>
+            <mif:derivedFrom staticModelDerivationId="1" className="ParameterItem" attributeName="value"/>
+            <mif:type name="BL"/>
+         </mif:attribute>
+      </mif:class>
+   </mif:containedClass>
+   <mif:containedClass>
+      <mif:class graphicLinkId="698AFCDD-8319-8065-97C0-ABFC38A46E98" name="ParameterList"
+                 isAbstract="false">
+         <mif:derivedFrom staticModelDerivationId="1" className="ParameterList"/>
+         <mif:annotations>
+            <mif:documentation>
+               <mif:definition>
+                  <mif:text>
+                     <html:p xmlns:html="http://www.w3.org/1999/xhtml">Defines the set of parameters that may be used to filter the query response.</html:p>
+                  </mif:text>
+               </mif:definition>
+               <mif:rationale>
+                  <mif:text>
+                     <html:p xmlns:html="http://www.w3.org/1999/xhtml">Root class for query definition</html:p>
+                  </mif:text>
+               </mif:rationale>
+            </mif:documentation>
+         </mif:annotations>
+      </mif:class>
+   </mif:containedClass>
+   <mif:association graphicLinkId="6D91BE66-B5E6-C4EE-81E5-812BD305ACA9" sortKey="3">
+      <mif:traversableConnection name="administrationEffectivePeriod" minimumMultiplicity="0"
+                                 maximumMultiplicity="1"
+                                 conformance="R"
+                                 isMandatory="false"
+                                 sortKey="Z ZZ"
+                                 participantClassName="AdministrationEffectivePeriod">
+         <mif:derivedFrom staticModelDerivationId="1" className="ParameterList"
+                          associationEndName="parameter"/>
+      </mif:traversableConnection>
+      <mif:nonTraversableConnection participantClassName="ParameterList">
+         <mif:derivedFrom staticModelDerivationId="1" className="Parameter"
+                          associationEndName="parameterList"/>
+      </mif:nonTraversableConnection>
+   </mif:association>
+   <mif:association graphicLinkId="49CEB407-1B83-A199-4214-69D88AF0BA84" sortKey="0">
+      <mif:traversableConnection name="issueFilterCode" minimumMultiplicity="1" maximumMultiplicity="1"
+                                 conformance="R"
+                                 isMandatory="true"
+                                 sortKey="Z ZZ"
+                                 participantClassName="IssueFilterCode">
+         <mif:derivedFrom staticModelDerivationId="1" className="ParameterList"
+                          associationEndName="parameter"/>
+      </mif:traversableConnection>
+      <mif:nonTraversableConnection participantClassName="ParameterList">
+         <mif:derivedFrom staticModelDerivationId="1" className="Parameter"
+                          associationEndName="parameterList"/>
+      </mif:nonTraversableConnection>
+   </mif:association>
+   <mif:association graphicLinkId="8F61E867-B7FE-FFE6-40D0-C8A18E744C22" sortKey="2">
+      <mif:traversableConnection name="mostRecentByDrugIndicator" minimumMultiplicity="1"
+                                 maximumMultiplicity="1"
+                                 conformance="R"
+                                 isMandatory="true"
+                                 sortKey="Z ZZ"
+                                 participantClassName="MostRecentByDrugIndicator">
+         <mif:derivedFrom staticModelDerivationId="1" className="ParameterList"
+                          associationEndName="parameter"/>
+      </mif:traversableConnection>
+      <mif:nonTraversableConnection participantClassName="ParameterList">
+         <mif:derivedFrom staticModelDerivationId="1" className="Parameter"
+                          associationEndName="parameterList"/>
+      </mif:nonTraversableConnection>
+   </mif:association>
+   <mif:association graphicLinkId="86AF30E1-E64B-6E3D-3235-267E760BAD82" sortKey="1">
+      <mif:traversableConnection name="mostRecentDispenseForEachRxIndicator" minimumMultiplicity="1"
+                                 maximumMultiplicity="1"
+                                 conformance="R"
+                                 isMandatory="true"
+                                 sortKey="Z ZZ"
+                                 participantClassName="MostRecentDispenseForEachRxIndicator">
+         <mif:derivedFrom staticModelDerivationId="1" className="ParameterList"
+                          associationEndName="parameter"/>
+      </mif:traversableConnection>
+      <mif:nonTraversableConnection participantClassName="ParameterList">
+         <mif:derivedFrom staticModelDerivationId="1" className="Parameter"
+                          associationEndName="parameterList"/>
+      </mif:nonTraversableConnection>
+   </mif:association>
+</mif:staticModel>

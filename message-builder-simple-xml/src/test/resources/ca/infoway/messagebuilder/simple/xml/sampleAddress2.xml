@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ParameterList xmlns="urn:ca.infoway.messagebuilder.simplexml.v1" >
+	<address>
+		<addressLine>1709 Bloor St. W.</addressLine>
+		<addressLine>Suite 200</addressLine>
+		<city>Toronto</city>
+		<province code="CA-ON">Ontario</province>
+		<postalCode>M6P4E5</postalCode>
+	</address>
+</ParameterList>

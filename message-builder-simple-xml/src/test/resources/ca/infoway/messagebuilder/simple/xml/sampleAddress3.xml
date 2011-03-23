@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ParameterList xmlns="urn:ca.infoway.messagebuilder.simplexml.v1" >
+	<address>
+		<addressLine>121 5th Ave.</addressLine>
+		<city>New York</city>
+		<state>New York</state>
+		<zipCode>12345</zipCode>
+	</address>
+</ParameterList>

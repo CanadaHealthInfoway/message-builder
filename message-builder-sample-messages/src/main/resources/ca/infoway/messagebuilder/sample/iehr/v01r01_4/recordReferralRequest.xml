@@ -1,0 +1,193 @@
+<REPC_IN000096CA xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:hl7-org:v3" ITSVersion="XML_1.0">
+    <!-- Message rendered by Intelliware TEAL version 1.6-SNAPSHOT -->
+    <id root="1ee83ff1-08ab-4fe7-b573-ea777e9bad51"/>
+    <creationTime value="20080625141610-0400"/>
+    <responseModeCode code="I"/>
+    <versionCode code="V3-2008N"/>
+    <interactionId displayable="true" extension="REPC_IN000096CA" root="2.16.840.1.113883.1.6"/>
+    <profileId extension="4321" root="11.22.33.44" use="BUS"/>
+    <processingCode code="P"/>
+    <processingModeCode code="T"/>
+    <acceptAckCode code="NE"/>
+    <receiver typeCode="RCV">
+      <telecom value="http://123.456.789.10"/>
+      <device classCode="DEV" determinerCode="INSTANCE">
+        <id extension="123" root="1.2.3" use="BUS"/>
+      </device>
+    </receiver>
+    <sender typeCode="SND">
+      <telecom value="http://987.654.321.0"/>
+      <device classCode="DEV" determinerCode="INSTANCE">
+        <id extension="123" root="1.2.3" use="BUS"/>
+        <manufacturerModelName>1.0</manufacturerModelName>
+        <softwareName>Panacea Pharmacy</softwareName>
+      </device>
+    </sender>
+    <controlActEvent classCode="CACT" moodCode="EVN">
+      <id root="1ee83ff1-08ab-4fe7-b573-ea777e9bae22" use="BUS"/>
+      <code code="REPC_TE000073UV" codeSystem="2.16.840.1.113883.5.4"/>
+      <statusCode code="completed"/>
+      <effectiveTime>
+        <low value="20080918000000-0400"/>
+      </effectiveTime>
+      <recordTarget typeCode="RCT" contextControlCode="AP">
+        <patient1 classCode="PAT">
+          <id displayable="true" extension="159" root="3.14"/>
+          <patientPerson classCode="PSN" determinerCode="INSTANCE">
+            <name><given>Hannah</given><family>Lambert</family></name>
+            <administrativeGenderCode code="F" codeSystem="2.16.840.1.113883.5.1"/>
+            <birthTime value="19720321"/>
+          </patientPerson>
+        </patient1>
+      </recordTarget>
+      <responsibleParty typeCode="RESP" contextControlCode="AP">
+        <assignedEntity classCode="ASSIGNED">
+          <id displayable="true" extension="1" root="12.34.56"/>
+          <assignedPerson classCode="PSN" determinerCode="INSTANCE">
+            <name><given>John</given><family>Doe</family></name>
+            <asHealthCareProvider classCode="PROV">
+              <id displayable="true" extension="1" root="77.33.22.11"/>
+            </asHealthCareProvider>
+          </assignedPerson>
+        </assignedEntity>
+      </responsibleParty>
+      <author typeCode="AUT" contextControlCode="AP">
+        <time value="19691231190000-0500"/>
+        <assignedEntity1 classCode="ASSIGNED">
+          <id displayable="true" extension="1" root="1.1.1"/>
+          <assignedPerson classCode="PSN" determinerCode="INSTANCE">
+            <name><given>John</given><family>Doe</family></name>
+            <asHealthCareProvider classCode="PROV">
+              <id displayable="true" extension="1" root="2.2.2"/>
+            </asHealthCareProvider>
+          </assignedPerson>
+        </assignedEntity1>
+      </author>
+      <location typeCode="LOC" contextControlCode="AP">
+        <serviceDeliveryLocation classCode="SDLOC">
+          <id displayable="true" extension="1" root="2.16.124.113620.1.1.11111"/>
+          <location classCode="PLC" determinerCode="INSTANCE">
+            <name>Intelliware&apos;s Pharmacy</name>
+          </location>
+        </serviceDeliveryLocation>
+      </location>
+      <subject typeCode="SUBJ" contextControlCode="AN" contextConductionInd="false">
+        <document classCode="DOCCLIN" moodCode="EVN">
+          <code code="34099-2" codeSystem="2.16.840.1.113883.6.1"/>
+          <title>referral document title</title>
+          <responsibleParty typeCode="RESP" contextControlCode="AP">
+            <assignedEntity1 classCode="ASSIGNED">
+              <id displayable="true" extension="1" root="12.34.56"/>
+              <code code="ACP" codeSystem="2.16.840.1.113883.5.111"/>
+              <assignedPerson classCode="PSN" determinerCode="INSTANCE">
+                <name><given>John</given><family>Doe</family></name>
+                <asHealthCareProvider classCode="PROV">
+                  <id displayable="true" extension="1" root="77.33.22.11"/>
+                </asHealthCareProvider>
+              </assignedPerson>
+            </assignedEntity1>
+          </responsibleParty>
+          <author typeCode="AUT" contextControlCode="AP">
+            <signatureCode code="S" codeSystem="2.16.840.1.113883.5.89"/>
+            <assignedEntity1 classCode="ASSIGNED">
+              <id displayable="true" extension="1" root="1.1.1"/>
+              <code code="AUD" codeSystem="2.16.840.1.113883.5.111"/>
+              <assignedPerson classCode="PSN" determinerCode="INSTANCE">
+                <name><given>John</given><family>Doe</family></name>
+                <asHealthCareProvider classCode="PROV">
+                  <id displayable="true" extension="1" root="2.2.2"/>
+                </asHealthCareProvider>
+              </assignedPerson>
+            </assignedEntity1>
+          </author>
+            <primaryInformationRecipient typeCode="PRCP" contextControlCode="ON">
+              <assignedEntity1 classCode="ASSIGNED">
+                <id displayable="true" extension="1" root="12.34.56"/>
+                <code code="ACP" codeSystem="2.16.840.1.113883.5.111"/>
+                <assignedPerson classCode="PSN" determinerCode="INSTANCE">
+                  <name><given>John</given><family>Doe</family></name>
+                  <asHealthCareProvider classCode="PROV">
+                    <id displayable="true" extension="1" root="77.33.22.11"/>
+                  </asHealthCareProvider>
+                </assignedPerson>
+              </assignedEntity1>
+            </primaryInformationRecipient>
+            <primaryInformationRecipient typeCode="PRCP" contextControlCode="ON">
+              <assignedEntity1 classCode="ASSIGNED">
+                <id displayable="true" extension="1" root="12.34.56"/>
+                <code code="ACP" codeSystem="2.16.840.1.113883.5.111"/>
+                <assignedPerson classCode="PSN" determinerCode="INSTANCE">
+                  <name><given>John</given><family>Doe</family></name>
+                  <asHealthCareProvider classCode="PROV">
+                    <id displayable="true" extension="1" root="77.33.22.11"/>
+                  </asHealthCareProvider>
+                </assignedPerson>
+              </assignedEntity1>
+            </primaryInformationRecipient>
+          <component typeCode="COMP" contextControlCode="ON" contextConductionInd="true">
+            <structuredBody classCode="DOCBODY" moodCode="EVN">
+              <component typeCode="COMP" contextControlCode="ON" contextConductionInd="true">
+                <section classCode="DOCSECT" moodCode="EVN">
+                  <text mediaType="text/html" representation="B64">VkdocGN5QnBjeUJoSUhCc1lXbHVJSFJsZUhRZ1pHOWpkVzFsYm5RdUlFNXZkR2hwYm1jZ1ptRnVZM2tzSUdKMWRDQmhJQzl1Wm1WMw0KTDI0dmJteHBibVVnWW5KbFlXdHpMMjVvWlhKbElHRnVaQzl1TDI1MGFHVnlaUT09DQo=</text>
+                  <component1 typeCode="COMP" contextControlCode="ON" contextConductionInd="true">
+                    <patientCareProvisionRequest classCode="PCPR" moodCode="RQO">
+                      <code code="104075000" codeSystem="2.16.840.1.113883.6.96"/>
+                      <statusCode code="active"/>
+                      <effectiveTime>
+                        <low value="20070920"/>
+                      </effectiveTime>
+                      <performer typeCode="PRF" contextControlCode="ON">
+                        <assignedEntity classCode="ASSIGNED">
+                          <id extension="1" root="12.34.56" use="BUS"/>
+                          <code code="ACP" codeSystem="2.16.840.1.113883.5.111"/>
+                        </assignedEntity>
+                      </performer>
+                      <location typeCode="LOC" contextControlCode="OP">
+                        <serviceDeliveryLocation classCode="SDLOC">
+                          <id displayable="true" extension="3" root="2.2.2"/>
+                          <code code="ALL" codeSystem="2.16.840.1.113883.5.111"/>
+                          <addr use="H">Bloor</addr>
+                          <telecom value="http://123.456.789.10"/>
+                          <location classCode="PLC" determinerCode="INSTANCE">
+                            <name>Intelliware&apos;s Pharmacy</name>
+                          </location>
+                        </serviceDeliveryLocation>
+                      </location>
+                      <component typeCode="COMP" contextControlCode="ON" contextConductionInd="true">
+                        <actRequest classCode="ACT" moodCode="RQO">
+                          <code code="MA" codeSystem="2.16.840.1.113883.6.95"/>
+                        </actRequest>
+                      </component>
+                      <fulfillment typeCode="FLFS" contextControlCode="ON" contextConductionInd="true">
+                        <patientCareProvisionEvent classCode="PCPR" moodCode="EVN">
+                          <id extension="888" root="7.7.7" use="BUS"/>
+                        </patientCareProvisionEvent>
+                      </fulfillment>
+                    </patientCareProvisionRequest>
+                  </component1>
+                </section>
+              </component>
+            </structuredBody>
+          </component>
+          <subjectOf typeCode="SUBJ" contextControlCode="AN" contextConductionInd="false">
+            <annotation classCode="ACT" moodCode="EVN">
+              <text language="en">note text</text>
+              <statusCode code="completed"/>
+              <author typeCode="AUT">
+                <time value="19691231190000-0500"/>
+                <assignedEntity1 classCode="ASSIGNED">
+                  <id displayable="true" extension="1" root="1.1.1"/>
+                  <assignedPerson classCode="PSN" determinerCode="INSTANCE">
+                    <name><given>John</given><family>Doe</family></name>
+                    <asHealthCareProvider classCode="PROV">
+                      <id displayable="true" extension="1" root="2.2.2"/>
+                    </asHealthCareProvider>
+                  </assignedPerson>
+                </assignedEntity1>
+              </author>
+            </annotation>
+          </subjectOf>
+        </document>
+      </subject>
+    </controlActEvent>
+</REPC_IN000096CA>

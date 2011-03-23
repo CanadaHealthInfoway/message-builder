@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:chi="urn:ca.infoway.messagebuilder.simplexml.v1" elementFormDefault="qualified" targetNamespace="urn:ca.infoway.messagebuilder.simplexml.v1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include schemaLocation="COCT_MT220200CA.xsd"/>
+  <xs:include schemaLocation="COCT_MT220110CA.xsd"/>
+  <xs:include schemaLocation="COCT_MT220210CA.xsd"/>
+  <xs:include schemaLocation="COCT_MT220100CA.xsd"/>
+  <xs:include schemaLocation="../../../../../../classes/simpleDataTypes.xsd"/>
+  <xs:complexType name="COCT_MT270010CA.Component17">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="dosageLineOrder" type="xs:integer"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="dosageUsageContext" type="chi:SimpleCodedType"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="adHocDosageInstruction" type="xs:string"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="dosageTimingFrequency" type="chi:BoundedPeriodicIntervalOfTime"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="dosageRange" type="chi:PhysicalQuantityUncertainRange"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="dosageRate" type="chi:PhysicalQuantityUncertainRange"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="dosageLineComponentSupplementalInstruction" type="chi:COCT_MT270010CA.SupplementalInstruction"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="dosageCondition" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="COCT_MT270010CA.DosageInstruction">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="dosageUsageContext" type="chi:SimpleCodedType"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="dosageType" type="chi:CodedType"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="renderedDosageInstruction" type="xs:string"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="administrationPeriod" type="chi:DateInterval"/>
+      <xs:element maxOccurs="5" minOccurs="0" name="administrationSites" type="chi:CodedValue"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="routeCode" type="chi:CodedValue"/>
+      <xs:element maxOccurs="2" minOccurs="0" name="maximumDailyWeeklyDoses" type="chi:RatioDrugQuantityPerTime"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="dosageUnit" type="chi:CodedValue"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="component1SupplementalInstruction" type="chi:COCT_MT270010CA.SupplementalInstruction"/>
+      <xs:element maxOccurs="20" minOccurs="0" name="component2" type="chi:COCT_MT270010CA.Component17"/>
+      <xs:group maxOccurs="1" minOccurs="0" ref="chi:COCT_MT270010CA.Medication"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="COCT_MT270010CA.Medication">
+    <xs:choice>
+      <xs:element name="drugProduct" type="chi:COCT_MT220100CA.Medication"/>
+      <xs:element name="drugProduct" type="chi:COCT_MT220210CA.Medication"/>
+      <xs:element name="drugProduct" type="chi:COCT_MT220110CA.Medication"/>
+      <xs:element name="drugProduct" type="chi:COCT_MT220200CA.Medication"/>
+    </xs:choice>
+  </xs:group>
+  <xs:complexType name="COCT_MT270010CA.SupplementalInstruction">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="dosageUsageContext" type="chi:SimpleCodedType"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="additionalDosageInstruction" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

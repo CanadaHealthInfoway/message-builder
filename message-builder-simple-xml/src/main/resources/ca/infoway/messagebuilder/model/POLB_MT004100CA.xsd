@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:chi="urn:ca.infoway.messagebuilder.simplexml.v1" elementFormDefault="qualified" targetNamespace="urn:ca.infoway.messagebuilder.simplexml.v1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include schemaLocation="COCT_MT120600CA.xsd"/>
+  <xs:include schemaLocation="COCT_MT090502CA.xsd"/>
+  <xs:include schemaLocation="COCT_MT090102CA.xsd"/>
+  <xs:include schemaLocation="COCT_MT050007CA.xsd"/>
+  <xs:include schemaLocation="POLB_MT001001CA.xsd"/>
+  <xs:include schemaLocation="COCT_MT080100CA.xsd"/>
+  <xs:include schemaLocation="COCT_MT130001CA.xsd"/>
+  <xs:include schemaLocation="COCT_MT090508CA.xsd"/>
+  <xs:include schemaLocation="../../../../../../classes/simpleDataTypes.xsd"/>
+  <xs:complexType name="POLB_MT004100CA.ActPromise">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="fillerOrderNumber" type="chi:InstanceIdentifier"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="POLB_MT004100CA.ActRequest">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="actRequestReference" type="chi:InstanceIdentifier"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="POLB_MT004100CA.Component1">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="0" name="cultureObservationType" type="chi:CodedType"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="cultureObservationComment" type="xs:string"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="cultureObservationStatus" type="chi:SimpleCodedType"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="cultureObservationDateTime" type="chi:DateInterval"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="cultureObservationValue" type="xs:anyType"/>
+      <xs:element maxOccurs="100" minOccurs="0" name="cultureObservationEventSubjectOf1" type="chi:POLB_MT004100CA.Subject2"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="resultStatusProcessStepCode" type="chi:CodedType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="POLB_MT004100CA.Component2">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="contextConductionInd" type="xs:boolean"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="clusterComment" type="xs:string"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="clusterStatus" type="chi:SimpleCodedType"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="clusterEffectiveTime" type="chi:DateInterval"/>
+      <xs:element maxOccurs="100" minOccurs="0" name="specimenObservationClusterComponent1" type="chi:POLB_MT004100CA.Component3"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="specimenObservationClusterComponent2" type="chi:POLB_MT004100CA.Component4"/>
+      <xs:element maxOccurs="100" minOccurs="0" name="specimenObservationClusterComponent3" type="chi:POLB_MT004100CA.Component5"/>
+      <xs:group maxOccurs="2" minOccurs="1" ref="chi:POLB_MT004100CA.RoleChoice"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="resultStatusProcessStepCode" type="chi:CodedType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="POLB_MT004100CA.Component3">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="isolateObservationType" type="chi:CodedType"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="isolateObservationStatus" type="chi:SimpleCodedType"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="isolateObservationEffectiveTime" type="chi:DateInterval"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="isolateObservationValue" type="xs:string"/>
+      <xs:element maxOccurs="100" minOccurs="0" name="isolateObservationEventSubjectOf1" type="chi:POLB_MT004100CA.Subject2"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="resultStatusProcessStepCode" type="chi:CodedType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="POLB_MT004100CA.Component4">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="organismIdentificationType" type="chi:CodedType"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="organsimIdentificationObservationStatus" type="chi:SimpleCodedType"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="organismObservationEffectiveTime" type="chi:DateInterval"/>
+      <xs:element maxOccurs="100" minOccurs="0" name="organismIdentificationEventSubjectOf1" type="chi:POLB_MT004100CA.Subject2"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="resultStatusProcessStepCode" type="chi:CodedType"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="isolateIdentifier" type="chi:InstanceIdentifier"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="microorganism" type="chi:CodedType"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="microorganismDescription" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="POLB_MT004100CA.Component5">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="sensitivityBatteryType" type="chi:CodedType"/>
+      <xs:element maxOccurs="100" minOccurs="1" name="sensitivityBatteryComponent" type="chi:POLB_MT004100CA.Component6"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="POLB_MT004100CA.Component6">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="sensitivityTestCode" type="chi:CodedType"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="sensitivityText" type="xs:string"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="sensitivityStatus" type="chi:SimpleCodedType"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="sensitivityTestDateTimeRange" type="chi:DateInterval"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="sensitivityValue" type="xs:string"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="sensitivityValueInterpretation" type="chi:CodedValue"/>
+      <xs:element maxOccurs="100" minOccurs="0" name="sensitivityObservationEventSubjectOf1" type="chi:POLB_MT004100CA.Subject2"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="resultStatusProcessStepCode" type="chi:CodedType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="POLB_MT004100CA.Component7">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="resultSortKeyType" type="chi:CodedValue"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="sortKeyText" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="POLB_MT004100CA.Component8">
+    <xs:sequence>
+      <xs:element maxOccurs="2" minOccurs="0" name="cultureIdentifier" type="chi:InstanceIdentifier"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="cultureType" type="chi:CodedType"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="cultureStatus" type="chi:SimpleCodedType"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="cultureEffectiveTime" type="chi:DateInterval"/>
+      <xs:element maxOccurs="2" minOccurs="0" name="resultMaskingIndicator" type="chi:CodedValue"/>
+      <xs:element maxOccurs="100" minOccurs="0" name="cultureComponent1" type="chi:POLB_MT004100CA.Component1"/>
+      <xs:element maxOccurs="100" minOccurs="1" name="cultureComponent2" type="chi:POLB_MT004100CA.Component2"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="cultureComponent3" type="chi:POLB_MT004100CA.Component7"/>
+      <xs:element maxOccurs="10" minOccurs="0" name="cultureComponent4" type="chi:POLB_MT004100CA.Component9"/>
+      <xs:group maxOccurs="3" minOccurs="0" ref="chi:POLB_MT004100CA.FulfillmentChoice"/>
+      <xs:group maxOccurs="2" minOccurs="1" ref="chi:POLB_MT004100CA.RoleChoice"/>
+      <xs:element maxOccurs="100" minOccurs="0" name="culturePertinentInformation1" type="chi:POLB_MT004100CA.PertinentInformation1"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="outbreakIdentifier" type="chi:InstanceIdentifier"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="culturePrimaryInformationRecipientAssignedEntity" type="chi:COCT_MT090508CA.AssignedEntity"/>
+      <xs:group maxOccurs="20" minOccurs="0" ref="chi:POLB_MT004100CA.RoleChoice"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="cultureSubjectOf1ControlActEvent" type="chi:COCT_MT130001CA.ControlActEvent"/>
+      <xs:element maxOccurs="100" minOccurs="0" name="cultureSubjectOf2" type="chi:POLB_MT004100CA.Subject2"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="resultStatusProcessStepCode" type="chi:CodedType"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="cultureSpecimenSpecimen" type="chi:COCT_MT080100CA.Specimen"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="POLB_MT004100CA.Component9">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="observationTypeReportableIndicator" type="chi:CodedType"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="reportableIndicator" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="POLB_MT004100CA.FulfillmentChoice">
+    <xs:choice>
+      <xs:element name="actRequest" type="chi:POLB_MT004100CA.ActRequest"/>
+      <xs:element name="requestChoice" type="chi:POLB_MT001001CA.RequestChoice"/>
+      <xs:element name="fillerOrder" type="chi:POLB_MT004100CA.ActPromise"/>
+    </xs:choice>
+  </xs:group>
+  <xs:complexType name="POLB_MT004100CA.ObservationReport">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="observationReportIdentifier" type="chi:InstanceIdentifier"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="labObservationReportType" type="chi:CodedType"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="observationReportTitle" type="xs:string"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="renderedReport" type="chi:EncapsulatedDocumentOrReference"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="observationReportStatus" type="chi:SimpleCodedType"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="observationReportDateTime" type="chi:FullDateTime"/>
+      <xs:element maxOccurs="2" minOccurs="0" name="resultMaskingIndicator" type="chi:CodedValue"/>
+      <xs:element maxOccurs="10" minOccurs="0" name="component1" type="chi:POLB_MT004100CA.Component9"/>
+      <xs:element maxOccurs="100" minOccurs="1" name="component2" type="chi:POLB_MT004100CA.Component8"/>
+      <xs:group maxOccurs="3" minOccurs="0" ref="chi:POLB_MT004100CA.FulfillmentChoice"/>
+      <xs:group maxOccurs="2" minOccurs="1" ref="chi:POLB_MT004100CA.RoleChoice"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="outbreakIdentifier" type="chi:InstanceIdentifier"/>
+      <xs:element maxOccurs="100" minOccurs="0" name="pertinentInformation2" type="chi:POLB_MT004100CA.PertinentInformation3"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="primaryInformationRecipientAssignedEntity" type="chi:COCT_MT090508CA.AssignedEntity"/>
+      <xs:group maxOccurs="20" minOccurs="0" ref="chi:POLB_MT004100CA.RoleChoice"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="recordTargetPatient" type="chi:COCT_MT050007CA.Patient"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="subjectOf1ControlActEvent" type="chi:COCT_MT130001CA.ControlActEvent"/>
+      <xs:element maxOccurs="100" minOccurs="0" name="subjectOf2" type="chi:POLB_MT004100CA.Subject2"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="resultStatusProcessStepCode" type="chi:CodedType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="POLB_MT004100CA.PertinentInformation1">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="supportingClinicalObservationCode" type="chi:CodedType"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="supportingClinicalObservationValue" type="xs:anyType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="POLB_MT004100CA.PertinentInformation3">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="supportingClinicalObservationCode" type="chi:CodedType"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="supportingClinicalObservationValue" type="xs:anyType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="POLB_MT004100CA.RoleChoice">
+    <xs:choice>
+      <xs:element name="healthcareWorker" type="chi:COCT_MT090102CA.AssignedEntity"/>
+      <xs:element name="healthcareOrganization" type="chi:COCT_MT090508CA.AssignedEntity"/>
+      <xs:element name="healthcareOrganization" type="chi:COCT_MT090502CA.AssignedEntity"/>
+    </xs:choice>
+  </xs:group>
+  <xs:complexType name="POLB_MT004100CA.Subject2">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="contextConductionInd" type="xs:boolean"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="annotation" type="chi:COCT_MT120600CA.Annotation"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

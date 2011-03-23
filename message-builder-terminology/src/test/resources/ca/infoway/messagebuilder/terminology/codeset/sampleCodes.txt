@@ -1,0 +1,27 @@
+Confidentiality	N	2.16.840.1.113883.5.25
+AcknowledgementDetailType	E	2.16.840.1.113883.5.1082
+HumanLanguage	fr	2.16.840.1.113883.6.84
+AcknowledgementDetailType	I	2.16.840.1.113883.5.1082
+Confidentiality	R	2.16.840.1.113883.5.25
+ActIssuePriority	I	2.16.840.1.113883.5.1082
+AdministrativeGender	UN	2.16.840.1.113883.5.1
+Confidentiality	HIV	2.16.840.1.113883.5.25
+AcknowledgementType	AA	2.16.840.1.113883.5.18
+AcknowledgementType	CR	2.16.840.1.113883.5.18
+HumanLanguage	en	2.16.840.1.113883.6.84
+AcknowledgementDetailType	E	2.16.840.1.113883.5.1082
+HumanLanguage	fr	2.16.840.1.113883.6.84
+HumanLanguage	ht	2.16.840.1.113883.6.84
+Confidentiality	R	2.16.840.1.113883.5.25
+AcknowledgementDetailType	I	2.16.840.1.113883.5.1082
+AcknowledgementType	AA	2.16.840.1.113883.5.18
+AdministrativeGender	UN	2.16.840.1.113883.5.1
+Confidentiality	HIV	2.16.840.1.113883.5.25
+ActIssuePriority	I	2.16.840.1.113883.5.1082
+AcknowledgementType	CR	2.16.840.1.113883.5.18
+HumanLanguage	fr	2.16.840.1.113883.6.84
+Confidentiality	N	2.16.840.1.113883.5.25
+AcknowledgementDetailType	I	2.16.840.1.113883.5.1082
+AcknowledgementDetailType	E	2.16.840.1.113883.5.1082
+Confidentiality	R	2.16.840.1.113883.5.25
+

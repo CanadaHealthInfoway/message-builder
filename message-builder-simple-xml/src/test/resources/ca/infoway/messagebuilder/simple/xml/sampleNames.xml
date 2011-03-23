@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ParameterList xmlns="urn:ca.infoway.messagebuilder.simplexml.v1" >
+	<personName use="L" >
+		<namePart partType="PFX" qualifier="IN">Mr.</namePart>
+		<namePart partType="PFX" qualifier="IN">Fantastico</namePart>
+		<namePart partType="GIV" qualifier="IN">Jack</namePart>
+		<namePart partType="GIV" qualifier="IN">Daniels</namePart>
+		<namePart partType="FAM" qualifier="IN">Onice</namePart>
+		<namePart partType="SFX" qualifier="IN">Clan</namePart>
+		<namePart partType="SFX" qualifier="IN">MacLeod</namePart>
+	</personName>
+	<personName use="L" >
+		<title>Mr.</title>
+		<firstName>Fantastico</firstName>
+		<middleName>Jack</middleName>
+		<middleName>Daniels</middleName>
+		<middleName>Onice</middleName>
+		<lastName>Clan</lastName>
+		<suffix>MacLeod</suffix>
+	</personName>
+	<simpleName use="L">Mr. Blob McBlob</simpleName>
+</ParameterList>

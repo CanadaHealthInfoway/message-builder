@@ -1,0 +1,588 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mif:commonModelElementPackage xmlns:mif="urn:hl7-org:v3/mif" name="cmetInfo" packageKind="name">
+   <mif:ownedCommonModelElement name="A_AnnotationUniversal" attributionLevel="universal" entryKind="Act">
+      <mif:supplierStructuralDomain mnemonic="ACT"/>
+      <mif:annotations>
+         <mif:description>Allows notes to be attached to clinical objects</mif:description>
+      </mif:annotations>
+      <mif:specializationChildStaticModel root="DEFN" section="IM" subSection="CO" domain="CT" artifact="MT-deprecated"
+                                          realm="CA"
+                                          id="120600"/>
+      <mif:specializationChildEntryClass name="Annotation">
+         <mif:supplierStructuralDomain mnemonic="ACT"/>
+      </mif:specializationChildEntryClass>
+   </mif:ownedCommonModelElement>
+   <mif:ownedCommonModelElement name="A_CareEventIdentified" attributionLevel="identified" entryKind="Act">
+      <mif:supplierStructuralDomain mnemonic="ACT"/>
+      <mif:annotations>
+         <mif:description>"Allows linking health service events to encounters, episodes, etc."</mif:description>
+      </mif:annotations>
+      <mif:specializationChildStaticModel root="DEFN" section="IM" subSection="CO" domain="CT" artifact="MT-deprecated"
+                                          realm="CA"
+                                          id="011001"/>
+      <mif:specializationChildEntryClass name="PatientCareProvisionEvent">
+         <mif:supplierStructuralDomain mnemonic="PCPR"/>
+      </mif:specializationChildEntryClass>
+   </mif:ownedCommonModelElement>
+   <mif:ownedCommonModelElement name="A_ConsentEventBasic" attributionLevel="basic" entryKind="Act">
+      <mif:supplierStructuralDomain mnemonic="CONS"/>
+      <mif:annotations>
+         <mif:description>Used to convey consent overrides and keywords associated with a particular trigger event</mif:description>
+      </mif:annotations>
+      <mif:specializationChildStaticModel root="DEFN" section="IM" subSection="CO" domain="CT" artifact="MT-deprecated"
+                                          realm="CA"
+                                          id="470002"/>
+      <mif:specializationChildEntryClass name="ConsentEvent">
+         <mif:supplierStructuralDomain mnemonic="CONS"/>
+      </mif:specializationChildEntryClass>
+   </mif:ownedCommonModelElement>
+   <mif:ownedCommonModelElement name="A_ConsentEventRegistryBasic" attributionLevel="basic" entryKind="Act">
+      <mif:supplierStructuralDomain mnemonic="CONS"/>
+      <mif:annotations>
+         <mif:description>Used to convey consent overrides and keywords associated with a particular trigger event for registry messaging only</mif:description>
+      </mif:annotations>
+      <mif:specializationChildStaticModel root="DEFN" section="IM" subSection="CO" domain="CT" artifact="MT-deprecated"
+                                          realm="CA"
+                                          id="470012"/>
+      <mif:specializationChildEntryClass name="ConsentEvent">
+         <mif:supplierStructuralDomain mnemonic="CONS"/>
+      </mif:specializationChildEntryClass>
+   </mif:ownedCommonModelElement>
+   <mif:ownedCommonModelElement name="A_ControlActEventBasic" attributionLevel="basic" entryKind="Act">
+      <mif:supplierStructuralDomain mnemonic="ACT"/>
+      <mif:annotations>
+         <mif:description>Used to return details about the trigger event action that led to the creation of a given version</mif:description>
+      </mif:annotations>
+      <mif:specializationChildStaticModel root="DEFN" section="IM" subSection="CO" domain="CT" artifact="MT-deprecated"
+                                          realm="CA"
+                                          id="130001"/>
+      <mif:specializationChildEntryClass name="ControlActEvent">
+         <mif:supplierStructuralDomain mnemonic="CACT"/>
+      </mif:specializationChildEntryClass>
+   </mif:ownedCommonModelElement>
+   <mif:ownedCommonModelElement name="A_DosageDetailed" attributionLevel="detailed" entryKind="Act">
+      <mif:supplierStructuralDomain mnemonic="SBADM"/>
+      <mif:annotations>
+         <mif:description>Used to express drug dosage instructions at a (relatively) detailed level</mif:description>
+      </mif:annotations>
+      <mif:specializationChildStaticModel root="DEFN" section="IM" subSection="CO" domain="CT" artifact="MT-deprecated"
+                                          realm="CA"
+                                          id="270010"/>
+      <mif:specializationChildEntryClass name="DosageInstruction">
+         <mif:supplierStructuralDomain mnemonic="SBADM"/>
+      </mif:specializationChildEntryClass>
+   </mif:ownedCommonModelElement>
+   <mif:ownedCommonModelElement name="A_IndicationBasic" attributionLevel="basic" entryKind="Act">
+      <mif:supplierStructuralDomain mnemonic="OBS"/>
+      <mif:annotations>
+         <mif:description>"Used to convey reason for therapy, including both condition-based and 'other' indications."</mif:description>
+      </mif:annotations>
+      <mif:specializationChildStaticModel root="DEFN" section="IM" subSection="CO" domain="CT" artifact="MT-deprecated"
+                                          realm="CA"
+                                          id="120402"/>
+      <mif:specializationChildEntryClass name="Indications">
+         <mif:supplierStructuralDomain mnemonic="ACT"/>
+         <mif:specializationClass name="ObservationCondition">
+            <mif:supplierStructuralDomain mnemonic="OBS"/>
+         </mif:specializationClass>
+         <mif:specializationClass name="OtherIndication">
+            <mif:supplierStructuralDomain mnemonic="ACT"/>
+         </mif:specializationClass>
+      </mif:specializationChildEntryClass>
+   </mif:ownedCommonModelElement>
+   <mif:ownedCommonModelElement name="A_IssueEventDetected-clinical" attributionLevel="detected-clinical"
+                                entryKind="Act">
+      <mif:supplierStructuralDomain mnemonic="ALRT"/>
+      <mif:annotations>
+         <mif:description>"A warning or error being overridden, potentially related to clinical information"</mif:description>
+      </mif:annotations>
+      <mif:specializationChildStaticModel root="DEFN" section="IM" subSection="CO" domain="CT" artifact="MT-deprecated"
+                                          realm="CA"
+                                          id="260020"/>
+      <mif:specializationChildEntryClass name="DetectedIssueEvent">
+         <mif:supplierStructuralDomain mnemonic="ALRT"/>
+      </mif:specializationChildEntryClass>
+   </mif:ownedCommonModelElement>
+   <mif:ownedCommonModelElement name="A_IssueEventDetected-basic" attributionLevel="detected-basic"
+                                entryKind="Act">
+      <mif:supplierStructuralDomain mnemonic="ALRT"/>
+      <mif:annotations>
+         <mif:description>"A warning or error being overridden, not related to clinical information"</mif:description>
+      </mif:annotations>
+      <mif:specializationChildStaticModel root="DEFN" section="IM" subSection="CO" domain="CT" artifact="MT-deprecated"
+                                          realm="CA"
+                                          id="260022"/>
+      <mif:specializationChildEntryClass name="DetectedIssueEvent">
+         <mif:supplierStructuralDomain mnemonic="ALRT"/>
+      </mif:specializationChildEntryClass>
+   </mif:ownedCommonModelElement>
+   <mif:ownedCommonModelElement name="A_IssueEventManaged-clinical" attributionLevel="managed-clinical"
+                                entryKind="Act">
+      <mif:supplierStructuralDomain mnemonic="ALRT"/>
+      <mif:annotations>
+         <mif:description>"A warning or error that has been identified. Includes full-blown monograph for clinical issues."</mif:description>
+      </mif:annotations>
+      <mif:specializationChildStaticModel root="DEFN" section="IM" subSection="CO" domain="CT" artifact="MT-deprecated"
+                                          realm="CA"
+                                          id="260010"/>
+      <mif:specializationChildEntryClass name="DetectedIssueEvent">
+         <mif:supplierStructuralDomain mnemonic="ALRT"/>
+      </mif:specializationChildEntryClass>
+   </mif:ownedCommonModelElement>
+   <mif:ownedCommonModelElement name="A_IssueEventManaged-basic" attributionLevel="managed-basic"
+                                entryKind="Act">
+      <mif:supplierStructuralDomain mnemonic="ALRT"/>
+      <mif:annotations>
+         <mif:description>"A warning or error that has been identified, not related to clinical information."</mif:description>
+      </mif:annotations>
+      <mif:specializationChildStaticModel root="DEFN" section="IM" subSection="CO" domain="CT" artifact="MT-deprecated"
+                                          realm="CA"
+                                          id="260012"/>
+      <mif:specializationChildEntryClass name="DetectedIssueEvent">
+         <mif:supplierStructuralDomain mnemonic="ALRT"/>
+      </mif:specializationChildEntryClass>
+   </mif:ownedCommonModelElement>
+   <mif:ownedCommonModelElement name="A_IssueEventReported-clinical" attributionLevel="reported-clinical"
+                                entryKind="Act">
+      <mif:supplierStructuralDomain mnemonic="ALRT"/>
+      <mif:annotations>
+         <mif:description>"A warning or error included in a query response. Includes references to URL of monograph for clinical issues."</mif:description>
+      </mif:annotations>
+      <mif:specializationChildStaticModel root="DEFN" section="IM" subSection="CO" domain="CT" artifact="MT-deprecated"
+                                          realm="CA"
+                                          id="260030"/>
+      <mif:specializationChildEntryClass name="DetectedIssueEvent">
+         <mif:supplierStructuralDomain mnemonic="ALRT"/>
+      </mif:specializationChildEntryClass>
+   </mif:ownedCommonModelElement>
+   <mif:ownedCommonModelElement name="A_SpatialCoordinateBasic" attributionLevel="basic" entryKind="Act">
+      <mif:supplierStructuralDomain mnemonic="POS"/>
+      <mif:annotations>
+         <mif:description>"Allows referencing the GPS, legal or range-meridian coordinates of a location"</mif:description>
+      </mif:annotations>
+      <mif:specializationChildStaticModel root="DEFN" section="IM" subSection="CO" domain="CT" artifact="MT-deprecated"
+                                          realm="CA"
+                                          id="960002"/>
+      <mif:specializationChildEntryClass name="Position">
+         <mif:supplierStructuralDomain mnemonic="POS"/>
+      </mif:specializationChildEntryClass>
+   </mif:ownedCommonModelElement>
+   <mif:ownedCommonModelElement name="R_ActingPersonIdentified-confirmable"
+                                attributionLevel="identified-confirmable"
+                                entryKind="Role(Performed only)">
+      <mif:supplierStructuralDomain mnemonic="ROL"/>
+      <mif:annotations>
+         <mif:description>Used to identify an acting person could be a provider or some person with a relationship to the patient. Includes confirming information</mif:description>
+      </mif:annotations>
+      <mif:specializationChildStaticModel root="DEFN" section="IM" subSection="CO" domain="CT" artifact="MT-deprecated"
+                                          realm="CA"
+                                          id="911102"/>
+      <mif:specializationChildEntryClass name="ActingPerson">
+         <mif:supplierStructuralDomain mnemonic="ROL"/>
+         <mif:specializationClass name="AssignedEntity">
+            <mif:supplierStructuralDomain mnemonic="ASSIGNED"/>
+            <mif:specializationChildStaticModel root="DEFN" section="IM" subSection="CO" domain="CT" artifact="MT-deprecated"
+                                                realm="CA"
+                                                id="090102"/>
+         </mif:specializationClass>
+         <mif:specializationClass name="AssignedEntity">
+            <mif:supplierStructuralDomain mnemonic="ASSIGNED"/>
+            <mif:specializationChildStaticModel root="DEFN" section="IM" subSection="CO" domain="CT" artifact="MT-deprecated"
+                                                realm="CA"
+                                                id="090502"/>
+         </mif:specializationClass>
+         <mif:specializationClass name="PersonalRelationship">
+            <mif:supplierStructuralDomain mnemonic="PRS"/>
+            <mif:specializationChildStaticModel root="DEFN" section="IM" subSection="CO" domain="CT" artifact="MT-deprecated"
+                                                realm="CA"
+                                                id="910102"/>
+         </mif:specializationClass>
+      </mif:specializationChildEntryClass>
+   </mif:ownedCommonModelElement>
+   <mif:ownedCommonModelElement name="R_ActingPersonIdentified-informational"
+                                attributionLevel="identified-informational"
+                                entryKind="Role(Performed only)">
+      <mif:supplierStructuralDomain mnemonic="ROL"/>
+      <mif:annotations>
+         <mif:description>Used to display an acting person could be a provider or some person with a relationship to the patient. Includes basic demographic and contact information</mif:description>
+      </mif:annotations>
+      <mif:specializationChildStaticModel root="DEFN" section="IM" subSection="CO" domain="CT" artifact="MT-deprecated"
+                                          realm="CA"
+                                          id="911108"/>
+      <mif:specializationChildEntryClass name="ActingPerson">
+         <mif:supplierStructuralDomain mnemonic="ROL"/>
+         <mif:specializationClass name="AssignedEntity">
+            <mif:supplierStructuralDomain mnemonic="ASSIGNED"/>
+            <mif:specializationChildStaticModel root="DEFN" section="IM" subSection="CO" domain="CT" artifact="MT-deprecated"
+                                                realm="CA"
+                                                id="090108"/>
+         </mif:specializationClass>
+         <mif:specializationClass name="AssignedEntity">
+            <mif:supplierStructuralDomain mnemonic="ASSIGNED"/>
+            <mif:specializationChildStaticModel root="DEFN" section="IM" subSection="CO" domain="CT" artifact="MT-deprecated"
+                                                realm="CA"
+                                                id="090508"/>
+         </mif:specializationClass>
+         <mif:specializationClass name="PersonalRelationship">
+            <mif:supplierStructuralDomain mnemonic="PRS"/>
+            <mif:specializationChildStaticModel root="DEFN" section="IM" subSection="CO" domain="CT" artifact="MT-deprecated"
+                                                realm="CA"
+                                                id="910108"/>
+         </mif:specializationClass>
+      </mif:specializationChildEntryClass>
+   </mif:ownedCommonModelElement>
+   <mif:ownedCommonModelElement name="R_ActingPersonInformational" attributionLevel="informational"
+                                entryKind="Role(Performed only)">
+      <mif:supplierStructuralDomain mnemonic="ROL"/>
+      <mif:annotations>
+         <mif:description>A non-identified patient containing descriptive demographic information. Used in circumstances where resolution against a client registry is not possible</mif:description>
+      </mif:annotations>
+      <mif:specializationChildStaticModel root="DEFN" section="IM" subSection="CO" domain="CT" artifact="MT-deprecated"
+                                          realm="CA"
+                                          id="911107"/>
+      <mif:specializationChildEntryClass name="ActingPerson">
+         <mif:supplierStructuralDomain mnemonic="ROL"/>
+         <mif:specializationClass name="AssignedEntity">
+            <mif:supplierStructuralDomain mnemonic="ASSIGNED"/>
+            <mif:specializationChildStaticModel root="DEFN" section="IM" subSection="CO" domain="CT" artifact="MT-deprecated"
+                                                realm="CA"
+                                                id="090108"/>
+         </mif:specializationClass>
+         <mif:specializationClass name="AssignedEntity">
+            <mif:supplierStructuralDomain mnemonic="ASSIGNED"/>
+            <mif:specializationChildStaticModel root="DEFN" section="IM" subSection="CO" domain="CT" artifact="MT-deprecated"
+                                                realm="CA"
+                                                id="090508"/>
+         </mif:specializationClass>
+         <mif:specializationClass name="Patient">
+            <mif:supplierStructuralDomain mnemonic="PAT"/>
+            <mif:specializationChildStaticModel root="DEFN" section="IM" subSection="CO" domain="CT" artifact="MT-deprecated"
+                                                realm="CA"
+                                                id="050207"/>
+         </mif:specializationClass>
+      </mif:specializationChildEntryClass>
+   </mif:ownedCommonModelElement>
+   <mif:ownedCommonModelElement name="R_AssignedDeviceIdentified-confirmable"
+                                attributionLevel="identified-confirmable"
+                                entryKind="Role(Performed only)">
+      <mif:supplierStructuralDomain mnemonic="ASSIGNED"/>
+      <mif:annotations>
+         <mif:description>An application identified by an identifier and name</mif:description>
+      </mif:annotations>
+      <mif:specializationChildStaticModel root="DEFN" section="IM" subSection="CO" domain="CT" artifact="MT-deprecated"
+                                          realm="CA"
+                                          id="090302"/>
+      <mif:specializationChildEntryClass name="AssignedDevice">
+         <mif:supplierStructuralDomain mnemonic="ASSIGNED"/>
+      </mif:specializationChildEntryClass>
+   </mif:ownedCommonModelElement>
+   <mif:ownedCommonModelElement name="R_AssignedDeviceRepository" attributionLevel="repository"
+                                entryKind="Role(Performed only)">
+      <mif:supplierStructuralDomain mnemonic="ASSIGNED"/>
+      <mif:annotations>
+         <mif:description>An application identifier by a name and responsible jurisdiction name</mif:description>
+      </mif:annotations>
+      <mif:specializationChildStaticModel root="DEFN" section="IM" subSection="CO" domain="CT" artifact="MT-deprecated"
+                                          realm="CA"
+                                          id="090310"/>
+      <mif:specializationChildEntryClass name="AssignedDevice">
+         <mif:supplierStructuralDomain mnemonic="ASSIGNED"/>
+      </mif:specializationChildEntryClass>
+   </mif:ownedCommonModelElement>
+   <mif:ownedCommonModelElement name="R_AssignedPersonIdentified-confirmable"
+                                attributionLevel="identified-confirmable"
+                                entryKind="Role(Performed only)">
+      <mif:supplierStructuralDomain mnemonic="ASSIGNED"/>
+      <mif:annotations>
+         <mif:description>"An identified healthcare provider resolvable against a provider registry, confirmed by basic demographic information. Includes non-licensed providers such as receptionists."</mif:description>
+      </mif:annotations>
+      <mif:specializationChildStaticModel root="DEFN" section="IM" subSection="CO" domain="CT" artifact="MT-deprecated"
+                                          realm="CA"
+                                          id="090102"/>
+      <mif:specializationChildEntryClass name="AssignedEntity">
+         <mif:supplierStructuralDomain mnemonic="ASSIGNED"/>
+      </mif:specializationChildEntryClass>
+   </mif:ownedCommonModelElement>
+   <mif:ownedCommonModelElement name="R_AssignedPersonIdentified-informational"
+                                attributionLevel="identified-informational"
+                                entryKind="Role(Performed only)">
+      <mif:supplierStructuralDomain mnemonic="ASSIGNED"/>
+      <mif:annotations>
+         <mif:description>An identified healthcare provider including basic demographic and contact information extracted from a provider registry. Includes non-licensed providers such as receptionists</mif:description>
+      </mif:annotations>
+      <mif:specializationChildStaticModel root="DEFN" section="IM" subSection="CO" domain="CT" artifact="MT-deprecated"
+                                          realm="CA"
+                                          id="090108"/>
+      <mif:specializationChildEntryClass name="AssignedEntity">
+         <mif:supplierStructuralDomain mnemonic="ASSIGNED"/>
+      </mif:specializationChildEntryClass>
+   </mif:ownedCommonModelElement>
+   <mif:ownedCommonModelElement name="R_AssigningOrganizationIdentified-confirmable"
+                                attributionLevel="identified-confirmable"
+                                entryKind="Role(Performed only)">
+      <mif:supplierStructuralDomain mnemonic="ASSIGNED"/>
+      <mif:annotations>
+         <mif:description>"Indicates an identified organization with basic demographic informationresolvable against or referenced from a provider registry. Used when the specific device or provider involved is not known."</mif:description>
+      </mif:annotations>
+      <mif:specializationChildStaticModel root="DEFN" section="IM" subSection="CO" domain="CT" artifact="MT-deprecated"
+                                          realm="CA"
+                                          id="090502"/>
+      <mif:specializationChildEntryClass name="AssignedEntity">
+         <mif:supplierStructuralDomain mnemonic="ASSIGNED"/>
+      </mif:specializationChildEntryClass>
+   </mif:ownedCommonModelElement>
+   <mif:ownedCommonModelElement name="R_AssigningOrganizationIdentified-informational"
+                                attributionLevel="identified-informational"
+                                entryKind="Role(Performed only)">
+      <mif:supplierStructuralDomain mnemonic="ASSIGNED"/>
+      <mif:annotations>
+         <mif:description>Indicates an identified organization with basic demographic and contact information retrievable from a provider registry. Used when the specific device or provider involved is not known.</mif:description>
+      </mif:annotations>
+      <mif:specializationChildStaticModel root="DEFN" section="IM" subSection="CO" domain="CT" artifact="MT-deprecated"
+                                          realm="CA"
+                                          id="090508"/>
+      <mif:specializationChildEntryClass name="AssignedEntity">
+         <mif:supplierStructuralDomain mnemonic="ASSIGNED"/>
+      </mif:specializationChildEntryClass>
+   </mif:ownedCommonModelElement>
+   <mif:ownedCommonModelElement name="R_DeviceOrderable" attributionLevel="orderable"
+                                entryKind="Role(Performed only)">
+      <mif:supplierStructuralDomain mnemonic="MANU"/>
+      <mif:annotations>
+         <mif:description>A clinical device identified at its orderable level</mif:description>
+      </mif:annotations>
+      <mif:specializationChildStaticModel root="DEFN" section="IM" subSection="CO" domain="CT" artifact="MT-deprecated"
+                                          realm="CA"
+                                          id="141007"/>
+      <mif:specializationChildEntryClass name="ManufacturedProduct">
+         <mif:supplierStructuralDomain mnemonic="MANU"/>
+      </mif:specializationChildEntryClass>
+   </mif:ownedCommonModelElement>
+   <mif:ownedCommonModelElement name="R_MedicationAdministrable" attributionLevel="administrable"
+                                entryKind="Role(Performed only)">
+      <mif:supplierStructuralDomain mnemonic="MED"/>
+      <mif:annotations>
+         <mif:description>A medication identified at its dispensable or administrable level</mif:description>
+      </mif:annotations>
+      <mif:specializationChildStaticModel root="DEFN" section="IM" subSection="CO" domain="CT" artifact="MT-deprecated"
+                                          realm="CA"
+                                          id="220200"/>
+      <mif:specializationChildEntryClass name="Medication">
+         <mif:supplierStructuralDomain mnemonic="ADMM"/>
+      </mif:specializationChildEntryClass>
+   </mif:ownedCommonModelElement>
+   <mif:ownedCommonModelElement name="R_MedicationAdministrable-response"
+                                attributionLevel="administrable-response"
+                                entryKind="Role(Performed only)">
+      <mif:supplierStructuralDomain mnemonic="MED"/>
+      <mif:annotations>
+         <mif:description>A medication identified at its dispensable or administrable response level</mif:description>
+      </mif:annotations>
+      <mif:specializationChildStaticModel root="DEFN" section="IM" subSection="CO" domain="CT" artifact="MT-deprecated"
+                                          realm="CA"
+                                          id="220210"/>
+      <mif:specializationChildEntryClass name="Medication">
+         <mif:supplierStructuralDomain mnemonic="ADMM"/>
+      </mif:specializationChildEntryClass>
+   </mif:ownedCommonModelElement>
+   <mif:ownedCommonModelElement name="R_MedicationOrderable" attributionLevel="orderable"
+                                entryKind="Role(Performed only)">
+      <mif:supplierStructuralDomain mnemonic="MED"/>
+      <mif:annotations>
+         <mif:description>A medication identified at its orderable level</mif:description>
+      </mif:annotations>
+      <mif:specializationChildStaticModel root="DEFN" section="IM" subSection="CO" domain="CT" artifact="MT-deprecated"
+                                          realm="CA"
+                                          id="220100"/>
+      <mif:specializationChildEntryClass name="Medication">
+         <mif:supplierStructuralDomain mnemonic="ADMM"/>
+      </mif:specializationChildEntryClass>
+   </mif:ownedCommonModelElement>
+   <mif:ownedCommonModelElement name="R_MedicationOrderable-response" attributionLevel="orderable-response"
+                                entryKind="Role(Performed only)">
+      <mif:supplierStructuralDomain mnemonic="MED"/>
+      <mif:annotations>
+         <mif:description>A medication identified at its orderable response level</mif:description>
+      </mif:annotations>
+      <mif:specializationChildStaticModel root="DEFN" section="IM" subSection="CO" domain="CT" artifact="MT-deprecated"
+                                          realm="CA"
+                                          id="220110"/>
+      <mif:specializationChildEntryClass name="Medication">
+         <mif:supplierStructuralDomain mnemonic="ADMM"/>
+      </mif:specializationChildEntryClass>
+   </mif:ownedCommonModelElement>
+   <mif:ownedCommonModelElement name="R_PatientAnimalContact" attributionLevel="contact"
+                                entryKind="Role(Performed only)">
+      <mif:supplierStructuralDomain mnemonic="PAT"/>
+      <mif:annotations>
+         <mif:description>Provides basic description and identification information for an animal patient</mif:description>
+      </mif:annotations>
+      <mif:specializationChildStaticModel root="DEFN" section="IM" subSection="CO" domain="CT" artifact="MT-deprecated"
+                                          realm="CA"
+                                          id="050303"/>
+      <mif:specializationChildEntryClass name="Patient">
+         <mif:supplierStructuralDomain mnemonic="PAT"/>
+      </mif:specializationChildEntryClass>
+   </mif:ownedCommonModelElement>
+   <mif:ownedCommonModelElement name="R_PatientPersonIdentified" attributionLevel="identified"
+                                entryKind="Role(Performed only)">
+      <mif:supplierStructuralDomain mnemonic="PAT"/>
+      <mif:annotations>
+         <mif:description>A patient referenced only by identifier. Used when conveying patient session tokens where identity resolution has already occurred</mif:description>
+      </mif:annotations>
+      <mif:specializationChildStaticModel root="DEFN" section="IM" subSection="CO" domain="CT" artifact="MT-deprecated"
+                                          realm="CA"
+                                          id="050201"/>
+      <mif:specializationChildEntryClass name="Patient">
+         <mif:supplierStructuralDomain mnemonic="PAT"/>
+      </mif:specializationChildEntryClass>
+   </mif:ownedCommonModelElement>
+   <mif:ownedCommonModelElement name="R_PatientPersonIdentified-confirmable"
+                                attributionLevel="identified-confirmable"
+                                entryKind="Role(Performed only)">
+      <mif:supplierStructuralDomain mnemonic="PAT"/>
+      <mif:annotations>
+         <mif:description>"An identified patient including confirming demographic information, resolvable against a client registry"</mif:description>
+      </mif:annotations>
+      <mif:specializationChildStaticModel root="DEFN" section="IM" subSection="CO" domain="CT" artifact="MT-deprecated"
+                                          realm="CA"
+                                          id="050202"/>
+      <mif:specializationChildEntryClass name="Patient">
+         <mif:supplierStructuralDomain mnemonic="PAT"/>
+      </mif:specializationChildEntryClass>
+   </mif:ownedCommonModelElement>
+   <mif:ownedCommonModelElement name="R_PatientPersonInformational" attributionLevel="informational"
+                                entryKind="Role(Performed only)">
+      <mif:supplierStructuralDomain mnemonic="PAT"/>
+      <mif:annotations>
+         <mif:description>A non-identified patient containing descriptive demographic information. Used in circumstances where resolution against a client registry is not possible</mif:description>
+      </mif:annotations>
+      <mif:specializationChildStaticModel root="DEFN" section="IM" subSection="CO" domain="CT" artifact="MT-deprecated"
+                                          realm="CA"
+                                          id="050207"/>
+      <mif:specializationChildEntryClass name="Patient">
+         <mif:supplierStructuralDomain mnemonic="PAT"/>
+      </mif:specializationChildEntryClass>
+   </mif:ownedCommonModelElement>
+   <mif:ownedCommonModelElement name="R_PatientPersonIdentified-informational"
+                                attributionLevel="identified-informational"
+                                entryKind="Role(Performed only)">
+      <mif:supplierStructuralDomain mnemonic="PAT"/>
+      <mif:annotations>
+         <mif:description>An identified patient including basic demographic and contact information extracted from a client registry</mif:description>
+      </mif:annotations>
+      <mif:specializationChildStaticModel root="DEFN" section="IM" subSection="CO" domain="CT" artifact="MT-deprecated"
+                                          realm="CA"
+                                          id="050208"/>
+      <mif:specializationChildEntryClass name="Patient">
+         <mif:supplierStructuralDomain mnemonic="PAT"/>
+      </mif:specializationChildEntryClass>
+   </mif:ownedCommonModelElement>
+   <mif:ownedCommonModelElement name="R_RelatedPersonIdentified-confirmable"
+                                attributionLevel="identified-confirmable"
+                                entryKind="Role(Performed only)">
+      <mif:supplierStructuralDomain mnemonic="REL"/>
+      <mif:annotations>
+         <mif:description>References a person with a relationship to the record target where that person can be found in a client registry using an identifier and confirming demographics. Includes situations where the relationship is 'self'</mif:description>
+      </mif:annotations>
+      <mif:specializationChildStaticModel root="DEFN" section="IM" subSection="CO" domain="CT" artifact="MT-deprecated"
+                                          realm="CA"
+                                          id="910102"/>
+      <mif:specializationChildEntryClass name="PersonalRelationship">
+         <mif:supplierStructuralDomain mnemonic="PRS"/>
+      </mif:specializationChildEntryClass>
+   </mif:ownedCommonModelElement>
+   <mif:ownedCommonModelElement name="R_RelatedPersonIdentified-informational"
+                                attributionLevel="identified-informational"
+                                entryKind="Role(Performed only)">
+      <mif:supplierStructuralDomain mnemonic="REL"/>
+      <mif:annotations>
+         <mif:description>References a person with a relationship to the record target including information extracted from a client registry including an identifier and basic demographic and contact information. Includes situations where the relationship is 'self'</mif:description>
+      </mif:annotations>
+      <mif:specializationChildStaticModel root="DEFN" section="IM" subSection="CO" domain="CT" artifact="MT-deprecated"
+                                          realm="CA"
+                                          id="910108"/>
+      <mif:specializationChildEntryClass name="PersonalRelationship">
+         <mif:supplierStructuralDomain mnemonic="PRS"/>
+      </mif:specializationChildEntryClass>
+   </mif:ownedCommonModelElement>
+   <mif:ownedCommonModelElement name="R_RelatedPersonInformational" attributionLevel="informational"
+                                entryKind="Role(Performed only)">
+      <mif:supplierStructuralDomain mnemonic="REL"/>
+      <mif:annotations>
+         <mif:description>References a person with a relationship to the record target including information basic demographic and contact information. Includes situations where the relationship is 'self'. Used where the related person is not identified or expected to be in the client registry</mif:description>
+      </mif:annotations>
+      <mif:specializationChildStaticModel root="DEFN" section="IM" subSection="CO" domain="CT" artifact="MT-deprecated"
+                                          realm="CA"
+                                          id="910107"/>
+      <mif:specializationChildEntryClass name="PersonalRelationship">
+         <mif:supplierStructuralDomain mnemonic="PRS"/>
+      </mif:specializationChildEntryClass>
+   </mif:ownedCommonModelElement>
+   <mif:ownedCommonModelElement name="R_ServiceDeliveryLocationContact" attributionLevel="contact"
+                                entryKind="Role(Performed only)">
+      <mif:supplierStructuralDomain mnemonic="SDLOC"/>
+      <mif:annotations>
+         <mif:description>"An identified service delivery location including name, type and basic contact information extracted from a service delivery location registry. Includes optional coordinate information to indicate the location of a mobile SDL associated with the record referencing the CMET.."</mif:description>
+      </mif:annotations>
+      <mif:specializationChildStaticModel root="DEFN" section="IM" subSection="CO" domain="CT" artifact="MT-deprecated"
+                                          realm="CA"
+                                          id="240003"/>
+      <mif:specializationChildEntryClass name="ServiceDeliveryLocation">
+         <mif:supplierStructuralDomain mnemonic="SDLOC"/>
+      </mif:specializationChildEntryClass>
+   </mif:ownedCommonModelElement>
+   <mif:ownedCommonModelElement name="R_ServiceDeliveryLocationIdentified-confirmable"
+                                attributionLevel="identified-confirmable"
+                                entryKind="Role(Performed only)">
+      <mif:supplierStructuralDomain mnemonic="SDLOC"/>
+      <mif:annotations>
+         <mif:description>"An identified service delivery location confirmed by name and type, resolvable against the service delivery location registry. Includes optional coordinate information to indicate the present location of a mobile SDL."</mif:description>
+      </mif:annotations>
+      <mif:specializationChildStaticModel root="DEFN" section="IM" subSection="CO" domain="CT" artifact="MT-deprecated"
+                                          realm="CA"
+                                          id="240002"/>
+      <mif:specializationChildEntryClass name="ServiceDeliveryLocation">
+         <mif:supplierStructuralDomain mnemonic="SDLOC"/>
+      </mif:specializationChildEntryClass>
+   </mif:ownedCommonModelElement>
+   <mif:ownedCommonModelElement name="R_ServiceDeliveryLocationInformational" attributionLevel="informational"
+                                entryKind="Role(Performed only)">
+      <mif:supplierStructuralDomain mnemonic="SDLOC"/>
+      <mif:annotations>
+         <mif:description>"References a service delivery location which may not be located in a service delivery location. Includes name, type, and optional coordinate information."</mif:description>
+      </mif:annotations>
+      <mif:specializationChildStaticModel root="DEFN" section="IM" subSection="CO" domain="CT" artifact="MT-deprecated"
+                                          realm="CA"
+                                          id="240007"/>
+      <mif:specializationChildEntryClass name="ServiceDeliveryLocation">
+         <mif:supplierStructuralDomain mnemonic="SDLOC"/>
+      </mif:specializationChildEntryClass>
+   </mif:ownedCommonModelElement>
+   <mif:ownedCommonModelElement name="R_ServiceDeliveryLocationMinimal" attributionLevel="minimal"
+                                entryKind="Role(Performed only)">
+      <mif:supplierStructuralDomain mnemonic="SDLOC"/>
+      <mif:annotations>
+         <mif:description>"An identified service delivery location including id and name"</mif:description>
+      </mif:annotations>
+      <mif:specializationChildStaticModel root="DEFN" section="IM" subSection="CO" domain="CT" artifact="MT-deprecated"
+                                          realm="CA"
+                                          id="240012"/>
+      <mif:specializationChildEntryClass name="ServiceDeliveryLocation">
+         <mif:supplierStructuralDomain mnemonic="SDLOC"/>
+      </mif:specializationChildEntryClass>
+   </mif:ownedCommonModelElement>
+   <mif:ownedCommonModelElement name="R_SpecimenMinimal" attributionLevel="minimal"
+                                entryKind="Role(Performed only)">
+      <mif:supplierStructuralDomain mnemonic="SPEC"/>
+      <mif:annotations>
+         <mif:description>References fundamental structured information about a specimen</mif:description>
+      </mif:annotations>
+      <mif:specializationChildStaticModel root="DEFN" section="IM" subSection="CO" domain="CT" artifact="MT-deprecated"
+                                          realm="CA"
+                                          id="080100"/>
+      <mif:specializationChildEntryClass name="Specimen">
+         <mif:supplierStructuralDomain mnemonic="SPEC"/>
+      </mif:specializationChildEntryClass>
+   </mif:ownedCommonModelElement>
+</mif:commonModelElementPackage>

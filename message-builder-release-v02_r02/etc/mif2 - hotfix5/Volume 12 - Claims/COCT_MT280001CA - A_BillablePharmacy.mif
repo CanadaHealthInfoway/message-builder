@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?><mif:staticModel xmlns:mif="urn:hl7-org:v3/mif" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:hl7-org:v3/mif" isAbstract="false" isSerializable="true" name="CA" packageKind="realmNamespace" representationKind="flat" schemaVersion="2.0" xsi:schemaLocation="">
+   <mif:packageLocation artifact="MT-deprecated" domain="CT" id="280001" realmNamespace="CA" root="DEFN" section="IM" subSection="CO"/>
+   <mif:header>
+      <mif:renderingInformation application="Visio to MIF transform"/>
+      <mif:legalese copyrightOwner="Health Level Seven" copyrightYears="2008"/>
+   </mif:header>
+   <mif:graphicRepresentation presentation="HL7">
+      <mif:graphElement name="Main">
+         <mif:position x="0" y="0"/>
+         <mif:size height="816" width="1056"/>
+      </mif:graphElement>
+   <entryPoint name="A_BillablePharmacy"><mif:graphElement containerDiagramName="Main" shapeId="Sheet.44">
+            <mif:position x="96" y="472"/>
+            <mif:size height="69" width="153"/>
+            <mif:anchorage connectToShapeId="Sheet.44">
+               <mif:position x="249" y="393"/>
+               <mif:graphEdge>
+                  <mif:anchor connectToShapeId="Sheet.59">
+                     <mif:position x="369" y="295"/>
+                  </mif:anchor>
+               </mif:graphEdge>
+            </mif:anchorage>
+         </mif:graphElement></entryPoint><class className="A_BillableActChoice" presentation="HL7"><mif:graphElement containerDiagramName="Main" isHeightAutoSize="true" isWidthAutoSize="true" nodeOrientation="Portrait" shapeId="Sheet.59" shapeTemplate="Choice">
+               <mif:position x="369" y="91"/>
+               <mif:size height="408" width="200"/>
+            </mif:graphElement></class><class className="A_BillableClinicalProductUniversal" presentation="HL7"><mif:graphElement containerDiagramName="Main" isHeightAutoSize="true" isWidthAutoSize="true" shapeId="Sheet.25" shapeTemplate="CMET">
+               <mif:position x="381" y="187"/>
+               <mif:size height="60" width="146"/>
+            </mif:graphElement></class><class className="A_BillableClinicalServiceUniversal" presentation="HL7"><mif:graphElement containerDiagramName="Main" isHeightAutoSize="true" isWidthAutoSize="true" shapeId="Sheet.7" shapeTemplate="CMET">
+               <mif:position x="381" y="115"/>
+               <mif:size height="60" width="144"/>
+            </mif:graphElement></class><class className="A_BillablePharmacyDispenseUniversal" presentation="HL7"><mif:graphElement containerDiagramName="Main" isHeightAutoSize="true" isWidthAutoSize="true" shapeId="Sheet.13" shapeTemplate="CMET">
+               <mif:position x="381" y="259"/>
+               <mif:size height="60" width="166"/>
+            </mif:graphElement></class><class className="CrossReference" presentation="HL7"><mif:graphElement containerDiagramName="Main" isHeightAutoSize="true" isWidthAutoSize="true" shapeId="Sheet.29" shapeTemplate="Act">
+               <mif:position x="381" y="404"/>
+               <mif:size height="72" width="176"/>
+            </mif:graphElement></class></mif:graphicRepresentation>
+   <derivedFrom staticModelDerivationId="1">
+      <mif:targetStaticModel artifact="RIM" root="DEFN" version="00"/>
+   </derivedFrom>
+   <entryPoint className="A_BillableActChoice" id="COCT_MT280001CA" isAbstract="false" name="A_BillablePharmacy">
+      <mif:annotations>
+         
+      <documentation><mif:description>
+            <mif:text>
+               <xhtml:p>Clinical content for services performed and/or delivered to support invoicing (billing)</xhtml:p>
+            </mif:text>
+         </mif:description></documentation></mif:annotations>
+      
+   </entryPoint>
+   <containedClass>
+      <mif:class isAbstract="true" name="A_BillableActChoice">
+         <derivedFrom className="Act" staticModelDerivationId="1"/>
+         
+         <childClass className="A_BillableClinicalServiceUniversal">
+            
+         </childClass>
+         <childClass className="A_BillableClinicalProductUniversal">
+            
+         </childClass>
+         <childClass className="A_BillablePharmacyDispenseUniversal">
+            
+         </childClass>
+         <childClass className="CrossReference">
+            
+         </childClass>
+      </mif:class>
+   </containedClass>
+   <containedClass>
+      <mif:commonModelElementRef name="A_BillableClinicalProductUniversal">
+         <derivedFrom className="Act" staticModelDerivationId="1"/>
+         <supplierVocabulary><vocabularyDomain xmlns="" name="ActClass"/></supplierVocabulary>
+         
+         <cmet name="COCT_MT490000CA"/>
+      </mif:commonModelElementRef>
+   </containedClass>
+   <containedClass>
+      <mif:commonModelElementRef name="A_BillableClinicalServiceUniversal">
+         <derivedFrom className="Act" staticModelDerivationId="1"/>
+         <supplierVocabulary><vocabularyDomain xmlns="" name="ActClass"/></supplierVocabulary>
+         
+         <cmet name="COCT_MT290000CA"/>
+      </mif:commonModelElementRef>
+   </containedClass>
+   <containedClass>
+      <mif:commonModelElementRef name="A_BillablePharmacyDispenseUniversal">
+         <derivedFrom className="Act" staticModelDerivationId="1"/>
+         <supplierVocabulary><vocabularyDomain xmlns="" name="ActClass"/></supplierVocabulary>
+         
+         <cmet name="COCT_MT300000CA"/>
+      </mif:commonModelElementRef>
+   </containedClass>
+   <containedClass>
+      <mif:class isAbstract="false" name="CrossReference">
+         <mif:businessName name="Previous Billable Act Cross Reference"><realmNamespace value="UV"/></mif:businessName>
+         <derivedFrom className="Act" staticModelDerivationId="1"/>
+         
+         <mif:annotations>
+            
+            
+         <documentation><mif:definition>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>Used to reference a previous act (e.g. billable act) by including its Act.id. May only be used to reference a billable act in the SAME message, not for past messages (this would require adjudicators to keep a lot of history).</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:definition><mif:usageNotes>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>Used to reference a previous act (e.g. billable act) by including its Act.id. May only be used to reference a billable act in the SAME message, not for past messages (this would require adjudicators to keep a lot of history).</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:usageNotes></documentation></mif:annotations>
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="classCode" sortKey="1"><enumerationValues>ACT</enumerationValues>
+            <derivedFrom attributeName="classCode" className="Act" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="ACT" codeSystemName="ActClass"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="moodCode" sortKey="2"><enumerationValues>EVN</enumerationValues>
+            <derivedFrom attributeName="moodCode" className="Act" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="EVN" codeSystemName="ActMood"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="id" sortKey="3">
+            <mif:businessName name="&#xA;) (Act.id."><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Act.id. referencing a previous act (e.g. billable act) in the SAME message,</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:usageNotes>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Used to reference a previous act (e.g. billable act) by including its Act.id. May only be used to reference a billable act in the SAME message, not for past messages (this would require adjudicators to keep a lot of history).</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:usageNotes></documentation></mif:annotations>
+            <derivedFrom attributeName="id" className="Act" staticModelDerivationId="1"/>
+            <mif:type name="SET">
+               <argumentDatatype name="II.BUS"/>
+            </mif:type>
+         </mif:attribute>
+      </mif:class>
+   </containedClass>
+</mif:staticModel>

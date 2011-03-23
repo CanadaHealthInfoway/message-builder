@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?><mif:staticModel xmlns:mif="urn:hl7-org:v3/mif" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:hl7-org:v3/mif" isAbstract="false" isSerializable="true" name="CA" packageKind="realmNamespace" representationKind="flat" schemaVersion="2.0" xsi:schemaLocation="">
+   <mif:packageLocation artifact="MT-deprecated" domain="RX" id="060300" realmNamespace="CA" root="DEFN" section="HM" subSection="PO"/>
+   <mif:header>
+      <mif:renderingInformation application="Visio to MIF transform"/>
+      <mif:legalese copyrightOwner="Health Level Seven" copyrightYears="2008"/>
+   </mif:header>
+   <mif:graphicRepresentation presentation="HL7">
+      <mif:graphElement name="Main">
+         <mif:position x="0" y="0"/>
+         <mif:size height="170" width="336"/>
+      </mif:graphElement>
+   <entryPoint name="Prescription Summary"><mif:graphElement containerDiagramName="Main" shapeId="Sheet.1">
+            <mif:position x="2" y="-30"/>
+            <mif:size height="43" width="150"/>
+            <mif:anchorage connectToShapeId="Sheet.1">
+               <mif:position x="152" y="87"/>
+               <mif:graphEdge>
+                  <mif:anchor connectToShapeId="Sheet.8">
+                     <mif:position x="205" y="85"/>
+                  </mif:anchor>
+               </mif:graphEdge>
+            </mif:anchorage>
+         </mif:graphElement></entryPoint><class className="A_PrescriptionDeviceSummary" presentation="HL7"><mif:graphElement containerDiagramName="Main" isHeightAutoSize="true" isWidthAutoSize="true" shapeId="Sheet.16" shapeTemplate="CMET">
+               <mif:position x="217" y="97"/>
+               <mif:size height="60" width="105"/>
+            </mif:graphElement></class><class className="A_PrescriptionDrugSummary" presentation="HL7"><mif:graphElement containerDiagramName="Main" isHeightAutoSize="true" isWidthAutoSize="true" shapeId="Sheet.10" shapeTemplate="CMET">
+               <mif:position x="217" y="24"/>
+               <mif:size height="60" width="105"/>
+            </mif:graphElement></class><class className="Prescription" presentation="HL7"><mif:graphElement containerDiagramName="Main" isHeightAutoSize="true" isWidthAutoSize="true" nodeOrientation="Portrait" shapeId="Sheet.8" shapeTemplate="Choice">
+               <mif:position x="205" y="0"/>
+               <mif:size height="168" width="129"/>
+            </mif:graphElement></class></mif:graphicRepresentation>
+   <derivedFrom staticModelDerivationId="1">
+      <mif:targetStaticModel artifact="RIM" root="DEFN" version="00"/>
+   </derivedFrom>
+   <entryPoint className="Prescription" id="PORX_MT060300CA" isAbstract="false" name="Prescription Summary">
+      <mif:annotations>
+         
+      <documentation><mif:description>
+            <mif:text>
+               <xhtml:p>Description</xhtml:p>
+            </mif:text>
+         </mif:description></documentation></mif:annotations>
+      
+   </entryPoint>
+   <containedClass>
+      <mif:commonModelElementRef name="A_PrescriptionDeviceSummary">
+         <derivedFrom className="SubstanceAdministration" staticModelDerivationId="1"/>
+         <supplierVocabulary><vocabularyDomain xmlns="" name="ActClass"/></supplierVocabulary>
+         
+         <cmet name="PORX_MT060060CA"/>
+      </mif:commonModelElementRef>
+   </containedClass>
+   <containedClass>
+      <mif:commonModelElementRef name="A_PrescriptionDrugSummary">
+         <derivedFrom className="SubstanceAdministration" staticModelDerivationId="1"/>
+         <supplierVocabulary><vocabularyDomain xmlns="" name="ActClass"/></supplierVocabulary>
+         
+         <cmet name="PORX_MT030040CA"/>
+      </mif:commonModelElementRef>
+   </containedClass>
+   <containedClass>
+      <mif:class isAbstract="true" name="Prescription">
+         <derivedFrom className="Act" staticModelDerivationId="1"/>
+         
+         <childClass className="A_PrescriptionDrugSummary">
+            
+         </childClass>
+         <childClass className="A_PrescriptionDeviceSummary">
+            
+         </childClass>
+      </mif:class>
+   </containedClass>
+</mif:staticModel>

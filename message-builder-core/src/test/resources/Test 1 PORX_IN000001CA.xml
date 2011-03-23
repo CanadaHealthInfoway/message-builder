@@ -1,0 +1,1735 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  - Test message
+  - (c) 2010 Canada Health Infoway
+  -
+  - This instance is intended to be used to help test the API generator for ability to support generic MIF capabilities
+  - and full support for pan-Canadian datatypes and vocabulary.
+  -
+  - Some aspects of this test will exercise HL7 features that are not presently used by pan-Canadian
+  - specifications.  However, these features have reasonable likelihood of use within the next 3-4 years.
+  -
+  - The API generator should be able to round-trip all aspects of this instance that are not marked as "errors",
+  - excluding embedded comments.  It is acceptable to require the removal of erronious sections prior to attempting
+  - the round-trip
+  - 
+  - The validation capability of the tool should ideally capture and report all errors.  At minimum, it must not
+  - report errors on those portions of the instance that are not already flagged as erroneous (though if the vendor
+  - believes this test case is in error, they can report any issues discovered).  Where errors are not detected,
+  - docuementation should be provided on what changes would be necessary to enforce the associated rule.
+  -
+  - NOTE: Schema validation will identify some content as an error, specifically embedded XML within ED datatype
+  - structures.  This is not an error, but rather a limitation of the schema.
+  -->
+<PORX_IN000001CA ITSVersion="XML_1.0" xmlns="urn:hl7-org:v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:hl7-org:v3 C:\DOCUME~1\Office\MYDOCU~1\Projects\HL7Generator\a\output\Schemas\PORX_IN000001CA.xsd">
+  <realmCode code="CA">
+    <!-- Check support for infrastructure root attributes -->
+  </realmCode>
+  <typeId root="2.16.840.1.113883.1.3" extension="MCCI_MT000001CA"/>
+  <id root="D3C66A85-CE4A-431B-3AB0-6D1DC4EEFA14"/>
+  <creationTime value="20090229115044.421-0700">
+    <!-- Check handling of invalid dates -->
+  </creationTime>
+  <securityText mediaType="text/xml" specializationType="ED.SIGNATURE">
+    <!-- Test that direct inclusion of foreign namespace XML is supported - allowed under ITS even though default schemas don't validate it -->
+    <Signature Id="MyFirstSignature" xmlns="http://www.w3.org/2000/09/xmldsig#">
+      <SignedInfo>
+        <CanonicalizationMethod Algorithm="http://www.w3.org/2006/12/xml-c14n11"/>
+        <SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#dsa-sha1"/>
+        <Reference URI="http://www.w3.org/TR/2000/REC-xhtml1-20000126/">
+          <Transforms>
+            <Transform Algorithm="http://www.w3.org/2006/12/xml-c14n11"/>
+          </Transforms>
+          <DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/>
+          <DigestValue>dGhpcyBpcyBub3QgYSBzaWduYXR1cmUK...</DigestValue>
+        </Reference>
+      </SignedInfo>
+      <SignatureValue>...</SignatureValue>
+      <KeyInfo>
+        <KeyValue>
+          <DSAKeyValue>
+            <P>...</P>
+            <Q>...</Q>
+            <G>...</G>
+            <Y>...</Y>
+          </DSAKeyValue>
+        </KeyValue>
+      </KeyInfo>
+    </Signature>
+  </securityText>
+  <foo:responseModeCode xmlns:foo="urn:hl7-org:v3" code="I">
+    <!-- Check for insensitivity to namespace prefix -->
+  </foo:responseModeCode>
+  <versionCode code="V3-2008-N"/>
+  <interactionId root="2.16.840.1.113883.1.18" extension="PORX_IN060470CA" displayable="true"/>
+  <profileId use="OBJ" root="2.16.840.1.113883.2.20.2" extension="R02.03.00"/>
+  <profileId use="OBJ" root="2.16.840.1.113883.2.20.2" extension="R02.04.00"/>
+  <profileId use="OBJ" root="2.16.840.1.113883.2.20.2" extension="R02.05.00"/>
+  <profileId use="OBJ" root="2.16.840.1.113883.2.20.2" extension="R02.06.00"/>
+  <processingCode code="D"/>
+  <processingModeCode code="T"/>
+  <acceptAckCode code="NE"/>
+  <!--  <attachmentText/>-->
+  <receiver typeCode="RCV">
+    <telecom value="http://100.100.100.100"/>
+    <device classCode="DEV" determinerCode="INSTANCE">
+      <id use="OBJ" root="2.16.840.1.113883.19.3.297.15.37.0.47" extension="DIS01"/>
+    </device>
+  </receiver>
+  <respondTo typeCode="RSP">
+    <!-- Test support for respondTo element -->
+    <telecom value="http://100.100.121.100"/>
+    <device classCode="DEV" determinerCode="INSTANCE">
+      <id use="OBJ" root="2.16.840.1.113883.19.3.297.15.37.0.47" extension="DIS02"/>
+    </device>
+  </respondTo>
+  <sender typeCode="SND">
+    <telecom value="http://120.120.122.100"/>
+    <device classCode="DEV" determinerCode="INSTANCE">
+      <id use="OBJ" root="2.16.840.1.113883.19.3.3017.22.5.0.4" extension="DIS02"/>
+    </device>
+  </sender>
+  <controlActEvent classCode="CACT" moodCode="EVN" actionNegationInd="false">
+    <derivationExpr>ab<!-- minimum length --></derivationExpr>
+    <title>Title 1<!-- 1st allowed value --></title>
+    <text xmlns="urn:1.2.3">
+      <!-- Test extension -->
+    </text>
+    <confidentialityCode nullFlavor="UNK">
+      <!-- Check null minoccurs 1 -->
+    </confidentialityCode>
+    <reasonCode code="FLRCNV" codeSystem="2.16.840.1.113883.5.8"/>
+    <subject typeCode="SUBJ">
+      <substanceAdministrationRequest classCode="SBADM" moodCode="RQO">
+        <recordTarget typeCode="RCT">
+          <patient classCode="PAT">
+            <id root="1.2.3"/>
+            <patientPerson classCode="PSN" determinerCode="INSTANCE"/>
+          </patient>
+        </recordTarget>
+        <performer typeCode="PRF">
+          <healthcareProvider classCode="ASSIGNED">
+            <id root="1.5.6"/>
+            <assignedPerson classCode="PSN" determinerCode="INSTANCE"/>
+          </healthcareProvider>
+        </performer>
+        <component typeCode="COMP">
+          <substanceAdministrationRequest3 classCode="SBADM" moodCode="RQO"/>
+        </component>
+      </substanceAdministrationRequest>
+    </subject>
+    <subjectOf xsi:nil="true" nullFlavor="NAV"/>
+    <subjectOf xsi:nil="true" nullFlavor="NAV"/>
+  </controlActEvent>
+  <controlActEvent classCode="CACT" moodCode="EVN" actionNegationInd="false">
+    <derivationExpr>abcdef<!-- maximum length --></derivationExpr>
+    <title>Title 2<!-- 2nd allowed value --></title>
+    <confidentialityCode code="N" codeSystem="2.16.840.1.113883.5.25">
+      <!-- Check minoccurs -->
+    </confidentialityCode>
+    <reasonCode code="FLRCNV" codeSystem="2.16.840.1.113883.5.8"/>
+    <subject typeCode="SUBJ">
+      <substanceAdministrationRequest classCode="SBADM" moodCode="RQO">
+        <recordTarget typeCode="RCT">
+          <patient classCode="PAT">
+            <id root="1.2.3"/>
+            <patientPerson classCode="PSN" determinerCode="INSTANCE"/>
+          </patient>
+        </recordTarget>
+        <performer typeCode="PRF">
+          <healthcareProvider classCode="ASSIGNED">
+            <id root="1.5.6"/>
+            <assignedPerson classCode="PSN" determinerCode="INSTANCE"/>
+          </healthcareProvider>
+        </performer>
+        <component typeCode="COMP">
+          <substanceAdministrationRequest3 classCode="SBADM" moodCode="RQO"/>
+        </component>
+      </substanceAdministrationRequest>
+    </subject>
+    <subjectOf xsi:nil="true" nullFlavor="NAV"/>
+    <subjectOf xsi:nil="true" nullFlavor="NAV"/>
+  </controlActEvent>
+  <controlActEvent classCode="CACT" moodCode="EVN" actionNegationInd="false">
+    <confidentialityCode updateMode="D" code="N" codeSystem="2.16.840.1.113883.5.25"/>
+    <confidentialityCode updateMode="A" code="R" codeSystem="2.16.840.1.113883.5.25"/>
+    <confidentialityCode nullFlavor="NI"/>
+    <confidentialityCode nullFlavor="UNK"/>
+    <confidentialityCode updateMode="A" code="T" codeSystem="2.16.840.1.113883.5.25"/>
+    <reasonCode code="FLRCNV" codeSystem="2.16.840.1.113883.5.8"/>
+    <reasonCode code="PAT" codeSystem="2.16.840.1.113883.5.8"/>
+    <subject typeCode="SUBJ">
+      <substanceAdministrationRequest classCode="SBADM" moodCode="RQO">
+        <recordTarget typeCode="RCT">
+          <patient classCode="PAT">
+            <id root="1.2.3"/>
+            <patientPerson classCode="PSN" determinerCode="INSTANCE"/>
+          </patient>
+        </recordTarget>
+        <performer typeCode="PRF">
+          <healthcareProvider classCode="ASSIGNED">
+            <id root="1.5.6"/>
+            <assignedPerson classCode="PSN" determinerCode="INSTANCE"/>
+          </healthcareProvider>
+        </performer>
+        <component typeCode="COMP">
+          <substanceAdministrationRequest3 classCode="SBADM" moodCode="RQO"/>
+        </component>
+      </substanceAdministrationRequest>
+    </subject>
+    <subjectOf xsi:nil="true" nullFlavor="NAV"/>
+    <subjectOf xsi:nil="true" nullFlavor="NAV"/>
+  </controlActEvent>
+  <controlActEvent classCode="CACT" moodCode="EVN" actionNegationInd="false">
+    <derivationExpr>abcdefg<!-- Error: over maximum length --></derivationExpr>
+    <title>Title 3<!-- Error: Non- allowed value --></title>
+    <confidentialityCode updateMode="D" code="N" codeSystem="2.16.840.1.113883.5.25"/>
+    <confidentialityCode updateMode="A" code="R" codeSystem="2.16.840.1.113883.5.25"/>
+    <confidentialityCode nullFlavor="NI"/>
+    <confidentialityCode nullFlavor="UNK"/>
+    <confidentialityCode updateMode="A" code="T" codeSystem="2.16.840.1.113883.5.25"/>
+    <!-- Error: extra repetition -->
+<!--    <confidentialityCode updateMode="A" code="T" codeSystem="2.16.840.1.113883.5.25"/>-->
+    <reasonCode nullFlavor="UNK">
+      <!-- Error: null mandatory -->
+    </reasonCode>
+    <subject typeCode="SUBJ">
+      <substanceAdministrationRequest classCode="SBADM" moodCode="RQO">
+        <recordTarget typeCode="RCT">
+          <patient classCode="PAT">
+            <id root="1.2.3"/>
+            <patientPerson classCode="PSN" determinerCode="INSTANCE"/>
+          </patient>
+        </recordTarget>
+        <performer typeCode="PRF">
+          <healthcareProvider classCode="ASSIGNED">
+            <id root="1.5.6"/>
+            <assignedPerson classCode="PSN" determinerCode="INSTANCE"/>
+          </healthcareProvider>
+        </performer>
+        <component typeCode="COMP">
+          <substanceAdministrationRequest3 classCode="SBADM" moodCode="RQO"/>
+        </component>
+      </substanceAdministrationRequest>
+    </subject>
+    <subjectOf xsi:nil="true" nullFlavor="NAV"/>
+    <subjectOf xsi:nil="true" nullFlavor="NAV"/>
+  </controlActEvent>
+  <controlActEvent classCode="CACT" moodCode="EVN" actionNegationInd="false">
+    <derivationExpr>a<!-- Error: under minimum length --></derivationExpr>
+    <!-- Error: missing min-occurs 1 -->
+    <subject typeCode="SUBJ">
+      <substanceAdministrationRequest classCode="SBADM" moodCode="RQO">
+        <recordTarget typeCode="RCT">
+          <patient classCode="PAT">
+            <id root="1.2.3"/>
+            <patientPerson classCode="PSN" determinerCode="INSTANCE"/>
+          </patient>
+        </recordTarget>
+        <performer typeCode="PRF">
+          <healthcareProvider classCode="ASSIGNED">
+            <id root="1.5.6"/>
+            <assignedPerson classCode="PSN" determinerCode="INSTANCE"/>
+          </healthcareProvider>
+        </performer>
+        <component typeCode="COMP">
+          <substanceAdministrationRequest3 classCode="SBADM" moodCode="RQO"/>
+        </component>
+      </substanceAdministrationRequest>
+    </subject>
+    <subjectOf xsi:nil="true" nullFlavor="NAV"/>
+    <subjectOf xsi:nil="true" nullFlavor="NAV"/>
+  </controlActEvent>
+  <controlActEvent classCode="CACT" moodCode="EVN" actionNegationInd="false">
+    <derivationExpr>ab<!-- minimum length --></derivationExpr>
+    <title>Title 1<!-- 1st allowed value --></title>
+    <text xmlns="urn:1.2.3"/>
+    <confidentialityCode nullFlavor="UNK">
+      <!-- Check null minoccurs 1 -->
+    </confidentialityCode>
+    <reasonCode code="FLRCNV" codeSystem="2.16.840.1.113883.5.8"/>
+    <subject typeCode="SUBJ">
+      <substanceAdministrationRequest classCode="SBADM">
+        <recordTarget typeCode="RCT">
+          <patient classCode="PAT">
+            <id root="1.2.3"/>
+            <name>John</name>
+            <patientPerson classCode="PSN" determinerCode="INSTANCE">
+              <administrativeGenderCode code="F" codeSystem="2.16.840.1.113883.1.11.1"/>
+            </patientPerson>
+          </patient>
+        </recordTarget>
+        <performer typeCode="PRF">
+          <healthcareProvider classCode="ASSIGNED">
+            <id root="1.5.6"/>
+            <name>Sally</name>
+            <assignedPerson classCode="PSN" determinerCode="INSTANCE">
+              <languageCommunication>
+                <languageCode code="en-CA" codeSystem="2.16.840.1.113883.6.121"/>
+              </languageCommunication>
+            </assignedPerson>
+          </healthcareProvider>
+        </performer>
+        <component typeCode="COMP">
+          <substanceAdministrationRequest3 classCode="SBADM" moodCode="RQO"/>
+        </component>
+        <component typeCode="COMP">
+          <substanceAdministrationRequest4 classCode="SBADM" moodCode="RQO">
+            <code/>
+          </substanceAdministrationRequest4>
+        </component>
+        <component typeCode="COMP">
+          <substanceAdministrationRequest5 classCode="SBADM" moodCode="RQO"/>
+        </component>
+        <component typeCode="COMP">
+          <substanceAdministrationRequest6 classCode="SBADM" moodCode="RQO"/>
+        </component>
+      </substanceAdministrationRequest>
+    </subject>
+    <subjectOf updateMode="A" typeCode="SUBJ">
+      <observationIntent classCode="OBS" moodCode="INT">
+        <value xsi:type="AD">
+          <!-- Error: Test that 'protected' types aren't allowed as a type -->
+          <deliveryAddressLine>Some street</deliveryAddressLine>
+        </value>
+        <value xsi:type="IVL_PQ" specializationType="IVL_PQ.LAB">
+          <!-- Ok: Test that check of low <= high includes units -->
+          <low specializationType="PQ.LAB" value="5" unit="mm"/>
+          <high specializationType="PQ.LAB" value="1" unit="cm"/>
+        </value>
+        <value xsi:type="IVL_PQ" specializationType="IVL_PQ.LAB">
+          <!-- Error: Test that check of low <= high includes units -->
+          <low specializationType="PQ.LAB" value="1" unit="cm"/>
+          <high specializationType="PQ.LAB" value="10" unit="mm"/>
+        </value>
+        <value xsi:type="IVL_PQ" specializationType="IVL_PQ.LAB">
+          <!-- Ok: Test that check of low <= high includes units -->
+          <low specializationType="PQ.LAB" value="2e-3">
+            <!-- Check handling of scientific notation -->
+          </low>
+          <high specializationType="PQ.LAB" value="1.1"/>
+        </value>
+        <value xsi:type="IVL_PQ" specializationType="IVL_PQ.LAB">
+          <!-- Error: Test that check of low <= high includes units -->
+          <low specializationType="PQ.LAB" value="1.1"/>
+          <high specializationType="PQ.LAB" value="2e-3">
+            <!-- Check handling of scientific notation -->
+          </high>
+        </value>
+        <value xsi:type="IVL_TS" specializationType="IVL_TS.FULLDATETIME">
+          <!-- Error: Test that check of low <= high includes timezone -->
+          <low specializationType="TS.FULLDATETIME" value="20090101105903.1234-0700"/>
+          <high specializationType="TS.FULLDATETIME" value="20090101115903.1234-0500"/>
+        </value>
+        <value xsi:type="IVL_TS" specializationType="IVL_TS.FULLDATETIME">
+          <!-- Error: Test that check of low <= high includes timezone -->
+          <low specializationType="TS.FULLDATETIME" value="20090101115903.1234-0500"/>
+          <high specializationType="TS.FULLDATETIME" value="20090101105903.1234-0700"/>
+        </value>
+        <value xsi:type="IVL_TS" specializationType="IVL_TS.FULLDATETIME">
+          <!-- Error: Check behavior when timezone missing -->
+          <low specializationType="TS.FULLDATETIME" value="20090101105903.1234"/>
+          <high specializationType="TS.FULLDATETIME" value="20090101115903.1234-0500"/>
+        </value>
+        <value xsi:type="IVL_TS" specializationType="IVL_TS.FULLDATETIME">
+          <!-- Ok: Check behavior when timezone missing -->
+          <low specializationType="TS.FULLDATETIME" value="20090101115903.1234-0500"/>
+          <high specializationType="TS.FULLDATETIME" value="20090101105903.1234"/>
+        </value>
+        <value xsi:type="IVL_TS" specializationType="IVL_TS.FULLDATETIME">
+          <!-- Ok: Check width for time -->
+          <low specializationType="TS.FULLDATETIME" value="20090101115903.1234-0500"/>
+          <width specializationType="PQ.TIME" value="5.24" unit="s"/>
+        </value>
+        <value xsi:type="IVL_TS" specializationType="IVL_TS.FULLDATETIME">
+          <!-- Error: Check width for time with bad units -->
+          <low specializationType="TS.FULLDATETIME" value="20090101115903.1234-0500"/>
+          <width specializationType="PQ.TIME" value="5.24"/>
+        </value>
+        <value xsi:type="IVL_PQ" specializationType="IVL_PQ.LAB">
+          <!-- Ok: Check width for PQ with comparable units -->
+          <low specializationType="PQ.LAB" value="10" unit="m"/>
+          <width specializationType="PQ.LAB" value="5" unit="cm"/>
+        </value>
+        <value xsi:type="IVL_PQ" specializationType="IVL_PQ.LAB">
+          <!-- Error: Check width for PQ with non-comparable units -->
+          <low specializationType="PQ.LAB" value="10" unit="m"/>
+          <width specializationType="PQ.LAB" value="5" unit="s"/>
+        </value>
+        <value xsi:type="IVL_PQ" specializationType="IVL_PQ.LAB">
+          <!-- Error: Check for use of inclusive w/ IVL_PQ -->
+          <low specializationType="PQ.LAB" value="1.0" unit="m" inclusive="false"/>
+          <high specializationType="PQ.LAB" value="1.0" unit="m" inclusive="false"/>
+        </value>
+        <value xsi:type="IVL_PQ" specializationType="IVL_INT.POS">
+          <!-- Error: Check for use of inclusive -->
+          <low specializationType="PQ.LAB" value="1" inclusive="false"/>
+          <high specializationType="PQ.LAB" value="1" inclusive="false"/>
+        </value>
+        <value xsi:type="IVL_PQ" specializationType="IVL_INT.POS">
+          <!-- Ok: Check for use of inclusive when checking low < high -->
+          <low specializationType="PQ.LAB" value="1" inclusive="false"/>
+          <high specializationType="PQ.LAB" value="2" inclusive="false"/>
+        </value>
+        <value xsi:type="IVL_PQ" specializationType="IVL_PQ.LAB">
+          <!-- Ok: Check for use of inclusive when checking low < high -->
+          <low specializationType="PQ.LAB" value="1.0" unit="m"/>
+          <high specializationType="PQ.LAB" value="1.0" unit="m"/>
+        </value>
+        <value xsi:type="IVL_PQ" specializationType="IVL_PQ.LAB">
+          <!-- Ok: Check handling of 0 width, negative values -->
+          <low specializationType="PQ.LAB" value="-1.0" unit="m"/>
+          <width specializationType="PQ.LAB" value="0" unit="m"/>
+        </value>
+        <value xsi:type="IVL_PQ" specializationType="IVL_PQ.LAB">
+          <!-- Error: Check handling of negative width -->
+          <low specializationType="PQ.LAB" value="-1.0" unit="m"/>
+          <width specializationType="PQ.LAB" value="-0.1" unit="m"/>
+        </value>
+        <value xsi:type="IVL_PQ" specializationType="IVL_PQ.LAB">
+          <!-- Ok: Check handling of null width -->
+          <center specializationType="PQ.LAB" value="-1.0" unit="m"/>
+          <width specializationType="PQ.LAB" nullFlavor="UNK"/>
+        </value>
+        <value xsi:type="IVL_PQ" specializationType="IVL_PQ.LAB">
+          <!-- Error: Check handling of PINF width -->
+          <center specializationType="PQ.LAB" value="-1.0" unit="m"/>
+          <width specializationType="PQ.LAB" nullFlavor="PINF"/>
+        </value>
+        <value xsi:type="IVL_PQ" specializationType="IVL_PQ.LAB">
+          <!-- Ok: Check handling of null high -->
+          <low specializationType="PQ.LAB" value="-1.0" unit="m"/>
+          <high specializationType="PQ.LAB" nullFlavor="UNK"/>
+        </value>
+        <value xsi:type="IVL_PQ" specializationType="IVL_PQ.LAB">
+          <!-- Error: Check handling of PINF high -->
+          <low specializationType="PQ.LAB" value="-1.0" unit="m"/>
+          <high specializationType="PQ.LAB" nullFlavor="PINF"/>
+        </value>
+        <value xsi:type="IVL_PQ" specializationType="IVL_PQ.LAB">
+          <!-- Ok: Check handling of null low -->
+          <low specializationType="PQ.LAB" nullFlavor="UNK"/>
+          <high specializationType="PQ.LAB" value="1.0"/>
+        </value>
+        <value xsi:type="IVL_PQ" specializationType="IVL_PQ.LAB">
+          <!-- Error: Check handling of PINF low -->
+          <low specializationType="PQ.LAB" nullFlavor="PINF"/>
+          <high specializationType="PQ.LAB" value="1.0"/>
+        </value>
+        <value xsi:type="IVL_PQ" specializationType="IVL_PQ.LAB">
+          <!-- Ok: Check handling of null center -->
+          <center specializationType="PQ.LAB" nullFlavor="UNK"/>
+          <width specializationType="PQ.LAB" value="1.0"/>
+        </value>
+        <value xsi:type="IVL_PQ" specializationType="IVL_PQ.LAB">
+          <!-- Error: Check handling of PINF center -->
+          <center specializationType="PQ.LAB" nullFlavor="PINF"/>
+          <width specializationType="PQ.LAB" value="1.0"/>
+        </value>
+        <value xsi:type="IVL_PQ" specializationType="IVL_PQ.LAB" value="1.0" unit="m">
+          <!-- Error: Check handling of IVL simplified form -->
+        </value>
+        <value xsi:type="IVL_PQ" specializationType="IVL_PQ.LAB" value="1.0" unit="m">
+          <!-- Error?: Check handling of IVL simplified short form with equivalent long form -->
+          <low specializationType="PQ.LAB" value="1.0" unit="m"/>
+          <high specializationType="PQ.LAB" value="1.0" unit="m"/>
+        </value>
+        <value xsi:type="IVL_PQ" specializationType="IVL_PQ.LAB" value="1.0" unit="m">
+          <!-- Error?: Check handling of IVL simplified short form with conflicting long form -->
+          <low specializationType="PQ.LAB" value="2.0" unit="m"/>
+          <high specializationType="PQ.LAB" value="2.0" unit="m"/>
+        </value>
+        <value xsi:type="IVL_TS" specializationType="IVL_TS.DATE">
+          <!-- Error: IVL TS.DATE with center -->
+          <center specializationType="TS.DATE" value="20090101"/>
+          <width specializationType="PQ.TIME" value="5.24"/>
+        </value>
+        <value xsi:type="IVL_TS" specializationType="IVL_TS.DATE">
+          <!-- Error: IVL TS.DATE with boundaries -->
+          <low specializationType="TS.DATE" value="20090101" inclusive="false"/>
+          <high specializationType="TS.DATE" value="20090103" inclusive="false"/>
+        </value>
+        <value xsi:type="IVL_TS" specializationType="IVL_TS.DATE">
+          <!-- Ok: IVL TS.DATE null flavors -->
+          <low specializationType="TS.DATE" nullFlavor="UNK"/>
+          <high specializationType="TS.DATE" nullFlavor="MSK"/>
+        </value>
+        <value xsi:type="IVL_TS" specializationType="IVL_TS.DATE">
+          <!-- Error: IVL TS.DATE prohibited null flavor -->
+          <low specializationType="TS.DATE" nullFlavor="NINF"/>
+          <high specializationType="TS.DATE" nullFlavor="PINF"/>
+        </value>
+        <value xsi:type="IVL_TS" specializationType="IVL_TS.DATE">
+          <!-- Error: IVL TS.DATE with only one property -->
+          <low specializationType="TS.DATE" nullFlavor="NINF"/>
+        </value>
+        <value xsi:type="RTO_PQ_PQ" specializationType="RTO_PQ.DRUG_PQ.TIME">
+          <!-- Ok: Check handling of RTO -->
+          <numerator value="10" unit="g"/>
+          <denominator value="10" unit="ms"/>
+        </value>
+        <value xsi:type="RTO_PQ_PQ" specializationType="RTO_PQ.DRUG_PQ.TIME">
+          <!-- ERror: Check null numerator -->
+          <numerator nullFlavor="UNK"/>
+          <denominator value="10" unit="ms"/>
+        </value>
+        <value xsi:type="RTO_PQ_PQ" specializationType="RTO_PQ.DRUG_PQ.TIME">
+          <!-- ERror: Check null denominator -->
+          <numerator value="10" unit="g"/>
+          <denominator nullFlavor="UNK"/>
+        </value>
+        <value xsi:type="RTO_PQ_PQ" specializationType="RTO_PQ.LAB_PQ.HEIGHTWEIGHT">
+          <!-- ERror: Check null denominator -->
+          <numerator value="10" unit="g"/>
+          <denominator value="5" unit="m"/>
+        </value>
+        <value xsi:type="RTO_MO_PQ" specializationType="RTO_MO.CAD_PQ.BASIC">
+          <!-- Ok: MO/PQ -->
+          <numerator value="10" currency="CAD"/>
+          <denominator value="10" unit="mg"/>
+        </value>
+        <value xsi:type="TN" use="A ABC ASGN C I OR">John
+          <!-- Test handling of mixed text on TN -->
+          <!-- Test handling of multiple use codes on TN -->
+          <!-- Test presence of validTime with full date information on TN -->
+          <validTime>
+            <low value="200901"/>
+            <high value="20101115121325.1111"/>
+          </validTime> Smith
+        </value>
+        <value xsi:type="TS" specializationType="TS.DATE" value="20000229">
+          <!-- Ok: Check valid date -->
+        </value>
+        <value xsi:type="TS" specializationType="TS.DATE" value="200002">
+          <!-- Ok: Check valid date to month -->
+        </value>
+        <value xsi:type="TS" specializationType="TS.DATE" value="2000">
+          <!-- Ok: Check valid date year only -->
+        </value>
+        <value xsi:type="TS" specializationType="TS.DATE" value="2000022912">
+          <!-- Error: Check valid date year with hour -->
+        </value>
+        <value xsi:type="TS" specializationType="TS.DATE" value="19000229">
+          <!-- Error: Check valid date -->
+        </value>
+        <value xsi:type="TS" specializationType="TS.FULLDATE" value="20000229">
+          <!-- Ok: Check valid date -->
+        </value>
+        <value xsi:type="TS" specializationType="TS.FULLDATE" value="200002">
+          <!-- Error: Check valid date to month -->
+        </value>
+        <value xsi:type="TS" specializationType="TS.DATETIME" value="20000229">
+          <!-- Ok: Check valid date -->
+        </value>
+        <value xsi:type="TS" specializationType="TS.DATETIME" value="2000">
+          <!-- Ok: Check valid date to year -->
+        </value>
+        <value xsi:type="TS" specializationType="TS.DATETIME" value="2000022912-0700">
+          <!-- Ok: Check valid date to hour -->
+        </value>
+        <value xsi:type="TS" specializationType="TS.DATETIME" value="200002291231">
+          <!-- Ok: Check valid date to minute -->
+        </value>
+        <value xsi:type="TS" specializationType="TS.DATETIME" value="20000229123157">
+          <!-- Ok: Check valid date to second -->
+        </value>
+        <value xsi:type="TS" specializationType="TS.DATETIME" value="20000229123157-0700">
+          <!-- Ok: Check valid date to second -->
+        </value>
+        <value xsi:type="TS" specializationType="TS.DATETIME" value="20000229123157.1">
+          <!-- Error: Check valid date to fraction -->
+        </value>
+        <value xsi:type="TS" specializationType="TS.FULLDATETIME" value="20000229123157">
+          <!-- Ok: Check valid date to second -->
+        </value>
+        <value xsi:type="TS" specializationType="TS.FULLDATETIME" value="200002291231">
+          <!-- Error: Check valid date to minute -->
+        </value>
+        <value xsi:type="TS" specializationType="TS.FULLDATEWITHTIME" value="200002291231">
+          <!-- Error: Check referencing abstract flavor -->
+        </value>
+        <value xsi:type="URG_PQ" specializationType="URG_PQ.LAB">
+          <!-- Ok: Test that check of low <= high includes units -->
+          <low specializationType="PQ.LAB" value="5" unit="mm"/>
+          <high specializationType="PQ.LAB" value="1" unit="cm"/>
+        </value>
+        <value xsi:type="URG_PQ" specializationType="URG_PQ.LAB">
+          <!-- Error: Test that check of low <= high includes units -->
+          <low specializationType="PQ.LAB" value="1" unit="cm"/>
+          <high specializationType="PQ.LAB" value="10" unit="mm"/>
+        </value>
+        <value xsi:type="URG_PQ" specializationType="URG_PQ.LAB">
+          <!-- Ok: Test that check of low <= high includes units -->
+          <low specializationType="PQ.LAB" value="2e-3">
+            <!-- Check handling of scientific notation -->
+          </low>
+          <high specializationType="PQ.LAB" value="1.1"/>
+        </value>
+        <value xsi:type="URG_PQ" specializationType="URG_PQ.LAB">
+          <!-- Error: Test that check of low <= high includes units -->
+          <low specializationType="PQ.LAB" value="1.1"/>
+          <high specializationType="PQ.LAB" value="2e-3">
+            <!-- Check handling of scientific notation -->
+          </high>
+        </value>
+        <value xsi:type="URG_TS" specializationType="URG_TS.FULLDATETIME">
+          <!-- Error: Test that check of low <= high includes timezone -->
+          <low specializationType="TS.FULLDATETIME" value="20090101105903.1234-0700"/>
+          <high specializationType="TS.FULLDATETIME" value="20090101115903.1234-0500"/>
+        </value>
+        <value xsi:type="URG_TS" specializationType="URG_TS.FULLDATETIME">
+          <!-- Error: Test that check of low <= high includes timezone -->
+          <low specializationType="TS.FULLDATETIME" value="20090101115903.1234-0500"/>
+          <high specializationType="TS.FULLDATETIME" value="20090101105903.1234-0700"/>
+        </value>
+        <value xsi:type="URG_TS" specializationType="URG_TS.FULLDATETIME">
+          <!-- Error: Check behavior when timezone missing -->
+          <low specializationType="TS.FULLDATETIME" value="20090101105903.1234"/>
+          <high specializationType="TS.FULLDATETIME" value="20090101115903.1234-0500"/>
+        </value>
+        <value xsi:type="URG_TS" specializationType="URG_TS.FULLDATETIME">
+          <!-- Ok: Check behavior when timezone missing -->
+          <low specializationType="TS.FULLDATETIME" value="20090101115903.1234-0500"/>
+          <high specializationType="TS.FULLDATETIME" value="20090101105903.1234"/>
+        </value>
+        <value xsi:type="URG_TS" specializationType="URG_TS.FULLDATETIME">
+          <!-- Ok: Check width for time -->
+          <low specializationType="TS.FULLDATETIME" value="20090101115903.1234-0500"/>
+          <width specializationType="PQ.TIME" value="5.24" unit="s"/>
+        </value>
+        <value xsi:type="URG_TS" specializationType="URG_TS.FULLDATETIME">
+          <!-- Error: Check width for time with bad units -->
+          <low specializationType="TS.FULLDATETIME" value="20090101115903.1234-0500"/>
+          <width specializationType="PQ.TIME" value="5.24"/>
+        </value>
+        <value xsi:type="URG_PQ" specializationType="URG_PQ.LAB">
+          <!-- Ok: Check width for PQ with comparable units -->
+          <low specializationType="PQ.LAB" value="10" unit="m"/>
+          <width specializationType="PQ.LAB" value="5" unit="cm"/>
+        </value>
+        <value xsi:type="URG_PQ" specializationType="URG_PQ.LAB">
+          <!-- Error: Check width for PQ with non-comparable units -->
+          <low specializationType="PQ.LAB" value="10" unit="m"/>
+          <width specializationType="PQ.LAB" value="5" unit="s"/>
+        </value>
+        <value xsi:type="URG_PQ" specializationType="URG_PQ.LAB">
+          <!-- Ok: Check for use of inclusive when checking low < high -->
+          <low specializationType="PQ.LAB" value="1.0" unit="m"/>
+          <high specializationType="PQ.LAB" value="1.0" unit="m"/>
+        </value>
+        <value xsi:type="URG_PQ" specializationType="URG_PQ.LAB">
+          <!-- Ok: Check handling of 0 width, negative values -->
+          <low specializationType="PQ.LAB" value="-1.0" unit="m"/>
+          <width specializationType="PQ.LAB" value="0" unit="m"/>
+        </value>
+        <value xsi:type="URG_PQ" specializationType="URG_PQ.LAB">
+          <!-- Error: Check handling of negative width -->
+          <low specializationType="PQ.LAB" value="-1.0" unit="m"/>
+          <width specializationType="PQ.LAB" value="-0.1" unit="m"/>
+        </value>
+        <value xsi:type="URG_PQ" specializationType="URG_PQ.LAB">
+          <!-- Ok: Check handling of null width -->
+          <center specializationType="PQ.LAB" value="-1.0" unit="m"/>
+          <width specializationType="PQ.LAB" nullFlavor="UNK"/>
+        </value>
+        <value xsi:type="URG_PQ" specializationType="URG_PQ.LAB">
+          <!-- Error: Check handling of PINF width -->
+          <center specializationType="PQ.LAB" value="-1.0" unit="m"/>
+          <width specializationType="PQ.LAB" nullFlavor="PINF"/>
+        </value>
+        <value xsi:type="URG_PQ" specializationType="URG_PQ.LAB">
+          <!-- Ok: Check handling of null high -->
+          <low specializationType="PQ.LAB" value="-1.0" unit="m"/>
+          <high specializationType="PQ.LAB" nullFlavor="UNK"/>
+        </value>
+        <value xsi:type="URG_PQ" specializationType="URG_PQ.LAB">
+          <!-- Error: Check handling of PINF high -->
+          <low specializationType="PQ.LAB" value="-1.0" unit="m"/>
+          <high specializationType="PQ.LAB" nullFlavor="PINF"/>
+        </value>
+        <value xsi:type="URG_PQ" specializationType="URG_PQ.LAB">
+          <!-- Ok: Check handling of null low -->
+          <low specializationType="PQ.LAB" nullFlavor="UNK"/>
+          <high specializationType="PQ.LAB" value="1.0"/>
+        </value>
+        <value xsi:type="URG_PQ" specializationType="URG_PQ.LAB">
+          <!-- Error: Check handling of PINF low -->
+          <low specializationType="PQ.LAB" nullFlavor="PINF"/>
+          <high specializationType="PQ.LAB" value="1.0"/>
+        </value>
+        <value xsi:type="URG_PQ" specializationType="URG_PQ.LAB">
+          <!-- Ok: Check handling of null center -->
+          <center specializationType="PQ.LAB" nullFlavor="UNK"/>
+          <width specializationType="PQ.LAB" value="1.0"/>
+        </value>
+        <value xsi:type="URG_PQ" specializationType="URG_PQ.LAB">
+          <!-- Error: Check handling of PINF center -->
+          <center specializationType="PQ.LAB" nullFlavor="PINF"/>
+          <width specializationType="PQ.LAB" value="1.0"/>
+        </value>
+        <value xsi:type="URG_PQ" specializationType="URG_PQ.LAB" value="1.0" unit="m">
+          <!-- Error: Check handling of URG simplified form -->
+        </value>
+        <value xsi:type="URG_PQ" specializationType="URG_PQ.LAB" value="1.0" unit="m">
+          <!-- Error?: Check handling of URG simplified short form with equivalent long form -->
+          <low specializationType="PQ.LAB" value="1.0" unit="m"/>
+          <high specializationType="PQ.LAB" value="1.0" unit="m"/>
+        </value>
+        <value xsi:type="URG_PQ" specializationType="URG_PQ.LAB" value="1.0" unit="m">
+          <!-- Error?: Check handling of URG simplified short form with conflicting long form -->
+          <low specializationType="PQ.LAB" value="2.0" unit="m"/>
+          <high specializationType="PQ.LAB" value="2.0" unit="m"/>
+        </value>
+        <value xsi:type="URG_TS" specializationType="URG_TS.DATE">
+          <!-- Error: URG TS.DATE with center -->
+          <center specializationType="TS.DATE" value="20090101"/>
+          <width specializationType="PQ.TIME" value="5.24"/>
+        </value>
+        <value xsi:type="URG_TS" specializationType="URG_TS.DATE">
+          <!-- Error: URG TS.DATE with boundaries -->
+          <low specializationType="TS.DATE" value="20090101" inclusive="false"/>
+          <high specializationType="TS.DATE" value="20090103" inclusive="false"/>
+        </value>
+        <value xsi:type="URG_TS" specializationType="URG_TS.DATE">
+          <!-- Ok: URG TS.DATE null flavors -->
+          <low specializationType="TS.DATE" nullFlavor="UNK"/>
+          <high specializationType="TS.DATE" nullFlavor="MSK"/>
+        </value>
+        <value xsi:type="URG_TS" specializationType="URG_TS.DATE">
+          <!-- Error: URG TS.DATE prohibited null flavor -->
+          <low specializationType="TS.DATE" nullFlavor="NINF"/>
+          <high specializationType="TS.DATE" nullFlavor="PINF"/>
+        </value>
+        <value xsi:type="URG_TS" specializationType="URG_TS.DATE">
+          <!-- Error: URG TS.DATE with only one property -->
+          <low specializationType="TS.DATE" nullFlavor="NINF"/>
+        </value>
+        <value xsi:type="IVL_TS" specializationType="IVL.LOW_TS.FULLDATE">
+          <!-- Ok: IVL.LOW with low -->
+          <low specializationType="TS.DATE" value="20010101"/>
+        </value>
+        <value xsi:type="IVL_TS" specializationType="IVL.LOW_TS.FULLDATE">
+          <!-- Error: IVL.LOW with high -->
+          <high specializationType="TS.DATE" value="20010102"/>
+        </value>
+        <value xsi:type="IVL_TS" specializationType="IVL.LOW_TS.FULLDATE">
+          <!-- Error: IVL.LOW with low & high -->
+          <low specializationType="TS.DATE" value="20010101"/>
+          <high specializationType="TS.DATE" value="20010102"/>
+        </value>
+        <value xsi:type="IVL_TS" specializationType="IVL.HIGH_TS.FULLDATE">
+          <!-- Error: IVL.HIGH with low -->
+          <low specializationType="TS.DATE" value="20010101"/>
+        </value>
+        <value xsi:type="IVL_TS" specializationType="IVL.HIGH_TS.FULLDATE">
+          <!-- Ok: IVL.HIGH with high -->
+          <high specializationType="TS.DATE" value="20010102"/>
+        </value>
+        <value xsi:type="IVL_TS" specializationType="IVL.HIGH_TS.FULLDATE">
+          <!-- Error: IVL.HIGH with low & high -->
+          <low specializationType="TS.DATE" value="20010101"/>
+          <high specializationType="TS.DATE" value="20010102"/>
+        </value>
+        <value xsi:type="IVL_TS" specializationType="IVL.WIDTH_TS.FULLDATE">
+          <!-- Error: IVL.WIDTH with width -->
+          <width specializationType="PQ.TIME" value="2" unit="d"/>
+        </value>
+        <value xsi:type="IVL_TS" specializationType="IVL.WIDTH_TS.FULLDATE">
+          <!-- Ok: IVL.WIDTH with high -->
+          <high specializationType="TS.DATE" value="20010102"/>
+        </value>
+        <value xsi:type="IVL_TS" specializationType="IVL.WIDTH_TS.FULLDATE">
+          <!-- Error: IVL.WIDTH with low & high -->
+          <low specializationType="TS.DATE" value="20010101"/>
+          <width specializationType="PQ.TIME" value="2" unit="d"/>
+        </value>
+        <value xsi:type="PIVL_TS" specializationType="PIVL_TS.DATETIME" institutionSpecified="true" alignment="CD">
+          <!-- Error: PIVL with non-supported elements - should be error for institutionSpecified, alignment, phase and period -->
+          <phase value="20090101"/>
+          <period value="2" unit="d"/>
+        </value>
+        <value xsi:type="PIVL_TS" specializationType="PIVL_TS.DATETIME">
+          <!-- Ok: Valid PIVL -->
+          <frequency>
+            <numerator value="2"/>
+            <denominator value="1" unit="d"/>
+          </frequency>
+        </value>
+        <value xsi:type="PIVL_TS" specializationType="PIVL_TS.DATETIME">
+          <!-- Error: Valid PIVL with non-time unit -->
+          <frequency>
+            <numerator value="2"/>
+            <denominator value="1"/>
+          </frequency>
+        </value>
+        <value xsi:type="PIVL_TS" specializationType="PIVL_TS.DATETIME">
+          <!-- Error: Null numerator or denominator -->
+          <frequency>
+            <numerator nullFlavor="UNK"/>
+            <denominator nullFlavor="UNK"/>
+          </frequency>
+        </value>
+        <value xsi:type="PIVL_TS" specializationType="PIVL_TS.DATETIME" operator="I">
+          <!-- Error: operator when not in a collection -->
+          <frequency>
+            <numerator value="2"/>
+            <denominator value="1" unit="d"/>
+          </frequency>
+        </value>
+        <value xsi:type="SXPR_TS" specializationType="GTS.BOUNDEDPIVL">
+          <!-- Ok: Valid GTS -->
+          <comp xsi:type="IVL_TS" specializationType="IVL_TS.FULLDATE">
+            <low xsi:type="IVXB_TS" specializationType="TS.FULLDATE" value="20050803"/>
+            <width xsi:type="PQ" specializationType="PQ.TIME" value="3" unit="wk"/>
+          </comp>
+          <comp xsi:type="PIVL_TS" operator="I">
+            <frequency>
+              <numerator xsi:type="INT" specializationType="INT.NONNEG" value="3"/>
+              <denominator xsi:type="PQ" specializationType="PQ.TIME" value="1" unit="d"/>
+            </frequency>
+          </comp>
+        </value>
+        <value xsi:type="SXPR_TS" specializationType="GTS.BOUNDEDPIVL">
+          <!-- Error?: Components in wrong order -->
+          <comp xsi:type="PIVL_TS">
+            <frequency>
+              <numerator xsi:type="INT" specializationType="INT.NONNEG" value="3"/>
+              <denominator xsi:type="PQ" specializationType="PQ.TIME" value="1" unit="d"/>
+            </frequency>
+          </comp>
+          <comp xsi:type="IVL_TS" specializationType="IVL_TS.FULLDATE" operator="I">
+            <low xsi:type="IVXB_TS" specializationType="TS.FULLDATE" value="20050803"/>
+            <width xsi:type="PQ" specializationType="PQ.TIME" value="3" unit="wk"/>
+          </comp>
+        </value>
+        <value xsi:type="SXPR_TS" specializationType="GTS.BOUNDEDPIVL" value="1">
+          <!-- Error: GTS value on root -->
+          <comp xsi:type="IVL_TS" specializationType="IVL_TS.FULLDATE">
+            <low xsi:type="IVXB_TS" specializationType="TS.FULLDATE" value="20050803"/>
+            <width xsi:type="PQ" specializationType="PQ.TIME" value="3" unit="wk"/>
+          </comp>
+          <comp xsi:type="PIVL_TS" operator="I">
+            <frequency>
+              <numerator xsi:type="INT" specializationType="INT.NONNEG" value="3"/>
+              <denominator xsi:type="PQ" specializationType="PQ.TIME" value="1" unit="d"/>
+            </frequency>
+          </comp>
+        </value>
+        <value xsi:type="II" root="1.2.3">
+          <!-- Error: II is protected -->
+        </value>
+        <value xsi:type="II" specializationType="II.OID" root="1.2.3">
+          <!-- Ok: -->
+        </value>
+        <value xsi:type="II" specializationType="II.OID" root="1.2.3" assigningAuthorityName="Foo">
+          <!-- Error: assigningAuthorityName not allowed -->
+        </value>
+        <value xsi:type="II" specializationType="II.OID" root="1.2.3" use="BUS">
+          <!-- Error: non-permitted use -->
+        </value>
+        <value xsi:type="II" specializationType="II.OID" root="1.2.3" extension="foo">
+          <!-- Error: non-permitted extension -->
+        </value>
+        <value xsi:type="II" specializationType="II.OID">
+          <!-- Error: missing root -->
+        </value>
+        <value xsi:type="II" specializationType="II.PUBLIC" root="1.2.3" extension="foo" use="BUS" displayable="true">
+          <!-- Ok: II.PUBLIC -->
+        </value>
+        <value xsi:type="II" specializationType="II.PUBLIC" root="1.2.3" extension="foo">
+          <!-- Error: II.PUBLIC wrong displayable -->
+        </value>
+        <value xsi:type="II" specializationType="II.PUBLIC" root="1.2.3" extension="foo" use="VER" displayable="true">
+          <!-- Error: II.PUBLIC bad use -->
+        </value>
+        <value xsi:type="II" specializationType="II.PUBLIC" root="1.2.3" use="BUS" displayable="true">
+          <!-- Error: II.PUBLIC No Extension -->
+        </value>
+        <value xsi:type="II" specializationType="II.TOKEN" root="64AC5370-D851-2D2F-2A18-78FBB73BFED9">
+          <!-- Ok: II.TOKEN -->
+        </value>
+        <value xsi:type="II" specializationType="II.TOKEN" root="1.2.3">
+          <!-- Error: II.TOKEN Invalid GUID -->
+        </value>
+        <value xsi:type="II" specializationType="II.TOKEN" root="64AC5370-D851-2D2F-2A18-78FBB73BFED9" extension="foo">
+          <!-- Error: II.TOKEN non-allowed extension -->
+        </value>
+        <value xsi:type="II" specializationType="II.TOKEN">
+          <!-- Error: II.TOKEN missing root -->
+        </value>
+        <value xsi:type="II" specializationType="II.TOKEN" nullFlavor="UNK">
+          <!-- Ok: II.TOKEN missing root -->
+        </value>
+        <value xsi:type="II" specializationType="II.TOKEN" extension="foo" nullFlavor="UNK">
+          <!-- Error: II.TOKEN non-allowed extension -->
+        </value>
+        <value xsi:type="II" specializationType="II.PUBLIC" extension="foo" nullFlavor="UNK">
+          <!-- Ok: II.PUBLIC null -->
+        </value>
+        <value xsi:type="II" specializationType="II.VER" root="64AC5370-D851-2D2F-2A18-78FBB73BFED9" use="VER">
+          <!-- Ok: II.VER -->
+        </value>
+        <value xsi:type="II" specializationType="II.VER" root="1.2.3" use="VER">
+          <!-- Error: II.VER non-guid -->
+        </value>
+        <value xsi:type="II" specializationType="II.VER" root="64AC5370-D851-2D2F-2A18-78FBB73BFED9" use="BUS">
+          <!-- Error: II.VER wrong use -->
+        </value>
+        <value xsi:type="II" specializationType="II.BUS" root="64AC5370-D851-2D2F-2A18-78FBB73BFED9" use="BUS">
+          <!-- Ok: II.BUS w/ GUID -->
+        </value>
+        <value xsi:type="II" specializationType="II.BUS" root="1.2.3" use="BUS">
+          <!-- Ok: II.BUS w/ OID -->
+        </value>
+        <value xsi:type="II" specializationType="II.BUS" root="64AC5370-D851-2D2F-2A18-78FBB73BFED9" extension="01234567890123456789" use="BUS">
+          <!-- Ok: II.BUS w/ extension -->
+        </value>
+        <value xsi:type="II" specializationType="II.BUS" root="64AC5370-D851-2D2F-2A18-78FBB73BFED9" extension="012345678901234567890" use="BUS">
+          <!-- Error: II.BUS w/ extension - too long -->
+        </value>
+        <value xsi:type="II" specializationType="II.BUS" root="1.2.3" use="VER">
+          <!-- Error: II.BUS w/ wrong use -->
+        </value>
+        <value xsi:type="II" specializationType="II.BUS" root="1.2.3" use="BUS" displayable="true">
+          <!-- Error: II.BUS w/ displayable -->
+        </value>
+        <value xsi:type="CS" code="F">
+          <!-- Error: Can't constrain to a CS from ANY datatype -->
+        </value>
+        <value xsi:type="CV" code="F" codeSystem="2.16.840.1.113883.5.1">
+          <!-- Ok: CV -->
+        </value>
+        <value xsi:type="CV" code="01234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789" codeSystem="1.2.3">
+          <!-- Ok: CV long code -->
+        </value>
+        <value xsi:type="CV" code="F" codeSystem="1.2.3.4.5.6.7.8.9.0.1.2.3.4.5.6.7.8.9.0.1.2.3.4.5.6.7.8.9.0.1.2.3.4.5.6.7.8.9.0.1.2.3.4.5.6.7.8.9.11">
+          <!-- Ok: CV long code system-->
+        </value>
+        <value xsi:type="CV" code="F" codeSystem="1.2.3.4.5.6.7.8.9.0.1.2.3.4.5.6.7.8.9.0.1.2.3.4.5.6.7.8.9.0.1.2.3.4.5.6.7.8.9.0.1.2.3.4.5.6.7.8.9.111">
+          <!-- Error: CV too long code system-->
+        </value>
+        <value xsi:type="CV" code="a01234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789" codeSystem="1.2.3">
+          <!-- Error: CV too long code -->
+        </value>
+        <value xsi:type="CV" code="F" codeSystem="2.16.840.1.113883.5.1" displayName="foo" codeSystemName="foo" codeSystemVersion="foo">
+          <!-- Error: CV 3 non-valid attributes -->
+        </value>
+        <value xsi:type="CV" code="F" codeSystem="2.16.840.1.113883.5.1">
+          <!-- Ok: CV w/ original text -->
+          <originalText xsi:type="ST">012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789</originalText>
+        </value>
+        <value xsi:type="CV" code="F" codeSystem="2.16.840.1.113883.5.1">
+          <!-- Error: CV w/ original text too long -->
+          <originalText xsi:type="ST">012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789A</originalText>
+        </value>
+        <value xsi:type="CV" code="F" codeSystem="2.16.840.1.113883.5.1">
+          <!-- Error: CV w/ original text with wrong datatype -->
+          <originalText xsi:type="ED">foo</originalText>
+        </value>
+        <value xsi:type="CV" codeSystem="2.16.840.1.113883.5.1" nullFlavor="OTH">
+          <!-- Ok: CV w/ OTH -->
+        </value>
+        <value xsi:type="CV" code="foo" codeSystem="1.2.3" nullFlavor="OTH">
+          <!-- Ok: CV w/ OTH -->
+        </value>
+        <value xsi:type="CV" nullFlavor="UNC">
+          <!-- Ok: CV w/ UNC -->
+          <originalText>Foo</originalText>
+        </value>
+        <value xsi:type="CE" code="foo" codeSystem="1.5.6">
+          <!-- Ok: CE w/ translations -->
+          <originalText>SARs</originalText>
+          <translation code="AB99123788a" codeSystem="2.16.840.1.113883.19.881.57"/>
+          <translation code="AB99123788b" codeSystem="2.16.840.1.113883.19.881.57"/>
+          <translation code="AB99123788c" codeSystem="2.16.840.1.113883.19.881.57"/>
+          <translation code="AB99123788d" codeSystem="2.16.840.1.113883.19.881.57"/>
+          <translation code="AB99123788e" codeSystem="2.16.840.1.113883.19.881.57"/>
+          <translation code="AB99123788f" codeSystem="2.16.840.1.113883.19.881.57"/>
+          <translation code="AB99123788g" codeSystem="2.16.840.1.113883.19.881.57"/>
+          <translation code="AB99123788h" codeSystem="2.16.840.1.113883.19.881.57"/>
+          <translation code="AB99123788i" codeSystem="2.16.840.1.113883.19.881.57"/>
+          <translation code="AB99123788j" codeSystem="2.16.840.1.113883.19.881.57"/>
+        </value>
+        <value xsi:type="CE" code="foo" codeSystem="1.5.6">
+          <!-- Error: CE w/ too many translations -->
+          <originalText>SARs</originalText>
+          <translation code="AB99123788a" codeSystem="2.16.840.1.113883.19.881.57"/>
+          <translation code="AB99123788b" codeSystem="2.16.840.1.113883.19.881.57"/>
+          <translation code="AB99123788c" codeSystem="2.16.840.1.113883.19.881.57"/>
+          <translation code="AB99123788d" codeSystem="2.16.840.1.113883.19.881.57"/>
+          <translation code="AB99123788e" codeSystem="2.16.840.1.113883.19.881.57"/>
+          <translation code="AB99123788f" codeSystem="2.16.840.1.113883.19.881.57"/>
+          <translation code="AB99123788g" codeSystem="2.16.840.1.113883.19.881.57"/>
+          <translation code="AB99123788h" codeSystem="2.16.840.1.113883.19.881.57"/>
+          <translation code="AB99123788i" codeSystem="2.16.840.1.113883.19.881.57"/>
+          <translation code="AB99123788j" codeSystem="2.16.840.1.113883.19.881.57"/>
+          <translation code="AB99123788k" codeSystem="2.16.840.1.113883.19.881.57"/>
+        </value>
+        <value xsi:type="CE" code="foo" codeSystem="1.5.6">
+          <!-- Error: CE w/ translation tree -->
+          <originalText>SARs</originalText>
+          <translation code="AB99123788" codeSystem="2.16.840.1.113883.19.881.57">
+            <translation code="foo" codeSystem="1.2.3"/>
+            <translation code="foo2" codeSystem="1.3.4"/>
+          </translation>
+        </value>
+        <value xsi:type="CE" nullFlavor="OTH">
+          <!-- Ok: CE w/ no translation -->
+          <originalText>SARs</originalText>
+        </value>
+        <value xsi:type="CD" code="402320002:246100006=385315009;246112005=371924009" codeSystem="2.16.840.1.113883.6.96">
+          <!-- Ok: CE w/ post-coordination -->
+          <originalText>Acute, moderate facial psoriasis</originalText>
+        </value>
+        <value xsi:type="CD" code="402320002" codeSystem="2.16.840.1.113883.6.96">
+          <!-- Error: old-style post-coordination -->
+          <originalText>Acute, moderate facial psoriasis</originalText>
+          <qualifier>
+            <name code="246100006" codeSystem="2.16.840.1.113883.6.96"/>
+            <value code="385315009" codeSystem="2.16.840.1.113883.6.96"/>
+          </qualifier>
+          <qualifier>
+            <name code="246112005" codeSystem="2.16.840.1.113883.6.96"/>
+            <value code="371924009" codeSystem="2.16.840.1.113883.6.96"/>
+          </qualifier>
+        </value>
+        <value xsi:type="CD" specializationType="CD.LAB" code="402320002:246100006=385315009;246112005=371924009" codeSystem="2.16.840.1.113883.6.96" displayName="foo">
+          <!-- Ok: CD.LAB w/ display name -->
+          <originalText>Acute, moderate facial psoriasis</originalText>
+        </value>
+        <value xsi:type="ST">foo<!-- Ok -->
+        </value>
+        <value xsi:type="ST" mediaType="text/plain" representation="TXT">foo<!-- Ok: fixed attribtues -->
+        </value>
+        <value xsi:type="ST" language="en-CA">foo<!-- Error: Language not allowed -->
+        </value>
+        <value xsi:type="ST" specializationType="ST.LANG">foo<!-- Error: language missing -->
+        </value>
+        <value xsi:type="ST" specializationType="ST.LANG" language="en-CA">foo<!-- Ok: ST.LANG -->
+        </value>
+        <value xsi:type="ST" specializationType="ST.LANG" language="en-FR">foo<!-- Error: Invalid language -->
+        </value>
+        <value xsi:type="ED" specializationType="ED.DOC" mediaType="text/html" language="fr-CA">
+          <!-- Ok: ED with embedded XML -->
+          <html> . . . </html>
+        </value>
+        <value xsi:type="ED" specializationType="ED.DOC" mediaType="text/plain" compression="GZ" representation="B64" language="en-CA">
+          <!-- Ok: ED with zipped file - can tool uncompress? -->
+UEsDBBQAAgAIANd0UTynKiTmEgAAABwAAAAIAAAAdGVzdC50eHQrSS0uycxLN+TlKoGwjOAsYwBQ
+SwECFAAUAAIACADXdFE8pyok5hIAAAAcAAAACAAkAAAAAAABACAAAAAAAAAAdGVzdC50eHQKACAA
+AAAAAAEAGADw3ZOUGbDKAeCYmJQZsMoBsGaEFRmwygFQSwUGAAAAAAEAAQBaAAAAOAAAAAAA
+        </value>
+        <value xsi:type="ED" specializationType="ED.DOC" mediaType="text/plain" compression="foo" language="en-CA" representation="B64">
+          <!-- Error: ED with bad compression -->
+UEsDBBQAAgAIANd0UTynKiTmEgAAABwAAAAIAAAAdGVzdC50eHQrSS0uycxLN+TlKoGwjOAsYwBQ
+SwECFAAUAAIACADXdFE8pyok5hIAAAAcAAAACAAkAAAAAAABACAAAAAAAAAAdGVzdC50eHQKACAA
+AAAAAAEAGADw3ZOUGbDKAeCYmJQZsMoBsGaEFRmwygFQSwUGAAAAAAEAAQBaAAAAOAAAAAAA
+        </value>
+        <value xsi:type="ED" specializationType="ED.DOC" mediaType="foo" compression="GZ" language="en-CA" representation="B64">
+          <!-- Error: ED with bad compression -->
+UEsDBBQAAgAIANd0UTynKiTmEgAAABwAAAAIAAAAdGVzdC50eHQrSS0uycxLN+TlKoGwjOAsYwBQ
+SwECFAAUAAIACADXdFE8pyok5hIAAAAcAAAACAAkAAAAAAABACAAAAAAAAAAdGVzdC50eHQKACAA
+AAAAAAEAGADw3ZOUGbDKAeCYmJQZsMoBsGaEFRmwygFQSwUGAAAAAAEAAQBaAAAAOAAAAAAA
+        </value>
+        <value xsi:type="ED" specializationType="ED.DOC" mediaType="text/plain" compression="GZ" language="en-CA" representation="TXT">
+          <!-- Error: ED can't have TXT representation when compressed -->
+UEsDBBQAAgAIANd0UTynKiTmEgAAABwAAAAIAAAAdGVzdC50eHQrSS0uycxLN+TlKoGwjOAsYwBQ
+SwECFAAUAAIACADXdFE8pyok5hIAAAAcAAAACAAkAAAAAAABACAAAAAAAAAAdGVzdC50eHQKACAA
+AAAAAAEAGADw3ZOUGbDKAeCYmJQZsMoBsGaEFRmwygFQSwUGAAAAAAEAAQBaAAAAOAAAAAAA
+        </value>
+        <value xsi:type="ED" specializationType="ED.DOC" mediaType="text/plain" compression="GZ" language="en-CA" representation="B64" integrityCheck="A52ED2AA" integrityCheckAlgorithm="SHA-1">
+          <!-- Error: ED can't have integrity check stuff -->
+UEsDBBQAAgAIANd0UTynKiTmEgAAABwAAAAIAAAAdGVzdC50eHQrSS0uycxLN+TlKoGwjOAsYwBQ
+SwECFAAUAAIACADXdFE8pyok5hIAAAAcAAAACAAkAAAAAAABACAAAAAAAAAAdGVzdC50eHQKACAA
+AAAAAAEAGADw3ZOUGbDKAeCYmJQZsMoBsGaEFRmwygFQSwUGAAAAAAEAAQBaAAAAOAAAAAAA
+        </value>
+        <value xsi:type="ED" specializationType="ED.DOC" mediaType="text/plain" compression="GZ" language="en-CA" representation="B64">
+          <!-- Error: ED can't have thumbnail -->
+          <thumbnail>Testing</thumbnail>
+UEsDBBQAAgAIANd0UTynKiTmEgAAABwAAAAIAAAAdGVzdC50eHQrSS0uycxLN+TlKoGwjOAsYwBQ
+SwECFAAUAAIACADXdFE8pyok5hIAAAAcAAAACAAkAAAAAAABACAAAAAAAAAAdGVzdC50eHQKACAA
+AAAAAAEAGADw3ZOUGbDKAeCYmJQZsMoBsGaEFRmwygFQSwUGAAAAAAEAAQBaAAAAOAAAAAAA
+        </value>
+        <value xsi:type="ED" specializationType="ED.DOC" mediaType="text/plain" compression="GZ" language="en-CA" representation="B64">
+          <!-- Ok: ED.DOC with reference -->
+          <reference specializationType="TEL.URI" value="https://www.someserver.ca/somelocation"/>
+UEsDBBQAAgAIANd0UTynKiTmEgAAABwAAAAIAAAAdGVzdC50eHQrSS0uycxLN+TlKoGwjOAsYwBQ
+SwECFAAUAAIACADXdFE8pyok5hIAAAAcAAAACAAkAAAAAAABACAAAAAAAAAAdGVzdC50eHQKACAA
+AAAAAAEAGADw3ZOUGbDKAeCYmJQZsMoBsGaEFRmwygFQSwUGAAAAAAEAAQBaAAAAOAAAAAAA
+        </value>
+        <value xsi:type="ED" specializationType="ED.DOC" mediaType="text/plain" compression="GZ" language="en-CA" representation="B64">
+          <!-- Error: ED.DOC with only reference -->
+          <reference specializationType="TEL.URI" value="https://www.someserver.ca/somelocation"/>
+        </value>
+        <value xsi:type="ED" specializationType="ED.DOC" mediaType="text/plain" compression="GZ" language="en-CA" representation="B64">
+          <!-- Error: ED.DOC with bad reference -->
+          <reference specializationType="TEL.PHON" value="tel:1234567890"/>
+UEsDBBQAAgAIANd0UTynKiTmEgAAABwAAAAIAAAAdGVzdC50eHQrSS0uycxLN+TlKoGwjOAsYwBQ
+SwECFAAUAAIACADXdFE8pyok5hIAAAAcAAAACAAkAAAAAAABACAAAAAAAAAAdGVzdC50eHQKACAA
+AAAAAAEAGADw3ZOUGbDKAeCYmJQZsMoBsGaEFRmwygFQSwUGAAAAAAEAAQBaAAAAOAAAAAAA
+        </value>
+        <value xsi:type="ED" specializationType="ED.DOCREF" mediaType="text/plain" compression="GZ" language="en-CA" representation="B64">
+          <!-- Error: ED.DOCREF with content -->
+          <reference specializationType="TEL.URI" value="https://www.someserver.ca/somelocation"/>
+UEsDBBQAAgAIANd0UTynKiTmEgAAABwAAAAIAAAAdGVzdC50eHQrSS0uycxLN+TlKoGwjOAsYwBQ
+SwECFAAUAAIACADXdFE8pyok5hIAAAAcAAAACAAkAAAAAAABACAAAAAAAAAAdGVzdC50eHQKACAA
+AAAAAAEAGADw3ZOUGbDKAeCYmJQZsMoBsGaEFRmwygFQSwUGAAAAAAEAAQBaAAAAOAAAAAAA
+        </value>
+        <value xsi:type="ED" specializationType="ED.DOCREF" mediaType="text/plain" compression="GZ" language="en-CA" representation="B64">
+          <!-- Error: ED.DOCREF with no ref -->
+        </value>
+        <value xsi:type="ED" specializationType="ED.DOCREF" mediaType="text/plain">
+          <!-- Ok: ED.DOCREF -->
+          <reference specializationType="TEL.URI" value="https://www.someserver.ca/somelocation"/>
+        </value>
+        <value xsi:type="ED" specializationType="ED.SIGNATURE" mediaType="text/xml">
+          <!-- Ok: ED.SIGNATURE -->
+          <Signature xmlns="http://www.w3.org/2000/09/xmldsig#"> . . . </Signature>
+        </value>
+        <value xsi:type="ED" specializationType="ED.SIGNATURE" mediaType="text/xml">
+          <!-- Error: ED.SIGNATURE with bad content -->
+          <Foo xmlns="http://foo"> . . . </Foo>
+        </value>
+        <value xsi:type="ED" specializationType="ED.SIGNATURE" mediaType="text/xml" language="en-CA" compression="GZ">
+          <!-- Error: ED.SIGNATURE non-ermitted attributes - language, compression, reference -->
+          <reference specializationType="TEL.URI" value="https://www.someserver.ca/somelocation"/>
+          <Signature xmlns="http://www.w3.org/2000/09/xmldsig#"> . . . </Signature>
+        </value>
+        <value xsi:type="ED" specializationType="ED.DOCREF" nullFlavor="PINF">
+          <!-- Error: ED.DOCREF - bad null flavor-->
+        </value>
+        <value xsi:type="ED" specializationType="ED.DOCREF" nullFlavor="OTH">
+          <!-- Error: ED.DOCREF - bad null flavor-->
+        </value>
+        <value xsi:type="ED" specializationType="ED.DOCREF" nullFlavor="NA">
+          <!-- Ok: ED.DOCREF - good null flavor-->
+        </value>
+        <value xsi:type="INT" specializationType="INT.POS" value="1">
+          <!-- Ok: INT.POS lower bound -->
+        </value>
+        <value xsi:type="INT" specializationType="INT.POS" value="0">
+          <!-- Error: INT.POS lower bound -->
+        </value>
+        <value xsi:type="INT" specializationType="INT.POS" value="-1">
+          <!-- Error: INT.POS lower bound -->
+        </value>
+        <value xsi:type="INT" specializationType="INT.POS" value="9999999999">
+          <!-- Ok: INT.POS upper bound -->
+        </value>
+        <value xsi:type="INT" specializationType="INT.POS" nullFlavor="PINF">
+          <!-- Ok: INT.POS good null flavor -->
+        </value>
+        <value xsi:type="INT" specializationType="INT.POS" nullFlavor="NINF">
+          <!-- Error: INT.POS bad null flavor -->
+        </value>
+        <value xsi:type="INT" specializationType="INT.POS" nullFlavor="OTH">
+          <!-- Ok: INT.POS bad null flavor -->
+        </value>
+        <value xsi:type="INT" specializationType="INT.NONNEG" value="0">
+          <!-- Ok: INT.POS lower bound -->
+        </value>
+        <value xsi:type="INT" specializationType="INT.NONNEG" value="-1">
+          <!-- Error: INT.POS lower bound -->
+        </value>
+        <value xsi:type="REAL" specializationType="REAL.COORD" value="-.0001">
+          <!-- Ok - lower inside bound -->
+        </value>
+        <value xsi:type="REAL" specializationType="REAL.COORD" value="-0">
+          <!-- Ok - zero -->
+        </value>
+        <value xsi:type="REAL" specializationType="REAL.COORD" value=".0001">
+          <!-- Ok - upper inside bound -->
+        </value>
+        <value xsi:type="REAL" specializationType="REAL.COORD" value="-999.9999">
+          <!-- Ok - lower bound -->
+        </value>
+        <value xsi:type="REAL" specializationType="REAL.COORD" value="9999.9999">
+          <!-- Ok - upper bound -->
+        </value>
+        <value xsi:type="REAL" specializationType="REAL.COORD" value="10000">
+          <!-- Error - upper bound -->
+        </value>
+        <value xsi:type="REAL" specializationType="REAL.COORD" value="-1000">
+          <!-- Error - lower bound -->
+        </value>
+        <value xsi:type="REAL" specializationType="REAL.COORD" value=".00001">
+          <!-- Error - inner bound -->
+        </value>
+        <value xsi:type="INT" specializationType="REAL.COORD" value="5">
+          <!-- Error - non-alignment between type and specialization -->
+        </value>
+        <value xsi:type="REAL" specializationType="REAL.CONF" value="0.0001">
+          <!-- Ok - lower bound -->
+        </value>
+        <value xsi:type="REAL" specializationType="REAL.CONF" value="0.00009">
+          <!-- Error - lower bound -->
+        </value>
+        <value xsi:type="REAL" specializationType="REAL.CONF" value="1.0000">
+          <!-- Ok - upper bound -->
+        </value>
+        <value xsi:type="REAL" specializationType="REAL.CONF" value="1.00001">
+          <!-- Error - upper bound -->
+        </value>
+        <value xsi:type="MO" specializationType="MO.CAD" value="99999999999.99" currency="CAD">
+          <!-- Ok - upper bound -->
+        </value>
+        <value xsi:type="MO" specializationType="MO.CAD" value="-9999999999.99" currency="CAD">
+          <!-- Ok - lower bound -->
+        </value>
+        <value xsi:type="MO" specializationType="MO.CAD" value="99999999999.99" currency="USD">
+          <!-- Error - bad currency -->
+        </value>
+        <value xsi:type="MO" specializationType="MO.CAD" value="99999999999.99">
+          <!-- Error - missing currency -->
+        </value>
+        <value xsi:type="PQ" specializationType="PQ.BASIC" value="99999999999.99" unit="mg">
+          <!-- Ok - upper bound -->
+        </value>
+        <value xsi:type="PQ" specializationType="PQ.BASIC" value="199999999999.99" unit="mg">
+          <!-- Error - upper bound -->
+        </value>
+        <value xsi:type="PQ" specializationType="PQ.BASIC" value="-9999999999.99" unit="[tsp_us]">
+          <!-- Ok - lower bound -->
+        </value>
+        <value xsi:type="PQ" specializationType="PQ.BASIC" value="2.4">
+          <!-- Ok - no unit -->
+        </value>
+        <value xsi:type="PQ" specializationType="PQ.DRUG" value="-9999999999.99" unit="[tsp_us]">
+          <!-- Ok - lower bound -->
+        </value>
+        <value xsi:type="PQ" specializationType="PQ.DRUG" value="-9999999999.99" unit="mm[Hg]">
+          <!-- Error - bad unit -->
+        </value>
+        <value xsi:type="PQ" specializationType="PQ.TIME" value="-9999999999.99" unit="mm[Hg]">
+          <!-- Error - bad unit -->
+        </value>
+        <value xsi:type="PQ" specializationType="PQ.TIME" value="-9999999999.99" unit="s">
+          <!-- Ok - PQ.TIME -->
+        </value>
+        <value xsi:type="PQ" specializationType="PQ.TIME" value="-9999999999.99">
+          <!-- Ok - PQ.TIME missing unit (should be an error) -->
+        </value>
+        <value xsi:type="PQ" specializationType="PQ.HEIGHTWEIGHT" value="99999999999.99" unit="m">
+          <!-- Ok - PQ.HEIGHTWEIGHT -->
+        </value>
+        <value xsi:type="PQ" specializationType="PQ.HEIGHTWEIGHT" value="99999999999.99">
+          <!-- Ok - PQ.HEIGHTWEIGHT missing unit (should be an error) -->
+        </value>
+        <value xsi:type="PQ" specializationType="PQ.HEIGHTWEIGHT" value="99999999999.99" unit="s">
+          <!-- Error - PQ.HEIGHTWEIGHT bad unit -->
+        </value>
+        <value xsi:type="PQ" specializationType="PQ.DISTANCE" value="99999999999.99" unit="m">
+          <!-- Ok - PQ.DISTANCE -->
+        </value>
+        <value xsi:type="PQ" specializationType="PQ.DISTANCE" value="99999999999.99">
+          <!-- Ok - PQ.DISTANCE missing unit (should be an error) -->
+        </value>
+        <value xsi:type="PQ" specializationType="PQ.DISTANCE" value="99999999999.99" unit="g">
+          <!-- Error - PQ.DISTANCE bad unit -->
+        </value>
+        <value xsi:type="PQ" specializationType="PQ.LAB" value="99999999999.9999" unit="m">
+          <!-- Ok - PQ.LAB -->
+        </value>
+        <value xsi:type="PQ" specializationType="PQ.LAB" value="99999999999.9999">
+          <!-- Ok - PQ.LAB missing unit (should be an error) -->
+        </value>
+        <value xsi:type="PQ" specializationType="PQ.LAB" value="99999999999.9999" unit="g">
+          <!-- Error - PQ.LAB bad unit -->
+        </value>
+        <value xsi:type="PQ" specializationType="PQ.LAB" value="99999999999.9999" unit="mgL/mm[Hg]^4">
+          <!-- Ok - PQ.LAB complex unit -->
+        </value>
+        <value xsi:type="PN" specializationType="PN.BASIC" use="L">
+          <!-- Ok: PN.BASIC -->
+          <prefix>Mr</prefix>
+          <given>John</given>
+          <given qualifier="IN">W</given>
+          <family>Smith</family>
+        </value>
+        <value xsi:type="PN" specializationType="PN.BASIC" use="L">
+          <!-- Error: PN.BASIC - validTime not allowed -->
+          <prefix>Mr</prefix>
+          <given>John</given>
+          <given qualifier="IN">W</given>
+          <family>Smith</family>
+          <validTime value="20090101"/>
+        </value>
+        <value xsi:type="PN" specializationType="PN.BASIC">
+          <!-- Error: PN.BASIC - missing use -->
+          <prefix>Mr</prefix>
+          <given>John</given>
+          <given qualifier="IN">W</given>
+          <family>Smith</family>
+        </value>
+        <value xsi:type="PN" specializationType="PN.BASIC" use="L P C OR ASGN">
+          <!-- Ok: PN.BASIC -->
+          <prefix qualifier="IN">A1234567890123456789012345678901234567890123456789</prefix>
+          <prefix qualifier="IN">B1234567890123456789012345678901234567890123456789</prefix>
+          <given qualifier="IN">C1234567890123456789012345678901234567890123456789</given>
+          <given qualifier="IN">D1234567890123456789012345678901234567890123456789</given>
+          <family qualifier="IN">E1234567890123456789012345678901234567890123456789</family>
+          <suffix qualifier="IN">F1234567890123456789012345678901234567890123456789</suffix>
+          <family qualifier="IN">G1234567890123456789012345678901234567890123456789</family>
+        </value>
+        <value xsi:type="PN" specializationType="PN.BASIC" use="L P C OR ASGN">
+          <!-- Error: PN.BASIC too long part -->
+          <prefix qualifier="IN">A12345678901234567890123456789012345678901234567890</prefix>
+          <prefix qualifier="IN">B1234567890123456789012345678901234567890123456789</prefix>
+          <given qualifier="IN">C1234567890123456789012345678901234567890123456789</given>
+          <given qualifier="IN">D1234567890123456789012345678901234567890123456789</given>
+          <family qualifier="IN">E1234567890123456789012345678901234567890123456789</family>
+          <suffix qualifier="IN">F1234567890123456789012345678901234567890123456789</suffix>
+          <family qualifier="IN">G1234567890123456789012345678901234567890123456789</family>
+        </value>
+        <value xsi:type="PN" specializationType="PN.BASIC" use="L P C OR ASGN">
+          <!-- Error: PN.BASIC too many parts -->
+          <prefix qualifier="IN">A1234567890123456789012345678901234567890123456789</prefix>
+          <prefix qualifier="IN">B1234567890123456789012345678901234567890123456789</prefix>
+          <given qualifier="IN">C1234567890123456789012345678901234567890123456789</given>
+          <given qualifier="IN">D1234567890123456789012345678901234567890123456789</given>
+          <family qualifier="IN">E1234567890123456789012345678901234567890123456789</family>
+          <suffix qualifier="IN">F1234567890123456789012345678901234567890123456789</suffix>
+          <family qualifier="IN">G1234567890123456789012345678901234567890123456789</family>
+          <family qualifier="IN">G1234567890123456789012345678901234567890123456789</family>
+        </value>
+        <value xsi:type="PN" specializationType="PN.BASIC" use="L P C OR ASGN">
+          <!-- Ok: PN.BASIC mixed text -->A1234567890123456789012345678901234567890123456789<prefix qualifier="IN">B1234567890123456789012345678901234567890123456789</prefix>C1234567890123456789012345678901234567890123456789</value>
+        <value xsi:type="PN" specializationType="PN.BASIC" use="L P C OR ASGN">
+          <!-- Ok: PN.BASIC no parts -->A1234567890123456789012345678901234567890123456789</value>
+        <value xsi:type="PN" specializationType="PN.BASIC">
+          <!-- Error: PN.BASIC no use -->
+          <prefix qualifier="IN">A1234567890123456789012345678901234567890123456789</prefix>
+          <prefix qualifier="IN">B1234567890123456789012345678901234567890123456789</prefix>
+          <given qualifier="IN">C1234567890123456789012345678901234567890123456789</given>
+          <given qualifier="IN">D1234567890123456789012345678901234567890123456789</given>
+          <family qualifier="IN">E1234567890123456789012345678901234567890123456789</family>
+          <suffix qualifier="IN">F1234567890123456789012345678901234567890123456789</suffix>
+          <family qualifier="IN">G1234567890123456789012345678901234567890123456789</family>
+        </value>
+        <value xsi:type="PN" specializationType="PN.BASIC" use="L P C OR ASGN">
+          <!--Error: PN.BASIC bad qualifier -->
+          <prefix qualifier="CL">A1234567890123456789012345678901234567890123456789</prefix>
+        </value>
+        <value xsi:type="PN" specializationType="PN.SIMPLE" use="L">
+          <!-- OK: PN.SIMPLE -->Mr. John W. Smith</value>
+        <value xsi:type="PN" specializationType="PN.SIMPLE" use="L P C OR ASGN">
+          <!-- OK: PN.SIMPLE long -->01234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789</value>
+        <value xsi:type="PN" specializationType="PN.FULL" use="L P C OR ASGN">
+          <!-- Ok: PN.FULL -->
+          <prefix qualifier="IN BR CL SP">A1234567890123456789012345678901234567890123456789</prefix>
+          <prefix qualifier="IN BR CL SP">B1234567890123456789012345678901234567890123456789</prefix>
+          <given qualifier="IN BR CL SP">C1234567890123456789012345678901234567890123456789</given>
+          <given qualifier="IN BR CL SP">D1234567890123456789012345678901234567890123456789</given>
+          <family qualifier="IN BR CL SP">E1234567890123456789012345678901234567890123456789</family>
+          <suffix qualifier="IN BR CL SP">F1234567890123456789012345678901234567890123456789</suffix>
+          <family qualifier="IN BR CL SP">G1234567890123456789012345678901234567890123456789</family>
+        </value>
+        <value xsi:type="PN" specializationType="PN.FULL" use="L P C OR ASGN">
+          <!-- Error: PN.FULL too long part -->
+          <prefix qualifier="IN">A12345678901234567890123456789012345678901234567890</prefix>
+          <prefix qualifier="IN">B1234567890123456789012345678901234567890123456789</prefix>
+          <given qualifier="IN">C1234567890123456789012345678901234567890123456789</given>
+          <given qualifier="IN">D1234567890123456789012345678901234567890123456789</given>
+          <family qualifier="IN">E1234567890123456789012345678901234567890123456789</family>
+          <suffix qualifier="IN">F1234567890123456789012345678901234567890123456789</suffix>
+          <family qualifier="IN">G1234567890123456789012345678901234567890123456789</family>
+        </value>
+        <value xsi:type="PN" specializationType="PN.FULL" use="L P C OR ASGN">
+          <!-- Error: PN.FULL too many parts -->
+          <prefix qualifier="IN">A1234567890123456789012345678901234567890123456789</prefix>
+          <prefix qualifier="IN">B1234567890123456789012345678901234567890123456789</prefix>
+          <given qualifier="IN">C1234567890123456789012345678901234567890123456789</given>
+          <given qualifier="IN">D1234567890123456789012345678901234567890123456789</given>
+          <family qualifier="IN">E1234567890123456789012345678901234567890123456789</family>
+          <suffix qualifier="IN">F1234567890123456789012345678901234567890123456789</suffix>
+          <family qualifier="IN">G1234567890123456789012345678901234567890123456789</family>
+          <family qualifier="IN">G1234567890123456789012345678901234567890123456789</family>
+        </value>
+        <value xsi:type="PN" specializationType="PN.FULL" use="L P C OR ASGN">
+          <!-- Ok: PN.FULL mixed text -->A1234567890123456789012345678901234567890123456789<prefix qualifier="IN">B1234567890123456789012345678901234567890123456789</prefix>C1234567890123456789012345678901234567890123456789</value>
+        <value xsi:type="PN" specializationType="PN.FULL" use="L P C OR ASGN">
+          <!-- Ok: PN.FULL no parts -->A1234567890123456789012345678901234567890123456789</value>
+        <value xsi:type="PN" specializationType="PN.FULL">
+          <!-- Error: PN.FULL no use -->
+          <prefix qualifier="IN">A1234567890123456789012345678901234567890123456789</prefix>
+          <prefix qualifier="IN">B1234567890123456789012345678901234567890123456789</prefix>
+          <given qualifier="IN">C1234567890123456789012345678901234567890123456789</given>
+          <given qualifier="IN">D1234567890123456789012345678901234567890123456789</given>
+          <family qualifier="IN">E1234567890123456789012345678901234567890123456789</family>
+          <suffix qualifier="IN">F1234567890123456789012345678901234567890123456789</suffix>
+          <family qualifier="IN">G1234567890123456789012345678901234567890123456789</family>
+        </value>
+        <value xsi:type="PN" specializationType="PN.SEARCH" use="L P C OR ASGN">
+          <!-- Ok: PN.SEARCH -->
+          <prefix qualifier="IN BR CL SP">A1234567890123456789012345678901234567890123456789</prefix>
+          <prefix qualifier="IN BR CL SP">B1234567890123456789012345678901234567890123456789</prefix>
+          <given qualifier="IN BR CL SP">C1234567890123456789012345678901234567890123456789</given>
+          <given qualifier="IN BR CL SP">D1234567890123456789012345678901234567890123456789</given>
+          <family qualifier="IN BR CL SP">E1234567890123456789012345678901234567890123456789</family>
+          <suffix qualifier="IN BR CL SP">F1234567890123456789012345678901234567890123456789</suffix>
+          <family qualifier="IN BR CL SP">G1234567890123456789012345678901234567890123456789</family>
+        </value>
+        <value xsi:type="PN" specializationType="PN.SEARCH" use="L P C OR ASGN">
+          <!-- Error: PN.SEARCH too long part -->
+          <prefix qualifier="IN">A12345678901234567890123456789012345678901234567890</prefix>
+          <prefix qualifier="IN">B1234567890123456789012345678901234567890123456789</prefix>
+          <given qualifier="IN">C1234567890123456789012345678901234567890123456789</given>
+          <given qualifier="IN">D1234567890123456789012345678901234567890123456789</given>
+          <family qualifier="IN">E1234567890123456789012345678901234567890123456789</family>
+          <suffix qualifier="IN">F1234567890123456789012345678901234567890123456789</suffix>
+          <family qualifier="IN">G1234567890123456789012345678901234567890123456789</family>
+        </value>
+        <value xsi:type="PN" specializationType="PN.SEARCH" use="L P C OR ASGN">
+          <!-- Error: PN.SEARCH too many parts -->
+          <prefix qualifier="IN">A1234567890123456789012345678901234567890123456789</prefix>
+          <prefix qualifier="IN">B1234567890123456789012345678901234567890123456789</prefix>
+          <given qualifier="IN">C1234567890123456789012345678901234567890123456789</given>
+          <given qualifier="IN">D1234567890123456789012345678901234567890123456789</given>
+          <family qualifier="IN">E1234567890123456789012345678901234567890123456789</family>
+          <suffix qualifier="IN">F1234567890123456789012345678901234567890123456789</suffix>
+          <family qualifier="IN">G1234567890123456789012345678901234567890123456789</family>
+          <family qualifier="IN">G1234567890123456789012345678901234567890123456789</family>
+        </value>
+        <value xsi:type="PN" specializationType="PN.SEARCH" use="L P C OR ASGN">
+          <!-- Ok: PN.SEARCH mixed text -->A1234567890123456789012345678901234567890123456789<prefix qualifier="IN">B1234567890123456789012345678901234567890123456789</prefix>C1234567890123456789012345678901234567890123456789</value>
+        <value xsi:type="PN" specializationType="PN.SEARCH" use="L P C OR ASGN">
+          <!-- Error: PN.SEARCH no parts -->A1234567890123456789012345678901234567890123456789</value>
+        <value xsi:type="PN" specializationType="PN.SEARCH">
+          <!-- Ok: PN.SEARCH no use -->
+          <prefix qualifier="IN">A1234567890123456789012345678901234567890123456789</prefix>
+          <prefix qualifier="IN">B1234567890123456789012345678901234567890123456789</prefix>
+          <given qualifier="IN">C1234567890123456789012345678901234567890123456789</given>
+          <given qualifier="IN">D1234567890123456789012345678901234567890123456789</given>
+          <family qualifier="IN">E1234567890123456789012345678901234567890123456789</family>
+          <suffix qualifier="IN">F1234567890123456789012345678901234567890123456789</suffix>
+          <family qualifier="IN">G1234567890123456789012345678901234567890123456789</family>
+        </value>
+        <value xsi:type="AD" specializationType="AD.BASIC" use="H PST">
+          <!-- Ok: AD.BASIC simple -->
+Apt A5 123 Some Street N.W.<delimiter/>
+          <city>Edmonton</city>
+          <state code="CA-AB" codeSystem="2.16.840.1.113883.2.20.5.2">Alberta</state>
+          <postalCode>A1B2C3</postalCode>
+          <delimiter/>
+          <country code="CA" codeSystem="2.16.840.1.114884.5.28">Canada</country>
+        </value>
+        <value xsi:type="AD" specializationType="AD.BASIC" use="H PST WP">
+          <!-- Ok: AD.BASIC no parts, max use -->
+Apt A5 123 Some Street N.W.<delimiter/>
+Edmonton, AB  A1B2C3<delimiter/>
+Canada</value>
+        <value xsi:type="AD" specializationType="AD.BASIC" use="H PST WP TMP">
+          <!-- Error: AD.BASIC too many use -->
+Apt A5 123 Some Street N.W.<delimiter/>
+Edmonton, AB  A1B2C3<delimiter/>
+Canada</value>
+        <value xsi:type="AD" specializationType="AD.BASIC" use="H PST WP">
+          <!-- Error: AD.BASIC w/ usablePeriod -->
+Apt A5 123 Some Street N.W.<delimiter/>
+Edmonton, AB  A1B2C3<delimiter/>
+Canada<useablePeriod xsi:type="SXPR_TS" specializationType="GTS.BOUNDEDPIVL">
+            <comp xsi:type="IVL_TS" specializationType="IVL_TS.FULLDATE">
+              <low xsi:type="IVXB_TS" specializationType="TS.FULLDATE" value="20050803"/>
+              <width xsi:type="PQ" specializationType="PQ.TIME" value="3" unit="wk"/>
+            </comp>
+            <comp xsi:type="PIVL_TS" operator="I">
+              <frequency>
+                <numerator xsi:type="INT" specializationType="INT.NONNEG" value="3"/>
+                <denominator xsi:type="PQ" specializationType="PQ.TIME" value="1" unit="d"/>
+              </frequency>
+            </comp>
+          </useablePeriod>
+        </value>
+        <value xsi:type="AD" specializationType="AD.BASIC" use="H PST WP" isNotOrdered="true">
+          <!-- Error: AD.BASIC isNotOrdered set -->
+Apt A5 123 Some Street N.W.<delimiter/>
+Edmonton, AB  A1B2C3<delimiter/>
+Canada</value>
+        <value xsi:type="AD" specializationType="AD.BASIC" use="H PST">
+          <!-- Ok: AD.BASIC max lines -->
+Attention John Smith<delimiter/>
+Care of Jane Smith<delimiter/>
+Third Floor<delimiter/>
+123 Some Street N.W.<delimiter/>
+          <city>Edmonton</city>
+          <state code="CA-AB" codeSystem="2.16.840.1.113883.2.20.5.2">Alberta</state>
+          <postalCode>A1B2C3</postalCode>
+          <delimiter/>
+          <country code="CA" codeSystem="2.16.840.1.114884.5.28">Canada</country>
+        </value>
+        <value xsi:type="AD" specializationType="AD.BASIC" use="H PST">
+          <!-- Error: AD.BASIC over max lines -->
+Attention John Smith<delimiter/>
+Care of Jane Smith<delimiter/>
+Third Floor<delimiter/>
+Across from blue door<delimiter/>
+123 Some Street N.W.<delimiter/>
+          <city>Edmonton</city>
+          <state code="CA-AB" codeSystem="2.16.840.1.113883.2.20.5.2">Alberta</state>
+          <postalCode>A1B2C3</postalCode>
+          <delimiter/>
+          <country code="CA" codeSystem="2.16.840.1.114884.5.28">Canada</country>
+        </value>
+        <value xsi:type="AD" specializationType="AD.BASIC" use="H PST">
+          <!-- Error: AD.BASIC Non-allowed part -->
+          <streetAddressLine>Apt A5 123 Some Street N.W.</streetAddressLine>
+          <city>Edmonton</city>
+          <state code="CA-AB" codeSystem="2.16.840.1.113883.2.20.5.2">Alberta</state>
+          <postalCode>A1B2C3</postalCode>
+          <delimiter/>
+          <country code="CA" codeSystem="2.16.840.1.114884.5.28">Canada</country>
+        </value>
+        <value xsi:type="AD" specializationType="AD.BASIC" use="H PST">
+          <!-- Ok: AD.BASIC max length -->
+01234567890123456789012345678901234567890123456789012345678901234567890123456789<delimiter/>
+01234567890123456789012345678901234567890123456789012345678901234567890123456789<delimiter/>
+01234567890123456789012345678901234567890123456789012345678901234567890123456789<delimiter/>
+01234567890123456789012345678901234567890123456789012345678901234567890123456789<delimiter/>
+          <city>01234567890123456789012345678901234567890123456789012345678901234567890123456789</city>
+          <state code="CA-AB" codeSystem="2.16.840.1.113883.2.20.5.2">01234567890123456789012345678901234567890123456789012345678901234567890123456789</state>
+          <postalCode>01234567890123456789012345678901234567890123456789012345678901234567890123456789</postalCode>
+          <delimiter/>
+          <country code="CA" codeSystem="2.16.840.1.114884.5.28">01234567890123456789012345678901234567890123456789012345678901234567890123456789</country>
+        </value>
+        <value xsi:type="AD" specializationType="AD.BASIC" use="H PST">
+          <!-- Error: AD.BASIC overmax length -->
+101234567890123456789012345678901234567890123456789012345678901234567890123456789<delimiter/>
+01234567890123456789012345678901234567890123456789012345678901234567890123456789<delimiter/>
+01234567890123456789012345678901234567890123456789012345678901234567890123456789<delimiter/>
+01234567890123456789012345678901234567890123456789012345678901234567890123456789<delimiter/>
+          <city>101234567890123456789012345678901234567890123456789012345678901234567890123456789</city>
+          <state code="CA-AB" codeSystem="2.16.840.1.113883.2.20.5.2">01234567890123456789012345678901234567890123456789012345678901234567890123456789</state>
+          <postalCode>01234567890123456789012345678901234567890123456789012345678901234567890123456789</postalCode>
+          <delimiter/>
+          <country code="CA" codeSystem="2.16.840.1.114884.5.28">01234567890123456789012345678901234567890123456789012345678901234567890123456789</country>
+        </value>
+        <value xsi:type="AD" specializationType="AD.BASIC" use="H PST">
+          <!-- Error: AD.BASIC Missing code system -->
+Apt A5 123 Some Street N.W.<delimiter/>
+          <city>Edmonton</city>
+          <state code="CA-AB">Alberta</state>
+          <postalCode>A1B2C3</postalCode>
+          <delimiter/>
+          <country code="CA" codeSystem="2.16.840.1.114884.5.28">Canada</country>
+        </value>
+        <value xsi:type="AD" specializationType="AD.BASIC" use="H PST">
+          <!-- Error: AD.BASIC Bad code-->
+Apt A5 123 Some Street N.W.<delimiter/>
+          <city>Edmonton</city>
+          <state code="FOO" codeSystem="2.16.840.1.113883.2.20.5.2">Alberta</state>
+          <postalCode>A1B2C3</postalCode>
+          <delimiter/>
+          <country code="CA" codeSystem="2.16.840.1.114884.5.28">Canada</country>
+        </value>
+        <value xsi:type="AD" specializationType="AD.FULL" use="H PST">
+          <!-- Ok: AD.FULL simple -->
+          <unitType>APT</unitType>
+          <unitID>A5</unitID>
+          <houseNumberNumeric>123</houseNumberNumeric>
+          <buildingNumberSuffix>A</buildingNumberSuffix>
+          <streetNameBase>Some</streetNameBase>
+          <streetNameType>Street</streetNameType>
+          <direction>N.W.</direction>
+          <delimiter/>
+          <city>Edmonton</city>
+          <state code="AB" codeSystem="2.16.840.1.113883.2.20.5.2">Alberta</state>
+          <postalCode>A1B2C3</postalCode>
+          <delimiter/>
+          <country code="CA" codeSystem="2.16.840.1.114884.5.28">Canada</country>
+        </value>
+        <value xsi:type="AD" specializationType="AD.FULL" use="H PST">
+          <!-- Ok: AD.FULL mixed -->
+RR 3 Box 12000<delimiter/>
+          <city>Edmonton</city>
+          <state code="AB" codeSystem="2.16.840.1.113883.2.20.5.2">Alberta</state>
+          <postalCode>A1B2C3</postalCode>
+          <delimiter/>
+          <country code="CA" codeSystem="2.16.840.1.114884.5.28">Canada</country>
+        </value>
+        <value xsi:type="AD" specializationType="AD.FULL" use="H PST">
+          <!-- Error: AD.FULL bad usablePeriod -->
+          <unitType>APT</unitType>
+          <unitID>A5</unitID>
+          <houseNumberNumeric>123</houseNumberNumeric>
+          <buildingNumberSuffix>A</buildingNumberSuffix>
+          <streetNameBase>Some</streetNameBase>
+          <streetNameType>Street</streetNameType>
+          <direction>N.W.</direction>
+          <delimiter/>
+          <city>Edmonton</city>
+          <state code="AB" codeSystem="2.16.840.1.113883.2.20.5.2">Alberta</state>
+          <postalCode>A1B2C3</postalCode>
+          <delimiter/>
+          <country code="CA" codeSystem="2.16.840.1.114884.5.28">Canada</country>
+          <useablePeriod xsi:type="SXPR_TS" specializationType="GTS.BOUNDEDPIVL">
+            <comp xsi:type="IVL_TS" specializationType="IVL_TS.FULLDATE">
+              <low xsi:type="IVXB_TS" specializationType="TS.FULLDATE" value="20050803"/>
+              <width xsi:type="PQ" specializationType="PQ.TIME" value="3" unit="wk"/>
+            </comp>
+            <comp xsi:type="PIVL_TS" operator="I">
+              <frequency>
+                <numerator xsi:type="INT" specializationType="INT.NONNEG" value="3"/>
+                <denominator xsi:type="PQ" specializationType="PQ.TIME" value="1" unit="d"/>
+              </frequency>
+            </comp>
+          </useablePeriod>
+        </value>
+        <value xsi:type="AD" specializationType="AD.FULL" use="H PST">
+          <!-- Ok: AD.FULL good usablePeriod -->
+          <unitType>APT</unitType>
+          <unitID>A5</unitID>
+          <houseNumberNumeric>123</houseNumberNumeric>
+          <buildingNumberSuffix>A</buildingNumberSuffix>
+          <streetNameBase>Some</streetNameBase>
+          <streetNameType>Street</streetNameType>
+          <direction>N.W.</direction>
+          <delimiter/>
+          <city>Edmonton</city>
+          <state code="AB" codeSystem="2.16.840.1.113883.2.20.5.2">Alberta</state>
+          <postalCode>A1B2C3</postalCode>
+          <delimiter/>
+          <country code="CA" codeSystem="2.16.840.1.114884.5.28">Canada</country>
+          <useablePeriod xsi:type="IVL_TS" specializationType="IVL_TS.FULLDATE">
+            <low xsi:type="IVXB_TS" specializationType="TS.FULLDATE" value="20050803"/>
+            <width xsi:type="PQ" specializationType="PQ.TIME" value="3" unit="wk"/>
+          </useablePeriod>
+        </value>
+        <value xsi:type="AD" specializationType="AD.SEARCH">
+          <!-- Ok: AD.SEARCH -->
+          <city>Edmonton</city>
+          <state code="AB" codeSystem="2.16.840.1.113883.2.20.5.2">Alberta</state>
+          <country code="CA" codeSystem="2.16.840.1.114884.5.28">Canada</country>
+          <postalCode>A1A1A1</postalCode>
+        </value>
+        <value xsi:type="AD" specializationType="AD.SEARCH" use="H">
+          <!-- Error: AD.SEARCH - Use not allowed -->
+          <city>Edmonton</city>
+          <state code="AB" codeSystem="2.16.840.1.113883.2.20.5.2">Alberta</state>
+          <country code="CA" codeSystem="2.16.840.1.114884.5.28">Canada</country>
+          <postalCode>A1A1A1</postalCode>
+        </value>
+        <value xsi:type="AD" specializationType="AD.SEARCH">
+          <!-- Error: AD.SEARCH - non-allowed part -->
+          <city>Edmonton</city>
+          <state code="AB" codeSystem="2.16.840.1.113883.2.20.5.2">Alberta</state>
+          <country code="CA" codeSystem="2.16.840.1.114884.5.28">Canada</country>
+          <postalCode>A1A1A1</postalCode>
+        </value>
+        <value xsi:type="AD" specializationType="AD.SEARCH">
+          <!-- Error: AD.SEARCH - Mixed text prohibited-->
+123 Some Street
+          <city>Edmonton</city>
+          <state code="AB" codeSystem="2.16.840.1.113883.2.20.5.2">Alberta</state>
+          <country code="CA" codeSystem="2.16.840.1.114884.5.28">Canada</country>
+          <postalCode>A1A1A1</postalCode>
+        </value>
+        <value xsi:type="AD" specializationType="AD.SEARCH">
+          <!-- Error: AD.SEARCH - No content-->
+        </value>
+        <value xsi:type="TEL" specializationType="TEL.PHONE" use="EC MC H" value="tel:+17801234567">
+          <!-- Ok: TEL.PHONE -->
+        </value>
+        <value xsi:type="TEL" specializationType="TEL.PHONE" value="tel:+17801234567">
+          <!-- Ok: TEL.PHONE No use -->
+        </value>
+        <value xsi:type="TEL" specializationType="TEL.PHONE" nullFlavor="UNK" use="WP" value="tel:">
+          <!-- Ok: TEL.PHONE Unknown work phone phone -->
+        </value>
+        <value xsi:type="TEL" specializationType="TEL.PHONE" nullFlavor="UNK">
+          <!-- Ok: TEL.PHONE Unknown telecom -->
+        </value>
+        <value xsi:type="TEL" specializationType="TEL.PHONE" use="EC MC H" value="tel://+17801234567">
+          <!-- Error: TEL.PHONE Bad URL -->
+        </value>
+        <value xsi:type="TEL" specializationType="TEL.PHONE" use="EC MC H WP" value="tel:+17801234567">
+          <!-- Error: TEL.PHONE Too many uses -->
+        </value>
+        <value xsi:type="TEL" specializationType="TEL.PHONE" use="EC MC H" value="fax:+17801234567">
+          <!-- Ok: TEL.PHONE fax -->
+        </value>
+        <value xsi:type="TEL" specializationType="TEL.PHONE" use="EC MC H" value="tel:+178012345671111111111;ext=200000000">
+          <!-- Ok: TEL.PHONE max length -->
+        </value>
+        <value xsi:type="TEL" specializationType="TEL.PHONE" use="EC MC H" value="tel:+178012345671111111111;ext=2000000001">
+          <!-- Error: TEL.PHONE over max length -->
+        </value>
+        <value xsi:type="TEL" specializationType="TEL.PHONE" use="PUB" value="tel:+17801234567">
+          <!-- Error: TEL.PHONE bad use -->
+        </value>
+        <value xsi:type="TEL" specializationType="TEL.PHONE" value="tel:abcde">
+          <!-- Error: TEL.PHONE bad phone format -->
+        </value>
+        <value xsi:type="TEL" specializationType="TEL.PHONE" use="PUB" value="mailto:someone@somewhere.com">
+          <!-- Error: TEL.PHONE bad telecommunication type -->
+        </value>
+        <value xsi:type="TEL" specializationType="TEL.PHONE" use="EC MC H" value="tel:+17801234567">
+          <!-- Error: TEL.PHONE usable period not allowed -->
+          <useablePeriod xsi:type="IVL_TS" specializationType="IVL_TS.FULLDATE">
+            <low xsi:type="IVXB_TS" specializationType="TS.FULLDATE" value="20050803"/>
+            <width xsi:type="PQ" specializationType="PQ.TIME" value="3" unit="wk"/>
+          </useablePeriod>
+        </value>
+        <value xsi:type="TEL" specializationType="TEL.EMAIL" use="WP TMP H" value="mailto:someone@somewhere.com">
+          <!-- Ok: TEL.EMAIL -->
+        </value>
+        <value xsi:type="TEL" specializationType="TEL.EMAIL" value="mailto:someone@somewhere.com">
+          <!-- Ok: TEL.EMAIL no use -->
+        </value>
+        <value xsi:type="TEL" specializationType="TEL.EMAIL" use="WP TMP H MC" value="mailto:someone@somewhere.com">
+          <!-- Error: TEL.EMAIL too many uses -->
+        </value>
+        <value xsi:type="TEL" specializationType="TEL.EMAIL" use="WP TMP H" value="mailto:someone@22somewhere01234567890123456789.com">
+          <!-- Ok: TEL.EMAIL max length -->
+        </value>
+        <value xsi:type="TEL" specializationType="TEL.EMAIL" use="WP TMP H" value="mailto:someone@122somewhere01234567890123456789.com">
+          <!-- Error: TEL.EMAIL over max length -->
+        </value>
+        <value xsi:type="TEL" specializationType="TEL.EMAIL" use="WP TMP H" value="tel:+17801234567">
+          <!-- Error: TEL.EMAIL wrong equipment type -->
+        </value>
+        <value xsi:type="TEL" specializationType="TEL.EMAIL" value="mailto:someone.somewhere.com">
+          <!-- Error: TEL.EMAIL bad format -->
+        </value>
+        <value xsi:type="TEL" specializationType="TEL.URI" value="https://www.someserver.ca/somelocation">
+          <!-- Ok: TEL.URI -->
+        </value>
+        <value xsi:type="TEL" specializationType="TEL.URI" value="ftp://www.someserver.ca/somelocation">
+          <!-- Ok: TEL.URI -->
+        </value>
+        <value xsi:type="TEL" specializationType="TEL.URI" use="H" value="https://www.someserver.ca/somelocation">
+          <!-- Error: TEL.URI No use -->
+        </value>
+        <value xsi:type="TEL" specializationType="TEL.URI" value="https:somelocation">
+          <!-- Error: TEL.URI bad format -->
+        </value>
+        <value xsi:type="TEL" specializationType="TEL.URI" value="https://www.someserver.ca/somelocationaa01234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678955555">
+          <!-- Ok: TEL.URI max length -->
+        </value>
+        <value xsi:type="TEL" specializationType="TEL.URI" value="https://www.someserver.ca/somelocationaa012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789555551">
+          <!-- Error: TEL.URI over max length -->
+        </value>
+        <value xsi:type="TEL" specializationType="TEL.URI" value="foo://www.someserver.ca/somelocation">
+          <!-- Error: TEL.URI Bad scheme -->
+        </value>
+        <value xsi:type="BL" value="true">
+          <!-- Ok: BL -->
+        </value>
+        <value xsi:type="BL" nullFlavor="UNK">
+          <!-- Ok: BL null -->
+        </value>
+        <value xsi:type="INT" specializationType="INT.TESTING" value="42">
+          <!-- Ok: INT.TESTING (demonstrate how a new flavor would be added - document steps taken) -->
+        </value>
+        <value xsi:type="INT" specializationType="INT.TESTING" value="41">
+          <!-- Error: INT.TESTING - violates constraint (demonstrate how a new flavor would be added - document steps taken) -->
+        </value>
+        <value xsi:type="INT" specializationType="INT.NOTTESTING" value="42">
+          <!-- Error: Unrecognized flavor -->
+        </value>
+      </observationIntent>
+    </subjectOf>
+    <subjectOf xsi:nil="true" nullFlavor="UNK">
+      <!-- Check handling of null associations where min cardinality is 0 - should not expose null flavor -->
+    </subjectOf>
+  </controlActEvent>
+</PORX_IN000001CA>

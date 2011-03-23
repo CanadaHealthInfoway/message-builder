@@ -1,0 +1,280 @@
+<mif:serializedStaticModel xmlns:mif="urn:hl7-org:v3/mif"
+                           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                           xsi:schemaLocation=""
+                           packageKind="realm"
+                           representationKind="serialized"
+                           isSerializable="true"
+                           isAbstract="false"
+                           name="CA">
+   <mif:packageLocation root="DEFN" section="AM" subSection="PR" domain="PA" artifact="MT-deprecated"
+                        realm="CA"
+                        id="101101"/>
+   <mif:header>
+      <mif:renderingInformation schemaVersion="1" application="Visio to MIF transform"/>
+      <mif:legalese copyrightOwner="Health Level Seven" copyrightYears="2007"/>
+   </mif:header>
+   <mif:graphicRepresentation presentation="HL7">
+      <mif:graphElement name="Main">
+         <mif:position x="0.0" y="0.0"/>
+         <mif:size width="11.000" height="8.500"/>
+      </mif:graphElement>
+   </mif:graphicRepresentation>
+   <mif:derivationSupplier staticModelDerivationId="1">
+      <mif:targetStaticModel root="DEFN" artifact="RIM" version="00"/>
+   </mif:derivationSupplier>
+   <mif:ownedEntryPoint id="PRPA_MT101101CA" name="Query by Client ID" isAbstract="false">
+      <mif:annotations>
+         <mif:description>
+            <mif:text>
+               <mif:p>Entry point for Query by Client ID message.</mif:p>
+            </mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:graphicRepresentation>
+         <mif:graphElement shapeId="Sheet.5" containerDiagramName="Main">
+            <mif:position x="2.423" y="2.500"/>
+            <mif:size width="2.254" height="0.500"/>
+            <mif:anchorage connectToShapeId="Sheet.5">
+               <mif:position x="3.500" y="3.000"/>
+               <mif:graphEdge>
+                  <mif:anchor connectToShapeId="Sheet.1">
+                     <mif:position x="3.600" y="3.850"/>
+                  </mif:anchor>
+               </mif:graphEdge>
+            </mif:anchorage>
+         </mif:graphElement>
+      </mif:graphicRepresentation>
+      <mif:specializedClass>
+         <mif:class name="ParameterList" isAbstract="false">
+            <mif:derivationSupplier staticModelDerivationId="1" className="ParameterList"/>
+            <mif:graphicRepresentation presentation="HL7">
+               <mif:graphElement shapeId="Sheet.1" containerDiagramName="Main" shapeTemplate="OtherClass"
+                                 isWidthAutoSize="true"
+                                 isHeightAutoSize="false">
+                  <mif:position x="2.975" y="3.850"/>
+                  <mif:size width="1.250" height="2.100"/>
+               </mif:graphElement>
+            </mif:graphicRepresentation>
+            <mif:annotations>
+               <mif:definition>
+                  <mif:text/>
+               </mif:definition>
+               <mif:constraint>
+                  <mif:text>
+                     <mif:p>
+                        <mif:p>either a Public or Business Identifier must be supplied to support this Query</mif:p>
+                     </mif:p>
+                  </mif:text>
+                  <mif:graphicRepresentation>
+                     <mif:graphElement shapeId="Sheet.233" containerDiagramName="Main" isWidthAutoSize="true"
+                                       isHeightAutoSize="true">
+                        <mif:position x="0.261" y="6.456"/>
+                        <mif:size width="2.539" height="0.644"/>
+                        <mif:anchorage connectToShapeId="Sheet.233">
+                           <mif:position x="1.530" y="6.778"/>
+                           <mif:graphEdge>
+                              <mif:anchor connectToShapeId="Sheet.1">
+                                 <mif:position x="2.975" y="4.900"/>
+                              </mif:anchor>
+                           </mif:graphEdge>
+                        </mif:anchorage>
+                     </mif:graphElement>
+                  </mif:graphicRepresentation>
+               </mif:constraint>
+            </mif:annotations>
+            <mif:association sortKey="2">
+               <mif:graphicRepresentation>
+                  <mif:graphElement connectToShapeId="Sheet.1" containerDiagramName="Main" shapeId="Sheet.223">
+                     <mif:position x="4.225" y="4.375"/>
+                     <mif:graphEdge>
+                        <mif:waypoint x="4.712" y="4.375"/>
+                        <mif:waypoint x="4.712" y="4.325"/>
+                        <mif:anchor connectToShapeId="Sheet.219">
+                           <mif:position x="5.200" y="4.325"/>
+                        </mif:anchor>
+                     </mif:graphEdge>
+                  </mif:graphElement>
+               </mif:graphicRepresentation>
+               <mif:targetConnection name="clientIDBus" minimumMultiplicity="0" maximumMultiplicity="1"
+                                     conformance="R"
+                                     isMandatory="false"
+                                     sortKey="Z ZZ">
+                  <mif:annotations>
+                     <mif:definition>
+                        <mif:text/>
+                     </mif:definition>
+                  </mif:annotations>
+                  <mif:derivationSupplier staticModelDerivationId="1" className="ParameterList"
+                                          associationEndName="parameter"/>
+                  <mif:participantClass>
+                     <mif:class name="ClientIDBus" isAbstract="false">
+                        <mif:businessName name="Business Client Identifier"/>
+                        <mif:derivationSupplier staticModelDerivationId="1" className="ParameterItem"/>
+                        <mif:graphicRepresentation presentation="HL7">
+                           <mif:graphElement shapeId="Sheet.219" containerDiagramName="Main" shapeTemplate="OtherClass"
+                                             isWidthAutoSize="true"
+                                             isHeightAutoSize="true">
+                              <mif:position x="5.200" y="3.950"/>
+                              <mif:size width="3.109" height="0.750"/>
+                           </mif:graphElement>
+                        </mif:graphicRepresentation>
+                        <mif:annotations>
+                           <mif:definition>
+                              <mif:text>
+                                 <mif:p>
+                                    <mif:p>Parameter to query on unknown business/system assigned client identifier e.g. ECID</mif:p>
+                                 </mif:p>
+                              </mif:text>
+                           </mif:definition>
+                           <mif:rationale>
+                              <mif:text>
+                                 <mif:p>
+                                    <mif:p>Mandatory attribute supports business requirement to query on an uknown business/system assigned client identifier</mif:p>
+                                 </mif:p>
+                              </mif:text>
+                           </mif:rationale>
+                        </mif:annotations>
+                        <mif:attribute name="value" sortKey="1" minimumMultiplicity="1" maximumMultiplicity="1"
+                                       conformance="R"
+                                       isMandatory="true"
+                                       isStructural="false">
+                           <mif:businessName name="Client Healthcare Identification Number"/>
+                           <mif:annotations>
+                              <mif:definition>
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>This identification attribute supports capture of a healthcare identifier specific to the client. This identifier may be assigned jurisdictionally or by care facility.</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:definition>
+                              <mif:usageNotes>
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>At least 1 client identifier must be present in the message</mif:p>
+                                    </mif:p>
+                                    <mif:p>
+                                       <mif:p>Text constraint exists on the model to support non mandatory requirements either a Public or Business Identifier must be supplied to support this Query.</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:usageNotes>
+                              <mif:rationale>
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>Mandatory attribute supports unique identification of the client and is a public identifier. E.G. Internal Business ID</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:rationale>
+                           </mif:annotations>
+                           <mif:derivationSupplier staticModelDerivationId="1" className="ParameterItem" attributeName="value"/>
+                           <mif:type name="II.BUS"/>
+                        </mif:attribute>
+                     </mif:class>
+                  </mif:participantClass>
+               </mif:targetConnection>
+               <mif:sourceConnection>
+                  <mif:nonTraversableConnection participantClassName="ParameterList">
+                     <mif:derivationSupplier staticModelDerivationId="1" className="Parameter"
+                                             associationEndName="parameterList"/>
+                  </mif:nonTraversableConnection>
+               </mif:sourceConnection>
+            </mif:association>
+            <mif:association sortKey="1">
+               <mif:graphicRepresentation>
+                  <mif:graphElement connectToShapeId="Sheet.1" containerDiagramName="Main" shapeId="Sheet.209">
+                     <mif:position x="4.225" y="5.425"/>
+                     <mif:graphEdge>
+                        <mif:waypoint x="4.712" y="5.425"/>
+                        <mif:waypoint x="4.712" y="5.475"/>
+                        <mif:anchor connectToShapeId="Sheet.205">
+                           <mif:position x="5.200" y="5.475"/>
+                        </mif:anchor>
+                     </mif:graphEdge>
+                  </mif:graphElement>
+               </mif:graphicRepresentation>
+               <mif:targetConnection name="clientIDPub" minimumMultiplicity="0" maximumMultiplicity="1"
+                                     conformance="R"
+                                     isMandatory="false"
+                                     sortKey="Z ZZ">
+                  <mif:annotations>
+                     <mif:definition>
+                        <mif:text/>
+                     </mif:definition>
+                  </mif:annotations>
+                  <mif:derivationSupplier staticModelDerivationId="1" className="ParameterList"
+                                          associationEndName="parameter"/>
+                  <mif:participantClass>
+                     <mif:class name="ClientIDPub" isAbstract="false">
+                        <mif:businessName name="Public Client Identifier"/>
+                        <mif:derivationSupplier staticModelDerivationId="1" className="ParameterItem"/>
+                        <mif:graphicRepresentation presentation="HL7">
+                           <mif:graphElement shapeId="Sheet.205" containerDiagramName="Main" shapeTemplate="OtherClass"
+                                             isWidthAutoSize="false"
+                                             isHeightAutoSize="true">
+                              <mif:position x="5.200" y="5.100"/>
+                              <mif:size width="3.000" height="0.750"/>
+                           </mif:graphElement>
+                        </mif:graphicRepresentation>
+                        <mif:annotations>
+                           <mif:definition>
+                              <mif:text>
+                                 <mif:p>
+                                    <mif:p>Parameter to query on known public client identifier</mif:p>
+                                 </mif:p>
+                              </mif:text>
+                           </mif:definition>
+                           <mif:rationale>
+                              <mif:text>
+                                 <mif:p>
+                                    <mif:p>Mandatory attribute supports business requirement to query on a known public client identifier</mif:p>
+                                 </mif:p>
+                              </mif:text>
+                           </mif:rationale>
+                        </mif:annotations>
+                        <mif:attribute name="value" sortKey="1" minimumMultiplicity="1" maximumMultiplicity="1"
+                                       conformance="R"
+                                       isMandatory="true"
+                                       isStructural="false">
+                           <mif:businessName name="Client Healthcare Identification Number"/>
+                           <mif:annotations>
+                              <mif:definition>
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>This identification attribute supports capture of a healthcare identifier specific to the client. This identifier may be assigned jurisdictionally or by care facility.</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:definition>
+                              <mif:usageNotes>
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>At least 1 client identifier must be present in the message</mif:p>
+                                    </mif:p>
+                                    <mif:p>
+                                       <mif:p>Text constraint exists on the model to support non mandatory requirements either a Public or Business Identifier must be supplied to support this Query.</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:usageNotes>
+                              <mif:rationale>
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>Mandatory attribute supports unique identification of the client and is a public identifier. E.G. Provincial Health Care Number</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:rationale>
+                           </mif:annotations>
+                           <mif:derivationSupplier staticModelDerivationId="1" className="ParameterItem" attributeName="value"/>
+                           <mif:type name="II.PUBLIC"/>
+                        </mif:attribute>
+                     </mif:class>
+                  </mif:participantClass>
+               </mif:targetConnection>
+               <mif:sourceConnection>
+                  <mif:nonTraversableConnection participantClassName="ParameterList">
+                     <mif:derivationSupplier staticModelDerivationId="1" className="Parameter"
+                                             associationEndName="parameterList"/>
+                  </mif:nonTraversableConnection>
+               </mif:sourceConnection>
+            </mif:association>
+         </mif:class>
+      </mif:specializedClass>
+   </mif:ownedEntryPoint>
+</mif:serializedStaticModel>

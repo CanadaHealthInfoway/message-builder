@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:chi="urn:ca.infoway.messagebuilder.simplexml.v1" elementFormDefault="qualified" targetNamespace="urn:ca.infoway.messagebuilder.simplexml.v1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include schemaLocation="../../../../../../classes/simpleDataTypes.xsd"/>
+  <xs:complexType name="PORX_MT060270CA.ParameterList">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="0" name="administrationEffectivePeriod" type="chi:DateInterval"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="prescriberProviderID" type="chi:InstanceIdentifier"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

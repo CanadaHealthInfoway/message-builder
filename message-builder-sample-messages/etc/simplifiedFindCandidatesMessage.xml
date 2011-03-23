@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<findCandidatesQuery>
+	<id root="1ee83ff1-08ab-4fe7-b573-ea777e9bad51" />
+	<creationTime>2008-06-25T14:16:10Z</creationTime>
+	<responseModeCode code="I" />
+	<processingCode code="P" />
+	<processingModeCode code="T" />
+	<acceptAckCode code="ER" />
+	<receiver>
+		<telecom value="http://123.255.255.10" />
+		<deviceId extension="123" root="2.16.840.1.113883.4.262.12" />
+	</receiver>
+	<sender>
+		<telecom value="http://987.654.321.0" />
+		<deviceId extension="123" root="2.16.840.1.113883.4.262.12" />
+		<manufacturerModelName>1.0</manufacturerModelName>
+		<softwareName>Panacea Pharmacy</softwareName>
+	</sender>
+	<controlActEvent>
+		<id root="1ee83ff1-08ab-4fe7-b573-ea777e9bad11" />
+		<queryId root="1ee83ff1-08ab-4fe7-b573-ea777e9bad31" />
+		<parameterList>
+			<personName>
+				<given>J</given>
+				<family>Smith</family>
+			</personName>
+		</parameterList>
+	</controlActEvent>
+</findCandidatesQuery>

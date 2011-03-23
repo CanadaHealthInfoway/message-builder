@@ -1,0 +1,25 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+	xmlns:chi="urn:ca.infoway.messagebuilder.simplexml.v1" targetNamespace="urn:ca.infoway.messagebuilder.simplexml.v1" 
+	elementFormDefault="qualified">
+   <xs:include schemaLocation="/simpleDataTypes.xsd"/>
+   
+	<xs:element name="ParameterList" type="chi:ParameterList" />
+	
+	<xs:complexType name="ParameterList">
+		<xs:sequence>
+			<xs:choice minOccurs="0" maxOccurs="unbounded">
+				<xs:element name="id" type="chi:InstanceIdentifier" />
+				<xs:element name="idNullFlavor" type="chi:NullType" />
+			</xs:choice>
+			<xs:choice minOccurs="0" maxOccurs="unbounded">
+				<xs:element name="description" type="xs:string" />
+				<xs:element name="descriptionNullFlavor" type="chi:NullType" />
+			</xs:choice>
+			<xs:choice minOccurs="0" maxOccurs="unbounded">
+				<xs:element name="telecom" type="chi:PhonemailTelecommunicationAddress" />
+				<xs:element name="telecomNullFlavor" type="chi:NullType" />
+			</xs:choice>
+		</xs:sequence>
+	</xs:complexType>
+   
+</xs:schema>

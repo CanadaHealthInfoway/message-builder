@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:chi="urn:ca.infoway.messagebuilder.simplexml.v1" elementFormDefault="qualified" targetNamespace="urn:ca.infoway.messagebuilder.simplexml.v1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include schemaLocation="POLB_MT004200CA.xsd"/>
+  <xs:include schemaLocation="POLB_MT004100CA.xsd"/>
+  <xs:include schemaLocation="POLB_MT004000CA.xsd"/>
+  <xs:group name="POLB_MT004999CA.ResultInstancePayloadChoice">
+    <xs:choice>
+      <xs:element name="resultChoice" type="chi:POLB_MT004000CA.ResultChoice"/>
+      <xs:element name="reportHeader" type="chi:POLB_MT004100CA.ObservationReport"/>
+      <xs:element name="observationChoice" type="chi:POLB_MT004200CA.ObservationChoice"/>
+    </xs:choice>
+  </xs:group>
+</xs:schema>

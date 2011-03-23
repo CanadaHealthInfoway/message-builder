@@ -1,0 +1,194 @@
+<!--
+/*******************************************************************************
+ * Copyright (c) 2010 Health Level Seven, Inc.
+ * All rights reserved. This file and the model designs it contains 
+ * are made available under terms of a proprietary license implicitly 
+ * established by the terms expressed in the Bylaws of Health 
+ * Level Seven, Inc. (HL7), in combination with the agreements under 
+ * which individual and organizational memberships are established with HL7.
+ * Links to the HL7 Bylaws may be found at http://www.hl7.org 
+ *******************************************************************************/ 
+				--><mif:serializedStaticModel xmlns:mif="urn:hl7-org:v3/mif" packageKind="realm"
+                           representationKind="serialized"
+                           isAbstract="false"
+                           title="Patient Annotation"
+                           isSerializable="true"
+                           name="CA">
+   <mif:packageLocation root="DEFN" section="IM" subSection="CO" domain="MT" artifact="MT-deprecated"
+                        realm="CA"
+                        id="300001"/>
+   <mif:header>
+      <mif:renderingInformation schemaVersion="1" application="Visio to MIF transform"/>
+      <mif:legalese copyrightOwner="Health Level Seven" copyrightYears="2010">
+         <mif:notation>All rights reserved.</mif:notation>
+      </mif:legalese>
+   </mif:header>
+   <mif:graphicRepresentation presentation="HL7">
+      <mif:graphElement name="Main">
+         <mif:position x="0.0" y="0.0"/>
+         <mif:size width="5.925" height="2.814"/>
+      </mif:graphElement>
+   </mif:graphicRepresentation>
+   <mif:derivationSupplier staticModelDerivationId="1">
+      <mif:targetStaticModel root="DEFN" artifact="RIM" version="0226"/>
+   </mif:derivationSupplier>
+   <mif:importedDatatypeModelPackage root="DEFN" artifact="DT" realm="CA" version="R02.04.xx"/>
+   <mif:importedVocabularyModelPackage root="DEFN" artifact="VO" realm="CA" version="R02.04.xx"/>
+   <mif:importedCommonModelElementPackage root="DEFN" artifact="CMET" realm="CA" version="R02.04.xx"/>
+   <mif:ownedEntryPoint id="COMT_MT300001CA" name="Patient Annotation" isAbstract="false">
+      <mif:graphicRepresentation>
+         <mif:graphElement shapeId="Sheet.5" containerDiagramName="Main">
+            <mif:position x="0.954" y="0.028"/>
+            <mif:size width="1.318" height="0.453"/>
+            <mif:anchorage connectToShapeId="Sheet.5">
+               <mif:position x="1.606" y="0.481"/>
+               <mif:graphEdge>
+                  <mif:anchor connectToShapeId="Sheet.1">
+                     <mif:position x="1.620" y="1.314"/>
+                  </mif:anchor>
+               </mif:graphEdge>
+            </mif:anchorage>
+         </mif:graphElement>
+      </mif:graphicRepresentation>
+      <mif:specializedClass>
+         <mif:class name="Annotation" isAbstract="false">
+            <mif:businessName name="Comment"/>
+            <mif:derivationSupplier staticModelDerivationId="1" className="Act"/>
+            <mif:graphicRepresentation presentation="HL7">
+               <mif:graphElement shapeId="Sheet.1" containerDiagramName="Main" shapeTemplate="Act"
+                                 isWidthAutoSize="true"
+                                 isHeightAutoSize="true">
+                  <mif:position x="0.311" y="1.314"/>
+                  <mif:size width="2.618" height="1.448"/>
+               </mif:graphElement>
+            </mif:graphicRepresentation>
+            <mif:annotations>
+               <mif:definition>
+                  <mif:text>
+                     <mif:p>
+                        <mif:p>Identifies the comments to be recorded against a Patient's record.</mif:p>
+                     </mif:p>
+                  </mif:text>
+               </mif:definition>
+               <mif:rationale>
+                  <mif:text>
+                     <mif:p>
+                        <mif:p>Allows comments to be attached to a Patient record. A Patient record can pertain to demographic or clinical (Drug, Condition, Lab, DI, Immunization, etc) information.</mif:p>
+                     </mif:p>
+                  </mif:text>
+               </mif:rationale>
+            </mif:annotations>
+            <mif:attribute name="classCode" sortKey="1" minimumMultiplicity="1" maximumMultiplicity="1"
+                           conformance="R"
+                           isMandatory="true"
+                           fixedValue="ACT"
+                           isStructural="true">
+               <mif:derivationSupplier staticModelDerivationId="1" className="Act" attributeName="classCode"/>
+               <mif:type name="CS"/>
+               <mif:supplierDomainSpecification codingStrength="CNE" codeSystemName="ActClass" mnemonic="ACT"/>
+            </mif:attribute>
+            <mif:attribute name="moodCode" sortKey="2" minimumMultiplicity="1" maximumMultiplicity="1"
+                           conformance="R"
+                           isMandatory="true"
+                           fixedValue="EVN"
+                           isStructural="true">
+               <mif:derivationSupplier staticModelDerivationId="1" className="Act" attributeName="moodCode"/>
+               <mif:type name="CS"/>
+               <mif:supplierDomainSpecification codingStrength="CNE" codeSystemName="ActMood" mnemonic="EVN"/>
+            </mif:attribute>
+            <mif:attribute name="code" sortKey="3" minimumMultiplicity="1" maximumMultiplicity="1"
+                           conformance="R"
+                           isMandatory="true"
+                           isStructural="false">
+               <mif:businessName name="Patient Note Category"/>
+               <mif:annotations>
+                  <mif:definition>
+                     <mif:text>
+                        <mif:p>
+                           <mif:p>A coded value denoting the category of note being attached to a Patient's record. Categories of note include: General, Medication, Lab, DI, Immunization, etc</mif:p>
+                        </mif:p>
+                     </mif:text>
+                  </mif:definition>
+                  <mif:rationale>
+                     <mif:text>
+                        <mif:p>
+                           <mif:p>Allows patient notes of different purposes and use, to be attached to a patient. Attribute is mandatory to ensure that patient notes are categorized accordingly. This attribute may also be used by DISs to enforce different access control to different types of notes.</mif:p>
+                        </mif:p>
+                     </mif:text>
+                  </mif:rationale>
+               </mif:annotations>
+               <mif:derivationSupplier staticModelDerivationId="1" className="Act" attributeName="code"/>
+               <mif:type name="CV"/>
+               <mif:supplierDomainSpecification codingStrength="CNE" domainName="ActPatientAnnotationCode"/>
+            </mif:attribute>
+            <mif:attribute name="text" sortKey="4" minimumMultiplicity="1" maximumMultiplicity="1"
+                           conformance="R"
+                           isMandatory="true"
+                           maximumLength="2000"
+                           isStructural="false">
+               <mif:businessName name="C:Patient Note Text"/>
+               <mif:annotations>
+                  <mif:definition>
+                     <mif:text>
+                        <mif:p>
+                           <mif:p>Free textual description of the patient note.</mif:p>
+                        </mif:p>
+                     </mif:text>
+                  </mif:definition>
+                  <mif:rationale>
+                     <mif:text>
+                        <mif:p>
+                           <mif:p>Allows a provider to attach comments to a patient as a whole or to the patient's profile (such as medication, lab. DI, etc). This attribute is mandatory because there's no point in having a patient note unless there's actually content in the note.</mif:p>
+                        </mif:p>
+                     </mif:text>
+                  </mif:rationale>
+               </mif:annotations>
+               <mif:derivationSupplier staticModelDerivationId="1" className="Act" attributeName="text"/>
+               <mif:type name="ST"/>
+            </mif:attribute>
+            <mif:attribute name="statusCode" sortKey="5" minimumMultiplicity="1" maximumMultiplicity="1"
+                           conformance="R"
+                           isMandatory="true"
+                           fixedValue="completed"
+                           isStructural="false">
+               <mif:derivationSupplier staticModelDerivationId="1" className="Act" attributeName="statusCode"/>
+               <mif:type name="CS"/>
+               <mif:supplierDomainSpecification codingStrength="CNE" codeSystemName="ActStatus" mnemonic="completed"/>
+            </mif:attribute>
+            <mif:attribute name="confidentialityCode" sortKey="6" minimumMultiplicity="0"
+                           maximumMultiplicity="2"
+                           isMandatory="false"
+                           isStructural="false">
+               <mif:businessName name="D:Restricted Patient Access"/>
+               <mif:annotations>
+                  <mif:definition>
+                     <mif:text>
+                        <mif:p>
+                           <mif:p>Communicates the desire of the patient to restrict access to this Health Condition record. Provides support for additional confidentiality constraint, giving patients a level of control over their information. Methods for accessing masked event records will be governed by each jurisdiction (e.g. court orders, shared secret/consent, etc.). Can also be used to communicate that the information is deemed to be sensitive and should not be communicated or exposed to the patient (at least without the guidance of the authoring or other responsible healthcare provider). Valid values are: 'normal' (denotes 'Not Masked'); 'restricted' (denotes 'Masked'); ‘very restricted’ (denotes ‘Masked by Regulation’); and 'taboo' (denotes 'patient restricted'). The default is 'normal' signifying 'Not Masked'. Either or both of the other codes can be asserted to indicate masking by the patient from providers or masking by a provider from the patient, respectively. 'normal' should never be asserted with one of the other codes.</mif:p>
+                        </mif:p>
+                     </mif:text>
+                  </mif:definition>
+                  <mif:rationale>
+                     <mif:text>
+                        <mif:p>
+                           <mif:p>Taboo allows the provider to request restricted access to patient or their care giver.</mif:p>
+                        </mif:p>
+                        <mif:p>
+                           <mif:p>Constraint: Can’t have both normal and one of the other codes simultaneously.</mif:p>
+                        </mif:p>
+                        <mif:p>
+                           <mif:p>The attribute is optional because not all systems will support masking.</mif:p>
+                        </mif:p>
+                     </mif:text>
+                  </mif:rationale>
+               </mif:annotations>
+               <mif:derivationSupplier staticModelDerivationId="1" className="Act" attributeName="confidentialityCode"/>
+               <mif:type name="SET">
+                  <supplierBindingArgumentDatatype xmlns="urn:hl7-org:v3/mif" name="CV"/>
+               </mif:type>
+               <mif:supplierDomainSpecification codingStrength="CNE" valueSetName="x_BasicConfidentialityKind"/>
+            </mif:attribute>
+         </mif:class>
+      </mif:specializedClass>
+   </mif:ownedEntryPoint>
+</mif:serializedStaticModel>

@@ -1,0 +1,508 @@
+<mif:dynamicModel xmlns:mif="urn:hl7-org:v3/mif">
+   <mif:header>
+      <mif:renderingInformation schemaVersion="1" application="RoseTree 4.1.13">
+         <mif:renderingNotes>This document was rendered into XML using software provided to HL7 by Beeler Consulting LLC.
+ PubDB to MIF Transform: $RCSfile: PubDbXmlToMIF.xsl,v $ $Revision: 1.11 $ $Date: 2007/10/19 05:55:13 $
+  Fix names transform: $Id: FixMifNames.xsl 7634 2009-03-23 00:42:50Z wbeeler $
+  HTML to MIF Markup transform: $Id: HtmlToMIFMarkup.xsl 7375 2009-01-26 19:26:53Z wbeeler $
+  Base transform: $Id: ConvertBase.xsl 7375 2009-01-26 19:26:53Z wbeeler $
+  Package Id Conversion: $Id: TransformPackageIds.xsl 7375 2009-01-26 19:26:53Z wbeeler $</mif:renderingNotes>
+      </mif:renderingInformation>
+      <mif:legalese copyrightOwner="Health Level Seven, Inc." copyrightYears="2008">
+         <mif:notation>All rights reserved.</mif:notation>
+      </mif:legalese>
+   </mif:header>
+   <mif:triggerEvent name="010060" title="Immunization Query Event Immunization Query"
+                     invokingInteractionId="POIZ_IN020010CA">
+      <mif:businessName name="Patient immunization information requested"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="PO" domain="IZ" artifact="TE" realm="UV"
+                           id="010060"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>A user or system requires information about immunizations for a patient.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="010070" title="Immunization Query Event Immunization Query Response"
+                     invokingInteractionId="POIZ_IN020020CA">
+      <mif:businessName name="Request for patient immunization info. received"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="PO" domain="IZ" artifact="TE" realm="UV"
+                           id="010070"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>An application responds to a request for information about immunizations for a patient.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="010090" title="Immunization Event Revise Request"
+                     invokingInteractionId="POIZ_IN010070CA">
+      <mif:businessName name="Request to Revise Immunization"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="PO" domain="IZ" artifact="TE" realm="UV"
+                           id="010090"/>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="010050" title="Immunization Event Revise Confirmation"
+                     invokingInteractionId="POIZ_IN010080CA">
+      <mif:businessName name="Immnization Revised"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="PO" domain="IZ" artifact="TE" realm="UV"
+                           id="010050"/>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="010020" title="Immunization Event Revise Rejection"
+                     invokingInteractionId="POIZ_IN010090CA">
+      <mif:businessName name="Decision to not revise immunization"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="PO" domain="IZ" artifact="TE" realm="UV"
+                           id="010020"/>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="010080" title="Immunization Event Complete Immunization Request"
+                     invokingInteractionId="POIZ_IN010020CA">
+      <mif:businessName name="Request to record immunization"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="PO" domain="IZ" artifact="TE" realm="UV"
+                           id="010080"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>User attempts to record an immunization for a patient.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="010010" title="Immunization Event Complete Immunization Rejection"
+                     invokingInteractionId="POIZ_IN010040CA">
+      <mif:businessName name="Decision to not record immunization"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="PO" domain="IZ" artifact="TE" realm="UV"
+                           id="010010"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>A request to record an immunization has been refused (e.g. The user has no permission, there are contraindications, etc.)</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="010040" title="Immunization Event Complete Immunization"
+                     invokingInteractionId="POIZ_IN010030CA">
+      <mif:businessName name="Immunization recorded"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="PO" domain="IZ" artifact="TE" realm="UV"
+                           id="010040"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>An immunization has been recorded against a patient.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="010100" title="Immunization Event Nullify Immunization Request">
+      <mif:businessName name="Immunization reversal has been requested"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="PO" domain="IZ" artifact="TE" realm="UV"
+                           id="010100"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>A user or system requires that the recording of an immunization be reversed.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="010110" title="Immunization Event Nullify Immunization Rejection">
+      <mif:businessName name="Immunization reversal has been refused"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="PO" domain="IZ" artifact="TE" realm="UV"
+                           id="010110"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>A request to reverse the recording of an immunization has been rejected.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="010030" title="Immunization Event Nullify Immunization">
+      <mif:businessName name="Immunization has been reversed"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="PO" domain="IZ" artifact="TE" realm="UV"
+                           id="010030"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>The recording of an immunization has been reversed.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="021010" title="Immunization Event Candidate Query"
+                     invokingInteractionId="POIZ_IN021010CA">
+      <mif:businessName name="Candidate Immunization Information Requested"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="PO" domain="IZ" artifact="TE" realm="UV"
+                           id="021010"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>A user or system requires a list of immunizations for a patient or population.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="021020" title="Immunization Event Candidate Query Response"
+                     invokingInteractionId="POIZ_IN021020CA">
+      <mif:businessName name="Request for Candidate Immunization Info. Received"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="PO" domain="IZ" artifact="TE" realm="UV"
+                           id="021020"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>An application responds to a request for a list of immunizations for a patient or population.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="070010" title="Immunization Event Profile Query"
+                     invokingInteractionId="POIZ_IN070010CA">
+      <mif:businessName name="Patient Immunization Profile requested"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="PO" domain="IZ" artifact="TE" realm="UV"
+                           id="070010"/>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="070020" title="Immunization Event Profile Query Response"
+                     invokingInteractionId="POIZ_IN070020CA">
+      <mif:businessName name="Request for Patient Immunization Profile received"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="PO" domain="IZ" artifact="TE" realm="UV"
+                           id="070020"/>
+   </mif:triggerEvent>
+   <mif:hl7Interaction name="020010" title="Immunization Query Event Query Immunization">
+      <mif:businessName name="Immunizations Query"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="PO" domain="IZ" artifact="IN" realm="CA"
+                           id="020010"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>Requests retrieval of detailed information about a patient's immunizations, potentially filtered by time-range of the immunization, time-range the immunization was last updated, and/or type of immunization.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="HM" subSection="PO" domain="IZ" artifact="TE" realm="UV"
+                      id="010060"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002100">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="QU"
+                                      domain="QI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="020000"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="ParameterList" root="DEFN" section="HM" subSection="PO"
+                                         domain="IZ"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="060140"
+                                         traversalName="parameterList"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+      <mif:receiverResponsibility triggerEventName="Immunization Query Event Immunization Query Response"
+                                  interactionName="Immunization Query Event Query Response Immunization"/>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="020020" title="Immunization Query Event Query Response Immunization">
+      <mif:businessName name="Immunizations query response"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="PO" domain="IZ" artifact="IN" realm="CA"
+                           id="020020"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>Returns detailed information about a patient's immunizations.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="HM" subSection="PO" domain="IZ" artifact="TE" realm="UV"
+                      id="010070"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002300">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="QU"
+                                      domain="QI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="120006"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="Act" root="DEFN" section="HM" subSection="PO"
+                                         domain="IZ"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="060150"
+                                         traversalName="immunization"/>
+            <mif:supplierBindingArgument templateParameterName="ParameterList" root="DEFN" section="HM" subSection="PO"
+                                         domain="IZ"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="060140"
+                                         traversalName="parameterList"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="010070" title="Immunization Event Revise Request">
+      <mif:businessName name="Update Immunization Request"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="PO" domain="IZ" artifact="IN" realm="CA"
+                           id="010070"/>
+      <mif:callAction root="DEFN" section="HM" subSection="PO" domain="IZ" artifact="TE" realm="UV"
+                      id="010090"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002100">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="MC"
+                                      domain="AI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="700210"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="Act" root="DEFN" section="HM" subSection="PO"
+                                         domain="IZ"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="030060"
+                                         traversalName="immunization"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="010080" title="Immunization Event Revise Confirmation">
+      <mif:businessName name="Update Immunization Request Accepted"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="PO" domain="IZ" artifact="IN" realm="CA"
+                           id="010080"/>
+      <mif:callAction root="DEFN" section="HM" subSection="PO" domain="IZ" artifact="TE" realm="UV"
+                      id="010050"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002300">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="MC"
+                                      domain="AI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="700226"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="Act" root="DEFN" section="IM" subSection="CO"
+                                         domain="MT"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="001103"
+                                         traversalName="actEvent"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="010090" title="Immunization Event Revise Rejection">
+      <mif:businessName name="Update Immunization Request Refused"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="PO" domain="IZ" artifact="IN" realm="CA"
+                           id="010090"/>
+      <mif:callAction root="DEFN" section="HM" subSection="PO" domain="IZ" artifact="TE" realm="UV"
+                      id="010020"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002300">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="MC"
+                                      domain="AI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="700226"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="Act" root="DEFN" section="IM" subSection="CO"
+                                         domain="MT"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="001103"
+                                         traversalName="actEvent"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="010020" title="Immunization Event Complete Request Immunization">
+      <mif:businessName name="Record immunization request"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="PO" domain="IZ" artifact="IN" realm="CA"
+                           id="010020"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>Requests that a particular immunization be added to a patient's record.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="HM" subSection="PO" domain="IZ" artifact="TE" realm="UV"
+                      id="010080"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002100">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="MC"
+                                      domain="AI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="700210"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="Act" root="DEFN" section="HM" subSection="PO"
+                                         domain="IZ"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="030050"
+                                         traversalName="immunization"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+      <mif:receiverResponsibility triggerEventName="Immunization Event Complete Immunization"
+                                  interactionName="Immunization Event Complete Request Immunization"/>
+      <mif:receiverResponsibility triggerEventName="Immunization Event Complete Immunization Rejection"
+                                  interactionName="Immunization Event Complete Rejection Immunization"/>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="010040" title="Immunization Event Complete Rejection Immunization">
+      <mif:businessName name="Record immunization request refused"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="PO" domain="IZ" artifact="IN" realm="CA"
+                           id="010040"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>Indicates that the request to add an immunization to the patient record has been denied.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="HM" subSection="PO" domain="IZ" artifact="TE" realm="UV"
+                      id="010010"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002300">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="MC"
+                                      domain="AI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="700236"
+                                      traversalName="controlActEvent"/>
+      </mif:parameterTypeModel>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="010030" title="Immunization Event Confirmation">
+      <mif:businessName name="Record Immunization Request Accepted"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="PO" domain="IZ" artifact="IN" realm="CA"
+                           id="010030"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>Indicates that the request to add an immunization event to the patient record has been accepted.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="HM" subSection="PO" domain="IZ" artifact="TE" realm="UV"
+                      id="010040"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002300">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="MC"
+                                      domain="AI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="700226"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="Act" root="DEFN" section="IM" subSection="CO"
+                                         domain="MT"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="001103"
+                                         traversalName="actEvent"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="021010" title="Immunization Event Candidate Query">
+      <mif:businessName name="Immunization Candidate Query"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="PO" domain="IZ" artifact="IN" realm="CA"
+                           id="021010"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>Requests retrieval of a list of candidate immunization events, potentially filtered by time-range of the immunization, type of immunization, patient, patient age and patient gender.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="HM" subSection="PO" domain="IZ" artifact="TE" realm="UV"
+                      id="021010"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002100">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="QU"
+                                      domain="QI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="020002"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="ParameterList" root="DEFN" section="HM" subSection="PO"
+                                         domain="IZ"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="061140"
+                                         traversalName="parameterList"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+      <mif:receiverResponsibility triggerEventName="Immunization Event Candidate Query Response"
+                                  interactionName="Immunization Event Candidate Query Response"/>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="021020" title="Immunization Event Candidate Query Response">
+      <mif:businessName name="Immunization Candidate Query Response"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="PO" domain="IZ" artifact="IN" realm="CA"
+                           id="021020"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>Returns a list of candidate imunization events.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="HM" subSection="PO" domain="IZ" artifact="TE" realm="UV"
+                      id="021020"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002300">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="QU"
+                                      domain="QI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="120008"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="Act" root="DEFN" section="HM" subSection="PO"
+                                         domain="IZ"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="061150"
+                                         traversalName="immunization"/>
+            <mif:supplierBindingArgument templateParameterName="ParameterList" root="DEFN" section="HM" subSection="PO"
+                                         domain="IZ"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="061140"
+                                         traversalName="parameterList"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="070010" title="Immunization Event Profile Query">
+      <mif:businessName name="Patient Immunization Profile Query"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="PO" domain="IZ" artifact="IN" realm="CA"
+                           id="070010"/>
+      <mif:callAction root="DEFN" section="HM" subSection="PO" domain="IZ" artifact="TE" realm="UV"
+                      id="070010"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002100">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="QU"
+                                      domain="QI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="020000"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="ParameterList" root="DEFN" section="HM" subSection="PO"
+                                         domain="IZ"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="070010"
+                                         traversalName="parameterList"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+      <mif:receiverResponsibility triggerEventName="Immunization Event Profile Query Response"
+                                  interactionName="Immunization Event Profile Query Response"/>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="070020" title="Immunization Event Profile Query Response">
+      <mif:businessName name="Patient Immunization Profile Query Response"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="PO" domain="IZ" artifact="IN" realm="CA"
+                           id="070020"/>
+      <mif:callAction root="DEFN" section="HM" subSection="PO" domain="IZ" artifact="TE" realm="UV"
+                      id="070020"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002300">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="QU"
+                                      domain="QI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="120006"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="Act" root="DEFN" section="HM" subSection="PO"
+                                         domain="IZ"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="070020"
+                                         traversalName="immunizationProfile"/>
+            <mif:supplierBindingArgument templateParameterName="ParameterList" root="DEFN" section="HM" subSection="PO"
+                                         domain="IZ"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="070010"
+                                         traversalName="parameterList"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+   </mif:hl7Interaction>
+</mif:dynamicModel>

@@ -1,0 +1,122 @@
+<REPC_IN000085CA xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:hl7-org:v3" ITSVersion="XML_1.0">
+    <!-- Message rendered by Intelliware TEAL version 1.6-SNAPSHOT -->
+    <id root="1ee83ff1-08ab-4fe7-b573-ea777e9bad51"/>
+    <creationTime value="20080625141610-0400"/>
+    <responseModeCode code="I"/>
+    <versionCode code="V3-2007-05"/>
+    <interactionId displayable="true" extension="REPC_IN000085CA" root="2.16.840.1.113883.1.6"/>
+    <processingCode code="P"/>
+    <processingModeCode code="T"/>
+    <acceptAckCode code="AL"/>
+    <receiver typeCode="RCV">
+      <telecom value="http://123.255.255.10"/>
+      <device classCode="DEV" determinerCode="INSTANCE">
+        <id extension="222" root="2.16.124.113620.1.2.100" use="BUS"/>
+      </device>
+    </receiver>
+    <sender typeCode="SND">
+      <telecom value="http://987.654.321.0"/>
+      <device classCode="DEV" determinerCode="INSTANCE">
+        <id extension="111" root="2.16.124.113620.1.2.100" use="BUS"/>
+        <manufacturerModelName>1.0</manufacturerModelName>
+        <softwareName>Panacea Pharmacy</softwareName>
+      </device>
+    </sender>
+    <acknowledgement>
+      <typeCode code="AA"/>
+      <targetMessage>
+        <id root="1ee83ff1-08ab-4fe7-b573-ea777e9bad41"/>
+      </targetMessage>
+    </acknowledgement>
+    <controlActEvent classCode="CACT" moodCode="EVN">
+      <id extension="8141234" root="2.16.840.1.113883.1.6" use="BUS"/>
+      <code code="REPC_TE000085UV" codeSystem="2.16.840.1.113883.5.4"/>
+      <statusCode code="completed"/>
+      <effectiveTime>
+        <low value="20080918"/>
+      </effectiveTime>
+      <recordTarget typeCode="PART" contextControlCode="AP">
+        <patient3 classCode="PAT">
+          <id root="1eef1-08ab-4fe7-b573-ea777e"/>
+        </patient3>
+      </recordTarget>
+      <subject typeCode="SUBJ" contextControlCode="AN" contextConductionInd="true">
+        <document classCode="DOCCLIN" moodCode="EVN">
+          <id extension="123" root="1.2.3.4.5" use="BUS"/>
+          <!-- WARNING: code is a mandatory field, but no value is specified -->
+          <code nullFlavor="NI"/>
+          <responsibleParty typeCode="RESP" contextControlCode="AP">
+            <assignedEntity1 classCode="ASSIGNED">
+              <id displayable="true" extension="1" root="12.34.56"/>
+              <code code="ACP" codeSystem="2.16.840.1.113883.5.111"/>
+              <assignedPerson classCode="PSN" determinerCode="INSTANCE">
+                <name><given>John</given><family>Doe</family></name>
+                <asHealthCareProvider classCode="PROV">
+                  <id displayable="true" extension="1" root="77.33.22.11"/>
+                </asHealthCareProvider>
+              </assignedPerson>
+            </assignedEntity1>
+          </responsibleParty>
+          <author typeCode="AUT" contextControlCode="AP">
+            <time value="19691231190000-0500"/>
+            <signatureCode code="S" codeSystem="2.16.840.1.113883.5.89"/>
+            <assignedEntity1 classCode="ASSIGNED">
+              <id displayable="true" extension="1" root="1.1.1"/>
+              <!-- WARNING: code is a mandatory field, but no value is specified -->
+              <code nullFlavor="NI"/>
+              <assignedPerson classCode="PSN" determinerCode="INSTANCE">
+                <name><given>John</given><family>Doe</family></name>
+                <asHealthCareProvider classCode="PROV">
+                  <id displayable="true" extension="1" root="2.2.2"/>
+                </asHealthCareProvider>
+              </assignedPerson>
+            </assignedEntity1>
+          </author>
+          <custodian1 typeCode="CST" contextControlCode="OP">
+          </custodian1>
+          <custodian2 typeCode="CST" contextControlCode="AP">
+            <assignedDevice classCode="ASSIGNED">
+              <id extension="444" root="1.2.3.4.5" use="BUS"/>
+              <assignedRepository classCode="DEV" determinerCode="INSTANCE">
+                <name>Panacea</name>
+              </assignedRepository>
+              <representedRepositoryJurisdiction classCode="STATE" determinerCode="INSTANCE">
+                <name>somewhere</name>
+              </representedRepositoryJurisdiction>
+            </assignedDevice>
+          </custodian2>
+          <component typeCode="COMP" contextControlCode="ON" contextConductionInd="true">
+            <structuredBody classCode="DOCBODY" moodCode="EVN">
+              <component typeCode="COMP" contextControlCode="ON" contextConductionInd="true">
+                <section classCode="DOCSECT" moodCode="EVN">
+                </section>
+              </component>
+            </structuredBody>
+          </component>
+        </document>
+      </subject>
+        <subjectOf1 typeCode="SUBJ" contextControlCode="AP" contextConductionInd="false">
+          <detectedIssueEvent classCode="ALRT" moodCode="EVN">
+            <code code="VALIDAT"/>
+            <text>patient not found</text>
+            <statusCode code="completed"/>
+            <priorityCode code="I"/>
+          </detectedIssueEvent>
+        </subjectOf1>
+      <queryAck>
+        <queryId root="1ee83ff1-08ab-4fe7-b573-ea777e9bad31"/>
+        <queryResponseCode code="OK"/>
+        <resultTotalQuantity value="1"/>
+        <resultCurrentQuantity value="1"/>
+        <resultRemainingQuantity value="0"/>
+      </queryAck>
+      <queryByParameter>
+        <queryId root="1ee83ff1-08ab-4fe7-b573-ea777e9bad31"/>
+        <parameterList>
+          <mostRecentByTypeIndicator>
+            <value value="true"/>
+          </mostRecentByTypeIndicator>
+        </parameterList>
+      </queryByParameter>
+    </controlActEvent>
+</REPC_IN000085CA>

@@ -1,0 +1,123 @@
+<PORX_IN060350CA xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:hl7-org:v3" ITSVersion="XML_1.0">
+    <!-- Message rendered by Intelliware TEAL version 1.6-SNAPSHOT -->
+    <id root="1ee83ff1-08ab-4fe7-b573-ea777e9bad51"/>
+    <creationTime value="20080625141610-0400"/>
+    <versionCode code="V3-2007-05"/>
+    <interactionId extension="PORX_IN060350CA" root="2.16.840.1.113883.1.6"/>
+    <processingCode code="P"/>
+    <processingModeCode code="T"/>
+    <acceptAckCode code="AL"/>
+    <receiver typeCode="RCV">
+      <telecom value="http://123.255.255.10"/>
+      <device classCode="DEV" determinerCode="INSTANCE">
+        <id extension="222" root="2.16.124.113620.1.2.100"/>
+      </device>
+    </receiver>
+    <sender typeCode="SND">
+      <telecom value="http://987.654.321.0"/>
+      <device classCode="DEV" determinerCode="INSTANCE">
+        <id extension="111" root="2.16.124.113620.1.2.100"/>
+        <manufacturerModelName>1.0</manufacturerModelName>
+        <softwareName>Panacea Pharmacy</softwareName>
+      </device>
+    </sender>
+    <controlActEvent classCode="CACT" moodCode="EVN">
+      <id root="1ee83ff1-08ab-4fe7-b573-ea777e9bad21"/>
+      <code code="PORX_TE060260UV" codeSystem="2.16.840.1.113883.5.4"/>
+      <statusCode code="completed"/>
+      <author typeCode="AUT" contextControlCode="AP">
+        <time value="20080918181800-0400"/>
+        <assignedPerson classCode="ASSIGNED">
+          <id extension="EHR ID EXT" root="2.16.840.1.113883.4.267"/>
+          <representedPerson classCode="PSN" determinerCode="INSTANCE">
+            <name use="L"><given>Jane</given><family>Doe</family></name>
+            <asLicensedEntity classCode="LIC">
+              <id extension="55555" root="2.16.840.1.113883.4.268"/>
+            </asLicensedEntity>
+          </representedPerson>
+        </assignedPerson>
+      </author>
+      <location typeCode="LOC" contextControlCode="AP">
+        <serviceDeliveryLocation classCode="SDLOC">
+          <id extension="1" root="2.16.124.113620.1.1.11111"/>
+          <addr nullFlavor="NI"/>
+          <telecom nullFlavor="NI"/>
+          <location classCode="PLC" determinerCode="INSTANCE">
+            <name>Intelliware&apos;s Pharmacy</name>
+          </location>
+        </serviceDeliveryLocation>
+      </location>
+      <queryByParameter>
+        <queryId root="1ee83ff1-08ab-4fe7-b573-ea777e9bad31"/>
+        <initialQuantityCode code="RD" codeSystem="2.16.840.1.113883.5.1112"/>
+        <parameterList>
+          <administrationEffectivePeriod>
+            <value>
+              <low value="20090201"/>
+              <high value="20100201"/>
+            </value>
+          </administrationEffectivePeriod>
+          <amendedInTimeRange>
+            <value>
+              <low value="20090302000000"/>
+              <high value="20100302000000"/>
+            </value>
+          </amendedInTimeRange>
+          <diagnosisCode>
+            <value code="402261004" codeSystem="2.16.840.1.113883.6.96"/>
+          </diagnosisCode>
+          <drugCode>
+            <value code="02237726" codeSystem="2.16.840.1.113883.5.1105"/>
+          </drugCode>
+          <includeEventHistoryIndicator>
+            <value value="true"/>
+          </includeEventHistoryIndicator>
+          <includeIssuesIndicator>
+            <value value="true"/>
+          </includeIssuesIndicator>
+          <includeNotesIndicator>
+            <value value="true"/>
+          </includeNotesIndicator>
+          <includePendingChangesIndicator>
+            <value value="true"/>
+          </includePendingChangesIndicator>
+          <issueFilterCode>
+            <value code="A" codeSystem="2.16.840.1.113883.5.1096"/>
+          </issueFilterCode>
+          <mostRecentByDrugIndicator>
+            <value value="true"/>
+          </mostRecentByDrugIndicator>
+          <mostRecentDispenseForEachRxIndicator>
+            <value value="true"/>
+          </mostRecentDispenseForEachRxIndicator>
+          <otherIndicationCode>
+            <value code="IND01" codeSystem="2.16.840.1.113883.5.4"/>
+          </otherIndicationCode>
+          <otherMedicationRecordId>
+            <value extension="4.5.6" root="1.2.3.4.5"/>
+          </otherMedicationRecordId>
+          <patientBirthDate>
+            <value value="19871201"/>
+          </patientBirthDate>
+          <patientGender>
+            <value code="F" codeSystem="2.16.840.1.113883.5.1"/>
+          </patientGender>
+          <patientID>
+            <value extension="8048151067070480384" root="2.16.840.1.113883.1.133"/>
+          </patientID>
+          <patientName>
+            <value><given>Tim</given><family>Eapen</family></value>
+          </patientName>
+          <prescriberProviderID>
+            <value extension="2.2.2" root="1.1.1.1.1"/>
+          </prescriberProviderID>
+          <prescriptionDispenseNumber>
+            <value extension="6.6.6" root="5.5.5.5.5"/>
+          </prescriptionDispenseNumber>
+          <prescriptionOrderNumber>
+            <value extension="4.4.4" root="3.3.3.3.3"/>
+          </prescriptionOrderNumber>
+        </parameterList>
+      </queryByParameter>
+    </controlActEvent>
+</PORX_IN060350CA>

@@ -1,0 +1,526 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/*******************************************************************************
+ * Copyright (c) 2010 Health Level Seven, Inc.
+ * All rights reserved. This file and the model designs it contains 
+ * are made available under terms of a proprietary license implicitly 
+ * established by the terms expressed in the Bylaws of Health 
+ * Level Seven, Inc. (HL7), in combination with the agreements under 
+ * which individual and organizational memberships are established with HL7.
+ * Links to the HL7 Bylaws may be found at http://www.hl7.org 
+ *******************************************************************************/ 
+				--><mif:staticModel xmlns:mif="urn:hl7-org:v3/mif2" conformanceLevel="RealmExtension"
+                 schemaVersion="2.1.3"
+                 packageKind="realmNamespace"
+                 representationKind="flat"
+                 isAbstract="false"
+                 title="Clinical Summary"
+                 isSerializable="true"
+                 name="CA">
+   <mif:packageLocation realmNamespace="CA" artifact="MT" root="DEFN" section="IM" subSection="CO"
+                        domain="MT"
+                        id="111111"/>
+   <mif:header>
+      <mif:renderingInformation application="Visio to MIF transform"/>
+      <mif:legalese copyrightOwner="Health Level Seven" copyrightYears="2010">
+         <mif:notation>All rights reserved.</mif:notation>
+         <mif:licenseTerms>
+            <p xmlns="http://www.w3.org/1999/xhtml">This file and the model designs it contains are made available under terms of a proprietary license implicitly established by the terms expressed in the Bylaws of Health Level Seven, Inc. (HL7), in combination with the agreements under which individual and organizational memberships are established with HL7.
+					Links to the HL7 Bylaws may be found at <a href="http://www.hl7.org">http://www.hl7.org</a>
+				        </p>
+         </mif:licenseTerms>
+      </mif:legalese>
+   </mif:header>
+   <mif:graphicRepresentation presentation="HL7">
+      <mif:graphElement name="Main">
+         <mif:position x="0.0" y="0.0"/>
+         <mif:size width="9.010" height="9.157"/>
+      </mif:graphElement>
+      <mif:entryPoint semanticLinkId="FF854D71-780C-6112-1584-47EFE46CE3A5">
+         <mif:graphElement shapeId="Sheet.97">
+            <mif:position x="2.866" y="0.028"/>
+            <mif:size width="1.249" height="0.453"/>
+            <mif:anchorage connectToShapeId="Sheet.97">
+               <mif:position x="3.375" y="0.481"/>
+               <mif:graphEdge>
+                  <mif:anchor connectToShapeId="Sheet.95">
+                     <mif:position x="3.606" y="0.994"/>
+                  </mif:anchor>
+               </mif:graphEdge>
+            </mif:anchorage>
+         </mif:graphElement>
+      </mif:entryPoint>
+      <mif:class semanticLinkId="E260FB24-A33A-A288-E65B-C5CCE87E28A7" presentation="HL7">
+         <mif:graphElement shapeId="Sheet.31" shapeTemplate="CMET" isWidthAutoSize="true"
+                           isHeightAutoSize="true">
+            <mif:position x="3.463" y="3.012"/>
+            <mif:size width="1.103" height="0.628"/>
+         </mif:graphElement>
+      </mif:class>
+      <mif:class semanticLinkId="357F5CEF-ECAB-CA0F-1B28-08B3195B6211" presentation="HL7">
+         <mif:graphElement shapeId="Sheet.1" shapeTemplate="CMET" isWidthAutoSize="true"
+                           isHeightAutoSize="true">
+            <mif:position x="3.463" y="1.507"/>
+            <mif:size width="1.103" height="0.628"/>
+         </mif:graphElement>
+      </mif:class>
+      <mif:class semanticLinkId="9051050A-5365-3C08-B6EA-A9C277D029CC" presentation="HL7">
+         <mif:graphElement shapeId="Sheet.57" shapeTemplate="CMET" isWidthAutoSize="true"
+                           isHeightAutoSize="true">
+            <mif:position x="3.463" y="3.765"/>
+            <mif:size width="1.103" height="0.628"/>
+         </mif:graphElement>
+      </mif:class>
+      <mif:class semanticLinkId="AEDBE84E-6FFA-EA0C-F4F6-CA62B23D89BD" presentation="HL7">
+         <mif:graphElement shapeId="Sheet.37" shapeTemplate="CMET" isWidthAutoSize="true"
+                           isHeightAutoSize="true">
+            <mif:position x="4.941" y="4.894"/>
+            <mif:size width="1.103" height="0.628"/>
+         </mif:graphElement>
+      </mif:class>
+      <mif:class semanticLinkId="6A6DC4FD-E244-9478-D8EF-1F20514EB704" presentation="HL7">
+         <mif:graphElement shapeId="Sheet.75" shapeTemplate="CMET" isWidthAutoSize="true"
+                           isHeightAutoSize="true">
+            <mif:position x="3.463" y="6.023"/>
+            <mif:size width="1.103" height="0.628"/>
+         </mif:graphElement>
+      </mif:class>
+      <mif:class semanticLinkId="65FFDFAC-CB15-D2F2-9006-35F70FBF4ED7" presentation="HL7">
+         <mif:graphElement shapeId="Sheet.13" shapeTemplate="CMET" isWidthAutoSize="true"
+                           isHeightAutoSize="true">
+            <mif:position x="4.941" y="4.141"/>
+            <mif:size width="1.103" height="0.628"/>
+         </mif:graphElement>
+      </mif:class>
+      <mif:class semanticLinkId="5C884467-C452-5E33-7728-E42BF1A9ADE5" presentation="HL7">
+         <mif:graphElement shapeId="Sheet.130" shapeTemplate="CMET" isWidthAutoSize="true"
+                           isHeightAutoSize="true">
+            <mif:position x="3.463" y="8.282"/>
+            <mif:size width="1.103" height="0.628"/>
+         </mif:graphElement>
+      </mif:class>
+      <mif:class semanticLinkId="22A0202A-30B4-966D-EBEB-41996BF9E450" presentation="HL7">
+         <mif:graphElement shapeId="Sheet.124" shapeTemplate="CMET" isWidthAutoSize="true"
+                           isHeightAutoSize="true">
+            <mif:position x="7.772" y="4.832"/>
+            <mif:size width="1.103" height="0.628"/>
+         </mif:graphElement>
+      </mif:class>
+      <mif:class semanticLinkId="A3BE3BA3-AC7B-BB5E-477E-5A7D29B4B3AC" presentation="HL7">
+         <mif:graphElement shapeId="Sheet.112" shapeTemplate="CMET" isWidthAutoSize="true"
+                           isHeightAutoSize="true">
+            <mif:position x="6.419" y="4.518"/>
+            <mif:size width="1.103" height="0.628"/>
+         </mif:graphElement>
+      </mif:class>
+      <mif:class semanticLinkId="273BCB47-124C-77AE-13E9-42F19953206D" presentation="HL7">
+         <mif:graphElement shapeId="Sheet.118" shapeTemplate="CMET" isWidthAutoSize="true"
+                           isHeightAutoSize="true">
+            <mif:position x="6.419" y="5.271"/>
+            <mif:size width="1.103" height="0.628"/>
+         </mif:graphElement>
+      </mif:class>
+      <mif:class semanticLinkId="B9E61874-2819-A45A-BDB0-CFFD09901A72" presentation="HL7">
+         <mif:graphElement shapeId="Sheet.63" shapeTemplate="CMET" isWidthAutoSize="true"
+                           isHeightAutoSize="true">
+            <mif:position x="3.463" y="4.518"/>
+            <mif:size width="1.103" height="0.628"/>
+         </mif:graphElement>
+      </mif:class>
+      <mif:class semanticLinkId="F8CFAE5C-9428-FC2C-4604-A464F7037B94" presentation="HL7">
+         <mif:graphElement shapeId="Sheet.7" shapeTemplate="CMET" isWidthAutoSize="true"
+                           isHeightAutoSize="true">
+            <mif:position x="4.941" y="5.647"/>
+            <mif:size width="1.103" height="0.628"/>
+         </mif:graphElement>
+      </mif:class>
+      <mif:class semanticLinkId="12B20536-A487-4328-BB75-328AC1C5BD54" presentation="HL7">
+         <mif:graphElement shapeId="Sheet.45" shapeTemplate="CMET" isWidthAutoSize="true"
+                           isHeightAutoSize="true">
+            <mif:position x="3.463" y="2.259"/>
+            <mif:size width="1.103" height="0.628"/>
+         </mif:graphElement>
+      </mif:class>
+      <mif:class semanticLinkId="E1A50800-FF11-1E1E-59B4-EE32394895F5" presentation="HL7">
+         <mif:graphElement shapeId="Sheet.25" shapeTemplate="CMET" isWidthAutoSize="true"
+                           isHeightAutoSize="true">
+            <mif:position x="3.463" y="7.529"/>
+            <mif:size width="1.103" height="0.628"/>
+         </mif:graphElement>
+      </mif:class>
+      <mif:class semanticLinkId="2EB6DBD4-BBA2-C564-D29C-83CE2F99FA68" presentation="HL7">
+         <mif:graphElement shapeId="Sheet.81" shapeTemplate="CMET" isWidthAutoSize="true"
+                           isHeightAutoSize="true">
+            <mif:position x="3.463" y="6.776"/>
+            <mif:size width="1.103" height="0.628"/>
+         </mif:graphElement>
+      </mif:class>
+      <mif:class semanticLinkId="6641E71A-695D-1198-E1B2-50D825B1BF8E" presentation="HL7">
+         <mif:graphElement shapeId="Sheet.69" shapeTemplate="CMET" isWidthAutoSize="true"
+                           isHeightAutoSize="true">
+            <mif:position x="3.463" y="5.271"/>
+            <mif:size width="1.103" height="0.628"/>
+         </mif:graphElement>
+      </mif:class>
+      <mif:class semanticLinkId="74AEB2D8-49E5-F213-3222-5A4EBC5FF7BB" presentation="HL7">
+         <mif:graphElement shapeId="Sheet.108" shapeTemplate="Choice" isWidthAutoSize="true"
+                           isHeightAutoSize="true"
+                           nodeOrientation="Portrait">
+            <mif:position x="6.294" y="4.268"/>
+            <mif:size width="1.353" height="1.756"/>
+         </mif:graphElement>
+      </mif:class>
+      <mif:class semanticLinkId="0B8F49C5-9A61-40A7-A666-651BFDD19207" presentation="HL7">
+         <mif:graphElement shapeId="Sheet.43" shapeTemplate="Choice" isWidthAutoSize="true"
+                           isHeightAutoSize="true"
+                           nodeOrientation="Portrait">
+            <mif:position x="4.816" y="3.891"/>
+            <mif:size width="1.353" height="2.508"/>
+         </mif:graphElement>
+      </mif:class>
+      <mif:class semanticLinkId="6DE1DC2F-6810-5F71-EDD3-471D20D75D5C" presentation="HL7">
+         <mif:graphElement shapeId="Sheet.104" shapeTemplate="Act" isWidthAutoSize="true"
+                           isHeightAutoSize="true">
+            <mif:position x="0.135" y="4.688"/>
+            <mif:size width="3.078" height="0.914"/>
+         </mif:graphElement>
+      </mif:class>
+      <mif:class semanticLinkId="E017A7EC-0BA9-1380-294B-74C5E58A6FC7" presentation="HL7">
+         <mif:graphElement shapeId="Sheet.93" shapeTemplate="Choice" isWidthAutoSize="true"
+                           isHeightAutoSize="true"
+                           nodeOrientation="Portrait">
+            <mif:position x="3.338" y="1.257"/>
+            <mif:size width="1.353" height="7.778"/>
+         </mif:graphElement>
+      </mif:class>
+      <mif:class semanticLinkId="69FCC3BE-09B0-51A1-E809-144028DA1EBD" presentation="HL7">
+         <mif:graphElement shapeId="Sheet.95" shapeTemplate="Choice" isWidthAutoSize="true"
+                           isHeightAutoSize="true"
+                           nodeOrientation="Landscape">
+            <mif:position x="0.010" y="0.994"/>
+            <mif:size width="8.990" height="8.153"/>
+         </mif:graphElement>
+      </mif:class>
+   </mif:graphicRepresentation>
+   <mif:derivedFrom staticModelDerivationId="1">
+      <mif:targetStaticModel artifact="RIM" root="DEFN" version="0226"/>
+   </mif:derivedFrom>
+   <mif:importedDatatypeModelPackage realmNamespace="CA" artifact="DT" root="DEFN" version="R02.04.xx"/>
+   <mif:importedVocabularyModelPackage realmNamespace="CA" artifact="VO" root="DEFN" version="R02.04.xx"/>
+   <mif:importedCommonModelElementPackage realmNamespace="CA" artifact="IFC" root="DEFN" version="R02.04.xx"/>
+   <mif:entryPoint graphicLinkId="FF854D71-780C-6112-1584-47EFE46CE3A5" id="COMT_MT111111CA"
+                   name="Clinical Summary"
+                   className="Summary"/>
+   <mif:containedClass>
+      <mif:commonModelElementRef graphicLinkId="E260FB24-A33A-A288-E65B-C5CCE87E28A7"
+                                 name="A_PatientProfileAllergy"
+                                 cmetName="A_PatientProfileAllergy">
+         <mif:derivedFrom staticModelDerivationId="1" className="Act"/>
+         <mif:definingVocabulary>
+            <mif:conceptDomain name="ActClass"/>
+         </mif:definingVocabulary>
+      </mif:commonModelElementRef>
+   </mif:containedClass>
+   <mif:containedClass>
+      <mif:commonModelElementRef graphicLinkId="357F5CEF-ECAB-CA0F-1B28-08B3195B6211"
+                                 name="A_PatientProfileCareComp"
+                                 cmetName="A_PatientProfileCareComp">
+         <mif:derivedFrom staticModelDerivationId="1" className="Act"/>
+         <mif:definingVocabulary>
+            <mif:conceptDomain name="ActClass"/>
+         </mif:definingVocabulary>
+      </mif:commonModelElementRef>
+   </mif:containedClass>
+   <mif:containedClass>
+      <mif:commonModelElementRef graphicLinkId="9051050A-5365-3C08-B6EA-A9C277D029CC"
+                                 name="A_PatientProfileCoded"
+                                 cmetName="A_PatientProfileCoded">
+         <mif:derivedFrom staticModelDerivationId="1" className="Act"/>
+         <mif:definingVocabulary>
+            <mif:conceptDomain name="ActClass"/>
+         </mif:definingVocabulary>
+      </mif:commonModelElementRef>
+   </mif:containedClass>
+   <mif:containedClass>
+      <mif:commonModelElementRef graphicLinkId="AEDBE84E-6FFA-EA0C-F4F6-CA62B23D89BD"
+                                 name="A_PatientProfileDeviceRx"
+                                 cmetName="A_PatientProfileDeviceRx">
+         <mif:derivedFrom staticModelDerivationId="1" className="Act"/>
+         <mif:definingVocabulary>
+            <mif:conceptDomain name="ActClass"/>
+         </mif:definingVocabulary>
+      </mif:commonModelElementRef>
+   </mif:containedClass>
+   <mif:containedClass>
+      <mif:commonModelElementRef graphicLinkId="6A6DC4FD-E244-9478-D8EF-1F20514EB704"
+                                 name="A_PatientProfileDischarge"
+                                 cmetName="A_PatientProfileDischarge">
+         <mif:derivedFrom staticModelDerivationId="1" className="Act"/>
+         <mif:definingVocabulary>
+            <mif:conceptDomain name="ActClass"/>
+         </mif:definingVocabulary>
+      </mif:commonModelElementRef>
+   </mif:containedClass>
+   <mif:containedClass>
+      <mif:commonModelElementRef graphicLinkId="65FFDFAC-CB15-D2F2-9006-35F70FBF4ED7"
+                                 name="A_PatientProfileDrugRx"
+                                 cmetName="A_PatientProfileDrugRx">
+         <mif:derivedFrom staticModelDerivationId="1" className="Act"/>
+         <mif:definingVocabulary>
+            <mif:conceptDomain name="ActClass"/>
+         </mif:definingVocabulary>
+      </mif:commonModelElementRef>
+   </mif:containedClass>
+   <mif:containedClass>
+      <mif:commonModelElementRef graphicLinkId="5C884467-C452-5E33-7728-E42BF1A9ADE5"
+                                 name="A_PatientProfileHealthCondition"
+                                 cmetName="A_PatientProfileHealthCondition">
+         <mif:derivedFrom staticModelDerivationId="1" className="Act"/>
+         <mif:definingVocabulary>
+            <mif:conceptDomain name="ActClass"/>
+         </mif:definingVocabulary>
+      </mif:commonModelElementRef>
+   </mif:containedClass>
+   <mif:containedClass>
+      <mif:commonModelElementRef graphicLinkId="22A0202A-30B4-966D-EBEB-41996BF9E450"
+                                 name="A_PatientProfileImmunization"
+                                 cmetName="A_PatientProfileImmunization">
+         <mif:derivedFrom staticModelDerivationId="1" className="Act"/>
+         <mif:definingVocabulary>
+            <mif:conceptDomain name="ActClass"/>
+         </mif:definingVocabulary>
+      </mif:commonModelElementRef>
+   </mif:containedClass>
+   <mif:containedClass>
+      <mif:commonModelElementRef graphicLinkId="A3BE3BA3-AC7B-BB5E-477E-5A7D29B4B3AC"
+                                 name="A_PatientProfileLabOrder"
+                                 cmetName="A_PatientProfileLabOrder">
+         <mif:derivedFrom staticModelDerivationId="1" className="Act"/>
+         <mif:definingVocabulary>
+            <mif:conceptDomain name="ActClass"/>
+         </mif:definingVocabulary>
+      </mif:commonModelElementRef>
+   </mif:containedClass>
+   <mif:containedClass>
+      <mif:commonModelElementRef graphicLinkId="273BCB47-124C-77AE-13E9-42F19953206D"
+                                 name="A_PatientProfileLabResult"
+                                 cmetName="A_PatientProfileLabResult">
+         <mif:derivedFrom staticModelDerivationId="1" className="Act"/>
+         <mif:definingVocabulary>
+            <mif:conceptDomain name="ActClass"/>
+         </mif:definingVocabulary>
+      </mif:commonModelElementRef>
+   </mif:containedClass>
+   <mif:containedClass>
+      <mif:commonModelElementRef graphicLinkId="B9E61874-2819-A45A-BDB0-CFFD09901A72"
+                                 name="A_PatientProfileMeasured"
+                                 cmetName="A_PatientProfileMeasured">
+         <mif:derivedFrom staticModelDerivationId="1" className="Act"/>
+         <mif:definingVocabulary>
+            <mif:conceptDomain name="ActClass"/>
+         </mif:definingVocabulary>
+      </mif:commonModelElementRef>
+   </mif:containedClass>
+   <mif:containedClass>
+      <mif:commonModelElementRef graphicLinkId="F8CFAE5C-9428-FC2C-4604-A464F7037B94"
+                                 name="A_PatientProfileOtherMed"
+                                 cmetName="A_PatientProfileOtherMed">
+         <mif:derivedFrom staticModelDerivationId="1" className="Act"/>
+         <mif:definingVocabulary>
+            <mif:conceptDomain name="ActClass"/>
+         </mif:definingVocabulary>
+      </mif:commonModelElementRef>
+   </mif:containedClass>
+   <mif:containedClass>
+      <mif:commonModelElementRef graphicLinkId="12B20536-A487-4328-BB75-328AC1C5BD54"
+                                 name="A_PatientProfileProcedure"
+                                 cmetName="A_PatientProfileProcedure">
+         <mif:derivedFrom staticModelDerivationId="1" className="Act"/>
+         <mif:definingVocabulary>
+            <mif:conceptDomain name="ActClass"/>
+         </mif:definingVocabulary>
+      </mif:commonModelElementRef>
+   </mif:containedClass>
+   <mif:containedClass>
+      <mif:commonModelElementRef graphicLinkId="E1A50800-FF11-1E1E-59B4-EE32394895F5"
+                                 name="A_PatientProfileReaction"
+                                 cmetName="A_PatientProfileReaction">
+         <mif:derivedFrom staticModelDerivationId="1" className="Act"/>
+         <mif:definingVocabulary>
+            <mif:conceptDomain name="ActClass"/>
+         </mif:definingVocabulary>
+      </mif:commonModelElementRef>
+   </mif:containedClass>
+   <mif:containedClass>
+      <mif:commonModelElementRef graphicLinkId="2EB6DBD4-BBA2-C564-D29C-83CE2F99FA68"
+                                 name="A_PatientProfileReferral"
+                                 cmetName="A_PatientProfileReferral">
+         <mif:derivedFrom staticModelDerivationId="1" className="Act"/>
+         <mif:definingVocabulary>
+            <mif:conceptDomain name="ActClass"/>
+         </mif:definingVocabulary>
+      </mif:commonModelElementRef>
+   </mif:containedClass>
+   <mif:containedClass>
+      <mif:commonModelElementRef graphicLinkId="6641E71A-695D-1198-E1B2-50D825B1BF8E"
+                                 name="A_PatientProfileReport"
+                                 cmetName="A_PatientProfileReport">
+         <mif:derivedFrom staticModelDerivationId="1" className="Act"/>
+         <mif:definingVocabulary>
+            <mif:conceptDomain name="ActClass"/>
+         </mif:definingVocabulary>
+      </mif:commonModelElementRef>
+   </mif:containedClass>
+   <mif:containedClass>
+      <mif:class graphicLinkId="74AEB2D8-49E5-F213-3222-5A4EBC5FF7BB" name="Lab"
+                 isAbstract="true">
+         <mif:derivedFrom staticModelDerivationId="1" className="Act"/>
+         <mif:childClass graphicLinkId="F10BFE0E-1123-A457-D41B-E8A6E2C7410B" sortKey="001"
+                         name="A_PatientProfileLabOrder"/>
+         <mif:childClass graphicLinkId="E91625AF-6E42-DF45-37B3-C388A0286517" sortKey="002"
+                         name="A_PatientProfileLabResult"/>
+      </mif:class>
+   </mif:containedClass>
+   <mif:containedClass>
+      <mif:class graphicLinkId="0B8F49C5-9A61-40A7-A666-651BFDD19207" name="Pharmacy"
+                 isAbstract="true">
+         <mif:derivedFrom staticModelDerivationId="1" className="Act"/>
+         <mif:childClass graphicLinkId="A05E11B3-39C7-B10A-0E93-FC0AF4198BF4" sortKey="001"
+                         name="A_PatientProfileDrugRx"/>
+         <mif:childClass graphicLinkId="5F3F1FE4-6715-85AE-7666-5F80751C42DF" sortKey="002"
+                         name="A_PatientProfileDeviceRx"/>
+         <mif:childClass graphicLinkId="8D9F7EE1-152E-5BFD-B0A4-5C9754157311" sortKey="003"
+                         name="A_PatientProfileOtherMed"/>
+      </mif:class>
+   </mif:containedClass>
+   <mif:containedClass>
+      <mif:class graphicLinkId="6DE1DC2F-6810-5F71-EDD3-471D20D75D5C" name="RenderedContent"
+                 isAbstract="false">
+         <mif:businessName name="Rendered Record"/>
+         <mif:derivedFrom staticModelDerivationId="1" className="Act"/>
+         <mif:annotations>
+            <mif:documentation>
+               <mif:definition>
+                  <mif:text>
+                     <html:p xmlns:html="http://www.w3.org/1999/xhtml">Conveys a portion of the patient's record as rendered content.</html:p>
+                  </mif:text>
+               </mif:definition>
+               <mif:rationale>
+                  <mif:text>
+                     <html:p xmlns:html="http://www.w3.org/1999/xhtml">Allows simple applications which do not yet support all of the discrete messaging specifications to still access data within the EHR.</html:p>
+                  </mif:text>
+               </mif:rationale>
+            </mif:documentation>
+         </mif:annotations>
+         <mif:attribute name="classCode" sortKey="1" minimumMultiplicity="1" maximumMultiplicity="1"
+                        conformance="R"
+                        isMandatory="true"
+                        fixedValue="ACT"
+                        isImmutable="true">
+            <mif:derivedFrom staticModelDerivationId="1" className="Act" attributeName="classCode"/>
+            <mif:type name="CS"/>
+            <mif:vocabulary>
+               <mif:code codeSystemName="ActClass" code="ACT"/>
+            </mif:vocabulary>
+         </mif:attribute>
+         <mif:attribute name="moodCode" sortKey="2" minimumMultiplicity="1" maximumMultiplicity="1"
+                        conformance="R"
+                        isMandatory="true"
+                        fixedValue="EVN"
+                        isImmutable="true">
+            <mif:derivedFrom staticModelDerivationId="1" className="Act" attributeName="moodCode"/>
+            <mif:type name="CS"/>
+            <mif:vocabulary>
+               <mif:code codeSystemName="ActMood" code="EVN"/>
+            </mif:vocabulary>
+         </mif:attribute>
+         <mif:attribute name="code" sortKey="3" minimumMultiplicity="1" maximumMultiplicity="1"
+                        conformance="R"
+                        isMandatory="true"
+                        isImmutable="false">
+            <mif:businessName name="Rendered Content Type"/>
+            <mif:annotations>
+               <mif:documentation>
+                  <mif:definition>
+                     <mif:text>
+                        <html:p xmlns:html="http://www.w3.org/1999/xhtml">Identifies the type of content contained within the rendered document portion of this class.</html:p>
+                     </mif:text>
+                  </mif:definition>
+                  <mif:rationale>
+                     <mif:text>
+                        <html:p xmlns:html="http://www.w3.org/1999/xhtml">Identifies what type of data has been returned. This attribute is mandatory because type of data returned must be known for presentation and consumption.</html:p>
+                     </mif:text>
+                  </mif:rationale>
+               </mif:documentation>
+            </mif:annotations>
+            <mif:derivedFrom staticModelDerivationId="1" className="Act" attributeName="code"/>
+            <mif:type name="CV"/>
+            <mif:vocabulary>
+               <mif:conceptDomain name="ActEventCategoryWorkingListCode"/>
+            </mif:vocabulary>
+         </mif:attribute>
+         <mif:attribute name="text" sortKey="4" minimumMultiplicity="1" maximumMultiplicity="1"
+                        conformance="R"
+                        isMandatory="true"
+                        isImmutable="false">
+            <mif:businessName name="Rendered Content"/>
+            <mif:annotations>
+               <mif:documentation>
+                  <mif:definition>
+                     <mif:text>
+                        <html:p xmlns:html="http://www.w3.org/1999/xhtml">Contains a rendered view of a particular portion of the patients records. E.g. Allergy List, Problem List, Drug List, etc.</html:p>
+                     </mif:text>
+                  </mif:definition>
+                  <mif:rationale>
+                     <mif:text>
+                        <html:p xmlns:html="http://www.w3.org/1999/xhtml">Provides a human-readable view of a portion of a patient's record when the PoS application may not be capable of handling the discrete data. This attribute is mandatory because the rendered content must be known.</html:p>
+                     </mif:text>
+                  </mif:rationale>
+               </mif:documentation>
+            </mif:annotations>
+            <mif:derivedFrom staticModelDerivationId="1" className="Act" attributeName="text"/>
+            <mif:type name="ED.DOC"/>
+         </mif:attribute>
+      </mif:class>
+   </mif:containedClass>
+   <mif:containedClass>
+      <mif:class graphicLinkId="E017A7EC-0BA9-1380-294B-74C5E58A6FC7" name="SHR"
+                 isAbstract="true">
+         <mif:derivedFrom staticModelDerivationId="1" className="Act"/>
+         <mif:childClass graphicLinkId="36E46CD0-7EF1-872A-CA6F-14E06353FB61" sortKey="001"
+                         name="A_PatientProfileCareComp"/>
+         <mif:childClass graphicLinkId="471599EE-576D-39FF-F950-911ECE10F713" sortKey="002"
+                         name="A_PatientProfileProcedure"/>
+         <mif:childClass graphicLinkId="6655BBD8-48A5-9557-4736-5C84C2557B37" sortKey="003"
+                         name="A_PatientProfileAllergy"/>
+         <mif:childClass graphicLinkId="965EA4C3-9062-1847-CBF5-C6855A755EB1" sortKey="004"
+                         name="A_PatientProfileCoded"/>
+         <mif:childClass graphicLinkId="67614CCF-2287-E8B6-E82B-7ED35A5C2A29" sortKey="005"
+                         name="A_PatientProfileMeasured"/>
+         <mif:childClass graphicLinkId="B48B5740-DABB-F18E-6AE3-306917C09267" sortKey="006"
+                         name="A_PatientProfileReport"/>
+         <mif:childClass graphicLinkId="F46FBC69-C4AA-D12F-CFE3-7976BCE6E877" sortKey="007"
+                         name="A_PatientProfileDischarge"/>
+         <mif:childClass graphicLinkId="B562DF77-C1C7-277F-E0A5-F08A7FE20D99" sortKey="008"
+                         name="A_PatientProfileReferral"/>
+         <mif:childClass graphicLinkId="F678740F-2742-7E83-CFB7-A6BA3020E9D5" sortKey="009"
+                         name="A_PatientProfileReaction"/>
+         <mif:childClass graphicLinkId="35B4D073-D419-9F04-3061-454241570C15" sortKey="010"
+                         name="A_PatientProfileHealthCondition"/>
+      </mif:class>
+   </mif:containedClass>
+   <mif:containedClass>
+      <mif:class graphicLinkId="69FCC3BE-09B0-51A1-E809-144028DA1EBD" name="Summary"
+                 isAbstract="true">
+         <mif:derivedFrom staticModelDerivationId="1" className="Act"/>
+         <mif:childClass graphicLinkId="4489B3AA-BC3C-34CF-B3EB-1A8B1FED0485" sortKey="001"
+                         name="RenderedContent"/>
+         <mif:childClass graphicLinkId="B7F22A26-5E2A-864E-A5DE-5A94483FDE10" sortKey="002" name="SHR"/>
+         <mif:childClass graphicLinkId="BD033ACC-E9B4-B4E0-469F-580AF248C845" sortKey="003"
+                         name="Pharmacy"/>
+         <mif:childClass graphicLinkId="15F4CB3F-264C-F9AE-9D86-AC162340C944" sortKey="004" name="Lab"/>
+         <mif:childClass graphicLinkId="E93B9E8F-A5CB-05FC-6D04-011B5047E183" sortKey="005"
+                         name="A_PatientProfileImmunization"/>
+      </mif:class>
+   </mif:containedClass>
+</mif:staticModel>

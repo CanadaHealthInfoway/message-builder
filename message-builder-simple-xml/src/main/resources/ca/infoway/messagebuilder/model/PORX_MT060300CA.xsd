@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:chi="urn:ca.infoway.messagebuilder.simplexml.v1" elementFormDefault="qualified" targetNamespace="urn:ca.infoway.messagebuilder.simplexml.v1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include schemaLocation="PORX_MT030040CA.xsd"/>
+  <xs:include schemaLocation="PORX_MT060060CA.xsd"/>
+  <xs:group name="PORX_MT060300CA.Prescription">
+    <xs:choice>
+      <xs:element name="prescription" type="chi:PORX_MT060060CA.DevicePrescription"/>
+      <xs:element name="prescription" type="chi:PORX_MT030040CA.CombinedMedicationRequest"/>
+    </xs:choice>
+  </xs:group>
+</xs:schema>

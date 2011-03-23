@@ -1,0 +1,43 @@
+                         ---------------------------
+                         xml-to-java Tool
+                         ---------------------------
+
+
+Java Class Generation
+
+  One of the code generation tools is a tool to read a generated message set and create
+  Java code that can be used to populate and model the HL7 XML messages.
+  
+Overview
+  
+  The xml-to-java tool reads in a message set, performs simplification on the message
+  parts, and then generates Java classes that can be used to marshall HL7 messages.
+
+Maven Configuration
+
+  The xml-to-java generator is run using Maven.  A typical configuration 
+  looks like this:
+
++----
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>ca.infoway.messagebuilder</groupId>
+        <artifactId>maven-chi-plugin</artifactId>
+        <version>1.0b2-SNAPSHOT</version>
+        <configuration>
+          <messageSet>./path/to/messageSet.xml</messageSet>
+          <basePackageName>ca.infoway.messagebuilder.model</basePackageName>
+          <javaSourceFolder>./src/main/java</javaSourceFolder>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
++----
+
+  To execute the generator, type the following command:
+  
++----
+  mvn chi:xml-to-java
++----
+  

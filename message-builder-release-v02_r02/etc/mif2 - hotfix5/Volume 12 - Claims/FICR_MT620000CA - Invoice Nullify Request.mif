@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?><mif:staticModel xmlns:mif="urn:hl7-org:v3/mif" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:hl7-org:v3/mif" isAbstract="false" isSerializable="true" name="CA" packageKind="realmNamespace" representationKind="flat" schemaVersion="2.0" xsi:schemaLocation="">
+   <mif:packageLocation artifact="MT-deprecated" domain="CR" id="620000" realmNamespace="CA" root="DEFN" section="AM" subSection="FI"/>
+   <mif:header>
+      <mif:renderingInformation application="Visio to MIF transform"/>
+      <mif:legalese copyrightOwner="Health Level Seven" copyrightYears="2008"/>
+   </mif:header>
+   <mif:graphicRepresentation presentation="HL7">
+      <mif:graphElement name="Main">
+         <mif:position x="0" y="0"/>
+         <mif:size height="2880" width="4032"/>
+      </mif:graphElement>
+   <entryPoint name="Invoice Nullify Request"><mif:graphElement containerDiagramName="Main" shapeId="Sheet.9">
+            <mif:position x="1036" y="1166"/>
+            <mif:size height="43" width="235"/>
+            <mif:anchorage connectToShapeId="Sheet.9">
+               <mif:position x="1152" y="1209"/>
+               <mif:graphEdge>
+                  <mif:anchor connectToShapeId="Sheet.101">
+                     <mif:position x="1156" y="1281"/>
+                  </mif:anchor>
+               </mif:graphEdge>
+            </mif:anchorage>
+         </mif:graphElement></entryPoint><class className="InvoiceElementGroup" presentation="HL7"><mif:graphElement containerDiagramName="Main" isHeightAutoSize="false" isWidthAutoSize="false" shapeId="Sheet.101" shapeTemplate="Act">
+               <mif:position x="1043" y="1281"/>
+               <mif:size height="148" width="226"/>
+            </mif:graphElement></class></mif:graphicRepresentation>
+   <derivedFrom staticModelDerivationId="1">
+      <mif:targetStaticModel artifact="RIM" root="DEFN" version="00"/>
+   </derivedFrom>
+   <entryPoint className="InvoiceElementGroup" id="FICR_MT620000CA" isAbstract="false" name="Invoice Nullify Request">
+      <mif:annotations>
+         
+      <documentation><mif:description>
+            <mif:text>
+               <xhtml:p>Entry Point for Invoice Nullify Request message</xhtml:p>
+            </mif:text>
+         </mif:description></documentation></mif:annotations>
+      
+   </entryPoint>
+   <containedClass>
+      <mif:class isAbstract="false" name="InvoiceElementGroup">
+         <mif:businessName name="Invoice Type"><realmNamespace value="UV"/></mif:businessName>
+         <derivedFrom className="InvoiceElement" staticModelDerivationId="1"/>
+         
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="classCode" sortKey="1"><enumerationValues>INVE</enumerationValues>
+            <derivedFrom attributeName="classCode" className="InvoiceElement" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="INVE" codeSystemName="ActClass"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="moodCode" sortKey="2"><enumerationValues>RQO</enumerationValues>
+            <derivedFrom attributeName="moodCode" className="InvoiceElement" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="RQO" codeSystemName="ActMood"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="id" sortKey="3">
+            <mif:businessName name="Invoice Grouping Identifiers"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p/>
+                  </mif:text>
+               </mif:definition><mif:usageNotes>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>For example:</xhtml:p>
+                     </xhtml:p>
+                     <xhtml:p>
+                        <xhtml:p>1. unique invoice group identifier, independent of adjudicator recipient.</xhtml:p>
+                     </xhtml:p>
+                     <xhtml:p>
+                        <xhtml:p>2. sequential invoice grouping identifier by adjudicator.</xhtml:p>
+                     </xhtml:p>
+                     <xhtml:p>
+                        <xhtml:p>Obligation on adjudicator is to return and communicate about this item with all identifiers (i.e. identifier 1. and 2.).</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:usageNotes><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>There are some situations where more than 1 identifier for this object can be included in a message.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation></mif:annotations>
+            <derivedFrom attributeName="id" className="InvoiceElement" staticModelDerivationId="1"/>
+            <mif:type name="II.BUS"/>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="code" sortKey="4">
+            <mif:annotations>
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Invoice Type e.g. Healthcare Services, Rx Dispense, Rx Compound, Healthcare Goods, Preferred Accomodation</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:usageNotes>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Each Invoice Type is used to specify 1. vocabulary, 2. structure of the Invoice Element Choice and 3. which Billable Act(s) can be included for the specified Invoice Type.</xhtml:p>
+                     </xhtml:p>
+                     <xhtml:p>
+                        <xhtml:p>Information on constraints for the Invoice Type will be found in the NeCST Message Specifications. Each Benefit Group will indicate which Invoice Types will be supported by that Benefit Group.</xhtml:p>
+                     </xhtml:p>
+                     <xhtml:p>
+                        <xhtml:p>Invoice Types will not generate unique and distinct XML schemas that can tested independent of each other. They must be tested together within an Message Type.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:usageNotes></documentation></mif:annotations>
+            <derivedFrom attributeName="code" className="InvoiceElement" staticModelDerivationId="1"/>
+            <mif:type name="CV"/>
+            <supplierVocabulary codingStrength="CNE"><vocabularyDomain name="ActInvoiceGroupCode"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="netAmt" sortKey="5">
+            <mif:businessName name="Invoice sub-total"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Invoice sub-total - This is the sum of the Submitted Invoice Line amounts; Identifies the total monetary amount billed for the invoice element.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:usageNotes>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>For Cancel Request: This would serve as a cross-check for the Adjudicator for the Invoice Grouping that is being cancelled.</xhtml:p>
+                     </xhtml:p>
+                     <xhtml:p>
+                        <xhtml:p>Attribute cannot be mandatory as it may not be present for a Coverage Extension Request.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:usageNotes></documentation></mif:annotations>
+            <derivedFrom attributeName="netAmt" className="InvoiceElement" staticModelDerivationId="1"/>
+            <mif:type name="MO.CAD"/>
+         </mif:attribute>
+      </mif:class>
+   </containedClass>
+</mif:staticModel>

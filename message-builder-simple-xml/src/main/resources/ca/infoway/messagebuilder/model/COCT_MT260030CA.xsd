@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:chi="urn:ca.infoway.messagebuilder.simplexml.v1" elementFormDefault="qualified" targetNamespace="urn:ca.infoway.messagebuilder.simplexml.v1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include schemaLocation="COCT_MT220210CA.xsd"/>
+  <xs:include schemaLocation="COCT_MT240003CA.xsd"/>
+  <xs:include schemaLocation="COCT_MT220110CA.xsd"/>
+  <xs:include schemaLocation="COCT_MT090108CA.xsd"/>
+  <xs:include schemaLocation="../../../../../../classes/simpleDataTypes.xsd"/>
+  <xs:group name="COCT_MT260030CA.CausalActs">
+    <xs:choice>
+      <xs:element name="patientMeasurableObservations" type="chi:COCT_MT260030CA.ObservationMeasurableEvent"/>
+      <xs:element name="patientCodedObservations" type="chi:COCT_MT260030CA.ObservationCodedEvent"/>
+      <xs:element name="dispense" type="chi:COCT_MT260030CA.SupplyEvent"/>
+      <xs:element name="activeMedication" type="chi:COCT_MT260030CA.SubstanceAdministration"/>
+    </xs:choice>
+  </xs:group>
+  <xs:complexType name="COCT_MT260030CA.Component2">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="dosagePreconditionType" type="chi:CodedValue"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="dosagePreconditionValue" type="chi:PhysicalQuantityUncertainRange"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="COCT_MT260030CA.Definition">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="0" name="issueMonographId" type="chi:InstanceIdentifier"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="issueDescription" type="chi:EncapsulatedDocumentOrReference"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="issueMonographEffectiveDate" type="chi:FullDate"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="knowledgebaseVendorName" type="xs:string"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="doseDuration" type="chi:DateInterval"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="dosageRange" type="chi:PhysicalQuantityUncertainRange"/>
+      <xs:element maxOccurs="3" minOccurs="0" name="detectedIssueDefinitionComponentSubstanceAdministrationEventCriterionComponent" type="chi:COCT_MT260030CA.Component2"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="COCT_MT260030CA.DetectedIssueEvent">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="issueType" type="chi:CodedValue"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="issueDetails" type="xs:string"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="issuePriority" type="chi:CodedValue"/>
+      <xs:element maxOccurs="5" minOccurs="0" name="messageIssueLocation" type="xs:string"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="instantiation" type="chi:COCT_MT260030CA.Definition"/>
+      <xs:element maxOccurs="25" minOccurs="0" name="mitigatedBy" type="chi:COCT_MT260030CA.Mitigates"/>
+      <xs:group maxOccurs="25" minOccurs="0" ref="chi:COCT_MT260030CA.CausalActs"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="severityCode" type="chi:CodedValue"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="COCT_MT260030CA.Mitigates">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="managementType" type="chi:CodedValue"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="managementDescription" type="xs:string"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="managementDate" type="chi:FullDateTime"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="detectedIssueManagementAuthorAssignedEntity" type="chi:COCT_MT090108CA.AssignedEntity"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="COCT_MT260030CA.ObservationCodedEvent">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="observationIdentifier" type="chi:InstanceIdentifier"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="observationType" type="chi:CodedType"/>
+      <xs:element maxOccurs="2" minOccurs="0" name="observationMaskingIndicator" type="chi:CodedValue"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="observationValue" type="chi:CodedValue"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="COCT_MT260030CA.ObservationMeasurableEvent">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="observationIdentifier" type="chi:InstanceIdentifier"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="observationType" type="chi:CodedType"/>
+      <xs:element maxOccurs="2" minOccurs="0" name="observationMaskingIndicator" type="chi:CodedValue"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="observationValue" type="chi:PhysicalQuantity"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="COCT_MT260030CA.SubstanceAdministration">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="otherMedicationIndicator" type="chi:SimpleCodedType"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="activeMedicationRecordNumber" type="chi:InstanceIdentifier"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="administrationType" type="chi:CodedType"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="activeMedicationStatus" type="chi:SimpleCodedType"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="activeMedicationTimeRange" type="chi:DateInterval"/>
+      <xs:element maxOccurs="2" minOccurs="0" name="activeMedicationMaskingIndicator" type="chi:CodedValue"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="activeMedicationDoseQuantity" type="chi:PhysicalQuantity"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="consumableMedication" type="chi:COCT_MT220110CA.Medication"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="COCT_MT260030CA.SupplyEvent">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="prescriptionDispenseNumber" type="chi:InstanceIdentifier"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="dispenseStatus" type="chi:SimpleCodedType"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="dispensedDate" type="chi:DateInterval"/>
+      <xs:element maxOccurs="2" minOccurs="0" name="dispenseMaskingIndicator" type="chi:CodedValue"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="locationServiceDeliveryLocation" type="chi:COCT_MT240003CA.ServiceDeliveryLocation"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="productMedication" type="chi:COCT_MT220210CA.Medication"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

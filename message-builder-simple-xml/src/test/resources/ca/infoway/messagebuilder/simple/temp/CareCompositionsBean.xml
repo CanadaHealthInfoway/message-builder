@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<careCompositions xmlns="urn:ca.infoway.messagebuilder.simplexml.v1">
+	<careCompositionIdentifier root="" extension=""/>
+	<careCompositionType code="" codeSystem=""/>
+	<careCompositionEffectiveDate>
+		<from value="199902301232-0930" />
+		<to value="199902301232-0930" />
+	</careCompositionEffectiveDate>
+	<admitterAssignees>
+		<healthcareOrganization>
+			<organizationIdentifier root="" extension=""/>
+			<organizationName>name</organizationName>
+		</healthcareOrganization>
+	</admitterAssignees>
+	<admitterAssignees>
+		<healthcareWorker>
+			<healthcareWorkerIdentifier root="" extension=""/>
+			<organizationIdentifier root="" extension=""/>
+			<organizationName>name</organizationName>
+			<healthcareWorkerName>
+				<lastName>Houston</lastName>
+			</healthcareWorkerName>
+			<licenseNumber root="" extension=""/>
+		</healthcareWorker>
+	</admitterAssignees>
+	<attenderAssignees>
+		<healthcareOrganization>
+		<organizationIdentifier root="" extension=""/>
+		<organizationName>name</organizationName>
+		</healthcareOrganization>
+	</attenderAssignees>
+	<attenderAssignees>
+		<healthcareWorker>
+		<healthcareWorkerIdentifier root="" extension=""/>
+		<organizationIdentifier root="" extension=""/>
+		<organizationName>name</organizationName>
+		<healthcareWorkerName>
+			<lastName>Houston</lastName>
+		</healthcareWorkerName>
+		<licenseNumber root="" extension=""/>
+		</healthcareWorker>
+	</attenderAssignees>
+	<locationServiceDeliveryLocationClassCode code="SDLOC"/>
+	<locationServiceDeliveryLocationCode code="" codeSystem=""/>
+</careCompositions>

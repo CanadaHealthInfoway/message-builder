@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PORX_IN000003CA ITSVersion="XML_1.0" xmlns="urn:hl7-org:v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:hl7-org:v3 C:\DOCUME~1\Office\MYDOCU~1\Projects\HL7Generator\a\output\Schemas\PORX_IN000003CA.xsd">
+  <realmCode code="CA"/>
+  <id root="D3C66A85-CE4A-431B-3AB0-6D1DC4EEFA15"/>
+  <creationTime value="20090228115044.421-0700"/>
+  <responseModeCode code="I"/>
+  <versionCode code="V3-2008-N"/>
+  <interactionId root="2.16.840.1.113883.1.18" extension="PORX_IN000003CA" displayable="true"/>
+  <profileId use="OBJ" root="2.16.840.1.113883.2.20.2" extension="R02.03.00"/>
+  <processingCode code="D"/>
+  <processingModeCode code="T"/>
+  <acceptAckCode code="NE"/>
+  <receiver>
+    <telecom value="http://100.100.121.100"/>
+    <device classCode="DEV" determinerCode="INSTANCE">
+      <id use="OBJ" root="2.16.840.1.113883.19.3.297.15.37.0.47" extension="DIS02"/>
+    </device>
+  </receiver>
+  <sender>
+    <telecom value="http://100.100.100.100"/>
+    <device classCode="DEV" determinerCode="INSTANCE">
+      <id use="OBJ" root="2.16.840.1.113883.19.3.297.15.37.0.47" extension="DIS01"/>
+    </device>
+  </sender>
+  <acknowledgement typeCode="AA">
+    <targetMessage>
+      <id root="D3C66A85-CE4A-431B-3AB0-6D1DC4EEFA14"/>
+    </targetMessage>
+  </acknowledgement>
+</PORX_IN000003CA>

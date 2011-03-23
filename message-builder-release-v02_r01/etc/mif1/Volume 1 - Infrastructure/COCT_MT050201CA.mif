@@ -1,0 +1,214 @@
+<mif:serializedStaticModel xmlns:mif="urn:hl7-org:v3/mif"
+                           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                           xsi:schemaLocation="urn:hl7-org:v3/mif C:\PROGRA~1\HL7\XMLITS\ToolFiles\MIFSchemas\mifStaticModelFlat.xsd"
+                           packageKind="realm"
+                           representationKind="serialized"
+                           isSerializable="true"
+                           isAbstract="false"
+                           name="CA">
+   <mif:packageLocation root="DEFN" section="IM" subSection="CO" domain="CT" artifact="MT-deprecated"
+                        realm="CA"
+                        id="050201"/>
+   <mif:header>
+      <mif:renderingInformation schemaVersion="1" application="Visio to MIF transform"/>
+      <mif:legalese copyrightOwner="Health Level Seven" copyrightYears="2007"/>
+   </mif:header>
+   <mif:graphicRepresentation presentation="HL7">
+      <mif:graphElement name="Main">
+         <mif:position x="0.0" y="0.0"/>
+         <mif:size width="4.804" height="0.639"/>
+      </mif:graphElement>
+   </mif:graphicRepresentation>
+   <mif:derivationSupplier staticModelDerivationId="1">
+      <mif:targetStaticModel root="DEFN" artifact="RIM" version="00"/>
+   </mif:derivationSupplier>
+   <mif:ownedEntryPoint id="COCT_MT050201CA" name="Patient Person identified" isAbstract="false">
+      <mif:graphicRepresentation>
+         <mif:graphElement shapeId="Sheet.19" containerDiagramName="Main">
+            <mif:position x="0.028" y="-1.707"/>
+            <mif:size width="1.712" height="0.453"/>
+            <mif:anchorage connectToShapeId="Sheet.19">
+               <mif:position x="1.739" y="0.313"/>
+               <mif:graphEdge>
+                  <mif:anchor connectToShapeId="Sheet.1">
+                     <mif:position x="2.500" y="0.339"/>
+                  </mif:anchor>
+               </mif:graphEdge>
+            </mif:anchorage>
+         </mif:graphElement>
+      </mif:graphicRepresentation>
+      <mif:specializedClass>
+         <mif:class name="Patient" isAbstract="false">
+            <mif:businessName name="Patient"/>
+            <mif:derivationSupplier staticModelDerivationId="1" className="Patient"/>
+            <mif:graphicRepresentation presentation="HL7">
+               <mif:graphElement shapeId="Sheet.1" containerDiagramName="Main" shapeTemplate="Role"
+                                 isWidthAutoSize="true"
+                                 isHeightAutoSize="true">
+                  <mif:position x="2.500" y="0.082"/>
+                  <mif:size width="2.053" height="0.514"/>
+               </mif:graphElement>
+            </mif:graphicRepresentation>
+            <mif:annotations>
+               <mif:definition>
+                  <mif:text>
+                     <mif:p>
+                        <mif:p>A person who is receiving or may receive healthcare services and has had their identity previously confirmed</mif:p>
+                     </mif:p>
+                  </mif:text>
+               </mif:definition>
+               <mif:rationale>
+                  <mif:text>
+                     <mif:p>
+                        <mif:p>Used when patienty identity confirmation is handled as a distinct business process rather than as part of each transaction. Allows transactions to be linked to a specific patient.</mif:p>
+                     </mif:p>
+                  </mif:text>
+               </mif:rationale>
+            </mif:annotations>
+            <mif:attribute name="classCode" sortKey="1" minimumMultiplicity="1" maximumMultiplicity="1"
+                           conformance="R"
+                           isMandatory="true"
+                           fixedValue="PAT"
+                           isStructural="true">
+               <mif:annotations>
+                  <mif:definition>
+                     <mif:text/>
+                  </mif:definition>
+               </mif:annotations>
+               <mif:derivationSupplier staticModelDerivationId="1" className="Patient" attributeName="classCode"/>
+               <mif:type name="CS"/>
+               <mif:supplierDomainSpecification codingStrength="CNE" codeSystemName="RoleClass" mnemonic="PAT"/>
+            </mif:attribute>
+            <mif:attribute name="id" sortKey="2" minimumMultiplicity="1" maximumMultiplicity="1"
+                           conformance="R"
+                           isMandatory="true"
+                           isStructural="false">
+               <mif:businessName name="A:Patient Identifier"/>
+               <mif:annotations>
+                  <mif:definition>
+                     <mif:text>
+                        <mif:p>
+                           <mif:p>Unique identifier issued as part of the patient identity verification process.</mif:p>
+                        </mif:p>
+                     </mif:text>
+                  </mif:definition>
+                  <mif:rationale>
+                     <mif:text>
+                        <mif:p>
+                           <mif:p>Allows a patient to be referred to unambiguously. Because this is the principal mechanism for identifying patients to electronic systems, the attribute is mandatory.</mif:p>
+                        </mif:p>
+                     </mif:text>
+                  </mif:rationale>
+                  <mif:mapping sourceName="CPhAv3">
+                     <mif:text>
+                        <mif:p>
+                           <mif:p>C39 (Extension)</mif:p>
+                        </mif:p>
+                     </mif:text>
+                  </mif:mapping>
+                  <mif:mapping sourceName="eScript">
+                     <mif:text>
+                        <mif:p>
+                           <mif:p>PTT.050.01 (Extension)</mif:p>
+                        </mif:p>
+                     </mif:text>
+                  </mif:mapping>
+                  <mif:mapping sourceName="eScript">
+                     <mif:text>
+                        <mif:p>
+                           <mif:p>PTT.050.02 (Root)</mif:p>
+                        </mif:p>
+                     </mif:text>
+                  </mif:mapping>
+                  <mif:mapping sourceName="HC-AE">
+                     <mif:text>
+                        <mif:p>
+                           <mif:p>A.1</mif:p>
+                        </mif:p>
+                     </mif:text>
+                  </mif:mapping>
+                  <mif:mapping sourceName="Immunization">
+                     <mif:text>
+                        <mif:p>
+                           <mif:p>PID.2</mif:p>
+                        </mif:p>
+                     </mif:text>
+                  </mif:mapping>
+                  <mif:mapping sourceName="NCPDP">
+                     <mif:text>
+                        <mif:p>
+                           <mif:p>Patient.332-CY (Extension)</mif:p>
+                        </mif:p>
+                     </mif:text>
+                  </mif:mapping>
+                  <mif:mapping sourceName="NCPDP">
+                     <mif:text>
+                        <mif:p>
+                           <mif:p>Patient.331-CX (Root)</mif:p>
+                        </mif:p>
+                     </mif:text>
+                  </mif:mapping>
+                  <mif:mapping sourceName="NCPDP">
+                     <mif:text>
+                        <mif:p>
+                           <mif:p>Claim.330-CW</mif:p>
+                        </mif:p>
+                     </mif:text>
+                  </mif:mapping>
+                  <mif:mapping sourceName="Ontario">
+                     <mif:text>
+                        <mif:p>
+                           <mif:p>Health Card Number</mif:p>
+                        </mif:p>
+                     </mif:text>
+                  </mif:mapping>
+                  <mif:mapping sourceName="PECS">
+                     <mif:text>
+                        <mif:p>
+                           <mif:p>PID.2</mif:p>
+                        </mif:p>
+                     </mif:text>
+                  </mif:mapping>
+                  <mif:mapping sourceName="PECS">
+                     <mif:text>
+                        <mif:p>
+                           <mif:p>PID.4</mif:p>
+                        </mif:p>
+                     </mif:text>
+                  </mif:mapping>
+                  <mif:mapping sourceName="PECS">
+                     <mif:text>
+                        <mif:p>
+                           <mif:p>ZDU.2</mif:p>
+                        </mif:p>
+                     </mif:text>
+                  </mif:mapping>
+                  <mif:mapping sourceName="PECS">
+                     <mif:text>
+                        <mif:p>
+                           <mif:p>ZKW.3</mif:p>
+                        </mif:p>
+                     </mif:text>
+                  </mif:mapping>
+                  <mif:mapping sourceName="PEI">
+                     <mif:text>
+                        <mif:p>
+                           <mif:p>Jurisdiction (Root)</mif:p>
+                        </mif:p>
+                     </mif:text>
+                  </mif:mapping>
+                  <mif:mapping sourceName="PIN">
+                     <mif:text>
+                        <mif:p>
+                           <mif:p>Person.PHN (Extension)</mif:p>
+                        </mif:p>
+                     </mif:text>
+                  </mif:mapping>
+               </mif:annotations>
+               <mif:derivationSupplier staticModelDerivationId="1" className="Patient" attributeName="id"/>
+               <mif:type name="II.TOKEN"/>
+            </mif:attribute>
+         </mif:class>
+      </mif:specializedClass>
+   </mif:ownedEntryPoint>
+</mif:serializedStaticModel>

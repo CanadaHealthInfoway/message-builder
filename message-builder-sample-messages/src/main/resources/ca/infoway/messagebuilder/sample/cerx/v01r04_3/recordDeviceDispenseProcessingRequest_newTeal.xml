@@ -1,0 +1,160 @@
+<PORX_IN020060CA xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:hl7-org:v3" ITSVersion="XML_1.0">
+    <!-- Message rendered by Intelliware TEAL version 1.6-SNAPSHOT -->
+    <id root="1ee83ff1-08ab-4fe7-b573-ea777e9bad55"/>
+    <creationTime value="20080625141610-0400"/>
+    <versionCode code="V3-2007-05"/>
+    <interactionId extension="PORX_IN020060CA" root="2.16.840.1.113883.1.6"/>
+    <processingCode code="P"/>
+    <processingModeCode code="T"/>
+    <acceptAckCode code="AL"/>
+    <receiver typeCode="RCV">
+      <telecom value="http://123.456.789.10"/>
+      <device classCode="DEV" determinerCode="INSTANCE">
+        <id extension="123" root="1.2.3"/>
+      </device>
+    </receiver>
+    <sender typeCode="SND">
+      <telecom value="http://987.654.321.0"/>
+      <device classCode="DEV" determinerCode="INSTANCE">
+        <id extension="123" root="1.2.3"/>
+        <manufacturerModelName>1.0</manufacturerModelName>
+        <softwareName>Panacea Pharmacy</softwareName>
+      </device>
+    </sender>
+    <controlActEvent classCode="CACT" moodCode="EVN">
+      <id extension="8141234" root="2.16.840.1.113883.1.6"/>
+      <code code="PORX_TE020150UV" codeSystem="2.16.840.1.113883.5.4"/>
+      <statusCode code="completed"/>
+      <effectiveTime>
+        <low value="20080918"/>
+      </effectiveTime>
+      <author typeCode="AUT" contextControlCode="AP">
+        <time value="20080918181800-0400"/>
+        <assignedPerson classCode="ASSIGNED">
+          <id extension="EHR ID EXT" root="2.16.840.1.113883.4.267"/>
+          <representedPerson classCode="PSN" determinerCode="INSTANCE">
+            <name use="L"><given>Jane</given><family>Doe</family></name>
+            <asLicensedEntity classCode="LIC">
+              <id extension="55555" root="2.16.840.1.113883.4.268"/>
+            </asLicensedEntity>
+          </representedPerson>
+        </assignedPerson>
+      </author>
+      <location typeCode="LOC" contextControlCode="AP">
+        <serviceDeliveryLocation classCode="SDLOC">
+          <id extension="1" root="2.16.124.113620.1.1.11111"/>
+          <addr nullFlavor="NI"/>
+          <telecom nullFlavor="NI"/>
+          <location classCode="PLC" determinerCode="INSTANCE">
+            <name>Intelliware&apos;s Pharmacy</name>
+          </location>
+        </serviceDeliveryLocation>
+      </location>
+      <subject typeCode="SUBJ" contextControlCode="ON" contextConductionInd="false">
+        <deviceDispense classCode="SPLY" moodCode="EVN">
+          <id extension="16373838" root="2.16.124.113618.1.1227543788373.2148.1233933814438.2148"/>
+          <confidentialityCode code="N" codeSystem="2.16.840.1.113883.5.25"/>
+          <subject typeCode="SBJ" contextControlCode="OP">
+            <patient1 classCode="PAT">
+              <id extension="8048151067070480384" root="2.16.840.1.113883.1.133"/>
+              <addr use="H">Bloor</addr>
+              <telecom value="http://123.456.789.10"/>
+              <patientPerson classCode="PSN" determinerCode="INSTANCE">
+                <name><given>Hannah</given><family>Lambert</family></name>
+                <administrativeGenderCode code="F" codeSystem="2.16.840.1.113883.5.1"/>
+                <birthTime value="19870101"/>
+              </patientPerson>
+            </patient1>
+          </subject>
+          <inFulfillmentOf typeCode="FLFS" contextControlCode="ON" contextConductionInd="true">
+            <deviceRequest classCode="SPLY" moodCode="RQO">
+              <id extension="4814" root="2.16.124.113620.1.1.8"/>
+              <responsibleParty typeCode="RESP">
+                <assignedPerson classCode="ASSIGNED">
+                  <id extension="1" root="12.34.56"/>
+                  <code code="ACP" codeSystem="2.16.840.1.113883.5.111"/>
+                  <representedPerson classCode="PSN" determinerCode="INSTANCE">
+                    <name><given>John</given><family>Doe</family></name>
+                    <asLicensedEntity classCode="LIC">
+                      <id extension="1" root="77.33.22.11"/>
+                    </asLicensedEntity>
+                  </representedPerson>
+                </assignedPerson>
+              </responsibleParty>
+              <author typeCode="AUT">
+                <time value="19691231"/>
+                <assignedPerson classCode="ASSIGNED">
+                  <id extension="1" root="1.1.1"/>
+                  <representedPerson classCode="PSN" determinerCode="INSTANCE">
+                    <name><given>John</given><family>Doe</family></name>
+                    <asLicensedEntity classCode="LIC">
+                      <id extension="1" root="2.2.2"/>
+                    </asLicensedEntity>
+                  </representedPerson>
+                </assignedPerson>
+              </author>
+              <component typeCode="COMP" contextControlCode="ON" contextConductionInd="true">
+                <supplyRequest classCode="SPLY" moodCode="RQO">
+                  <quantity value="1"/>
+                </supplyRequest>
+              </component>
+            </deviceRequest>
+          </inFulfillmentOf>
+          <component1 typeCode="COMP" contextControlCode="ON" contextConductionInd="true">
+            <procedureRequest classCode="PROC" moodCode="RQO">
+              <text>use as directed</text>
+            </procedureRequest>
+          </component1>
+          <component2 typeCode="COMP" contextControlCode="ON" contextConductionInd="true">
+            <supplyEvent classCode="SPLY" moodCode="EVN">
+              <code code="DF" codeSystem="2.16.840.1.113883.5.4"/>
+              <effectiveTime>
+                <low value="20090201"/>
+                <high value="20100112"/>
+              </effectiveTime>
+              <quantity value="1"/>
+              <expectedUseTime>
+                <high value="20100120"/>
+              </expectedUseTime>
+              <product typeCode="PRD" contextControlCode="OP">
+                <manufacturedProduct classCode="MANU">
+                  <manufacturedClinicalDevice classCode="DEV" determinerCode="KIND">
+                    <code code="97799979" codeSystem="2.16.840.1.113883.5.1102"/>
+                    <name>Onetouch Surestep Testing Strips (100)</name>
+                    <desc>A concoction of this and that</desc>
+                    <asContent classCode="CONT">
+                      <quantity value="1"/>
+                    </asContent>
+                  </manufacturedClinicalDevice>
+                </manufacturedProduct>
+              </product>
+              <destination typeCode="DST" contextControlCode="OP">
+                <serviceDeliveryLocation classCode="SDLOC">
+                  <addr use="H">Bloor</addr>
+                </serviceDeliveryLocation>
+              </destination>
+            </supplyEvent>
+          </component2>
+          <subjectOf typeCode="SUBJ" contextControlCode="AN" contextConductionInd="false">
+            <annotation classCode="ACT" moodCode="EVN">
+              <text>note text</text>
+              <statusCode code="completed"/>
+              <languageCode code="en" codeSystem="2.16.840.1.113883.6.84"/>
+              <author typeCode="AUT">
+                <time value="19691231190000-0500"/>
+                <assignedPerson classCode="ASSIGNED">
+                  <id extension="1" root="1.1.1"/>
+                  <representedPerson classCode="PSN" determinerCode="INSTANCE">
+                    <name><given>John</given><family>Doe</family></name>
+                    <asLicensedEntity classCode="LIC">
+                      <id extension="1" root="2.2.2"/>
+                    </asLicensedEntity>
+                  </representedPerson>
+                </assignedPerson>
+              </author>
+            </annotation>
+          </subjectOf>
+        </deviceDispense>
+      </subject>
+    </controlActEvent>
+</PORX_IN020060CA>

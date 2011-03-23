@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:chi="urn:ca.infoway.messagebuilder.simplexml.v1" elementFormDefault="qualified" targetNamespace="urn:ca.infoway.messagebuilder.simplexml.v1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include schemaLocation="QUCR_MT810201CA.xsd"/>
+  <xs:include schemaLocation="QUCR_MT800201CA.xsd"/>
+  <xs:include schemaLocation="QUQI_MT120008CA.xsd"/>
+  <xs:include schemaLocation="MCCI_MT002300CA.xsd"/>
+  <xs:complexType name="QUCR_IN810102CA.QUQI_MT120008CA.QueryByParameter">
+    <xs:complexContent>
+      <xs:extension base="chi:QUQI_MT120008CA.QueryByParameter">
+        <xs:sequence>
+          <xs:element name="parameterList" type="chi:QUCR_MT800201CA.ParameterList"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="QUCR_IN810102CA.QUQI_MT120008CA.Subject2">
+    <xs:complexContent>
+      <xs:extension base="chi:QUQI_MT120008CA.Subject2">
+        <xs:sequence>
+          <xs:element name="act" type="chi:QUCR_MT810201CA.AdjudResultsGroup"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="QUCR_IN810102CA.QUQI_MT120008CA.ControlActEvent">
+    <xs:complexContent>
+      <xs:extension base="chi:QUQI_MT120008CA.ControlActEvent">
+        <xs:sequence>
+          <xs:element name="queryByParameter" type="chi:QUCR_IN810102CA.QUQI_MT120008CA.QueryByParameter"/>
+          <xs:element name="subject" type="chi:QUCR_IN810102CA.QUQI_MT120008CA.Subject2"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="QUCR_IN810102CA">
+    <xs:complexContent>
+      <xs:extension base="chi:MCCI_MT002300CA.Message">
+        <xs:sequence>
+          <xs:element name="controlActEvent" type="chi:QUCR_IN810102CA.QUQI_MT120008CA.ControlActEvent"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="sOFAPaymentAdviceQueryResponseRx" type="chi:QUCR_IN810102CA"/>
+</xs:schema>

@@ -1,0 +1,3168 @@
+<mif:dynamicModel xmlns:mif="urn:hl7-org:v3/mif">
+   <mif:header>
+      <mif:renderingInformation schemaVersion="1" application="RoseTree 4.2.20">
+         <mif:renderingNotes>This document was rendered into XML using software provided to HL7 by Beeler Consulting LLC.
+ PubDB to MIF Transform: $RCSfile: PubDbXmlToMIF.xsl,v $ $Revision: 1.11 $ $Date: 2007/10/19 05:55:13 $
+  Fix names transform: $Id: FixMifNames.xsl,v 1.8 2007/03/20 02:48:49 wbeeler Exp $
+  HTML to MIF Markup transform: $Id: HtmlToMIFMarkup.xsl,v 1.4 2007/03/20 02:48:49 wbeeler Exp $
+  Base transform: $Id: ConvertBase.xsl,v 1.5 2007/10/19 05:55:13 wbeeler Exp $
+  Package Id Conversion: $Id: TransformPackageIds.xsl,v 1.6 2007/03/20 02:48:49 wbeeler Exp $</mif:renderingNotes>
+      </mif:renderingInformation>
+      <mif:legalese copyrightOwner="Health Level Seven, Inc." copyrightYears="2008">
+         <mif:notation>All rights reserved.</mif:notation>
+      </mif:legalese>
+   </mif:header>
+   <mif:triggerEvent name="000057" title="Common Observation Event Complete Coded Request"
+                     invokingInteractionId="REPC_IN000064CA">
+      <mif:businessName name="Request to record coded observation"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                           id="000057"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>A user attempts to record a coded observation in a patient's record.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="000059" title="Common Observation Event Complete Coded Rejection"
+                     invokingInteractionId="REPC_IN000066CA">
+      <mif:businessName name="Decision not to record coded observation"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                           id="000059"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>A request to record a coded observation in a patient's record has been refused.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="000058" title="Common Observation Event Complete Coded"
+                     invokingInteractionId="REPC_IN000065CA">
+      <mif:businessName name="Coded observation recorded in patient record"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                           id="000058"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>A coded observation has been recorded in a patient's record.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="000051" title="Common Observation Event Complete Measurement Request"
+                     invokingInteractionId="REPC_IN000051CA">
+      <mif:businessName name="Request to record measured observation"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                           id="000051"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>A user attempts to record a measured observation in a patient's record.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="000053" title="Common Observation Event Complete Measurement Rejection"
+                     invokingInteractionId="REPC_IN000053CA">
+      <mif:businessName name="Decision not to record measured observation"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                           id="000053"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>A request to record a measured observation in a patient's record has been refused.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="000052" title="Common Observation Event Complete Measurement"
+                     invokingInteractionId="REPC_IN000052CA">
+      <mif:businessName name="Measured observation recorded in patient record"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                           id="000052"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>A measured observation has been recorded in a patient's record.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="000060" title="Common Observation Event Coded Query"
+                     invokingInteractionId="REPC_IN000067CA">
+      <mif:businessName name="Patient coded observation info. requested"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                           id="000060"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>A user or system requires information about coded observations for a patient.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="000061" title="Common Observation Event Coded Query Response"
+                     invokingInteractionId="REPC_IN000068CA">
+      <mif:businessName name="Request for pt. coded observation info. received"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                           id="000061"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>An application responds to a request for information about coded observations for a patient.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="000054" title="Common Observation Event Measurement Query"
+                     invokingInteractionId="REPC_IN000054CA">
+      <mif:businessName name="Patient measured observation info. requested"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                           id="000054"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>A user or system requires information about measured observations for a patient.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="000055" title="Common Observation Event Measurement Query Response"
+                     invokingInteractionId="REPC_IN000055CA">
+      <mif:businessName name="Request for pt. measured observ. info. received"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                           id="000055"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>An application responds to a request for information about measured observations for a patient.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="000043" title="Procedure Event Complete Professional Service Request"
+                     invokingInteractionId="REPC_IN000044CA">
+      <mif:businessName name="Request to record professional service"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                           id="000043"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>A user attempts to record a professional service in a patient's record.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="000045" title="Procedure Event Complete Professional Service Rejection"
+                     invokingInteractionId="REPC_IN000046CA">
+      <mif:businessName name="Decision to reject recording professional service"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                           id="000045"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>A request to record a professional service in a patient's record has been refused.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="000044" title="Procedure Event Complete Professional Service"
+                     invokingInteractionId="REPC_IN000045CA">
+      <mif:businessName name="Professional service recorded"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                           id="000044"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>A professional service has been recorded in a patient's record.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="000041" title="Procedure Event Professional Service Query"
+                     invokingInteractionId="REPC_IN000041CA">
+      <mif:businessName name="Patient professional services requested"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                           id="000041"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>A user or system requires information about professional services performed for a patient.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="000042" title="Procedure Event Professional Service Query Response"
+                     invokingInteractionId="REPC_IN000042CA">
+      <mif:businessName name="Request for patient professional services received"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                           id="000042"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>An application responds to a request for information about professional services performed for a patient.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="000067" title="Care Composition Event Jump Request"
+                     invokingInteractionId="REPC_IN000070CA">
+      <mif:businessName name="Request to record care composition"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                           id="000067"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>A user attempts to record care composition in a patient's record.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="000069" title="Care Composition Event Jump Rejection"
+                     invokingInteractionId="REPC_IN000072CA">
+      <mif:businessName name="Decision to reject recording care composition"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                           id="000069"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>A request to record a care composition in a patient's record has been refused.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="000068" title="Care Composition Event Jump"
+                     invokingInteractionId="REPC_IN000071CA">
+      <mif:businessName name="Care composition recorded"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                           id="000068"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>A care composition has been recorded in a patient's record.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="000070" title="Care Composition Event Revise Request"
+                     invokingInteractionId="REPC_IN000073CA">
+      <mif:businessName name="Request to record change to care composition"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                           id="000070"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>A user attempts to modify a previously recorded care composition record.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="000072" title="Care Composition Event Revise Rejection"
+                     invokingInteractionId="REPC_IN000075CA">
+      <mif:businessName name="Decision to not record care composition change"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                           id="000072"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>A request to record a care composition change in a patient's record has been refused.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="000071" title="Care Composition Event Revise"
+                     invokingInteractionId="REPC_IN000074CA">
+      <mif:businessName name="Care composition updated"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                           id="000071"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>The record of a patient's care composition has been updated.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="040100" title="Care Composition Event Get Query"
+                     invokingInteractionId="REPC_IN040100CA">
+      <mif:businessName name="Patient care composition details requested"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                           id="040100"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>A user or system requires information about a patient care composition details.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="040200" title="Care Composition Event Get Query Response"
+                     invokingInteractionId="REPC_IN040200CA">
+      <mif:businessName name="Request for care composition details received"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                           id="040200"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>An application responds to a request for information about a patient care composition details.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="041100" title="Care Composition Event List Summaries Query"
+                     invokingInteractionId="REPC_IN041100CA">
+      <mif:businessName name="Patient care composition summaries requested"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                           id="041100"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>A user or system requires information about &lt;Font&gt;#000000 a patient&lt;/Font&gt;&lt;Font&gt; care composition summaries.&lt;/Font&gt;</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="041200" title="Care Composition Event List Summaries Query Response"
+                     invokingInteractionId="REPC_IN041200CA">
+      <mif:businessName name="Request for care composition summaries received"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                           id="041200"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>An application responds to a request for information &lt;Font&gt;#000000about a patient &lt;/Font&gt;&lt;Font&gt;care composition summaries.&lt;/Font&gt;</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="000076"
+                     title="Clinical Document Event Complete Discharge/Care Summary Request"
+                     invokingInteractionId="REPC_IN000076CA">
+      <mif:businessName name="Request to record discharge / care summary"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                           id="000076"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>A user attempts to record a discharge / care summary in a patient's record.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="000078"
+                     title="Clinical Document Event Complete Discharge/Care Summary Rejection"
+                     invokingInteractionId="REPC_IN000078CA">
+      <mif:businessName name="Decision not to record discharge / care summary"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                           id="000078"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>A request to record a discharge / care summary in a patient's record has been refused.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="000077" title="Clinical Document Event Complete Discharge/Care Summary"
+                     invokingInteractionId="REPC_IN000077CA">
+      <mif:businessName name="Discharge / care summary recorded"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                           id="000077"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>A discharge / care summary has been recorded in a patient's record.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="000079"
+                     title="Clinical Document Event Complete Observation Document Request"
+                     invokingInteractionId="REPC_IN000079CA">
+      <mif:businessName name="Request to record clinical observation document"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                           id="000079"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>A user attempts to record a clinical observation document in a patient's record.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="000081"
+                     title="Clinical Document Event Complete Observation Document Rejection"
+                     invokingInteractionId="REPC_IN000081CA">
+      <mif:businessName name="Decision not to record clinical observation doc."/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                           id="000081"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>A request to record a clinical observation document in a patient's record has been refused.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="000080" title="Clinical Document Event Complete Observation Document"
+                     invokingInteractionId="REPC_IN000080CA">
+      <mif:businessName name="Clinical observation document recorded"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                           id="000080"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>A clinical observation document has been recorded in a patient's record.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="000073" title="Clinical Document Event Complete Referral Request"
+                     invokingInteractionId="REPC_IN000096CA">
+      <mif:businessName name="Request to record referral"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                           id="000073"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>A user attempts to record a referral in a patient's record.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="000075" title="Clinical Document Event Complete Referral Rejection"
+                     invokingInteractionId="REPC_IN000098CA">
+      <mif:businessName name="Decision to not record referral"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                           id="000075"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>A request to record a referral in a patient's record has been refused.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="000074" title="Clinical Document Event Complete Referral"
+                     invokingInteractionId="REPC_IN000097CA">
+      <mif:businessName name="Referral recorded"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                           id="000074"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>A referral has been recorded in a patient's record.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="000092" title="Clinical Document Event Get Discharge/Care Summary Query"
+                     invokingInteractionId="REPC_IN000092CA">
+      <mif:businessName name="Patient discharge / care summary details requested"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                           id="000092"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>A user or system requires information about discharge / care summary details for a patient.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="000093"
+                     title="Clinical Document Event Get Discharge/Care Summary Query Response"
+                     invokingInteractionId="REPC_IN000093CA">
+      <mif:businessName name="Patient discharge / care summary details received"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                           id="000093"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>An application responds to a request for information about discharge / care summary details for a patient.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="000094" title="Clinical Document Event Get Observation Documents Query"
+                     invokingInteractionId="REPC_IN000094CA">
+      <mif:businessName name="Patient clinical obs. doc. details requested"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                           id="000094"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>A user or system requires information about clinical observation document details for a patient.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="000095"
+                     title="Clinical Document Event Get Observation Documents Query Response"
+                     invokingInteractionId="REPC_IN000095CA">
+      <mif:businessName name="Patient clinical obs. doc. details received"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                           id="000095"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>An application responds to a request for information about clinical observation document details for a patient.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="000090" title="Clinical Document Event Get Referral Details Query"
+                     invokingInteractionId="REPC_IN000090CA">
+      <mif:businessName name="Patient referral details requested"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                           id="000090"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>A user or system requires information about referral details for a patient.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="000091"
+                     title="Clinical Document Event Get Referral Details Query Response"
+                     invokingInteractionId="REPC_IN000091CA">
+      <mif:businessName name="Patient referral details received"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                           id="000091"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>An application responds to a request for information about referral details for a patient.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="000086"
+                     title="Clinical Document Event List Discharge/Care Summaries Query"
+                     invokingInteractionId="REPC_IN000086CA">
+      <mif:businessName name="Patient discharge / care summaries requested"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                           id="000086"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>A user or system requires information about discharge / care summaries for a patient.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="000087"
+                     title="Clinical Document Event List Discharge/Care Summaries Query Response"
+                     invokingInteractionId="REPC_IN000087CA">
+      <mif:businessName name="Patient discharge / care summaries received"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                           id="000087"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>An application responds to a request for information about discharge / care summaries for a patient.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="000088" title="Clinical Document Event List Observation Documents Query"
+                     invokingInteractionId="REPC_IN000088CA">
+      <mif:businessName name="Patient clinical obs. doc. summaries requested"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                           id="000088"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>A user or system requires information about clinical observation document summaries for a patient.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="000089"
+                     title="Clinical Document Event List Observation Documents Query Response"
+                     invokingInteractionId="REPC_IN000089CA">
+      <mif:businessName name="Patient clinical obs. doc. summaries received"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                           id="000089"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>An application responds to a request for information about clinical observation document summaries for a patient.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="000084" title="Clinical Document Event List Referrals Query"
+                     invokingInteractionId="REPC_IN000084CA">
+      <mif:businessName name="Patient referral summaries requested"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                           id="000084"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>A user or system requires information about referral summaries for a patient.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="000085" title="Clinical Document Event List Referrals Query Response"
+                     invokingInteractionId="REPC_IN000085CA">
+      <mif:businessName name="Patient referral summaries received"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                           id="000085"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>An application responds to a request for information about referral summaries for a patient.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="000017" title="Health Condition Event Jump Request"
+                     invokingInteractionId="REPC_IN000028CA">
+      <mif:businessName name="Request to record health condition"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                           id="000017"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>A user attempts to record a new health condition in a patient's record.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="000019" title="Health Condition Event Jump Rejection"
+                     invokingInteractionId="REPC_IN000030CA">
+      <mif:businessName name="Decision to not record patient health condition"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                           id="000019"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>A request to record a health condition in a patient's record has been refused.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="000018" title="Health Condition Event Jump"
+                     invokingInteractionId="REPC_IN000029CA">
+      <mif:businessName name="Patient health condition recorded"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                           id="000018"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>A health condition has been recorded in a patient's record.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="000026" title="Health Condition Event Revise Request"
+                     invokingInteractionId="REPC_IN000032CA">
+      <mif:businessName name="Request to record change to patient health cond."/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                           id="000026"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>A user attempts to modify a previously recorded health condition record.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="000028" title="Health Condition Event Revise Rejection"
+                     invokingInteractionId="REPC_IN000034CA">
+      <mif:businessName name="Decision to not record health condition change"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                           id="000028"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>A request to record a basic observation in a patient's record has been refused.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="000027" title="Health Condition Event Revise"
+                     invokingInteractionId="REPC_IN000033CA">
+      <mif:businessName name="Patent health condition updated"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                           id="000027"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>The record of a patient's health condition has been updated.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="000012" title="Health Condition Event Get Query"
+                     invokingInteractionId="REPC_IN000025CA">
+      <mif:businessName name="Patient health condition details requested"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                           id="000012"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>A user or system requires information about health conditions.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="000013" title="Health Condition Event Get Query Response"
+                     invokingInteractionId="REPC_IN000026CA">
+      <mif:businessName name="Patient health condition details received"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                           id="000013"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>An application responds to a request for information about a specific health condition.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="000010" title="Health Condition Event List Query"
+                     invokingInteractionId="REPC_IN000023CA">
+      <mif:businessName name="Patient health condition summaries requested"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                           id="000010"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>An application responds to a request for information about health conditions.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="000011" title="Health Condition Event List Query Response"
+                     invokingInteractionId="REPC_IN000024CA">
+      <mif:businessName name="Patient health cond. summaries request received"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                           id="000011"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>A user or system requires information, including change history, about health conditions.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="000020" title="Adverse Reaction Event Revise Request"
+                     invokingInteractionId="REPC_IN000008CA">
+      <mif:businessName name="Request to record change to patient adverse rxn"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                           id="000020"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>A user attempts to modify a previously-recorded adverse reaction.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="000022" title="Adverse Reaction Event Revise Rejection"
+                     invokingInteractionId="REPC_IN000010CA">
+      <mif:businessName name="Decision to not record patient adverse rxn change"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                           id="000022"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>A request to modify a previously-recorded adverse reaction has been refused (e.g. reaction not found, no permission, etc.)</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="000021" title="Adverse Reaction Event Revise"
+                     invokingInteractionId="REPC_IN000009CA">
+      <mif:businessName name="Patent adverse reaction updated"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                           id="000021"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>A previously-recorded adverse reaction has been modified.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="000014" title="Adverse Reaction Event Complete Request"
+                     invokingInteractionId="REPC_IN000004CA">
+      <mif:businessName name="Request to record patient adverse reaction"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                           id="000014"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>A user attempts to record an adverse reaction in a patient's record.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="000016" title="Adverse Reaction Event Complete Rejection"
+                     invokingInteractionId="REPC_IN000006CA">
+      <mif:businessName name="Decision to not record patient adverse reaction"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                           id="000016"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>The request to record an adverse reaction in a patient's record has been refused (e.g. no permission, patient not recoginized, contraindication, etc.)</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="000015" title="Adverse Reaction Event Complete"
+                     invokingInteractionId="REPC_IN000005CA">
+      <mif:businessName name="Patient adverse reaction recorded"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                           id="000015"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>An adverse reaction has been recorded in a patient's record.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="000004" title="Adverse Reaction Event Query"
+                     invokingInteractionId="REPC_IN000001CA">
+      <mif:businessName name="Patient adverse reactions queried"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                           id="000004"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>A user or system requires information about adverse reactions for a patient.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="000005" title="Adverse Reaction Event Query Response"
+                     invokingInteractionId="REPC_IN000002CA">
+      <mif:businessName name="Request for patient adverse reactions received"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                           id="000005"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>An application responds to a request for information about adverse reactions for a patient.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="000001" title="Allergy Intolerance Event Activate Request"
+                     invokingInteractionId="REPC_IN000012CA">
+      <mif:businessName name="Request to record allergy or intolerance"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                           id="000001"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>A user attempts to recored an allergy or intolerance in a patient's record.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="000003" title="Allergy Intolerance Event Activate Rejection"
+                     invokingInteractionId="REPC_IN000014CA">
+      <mif:businessName name="Decision to not record allergy or intolerance"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                           id="000003"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>A requst to recored an allergy or intolerance in a patient's record has been refused. (E.g. contraindication, patient not found, etc.)</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="000002" title="Allergy Intolerance Event Activate"
+                     invokingInteractionId="REPC_IN000013CA">
+      <mif:businessName name="Allergy or intolerance recorded"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                           id="000002"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>An allergy or intolerance has been recorded in a patient's record.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="000023" title="Allergy Intolerance Event Revise Request"
+                     invokingInteractionId="REPC_IN000020CA">
+      <mif:businessName name="Request record change to patient allergy/ intol."/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                           id="000023"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>A user attempts to modify a previously-recorded allergy or intolerance.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="000025" title="Allergy Intolerance Event Revise Rejection"
+                     invokingInteractionId="REPC_IN000022CA">
+      <mif:businessName name="Decision to not record allergy/ intol. change"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                           id="000025"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>A request to modify a previously-recorded allergy or intolerance has been refused (e.g. no permission, patient not found).</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="000024" title="Allergy Intolerance Event Revise"
+                     invokingInteractionId="REPC_IN000021CA">
+      <mif:businessName name="Patent allergy or intolerance updated"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                           id="000024"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>A previously-recorded allergy or intolerance has been modified.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="000008" title="Allergy Intolerance Event With History Query"
+                     invokingInteractionId="REPC_IN000017CA">
+      <mif:businessName name="Patient allergy or intolerance with hist. queried"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                           id="000008"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>An application responds to a request for information, including change history, about allergies and intolerances for a patient.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="000009" title="Allergy Intolerance Event With History Query Response"
+                     invokingInteractionId="REPC_IN000018CA">
+      <mif:businessName name="Received patient allergy/intol. with hist. request"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                           id="000009"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>A user or system requires information, including change history, about allergies and intolerances for a patient.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="000006" title="Allergy Intolerance Event Query"
+                     invokingInteractionId="REPC_IN000015CA">
+      <mif:businessName name="Patient allergy and intolerances queried"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                           id="000006"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>A user or system requires information about allergies and intolerances for a patient.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="000007" title="Allergy Intolerance Event Query Response"
+                     invokingInteractionId="REPC_IN000016CA">
+      <mif:businessName name="Received patient allergy and intolerances request"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                           id="000007"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>An application responds to a request for information about allergies and intolerances for a patient.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="000097" title="Cross-domain Query List Query Response"
+                     invokingInteractionId="COMT_IN200000CA">
+      <mif:businessName name="Cross domain information received"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                           id="000097"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>An application responds to a request for information about a clinical summary/profile.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="000096" title="Cross-domain Query List Query"
+                     invokingInteractionId="COMT_IN100000CA">
+      <mif:businessName name="Cross domain information requested"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                           id="000096"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>A user or system requires information about a clinical summary/profile.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:hl7Interaction name="000064" title="Common Observation Event Complete Request Coded">
+      <mif:businessName name="Record patient coded observation request"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="IN" realm="CA"
+                           id="000064"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>Requests that a coded observation (for example: APGAR score, symptom, blood type, smoker, etc.) be recorded in a patient's record.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                      id="000057"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002100">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="MC"
+                                      domain="AI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="700210"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="Act" root="DEFN" section="HM" subSection="RE"
+                                         domain="PC"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="420001"
+                                         traversalName="commonObservationEvent"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+      <mif:receiverResponsibility interactionName="Common Observation Event Complete Confirmation Coded"/>
+      <mif:receiverResponsibility interactionName="Common Observation Event Complete Rejection Coded"/>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="000051" title="Common Observation Event Complete Request Measurement">
+      <mif:businessName name="Record patient measurement obs. request"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="IN" realm="CA"
+                           id="000051"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>Requests that a measurement observation (for example are: height, weight, blood-pressure, temperature) be recorded in a patient's record.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                      id="000051"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002100">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="MC"
+                                      domain="AI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="700210"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="Act" root="DEFN" section="HM" subSection="RE"
+                                         domain="PC"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="410001"
+                                         traversalName="commonObservationEvent"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+      <mif:receiverResponsibility interactionName="Common Observation Event Complete Confirmation Measurement"/>
+      <mif:receiverResponsibility interactionName="Common Observation Event Complete Rejection Measurement"/>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="000065" title="Common Observation Event Complete Confirmation Coded">
+      <mif:businessName name="Record patient coded observation request accepted"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="IN" realm="CA"
+                           id="000065"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>Indicates that the requested coded observation (for example: APGAR score, symptom, blood type, smoker, etc.) has been successfully recorded in a patient's record.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                      id="000058"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002300">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="MC"
+                                      domain="AI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="700226"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="Act" root="DEFN" section="IM" subSection="CO"
+                                         domain="MT"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="001101"
+                                         traversalName="actRequest"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="000052"
+                       title="Common Observation Event Complete Confirmation Measurement">
+      <mif:businessName name="Record patient measurement obs. request accepted"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="IN" realm="CA"
+                           id="000052"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>Indicates that the requested measurement observation (for example are: height, weight, blood-pressure, temperature) has been successfully recorded in a patient's record.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                      id="000052"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002300">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="MC"
+                                      domain="AI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="700226"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="Act" root="DEFN" section="IM" subSection="CO"
+                                         domain="MT"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="001101"
+                                         traversalName="actRequest"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="000066" title="Common Observation Event Complete Rejection Coded">
+      <mif:businessName name="Record patient coded observation request refused"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="IN" realm="CA"
+                           id="000066"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>Indicates that the request to record the specified coded observation (for example: APGAR score, symptom, blood type, smoker, etc.) in the patient's record has been refused.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                      id="000059"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002300">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="MC"
+                                      domain="AI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="700236"
+                                      traversalName="controlActEvent"/>
+      </mif:parameterTypeModel>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="000053" title="Common Observation Event Complete Rejection Measurement">
+      <mif:businessName name="Record patient measurement obs. request refused"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="IN" realm="CA"
+                           id="000053"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>Indicates that the request to record the specified measurement observation (for example are: height, weight, blood-pressure, temperature) in the patient's record has been refused.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                      id="000053"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002300">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="MC"
+                                      domain="AI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="700236"
+                                      traversalName="controlActEvent"/>
+      </mif:parameterTypeModel>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="000067" title="Common Observation Event Query Coded">
+      <mif:businessName name="Patient coded observations query"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="IN" realm="CA"
+                           id="000067"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>Requests retrieval of the coded observations which have been recorded for a particular patient, optionally filtered by the type of observation and/or by the date-range for which the observation was recorded.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                      id="000060"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002100">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="QU"
+                                      domain="QI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="020000"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="ParameterList" root="DEFN" section="HM" subSection="RE"
+                                         domain="PC"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="420002"
+                                         traversalName="parameterList"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+      <mif:receiverResponsibility interactionName="Common Observation Event Query Response Coded"/>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="000054" title="Common Observation Event Query Measurement">
+      <mif:businessName name="Patient measurement observations query"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="IN" realm="CA"
+                           id="000054"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>Requests retrieval of the measurement observations which have been recorded for a particular patient, optionally filtered by the type of observation and/or by the date-range for which the observation was recorded.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                      id="000054"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002100">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="QU"
+                                      domain="QI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="020000"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="ParameterList" root="DEFN" section="HM" subSection="RE"
+                                         domain="PC"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="410002"
+                                         traversalName="parameterList"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="000068" title="Common Observation Event Query Response Coded">
+      <mif:businessName name="Patient coded observations query response"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="IN" realm="CA"
+                           id="000068"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>Returns one or more coded observations associated with a patient.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                      id="000061"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002300">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="QU"
+                                      domain="QI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="120006"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="Act" root="DEFN" section="HM" subSection="RE"
+                                         domain="PC"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="420003"
+                                         traversalName="commonObservationEvent"/>
+            <mif:supplierBindingArgument templateParameterName="ParameterList" root="DEFN" section="HM" subSection="RE"
+                                         domain="PC"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="420002"
+                                         traversalName="parameterList"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="000055" title="Common Observation Event Query Response Measurement">
+      <mif:businessName name="Patient measurement observations query response"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="IN" realm="CA"
+                           id="000055"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>Returns one or more measurement observations associated with a patient.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                      id="000055"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002300">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="QU"
+                                      domain="QI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="120006"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="Act" root="DEFN" section="HM" subSection="RE"
+                                         domain="PC"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="410003"
+                                         traversalName="commonObservationEvent"/>
+            <mif:supplierBindingArgument templateParameterName="ParameterList" root="DEFN" section="HM" subSection="RE"
+                                         domain="PC"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="410002"
+                                         traversalName="parameterList"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="000044" title="Procedure Event Complete Request Professional Service">
+      <mif:businessName name="Record patient professional service request"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="IN" realm="CA"
+                           id="000044"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>Seeks to add a record of a professional service which has been delivered to a patient.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                      id="000043"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002100">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="MC"
+                                      domain="AI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="700210"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="Act" root="DEFN" section="HM" subSection="RE"
+                                         domain="PC"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="610001"
+                                         traversalName="procedureEvent"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+      <mif:receiverResponsibility interactionName="Procedure Event Complete Confirmation Professional Service"/>
+      <mif:receiverResponsibility interactionName="Procedure Event Complete Rejection Professional Service"/>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="000045"
+                       title="Procedure Event Complete Confirmation Professional Service">
+      <mif:businessName name="Record patient prof. service request accepted"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="IN" realm="CA"
+                           id="000045"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>Indicates that a record of a professional service which has been delivered to a patient has been successfully added.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                      id="000044"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002300">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="MC"
+                                      domain="AI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="700226"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="Act" root="DEFN" section="IM" subSection="CO"
+                                         domain="MT"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="001101"
+                                         traversalName="actRequest"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="000046" title="Procedure Event Complete Rejection Professional Service">
+      <mif:businessName name="Record patient prof. service request refused"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="IN" realm="CA"
+                           id="000046"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>Indicates that the request to add a record of a professional service which has been delivered to a patient has been refused.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                      id="000045"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002300">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="MC"
+                                      domain="AI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="700236"
+                                      traversalName="controlActEvent"/>
+      </mif:parameterTypeModel>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="000041" title="Procedure Event Query Professional Service">
+      <mif:businessName name="Patient professional services query"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="IN" realm="CA"
+                           id="000041"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>Requests retrieval of all professional services provided to a patient, potentially filtered by the provider who delivered the service, the type of service provided, the time-range in which the service was provided, and/or the time-range in which information about the service was last updated (via adding an annotation).</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                      id="000041"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002100">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="QU"
+                                      domain="QI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="020000"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="ParameterList" root="DEFN" section="HM" subSection="RE"
+                                         domain="PC"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="610004"
+                                         traversalName="parameterList"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+      <mif:receiverResponsibility interactionName="Procedure Event Query Response Professional Service"/>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="000042" title="Procedure Event Query Response Professional Service">
+      <mif:businessName name="Patient professional services query response"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="IN" realm="CA"
+                           id="000042"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>Returns detailed information about some or all professional services delivered to a patient.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                      id="000042"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002300">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="QU"
+                                      domain="QI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="120006"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="Act" root="DEFN" section="HM" subSection="RE"
+                                         domain="PC"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="610002"
+                                         traversalName="procedureEvent"/>
+            <mif:supplierBindingArgument templateParameterName="ParameterList" root="DEFN" section="HM" subSection="RE"
+                                         domain="PC"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="610004"
+                                         traversalName="parameterList"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="000070" title="Care Composition Event Jump Request">
+      <mif:businessName name="Record care composition request"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="IN" realm="CA"
+                           id="000070"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>Seeks to add a record of an encounter, episode or similar structure for a particular patient or group of patients.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                      id="000067"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002100">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="MC"
+                                      domain="AI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="700210"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="Act" root="DEFN" section="HM" subSection="RE"
+                                         domain="PC"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="500001"
+                                         traversalName="patientCareProvisionEvent"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+      <mif:receiverResponsibility interactionName="Care Composition Event Jump Confirmation"/>
+      <mif:receiverResponsibility interactionName="Care Composition Event Jump Rejection"/>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="000071" title="Care Composition Event Jump Confirmation">
+      <mif:businessName name="Record care composition request accepted"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="IN" realm="CA"
+                           id="000071"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>Indicates that a record about an encounter, episode or similar structure for a particular patient or group of patients has been successfully added.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                      id="000068"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002300">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="MC"
+                                      domain="AI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="700226"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="Act" root="DEFN" section="IM" subSection="CO"
+                                         domain="MT"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="001101"
+                                         traversalName="actRequest"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="000072" title="Care Composition Event Jump Rejection">
+      <mif:businessName name="Record care composition request refused"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="IN" realm="CA"
+                           id="000072"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>Indicates request to record basic information about an encounter, episode or similar structure for a particular patient or group of patients has been refused.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                      id="000069"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002300">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="MC"
+                                      domain="AI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="700236"
+                                      traversalName="controlActEvent"/>
+      </mif:parameterTypeModel>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="000073" title="Care Composition Event Revise Request">
+      <mif:businessName name="Update care composition request"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="IN" realm="CA"
+                           id="000073"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>Seeks to add a modification of encounter, episode or similar data for a particular patient or group of patients.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                      id="000070"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002100">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="MC"
+                                      domain="AI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="700210"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="Act" root="DEFN" section="HM" subSection="RE"
+                                         domain="PC"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="500002"
+                                         traversalName="patientCareProvisionEvent"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+      <mif:receiverResponsibility interactionName="Care Composition Event Revise Confirmation"/>
+      <mif:receiverResponsibility interactionName="Care Composition Event Revise Rejection"/>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="000074" title="Care Composition Event Revise Confirmation">
+      <mif:businessName name="Update care composition request accepted"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="IN" realm="CA"
+                           id="000074"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>A modification of encounter, episode or similar data for a particular patient or group of patients, has been successfully added.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                      id="000071"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002300">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="MC"
+                                      domain="AI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="700226"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="Act" root="DEFN" section="IM" subSection="CO"
+                                         domain="MT"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="001101"
+                                         traversalName="actRequest"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="000075" title="Care Composition Event Revise Rejection">
+      <mif:businessName name="Update care composition request refused"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="IN" realm="CA"
+                           id="000075"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>Indicates request to record a modification of encounter, episode or similar data for a particular patient or group of patients, has been refused.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                      id="000072"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002300">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="MC"
+                                      domain="AI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="700226"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="Act" root="DEFN" section="IM" subSection="CO"
+                                         domain="MT"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="001101"
+                                         traversalName="actRequest"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="040100" title="Care Composition Event Query Get">
+      <mif:businessName name="Patient care composition details query"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="IN" realm="CA"
+                           id="040100"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>Requests retrieval of details of an encounter, episode and similar structures for a particular patient or group of patients, potentially filtered by date or other criteria.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                      id="040100"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002100">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="QU"
+                                      domain="QI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="020000"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="ParameterList" root="DEFN" section="HM" subSection="RE"
+                                         domain="PC"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="500006"
+                                         traversalName="parameterList"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+      <mif:receiverResponsibility interactionName="Care Composition Event Query Response Get"/>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="041100" title="Care Composition Event Query List Summaries">
+      <mif:businessName name="Patient care composition summaries query"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="IN" realm="CA"
+                           id="041100"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>Requests retrieval of a list of encounters, episodes and similar structures for a particular patient or group of patients, potentially filtered by date or other criteria. &lt;p/&gt;</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                      id="041100"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002100">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="QU"
+                                      domain="QI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="020000"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="ParameterList" root="DEFN" section="HM" subSection="RE"
+                                         domain="PC"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="500005"
+                                         traversalName="parameterList"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+      <mif:receiverResponsibility interactionName="Care Composition Event Query Response List Summaries"/>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="040200" title="Care Composition Event Query Response Get">
+      <mif:businessName name="Patient care composition details query response"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="IN" realm="CA"
+                           id="040200"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>Returns details of encounters, episodes and similar structures for a particular patient or group of patients, potentially filtered by date or other criteria.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                      id="040200"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002300">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="QU"
+                                      domain="QI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="120006"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="Act" root="DEFN" section="HM" subSection="RE"
+                                         domain="PC"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="500004"
+                                         traversalName="patientCareProvisionEvent"/>
+            <mif:supplierBindingArgument templateParameterName="ParameterList" root="DEFN" section="HM" subSection="RE"
+                                         domain="PC"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="500006"
+                                         traversalName="parameterList"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="041200" title="Care Composition Event Query Response List Summaries">
+      <mif:businessName name="Patient care composition summaries query response"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="IN" realm="CA"
+                           id="041200"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>Returns a list of encounters, episodes and similar structures for a particular patient or group of patients, potentially filtered by date or other criteria.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                      id="041200"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002300">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="QU"
+                                      domain="QI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="120006"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="Act" root="DEFN" section="HM" subSection="RE"
+                                         domain="PC"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="500003"
+                                         traversalName="patientCareProvisionEvent"/>
+            <mif:supplierBindingArgument templateParameterName="ParameterList" root="DEFN" section="HM" subSection="RE"
+                                         domain="PC"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="500005"
+                                         traversalName="parameterList"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="000076"
+                       title="Clinical Document Event Complete Request Discharge/Care Summary">
+      <mif:businessName name="Record discharge/ care summary request"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="IN" realm="CA"
+                           id="000076"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>Seeks to add a Discharge/Care Summary that has occurred.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                      id="000076"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002100">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="MC"
+                                      domain="AI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="700210"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="Act" root="DEFN" section="HM" subSection="RE"
+                                         domain="PC"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="220001"
+                                         traversalName="document"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+      <mif:receiverResponsibility interactionName="Clinical Document Event Complete Confirmation Discharge/Care Summary"/>
+      <mif:receiverResponsibility interactionName="Clinical Document Event Complete Rejection Discharge/Care Summary"/>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="000079"
+                       title="Clinical Document Event Complete Request Observation Documents">
+      <mif:businessName name="Record clinical observation document request"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="IN" realm="CA"
+                           id="000079"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>Seeks to add a clinical observation document about a patient.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                      id="000079"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002100">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="MC"
+                                      domain="AI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="700210"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="Act" root="DEFN" section="HM" subSection="RE"
+                                         domain="PC"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="230001"
+                                         traversalName="document"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+      <mif:receiverResponsibility interactionName="Clinical Document Event Complete Confirmation Observation Documents"/>
+      <mif:receiverResponsibility interactionName="Clinical Document Event Complete Rejection Observation Documents"/>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="000096" title="Clinical Document Event Complete Request Referral">
+      <mif:businessName name="Record patient referral request"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="IN" realm="CA"
+                           id="000096"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>Seeks to add a referral (to a provider or organization) that has occurred.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                      id="000073"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002100">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="MC"
+                                      domain="AI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="700210"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="Act" root="DEFN" section="HM" subSection="RE"
+                                         domain="PC"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="210001"
+                                         traversalName="document"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+      <mif:receiverResponsibility interactionName="Clinical Document Event Complete Confirmation Referral"/>
+      <mif:receiverResponsibility interactionName="Clinical Document Event Complete Rejection Referral"/>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="000077"
+                       title="Clinical Document Event Complete Confirmation Discharge/Care Summary">
+      <mif:businessName name="Record discharge / care summary request accepted"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="IN" realm="CA"
+                           id="000077"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>Indicates that a Discharge/Care Summary has been recorded.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                      id="000077"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002300">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="MC"
+                                      domain="AI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="700226"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="Act" root="DEFN" section="IM" subSection="CO"
+                                         domain="MT"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="001101"
+                                         traversalName="actRequest"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="000080"
+                       title="Clinical Document Event Complete Confirmation Observation Documents">
+      <mif:businessName name="Record clinical observation doc. request accepted"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="IN" realm="CA"
+                           id="000080"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>Indicates that a clinical observation document about a patient has been recorded.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                      id="000080"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002300">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="MC"
+                                      domain="AI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="700226"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="Act" root="DEFN" section="IM" subSection="CO"
+                                         domain="MT"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="001101"
+                                         traversalName="actRequest"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="000097" title="Clinical Document Event Complete Confirmation Referral">
+      <mif:businessName name="Record referral request accepted"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="IN" realm="CA"
+                           id="000097"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>Indicates that a referral (to a provider or organization) has been successfully added.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                      id="000074"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002300">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="MC"
+                                      domain="AI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="700226"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="Act" root="DEFN" section="IM" subSection="CO"
+                                         domain="MT"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="001101"
+                                         traversalName="actRequest"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="000078"
+                       title="Clinical Document Event Complete Rejection Discharge/Care Summary">
+      <mif:businessName name="Record discharge/ care summary request refused"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="IN" realm="CA"
+                           id="000078"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>Indicates that the request to record a Discharge/Care Summary has been refused.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                      id="000078"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002300">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="MC"
+                                      domain="AI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="700236"
+                                      traversalName="controlActEvent"/>
+      </mif:parameterTypeModel>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="000081"
+                       title="Clinical Document Event Complete Rejection Observation Documents">
+      <mif:businessName name="Record clinical observation doc. request refused"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="IN" realm="CA"
+                           id="000081"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>Indicates that the request to record a clinical observation document about a patient has been refused.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                      id="000081"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002300">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="MC"
+                                      domain="AI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="700236"
+                                      traversalName="controlActEvent"/>
+      </mif:parameterTypeModel>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="000098" title="Clinical Document Event Complete Rejection Referral">
+      <mif:businessName name="Record referral request refused"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="IN" realm="CA"
+                           id="000098"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>Indicates that the request to record a referral (to a provider or organization) has been refused.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                      id="000075"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002300">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="MC"
+                                      domain="AI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="700236"
+                                      traversalName="controlActEvent"/>
+      </mif:parameterTypeModel>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="000092" title="Clinical Document Event Query Get Discharge/Care Summary">
+      <mif:businessName name="Patient discharge / care summary details query"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="IN" realm="CA"
+                           id="000092"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>Requests retrieval of a specific discharge / care summary record by id</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                      id="000092"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002100">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="QU"
+                                      domain="QI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="020000"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="ParameterList" root="DEFN" section="HM" subSection="RE"
+                                         domain="PC"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="500006"
+                                         traversalName="parameterList"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+      <mif:receiverResponsibility interactionName="Clinical Document Event Query Response Get Discharge/Care Summary"/>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="000094" title="Clinical Document Event Query Get Observation Documents">
+      <mif:businessName name="Patient clinical observation doc. details query"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="IN" realm="CA"
+                           id="000094"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>Requests retrieval of Clinical Observation Document details for a particular patient, potentially filtered by time or other criteria.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                      id="000094"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002100">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="QU"
+                                      domain="QI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="020000"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="ParameterList" root="DEFN" section="HM" subSection="RE"
+                                         domain="PC"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="500006"
+                                         traversalName="parameterList"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+      <mif:receiverResponsibility interactionName="Clinical Document Event Query Response Get Observation Documents"/>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="000090" title="Clinical Document Event Query Get Referral Details">
+      <mif:businessName name="Patient referral details query"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="IN" realm="CA"
+                           id="000090"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>Requests retrieval of a specific referral record by id</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                      id="000090"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002100">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="QU"
+                                      domain="QI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="020000"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="ParameterList" root="DEFN" section="HM" subSection="RE"
+                                         domain="PC"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="500006"
+                                         traversalName="parameterList"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+      <mif:receiverResponsibility interactionName="Clinical Document Event Query Response Get Referral Details"/>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="000086"
+                       title="Clinical Document Event Query List Discharge/Care Summaries">
+      <mif:businessName name="Patient discharge / care summaries query"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="IN" realm="CA"
+                           id="000086"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>Requests retrieval of Discharge/ Care Summaries for a particular patient, potentially filtered by time or other criteria.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                      id="000086"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002100">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="QU"
+                                      domain="QI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="020000"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="ParameterList" root="DEFN" section="HM" subSection="RE"
+                                         domain="PC"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="220004"
+                                         traversalName="parameterList"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+      <mif:receiverResponsibility interactionName="Clinical Document Event Query Response List Discharge/Care Summaries"/>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="000088" title="Clinical Document Event Query List Observation Documents">
+      <mif:businessName name="Patient clinical observation doc. summaries query"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="IN" realm="CA"
+                           id="000088"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>Requests retrieval of a list of available clinical observation documents for a particular patient, potentially filtered by type of note.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                      id="000088"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002100">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="QU"
+                                      domain="QI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="020000"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="ParameterList" root="DEFN" section="HM" subSection="RE"
+                                         domain="PC"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="230004"
+                                         traversalName="parameterList"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+      <mif:receiverResponsibility interactionName="Clinical Document Event Query Response List Observation Documents"/>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="000084" title="Clinical Document Event Query List Referrals">
+      <mif:businessName name="Patient referral summaries query"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="IN" realm="CA"
+                           id="000084"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>Requests retrieval of referrals for a particular patient, potentially filtered by time or other criteria.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                      id="000084"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002100">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="QU"
+                                      domain="QI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="020000"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="ParameterList" root="DEFN" section="HM" subSection="RE"
+                                         domain="PC"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="210004"
+                                         traversalName="parameterList"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+      <mif:receiverResponsibility interactionName="Clinical Document Event Query Response List Referrals"/>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="000093"
+                       title="Clinical Document Event Query Response Get Discharge/Care Summary">
+      <mif:businessName name="Patient discharge / care summary details query rsp"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="IN" realm="CA"
+                           id="000093"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>Returns a specific discharge / care summary record by id</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                      id="000093"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002300">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="QU"
+                                      domain="QI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="120006"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="Act" root="DEFN" section="HM" subSection="RE"
+                                         domain="PC"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="220003"
+                                         traversalName="document"/>
+            <mif:supplierBindingArgument templateParameterName="ParameterList" root="DEFN" section="HM" subSection="RE"
+                                         domain="PC"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="500006"
+                                         traversalName="parameterList"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="000095"
+                       title="Clinical Document Event Query Response Get Observation Documents">
+      <mif:businessName name="Patient clinical observation doc detail query resp"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="IN" realm="CA"
+                           id="000095"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>Returns a list of Clinical Observation Document details for a particular patient, potentially filtered by time or other criteria.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                      id="000095"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002300">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="QU"
+                                      domain="QI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="120006"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="Act" root="DEFN" section="HM" subSection="RE"
+                                         domain="PC"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="230003"
+                                         traversalName="document"/>
+            <mif:supplierBindingArgument templateParameterName="ParameterList" root="DEFN" section="HM" subSection="RE"
+                                         domain="PC"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="500006"
+                                         traversalName="parameterList"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="000091"
+                       title="Clinical Document Event Query Response Get Referral Details">
+      <mif:businessName name="Patient referral details query response"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="IN" realm="CA"
+                           id="000091"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>Returns a specific referral record by id</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                      id="000091"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002300">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="QU"
+                                      domain="QI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="120006"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="Act" root="DEFN" section="HM" subSection="RE"
+                                         domain="PC"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="210003"
+                                         traversalName="document"/>
+            <mif:supplierBindingArgument templateParameterName="ParameterList" root="DEFN" section="HM" subSection="RE"
+                                         domain="PC"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="500006"
+                                         traversalName="parameterList"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="000087"
+                       title="Clinical Document Event Query Response List Discharge/Care Summaries">
+      <mif:businessName name="Patient discharge / care summaries query response"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="IN" realm="CA"
+                           id="000087"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>Returns a list of Discharge/ Care Summaries for a particular patient, potentially filtered by time or other criteria.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                      id="000087"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002300">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="QU"
+                                      domain="QI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="120006"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="Act" root="DEFN" section="HM" subSection="RE"
+                                         domain="PC"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="220002"
+                                         traversalName="document"/>
+            <mif:supplierBindingArgument templateParameterName="ParameterList" root="DEFN" section="HM" subSection="RE"
+                                         domain="PC"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="220004"
+                                         traversalName="parameterList"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="000089"
+                       title="Clinical Document Event Query Response List Observation Documents">
+      <mif:businessName name="Patient clinical obs. doc summaries query response"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="IN" realm="CA"
+                           id="000089"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>Returns a list of available clinical observation documents for a particular patient, potentially filtered by type of note.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                      id="000089"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002300">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="QU"
+                                      domain="QI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="120006"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="Act" root="DEFN" section="HM" subSection="RE"
+                                         domain="PC"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="230002"
+                                         traversalName="document"/>
+            <mif:supplierBindingArgument templateParameterName="ParameterList" root="DEFN" section="HM" subSection="RE"
+                                         domain="PC"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="230004"
+                                         traversalName="parameterList"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="000085" title="Clinical Document Event Query Response List Referrals">
+      <mif:businessName name="Patient referral summaries query response"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="IN" realm="CA"
+                           id="000085"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>Returns a list of of referrals for a particular patient, potentially filtered by time or other criteria.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                      id="000085"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002300">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="QU"
+                                      domain="QI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="120006"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="Act" root="DEFN" section="HM" subSection="RE"
+                                         domain="PC"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="210002"
+                                         traversalName="document"/>
+            <mif:supplierBindingArgument templateParameterName="ParameterList" root="DEFN" section="HM" subSection="RE"
+                                         domain="PC"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="210004"
+                                         traversalName="parameterList"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="000028" title="Health Condition Event Jump Request">
+      <mif:businessName name="Record health condition request"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="IN" realm="CA"
+                           id="000028"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>Requests that a medical condition record be recorded against the specified patient.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                      id="000017"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002100">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="MC"
+                                      domain="AI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="700210"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="Act" root="DEFN" section="HM" subSection="RE"
+                                         domain="PC"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="000003"
+                                         traversalName="conditionEvent"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+      <mif:receiverResponsibility interactionName="Health Condition Event Jump Confirmation"/>
+      <mif:receiverResponsibility interactionName="Health Condition Event Jump Rejection"/>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="000029" title="Health Condition Event Jump Confirmation">
+      <mif:businessName name="Record health condition request accepted"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="IN" realm="CA"
+                           id="000029"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>Indicates that the requested health condition record has been successfully added to the patient's record.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                      id="000018"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002300">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="MC"
+                                      domain="AI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="700226"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="Act" root="DEFN" section="IM" subSection="CO"
+                                         domain="MT"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="001101"
+                                         traversalName="actRequest"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="000030" title="Health Condition Event Jump Rejection">
+      <mif:businessName name="Record health condition request refused"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="IN" realm="CA"
+                           id="000030"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>Indicates that the request to add the specified health condition to the patient record has been refused.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                      id="000019"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002300">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="MC"
+                                      domain="AI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="700236"
+                                      traversalName="controlActEvent"/>
+      </mif:parameterTypeModel>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="000032" title="Health Condition Event Revise Request">
+      <mif:businessName name="Update health condition request"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="IN" realm="CA"
+                           id="000032"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>Requests that information such as severity, status, start date and end date of a previously-recorded health condition be updated.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                      id="000026"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002100">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="MC"
+                                      domain="AI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="700210"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="Act" root="DEFN" section="HM" subSection="RE"
+                                         domain="PC"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="000014"
+                                         traversalName="conditionEvent"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+      <mif:receiverResponsibility interactionName="Health Condition Event Revise Confirmation"/>
+      <mif:receiverResponsibility interactionName="Health Condition Event Revise Rejection"/>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="000033" title="Health Condition Event Revise Confirmation">
+      <mif:businessName name="Update health condition request accepted"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="IN" realm="CA"
+                           id="000033"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>Indicates that the requested severity, status, start date, end date or other information about a previously-recorded medical condition has been successfully updated.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                      id="000027"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002300">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="MC"
+                                      domain="AI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="700226"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="Act" root="DEFN" section="IM" subSection="CO"
+                                         domain="MT"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="001101"
+                                         traversalName="actRequest"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="000034" title="Health Condition Event Revise Rejection">
+      <mif:businessName name="Update health condition request refused"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="IN" realm="CA"
+                           id="000034"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>Indicates that the requested modification to the previously-recorded health condition has been refused.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                      id="000028"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002300">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="MC"
+                                      domain="AI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="700226"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="Act" root="DEFN" section="IM" subSection="CO"
+                                         domain="MT"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="001101"
+                                         traversalName="actRequest"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="000025" title="Health Condition Event Query Get">
+      <mif:businessName name="Patient health condition details query"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="IN" realm="CA"
+                           id="000025"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>Request retrieval details of a patient health conditions (symptoms, health problems, diagnosis). Including past changes.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                      id="000012"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002100">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="QU"
+                                      domain="QI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="020000"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="ParameterList" root="DEFN" section="HM" subSection="RE"
+                                         domain="PC"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="500006"
+                                         traversalName="parameterList"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+      <mif:receiverResponsibility interactionName="Health Condition Event Query Response Get"/>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="000023" title="Health Condition Event Query List">
+      <mif:businessName name="Patient health condition summaries query"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="IN" realm="CA"
+                           id="000023"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>Request retrieval of the list of recorded patient health conditions (symptoms, health problems, diagnosis). Including past changes.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                      id="000010"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002100">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="QU"
+                                      domain="QI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="020000"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="ParameterList" root="DEFN" section="HM" subSection="RE"
+                                         domain="PC"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="000015"
+                                         traversalName="parameterList"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+      <mif:receiverResponsibility interactionName="Health Condition Event Query Response List"/>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="000026" title="Health Condition Event Query Response Get">
+      <mif:businessName name="Patient health condition details query response"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="IN" realm="CA"
+                           id="000026"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>Returns the details of a patient health conditions (symptoms, health problems, diagnosis). Including past changes.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                      id="000013"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002300">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="QU"
+                                      domain="QI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="120006"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="Act" root="DEFN" section="HM" subSection="RE"
+                                         domain="PC"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="000010"
+                                         traversalName="conditionEvent"/>
+            <mif:supplierBindingArgument templateParameterName="ParameterList" root="DEFN" section="HM" subSection="RE"
+                                         domain="PC"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="500006"
+                                         traversalName="parameterList"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="000024" title="Health Condition Event Query Response List">
+      <mif:businessName name="Patient health condition summaries query response"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="IN" realm="CA"
+                           id="000024"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>Returns the list of recorded patient health conditions (symptoms, health problems, diagnosis). Including past changes.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                      id="000011"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002300">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="QU"
+                                      domain="QI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="120006"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="Act" root="DEFN" section="HM" subSection="RE"
+                                         domain="PC"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="000007"
+                                         traversalName="conditionEvent"/>
+            <mif:supplierBindingArgument templateParameterName="ParameterList" root="DEFN" section="HM" subSection="RE"
+                                         domain="PC"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="000015"
+                                         traversalName="parameterList"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="000008" title="Adverse Reaction Event Revise Request">
+      <mif:businessName name="Update adverse reaction request"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="IN" realm="CA"
+                           id="000008"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>Requests that information such as severity, outcome and suspected cause of a previously-recorded adverse reaction be updated.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                      id="000020"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002100">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="MC"
+                                      domain="AI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="700210"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="Act" root="DEFN" section="HM" subSection="RE"
+                                         domain="PC"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="000012"
+                                         traversalName="reactionObservationEvent"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+      <mif:receiverResponsibility triggerEventName="Adverse Reaction Event Revise"
+                                  interactionName="Adverse Reaction Event Revise Confirmation"/>
+      <mif:receiverResponsibility interactionName="Adverse Reaction Event Revise Rejection"/>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="000009" title="Adverse Reaction Event Revise Confirmation">
+      <mif:businessName name="Update adverse reaction request accepted"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="IN" realm="CA"
+                           id="000009"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>Indicates that the requested severity, outcome, suspected cause or other information about a previously-recorded adverse reaction has been successfully updated.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                      id="000021"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002300">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="MC"
+                                      domain="AI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="700226"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="Act" root="DEFN" section="IM" subSection="CO"
+                                         domain="MT"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="001103"
+                                         traversalName="actEvent"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="000010" title="Adverse Reaction Event Revise Rejection">
+      <mif:businessName name="Update adverse reaction request refused"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="IN" realm="CA"
+                           id="000010"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>Indicates that the requested modification to the previously-recorded adverse reaction has been refused.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                      id="000022"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002300">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="MC"
+                                      domain="AI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="700226"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="Act" root="DEFN" section="IM" subSection="CO"
+                                         domain="MT"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="001103"
+                                         traversalName="actEvent"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="000004" title="Adverse Reaction Event Complete Request">
+      <mif:businessName name="Record adverse reaction request"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="IN" realm="CA"
+                           id="000004"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>Requests that information about an adverse reaction be recorded against a patient's record.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                      id="000014"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002100">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="MC"
+                                      domain="AI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="700210"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="Act" root="DEFN" section="HM" subSection="RE"
+                                         domain="PC"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="000002"
+                                         traversalName="reactionObservationEvent"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+      <mif:receiverResponsibility triggerEventName="Adverse Reaction Event Complete"
+                                  interactionName="Adverse Reaction Event Complete Confirmation"/>
+      <mif:receiverResponsibility interactionName="Adverse Reaction Event Complete Rejection"/>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="000005" title="Adverse Reaction Event Complete Confirmation">
+      <mif:businessName name="Record adverse reaction request accepted"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="IN" realm="CA"
+                           id="000005"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>Indicates that the requested adverse reaction information has been successfully recorded against the patient.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                      id="000015"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002300">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="MC"
+                                      domain="AI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="700226"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="Act" root="DEFN" section="IM" subSection="CO"
+                                         domain="MT"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="001103"
+                                         traversalName="actEvent"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="000006" title="Adverse Reaction Event Complete Rejection">
+      <mif:businessName name="Record adverse reaction request refused"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="IN" realm="CA"
+                           id="000006"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>Indicates that the request to record the specified reaction against the patient's record has been refused.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                      id="000016"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002300">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="MC"
+                                      domain="AI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="700236"
+                                      traversalName="controlActEvent"/>
+      </mif:parameterTypeModel>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="000001" title="Adverse Reaction Event Query">
+      <mif:businessName name="Patient adverse reactions query"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="IN" realm="CA"
+                           id="000001"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>Requests retrieval of the details about all adverse reactions which have been recorded against a patient's record, potentially filtered by reaction type, time-range of the occurrence of the reaction and/or time-range in which the adverse reaction information was last changed.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                      id="000004"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002100">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="QU"
+                                      domain="QI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="020000"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="ParameterList" root="DEFN" section="HM" subSection="RE"
+                                         domain="PC"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="000016"
+                                         traversalName="parameterList"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+      <mif:receiverResponsibility interactionName="Adverse Reaction Event Query Response"/>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="000002" title="Adverse Reaction Event Query Response">
+      <mif:businessName name="Patient adverse reactions query response"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="IN" realm="CA"
+                           id="000002"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>Returns information about the current status of one or more adverse reactions for a patient.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                      id="000005"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002300">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="QU"
+                                      domain="QI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="120006"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="Act" root="DEFN" section="HM" subSection="RE"
+                                         domain="PC"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="000006"
+                                         traversalName="reactionObservationEvent"/>
+            <mif:supplierBindingArgument templateParameterName="ParameterList" root="DEFN" section="HM" subSection="RE"
+                                         domain="PC"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="000016"
+                                         traversalName="parameterList"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="000012" title="Allergy Intolerance Event Activate Request">
+      <mif:businessName name="Add allergy/intolerance request"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="IN" realm="CA"
+                           id="000012"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>Requests that a new allergy or intolerance record be recorded against the specified patient.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                      id="000001"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002100">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="MC"
+                                      domain="AI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="700210"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="Act" root="DEFN" section="HM" subSection="RE"
+                                         domain="PC"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="000001"
+                                         traversalName="intoleranceCondition"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+      <mif:receiverResponsibility triggerEventName="Allergy Intolerance Event Activate"
+                                  interactionName="Allergy Intolerance Event Activate Confirmation"/>
+      <mif:receiverResponsibility interactionName="Allergy Intolerance Event Activate Rejection"/>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="000013" title="Allergy Intolerance Event Activate Confirmation">
+      <mif:businessName name="Add allergy/intolerance request accepted"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="IN" realm="CA"
+                           id="000013"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>Indicates that the requested allergy or intolerance record has been successfully added to the patient's record.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                      id="000002"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002300">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="MC"
+                                      domain="AI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="700226"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="Act" root="DEFN" section="IM" subSection="CO"
+                                         domain="MT"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="001103"
+                                         traversalName="actEvent"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="000014" title="Allergy Intolerance Event Activate Rejection">
+      <mif:businessName name="Add allergy/intolerance request refused"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="IN" realm="CA"
+                           id="000014"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>Indicates that the request to add the specified allergy or intolerance to the patient record has been denied.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                      id="000003"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002300">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="MC"
+                                      domain="AI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="700236"
+                                      traversalName="controlActEvent"/>
+      </mif:parameterTypeModel>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="000020" title="Allergy Intolerance Event Revise Request">
+      <mif:businessName name="Update allergy/intolerance request"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="IN" realm="CA"
+                           id="000020"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>Requests that status, severity or other information about an existing allergy or intolerance record be updated.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                      id="000023"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002100">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="MC"
+                                      domain="AI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="700210"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="Act" root="DEFN" section="HM" subSection="RE"
+                                         domain="PC"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="000013"
+                                         traversalName="intoleranceCondition"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+      <mif:receiverResponsibility triggerEventName="Allergy Intolerance Event Revise"
+                                  interactionName="Allergy Intolerance Event Revise Confirmation"/>
+      <mif:receiverResponsibility interactionName="Allergy Intolerance Event Revise Rejection"/>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="000021" title="Allergy Intolerance Event Revise Confirmation">
+      <mif:businessName name="Update allergy/intolerance request accepted"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="IN" realm="CA"
+                           id="000021"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>Indicates that the status, severity and/or other information about the requested allergy or intolerance record has been updated.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                      id="000024"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002300">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="MC"
+                                      domain="AI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="700226"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="Act" root="DEFN" section="IM" subSection="CO"
+                                         domain="MT"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="001103"
+                                         traversalName="actEvent"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="000022" title="Allergy Intolerance Event Revise Rejection">
+      <mif:businessName name="Update allergy/intolerance request refused"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="IN" realm="CA"
+                           id="000022"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>Indicates that the requested modification to the defined allergy or intolerance record has been denied.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                      id="000025"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002300">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="MC"
+                                      domain="AI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="700226"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="Act" root="DEFN" section="IM" subSection="CO"
+                                         domain="MT"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="001103"
+                                         traversalName="actEvent"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="000015" title="Allergy Intolerance Event Query">
+      <mif:businessName name="Patient allergy/intolerance query"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="IN" realm="CA"
+                           id="000015"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>Requests retrieval of all allergies or intolerances that have been recorded for a particular patient, optionally filtered by time-range when the allergy or intolerance record has last been changed.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                      id="000006"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002100">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="QU"
+                                      domain="QI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="020000"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="ParameterList" root="DEFN" section="HM" subSection="RE"
+                                         domain="PC"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="000004"
+                                         traversalName="parameterList"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+      <mif:receiverResponsibility interactionName="Allergy Intolerance Event Query Response"/>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="000017" title="Allergy Intolerance Event Query With History">
+      <mif:businessName name="Patient allergy/intolerance with hist. query"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="IN" realm="CA"
+                           id="000017"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>Requests retrieval of the history of a particular allergy or intolerance record identified by patient id and allergy or intolerance record id, including changes to severity, status, annotations, etc.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                      id="000008"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002100">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="QU"
+                                      domain="QI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="020000"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="ParameterList" root="DEFN" section="HM" subSection="RE"
+                                         domain="PC"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="000019"
+                                         traversalName="parameterList"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+      <mif:receiverResponsibility interactionName="Allergy Intolerance Event Query Response With History"/>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="000016" title="Allergy Intolerance Event Query Response">
+      <mif:businessName name="Patient allergy/intolerance query response"/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="IN" realm="CA"
+                           id="000016"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>Returns the details of one or more allergy and intolerance records.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                      id="000007"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002300">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="QU"
+                                      domain="QI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="120006"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="Act" root="DEFN" section="HM" subSection="RE"
+                                         domain="PC"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="000005"
+                                         traversalName="intoleranceCondition"/>
+            <mif:supplierBindingArgument templateParameterName="ParameterList" root="DEFN" section="HM" subSection="RE"
+                                         domain="PC"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="000004"
+                                         traversalName="parameterList"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="000018" title="Allergy Intolerance Event Query Response With History">
+      <mif:businessName name="Patient allergy/intolerance with hist. query resp."/>
+      <mif:packageLocation root="DEFN" section="HM" subSection="RE" domain="PC" artifact="IN" realm="CA"
+                           id="000018"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>Returns information about a single allergy or intolerance record, including all revisions to severity, status and annotations.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="HM" subSection="RE" domain="PC" artifact="TE" realm="CA"
+                      id="000009"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002300">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="QU"
+                                      domain="QI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="120006"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="Act" root="DEFN" section="HM" subSection="RE"
+                                         domain="PC"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="000009"
+                                         traversalName="intoleranceCondition"/>
+            <mif:supplierBindingArgument templateParameterName="ParameterList" root="DEFN" section="HM" subSection="RE"
+                                         domain="PC"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="000019"
+                                         traversalName="parameterList"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+   </mif:hl7Interaction>
+</mif:dynamicModel>

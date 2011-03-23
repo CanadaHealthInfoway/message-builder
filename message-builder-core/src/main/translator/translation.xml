@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<translation projectName="message-builder-core"
+             autoProperties="true"
+             exactDirectoryName="true"
+             unitTestLibrary="junit4"
+             useGenerics="true"
+             autoCovariant="true"
+             vsGenerationMode="generation"
+             vsVersion="VS2008"
+             vsProjectName="message-builder-core"
+             sourcesOutputDir="/home/administrator/dotnet/message-builder-core"
+             testsOutputDir="/home/administrator/dotnet/message-builder-core/test"
+             nullableEnum="true"
+             mavenStructure="true"
+             nullablePrimitiveTypes="true"
+             debug="true">
+</translation>

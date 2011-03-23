@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ParameterList xmlns="urn:ca.infoway.messagebuilder.simplexml.v1" >
+	<boundedPivl>
+		<overallTimePeriod>
+			<from value="199902301232-0930" />
+			<duration value="4" unit="day"/>
+		</overallTimePeriod>
+		<frequency numberOfOccurrences="4">
+			<every value="7" unit="day"/>
+		</frequency>
+	</boundedPivl>
+</ParameterList>

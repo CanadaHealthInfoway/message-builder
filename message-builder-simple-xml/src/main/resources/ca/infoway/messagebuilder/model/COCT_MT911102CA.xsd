@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:chi="urn:ca.infoway.messagebuilder.simplexml.v1" elementFormDefault="qualified" targetNamespace="urn:ca.infoway.messagebuilder.simplexml.v1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include schemaLocation="COCT_MT090502CA.xsd"/>
+  <xs:include schemaLocation="COCT_MT910102CA.xsd"/>
+  <xs:include schemaLocation="COCT_MT090102CA.xsd"/>
+  <xs:group name="COCT_MT911102CA.ActingPerson">
+    <xs:choice>
+      <xs:element name="healthcareWorker" type="chi:COCT_MT090102CA.AssignedEntity"/>
+      <xs:element name="relatedPerson" type="chi:COCT_MT910102CA.PersonalRelationship"/>
+      <xs:element name="healthcareOrganization" type="chi:COCT_MT090502CA.AssignedEntity"/>
+    </xs:choice>
+  </xs:group>
+</xs:schema>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:chi="urn:ca.infoway.messagebuilder.simplexml.v1" elementFormDefault="qualified" targetNamespace="urn:ca.infoway.messagebuilder.simplexml.v1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include schemaLocation="../../../../../../classes/simpleDataTypes.xsd"/>
+  <xs:group name="COCT_MT120402CA.Indications">
+    <xs:choice>
+      <xs:element name="otherIndications" type="chi:COCT_MT120402CA.OtherIndication"/>
+      <xs:element name="diagnosisIndications" type="chi:COCT_MT120402CA.ObservationProblem"/>
+    </xs:choice>
+  </xs:group>
+  <xs:complexType name="COCT_MT120402CA.ObservationProblem">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="problemType" type="chi:CodedValue"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="problemCode" type="chi:CodedType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="COCT_MT120402CA.OtherIndication">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="0" name="otherIndication" type="chi:CodedValue"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="otherIndicationAdHocDescription" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

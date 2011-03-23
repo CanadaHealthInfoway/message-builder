@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PRPA_IN101103CA ITSVersion="XML_1.0" xmlns="urn:hl7-org:v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <id root="1ee83ff1-08ab-4fe7-b573-ea777e9bad51"></id>
+    <creationTime value="20080625141610"></creationTime>
+    <responseModeCode code="I"></responseModeCode>
+    <versionCode code="V3-2008N"></versionCode>
+    <interactionId displayable="true" extension="PRPA_IN101103CA" root="2.16.840.1.113883.1.6"></interactionId>
+    <profileId extension="profileIdExtension" root="1.2.3.4.5" use="BUS"></profileId>
+    <processingCode code="P"></processingCode>
+    <processingModeCode code="T"></processingModeCode>
+    <acceptAckCode code="AL"></acceptAckCode>
+    <receiver typeCode="RCV">
+      <telecom value="http://123.255.255.10"></telecom>
+      <device classCode="DEV" determinerCode="INSTANCE">
+        <id extension="222" root="2.16.124.113620.1.2.100" use="BUS"></id>
+      </device>
+    </receiver>
+    <sender typeCode="SND">
+      <telecom value="http://987.654.321.0"></telecom>
+      <device classCode="DEV" determinerCode="INSTANCE">
+        <id extension="111" root="2.16.124.113620.1.2.100" use="BUS"></id>
+        <manufacturerModelName>1.0</manufacturerModelName>
+        <softwareName>Panacea Pharmacy</softwareName>
+      </device>
+    </sender>
+    <controlActEvent classCode="CACT" moodCode="EVN">
+      <id extension="8141234" root="2.16.840.1.113883.1.6" use="BUS"></id>
+      <code code="PRPA_TE101103CA" codeSystem="2.16.840.1.113883.5.4"></code>
+      <statusCode code="completed"></statusCode>
+      <effectiveTime>
+        <low value="19691231190000"></low>
+      </effectiveTime>
+      <author contextControlCode="AP" typeCode="AUT">
+        <time value="19691231190000"></time>
+        <assignedEntity1 classCode="ASSIGNED">
+          <id displayable="true" extension="1" root="1.1.1"></id>
+          <assignedPerson classCode="PSN" determinerCode="INSTANCE">
+            <name><given>John</given><family>Doe</family></name>
+            <asHealthCareProvider classCode="PROV">
+              <id displayable="true" extension="1" root="2.2.2"></id>
+            </asHealthCareProvider>
+          </assignedPerson>
+        </assignedEntity1>
+      </author>
+      <location contextControlCode="AP" typeCode="LOC">
+        <serviceDeliveryLocation classCode="SDLOC">
+          <id displayable="true" extension="1" root="2.16.124.113620.1.1.11111"></id>
+          <location classCode="PLC" determinerCode="INSTANCE">
+            <name>Intelliware's Pharmacy</name>
+          </location>
+        </serviceDeliveryLocation>
+      </location>
+      <queryByParameter>
+        <queryId root="1ee83ff1-08ab-4fe7-b573-ea777e9bad31"></queryId>
+        <parameterList>
+            <personName>
+              <value><given>Joel</given><family>Houston</family></value>
+            </personName>
+        </parameterList>
+      </queryByParameter>
+    </controlActEvent>
+</PRPA_IN101103CA>

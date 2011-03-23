@@ -1,0 +1,37 @@
+                         ---------------------------
+                         xml-to-csharp Tool
+                         ---------------------------
+
+C# Class Generation
+
+  One of the code generation tools is a tool to read a generated message set and create
+  C# code that can be used to populate and model the HL7 XML messages.
+
+Maven Configuration
+
+  The xml-to-csharp generator is run using Maven.  A typical configuration 
+  looks like this:
+
++----
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>ca.infoway.messagebuilder</groupId>
+        <artifactId>maven-chi-plugin</artifactId>
+        <version>1.0b2-SNAPSHOT</version>
+        <configuration>
+          <messageSet>./path/to/messageSet.xml</messageSet>
+          <basePackageName>Ca.Infoway.Messagebuilder.Model</basePackageName>
+          <csSourceFolder>.</csSourceFolder>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
++----
+
+  To execute the generator, type the following command:
+  
++----
+  mvn chi:xml-to-csharp
++----
+  

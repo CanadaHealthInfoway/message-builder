@@ -1,0 +1,1650 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/*******************************************************************************
+ * Copyright (c) 2010 Health Level Seven, Inc.
+ * All rights reserved. This file and the model designs it contains 
+ * are made available under terms of a proprietary license implicitly 
+ * established by the terms expressed in the Bylaws of Health 
+ * Level Seven, Inc. (HL7), in combination with the agreements under 
+ * which individual and organizational memberships are established with HL7.
+ * Links to the HL7 Bylaws may be found at http://www.hl7.org 
+ *******************************************************************************/ 
+				--><mif:staticModel xmlns:mif="urn:hl7-org:v3/mif2" conformanceLevel="RealmExtension"
+                 schemaVersion="2.1.3"
+                 packageKind="realmNamespace"
+                 representationKind="flat"
+                 isAbstract="false"
+                 title="Provider Detail Query"
+                 isSerializable="true"
+                 name="CA">
+   <mif:packageLocation realmNamespace="CA" artifact="MT" root="DEFN" section="AM" subSection="PR"
+                        domain="PM"
+                        id="306010"/>
+   <mif:header>
+      <mif:renderingInformation application="Visio to MIF transform"/>
+      <mif:legalese copyrightOwner="Health Level Seven" copyrightYears="2010">
+         <mif:notation>All rights reserved.</mif:notation>
+         <mif:licenseTerms>
+            <p xmlns="http://www.w3.org/1999/xhtml">This file and the model designs it contains are made available under terms of a proprietary license implicitly established by the terms expressed in the Bylaws of Health Level Seven, Inc. (HL7), in combination with the agreements under which individual and organizational memberships are established with HL7.
+					Links to the HL7 Bylaws may be found at <a href="http://www.hl7.org">http://www.hl7.org</a>
+				        </p>
+         </mif:licenseTerms>
+      </mif:legalese>
+   </mif:header>
+   <mif:graphicRepresentation presentation="HL7">
+      <mif:graphElement name="Main">
+         <mif:position x="0.0" y="0.0"/>
+         <mif:size width="13.245" height="14.610"/>
+      </mif:graphElement>
+      <mif:entryPoint semanticLinkId="99D16B8D-4E31-00C4-1108-009FA7C1733B">
+         <mif:graphElement shapeId="Sheet.1">
+            <mif:position x="5.748" y="0.610"/>
+            <mif:size width="2.371" height="0.500"/>
+            <mif:anchorage connectToShapeId="Sheet.1">
+               <mif:position x="7.133" y="1.110"/>
+               <mif:graphEdge>
+                  <mif:anchor connectToShapeId="Sheet.50">
+                     <mif:position x="6.733" y="1.860"/>
+                  </mif:anchor>
+               </mif:graphEdge>
+            </mif:anchorage>
+         </mif:graphElement>
+      </mif:entryPoint>
+      <mif:class semanticLinkId="5128F9CD-0E39-3148-6C54-E43AE88973FE" presentation="HL7">
+         <mif:graphElement shapeId="Sheet.179" shapeTemplate="OtherClass" isWidthAutoSize="true"
+                           isHeightAutoSize="true">
+            <mif:position x="9.646" y="2.000"/>
+            <mif:size width="3.054" height="0.750"/>
+         </mif:graphElement>
+      </mif:class>
+      <mif:class semanticLinkId="219FFC39-35FF-AEEA-B3EA-7DC2DAAEF4F2" presentation="HL7">
+         <mif:graphElement shapeId="Sheet.237" shapeTemplate="OtherClass" isWidthAutoSize="true"
+                           isHeightAutoSize="true">
+            <mif:position x="0.631" y="6.610"/>
+            <mif:size width="2.430" height="0.750"/>
+         </mif:graphElement>
+      </mif:class>
+      <mif:class semanticLinkId="CF355DF4-8A14-5C9D-CCA0-23D63042014B" presentation="HL7">
+         <mif:graphElement shapeId="Sheet.338" shapeTemplate="OtherClass" isWidthAutoSize="true"
+                           isHeightAutoSize="true">
+            <mif:position x="10.471" y="12.320"/>
+            <mif:size width="2.229" height="0.750"/>
+         </mif:graphElement>
+      </mif:class>
+      <mif:class semanticLinkId="B46F1743-5B92-9E12-BBFA-04621BD52EFA" presentation="HL7">
+         <mif:graphElement shapeId="Sheet.366" shapeTemplate="OtherClass" isWidthAutoSize="true"
+                           isHeightAutoSize="true">
+            <mif:position x="10.332" y="9.740"/>
+            <mif:size width="2.368" height="0.750"/>
+         </mif:graphElement>
+      </mif:class>
+      <mif:class semanticLinkId="1FE7620A-C1C8-D24B-3CF9-12FC2E0E7853" presentation="HL7">
+         <mif:graphElement shapeId="Sheet.251" shapeTemplate="OtherClass" isWidthAutoSize="true"
+                           isHeightAutoSize="true">
+            <mif:position x="0.631" y="8.110"/>
+            <mif:size width="3.054" height="0.750"/>
+         </mif:graphElement>
+      </mif:class>
+      <mif:class semanticLinkId="68297500-C630-1191-4B10-6ABD48406C75" presentation="HL7">
+         <mif:graphElement shapeId="Sheet.160" shapeTemplate="OtherClass" isWidthAutoSize="true"
+                           isHeightAutoSize="true">
+            <mif:position x="10.247" y="11.030"/>
+            <mif:size width="2.453" height="0.750"/>
+         </mif:graphElement>
+      </mif:class>
+      <mif:class semanticLinkId="354718D8-853B-02C9-AC63-828990786367" presentation="HL7">
+         <mif:graphElement shapeId="Sheet.143" shapeTemplate="OtherClass" isWidthAutoSize="true"
+                           isHeightAutoSize="true">
+            <mif:position x="0.631" y="2.760"/>
+            <mif:size width="3.369" height="0.750"/>
+         </mif:graphElement>
+      </mif:class>
+      <mif:class semanticLinkId="4C2B5C49-1BF7-61B6-8B67-4A13D48EFAD0" presentation="HL7">
+         <mif:graphElement shapeId="Sheet.87" shapeTemplate="OtherClass" isWidthAutoSize="true"
+                           isHeightAutoSize="true">
+            <mif:position x="9.758" y="3.290"/>
+            <mif:size width="2.942" height="0.750"/>
+         </mif:graphElement>
+      </mif:class>
+      <mif:class semanticLinkId="8BB6AEBE-051C-EDF3-A771-13122FBBEF89" presentation="HL7">
+         <mif:graphElement shapeId="Sheet.50" shapeTemplate="OtherClass" isWidthAutoSize="true"
+                           isHeightAutoSize="false">
+            <mif:position x="6.108" y="1.860"/>
+            <mif:size width="1.250" height="11.700"/>
+         </mif:graphElement>
+      </mif:class>
+      <mif:class semanticLinkId="BBE1AEAD-657C-DF1B-31C2-E2AEC288D5BE" presentation="HL7">
+         <mif:graphElement shapeId="Sheet.73" shapeTemplate="OtherClass" isWidthAutoSize="true"
+                           isHeightAutoSize="true">
+            <mif:position x="0.631" y="1.660"/>
+            <mif:size width="2.084" height="0.750"/>
+         </mif:graphElement>
+      </mif:class>
+      <mif:class semanticLinkId="1386B948-9F87-B3BF-D419-064A1B88D2BC" presentation="HL7">
+         <mif:graphElement shapeId="Sheet.129" shapeTemplate="OtherClass" isWidthAutoSize="true"
+                           isHeightAutoSize="true">
+            <mif:position x="0.631" y="5.235"/>
+            <mif:size width="2.211" height="0.750"/>
+         </mif:graphElement>
+      </mif:class>
+      <mif:class semanticLinkId="F8FB45BE-D969-FA4D-4298-52D98AAB817B" presentation="HL7">
+         <mif:graphElement shapeId="Sheet.380" shapeTemplate="OtherClass" isWidthAutoSize="true"
+                           isHeightAutoSize="true">
+            <mif:position x="9.819" y="0.710"/>
+            <mif:size width="2.881" height="0.750"/>
+         </mif:graphElement>
+      </mif:class>
+      <mif:class semanticLinkId="0AD8AC56-9CE4-B3CD-5C14-EA78741542E2" presentation="HL7">
+         <mif:graphElement shapeId="Sheet.283" shapeTemplate="OtherClass" isWidthAutoSize="true"
+                           isHeightAutoSize="true">
+            <mif:position x="0.631" y="9.860"/>
+            <mif:size width="3.400" height="0.750"/>
+         </mif:graphElement>
+      </mif:class>
+      <mif:class semanticLinkId="C12EA9B6-F97A-05DA-DBCF-A46FD88895B1" presentation="HL7">
+         <mif:graphElement shapeId="Sheet.223" shapeTemplate="OtherClass" isWidthAutoSize="true"
+                           isHeightAutoSize="true">
+            <mif:position x="0.631" y="4.110"/>
+            <mif:size width="2.152" height="0.750"/>
+         </mif:graphElement>
+      </mif:class>
+      <mif:class semanticLinkId="92754828-AD54-365A-19DD-877E0A4CCFD9" presentation="HL7">
+         <mif:graphElement shapeId="Sheet.265" shapeTemplate="OtherClass" isWidthAutoSize="true"
+                           isHeightAutoSize="true">
+            <mif:position x="0.644" y="11.110"/>
+            <mif:size width="2.723" height="0.750"/>
+         </mif:graphElement>
+      </mif:class>
+      <mif:class semanticLinkId="0D2428A9-EC4F-96DD-DA22-E1AA1CD7E42E" presentation="HL7">
+         <mif:graphElement shapeId="Sheet.101" shapeTemplate="OtherClass" isWidthAutoSize="true"
+                           isHeightAutoSize="true">
+            <mif:position x="10.227" y="5.870"/>
+            <mif:size width="2.473" height="0.750"/>
+         </mif:graphElement>
+      </mif:class>
+      <mif:class semanticLinkId="41F6DB15-6E94-FE8B-FC14-07E2C16E0501" presentation="HL7">
+         <mif:graphElement shapeId="Sheet.352" shapeTemplate="OtherClass" isWidthAutoSize="true"
+                           isHeightAutoSize="true">
+            <mif:position x="10.447" y="13.610"/>
+            <mif:size width="2.253" height="0.750"/>
+         </mif:graphElement>
+      </mif:class>
+      <mif:class semanticLinkId="A8DDDE3B-F9EE-72B8-F8A4-11F561DC60F4" presentation="HL7">
+         <mif:graphElement shapeId="Sheet.115" shapeTemplate="OtherClass" isWidthAutoSize="true"
+                           isHeightAutoSize="true">
+            <mif:position x="9.640" y="7.160"/>
+            <mif:size width="3.060" height="0.750"/>
+         </mif:graphElement>
+      </mif:class>
+      <mif:class semanticLinkId="A298EA4A-B908-B9CE-FB16-A7FAD2C17A3D" presentation="HL7">
+         <mif:graphElement shapeId="Sheet.334" shapeTemplate="OtherClass" isWidthAutoSize="true"
+                           isHeightAutoSize="true">
+            <mif:position x="9.736" y="8.450"/>
+            <mif:size width="2.964" height="0.750"/>
+         </mif:graphElement>
+      </mif:class>
+      <mif:class semanticLinkId="2FDECD44-BA81-E664-E26D-7968631240C9" presentation="HL7">
+         <mif:graphElement shapeId="Sheet.301" shapeTemplate="OtherClass" isWidthAutoSize="true"
+                           isHeightAutoSize="true">
+            <mif:position x="0.631" y="12.610"/>
+            <mif:size width="2.072" height="0.750"/>
+         </mif:graphElement>
+      </mif:class>
+      <mif:class semanticLinkId="99AB05C7-17A4-C44A-4C1B-E62830E70C86" presentation="HL7">
+         <mif:graphElement shapeId="Sheet.167" shapeTemplate="OtherClass" isWidthAutoSize="true"
+                           isHeightAutoSize="true">
+            <mif:position x="9.257" y="4.580"/>
+            <mif:size width="3.443" height="0.750"/>
+         </mif:graphElement>
+      </mif:class>
+      <mif:association semanticLinkId="470C869B-ABF4-F994-ECB6-A2924EFC099B">
+         <mif:graphElement connectToShapeId="Sheet.50" shapeId="Sheet.183">
+            <mif:position x="7.358" y="2.936"/>
+            <mif:graphEdge>
+               <mif:waypoint x="8.502" y="2.936"/>
+               <mif:waypoint x="8.502" y="2.562"/>
+               <mif:anchor connectToShapeId="Sheet.179">
+                  <mif:position x="9.646" y="2.562"/>
+               </mif:anchor>
+            </mif:graphEdge>
+         </mif:graphElement>
+      </mif:association>
+      <mif:association semanticLinkId="A06B3ABD-84ED-8B41-37D5-4131DDD29783">
+         <mif:graphElement connectToShapeId="Sheet.50" shapeId="Sheet.40">
+            <mif:position x="6.108" y="6.993"/>
+            <mif:graphEdge>
+               <mif:waypoint x="4.585" y="6.993"/>
+               <mif:waypoint x="4.585" y="6.985"/>
+               <mif:anchor connectToShapeId="Sheet.237">
+                  <mif:position x="3.061" y="6.985"/>
+               </mif:anchor>
+            </mif:graphEdge>
+         </mif:graphElement>
+      </mif:association>
+      <mif:association semanticLinkId="EF9B2B99-0831-6330-820A-305BDFC4DB9B">
+         <mif:graphElement connectToShapeId="Sheet.50" shapeId="Sheet.342">
+            <mif:position x="7.358" y="12.222"/>
+            <mif:graphEdge>
+               <mif:waypoint x="9.100" y="12.222"/>
+               <mif:waypoint x="9.100" y="12.695"/>
+               <mif:anchor connectToShapeId="Sheet.338">
+                  <mif:position x="10.471" y="12.695"/>
+               </mif:anchor>
+            </mif:graphEdge>
+         </mif:graphElement>
+      </mif:association>
+      <mif:association semanticLinkId="3FFBF4FB-9CFC-20F2-0295-98D7957895F1">
+         <mif:graphElement connectToShapeId="Sheet.50" shapeId="Sheet.370">
+            <mif:position x="7.358" y="10.635"/>
+            <mif:graphEdge>
+               <mif:waypoint x="8.845" y="10.635"/>
+               <mif:waypoint x="8.845" y="10.115"/>
+               <mif:anchor connectToShapeId="Sheet.366">
+                  <mif:position x="10.332" y="10.115"/>
+               </mif:anchor>
+            </mif:graphEdge>
+         </mif:graphElement>
+      </mif:association>
+      <mif:association semanticLinkId="5938C1A7-137D-406D-B5D0-A087E8C4B117">
+         <mif:graphElement connectToShapeId="Sheet.50" shapeId="Sheet.150">
+            <mif:position x="6.108" y="8.659"/>
+            <mif:graphEdge>
+               <mif:waypoint x="4.897" y="8.659"/>
+               <mif:waypoint x="4.897" y="8.485"/>
+               <mif:anchor connectToShapeId="Sheet.251">
+                  <mif:position x="3.685" y="8.485"/>
+               </mif:anchor>
+            </mif:graphEdge>
+         </mif:graphElement>
+      </mif:association>
+      <mif:association semanticLinkId="F3E541BA-3635-C62E-E311-50CB7188D533">
+         <mif:graphElement connectToShapeId="Sheet.50" shapeId="Sheet.164">
+            <mif:position x="7.358" y="11.170"/>
+            <mif:graphEdge>
+               <mif:waypoint x="8.802" y="11.170"/>
+               <mif:waypoint x="8.802" y="11.405"/>
+               <mif:anchor connectToShapeId="Sheet.160">
+                  <mif:position x="10.247" y="11.405"/>
+               </mif:anchor>
+            </mif:graphEdge>
+         </mif:graphElement>
+      </mif:association>
+      <mif:association semanticLinkId="A17B6A6C-19EB-6071-C712-495FFA90084C">
+         <mif:graphElement connectToShapeId="Sheet.50" shapeId="Sheet.8">
+            <mif:position x="6.108" y="3.171"/>
+            <mif:graphEdge>
+               <mif:waypoint x="5.054" y="3.171"/>
+               <mif:waypoint x="5.054" y="2.948"/>
+               <mif:anchor connectToShapeId="Sheet.143">
+                  <mif:position x="4.000" y="2.948"/>
+               </mif:anchor>
+            </mif:graphEdge>
+         </mif:graphElement>
+      </mif:association>
+      <mif:association semanticLinkId="31AB1DAF-B924-AEA2-7923-963A7F9FBEA7">
+         <mif:graphElement connectToShapeId="Sheet.50" shapeId="Sheet.91">
+            <mif:position x="7.358" y="3.543"/>
+            <mif:graphEdge>
+               <mif:waypoint x="8.558" y="3.543"/>
+               <mif:waypoint x="8.558" y="3.852"/>
+               <mif:anchor connectToShapeId="Sheet.87">
+                  <mif:position x="9.758" y="3.852"/>
+               </mif:anchor>
+            </mif:graphEdge>
+         </mif:graphElement>
+      </mif:association>
+      <mif:association semanticLinkId="73AADF64-647F-9422-469D-E0FF32D52A5C">
+         <mif:graphElement connectToShapeId="Sheet.50" shapeId="Sheet.77">
+            <mif:position x="6.108" y="1.860"/>
+            <mif:graphEdge>
+               <mif:waypoint x="4.412" y="1.860"/>
+               <mif:waypoint x="4.412" y="2.222"/>
+               <mif:anchor connectToShapeId="Sheet.73">
+                  <mif:position x="2.716" y="2.222"/>
+               </mif:anchor>
+            </mif:graphEdge>
+         </mif:graphElement>
+      </mif:association>
+      <mif:association semanticLinkId="F050FE4F-2FEB-C986-6326-85599A6FAC8A">
+         <mif:graphElement connectToShapeId="Sheet.50" shapeId="Sheet.56">
+            <mif:position x="6.108" y="5.364"/>
+            <mif:graphEdge>
+               <mif:waypoint x="4.475" y="5.364"/>
+               <mif:waypoint x="4.475" y="5.610"/>
+               <mif:anchor connectToShapeId="Sheet.129">
+                  <mif:position x="2.842" y="5.610"/>
+               </mif:anchor>
+            </mif:graphEdge>
+         </mif:graphElement>
+      </mif:association>
+      <mif:association semanticLinkId="E79B102E-A2FB-7843-78D1-CFC1695B95C7">
+         <mif:graphElement connectToShapeId="Sheet.50" shapeId="Sheet.384">
+            <mif:position x="7.358" y="1.860"/>
+            <mif:graphEdge>
+               <mif:waypoint x="8.589" y="1.860"/>
+               <mif:waypoint x="8.589" y="1.085"/>
+               <mif:anchor connectToShapeId="Sheet.380">
+                  <mif:position x="9.819" y="1.085"/>
+               </mif:anchor>
+            </mif:graphEdge>
+         </mif:graphElement>
+      </mif:association>
+      <mif:association semanticLinkId="C5B0085D-4218-FF2B-400E-3049444B30B3">
+         <mif:graphElement connectToShapeId="Sheet.50" shapeId="Sheet.22">
+            <mif:position x="6.108" y="10.193"/>
+            <mif:graphEdge>
+               <mif:waypoint x="5.070" y="10.193"/>
+               <mif:waypoint x="5.070" y="10.235"/>
+               <mif:anchor connectToShapeId="Sheet.283">
+                  <mif:position x="4.031" y="10.235"/>
+               </mif:anchor>
+            </mif:graphEdge>
+         </mif:graphElement>
+      </mif:association>
+      <mif:association semanticLinkId="8103EA14-C28A-348B-AFDA-460ABADDF446">
+         <mif:graphElement connectToShapeId="Sheet.50" shapeId="Sheet.32">
+            <mif:position x="6.108" y="4.261"/>
+            <mif:graphEdge>
+               <mif:waypoint x="4.446" y="4.261"/>
+               <mif:waypoint x="4.446" y="4.485"/>
+               <mif:anchor connectToShapeId="Sheet.223">
+                  <mif:position x="2.783" y="4.485"/>
+               </mif:anchor>
+            </mif:graphEdge>
+         </mif:graphElement>
+      </mif:association>
+      <mif:association semanticLinkId="47F7E17D-06CA-2A8A-B64C-A3FB931CC156">
+         <mif:graphElement connectToShapeId="Sheet.50" shapeId="Sheet.66">
+            <mif:position x="6.108" y="11.684"/>
+            <mif:graphEdge>
+               <mif:waypoint x="4.738" y="11.684"/>
+               <mif:waypoint x="4.738" y="11.485"/>
+               <mif:anchor connectToShapeId="Sheet.265">
+                  <mif:position x="3.367" y="11.485"/>
+               </mif:anchor>
+            </mif:graphEdge>
+         </mif:graphElement>
+      </mif:association>
+      <mif:association semanticLinkId="54B33AF1-5623-0E89-C6B6-284A09E0EE2D">
+         <mif:graphElement connectToShapeId="Sheet.50" shapeId="Sheet.111">
+            <mif:position x="7.358" y="6.303"/>
+            <mif:graphEdge>
+               <mif:waypoint x="8.792" y="6.303"/>
+               <mif:waypoint x="8.792" y="6.245"/>
+               <mif:anchor connectToShapeId="Sheet.101">
+                  <mif:position x="10.227" y="6.245"/>
+               </mif:anchor>
+            </mif:graphEdge>
+         </mif:graphElement>
+      </mif:association>
+      <mif:association semanticLinkId="64A85A95-E27F-B310-CD7D-91A0871DD6D1">
+         <mif:graphElement connectToShapeId="Sheet.50" shapeId="Sheet.356">
+            <mif:position x="7.358" y="12.713"/>
+            <mif:graphEdge>
+               <mif:waypoint x="8.800" y="12.713"/>
+               <mif:waypoint x="8.800" y="13.985"/>
+               <mif:anchor connectToShapeId="Sheet.352">
+                  <mif:position x="10.447" y="13.985"/>
+               </mif:anchor>
+            </mif:graphEdge>
+         </mif:graphElement>
+      </mif:association>
+      <mif:association semanticLinkId="AA97BDD8-E26E-3826-E2F9-939EF5166400">
+         <mif:graphElement connectToShapeId="Sheet.50" shapeId="Sheet.125">
+            <mif:position x="7.358" y="7.710"/>
+            <mif:graphEdge>
+               <mif:waypoint x="8.499" y="7.710"/>
+               <mif:waypoint x="8.499" y="7.535"/>
+               <mif:anchor connectToShapeId="Sheet.115">
+                  <mif:position x="9.640" y="7.535"/>
+               </mif:anchor>
+            </mif:graphEdge>
+         </mif:graphElement>
+      </mif:association>
+      <mif:association semanticLinkId="B720D0F3-7CE1-06DB-99DA-83807D802048">
+         <mif:graphElement connectToShapeId="Sheet.50" shapeId="Sheet.205">
+            <mif:position x="7.358" y="8.993"/>
+            <mif:graphEdge>
+               <mif:waypoint x="8.547" y="8.993"/>
+               <mif:waypoint x="8.547" y="8.825"/>
+               <mif:anchor connectToShapeId="Sheet.334">
+                  <mif:position x="9.736" y="8.825"/>
+               </mif:anchor>
+            </mif:graphEdge>
+         </mif:graphElement>
+      </mif:association>
+      <mif:association semanticLinkId="FE63907A-79CE-33ED-F84A-15AD14510A9B">
+         <mif:graphElement connectToShapeId="Sheet.50" shapeId="Sheet.136">
+            <mif:position x="6.108" y="12.834"/>
+            <mif:graphEdge>
+               <mif:waypoint x="4.406" y="12.834"/>
+               <mif:waypoint x="4.406" y="12.985"/>
+               <mif:anchor connectToShapeId="Sheet.301">
+                  <mif:position x="2.703" y="12.985"/>
+               </mif:anchor>
+            </mif:graphEdge>
+         </mif:graphElement>
+      </mif:association>
+      <mif:association semanticLinkId="EB0A4A80-8EBE-15FE-291B-0A53F3BC677B">
+         <mif:graphElement connectToShapeId="Sheet.50" shapeId="Sheet.16">
+            <mif:position x="7.358" y="5.227"/>
+            <mif:graphEdge>
+               <mif:waypoint x="8.308" y="5.227"/>
+               <mif:waypoint x="8.308" y="4.955"/>
+               <mif:anchor connectToShapeId="Sheet.167">
+                  <mif:position x="9.257" y="4.955"/>
+               </mif:anchor>
+            </mif:graphEdge>
+         </mif:graphElement>
+      </mif:association>
+   </mif:graphicRepresentation>
+   <mif:derivedFrom staticModelDerivationId="1">
+      <mif:targetStaticModel artifact="RIM" root="DEFN" version="0226"/>
+   </mif:derivedFrom>
+   <mif:importedDatatypeModelPackage realmNamespace="CA" artifact="DT" root="DEFN" version="R02.04.xx"/>
+   <mif:importedVocabularyModelPackage realmNamespace="CA" artifact="VO" root="DEFN" version="R02.04.xx"/>
+   <mif:importedCommonModelElementPackage realmNamespace="CA" artifact="IFC" root="DEFN" version="R02.04.xx"/>
+   <mif:entryPoint graphicLinkId="99D16B8D-4E31-00C4-1108-009FA7C1733B" id="PRPM_MT306010CA"
+                   name="Provider Detail Query"
+                   className="ParameterList">
+      <mif:annotations>
+         <mif:documentation>
+            <mif:description>
+               <mif:text>
+                  <html:p xmlns:html="http://www.w3.org/1999/xhtml">Entry point for Provider Detail Query Request.</html:p>
+               </mif:text>
+            </mif:description>
+         </mif:documentation>
+      </mif:annotations>
+   </mif:entryPoint>
+   <mif:containedClass>
+      <mif:class graphicLinkId="5128F9CD-0E39-3148-6C54-E43AE88973FE" name="Address"
+                 isAbstract="false">
+         <mif:businessName name="Address"/>
+         <mif:derivedFrom staticModelDerivationId="1" className="ParameterItem"/>
+         <mif:annotations>
+            <mif:documentation>
+               <mif:definition>
+                  <mif:text>
+                     <html:p xmlns:html="http://www.w3.org/1999/xhtml">Address in relation to the roleClass being queried upon</html:p>
+                  </mif:text>
+               </mif:definition>
+               <mif:rationale>
+                  <mif:text>
+                     <html:p xmlns:html="http://www.w3.org/1999/xhtml">Supports the business requirement to identify the specified roleClass being queried upon</html:p>
+                  </mif:text>
+               </mif:rationale>
+            </mif:documentation>
+         </mif:annotations>
+         <mif:attribute name="value" sortKey="1" minimumMultiplicity="1" maximumMultiplicity="1"
+                        conformance="R"
+                        isMandatory="true"
+                        isImmutable="false">
+            <mif:businessName name="Healthcare Provider Role Address"/>
+            <mif:annotations>
+               <mif:documentation>
+                  <mif:definition>
+                     <mif:text>
+                        <html:p xmlns:html="http://www.w3.org/1999/xhtml">The address for the provider when playing the role of healthcare provider.</html:p>
+                     </mif:text>
+                  </mif:definition>
+                  <mif:rationale>
+                     <mif:text>
+                        <html:p xmlns:html="http://www.w3.org/1999/xhtml">Mandatory attribute supports the identification of the healthcare provider</html:p>
+                     </mif:text>
+                  </mif:rationale>
+               </mif:documentation>
+            </mif:annotations>
+            <mif:derivedFrom staticModelDerivationId="1" className="ParameterItem" attributeName="value"/>
+            <mif:type name="AD.BASIC"/>
+         </mif:attribute>
+      </mif:class>
+   </mif:containedClass>
+   <mif:containedClass>
+      <mif:class graphicLinkId="219FFC39-35FF-AEEA-B3EA-7DC2DAAEF4F2"
+                 name="AdministrativeGender"
+                 isAbstract="false">
+         <mif:businessName name="Administrative Gender"/>
+         <mif:derivedFrom staticModelDerivationId="1" className="ParameterItem"/>
+         <mif:annotations>
+            <mif:documentation>
+               <mif:definition>
+                  <mif:text>
+                     <html:p xmlns:html="http://www.w3.org/1999/xhtml">This is the gender of the person for which the query is searching. A maximum of one gender may be provided.</html:p>
+                  </mif:text>
+               </mif:definition>
+               <mif:rationale>
+                  <mif:text>
+                     <html:p xmlns:html="http://www.w3.org/1999/xhtml">Supports the business requirement to identify the specified roleClass being queried upon</html:p>
+                  </mif:text>
+               </mif:rationale>
+            </mif:documentation>
+         </mif:annotations>
+         <mif:attribute name="value" sortKey="1" minimumMultiplicity="1" maximumMultiplicity="1"
+                        conformance="R"
+                        isMandatory="true"
+                        isImmutable="false">
+            <mif:businessName name="Principal Person Gender"/>
+            <mif:annotations>
+               <mif:documentation>
+                  <mif:definition>
+                     <mif:text>
+                        <html:p xmlns:html="http://www.w3.org/1999/xhtml">The principal person’s gender.</html:p>
+                     </mif:text>
+                  </mif:definition>
+                  <mif:rationale>
+                     <mif:text>
+                        <html:p xmlns:html="http://www.w3.org/1999/xhtml">Mandatory attribute supports the identification of the healthcare provider</html:p>
+                     </mif:text>
+                  </mif:rationale>
+               </mif:documentation>
+            </mif:annotations>
+            <mif:derivedFrom staticModelDerivationId="1" className="ParameterItem" attributeName="value"/>
+            <mif:type name="CV"/>
+            <mif:vocabulary>
+               <mif:conceptDomain name="AdministrativeGender"/>
+            </mif:vocabulary>
+         </mif:attribute>
+      </mif:class>
+   </mif:containedClass>
+   <mif:containedClass>
+      <mif:class graphicLinkId="CF355DF4-8A14-5C9D-CCA0-23D63042014B" name="AssignedRoleType"
+                 isAbstract="false">
+         <mif:businessName name="Assigned Role Type"/>
+         <mif:derivedFrom staticModelDerivationId="1" className="ParameterItem"/>
+         <mif:annotations>
+            <mif:documentation>
+               <mif:definition>
+                  <mif:text>
+                     <html:p xmlns:html="http://www.w3.org/1999/xhtml">This parameter is constrained to values from the AssignedEntityRoleType vocabulary domains.</html:p>
+                  </mif:text>
+               </mif:definition>
+               <mif:rationale>
+                  <mif:text>
+                     <html:p xmlns:html="http://www.w3.org/1999/xhtml">Supports the business requirement to identify the specified roleClass being queried upon</html:p>
+                  </mif:text>
+               </mif:rationale>
+            </mif:documentation>
+         </mif:annotations>
+         <mif:attribute name="value" sortKey="1" minimumMultiplicity="1" maximumMultiplicity="1"
+                        conformance="R"
+                        isMandatory="true"
+                        isImmutable="false">
+            <mif:businessName name="Assigned Role Type Value"/>
+            <mif:annotations>
+               <mif:documentation>
+                  <mif:definition>
+                     <mif:text>
+                        <html:p xmlns:html="http://www.w3.org/1999/xhtml">The code identifying the specific functional role.</html:p>
+                     </mif:text>
+                  </mif:definition>
+                  <mif:rationale>
+                     <mif:text>
+                        <html:p xmlns:html="http://www.w3.org/1999/xhtml">Mandatory attribute supports the identification of the healthcare provider</html:p>
+                     </mif:text>
+                  </mif:rationale>
+               </mif:documentation>
+            </mif:annotations>
+            <mif:derivedFrom staticModelDerivationId="1" className="ParameterItem" attributeName="value"/>
+            <mif:type name="CV"/>
+            <mif:vocabulary>
+               <mif:conceptDomain name="AssignedRoleType"/>
+            </mif:vocabulary>
+         </mif:attribute>
+      </mif:class>
+   </mif:containedClass>
+   <mif:containedClass>
+      <mif:class graphicLinkId="B46F1743-5B92-9E12-BBFA-04621BD52EFA" name="Confidence"
+                 isAbstract="false">
+         <mif:businessName name="Confidence"/>
+         <mif:derivedFrom staticModelDerivationId="1" className="ParameterItem"/>
+         <mif:annotations>
+            <mif:documentation>
+               <mif:definition>
+                  <mif:text>
+                     <html:p xmlns:html="http://www.w3.org/1999/xhtml">The confidence level, expressed as an integer, that indicates the degree of certainty with which the returned records match the supplied search criterion. Primarily of use for applications that support probabilistic matching.</html:p>
+                  </mif:text>
+               </mif:definition>
+               <mif:rationale>
+                  <mif:text>
+                     <html:p xmlns:html="http://www.w3.org/1999/xhtml">Supports the business requirement to identify the specified roleClass being queried upon</html:p>
+                  </mif:text>
+               </mif:rationale>
+            </mif:documentation>
+         </mif:annotations>
+         <mif:attribute name="value" sortKey="1" minimumMultiplicity="1" maximumMultiplicity="1"
+                        conformance="R"
+                        isMandatory="true"
+                        isImmutable="false">
+            <mif:businessName name="Confidence Value"/>
+            <mif:annotations>
+               <mif:documentation>
+                  <mif:definition>
+                     <mif:text>
+                        <html:p xmlns:html="http://www.w3.org/1999/xhtml">A real number value indicating the confidence of the query with regard to finding the intended target provider i.e. the value would be the computed confidence value.</html:p>
+                     </mif:text>
+                  </mif:definition>
+                  <mif:rationale>
+                     <mif:text>
+                        <html:p xmlns:html="http://www.w3.org/1999/xhtml">Required attribute to provide information about success of query</html:p>
+                     </mif:text>
+                  </mif:rationale>
+               </mif:documentation>
+            </mif:annotations>
+            <mif:derivedFrom staticModelDerivationId="1" className="ParameterItem" attributeName="value"/>
+            <mif:type name="REAL.CONF"/>
+         </mif:attribute>
+      </mif:class>
+   </mif:containedClass>
+   <mif:containedClass>
+      <mif:class graphicLinkId="1FE7620A-C1C8-D24B-3CF9-12FC2E0E7853" name="DOB"
+                 isAbstract="false">
+         <mif:businessName name="Date of Birth"/>
+         <mif:derivedFrom staticModelDerivationId="1" className="ParameterItem"/>
+         <mif:annotations>
+            <mif:documentation>
+               <mif:definition>
+                  <mif:text>
+                     <html:p xmlns:html="http://www.w3.org/1999/xhtml">The date of birth of the provider for which the query is searching. Requestor may specify a specific date, or date range.</html:p>
+                  </mif:text>
+               </mif:definition>
+               <mif:rationale>
+                  <mif:text>
+                     <html:p xmlns:html="http://www.w3.org/1999/xhtml">Supports the business requirement to identify the specified roleClass being queried upon</html:p>
+                  </mif:text>
+               </mif:rationale>
+            </mif:documentation>
+         </mif:annotations>
+         <mif:attribute name="value" sortKey="1" minimumMultiplicity="1" maximumMultiplicity="1"
+                        conformance="R"
+                        isMandatory="true"
+                        isImmutable="false">
+            <mif:businessName name="Principal Person Date of Birth"/>
+            <mif:annotations>
+               <mif:documentation>
+                  <mif:definition>
+                     <mif:text>
+                        <html:p xmlns:html="http://www.w3.org/1999/xhtml">The principal person’s date of birth.</html:p>
+                     </mif:text>
+                  </mif:definition>
+                  <mif:rationale>
+                     <mif:text>
+                        <html:p xmlns:html="http://www.w3.org/1999/xhtml">Mandatory attribute supports the identification of the healthcare provider</html:p>
+                     </mif:text>
+                  </mif:rationale>
+               </mif:documentation>
+            </mif:annotations>
+            <mif:derivedFrom staticModelDerivationId="1" className="ParameterItem" attributeName="value"/>
+            <mif:type name="TS.FULLDATE"/>
+         </mif:attribute>
+      </mif:class>
+   </mif:containedClass>
+   <mif:containedClass>
+      <mif:class graphicLinkId="68297500-C630-1191-4B10-6ABD48406C75"
+                 name="IncludeHistoryIndicator"
+                 isAbstract="false">
+         <mif:businessName name="History Indicator"/>
+         <mif:derivedFrom staticModelDerivationId="1" className="ParameterItem"/>
+         <mif:annotations>
+            <mif:documentation>
+               <mif:definition>
+                  <mif:text>
+                     <html:p xmlns:html="http://www.w3.org/1999/xhtml">This is a Boolean (Yes/No) output parameter to indicate whether historical records should be included in the query response.</html:p>
+                  </mif:text>
+               </mif:definition>
+               <mif:rationale>
+                  <mif:text>
+                     <html:p xmlns:html="http://www.w3.org/1999/xhtml">Supports the business requirement to identify the specified roleClass being queried upon</html:p>
+                  </mif:text>
+               </mif:rationale>
+            </mif:documentation>
+         </mif:annotations>
+         <mif:attribute name="value" sortKey="1" minimumMultiplicity="1" maximumMultiplicity="1"
+                        conformance="R"
+                        isMandatory="true"
+                        defaultValue="false"
+                        isImmutable="false">
+            <mif:businessName name="History Indicator Value"/>
+            <mif:annotations>
+               <mif:documentation>
+                  <mif:definition>
+                     <mif:text>
+                        <html:p xmlns:html="http://www.w3.org/1999/xhtml">Indicates whether or not historical records should be included in this query response</html:p>
+                     </mif:text>
+                  </mif:definition>
+                  <mif:rationale>
+                     <mif:text>
+                        <html:p xmlns:html="http://www.w3.org/1999/xhtml">Mandatory attribute when queried upon</html:p>
+                     </mif:text>
+                  </mif:rationale>
+               </mif:documentation>
+            </mif:annotations>
+            <mif:derivedFrom staticModelDerivationId="1" className="ParameterItem" attributeName="value"/>
+            <mif:type name="BL"/>
+         </mif:attribute>
+      </mif:class>
+   </mif:containedClass>
+   <mif:containedClass>
+      <mif:class graphicLinkId="354718D8-853B-02C9-AC63-828990786367" name="Jurisdiction"
+                 isAbstract="false">
+         <mif:businessName name="Jurisdiction"/>
+         <mif:derivedFrom staticModelDerivationId="1" className="ParameterItem"/>
+         <mif:annotations>
+            <mif:documentation>
+               <mif:definition>
+                  <mif:text>
+                     <html:p xmlns:html="http://www.w3.org/1999/xhtml">The jurisdiction in which the provider is licensed/registered for which the query is searching. Note that in the response model this is deemed to be the jurisdiction of the role scoper. A maximum number of one jurisdiction may be specified.</html:p>
+                  </mif:text>
+               </mif:definition>
+               <mif:rationale>
+                  <mif:text>
+                     <html:p xmlns:html="http://www.w3.org/1999/xhtml">Supports the business requirement to identify the specified roleClass being queried upon</html:p>
+                  </mif:text>
+               </mif:rationale>
+            </mif:documentation>
+         </mif:annotations>
+         <mif:attribute name="value" sortKey="1" minimumMultiplicity="1" maximumMultiplicity="1"
+                        conformance="R"
+                        isMandatory="true"
+                        isImmutable="false">
+            <mif:businessName name="Jurisdiction Type"/>
+            <mif:annotations>
+               <mif:documentation>
+                  <mif:definition>
+                     <mif:text>
+                        <html:p xmlns:html="http://www.w3.org/1999/xhtml">A character value that represents the Canadian provincial or territorial geographical area within which the Provider is operating.</html:p>
+                     </mif:text>
+                  </mif:definition>
+                  <mif:rationale>
+                     <mif:text>
+                        <html:p xmlns:html="http://www.w3.org/1999/xhtml">Mandatory attribute supports the validation and identification of the healthcare provider</html:p>
+                     </mif:text>
+                  </mif:rationale>
+               </mif:documentation>
+            </mif:annotations>
+            <mif:derivedFrom staticModelDerivationId="1" className="ParameterItem" attributeName="value"/>
+            <mif:type name="CV"/>
+            <mif:vocabulary>
+               <mif:conceptDomain name="JurisdictionTypeCode"/>
+            </mif:vocabulary>
+         </mif:attribute>
+      </mif:class>
+   </mif:containedClass>
+   <mif:containedClass>
+      <mif:class graphicLinkId="4C2B5C49-1BF7-61B6-8B67-4A13D48EFAD0" name="Name"
+                 isAbstract="false">
+         <mif:businessName name="Name"/>
+         <mif:derivedFrom staticModelDerivationId="1" className="ParameterItem"/>
+         <mif:annotations>
+            <mif:documentation>
+               <mif:definition>
+                  <mif:text>
+                     <html:p xmlns:html="http://www.w3.org/1999/xhtml">Name in relation to the roleClass being queried upon</html:p>
+                  </mif:text>
+               </mif:definition>
+               <mif:rationale>
+                  <mif:text>
+                     <html:p xmlns:html="http://www.w3.org/1999/xhtml">Supports the business requirement to identify the specified roleClass being queried upon</html:p>
+                  </mif:text>
+               </mif:rationale>
+            </mif:documentation>
+         </mif:annotations>
+         <mif:attribute name="value" sortKey="1" minimumMultiplicity="1" maximumMultiplicity="1"
+                        conformance="R"
+                        isMandatory="true"
+                        isImmutable="false">
+            <mif:businessName name="Healthcare Provider Role Name"/>
+            <mif:annotations>
+               <mif:documentation>
+                  <mif:definition>
+                     <mif:text>
+                        <html:p xmlns:html="http://www.w3.org/1999/xhtml">The provider’s name pertaining to the specific healthcare provider role.</html:p>
+                     </mif:text>
+                  </mif:definition>
+                  <mif:rationale>
+                     <mif:text>
+                        <html:p xmlns:html="http://www.w3.org/1999/xhtml">Mandatory attribute supports the identification of the healthcare provider</html:p>
+                     </mif:text>
+                  </mif:rationale>
+               </mif:documentation>
+            </mif:annotations>
+            <mif:derivedFrom staticModelDerivationId="1" className="ParameterItem" attributeName="value"/>
+            <mif:type name="PN.BASIC"/>
+         </mif:attribute>
+      </mif:class>
+   </mif:containedClass>
+   <mif:containedClass>
+      <mif:class graphicLinkId="8BB6AEBE-051C-EDF3-A771-13122FBBEF89" name="ParameterList"
+                 isAbstract="false">
+         <mif:derivedFrom staticModelDerivationId="1" className="ParameterList"/>
+      </mif:class>
+   </mif:containedClass>
+   <mif:containedClass>
+      <mif:class graphicLinkId="BBE1AEAD-657C-DF1B-31C2-E2AEC288D5BE" name="ProviderID"
+                 isAbstract="false">
+         <mif:businessName name="Provider Identification"/>
+         <mif:derivedFrom staticModelDerivationId="1" className="ParameterItem"/>
+         <mif:annotations>
+            <mif:documentation>
+               <mif:definition>
+                  <mif:text>
+                     <html:p xmlns:html="http://www.w3.org/1999/xhtml">This is the identifier for the provider for which the query is searching. Multiple id's can be specified through repetition of this parameter.</html:p>
+                  </mif:text>
+               </mif:definition>
+               <mif:rationale>
+                  <mif:text>
+                     <html:p xmlns:html="http://www.w3.org/1999/xhtml">Supports the business requirement to identify the specified roleClass being queried upon</html:p>
+                  </mif:text>
+               </mif:rationale>
+            </mif:documentation>
+         </mif:annotations>
+         <mif:attribute name="value" sortKey="1" minimumMultiplicity="1" maximumMultiplicity="1"
+                        conformance="R"
+                        isMandatory="true"
+                        isImmutable="false">
+            <mif:businessName name="Healthcare Provider Role Identification"/>
+            <mif:annotations>
+               <mif:documentation>
+                  <mif:definition>
+                     <mif:text>
+                        <html:p xmlns:html="http://www.w3.org/1999/xhtml">A unique identifier for a provider in a specific healthcare role.</html:p>
+                     </mif:text>
+                  </mif:definition>
+                  <mif:rationale>
+                     <mif:text>
+                        <html:p xmlns:html="http://www.w3.org/1999/xhtml">Mandatory attribute supports the identification of the healthcare provider</html:p>
+                     </mif:text>
+                  </mif:rationale>
+               </mif:documentation>
+            </mif:annotations>
+            <mif:derivedFrom staticModelDerivationId="1" className="ParameterItem" attributeName="value"/>
+            <mif:type name="II.PUBLIC"/>
+         </mif:attribute>
+      </mif:class>
+   </mif:containedClass>
+   <mif:containedClass>
+      <mif:class graphicLinkId="1386B948-9F87-B3BF-D419-064A1B88D2BC" name="Qualification"
+                 isAbstract="false">
+         <mif:businessName name="Qualification"/>
+         <mif:derivedFrom staticModelDerivationId="1" className="ParameterItem"/>
+         <mif:annotations>
+            <mif:documentation>
+               <mif:definition>
+                  <mif:text>
+                     <html:p xmlns:html="http://www.w3.org/1999/xhtml">This is the qualification of the providers for which the query is searching.</html:p>
+                  </mif:text>
+               </mif:definition>
+               <mif:rationale>
+                  <mif:text>
+                     <html:p xmlns:html="http://www.w3.org/1999/xhtml">Supports the business requirement to identify the specified roleClass being queried upon</html:p>
+                  </mif:text>
+               </mif:rationale>
+            </mif:documentation>
+         </mif:annotations>
+         <mif:attribute name="value" sortKey="1" minimumMultiplicity="1" maximumMultiplicity="1"
+                        conformance="R"
+                        isMandatory="true"
+                        isImmutable="false">
+            <mif:businessName name="Expertise or Credentials Role Type"/>
+            <mif:annotations>
+               <mif:documentation>
+                  <mif:definition>
+                     <mif:text>
+                        <html:p xmlns:html="http://www.w3.org/1999/xhtml">Unique identifier for the Expertise or Credential.</html:p>
+                     </mif:text>
+                  </mif:definition>
+                  <mif:rationale>
+                     <mif:text>
+                        <html:p xmlns:html="http://www.w3.org/1999/xhtml">Mandatory attribute supports the identification of the healthcare provider credentials</html:p>
+                     </mif:text>
+                  </mif:rationale>
+               </mif:documentation>
+            </mif:annotations>
+            <mif:derivedFrom staticModelDerivationId="1" className="ParameterItem" attributeName="value"/>
+            <mif:type name="CV"/>
+            <mif:vocabulary>
+               <mif:conceptDomain name="QualifiedRoleType"/>
+            </mif:vocabulary>
+         </mif:attribute>
+      </mif:class>
+   </mif:containedClass>
+   <mif:containedClass>
+      <mif:class graphicLinkId="F8FB45BE-D969-FA4D-4298-52D98AAB817B" name="ResponseObject"
+                 isAbstract="false">
+         <mif:businessName name="Response Object"/>
+         <mif:derivedFrom staticModelDerivationId="1" className="ParameterItem"/>
+         <mif:annotations>
+            <mif:documentation>
+               <mif:definition>
+                  <mif:text>
+                     <html:p xmlns:html="http://www.w3.org/1999/xhtml">This is an optional output control parameter. Sender indicates via coded values which class or class attributes in the response model are to be valued in the response. By site agreement codes can be based upon local object model, or alternatively, the classes and attributes from the query response model, as in the example below. Example: requestor wants provider identifier, name and service delivery location data returned so ResponseObject is valued as follows:</html:p>
+                  
+                     <html:p xmlns:html="http://www.w3.org/1999/xhtml">&lt;ResponseObject&gt;&lt;value code="HealthCareProvider.id"/&gt;&lt;/ResponseObject&gt;</html:p>
+                  
+                     <html:p xmlns:html="http://www.w3.org/1999/xhtml">&lt;ResponseObject&gt;&lt;value code="PrincipalPerson.name"/&gt;&lt;/ResponseObject&gt;</html:p>
+                  
+                     <html:p xmlns:html="http://www.w3.org/1999/xhtml">&lt;ResponseObject&gt;&lt;value code="ServiceDeliveryLocation"/&gt;&lt;/ResponseObject&gt;</html:p>
+                  
+                     <html:p xmlns:html="http://www.w3.org/1999/xhtml">Utilized to support cases when a source or consumer (such as a Health Authority) wants only specific information about a given set of providers. For example, a HA might want to know all the Work Locations for a given provider type, and wouldn't want to receive all information. The type of information expected in the response is provided via the response object.</html:p>
+                  </mif:text>
+               </mif:definition>
+               <mif:rationale>
+                  <mif:text>
+                     <html:p xmlns:html="http://www.w3.org/1999/xhtml">Supports the business request to be able to specify expected response to this query</html:p>
+                  </mif:text>
+               </mif:rationale>
+            </mif:documentation>
+         </mif:annotations>
+         <mif:attribute name="value" sortKey="1" minimumMultiplicity="1" maximumMultiplicity="1"
+                        conformance="R"
+                        isMandatory="false"
+                        isImmutable="false">
+            <mif:businessName name="Provider Query Response Object"/>
+            <mif:annotations>
+               <mif:documentation>
+                  <mif:definition>
+                     <mif:text>
+                        <html:p xmlns:html="http://www.w3.org/1999/xhtml">Outlines the values expected to be received by this query</html:p>
+                     </mif:text>
+                  </mif:definition>
+                  <mif:rationale>
+                     <mif:text>
+                        <html:p xmlns:html="http://www.w3.org/1999/xhtml">Populated attribute provides tremendous value in giving the organization issuing the query the flexibility to request particular items in the response.</html:p>
+                     </mif:text>
+                  </mif:rationale>
+               </mif:documentation>
+            </mif:annotations>
+            <mif:derivedFrom staticModelDerivationId="1" className="ParameterItem" attributeName="value"/>
+            <mif:type name="CV"/>
+            <mif:vocabulary>
+               <mif:conceptDomain name="ProviderQueryResponseObject"/>
+            </mif:vocabulary>
+         </mif:attribute>
+      </mif:class>
+   </mif:containedClass>
+   <mif:containedClass>
+      <mif:class graphicLinkId="0AD8AC56-9CE4-B3CD-5C14-EA78741542E2" name="RoleClass"
+                 isAbstract="false">
+         <mif:businessName name="Role Class"/>
+         <mif:derivedFrom staticModelDerivationId="1" className="ParameterItem"/>
+         <mif:annotations>
+            <mif:documentation>
+               <mif:definition>
+                  <mif:text>
+                     <html:p xmlns:html="http://www.w3.org/1999/xhtml">This is a role class for which the query is searching. This parameter is constrained to include the values Assigned Entity (ASSIGNED) and Healthcare Provider (PROV) only.</html:p>
+                  </mif:text>
+               </mif:definition>
+               <mif:rationale>
+                  <mif:text>
+                     <html:p xmlns:html="http://www.w3.org/1999/xhtml">Supports the business requirement to identify the specified roleClass being queried upon</html:p>
+                  </mif:text>
+               </mif:rationale>
+            </mif:documentation>
+         </mif:annotations>
+         <mif:attribute name="value" sortKey="1" minimumMultiplicity="1" maximumMultiplicity="1"
+                        conformance="R"
+                        isMandatory="true"
+                        isImmutable="false">
+            <mif:businessName name="Role Class Value"/>
+            <mif:annotations>
+               <mif:documentation>
+                  <mif:definition>
+                     <mif:text>
+                        <html:p xmlns:html="http://www.w3.org/1999/xhtml">Indicates Role Class being queried upon</html:p>
+                     </mif:text>
+                  </mif:definition>
+                  <mif:rationale>
+                     <mif:text>
+                        <html:p xmlns:html="http://www.w3.org/1999/xhtml">Mandatory attribute where queried upon</html:p>
+                     </mif:text>
+                  </mif:rationale>
+               </mif:documentation>
+            </mif:annotations>
+            <mif:derivedFrom staticModelDerivationId="1" className="ParameterItem" attributeName="value"/>
+            <mif:type name="CV"/>
+            <mif:vocabulary>
+               <mif:valueSet name="x_RoleClassAssignedQualifiedProvider" codingStrength="CNE"/>
+            </mif:vocabulary>
+         </mif:attribute>
+      </mif:class>
+   </mif:containedClass>
+   <mif:containedClass>
+      <mif:class graphicLinkId="C12EA9B6-F97A-05DA-DBCF-A46FD88895B1" name="RoleEffectiveDate"
+                 isAbstract="false">
+         <mif:businessName name="Effective Date"/>
+         <mif:derivedFrom staticModelDerivationId="1" className="ParameterItem"/>
+         <mif:annotations>
+            <mif:documentation>
+               <mif:definition>
+                  <mif:text>
+                     <html:p xmlns:html="http://www.w3.org/1999/xhtml">This is the interval of role effective dates/times for which the query is searching.</html:p>
+                  </mif:text>
+               </mif:definition>
+               <mif:rationale>
+                  <mif:text>
+                     <html:p xmlns:html="http://www.w3.org/1999/xhtml">Supports the business requirement to identify the specified roleClass being queried upon</html:p>
+                  </mif:text>
+               </mif:rationale>
+            </mif:documentation>
+         </mif:annotations>
+         <mif:attribute name="value" sortKey="1" minimumMultiplicity="1" maximumMultiplicity="1"
+                        conformance="R"
+                        isMandatory="true"
+                        isImmutable="false">
+            <mif:businessName name="Healthcare Provider Role Effective Date"/>
+            <mif:annotations>
+               <mif:documentation>
+                  <mif:definition>
+                     <mif:text>
+                        <html:p xmlns:html="http://www.w3.org/1999/xhtml">The effective date of the provider in the healthcare provider role.</html:p>
+                     </mif:text>
+                  </mif:definition>
+                  <mif:rationale>
+                     <mif:text>
+                        <html:p xmlns:html="http://www.w3.org/1999/xhtml">Mandatory attribute supports the identification of the healthcare provider</html:p>
+                     </mif:text>
+                  </mif:rationale>
+               </mif:documentation>
+            </mif:annotations>
+            <mif:derivedFrom staticModelDerivationId="1" className="ParameterItem" attributeName="value"/>
+            <mif:type name="IVL">
+               <mif:argumentDatatype name="TS.FULLDATE"/>
+            </mif:type>
+         </mif:attribute>
+      </mif:class>
+   </mif:containedClass>
+   <mif:containedClass>
+      <mif:class graphicLinkId="92754828-AD54-365A-19DD-877E0A4CCFD9" name="RoleType"
+                 isAbstract="false">
+         <mif:businessName name="Role Type"/>
+         <mif:derivedFrom staticModelDerivationId="1" className="ParameterItem"/>
+         <mif:annotations>
+            <mif:documentation>
+               <mif:definition>
+                  <mif:text>
+                     <html:p xmlns:html="http://www.w3.org/1999/xhtml">This parameter is constrained to values from the HealthCareProviderRoleType</html:p>
+                  </mif:text>
+               </mif:definition>
+               <mif:rationale>
+                  <mif:text>
+                     <html:p xmlns:html="http://www.w3.org/1999/xhtml">Supports the business requirement to identify the specified roleClass being queried upon</html:p>
+                  </mif:text>
+               </mif:rationale>
+            </mif:documentation>
+         </mif:annotations>
+         <mif:attribute name="value" sortKey="1" minimumMultiplicity="1" maximumMultiplicity="1"
+                        conformance="R"
+                        isMandatory="true"
+                        isImmutable="false">
+            <mif:businessName name="Healthcare Provider Role Type"/>
+            <mif:annotations>
+               <mif:documentation>
+                  <mif:definition>
+                     <mif:text>
+                        <html:p xmlns:html="http://www.w3.org/1999/xhtml">The code identifying the specific healthcare provider role.</html:p>
+                     </mif:text>
+                  </mif:definition>
+                  <mif:rationale>
+                     <mif:text>
+                        <html:p xmlns:html="http://www.w3.org/1999/xhtml">Mandatory attribute supports the identification of the healthcare provider</html:p>
+                     </mif:text>
+                  </mif:rationale>
+               </mif:documentation>
+            </mif:annotations>
+            <mif:derivedFrom staticModelDerivationId="1" className="ParameterItem" attributeName="value"/>
+            <mif:type name="CV"/>
+            <mif:vocabulary>
+               <mif:conceptDomain name="HealthcareProviderRoleType"/>
+            </mif:vocabulary>
+         </mif:attribute>
+      </mif:class>
+   </mif:containedClass>
+   <mif:containedClass>
+      <mif:class graphicLinkId="0D2428A9-EC4F-96DD-DA22-E1AA1CD7E42E" name="RoutedDocType"
+                 isAbstract="false">
+         <mif:businessName name="Routed Document Type"/>
+         <mif:derivedFrom staticModelDerivationId="1" className="ParameterItem"/>
+         <mif:annotations>
+            <mif:documentation>
+               <mif:definition>
+                  <mif:text>
+                     <html:p xmlns:html="http://www.w3.org/1999/xhtml">This is the code for the type of document that is the subject of an Inform Request for which the query is searching. For example: Xray, Chart etc.</html:p>
+                  </mif:text>
+               </mif:definition>
+               <mif:rationale>
+                  <mif:text>
+                     <html:p xmlns:html="http://www.w3.org/1999/xhtml">Supports the business requirement to identify the specified roleClass being queried upon</html:p>
+                  </mif:text>
+               </mif:rationale>
+            </mif:documentation>
+         </mif:annotations>
+         <mif:attribute name="value" sortKey="1" minimumMultiplicity="1" maximumMultiplicity="1"
+                        conformance="R"
+                        isMandatory="true"
+                        isImmutable="false">
+            <mif:businessName name="Routed Document Type"/>
+            <mif:annotations>
+               <mif:documentation>
+                  <mif:definition>
+                     <mif:text>
+                        <html:p xmlns:html="http://www.w3.org/1999/xhtml">Supports the business requirement to identify the specified roleClass being queried upon</html:p>
+                     </mif:text>
+                  </mif:definition>
+                  <mif:rationale>
+                     <mif:text>
+                        <html:p xmlns:html="http://www.w3.org/1999/xhtml">Supports the business requirement to identify the specified roleClass being queried upon</html:p>
+                     </mif:text>
+                  </mif:rationale>
+               </mif:documentation>
+            </mif:annotations>
+            <mif:derivedFrom staticModelDerivationId="1" className="ParameterItem" attributeName="value"/>
+            <mif:type name="CV"/>
+            <mif:vocabulary>
+               <mif:conceptDomain name="RoutedDocumentType"/>
+            </mif:vocabulary>
+         </mif:attribute>
+      </mif:class>
+   </mif:containedClass>
+   <mif:containedClass>
+      <mif:class graphicLinkId="41F6DB15-6E94-FE8B-FC14-07E2C16E0501"
+                 name="ServiceDeliveryLocationAddress"
+                 isAbstract="false">
+         <mif:businessName name="Service Delivery Location Address"/>
+         <mif:derivedFrom staticModelDerivationId="1" className="ParameterItem"/>
+         <mif:annotations>
+            <mif:documentation>
+               <mif:definition>
+                  <mif:text>
+                     <html:p xmlns:html="http://www.w3.org/1999/xhtml">This is the Service Delivery Location address for which the query is searching. Searches for partial addresses are supported through use of appropriate AddressPartType, within the AD datatype, as well as address fragments (by site agreement).</html:p>
+                  </mif:text>
+               </mif:definition>
+               <mif:rationale>
+                  <mif:text>
+                     <html:p xmlns:html="http://www.w3.org/1999/xhtml">Supports the business requirement to identify the specified roleClass being queried upon</html:p>
+                  </mif:text>
+               </mif:rationale>
+            </mif:documentation>
+         </mif:annotations>
+         <mif:attribute name="value" sortKey="1" minimumMultiplicity="1" maximumMultiplicity="1"
+                        conformance="R"
+                        isMandatory="true"
+                        isImmutable="false">
+            <mif:businessName name="Service Delivery Location Address Detail"/>
+            <mif:annotations>
+               <mif:documentation>
+                  <mif:definition>
+                     <mif:text>
+                        <html:p xmlns:html="http://www.w3.org/1999/xhtml">Address for the Service Delivery Location</html:p>
+                     </mif:text>
+                  </mif:definition>
+                  <mif:rationale>
+                     <mif:text>
+                        <html:p xmlns:html="http://www.w3.org/1999/xhtml">Mandatory attribute when queried upon</html:p>
+                     </mif:text>
+                  </mif:rationale>
+               </mif:documentation>
+            </mif:annotations>
+            <mif:derivedFrom staticModelDerivationId="1" className="ParameterItem" attributeName="value"/>
+            <mif:type name="AD.BASIC"/>
+         </mif:attribute>
+      </mif:class>
+   </mif:containedClass>
+   <mif:containedClass>
+      <mif:class graphicLinkId="A8DDDE3B-F9EE-72B8-F8A4-11F561DC60F4"
+                 name="ServiceDeliveryLocationID"
+                 isAbstract="false">
+         <mif:businessName name="Service Delivery Location Id"/>
+         <mif:derivedFrom staticModelDerivationId="1" className="ParameterItem"/>
+         <mif:annotations>
+            <mif:documentation>
+               <mif:definition>
+                  <mif:text>
+                     <html:p xmlns:html="http://www.w3.org/1999/xhtml">This is the Service Delivery Location Identifier for which the query is searching.</html:p>
+                  </mif:text>
+               </mif:definition>
+               <mif:rationale>
+                  <mif:text>
+                     <html:p xmlns:html="http://www.w3.org/1999/xhtml">Supports the business requirement to identify the specified roleClass being queried upon</html:p>
+                  </mif:text>
+               </mif:rationale>
+            </mif:documentation>
+         </mif:annotations>
+         <mif:attribute name="value" sortKey="1" minimumMultiplicity="1" maximumMultiplicity="1"
+                        conformance="R"
+                        isMandatory="true"
+                        isImmutable="false">
+            <mif:businessName name="Service Delivery Location Identifier"/>
+            <mif:annotations>
+               <mif:documentation>
+                  <mif:definition>
+                     <mif:text>
+                        <html:p xmlns:html="http://www.w3.org/1999/xhtml">A unique identifier for the service delivery location.</html:p>
+                     </mif:text>
+                  </mif:definition>
+                  <mif:rationale>
+                     <mif:text>
+                        <html:p xmlns:html="http://www.w3.org/1999/xhtml">Mandatory attribute supports the validation and identification of the service delivery location</html:p>
+                     </mif:text>
+                  </mif:rationale>
+               </mif:documentation>
+            </mif:annotations>
+            <mif:derivedFrom staticModelDerivationId="1" className="ParameterItem" attributeName="value"/>
+            <mif:type name="II.PUBLIC"/>
+         </mif:attribute>
+      </mif:class>
+   </mif:containedClass>
+   <mif:containedClass>
+      <mif:class graphicLinkId="A298EA4A-B908-B9CE-FB16-A7FAD2C17A3D"
+                 name="ServiceDeliveryLocationType"
+                 isAbstract="false">
+         <mif:businessName name="Service Delivery Location Type"/>
+         <mif:derivedFrom staticModelDerivationId="1" className="ParameterItem"/>
+         <mif:annotations>
+            <mif:documentation>
+               <mif:definition>
+                  <mif:text>
+                     <html:p xmlns:html="http://www.w3.org/1999/xhtml">This is the Service Delivery Location type for which the query is searching. For example: Clinic, Hospital etc.</html:p>
+                  </mif:text>
+               </mif:definition>
+               <mif:rationale>
+                  <mif:text>
+                     <html:p xmlns:html="http://www.w3.org/1999/xhtml">Supports the business requirement to identify the specified roleClass being queried upon</html:p>
+                  </mif:text>
+               </mif:rationale>
+            </mif:documentation>
+         </mif:annotations>
+         <mif:attribute name="value" sortKey="1" minimumMultiplicity="1" maximumMultiplicity="1"
+                        conformance="R"
+                        isMandatory="true"
+                        isImmutable="false">
+            <mif:businessName name="Service Delivery Location Type Value"/>
+            <mif:annotations>
+               <mif:documentation>
+                  <mif:definition>
+                     <mif:text>
+                        <html:p xmlns:html="http://www.w3.org/1999/xhtml">A unique value for the service delivery location type.</html:p>
+                     </mif:text>
+                  </mif:definition>
+                  <mif:rationale>
+                     <mif:text>
+                        <html:p xmlns:html="http://www.w3.org/1999/xhtml">Mandatory attribute supports the validation and identification of the service delivery location</html:p>
+                     </mif:text>
+                  </mif:rationale>
+               </mif:documentation>
+            </mif:annotations>
+            <mif:derivedFrom staticModelDerivationId="1" className="ParameterItem" attributeName="value"/>
+            <mif:type name="CV"/>
+            <mif:vocabulary>
+               <mif:conceptDomain name="ServiceDeliveryLocationRoleType"/>
+            </mif:vocabulary>
+         </mif:attribute>
+      </mif:class>
+   </mif:containedClass>
+   <mif:containedClass>
+      <mif:class graphicLinkId="2FDECD44-BA81-E664-E26D-7968631240C9" name="Status"
+                 isAbstract="false">
+         <mif:businessName name="Status"/>
+         <mif:derivedFrom staticModelDerivationId="1" className="ParameterItem"/>
+         <mif:annotations>
+            <mif:documentation>
+               <mif:definition>
+                  <mif:text>
+                     <html:p xmlns:html="http://www.w3.org/1999/xhtml">This is a Role Status (coded per role state machine) for the selected role class and type for which the query is searching.</html:p>
+                  </mif:text>
+               </mif:definition>
+               <mif:rationale>
+                  <mif:text>
+                     <html:p xmlns:html="http://www.w3.org/1999/xhtml">Supports the business requirement to identify the specified roleClass being queried upon</html:p>
+                  </mif:text>
+               </mif:rationale>
+            </mif:documentation>
+         </mif:annotations>
+         <mif:attribute name="value" sortKey="1" minimumMultiplicity="1" maximumMultiplicity="1"
+                        conformance="R"
+                        isMandatory="true"
+                        isImmutable="false">
+            <mif:businessName name="Healthcare Provider Role Status Code"/>
+            <mif:annotations>
+               <mif:documentation>
+                  <mif:definition>
+                     <mif:text>
+                        <html:p xmlns:html="http://www.w3.org/1999/xhtml">The status of the provider in the healthcare provider role i.e. Active</html:p>
+                     </mif:text>
+                  </mif:definition>
+                  <mif:rationale>
+                     <mif:text>
+                        <html:p xmlns:html="http://www.w3.org/1999/xhtml">Mandatory attribute supports the identification of the healthcare provider</html:p>
+                     </mif:text>
+                  </mif:rationale>
+               </mif:documentation>
+            </mif:annotations>
+            <mif:derivedFrom staticModelDerivationId="1" className="ParameterItem" attributeName="value"/>
+            <mif:type name="CV"/>
+            <mif:vocabulary>
+               <mif:conceptDomain name="RoleStatus"/>
+            </mif:vocabulary>
+         </mif:attribute>
+      </mif:class>
+   </mif:containedClass>
+   <mif:containedClass>
+      <mif:class graphicLinkId="99AB05C7-17A4-C44A-4C1B-E62830E70C86" name="Telecom"
+                 isAbstract="false">
+         <mif:businessName name="Telecom"/>
+         <mif:derivedFrom staticModelDerivationId="1" className="ParameterItem"/>
+         <mif:annotations>
+            <mif:documentation>
+               <mif:definition>
+                  <mif:text>
+                     <html:p xmlns:html="http://www.w3.org/1999/xhtml">Telecom in relation to the roleClass being queried upon</html:p>
+                  </mif:text>
+               </mif:definition>
+               <mif:rationale>
+                  <mif:text>
+                     <html:p xmlns:html="http://www.w3.org/1999/xhtml">Supports the business requirement to identify the specified roleClass being queried upon</html:p>
+                  </mif:text>
+               </mif:rationale>
+            </mif:documentation>
+         </mif:annotations>
+         <mif:attribute name="value" sortKey="1" minimumMultiplicity="1" maximumMultiplicity="1"
+                        conformance="R"
+                        isMandatory="true"
+                        isImmutable="false">
+            <mif:businessName name="Healthcare Provider Role Telecom"/>
+            <mif:annotations>
+               <mif:documentation>
+                  <mif:definition>
+                     <mif:text>
+                        <html:p xmlns:html="http://www.w3.org/1999/xhtml">The telecom for the provider when playing the role of healthcare provider.</html:p>
+                     </mif:text>
+                  </mif:definition>
+                  <mif:rationale>
+                     <mif:text>
+                        <html:p xmlns:html="http://www.w3.org/1999/xhtml">Mandatory attribute supports the identification of the healthcare provider</html:p>
+                     </mif:text>
+                  </mif:rationale>
+               </mif:documentation>
+            </mif:annotations>
+            <mif:derivedFrom staticModelDerivationId="1" className="ParameterItem" attributeName="value"/>
+            <mif:type name="TEL.PHONEMAIL"/>
+         </mif:attribute>
+      </mif:class>
+   </mif:containedClass>
+   <mif:association graphicLinkId="470C869B-ABF4-F994-ECB6-A2924EFC099B" sortKey="13">
+      <mif:traversableConnection name="address" minimumMultiplicity="0" maximumMultiplicity="10" conformance="R"
+                                 isMandatory="false"
+                                 sortKey="Z ZZ"
+                                 participantClassName="Address">
+         <mif:derivedFrom staticModelDerivationId="1" className="ParameterList"
+                          associationEndName="parameter"/>
+      </mif:traversableConnection>
+      <mif:nonTraversableConnection participantClassName="ParameterList">
+         <mif:derivedFrom staticModelDerivationId="1" className="Parameter"
+                          associationEndName="parameterList"/>
+      </mif:nonTraversableConnection>
+   </mif:association>
+   <mif:association graphicLinkId="A06B3ABD-84ED-8B41-37D5-4131DDD29783" sortKey="8">
+      <mif:traversableConnection name="administrativeGender" minimumMultiplicity="0" maximumMultiplicity="1"
+                                 conformance="R"
+                                 isMandatory="false"
+                                 sortKey="Z ZZ"
+                                 participantClassName="AdministrativeGender">
+         <mif:derivedFrom staticModelDerivationId="1" className="ParameterList"
+                          associationEndName="parameter"/>
+      </mif:traversableConnection>
+      <mif:nonTraversableConnection participantClassName="ParameterList">
+         <mif:derivedFrom staticModelDerivationId="1" className="Parameter"
+                          associationEndName="parameterList"/>
+      </mif:nonTraversableConnection>
+   </mif:association>
+   <mif:association graphicLinkId="EF9B2B99-0831-6330-820A-305BDFC4DB9B" sortKey="19">
+      <mif:traversableConnection name="assignedRoleType" minimumMultiplicity="0" maximumMultiplicity="20"
+                                 conformance="R"
+                                 isMandatory="false"
+                                 sortKey="Z ZZ"
+                                 participantClassName="AssignedRoleType">
+         <mif:derivedFrom staticModelDerivationId="1" className="ParameterList"
+                          associationEndName="parameter"/>
+      </mif:traversableConnection>
+      <mif:nonTraversableConnection participantClassName="ParameterList">
+         <mif:derivedFrom staticModelDerivationId="1" className="Parameter"
+                          associationEndName="parameterList"/>
+      </mif:nonTraversableConnection>
+   </mif:association>
+   <mif:association graphicLinkId="3FFBF4FB-9CFC-20F2-0295-98D7957895F1" sortKey="2">
+      <mif:traversableConnection name="confidence" minimumMultiplicity="0" maximumMultiplicity="1"
+                                 conformance="R"
+                                 isMandatory="false"
+                                 sortKey="Z ZZ"
+                                 participantClassName="Confidence">
+         <mif:derivedFrom staticModelDerivationId="1" className="ParameterList"
+                          associationEndName="parameter"/>
+      </mif:traversableConnection>
+      <mif:nonTraversableConnection participantClassName="ParameterList">
+         <mif:derivedFrom staticModelDerivationId="1" className="Parameter"
+                          associationEndName="parameterList"/>
+      </mif:nonTraversableConnection>
+   </mif:association>
+   <mif:association graphicLinkId="5938C1A7-137D-406D-B5D0-A087E8C4B117" sortKey="9">
+      <mif:traversableConnection name="dOB" minimumMultiplicity="0" maximumMultiplicity="1" conformance="R"
+                                 isMandatory="false"
+                                 sortKey="Z ZZ"
+                                 participantClassName="DOB">
+         <mif:derivedFrom staticModelDerivationId="1" className="ParameterList"
+                          associationEndName="parameter"/>
+      </mif:traversableConnection>
+      <mif:nonTraversableConnection participantClassName="ParameterList">
+         <mif:derivedFrom staticModelDerivationId="1" className="Parameter"
+                          associationEndName="parameterList"/>
+      </mif:nonTraversableConnection>
+   </mif:association>
+   <mif:association graphicLinkId="F3E541BA-3635-C62E-E311-50CB7188D533" sortKey="18">
+      <mif:traversableConnection name="includeHistoryIndicator" minimumMultiplicity="1" maximumMultiplicity="1"
+                                 conformance="R"
+                                 isMandatory="true"
+                                 sortKey="Z ZZ"
+                                 participantClassName="IncludeHistoryIndicator">
+         <mif:derivedFrom staticModelDerivationId="1" className="ParameterList"
+                          associationEndName="parameter"/>
+      </mif:traversableConnection>
+      <mif:nonTraversableConnection participantClassName="ParameterList">
+         <mif:derivedFrom staticModelDerivationId="1" className="Parameter"
+                          associationEndName="parameterList"/>
+      </mif:nonTraversableConnection>
+   </mif:association>
+   <mif:association graphicLinkId="A17B6A6C-19EB-6071-C712-495FFA90084C" sortKey="5">
+      <mif:traversableConnection name="jurisdiction" minimumMultiplicity="0" maximumMultiplicity="10"
+                                 conformance="R"
+                                 isMandatory="false"
+                                 sortKey="Z ZZ"
+                                 participantClassName="Jurisdiction">
+         <mif:derivedFrom staticModelDerivationId="1" className="ParameterList"
+                          associationEndName="parameter"/>
+      </mif:traversableConnection>
+      <mif:nonTraversableConnection participantClassName="ParameterList">
+         <mif:derivedFrom staticModelDerivationId="1" className="Parameter"
+                          associationEndName="parameterList"/>
+      </mif:nonTraversableConnection>
+   </mif:association>
+   <mif:association graphicLinkId="31AB1DAF-B924-AEA2-7923-963A7F9FBEA7" sortKey="14">
+      <mif:traversableConnection name="name" minimumMultiplicity="0" maximumMultiplicity="1" conformance="R"
+                                 isMandatory="false"
+                                 sortKey="Z ZZ"
+                                 participantClassName="Name">
+         <mif:derivedFrom staticModelDerivationId="1" className="ParameterList"
+                          associationEndName="parameter"/>
+      </mif:traversableConnection>
+      <mif:nonTraversableConnection participantClassName="ParameterList">
+         <mif:derivedFrom staticModelDerivationId="1" className="Parameter"
+                          associationEndName="parameterList"/>
+      </mif:nonTraversableConnection>
+   </mif:association>
+   <mif:association graphicLinkId="73AADF64-647F-9422-469D-E0FF32D52A5C" sortKey="1">
+      <mif:traversableConnection name="providerID" minimumMultiplicity="0" maximumMultiplicity="10"
+                                 conformance="R"
+                                 isMandatory="false"
+                                 sortKey="Z ZZ"
+                                 participantClassName="ProviderID">
+         <mif:derivedFrom staticModelDerivationId="1" className="ParameterList"
+                          associationEndName="parameter"/>
+      </mif:traversableConnection>
+      <mif:nonTraversableConnection participantClassName="ParameterList">
+         <mif:derivedFrom staticModelDerivationId="1" className="Parameter"
+                          associationEndName="parameterList"/>
+      </mif:nonTraversableConnection>
+   </mif:association>
+   <mif:association graphicLinkId="F050FE4F-2FEB-C986-6326-85599A6FAC8A" sortKey="7">
+      <mif:traversableConnection name="qualification" minimumMultiplicity="0" maximumMultiplicity="10"
+                                 conformance="R"
+                                 isMandatory="false"
+                                 sortKey="Z ZZ"
+                                 participantClassName="Qualification">
+         <mif:derivedFrom staticModelDerivationId="1" className="ParameterList"
+                          associationEndName="parameter"/>
+      </mif:traversableConnection>
+      <mif:nonTraversableConnection participantClassName="ParameterList">
+         <mif:derivedFrom staticModelDerivationId="1" className="Parameter"
+                          associationEndName="parameterList"/>
+      </mif:nonTraversableConnection>
+   </mif:association>
+   <mif:association graphicLinkId="E79B102E-A2FB-7843-78D1-CFC1695B95C7" sortKey="4">
+      <mif:traversableConnection name="responseObject" minimumMultiplicity="0" maximumMultiplicity="20"
+                                 conformance="R"
+                                 isMandatory="false"
+                                 sortKey="Z ZZ"
+                                 participantClassName="ResponseObject">
+         <mif:derivedFrom staticModelDerivationId="1" className="ParameterList"
+                          associationEndName="parameter"/>
+      </mif:traversableConnection>
+      <mif:nonTraversableConnection participantClassName="ParameterList">
+         <mif:derivedFrom staticModelDerivationId="1" className="Parameter"
+                          associationEndName="parameterList"/>
+      </mif:nonTraversableConnection>
+   </mif:association>
+   <mif:association graphicLinkId="C5B0085D-4218-FF2B-400E-3049444B30B3" sortKey="10">
+      <mif:traversableConnection name="roleClass" minimumMultiplicity="0" maximumMultiplicity="10"
+                                 conformance="R"
+                                 isMandatory="false"
+                                 sortKey="Z ZZ"
+                                 participantClassName="RoleClass">
+         <mif:derivedFrom staticModelDerivationId="1" className="ParameterList"
+                          associationEndName="parameter"/>
+      </mif:traversableConnection>
+      <mif:nonTraversableConnection participantClassName="ParameterList">
+         <mif:derivedFrom staticModelDerivationId="1" className="Parameter"
+                          associationEndName="parameterList"/>
+      </mif:nonTraversableConnection>
+   </mif:association>
+   <mif:association graphicLinkId="8103EA14-C28A-348B-AFDA-460ABADDF446" sortKey="6">
+      <mif:traversableConnection name="roleEffectiveDate" minimumMultiplicity="0" maximumMultiplicity="1"
+                                 conformance="R"
+                                 isMandatory="false"
+                                 sortKey="Z ZZ"
+                                 participantClassName="RoleEffectiveDate">
+         <mif:derivedFrom staticModelDerivationId="1" className="ParameterList"
+                          associationEndName="parameter"/>
+      </mif:traversableConnection>
+      <mif:nonTraversableConnection participantClassName="ParameterList">
+         <mif:derivedFrom staticModelDerivationId="1" className="Parameter"
+                          associationEndName="parameterList"/>
+      </mif:nonTraversableConnection>
+   </mif:association>
+   <mif:association graphicLinkId="47F7E17D-06CA-2A8A-B64C-A3FB931CC156" sortKey="11">
+      <mif:traversableConnection name="roleType" minimumMultiplicity="0" maximumMultiplicity="20"
+                                 conformance="R"
+                                 isMandatory="false"
+                                 sortKey="Z ZZ"
+                                 participantClassName="RoleType">
+         <mif:derivedFrom staticModelDerivationId="1" className="ParameterList"
+                          associationEndName="parameter"/>
+      </mif:traversableConnection>
+      <mif:nonTraversableConnection participantClassName="ParameterList">
+         <mif:derivedFrom staticModelDerivationId="1" className="Parameter"
+                          associationEndName="parameterList"/>
+      </mif:nonTraversableConnection>
+   </mif:association>
+   <mif:association graphicLinkId="54B33AF1-5623-0E89-C6B6-284A09E0EE2D" sortKey="16">
+      <mif:traversableConnection name="routedDocType" minimumMultiplicity="0" maximumMultiplicity="1"
+                                 conformance="R"
+                                 isMandatory="false"
+                                 sortKey="Z ZZ"
+                                 participantClassName="RoutedDocType">
+         <mif:derivedFrom staticModelDerivationId="1" className="ParameterList"
+                          associationEndName="parameter"/>
+      </mif:traversableConnection>
+      <mif:nonTraversableConnection participantClassName="ParameterList">
+         <mif:derivedFrom staticModelDerivationId="1" className="Parameter"
+                          associationEndName="parameterList"/>
+      </mif:nonTraversableConnection>
+   </mif:association>
+   <mif:association graphicLinkId="64A85A95-E27F-B310-CD7D-91A0871DD6D1" sortKey="20">
+      <mif:traversableConnection name="serviceDeliveryLocationAddress" minimumMultiplicity="0"
+                                 maximumMultiplicity="20"
+                                 conformance="R"
+                                 isMandatory="false"
+                                 sortKey="Z ZZ"
+                                 participantClassName="ServiceDeliveryLocationAddress">
+         <mif:derivedFrom staticModelDerivationId="1" className="ParameterList"
+                          associationEndName="parameter"/>
+      </mif:traversableConnection>
+      <mif:nonTraversableConnection participantClassName="ParameterList">
+         <mif:derivedFrom staticModelDerivationId="1" className="Parameter"
+                          associationEndName="parameterList"/>
+      </mif:nonTraversableConnection>
+   </mif:association>
+   <mif:association graphicLinkId="AA97BDD8-E26E-3826-E2F9-939EF5166400" sortKey="3">
+      <mif:traversableConnection name="serviceDeliveryLocationID" minimumMultiplicity="0"
+                                 maximumMultiplicity="10"
+                                 conformance="R"
+                                 isMandatory="false"
+                                 sortKey="Z ZZ"
+                                 participantClassName="ServiceDeliveryLocationID">
+         <mif:derivedFrom staticModelDerivationId="1" className="ParameterList"
+                          associationEndName="parameter"/>
+      </mif:traversableConnection>
+      <mif:nonTraversableConnection participantClassName="ParameterList">
+         <mif:derivedFrom staticModelDerivationId="1" className="Parameter"
+                          associationEndName="parameterList"/>
+      </mif:nonTraversableConnection>
+   </mif:association>
+   <mif:association graphicLinkId="B720D0F3-7CE1-06DB-99DA-83807D802048" sortKey="17">
+      <mif:traversableConnection name="serviceDeliveryLocationType" minimumMultiplicity="0"
+                                 maximumMultiplicity="10"
+                                 conformance="R"
+                                 isMandatory="false"
+                                 sortKey="Z ZZ"
+                                 participantClassName="ServiceDeliveryLocationType">
+         <mif:derivedFrom staticModelDerivationId="1" className="ParameterList"
+                          associationEndName="parameter"/>
+      </mif:traversableConnection>
+      <mif:nonTraversableConnection participantClassName="ParameterList">
+         <mif:derivedFrom staticModelDerivationId="1" className="Parameter"
+                          associationEndName="parameterList"/>
+      </mif:nonTraversableConnection>
+   </mif:association>
+   <mif:association graphicLinkId="FE63907A-79CE-33ED-F84A-15AD14510A9B" sortKey="12">
+      <mif:traversableConnection name="status" minimumMultiplicity="0" maximumMultiplicity="20" conformance="R"
+                                 isMandatory="false"
+                                 sortKey="Z ZZ"
+                                 participantClassName="Status">
+         <mif:derivedFrom staticModelDerivationId="1" className="ParameterList"
+                          associationEndName="parameter"/>
+      </mif:traversableConnection>
+      <mif:nonTraversableConnection participantClassName="ParameterList">
+         <mif:derivedFrom staticModelDerivationId="1" className="Parameter"
+                          associationEndName="parameterList"/>
+      </mif:nonTraversableConnection>
+   </mif:association>
+   <mif:association graphicLinkId="EB0A4A80-8EBE-15FE-291B-0A53F3BC677B" sortKey="15">
+      <mif:traversableConnection name="telecom" minimumMultiplicity="0" maximumMultiplicity="20" conformance="R"
+                                 isMandatory="false"
+                                 sortKey="Z ZZ"
+                                 participantClassName="Telecom">
+         <mif:derivedFrom staticModelDerivationId="1" className="ParameterList"
+                          associationEndName="parameter"/>
+      </mif:traversableConnection>
+      <mif:nonTraversableConnection participantClassName="ParameterList">
+         <mif:derivedFrom staticModelDerivationId="1" className="Parameter"
+                          associationEndName="parameterList"/>
+      </mif:nonTraversableConnection>
+   </mif:association>
+</mif:staticModel>

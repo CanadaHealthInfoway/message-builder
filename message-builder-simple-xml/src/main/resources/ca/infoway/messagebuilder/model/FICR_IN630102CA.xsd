@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:chi="urn:ca.infoway.messagebuilder.simplexml.v1" elementFormDefault="qualified" targetNamespace="urn:ca.infoway.messagebuilder.simplexml.v1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include schemaLocation="FICR_MT630000CA.xsd"/>
+  <xs:include schemaLocation="MCAI_MT700227CA.xsd"/>
+  <xs:include schemaLocation="MCCI_MT002300CA.xsd"/>
+  <xs:complexType name="FICR_IN630102CA.MCAI_MT700227CA.Subject2">
+    <xs:complexContent>
+      <xs:extension base="chi:MCAI_MT700227CA.Subject2">
+        <xs:sequence>
+          <xs:element name="act" type="chi:FICR_MT630000CA.InvoiceElementGroup"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="FICR_IN630102CA.MCAI_MT700227CA.ControlActEvent">
+    <xs:complexContent>
+      <xs:extension base="chi:MCAI_MT700227CA.ControlActEvent">
+        <xs:sequence>
+          <xs:element name="subject" type="chi:FICR_IN630102CA.MCAI_MT700227CA.Subject2"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="FICR_IN630102CA">
+    <xs:complexContent>
+      <xs:extension base="chi:MCCI_MT002300CA.Message">
+        <xs:sequence>
+          <xs:element name="controlActEvent" type="chi:FICR_IN630102CA.MCAI_MT700227CA.ControlActEvent"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="invoiceNullifyResultsRx" type="chi:FICR_IN630102CA"/>
+</xs:schema>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:chi="urn:ca.infoway.messagebuilder.simplexml.v1" elementFormDefault="qualified" targetNamespace="urn:ca.infoway.messagebuilder.simplexml.v1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include schemaLocation="MCAI_MT700236CA.xsd"/>
+  <xs:include schemaLocation="MCCI_MT002300CA.xsd"/>
+  <xs:complexType name="COMT_IN301002CA">
+    <xs:complexContent>
+      <xs:extension base="chi:MCCI_MT002300CA.Message">
+        <xs:sequence>
+          <xs:element name="controlActEvent" type="chi:MCAI_MT700236CA.ControlActEvent"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="addNoteToRecordRequestAccepted" type="chi:COMT_IN301002CA"/>
+</xs:schema>

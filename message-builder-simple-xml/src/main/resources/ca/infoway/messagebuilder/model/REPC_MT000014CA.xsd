@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:chi="urn:ca.infoway.messagebuilder.simplexml.v1" elementFormDefault="qualified" targetNamespace="urn:ca.infoway.messagebuilder.simplexml.v1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include schemaLocation="COCT_MT011001CA.xsd"/>
+  <xs:include schemaLocation="../../../../../../classes/simpleDataTypes.xsd"/>
+  <xs:complexType name="REPC_MT000014CA.ConditionEvent">
+    <xs:sequence>
+      <xs:element maxOccurs="2" minOccurs="2" name="conditionIdentifier" type="chi:InstanceIdentifier"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="conditionType" type="chi:CodedValue"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="conditionStatus" type="chi:SimpleCodedType"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="conditionTimePeriod" type="chi:DateInterval"/>
+      <xs:element maxOccurs="2" minOccurs="0" name="conditionMaskingIndicators" type="chi:CodedValue"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="condition" type="chi:CodedType"/>
+      <xs:element maxOccurs="100" minOccurs="0" name="componentOfPatientCareProvisionEvent" type="chi:COCT_MT011001CA.PatientCareProvisionEvent"/>
+      <xs:group maxOccurs="1" minOccurs="0" ref="chi:COCT_MT911107CA.ActingPerson"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

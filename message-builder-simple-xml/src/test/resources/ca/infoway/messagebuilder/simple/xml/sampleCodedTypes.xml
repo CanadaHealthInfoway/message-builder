@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ParameterList xmlns="urn:ca.infoway.messagebuilder.simplexml.v1" >
+
+	<simpleCodedType code="AA" />
+	
+	<codedValue code="BB" codeSystem="1.2.3.4" >
+		<originalText>Some original text</originalText>
+	</codedValue>
+	
+	<codedType code="BB" codeSystem="1.2.3.4" >
+		<originalText>Some original text</originalText>
+		<translation code="CC" codeSystem="5.6.7.8" />
+		<translation code="DD" codeSystem="11.22.33.44" />
+	</codedType>
+	
+	<codedTypeLab code="BB" codeSystem="1.2.3.4" displayName="Some text to display">
+		<originalText>Some original text</originalText>
+		<translation code="CC" codeSystem="5.6.7.8" />
+		<translation code="DD" codeSystem="11.22.33.44" />
+	</codedTypeLab>
+	
+</ParameterList>

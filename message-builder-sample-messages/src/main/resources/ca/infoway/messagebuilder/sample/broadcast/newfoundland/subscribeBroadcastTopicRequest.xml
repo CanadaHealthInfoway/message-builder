@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<NLPN_IN100140CA xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:hl7-org:v3" ITSVersion="XML_1.0">
+    <!-- Message rendered by Intelliware TEAL version 1.6-SNAPSHOT -->
+    <id root="1aa83ff1-08ab-4fe7-b573-ee777e9bad51"/>
+    <creationTime value="20080625141610-0400"/>
+    <responseModeCode code="I"/>
+    <versionCode code="V3-2007-05"/>
+    <interactionId displayable="true" extension="NLPN_IN100140CA" root="2.16.840.1.113883.1.6"/>
+    <processingCode code="P"/>
+    <processingModeCode code="T"/>
+    <acceptAckCode code="AL"/>
+    <receiver typeCode="RCV">
+      <telecom value="http://123.255.255.10"/>
+      <device classCode="DEV" determinerCode="INSTANCE">
+        <id extension="222" root="2.16.124.113620.1.2.100" use="BUS"/>
+      </device>
+    </receiver>
+    <sender typeCode="SND">
+      <telecom value="http://987.654.321.0"/>
+      <device classCode="DEV" determinerCode="INSTANCE">
+        <id extension="111" root="2.16.124.113620.1.2.100" use="BUS"/>
+        <manufacturerModelName>1.0</manufacturerModelName>
+        <softwareName>Panacea Pharmacy</softwareName>
+      </device>
+    </sender>
+    <controlActEvent classCode="CACT" moodCode="EVN">
+      <id root="1ee83ff1-08ab-4fe7-b573-ea777e9bad21" use="BUS"/>
+      <code code="NLPN_TE100140CA" codeSystem="2.16.840.1.113883.5.4"/>
+      <statusCode code="new"/>
+      <effectiveTime>
+        <low value="20080918"/>
+      </effectiveTime>
+      <author typeCode="AUT" contextControlCode="AP">
+        <time value="20080918181800-0400"/>
+        <assignedEntity1 classCode="ASSIGNED">
+          <id displayable="true" extension="EHR ID EXT" root="2.16.840.1.113883.4.267"/>
+          <assignedPerson classCode="PSN" determinerCode="INSTANCE">
+            <name use="L"><given>Jane</given><family>Doe</family></name>
+            <asHealthCareProvider classCode="PROV">
+              <id displayable="true" extension="55555" root="2.16.840.1.113883.4.268"/>
+            </asHealthCareProvider>
+          </assignedPerson>
+        </assignedEntity1>
+      </author>
+      <location typeCode="LOC" contextControlCode="AP">
+        <serviceDeliveryLocation classCode="SDLOC">
+          <id displayable="true" extension="1" root="2.16.124.113620.1.1.11111"/>
+          <location classCode="PLC" determinerCode="INSTANCE">
+            <name>Intelliware&apos;s Pharmacy</name>
+          </location>
+        </serviceDeliveryLocation>
+      </location>
+      <subject typeCode="SUBJ" contextControlCode="AN" contextConductionInd="false">
+        <topicSubscription classCode="ACT" moodCode="RQO">
+            <subject typeCode="SUBJ">
+              <broadcastTopic classCode="ACT" moodCode="EVN">
+                <id extension="99999" root="2.16.124.113620.1.1.17" use="BUS"/>
+                <subject typeCode="SUBJ">
+                  <subscription classCode="ACT" moodCode="EVN">
+                    <code code="1" codeSystem="2.16.840.1.113883.3.133.10.30.101.15"/>
+                  </subscription>
+                </subject>
+              </broadcastTopic>
+            </subject>
+        </topicSubscription>
+      </subject>
+    </controlActEvent>
+</NLPN_IN100140CA>

@@ -1,0 +1,457 @@
+<mif:dynamicModel xmlns:mif="urn:hl7-org:v3/mif">
+   <mif:header>
+      <mif:renderingInformation schemaVersion="1" application="RoseTree 4.2.43">
+         <mif:renderingNotes>This document was rendered into XML using software provided to HL7 by Beeler Consulting LLC.
+ PubDB to MIF Transform: $RCSfile: PubDbXmlToMIF.xsl,v $ $Revision: 1.11 $ $Date: 2007/10/19 05:55:13 $
+  Fix names transform: $Id: FixMifNames.xsl 7634 2009-03-23 00:42:50Z wbeeler $
+  HTML to MIF Markup transform: $Id: HtmlToMIFMarkup.xsl 7375 2009-01-26 19:26:53Z wbeeler $
+  Base transform: $Id: ConvertBase.xsl 7375 2009-01-26 19:26:53Z wbeeler $
+  Package Id Conversion: $Id: TransformPackageIds.xsl 7375 2009-01-26 19:26:53Z wbeeler $</mif:renderingNotes>
+      </mif:renderingInformation>
+      <mif:legalese copyrightOwner="Health Level Seven, Inc." copyrightYears="2010">
+         <mif:notation>All rights reserved.</mif:notation>
+      </mif:legalese>
+   </mif:header>
+   <mif:triggerEvent name="301001" title="Annotation Event Complete Request"
+                     invokingInteractionId="COMT_IN301001CA">
+      <mif:businessName name="Request to add note to record"/>
+      <mif:packageLocation root="DEFN" section="IM" subSection="CO" domain="MT" artifact="TE" realm="CA"
+                           id="301001"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>A user or system attempts to add a note to an existing record.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="301003" title="Annotation Event Complete Rejection"
+                     invokingInteractionId="COMT_IN301003CA">
+      <mif:businessName name="Decision not to add note to record"/>
+      <mif:packageLocation root="DEFN" section="IM" subSection="CO" domain="MT" artifact="TE" realm="CA"
+                           id="301003"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>A request to add a note to an existing record has been rejected.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="301002" title="Annotation Event Complete"
+                     invokingInteractionId="COMT_IN301002CA">
+      <mif:businessName name="Note added to record"/>
+      <mif:packageLocation root="DEFN" section="IM" subSection="CO" domain="MT" artifact="TE" realm="CA"
+                           id="301002"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>A note has been added to an existing record.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="500001" title="Broadcast Event Activate"
+                     invokingInteractionId="COMT_IN500001CA">
+      <mif:businessName name="Need to inform system users"/>
+      <mif:packageLocation root="DEFN" section="IM" subSection="CO" domain="MT" artifact="TE" realm="CA"
+                           id="500001"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>A piece of information should be displayed to multiple users.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="600003" title="Retract Event Nullify Request"
+                     invokingInteractionId="COMT_IN600001CA">
+      <mif:businessName name="Request to retract action"/>
+      <mif:packageLocation root="DEFN" section="IM" subSection="CO" domain="MT" artifact="TE" realm="CA"
+                           id="600003"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>A user or system attempts to reverse a previously recorded action.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="600002" title="Retract Event Nullify Rejection"
+                     invokingInteractionId="COMT_IN600003CA">
+      <mif:businessName name="Decision to not retract"/>
+      <mif:packageLocation root="DEFN" section="IM" subSection="CO" domain="MT" artifact="TE" realm="CA"
+                           id="600002"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>The request to reverse a previously recorded action has been refused (e.g. too late, no permission, subsequent changes made, etc.).</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="600001" title="Retract Event Nullify"
+                     invokingInteractionId="COMT_IN600002CA">
+      <mif:businessName name="Act retracted"/>
+      <mif:packageLocation root="DEFN" section="IM" subSection="CO" domain="MT" artifact="TE" realm="CA"
+                           id="600001"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>A previously recorded action has been reversed.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="700001" title="Issue Event Revise Managed Request"
+                     invokingInteractionId="COMT_IN700001CA">
+      <mif:businessName name="Request to update issue with new management(s)"/>
+      <mif:packageLocation root="DEFN" section="IM" subSection="CO" domain="MT" artifact="TE" realm="CA"
+                           id="700001"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>A user or system attempts to update an existing issue with one or more managements.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="700003" title="Issue Event Revise Managed Rejection"
+                     invokingInteractionId="COMT_IN700003CA">
+      <mif:businessName name="Decision not to update issue with management(s)"/>
+      <mif:packageLocation root="DEFN" section="IM" subSection="CO" domain="MT" artifact="TE" realm="CA"
+                           id="700003"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>A request to update an issue with one or more managements has been rejected.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:triggerEvent name="700002" title="Issue Event Revise Managed"
+                     invokingInteractionId="COMT_IN700002CA">
+      <mif:businessName name="Issue updated with new management(s)"/>
+      <mif:packageLocation root="DEFN" section="IM" subSection="CO" domain="MT" artifact="TE" realm="CA"
+                           id="700002"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>An issue has been updated with one or more managements.</mif:text>
+         </mif:description>
+      </mif:annotations>
+   </mif:triggerEvent>
+   <mif:hl7Interaction name="301001" title="Annotation Event Complete Request">
+      <mif:businessName name="Add note to record request"/>
+      <mif:packageLocation root="DEFN" section="IM" subSection="CO" domain="MT" artifact="IN" realm="CA"
+                           id="301001"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>Requests that the specified annotation be recorded against a particular record.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="IM" subSection="CO" domain="MT" artifact="TE" realm="CA"
+                      id="301001"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002100">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="MC"
+                                      domain="AI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="700210"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="Act" root="DEFN" section="IM" subSection="CO"
+                                         domain="MT"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="301001"
+                                         traversalName="annotation"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+      <mif:receiverResponsibility triggerEventName="Annotation Event Complete"
+                                  interactionName="Annotation Event Complete Confirmation">
+         <mif:annotations>
+            <mif:description>
+               <mif:text>
+                  <p xmlns="urn:hl7-org:v3/mif">Note added to record</p>
+               </mif:text>
+            </mif:description>
+         </mif:annotations>
+      </mif:receiverResponsibility>
+      <mif:receiverResponsibility triggerEventName="Annotation Event Complete Rejection"
+                                  interactionName="Annotation Event Complete Rejection">
+         <mif:annotations>
+            <mif:description>
+               <mif:text>
+                  <p xmlns="urn:hl7-org:v3/mif">Decision not to add note to record</p>
+               </mif:text>
+            </mif:description>
+         </mif:annotations>
+      </mif:receiverResponsibility>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="301002" title="Annotation Event Complete Confirmation">
+      <mif:businessName name="Add note to record request accepted"/>
+      <mif:packageLocation root="DEFN" section="IM" subSection="CO" domain="MT" artifact="IN" realm="CA"
+                           id="301002"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>Indicates that the specified annotation has been successfully recorded against the requested record.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="IM" subSection="CO" domain="MT" artifact="TE" realm="CA"
+                      id="301002"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002300">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="MC"
+                                      domain="AI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="700236"
+                                      traversalName="controlActEvent"/>
+      </mif:parameterTypeModel>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="301003" title="Annotation Event Complete Rejection">
+      <mif:businessName name="Add note to record request refused"/>
+      <mif:packageLocation root="DEFN" section="IM" subSection="CO" domain="MT" artifact="IN" realm="CA"
+                           id="301003"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>Indicates that the request to record the annotation against a particular record has been denied.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="IM" subSection="CO" domain="MT" artifact="TE" realm="CA"
+                      id="301003"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002300">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="MC"
+                                      domain="AI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="700236"
+                                      traversalName="controlActEvent"/>
+      </mif:parameterTypeModel>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="500001" title="Broadcast Event Activate Notification">
+      <mif:businessName name="Broadcast Message"/>
+      <mif:packageLocation root="DEFN" section="IM" subSection="CO" domain="MT" artifact="IN" realm="CA"
+                           id="500001"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>Sends a broadcast message to all or a subset of users of a given system; (Used for alerts regarding system outages or other urgent messages).</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="IM" subSection="CO" domain="MT" artifact="TE" realm="CA"
+                      id="500001"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002100">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="MC"
+                                      domain="AI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="700212"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="Act" root="DEFN" section="IM" subSection="CO"
+                                         domain="MT"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="500001"
+                                         traversalName="informEvent"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="600001" title="Retract Event Nullify Request">
+      <mif:businessName name="Retract action request"/>
+      <mif:packageLocation root="DEFN" section="IM" subSection="CO" domain="MT" artifact="IN" realm="CA"
+                           id="600001"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>Seeks to have an identified ControlAct nullified, essentially reversing the record of the event.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="IM" subSection="CO" domain="MT" artifact="TE" realm="CA"
+                      id="600003"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002100">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="MC"
+                                      domain="AI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="700210"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="Act" root="DEFN" section="IM" subSection="CO"
+                                         domain="MT"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="001104"
+                                         traversalName="actEvent"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+      <mif:receiverResponsibility triggerEventName="Retract Event Nullify"
+                                  interactionName="Retract Event Nullify Confirmation">
+         <mif:annotations>
+            <mif:description>
+               <mif:text>
+                  <p xmlns="urn:hl7-org:v3/mif">Act retracted</p>
+               </mif:text>
+            </mif:description>
+         </mif:annotations>
+      </mif:receiverResponsibility>
+      <mif:receiverResponsibility triggerEventName="Retract Event Nullify Rejection"
+                                  interactionName="Retract Event Nullify Rejection">
+         <mif:annotations>
+            <mif:description>
+               <mif:text>
+                  <p xmlns="urn:hl7-org:v3/mif">Decision to not retract</p>
+               </mif:text>
+            </mif:description>
+         </mif:annotations>
+      </mif:receiverResponsibility>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="600002" title="Retract Event Nullify Confirmation">
+      <mif:businessName name="Retract action request accepted"/>
+      <mif:packageLocation root="DEFN" section="IM" subSection="CO" domain="MT" artifact="IN" realm="CA"
+                           id="600002"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>Indicates that an identified ControlAct has been nullified as requested, essentially reversing the record of the event.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="IM" subSection="CO" domain="MT" artifact="TE" realm="CA"
+                      id="600001"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002300">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="MC"
+                                      domain="AI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="700226"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="Act" root="DEFN" section="IM" subSection="CO"
+                                         domain="MT"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="001103"
+                                         traversalName="actEvent"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="600003" title="Retract Event Nullify Rejection">
+      <mif:businessName name="Retract action request refused"/>
+      <mif:packageLocation root="DEFN" section="IM" subSection="CO" domain="MT" artifact="IN" realm="CA"
+                           id="600003"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>Indicates that the request to nullify an identified ControlAct has been denied, leaving the original event in force.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="IM" subSection="CO" domain="MT" artifact="TE" realm="CA"
+                      id="600002"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002300">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="MC"
+                                      domain="AI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="700226"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="Act" root="DEFN" section="IM" subSection="CO"
+                                         domain="MT"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="001103"
+                                         traversalName="actEvent"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="700001" title="Issue Event Revise Request Managed">
+      <mif:businessName name="Add issue management request"/>
+      <mif:packageLocation root="DEFN" section="IM" subSection="CO" domain="MT" artifact="IN" realm="CA"
+                           id="700001"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>Requests that the specified issue be updated to include the identified management(s).</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="IM" subSection="CO" domain="MT" artifact="TE" realm="CA"
+                      id="700001"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002100">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="MC"
+                                      domain="AI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="700210"
+                                      traversalName="controlActEvent">
+            <mif:supplierBindingArgument templateParameterName="Act" root="DEFN" section="IM" subSection="CO"
+                                         domain="CT"
+                                         artifact="MT-deprecated"
+                                         realm="CA"
+                                         id="260010"
+                                         traversalName="detectedIssueEvent"/>
+         </mif:supplierBindingArgument>
+      </mif:parameterTypeModel>
+      <mif:receiverResponsibility triggerEventName="Issue Event Revise Managed"
+                                  interactionName="Issue Event Revise Confirmation Managed">
+         <mif:annotations>
+            <mif:description>
+               <mif:text>
+                  <p xmlns="urn:hl7-org:v3/mif">Issue updated with new management(s)</p>
+               </mif:text>
+            </mif:description>
+         </mif:annotations>
+      </mif:receiverResponsibility>
+      <mif:receiverResponsibility triggerEventName="Issue Event Revise Managed Rejection"
+                                  interactionName="Issue Event Revise Rejection Managed">
+         <mif:annotations>
+            <mif:description>
+               <mif:text>
+                  <p xmlns="urn:hl7-org:v3/mif">Decision not to update issue with management(s)</p>
+               </mif:text>
+            </mif:description>
+         </mif:annotations>
+      </mif:receiverResponsibility>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="700002" title="Issue Event Revise Confirmation Managed">
+      <mif:businessName name="Add issue management request accepted"/>
+      <mif:packageLocation root="DEFN" section="IM" subSection="CO" domain="MT" artifact="IN" realm="CA"
+                           id="700002"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>Indicates that the specified issue has been successfully updated to include the identified management(s).</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="IM" subSection="CO" domain="MT" artifact="TE" realm="CA"
+                      id="700002"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002300">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="MC"
+                                      domain="AI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="700236"
+                                      traversalName="controlActEvent"/>
+      </mif:parameterTypeModel>
+   </mif:hl7Interaction>
+   <mif:hl7Interaction name="700003" title="Issue Event Revise Rejection Managed">
+      <mif:businessName name="Add issue management request refused"/>
+      <mif:packageLocation root="DEFN" section="IM" subSection="CO" domain="MT" artifact="IN" realm="CA"
+                           id="700003"/>
+      <mif:annotations>
+         <mif:description>
+            <mif:text>Indicates that the request to update an issue with identified management(s) has been denied.</mif:text>
+         </mif:description>
+      </mif:annotations>
+      <mif:callAction root="DEFN" section="IM" subSection="CO" domain="MT" artifact="TE" realm="CA"
+                      id="700003"/>
+      <mif:parameterTypeModel root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                              realm="CA"
+                              id="002300">
+         <mif:supplierBindingArgument templateParameterName="ControlActEvent" root="DEFN" section="IM"
+                                      subSection="MC"
+                                      domain="AI"
+                                      artifact="MT-deprecated"
+                                      realm="CA"
+                                      id="700236"
+                                      traversalName="controlActEvent"/>
+      </mif:parameterTypeModel>
+   </mif:hl7Interaction>
+</mif:dynamicModel>

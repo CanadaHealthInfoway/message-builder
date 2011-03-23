@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE module PUBLIC
+    "-//Puppy Crawl//DTD Check Configuration 1.2//EN"
+    "http://www.puppycrawl.com/dtds/configuration_1_2.dtd">
+<module name="Checker">
+  <module name="TreeWalker">
+  	<property name="fileExtensions" value=".java,.java1"/>
+    <module name="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck">
+      <property name="scope" value="public"/>
+	  <property name="logLoadErrors" value="true"/>
+      <property name="suppressLoadErrors" value="true"/>     
+    </module>
+    <module name="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheck">
+      <property name="scope" value="public"/>
+    </module>
+    <module name="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocStyleCheck">
+      <property name="scope" value="public"/>
+      <property name="checkEmptyJavadoc" value="true"/>
+    </module>
+	  <module name="RedundantThrows">
+	    <property name="suppressLoadErrors" value="true"/>
+	    <property name="logLoadErrors" value="true"/>
+	  </module>
+  </module>
+</module>

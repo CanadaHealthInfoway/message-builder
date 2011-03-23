@@ -1,0 +1,732 @@
+<hl7:PRLO_IN202011CA xmlns:hl7="urn:hl7-org:v3" ITSVersion="XML_1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <hl7:id root="862190BE-D321-4795-BA84-2FC8018EC648" />
+   <hl7:creationTime value="20090122123033.4511-0330" />
+   <hl7:responseModeCode code="I" />
+   <hl7:versionCode code="NE2006" />
+   <hl7:interactionId extension="PRLO_IN202011CA" root="2.16.840.1.113883.1.6" />
+   <hl7:profileId extension="EHR-0008" root="2.16.840.1.113883.3.133.3.100" use="BUS" />
+   <hl7:processingCode code="T" />
+   <hl7:processingModeCode code="T" />
+   <hl7:acceptAckCode code="NE" />
+   <hl7:receiver typeCode="RCV">
+      <hl7:telecom value="https://198.203.1.23" />
+      <hl7:device classCode="DEV" determinerCode="INSTANCE">
+         <hl7:id extension="123456" root="2.16.124.113618.1234.1.1.5130" />
+      </hl7:device>
+   </hl7:receiver>
+   <hl7:sender typeCode="SND">
+      <hl7:telecom value="https://staginghial.nlpharmacynetwork.ca" />
+      <hl7:device classCode="DEV" determinerCode="INSTANCE">
+         <hl7:id extension="TST1" root="2.16.840.1.113883.3.133.1.30.101" />
+      </hl7:device>
+   </hl7:sender>
+   <hl7:acknowledgement>
+      <hl7:typeCode code="AA" />
+      <hl7:messageWaitingNumber value="5" />
+      <hl7:targetMessage>
+         <hl7:id root="e3f7859f-3422-453f-a78e-1729caf9facd" />
+      </hl7:targetMessage>
+   </hl7:acknowledgement>
+   <hl7:controlActEvent classCode="CACT" moodCode="EVN">
+      <hl7:id extension="33434" root="2.16.840.1.113883.3.133.1.30.101.2" />
+      <hl7:code code="PRLO_TE202011UV" codeSystem="2.16.840.1.113883.5.4" />
+      <hl7:statusCode code="completed" />
+      <hl7:effectiveTime nullFlavor="UNK" />
+      <hl7:subject contextControlCode="ON" typeCode="SUBJ">
+         <hl7:registrationEvent classCode="REG" moodCode="EVN">
+            <hl7:statusCode code="active" />
+            <hl7:subject contextControlCode="AN" typeCode="SBJ">
+               <hl7:serviceDeliveryLocation classCode="SDLOC">
+                  <hl7:id extension="NL" root="2.16.840.1.113883.4.267" use="BUS" />
+                  <hl7:name>NL</hl7:name>
+                  <hl7:name>Location registry - Root location</hl7:name>
+                  <hl7:statusCode nullFlavor="NI" />
+                  <hl7:location classCode="PLC" determinerCode="INSTANCE">
+                     <hl7:code code="BLDG" codeSystem="2.16.840.1.113883.5.1060" />
+                     <hl7:mobileInd value="false" />
+                  </hl7:location>
+                  <hl7:indirectAuthority typeCode="INDAUTH">
+                     <hl7:territorialAuthority classCode="TERR">
+                        <hl7:id nullFlavor="NI" />
+                     </hl7:territorialAuthority>
+                  </hl7:indirectAuthority>
+               </hl7:serviceDeliveryLocation>
+            </hl7:subject>
+            <hl7:custodian contextControlCode="AP" typeCode="CST">
+               <hl7:assignedDevice classCode="ASSIGNED">
+                  <hl7:id extension="PRS" root="2.16.840.1.113883.3.133.1.10.104" />
+                  <hl7:assignedRepository classCode="DEV" determinerCode="INSTANCE">
+                     <hl7:name>NL PR</hl7:name>
+                  </hl7:assignedRepository>
+                  <hl7:representedRepositoryJurisdiction classCode="STATE" determinerCode="INSTANCE">
+                     <hl7:name>NL</hl7:name>
+                  </hl7:representedRepositoryJurisdiction>
+               </hl7:assignedDevice>
+            </hl7:custodian>
+         </hl7:registrationEvent>
+      </hl7:subject>
+      <hl7:subject contextControlCode="ON" typeCode="SUBJ">
+         <hl7:registrationEvent classCode="REG" moodCode="EVN">
+            <hl7:statusCode code="active" />
+            <hl7:subject contextControlCode="AN" typeCode="SBJ">
+               <hl7:serviceDeliveryLocation classCode="SDLOC">
+                  <hl7:id extension="NL.00111.3" root="2.16.840.1.113883.4.267" use="BUS" />
+                  <hl7:code code="PHARM" codeSystem="2.16.840.1.113883.5.111" />
+                  <hl7:addr use="PHYS WP">
+                     12 CARLSON ST, UNIT 113
+                     <hl7:city>CORNER BROOK</hl7:city>
+                     <hl7:postalCode>A1A 1A1</hl7:postalCode>
+                     <hl7:state>NL</hl7:state>
+                     <hl7:country>CA</hl7:country>
+                  </hl7:addr>
+                  <hl7:statusCode nullFlavor="NI" />
+                  <hl7:location classCode="PLC" determinerCode="INSTANCE">
+                     <hl7:code code="BLDG" codeSystem="2.16.840.1.113883.5.1060" />
+                     <hl7:mobileInd value="false" />
+                  </hl7:location>
+                  <hl7:indirectAuthority typeCode="INDAUTH">
+                     <hl7:territorialAuthority classCode="TERR">
+                        <hl7:id nullFlavor="NI" />
+                     </hl7:territorialAuthority>
+                  </hl7:indirectAuthority>
+                  <hl7:name />
+                  <hl7:name />
+               </hl7:serviceDeliveryLocation>
+            </hl7:subject>
+            <hl7:custodian contextControlCode="AP" typeCode="CST">
+               <hl7:assignedDevice classCode="ASSIGNED">
+                  <hl7:id extension="PRS" root="2.16.840.1.113883.3.133.1.10.104" />
+                  <hl7:assignedRepository classCode="DEV" determinerCode="INSTANCE">
+                     <hl7:name>NL PR</hl7:name>
+                  </hl7:assignedRepository>
+                  <hl7:representedRepositoryJurisdiction classCode="STATE" determinerCode="INSTANCE">
+                     <hl7:name>NL</hl7:name>
+                  </hl7:representedRepositoryJurisdiction>
+               </hl7:assignedDevice>
+            </hl7:custodian>
+         </hl7:registrationEvent>
+      </hl7:subject>
+      <hl7:subject contextControlCode="ON" typeCode="SUBJ">
+         <hl7:registrationEvent classCode="REG" moodCode="EVN">
+            <hl7:statusCode code="active" />
+            <hl7:subject contextControlCode="AN" typeCode="SBJ">
+               <hl7:serviceDeliveryLocation classCode="SDLOC">
+                  <hl7:id extension="NL.00100.1" root="2.16.840.1.113883.4.267" use="BUS" />
+                  <hl7:code code="PHARM" codeSystem="2.16.840.1.113883.5.111" />
+                  <hl7:addr use="PHYS WP">
+                     15 SOUTH ST, UNIT 124
+                     <hl7:city>CONCEPTION BAY SOUTH</hl7:city>
+                     <hl7:postalCode>B1B 1B1</hl7:postalCode>
+                     <hl7:state>NL</hl7:state>
+                     <hl7:country>CA</hl7:country>
+                  </hl7:addr>
+                  <hl7:statusCode nullFlavor="NI" />
+                  <hl7:location classCode="PLC" determinerCode="INSTANCE">
+                     <hl7:code code="BLDG" codeSystem="2.16.840.1.113883.5.1060" />
+                     <hl7:mobileInd value="false" />
+                  </hl7:location>
+                  <hl7:indirectAuthority typeCode="INDAUTH">
+                     <hl7:territorialAuthority classCode="TERR">
+                        <hl7:id nullFlavor="NI" />
+                     </hl7:territorialAuthority>
+                  </hl7:indirectAuthority>
+                  <hl7:name />
+                  <hl7:name />
+               </hl7:serviceDeliveryLocation>
+            </hl7:subject>
+            <hl7:custodian contextControlCode="AP" typeCode="CST">
+               <hl7:assignedDevice classCode="ASSIGNED">
+                  <hl7:id extension="PRS" root="2.16.840.1.113883.3.133.1.10.104" />
+                  <hl7:assignedRepository classCode="DEV" determinerCode="INSTANCE">
+                     <hl7:name>NL PR</hl7:name>
+                  </hl7:assignedRepository>
+                  <hl7:representedRepositoryJurisdiction classCode="STATE" determinerCode="INSTANCE">
+                     <hl7:name>NL</hl7:name>
+                  </hl7:representedRepositoryJurisdiction>
+               </hl7:assignedDevice>
+            </hl7:custodian>
+         </hl7:registrationEvent>
+      </hl7:subject>
+      <hl7:subject contextControlCode="ON" typeCode="SUBJ">
+         <hl7:registrationEvent classCode="REG" moodCode="EVN">
+            <hl7:statusCode code="active" />
+            <hl7:subject contextControlCode="AN" typeCode="SBJ">
+               <hl7:serviceDeliveryLocation classCode="SDLOC">
+                  <hl7:id extension="NL.00011.4" root="2.16.840.1.113883.4.267" use="BUS" />
+                  <hl7:code code="PHARM" codeSystem="2.16.840.1.113883.5.111" />
+                  <hl7:addr use="PHYS WP">
+                     32 GANDER ST, UNIT 135
+                     <hl7:city>GANDER</hl7:city>
+                     <hl7:postalCode>C1C 1C1</hl7:postalCode>
+                     <hl7:state>NL</hl7:state>
+                     <hl7:country>CA</hl7:country>
+                  </hl7:addr>
+                  <hl7:statusCode nullFlavor="NI" />
+                  <hl7:location classCode="PLC" determinerCode="INSTANCE">
+                     <hl7:code code="BLDG" codeSystem="2.16.840.1.113883.5.1060" />
+                     <hl7:mobileInd value="false" />
+                  </hl7:location>
+                  <hl7:indirectAuthority typeCode="INDAUTH">
+                     <hl7:territorialAuthority classCode="TERR">
+                        <hl7:id nullFlavor="NI" />
+                     </hl7:territorialAuthority>
+                  </hl7:indirectAuthority>
+                  <hl7:name />
+                  <hl7:name />
+               </hl7:serviceDeliveryLocation>
+            </hl7:subject>
+            <hl7:custodian contextControlCode="AP" typeCode="CST">
+               <hl7:assignedDevice classCode="ASSIGNED">
+                  <hl7:id extension="PRS" root="2.16.840.1.113883.3.133.1.10.104" />
+                  <hl7:assignedRepository classCode="DEV" determinerCode="INSTANCE">
+                     <hl7:name>NL PR</hl7:name>
+                  </hl7:assignedRepository>
+                  <hl7:representedRepositoryJurisdiction classCode="STATE" determinerCode="INSTANCE">
+                     <hl7:name>NL</hl7:name>
+                  </hl7:representedRepositoryJurisdiction>
+               </hl7:assignedDevice>
+            </hl7:custodian>
+         </hl7:registrationEvent>
+      </hl7:subject>
+      <hl7:subject contextControlCode="ON" typeCode="SUBJ">
+         <hl7:registrationEvent classCode="REG" moodCode="EVN">
+            <hl7:statusCode code="active" />
+            <hl7:subject contextControlCode="AN" typeCode="SBJ">
+               <hl7:serviceDeliveryLocation classCode="SDLOC">
+                  <hl7:id extension="NL.00010" root="2.16.840.1.113883.4.267" use="BUS" />
+                  <hl7:code code="PHARM" codeSystem="2.16.840.1.113883.5.111" />
+                  <hl7:addr use="PHYS WP">
+                     133 GRAND ST, UNIT 146
+                     <hl7:city>GRAND FALLS - WINDSOR</hl7:city>
+                     <hl7:postalCode>D1D 1D1</hl7:postalCode>
+                     <hl7:state>NL</hl7:state>
+                     <hl7:country>CA</hl7:country>
+                  </hl7:addr>
+                  <hl7:statusCode nullFlavor="NI" />
+                  <hl7:location classCode="PLC" determinerCode="INSTANCE">
+                     <hl7:code code="BLDG" codeSystem="2.16.840.1.113883.5.1060" />
+                     <hl7:mobileInd value="false" />
+                  </hl7:location>
+                  <hl7:indirectAuthority typeCode="INDAUTH">
+                     <hl7:territorialAuthority classCode="TERR">
+                        <hl7:id nullFlavor="NI" />
+                     </hl7:territorialAuthority>
+                  </hl7:indirectAuthority>
+                  <hl7:name />
+                  <hl7:name />
+               </hl7:serviceDeliveryLocation>
+            </hl7:subject>
+            <hl7:custodian contextControlCode="AP" typeCode="CST">
+               <hl7:assignedDevice classCode="ASSIGNED">
+                  <hl7:id extension="PRS" root="2.16.840.1.113883.3.133.1.10.104" />
+                  <hl7:assignedRepository classCode="DEV" determinerCode="INSTANCE">
+                     <hl7:name>NL PR</hl7:name>
+                  </hl7:assignedRepository>
+                  <hl7:representedRepositoryJurisdiction classCode="STATE" determinerCode="INSTANCE">
+                     <hl7:name>NL</hl7:name>
+                  </hl7:representedRepositoryJurisdiction>
+               </hl7:assignedDevice>
+            </hl7:custodian>
+         </hl7:registrationEvent>
+      </hl7:subject>
+      <hl7:subject contextControlCode="ON" typeCode="SUBJ">
+         <hl7:registrationEvent classCode="REG" moodCode="EVN">
+            <hl7:statusCode code="active" />
+            <hl7:subject contextControlCode="AN" typeCode="SBJ">
+               <hl7:serviceDeliveryLocation classCode="SDLOC">
+                  <hl7:id extension="NL.00023" root="2.16.840.1.113883.4.267" use="BUS" />
+                  <hl7:code code="PHARM" codeSystem="2.16.840.1.113883.5.111" />
+                  <hl7:addr use="PHYS WP">
+                     45 LABRADOR ST, UNIT 157
+                     <hl7:city>LABRADOR CITY</hl7:city>
+                     <hl7:postalCode>E1E 1E1</hl7:postalCode>
+                     <hl7:state>NL</hl7:state>
+                     <hl7:country>CA</hl7:country>
+                  </hl7:addr>
+                  <hl7:statusCode nullFlavor="NI" />
+                  <hl7:location classCode="PLC" determinerCode="INSTANCE">
+                     <hl7:code code="BLDG" codeSystem="2.16.840.1.113883.5.1060" />
+                     <hl7:mobileInd value="false" />
+                  </hl7:location>
+                  <hl7:indirectAuthority typeCode="INDAUTH">
+                     <hl7:territorialAuthority classCode="TERR">
+                        <hl7:id nullFlavor="NI" />
+                     </hl7:territorialAuthority>
+                  </hl7:indirectAuthority>
+                  <hl7:name />
+                  <hl7:name />
+               </hl7:serviceDeliveryLocation>
+            </hl7:subject>
+            <hl7:custodian contextControlCode="AP" typeCode="CST">
+               <hl7:assignedDevice classCode="ASSIGNED">
+                  <hl7:id extension="PRS" root="2.16.840.1.113883.3.133.1.10.104" />
+                  <hl7:assignedRepository classCode="DEV" determinerCode="INSTANCE">
+                     <hl7:name>NL PR</hl7:name>
+                  </hl7:assignedRepository>
+                  <hl7:representedRepositoryJurisdiction classCode="STATE" determinerCode="INSTANCE">
+                     <hl7:name>NL</hl7:name>
+                  </hl7:representedRepositoryJurisdiction>
+               </hl7:assignedDevice>
+            </hl7:custodian>
+         </hl7:registrationEvent>
+      </hl7:subject>
+      <hl7:subject contextControlCode="ON" typeCode="SUBJ">
+         <hl7:registrationEvent classCode="REG" moodCode="EVN">
+            <hl7:statusCode code="active" />
+            <hl7:subject contextControlCode="AN" typeCode="SBJ">
+               <hl7:serviceDeliveryLocation classCode="SDLOC">
+                  <hl7:id extension="NL.00210.5" root="2.16.840.1.113883.4.267" use="BUS" />
+                  <hl7:code code="PHARM" codeSystem="2.16.840.1.113883.5.111" />
+                  <hl7:addr use="PHYS WP">
+                     78 MOUNT ST, UNIT 168
+                     <hl7:city>MOUNT PEARL</hl7:city>
+                     <hl7:postalCode>F1F 1F1</hl7:postalCode>
+                     <hl7:state>NL</hl7:state>
+                     <hl7:country>CA</hl7:country>
+                  </hl7:addr>
+                  <hl7:statusCode nullFlavor="NI" />
+                  <hl7:location classCode="PLC" determinerCode="INSTANCE">
+                     <hl7:code code="BLDG" codeSystem="2.16.840.1.113883.5.1060" />
+                     <hl7:mobileInd value="false" />
+                  </hl7:location>
+                  <hl7:indirectAuthority typeCode="INDAUTH">
+                     <hl7:territorialAuthority classCode="TERR">
+                        <hl7:id nullFlavor="NI" />
+                     </hl7:territorialAuthority>
+                  </hl7:indirectAuthority>
+                  <hl7:name />
+                  <hl7:name />
+               </hl7:serviceDeliveryLocation>
+            </hl7:subject>
+            <hl7:custodian contextControlCode="AP" typeCode="CST">
+               <hl7:assignedDevice classCode="ASSIGNED">
+                  <hl7:id extension="PRS" root="2.16.840.1.113883.3.133.1.10.104" />
+                  <hl7:assignedRepository classCode="DEV" determinerCode="INSTANCE">
+                     <hl7:name>NL PR</hl7:name>
+                  </hl7:assignedRepository>
+                  <hl7:representedRepositoryJurisdiction classCode="STATE" determinerCode="INSTANCE">
+                     <hl7:name>NL</hl7:name>
+                  </hl7:representedRepositoryJurisdiction>
+               </hl7:assignedDevice>
+            </hl7:custodian>
+         </hl7:registrationEvent>
+      </hl7:subject>
+      <hl7:subject contextControlCode="ON" typeCode="SUBJ">
+         <hl7:registrationEvent classCode="REG" moodCode="EVN">
+            <hl7:statusCode code="active" />
+            <hl7:subject contextControlCode="AN" typeCode="SBJ">
+               <hl7:serviceDeliveryLocation classCode="SDLOC">
+                  <hl7:id extension="NL.00133.1.4" root="2.16.840.1.113883.4.267" use="BUS" />
+                  <hl7:code code="HOSP" codeSystem="2.16.840.1.113883.5.111" />
+                  <hl7:addr use="PHYS WP">
+                     67 JOHN ST, UNIT 179
+                     <hl7:city>ST. JOHN'S</hl7:city>
+                     <hl7:postalCode>G1G 1G1</hl7:postalCode>
+                     <hl7:state>NL</hl7:state>
+                     <hl7:country>CA</hl7:country>
+                  </hl7:addr>
+                  <hl7:statusCode nullFlavor="NI" />
+                  <hl7:location classCode="PLC" determinerCode="INSTANCE">
+                     <hl7:code code="BLDG" codeSystem="2.16.840.1.113883.5.1060" />
+                     <hl7:mobileInd value="false" />
+                  </hl7:location>
+                  <hl7:indirectAuthority typeCode="INDAUTH">
+                     <hl7:territorialAuthority classCode="TERR">
+                        <hl7:id nullFlavor="NI" />
+                     </hl7:territorialAuthority>
+                  </hl7:indirectAuthority>
+                  <hl7:name />
+                  <hl7:name />
+               </hl7:serviceDeliveryLocation>
+            </hl7:subject>
+            <hl7:custodian contextControlCode="AP" typeCode="CST">
+               <hl7:assignedDevice classCode="ASSIGNED">
+                  <hl7:id extension="PRS" root="2.16.840.1.113883.3.133.1.10.104" />
+                  <hl7:assignedRepository classCode="DEV" determinerCode="INSTANCE">
+                     <hl7:name>NL PR</hl7:name>
+                  </hl7:assignedRepository>
+                  <hl7:representedRepositoryJurisdiction classCode="STATE" determinerCode="INSTANCE">
+                     <hl7:name>NL</hl7:name>
+                  </hl7:representedRepositoryJurisdiction>
+               </hl7:assignedDevice>
+            </hl7:custodian>
+         </hl7:registrationEvent>
+      </hl7:subject>
+      <hl7:subject contextControlCode="ON" typeCode="SUBJ">
+         <hl7:registrationEvent classCode="REG" moodCode="EVN">
+            <hl7:statusCode code="active" />
+            <hl7:subject contextControlCode="AN" typeCode="SBJ">
+               <hl7:serviceDeliveryLocation classCode="SDLOC">
+                  <hl7:id extension="NL.00101" root="2.16.840.1.113883.4.267" use="BUS" />
+                  <hl7:code code="HOSP" codeSystem="2.16.840.1.113883.5.111" />
+                  <hl7:addr use="PHYS WP">
+                     46 PARADISE ST
+                     <hl7:city>PARADISE</hl7:city>
+                     <hl7:postalCode>A1A1A1</hl7:postalCode>
+                     <hl7:state>NL</hl7:state>
+                     <hl7:country>CA</hl7:country>
+                  </hl7:addr>
+                  <hl7:statusCode nullFlavor="NI" />
+                  <hl7:location classCode="PLC" determinerCode="INSTANCE">
+                     <hl7:code code="BLDG" codeSystem="2.16.840.1.113883.5.1060" />
+                     <hl7:mobileInd value="false" />
+                  </hl7:location>
+                  <hl7:indirectAuthority typeCode="INDAUTH">
+                     <hl7:territorialAuthority classCode="TERR">
+                        <hl7:id nullFlavor="NI" />
+                     </hl7:territorialAuthority>
+                  </hl7:indirectAuthority>
+                  <hl7:name />
+                  <hl7:name />
+               </hl7:serviceDeliveryLocation>
+            </hl7:subject>
+            <hl7:custodian contextControlCode="AP" typeCode="CST">
+               <hl7:assignedDevice classCode="ASSIGNED">
+                  <hl7:id extension="PRS" root="2.16.840.1.113883.3.133.1.10.104" />
+                  <hl7:assignedRepository classCode="DEV" determinerCode="INSTANCE">
+                     <hl7:name>NL PR</hl7:name>
+                  </hl7:assignedRepository>
+                  <hl7:representedRepositoryJurisdiction classCode="STATE" determinerCode="INSTANCE">
+                     <hl7:name>NL</hl7:name>
+                  </hl7:representedRepositoryJurisdiction>
+               </hl7:assignedDevice>
+            </hl7:custodian>
+         </hl7:registrationEvent>
+      </hl7:subject>
+      <hl7:subject contextControlCode="ON" typeCode="SUBJ">
+         <hl7:registrationEvent classCode="REG" moodCode="EVN">
+            <hl7:statusCode code="active" />
+            <hl7:subject contextControlCode="AN" typeCode="SBJ">
+               <hl7:serviceDeliveryLocation classCode="SDLOC">
+                  <hl7:id extension="711219" root="2.16.840.1.113883.4.267" use="BUS" />
+                  <hl7:code code="PHARM" codeSystem="2.16.840.1.113883.5.111" />
+                  <hl7:name>Testing Location</hl7:name>
+                  <hl7:name>Test Location Added to Track Message Use</hl7:name>
+                  <hl7:addr use="PHYS WP">
+                     66 Leslie Cres
+                     <hl7:city>St. John's</hl7:city>
+                     <hl7:postalCode>A1N2V2</hl7:postalCode>
+                     <hl7:state>NL</hl7:state>
+                     <hl7:country>CA</hl7:country>
+                  </hl7:addr>
+                  <hl7:statusCode nullFlavor="NI" />
+                  <hl7:location classCode="PLC" determinerCode="INSTANCE">
+                     <hl7:code code="BLDG" codeSystem="2.16.840.1.113883.5.1060" />
+                     <hl7:mobileInd value="false" />
+                  </hl7:location>
+                  <hl7:indirectAuthority typeCode="INDAUTH">
+                     <hl7:territorialAuthority classCode="TERR">
+                        <hl7:id nullFlavor="NI" />
+                     </hl7:territorialAuthority>
+                  </hl7:indirectAuthority>
+               </hl7:serviceDeliveryLocation>
+            </hl7:subject>
+            <hl7:custodian contextControlCode="AP" typeCode="CST">
+               <hl7:assignedDevice classCode="ASSIGNED">
+                  <hl7:id extension="PRS" root="2.16.840.1.113883.3.133.1.10.104" />
+                  <hl7:assignedRepository classCode="DEV" determinerCode="INSTANCE">
+                     <hl7:name>NL PR</hl7:name>
+                  </hl7:assignedRepository>
+                  <hl7:representedRepositoryJurisdiction classCode="STATE" determinerCode="INSTANCE">
+                     <hl7:name>NL</hl7:name>
+                  </hl7:representedRepositoryJurisdiction>
+               </hl7:assignedDevice>
+            </hl7:custodian>
+         </hl7:registrationEvent>
+      </hl7:subject>
+      <hl7:subject contextControlCode="ON" typeCode="SUBJ">
+         <hl7:registrationEvent classCode="REG" moodCode="EVN">
+            <hl7:statusCode code="active" />
+            <hl7:subject contextControlCode="AN" typeCode="SBJ">
+               <hl7:serviceDeliveryLocation classCode="SDLOC">
+                  <hl7:id extension="NL.100.4" root="2.16.840.1.113883.4.267" use="BUS" />
+                  <hl7:name>Test Location 44a</hl7:name>
+                  <hl7:statusCode nullFlavor="NI" />
+                  <hl7:location classCode="PLC" determinerCode="INSTANCE">
+                     <hl7:code code="BLDG" codeSystem="2.16.840.1.113883.5.1060" />
+                     <hl7:mobileInd value="false" />
+                  </hl7:location>
+                  <hl7:indirectAuthority typeCode="INDAUTH">
+                     <hl7:territorialAuthority classCode="TERR">
+                        <hl7:id nullFlavor="NI" />
+                     </hl7:territorialAuthority>
+                  </hl7:indirectAuthority>
+               </hl7:serviceDeliveryLocation>
+            </hl7:subject>
+            <hl7:custodian contextControlCode="AP" typeCode="CST">
+               <hl7:assignedDevice classCode="ASSIGNED">
+                  <hl7:id extension="PRS" root="2.16.840.1.113883.3.133.1.10.104" />
+                  <hl7:assignedRepository classCode="DEV" determinerCode="INSTANCE">
+                     <hl7:name>NL PR</hl7:name>
+                  </hl7:assignedRepository>
+                  <hl7:representedRepositoryJurisdiction classCode="STATE" determinerCode="INSTANCE">
+                     <hl7:name>NL</hl7:name>
+                  </hl7:representedRepositoryJurisdiction>
+               </hl7:assignedDevice>
+            </hl7:custodian>
+         </hl7:registrationEvent>
+      </hl7:subject>
+      <hl7:subject contextControlCode="ON" typeCode="SUBJ">
+         <hl7:registrationEvent classCode="REG" moodCode="EVN">
+            <hl7:statusCode code="active" />
+            <hl7:subject contextControlCode="AN" typeCode="SBJ">
+               <hl7:serviceDeliveryLocation classCode="SDLOC">
+                  <hl7:id extension="NL.45.3" root="2.16.840.1.113883.4.267" use="BUS" />
+                  <hl7:name>Test Location 35y</hl7:name>
+                  <hl7:statusCode nullFlavor="NI" />
+                  <hl7:location classCode="PLC" determinerCode="INSTANCE">
+                     <hl7:code code="BLDG" codeSystem="2.16.840.1.113883.5.1060" />
+                     <hl7:mobileInd value="false" />
+                  </hl7:location>
+                  <hl7:indirectAuthority typeCode="INDAUTH">
+                     <hl7:territorialAuthority classCode="TERR">
+                        <hl7:id nullFlavor="NI" />
+                     </hl7:territorialAuthority>
+                  </hl7:indirectAuthority>
+               </hl7:serviceDeliveryLocation>
+            </hl7:subject>
+            <hl7:custodian contextControlCode="AP" typeCode="CST">
+               <hl7:assignedDevice classCode="ASSIGNED">
+                  <hl7:id extension="PRS" root="2.16.840.1.113883.3.133.1.10.104" />
+                  <hl7:assignedRepository classCode="DEV" determinerCode="INSTANCE">
+                     <hl7:name>NL PR</hl7:name>
+                  </hl7:assignedRepository>
+                  <hl7:representedRepositoryJurisdiction classCode="STATE" determinerCode="INSTANCE">
+                     <hl7:name>NL</hl7:name>
+                  </hl7:representedRepositoryJurisdiction>
+               </hl7:assignedDevice>
+            </hl7:custodian>
+         </hl7:registrationEvent>
+      </hl7:subject>
+      <hl7:subject contextControlCode="ON" typeCode="SUBJ">
+         <hl7:registrationEvent classCode="REG" moodCode="EVN">
+            <hl7:statusCode code="active" />
+            <hl7:subject contextControlCode="AN" typeCode="SBJ">
+               <hl7:serviceDeliveryLocation classCode="SDLOC">
+                  <hl7:id extension="NL.01111.3" root="2.16.840.1.113883.4.267" use="BUS" />
+                  <hl7:code code="PHARM" codeSystem="2.16.840.1.113883.5.111" />
+                  <hl7:addr use="PHYS WP">
+                     34 MAIN ROAD, UNIT 113
+                     <hl7:city>BOTWOOD</hl7:city>
+                     <hl7:postalCode>A1A 1AX</hl7:postalCode>
+                     <hl7:state>NL</hl7:state>
+                     <hl7:country>CA</hl7:country>
+                  </hl7:addr>
+                  <hl7:statusCode nullFlavor="NI" />
+                  <hl7:location classCode="PLC" determinerCode="INSTANCE">
+                     <hl7:code code="BLDG" codeSystem="2.16.840.1.113883.5.1060" />
+                     <hl7:mobileInd value="false" />
+                  </hl7:location>
+                  <hl7:indirectAuthority typeCode="INDAUTH">
+                     <hl7:territorialAuthority classCode="TERR">
+                        <hl7:id nullFlavor="NI" />
+                     </hl7:territorialAuthority>
+                  </hl7:indirectAuthority>
+                  <hl7:name />
+                  <hl7:name />
+               </hl7:serviceDeliveryLocation>
+            </hl7:subject>
+            <hl7:custodian contextControlCode="AP" typeCode="CST">
+               <hl7:assignedDevice classCode="ASSIGNED">
+                  <hl7:id extension="PRS" root="2.16.840.1.113883.3.133.1.10.104" />
+                  <hl7:assignedRepository classCode="DEV" determinerCode="INSTANCE">
+                     <hl7:name>NL PR</hl7:name>
+                  </hl7:assignedRepository>
+                  <hl7:representedRepositoryJurisdiction classCode="STATE" determinerCode="INSTANCE">
+                     <hl7:name>NL</hl7:name>
+                  </hl7:representedRepositoryJurisdiction>
+               </hl7:assignedDevice>
+            </hl7:custodian>
+         </hl7:registrationEvent>
+      </hl7:subject>
+      <hl7:subject contextControlCode="ON" typeCode="SUBJ">
+         <hl7:registrationEvent classCode="REG" moodCode="EVN">
+            <hl7:statusCode code="active" />
+            <hl7:subject contextControlCode="AN" typeCode="SBJ">
+               <hl7:serviceDeliveryLocation classCode="SDLOC">
+                  <hl7:id extension="NL.01100.1" root="2.16.840.1.113883.4.267" use="BUS" />
+                  <hl7:code code="PHARM" codeSystem="2.16.840.1.113883.5.111" />
+                  <hl7:addr use="PHYS WP">
+                     25 WEIRS STREET, UNIT 12
+                     <hl7:city>BISHOPS FALLS</hl7:city>
+                     <hl7:postalCode>A1A 2B0</hl7:postalCode>
+                     <hl7:state>NL</hl7:state>
+                     <hl7:country>CA</hl7:country>
+                  </hl7:addr>
+                  <hl7:statusCode nullFlavor="NI" />
+                  <hl7:location classCode="PLC" determinerCode="INSTANCE">
+                     <hl7:code code="BLDG" codeSystem="2.16.840.1.113883.5.1060" />
+                     <hl7:mobileInd value="false" />
+                  </hl7:location>
+                  <hl7:indirectAuthority typeCode="INDAUTH">
+                     <hl7:territorialAuthority classCode="TERR">
+                        <hl7:id nullFlavor="NI" />
+                     </hl7:territorialAuthority>
+                  </hl7:indirectAuthority>
+                  <hl7:name />
+                  <hl7:name />
+               </hl7:serviceDeliveryLocation>
+            </hl7:subject>
+            <hl7:custodian contextControlCode="AP" typeCode="CST">
+               <hl7:assignedDevice classCode="ASSIGNED">
+                  <hl7:id extension="PRS" root="2.16.840.1.113883.3.133.1.10.104" />
+                  <hl7:assignedRepository classCode="DEV" determinerCode="INSTANCE">
+                     <hl7:name>NL PR</hl7:name>
+                  </hl7:assignedRepository>
+                  <hl7:representedRepositoryJurisdiction classCode="STATE" determinerCode="INSTANCE">
+                     <hl7:name>NL</hl7:name>
+                  </hl7:representedRepositoryJurisdiction>
+               </hl7:assignedDevice>
+            </hl7:custodian>
+         </hl7:registrationEvent>
+      </hl7:subject>
+      <hl7:subject contextControlCode="ON" typeCode="SUBJ">
+         <hl7:registrationEvent classCode="REG" moodCode="EVN">
+            <hl7:statusCode code="active" />
+            <hl7:subject contextControlCode="AN" typeCode="SBJ">
+               <hl7:serviceDeliveryLocation classCode="SDLOC">
+                  <hl7:id extension="NL.01111.4" root="2.16.840.1.113883.4.267" use="BUS" />
+                  <hl7:code code="PHARM" codeSystem="2.16.840.1.113883.5.111" />
+                  <hl7:addr use="PHYS WP">
+                     323 MAIN ST, UNIT 266
+                     <hl7:city>NORRIS POINT</hl7:city>
+                     <hl7:postalCode>A0K3V0</hl7:postalCode>
+                     <hl7:state>NL</hl7:state>
+                     <hl7:country>CA</hl7:country>
+                  </hl7:addr>
+                  <hl7:statusCode nullFlavor="NI" />
+                  <hl7:location classCode="PLC" determinerCode="INSTANCE">
+                     <hl7:code code="BLDG" codeSystem="2.16.840.1.113883.5.1060" />
+                     <hl7:mobileInd value="false" />
+                  </hl7:location>
+                  <hl7:indirectAuthority typeCode="INDAUTH">
+                     <hl7:territorialAuthority classCode="TERR">
+                        <hl7:id nullFlavor="NI" />
+                     </hl7:territorialAuthority>
+                  </hl7:indirectAuthority>
+                  <hl7:name />
+                  <hl7:name />
+               </hl7:serviceDeliveryLocation>
+            </hl7:subject>
+            <hl7:custodian contextControlCode="AP" typeCode="CST">
+               <hl7:assignedDevice classCode="ASSIGNED">
+                  <hl7:id extension="PRS" root="2.16.840.1.113883.3.133.1.10.104" />
+                  <hl7:assignedRepository classCode="DEV" determinerCode="INSTANCE">
+                     <hl7:name>NL PR</hl7:name>
+                  </hl7:assignedRepository>
+                  <hl7:representedRepositoryJurisdiction classCode="STATE" determinerCode="INSTANCE">
+                     <hl7:name>NL</hl7:name>
+                  </hl7:representedRepositoryJurisdiction>
+               </hl7:assignedDevice>
+            </hl7:custodian>
+         </hl7:registrationEvent>
+      </hl7:subject>
+      <hl7:subject contextControlCode="ON" typeCode="SUBJ">
+         <hl7:registrationEvent classCode="REG" moodCode="EVN">
+            <hl7:statusCode code="active" />
+            <hl7:subject contextControlCode="AN" typeCode="SBJ">
+               <hl7:serviceDeliveryLocation classCode="SDLOC">
+                  <hl7:id extension="NL.01110" root="2.16.840.1.113883.4.267" use="BUS" />
+                  <hl7:code code="PHARM" codeSystem="2.16.840.1.113883.5.111" />
+                  <hl7:addr use="PHYS WP">
+                     SMALLWOOD BLVD, UNIT 1465
+                     <hl7:city>GAMBO</hl7:city>
+                     <hl7:postalCode>A0G 1T0</hl7:postalCode>
+                     <hl7:state>NL</hl7:state>
+                     <hl7:country>CA</hl7:country>
+                  </hl7:addr>
+                  <hl7:statusCode nullFlavor="NI" />
+                  <hl7:location classCode="PLC" determinerCode="INSTANCE">
+                     <hl7:code code="BLDG" codeSystem="2.16.840.1.113883.5.1060" />
+                     <hl7:mobileInd value="false" />
+                  </hl7:location>
+                  <hl7:indirectAuthority typeCode="INDAUTH">
+                     <hl7:territorialAuthority classCode="TERR">
+                        <hl7:id nullFlavor="NI" />
+                     </hl7:territorialAuthority>
+                  </hl7:indirectAuthority>
+                  <hl7:name />
+                  <hl7:name />
+               </hl7:serviceDeliveryLocation>
+            </hl7:subject>
+            <hl7:custodian contextControlCode="AP" typeCode="CST">
+               <hl7:assignedDevice classCode="ASSIGNED">
+                  <hl7:id extension="PRS" root="2.16.840.1.113883.3.133.1.10.104" />
+                  <hl7:assignedRepository classCode="DEV" determinerCode="INSTANCE">
+                     <hl7:name>NL PR</hl7:name>
+                  </hl7:assignedRepository>
+                  <hl7:representedRepositoryJurisdiction classCode="STATE" determinerCode="INSTANCE">
+                     <hl7:name>NL</hl7:name>
+                  </hl7:representedRepositoryJurisdiction>
+               </hl7:assignedDevice>
+            </hl7:custodian>
+         </hl7:registrationEvent>
+      </hl7:subject>
+      <hl7:subject contextControlCode="ON" typeCode="SUBJ">
+         <hl7:registrationEvent classCode="REG" moodCode="EVN">
+            <hl7:statusCode code="active" />
+            <hl7:subject contextControlCode="AN" typeCode="SBJ">
+               <hl7:serviceDeliveryLocation classCode="SDLOC">
+                  <hl7:id extension="NL.09111.3" root="2.16.840.1.113883.4.267" use="BUS" />
+                  <hl7:code code="PHARM" codeSystem="2.16.840.1.113883.5.111" />
+                  <hl7:addr use="PHYS WP">
+                     349 MAIN ROAD, UNIT 1139
+                     <hl7:city>BOTWOOD</hl7:city>
+                     <hl7:postalCode>A1A 1AJ</hl7:postalCode>
+                     <hl7:state>NL</hl7:state>
+                     <hl7:country>CA</hl7:country>
+                  </hl7:addr>
+                  <hl7:statusCode nullFlavor="NI" />
+                  <hl7:location classCode="PLC" determinerCode="INSTANCE">
+                     <hl7:code code="BLDG" codeSystem="2.16.840.1.113883.5.1060" />
+                     <hl7:mobileInd value="false" />
+                  </hl7:location>
+                  <hl7:indirectAuthority typeCode="INDAUTH">
+                     <hl7:territorialAuthority classCode="TERR">
+                        <hl7:id nullFlavor="NI" />
+                     </hl7:territorialAuthority>
+                  </hl7:indirectAuthority>
+                  <hl7:name />
+                  <hl7:name />
+               </hl7:serviceDeliveryLocation>
+            </hl7:subject>
+            <hl7:custodian contextControlCode="AP" typeCode="CST">
+               <hl7:assignedDevice classCode="ASSIGNED">
+                  <hl7:id extension="PRS" root="2.16.840.1.113883.3.133.1.10.104" />
+                  <hl7:assignedRepository classCode="DEV" determinerCode="INSTANCE">
+                     <hl7:name>NL PR</hl7:name>
+                  </hl7:assignedRepository>
+                  <hl7:representedRepositoryJurisdiction classCode="STATE" determinerCode="INSTANCE">
+                     <hl7:name>NL</hl7:name>
+                  </hl7:representedRepositoryJurisdiction>
+               </hl7:assignedDevice>
+            </hl7:custodian>
+         </hl7:registrationEvent>
+      </hl7:subject>
+      <hl7:queryAck>
+         <hl7:queryId root="48036620-fbd3-4388-b6b4-6471b5289d25" />
+         <hl7:queryResponseCode code="OK" />
+         <hl7:resultTotalQuantity value="17" />
+         <hl7:resultCurrentQuantity value="17" />
+         <hl7:resultRemainingQuantity value="0" />
+      </hl7:queryAck>
+      <hl7:queryByParameter>
+         <hl7:queryId root="48036620-fbd3-4388-b6b4-6471b5289d25" />
+         <hl7:initialQuantity value="100" />
+         <hl7:parameterList>
+            <hl7:address>
+               <hl7:value>
+                  <hl7:state>Newfoundland and Labrador</hl7:state>
+                  <hl7:country>Canada</hl7:country>
+               </hl7:value>
+            </hl7:address>
+            <hl7:nameContains>
+               <hl7:value>SAAA</hl7:value>
+            </hl7:nameContains>
+            <hl7:recordType>
+               <hl7:value code="PHARM" codeSystem="2.16.840.1.113883.5.111" />
+            </hl7:recordType>
+         </hl7:parameterList>
+      </hl7:queryByParameter>
+   </hl7:controlActEvent>
+</hl7:PRLO_IN202011CA>

@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PORX_IN020190CA ITSVersion="XML_1.0" xmlns="urn:hl7-org:v3"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<id root="8779d53c-e9c4-4489-90d7-e108ab55a8b8"></id>
+	<creationTime value="20090526095409.0451-0400"></creationTime>
+	<versionCode code="NE2006"></versionCode>
+	<interactionId extension="PORX_IN020190CA" root="2.16.840.1.113883.1.6"></interactionId>
+	<profileId extension="tbd" root="tbd"></profileId>
+	<processingCode code="P"></processingCode>
+	<processingModeCode code="T"></processingModeCode>
+	<acceptAckCode code="ER"></acceptAckCode>
+	<receiver typeCode="RCV">
+		<telecom value="ftp://198.203.1.23"></telecom>
+		<device classCode="DEV" determinerCode="INSTANCE">
+			<id extension="123456" root="2.16.840.1.113883.3.133.1.5.101"></id>
+		</device>
+	</receiver>
+	<sender typeCode="SND">
+		<telecom value="ftp://198.203.1.23"></telecom>
+		<device classCode="DEV" determinerCode="INSTANCE">
+			<id extension="123456" root="2.16.124.113618.1234.1.1"></id>
+			<manufacturerModelName>0.1</manufacturerModelName>
+			<softwareName>HealthWatch</softwareName>
+		</device>
+	</sender>
+	<controlActEvent classCode="CACT" moodCode="EVN">
+		<id extension="54" root="2.16.124.113618.1234.1.1.2.1243266391935.2138"></id>
+		<code code="PORX_TE020220UV" codeSystem="2.16.840.1.113883.5.4">
+			<originalText></originalText>
+		</code>
+		<statusCode code="completed"></statusCode>
+		<effectiveTime>
+			<low value="20090526"></low>
+		</effectiveTime>
+		<author contextControlCode="AP" typeCode="AUT">
+			<time value="20090526095427.0641-0400"></time>
+			<assignedPerson classCode="ASSIGNED">
+				<id extension="55555" root="2.16.840.1.113883.4.261"></id>
+				<representedPerson classCode="PSN" determinerCode="INSTANCE">
+					<name use="L">
+						<family>CHAHL</family>
+						<given qualifier="">VEENA</given>
+						<prefix></prefix>
+					</name>
+					<asLicensedEntity classCode="LIC">
+						<id extension="55555" root="2.16.840.1.113883.4.261"></id>
+					</asLicensedEntity>
+				</representedPerson>
+			</assignedPerson>
+		</author>
+		<dataEnterer contextControlCode="AP" typeCode="ENT">
+			<assignedPerson classCode="ASSIGNED">
+				<id extension="hwng" root="2.16.840.1.113883.3.133.1.6.103"></id>
+				<representedPerson classCode="PSN" determinerCode="INSTANCE">
+					<name use="L">
+						<family>hwng</family>
+						<given qualifier="">HWNG</given>
+						<prefix></prefix>
+					</name>
+				</representedPerson>
+			</assignedPerson>
+		</dataEnterer>
+		<location contextControlCode="AP" typeCode="LOC">
+			<serviceDeliveryLocation classCode="SDLOC">
+				<id extension="123456" root="4.1.6.27.2.5.1.30"></id>
+				<addr use="WP">
+					17600 YONGE ST.
+					<country>Canada</country>
+					<state>Ontario</state>
+					<city>NEWMARKET</city>
+					<postalCode>L3Y 4Z1</postalCode>
+				</addr>
+				<telecom use="WP" value="tel:9058953171"></telecom>
+				<location classCode="PLC" determinerCode="INSTANCE">
+					<name>FRANCIS LI PHARMACY LTD.</name>
+				</location>
+			</serviceDeliveryLocation>
+		</location>
+		<dataEntryLocation contextControlCode="AP" typeCode="ELOC">
+			<serviceDeliveryLocation classCode="SDLOC">
+				<id extension="123456" root="4.1.6.27.2.5.1.30"></id>
+				<addr use="WP">
+					17600 YONGE ST.
+					<country>Canada</country>
+					<state>Ontario</state>
+					<city>NEWMARKET</city>
+					<postalCode>L3Y 4Z1</postalCode>
+				</addr>
+				<telecom use="WP" value="tel:9058953171"></telecom>
+				<location classCode="PLC" determinerCode="INSTANCE">
+					<name>FRANCIS LI PHARMACY LTD.</name>
+				</location>
+			</serviceDeliveryLocation>
+		</dataEntryLocation>
+		<subject contextConductionInd="false" contextControlCode="ON"
+			typeCode="SUBJ">
+			<medicationDispense classCode="SPLY" moodCode="EVN">
+				<id extension="18027520" root="2.16.124.113618.2.1243266392044.2138"></id>
+				<subject contextControlCode="OP" typeCode="SBJ">
+
+					<patient1 ENCRYPT="1" classCode="PAT">
+						<id extension="105730660"
+							root="2.16.this.is.a.patient_id.oid.1243266392154.2138"></id>
+						<addr use="H PST">
+							364 PICKERING CRES
+							<country>Canada</country>
+							<state>Ontario</state>
+							<city>NEWMARKET</city>
+							<postalCode>L3Y</postalCode>
+						</addr>
+						<telecom use="H" value="tel:9057157045"></telecom>
+						<patientPerson classCode="PSN" determinerCode="INSTANCE">
+							<name use="L">
+								<family>TAO</family>
+								<given qualifier="">THU</given>
+								<prefix></prefix>
+							</name>
+							<administrativeGenderCode code="F"
+								codeSystem="2.16.840.1.113883.5.1">
+								<originalText></originalText>
+							</administrativeGenderCode>
+							<birthTime value="19660202"></birthTime>
+						</patientPerson>
+					</patient1>
+
+				</subject>
+				<inFulfillmentOf contextConductionInd="true"
+					contextControlCode="ON" typeCode="FLFS">
+					<substanceAdministrationRequest
+						classCode="SBADM" moodCode="RQO">
+						<id nullFlavor="NI"></id>
+						<code code="DRUG" codeSystem="2.16.840.1.113883.5.4"></code>
+						<author typeCode="AUT">
+							<time value="20090526"></time>
+							<assignedPerson classCode="ASSIGNED">
+								<id extension="55389" root="2.16.840.1.113883.4.0"></id>
+								<representedPerson classCode="PSN"
+									determinerCode="INSTANCE">
+									<name use="L">
+										<family>PAIN</family>
+										<given qualifier="">CLARE M.</given>
+										<prefix>DR.</prefix>
+									</name>
+									<asLicensedEntity classCode="LIC">
+										<id extension="55389" root="2.16.840.1.113883.4.0"></id>
+									</asLicensedEntity>
+								</representedPerson>
+							</assignedPerson>
+						</author>
+						<component contextControlCode="ON" typeCode="COMP">
+							<supplyRequest classCode="SPLY" moodCode="RQO">
+								<quantity value="200.00"></quantity>
+								<expectedUseTime>
+									<width unit="d" value="20"></width>
+								</expectedUseTime>
+							</supplyRequest>
+						</component>
+					</substanceAdministrationRequest>
+				</inFulfillmentOf>
+				<component2 contextConductionInd="true"
+					contextControlCode="ON" typeCode="COMP">
+					<dosageInstruction classCode="SBADM" moodCode="RQO">
+						<code code="DRUG" codeSystem="2.16.840.1.113883.5.4"></code>
+						<text>USE AS DIRECTED</text>
+                    </dosageInstruction>
+                </component2>
+                <component3 contextConductionInd="true" contextControlCode="ON" typeCode="COMP">
+                    <supplyEvent classCode="SPLY" moodCode="EVN">
+                        <code code="FFC" codeSystem="2.16.840.1.113883.5.4">
+                            <originalText></originalText>
+                        </code>
+                        <effectiveTime>
+                            <low value="20090526"></low>
+                        </effectiveTime>
+                        <quantity value="40.00"></quantity>
+                        <expectedUseTime>
+                            <width unit="d" value="4"></width>
+                        </expectedUseTime>
+                        <product contextControlCode="OP" typeCode="PRD">
+                            <medication classCode="MED">
+                                <player classCode="MMAT" determinerCode="KIND">
+                                    <code nullFlavor="NI"></code>
+                                    <name>CLINDAMYCIN-150 IN EMOCORT 1% L</name>
+                                    <lotNumberText></lotNumberText>
+                                    <expirationTime nullFlavor="NI"></expirationTime>
+                                    <asContent classCode="CONT">
+                                    	<quantity nullFlavor="NI"></quantity>
+                                    </asContent>
+                                    <ingredient classCode="INGR">
+                                    	<quantity unit="g" value="0.40"></quantity>
+                                    	<ingredient classCode="MMAT" determinerCode="KIND">
+                                    		<code code="02248525" codeSystem="2.16.840.1.113883.5.1105">
+                                    			<originalText></originalText>
+                                    		</code>
+                                    		<name>CLINDAMYCIN-150</name>
+                                    	</ingredient>
+                                    </ingredient>
+                                    <ingredient classCode="INGR">
+                                    	<quantity unit="ml" value="40.00"></quantity>
+                                    	<ingredient classCode="MMAT" determinerCode="KIND">
+                                    		<code code="00192600" codeSystem="2.16.840.1.113883.5.1105">
+                                    			<originalText></originalText>
+                                    		</code>
+                                    		<name>EMO CORT LOT 1%</name>
+                                    	</ingredient>
+                                    </ingredient>
+                                </player>
+                            </medication>
+                        </product>
+                    </supplyEvent>
+                </component3>
+            </medicationDispense>
+        </subject>
+    </controlActEvent>
+</PORX_IN020190CA>
+						

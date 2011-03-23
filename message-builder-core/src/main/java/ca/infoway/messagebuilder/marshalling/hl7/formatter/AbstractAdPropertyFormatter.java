@@ -1,0 +1,75 @@
+package ca.infoway.messagebuilder.marshalling.hl7.formatter;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import ca.infoway.messagebuilder.datatype.lang.PostalAddress;
+import ca.infoway.messagebuilder.datatype.lang.PostalAddressPart;
+import ca.infoway.messagebuilder.domainvalue.PostalAddressUse;
+import ca.infoway.messagebuilder.lang.XmlStringEscape;
+
+/**
+ * AD - Address
+ *
+ * Represents an Address object as an element:
+ *
+ * &lt;addr use='WP'&gt;
+ *    &lt;houseNumber&gt;1050&lt;/houseNumber&gt;
+ *    &lt;direction&gt;W&lt;/direction&gt;
+ *    &lt;streetName&gt;Wishard Blvd&lt;/streetName&gt;,
+ *    &lt;additionalLocator&gt;RG 5th floor&lt;/additionalLocator&gt;,
+ *    &lt;city&gt;Indianapolis&lt;/city&gt;, &lt;state&gt;IN&lt;/state&gt;
+ *    &lt;postalCode&gt;46240&lt;/postalCode&gt;
+ * &lt;/addr&gt;
+ *
+ * If an object is null, value is replaced by a nullFlavor. So the element would look
+ * like this:
+ *
+ * &lt;element-name nullFlavor="something" /&gt;
+ *
+ * http://www.hl7.org/v3ballot/html/infrastructure/itsxml/datatypes-its-xml.htm#dtimpl-AD
+ */
+public abstract class AbstractAdPropertyFormatter extends AbstractNullFlavorPropertyFormatter<PostalAddress> {
+
+	@Override
+    String formatNonNullValue(FormatContext context, PostalAddress postalAddress, int indentLevel) {
+        StringBuffer buffer = new StringBuffer();
+        buffer.append(createElement(context, getUseAttributeMap(postalAddress), indentLevel, false, false));
+		for (PostalAddressPart postalAddressPart : postalAddress.getParts()) {
+		    appendPostalAddressPart(buffer, postalAddressPart);
+		}
+		buffer.append(createElementClosure(context, 0, true));
+        return buffer.toString();
+    }
+
+    private void appendPostalAddressPart(StringBuffer buffer, PostalAddressPart postalAddressPart) {
+        String openTag = "";
+        String closeTag = "";
+
+        if (postalAddressPart.getType() != null) {
+            openTag = "<" + postalAddressPart.getType().getValue() + ">";
+            closeTag = "</" + postalAddressPart.getType().getValue() + ">";
+        }
+
+        buffer.append(openTag);
+        String xmlEscapedValue = XmlStringEscape.escape(postalAddressPart.getValue());
+        if (xmlEscapedValue != null) {
+        	buffer.append(xmlEscapedValue);
+        }
+        buffer.append(closeTag);
+    }
+
+    private Map<String, String> getUseAttributeMap(PostalAddress value) {
+        String uses = "";
+        for (PostalAddressUse postalAddressUse : value.getUses()) {
+            uses += uses.length() == 0 ? "" : " ";
+            uses += postalAddressUse.getCodeValue();
+        }
+        Map<String, String> result = new HashMap<String, String>();
+
+        if (uses.length() > 0) {
+            result.put("use", uses);
+        }
+        return result;
+    }
+}

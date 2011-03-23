@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ParameterList xmlns="urn:ca.infoway.messagebuilder.simplexml.v1" >
+	<partialDate value="199910" />
+	<fullDate value="20101231" />
+	<partialDateTime value="19991011123243.1234-0930" />
+	<fullDateTime value="19991011123243.5432+1200" />
+</ParameterList>

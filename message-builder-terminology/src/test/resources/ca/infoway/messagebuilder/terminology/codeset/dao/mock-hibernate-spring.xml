@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+
+	<bean id="org.hibernate.SessionFactory"
+		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="dataSource" ref="javax.sql.DataSource" />
+		<property name="configLocations">
+			<list>
+				<value>classpath:hibernate_resolver.cfg.xml</value>
+			</list>
+		</property>
+ 		<property name="configurationClass">
+			<value>org.hibernate.cfg.AnnotationConfiguration</value>
+		</property>
+		<property name="namingStrategy">
+			<bean class="org.hibernate.cfg.ImprovedNamingStrategy" />
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<!-- <prop key="hibernate.bytecode.provider">javassist</prop> -->
+				<!-- Echo all executed SQL to stdout -->
+				<prop key="hibernate.show_sql">true</prop>
+				<!-- Drop and re-create the database schema on startup -->
+				<prop key="hibernate.dialect">org.hibernate.dialect.HSQLDialect</prop>
+				<prop key="hibernate.cache.use_second_level_cache">false</prop>
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
+				<!-- lucene -->
+				<prop key="hibernate.search.default.directory_provider">org.hibernate.search.store.FSDirectoryProvider</prop>
+				<prop key="hibernate.search.default.indexBase">target/lucene/indexes</prop>
+			</props>
+		</property>
+	</bean>
+
+
+	<!-- DataSource -->
+	<bean id="javax.sql.DataSource" class="org.hsqldb.jdbc.jdbcDataSource">
+	  	<property name="database" value="jdbc:hsqldb:mem:temp" />
+		<property name="user" value="sa" />
+		<property name="password" value="" />
+	</bean>
+
+</beans>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:chi="urn:ca.infoway.messagebuilder.simplexml.v1" elementFormDefault="qualified" targetNamespace="urn:ca.infoway.messagebuilder.simplexml.v1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include schemaLocation="COCT_MT240003CA.xsd"/>
+  <xs:include schemaLocation="COCT_MT260020CA.xsd"/>
+  <xs:include schemaLocation="../../../../../../classes/simpleDataTypes.xsd"/>
+  <xs:complexType name="COCT_MT300000CA.DispenseInstructions">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="0" name="dispenseID" type="chi:InstanceIdentifier"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="substanceAdministrationTime" type="chi:DateInterval"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="inLieuOfDaysSupply" type="chi:CodedValue"/>
+      <xs:element maxOccurs="10" minOccurs="0" name="substanceAdministrationIntentSubjectOfDetectedIssueEvent" type="chi:COCT_MT260020CA.DetectedIssueEvent"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="substanceAdministrationIntentComponentSubstitution" type="chi:COCT_MT300000CA.Substitution"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="substanceAdministrationIntentInFulfillmentOfSubstanceAdministrationOrderComponent1Substitution" type="chi:COCT_MT300000CA.Substitution"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="prescriberID" type="chi:InstanceIdentifier"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="prescriberName" type="chi:PersonName"/>
+      <xs:element maxOccurs="3" minOccurs="0" name="prescriberTelephoneNumber" type="chi:PhonemailTelecommunicationAddress"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="lastAllowedDispense" type="chi:DateInterval"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="numberOfRefills1" type="xs:integer"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="COCT_MT300000CA.EncounterInformation">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="encounterID" type="chi:InstanceIdentifier"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="encounterDate" type="chi:FullDate"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="COCT_MT300000CA.Product">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="0" name="packageSize" type="chi:PhysicalQuantity"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="drugForm" type="chi:CodedValue"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="COCT_MT300000CA.Substitution">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="substitutionType" type="chi:CodedValue"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="substitutionReason" type="chi:CodedValue"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="personWhoDidTheSubstitution" type="chi:InstanceIdentifier"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="COCT_MT300000CA.SupplyEvent">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="typeOfDispense" type="chi:CodedValue"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="dispenseTime" type="chi:FullDateTime"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="totalDispensed" type="chi:PhysicalQuantity"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="dispensedDaysSupply" type="chi:DateInterval"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="componentOf" type="chi:COCT_MT300000CA.EncounterInformation"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="destinationServiceDeliveryLocation" type="chi:COCT_MT240003CA.ServiceDeliveryLocation"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="originServiceDeliveryLocation" type="chi:COCT_MT240003CA.ServiceDeliveryLocation"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="pharmacistID" type="chi:InstanceIdentifier"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="pertinentInformation" type="chi:COCT_MT300000CA.DispenseInstructions"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="product" type="chi:COCT_MT300000CA.Product"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

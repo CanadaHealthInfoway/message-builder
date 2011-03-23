@@ -1,0 +1,66 @@
+package ca.infoway.messagebuilder.terminology.proxy;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+import net.sf.cglib.proxy.Enhancer;
+import ca.infoway.messagebuilder.Code;
+import ca.infoway.messagebuilder.terminology.domainvalue.Active;
+import ca.infoway.messagebuilder.terminology.domainvalue.Common;
+import ca.infoway.messagebuilder.terminology.domainvalue.Displayable;
+import ca.infoway.messagebuilder.terminology.domainvalue.Identifiable;
+import ca.infoway.messagebuilder.terminology.domainvalue.Sortable;
+
+/**
+ * Creates an instance of Code that is assignable to a specific type.
+ *
+ * @author <a href="http://www.intelliware.ca/">Intelliware Development</a>
+ */
+public class TypedCodeFactory {
+
+	private static final Set<Class<?>> STANDARD_INTERFACES;
+	
+	static {
+		Set<Class<?>> set = new HashSet<Class<?>>();
+		set.add(Displayable.class);
+		set.add(Sortable.class);
+		set.add(Active.class);
+		set.add(Common.class);
+		set.add(Identifiable.class);
+		
+		STANDARD_INTERFACES = Collections.unmodifiableSet(set);
+	}
+	
+	/**
+	 * <p>Creates the Code.
+	 *
+	 * @param type the type
+	 * @param types the types
+	 * @param code the code
+	 * @param codeSystemOid the code system oid
+	 * @param displayTextMap the display text map
+	 * @param sortValue the sort value
+	 * @param active the active
+	 * @param common the common
+	 * @return the code
+	 */
+	public Code create(Class<?> type, Collection<Class<?>> types, 
+			String code, String codeSystemOid, 
+			Map<String,String> displayTextMap, 
+			Integer sortValue, Boolean active, 
+			Boolean common) {	
+		Enhancer enhancer = new Enhancer();
+		enhancer.setSuperclass(TypedCode.class);
+		List<Class<?>> allTypes = new ArrayList<Class<?>>(types);
+		allTypes.addAll(STANDARD_INTERFACES);
+		enhancer.setInterfaces((Class[]) allTypes.toArray(new Class[allTypes.size()]));
+		enhancer.setCallback(new TypedCodeMethodInterceptor(new TypedCode(type, allTypes, code, 
+				codeSystemOid, displayTextMap, sortValue, active, common)));
+		return (Code) enhancer.create();
+	}
+}

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<REPC_IN000041CA xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:hl7-org:v3"  ITSVersion="XML_1.0">
+  <id extension="293844" root="2.16.124.113620.1.1.1.1.2"/>
+  <creationTime value="20080625141610-0400"/>
+  <versionCode code="V3-2007-05"/>
+  <interactionId extension="REPC_IN000041CA" root="2.16.840.1.113883.1.6"/>
+  <processingCode code="P"/>
+  <processingModeCode code="T"/>
+  <acceptAckCode code="AL"/>
+  <receiver typeCode="RCV">
+    <telecom value="http://123.456.789.10"/>
+    <device classCode="DEV" determinerCode="INSTANCE">
+      <id extension="123" root="1.2.3"/>
+    </device>
+  </receiver>
+  <sender typeCode="SND">
+    <telecom value="http://987.654.321.0"/>
+    <device classCode="DEV" determinerCode="INSTANCE">
+      <id extension="123" root="1.2.3"/>
+      <manufacturerModelName>1.0</manufacturerModelName>
+      <softwareName>Panacea Pharmacy</softwareName>
+    </device>
+  </sender>
+  <controlActEvent classCode="CACT" moodCode="EVN">
+    <id extension="8141234" root="2.16.840.1.113883.1.6"/>
+    <code code="REPC_TE000041UV" codeSystem="2.16.840.1.113883.5.4"/>
+    <statusCode code="completed"/>
+    <author typeCode="AUT" contextControlCode="AP">
+      <time value="20080918181800-0400"/>
+      <assignedPerson classCode="ASSIGNED">
+        <id extension="EHR ID EXT" root="2.16.840.1.113883.4.267"/>
+        <representedPerson classCode="PSN" determinerCode="INSTANCE">
+          <name use="L"><given>Jane</given><family>Doe</family></name>
+          <asLicensedEntity classCode="LIC">
+            <id extension="55555" root="2.16.840.1.113883.4.268"/>
+          </asLicensedEntity>
+        </representedPerson>
+      </assignedPerson>
+    </author>
+    <location typeCode="LOC" contextControlCode="AP">
+      <serviceDeliveryLocation classCode="SDLOC">
+        <id extension="1" root="2.16.124.113620.1.1.11111"/>
+        <addr nullFlavor="NI"/>
+        <telecom nullFlavor="NI"/>
+        <location classCode="PLC" determinerCode="INSTANCE">
+          <name>Intelliware&apos;s Pharmacy</name>
+        </location>
+      </serviceDeliveryLocation>
+    </location>
+    <queryByParameter>
+      <queryId extension="1" root="1.2.3.4.5"/>
+	  <initialQuantityCode code="RD" codeSystem="2.16.840.1.113883.5.1112"/>
+      <parameterList>
+        <includeNotesIndicator>
+          <value value="true"/>
+        </includeNotesIndicator>
+        <patientBirthDate>
+          <value value="20090101"/>
+        </patientBirthDate>
+        <patientGender>
+          <value code="F" codeSystem="2.16.840.1.113883.5.1"/>
+        </patientGender>
+        <patientID>
+          <value extension="1" root="1.2.3.4.5.6"/>
+        </patientID>
+        <patientName>
+          <value><given>John</given><family>Doe</family></value>
+        </patientName>
+        <professionalServiceCode>
+          <value code="SMC" codeSystem="2.16.840.1.113883.6.95" />
+        </professionalServiceCode>
+        <servicePeriod>
+          <value>
+            <low value="20080101000000-0500"/>
+            <high value="20090101000000-0500"/>
+          </value>
+        </servicePeriod>
+      </parameterList>
+    </queryByParameter>
+  </controlActEvent>
+</REPC_IN000041CA>

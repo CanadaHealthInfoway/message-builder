@@ -1,0 +1,972 @@
+<mif:serializedStaticModel xmlns:mif="urn:hl7-org:v3/mif"
+                           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                           xsi:schemaLocation=""
+                           packageKind="realm"
+                           representationKind="serialized"
+                           isSerializable="true"
+                           isAbstract="false"
+                           name="CA">
+   <mif:packageLocation root="DEFN" section="IM" subSection="CO" domain="CT" artifact="MT-deprecated"
+                        realm="CA"
+                        id="050208"/>
+   <mif:header>
+      <mif:renderingInformation schemaVersion="1" application="Visio to MIF transform"/>
+      <mif:legalese copyrightOwner="Health Level Seven" copyrightYears="2007"/>
+   </mif:header>
+   <mif:graphicRepresentation presentation="HL7">
+      <mif:graphElement name="Main">
+         <mif:position x="0.0" y="0.0"/>
+         <mif:size width="7.427" height="2.273"/>
+      </mif:graphElement>
+   </mif:graphicRepresentation>
+   <mif:derivationSupplier staticModelDerivationId="1">
+      <mif:targetStaticModel root="DEFN" artifact="RIM" version="00"/>
+   </mif:derivationSupplier>
+   <mif:ownedEntryPoint id="COCT_MT050208CA" name="Patient Person identified - informational"
+                        isAbstract="false">
+      <mif:graphicRepresentation>
+         <mif:graphElement shapeId="Sheet.19" containerDiagramName="Main">
+            <mif:position x="0.028" y="-1.154"/>
+            <mif:size width="2.715" height="0.453"/>
+            <mif:anchorage connectToShapeId="Sheet.19">
+               <mif:position x="2.743" y="0.492"/>
+               <mif:graphEdge>
+                  <mif:anchor connectToShapeId="Sheet.1">
+                     <mif:position x="3.659" y="0.492"/>
+                  </mif:anchor>
+               </mif:graphEdge>
+            </mif:anchorage>
+         </mif:graphElement>
+      </mif:graphicRepresentation>
+      <mif:specializedClass>
+         <mif:class name="Patient" isAbstract="false">
+            <mif:businessName name="Patient"/>
+            <mif:derivationSupplier staticModelDerivationId="1" className="Patient"/>
+            <mif:graphicRepresentation presentation="HL7">
+               <mif:graphElement shapeId="Sheet.1" containerDiagramName="Main" shapeTemplate="Role"
+                                 isWidthAutoSize="true"
+                                 isHeightAutoSize="true">
+                  <mif:position x="3.659" y="0.035"/>
+                  <mif:size width="2.621" height="0.914"/>
+               </mif:graphElement>
+            </mif:graphicRepresentation>
+            <mif:annotations>
+               <mif:definition>
+                  <mif:text>
+                     <mif:p>
+                        <mif:p>A person who is receiving or may receive healthcare services and has personal attributes (e.g. name, birth date).</mif:p>
+                     </mif:p>
+                  </mif:text>
+               </mif:definition>
+               <mif:rationale>
+                  <mif:text>
+                     <mif:p>
+                        <mif:p>Information used to identify the patient and to support clinical decisions. This information is that captured within the client registry record for the patient.</mif:p>
+                     </mif:p>
+                  </mif:text>
+               </mif:rationale>
+            </mif:annotations>
+            <mif:attribute name="classCode" sortKey="1" minimumMultiplicity="1" maximumMultiplicity="1"
+                           conformance="R"
+                           isMandatory="true"
+                           fixedValue="PAT"
+                           isStructural="true">
+               <mif:annotations>
+                  <mif:definition>
+                     <mif:text/>
+                  </mif:definition>
+               </mif:annotations>
+               <mif:derivationSupplier staticModelDerivationId="1" className="Patient" attributeName="classCode"/>
+               <mif:type name="CS"/>
+               <mif:supplierDomainSpecification codingStrength="CNE" codeSystemName="RoleClass" mnemonic="PAT"/>
+            </mif:attribute>
+            <mif:attribute name="id" sortKey="2" minimumMultiplicity="1" maximumMultiplicity="1"
+                           conformance="R"
+                           isMandatory="true"
+                           isStructural="false">
+               <mif:businessName name="A:Patient Identifier"/>
+               <mif:annotations>
+                  <mif:definition>
+                     <mif:text>
+                        <mif:p>
+                           <mif:p>Unique identifier assigned to a person by Federal, Provincial and Territorial jurisdiction for the purposes of uniquely identifying the person within the EHR.</mif:p>
+                        </mif:p>
+                        <mif:p>
+                           <mif:p>The EHR will define which identifier to use within a jurisdiction.</mif:p>
+                        </mif:p>
+                     </mif:text>
+                  </mif:definition>
+                  <mif:rationale>
+                     <mif:text>
+                        <mif:p>
+                           <mif:p>Allows a patient to be referred to unambiguously. Because this is the principal mechanism for identifying patients to computer systems, the attribute is mandatory.</mif:p>
+                        </mif:p>
+                     </mif:text>
+                  </mif:rationale>
+                  <mif:mapping sourceName="CPhAv3">
+                     <mif:text>
+                        <mif:p>
+                           <mif:p>C39 (Extension)</mif:p>
+                        </mif:p>
+                     </mif:text>
+                  </mif:mapping>
+                  <mif:mapping sourceName="eScript">
+                     <mif:text>
+                        <mif:p>
+                           <mif:p>PTT.050.01 (Extension)</mif:p>
+                        </mif:p>
+                     </mif:text>
+                  </mif:mapping>
+                  <mif:mapping sourceName="eScript">
+                     <mif:text>
+                        <mif:p>
+                           <mif:p>PTT.050.02 (Root)</mif:p>
+                        </mif:p>
+                     </mif:text>
+                  </mif:mapping>
+                  <mif:mapping sourceName="HC-AE">
+                     <mif:text>
+                        <mif:p>
+                           <mif:p>A.1</mif:p>
+                        </mif:p>
+                     </mif:text>
+                  </mif:mapping>
+                  <mif:mapping sourceName="Immunization">
+                     <mif:text>
+                        <mif:p>
+                           <mif:p>PID.2</mif:p>
+                        </mif:p>
+                     </mif:text>
+                  </mif:mapping>
+                  <mif:mapping sourceName="NCPDP">
+                     <mif:text>
+                        <mif:p>
+                           <mif:p>Patient.332-CY (Extension)</mif:p>
+                        </mif:p>
+                     </mif:text>
+                  </mif:mapping>
+                  <mif:mapping sourceName="NCPDP">
+                     <mif:text>
+                        <mif:p>
+                           <mif:p>Patient.331-CX (Root)</mif:p>
+                        </mif:p>
+                     </mif:text>
+                  </mif:mapping>
+                  <mif:mapping sourceName="NCPDP">
+                     <mif:text>
+                        <mif:p>
+                           <mif:p>Claim.330-CW</mif:p>
+                        </mif:p>
+                     </mif:text>
+                  </mif:mapping>
+                  <mif:mapping sourceName="Ontario">
+                     <mif:text>
+                        <mif:p>
+                           <mif:p>Health Card Number</mif:p>
+                        </mif:p>
+                     </mif:text>
+                  </mif:mapping>
+                  <mif:mapping sourceName="PECS">
+                     <mif:text>
+                        <mif:p>
+                           <mif:p>PID.2</mif:p>
+                        </mif:p>
+                     </mif:text>
+                  </mif:mapping>
+                  <mif:mapping sourceName="PECS">
+                     <mif:text>
+                        <mif:p>
+                           <mif:p>PID.4</mif:p>
+                        </mif:p>
+                     </mif:text>
+                  </mif:mapping>
+                  <mif:mapping sourceName="PECS">
+                     <mif:text>
+                        <mif:p>
+                           <mif:p>ZDU.2</mif:p>
+                        </mif:p>
+                     </mif:text>
+                  </mif:mapping>
+                  <mif:mapping sourceName="PECS">
+                     <mif:text>
+                        <mif:p>
+                           <mif:p>ZKW.3</mif:p>
+                        </mif:p>
+                     </mif:text>
+                  </mif:mapping>
+                  <mif:mapping sourceName="PEI">
+                     <mif:text>
+                        <mif:p>
+                           <mif:p>Jurisdiction (Root)</mif:p>
+                        </mif:p>
+                     </mif:text>
+                  </mif:mapping>
+                  <mif:mapping sourceName="PIN">
+                     <mif:text>
+                        <mif:p>
+                           <mif:p>Person.PHN (Extension)</mif:p>
+                        </mif:p>
+                     </mif:text>
+                  </mif:mapping>
+               </mif:annotations>
+               <mif:derivationSupplier staticModelDerivationId="1" className="Patient" attributeName="id"/>
+               <mif:type name="II.PUBLIC"/>
+            </mif:attribute>
+            <mif:attribute name="addr" sortKey="3" minimumMultiplicity="0" maximumMultiplicity="1"
+                           conformance="R"
+                           isMandatory="false"
+                           isStructural="false">
+               <mif:businessName name="C:Patient Contact Address"/>
+               <mif:annotations>
+                  <mif:definition>
+                     <mif:text>
+                        <mif:p>
+                           <mif:p>Physical address for the patient where they may be visited or found.</mif:p>
+                        </mif:p>
+                     </mif:text>
+                  </mif:definition>
+                  <mif:usageNotes>
+                     <mif:text>
+                        <mif:p>
+                           <mif:p>Contact information specific to the patient for a particular action (prescription, lab test, etc.) will be conveyed as part of the payload.</mif:p>
+                        </mif:p>
+                     </mif:text>
+                  </mif:usageNotes>
+                  <mif:rationale>
+                     <mif:text>
+                        <mif:p>
+                           <mif:p>Provides basic contact information for the patient avoiding the need to separately query the client registry.</mif:p>
+                        </mif:p>
+                     </mif:text>
+                  </mif:rationale>
+                  <mif:mapping sourceName="BC">
+                     <mif:text>
+                        <mif:p>
+                           <mif:p>ZPA2.1 (use)</mif:p>
+                        </mif:p>
+                     </mif:text>
+                  </mif:mapping>
+                  <mif:mapping sourceName="BC">
+                     <mif:text>
+                        <mif:p>
+                           <mif:p>ZPA2.2 (usablePeriod(IVL&lt;TS).low)</mif:p>
+                        </mif:p>
+                     </mif:text>
+                  </mif:mapping>
+                  <mif:mapping sourceName="BC">
+                     <mif:text>
+                        <mif:p>
+                           <mif:p>ZPA2.4 (partType=UNID)</mif:p>
+                        </mif:p>
+                     </mif:text>
+                  </mif:mapping>
+                  <mif:mapping sourceName="BC">
+                     <mif:text>
+                        <mif:p>
+                           <mif:p>ZPA2.5 (DMODID - following DMOD=P.P.Box)</mif:p>
+                        </mif:p>
+                     </mif:text>
+                  </mif:mapping>
+                  <mif:mapping sourceName="BC">
+                     <mif:text>
+                        <mif:p>
+                           <mif:p>ZPA2.6 (partType=??)</mif:p>
+                        </mif:p>
+                     </mif:text>
+                  </mif:mapping>
+                  <mif:mapping sourceName="BC">
+                     <mif:text>
+                        <mif:p>
+                           <mif:p>ZPA2.7 (partType=??)</mif:p>
+                        </mif:p>
+                     </mif:text>
+                  </mif:mapping>
+                  <mif:mapping sourceName="BC">
+                     <mif:text>
+                        <mif:p>
+                           <mif:p>ZPA2.8 (partType=CTY)</mif:p>
+                        </mif:p>
+                     </mif:text>
+                  </mif:mapping>
+                  <mif:mapping sourceName="BC">
+                     <mif:text>
+                        <mif:p>
+                           <mif:p>ZPA2.9 (partType=CNT - populate mnemonic of SC)</mif:p>
+                        </mif:p>
+                     </mif:text>
+                  </mif:mapping>
+                  <mif:mapping sourceName="BC">
+                     <mif:text>
+                        <mif:p>
+                           <mif:p>ZPA2.10 (partType=ZIP)</mif:p>
+                        </mif:p>
+                     </mif:text>
+                  </mif:mapping>
+                  <mif:mapping sourceName="BC">
+                     <mif:text>
+                        <mif:p>
+                           <mif:p>ZPA2.11 (partType=SINST=PST)</mif:p>
+                        </mif:p>
+                     </mif:text>
+                  </mif:mapping>
+                  <mif:mapping sourceName="BC">
+                     <mif:text>
+                        <mif:p>
+                           <mif:p>ZPA2.12 (partTYpe=STA)</mif:p>
+                        </mif:p>
+                     </mif:text>
+                  </mif:mapping>
+                  <mif:mapping sourceName="BC">
+                     <mif:text>
+                        <mif:p>
+                           <mif:p>ZPA2.13 (partType=DMODID-followingDMOD=RR)</mif:p>
+                        </mif:p>
+                     </mif:text>
+                  </mif:mapping>
+                  <mif:mapping sourceName="BC">
+                     <mif:text>
+                        <mif:p>
+                           <mif:p>ZPA2.14 (partType=DIR)</mif:p>
+                        </mif:p>
+                     </mif:text>
+                  </mif:mapping>
+                  <mif:mapping sourceName="BC">
+                     <mif:text>
+                        <mif:p>
+                           <mif:p>ZPA2.15 (partType=STB)</mif:p>
+                        </mif:p>
+                     </mif:text>
+                  </mif:mapping>
+                  <mif:mapping sourceName="BC">
+                     <mif:text>
+                        <mif:p>
+                           <mif:p>ZPA2.16 (partType=BNR) BC:ZPA2.17 (partType=STTYP)</mif:p>
+                        </mif:p>
+                     </mif:text>
+                  </mif:mapping>
+                  <mif:mapping sourceName="BC">
+                     <mif:text>
+                        <mif:p>
+                           <mif:p>ZPA2.18 (usablePeriod (IVL&lt;TS).high)</mif:p>
+                        </mif:p>
+                     </mif:text>
+                  </mif:mapping>
+                  <mif:mapping sourceName="BC">
+                     <mif:text>
+                        <mif:p>
+                           <mif:p>ZPA2.19 (Line demarked by carriage return)</mif:p>
+                        </mif:p>
+                     </mif:text>
+                  </mif:mapping>
+                  <mif:mapping sourceName="eScript">
+                     <mif:text>
+                        <mif:p>
+                           <mif:p>PTT.060-01 (partType=SAL)</mif:p>
+                        </mif:p>
+                     </mif:text>
+                  </mif:mapping>
+                  <mif:mapping sourceName="eScript">
+                     <mif:text>
+                        <mif:p>
+                           <mif:p>PTT.060-02 (partType=CTY)</mif:p>
+                        </mif:p>
+                     </mif:text>
+                  </mif:mapping>
+                  <mif:mapping sourceName="eScript">
+                     <mif:text>
+                        <mif:p>
+                           <mif:p>PTT.060-03 (partType=CNT)</mif:p>
+                        </mif:p>
+                     </mif:text>
+                  </mif:mapping>
+                  <mif:mapping sourceName="eScript">
+                     <mif:text>
+                        <mif:p>
+                           <mif:p>PTT.060-04 (partType=ZIP)</mif:p>
+                        </mif:p>
+                     </mif:text>
+                  </mif:mapping>
+                  <mif:mapping sourceName="Immunization">
+                     <mif:text>
+                        <mif:p>
+                           <mif:p>PID.11</mif:p>
+                        </mif:p>
+                     </mif:text>
+                  </mif:mapping>
+                  <mif:mapping sourceName="NCPDP">
+                     <mif:text>
+                        <mif:p>
+                           <mif:p>Patient.322-CM (partType=SAL)</mif:p>
+                        </mif:p>
+                     </mif:text>
+                  </mif:mapping>
+                  <mif:mapping sourceName="NCPDP">
+                     <mif:text>
+                        <mif:p>
+                           <mif:p>Patient.323-CN (partType=CTY)</mif:p>
+                        </mif:p>
+                     </mif:text>
+                  </mif:mapping>
+                  <mif:mapping sourceName="NCPDP">
+                     <mif:text>
+                        <mif:p>
+                           <mif:p>Patient.324-CO (partType=STA)</mif:p>
+                        </mif:p>
+                     </mif:text>
+                  </mif:mapping>
+                  <mif:mapping sourceName="NCPDP">
+                     <mif:text>
+                        <mif:p>
+                           <mif:p>Patient.325-CP (partType=ZIP)</mif:p>
+                        </mif:p>
+                     </mif:text>
+                  </mif:mapping>
+                  <mif:mapping sourceName="PECS">
+                     <mif:text>
+                        <mif:p>
+                           <mif:p>PID.11</mif:p>
+                        </mif:p>
+                     </mif:text>
+                  </mif:mapping>
+               </mif:annotations>
+               <mif:derivationSupplier staticModelDerivationId="1" className="Patient" attributeName="addr"/>
+               <mif:type name="AD.BASIC"/>
+            </mif:attribute>
+            <mif:attribute name="telecom" sortKey="4" minimumMultiplicity="1" maximumMultiplicity="5"
+                           conformance="R"
+                           isMandatory="false"
+                           isStructural="false">
+               <mif:businessName name="D:Patient Contact Phone and E-mails"/>
+               <mif:annotations>
+                  <mif:definition>
+                     <mif:text>
+                        <mif:p>
+                           <mif:p>Telephone, fax and/or e-mail addresses intended as the principal means of contact for the patient.</mif:p>
+                        </mif:p>
+                     </mif:text>
+                  </mif:definition>
+                  <mif:usageNotes>
+                     <mif:text>
+                        <mif:p>
+                           <mif:p>Contact information specific to the patient for a particular action (prescription, lab test, etc.) will be conveyed as part of the payload.</mif:p>
+                        </mif:p>
+                     </mif:text>
+                  </mif:usageNotes>
+                  <mif:rationale>
+                     <mif:text>
+                        <mif:p>
+                           <mif:p>Provides basic contact information for the patient avoiding the need to separately query the client registry.</mif:p>
+                        </mif:p>
+                        <mif:p>
+                           <mif:p>Important for following up with patient but not always available, and therefore only marked as 'populated'.</mif:p>
+                        </mif:p>
+                     </mif:text>
+                  </mif:rationale>
+                  <mif:mapping sourceName="BC">
+                     <mif:text>
+                        <mif:p>
+                           <mif:p>ZPA1.1 (Use and/or URL.scheme)</mif:p>
+                        </mif:p>
+                     </mif:text>
+                  </mif:mapping>
+                  <mif:mapping sourceName="BC">
+                     <mif:text>
+                        <mif:p>
+                           <mif:p>ZPA1.2 (usablePeriod (IVL&lt;TS&gt;).low) BC:ZPA1.3 (url.address - as per RFC2396)</mif:p>
+                        </mif:p>
+                     </mif:text>
+                  </mif:mapping>
+                  <mif:mapping sourceName="BC">
+                     <mif:text>
+                        <mif:p>
+                           <mif:p>ZPA1.4 (url.address - as per RFC2396)</mif:p>
+                        </mif:p>
+                     </mif:text>
+                  </mif:mapping>
+                  <mif:mapping sourceName="BC">
+                     <mif:text>
+                        <mif:p>
+                           <mif:p>ZPA1.5 (usablePeriod (IVL&lt;TS&gt;).high)</mif:p>
+                        </mif:p>
+                     </mif:text>
+                  </mif:mapping>
+                  <mif:mapping sourceName="eScript">
+                     <mif:text>
+                        <mif:p>
+                           <mif:p>PTT.070-01</mif:p>
+                        </mif:p>
+                     </mif:text>
+                  </mif:mapping>
+                  <mif:mapping sourceName="eScript">
+                     <mif:text>
+                        <mif:p>
+                           <mif:p>PTT.070-02</mif:p>
+                        </mif:p>
+                     </mif:text>
+                  </mif:mapping>
+                  <mif:mapping sourceName="MOXXI">
+                     <mif:text>
+                        <mif:p>
+                           <mif:p>D99.03 (url.address - as per RFC2396)</mif:p>
+                        </mif:p>
+                     </mif:text>
+                  </mif:mapping>
+                  <mif:mapping sourceName="NCPDP">
+                     <mif:text>
+                        <mif:p>
+                           <mif:p>patient.326-CQ</mif:p>
+                        </mif:p>
+                     </mif:text>
+                  </mif:mapping>
+                  <mif:mapping sourceName="PECS">
+                     <mif:text>
+                        <mif:p>
+                           <mif:p>PID.13</mif:p>
+                        </mif:p>
+                     </mif:text>
+                  </mif:mapping>
+                  <mif:mapping sourceName="PECS">
+                     <mif:text>
+                        <mif:p>
+                           <mif:p>PID.14</mif:p>
+                        </mif:p>
+                     </mif:text>
+                  </mif:mapping>
+               </mif:annotations>
+               <mif:derivationSupplier staticModelDerivationId="1" className="Patient" attributeName="telecom"/>
+               <mif:type name="LIST">
+                  <mif:supplierBindingArgumentDatatype name="TEL.PHONEMAIL"/>
+               </mif:type>
+            </mif:attribute>
+            <mif:association sortKey="0">
+               <mif:graphicRepresentation>
+                  <mif:graphElement connectToShapeId="Sheet.1" containerDiagramName="Main">
+                     <mif:position x="6.019" y="0.858"/>
+                     <mif:graphEdge>
+                        <mif:anchor connectToShapeId="Sheet.11">
+                           <mif:position x="4.976" y="1.215"/>
+                        </mif:anchor>
+                     </mif:graphEdge>
+                  </mif:graphElement>
+               </mif:graphicRepresentation>
+               <mif:targetConnection name="patientPerson" minimumMultiplicity="1" maximumMultiplicity="1"
+                                     conformance="R"
+                                     isMandatory="true"
+                                     sortKey="AZ">
+                  <mif:annotations>
+                     <mif:definition>
+                        <mif:text/>
+                     </mif:definition>
+                  </mif:annotations>
+                  <mif:derivationSupplier staticModelDerivationId="1" className="Role" associationEndName="player"/>
+                  <mif:participantClass>
+                     <mif:class name="Person" isAbstract="false">
+                        <mif:derivationSupplier staticModelDerivationId="1" className="Person"/>
+                        <mif:graphicRepresentation presentation="HL7">
+                           <mif:graphElement shapeId="Sheet.11" containerDiagramName="Main" shapeTemplate="Entity"
+                                             isWidthAutoSize="true"
+                                             isHeightAutoSize="true">
+                              <mif:position x="3.226" y="1.215"/>
+                              <mif:size width="3.501" height="1.048"/>
+                           </mif:graphElement>
+                        </mif:graphicRepresentation>
+                        <mif:annotations>
+                           <mif:definition>
+                              <mif:text/>
+                           </mif:definition>
+                        </mif:annotations>
+                        <mif:attribute name="classCode" sortKey="1" minimumMultiplicity="1" maximumMultiplicity="1"
+                                       conformance="R"
+                                       isMandatory="true"
+                                       fixedValue="PSN"
+                                       isStructural="true">
+                           <mif:annotations>
+                              <mif:definition>
+                                 <mif:text/>
+                              </mif:definition>
+                           </mif:annotations>
+                           <mif:derivationSupplier staticModelDerivationId="1" className="Person" attributeName="classCode"/>
+                           <mif:type name="CS"/>
+                           <mif:supplierDomainSpecification codingStrength="CNE" codeSystemName="EntityClass" mnemonic="PSN"/>
+                        </mif:attribute>
+                        <mif:attribute name="determinerCode" sortKey="2" minimumMultiplicity="1"
+                                       maximumMultiplicity="1"
+                                       conformance="R"
+                                       isMandatory="true"
+                                       fixedValue="INSTANCE"
+                                       isStructural="true">
+                           <mif:annotations>
+                              <mif:definition>
+                                 <mif:text/>
+                              </mif:definition>
+                           </mif:annotations>
+                           <mif:derivationSupplier staticModelDerivationId="1" className="Person" attributeName="determinerCode"/>
+                           <mif:type name="CS"/>
+                           <mif:supplierDomainSpecification codingStrength="CNE" codeSystemName="EntityDeterminer" mnemonic="INSTANCE"/>
+                        </mif:attribute>
+                        <mif:attribute name="name" sortKey="3" minimumMultiplicity="1" maximumMultiplicity="1"
+                                       conformance="R"
+                                       isMandatory="false"
+                                       isStructural="false">
+                           <mif:businessName name="B:Patient Name"/>
+                           <mif:annotations>
+                              <mif:definition>
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>The name by which the patient is known to the client registry.</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:definition>
+                              <mif:rationale>
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>Potentially used by PoS systems to confirm patient identity. Also acts as the visual confirmation to the user about the patient being viewed.</mif:p>
+                                    </mif:p>
+                                    <mif:p>
+                                       <mif:p>The element is populated because the patient's name is important for display. However, there may be circumstances where a name is not available in the registry (e.g. newborns).</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:rationale>
+                              <mif:mapping sourceName="BC">
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>ZPA.1 (partType=Given)</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:mapping>
+                              <mif:mapping sourceName="BC">
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>ZPA.2 (partType=Family)</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:mapping>
+                              <mif:mapping sourceName="BC">
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>ZPA.3 (partType=Given - all repetitions except first)</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:mapping>
+                              <mif:mapping sourceName="CPhAv3">
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>C37 (partType=Given)</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:mapping>
+                              <mif:mapping sourceName="CPhAv3">
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>C38 (partType=Family)</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:mapping>
+                              <mif:mapping sourceName="eScript">
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>PTT.030-01 (partType=Family)</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:mapping>
+                              <mif:mapping sourceName="eScript">
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>PTT.030-02 (partType=Given - 1st occurrence)</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:mapping>
+                              <mif:mapping sourceName="eScript">
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>PTT.030-03 (partType=Given - subsequen occurrences)</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:mapping>
+                              <mif:mapping sourceName="eScript">
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>PTT.030-04 (partType=Suffix)</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:mapping>
+                              <mif:mapping sourceName="eScript">
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>PTT.030-05 (partType=Prefix)</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:mapping>
+                              <mif:mapping sourceName="HC-SA">
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>patient Initials</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:mapping>
+                              <mif:mapping sourceName="Immunization">
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>PID.5</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:mapping>
+                              <mif:mapping sourceName="NCPDP">
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>Patient.310-CA (partType=Given)</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:mapping>
+                              <mif:mapping sourceName="NCPDP">
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>Patient.311-CB (partType=Family)</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:mapping>
+                              <mif:mapping sourceName="Ontario">
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>Recipient Name First (partType=Given)</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:mapping>
+                              <mif:mapping sourceName="Ontario">
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>Recipient Name Last (partType=Family)</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:mapping>
+                              <mif:mapping sourceName="PECS">
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>PID.5</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:mapping>
+                              <mif:mapping sourceName="PECS">
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>PID.9 (any name other than first repetition is an alias)</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:mapping>
+                              <mif:mapping sourceName="PECS">
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>ZDU.3</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:mapping>
+                              <mif:mapping sourceName="PECS">
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>ZKW.2</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:mapping>
+                              <mif:mapping sourceName="PIN">
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>Person.givenName</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:mapping>
+                              <mif:mapping sourceName="PIN">
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>Person.lastName</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:mapping>
+                              <mif:mapping sourceName="PIN">
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>Person.middleName</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:mapping>
+                              <mif:mapping sourceName="PIN">
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>Person.namePrefix</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:mapping>
+                              <mif:mapping sourceName="PIN">
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>Person.nameSuffix</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:mapping>
+                           </mif:annotations>
+                           <mif:derivationSupplier staticModelDerivationId="1" className="Person" attributeName="name"/>
+                           <mif:type name="PN.BASIC"/>
+                        </mif:attribute>
+                        <mif:attribute name="administrativeGenderCode" sortKey="4" minimumMultiplicity="1"
+                                       maximumMultiplicity="1"
+                                       conformance="R"
+                                       isMandatory="true"
+                                       isStructural="false">
+                           <mif:businessName name="F:Patient Gender"/>
+                           <mif:annotations>
+                              <mif:definition>
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>Indicates the gender (sex) of the patient as known by the client registry. Complex genetic genders are handled as observations if they are considered relevant.</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:definition>
+                              <mif:rationale>
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>Used to confirm patient identity. May affect clinical decision support such as drug dosing, lab test appropriateness, etc.</mif:p>
+                                    </mif:p>
+                                    <mif:p>
+                                       <mif:p>Element is mandatory because the patient's gender is necessary for positive identification of the patient in the jurisdictional client registry and should always be known.</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:rationale>
+                              <mif:mapping sourceName="CPhAv3">
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>C40 eScript:PTT.040</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:mapping>
+                              <mif:mapping sourceName="HC-AE">
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>3</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:mapping>
+                              <mif:mapping sourceName="HC-SA">
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>Sex</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:mapping>
+                              <mif:mapping sourceName="Immunization">
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>PID.8</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:mapping>
+                              <mif:mapping sourceName="NCPDP">
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>Patient.305-C5</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:mapping>
+                              <mif:mapping sourceName="PECS">
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>PID.8</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:mapping>
+                           </mif:annotations>
+                           <mif:derivationSupplier staticModelDerivationId="1" className="Person"
+                                                   attributeName="administrativeGenderCode"/>
+                           <mif:type name="CV"/>
+                           <mif:supplierDomainSpecification codingStrength="CNE" domainName="AdministrativeGender"/>
+                        </mif:attribute>
+                        <mif:attribute name="birthTime" sortKey="5" minimumMultiplicity="1" maximumMultiplicity="1"
+                                       conformance="R"
+                                       isMandatory="false"
+                                       isStructural="false">
+                           <mif:businessName name="E:Patient Birth Date"/>
+                           <mif:annotations>
+                              <mif:definition>
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>Indicates the date on which the patient was born as known by the client registry.</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:definition>
+                              <mif:rationale>
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>Used to confirm patient identity.</mif:p>
+                                    </mif:p>
+                                    <mif:p>
+                                       <mif:p>May also influence clinical decision support such as dosage and therapy appropriateness.</mif:p>
+                                    </mif:p>
+                                    <mif:p>
+                                       <mif:p>The element is populated because the patient's birth date is necessary for positive identification of the patient in the jurisdictional client registry. However, in some cases the date of birth may not be known to the client registry</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:rationale>
+                              <mif:mapping sourceName="CPhAv3">
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>C34</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:mapping>
+                              <mif:mapping sourceName="eScript">
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>PTT.020</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:mapping>
+                              <mif:mapping sourceName="HC-AE">
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>A.2b</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:mapping>
+                              <mif:mapping sourceName="HC-SA">
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>HC-SA</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:mapping>
+                              <mif:mapping sourceName="Immunization">
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>PID.7</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:mapping>
+                              <mif:mapping sourceName="NCPDP">
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>patient.304-C4</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:mapping>
+                              <mif:mapping sourceName="PECS">
+                                 <mif:text>
+                                    <mif:p>
+                                       <mif:p>PID.7</mif:p>
+                                    </mif:p>
+                                 </mif:text>
+                              </mif:mapping>
+                           </mif:annotations>
+                           <mif:derivationSupplier staticModelDerivationId="1" className="Person" attributeName="birthTime"/>
+                           <mif:type name="TS.DATE"/>
+                        </mif:attribute>
+                     </mif:class>
+                  </mif:participantClass>
+               </mif:targetConnection>
+               <mif:sourceConnection>
+                  <mif:nonTraversableConnection participantClassName="Patient">
+                     <mif:derivationSupplier staticModelDerivationId="1" className="Entity" associationEndName="playedRole"/>
+                  </mif:nonTraversableConnection>
+               </mif:sourceConnection>
+            </mif:association>
+         </mif:class>
+      </mif:specializedClass>
+   </mif:ownedEntryPoint>
+</mif:serializedStaticModel>

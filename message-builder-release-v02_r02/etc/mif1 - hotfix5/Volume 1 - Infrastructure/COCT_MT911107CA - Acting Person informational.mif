@@ -1,0 +1,135 @@
+<mif:serializedStaticModel xmlns:mif="urn:hl7-org:v3/mif"
+                           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                           xsi:schemaLocation=""
+                           packageKind="realm"
+                           representationKind="serialized"
+                           isSerializable="true"
+                           isAbstract="false"
+                           name="CA">
+   <mif:packageLocation root="DEFN" section="IM" subSection="CO" domain="CT" artifact="MT-deprecated"
+                        realm="CA"
+                        id="911107"/>
+   <mif:header>
+      <mif:renderingInformation schemaVersion="1" application="Visio to MIF transform"/>
+      <mif:legalese copyrightOwner="Health Level Seven" copyrightYears="2007"/>
+   </mif:header>
+   <mif:graphicRepresentation presentation="HL7">
+      <mif:graphElement name="Main">
+         <mif:position x="0.0" y="0.0"/>
+         <mif:size width="1.999" height="3.357"/>
+      </mif:graphElement>
+   </mif:graphicRepresentation>
+   <mif:derivationSupplier staticModelDerivationId="1">
+      <mif:targetStaticModel root="DEFN" artifact="RIM" version="00"/>
+   </mif:derivationSupplier>
+   <mif:ownedEntryPoint id="COCT_MT911107CA" name="Acting Person informational" isAbstract="false">
+      <mif:graphicRepresentation>
+         <mif:graphElement shapeId="Sheet.15" containerDiagramName="Main">
+            <mif:position x="0.028" y="0.028"/>
+            <mif:size width="1.943" height="0.453"/>
+            <mif:anchorage connectToShapeId="Sheet.15">
+               <mif:position x="0.994" y="0.481"/>
+               <mif:graphEdge>
+                  <mif:anchor connectToShapeId="Sheet.1">
+                     <mif:position x="1.004" y="0.839"/>
+                  </mif:anchor>
+               </mif:graphEdge>
+            </mif:anchorage>
+         </mif:graphElement>
+      </mif:graphicRepresentation>
+      <mif:specializedClass>
+         <mif:class name="ActingPerson" isAbstract="true">
+            <mif:derivationSupplier staticModelDerivationId="1" className="Role"/>
+            <mif:graphicRepresentation presentation="HL7">
+               <mif:graphElement shapeId="Sheet.1" containerDiagramName="Main" shapeTemplate="Choice"
+                                 isWidthAutoSize="true"
+                                 isHeightAutoSize="true"
+                                 nodeOrientation="Portrait">
+                  <mif:position x="0.114" y="0.839"/>
+                  <mif:size width="1.781" height="2.508"/>
+               </mif:graphElement>
+            </mif:graphicRepresentation>
+            <mif:annotations>
+               <mif:definition>
+                  <mif:text/>
+               </mif:definition>
+            </mif:annotations>
+            <mif:specializationChild>
+               <mif:graphicRepresentation>
+                  <mif:graphElement shapeId="Sheet.3" containerDiagramName="Main" shapeTemplate="CMET"
+                                    isWidthAutoSize="true"
+                                    isHeightAutoSize="true">
+                     <mif:position x="0.239" y="1.089"/>
+                     <mif:size width="1.420" height="0.628"/>
+                  </mif:graphElement>
+               </mif:graphicRepresentation>
+               <mif:specializedClass>
+                  <mif:commonModelElementRef name="R_AssignedPersonIdentified-informational">
+                     <mif:derivationSupplier staticModelDerivationId="1" className="Role"/>
+                     <mif:supplierStructuralDomain domainName="RoleClass" mnemonic="ASSIGNED"/>
+                     <mif:graphicRepresentation presentation="HL7">
+                        <mif:graphElement shapeId="Sheet.3" containerDiagramName="Main" shapeTemplate="CMET"
+                                          isWidthAutoSize="true"
+                                          isHeightAutoSize="true">
+                           <mif:position x="0.239" y="1.089"/>
+                           <mif:size width="1.420" height="0.628"/>
+                        </mif:graphElement>
+                     </mif:graphicRepresentation>
+                     <mif:generalizationParent name="COCT_MT090108CA"/>
+                  </mif:commonModelElementRef>
+               </mif:specializedClass>
+            </mif:specializationChild>
+            <mif:specializationChild>
+               <mif:graphicRepresentation>
+                  <mif:graphElement shapeId="Sheet.22" containerDiagramName="Main" shapeTemplate="CMET"
+                                    isWidthAutoSize="true"
+                                    isHeightAutoSize="true">
+                     <mif:position x="0.239" y="1.841"/>
+                     <mif:size width="1.531" height="0.628"/>
+                  </mif:graphElement>
+               </mif:graphicRepresentation>
+               <mif:specializedClass>
+                  <mif:commonModelElementRef name="R_AssigningOrganizationIdentified-informational">
+                     <mif:derivationSupplier staticModelDerivationId="1" className="Role"/>
+                     <mif:supplierStructuralDomain domainName="RoleClass" mnemonic="ASSIGNED"/>
+                     <mif:graphicRepresentation presentation="HL7">
+                        <mif:graphElement shapeId="Sheet.22" containerDiagramName="Main" shapeTemplate="CMET"
+                                          isWidthAutoSize="true"
+                                          isHeightAutoSize="true">
+                           <mif:position x="0.239" y="1.841"/>
+                           <mif:size width="1.531" height="0.628"/>
+                        </mif:graphElement>
+                     </mif:graphicRepresentation>
+                     <mif:generalizationParent name="COCT_MT090508CA"/>
+                  </mif:commonModelElementRef>
+               </mif:specializedClass>
+            </mif:specializationChild>
+            <mif:specializationChild>
+               <mif:graphicRepresentation>
+                  <mif:graphElement shapeId="Sheet.9" containerDiagramName="Main" shapeTemplate="CMET"
+                                    isWidthAutoSize="true"
+                                    isHeightAutoSize="true">
+                     <mif:position x="0.239" y="2.594"/>
+                     <mif:size width="1.103" height="0.628"/>
+                  </mif:graphElement>
+               </mif:graphicRepresentation>
+               <mif:specializedClass>
+                  <mif:commonModelElementRef name="R_PatientPersonInformational">
+                     <mif:derivationSupplier staticModelDerivationId="1" className="Patient"/>
+                     <mif:supplierStructuralDomain domainName="RoleClass" mnemonic="PAT"/>
+                     <mif:graphicRepresentation presentation="HL7">
+                        <mif:graphElement shapeId="Sheet.9" containerDiagramName="Main" shapeTemplate="CMET"
+                                          isWidthAutoSize="true"
+                                          isHeightAutoSize="true">
+                           <mif:position x="0.239" y="2.594"/>
+                           <mif:size width="1.103" height="0.628"/>
+                        </mif:graphElement>
+                     </mif:graphicRepresentation>
+                     <mif:generalizationParent name="COCT_MT050207CA"/>
+                  </mif:commonModelElementRef>
+               </mif:specializedClass>
+            </mif:specializationChild>
+         </mif:class>
+      </mif:specializedClass>
+   </mif:ownedEntryPoint>
+</mif:serializedStaticModel>

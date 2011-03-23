@@ -1,0 +1,49 @@
+<findCandidatesQuery
+	xmlns="urn:ca.infoway.messagebuilder.simplexml.v1">
+	<messageIdentifier root="1ee83ff1-08ab-4fe7-b573-ea777e9bad51" />
+	<messageTimestamp value="20080625141610-0500" />
+	<responseType code="I" />
+	<interactionType root="2.16.840.1.113883.1.6" extension="PRPA_IN101103CA"/>
+	<conformanceProfileIdentifiers root="2.1.1.1.1" extension="V02R02"/>
+	<processingCode code="P" />
+	<desiredAcknowledgmentType code="ER" />
+	<receiver>
+		<receiverNetworkAddress value="http://localhost:8080/" />
+		<receiverApplicationIdentifier root="2.16.840.1.113883.4.262.12"
+			extension="123" />
+		<receiverApplicationName>My Application</receiverApplicationName>
+		<receiverOrganizationIdentifier root="2.16.840.1.113883.4.262.12"
+			extension="123.456" />
+	</receiver>
+	<sender>
+		<sendingNetworkAddress  value="http://localhost:8080/" />
+		<sendingApplicationIdentifier root="2.16.840.1.113883.4.262.12"
+			extension="123" />
+		<sendingSoftwareVersionNumber>1.0</sendingSoftwareVersionNumber>
+		<sendingApplicationSoftwareName>Panacea Pharmacy</sendingApplicationSoftwareName>
+		<sendingOrganizationIdentifier root="2.16.840.1.113883.4.262.12"
+			extension="123" />
+	</sender>
+	<controlActEvent>
+		<eventIdentifier root="2.16.124.113620.1.1.1.1.1.1" extension="eventId" />
+		<eventType code="PRPA_TE101103CA" codeSystem="2.16.840.1.113883.5.4" />
+		<author>
+			<timeOfCreation value="20080625141610-0500" />
+			<healthcareOrganization>
+				<organizationIdentifier root="2.16.840.1.113883.4.262.12"
+					extension="123" />
+				<organizationName>Friendly Neighbourhood Pharmacy</organizationName>
+			</healthcareOrganization>
+		</author>
+		<queryByParameter>
+			<queryIdentifier root="1ee83ff1-08ab-4fe7-b573-ea777e9bad21" />
+			<parameterList>
+				<clientName use="L">
+					<firstName>Robert</firstName>
+					<lastName>Smith</lastName>
+				</clientName>
+			</parameterList>
+		</queryByParameter>
+	</controlActEvent>
+</findCandidatesQuery>
+

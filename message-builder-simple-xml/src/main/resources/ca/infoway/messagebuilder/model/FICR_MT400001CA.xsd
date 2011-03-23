@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:chi="urn:ca.infoway.messagebuilder.simplexml.v1" elementFormDefault="qualified" targetNamespace="urn:ca.infoway.messagebuilder.simplexml.v1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include schemaLocation="COCT_MT120600CA.xsd"/>
+  <xs:include schemaLocation="../../../../../../classes/simpleDataTypes.xsd"/>
+  <xs:complexType name="FICR_MT400001CA.CallBackContact">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="callBackContactType" type="chi:CodedValue"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="callBackContactPersonName" type="chi:PersonName"/>
+      <xs:element maxOccurs="5" minOccurs="0" name="callBackContactPersonTelecom" type="chi:PhonemailTelecommunicationAddress"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="FICR_MT400001CA.Coverage">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="policyIdentifier" type="chi:InstanceIdentifier"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="policyType" type="chi:CodedValue"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="carrierIdentifier" type="chi:InstanceIdentifier"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="coveredPartyIdentifier" type="chi:InstanceIdentifier"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="relationshipToPolicyHolder" type="chi:CodedValue"/>
+      <xs:element maxOccurs="5" minOccurs="0" name="personalRelationshipType" type="chi:CodedValue"/>
+      <xs:element maxOccurs="5" minOccurs="1" name="coveredPartyPatientNameS" type="chi:PersonName"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="coveredPartyPatientGender" type="chi:CodedValue"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="coveredPartyPatientDateOfBirth" type="chi:PartialDate"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="coveredPartyPatientAddress" type="chi:PostalAddress"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="policyHolderIdentifier" type="chi:InstanceIdentifier"/>
+      <xs:group maxOccurs="1" minOccurs="0" ref="chi:FICR_MT400001CA.PolicyHolderChoice"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="FICR_MT400001CA.DevicePassThru">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="deviceCode" type="chi:CodedValue"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="deviceName" type="xs:string"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="deviceDescription" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="FICR_MT400001CA.DirectTarget3">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="formRolePlayingFormDeterminerCode" type="chi:SimpleCodedType"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="formNumberVersion" type="chi:InstanceIdentifier"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="FICR_MT400001CA.PertinentInformation">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="attachmentIdentifier" type="chi:InstanceIdentifier"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="attachmentType" type="chi:CodedValue"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="attachmentContent" type="chi:EncapsulatedDocumentType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="FICR_MT400001CA.PolicyHolderChoice">
+    <xs:choice>
+      <xs:element name="policyHolderOrganization" type="chi:FICR_MT400001CA.PolicyHolderOrganization"/>
+      <xs:element name="policyHolderPerson" type="chi:FICR_MT400001CA.PolicyHolderPerson"/>
+    </xs:choice>
+  </xs:group>
+  <xs:complexType name="FICR_MT400001CA.PolicyHolderOrganization">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="policyHolderOrganizationName" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="FICR_MT400001CA.PolicyHolderPerson">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="policyHolderName" type="chi:PersonName"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="FICR_MT400001CA.SpecialAuthorizationChoice">
+    <xs:choice>
+      <xs:element name="substanceAdministration" type="chi:FICR_MT400001CA.SubstanceAdministration"/>
+      <xs:element name="devicePassThru" type="chi:FICR_MT400001CA.DevicePassThru"/>
+    </xs:choice>
+  </xs:group>
+  <xs:complexType name="FICR_MT400001CA.SpecialAuthorizationRequest">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="specialAuthorizationRequestType" type="chi:CodedValue"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="specialAuthorizationRequestEffectiveDate" type="chi:DateInterval"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="specialAuthorizationPriorityCode" type="chi:CodedValue"/>
+      <xs:element maxOccurs="2" minOccurs="0" name="confidentialityRestrictionS" type="chi:CodedValue"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="callBackContact" type="chi:FICR_MT400001CA.CallBackContact"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="coverage" type="chi:FICR_MT400001CA.Coverage"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="directTarget" type="chi:FICR_MT400001CA.DirectTarget3"/>
+      <xs:element maxOccurs="10" minOccurs="0" name="pertinentInformation" type="chi:FICR_MT400001CA.PertinentInformation"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="crossReferenceID" type="chi:InstanceIdentifier"/>
+      <xs:group maxOccurs="1" minOccurs="1" ref="chi:FICR_MT400001CA.SpecialAuthorizationChoice"/>
+      <xs:element maxOccurs="100" minOccurs="0" name="subjectOf" type="chi:FICR_MT400001CA.Subject"/>
+      <xs:element maxOccurs="200" minOccurs="0" name="support" type="chi:FICR_MT400001CA.Support2"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="FICR_MT400001CA.Subject">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="contextControlCode" type="chi:SimpleCodedType"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="annotation" type="chi:COCT_MT120600CA.Annotation"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="FICR_MT400001CA.SubstanceAdministration">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="0" name="drugDoseStrength" type="chi:PhysicalQuantity"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="drugCode" type="chi:CodedValue"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="drugName" type="xs:string"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="drugDescription" type="xs:string"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="drugForm" type="chi:CodedValue"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="FICR_MT400001CA.Support2">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="1" name="generalSupportingInformationType" type="chi:CodedValue"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="specialAuthorizationCriteriaText" type="xs:string"/>
+      <xs:element maxOccurs="1" minOccurs="1" name="generalSupportingInformationValue" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

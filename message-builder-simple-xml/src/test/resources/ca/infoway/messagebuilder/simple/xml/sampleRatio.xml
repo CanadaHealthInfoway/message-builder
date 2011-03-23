@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ParameterList xmlns="urn:ca.infoway.messagebuilder.simplexml.v1" >
+	<drugOverTime>
+		<drugQuantity unit="ml" value="5.3" />
+		<time unit="days" value="10" />
+	</drugOverTime>
+	<moneyPerUnit>
+		<money value="10.50" />
+		<unit unit="ml" value="5.3" />
+	</moneyPerUnit>
+</ParameterList>
