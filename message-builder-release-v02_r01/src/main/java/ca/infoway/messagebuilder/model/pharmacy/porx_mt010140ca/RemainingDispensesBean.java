@@ -11,13 +11,28 @@ import ca.infoway.messagebuilder.model.common.coct_mt220100ca.DrugProductBean;
 
 
 
+/**
+ * <p>Remaining Dispenses</p>
+ * 
+ * <p>Indicates dispenses yet to be made against the 
+ * prescription</p>
+ * 
+ * <p>Allows updating the quantity remaining to be dispensed.</p>
+ */
 @Hl7PartTypeMapping({"PORX_MT010140CA.SupplyEvent"})
 public class RemainingDispensesBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110127L;
-    private DrugProductBean productMedication;
+    private static final long serialVersionUID = 20100615L;
     private PQ remainingQuantity = new PQImpl();
+    private DrugProductBean productMedication;
 
+    @Hl7XmlMapping({"quantity"})
+    public PhysicalQuantity getRemainingQuantity() {
+        return this.remainingQuantity.getValue();
+    }
+    public void setRemainingQuantity(PhysicalQuantity remainingQuantity) {
+        this.remainingQuantity.setValue(remainingQuantity);
+    }
 
     @Hl7XmlMapping({"product/medication"})
     public DrugProductBean getProductMedication() {
@@ -25,18 +40,6 @@ public class RemainingDispensesBean extends MessagePartBean {
     }
     public void setProductMedication(DrugProductBean productMedication) {
         this.productMedication = productMedication;
-    }
-
-
-    /**
-     * <p>C:Remaining Quantity</p>
-     */
-    @Hl7XmlMapping({"quantity"})
-    public PhysicalQuantity getRemainingQuantity() {
-        return this.remainingQuantity.getValue();
-    }
-    public void setRemainingQuantity(PhysicalQuantity remainingQuantity) {
-        this.remainingQuantity.setValue(remainingQuantity);
     }
 
 }

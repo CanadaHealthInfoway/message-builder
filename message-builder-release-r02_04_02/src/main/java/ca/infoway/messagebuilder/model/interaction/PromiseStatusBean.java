@@ -3,15 +3,15 @@ package ca.infoway.messagebuilder.model.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.common.merged.HL7Message_1Bean;
-import ca.infoway.messagebuilder.model.common.merged.TriggerEvent_1Bean;
-import ca.infoway.messagebuilder.model.lab.polb_mt002000ca.PromiseChoice;
+import ca.infoway.messagebuilder.model.common.mcai_mt700210ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.common.mcci_mt002100ca.HL7MessageBean;
+import ca.infoway.messagebuilder.model.lab.polb_mt002000ca.PromiseChoiceBean;
 
 
 
 @Hl7PartTypeMapping({"POLB_IN222000CA"})
-public class PromiseStatusBean extends HL7Message_1Bean<TriggerEvent_1Bean<PromiseChoice>> implements InteractionBean {
+public class PromiseStatusBean extends HL7MessageBean<TriggerEventBean<PromiseChoiceBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20110127L;
+    private static final long serialVersionUID = 20100603L;
 
 }

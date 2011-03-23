@@ -8,15 +8,14 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 /**
- * <p><p>Print form specified for EOB statement when provided 
- * to patient</p></p>
+ * <p>Print form specified for EOB statement when provided to 
+ * patient</p>
  */
 @Hl7PartTypeMapping({"FICR_MT510201CA.FormRole"})
 public class FormRoleBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110127L;
+    private static final long serialVersionUID = 20100603L;
     private FormBean playingForm;
-
 
     @Hl7XmlMapping({"playingForm"})
     public FormBean getPlayingForm() {

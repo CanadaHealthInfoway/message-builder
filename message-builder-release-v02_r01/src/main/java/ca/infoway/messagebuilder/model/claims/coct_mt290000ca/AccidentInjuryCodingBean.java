@@ -13,20 +13,18 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COCT_MT290000CA.AccidentInjuryCoding"})
 public class AccidentInjuryCodingBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110127L;
-    private CV targetSiteCode = new CVImpl();
-    private CV value = new CVImpl();
+    private static final long serialVersionUID = 20100615L;
     private CV code = new CVImpl();
+    private CV value = new CVImpl();
+    private CV targetSiteCode = new CVImpl();
 
-
-    @Hl7XmlMapping({"targetSiteCode"})
-    public Code getTargetSiteCode() {
-        return (Code) this.targetSiteCode.getValue();
+    @Hl7XmlMapping({"code"})
+    public Code getCode() {
+        return (Code) this.code.getValue();
     }
-    public void setTargetSiteCode(Code targetSiteCode) {
-        this.targetSiteCode.setValue(targetSiteCode);
+    public void setCode(Code code) {
+        this.code.setValue(code);
     }
-
 
     @Hl7XmlMapping({"value"})
     public Code getValue() {
@@ -36,13 +34,12 @@ public class AccidentInjuryCodingBean extends MessagePartBean {
         this.value.setValue(value);
     }
 
-
-    @Hl7XmlMapping({"code"})
-    public Code getCode() {
-        return (Code) this.code.getValue();
+    @Hl7XmlMapping({"targetSiteCode"})
+    public Code getTargetSiteCode() {
+        return (Code) this.targetSiteCode.getValue();
     }
-    public void setCode(Code code) {
-        this.code.setValue(code);
+    public void setTargetSiteCode(Code targetSiteCode) {
+        this.targetSiteCode.setValue(targetSiteCode);
     }
 
 }

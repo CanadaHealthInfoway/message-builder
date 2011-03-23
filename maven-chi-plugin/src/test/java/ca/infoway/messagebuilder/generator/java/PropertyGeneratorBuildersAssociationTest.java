@@ -14,6 +14,7 @@ import org.junit.Test;
 
 import ca.infoway.messagebuilder.junit.JMockMockeryRule;
 import ca.infoway.messagebuilder.xml.Cardinality;
+import ca.infoway.messagebuilder.xml.TypeName;
 
 public class PropertyGeneratorBuildersAssociationTest {
 
@@ -34,17 +35,16 @@ public class PropertyGeneratorBuildersAssociationTest {
 	
 	@Test
 	public void shouldSingleCardinalityAssociation() throws Exception {
-		final Association beanRelationship = new AssociationBuilder()
-				.setName("bean")
-				.setType(new TypeBuilder().setName("FooBean").build())
-				.setCardinality(new Cardinality(1, 1))
-				.setLanguageSpecificName("ca.infoway.test", "Foo")
-				.buildStandard();
-	
 		this.jmock.checking(new Expectations() {{
-			atLeast(1).of(manager).getRepresentationOfType(beanRelationship.getAssociationType());
+			atLeast(1).of(manager).getRepresentationOfTypeName(new TypeName("FooBean"));
 				will(returnValue("FooBean"));
 		}});
+		
+		Association beanRelationship = new AssociationBuilder()
+			.setName("bean")
+			.setType(new TypeBuilder().setName("FooBean").build())
+			.setCardinality(new Cardinality(1, 1))
+			.buildStandard();
 		
 		StringWriter writer = new StringWriter();
 		
@@ -60,17 +60,16 @@ public class PropertyGeneratorBuildersAssociationTest {
 
 	@Test
 	public void shouldMultipleCardinalityAssociation() throws Exception {
-		final Association beanRelationship = new AssociationBuilder()
+		this.jmock.checking(new Expectations() {{
+			atLeast(1).of(manager).getRepresentationOfTypeName(new TypeName("FooBean"));
+				will(returnValue("FooBean"));
+		}});
+		
+		Association beanRelationship = new AssociationBuilder()
 			.setName("bean")
 			.setType(new TypeBuilder().setName("FooBean").build())
 			.setCardinality(new Cardinality(0, 5))
-			.setLanguageSpecificName("ca.infoway.test", "Foo")
 			.buildStandard();
-		
-		this.jmock.checking(new Expectations() {{
-			atLeast(1).of(manager).getRepresentationOfType(beanRelationship.getAssociationType());
-			will(returnValue("FooBean"));
-		}});
 		
 		StringWriter writer = new StringWriter();
 		

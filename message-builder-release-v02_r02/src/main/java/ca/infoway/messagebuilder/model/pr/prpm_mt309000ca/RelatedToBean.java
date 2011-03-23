@@ -13,10 +13,9 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PRPM_MT309000CA.RelatedTo"})
 public class RelatedToBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110127L;
+    private static final long serialVersionUID = 20100614L;
     private CS typeCode = new CSImpl();
-    private RoleChoice roleChoice;
-
+    private RoleChoiceBean roleChoice;
 
     @Hl7XmlMapping({"typeCode"})
     public RoleLinkType getTypeCode() {
@@ -26,34 +25,12 @@ public class RelatedToBean extends MessagePartBean {
         this.typeCode.setValue(typeCode);
     }
 
-
     @Hl7XmlMapping({"roleChoice"})
-    public RoleChoice getRoleChoice() {
+    public RoleChoiceBean getRoleChoice() {
         return this.roleChoice;
     }
-    public void setRoleChoice(RoleChoice roleChoice) {
+    public void setRoleChoice(RoleChoiceBean roleChoice) {
         this.roleChoice = roleChoice;
-    }
-
-    public AssignedEntityBean getRoleChoiceAsAssignedEntity() {
-        return this.roleChoice instanceof AssignedEntityBean ? (AssignedEntityBean) this.roleChoice : null;
-    }
-    public boolean hasRoleChoiceAsAssignedEntity() {
-        return (this.roleChoice instanceof AssignedEntityBean);
-    }
-
-    public QualifiedEntityBean getRoleChoiceAsQualifiedEntity() {
-        return this.roleChoice instanceof QualifiedEntityBean ? (QualifiedEntityBean) this.roleChoice : null;
-    }
-    public boolean hasRoleChoiceAsQualifiedEntity() {
-        return (this.roleChoice instanceof QualifiedEntityBean);
-    }
-
-    public HealthcareProviderBean getRoleChoiceAsHealthCareProvider() {
-        return this.roleChoice instanceof HealthcareProviderBean ? (HealthcareProviderBean) this.roleChoice : null;
-    }
-    public boolean hasRoleChoiceAsHealthCareProvider() {
-        return (this.roleChoice instanceof HealthcareProviderBean);
     }
 
 }

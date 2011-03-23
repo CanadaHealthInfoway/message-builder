@@ -1,6 +1,5 @@
 package ca.infoway.messagebuilder.datatype.lang;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.LinkedHashSet;
@@ -16,10 +15,9 @@ import java.util.Set;
  *
  * @sharpen.ignore - datatype - translated manually
  */
-public class PostalAddress implements Serializable {
+public class PostalAddress {
 	
-    private static final long serialVersionUID = -12550370508382374L;
-	private Set<PostalAddressUse> uses = Collections.synchronizedSet(new LinkedHashSet<PostalAddressUse>());
+    private Set<PostalAddressUse> uses = Collections.synchronizedSet(new LinkedHashSet<PostalAddressUse>());
     private final List<PostalAddressPart> parts = Collections.synchronizedList(new ArrayList<PostalAddressPart>());
 
     /**

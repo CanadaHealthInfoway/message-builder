@@ -12,7 +12,7 @@ import java.util.Set;
  * @param <T> the HL7 datatype held by the SET 
  * @param <V> the underlying Java datatype held by the underlying Java Set
  */
-public interface SET<T extends ANY<V>, V> extends COLLECTION<T> {
+public interface SET<T extends ANY<V>, V> extends COLLECTION<Set<T>> {
 
 	/**
 	 * <p>Returns the underlying Java Set containing values in the underlying Java datatype.

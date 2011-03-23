@@ -12,35 +12,38 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 
+/**
+ * <p>Other indications</p>
+ * 
+ * <p>Describes indications that are not diagnosis or 
+ * symptom-related (e.g. contrast agents)</p>
+ * 
+ * <p>Allows separation of conditions from symptoms from other 
+ * forms of indication.</p>
+ * 
+ * <p>Must have at least one of code or text</p>
+ */
 @Hl7PartTypeMapping({"PORX_MT980050CA.OtherIndication"})
-public class OtherIndicationsBean extends MessagePartBean implements Indications {
+public class OtherIndicationsBean extends MessagePartBean implements IndicationsBean {
 
-    private static final long serialVersionUID = 20110127L;
-    private ST otherIndicationAdHocDescription = new STImpl();
+    private static final long serialVersionUID = 20100614L;
     private CV otherIndication = new CVImpl();
+    private ST otherIndicationAdHocDescription = new STImpl();
 
-
-    /**
-     * <p>Other indication ad-hoc description</p>
-     */
-    @Hl7XmlMapping({"text"})
-    public String getOtherIndicationAdHocDescription() {
-        return this.otherIndicationAdHocDescription.getValue();
-    }
-    public void setOtherIndicationAdHocDescription(String otherIndicationAdHocDescription) {
-        this.otherIndicationAdHocDescription.setValue(otherIndicationAdHocDescription);
-    }
-
-
-    /**
-     * <p>Other Indication</p>
-     */
     @Hl7XmlMapping({"code"})
     public ActNonConditionIndicationCode getOtherIndication() {
         return (ActNonConditionIndicationCode) this.otherIndication.getValue();
     }
     public void setOtherIndication(ActNonConditionIndicationCode otherIndication) {
         this.otherIndication.setValue(otherIndication);
+    }
+
+    @Hl7XmlMapping({"text"})
+    public String getOtherIndicationAdHocDescription() {
+        return this.otherIndicationAdHocDescription.getValue();
+    }
+    public void setOtherIndicationAdHocDescription(String otherIndicationAdHocDescription) {
+        this.otherIndicationAdHocDescription.setValue(otherIndicationAdHocDescription);
     }
 
 }

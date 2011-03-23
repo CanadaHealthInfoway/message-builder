@@ -3,15 +3,19 @@ package ca.infoway.messagebuilder.model.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.common.merged.HL7Message_1Bean;
-import ca.infoway.messagebuilder.model.common.merged.ReferencedRecordBean;
-import ca.infoway.messagebuilder.model.common.merged.TriggerEvent_1Bean;
+import ca.infoway.messagebuilder.model.common.mcai_mt700210ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.common.mcci_mt002100ca.HL7MessageBean;
+import ca.infoway.messagebuilder.model.merged.ReferencedRecordBean;
 
 
 
+/**
+ * <p>Requests that a prescription be marked as ""no longer 
+ * dispensable but still administrable"".</p>
+ */
 @Hl7PartTypeMapping({"PORX_IN010560CA"})
-public class AbortDispenseAuthorizationRequestBean extends HL7Message_1Bean<TriggerEvent_1Bean<ReferencedRecordBean>> implements InteractionBean {
+public class AbortDispenseAuthorizationRequestBean extends HL7MessageBean<TriggerEventBean<ReferencedRecordBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20110127L;
+    private static final long serialVersionUID = 20100614L;
 
 }

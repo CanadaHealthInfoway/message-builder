@@ -8,20 +8,28 @@ import ca.infoway.messagebuilder.datatype.II;
 import ca.infoway.messagebuilder.datatype.impl.IIImpl;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import ca.infoway.messagebuilder.model.merged.Patient_2Bean;
 
 
 
+/**
+ * <p>Patient</p>
+ * 
+ * <p>A person who is receiving or may receive healthcare 
+ * services and has had their identity previously confirmed</p>
+ * 
+ * <p>Used when patienty identity confirmation is handled as a 
+ * distinct business process rather than as part of each 
+ * transaction. Allows transactions to be linked to a specific 
+ * patient.</p>
+ */
 @Hl7PartTypeMapping({"COCT_MT050201CA.Patient"})
 @Hl7RootType
-public class PatientBean extends MessagePartBean implements ca.infoway.messagebuilder.model.common.merged.Patient_2 {
+public class PatientBean extends MessagePartBean implements Patient_2Bean {
 
-    private static final long serialVersionUID = 20110127L;
+    private static final long serialVersionUID = 20100615L;
     private II patientIdentifier = new IIImpl();
 
-
-    /**
-     * <p>A:Patient Identifier</p>
-     */
     @Hl7XmlMapping({"id"})
     public Identifier getPatientIdentifier() {
         return this.patientIdentifier.getValue();

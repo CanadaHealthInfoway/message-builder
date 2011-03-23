@@ -3,16 +3,16 @@ package ca.infoway.messagebuilder.model.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.common.merged.HL7Message_1Bean;
+import ca.infoway.messagebuilder.model.common.mcci_mt002300ca.HL7MessageBean;
 import ca.infoway.messagebuilder.model.common.mfmi_mt700746ca.TriggerEventBean;
-import ca.infoway.messagebuilder.model.cr.merged.IdentifiedPersonBean;
 import ca.infoway.messagebuilder.model.cr.prpa_mt101101ca.ParameterListBean;
+import ca.infoway.messagebuilder.model.cr.prpa_mt101106ca.IdentifiedPersonBean;
 
 
 
 @Hl7PartTypeMapping({"PRPA_IN101106CA"})
-public class FindAssociatedIdentifiersResponseBean extends HL7Message_1Bean<TriggerEventBean<ParameterListBean,IdentifiedPersonBean>> implements InteractionBean {
+public class FindAssociatedIdentifiersResponseBean extends HL7MessageBean<TriggerEventBean<ParameterListBean,IdentifiedPersonBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20110127L;
+    private static final long serialVersionUID = 20100603L;
 
 }

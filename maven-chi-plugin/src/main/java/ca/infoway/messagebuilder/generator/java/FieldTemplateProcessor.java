@@ -11,9 +11,11 @@ import ca.infoway.messagebuilder.generator.lang.StringArrayToAnnotationDecorator
 abstract class FieldTemplateProcessor {
 
 	private final FieldDefinition fieldDefinition;
+	private final ProgrammingLanguage language;
 
-	public FieldTemplateProcessor(FieldDefinition fieldDefinition) {
+	public FieldTemplateProcessor(FieldDefinition fieldDefinition, ProgrammingLanguage language) {
 		this.fieldDefinition = fieldDefinition;
+		this.language = language;
 	}
 
 	protected void write(CodeTemplate template, int indent, Writer writer) throws IOException {
@@ -28,34 +30,25 @@ abstract class FieldTemplateProcessor {
 				this.fieldDefinition.getInitializationArguments(),
 				this.fieldDefinition.getPropertyType(),
 				this.fieldDefinition.getPropertyElementImplementationType(),
-				populate(this.fieldDefinition.getDerivedChoiceHasBodyStyle()),
-				generateMapByPartTypeAnnotations(indent, this.fieldDefinition.getXmlPathName(),
-						 this.fieldDefinition.getBaseRelationship(), 
-						 this.fieldDefinition.getProgrammingLanguage())
-				);
+				populate(this.fieldDefinition.getDerivedChoiceHasBodyStyle()));
 	}
 
 	protected String populate(MethodBody body) {
 		if (body == null) {
 			return "";
 		} else {
-			return MessageFormat.format(body.getBodyFormat(this.fieldDefinition.getProgrammingLanguage()), 
+			return MessageFormat.format(body.getBodyFormat(this.language), 
 					this.fieldDefinition.getFieldName(), 
 					this.fieldDefinition.getFieldName(),
 					this.fieldDefinition.getFieldElementImplementationType(),
 					this.fieldDefinition.getPropertyElementImplementationType(),
 					this.fieldDefinition.getCollectionOfCodedPropertyElementType(),
-					this.fieldDefinition.getFieldElementType(),
-					this.fieldDefinition.getPropertyType());
+					this.fieldDefinition.getFieldElementType());
 		}
 	}
 
 	private String decorate(String[] strings) {
 		return new StringArrayToAnnotationDecorator(strings).render();
-	}
-
-	String generateMapByPartTypeAnnotations(int indent, String[] xmlPathName, BaseRelationship baseRelationship, ProgrammingLanguage programmingLanguage) {
-		return new MapByPartTypeAnnotationDecorator(indent, baseRelationship, programmingLanguage).render();
 	}
 
 	protected FieldDefinition getFieldDefinition() {

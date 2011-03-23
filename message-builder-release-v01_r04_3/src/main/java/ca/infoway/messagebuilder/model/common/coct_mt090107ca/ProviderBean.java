@@ -14,47 +14,47 @@ import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.PersonName;
 import ca.infoway.messagebuilder.domainvalue.HealthcareProviderRoleType;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import ca.infoway.messagebuilder.model.iehr.repc_mt000007ca.ConsenterBean;
+import ca.infoway.messagebuilder.model.iehr.repc_mt000012ca.ChoiceBean;
+import ca.infoway.messagebuilder.model.merged.ChangedByBean;
+import ca.infoway.messagebuilder.model.merged.PartyBean;
+import ca.infoway.messagebuilder.model.merged.RecipientBean;
 
 
 
+/**
+ * <p>Provider</p>
+ * 
+ * <p>Describes a healthcare provider involved in the delivery 
+ * of healthcare services. Encompasses both professional and 
+ * non-professional members.</p>
+ * 
+ * <p>Important for tracking responsibility for healthcare 
+ * events, as well as for identifying appropriate individuals 
+ * to contact for further information or follow-up.</p>
+ * 
+ * <p>While an important piece of identifying information, not 
+ * all providers will have identifiers, thus this attribute is 
+ * only 'populated'.</p>
+ */
 @Hl7PartTypeMapping({"COCT_MT090107CA.AssignedPerson"})
 @Hl7RootType
-public class ProviderBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pharmacy.merged.ChangedBy, ca.infoway.messagebuilder.model.iehr.repc_mt000012ca.Choice, ca.infoway.messagebuilder.model.merged.Recipient, ca.infoway.messagebuilder.model.merged.Consenter, ca.infoway.messagebuilder.model.iehr.merged.Party {
+public class ProviderBean extends MessagePartBean implements ConsenterBean, ChoiceBean, RecipientBean, ChangedByBean, PartyBean {
 
-    private static final long serialVersionUID = 20110127L;
+    private static final long serialVersionUID = 20100614L;
+    private II providerId = new IIImpl();
+    private CV providerType = new CVImpl();
     private PN providerName = new PNImpl();
     private II providerLicenseNumber = new IIImpl();
-    private CV providerType = new CVImpl();
-    private II providerId = new IIImpl();
 
-
-    /**
-     * <p>B:Provider Name</p>
-     */
-    @Hl7XmlMapping({"representedPerson/name"})
-    public PersonName getProviderName() {
-        return this.providerName.getValue();
+    @Hl7XmlMapping({"id"})
+    public Identifier getProviderId() {
+        return this.providerId.getValue();
     }
-    public void setProviderName(PersonName providerName) {
-        this.providerName.setValue(providerName);
+    public void setProviderId(Identifier providerId) {
+        this.providerId.setValue(providerId);
     }
 
-
-    /**
-     * <p>D:Provider License Number</p>
-     */
-    @Hl7XmlMapping({"representedPerson/asLicensedEntity/id"})
-    public Identifier getProviderLicenseNumber() {
-        return this.providerLicenseNumber.getValue();
-    }
-    public void setProviderLicenseNumber(Identifier providerLicenseNumber) {
-        this.providerLicenseNumber.setValue(providerLicenseNumber);
-    }
-
-
-    /**
-     * <p>Provider Type</p>
-     */
     @Hl7XmlMapping({"code"})
     public HealthcareProviderRoleType getProviderType() {
         return (HealthcareProviderRoleType) this.providerType.getValue();
@@ -63,16 +63,20 @@ public class ProviderBean extends MessagePartBean implements ca.infoway.messageb
         this.providerType.setValue(providerType);
     }
 
-
-    /**
-     * <p>A:Provider Id</p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Identifier getProviderId() {
-        return this.providerId.getValue();
+    @Hl7XmlMapping({"representedPerson/name"})
+    public PersonName getProviderName() {
+        return this.providerName.getValue();
     }
-    public void setProviderId(Identifier providerId) {
-        this.providerId.setValue(providerId);
+    public void setProviderName(PersonName providerName) {
+        this.providerName.setValue(providerName);
+    }
+
+    @Hl7XmlMapping({"representedPerson/asLicensedEntity/id"})
+    public Identifier getProviderLicenseNumber() {
+        return this.providerLicenseNumber.getValue();
+    }
+    public void setProviderLicenseNumber(Identifier providerLicenseNumber) {
+        this.providerLicenseNumber.setValue(providerLicenseNumber);
     }
 
 }

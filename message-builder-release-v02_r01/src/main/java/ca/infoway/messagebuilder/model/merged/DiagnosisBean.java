@@ -16,11 +16,18 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COCT_MT290000CA.Diagnosis","COCT_MT490000CA.Diagnosis","COMT_MT400001CA.Diagnosis"})
 public class DiagnosisBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110127L;
+    private static final long serialVersionUID = 20100615L;
+    private CV code = new CVImpl();
     private ST text = new STImpl();
-    private CV diagnosis = new CVImpl();
-    private CV diagnosisType = new CVImpl();
+    private CV value = new CVImpl();
 
+    @Hl7XmlMapping({"code"})
+    public ActCode getCode() {
+        return (ActCode) this.code.getValue();
+    }
+    public void setCode(ActCode code) {
+        this.code.setValue(code);
+    }
 
     @Hl7XmlMapping({"text"})
     public String getText() {
@@ -30,32 +37,12 @@ public class DiagnosisBean extends MessagePartBean {
         this.text.setValue(text);
     }
 
-
-    /**
-     * <p>Diagnosis</p>
-     * 
-     * <p>B:Diagnosis</p>
-     */
     @Hl7XmlMapping({"value"})
-    public DiagnosisValue getDiagnosis() {
-        return (DiagnosisValue) this.diagnosis.getValue();
+    public DiagnosisValue getValue() {
+        return (DiagnosisValue) this.value.getValue();
     }
-    public void setDiagnosis(DiagnosisValue diagnosis) {
-        this.diagnosis.setValue(diagnosis);
-    }
-
-
-    /**
-     * <p>DiagnosisType</p>
-     * 
-     * <p>A:Diagnosis Type</p>
-     */
-    @Hl7XmlMapping({"code"})
-    public ActCode getDiagnosisType() {
-        return (ActCode) this.diagnosisType.getValue();
-    }
-    public void setDiagnosisType(ActCode diagnosisType) {
-        this.diagnosisType.setValue(diagnosisType);
+    public void setValue(DiagnosisValue value) {
+        this.value.setValue(value);
     }
 
 }

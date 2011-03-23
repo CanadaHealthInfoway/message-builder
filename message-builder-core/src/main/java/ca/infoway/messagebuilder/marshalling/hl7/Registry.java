@@ -11,7 +11,6 @@ import org.apache.commons.logging.LogFactory;
 
 import ca.infoway.messagebuilder.Typed;
 
-
 public abstract class Registry<T> {
     
     private final Map<String,T> registryMap = Collections.synchronizedMap(new HashMap<String,T>());

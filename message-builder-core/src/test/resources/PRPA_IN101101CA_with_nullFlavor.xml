@@ -26,7 +26,7 @@
 		<code code="PRPA_TE101101CA" codeSystem="2.16.840.1.113883.5.4" />
 		<statusCode code="new" />
 		<subjectOf2 typeCode="SUBJ" contextControlCode="AP" contextConductionInd="false">
-			<detectedIssueEvent xsi:nil="true" nullFlavor="NI" />
+			<detectedIssueEvent nullFlavor="NI" />
 		</subjectOf2>
 		<queryByParameter>
             <!-- query id -->

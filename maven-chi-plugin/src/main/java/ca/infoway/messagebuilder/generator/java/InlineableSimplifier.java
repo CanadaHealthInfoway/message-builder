@@ -14,47 +14,63 @@ public abstract class InlineableSimplifier {
 
 	protected static final Cardinality EXACTLY_ONE = new Cardinality(1, 1);
 	
+	protected final TypeAnalysisResult result;
 	protected final LogUI log;
 
-	private final SimplifiableDefinitions definitions;
-
-	protected InlineableSimplifier(LogUI log, SimplifiableDefinitions definitions) {
+	protected InlineableSimplifier(LogUI log, TypeAnalysisResult result) {
 		this.log = log;
-		this.definitions = definitions;
+		this.result = result;
 	}
 
 	public void execute() {
-		for (SimplifiablePackage simplifiablePackage : this.definitions.getAllPackages()) {
-			for (SimplifiableType type : new ArrayList<SimplifiableType>(simplifiablePackage.getTypes())) {
-				this.log.log(DEBUG, "Now analyzing " + type.getMessagePart().getName());
-				if (isInlineable(simplifiablePackage, type)) {
-					inline(type);
+		for (ComplexTypePackage complexTypePackage : this.result.getAllPackages()) {
+			for (Type type : new ArrayList<Type>(complexTypePackage.getTypes().values())) {
+				this.log.log(DEBUG, "Now analyzing " + type.getName());
+				if (isInlineable(complexTypePackage, type)) {
+					inline(complexTypePackage, type);
 				}
 			}
 		}
 	}
 	
-	protected void inline(SimplifiableType type) {
-		type.setInlined(true);
+	protected abstract boolean isInlineable(ComplexTypePackage complexTypePackage, Type inlineableType);
+	protected abstract void inline(ComplexTypePackage complexTypePackage, Type inlineableType);
+	
+	protected BaseRelationship createInlinedRelationship(
+			BaseRelationship inlinedRelationship, BaseRelationship elidedRelationship) {
+		if (inlinedRelationship.getRelationshipType() == RelationshipType.ATTRIBUTE) {
+			return new InlinedAttribute((Attribute) inlinedRelationship, elidedRelationship);
+		} else {
+			return new InlinedAssociation((Association) inlinedRelationship, elidedRelationship);
+		}
+	}
+	
+	protected boolean matches(Type inlineableType, BaseRelationship relationship) {
+		return relationship.getRelationshipType() == RelationshipType.ASSOCIATION
+				&& ObjectUtils.equals(((Association) relationship).getPropertyTypeName(),
+						inlineableType.getName());
 	}
 
-	protected abstract boolean isInlineable(SimplifiablePackage simplifiablePackage, SimplifiableType type);
-	
-	protected boolean matches(SimplifiableType inlineableType, SimplifiableRelationship relationship) {
-		return relationship.getRelationship().isAssociation()
-			&& ObjectUtils.equals(relationship.getRelationship().getType(),
-					inlineableType.getMessagePart().getName());
+	protected boolean containedInChoice(Type inlineableType) {
+		return !inlineableType.getInterfaceTypes().isEmpty();
 	}
-	
-	protected List<SimplifiableRelationship> getNonFixedRelationships(SimplifiableType inlineableType) {
-		List<SimplifiableRelationship> nonFixedRelationships = new ArrayList<SimplifiableRelationship>();
-		List<SimplifiableRelationship> allRelationships = inlineableType.getRelationships();
-		for (SimplifiableRelationship simplifiableRelationship : allRelationships) {
-			if (!simplifiableRelationship.getRelationship().isFixed()) {
-				nonFixedRelationships.add(simplifiableRelationship);
+
+	protected boolean isTemporary(Type inlineableType) {
+		return inlineableType.getName() instanceof TemporaryTypeName;
+	}
+
+	protected List<BaseRelationship> getNonFixedRelationships(Type inlineableType) {
+		List<BaseRelationship> nonFixedRelationships = new ArrayList<BaseRelationship>();
+		List<BaseRelationship> allRelationships = inlineableType.getRelationships();
+		for (BaseRelationship baseRelationship : allRelationships) {
+			if (!baseRelationship.isFixed()) {
+				nonFixedRelationships.add(baseRelationship);
 			}
 		}
 		return nonFixedRelationships;
 	}
 	
+	protected boolean hasAtLeastOneNonFixedRelationship(Type inlineableType) {
+		return !getNonFixedRelationships(inlineableType).isEmpty();
+	}
 }

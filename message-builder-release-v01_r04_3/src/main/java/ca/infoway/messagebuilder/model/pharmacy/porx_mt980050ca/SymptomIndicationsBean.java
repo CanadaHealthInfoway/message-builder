@@ -15,18 +15,34 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 
+/**
+ * <p>Symptom Indications</p>
+ * 
+ * <p>Describes symptom-related indications</p>
+ * 
+ * <p>Allows separation of conditions from symptoms from other 
+ * forms of indication.</p>
+ * 
+ * <p>Code must be fixed to SYMPT if not using SNOMED</p>
+ * 
+ * <p>Value is mandatory if not using SNOMED</p>
+ */
 @Hl7PartTypeMapping({"PORX_MT980050CA.ObservationSymptom"})
-public class SymptomIndicationsBean extends MessagePartBean implements Indications {
+public class SymptomIndicationsBean extends MessagePartBean implements IndicationsBean {
 
-    private static final long serialVersionUID = 20110127L;
+    private static final long serialVersionUID = 20100614L;
+    private CD symptomType = new CDImpl();
     private ST freeFormSymptomIndication = new STImpl();
     private CV symptomCode = new CVImpl();
-    private CD symptomType = new CDImpl();
 
+    @Hl7XmlMapping({"code"})
+    public ActCode getSymptomType() {
+        return (ActCode) this.symptomType.getValue();
+    }
+    public void setSymptomType(ActCode symptomType) {
+        this.symptomType.setValue(symptomType);
+    }
 
-    /**
-     * <p>Free Form Symptom Indication</p>
-     */
     @Hl7XmlMapping({"text"})
     public String getFreeFormSymptomIndication() {
         return this.freeFormSymptomIndication.getValue();
@@ -35,28 +51,12 @@ public class SymptomIndicationsBean extends MessagePartBean implements Indicatio
         this.freeFormSymptomIndication.setValue(freeFormSymptomIndication);
     }
 
-
-    /**
-     * <p>A:Symptom Code</p>
-     */
     @Hl7XmlMapping({"value"})
     public SymptomValue getSymptomCode() {
         return (SymptomValue) this.symptomCode.getValue();
     }
     public void setSymptomCode(SymptomValue symptomCode) {
         this.symptomCode.setValue(symptomCode);
-    }
-
-
-    /**
-     * <p>Symptom Type</p>
-     */
-    @Hl7XmlMapping({"code"})
-    public ActCode getSymptomType() {
-        return (ActCode) this.symptomType.getValue();
-    }
-    public void setSymptomType(ActCode symptomType) {
-        this.symptomType.setValue(symptomType);
     }
 
 }

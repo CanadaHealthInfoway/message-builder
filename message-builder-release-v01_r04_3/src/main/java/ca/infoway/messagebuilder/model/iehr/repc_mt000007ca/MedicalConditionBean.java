@@ -4,14 +4,12 @@ package ca.infoway.messagebuilder.model.iehr.repc_mt000007ca;
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.annotation.Hl7RootType;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
-import ca.infoway.messagebuilder.datatype.BL;
 import ca.infoway.messagebuilder.datatype.CD;
 import ca.infoway.messagebuilder.datatype.CS;
 import ca.infoway.messagebuilder.datatype.CV;
 import ca.infoway.messagebuilder.datatype.II;
 import ca.infoway.messagebuilder.datatype.IVL;
 import ca.infoway.messagebuilder.datatype.TS;
-import ca.infoway.messagebuilder.datatype.impl.BLImpl;
 import ca.infoway.messagebuilder.datatype.impl.CDImpl;
 import ca.infoway.messagebuilder.datatype.impl.CSImpl;
 import ca.infoway.messagebuilder.datatype.impl.CVImpl;
@@ -26,83 +24,53 @@ import ca.infoway.messagebuilder.domainvalue.DiagnosisValue;
 import ca.infoway.messagebuilder.domainvalue.x_VeryBasicConfidentialityKind;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.common.coct_mt090107ca.ProviderBean;
-import ca.infoway.messagebuilder.model.common.merged.PatientBean;
-import ca.infoway.messagebuilder.model.iehr.merged.ReportedByBean;
-import ca.infoway.messagebuilder.model.merged.CommentBean;
+import ca.infoway.messagebuilder.model.merged.AnnotationIndicatorBean;
+import ca.infoway.messagebuilder.model.merged.AuthoredByBean;
+import ca.infoway.messagebuilder.model.merged.ChronicIndicatorBean;
+import ca.infoway.messagebuilder.model.merged.NotesBean;
+import ca.infoway.messagebuilder.model.merged.Patient_1Bean;
 import ca.infoway.messagebuilder.model.merged.RecordedAtBean;
-import ca.infoway.messagebuilder.model.merged.RefusedByBean;
+import ca.infoway.messagebuilder.model.merged.ReportedByBean;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 
 
+/**
+ * <p>Medical Condition</p>
+ * 
+ * <p>A record of a patient's medical condition. Includes 
+ * diseases, disabilities, pregnancy, lactation and other 
+ * clinical conditions of interest.</p>
+ * 
+ * <p>Necessary component of a person's overall medication and 
+ * clinical profile. Helps with contraindication checking.</p>
+ * 
+ * <p>Value is mandatory if not using SNOMED</p>
+ * 
+ * <p>Code is fixed to DX if not using SNOMED</p>
+ */
 @Hl7PartTypeMapping({"REPC_MT000007CA.MedicalCondition"})
 @Hl7RootType
 public class MedicalConditionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110127L;
-    private PatientBean subjectPatient;
-    private RecordedAtBean location;
-    private CD conditionType = new CDImpl();
-    private IVL<TS, Interval<Date>> conditionTimePeriod = new IVLImpl<TS, Interval<Date>>();
+    private static final long serialVersionUID = 20100614L;
     private II medicalConditionRecordId = new IIImpl();
-    private ProviderBean responsiblePartyAssignedPerson;
-    private CV conditionMaskingIndicator = new CVImpl();
-    private BL subjectOf3ChronicIndicator = new BLImpl();
+    private CD conditionType = new CDImpl();
     private CS conditionStatus = new CSImpl();
-    private RefusedByBean author;
-    private ReportedByBean informant;
-    private List<CommentBean> subjectOf2Annotation = new ArrayList<CommentBean>();
-    private BL subjectOf1AnnotationIndicator = new BLImpl();
+    private IVL<TS, Interval<Date>> conditionTimePeriod = new IVLImpl<TS, Interval<Date>>();
+    private CV conditionMaskingIndicator = new CVImpl();
     private CV condition = new CVImpl();
+    private Patient_1Bean subjectPatient;
+    private ProviderBean responsiblePartyAssignedPerson;
+    private AuthoredByBean author;
+    private ReportedByBean informant;
+    private RecordedAtBean location;
+    private AnnotationIndicatorBean subjectOf1AnnotationIndicator;
+    private List<NotesBean> subjectOf2Annotation = new ArrayList<NotesBean>();
+    private ChronicIndicatorBean subjectOf3ChronicIndicator;
 
-
-    @Hl7XmlMapping({"subject/patient"})
-    public PatientBean getSubjectPatient() {
-        return this.subjectPatient;
-    }
-    public void setSubjectPatient(PatientBean subjectPatient) {
-        this.subjectPatient = subjectPatient;
-    }
-
-
-    @Hl7XmlMapping({"location"})
-    public RecordedAtBean getLocation() {
-        return this.location;
-    }
-    public void setLocation(RecordedAtBean location) {
-        this.location = location;
-    }
-
-
-    /**
-     * <p>Condition Type</p>
-     */
-    @Hl7XmlMapping({"code"})
-    public ActCode getConditionType() {
-        return (ActCode) this.conditionType.getValue();
-    }
-    public void setConditionType(ActCode conditionType) {
-        this.conditionType.setValue(conditionType);
-    }
-
-
-    /**
-     * <p>E:Condition Time Period</p>
-     */
-    @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getConditionTimePeriod() {
-        return this.conditionTimePeriod.getValue();
-    }
-    public void setConditionTimePeriod(Interval<Date> conditionTimePeriod) {
-        this.conditionTimePeriod.setValue(conditionTimePeriod);
-    }
-
-
-    /**
-     * <p>A:Medical Condition Record Id</p>
-     */
     @Hl7XmlMapping({"id"})
     public Identifier getMedicalConditionRecordId() {
         return this.medicalConditionRecordId.getValue();
@@ -111,6 +79,53 @@ public class MedicalConditionBean extends MessagePartBean {
         this.medicalConditionRecordId.setValue(medicalConditionRecordId);
     }
 
+    @Hl7XmlMapping({"code"})
+    public ActCode getConditionType() {
+        return (ActCode) this.conditionType.getValue();
+    }
+    public void setConditionType(ActCode conditionType) {
+        this.conditionType.setValue(conditionType);
+    }
+
+    @Hl7XmlMapping({"statusCode"})
+    public ActStatus getConditionStatus() {
+        return (ActStatus) this.conditionStatus.getValue();
+    }
+    public void setConditionStatus(ActStatus conditionStatus) {
+        this.conditionStatus.setValue(conditionStatus);
+    }
+
+    @Hl7XmlMapping({"effectiveTime"})
+    public Interval<Date> getConditionTimePeriod() {
+        return this.conditionTimePeriod.getValue();
+    }
+    public void setConditionTimePeriod(Interval<Date> conditionTimePeriod) {
+        this.conditionTimePeriod.setValue(conditionTimePeriod);
+    }
+
+    @Hl7XmlMapping({"confidentialityCode"})
+    public x_VeryBasicConfidentialityKind getConditionMaskingIndicator() {
+        return (x_VeryBasicConfidentialityKind) this.conditionMaskingIndicator.getValue();
+    }
+    public void setConditionMaskingIndicator(x_VeryBasicConfidentialityKind conditionMaskingIndicator) {
+        this.conditionMaskingIndicator.setValue(conditionMaskingIndicator);
+    }
+
+    @Hl7XmlMapping({"value"})
+    public DiagnosisValue getCondition() {
+        return (DiagnosisValue) this.condition.getValue();
+    }
+    public void setCondition(DiagnosisValue condition) {
+        this.condition.setValue(condition);
+    }
+
+    @Hl7XmlMapping({"subject/patient"})
+    public Patient_1Bean getSubjectPatient() {
+        return this.subjectPatient;
+    }
+    public void setSubjectPatient(Patient_1Bean subjectPatient) {
+        this.subjectPatient = subjectPatient;
+    }
 
     @Hl7XmlMapping({"responsibleParty/assignedPerson"})
     public ProviderBean getResponsiblePartyAssignedPerson() {
@@ -120,48 +135,13 @@ public class MedicalConditionBean extends MessagePartBean {
         this.responsiblePartyAssignedPerson = responsiblePartyAssignedPerson;
     }
 
-
-    /**
-     * <p>F:Condition Masking Indicator</p>
-     */
-    @Hl7XmlMapping({"confidentialityCode"})
-    public x_VeryBasicConfidentialityKind getConditionMaskingIndicator() {
-        return (x_VeryBasicConfidentialityKind) this.conditionMaskingIndicator.getValue();
-    }
-    public void setConditionMaskingIndicator(x_VeryBasicConfidentialityKind conditionMaskingIndicator) {
-        this.conditionMaskingIndicator.setValue(conditionMaskingIndicator);
-    }
-
-
-    @Hl7XmlMapping({"subjectOf3/chronicIndicator"})
-    public Boolean getSubjectOf3ChronicIndicator() {
-        return this.subjectOf3ChronicIndicator.getValue();
-    }
-    public void setSubjectOf3ChronicIndicator(Boolean subjectOf3ChronicIndicator) {
-        this.subjectOf3ChronicIndicator.setValue(subjectOf3ChronicIndicator);
-    }
-
-
-    /**
-     * <p>D:Condition Status</p>
-     */
-    @Hl7XmlMapping({"statusCode"})
-    public ActStatus getConditionStatus() {
-        return (ActStatus) this.conditionStatus.getValue();
-    }
-    public void setConditionStatus(ActStatus conditionStatus) {
-        this.conditionStatus.setValue(conditionStatus);
-    }
-
-
     @Hl7XmlMapping({"author"})
-    public RefusedByBean getAuthor() {
+    public AuthoredByBean getAuthor() {
         return this.author;
     }
-    public void setAuthor(RefusedByBean author) {
+    public void setAuthor(AuthoredByBean author) {
         this.author = author;
     }
-
 
     @Hl7XmlMapping({"informant"})
     public ReportedByBean getInformant() {
@@ -171,31 +151,33 @@ public class MedicalConditionBean extends MessagePartBean {
         this.informant = informant;
     }
 
+    @Hl7XmlMapping({"location"})
+    public RecordedAtBean getLocation() {
+        return this.location;
+    }
+    public void setLocation(RecordedAtBean location) {
+        this.location = location;
+    }
+
+    @Hl7XmlMapping({"subjectOf1/annotationIndicator"})
+    public AnnotationIndicatorBean getSubjectOf1AnnotationIndicator() {
+        return this.subjectOf1AnnotationIndicator;
+    }
+    public void setSubjectOf1AnnotationIndicator(AnnotationIndicatorBean subjectOf1AnnotationIndicator) {
+        this.subjectOf1AnnotationIndicator = subjectOf1AnnotationIndicator;
+    }
 
     @Hl7XmlMapping({"subjectOf2/annotation"})
-    public List<CommentBean> getSubjectOf2Annotation() {
+    public List<NotesBean> getSubjectOf2Annotation() {
         return this.subjectOf2Annotation;
     }
 
-
-    @Hl7XmlMapping({"subjectOf1/annotationIndicator"})
-    public Boolean getSubjectOf1AnnotationIndicator() {
-        return this.subjectOf1AnnotationIndicator.getValue();
+    @Hl7XmlMapping({"subjectOf3/chronicIndicator"})
+    public ChronicIndicatorBean getSubjectOf3ChronicIndicator() {
+        return this.subjectOf3ChronicIndicator;
     }
-    public void setSubjectOf1AnnotationIndicator(Boolean subjectOf1AnnotationIndicator) {
-        this.subjectOf1AnnotationIndicator.setValue(subjectOf1AnnotationIndicator);
-    }
-
-
-    /**
-     * <p>C:Condition</p>
-     */
-    @Hl7XmlMapping({"value"})
-    public DiagnosisValue getCondition() {
-        return (DiagnosisValue) this.condition.getValue();
-    }
-    public void setCondition(DiagnosisValue condition) {
-        this.condition.setValue(condition);
+    public void setSubjectOf3ChronicIndicator(ChronicIndicatorBean subjectOf3ChronicIndicator) {
+        this.subjectOf3ChronicIndicator = subjectOf3ChronicIndicator;
     }
 
 }

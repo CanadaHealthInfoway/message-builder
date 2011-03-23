@@ -3,15 +3,15 @@ package ca.infoway.messagebuilder.model.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.claims.merged.PaymentIntentBean;
-import ca.infoway.messagebuilder.model.common.merged.HL7Message_1Bean;
-import ca.infoway.messagebuilder.model.common.merged.TriggerEvent_1Bean;
+import ca.infoway.messagebuilder.model.common.mcai_mt700227ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.common.mcci_mt002300ca.HL7MessageBean;
+import ca.infoway.messagebuilder.model.merged.PaymentIntentBean;
 
 
 
 @Hl7PartTypeMapping({"FICR_IN610102CA"})
-public class InvoiceResultsRxBean extends HL7Message_1Bean<TriggerEvent_1Bean<PaymentIntentBean>> implements InteractionBean {
+public class InvoiceResultsRxBean extends HL7MessageBean<TriggerEventBean<PaymentIntentBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20110127L;
+    private static final long serialVersionUID = 20100603L;
 
 }

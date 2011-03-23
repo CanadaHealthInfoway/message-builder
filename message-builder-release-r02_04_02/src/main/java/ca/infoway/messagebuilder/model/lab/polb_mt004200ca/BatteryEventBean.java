@@ -25,22 +25,17 @@ import ca.infoway.messagebuilder.domainvalue.ObservationOrderableLabType;
 import ca.infoway.messagebuilder.domainvalue.x_BasicConfidentialityKind;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.common.coct_mt090502ca.HealthcareOrganizationBean;
-import ca.infoway.messagebuilder.model.common.coct_mt130001ca.VersionInformationBean;
-import ca.infoway.messagebuilder.model.common.merged.HealthcareWorkerBean;
-import ca.infoway.messagebuilder.model.lab.merged.FulfillmentChoice;
-import ca.infoway.messagebuilder.model.lab.merged.OutbreakBean;
-import ca.infoway.messagebuilder.model.lab.merged.ReportSectionSpecimenBean;
-import ca.infoway.messagebuilder.model.lab.merged.ReportableHealthIndicatorBean;
-import ca.infoway.messagebuilder.model.lab.merged.ResultSortKeyBean;
-import ca.infoway.messagebuilder.model.lab.merged.ResultStatusProcessStepBean;
-import ca.infoway.messagebuilder.model.lab.merged.SupportingClinicalInformationBean;
-import ca.infoway.messagebuilder.model.lab.merged.WasPerformedByBean;
-import ca.infoway.messagebuilder.model.lab.polb_mt001001ca.BatteryOrPanelBean;
-import ca.infoway.messagebuilder.model.lab.polb_mt001001ca.ObservationRequestBean;
-import ca.infoway.messagebuilder.model.lab.polb_mt001001ca.PlacerGroupBean;
-import ca.infoway.messagebuilder.model.lab.polb_mt001001ca.RequestChoice;
-import ca.infoway.messagebuilder.model.merged.IncludesBean;
-import ca.infoway.messagebuilder.model.merged.RoleChoice;
+import ca.infoway.messagebuilder.model.merged.FulfillmentChoiceBean;
+import ca.infoway.messagebuilder.model.merged.HasNotesBean;
+import ca.infoway.messagebuilder.model.merged.OutbreakBean;
+import ca.infoway.messagebuilder.model.merged.ReportSectionSpecimenBean;
+import ca.infoway.messagebuilder.model.merged.ReportableHealthIndicatorBean;
+import ca.infoway.messagebuilder.model.merged.ResultSortKeyBean;
+import ca.infoway.messagebuilder.model.merged.ResultStatusProcessStepBean;
+import ca.infoway.messagebuilder.model.merged.RoleChoiceBean;
+import ca.infoway.messagebuilder.model.merged.SubjectToTriggerEventBean;
+import ca.infoway.messagebuilder.model.merged.SupportingClinicalInformationBean;
+import ca.infoway.messagebuilder.model.merged.WasPerformedByBean;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -49,45 +44,49 @@ import java.util.Set;
 
 
 @Hl7PartTypeMapping({"POLB_MT004200CA.BatteryEvent"})
-public class BatteryEventBean extends MessagePartBean implements ObservationChoice {
+public class BatteryEventBean extends MessagePartBean implements ObservationChoiceBean {
 
-    private static final long serialVersionUID = 20110127L;
-    private CS batteryEventStatus = new CSImpl();
-    private CD typeOfBatteryEvent = new CDImpl();
-    private List<IncludesBean> subjectOf2 = new ArrayList<IncludesBean>();
-    private List<RoleChoice> receiverRoleChoice = new ArrayList<RoleChoice>();
-    private SET<CV, Code> batteryEventConfidentiality = new SETImpl<CV, Code>(CVImpl.class);
+    private static final long serialVersionUID = 20100603L;
     private List<ReportSectionSpecimenBean> specimen = new ArrayList<ReportSectionSpecimenBean>();
-    private ResultStatusProcessStepBean subjectOf3ResultStatusProcessStep;
-    private List<WasPerformedByBean> performer = new ArrayList<WasPerformedByBean>();
-    private List<FulfillmentChoice> inFulfillmentOfFulfillmentChoice = new ArrayList<FulfillmentChoice>();
-    private List<ReportableHealthIndicatorBean> component1ReportableTestIndicator = new ArrayList<ReportableHealthIndicatorBean>();
-    private List<ObservationChoice> component4ObservationChoice = new ArrayList<ObservationChoice>();
-    private OutbreakBean pertinentInformation1OutbreakEvent;
-    private List<ReportSectionObservationBean> component3ReportLevelObservationEvent = new ArrayList<ReportSectionObservationBean>();
+    private List<RoleChoiceBean> receiverRoleChoice = new ArrayList<RoleChoiceBean>();
     private SET<II, Identifier> batteryEventIdentifier = new SETImpl<II, Identifier>(IIImpl.class);
-    private ResultSortKeyBean component2ResultSortKey;
-    private VersionInformationBean subjectOf1ControlActEvent;
+    private List<WasPerformedByBean> performer = new ArrayList<WasPerformedByBean>();
+    private CD typeOfBatteryEvent = new CDImpl();
     private HealthcareOrganizationBean primaryInformationRecipientAssignedEntity;
-    private List<SupportingClinicalInformationBean> pertinentInformation2SupportingClinicalObservationEvent = new ArrayList<SupportingClinicalInformationBean>();
+    private CS batteryEventStatus = new CSImpl();
+    private List<FulfillmentChoiceBean> inFulfillmentOfFulfillmentChoice = new ArrayList<FulfillmentChoiceBean>();
     private IVL<TS, Interval<Date>> batteryEventEffectiveTime = new IVLImpl<TS, Interval<Date>>();
+    private OutbreakBean pertinentInformation1OutbreakEvent;
+    private SET<CV, Code> batteryEventConfidentiality = new SETImpl<CV, Code>(CVImpl.class);
+    private List<SupportingClinicalInformationBean> pertinentInformation2SupportingClinicalObservationEvent = new ArrayList<SupportingClinicalInformationBean>();
+    private List<ReportableHealthIndicatorBean> component1ReportableTestIndicator = new ArrayList<ReportableHealthIndicatorBean>();
+    private ResultSortKeyBean component2ResultSortKey;
+    private List<ReportSectionObservationBean> component3ReportLevelObservationEvent = new ArrayList<ReportSectionObservationBean>();
+    private List<ObservationChoiceBean> component4ObservationChoice = new ArrayList<ObservationChoiceBean>();
+    private SubjectToTriggerEventBean subjectOf1;
+    private List<HasNotesBean> subjectOf2 = new ArrayList<HasNotesBean>();
+    private ResultStatusProcessStepBean subjectOf3ResultStatusProcessStep;
 
-
-    /**
-     * <p>Battery Event Status</p>
-     */
-    @Hl7XmlMapping({"statusCode"})
-    public ActStatus getBatteryEventStatus() {
-        return (ActStatus) this.batteryEventStatus.getValue();
+    @Hl7XmlMapping({"specimen"})
+    public List<ReportSectionSpecimenBean> getSpecimen() {
+        return this.specimen;
     }
-    public void setBatteryEventStatus(ActStatus batteryEventStatus) {
-        this.batteryEventStatus.setValue(batteryEventStatus);
+
+    @Hl7XmlMapping({"receiver/roleChoice"})
+    public List<RoleChoiceBean> getReceiverRoleChoice() {
+        return this.receiverRoleChoice;
     }
 
+    @Hl7XmlMapping({"id"})
+    public Set<Identifier> getBatteryEventIdentifier() {
+        return this.batteryEventIdentifier.rawSet();
+    }
 
-    /**
-     * <p>Type of Battery Event</p>
-     */
+    @Hl7XmlMapping({"performer"})
+    public List<WasPerformedByBean> getPerformer() {
+        return this.performer;
+    }
+
     @Hl7XmlMapping({"code"})
     public ObservationOrderableLabType getTypeOfBatteryEvent() {
         return (ObservationOrderableLabType) this.typeOfBatteryEvent.getValue();
@@ -95,109 +94,6 @@ public class BatteryEventBean extends MessagePartBean implements ObservationChoi
     public void setTypeOfBatteryEvent(ObservationOrderableLabType typeOfBatteryEvent) {
         this.typeOfBatteryEvent.setValue(typeOfBatteryEvent);
     }
-
-
-    @Hl7XmlMapping({"subjectOf2"})
-    public List<IncludesBean> getSubjectOf2() {
-        return this.subjectOf2;
-    }
-
-
-    @Hl7XmlMapping({"receiver/roleChoice"})
-    public List<RoleChoice> getReceiverRoleChoice() {
-        return this.receiverRoleChoice;
-    }
-
-
-    /**
-     * <p>Battery Event Confidentiality</p>
-     */
-    @Hl7XmlMapping({"confidentialityCode"})
-    public Set<x_BasicConfidentialityKind> getBatteryEventConfidentiality() {
-        return this.batteryEventConfidentiality.rawSet(x_BasicConfidentialityKind.class);
-    }
-
-
-    @Hl7XmlMapping({"specimen"})
-    public List<ReportSectionSpecimenBean> getSpecimen() {
-        return this.specimen;
-    }
-
-
-    @Hl7XmlMapping({"subjectOf3/resultStatusProcessStep"})
-    public ResultStatusProcessStepBean getSubjectOf3ResultStatusProcessStep() {
-        return this.subjectOf3ResultStatusProcessStep;
-    }
-    public void setSubjectOf3ResultStatusProcessStep(ResultStatusProcessStepBean subjectOf3ResultStatusProcessStep) {
-        this.subjectOf3ResultStatusProcessStep = subjectOf3ResultStatusProcessStep;
-    }
-
-
-    @Hl7XmlMapping({"performer"})
-    public List<WasPerformedByBean> getPerformer() {
-        return this.performer;
-    }
-
-
-    @Hl7XmlMapping({"inFulfillmentOf/fulfillmentChoice"})
-    public List<FulfillmentChoice> getInFulfillmentOfFulfillmentChoice() {
-        return this.inFulfillmentOfFulfillmentChoice;
-    }
-
-
-    @Hl7XmlMapping({"component1/reportableTestIndicator"})
-    public List<ReportableHealthIndicatorBean> getComponent1ReportableTestIndicator() {
-        return this.component1ReportableTestIndicator;
-    }
-
-
-    @Hl7XmlMapping({"component4/observationChoice"})
-    public List<ObservationChoice> getComponent4ObservationChoice() {
-        return this.component4ObservationChoice;
-    }
-
-
-    @Hl7XmlMapping({"pertinentInformation1/outbreakEvent"})
-    public OutbreakBean getPertinentInformation1OutbreakEvent() {
-        return this.pertinentInformation1OutbreakEvent;
-    }
-    public void setPertinentInformation1OutbreakEvent(OutbreakBean pertinentInformation1OutbreakEvent) {
-        this.pertinentInformation1OutbreakEvent = pertinentInformation1OutbreakEvent;
-    }
-
-
-    @Hl7XmlMapping({"component3/reportLevelObservationEvent"})
-    public List<ReportSectionObservationBean> getComponent3ReportLevelObservationEvent() {
-        return this.component3ReportLevelObservationEvent;
-    }
-
-
-    /**
-     * <p>Battery Event Identifier</p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Set<Identifier> getBatteryEventIdentifier() {
-        return this.batteryEventIdentifier.rawSet();
-    }
-
-
-    @Hl7XmlMapping({"component2/resultSortKey"})
-    public ResultSortKeyBean getComponent2ResultSortKey() {
-        return this.component2ResultSortKey;
-    }
-    public void setComponent2ResultSortKey(ResultSortKeyBean component2ResultSortKey) {
-        this.component2ResultSortKey = component2ResultSortKey;
-    }
-
-
-    @Hl7XmlMapping({"subjectOf1/controlActEvent"})
-    public VersionInformationBean getSubjectOf1ControlActEvent() {
-        return this.subjectOf1ControlActEvent;
-    }
-    public void setSubjectOf1ControlActEvent(VersionInformationBean subjectOf1ControlActEvent) {
-        this.subjectOf1ControlActEvent = subjectOf1ControlActEvent;
-    }
-
 
     @Hl7XmlMapping({"primaryInformationRecipient/assignedEntity"})
     public HealthcareOrganizationBean getPrimaryInformationRecipientAssignedEntity() {
@@ -207,24 +103,87 @@ public class BatteryEventBean extends MessagePartBean implements ObservationChoi
         this.primaryInformationRecipientAssignedEntity = primaryInformationRecipientAssignedEntity;
     }
 
-
-    @Hl7XmlMapping({"pertinentInformation2/supportingClinicalObservationEvent"})
-    public List<SupportingClinicalInformationBean> getPertinentInformation2SupportingClinicalObservationEvent() {
-        return this.pertinentInformation2SupportingClinicalObservationEvent;
+    @Hl7XmlMapping({"statusCode"})
+    public ActStatus getBatteryEventStatus() {
+        return (ActStatus) this.batteryEventStatus.getValue();
+    }
+    public void setBatteryEventStatus(ActStatus batteryEventStatus) {
+        this.batteryEventStatus.setValue(batteryEventStatus);
     }
 
+    @Hl7XmlMapping({"inFulfillmentOf/fulfillmentChoice"})
+    public List<FulfillmentChoiceBean> getInFulfillmentOfFulfillmentChoice() {
+        return this.inFulfillmentOfFulfillmentChoice;
+    }
 
-    /**
-     * <p>Battery Event Effective Time</p>
-     * 
-     * <p><p>Time at which the lab order became effective.</p></p>
-     */
     @Hl7XmlMapping({"effectiveTime"})
     public Interval<Date> getBatteryEventEffectiveTime() {
         return this.batteryEventEffectiveTime.getValue();
     }
     public void setBatteryEventEffectiveTime(Interval<Date> batteryEventEffectiveTime) {
         this.batteryEventEffectiveTime.setValue(batteryEventEffectiveTime);
+    }
+
+    @Hl7XmlMapping({"pertinentInformation1/outbreakEvent"})
+    public OutbreakBean getPertinentInformation1OutbreakEvent() {
+        return this.pertinentInformation1OutbreakEvent;
+    }
+    public void setPertinentInformation1OutbreakEvent(OutbreakBean pertinentInformation1OutbreakEvent) {
+        this.pertinentInformation1OutbreakEvent = pertinentInformation1OutbreakEvent;
+    }
+
+    @Hl7XmlMapping({"confidentialityCode"})
+    public Set<x_BasicConfidentialityKind> getBatteryEventConfidentiality() {
+        return this.batteryEventConfidentiality.rawSet(x_BasicConfidentialityKind.class);
+    }
+
+    @Hl7XmlMapping({"pertinentInformation2/supportingClinicalObservationEvent"})
+    public List<SupportingClinicalInformationBean> getPertinentInformation2SupportingClinicalObservationEvent() {
+        return this.pertinentInformation2SupportingClinicalObservationEvent;
+    }
+
+    @Hl7XmlMapping({"component1/reportableTestIndicator"})
+    public List<ReportableHealthIndicatorBean> getComponent1ReportableTestIndicator() {
+        return this.component1ReportableTestIndicator;
+    }
+
+    @Hl7XmlMapping({"component2/resultSortKey"})
+    public ResultSortKeyBean getComponent2ResultSortKey() {
+        return this.component2ResultSortKey;
+    }
+    public void setComponent2ResultSortKey(ResultSortKeyBean component2ResultSortKey) {
+        this.component2ResultSortKey = component2ResultSortKey;
+    }
+
+    @Hl7XmlMapping({"component3/reportLevelObservationEvent"})
+    public List<ReportSectionObservationBean> getComponent3ReportLevelObservationEvent() {
+        return this.component3ReportLevelObservationEvent;
+    }
+
+    @Hl7XmlMapping({"component4/observationChoice"})
+    public List<ObservationChoiceBean> getComponent4ObservationChoice() {
+        return this.component4ObservationChoice;
+    }
+
+    @Hl7XmlMapping({"subjectOf1"})
+    public SubjectToTriggerEventBean getSubjectOf1() {
+        return this.subjectOf1;
+    }
+    public void setSubjectOf1(SubjectToTriggerEventBean subjectOf1) {
+        this.subjectOf1 = subjectOf1;
+    }
+
+    @Hl7XmlMapping({"subjectOf2"})
+    public List<HasNotesBean> getSubjectOf2() {
+        return this.subjectOf2;
+    }
+
+    @Hl7XmlMapping({"subjectOf3/resultStatusProcessStep"})
+    public ResultStatusProcessStepBean getSubjectOf3ResultStatusProcessStep() {
+        return this.subjectOf3ResultStatusProcessStep;
+    }
+    public void setSubjectOf3ResultStatusProcessStep(ResultStatusProcessStepBean subjectOf3ResultStatusProcessStep) {
+        this.subjectOf3ResultStatusProcessStep = subjectOf3ResultStatusProcessStep;
     }
 
 }

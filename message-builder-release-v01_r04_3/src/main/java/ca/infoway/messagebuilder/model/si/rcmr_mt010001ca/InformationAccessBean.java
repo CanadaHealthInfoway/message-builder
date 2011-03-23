@@ -14,22 +14,21 @@ import java.util.List;
 
 
 
+/**
+ * <p>Information Access</p>
+ * 
+ * <p>Describes the type of information access being consented 
+ * to.</p>
+ * 
+ * <p>Allows fine-grained control over the types of information 
+ * access is granted to and who is granted access.</p>
+ */
 @Hl7PartTypeMapping({"RCMR_MT010001CA.PermissionToInform"})
 public class InformationAccessBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110127L;
-    private List<CV> consentInformationTypes = new ArrayList<CV>();
+    private static final long serialVersionUID = 20100614L;
     private ConsentGivenToBean receiver;
-
-
-    /**
-     * <p>B:Consent Information Types</p>
-     */
-    @Hl7XmlMapping({"subject/recordType/code"})
-    public List<ActInformationAccessTypeCode> getConsentInformationTypes() {
-        return new RawListWrapper<CV, ActInformationAccessTypeCode>(consentInformationTypes, CVImpl.class);
-    }
-
+    private List<CV> consentInformationTypes = new ArrayList<CV>();
 
     @Hl7XmlMapping({"receiver"})
     public ConsentGivenToBean getReceiver() {
@@ -37,6 +36,11 @@ public class InformationAccessBean extends MessagePartBean {
     }
     public void setReceiver(ConsentGivenToBean receiver) {
         this.receiver = receiver;
+    }
+
+    @Hl7XmlMapping({"subject/recordType/code"})
+    public List<ActInformationAccessTypeCode> getConsentInformationTypes() {
+        return new RawListWrapper<CV, ActInformationAccessTypeCode>(consentInformationTypes, CVImpl.class);
     }
 
 }

@@ -57,7 +57,9 @@ public abstract class AbstractSingleElementParser<V> extends AbstractElementPars
         return result;
     }
 
-	protected abstract V parseNonNullNode(ParseContext context, Node node, BareANY result, Type returnType, XmlToModelResult xmlToModelResult) throws XmlToModelTransformationException;
+	protected V parseNonNullNode(ParseContext context, Node node, BareANY result, Type returnType, XmlToModelResult xmlToModelResult) throws XmlToModelTransformationException {
+        return parseNonNullNode(context, node, returnType, xmlToModelResult);
+	}
 
 	private BareANY createDataTypeInstance(String typeName) {
 		BareANY dataTypeInstance = doCreateDataTypeInstance(typeName);
@@ -65,7 +67,7 @@ public abstract class AbstractSingleElementParser<V> extends AbstractElementPars
 		return dataTypeInstance;
 	}
 
-	protected void setDataType(String dataTypeName, BareANY dataTypeInstance) {
+	private void setDataType(String dataTypeName, BareANY dataTypeInstance) {
 		if (dataTypeName!=null) {
 			StandardDataType dataType = StandardDataType.getByTypeName(dataTypeName);
 			if (dataType != null) {
@@ -80,16 +82,14 @@ public abstract class AbstractSingleElementParser<V> extends AbstractElementPars
 		return new NullFlavorHelper(
 				context!=null ? context.getConformance() : null, 
 				node, 
-				xmlToModelResult,
-				false).hasValidNullFlavorAttribute();
+				xmlToModelResult).hasValidNullFlavorAttribute();
 	}
 
 	protected NullFlavor parseNullNode(ParseContext context, Node node, XmlToModelResult xmlToModelResult) throws XmlToModelTransformationException {
 		return new NullFlavorHelper(
 				context!=null ? context.getConformance() : null, 
 				node, 
-				xmlToModelResult,
-				false).parseNullNode();
+				xmlToModelResult).parseNullNode();
     }
 
     protected Node getNamedChildNode(Node node, String childNodeName) {
@@ -104,6 +104,8 @@ public abstract class AbstractSingleElementParser<V> extends AbstractElementPars
         return result;
     }
 
+    protected abstract V parseNonNullNode(ParseContext context, Node node, Type expectedReturnType, XmlToModelResult xmlToModelResult) throws XmlToModelTransformationException;
+    
     protected String getMandatoryAttributeValue(Node node, String attributeName, XmlToModelResult parsingResult) 
     		throws XmlToModelTransformationException {
         String result = getAttributeValue(node, attributeName);

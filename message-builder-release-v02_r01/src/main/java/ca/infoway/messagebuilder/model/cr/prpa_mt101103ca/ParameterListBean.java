@@ -33,74 +33,32 @@ import java.util.List;
 @Hl7RootType
 public class ParameterListBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110127L;
+    private static final long serialVersionUID = 20100615L;
+    private CV clientGender = new CVImpl();
     private List<II> clientHealthcareIdentificationNumberAndOrNonHealthcareIdentification = new ArrayList<II>();
-    private List<AD> clientAddress = new ArrayList<AD>();
+    private DeceasedIndicatorBean deceasedIndicator;
+    private DeceasedTimeBean deceasedTime;
     private LanguageCodeBean languageCode;
     private MultipleBirthIndicatorBean multipleBirthIndicator;
     private MultipleBirthOrderNumberBean multipleBirthOrderNumber;
-    private List<TEL> clientTelecom = new ArrayList<TEL>();
-    private DeceasedIndicatorBean deceasedIndicator;
-    private PersonalRelationshipCodeBean personalRelationshipCode;
+    private List<AD> clientAddress = new ArrayList<AD>();
     private TS clientDateOfBirth = new TSImpl();
-    private CV clientGender = new CVImpl();
     private List<PN> clientName = new ArrayList<PN>();
-    private DeceasedTimeBean deceasedTime;
+    private List<TEL> clientTelecom = new ArrayList<TEL>();
+    private PersonalRelationshipCodeBean personalRelationshipCode;
 
+    @Hl7XmlMapping({"administrativeGender/value"})
+    public AdministrativeGender getClientGender() {
+        return (AdministrativeGender) this.clientGender.getValue();
+    }
+    public void setClientGender(AdministrativeGender clientGender) {
+        this.clientGender.setValue(clientGender);
+    }
 
-    /**
-     * <p>Identification</p>
-     */
     @Hl7XmlMapping({"clientId/value"})
     public List<Identifier> getClientHealthcareIdentificationNumberAndOrNonHealthcareIdentification() {
         return new RawListWrapper<II, Identifier>(clientHealthcareIdentificationNumberAndOrNonHealthcareIdentification, IIImpl.class);
     }
-
-
-    /**
-     * <p>Client Address</p>
-     */
-    @Hl7XmlMapping({"personAddress/value"})
-    public List<PostalAddress> getClientAddress() {
-        return new RawListWrapper<AD, PostalAddress>(clientAddress, ADImpl.class);
-    }
-
-
-    @Hl7XmlMapping({"languageCode"})
-    public LanguageCodeBean getLanguageCode() {
-        return this.languageCode;
-    }
-    public void setLanguageCode(LanguageCodeBean languageCode) {
-        this.languageCode = languageCode;
-    }
-
-
-    @Hl7XmlMapping({"multipleBirthIndicator"})
-    public MultipleBirthIndicatorBean getMultipleBirthIndicator() {
-        return this.multipleBirthIndicator;
-    }
-    public void setMultipleBirthIndicator(MultipleBirthIndicatorBean multipleBirthIndicator) {
-        this.multipleBirthIndicator = multipleBirthIndicator;
-    }
-
-
-    @Hl7XmlMapping({"multipleBirthOrderNumber"})
-    public MultipleBirthOrderNumberBean getMultipleBirthOrderNumber() {
-        return this.multipleBirthOrderNumber;
-    }
-    public void setMultipleBirthOrderNumber(MultipleBirthOrderNumberBean multipleBirthOrderNumber) {
-        this.multipleBirthOrderNumber = multipleBirthOrderNumber;
-    }
-
-
-    /**
-     * <p>Client Telecom</p>
-     */
-    @Hl7XmlMapping({"personTelecom/value"})
-    public List<TelecommunicationAddress> getClientTelecom() {
-        return new RawListWrapper<TEL, TelecommunicationAddress>(clientTelecom, TELImpl.class);
-    }
-
 
     @Hl7XmlMapping({"deceasedIndicator"})
     public DeceasedIndicatorBean getDeceasedIndicator() {
@@ -110,19 +68,43 @@ public class ParameterListBean extends MessagePartBean {
         this.deceasedIndicator = deceasedIndicator;
     }
 
-
-    @Hl7XmlMapping({"personalRelationshipCode"})
-    public PersonalRelationshipCodeBean getPersonalRelationshipCode() {
-        return this.personalRelationshipCode;
+    @Hl7XmlMapping({"deceasedTime"})
+    public DeceasedTimeBean getDeceasedTime() {
+        return this.deceasedTime;
     }
-    public void setPersonalRelationshipCode(PersonalRelationshipCodeBean personalRelationshipCode) {
-        this.personalRelationshipCode = personalRelationshipCode;
+    public void setDeceasedTime(DeceasedTimeBean deceasedTime) {
+        this.deceasedTime = deceasedTime;
     }
 
+    @Hl7XmlMapping({"languageCode"})
+    public LanguageCodeBean getLanguageCode() {
+        return this.languageCode;
+    }
+    public void setLanguageCode(LanguageCodeBean languageCode) {
+        this.languageCode = languageCode;
+    }
 
-    /**
-     * <p>Client Date of Birth</p>
-     */
+    @Hl7XmlMapping({"multipleBirthIndicator"})
+    public MultipleBirthIndicatorBean getMultipleBirthIndicator() {
+        return this.multipleBirthIndicator;
+    }
+    public void setMultipleBirthIndicator(MultipleBirthIndicatorBean multipleBirthIndicator) {
+        this.multipleBirthIndicator = multipleBirthIndicator;
+    }
+
+    @Hl7XmlMapping({"multipleBirthOrderNumber"})
+    public MultipleBirthOrderNumberBean getMultipleBirthOrderNumber() {
+        return this.multipleBirthOrderNumber;
+    }
+    public void setMultipleBirthOrderNumber(MultipleBirthOrderNumberBean multipleBirthOrderNumber) {
+        this.multipleBirthOrderNumber = multipleBirthOrderNumber;
+    }
+
+    @Hl7XmlMapping({"personAddress/value"})
+    public List<PostalAddress> getClientAddress() {
+        return new RawListWrapper<AD, PostalAddress>(clientAddress, ADImpl.class);
+    }
+
     @Hl7XmlMapping({"personBirthtime/value"})
     public Date getClientDateOfBirth() {
         return this.clientDateOfBirth.getValue();
@@ -131,34 +113,22 @@ public class ParameterListBean extends MessagePartBean {
         this.clientDateOfBirth.setValue(clientDateOfBirth);
     }
 
-
-    /**
-     * <p>Client Gender</p>
-     */
-    @Hl7XmlMapping({"administrativeGender/value"})
-    public AdministrativeGender getClientGender() {
-        return (AdministrativeGender) this.clientGender.getValue();
-    }
-    public void setClientGender(AdministrativeGender clientGender) {
-        this.clientGender.setValue(clientGender);
-    }
-
-
-    /**
-     * <p>Client Name</p>
-     */
     @Hl7XmlMapping({"personName/value"})
     public List<PersonName> getClientName() {
         return new RawListWrapper<PN, PersonName>(clientName, PNImpl.class);
     }
 
-
-    @Hl7XmlMapping({"deceasedTime"})
-    public DeceasedTimeBean getDeceasedTime() {
-        return this.deceasedTime;
+    @Hl7XmlMapping({"personTelecom/value"})
+    public List<TelecommunicationAddress> getClientTelecom() {
+        return new RawListWrapper<TEL, TelecommunicationAddress>(clientTelecom, TELImpl.class);
     }
-    public void setDeceasedTime(DeceasedTimeBean deceasedTime) {
-        this.deceasedTime = deceasedTime;
+
+    @Hl7XmlMapping({"personalRelationshipCode"})
+    public PersonalRelationshipCodeBean getPersonalRelationshipCode() {
+        return this.personalRelationshipCode;
+    }
+    public void setPersonalRelationshipCode(PersonalRelationshipCodeBean personalRelationshipCode) {
+        this.personalRelationshipCode = personalRelationshipCode;
     }
 
 }

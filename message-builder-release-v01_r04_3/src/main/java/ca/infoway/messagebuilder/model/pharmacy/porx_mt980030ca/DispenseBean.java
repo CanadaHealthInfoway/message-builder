@@ -23,33 +23,35 @@ import java.util.Date;
 
 
 
+/**
+ * <p>Dispense</p>
+ * 
+ * <p>Indicates a particular dispense event that resulted in 
+ * the issue.</p>
+ * 
+ * <p>Used when the issue pertains to the supply of the drug 
+ * rather than the drug itself. E.g. Duplicate pharmacy, refill 
+ * too soon, etc.</p>
+ */
 @Hl7PartTypeMapping({"PORX_MT980030CA.SupplyEvent"})
-public class DispenseBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pharmacy.merged.CausalActs {
+public class DispenseBean extends MessagePartBean implements CausalActsBean {
 
-    private static final long serialVersionUID = 20110127L;
-    private CV dispenseMaskingIndicator = new CVImpl();
+    private static final long serialVersionUID = 20100614L;
+    private II prescriptionDispenseNumber = new IIImpl();
     private CS dispenseStatus = new CSImpl();
+    private IVL<TS, Interval<Date>> dispensedDate = new IVLImpl<TS, Interval<Date>>();
+    private CV dispenseMaskingIndicator = new CVImpl();
     private DispensedBean product;
     private RecordedAtBean location;
-    private IVL<TS, Interval<Date>> dispensedDate = new IVLImpl<TS, Interval<Date>>();
-    private II prescriptionDispenseNumber = new IIImpl();
 
-
-    /**
-     * <p>C:Dispense Masking Indicator</p>
-     */
-    @Hl7XmlMapping({"confidentialityCode"})
-    public x_VeryBasicConfidentialityKind getDispenseMaskingIndicator() {
-        return (x_VeryBasicConfidentialityKind) this.dispenseMaskingIndicator.getValue();
+    @Hl7XmlMapping({"id"})
+    public Identifier getPrescriptionDispenseNumber() {
+        return this.prescriptionDispenseNumber.getValue();
     }
-    public void setDispenseMaskingIndicator(x_VeryBasicConfidentialityKind dispenseMaskingIndicator) {
-        this.dispenseMaskingIndicator.setValue(dispenseMaskingIndicator);
+    public void setPrescriptionDispenseNumber(Identifier prescriptionDispenseNumber) {
+        this.prescriptionDispenseNumber.setValue(prescriptionDispenseNumber);
     }
 
-
-    /**
-     * <p>B:Dispense Status</p>
-     */
     @Hl7XmlMapping({"statusCode"})
     public ActStatus getDispenseStatus() {
         return (ActStatus) this.dispenseStatus.getValue();
@@ -58,6 +60,21 @@ public class DispenseBean extends MessagePartBean implements ca.infoway.messageb
         this.dispenseStatus.setValue(dispenseStatus);
     }
 
+    @Hl7XmlMapping({"effectiveTime"})
+    public Interval<Date> getDispensedDate() {
+        return this.dispensedDate.getValue();
+    }
+    public void setDispensedDate(Interval<Date> dispensedDate) {
+        this.dispensedDate.setValue(dispensedDate);
+    }
+
+    @Hl7XmlMapping({"confidentialityCode"})
+    public x_VeryBasicConfidentialityKind getDispenseMaskingIndicator() {
+        return (x_VeryBasicConfidentialityKind) this.dispenseMaskingIndicator.getValue();
+    }
+    public void setDispenseMaskingIndicator(x_VeryBasicConfidentialityKind dispenseMaskingIndicator) {
+        this.dispenseMaskingIndicator.setValue(dispenseMaskingIndicator);
+    }
 
     @Hl7XmlMapping({"product"})
     public DispensedBean getProduct() {
@@ -67,37 +84,12 @@ public class DispenseBean extends MessagePartBean implements ca.infoway.messageb
         this.product = product;
     }
 
-
     @Hl7XmlMapping({"location"})
     public RecordedAtBean getLocation() {
         return this.location;
     }
     public void setLocation(RecordedAtBean location) {
         this.location = location;
-    }
-
-
-    /**
-     * <p>B:Dispensed Date</p>
-     */
-    @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getDispensedDate() {
-        return this.dispensedDate.getValue();
-    }
-    public void setDispensedDate(Interval<Date> dispensedDate) {
-        this.dispensedDate.setValue(dispensedDate);
-    }
-
-
-    /**
-     * <p>A:Prescription Dispense Number</p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Identifier getPrescriptionDispenseNumber() {
-        return this.prescriptionDispenseNumber.getValue();
-    }
-    public void setPrescriptionDispenseNumber(Identifier prescriptionDispenseNumber) {
-        this.prescriptionDispenseNumber.setValue(prescriptionDispenseNumber);
     }
 
 }

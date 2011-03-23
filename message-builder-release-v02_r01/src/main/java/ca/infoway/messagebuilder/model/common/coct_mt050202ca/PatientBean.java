@@ -16,48 +16,45 @@ import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.PersonName;
 import ca.infoway.messagebuilder.domainvalue.AdministrativeGender;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import ca.infoway.messagebuilder.model.common.coct_mt470002ca.SubjectChoiceBean;
+import ca.infoway.messagebuilder.model.merged.PartyBean;
+import ca.infoway.messagebuilder.model.merged.Patient_2Bean;
 import java.util.Date;
 
 
 
+/**
+ * <p>Patient</p>
+ * 
+ * <p>A person who is receiving or may receive healthcare 
+ * services and has personal attributes (e.g. name, birth 
+ * date).</p>
+ * 
+ * <p>Only the identifier attribute is intended to be 
+ * persisted, with the remaining attributes confirmed against 
+ * the provider registry.</p>
+ * 
+ * <p>Information used to identify the patient and confirm 
+ * their identity against the client registry.</p>
+ */
 @Hl7PartTypeMapping({"COCT_MT050202CA.Patient"})
 @Hl7RootType
-public class PatientBean extends MessagePartBean implements ca.infoway.messagebuilder.model.iehr.merged.Party, ca.infoway.messagebuilder.model.common.coct_mt470002ca.SubjectChoice, ca.infoway.messagebuilder.model.common.merged.Patient_2 {
+public class PatientBean extends MessagePartBean implements SubjectChoiceBean, PartyBean, Patient_2Bean {
 
-    private static final long serialVersionUID = 20110127L;
-    private TS patientBirthDate = new TSImpl();
-    private CV patientGender = new CVImpl();
-    private PN patientName = new PNImpl();
+    private static final long serialVersionUID = 20100615L;
     private II patientIdentifier = new IIImpl();
+    private PN patientName = new PNImpl();
+    private CV patientGender = new CVImpl();
+    private TS patientBirthDate = new TSImpl();
 
-
-    /**
-     * <p>E:Patient Birth Date</p>
-     */
-    @Hl7XmlMapping({"patientPerson/birthTime"})
-    public Date getPatientBirthDate() {
-        return this.patientBirthDate.getValue();
+    @Hl7XmlMapping({"id"})
+    public Identifier getPatientIdentifier() {
+        return this.patientIdentifier.getValue();
     }
-    public void setPatientBirthDate(Date patientBirthDate) {
-        this.patientBirthDate.setValue(patientBirthDate);
-    }
-
-
-    /**
-     * <p>F:Patient Gender</p>
-     */
-    @Hl7XmlMapping({"patientPerson/administrativeGenderCode"})
-    public AdministrativeGender getPatientGender() {
-        return (AdministrativeGender) this.patientGender.getValue();
-    }
-    public void setPatientGender(AdministrativeGender patientGender) {
-        this.patientGender.setValue(patientGender);
+    public void setPatientIdentifier(Identifier patientIdentifier) {
+        this.patientIdentifier.setValue(patientIdentifier);
     }
 
-
-    /**
-     * <p>B:Patient Name</p>
-     */
     @Hl7XmlMapping({"patientPerson/name"})
     public PersonName getPatientName() {
         return this.patientName.getValue();
@@ -66,16 +63,20 @@ public class PatientBean extends MessagePartBean implements ca.infoway.messagebu
         this.patientName.setValue(patientName);
     }
 
-
-    /**
-     * <p>A:Patient Identifier</p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Identifier getPatientIdentifier() {
-        return this.patientIdentifier.getValue();
+    @Hl7XmlMapping({"patientPerson/administrativeGenderCode"})
+    public AdministrativeGender getPatientGender() {
+        return (AdministrativeGender) this.patientGender.getValue();
     }
-    public void setPatientIdentifier(Identifier patientIdentifier) {
-        this.patientIdentifier.setValue(patientIdentifier);
+    public void setPatientGender(AdministrativeGender patientGender) {
+        this.patientGender.setValue(patientGender);
+    }
+
+    @Hl7XmlMapping({"patientPerson/birthTime"})
+    public Date getPatientBirthDate() {
+        return this.patientBirthDate.getValue();
+    }
+    public void setPatientBirthDate(Date patientBirthDate) {
+        this.patientBirthDate.setValue(patientBirthDate);
     }
 
 }

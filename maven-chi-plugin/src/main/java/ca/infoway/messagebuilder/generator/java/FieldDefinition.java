@@ -1,7 +1,5 @@
 package ca.infoway.messagebuilder.generator.java;
 
-import ca.infoway.messagebuilder.generator.lang.ProgrammingLanguage;
-
 
 interface FieldDefinition {
 	
@@ -60,8 +58,4 @@ interface FieldDefinition {
 	
 	void initializeContext(ClassNameManager manager, BaseRelationshipNameResolver resolver);
 	void resetContext();
-	
-	BaseRelationship getBaseRelationship();
-	ProgrammingLanguage getProgrammingLanguage();
-	
 }

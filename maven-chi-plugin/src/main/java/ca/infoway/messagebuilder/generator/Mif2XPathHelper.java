@@ -9,11 +9,9 @@ import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 
 import ca.infoway.messagebuilder.lang.EnumPattern;
+import ca.infoway.messagebuilder.util.xml.NodeUtil;
 import ca.infoway.messagebuilder.util.xml.XmlDescriber;
-import ca.infoway.messagebuilder.xml.Annotation;
 import ca.infoway.messagebuilder.xml.CodingStrength;
-import ca.infoway.messagebuilder.xml.DomainSource;
-import ca.infoway.messagebuilder.xml.UpdateModeType;
 
 public class Mif2XPathHelper extends BaseMifXPathHelper {
 	
@@ -52,15 +50,6 @@ public class Mif2XPathHelper extends BaseMifXPathHelper {
 		NodeList nodes = getNodes(document.getDocumentElement(), ".//mif2:containedClass");
 		return MifXPathHelper.toElementList(nodes);
 	}
-	
-	public List<UpdateModeType> getAllowedUpdateModes(Element element) {
-		List<UpdateModeType> updateModeTypes = new ArrayList<UpdateModeType>();
-		NodeList nodes = getNodes(element, ".//mif2:updateModesAllowed");
-		for (int i=0; i<nodes.getLength(); i++) {
-			updateModeTypes.add(EnumPattern.valueOf(UpdateModeType.class, nodes.item(i).getNodeValue()));
-		}
-		return updateModeTypes;
-	}
 
 	public String getRootType(Element ownedEntryPoint) {
 		return ownedEntryPoint.getAttribute("className");
@@ -73,9 +62,16 @@ public class Mif2XPathHelper extends BaseMifXPathHelper {
 	String getBusinessName(Element element) {
 		return getAttribute(element, "./mif2:businessName/@name");
 	}
-	
-	List<Annotation> getDocumentation(Element classElement) {
-		return getDocumentation(classElement, "./mif2:annotations//mif2:", "//mif2:text/html:p");
+	public List<String> getDocumentation(Element classElement) {
+		List<Element> elements = toElementList(getNodes(classElement, "./mif2:annotations//mif2:text/html:p"));
+		List<String> result = new ArrayList<String>();
+		for (Element paragraph : elements) {
+			String text = StringUtils.trim(NodeUtil.getTextValue(paragraph, true));
+			if (StringUtils.isNotBlank(text)) {
+				result.add(text);
+			}
+		}
+		return result;
 	}
 	
 	public static String getAttributeType(Element attribute) {
@@ -102,31 +98,11 @@ public class Mif2XPathHelper extends BaseMifXPathHelper {
 		String domain = getAttribute(element, "./mif2:vocabulary/mif2:code/@codeSystemName");
 		if (StringUtils.isBlank(domain)) {
 			domain = getAttribute(element, "./mif2:vocabulary/mif2:conceptDomain/@name");
-		} 
+		}
 		if (StringUtils.isBlank(domain)) {
 			domain = getAttribute(element, "./mif2:vocabulary/mif2:valueSet/@name");
 		}
 		return domain;
-	}
-
-	public static DomainSource getDomainSource(Element mifAttribute) {
-		String result = getAttribute(mifAttribute, "./mif2:vocabulary/mif2:code/@codeSystemName");
-		if (!StringUtils.isBlank(result)) {
-			return DomainSource.CODE_SYSTEM;
-		}
-		result = getAttribute(mifAttribute, "./mif2:vocabulary/mif2:conceptDomain/@name");
-		if (!StringUtils.isBlank(result)) {
-			return DomainSource.CONCEPT_DOMAIN;
-		}
-		result = getAttribute(mifAttribute, "./mif2:vocabulary/mif2:valueSet/@name");
-		if (!StringUtils.isBlank(result)) {
-			return DomainSource.VALUE_SET;		
-		}
-		return null;
-	}
-	
-	public static String getMnemonic(Element mifAttribute) {
-		return getAttribute(mifAttribute, "./mif2:vocabulary/mif2:code/@mnemonic");
 	}
 
 	public static CodingStrength getCodingStrength(Element mifAttribute) {

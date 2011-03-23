@@ -52,10 +52,10 @@ public class SimpleNameCoordinator implements NameCoordinator {
 			this.type = type;
 		}
 		public String getNameContext() {
-			if (this.type.getTypeName().isInteraction()) {
+			if (this.type.getName().isInteraction()) {
 				return "interaction";
 			} else {
-				return this.type.getTypeName().getRootName().toString();
+				return this.type.getName().getRootName().toString();
 			}
 		}
 		@SuppressWarnings("unchecked")
@@ -68,15 +68,10 @@ public class SimpleNameCoordinator implements NameCoordinator {
 			}
 		}
 		public String getDefaultName() {
-			String result = type.getTypeName().getUnqualifiedName();
-			List<String> preferredNames = getPreferredNames();
-			if (!preferredNames.isEmpty()) {
-				result = preferredNames.get(0);
-			}
-			return result;
+			return type.getName().getUnqualifiedName();
 		}
 		public String getExemplarName() {
-			return this.type.getTypeName().getName();
+			return this.type.getName().getName();
 		}
 	}
 	
@@ -87,22 +82,22 @@ public class SimpleNameCoordinator implements NameCoordinator {
 			this.type = type;
 		}
 		public String getNameContext() {
-			if (StringUtils.isBlank(this.type.getCategory())) {
-				return this.type.getTypeName().getRootName().toString();
-			} else {
-				return this.type.getCategory() + "." + 
-						this.type.getTypeName().getRootName().toString();
-			}
+			return this.type.getName().getRootName().toString();
 		}
 		public List<String> getPreferredNames() {
 			Counter<String> counter1 = new Counter<String>();
 			Counter<String> counter2 = new Counter<String>();
-			for (NamedType mergedType : this.type.getMergedTypes()) {
-				String businessName = cleanUpBusinessName(mergedType.getBusinessName());
-				if (StringUtils.isNotBlank(businessName)) {
-					counter1.increment(businessName);
+			for (TypeName mergedTypeName : this.type.getMergedTypes()) {
+				NamedType mergedType = typeNameHelper.getNamedType(mergedTypeName);
+				if (mergedType == null) {
+					throw new IllegalStateException("Cannot find type : " + mergedTypeName);
+				} else {
+					String businessName = cleanUpBusinessName(mergedType.getBusinessName());
+					if (StringUtils.isNotBlank(businessName)) {
+						counter1.increment(businessName);
+					}
+					counter2.increment(mergedTypeName.getUnqualifiedName());
 				}
-				counter2.increment(mergedType.getTypeName().getUnqualifiedName());
 			}
 			List<String> result = new ArrayList<String>();
 			for (Tally<String> tally : counter1.getAll(CounterOrder.Descending)) {
@@ -114,12 +109,18 @@ public class SimpleNameCoordinator implements NameCoordinator {
 			return result;
 		}
 		public String getDefaultName() {
-			return getPreferredNames().get(0);
+			Counter<String> counter = new Counter<String>();
+			for (TypeName typeName : this.type.getMergedTypes()) {
+				counter.increment(typeName.getUnqualifiedName());
+			}
+			
+			Tally<String> winner = counter.getAll(CounterOrder.Descending).get(0);
+			return winner.getKey();
 		}
 		public String getExemplarName() {
 			Set<String> names = new TreeSet<String>();
-			for (NamedType mergedType : this.type.getMergedTypes()) {
-				names.add(mergedType.getTypeName().getName());
+			for (TypeName mergedType : this.type.getMergedTypes()) {
+				names.add(mergedType.getName());
 			}
 			return (String) CollectionUtils.get(names, 0);
 		}
@@ -188,8 +189,10 @@ public class SimpleNameCoordinator implements NameCoordinator {
 	}
 
 	private Map<TypeName,Name> names = Collections.synchronizedMap(new HashMap<TypeName,Name>());
+	private final TypeNameHelper typeNameHelper;
 
 	public SimpleNameCoordinator(TypeNameHelper typeNameHelper) {
+		this.typeNameHelper = typeNameHelper;
 		setupNames(typeNameHelper.getTypes());
 	}
 
@@ -199,13 +202,13 @@ public class SimpleNameCoordinator implements NameCoordinator {
 		
 		for (Type type : types.values()) {
 			
-			CandidateNames candidateNames = (type.getTypeName() instanceof TemporaryTypeName)
+			CandidateNames candidateNames = (type.getName() instanceof TemporaryTypeName)
 				? new MergedNamesAdapter(type) : new SimpleNamesAdapter(type);
 			
 			Name name = new Name(candidateNames);
-			this.names.put(type.getTypeName(), name);
-			for (NamedType mergedType : type.getMergedTypes()) {
-				this.names.put(mergedType.getTypeName(), name);
+			this.names.put(type.getName(), name);
+			for (TypeName mergedTypeName : type.getMergedTypes()) {
+				this.names.put(mergedTypeName, name);
 			}
 			
 			if (!contexts.containsKey(candidateNames.getNameContext())) {

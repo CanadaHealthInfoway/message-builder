@@ -32,7 +32,7 @@ class GtsBoundedPivlElementParser extends AbstractSingleElementParser<GeneralTim
 
 	@Override
 	protected GeneralTimingSpecification parseNonNullNode(ParseContext context,
-			Node node, BareANY result, Type expectedReturnType, XmlToModelResult xmlToJavaResult)
+			Node node, Type expectedReturnType, XmlToModelResult xmlToJavaResult)
 			throws XmlToModelTransformationException {
 		return parseNonNullNode(context, (Element) node, expectedReturnType, xmlToJavaResult);
 	}

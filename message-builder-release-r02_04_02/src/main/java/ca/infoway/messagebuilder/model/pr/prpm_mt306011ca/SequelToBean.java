@@ -12,17 +12,10 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PRPM_MT306011CA.SequelTo"})
 public class SequelToBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110127L;
+    private static final long serialVersionUID = 20100603L;
     private INT orderOfInformRequests = new INTImpl();
     private InformRequestBean informRequest;
 
-
-    /**
-     * <p>Order of Inform Requests</p>
-     * 
-     * <p><p>Allows each Inform Request to be sequentially 
-     * listed.</p></p>
-     */
     @Hl7XmlMapping({"sequenceNumber"})
     public Integer getOrderOfInformRequests() {
         return this.orderOfInformRequests.getValue();
@@ -30,7 +23,6 @@ public class SequelToBean extends MessagePartBean {
     public void setOrderOfInformRequests(Integer orderOfInformRequests) {
         this.orderOfInformRequests.setValue(orderOfInformRequests);
     }
-
 
     @Hl7XmlMapping({"informRequest"})
     public InformRequestBean getInformRequest() {

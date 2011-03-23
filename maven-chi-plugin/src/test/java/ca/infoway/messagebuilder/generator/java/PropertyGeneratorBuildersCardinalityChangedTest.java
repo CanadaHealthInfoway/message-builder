@@ -47,7 +47,7 @@ public class PropertyGeneratorBuildersCardinalityChangedTest {
 		this.jmock.checking(new Expectations() {{
 			atLeast(1).of(nameResolver).getName(originalRelationship); will(returnValue("beans"));
 			atLeast(1).of(nameResolver).getName(newRelationship); will(returnValue("bean")); 
-			atLeast(1).of(manager).getRepresentationOfType(newRelationship.getAssociationType()); will(returnValue("FooBean"));
+			atLeast(1).of(manager).getRepresentationOfTypeName(new TypeName("FooBean")); will(returnValue("FooBean"));
 		}});
 		
 		RegeneratedAssociationImpl association = new RegeneratedAssociationImpl(originalRelationship, newRelationship);
@@ -76,7 +76,7 @@ public class PropertyGeneratorBuildersCardinalityChangedTest {
 	}
 
 	private PropertyGenerator createMultipleToSingleGenerator(RegeneratedAssociationImpl association) {
-		return null;
+		return PropertyGeneratorBuilders.newAssociationCardinalityChangedFromMultipleToSingleBuilder(association).build(manager, nameResolver);
 	}
 
 	@Test @Ignore

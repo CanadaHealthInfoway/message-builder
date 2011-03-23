@@ -27,26 +27,36 @@ import java.util.Date;
 /**
  * <p>Manufactured Material Kind</p>
  * 
- * <p><p>Type of Product</p></p>
+ * <p>Type of Product</p>
  */
 @Hl7PartTypeMapping({"COCT_MT490000CA.ManufacturedMaterialKind"})
 public class ManufacturedMaterialKindBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110127L;
-    private PQ packageQuantity = new PQImpl();
-    private ManufacturedMaterialKindBean contentPackagedProductContainedManufacturedMaterialKind;
+    private static final long serialVersionUID = 20100603L;
     private CV manufacturedMaterialCode = new CVImpl();
     private ST packageDescription = new STImpl();
+    private PQ packageQuantity = new PQImpl();
+    private ManufacturedMaterialKindBean contentPackagedProductContainedManufacturedMaterialKind;
+    private IVL<TS, Interval<Date>> timeOfWarranty = new IVLImpl<TS, Interval<Date>>();
     private ST warrantorOrganisationName = new STImpl();
     private TEL warrantorOrganisationTelecom = new TELImpl();
-    private IVL<TS, Interval<Date>> timeOfWarranty = new IVLImpl<TS, Interval<Date>>();
 
+    @Hl7XmlMapping({"code"})
+    public Code getManufacturedMaterialCode() {
+        return (Code) this.manufacturedMaterialCode.getValue();
+    }
+    public void setManufacturedMaterialCode(Code manufacturedMaterialCode) {
+        this.manufacturedMaterialCode.setValue(manufacturedMaterialCode);
+    }
 
-    /**
-     * <p>Package Quantity</p>
-     * 
-     * <p><p>number of items in the package</p></p>
-     */
+    @Hl7XmlMapping({"desc"})
+    public String getPackageDescription() {
+        return this.packageDescription.getValue();
+    }
+    public void setPackageDescription(String packageDescription) {
+        this.packageDescription.setValue(packageDescription);
+    }
+
     @Hl7XmlMapping({"contentPackagedProduct/quantity"})
     public PhysicalQuantity getPackageQuantity() {
         return this.packageQuantity.getValue();
@@ -54,7 +64,6 @@ public class ManufacturedMaterialKindBean extends MessagePartBean {
     public void setPackageQuantity(PhysicalQuantity packageQuantity) {
         this.packageQuantity.setValue(packageQuantity);
     }
-
 
     @Hl7XmlMapping({"contentPackagedProduct/containedManufacturedMaterialKind"})
     public ManufacturedMaterialKindBean getContentPackagedProductContainedManufacturedMaterialKind() {
@@ -64,41 +73,14 @@ public class ManufacturedMaterialKindBean extends MessagePartBean {
         this.contentPackagedProductContainedManufacturedMaterialKind = contentPackagedProductContainedManufacturedMaterialKind;
     }
 
-
-    /**
-     * <p>Manufactured material code</p>
-     * 
-     * <p><p>Code for manufactured material</p></p>
-     */
-    @Hl7XmlMapping({"code"})
-    public Code getManufacturedMaterialCode() {
-        return (Code) this.manufacturedMaterialCode.getValue();
+    @Hl7XmlMapping({"asWarrantor/effectiveTime"})
+    public Interval<Date> getTimeOfWarranty() {
+        return this.timeOfWarranty.getValue();
     }
-    public void setManufacturedMaterialCode(Code manufacturedMaterialCode) {
-        this.manufacturedMaterialCode.setValue(manufacturedMaterialCode);
+    public void setTimeOfWarranty(Interval<Date> timeOfWarranty) {
+        this.timeOfWarranty.setValue(timeOfWarranty);
     }
 
-
-    /**
-     * <p>Package description</p>
-     * 
-     * <p><p>box, blister pack, compliance packaging, etc. 
-     * HC-PCS?</p></p>
-     */
-    @Hl7XmlMapping({"desc"})
-    public String getPackageDescription() {
-        return this.packageDescription.getValue();
-    }
-    public void setPackageDescription(String packageDescription) {
-        this.packageDescription.setValue(packageDescription);
-    }
-
-
-    /**
-     * <p>Warrantor Organisation Name</p>
-     * 
-     * <p><p>name of Organization that holds warranty</p></p>
-     */
     @Hl7XmlMapping({"asWarrantor/warrantingWarrantorOrganization/name"})
     public String getWarrantorOrganisationName() {
         return this.warrantorOrganisationName.getValue();
@@ -107,32 +89,12 @@ public class ManufacturedMaterialKindBean extends MessagePartBean {
         this.warrantorOrganisationName.setValue(warrantorOrganisationName);
     }
 
-
-    /**
-     * <p>Warrantor Organisation telecom</p>
-     * 
-     * <p><p>Warrantor Organization telephone number</p></p>
-     */
     @Hl7XmlMapping({"asWarrantor/warrantingWarrantorOrganization/telecom"})
     public TelecommunicationAddress getWarrantorOrganisationTelecom() {
         return this.warrantorOrganisationTelecom.getValue();
     }
     public void setWarrantorOrganisationTelecom(TelecommunicationAddress warrantorOrganisationTelecom) {
         this.warrantorOrganisationTelecom.setValue(warrantorOrganisationTelecom);
-    }
-
-
-    /**
-     * <p>Time of warranty</p>
-     * 
-     * <p><p>time of warranty</p></p>
-     */
-    @Hl7XmlMapping({"asWarrantor/effectiveTime"})
-    public Interval<Date> getTimeOfWarranty() {
-        return this.timeOfWarranty.getValue();
-    }
-    public void setTimeOfWarranty(Interval<Date> timeOfWarranty) {
-        this.timeOfWarranty.setValue(timeOfWarranty);
     }
 
 }

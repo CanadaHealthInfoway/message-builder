@@ -10,9 +10,9 @@ import ca.infoway.messagebuilder.datatype.impl.IIImpl;
 import ca.infoway.messagebuilder.datatype.impl.STImpl;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.claims.merged.HealthDocumentAttachment_1Bean;
-import ca.infoway.messagebuilder.model.claims.merged.SpecialAuthorizationAdditionalInformationRequestBean;
-import ca.infoway.messagebuilder.model.claims.merged.SpecialAuthorizationCriteriaBean;
+import ca.infoway.messagebuilder.model.merged.HealthDocumentAttachment_1Bean;
+import ca.infoway.messagebuilder.model.merged.SpecialAuthorizationAdditionalInformationRequestBean;
+import ca.infoway.messagebuilder.model.merged.SpecialAuthorizationCriteriaBean;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,44 +22,13 @@ import java.util.List;
 @Hl7RootType
 public class SpecialAuthorizationAdditionalInformationResponseBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110127L;
-    private List<SpecialAuthorizationCriteriaBean> supportSpecialAuthorizationCriteria = new ArrayList<SpecialAuthorizationCriteriaBean>();
-    private SpecialAuthorizationAdditionalInformationRequestBean inFulfillmentOfSpecialAuthorizationAdditionalInformationRequest;
-    private ST additionalInformationAnswer = new STImpl();
+    private static final long serialVersionUID = 20100603L;
     private II additionalInformationResponseID = new IIImpl();
+    private ST additionalInformationAnswer = new STImpl();
+    private List<SpecialAuthorizationCriteriaBean> supportSpecialAuthorizationCriteria = new ArrayList<SpecialAuthorizationCriteriaBean>();
     private List<HealthDocumentAttachment_1Bean> pertinentInformationHealthDocumentAttachment = new ArrayList<HealthDocumentAttachment_1Bean>();
+    private SpecialAuthorizationAdditionalInformationRequestBean inFulfillmentOfSpecialAuthorizationAdditionalInformationRequest;
 
-
-    @Hl7XmlMapping({"support/specialAuthorizationCriteria"})
-    public List<SpecialAuthorizationCriteriaBean> getSupportSpecialAuthorizationCriteria() {
-        return this.supportSpecialAuthorizationCriteria;
-    }
-
-
-    @Hl7XmlMapping({"inFulfillmentOf/specialAuthorizationAdditionalInformationRequest"})
-    public SpecialAuthorizationAdditionalInformationRequestBean getInFulfillmentOfSpecialAuthorizationAdditionalInformationRequest() {
-        return this.inFulfillmentOfSpecialAuthorizationAdditionalInformationRequest;
-    }
-    public void setInFulfillmentOfSpecialAuthorizationAdditionalInformationRequest(SpecialAuthorizationAdditionalInformationRequestBean inFulfillmentOfSpecialAuthorizationAdditionalInformationRequest) {
-        this.inFulfillmentOfSpecialAuthorizationAdditionalInformationRequest = inFulfillmentOfSpecialAuthorizationAdditionalInformationRequest;
-    }
-
-
-    /**
-     * <p>Additional Information Answer</p>
-     */
-    @Hl7XmlMapping({"text"})
-    public String getAdditionalInformationAnswer() {
-        return this.additionalInformationAnswer.getValue();
-    }
-    public void setAdditionalInformationAnswer(String additionalInformationAnswer) {
-        this.additionalInformationAnswer.setValue(additionalInformationAnswer);
-    }
-
-
-    /**
-     * <p>Additional Information Response ID</p>
-     */
     @Hl7XmlMapping({"id"})
     public Identifier getAdditionalInformationResponseID() {
         return this.additionalInformationResponseID.getValue();
@@ -68,10 +37,30 @@ public class SpecialAuthorizationAdditionalInformationResponseBean extends Messa
         this.additionalInformationResponseID.setValue(additionalInformationResponseID);
     }
 
+    @Hl7XmlMapping({"text"})
+    public String getAdditionalInformationAnswer() {
+        return this.additionalInformationAnswer.getValue();
+    }
+    public void setAdditionalInformationAnswer(String additionalInformationAnswer) {
+        this.additionalInformationAnswer.setValue(additionalInformationAnswer);
+    }
+
+    @Hl7XmlMapping({"support/specialAuthorizationCriteria"})
+    public List<SpecialAuthorizationCriteriaBean> getSupportSpecialAuthorizationCriteria() {
+        return this.supportSpecialAuthorizationCriteria;
+    }
 
     @Hl7XmlMapping({"pertinentInformation/healthDocumentAttachment"})
     public List<HealthDocumentAttachment_1Bean> getPertinentInformationHealthDocumentAttachment() {
         return this.pertinentInformationHealthDocumentAttachment;
+    }
+
+    @Hl7XmlMapping({"inFulfillmentOf/specialAuthorizationAdditionalInformationRequest"})
+    public SpecialAuthorizationAdditionalInformationRequestBean getInFulfillmentOfSpecialAuthorizationAdditionalInformationRequest() {
+        return this.inFulfillmentOfSpecialAuthorizationAdditionalInformationRequest;
+    }
+    public void setInFulfillmentOfSpecialAuthorizationAdditionalInformationRequest(SpecialAuthorizationAdditionalInformationRequestBean inFulfillmentOfSpecialAuthorizationAdditionalInformationRequest) {
+        this.inFulfillmentOfSpecialAuthorizationAdditionalInformationRequest = inFulfillmentOfSpecialAuthorizationAdditionalInformationRequest;
     }
 
 }

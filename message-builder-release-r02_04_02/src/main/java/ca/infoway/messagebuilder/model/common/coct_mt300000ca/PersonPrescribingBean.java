@@ -19,21 +19,15 @@ import java.util.List;
 /**
  * <p>Person Prescribing</p>
  * 
- * <p><p>Person Prescribing</p></p>
+ * <p>Person Prescribing</p>
  */
 @Hl7PartTypeMapping({"COCT_MT300000CA.PrescriberPerson"})
 public class PersonPrescribingBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110127L;
+    private static final long serialVersionUID = 20100603L;
     private PN prescriberName = new PNImpl();
     private LIST<TEL, TelecommunicationAddress> prescriberTelephoneNumber = new LISTImpl<TEL, TelecommunicationAddress>(TELImpl.class);
 
-
-    /**
-     * <p>Prescriber Name</p>
-     * 
-     * <p><p>Name of person prescribing</p></p>
-     */
     @Hl7XmlMapping({"name"})
     public PersonName getPrescriberName() {
         return this.prescriberName.getValue();
@@ -42,14 +36,6 @@ public class PersonPrescribingBean extends MessagePartBean {
         this.prescriberName.setValue(prescriberName);
     }
 
-
-    /**
-     * <p>Prescriber Telephone Number</p>
-     * 
-     * <p><p>Telephone no. of the prescriber</p></p>
-     * 
-     * <p><p>used for Coverage Extension to contact prescriber</p></p>
-     */
     @Hl7XmlMapping({"telecom"})
     public List<TelecommunicationAddress> getPrescriberTelephoneNumber() {
         return this.prescriberTelephoneNumber.rawList();

@@ -10,10 +10,7 @@ import org.w3c.dom.NodeList;
 
 import ca.infoway.messagebuilder.lang.EnumPattern;
 import ca.infoway.messagebuilder.util.xml.NodeUtil;
-import ca.infoway.messagebuilder.xml.Annotation;
 import ca.infoway.messagebuilder.xml.CodingStrength;
-import ca.infoway.messagebuilder.xml.DomainSource;
-import ca.infoway.messagebuilder.xml.UpdateModeType;
 
 class MifXPathHelper extends BaseMifXPathHelper {
 	
@@ -57,24 +54,18 @@ class MifXPathHelper extends BaseMifXPathHelper {
 		Element parent = (Element) specializedClass.getParentNode();
 		return "specializationChild".equals(parent.getLocalName());
 	}
-	
-	public List<UpdateModeType> getAllowedUpdateModes(Element element) {
-		List<UpdateModeType> updateModeTypes = new ArrayList<UpdateModeType>();
-		NodeList nodes = getNodes(element, ".//mif:updateModesAllowed");
-		for (int i=0; i<nodes.getLength(); i++) {
-			updateModeTypes.add(EnumPattern.valueOf(UpdateModeType.class, nodes.item(i).getNodeValue()));
-		}
-		return updateModeTypes;
-	}	
 
-	List<Annotation> getDocumentation(Element classElement) {
-		return getDocumentation(classElement, "./mif:annotations//mif:", "//mif:p/mif:p");
+	List<String> getDocumentation(Element classElement) {
+		List<Element> elements = toElementList(getNodes(classElement, "./mif:annotations//mif:p/mif:p"));
+		List<String> result = new ArrayList<String>();
+		for (Element paragraph : elements) {
+			String text = StringUtils.trim(NodeUtil.getTextValue(paragraph, true));
+			if (StringUtils.isNotBlank(text)) {
+				result.add(text);
+			}
+		}
+		return result;
 	}
-	
-	List<Annotation> getDocumentationForInteraction(Element classElement) {
-		return getDocumentation(classElement, "./mif:annotations//mif:", "//mif:p");
-	}
-	
 	public static String getSuperTypeName(Element element) {
 		return getAttribute(element, "../../@name");
 	}
@@ -107,31 +98,11 @@ class MifXPathHelper extends BaseMifXPathHelper {
 		String result = getAttribute(mifAttribute, "./mif:supplierDomainSpecification/@codeSystemName");
 		if (StringUtils.isBlank(result)) {
 			result = getAttribute(mifAttribute, "./mif:supplierDomainSpecification/@domainName");
-		}
-		if (StringUtils.isBlank(result)) {
-			result = getAttribute(mifAttribute, "./mif:supplierDomainSpecification/@valueSetName");
+			if (StringUtils.isBlank(result)) {
+				result = getAttribute(mifAttribute, "./mif:supplierDomainSpecification/@valueSetName");
+			}
 		}
 		return result;
-	}
-
-	public static DomainSource getDomainSource(Element mifAttribute) {
-		String result = getAttribute(mifAttribute, "./mif:supplierDomainSpecification/@codeSystemName");
-		if (!StringUtils.isBlank(result)) {
-			return DomainSource.CODE_SYSTEM;
-		}
-		result = getAttribute(mifAttribute, "./mif:supplierDomainSpecification/@domainName");
-		if (!StringUtils.isBlank(result)) {
-			return DomainSource.CONCEPT_DOMAIN;
-		}
-		result = getAttribute(mifAttribute, "./mif:supplierDomainSpecification/@valueSetName");
-		if (!StringUtils.isBlank(result)) {
-			return DomainSource.VALUE_SET;		
-		}
-		return null;
-	}
-
-	public static String getMnemonic(Element mifAttribute) {
-		return getAttribute(mifAttribute, "./mif:supplierDomainSpecification/@mnemonic");
 	}
 
 	public static CodingStrength getCodingStrength(Element mifAttribute) {
@@ -172,17 +143,9 @@ class MifXPathHelper extends BaseMifXPathHelper {
 			return true; 
 		} else if (isTargetConnection(targetConnection)) {
 			return null != getSingleElement(targetConnection, "./mif:participantClass/mif:commonModelElementRef");
-		} else if (isParticipantClassSpecialization(targetConnection)) {
-			String className = targetConnection.getAttribute("className");
-			return null != getSingleElement(targetConnection, "../mif:participantClass//mif:commonModelElementRef[@name='" +
-					className + "']");
 		} else {
 			return null != getSingleElement(targetConnection, "./mif:specializedClass/mif:commonModelElementRef");
 		}
-	}
-
-	public static boolean isParticipantClassSpecialization(Element element) {
-		return "participantClassSpecialization".equals(NodeUtil.getLocalOrTagName(element));
 	}
 
 	public static boolean isMifReferenceElementPresent(Element targetConnection) {
@@ -190,10 +153,6 @@ class MifXPathHelper extends BaseMifXPathHelper {
 			return null != getSingleElement(targetConnection, "./mif:participantClass/mif:reference");
 		} else if ("specializationChild".equals(targetConnection.getLocalName())) {
 			return null != getSingleElement(targetConnection, "./mif:specializedClass/mif:reference");
-		} else if (isParticipantClassSpecialization(targetConnection)) {
-			String className = targetConnection.getAttribute("className");
-			return null != getSingleElement(targetConnection, "../mif:participantClass//mif:reference[@name='" +
-					className + "']");
 		} else {
 			throw new MifProcessingException("cannot use this type: " + targetConnection.getLocalName());
 		}
@@ -210,9 +169,6 @@ class MifXPathHelper extends BaseMifXPathHelper {
 			return StringUtils.isNotBlank(referenceType) ? referenceType : getOwnedEntryPoint(targetConnection); 
 		} else if (isTargetConnection(targetConnection)) {
 			return getAttribute(targetConnection, "./mif:participantClass/mif:commonModelElementRef/mif:generalizationParent/@name");
-		} else if (isParticipantClassSpecialization(targetConnection)) {
-			String className = targetConnection.getAttribute("className");
-			return getAttribute(targetConnection, "../mif:participantClass//mif:commonModelElementRef[@name='" + className + "']/mif:generalizationParent/@name");
 		} else {
 			return getAttribute(targetConnection, "./mif:specializedClass/mif:commonModelElementRef/mif:generalizationParent/@name");
 		}
@@ -239,8 +195,6 @@ class MifXPathHelper extends BaseMifXPathHelper {
 	public static String getMifReferenceType(Element targetConnection) {
 		if (isTargetConnection(targetConnection)) {
 			return getAttribute(targetConnection, "./mif:participantClass/mif:reference/@name");
-		} else if (isParticipantClassSpecialization(targetConnection)) {
-			return targetConnection.getAttribute("className");
 		} else {
 			return getAttribute(targetConnection, "./mif:specializedClass/mif:reference/@name");
 		}
@@ -255,13 +209,9 @@ class MifXPathHelper extends BaseMifXPathHelper {
 		return getAttribute(element, "./mif:businessName/@name");
 	}
 
-	public static List<Element> getParticipantSpecializations(Element targetConnection) {
-		return getParticipantSpecializations(targetConnection, null);
-	}
-
-	public static List<Element> getParticipantSpecializations(Element targetConnection, String referenceName) {
-		String searchCriteria = StringUtils.isBlank(referenceName) ? "" : "[@className='" + referenceName + "']";
-		return toElementList(getNodes(targetConnection, "./mif:participantClassSpecialization" + searchCriteria));
+	public static List<Element> getParticipantSpecializations(
+			Element targetConnection) {
+		return toElementList(getNodes(targetConnection, "./mif:participantClassSpecialization"));
 	}
 
 	public static List<Element> getSpecializationChilds(Element element) {
@@ -291,15 +241,4 @@ class MifXPathHelper extends BaseMifXPathHelper {
 	public static boolean isSpecializationChildReference(Element specializationChild) {
 		return null != getSingleElement(specializationChild, "./mif:reference");
 	}
-	
-	public static String getExternalReferenceType(Element element, int i) {
-		List<Element> specializationChilds = toElementList(getNodes(element, ".//mif:class/mif:specializationChild"));
-		if (specializationChilds != null && i < specializationChilds.size()) {
-			Element child = specializationChilds.get(i);
-			return getAttribute(child, "./mif:specializedClass/mif:commonModelElementRef/mif:generalizationParent/@name");
-		} else {
-			throw new MifProcessingException("Tried to access specialization child at index " + i + " but only found " + (specializationChilds == null ? 0 : specializationChilds.size()));
-		}
-	}
-
 }

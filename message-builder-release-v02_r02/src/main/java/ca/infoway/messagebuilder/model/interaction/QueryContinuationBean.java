@@ -3,14 +3,14 @@ package ca.infoway.messagebuilder.model.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.common.merged.HL7Message_1Bean;
-import ca.infoway.messagebuilder.model.common.merged.TriggerEvent_2Bean;
+import ca.infoway.messagebuilder.model.common.mcci_mt002100ca.HL7MessageBean;
+import ca.infoway.messagebuilder.model.common.quqi_mt000001ca.TriggerEventBean;
 
 
 
 @Hl7PartTypeMapping({"QUQI_IN000003CA"})
-public class QueryContinuationBean extends HL7Message_1Bean<TriggerEvent_2Bean> implements InteractionBean {
+public class QueryContinuationBean extends HL7MessageBean<TriggerEventBean> implements InteractionBean {
 
-    private static final long serialVersionUID = 20110127L;
+    private static final long serialVersionUID = 20100614L;
 
 }

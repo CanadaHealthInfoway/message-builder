@@ -94,7 +94,7 @@ public class MessagePartBean implements NullFlavorSupport, Serializable {
         		Field field = getAccessibleField(propertyName.replace(indexPart, ""));
         		if (LIST.class.isAssignableFrom(field.getType())) {
         			LIST<?, ?> list = LIST.class.cast(field.get(this));
-        			List<?> hl7ListValue = (List<?>) list.getValue();
+        			List<?> hl7ListValue = list.getValue();
         			hl7Value = hl7ListValue.get(extractIndex(indexPart));
         		} else {
         			log.error(String.format("The indexed field {0} of bean {1} is not a LIST.", propertyName, this));	

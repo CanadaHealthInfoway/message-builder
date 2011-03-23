@@ -10,70 +10,61 @@ import ca.infoway.messagebuilder.datatype.II;
 import ca.infoway.messagebuilder.datatype.PN;
 import ca.infoway.messagebuilder.datatype.SET;
 import ca.infoway.messagebuilder.datatype.TEL;
+import ca.infoway.messagebuilder.datatype.TS;
 import ca.infoway.messagebuilder.datatype.impl.ADImpl;
 import ca.infoway.messagebuilder.datatype.impl.CVImpl;
 import ca.infoway.messagebuilder.datatype.impl.IIImpl;
 import ca.infoway.messagebuilder.datatype.impl.PNImpl;
 import ca.infoway.messagebuilder.datatype.impl.SETImpl;
 import ca.infoway.messagebuilder.datatype.impl.TELImpl;
+import ca.infoway.messagebuilder.datatype.impl.TSImpl;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.PersonName;
 import ca.infoway.messagebuilder.datatype.lang.PostalAddress;
 import ca.infoway.messagebuilder.datatype.lang.TelecommunicationAddress;
+import ca.infoway.messagebuilder.domainvalue.AdministrativeGender;
 import ca.infoway.messagebuilder.domainvalue.x_SimplePersonalRelationship;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import ca.infoway.messagebuilder.model.iehr.repc_mt000007ca.ConsenterBean;
+import ca.infoway.messagebuilder.model.iehr.repc_mt000012ca.ChoiceBean;
+import ca.infoway.messagebuilder.model.merged.PartyBean;
+import java.util.Date;
 import java.util.Set;
 
 
 
+/**
+ * <p>Responsible Person</p>
+ * 
+ * <p>Describes a person (other than a health-care provider or 
+ * patient) who is providing information and making decision on 
+ * behalf of the patient, in relation to the delivery of 
+ * healthcare for the patient. E.g. Patient's mother.</p>
+ * 
+ * <p>Important for tracking source of information for decision 
+ * making and other actions taken on behalf of a patient.</p>
+ */
 @Hl7PartTypeMapping({"COCT_MT040205CA.ResponsibleParty"})
 @Hl7RootType
-public class ResponsiblePersonBean extends MessagePartBean implements ca.infoway.messagebuilder.model.iehr.repc_mt000012ca.Choice, ca.infoway.messagebuilder.model.merged.Consenter, ca.infoway.messagebuilder.model.iehr.merged.Party {
+public class ResponsiblePersonBean extends MessagePartBean implements ca.infoway.messagebuilder.model.common.coct_mt470000ca.ConsenterBean, ConsenterBean, ca.infoway.messagebuilder.model.merged.ConsenterBean, ChoiceBean, PartyBean {
 
-    private static final long serialVersionUID = 20110127L;
-    private SET<TEL, TelecommunicationAddress> responsiblePersonPhonesAndEmails = new SETImpl<TEL, TelecommunicationAddress>(TELImpl.class);
-    private AD responsiblePersonAddress = new ADImpl();
-    private PN responsiblePersonName = new PNImpl();
-    private CV responsiblePersonType = new CVImpl();
+    private static final long serialVersionUID = 20100614L;
     private II responsiblePersonID = new IIImpl();
+    private CV responsiblePersonType = new CVImpl();
+    private AD responsiblePersonAddress = new ADImpl();
+    private SET<TEL, TelecommunicationAddress> responsiblePersonPhonesAndEmails = new SETImpl<TEL, TelecommunicationAddress>(TELImpl.class);
+    private PN patientName = new PNImpl();
+    private CV patientGender = new CVImpl();
+    private TS patientBirthDate = new TSImpl();
 
-
-    /**
-     * <p>E:Responsible Person Phones and Emails</p>
-     */
-    @Hl7XmlMapping({"telecom"})
-    public Set<TelecommunicationAddress> getResponsiblePersonPhonesAndEmails() {
-        return this.responsiblePersonPhonesAndEmails.rawSet();
+    @Hl7XmlMapping({"id"})
+    public Identifier getResponsiblePersonID() {
+        return this.responsiblePersonID.getValue();
+    }
+    public void setResponsiblePersonID(Identifier responsiblePersonID) {
+        this.responsiblePersonID.setValue(responsiblePersonID);
     }
 
-
-    /**
-     * <p>D:Responsible Person Address</p>
-     */
-    @Hl7XmlMapping({"addr"})
-    public PostalAddress getResponsiblePersonAddress() {
-        return this.responsiblePersonAddress.getValue();
-    }
-    public void setResponsiblePersonAddress(PostalAddress responsiblePersonAddress) {
-        this.responsiblePersonAddress.setValue(responsiblePersonAddress);
-    }
-
-
-    /**
-     * <p>A:Responsible Person Name</p>
-     */
-    @Hl7XmlMapping({"agentPerson/name"})
-    public PersonName getResponsiblePersonName() {
-        return this.responsiblePersonName.getValue();
-    }
-    public void setResponsiblePersonName(PersonName responsiblePersonName) {
-        this.responsiblePersonName.setValue(responsiblePersonName);
-    }
-
-
-    /**
-     * <p>C:Responsible Person Type</p>
-     */
     @Hl7XmlMapping({"code"})
     public x_SimplePersonalRelationship getResponsiblePersonType() {
         return (x_SimplePersonalRelationship) this.responsiblePersonType.getValue();
@@ -82,16 +73,41 @@ public class ResponsiblePersonBean extends MessagePartBean implements ca.infoway
         this.responsiblePersonType.setValue(responsiblePersonType);
     }
 
-
-    /**
-     * <p>B:Responsible Person ID</p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Identifier getResponsiblePersonID() {
-        return this.responsiblePersonID.getValue();
+    @Hl7XmlMapping({"addr"})
+    public PostalAddress getResponsiblePersonAddress() {
+        return this.responsiblePersonAddress.getValue();
     }
-    public void setResponsiblePersonID(Identifier responsiblePersonID) {
-        this.responsiblePersonID.setValue(responsiblePersonID);
+    public void setResponsiblePersonAddress(PostalAddress responsiblePersonAddress) {
+        this.responsiblePersonAddress.setValue(responsiblePersonAddress);
+    }
+
+    @Hl7XmlMapping({"telecom"})
+    public Set<TelecommunicationAddress> getResponsiblePersonPhonesAndEmails() {
+        return this.responsiblePersonPhonesAndEmails.rawSet();
+    }
+
+    @Hl7XmlMapping({"agentPerson/name"})
+    public PersonName getPatientName() {
+        return this.patientName.getValue();
+    }
+    public void setPatientName(PersonName patientName) {
+        this.patientName.setValue(patientName);
+    }
+
+    @Hl7XmlMapping({"agentPerson/administrativeGenderCode"})
+    public AdministrativeGender getPatientGender() {
+        return (AdministrativeGender) this.patientGender.getValue();
+    }
+    public void setPatientGender(AdministrativeGender patientGender) {
+        this.patientGender.setValue(patientGender);
+    }
+
+    @Hl7XmlMapping({"agentPerson/birthTime"})
+    public Date getPatientBirthDate() {
+        return this.patientBirthDate.getValue();
+    }
+    public void setPatientBirthDate(Date patientBirthDate) {
+        this.patientBirthDate.setValue(patientBirthDate);
     }
 
 }

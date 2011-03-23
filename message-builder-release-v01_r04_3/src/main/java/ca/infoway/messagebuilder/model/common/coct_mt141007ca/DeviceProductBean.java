@@ -4,11 +4,9 @@ package ca.infoway.messagebuilder.model.common.coct_mt141007ca;
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.annotation.Hl7RootType;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
-import ca.infoway.messagebuilder.datatype.BL;
 import ca.infoway.messagebuilder.datatype.CV;
 import ca.infoway.messagebuilder.datatype.INT;
 import ca.infoway.messagebuilder.datatype.ST;
-import ca.infoway.messagebuilder.datatype.impl.BLImpl;
 import ca.infoway.messagebuilder.datatype.impl.CVImpl;
 import ca.infoway.messagebuilder.datatype.impl.INTImpl;
 import ca.infoway.messagebuilder.datatype.impl.STImpl;
@@ -17,21 +15,37 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 
+/**
+ * <p>Device Product</p>
+ * 
+ * <p>A medical device product intended to be supplied and/or 
+ * used by a patient. Encompasses supplies, aids, etc.</p>
+ * 
+ * <p>Allows devices to be clearly described and referenced. 
+ * Also allows searching for and examining information about 
+ * devices that can be or are being used by a patient.</p>
+ * 
+ * <p>A_BillablePharmacyDispense</p>
+ */
 @Hl7PartTypeMapping({"COCT_MT141007CA.ManufacturedProduct"})
 @Hl7RootType
 public class DeviceProductBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110127L;
+    private static final long serialVersionUID = 20100614L;
+    private CV deviceCode = new CVImpl();
     private ST deviceName = new STImpl();
     private ST deviceDescription = new STImpl();
     private INT devicePackageQuantity = new INTImpl();
-    private BL manufacturedClinicalDeviceAsContentContainerPackagedDevice = new BLImpl();
-    private CV deviceCode = new CVImpl();
+    private DevicePackageBean manufacturedClinicalDeviceAsContentContainerPackagedDevice;
 
+    @Hl7XmlMapping({"manufacturedClinicalDevice/code"})
+    public ClinicalDeviceEntity getDeviceCode() {
+        return (ClinicalDeviceEntity) this.deviceCode.getValue();
+    }
+    public void setDeviceCode(ClinicalDeviceEntity deviceCode) {
+        this.deviceCode.setValue(deviceCode);
+    }
 
-    /**
-     * <p>B:Device Name</p>
-     */
     @Hl7XmlMapping({"manufacturedClinicalDevice/name"})
     public String getDeviceName() {
         return this.deviceName.getValue();
@@ -40,10 +54,6 @@ public class DeviceProductBean extends MessagePartBean {
         this.deviceName.setValue(deviceName);
     }
 
-
-    /**
-     * <p>C:Device Description</p>
-     */
     @Hl7XmlMapping({"manufacturedClinicalDevice/desc"})
     public String getDeviceDescription() {
         return this.deviceDescription.getValue();
@@ -52,10 +62,6 @@ public class DeviceProductBean extends MessagePartBean {
         this.deviceDescription.setValue(deviceDescription);
     }
 
-
-    /**
-     * <p>F:Device Package Quantity</p>
-     */
     @Hl7XmlMapping({"manufacturedClinicalDevice/asContent/quantity"})
     public Integer getDevicePackageQuantity() {
         return this.devicePackageQuantity.getValue();
@@ -64,25 +70,12 @@ public class DeviceProductBean extends MessagePartBean {
         this.devicePackageQuantity.setValue(devicePackageQuantity);
     }
 
-
     @Hl7XmlMapping({"manufacturedClinicalDevice/asContent/containerPackagedDevice"})
-    public Boolean getManufacturedClinicalDeviceAsContentContainerPackagedDevice() {
-        return this.manufacturedClinicalDeviceAsContentContainerPackagedDevice.getValue();
+    public DevicePackageBean getManufacturedClinicalDeviceAsContentContainerPackagedDevice() {
+        return this.manufacturedClinicalDeviceAsContentContainerPackagedDevice;
     }
-    public void setManufacturedClinicalDeviceAsContentContainerPackagedDevice(Boolean manufacturedClinicalDeviceAsContentContainerPackagedDevice) {
-        this.manufacturedClinicalDeviceAsContentContainerPackagedDevice.setValue(manufacturedClinicalDeviceAsContentContainerPackagedDevice);
-    }
-
-
-    /**
-     * <p>A:Device Code</p>
-     */
-    @Hl7XmlMapping({"manufacturedClinicalDevice/code"})
-    public ClinicalDeviceEntity getDeviceCode() {
-        return (ClinicalDeviceEntity) this.deviceCode.getValue();
-    }
-    public void setDeviceCode(ClinicalDeviceEntity deviceCode) {
-        this.deviceCode.setValue(deviceCode);
+    public void setManufacturedClinicalDeviceAsContentContainerPackagedDevice(DevicePackageBean manufacturedClinicalDeviceAsContentContainerPackagedDevice) {
+        this.manufacturedClinicalDeviceAsContentContainerPackagedDevice = manufacturedClinicalDeviceAsContentContainerPackagedDevice;
     }
 
 }

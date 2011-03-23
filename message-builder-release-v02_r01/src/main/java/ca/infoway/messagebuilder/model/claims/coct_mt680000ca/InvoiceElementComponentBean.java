@@ -10,30 +10,15 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COCT_MT680000CA.InvoiceElementComponent"})
 public class InvoiceElementComponentBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110127L;
-    private InvoiceElementChoice invoiceElementChoice;
-
+    private static final long serialVersionUID = 20100615L;
+    private InvoiceElementChoiceBean invoiceElementChoice;
 
     @Hl7XmlMapping({"invoiceElementChoice"})
-    public InvoiceElementChoice getInvoiceElementChoice() {
+    public InvoiceElementChoiceBean getInvoiceElementChoice() {
         return this.invoiceElementChoice;
     }
-    public void setInvoiceElementChoice(InvoiceElementChoice invoiceElementChoice) {
+    public void setInvoiceElementChoice(InvoiceElementChoiceBean invoiceElementChoice) {
         this.invoiceElementChoice = invoiceElementChoice;
-    }
-
-    public InvoiceElementIntentBean getInvoiceElementChoiceAsInvoiceElementIntent1() {
-        return this.invoiceElementChoice instanceof InvoiceElementIntentBean ? (InvoiceElementIntentBean) this.invoiceElementChoice : null;
-    }
-    public boolean hasInvoiceElementChoiceAsInvoiceElementIntent1() {
-        return (this.invoiceElementChoice instanceof InvoiceElementIntentBean);
-    }
-
-    public InvoiceElementIntent2Bean getInvoiceElementChoiceAsInvoiceElementIntent2() {
-        return this.invoiceElementChoice instanceof InvoiceElementIntent2Bean ? (InvoiceElementIntent2Bean) this.invoiceElementChoice : null;
-    }
-    public boolean hasInvoiceElementChoiceAsInvoiceElementIntent2() {
-        return (this.invoiceElementChoice instanceof InvoiceElementIntent2Bean);
     }
 
 }

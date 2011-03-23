@@ -27,24 +27,25 @@ import ca.infoway.messagebuilder.domainvalue.ActCareEventType;
 import ca.infoway.messagebuilder.domainvalue.ActStatus;
 import ca.infoway.messagebuilder.domainvalue.x_BasicConfidentialityKind;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import ca.infoway.messagebuilder.model.common.coct_mt011001ca.CareCompositionsBean;
 import ca.infoway.messagebuilder.model.common.coct_mt050202ca.PatientBean;
+import ca.infoway.messagebuilder.model.common.coct_mt090108ca.HealthcareWorkerBean;
+import ca.infoway.messagebuilder.model.common.coct_mt090310ca.EHRRepositoryBean;
 import ca.infoway.messagebuilder.model.common.coct_mt090508ca.HealthcareOrganizationBean;
 import ca.infoway.messagebuilder.model.common.coct_mt910108ca.RelatedPersonBean;
-import ca.infoway.messagebuilder.model.common.merged.ActingPerson;
-import ca.infoway.messagebuilder.model.common.merged.EHRRepositoryBean;
-import ca.infoway.messagebuilder.model.common.merged.HealthcareWorkerBean;
-import ca.infoway.messagebuilder.model.common.merged.Patient_2Bean;
-import ca.infoway.messagebuilder.model.common.merged.ServiceLocationBean;
-import ca.infoway.messagebuilder.model.iehr.merged.ControlActEventBean;
-import ca.infoway.messagebuilder.model.iehr.merged.DischargeDiagnosisBean;
-import ca.infoway.messagebuilder.model.iehr.merged.NewPatientCareProvisionEventBean;
-import ca.infoway.messagebuilder.model.iehr.merged.OldPatientCareProvisionEventBean;
-import ca.infoway.messagebuilder.model.iehr.merged.Request_1Bean;
+import ca.infoway.messagebuilder.model.common.coct_mt911108ca.ActingPersonBean;
+import ca.infoway.messagebuilder.model.iehr.comt_mt111111ca.SHRBean;
+import ca.infoway.messagebuilder.model.merged.ActRequest_4Bean;
+import ca.infoway.messagebuilder.model.merged.AnnotatedBy_1Bean;
 import ca.infoway.messagebuilder.model.merged.BecauseOfBean;
-import ca.infoway.messagebuilder.model.merged.CareCompositionsBean;
-import ca.infoway.messagebuilder.model.merged.ChangedByBean;
+import ca.infoway.messagebuilder.model.merged.ControlActEvent_4Bean;
+import ca.infoway.messagebuilder.model.merged.DischargeDiagnosisBean;
+import ca.infoway.messagebuilder.model.merged.NewPatientCareProvisionEventBean;
 import ca.infoway.messagebuilder.model.merged.OccurredAtBean;
-import ca.infoway.messagebuilder.model.merged.SpecimenRoleBean;
+import ca.infoway.messagebuilder.model.merged.OldPatientCareProvisionEventBean;
+import ca.infoway.messagebuilder.model.merged.Patient_1Bean;
+import ca.infoway.messagebuilder.model.merged.ServiceDeliveryLocation_2Bean;
+import ca.infoway.messagebuilder.model.merged.SpecimenBean;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -55,97 +56,133 @@ import java.util.Set;
 /**
  * <p>Care Composition</p>
  * 
- * <p><p>A care composition is a record with two purposes. It 
+ * <p>A care composition is a record with two purposes. It 
  * indicates that care of a given type has occurred or is 
  * occurring. It also acts as a collector for the events that 
  * happened during care, including who is responsible for the 
- * care provided.</p><p>Care composition messages may be sent 
- * during the course of care to describe the progress of care 
- * or may be sent at the termination of care to describe all 
- * the activities that occurred during the provision of care. 
- * Note that this record merely captures the existence of care 
- * and the locations and people involved. The actual discrete 
- * events and any care summary documentation that results are 
- * captured using other messages.</p><p>Examples include: 
- * encounters, condition-related care (episodes) and 
- * longer-term care collections such as &quot;gynecological 
- * care&quot;.</p></p>
+ * care provided.</p>
  * 
- * <p><p>A care composition is a record with two purposes. It 
- * indicates that care of a given type has occurred or is 
- * occurring. It also acts as a collector for the events that 
- * happened during care, including who is responsible for the 
- * care provided.</p><p>Care composition messages may be sent 
- * during the course of care to describe the progress of care 
- * or may be sent at the termination of care to describe all 
- * the activities that occurred during the provision of care. 
- * Note that this record merely captures the existence of care 
- * and the locations and people involved. The actual discrete 
- * events and any care summary documentation that results are 
- * captured using other messages.</p><p>Examples include: 
- * encounters, condition-related care (episodes) and 
- * longer-term care collections such as &quot;gynecological 
- * care&quot;.</p></p>
+ * <p>Care composition messages may be sent during the course 
+ * of care to describe the progress of care or may be sent at 
+ * the termination of care to describe all the activities that 
+ * occurred during the provision of care. Note that this record 
+ * merely captures the existence of care and the locations and 
+ * people involved. The actual discrete events and any care 
+ * summary documentation that results are captured using other 
+ * messages.</p>
  * 
- * <p><p>A care composition is a record with two purposes. It 
- * indicates that care of a given type has occurred or is 
- * occurring. It also acts as a collector for the events that 
- * happened during care, including who is responsible for the 
- * care provided.</p><p>Care composition messages may be sent 
- * during the course of care to describe the progress of care 
- * or may be sent at the termination of care to describe all 
- * the activities that occurred during the provision of care. 
- * Note that this record merely captures the existence of care 
- * and the locations and people involved. The actual discrete 
- * events and any care summary documentation that results are 
- * captured using other messages.</p><p>Examples include: 
- * encounters, condition-related care (episodes) and 
- * longer-term care collections such as &quot;gynecological 
- * care&quot;.</p></p>
+ * <p>Examples include: encounters, condition-related care 
+ * (episodes) and longer-term care collections such as 
+ * "gynecological care".</p>
  * 
- * <p><p>Care compositions allow grouping together numerous 
+ * <p>Care compositions allow grouping together numerous 
  * related records which aids searching and navigation. Also, 
  * the mere knowledge that a type of care has occurred or is 
  * occurring (e.g. an in-patient hospital encounter) can be 
- * useful information when delivering subsequent care.</p></p>
+ * useful information when delivering subsequent care.</p>
  */
 @Hl7PartTypeMapping({"REPC_MT500003CA.PatientCareProvisionEvent"})
 @Hl7RootType
-public class CareCompositionBean extends MessagePartBean implements ca.infoway.messagebuilder.model.iehr.comt_mt111111ca.SHR {
+public class CareCompositionBean extends MessagePartBean implements SHRBean {
 
-    private static final long serialVersionUID = 20110127L;
-    private ca.infoway.messagebuilder.model.common.coct_mt911108ca.ActingPerson responsiblePartyActingPerson;
-    private List<PatientBean> subject2Patient = new ArrayList<PatientBean>();
-    private List<CareCompositionsBean> componentOfPatientCareProvisionEvent = new ArrayList<CareCompositionsBean>();
-    private BL subjectOf1AnnotationIndicator = new BLImpl();
-    private BL refutedIndicator = new BLImpl();
-    private Request_1Bean inFulfillmentOfActRequest;
-    private INT numberOfPatients = new INTImpl();
-    private List<BecauseOfBean> reason = new ArrayList<BecauseOfBean>();
-    private ActingPerson informantActingPerson;
-    private NewPatientCareProvisionEventBean successorNewPatientCareProvisionEvent;
-    private List<OldPatientCareProvisionEventBean> predecessorOldPatientCareProvisionEvent = new ArrayList<OldPatientCareProvisionEventBean>();
+    private static final long serialVersionUID = 20100603L;
     private II careCompositionId = new IIImpl();
-    private ca.infoway.messagebuilder.model.common.coct_mt911108ca.ActingPerson dischargerActingPerson;
-    private ChangedByBean author;
-    private EHRRepositoryBean custodian1AssignedDevice;
-    private List<OccurredAtBean> location = new ArrayList<OccurredAtBean>();
-    private CS careCompositionStatus = new CSImpl();
     private CV careCompositionType = new CVImpl();
-    private ServiceLocationBean custodian2ServiceDeliveryLocation;
-    private List<ca.infoway.messagebuilder.model.common.coct_mt911108ca.ActingPerson> performerActingPerson = new ArrayList<ca.infoway.messagebuilder.model.common.coct_mt911108ca.ActingPerson>();
-    private SET<CV, Code> careCompositionMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);
-    private SpecimenRoleBean subject1Specimen;
-    private ControlActEventBean subjectOf2ControlActEvent;
-    private List<DischargeDiagnosisBean> outcomeDiagnosisEvent = new ArrayList<DischargeDiagnosisBean>();
+    private BL refutedIndicator = new BLImpl();
+    private CS careCompositionStatus = new CSImpl();
     private IVL<TS, Interval<Date>> careCompositionPeriod = new IVLImpl<TS, Interval<Date>>();
+    private SET<CV, Code> careCompositionMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);
+    private SpecimenBean subject1Specimen;
+    private List<PatientBean> subject2Patient = new ArrayList<PatientBean>();
+    private INT numberOfPatients = new INTImpl();
+    private ActingPersonBean responsiblePartyActingPerson;
+    private List<ActingPersonBean> performerActingPerson = new ArrayList<ActingPersonBean>();
+    private AnnotatedBy_1Bean author;
+    private ca.infoway.messagebuilder.model.common.coct_mt911107ca.ActingPersonBean informantActingPerson;
+    private ActingPersonBean dischargerActingPerson;
+    private EHRRepositoryBean custodian1AssignedDevice;
+    private ServiceDeliveryLocation_2Bean custodian2ServiceDeliveryLocation;
+    private List<OccurredAtBean> location = new ArrayList<OccurredAtBean>();
+    private List<DischargeDiagnosisBean> outcomeDiagnosisEvent = new ArrayList<DischargeDiagnosisBean>();
+    private ActRequest_4Bean inFulfillmentOfActRequest;
+    private List<OldPatientCareProvisionEventBean> predecessorOldPatientCareProvisionEvent = new ArrayList<OldPatientCareProvisionEventBean>();
+    private List<BecauseOfBean> reason = new ArrayList<BecauseOfBean>();
+    private NewPatientCareProvisionEventBean successorNewPatientCareProvisionEvent;
+    private BL subjectOf1AnnotationIndicator = new BLImpl(false);
+    private ControlActEvent_4Bean subjectOf2ControlActEvent;
+    private List<CareCompositionsBean> componentOfPatientCareProvisionEvent = new ArrayList<CareCompositionsBean>();
 
+    @Hl7XmlMapping({"id"})
+    public Identifier getCareCompositionId() {
+        return this.careCompositionId.getValue();
+    }
+    public void setCareCompositionId(Identifier careCompositionId) {
+        this.careCompositionId.setValue(careCompositionId);
+    }
+
+    @Hl7XmlMapping({"code"})
+    public ActCareEventType getCareCompositionType() {
+        return (ActCareEventType) this.careCompositionType.getValue();
+    }
+    public void setCareCompositionType(ActCareEventType careCompositionType) {
+        this.careCompositionType.setValue(careCompositionType);
+    }
+
+    @Hl7XmlMapping({"negationInd"})
+    public Boolean getRefutedIndicator() {
+        return this.refutedIndicator.getValue();
+    }
+    public void setRefutedIndicator(Boolean refutedIndicator) {
+        this.refutedIndicator.setValue(refutedIndicator);
+    }
+
+    @Hl7XmlMapping({"statusCode"})
+    public ActStatus getCareCompositionStatus() {
+        return (ActStatus) this.careCompositionStatus.getValue();
+    }
+    public void setCareCompositionStatus(ActStatus careCompositionStatus) {
+        this.careCompositionStatus.setValue(careCompositionStatus);
+    }
+
+    @Hl7XmlMapping({"effectiveTime"})
+    public Interval<Date> getCareCompositionPeriod() {
+        return this.careCompositionPeriod.getValue();
+    }
+    public void setCareCompositionPeriod(Interval<Date> careCompositionPeriod) {
+        this.careCompositionPeriod.setValue(careCompositionPeriod);
+    }
+
+    @Hl7XmlMapping({"confidentialityCode"})
+    public Set<x_BasicConfidentialityKind> getCareCompositionMaskingIndicators() {
+        return this.careCompositionMaskingIndicators.rawSet(x_BasicConfidentialityKind.class);
+    }
+
+    @Hl7XmlMapping({"subject1/specimen"})
+    public SpecimenBean getSubject1Specimen() {
+        return this.subject1Specimen;
+    }
+    public void setSubject1Specimen(SpecimenBean subject1Specimen) {
+        this.subject1Specimen = subject1Specimen;
+    }
+
+    @Hl7XmlMapping({"subject2/patient"})
+    public List<PatientBean> getSubject2Patient() {
+        return this.subject2Patient;
+    }
+
+    @Hl7XmlMapping({"subject3/patient/patientEntityQuantifiedKind/quantity"})
+    public Integer getNumberOfPatients() {
+        return this.numberOfPatients.getValue();
+    }
+    public void setNumberOfPatients(Integer numberOfPatients) {
+        this.numberOfPatients.setValue(numberOfPatients);
+    }
 
     @Hl7XmlMapping({"responsibleParty/actingPerson"})
-    public ca.infoway.messagebuilder.model.common.coct_mt911108ca.ActingPerson getResponsiblePartyActingPerson() {
+    public ActingPersonBean getResponsiblePartyActingPerson() {
         return this.responsiblePartyActingPerson;
     }
-    public void setResponsiblePartyActingPerson(ca.infoway.messagebuilder.model.common.coct_mt911108ca.ActingPerson responsiblePartyActingPerson) {
+    public void setResponsiblePartyActingPerson(ActingPersonBean responsiblePartyActingPerson) {
         this.responsiblePartyActingPerson = responsiblePartyActingPerson;
     }
 
@@ -170,100 +207,24 @@ public class CareCompositionBean extends MessagePartBean implements ca.infoway.m
         return (this.responsiblePartyActingPerson instanceof RelatedPersonBean);
     }
 
-
-    @Hl7XmlMapping({"subject2/patient"})
-    public List<PatientBean> getSubject2Patient() {
-        return this.subject2Patient;
+    @Hl7XmlMapping({"performer/actingPerson"})
+    public List<ActingPersonBean> getPerformerActingPerson() {
+        return this.performerActingPerson;
     }
 
-
-    @Hl7XmlMapping({"componentOf/patientCareProvisionEvent"})
-    public List<CareCompositionsBean> getComponentOfPatientCareProvisionEvent() {
-        return this.componentOfPatientCareProvisionEvent;
+    @Hl7XmlMapping({"author"})
+    public AnnotatedBy_1Bean getAuthor() {
+        return this.author;
     }
-
-
-    @Hl7XmlMapping({"subjectOf1/annotationIndicator"})
-    public Boolean getSubjectOf1AnnotationIndicator() {
-        return this.subjectOf1AnnotationIndicator.getValue();
+    public void setAuthor(AnnotatedBy_1Bean author) {
+        this.author = author;
     }
-    public void setSubjectOf1AnnotationIndicator(Boolean subjectOf1AnnotationIndicator) {
-        this.subjectOf1AnnotationIndicator.setValue(subjectOf1AnnotationIndicator);
-    }
-
-
-    /**
-     * <p>D:Refuted Indicator</p>
-     * 
-     * <p><p>Refuted Indicator cannot be specified unless Care 
-     * Composition Type is Encounter or a specialization 
-     * there-of.</p></p>
-     * 
-     * <p></p></p>
-     * 
-     * <p></p></p>
-     * 
-     * <p></p></p>
-     */
-    @Hl7XmlMapping({"negationInd"})
-    public Boolean getRefutedIndicator() {
-        return this.refutedIndicator.getValue();
-    }
-    public void setRefutedIndicator(Boolean refutedIndicator) {
-        this.refutedIndicator.setValue(refutedIndicator);
-    }
-
-
-    @Hl7XmlMapping({"inFulfillmentOf/actRequest"})
-    public Request_1Bean getInFulfillmentOfActRequest() {
-        return this.inFulfillmentOfActRequest;
-    }
-    public void setInFulfillmentOfActRequest(Request_1Bean inFulfillmentOfActRequest) {
-        this.inFulfillmentOfActRequest = inFulfillmentOfActRequest;
-    }
-
-
-    /**
-     * <p>J:Number of Patients</p>
-     * 
-     * <p><p>Indicates the number of patients involved in a group 
-     * encounter. For non-group encounters, this attribute will 
-     * always be &quot;1&quot;.</p></p>
-     * 
-     * <p><p>Allows a provider to ascertain the size of a group 
-     * encounter without necessarily revealing the identity of the 
-     * patients involved.</p><p>The patients associated with an 
-     * encounter must be specified at the time the record is 
-     * created, thus the number of patients will always be known, 
-     * making this element mandatory.</p></p>
-     * 
-     * <p><p>Allows a provider to ascertain the size of a group 
-     * encounter without necessarily revealing the identity of the 
-     * patients involved.</p><p>The patients associated with an 
-     * encounter must be specified at the time the record is 
-     * created, thus the number of patients will always be known, 
-     * making this element mandatory.</p></p>
-     */
-    @Hl7XmlMapping({"subject3/patient/patientEntityQuantifiedKind/quantity"})
-    public Integer getNumberOfPatients() {
-        return this.numberOfPatients.getValue();
-    }
-    public void setNumberOfPatients(Integer numberOfPatients) {
-        this.numberOfPatients.setValue(numberOfPatients);
-    }
-
-
-    @Hl7XmlMapping({"reason"})
-    public List<BecauseOfBean> getReason() {
-        return this.reason;
-    }
-
 
     @Hl7XmlMapping({"informant/actingPerson"})
-    public ActingPerson getInformantActingPerson() {
+    public ca.infoway.messagebuilder.model.common.coct_mt911107ca.ActingPersonBean getInformantActingPerson() {
         return this.informantActingPerson;
     }
-    public void setInformantActingPerson(ActingPerson informantActingPerson) {
+    public void setInformantActingPerson(ca.infoway.messagebuilder.model.common.coct_mt911107ca.ActingPersonBean informantActingPerson) {
         this.informantActingPerson = informantActingPerson;
     }
 
@@ -281,50 +242,18 @@ public class CareCompositionBean extends MessagePartBean implements ca.infoway.m
         return (this.informantActingPerson instanceof HealthcareOrganizationBean);
     }
 
-    public Patient_2Bean getInformantActingPersonAsPatient() {
-        return this.informantActingPerson instanceof Patient_2Bean ? (Patient_2Bean) this.informantActingPerson : null;
+    public Patient_1Bean getInformantActingPersonAsPatient() {
+        return this.informantActingPerson instanceof Patient_1Bean ? (Patient_1Bean) this.informantActingPerson : null;
     }
     public boolean hasInformantActingPersonAsPatient() {
-        return (this.informantActingPerson instanceof Patient_2Bean);
+        return (this.informantActingPerson instanceof Patient_1Bean);
     }
-
-
-    @Hl7XmlMapping({"successor/newPatientCareProvisionEvent"})
-    public NewPatientCareProvisionEventBean getSuccessorNewPatientCareProvisionEvent() {
-        return this.successorNewPatientCareProvisionEvent;
-    }
-    public void setSuccessorNewPatientCareProvisionEvent(NewPatientCareProvisionEventBean successorNewPatientCareProvisionEvent) {
-        this.successorNewPatientCareProvisionEvent = successorNewPatientCareProvisionEvent;
-    }
-
-
-    @Hl7XmlMapping({"predecessor/oldPatientCareProvisionEvent"})
-    public List<OldPatientCareProvisionEventBean> getPredecessorOldPatientCareProvisionEvent() {
-        return this.predecessorOldPatientCareProvisionEvent;
-    }
-
-
-    /**
-     * <p>A: Care Composition Id</p>
-     * 
-     * <p></p></p>
-     * 
-     * <p></p></p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Identifier getCareCompositionId() {
-        return this.careCompositionId.getValue();
-    }
-    public void setCareCompositionId(Identifier careCompositionId) {
-        this.careCompositionId.setValue(careCompositionId);
-    }
-
 
     @Hl7XmlMapping({"discharger/actingPerson"})
-    public ca.infoway.messagebuilder.model.common.coct_mt911108ca.ActingPerson getDischargerActingPerson() {
+    public ActingPersonBean getDischargerActingPerson() {
         return this.dischargerActingPerson;
     }
-    public void setDischargerActingPerson(ca.infoway.messagebuilder.model.common.coct_mt911108ca.ActingPerson dischargerActingPerson) {
+    public void setDischargerActingPerson(ActingPersonBean dischargerActingPerson) {
         this.dischargerActingPerson = dischargerActingPerson;
     }
 
@@ -349,16 +278,6 @@ public class CareCompositionBean extends MessagePartBean implements ca.infoway.m
         return (this.dischargerActingPerson instanceof RelatedPersonBean);
     }
 
-
-    @Hl7XmlMapping({"author"})
-    public ChangedByBean getAuthor() {
-        return this.author;
-    }
-    public void setAuthor(ChangedByBean author) {
-        this.author = author;
-    }
-
-
     @Hl7XmlMapping({"custodian1/assignedDevice"})
     public EHRRepositoryBean getCustodian1AssignedDevice() {
         return this.custodian1AssignedDevice;
@@ -367,273 +286,69 @@ public class CareCompositionBean extends MessagePartBean implements ca.infoway.m
         this.custodian1AssignedDevice = custodian1AssignedDevice;
     }
 
+    @Hl7XmlMapping({"custodian2/serviceDeliveryLocation"})
+    public ServiceDeliveryLocation_2Bean getCustodian2ServiceDeliveryLocation() {
+        return this.custodian2ServiceDeliveryLocation;
+    }
+    public void setCustodian2ServiceDeliveryLocation(ServiceDeliveryLocation_2Bean custodian2ServiceDeliveryLocation) {
+        this.custodian2ServiceDeliveryLocation = custodian2ServiceDeliveryLocation;
+    }
 
     @Hl7XmlMapping({"location"})
     public List<OccurredAtBean> getLocation() {
         return this.location;
     }
 
-
-    /**
-     * <p>C: Care Composition Status</p>
-     * 
-     * <p></p></p>
-     * 
-     * <p></p></p>
-     * 
-     * <p></p></p>
-     */
-    @Hl7XmlMapping({"statusCode"})
-    public ActStatus getCareCompositionStatus() {
-        return (ActStatus) this.careCompositionStatus.getValue();
-    }
-    public void setCareCompositionStatus(ActStatus careCompositionStatus) {
-        this.careCompositionStatus.setValue(careCompositionStatus);
-    }
-
-
-    /**
-     * <p>B: Care Composition Type</p>
-     * 
-     * <p></p><p>Care Composition is the generic name given to 
-     * event 'containers' such as Encounters, 
-     * Health-Condition-based Collections (Episodes) and Care-based 
-     * Collections. The &quot;type&quot; of care composition places 
-     * constraints on what elements are 
-     * supported.</p><p>Encounter-based collection: a series of 
-     * health care events that occur during an interaction between 
-     * one or more health care providers and one or more patients 
-     * where the providers and the patient remain in the same 
-     * location over a contiguous period of time; the providers and 
-     * patient may be at different locations (telehealth). e.g. 
-     * Inpatient encounter, Community 
-     * encounter.</p><p>Condition-based collection (Episode): a 
-     * series of interactions between a patient and one or more 
-     * health care providers over time in one or more locations and 
-     * tied together by a common diagnosis or 
-     * problem.</p><p>Care-based collection: a high level grouping 
-     * of health events, encounters, and/or episodes related to a 
-     * particular area of healthcare. e.g. Gynecology care, 
-     * Cardiology Care, etc.</p></p>
-     * 
-     * <p></p><p>Care Composition is the generic name given to 
-     * event 'containers' such as Encounters, 
-     * Health-Condition-based Collections (Episodes) and Care-based 
-     * Collections. The &quot;type&quot; of care composition places 
-     * constraints on what elements are 
-     * supported.</p><p>Encounter-based collection: a series of 
-     * health care events that occur during an interaction between 
-     * one or more health care providers and one or more patients 
-     * where the providers and the patient remain in the same 
-     * location over a contiguous period of time; the providers and 
-     * patient may be at different locations (telehealth). e.g. 
-     * Inpatient encounter, Community 
-     * encounter.</p><p>Condition-based collection (Episode): a 
-     * series of interactions between a patient and one or more 
-     * health care providers over time in one or more locations and 
-     * tied together by a common diagnosis or 
-     * problem.</p><p>Care-based collection: a high level grouping 
-     * of health events, encounters, and/or episodes related to a 
-     * particular area of healthcare. e.g. Gynecology care, 
-     * Cardiology Care, etc.</p></p>
-     * 
-     * <p></p><p>Care Composition is the generic name given to 
-     * event 'containers' such as Encounters, 
-     * Health-Condition-based Collections (Episodes) and Care-based 
-     * Collections. The &quot;type&quot; of care composition places 
-     * constraints on what elements are 
-     * supported.</p><p>Encounter-based collection: a series of 
-     * health care events that occur during an interaction between 
-     * one or more health care providers and one or more patients 
-     * where the providers and the patient remain in the same 
-     * location over a contiguous period of time; the providers and 
-     * patient may be at different locations (telehealth). e.g. 
-     * Inpatient encounter, Community 
-     * encounter.</p><p>Condition-based collection (Episode): a 
-     * series of interactions between a patient and one or more 
-     * health care providers over time in one or more locations and 
-     * tied together by a common diagnosis or 
-     * problem.</p><p>Care-based collection: a high level grouping 
-     * of health events, encounters, and/or episodes related to a 
-     * particular area of healthcare. e.g. Gynecology care, 
-     * Cardiology Care, etc.</p></p>
-     * 
-     * <p></p><p>Care Composition is the generic name given to 
-     * event 'containers' such as Encounters, 
-     * Health-Condition-based Collections (Episodes) and Care-based 
-     * Collections. The &quot;type&quot; of care composition places 
-     * constraints on what elements are 
-     * supported.</p><p>Encounter-based collection: a series of 
-     * health care events that occur during an interaction between 
-     * one or more health care providers and one or more patients 
-     * where the providers and the patient remain in the same 
-     * location over a contiguous period of time; the providers and 
-     * patient may be at different locations (telehealth). e.g. 
-     * Inpatient encounter, Community 
-     * encounter.</p><p>Condition-based collection (Episode): a 
-     * series of interactions between a patient and one or more 
-     * health care providers over time in one or more locations and 
-     * tied together by a common diagnosis or 
-     * problem.</p><p>Care-based collection: a high level grouping 
-     * of health events, encounters, and/or episodes related to a 
-     * particular area of healthcare. e.g. Gynecology care, 
-     * Cardiology Care, etc.</p></p>
-     * 
-     * <p></p><p>Care Composition is the generic name given to 
-     * event 'containers' such as Encounters, 
-     * Health-Condition-based Collections (Episodes) and Care-based 
-     * Collections. The &quot;type&quot; of care composition places 
-     * constraints on what elements are 
-     * supported.</p><p>Encounter-based collection: a series of 
-     * health care events that occur during an interaction between 
-     * one or more health care providers and one or more patients 
-     * where the providers and the patient remain in the same 
-     * location over a contiguous period of time; the providers and 
-     * patient may be at different locations (telehealth). e.g. 
-     * Inpatient encounter, Community 
-     * encounter.</p><p>Condition-based collection (Episode): a 
-     * series of interactions between a patient and one or more 
-     * health care providers over time in one or more locations and 
-     * tied together by a common diagnosis or 
-     * problem.</p><p>Care-based collection: a high level grouping 
-     * of health events, encounters, and/or episodes related to a 
-     * particular area of healthcare. e.g. Gynecology care, 
-     * Cardiology Care, etc.</p></p>
-     * 
-     * <p></p></p>
-     * 
-     * <p></p></p>
-     */
-    @Hl7XmlMapping({"code"})
-    public ActCareEventType getCareCompositionType() {
-        return (ActCareEventType) this.careCompositionType.getValue();
-    }
-    public void setCareCompositionType(ActCareEventType careCompositionType) {
-        this.careCompositionType.setValue(careCompositionType);
-    }
-
-
-    @Hl7XmlMapping({"custodian2/serviceDeliveryLocation"})
-    public ServiceLocationBean getCustodian2ServiceDeliveryLocation() {
-        return this.custodian2ServiceDeliveryLocation;
-    }
-    public void setCustodian2ServiceDeliveryLocation(ServiceLocationBean custodian2ServiceDeliveryLocation) {
-        this.custodian2ServiceDeliveryLocation = custodian2ServiceDeliveryLocation;
-    }
-
-
-    @Hl7XmlMapping({"performer/actingPerson"})
-    public List<ca.infoway.messagebuilder.model.common.coct_mt911108ca.ActingPerson> getPerformerActingPerson() {
-        return this.performerActingPerson;
-    }
-
-
-    /**
-     * <p>E: Care Composition Masking Indicators</p>
-     * 
-     * <p></p><p>Masking a care composition record masks it for all 
-     * associated patients (i.e. all patients involved in the care 
-     * composition as a group).</p><p>Also, masking a care 
-     * composition implicitly masks all records associated with 
-     * that care composition.</p></p>
-     * 
-     * <p></p><p>Masking a care composition record masks it for all 
-     * associated patients (i.e. all patients involved in the care 
-     * composition as a group).</p><p>Also, masking a care 
-     * composition implicitly masks all records associated with 
-     * that care composition.</p></p>
-     * 
-     * <p></p><p>Masking a care composition record masks it for all 
-     * associated patients (i.e. all patients involved in the care 
-     * composition as a group).</p><p>Also, masking a care 
-     * composition implicitly masks all records associated with 
-     * that care composition.</p></p>
-     * 
-     * <p></p><p>Masking a care composition record masks it for all 
-     * associated patients (i.e. all patients involved in the care 
-     * composition as a group).</p><p>Also, masking a care 
-     * composition implicitly masks all records associated with 
-     * that care composition.</p></p>
-     * 
-     * <p></p><p>Masking a care composition record masks it for all 
-     * associated patients (i.e. all patients involved in the care 
-     * composition as a group).</p><p>Also, masking a care 
-     * composition implicitly masks all records associated with 
-     * that care composition.</p></p>
-     * 
-     * <p></p></p>
-     */
-    @Hl7XmlMapping({"confidentialityCode"})
-    public Set<x_BasicConfidentialityKind> getCareCompositionMaskingIndicators() {
-        return this.careCompositionMaskingIndicators.rawSet(x_BasicConfidentialityKind.class);
-    }
-
-
-    @Hl7XmlMapping({"subject1/specimen"})
-    public SpecimenRoleBean getSubject1Specimen() {
-        return this.subject1Specimen;
-    }
-    public void setSubject1Specimen(SpecimenRoleBean subject1Specimen) {
-        this.subject1Specimen = subject1Specimen;
-    }
-
-
-    @Hl7XmlMapping({"subjectOf2/controlActEvent"})
-    public ControlActEventBean getSubjectOf2ControlActEvent() {
-        return this.subjectOf2ControlActEvent;
-    }
-    public void setSubjectOf2ControlActEvent(ControlActEventBean subjectOf2ControlActEvent) {
-        this.subjectOf2ControlActEvent = subjectOf2ControlActEvent;
-    }
-
-
     @Hl7XmlMapping({"outcome/diagnosisEvent"})
     public List<DischargeDiagnosisBean> getOutcomeDiagnosisEvent() {
         return this.outcomeDiagnosisEvent;
     }
 
-
-    /**
-     * <p>F: Care Composition Period</p>
-     * 
-     * <p><p>Represents the start and end of the date/time interval 
-     * during which the care described by the composition was/is 
-     * being provided.</p><p>E.g. The admission and discharge 
-     * date/time; the date on which the episode began and ended; 
-     * etc.</p><p>Please note that it is possible for many episodes 
-     * and care events to not have an end date; in these 
-     * situations, only the start date will be specified. Even 
-     * encounters will not have an end date until the encounter is 
-     * completed/patient is discharged.</p></p>
-     * 
-     * <p><p>Represents the start and end of the date/time interval 
-     * during which the care described by the composition was/is 
-     * being provided.</p><p>E.g. The admission and discharge 
-     * date/time; the date on which the episode began and ended; 
-     * etc.</p><p>Please note that it is possible for many episodes 
-     * and care events to not have an end date; in these 
-     * situations, only the start date will be specified. Even 
-     * encounters will not have an end date until the encounter is 
-     * completed/patient is discharged.</p></p>
-     * 
-     * <p><p>Represents the start and end of the date/time interval 
-     * during which the care described by the composition was/is 
-     * being provided.</p><p>E.g. The admission and discharge 
-     * date/time; the date on which the episode began and ended; 
-     * etc.</p><p>Please note that it is possible for many episodes 
-     * and care events to not have an end date; in these 
-     * situations, only the start date will be specified. Even 
-     * encounters will not have an end date until the encounter is 
-     * completed/patient is discharged.</p></p>
-     * 
-     * <p></p></p>
-     */
-    @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getCareCompositionPeriod() {
-        return this.careCompositionPeriod.getValue();
+    @Hl7XmlMapping({"inFulfillmentOf/actRequest"})
+    public ActRequest_4Bean getInFulfillmentOfActRequest() {
+        return this.inFulfillmentOfActRequest;
     }
-    public void setCareCompositionPeriod(Interval<Date> careCompositionPeriod) {
-        this.careCompositionPeriod.setValue(careCompositionPeriod);
+    public void setInFulfillmentOfActRequest(ActRequest_4Bean inFulfillmentOfActRequest) {
+        this.inFulfillmentOfActRequest = inFulfillmentOfActRequest;
+    }
+
+    @Hl7XmlMapping({"predecessor/oldPatientCareProvisionEvent"})
+    public List<OldPatientCareProvisionEventBean> getPredecessorOldPatientCareProvisionEvent() {
+        return this.predecessorOldPatientCareProvisionEvent;
+    }
+
+    @Hl7XmlMapping({"reason"})
+    public List<BecauseOfBean> getReason() {
+        return this.reason;
+    }
+
+    @Hl7XmlMapping({"successor/newPatientCareProvisionEvent"})
+    public NewPatientCareProvisionEventBean getSuccessorNewPatientCareProvisionEvent() {
+        return this.successorNewPatientCareProvisionEvent;
+    }
+    public void setSuccessorNewPatientCareProvisionEvent(NewPatientCareProvisionEventBean successorNewPatientCareProvisionEvent) {
+        this.successorNewPatientCareProvisionEvent = successorNewPatientCareProvisionEvent;
+    }
+
+    @Hl7XmlMapping({"subjectOf1/annotationIndicator"})
+    public Boolean getSubjectOf1AnnotationIndicator() {
+        return this.subjectOf1AnnotationIndicator.getValue();
+    }
+    public void setSubjectOf1AnnotationIndicator(Boolean subjectOf1AnnotationIndicator) {
+        this.subjectOf1AnnotationIndicator.setValue(subjectOf1AnnotationIndicator);
+    }
+
+    @Hl7XmlMapping({"subjectOf2/controlActEvent"})
+    public ControlActEvent_4Bean getSubjectOf2ControlActEvent() {
+        return this.subjectOf2ControlActEvent;
+    }
+    public void setSubjectOf2ControlActEvent(ControlActEvent_4Bean subjectOf2ControlActEvent) {
+        this.subjectOf2ControlActEvent = subjectOf2ControlActEvent;
+    }
+
+    @Hl7XmlMapping({"componentOf/patientCareProvisionEvent"})
+    public List<CareCompositionsBean> getComponentOfPatientCareProvisionEvent() {
+        return this.componentOfPatientCareProvisionEvent;
     }
 
 }

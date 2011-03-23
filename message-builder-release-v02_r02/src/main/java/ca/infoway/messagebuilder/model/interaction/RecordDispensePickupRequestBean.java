@@ -3,15 +3,19 @@ package ca.infoway.messagebuilder.model.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.common.merged.HL7Message_1Bean;
-import ca.infoway.messagebuilder.model.common.merged.TriggerEvent_1Bean;
-import ca.infoway.messagebuilder.model.pharmacy.merged.PrescriptionDispenseResponseBean;
+import ca.infoway.messagebuilder.model.common.mcai_mt700210ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.common.mcci_mt002100ca.HL7MessageBean;
+import ca.infoway.messagebuilder.model.merged.PrescriptionDispenseResponseBean;
 
 
 
+/**
+ * <p>Requests that the pickup of a previously processed 
+ * prescription be recorded.</p>
+ */
 @Hl7PartTypeMapping({"PORX_IN020080CA"})
-public class RecordDispensePickupRequestBean extends HL7Message_1Bean<TriggerEvent_1Bean<PrescriptionDispenseResponseBean>> implements InteractionBean {
+public class RecordDispensePickupRequestBean extends HL7MessageBean<TriggerEventBean<PrescriptionDispenseResponseBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20110127L;
+    private static final long serialVersionUID = 20100614L;
 
 }

@@ -19,30 +19,29 @@ import java.util.Set;
 
 
 
+/**
+ * <p>Health Document Attachment</p>
+ * 
+ * <p>Used to attach documents, image, etc.</p>
+ * 
+ * <p>required to support a health claim.</p>
+ * 
+ * <p>Value is not mandatory to allow for case where just a 
+ * reference to an existing attachment is required.</p>
+ */
 @Hl7PartTypeMapping({"FICR_MT600201CA.HealthDocumentAttachment"})
 public class HealthDocumentAttachmentBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110127L;
-    private ED<EncapsulatedData> attachmentContent = new EDImpl<EncapsulatedData>();
-    private CV attachmentType = new CVImpl();
+    private static final long serialVersionUID = 20100615L;
     private SET<II, Identifier> attachmentIdentifier = new SETImpl<II, Identifier>(IIImpl.class);
+    private CV attachmentType = new CVImpl();
+    private ED<EncapsulatedData> attachmentContent = new EDImpl<EncapsulatedData>();
 
-
-    /**
-     * <p>Attachment content</p>
-     */
-    @Hl7XmlMapping({"value"})
-    public EncapsulatedData getAttachmentContent() {
-        return this.attachmentContent.getValue();
-    }
-    public void setAttachmentContent(EncapsulatedData attachmentContent) {
-        this.attachmentContent.setValue(attachmentContent);
+    @Hl7XmlMapping({"id"})
+    public Set<Identifier> getAttachmentIdentifier() {
+        return this.attachmentIdentifier.rawSet();
     }
 
-
-    /**
-     * <p>Attachment Type</p>
-     */
     @Hl7XmlMapping({"code"})
     public Code getAttachmentType() {
         return (Code) this.attachmentType.getValue();
@@ -51,13 +50,12 @@ public class HealthDocumentAttachmentBean extends MessagePartBean {
         this.attachmentType.setValue(attachmentType);
     }
 
-
-    /**
-     * <p>Attachment identifier</p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Set<Identifier> getAttachmentIdentifier() {
-        return this.attachmentIdentifier.rawSet();
+    @Hl7XmlMapping({"value"})
+    public EncapsulatedData getAttachmentContent() {
+        return this.attachmentContent.getValue();
+    }
+    public void setAttachmentContent(EncapsulatedData attachmentContent) {
+        this.attachmentContent.setValue(attachmentContent);
     }
 
 }

@@ -8,12 +8,21 @@ import ca.infoway.messagebuilder.model.common.coct_mt220210ca.DrugProductBean;
 
 
 
+/**
+ * <p>*a:dispensed</p>
+ * 
+ * <p>Indicates the drug that was dispensed</p>
+ * 
+ * <p>Important information for issue management.</p>
+ * 
+ * <p>The association is marked as populated because it may be 
+ * masked.</p>
+ */
 @Hl7PartTypeMapping({"COCT_MT260030CA.Product"})
 public class DispensedBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110127L;
+    private static final long serialVersionUID = 20100615L;
     private DrugProductBean medication;
-
 
     @Hl7XmlMapping({"medication"})
     public DrugProductBean getMedication() {

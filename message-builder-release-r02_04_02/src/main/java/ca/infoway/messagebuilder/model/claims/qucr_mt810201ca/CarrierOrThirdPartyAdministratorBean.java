@@ -13,60 +13,27 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 /**
  * <p>Carrier or Third Party Administrator</p>
  * 
- * <p><p>An organization that establishes insurance policies, 
+ * <p>An organization that establishes insurance policies, 
  * determines eligibility and benefits under those insurance 
  * policies, and underwrites payments for products and/or 
- * services provided to a beneficiary (person or 
- * organization).</p><p>A Carrier may retain a TPA (Third Party 
- * Administrator) to perform some or all invoice validation, 
- * adjudication and payment.</p><p>This may also be known as 
- * the insurance company or public insurance carrier.</p><p>A 
- * Carrier or TPA (Third Party Administrator) who performs some 
- * or all invoice validation, adjudication and payment.</p></p>
+ * services provided to a beneficiary (person or organization).</p>
  * 
- * <p><p>An organization that establishes insurance policies, 
- * determines eligibility and benefits under those insurance 
- * policies, and underwrites payments for products and/or 
- * services provided to a beneficiary (person or 
- * organization).</p><p>A Carrier may retain a TPA (Third Party 
- * Administrator) to perform some or all invoice validation, 
- * adjudication and payment.</p><p>This may also be known as 
- * the insurance company or public insurance carrier.</p><p>A 
- * Carrier or TPA (Third Party Administrator) who performs some 
- * or all invoice validation, adjudication and payment.</p></p>
+ * <p>A Carrier may retain a TPA (Third Party Administrator) to 
+ * perform some or all invoice validation, adjudication and 
+ * payment.</p>
  * 
- * <p><p>An organization that establishes insurance policies, 
- * determines eligibility and benefits under those insurance 
- * policies, and underwrites payments for products and/or 
- * services provided to a beneficiary (person or 
- * organization).</p><p>A Carrier may retain a TPA (Third Party 
- * Administrator) to perform some or all invoice validation, 
- * adjudication and payment.</p><p>This may also be known as 
- * the insurance company or public insurance carrier.</p><p>A 
- * Carrier or TPA (Third Party Administrator) who performs some 
- * or all invoice validation, adjudication and payment.</p></p>
+ * <p>This may also be known as the insurance company or public 
+ * insurance carrier.</p>
  * 
- * <p><p>An organization that establishes insurance policies, 
- * determines eligibility and benefits under those insurance 
- * policies, and underwrites payments for products and/or 
- * services provided to a beneficiary (person or 
- * organization).</p><p>A Carrier may retain a TPA (Third Party 
- * Administrator) to perform some or all invoice validation, 
- * adjudication and payment.</p><p>This may also be known as 
- * the insurance company or public insurance carrier.</p><p>A 
- * Carrier or TPA (Third Party Administrator) who performs some 
- * or all invoice validation, adjudication and payment.</p></p>
+ * <p>A Carrier or TPA (Third Party Administrator) who performs 
+ * some or all invoice validation, adjudication and payment.</p>
  */
 @Hl7PartTypeMapping({"QUCR_MT810201CA.AdjudResultsCarrierRole"})
 public class CarrierOrThirdPartyAdministratorBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110127L;
+    private static final long serialVersionUID = 20100603L;
     private II carrierId = new IIImpl();
 
-
-    /**
-     * <p>Carrier Id</p>
-     */
     @Hl7XmlMapping({"id"})
     public Identifier getCarrierId() {
         return this.carrierId.getValue();

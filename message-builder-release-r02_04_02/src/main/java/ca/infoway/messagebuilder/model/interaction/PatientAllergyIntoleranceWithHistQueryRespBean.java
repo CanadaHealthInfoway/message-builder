@@ -3,16 +3,16 @@ package ca.infoway.messagebuilder.model.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.common.merged.HL7Message_1Bean;
-import ca.infoway.messagebuilder.model.common.merged.TriggerEvent_6Bean;
+import ca.infoway.messagebuilder.model.common.mcci_mt002300ca.HL7MessageBean;
+import ca.infoway.messagebuilder.model.common.quqi_mt120006ca.TriggerEventBean;
 import ca.infoway.messagebuilder.model.iehr.repc_mt000009ca.AllergyIntoleranceBean;
 import ca.infoway.messagebuilder.model.iehr.repc_mt000019ca.ConditionHistoryQueryParametersBean;
 
 
 
 @Hl7PartTypeMapping({"REPC_IN000018CA"})
-public class PatientAllergyIntoleranceWithHistQueryRespBean extends HL7Message_1Bean<TriggerEvent_6Bean<AllergyIntoleranceBean,ConditionHistoryQueryParametersBean>> implements InteractionBean {
+public class PatientAllergyIntoleranceWithHistQueryRespBean extends HL7MessageBean<TriggerEventBean<AllergyIntoleranceBean,ConditionHistoryQueryParametersBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20110127L;
+    private static final long serialVersionUID = 20100603L;
 
 }

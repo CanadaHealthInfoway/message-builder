@@ -15,6 +15,7 @@ public class RegeneratedRelationshipHelper {
 		Set<Object> importedTypes = new LinkedHashSet<Object>();
 		// FIXME - TM - REGEN - some of the import types may have to be checked against removed types
 		//                    - leaving this work until we know where the regen work/re-design is headed
+		importedTypes.addAll(this.regeneratedRelationship.getOriginalRelationship().getImportTypes());
 		importedTypes.addAll(this.regeneratedRelationship.getNewRelationship().getImportTypes());
 		return importedTypes;
 	}

@@ -7,29 +7,23 @@ import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
 import ca.infoway.messagebuilder.datatype.CV;
 import ca.infoway.messagebuilder.datatype.impl.CVImpl;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.merged.PolicyUnderwriterBean;
+import ca.infoway.messagebuilder.model.merged.CarrierRole_1Bean;
 
 
 
 /**
  * <p>Financial contract Policy/Account</p>
  * 
- * <p><p>Account or policy used for determining elibility in 
- * adjudication process.</p></p>
+ * <p>Account or policy used for determining elibility in 
+ * adjudication process.</p>
  */
 @Hl7PartTypeMapping({"COCT_MT680000CA.PolicyOrAccount"})
 public class FinancialContractPolicyAccountBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110127L;
+    private static final long serialVersionUID = 20100603L;
     private CV policyAccountCode = new CVImpl();
-    private PolicyUnderwriterBean author;
+    private CarrierRole_1Bean authorCarrierRole;
 
-
-    /**
-     * <p>policy/account code</p>
-     * 
-     * <p><p>Code Set denoting policy type</p></p>
-     */
     @Hl7XmlMapping({"code"})
     public Code getPolicyAccountCode() {
         return (Code) this.policyAccountCode.getValue();
@@ -38,13 +32,12 @@ public class FinancialContractPolicyAccountBean extends MessagePartBean {
         this.policyAccountCode.setValue(policyAccountCode);
     }
 
-
-    @Hl7XmlMapping({"author"})
-    public PolicyUnderwriterBean getAuthor() {
-        return this.author;
+    @Hl7XmlMapping({"author/carrierRole"})
+    public CarrierRole_1Bean getAuthorCarrierRole() {
+        return this.authorCarrierRole;
     }
-    public void setAuthor(PolicyUnderwriterBean author) {
-        this.author = author;
+    public void setAuthorCarrierRole(CarrierRole_1Bean authorCarrierRole) {
+        this.authorCarrierRole = authorCarrierRole;
     }
 
 }

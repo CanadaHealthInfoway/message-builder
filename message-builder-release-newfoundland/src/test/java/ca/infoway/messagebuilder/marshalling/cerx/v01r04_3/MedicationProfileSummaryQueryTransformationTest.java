@@ -147,26 +147,9 @@ public class MedicationProfileSummaryQueryTransformationTest extends BaseTransfo
 	}
 	
 	@Test
-	public void shouldCreateResponseBeanFromXml() throws Exception {
-//		
-//		ClasspathResource classpathResource = new ClasspathResource(getClass(), QUERY_RESPONSE_MESSAGE_FILE);
-//		String responseAsString = IOUtils.toString(classpathResource.getInputStream());
-//		assertPassesMessageValidation(responseAsString, SpecificationVersion.NEWFOUNDLAND);
-//		
-		Document response = this.factory.createFromResource(new ClasspathResource(getClass(), QUERY_RESPONSE_MESSAGE_FILE));
-		XmlToModelResult xmlToJavaResult = this.transformer.transformFromHl7(SpecificationVersion.NEWFOUNDLAND, response);
-		MessageBean messageObject = (MessageBean) xmlToJavaResult.getMessageObject();
-		Assert.assertNotNull(messageObject);
-		for (Hl7Error hl7Error : xmlToJavaResult.getHl7Errors()) {
-			Assert.assertFalse("xsi:nil specified", hl7Error.getMessage().contains("does not specify xsi:nil=\"true\""));
-		}
-	}
-	
-	@Test
 	public void shouldCreateAMeaningfulResponse() throws Exception {
 		MedicationProfileSummaryQueryResponseMessageBean model = createResponseBean();
 		String xml1 = this.transformer.transformToHl7(SpecificationVersion.NEWFOUNDLAND, model);
-		
 		XmlToModelResult xmlToJavaResult = this.transformer.transformFromHl7(SpecificationVersion.NEWFOUNDLAND, this.factory.createFromString(xml1));
 		String xml2 = this.transformer.transformToHl7(SpecificationVersion.NEWFOUNDLAND, (NewBaseMessageBean) xmlToJavaResult.getMessageObject());
 		assertValidHl7Message(xml2);
@@ -179,11 +162,11 @@ public class MedicationProfileSummaryQueryTransformationTest extends BaseTransfo
 		
 		MedicationProfileSummaryQueryResponseMessageBean model = new MedicationProfileSummaryQueryResponseMessageBean(criteria);
 		MessageBeanBuilderSupport.populateMoreBetterStandardValues(model.getMessageAttributes());
-		model.getMessageAttributes().setMessageId(new Identifier("1.2.3.4.5.6.7.8"));
+		model.getMessageAttributes().setMessageId(new Identifier("1ee83ff1-08ab-4fe7-b573-ea777e9bad51"));
 		MessageBeanBuilderSupport.populateStandardValues(model.getControlActEvent());
 //		MessageAttributeBeanTestData.populateStandardValues(model.getControlActEvent());
 		model.getControlActEvent().setCode(HL7TriggerEventCode.MEDICATION_PROFILE_SUMMARY_RESPONSE);
-		model.setQueryId(new Identifier("1.2.3.4.5.6.7.8.9"));
+		model.setQueryId(new Identifier("1ee83ff1-08ab-4fe7-b573-ea777e9bad31"));
 
 		MessageBeanBuilderSupport.populateAcknowledgement(model.getAcknowledgement());
 

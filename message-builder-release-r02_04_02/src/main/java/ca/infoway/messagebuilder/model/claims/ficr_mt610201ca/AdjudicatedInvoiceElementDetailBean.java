@@ -22,73 +22,23 @@ import ca.infoway.messagebuilder.datatype.lang.Money;
 import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
 import ca.infoway.messagebuilder.datatype.lang.Ratio;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.claims.merged.AllowableBean;
-import ca.infoway.messagebuilder.model.merged.AdjudicatedResultOutcomeBean;
+import ca.infoway.messagebuilder.model.merged.AllowableBean;
 import java.math.BigDecimal;
 
 
 
 @Hl7PartTypeMapping({"FICR_MT610201CA.AdjudicatedInvoiceElementDetail"})
-public class AdjudicatedInvoiceElementDetailBean extends MessagePartBean implements AdjudicatedInvoiceElementChoice {
+public class AdjudicatedInvoiceElementDetailBean extends MessagePartBean implements AdjudicatedInvoiceElementChoiceBean {
 
-    private static final long serialVersionUID = 20110127L;
-    private CV adjudicatedProductServiceCode = new CVImpl();
-    private RTO<Money, PhysicalQuantity> adjudicatedUnitPrice = new RTOImpl<Money, PhysicalQuantity>();
-    private PQ adjudicatedUnitQuantity = new PQImpl();
-    private II adjudicatedInvoiceElementIdentifier = new IIImpl();
+    private static final long serialVersionUID = 20100603L;
     private AllowableBean reference1Allowable;
+    private AdjudicatedResultOutcomeBean outcomeOf;
+    private II adjudicatedInvoiceElementIdentifier = new IIImpl();
+    private CV adjudicatedProductServiceCode = new CVImpl();
+    private PQ adjudicatedUnitQuantity = new PQImpl();
+    private RTO<Money, PhysicalQuantity> adjudicatedUnitPrice = new RTOImpl<Money, PhysicalQuantity>();
     private MO adjudicatedInvoiceLineAmount = new MOImpl();
     private REAL multiplierEG007 = new REALImpl();
-    private AdjudicatedResultOutcomeBean outcomeOf;
-
-
-    /**
-     * <p>Adjudicated Product/Service Code</p>
-     */
-    @Hl7XmlMapping({"code"})
-    public Code getAdjudicatedProductServiceCode() {
-        return (Code) this.adjudicatedProductServiceCode.getValue();
-    }
-    public void setAdjudicatedProductServiceCode(Code adjudicatedProductServiceCode) {
-        this.adjudicatedProductServiceCode.setValue(adjudicatedProductServiceCode);
-    }
-
-
-    /**
-     * <p>Adjudicated Unit Price</p>
-     */
-    @Hl7XmlMapping({"unitPriceAmt"})
-    public Ratio<Money, PhysicalQuantity> getAdjudicatedUnitPrice() {
-        return this.adjudicatedUnitPrice.getValue();
-    }
-    public void setAdjudicatedUnitPrice(Ratio<Money, PhysicalQuantity> adjudicatedUnitPrice) {
-        this.adjudicatedUnitPrice.setValue(adjudicatedUnitPrice);
-    }
-
-
-    /**
-     * <p>Adjudicated Unit Quantity</p>
-     */
-    @Hl7XmlMapping({"unitQuantity"})
-    public PhysicalQuantity getAdjudicatedUnitQuantity() {
-        return this.adjudicatedUnitQuantity.getValue();
-    }
-    public void setAdjudicatedUnitQuantity(PhysicalQuantity adjudicatedUnitQuantity) {
-        this.adjudicatedUnitQuantity.setValue(adjudicatedUnitQuantity);
-    }
-
-
-    /**
-     * <p>Adjudicated Invoice Element Identifier</p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Identifier getAdjudicatedInvoiceElementIdentifier() {
-        return this.adjudicatedInvoiceElementIdentifier.getValue();
-    }
-    public void setAdjudicatedInvoiceElementIdentifier(Identifier adjudicatedInvoiceElementIdentifier) {
-        this.adjudicatedInvoiceElementIdentifier.setValue(adjudicatedInvoiceElementIdentifier);
-    }
-
 
     @Hl7XmlMapping({"reference1/allowable"})
     public AllowableBean getReference1Allowable() {
@@ -98,10 +48,46 @@ public class AdjudicatedInvoiceElementDetailBean extends MessagePartBean impleme
         this.reference1Allowable = reference1Allowable;
     }
 
+    @Hl7XmlMapping({"outcomeOf"})
+    public AdjudicatedResultOutcomeBean getOutcomeOf() {
+        return this.outcomeOf;
+    }
+    public void setOutcomeOf(AdjudicatedResultOutcomeBean outcomeOf) {
+        this.outcomeOf = outcomeOf;
+    }
 
-    /**
-     * <p>Adjudicated Invoice Line Amount</p>
-     */
+    @Hl7XmlMapping({"id"})
+    public Identifier getAdjudicatedInvoiceElementIdentifier() {
+        return this.adjudicatedInvoiceElementIdentifier.getValue();
+    }
+    public void setAdjudicatedInvoiceElementIdentifier(Identifier adjudicatedInvoiceElementIdentifier) {
+        this.adjudicatedInvoiceElementIdentifier.setValue(adjudicatedInvoiceElementIdentifier);
+    }
+
+    @Hl7XmlMapping({"code"})
+    public Code getAdjudicatedProductServiceCode() {
+        return (Code) this.adjudicatedProductServiceCode.getValue();
+    }
+    public void setAdjudicatedProductServiceCode(Code adjudicatedProductServiceCode) {
+        this.adjudicatedProductServiceCode.setValue(adjudicatedProductServiceCode);
+    }
+
+    @Hl7XmlMapping({"unitQuantity"})
+    public PhysicalQuantity getAdjudicatedUnitQuantity() {
+        return this.adjudicatedUnitQuantity.getValue();
+    }
+    public void setAdjudicatedUnitQuantity(PhysicalQuantity adjudicatedUnitQuantity) {
+        this.adjudicatedUnitQuantity.setValue(adjudicatedUnitQuantity);
+    }
+
+    @Hl7XmlMapping({"unitPriceAmt"})
+    public Ratio<Money, PhysicalQuantity> getAdjudicatedUnitPrice() {
+        return this.adjudicatedUnitPrice.getValue();
+    }
+    public void setAdjudicatedUnitPrice(Ratio<Money, PhysicalQuantity> adjudicatedUnitPrice) {
+        this.adjudicatedUnitPrice.setValue(adjudicatedUnitPrice);
+    }
+
     @Hl7XmlMapping({"netAmt"})
     public Money getAdjudicatedInvoiceLineAmount() {
         return this.adjudicatedInvoiceLineAmount.getValue();
@@ -110,22 +96,9 @@ public class AdjudicatedInvoiceElementDetailBean extends MessagePartBean impleme
         this.adjudicatedInvoiceLineAmount.setValue(adjudicatedInvoiceLineAmount);
     }
 
-
-    /**
-     * <p>Multiplier, e.g. 0.07</p>
-     */
     @Hl7XmlMapping({"factorNumber"})
     public BigDecimal getMultiplierEG007() {
         return this.multiplierEG007.getValue();
-    }
-
-
-    @Hl7XmlMapping({"outcomeOf"})
-    public AdjudicatedResultOutcomeBean getOutcomeOf() {
-        return this.outcomeOf;
-    }
-    public void setOutcomeOf(AdjudicatedResultOutcomeBean outcomeOf) {
-        this.outcomeOf = outcomeOf;
     }
 
 }

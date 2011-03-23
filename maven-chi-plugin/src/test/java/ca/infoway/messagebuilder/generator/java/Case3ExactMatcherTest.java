@@ -1,6 +1,5 @@
 package ca.infoway.messagebuilder.generator.java;
 
-import static ca.infoway.messagebuilder.xml.Cardinality.create;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
@@ -16,8 +15,6 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import ca.infoway.messagebuilder.generator.SysoutLogUI;
-import ca.infoway.messagebuilder.generator.TypeConverter;
-import ca.infoway.messagebuilder.xml.MessagePart;
 import ca.infoway.messagebuilder.xml.Relationship;
 import ca.infoway.messagebuilder.xml.TypeName;
 
@@ -25,117 +22,108 @@ import ca.infoway.messagebuilder.xml.TypeName;
 public class Case3ExactMatcherTest {
 	
 	private Mockery jmock = new Mockery();
-	private SimplifiableTypeProvider definitions;
+	private TypeProvider typeProvider;
 	
 	@Before
 	public void setUp() throws Exception {
-		this.definitions = this.jmock.mock(SimplifiableTypeProvider.class);
-		final SimplifiableType type = new SimplifiableType(null, false);
-		this.jmock.checking(new Expectations() {{
-			// logging
-			allowing(definitions).getType(with(any(String.class))); will(returnValue(type));
-		}});
+		this.typeProvider = this.jmock.mock(TypeProvider.class);
 	}
 	
 	@Test
-	public void shouldCheckSimplifiableEqualityFirstPass() throws Exception {
-		final SimplifiableType type1 = new SimplifiableType(new MessagePart("ABCD_MT123456CA.FifthSacredThing"), false);
-		type1.getRelationships().add(createSimplifiableAttribute("id", "II.BUS"));
-		final SimplifiableType type2 = new SimplifiableType(new MessagePart("ABCD_MT987654CA.FifthSacredThing"), false);
-		type2.getRelationships().add(createSimplifiableAttribute("id", "II.BUS"));
+	public void shouldCheckEqualityFirstPass() throws Exception {
+		final Type type1 = new Type(new TypeName("ABCD_MT123456CA.FifthSacredThing"));
+		type1.getRelationships().add(createAttribute("id", "II.BUS"));
+		final Type type2 = new Type(new TypeName("ABCD_MT987654CA.FifthSacredThing"));
+		type2.getRelationships().add(createAttribute("id", "II.BUS"));
 		this.jmock.checking(new Expectations() {{
-			allowing(definitions).getAllTypes(); will(returnValue(Arrays.asList(type1, type2)));
+			allowing(typeProvider).getAllMessageTypes(); will(returnValue(Arrays.asList(type1, type2)));
 		}});
 		
 		Case3MergeResult result = new Case3MergeResult();
-		
-		assertTrue("matched", createMatcher(result).performMatching(type2, Arrays.asList(type1, type2)));
-	}
-	
-	private Case3Matcher createMatcher(Case3MergeResult result) {
-		return new Case3ExactMatcher(new SysoutLogUI(), this.definitions, null, result);
+
+		assertTrue("matched", new Case3ExactMatcher(new SysoutLogUI(), this.typeProvider, result).performMatching(type1));
 	}
 
 	@Test
-	public void shouldCheckEqualityOfAbstractSimplifiableTypes() throws Exception {
-		final SimplifiableType type1 = new SimplifiableType(new MessagePart("ABCD_MT123456CA.FifthSacredThing"), false);
-		type1.getMessagePart().setAbstract(true);
-		type1.getMessagePart().getSpecializationChilds().add("ABCD_MT222222CA.Quintessence");
-		type1.getMessagePart().getSpecializationChilds().add("ABCD_MT222222CA.Spirit");
-		final SimplifiableType type2 = new SimplifiableType(new MessagePart("ABCD_MT987654CA.FifthSacredThing"), false);
-		type2.getMessagePart().setAbstract(true);
-		type2.getMessagePart().getSpecializationChilds().add("ABCD_MT222222CA.Quintessence");
-		type2.getMessagePart().getSpecializationChilds().add("ABCD_MT222222CA.Spirit");
+	public void shouldCheckEqualityOfAbstractTypes() throws Exception {
+		final Type type1 = new Type(new TypeName("ABCD_MT123456CA.FifthSacredThing"));
+		type1.setAbstract(true);
+		type1.getChildTypes().add(new TypeName("ABCD_MT222222CA.Quintessence"));
+		type1.getChildTypes().add(new TypeName("ABCD_MT222222CA.Spirit"));
+		final Type type2 = new Type(new TypeName("ABCD_MT987654CA.FifthSacredThing"));
+		type2.setAbstract(true);
+		type2.getChildTypes().add(new TypeName("ABCD_MT222222CA.Quintessence"));
+		type2.getChildTypes().add(new TypeName("ABCD_MT222222CA.Spirit"));
 		this.jmock.checking(new Expectations() {{
-			allowing(definitions).getAllTypes(); will(returnValue(Arrays.asList(type1, type2)));
+			allowing(typeProvider).getAllMessageTypes(); will(returnValue(Arrays.asList(type1, type2)));
 		}});
 		
 		Case3MergeResult result = new Case3MergeResult();
 		
-		assertTrue("matched", createMatcher(result).performMatching(type2, Arrays.asList(type1, type2)));
+		assertTrue("matched", new Case3ExactMatcher(new SysoutLogUI(), this.typeProvider, result).performMatching(type1));
 		MergedTypeDescriptor descriptor = result.getDescriptorByName(new TypeName("ABCD_MT123456CA.FifthSacredThing"));
 		assertEquals("merged descriptor", 2, descriptor.getMergedTypes().size());
 	}
 	
 	@Test
 	public void shouldCheckEqualityOfAbstractTypesAfterMerging() throws Exception {
-		final SimplifiableType type1 = new SimplifiableType(new MessagePart("ABCD_MT123456CA.FifthSacredThing"), false);
-		type1.getMessagePart().setAbstract(true);
-		type1.getMessagePart().getSpecializationChilds().add("ABCD_MT222222CA.Quintessence");
-		type1.getMessagePart().getSpecializationChilds().add("ABCD_MT222222CA.Spirit");
-		final SimplifiableType type2 = new SimplifiableType(new MessagePart("ABCD_MT987654CA.FifthSacredThing"), false);
-		type2.getMessagePart().setAbstract(true);
-		type2.getMessagePart().getSpecializationChilds().add("ABCD_MT222222CA.Quintessence");
-		type2.getMessagePart().getSpecializationChilds().add("ABCD_MT333333CA.Spirit");
+		final Type type1 = new Type(new TypeName("ABCD_MT123456CA.FifthSacredThing"));
+		type1.setAbstract(true);
+		type1.getChildTypes().add(new TypeName("ABCD_MT222222CA.Quintessence"));
+		type1.getChildTypes().add(new TypeName("ABCD_MT222222CA.Spirit"));
+		final Type type2 = new Type(new TypeName("ABCD_MT987654CA.FifthSacredThing"));
+		type2.setAbstract(true);
+		type2.getChildTypes().add(new TypeName("ABCD_MT222222CA.Quintessence"));
+		type2.getChildTypes().add(new TypeName("ABCD_MT333333CA.Spirit"));
 		this.jmock.checking(new Expectations() {{
-			allowing(definitions).getAllTypes(); will(returnValue(Arrays.asList(type1, type2)));
+			allowing(typeProvider).getAllMessageTypes(); will(returnValue(Arrays.asList(type1, type2)));
 		}});
 		
 		Case3MergeResult result = new Case3MergeResult();
 		result.recordMatch(new Type(new TypeName("ABCD_MT333333CA.Spirit")), new Type(new TypeName("ABCD_MT222222CA.Spirit")));
 		
-		assertTrue("matched", createMatcher(result).performMatching(type2, Arrays.asList(type1, type2)));
+		assertTrue("matched", new Case3ExactMatcher(new SysoutLogUI(), this.typeProvider, result).performMatching(type1));
 		MergedTypeDescriptor descriptor = result.getDescriptorByName(new TypeName("ABCD_MT123456CA.FifthSacredThing"));
 		assertEquals("merged descriptor", 2, descriptor.getMergedTypes().size());
 	}
 	
 	@Test
 	public void shouldCheckEqualityAfterAssociationTypesHaveBeenMatched() throws Exception {
-		final SimplifiableType type1 = new SimplifiableType(new MessagePart("ABCD_MT123456CA.FifthSacredThing"), false);
-		type1.getRelationships().add(createSimplifiableAttribute("id", "II.BUS"));
-		type1.getRelationships().add(createSimplifiableAssociation("person", "ABCD_MT123456CA.Person"));
-		final SimplifiableType type2 = new SimplifiableType(new MessagePart("ABCD_MT987654CA.FifthSacredThing"), false);
-		type2.getRelationships().add(createSimplifiableAttribute("id", "II.BUS"));
-		type2.getRelationships().add(createSimplifiableAssociation("person", "ABCD_MT987654CA.Person"));
+		final Type type1 = new Type(new TypeName("ABCD_MT123456CA.FifthSacredThing"));
+		type1.getRelationships().add(createAttribute("id", "II.BUS"));
+		type1.getRelationships().add(createAssociation("person", "ABCD_MT123456CA.Person"));
+		final Type type2 = new Type(new TypeName("ABCD_MT987654CA.FifthSacredThing"));
+		type2.getRelationships().add(createAttribute("id", "II.BUS"));
+		type2.getRelationships().add(createAssociation("person", "ABCD_MT987654CA.Person"));
 		this.jmock.checking(new Expectations() {{
-			allowing(definitions).getAllTypes(); will(returnValue(Arrays.asList(type1, type2)));
+			allowing(typeProvider).getAllMessageTypes(); will(returnValue(Arrays.asList(type1, type2)));
 		}});
 		
 		Case3MergeResult result = new Case3MergeResult();
 
-		assertFalse("not matched", createMatcher(result).performMatching(type2, Arrays.asList(type1, type2)));
+		assertFalse("not matched", new Case3ExactMatcher(new SysoutLogUI(), this.typeProvider, result).performMatching(type1));
 		
-		result.recordMatch(
-				type1.getRelationship("person").getType(),
-				type2.getRelationship("person").getType()
-			);
+		result.recordMatch(((Association) type1.getRelationship("person")).getAssociationType(), 
+				((Association) type2.getRelationship("person")).getAssociationType());
 		
 		assertNotNull("match emulated", result.getDescriptorByName(new TypeName("ABCD_MT987654CA.Person")));
-		assertTrue("matched", createMatcher(result).performMatching(type2, Arrays.asList(type1, type2)));
+		assertTrue("matched", new Case3ExactMatcher(new SysoutLogUI(), this.typeProvider, result).performMatching(type1));
 	}
 
-	private SimplifiableRelationship createSimplifiableAssociation(String name, String type) {
+	private BaseRelationship createAssociation(String name, String type) {
 		Relationship relationship = new Relationship();
 		relationship.setName(name);
 		relationship.setType(type);
-
-		SimplifiableType simplifiableType = new SimplifiableType(new MessagePart(type), false);
-		return new SimplifiableRelationship(relationship, simplifiableType);
+		
+		return Association.createStandardAssociation(relationship, new Type(new TypeName(type)), 0);
 	}
 
-	private SimplifiableRelationship createSimplifiableAttribute(String name, String type) {
-		Relationship relationship = new Relationship(name, type, create("1"));
-		return new SimplifiableRelationship(relationship, new TypeConverter().convertToType(relationship));
+	private BaseRelationship createAttribute(String name, String type) {
+		Relationship relationship = new Relationship();
+		relationship.setName(name);
+		relationship.setType(type);
+		
+		return new Attribute(relationship, null);
 	}
-	
+
 }

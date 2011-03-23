@@ -42,13 +42,9 @@ public class LISTImplTest {
 		assertFalse(testList.getValue().isEmpty());
 		assertEquals(1, testList.getValue().size());
 		assertEquals(1, testList.rawList().size());
-		assertEquals("newString", getElement(testList, 0).getValue());
+		assertEquals("newString", testList.getValue().get(0).getValue());
 		assertEquals("newString", testList.rawList().get(0));
-		assertNull(getElement(testList, 0).getNullFlavor());
-	}
-
-	private ST getElement(LIST<ST, String> testList, int index) {
-		return ((List<ST>) testList.getValue()).get(index);
+		assertNull(testList.getValue().get(0).getNullFlavor());
 	}
 	
 	@Test
@@ -61,20 +57,20 @@ public class LISTImplTest {
 		
 		assertFalse(testList.getValue().isEmpty());
 		assertEquals(2, testList.getValue().size());
-		assertEquals("newString1", getElement(testList, 0).getValue());
-		assertEquals("newString2", getElement(testList, 1).getValue());
-		assertNull(getElement(testList, 0).getNullFlavor());
-		assertNull(getElement(testList, 1).getNullFlavor());
+		assertEquals("newString1", testList.getValue().get(0).getValue());
+		assertEquals("newString2", testList.getValue().get(1).getValue());
+		assertNull(testList.getValue().get(0).getNullFlavor());
+		assertNull(testList.getValue().get(1).getNullFlavor());
 		
 		rawList.add(0, "newString3");
 		assertEquals(3, testList.getValue().size());
-		assertEquals("newString3", getElement(testList, 0).getValue());
+		assertEquals("newString3", testList.getValue().get(0).getValue());
 		
 		boolean result = rawList.addAll(Arrays.asList("newString4", "newString5"));
 		assertTrue(result);
 		assertEquals(5, testList.getValue().size());
-		assertEquals("newString4", getElement(testList, 3).getValue());
-		assertEquals("newString5", getElement(testList, 4).getValue());
+		assertEquals("newString4", testList.getValue().get(3).getValue());
+		assertEquals("newString5", testList.getValue().get(4).getValue());
 		
 		result = rawList.addAll(2, Collections.<String>emptyList());
 		assertFalse(result);
@@ -83,13 +79,13 @@ public class LISTImplTest {
 		result = rawList.addAll(2, Arrays.asList("newString6", "newString7"));
 		assertTrue(result);
 		assertEquals(7, testList.getValue().size());
-		assertEquals("newString3", getElement(testList, 0).getValue());
-		assertEquals("newString1", getElement(testList, 1).getValue());
-		assertEquals("newString6", getElement(testList, 2).getValue());
-		assertEquals("newString7", getElement(testList, 3).getValue());
-		assertEquals("newString2", getElement(testList, 4).getValue());
-		assertEquals("newString4", getElement(testList, 5).getValue());
-		assertEquals("newString5", getElement(testList, 6).getValue());
+		assertEquals("newString3", testList.getValue().get(0).getValue());
+		assertEquals("newString1", testList.getValue().get(1).getValue());
+		assertEquals("newString6", testList.getValue().get(2).getValue());
+		assertEquals("newString7", testList.getValue().get(3).getValue());
+		assertEquals("newString2", testList.getValue().get(4).getValue());
+		assertEquals("newString4", testList.getValue().get(5).getValue());
+		assertEquals("newString5", testList.getValue().get(6).getValue());
 		
 		assertTrue(testList.rawList().containsAll(Arrays.asList("newString1", "newString2", "newString3", "newString4", "newString5", "newString6", "newString7")));
 	}
@@ -129,25 +125,25 @@ public class LISTImplTest {
 		booleanResult = rawList.removeAll(Arrays.asList("newString3", "newString5"));
 		assertTrue(booleanResult);
 		assertEquals(2, testList.getValue().size());
-		assertEquals("newString1", getElement(testList, 0).getValue());
-		assertEquals("newString4", getElement(testList, 1).getValue());
+		assertEquals("newString1", testList.getValue().get(0).getValue());
+		assertEquals("newString4", testList.getValue().get(1).getValue());
 		
 		booleanResult = rawList.removeAll(Arrays.asList("newString3", "newString5"));
 		assertFalse(booleanResult);
 		assertEquals(2, testList.getValue().size());
-		assertEquals("newString1", getElement(testList, 0).getValue());
-		assertEquals("newString4", getElement(testList, 1).getValue());
+		assertEquals("newString1", testList.getValue().get(0).getValue());
+		assertEquals("newString4", testList.getValue().get(1).getValue());
 
 		booleanResult = rawList.retainAll(Arrays.asList("newString4", "newString1"));
 		assertFalse(booleanResult);
 		assertEquals(2, testList.getValue().size());
-		assertEquals("newString1", getElement(testList, 0).getValue());
-		assertEquals("newString4", getElement(testList, 1).getValue());
+		assertEquals("newString1", testList.getValue().get(0).getValue());
+		assertEquals("newString4", testList.getValue().get(1).getValue());
 
 		booleanResult = rawList.retainAll(Arrays.asList("newString4"));
 		assertTrue(booleanResult);
 		assertEquals(1, testList.getValue().size());
-		assertEquals("newString4", getElement(testList, 0).getValue());
+		assertEquals("newString4", testList.getValue().get(0).getValue());
 		
 		rawList.clear();
 		assertTrue(testList.getValue().isEmpty());
@@ -196,10 +192,10 @@ public class LISTImplTest {
 
 		rawList.set(2, "newString4");
 		assertEquals(4, testList.getValue().size());
-		assertEquals("newString0", getElement(testList, 0).getValue());
-		assertEquals("newString1", getElement(testList, 1).getValue());
-		assertEquals("newString4", getElement(testList, 2).getValue());
-		assertEquals("newString3", getElement(testList, 3).getValue());
+		assertEquals("newString0", testList.getValue().get(0).getValue());
+		assertEquals("newString1", testList.getValue().get(1).getValue());
+		assertEquals("newString4", testList.getValue().get(2).getValue());
+		assertEquals("newString3", testList.getValue().get(3).getValue());
 	}
 	
 	@Test

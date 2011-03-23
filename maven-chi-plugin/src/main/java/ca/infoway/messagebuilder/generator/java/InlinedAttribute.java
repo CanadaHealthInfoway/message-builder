@@ -32,8 +32,8 @@ public class InlinedAttribute extends Attribute {
 	}
 	
 	@Override
-	XmlMappingHelper getXmlMappingHelper() {
-		return this.elidedRelationship.getXmlMappingHelper().concat(inlinedRelationship.getXmlMappingHelper());
+	public String getXmlMapping() {
+		return this.elidedRelationship.getXmlMapping() + "/" + this.inlinedRelationship.getXmlMapping();
 	}
 	
 	@Override
@@ -75,8 +75,4 @@ public class InlinedAttribute extends Attribute {
 		return this.inlinedRelationship;
 	}
 	
-	@Override
-	public Fingerprint getFingerprint() {
-		return getElidedRelationship().getFingerprint().concat(getInlinedRelationship().getFingerprint());
-	}
 }

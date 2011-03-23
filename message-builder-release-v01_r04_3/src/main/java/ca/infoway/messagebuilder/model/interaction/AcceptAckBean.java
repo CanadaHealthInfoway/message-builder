@@ -3,13 +3,16 @@ package ca.infoway.messagebuilder.model.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.common.merged.HL7Message_2Bean;
+import ca.infoway.messagebuilder.model.merged.HL7MessageBean;
 
 
 
+/**
+ * <p>Sends HL7 Accept Acknowledgement</p>
+ */
 @Hl7PartTypeMapping({"MCCI_IN000002CA"})
-public class AcceptAckBean extends HL7Message_2Bean implements InteractionBean {
+public class AcceptAckBean extends HL7MessageBean implements InteractionBean {
 
-    private static final long serialVersionUID = 20110127L;
+    private static final long serialVersionUID = 20100614L;
 
 }

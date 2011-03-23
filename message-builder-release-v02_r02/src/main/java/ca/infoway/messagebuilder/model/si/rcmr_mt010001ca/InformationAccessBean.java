@@ -8,7 +8,6 @@ import ca.infoway.messagebuilder.datatype.impl.CVImpl;
 import ca.infoway.messagebuilder.datatype.impl.RawListWrapper;
 import ca.infoway.messagebuilder.domainvalue.ActInformationAccessTypeCode;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.merged.ConsentGivenToBean;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,20 +16,18 @@ import java.util.List;
 /**
  * <p>Information Access</p>
  * 
- * <p><p>Describes the type of information access being 
- * consented to.</p></p>
+ * <p>Describes the type of information access being consented 
+ * to.</p>
  * 
- * <p><p>Allows fine-grained control over the types of 
- * information access is granted to and who is granted 
- * access.</p></p>
+ * <p>Allows fine-grained control over the types of information 
+ * access is granted to and who is granted access.</p>
  */
 @Hl7PartTypeMapping({"RCMR_MT010001CA.PermissionToInform"})
 public class InformationAccessBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110127L;
+    private static final long serialVersionUID = 20100614L;
     private ConsentGivenToBean receiver;
     private List<CV> consentInformationTypes = new ArrayList<CV>();
-
 
     @Hl7XmlMapping({"receiver"})
     public ConsentGivenToBean getReceiver() {
@@ -40,20 +37,6 @@ public class InformationAccessBean extends MessagePartBean {
         this.receiver = receiver;
     }
 
-
-    /**
-     * <p>B:Consent Information Types</p>
-     * 
-     * <p><p>The type of patient information that can be accessed 
-     * or modified.</p></p>
-     * 
-     * <p><p>Different consents may need access to different types 
-     * of patient information (e.g. demographics, medications, 
-     * allergies, lab results). Understanding the type of 
-     * information the consent applies to is critical to 
-     * controlling access, and therefore the attribute is 
-     * mandatory.</p></p>
-     */
     @Hl7XmlMapping({"subject/recordType/code"})
     public List<ActInformationAccessTypeCode> getConsentInformationTypes() {
         return new RawListWrapper<CV, ActInformationAccessTypeCode>(consentInformationTypes, CVImpl.class);

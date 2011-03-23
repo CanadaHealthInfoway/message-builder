@@ -21,7 +21,7 @@ public class Attribute extends BaseRelationship {
 	
 	public Attribute(Relationship relationship, DataType dataType, boolean indicator) {
 		super(relationship, 
-				dataType == null ? null : dataType.getHl7ClassName(), 
+				dataType == null ? null : dataType.getWrappedName(), 
 				dataType == null ? null : dataType.getTypeName());
 		this.dataType = dataType;
 		this.indicator = indicator;
@@ -43,26 +43,26 @@ public class Attribute extends BaseRelationship {
      * @return
      */
     public boolean isCollection() {
-        return getDataType().isTypeCollection();
+        return this.dataType.isTypeCollection();
     }
 	
 	@Override
 	public Set<Object> getImportTypes() {
 		Set<Object> result = super.getImportTypes();
-		if (getDataType().isTypeCollection()) {
-			result.add(getDataType().getTypeName());
-			if (getDataType().getParameters()!=null && getDataType().getParameters().length > 0) {
-				DataType parameter = getDataType().getParameters()[0];
+		if (this.dataType.isTypeCollection()) {
+			result.add(this.dataType.getTypeName());
+			if (this.dataType.getParameters()!=null && this.dataType.getParameters().length > 0) {
+				DataType parameter = this.dataType.getParameters()[0];
 				if (parameter.isCodedType()) {
 					result.add(Code.class.getName());
 				}
 			}
 		}
-		if (getDataType() != null) {
-			result.addAll(getDataType().getImportTypes());
+		if (this.dataType != null) {
+			result.addAll(this.dataType.getImportTypes());
 		}
 		
-		if (!getDataType().isWrappedTypeListOrSet() && isCardinalityMultiple()) {
+		if (!this.dataType.isWrappedTypeListOrSet() && isCardinalityMultiple()) {
 			result.add(RawListWrapper.class.getName());
 		}
 		
@@ -81,7 +81,7 @@ public class Attribute extends BaseRelationship {
 	@Override
 	public String getTypeParameters() {
 		// TODO: BCH: I don't think this should be called, here.
-		return getDataType().getTypeParameters(ProgrammingLanguage.JAVA);
+		return this.dataType.getTypeParameters(ProgrammingLanguage.JAVA);
 	}
 	
 	public PropertyGenerator getPropertyGenerator(ProgrammingLanguage language, ClassNameManager representation, BaseRelationshipNameResolver nameResolver) {
@@ -96,9 +96,5 @@ public class Attribute extends BaseRelationship {
 	public boolean isIndicator() {
 		return this.indicator;
 	}
-
-	@Override
-	public Fingerprint getFingerprint() {
-		return new Fingerprint(RelationshipType.ATTRIBUTE, this.relationship.getName());
-	}
+	
 }

@@ -6,17 +6,17 @@ import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
 import ca.infoway.messagebuilder.datatype.TS;
 import ca.infoway.messagebuilder.datatype.impl.TSImpl;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import ca.infoway.messagebuilder.model.common.coct_mt090108ca.HealthcareWorkerBean;
 import java.util.Date;
 
 
 
-@Hl7PartTypeMapping({"POME_MT010040CA.Author","PORR_MT050016CA.Author","PORX_MT020060CA.Author","PORX_MT020070CA.Author","PORX_MT030040CA.Author","PORX_MT060010CA.Author5","PORX_MT060040CA.Author","PORX_MT060060CA.Author","PORX_MT060090CA.Author5","PORX_MT060160CA.Author","PORX_MT060160CA.Author5","PORX_MT060190CA.Author","PORX_MT060190CA.Author3","PORX_MT060210CA.Author","PORX_MT060340CA.Author","REPC_MT000005CA.Author","REPC_MT000006CA.Author","REPC_MT000009CA.Author"})
+@Hl7PartTypeMapping({"PORX_MT020060CA.Author","PORX_MT020070CA.Author","PORX_MT030040CA.Author","PORX_MT060010CA.Author5","PORX_MT060040CA.Author","PORX_MT060060CA.Author","PORX_MT060090CA.Author5","PORX_MT060160CA.Author","PORX_MT060160CA.Author5","PORX_MT060190CA.Author","PORX_MT060190CA.Author3","PORX_MT060210CA.Author","PORX_MT060340CA.Author"})
 public class RefusedByBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110127L;
+    private static final long serialVersionUID = 20100615L;
     private HealthcareWorkerBean assignedEntity;
-    private TS time = new TSImpl();
-
+    private TS prescriptionOrderDate = new TSImpl();
 
     @Hl7XmlMapping({"assignedEntity"})
     public HealthcareWorkerBean getAssignedEntity() {
@@ -26,18 +26,12 @@ public class RefusedByBean extends MessagePartBean {
         this.assignedEntity = assignedEntity;
     }
 
-
-    /**
-     * <p>Prescription Order Date</p>
-     * 
-     * <p>Create Timestamp</p>
-     */
     @Hl7XmlMapping({"time"})
-    public Date getTime() {
-        return this.time.getValue();
+    public Date getPrescriptionOrderDate() {
+        return this.prescriptionOrderDate.getValue();
     }
-    public void setTime(Date time) {
-        this.time.setValue(time);
+    public void setPrescriptionOrderDate(Date prescriptionOrderDate) {
+        this.prescriptionOrderDate.setValue(prescriptionOrderDate);
     }
 
 }

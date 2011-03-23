@@ -14,17 +14,16 @@ import java.util.Set;
 
 
 
+/**
+ * <p>Payor identifier, assigned by adjudicator.</p>
+ */
 @Hl7PartTypeMapping({"COCT_MT110101CA.Account"})
 @Hl7RootType
 public class AccountBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110127L;
+    private static final long serialVersionUID = 20100615L;
     private SET<II, Identifier> payorIdentifier = new SETImpl<II, Identifier>(IIImpl.class);
 
-
-    /**
-     * <p>Payor identifier</p>
-     */
     @Hl7XmlMapping({"holder/payorRole/id"})
     public Set<Identifier> getPayorIdentifier() {
         return this.payorIdentifier.rawSet();

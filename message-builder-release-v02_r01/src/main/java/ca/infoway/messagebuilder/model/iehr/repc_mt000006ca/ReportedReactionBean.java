@@ -5,7 +5,6 @@ import ca.infoway.messagebuilder.Code;
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.annotation.Hl7RootType;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
-import ca.infoway.messagebuilder.datatype.BL;
 import ca.infoway.messagebuilder.datatype.CD;
 import ca.infoway.messagebuilder.datatype.CV;
 import ca.infoway.messagebuilder.datatype.II;
@@ -13,7 +12,6 @@ import ca.infoway.messagebuilder.datatype.IVL;
 import ca.infoway.messagebuilder.datatype.SET;
 import ca.infoway.messagebuilder.datatype.ST;
 import ca.infoway.messagebuilder.datatype.TS;
-import ca.infoway.messagebuilder.datatype.impl.BLImpl;
 import ca.infoway.messagebuilder.datatype.impl.CDImpl;
 import ca.infoway.messagebuilder.datatype.impl.CVImpl;
 import ca.infoway.messagebuilder.datatype.impl.IIImpl;
@@ -27,14 +25,15 @@ import ca.infoway.messagebuilder.domainvalue.ActCode;
 import ca.infoway.messagebuilder.domainvalue.SubjectReaction;
 import ca.infoway.messagebuilder.domainvalue.x_NormalRestrictedTabooConfidentialityKind;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.common.coct_mt011001ca.CareCompositionsBean;
+import ca.infoway.messagebuilder.model.common.coct_mt090108ca.HealthcareWorkerBean;
 import ca.infoway.messagebuilder.model.common.coct_mt120600ca.NotesBean;
-import ca.infoway.messagebuilder.model.iehr.merged.ReportedByBean;
-import ca.infoway.messagebuilder.model.iehr.merged.ReportedReactionsBean;
 import ca.infoway.messagebuilder.model.merged.AllergyIntoleranceSeverityLevelBean;
-import ca.infoway.messagebuilder.model.merged.CreatedAtBean;
-import ca.infoway.messagebuilder.model.merged.HealthcareWorkerBean;
-import ca.infoway.messagebuilder.model.merged.RefusedByBean;
+import ca.infoway.messagebuilder.model.merged.AnnotationIndicatorBean;
+import ca.infoway.messagebuilder.model.merged.AuthoredByBean;
+import ca.infoway.messagebuilder.model.merged.CausalityAssessment_1Bean;
+import ca.infoway.messagebuilder.model.merged.Informant_2Bean;
+import ca.infoway.messagebuilder.model.merged.IsPartOfBean;
+import ca.infoway.messagebuilder.model.merged.TargetedToPharmacyBean;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -42,64 +41,43 @@ import java.util.Set;
 
 
 
+/**
+ * <p>Reported Reaction</p>
+ * 
+ * <p>This is a record of an adverse reaction considered 
+ * relevant to the patient's clinical record.</p>
+ * 
+ * <p>Useful in tracking reactions when it is not known 
+ * precisely what product they are associated with and whether 
+ * the reaction is due to an allergy or intolerance, a drug 
+ * interaction or some other cause. Effectively gives a 'heads 
+ * up' to clinicians using the drug or combination of drugs.</p>
+ * 
+ * <p>Value is mandatory if not using SNOMED</p>
+ * 
+ * <p>Code is fixed to DX if not using SNOMED</p>
+ */
 @Hl7PartTypeMapping({"REPC_MT000006CA.ReactionObservationEvent"})
 @Hl7RootType
 public class ReportedReactionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110127L;
-    private RefusedByBean author;
+    private static final long serialVersionUID = 20100615L;
+    private II reactionRecordId = new IIImpl();
+    private CD diagnosisType = new CDImpl();
     private ST description = new STImpl();
     private IVL<TS, Interval<Date>> reactionOnsetDate = new IVLImpl<TS, Interval<Date>>();
-    private II reactionRecordId = new IIImpl();
-    private CreatedAtBean location;
-    private List<NotesBean> subjectOf1Annotation = new ArrayList<NotesBean>();
-    private BL subjectOf2AnnotationIndicator = new BLImpl();
-    private AllergyIntoleranceSeverityLevelBean subjectOf4SeverityObservation;
     private SET<CV, Code> adverseReactionMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);
-    private ReportedByBean informant;
-    private List<ReportedReactionsBean> subjectOf3CausalityAssessment = new ArrayList<ReportedReactionsBean>();
-    private List<CareCompositionsBean> componentOfPatientCareProvisionEvent = new ArrayList<CareCompositionsBean>();
     private CV reaction = new CVImpl();
-    private CD diagnosisType = new CDImpl();
     private HealthcareWorkerBean responsiblePartyAssignedEntity;
+    private AuthoredByBean author;
+    private Informant_2Bean informant;
+    private TargetedToPharmacyBean location;
+    private List<NotesBean> subjectOf1Annotation = new ArrayList<NotesBean>();
+    private AnnotationIndicatorBean subjectOf2AnnotationIndicator;
+    private List<CausalityAssessment_1Bean> subjectOf3CausalityAssessment = new ArrayList<CausalityAssessment_1Bean>();
+    private AllergyIntoleranceSeverityLevelBean subjectOf4SeverityObservation;
+    private List<IsPartOfBean> componentOf = new ArrayList<IsPartOfBean>();
 
-
-    @Hl7XmlMapping({"author"})
-    public RefusedByBean getAuthor() {
-        return this.author;
-    }
-    public void setAuthor(RefusedByBean author) {
-        this.author = author;
-    }
-
-
-    /**
-     * <p>G:Description</p>
-     */
-    @Hl7XmlMapping({"text"})
-    public String getDescription() {
-        return this.description.getValue();
-    }
-    public void setDescription(String description) {
-        this.description.setValue(description);
-    }
-
-
-    /**
-     * <p>F:Reaction Onset Date</p>
-     */
-    @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getReactionOnsetDate() {
-        return this.reactionOnsetDate.getValue();
-    }
-    public void setReactionOnsetDate(Interval<Date> reactionOnsetDate) {
-        this.reactionOnsetDate.setValue(reactionOnsetDate);
-    }
-
-
-    /**
-     * <p>C:Reaction Record Id</p>
-     */
     @Hl7XmlMapping({"id"})
     public Identifier getReactionRecordId() {
         return this.reactionRecordId.getValue();
@@ -108,30 +86,92 @@ public class ReportedReactionBean extends MessagePartBean {
         this.reactionRecordId.setValue(reactionRecordId);
     }
 
+    @Hl7XmlMapping({"code"})
+    public ActCode getDiagnosisType() {
+        return (ActCode) this.diagnosisType.getValue();
+    }
+    public void setDiagnosisType(ActCode diagnosisType) {
+        this.diagnosisType.setValue(diagnosisType);
+    }
+
+    @Hl7XmlMapping({"text"})
+    public String getDescription() {
+        return this.description.getValue();
+    }
+    public void setDescription(String description) {
+        this.description.setValue(description);
+    }
+
+    @Hl7XmlMapping({"effectiveTime"})
+    public Interval<Date> getReactionOnsetDate() {
+        return this.reactionOnsetDate.getValue();
+    }
+    public void setReactionOnsetDate(Interval<Date> reactionOnsetDate) {
+        this.reactionOnsetDate.setValue(reactionOnsetDate);
+    }
+
+    @Hl7XmlMapping({"confidentialityCode"})
+    public Set<x_NormalRestrictedTabooConfidentialityKind> getAdverseReactionMaskingIndicators() {
+        return this.adverseReactionMaskingIndicators.rawSet(x_NormalRestrictedTabooConfidentialityKind.class);
+    }
+
+    @Hl7XmlMapping({"value"})
+    public SubjectReaction getReaction() {
+        return (SubjectReaction) this.reaction.getValue();
+    }
+    public void setReaction(SubjectReaction reaction) {
+        this.reaction.setValue(reaction);
+    }
+
+    @Hl7XmlMapping({"responsibleParty/assignedEntity"})
+    public HealthcareWorkerBean getResponsiblePartyAssignedEntity() {
+        return this.responsiblePartyAssignedEntity;
+    }
+    public void setResponsiblePartyAssignedEntity(HealthcareWorkerBean responsiblePartyAssignedEntity) {
+        this.responsiblePartyAssignedEntity = responsiblePartyAssignedEntity;
+    }
+
+    @Hl7XmlMapping({"author"})
+    public AuthoredByBean getAuthor() {
+        return this.author;
+    }
+    public void setAuthor(AuthoredByBean author) {
+        this.author = author;
+    }
+
+    @Hl7XmlMapping({"informant"})
+    public Informant_2Bean getInformant() {
+        return this.informant;
+    }
+    public void setInformant(Informant_2Bean informant) {
+        this.informant = informant;
+    }
 
     @Hl7XmlMapping({"location"})
-    public CreatedAtBean getLocation() {
+    public TargetedToPharmacyBean getLocation() {
         return this.location;
     }
-    public void setLocation(CreatedAtBean location) {
+    public void setLocation(TargetedToPharmacyBean location) {
         this.location = location;
     }
-
 
     @Hl7XmlMapping({"subjectOf1/annotation"})
     public List<NotesBean> getSubjectOf1Annotation() {
         return this.subjectOf1Annotation;
     }
 
-
     @Hl7XmlMapping({"subjectOf2/annotationIndicator"})
-    public Boolean getSubjectOf2AnnotationIndicator() {
-        return this.subjectOf2AnnotationIndicator.getValue();
+    public AnnotationIndicatorBean getSubjectOf2AnnotationIndicator() {
+        return this.subjectOf2AnnotationIndicator;
     }
-    public void setSubjectOf2AnnotationIndicator(Boolean subjectOf2AnnotationIndicator) {
-        this.subjectOf2AnnotationIndicator.setValue(subjectOf2AnnotationIndicator);
+    public void setSubjectOf2AnnotationIndicator(AnnotationIndicatorBean subjectOf2AnnotationIndicator) {
+        this.subjectOf2AnnotationIndicator = subjectOf2AnnotationIndicator;
     }
 
+    @Hl7XmlMapping({"subjectOf3/causalityAssessment"})
+    public List<CausalityAssessment_1Bean> getSubjectOf3CausalityAssessment() {
+        return this.subjectOf3CausalityAssessment;
+    }
 
     @Hl7XmlMapping({"subjectOf4/severityObservation"})
     public AllergyIntoleranceSeverityLevelBean getSubjectOf4SeverityObservation() {
@@ -141,67 +181,9 @@ public class ReportedReactionBean extends MessagePartBean {
         this.subjectOf4SeverityObservation = subjectOf4SeverityObservation;
     }
 
-
-    /**
-     * <p>G:Adverse Reaction Masking Indicators</p>
-     */
-    @Hl7XmlMapping({"confidentialityCode"})
-    public Set<x_NormalRestrictedTabooConfidentialityKind> getAdverseReactionMaskingIndicators() {
-        return this.adverseReactionMaskingIndicators.rawSet(x_NormalRestrictedTabooConfidentialityKind.class);
-    }
-
-
-    @Hl7XmlMapping({"informant"})
-    public ReportedByBean getInformant() {
-        return this.informant;
-    }
-    public void setInformant(ReportedByBean informant) {
-        this.informant = informant;
-    }
-
-
-    @Hl7XmlMapping({"subjectOf3/causalityAssessment"})
-    public List<ReportedReactionsBean> getSubjectOf3CausalityAssessment() {
-        return this.subjectOf3CausalityAssessment;
-    }
-
-
-    @Hl7XmlMapping({"componentOf/patientCareProvisionEvent"})
-    public List<CareCompositionsBean> getComponentOfPatientCareProvisionEvent() {
-        return this.componentOfPatientCareProvisionEvent;
-    }
-
-
-    /**
-     * <p>B:Reaction</p>
-     */
-    @Hl7XmlMapping({"value"})
-    public SubjectReaction getReaction() {
-        return (SubjectReaction) this.reaction.getValue();
-    }
-    public void setReaction(SubjectReaction reaction) {
-        this.reaction.setValue(reaction);
-    }
-
-
-    /**
-     * <p>Diagnosis Type</p>
-     */
-    @Hl7XmlMapping({"code"})
-    public ActCode getDiagnosisType() {
-        return (ActCode) this.diagnosisType.getValue();
-    }
-    public void setDiagnosisType(ActCode diagnosisType) {
-        this.diagnosisType.setValue(diagnosisType);
-    }
-
-
-    @Hl7XmlMapping({"responsibleParty/assignedEntity"})
-    public HealthcareWorkerBean getResponsiblePartyAssignedEntity() {
-        return this.responsiblePartyAssignedEntity;
-    }
-    public void setResponsiblePartyAssignedEntity(HealthcareWorkerBean responsiblePartyAssignedEntity) {
-        this.responsiblePartyAssignedEntity = responsiblePartyAssignedEntity;
+    @Hl7XmlMapping({"componentOf"})
+    public List<IsPartOfBean> getComponentOf() {
+        return this.componentOf;
     }
 
 }

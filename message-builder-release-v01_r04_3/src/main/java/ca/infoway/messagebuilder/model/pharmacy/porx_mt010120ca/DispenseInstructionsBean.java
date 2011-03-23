@@ -10,33 +10,49 @@ import ca.infoway.messagebuilder.datatype.impl.TSImpl;
 import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.common.coct_mt040205ca.ResponsiblePersonBean;
+import ca.infoway.messagebuilder.model.merged.DispenseShipToLocationBean;
 import ca.infoway.messagebuilder.model.merged.RecordedAtBean;
-import ca.infoway.messagebuilder.model.pharmacy.merged.DispenseShipToLocationBean;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 
 
+/**
+ * <p>Dispense Instructions</p>
+ * 
+ * <p>Specification of how the prescribed medication is to be 
+ * dispensed to the patient. Dispensed instruction information 
+ * includes the quantity to be dispensed, how often the 
+ * quantity is to be dispensed, etc.</p>
+ * 
+ * <p>Sets the parameters within which the dispenser must 
+ * operate in dispensing the medication to the patient.</p>
+ * 
+ * <p>A_BillablePharmacyDispense</p>
+ */
 @Hl7PartTypeMapping({"PORX_MT010120CA.SupplyRequest"})
 public class DispenseInstructionsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110127L;
-    private DispenseShipToLocationBean destinationServiceDeliveryLocation;
-    private RecordedAtBean location;
-    private List<DrugDispenseInstructionsBean> componentSupplyRequestItem = new ArrayList<DrugDispenseInstructionsBean>();
+    private static final long serialVersionUID = 20100614L;
     private IVL<TS, Interval<Date>> dispensingAllowedPeriod = new IVLImpl<TS, Interval<Date>>();
     private List<ResponsiblePersonBean> receiverResponsibleParty = new ArrayList<ResponsiblePersonBean>();
+    private RecordedAtBean location;
+    private List<ComponentBean> component = new ArrayList<ComponentBean>();
+    private DispenseShipToLocationBean destinationServiceDeliveryLocation;
 
-
-    @Hl7XmlMapping({"destination/serviceDeliveryLocation"})
-    public DispenseShipToLocationBean getDestinationServiceDeliveryLocation() {
-        return this.destinationServiceDeliveryLocation;
+    @Hl7XmlMapping({"effectiveTime"})
+    public Interval<Date> getDispensingAllowedPeriod() {
+        return this.dispensingAllowedPeriod.getValue();
     }
-    public void setDestinationServiceDeliveryLocation(DispenseShipToLocationBean destinationServiceDeliveryLocation) {
-        this.destinationServiceDeliveryLocation = destinationServiceDeliveryLocation;
+    public void setDispensingAllowedPeriod(Interval<Date> dispensingAllowedPeriod) {
+        this.dispensingAllowedPeriod.setValue(dispensingAllowedPeriod);
     }
 
+    @Hl7XmlMapping({"receiver/responsibleParty"})
+    public List<ResponsiblePersonBean> getReceiverResponsibleParty() {
+        return this.receiverResponsibleParty;
+    }
 
     @Hl7XmlMapping({"location"})
     public RecordedAtBean getLocation() {
@@ -46,28 +62,17 @@ public class DispenseInstructionsBean extends MessagePartBean {
         this.location = location;
     }
 
-
-    @Hl7XmlMapping({"component/supplyRequestItem"})
-    public List<DrugDispenseInstructionsBean> getComponentSupplyRequestItem() {
-        return this.componentSupplyRequestItem;
+    @Hl7XmlMapping({"component"})
+    public List<ComponentBean> getComponent() {
+        return this.component;
     }
 
-
-    /**
-     * <p>A:Dispensing Allowed Period</p>
-     */
-    @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getDispensingAllowedPeriod() {
-        return this.dispensingAllowedPeriod.getValue();
+    @Hl7XmlMapping({"destination/serviceDeliveryLocation"})
+    public DispenseShipToLocationBean getDestinationServiceDeliveryLocation() {
+        return this.destinationServiceDeliveryLocation;
     }
-    public void setDispensingAllowedPeriod(Interval<Date> dispensingAllowedPeriod) {
-        this.dispensingAllowedPeriod.setValue(dispensingAllowedPeriod);
-    }
-
-
-    @Hl7XmlMapping({"receiver/responsibleParty"})
-    public List<ResponsiblePersonBean> getReceiverResponsibleParty() {
-        return this.receiverResponsibleParty;
+    public void setDestinationServiceDeliveryLocation(DispenseShipToLocationBean destinationServiceDeliveryLocation) {
+        this.destinationServiceDeliveryLocation = destinationServiceDeliveryLocation;
     }
 
 }

@@ -1,0 +1,1024 @@
+<?xml version="1.0" encoding="UTF-8"?><mif:staticModel xmlns:mif="urn:hl7-org:v3/mif" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:hl7-org:v3/mif" isAbstract="false" isSerializable="true" name="CA" packageKind="realmNamespace" representationKind="flat" schemaVersion="2.0" xsi:schemaLocation="">
+   <mif:packageLocation artifact="MT-deprecated" domain="QI" id="120006" realmNamespace="CA" root="DEFN" section="IM" subSection="QU"/>
+   <mif:header>
+      <mif:renderingInformation application="Visio to MIF transform"/>
+      <mif:legalese copyrightOwner="Health Level Seven" copyrightYears="2008"/>
+   </mif:header>
+   <mif:graphicRepresentation presentation="HL7">
+      <mif:graphElement name="Main">
+         <mif:position x="0" y="0"/>
+         <mif:size height="1070" width="1233"/>
+      </mif:graphElement>
+   <entryPoint name="Query Response Wrapper - Device Initiated Patient Specific"><mif:graphElement containerDiagramName="Main" shapeId="Sheet.78">
+            <mif:position x="413" y="16"/>
+            <mif:size height="43" width="384"/>
+            <mif:anchorage connectToShapeId="Sheet.78">
+               <mif:position x="609" y="59"/>
+               <mif:graphEdge>
+                  <mif:anchor connectToShapeId="Sheet.168">
+                     <mif:position x="602" y="129"/>
+                  </mif:anchor>
+               </mif:graphEdge>
+            </mif:anchorage>
+         </mif:graphElement></entryPoint><class className="A_CareEventIdentified" presentation="HL7"><mif:graphElement containerDiagramName="Main" isHeightAutoSize="true" isWidthAutoSize="true" shapeId="Sheet.319" shapeTemplate="CMET">
+               <mif:position x="1064" y="408"/>
+               <mif:size height="60" width="105"/>
+            </mif:graphElement></class><class className="A_ConsentEventBasic" presentation="HL7"><mif:graphElement containerDiagramName="Main" isHeightAutoSize="true" isWidthAutoSize="true" shapeId="Sheet.30" shapeTemplate="CMET">
+               <mif:position x="1064" y="580"/>
+               <mif:size height="60" width="105"/>
+            </mif:graphElement></class><class className="A_IssueEventDetected-basic" presentation="HL7"><mif:graphElement containerDiagramName="Main" isHeightAutoSize="true" isWidthAutoSize="true" shapeId="Sheet.361" shapeTemplate="CMET">
+               <mif:position x="1064" y="493"/>
+               <mif:size height="60" width="105"/>
+            </mif:graphElement></class><class className="Component" presentation="HL7"><mif:graphElement containerDiagramName="Main" nodeOrientation="Left" shapeId="Sheet.303" shapeTemplate="ActRelationship" textWrappingWidth="66.0">
+               <mif:position x="768" y="412"/>
+               <mif:size height="54" width="296"/>
+            </mif:graphElement></class><class className="ControlActEvent" presentation="HL7"><mif:graphElement containerDiagramName="Main" isHeightAutoSize="false" isWidthAutoSize="true" shapeId="Sheet.168" shapeTemplate="Act">
+               <mif:position x="436" y="129"/>
+               <mif:size height="520" width="331"/>
+            </mif:graphElement></class><class className="Patient" presentation="HL7"><mif:graphElement containerDiagramName="Main" isHeightAutoSize="true" isWidthAutoSize="true" nodeOrientation="Portrait" shapeId="Sheet.288" shapeTemplate="Choice">
+               <mif:position x="1047" y="141"/>
+               <mif:size height="240" width="177"/>
+            </mif:graphElement></class><class className="QueryAck" presentation="HL7"><mif:graphElement containerDiagramName="Main" isHeightAutoSize="true" isWidthAutoSize="true" shapeId="Sheet.415" shapeTemplate="OtherClass">
+               <mif:position x="658" y="891"/>
+               <mif:size height="152" width="291"/>
+            </mif:graphElement></class><class className="QueryByParameter" presentation="HL7"><mif:graphElement containerDiagramName="Main" isHeightAutoSize="true" isWidthAutoSize="false" shapeId="Sheet.85" shapeTemplate="OtherClass">
+               <mif:position x="265" y="801"/>
+               <mif:size height="152" width="240"/>
+            </mif:graphElement></class><class className="R_PatientPersonIdentified" presentation="HL7"><mif:graphElement containerDiagramName="Main" isHeightAutoSize="true" isWidthAutoSize="false" shapeId="Sheet.282" shapeTemplate="CMET">
+               <mif:position x="1059" y="310"/>
+               <mif:size height="60" width="154"/>
+            </mif:graphElement></class><class className="R_PatientPersonIdentified-confirmable" presentation="HL7"><mif:graphElement containerDiagramName="Main" isHeightAutoSize="false" isWidthAutoSize="false" shapeId="Sheet.231" shapeTemplate="CMET">
+               <mif:position x="1059" y="165"/>
+               <mif:size height="60" width="154"/>
+            </mif:graphElement></class><class className="R_PatientPersonInformational" presentation="HL7"><mif:graphElement containerDiagramName="Main" isHeightAutoSize="false" isWidthAutoSize="false" shapeId="Sheet.254" shapeTemplate="CMET">
+               <mif:position x="1059" y="238"/>
+               <mif:size height="60" width="153"/>
+            </mif:graphElement></class><class className="RecordTarget" presentation="HL7"><mif:graphElement containerDiagramName="Main" nodeOrientation="Right" shapeId="Sheet.225" shapeTemplate="Participation" textWrappingWidth="66.0">
+               <mif:position x="768" y="164"/>
+               <mif:size height="41" width="278"/>
+            </mif:graphElement></class><class className="Subject" presentation="HL7"><mif:graphElement containerDiagramName="Main" nodeOrientation="Left" shapeId="Sheet.24" shapeTemplate="ActRelationship" textWrappingWidth="66.0">
+               <mif:position x="768" y="495"/>
+               <mif:size height="54" width="296"/>
+            </mif:graphElement></class><class className="Subject2" presentation="HL7"><mif:graphElement containerDiagramName="Main" nodeOrientation="Down" shapeId="Sheet.405" shapeTemplate="ActRelationship" textWrappingWidth="40.0">
+               <mif:position x="569" y="649"/>
+               <mif:size height="103" width="187"/>
+            </mif:graphElement></class><class className="Subject3" presentation="HL7"><mif:graphElement containerDiagramName="Main" nodeOrientation="Left" shapeId="Sheet.36" shapeTemplate="ActRelationship" textWrappingWidth="66.0">
+               <mif:position x="768" y="577"/>
+               <mif:size height="54" width="296"/>
+            </mif:graphElement></class><association className="A_CareEventIdentified" relationshipName="patientCareProvisionEvent"><mif:graphElement connectToShapeId="Sheet.303" containerDiagramName="Main">
+                                 <mif:position x="1064" y="438"/>
+                                 <mif:graphEdge>
+                                    <mif:anchor connectToShapeId="Sheet.319">
+                                       <mif:position x="1064" y="438"/>
+                                    </mif:anchor>
+                                 </mif:graphEdge>
+                              </mif:graphElement></association><association className="Component" relationshipName="componentOf"><mif:graphElement connectToShapeId="Sheet.168" containerDiagramName="Main">
+                     <mif:position x="768" y="441"/>
+                     <mif:graphEdge>
+                        <mif:anchor connectToShapeId="Sheet.303">
+                           <mif:position x="768" y="441"/>
+                        </mif:anchor>
+                     </mif:graphEdge>
+                  </mif:graphElement></association><association className="QueryAck" relationshipName="queryAck"><mif:graphElement connectToShapeId="Sheet.168" containerDiagramName="Main" shapeId="Sheet.419">
+                     <mif:position x="536" y="649"/>
+                     <mif:graphEdge>
+                        <mif:waypoint x="5.460" y="6.770"/>
+                        <mif:waypoint x="4.316" y="6.770"/>
+                        <mif:anchor connectToShapeId="Sheet.415">
+                           <mif:position x="658" y="929"/>
+                        </mif:anchor>
+                     </mif:graphEdge>
+                  </mif:graphElement></association><association className="QueryByParameter" relationshipName="queryByParameter"><mif:graphElement connectToShapeId="Sheet.168" containerDiagramName="Main" shapeId="Sheet.373">
+                     <mif:position x="470" y="649"/>
+                     <mif:graphEdge>
+                        <mif:waypoint x="4.897" y="5.981"/>
+                        <mif:waypoint x="5.780" y="5.981"/>
+                        <mif:anchor connectToShapeId="Sheet.85">
+                           <mif:position x="385" y="801"/>
+                        </mif:anchor>
+                     </mif:graphEdge>
+                  </mif:graphElement></association><association className="RecordTarget" relationshipName="recordTarget"><mif:graphElement connectToShapeId="Sheet.168" containerDiagramName="Main">
+                     <mif:position x="768" y="181"/>
+                     <mif:graphEdge>
+                        <mif:anchor connectToShapeId="Sheet.225">
+                           <mif:position x="768" y="181"/>
+                        </mif:anchor>
+                     </mif:graphEdge>
+                  </mif:graphElement></association><association className="Subject2" relationshipName="subject"><mif:graphElement connectToShapeId="Sheet.168" containerDiagramName="Main">
+                     <mif:position x="668" y="649"/>
+                     <mif:graphEdge>
+                        <mif:anchor connectToShapeId="Sheet.405">
+                           <mif:position x="668" y="649"/>
+                        </mif:anchor>
+                     </mif:graphEdge>
+                  </mif:graphElement></association><association className="Subject" relationshipName="subjectOf1"><mif:graphElement connectToShapeId="Sheet.168" containerDiagramName="Main">
+                     <mif:position x="768" y="545"/>
+                     <mif:graphEdge>
+                        <mif:anchor connectToShapeId="Sheet.24">
+                           <mif:position x="768" y="545"/>
+                        </mif:anchor>
+                     </mif:graphEdge>
+                  </mif:graphElement></association><association className="Subject3" relationshipName="subjectOf2"><mif:graphElement connectToShapeId="Sheet.168" containerDiagramName="Main">
+                     <mif:position x="768" y="597"/>
+                     <mif:graphEdge>
+                        <mif:anchor connectToShapeId="Sheet.36">
+                           <mif:position x="768" y="597"/>
+                        </mif:anchor>
+                     </mif:graphEdge>
+                  </mif:graphElement></association><association className="ParameterList" relationshipName="parameterList"><mif:graphElement connectToShapeId="Sheet.85" containerDiagramName="Main" shapeId="Sheet.391">
+                                 <mif:position x="385" y="954"/>
+                                 <mif:graphEdge>
+                                    <mif:waypoint x="4.014" y="9.756"/>
+                                    <mif:anchor connectToShapeId="Sheet.387">
+                                       <mif:position x="385" y="988"/>
+                                    </mif:anchor>
+                                 </mif:graphEdge>
+                              </mif:graphElement></association><association className="Patient" relationshipName="patient1"><mif:graphElement connectToShapeId="Sheet.225" containerDiagramName="Main">
+                                 <mif:position x="1047" y="189"/>
+                                 <mif:graphEdge>
+                                    <mif:anchor connectToShapeId="Sheet.288">
+                                       <mif:position x="1047" y="189"/>
+                                    </mif:anchor>
+                                 </mif:graphEdge>
+                              </mif:graphElement></association><association className="A_IssueEventDetected-basic" relationshipName="detectedIssueEvent"><mif:graphElement connectToShapeId="Sheet.24" containerDiagramName="Main">
+                                 <mif:position x="1064" y="499"/>
+                                 <mif:graphEdge>
+                                    <mif:anchor connectToShapeId="Sheet.361">
+                                       <mif:position x="1064" y="499"/>
+                                    </mif:anchor>
+                                 </mif:graphEdge>
+                              </mif:graphElement></association><association className="Act" relationshipName="act"><mif:graphElement connectToShapeId="Sheet.405" containerDiagramName="Main">
+                                 <mif:position x="658" y="753"/>
+                                 <mif:graphEdge>
+                                    <mif:anchor connectToShapeId="Sheet.401">
+                                       <mif:position x="658" y="753"/>
+                                    </mif:anchor>
+                                 </mif:graphEdge>
+                              </mif:graphElement></association><association className="A_ConsentEventBasic" relationshipName="consentEvent"><mif:graphElement connectToShapeId="Sheet.36" containerDiagramName="Main">
+                                 <mif:position x="1064" y="610"/>
+                                 <mif:graphEdge>
+                                    <mif:anchor connectToShapeId="Sheet.30">
+                                       <mif:position x="1064" y="610"/>
+                                    </mif:anchor>
+                                 </mif:graphEdge>
+                              </mif:graphElement></association></mif:graphicRepresentation>
+   <derivedFrom staticModelDerivationId="1">
+      <mif:targetStaticModel artifact="RIM" root="DEFN" version="00"/>
+   </derivedFrom>
+   <entryPoint className="ControlActEvent" id="QUQI_MT120006CA" isAbstract="false" name="Query Response Wrapper - Device Initiated Patient Specific">
+      
+   </entryPoint>
+   <containedClass>
+      <mif:commonModelElementRef name="A_CareEventIdentified">
+         <derivedFrom className="Act" staticModelDerivationId="1"/>
+         <supplierVocabulary><vocabularyDomain xmlns="" name="ActClass"/></supplierVocabulary>
+         
+         <cmet name="COCT_MT011001CA"/>
+      </mif:commonModelElementRef>
+   </containedClass>
+   <containedClass>
+      <mif:commonModelElementRef name="A_ConsentEventBasic">
+         <derivedFrom className="Act" staticModelDerivationId="1"/>
+         <supplierVocabulary><vocabularyDomain xmlns="" name="ActClass"/></supplierVocabulary>
+         
+         <cmet name="COCT_MT470002CA"/>
+      </mif:commonModelElementRef>
+   </containedClass>
+   <containedClass>
+      <mif:commonModelElementRef name="A_IssueEventDetected-basic">
+         <derivedFrom className="Observation" staticModelDerivationId="1"/>
+         <supplierVocabulary><vocabularyDomain xmlns="" name="ActClass"/></supplierVocabulary>
+         
+         <cmet name="COCT_MT260022CA"/>
+      </mif:commonModelElementRef>
+   </containedClass>
+   <containedClass>
+      <mif:templateParameter isAbstract="false" name="Act">
+         <derivedFrom className="Act" staticModelDerivationId="1"/>
+         
+      </mif:templateParameter>
+   </containedClass>
+   <containedClass>
+      <mif:class isAbstract="false" name="Component">
+         <mif:businessName name="Care Compositions"><realmNamespace value="UV"/></mif:businessName>
+         <derivedFrom className="ActRelationship" staticModelDerivationId="1"/>
+         
+         <mif:annotations>
+            
+            
+         <documentation><mif:definition>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>A care composition is a record, which summarizes the events that happened during care including who is responsible for the care provided.</xhtml:p>
+                  </xhtml:p>
+                  <xhtml:p>
+                     <xhtml:p>Examples include encounters, health condition (episode)-based collections and general care-based collections such as "gynecological care".</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:definition><mif:rationale>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>Allows linking records to encounters, condition and care-based compositions. Useful for searching and navigation of the patient's record.</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:rationale></documentation></mif:annotations>
+         <mif:attribute conformance="R" defaultValue="COMP" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="typeCode" sortKey="1">
+            <derivedFrom attributeName="typeCode" className="ActRelationship" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="COMP" codeSystemName="ActRelationshipType"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="contextControlCode" sortKey="2"><enumerationValues>AP</enumerationValues>
+            <derivedFrom attributeName="contextControlCode" className="ActRelationship" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="AP" codeSystemName="ContextControl"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="contextConductionInd" sortKey="3">
+            <derivedFrom attributeName="contextConductionInd" className="ActRelationship" staticModelDerivationId="1"/>
+            <mif:type name="BL"/>
+         </mif:attribute>
+      </mif:class>
+   </containedClass>
+   <containedClass>
+      <mif:class isAbstract="false" name="ControlActEvent">
+         <mif:businessName name="Trigger Event"><realmNamespace value="UV"/></mif:businessName>
+         <derivedFrom className="ControlAct" staticModelDerivationId="1"/>
+         
+         <mif:annotations>
+            
+            
+            
+         <documentation><mif:definition>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>Identifies the action that resulted in this message being sent.</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:definition><mif:usageNotes>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>There may be constraints on the usage of the effectiveTime and reasonCode attributes in the definition of the interaction or the trigger events which are conveyed with this wrapper.</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:usageNotes><mif:rationale>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>Key to understanding what action a message represents.</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:rationale></documentation></mif:annotations>
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="classCode" sortKey="1"><enumerationValues>CACT</enumerationValues>
+            <derivedFrom attributeName="classCode" className="ControlAct" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="CACT" codeSystemName="ActClass"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="moodCode" sortKey="2"><enumerationValues>EVN</enumerationValues>
+            <derivedFrom attributeName="moodCode" className="ControlAct" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="EVN" codeSystemName="ActMood"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="id" sortKey="3">
+            <mif:businessName name="B:Event Identifier"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>A unique identifier for this particular event assigned by the system in which the event occurred.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:usageNotes>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Identifier needs to be persisted by receiving applications, except for queries (queries cannot be retracted or undone).</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:usageNotes><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Allows the event to be referenced (for undos) and also indicates whether multiple interactions were caused by the same triggering event. Also used for audit purposes.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation></mif:annotations>
+            <derivedFrom attributeName="id" className="ControlAct" staticModelDerivationId="1"/>
+            <mif:type name="II.BUS"/>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="code" sortKey="4">
+            <mif:businessName name="A:Event Type"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Identifies the trigger event that occurred.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>This is mandatory because it is essential to understanding the meaning of the event.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation></mif:annotations>
+            <derivedFrom attributeName="code" className="ControlAct" staticModelDerivationId="1"/>
+            <mif:type name="CV"/>
+            <supplierVocabulary codingStrength="CNE"><vocabularyDomain name="HL7TriggerEventCode"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="statusCode" sortKey="5"><enumerationValues>completed</enumerationValues>
+            <mif:annotations>
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Describes the status of the control act, which is always complete (it happened).</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Required for completeness of specification.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation></mif:annotations>
+            <derivedFrom attributeName="statusCode" className="ControlAct" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="completed" codeSystemName="ActStatus"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="false" maximumMultiplicity="1" minimumMultiplicity="0" name="effectiveTime" sortKey="6">
+            <mif:businessName name="C:Event Effective Period"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Indicates the time the event (e.g. query, change, activation) should begin and occasionally when it should end.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>The time an event becomes effective may differ from the time the event is recorded (i.e. it may be in the future or the past). For events such as 'suspend', an intended end date may also be indicated.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation></mif:annotations>
+            <derivedFrom attributeName="effectiveTime" className="ControlAct" staticModelDerivationId="1"/>
+            <mif:type name="IVL">
+               <argumentDatatype name="TS.FULLDATE"/>
+            </mif:type>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="false" maximumMultiplicity="1" minimumMultiplicity="0" name="reasonCode" sortKey="7">
+            <mif:businessName name="E:Event Reason"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Identifies why this specific message interaction (e.g. query, activation request, modification request) occurred.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:usageNotes>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>The domain associated with this attribute will vary for each interaction and will be noted as part of the interaction description.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:usageNotes><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Allows identifying a reason for a specific action, such as 'reason for hold' or 'reason for accessing information'.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation></mif:annotations>
+            <derivedFrom attributeName="reasonCode" className="ControlAct" staticModelDerivationId="1"/>
+            <mif:type name="CV"/>
+            <supplierVocabulary codingStrength="CWE"><vocabularyDomain name="ControlActReason"/></supplierVocabulary>
+         </mif:attribute>
+      </mif:class>
+   </containedClass>
+   <containedClass>
+      <mif:templateParameter isAbstract="false" name="ParameterList">
+         <mif:businessName name="K:Parameter List"><realmNamespace value="UV"/></mif:businessName>
+         <derivedFrom className="ParameterList" staticModelDerivationId="1"/>
+         
+         <mif:annotations>
+            
+            
+         <documentation><mif:definition>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>References the parameter names and the values used by the query.</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:definition><mif:rationale>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>Used to filter the information returned by the query. All queries must have parameters, therefore this element is mandatory.</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:rationale></documentation></mif:annotations>
+      </mif:templateParameter>
+   </containedClass>
+   <containedClass>
+      <mif:class isAbstract="true" name="Patient">
+         <derivedFrom className="Role" staticModelDerivationId="1"/>
+         
+         <childClass className="R_PatientPersonIdentified-confirmable">
+            
+         </childClass>
+         <childClass className="R_PatientPersonInformational">
+            
+         </childClass>
+         <childClass className="R_PatientPersonIdentified">
+            
+         </childClass>
+      </mif:class>
+   </containedClass>
+   <containedClass>
+      <mif:class isAbstract="false" name="QueryAck">
+         <derivedFrom className="QueryAck" staticModelDerivationId="1"/>
+         
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="queryId" sortKey="1">
+            <mif:businessName name="H:Query Identifier"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Identifies the query being acknowledged</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Allows linking of a response back to the request that triggered it and is therefore mandatory. Particularly useful when responses are deferred or queued.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation></mif:annotations>
+            <derivedFrom attributeName="queryId" className="QueryAck" staticModelDerivationId="1"/>
+            <mif:type name="II.TOKEN"/>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="queryResponseCode" sortKey="2">
+            <mif:businessName name="I:Query Status"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Indicates whether the query was successful or not.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Used to control receiver logic and is therefore mandatory.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation></mif:annotations>
+            <derivedFrom attributeName="queryResponseCode" className="QueryAck" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><vocabularyDomain name="QueryResponse"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="true" maximumLength="6" maximumMultiplicity="1" minimumMultiplicity="1" name="resultTotalQuantity" sortKey="3">
+            <mif:businessName name="J:Total Matching Rows"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Identifies the total number of rows identified that matched the query.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Indicates the overall size of the result-set and is therefore mandatory. Particularly useful when only part of the result set is actually returned.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation></mif:annotations>
+            <derivedFrom attributeName="resultTotalQuantity" className="QueryAck" staticModelDerivationId="1"/>
+            <mif:type name="INT.NONNEG"/>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="true" maximumLength="3" maximumMultiplicity="1" minimumMultiplicity="1" name="resultCurrentQuantity" sortKey="4">
+            <mif:businessName name="K:Returned Rows"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Identifies the number of rows returned as part of this particular query response.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Provides a quick overview of the results of the query and is therefore mandatory.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation></mif:annotations>
+            <derivedFrom attributeName="resultCurrentQuantity" className="QueryAck" staticModelDerivationId="1"/>
+            <mif:type name="INT.NONNEG"/>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="true" maximumLength="6" maximumMultiplicity="1" minimumMultiplicity="1" name="resultRemainingQuantity" sortKey="5">
+            <mif:businessName name="L:Remaining Rows"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Indicates the number of rows that still exist after the last row returned in this response.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Identifies how much data remains to be queried and is therefore mandatory.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation></mif:annotations>
+            <derivedFrom attributeName="resultRemainingQuantity" className="QueryAck" staticModelDerivationId="1"/>
+            <mif:type name="INT.NONNEG"/>
+         </mif:attribute>
+      </mif:class>
+   </containedClass>
+   <containedClass>
+      <mif:class isAbstract="false" name="QueryByParameter">
+         <derivedFrom className="QueryByParameter" staticModelDerivationId="1"/>
+         
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="queryId" sortKey="1">
+            <mif:businessName name="H:Query Identifier"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Unique number for this particular query.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Needed to allow continuation of queries and linking of query requests and responses and therefore mandatory.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation></mif:annotations>
+            <derivedFrom attributeName="queryId" className="QueryByParameter" staticModelDerivationId="1"/>
+            <mif:type name="II.TOKEN"/>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="false" maximumMultiplicity="1" minimumMultiplicity="0" name="responseModalityCode" sortKey="2">
+            <mif:businessName name="K: Expedited Query Indicator"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>This allows the sender to indicate to the receiver that this query should follow an expedited processing flow.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Intended to convey the 'packaging' of query results. This attribute does not affect which rows are selected by the query, just the manner in which they are returned. For example, a batch file containing responses, a response message containing multiple payloads, or a stream of response messages (notifications) each identifying itself as a response to a query request.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation></mif:annotations>
+            <derivedFrom attributeName="responseModalityCode" className="QueryByParameter" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><vocabularyDomain name="ResponseModality"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="false" maximumLength="3" maximumMultiplicity="1" minimumMultiplicity="0" name="initialQuantity" sortKey="3">
+            <mif:businessName name="I:Query Limit"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>The number of response item repetitions that should be included in the initial response.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:usageNotes>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>If not specified, the default behavior is to return all repetitions. However the recipient of a query may always choose to limit the quantity returned to be less than the number requested. Regardless of the number specified here, the number of rows returned will never exceed the number of matching rows based on the query parameters.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:usageNotes><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>There may be a very large number of matching rows. To manage communication bandwidth, a limited set may initially be returned with further data retrieved by using query continuations.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation></mif:annotations>
+            <derivedFrom attributeName="initialQuantity" className="QueryByParameter" staticModelDerivationId="1"/>
+            <mif:type name="INT.POS"/>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="false" maximumMultiplicity="1" minimumMultiplicity="0" name="initialQuantityCode" sortKey="4">
+            <mif:businessName name="J:Query Limit Type"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Defines the units associated with the magnitude of the maximum size limit of a query response that can be accepted by the requesting application.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Needed to quantify the types of records requested to be returned in the query.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation></mif:annotations>
+            <derivedFrom attributeName="initialQuantityCode" className="QueryByParameter" staticModelDerivationId="1"/>
+            <mif:type name="CV"/>
+            <supplierVocabulary codingStrength="CNE"><vocabularyDomain name="QueryRequestLimit"/></supplierVocabulary>
+         </mif:attribute>
+      </mif:class>
+   </containedClass>
+   <containedClass>
+      <mif:commonModelElementRef name="R_PatientPersonIdentified">
+         <derivedFrom className="Patient" staticModelDerivationId="1"/>
+         <supplierVocabulary><vocabularyDomain xmlns="" name="RoleClass"/></supplierVocabulary>
+         
+         <cmet name="COCT_MT050201CA"/>
+      </mif:commonModelElementRef>
+   </containedClass>
+   <containedClass>
+      <mif:commonModelElementRef name="R_PatientPersonIdentified-confirmable">
+         <derivedFrom className="Patient" staticModelDerivationId="1"/>
+         <supplierVocabulary><vocabularyDomain xmlns="" name="RoleClass"/></supplierVocabulary>
+         
+         <cmet name="COCT_MT050202CA"/>
+      </mif:commonModelElementRef>
+   </containedClass>
+   <containedClass>
+      <mif:commonModelElementRef name="R_PatientPersonInformational">
+         <derivedFrom className="Patient" staticModelDerivationId="1"/>
+         <supplierVocabulary><vocabularyDomain xmlns="" name="RoleClass"/></supplierVocabulary>
+         
+         <cmet name="COCT_MT050207CA"/>
+      </mif:commonModelElementRef>
+   </containedClass>
+   <containedClass>
+      <mif:class isAbstract="false" name="RecordTarget">
+         <derivedFrom className="Participation" staticModelDerivationId="1"/>
+         
+         <mif:annotations>
+            
+            
+         <documentation><mif:definition>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>Associated patient record for which this message applies. Record target can be one of either identified patient (id, name, gender, date of birth), indeterminate patient (name, gender, date of birth) or a patient token (suggesting client identity).</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:definition><mif:rationale>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>Inferring patient identity opens up the potential for privacy breach through the mis-keying of identifiers. Also, inclusion of patient identity simplifies logging, processing and application of data access constraints such as masking and consent. Finally, patient id is required to support both EHR Index (record and update) and Patient Profile Summary query (list).</xhtml:p>
+                  </xhtml:p>
+                  <xhtml:p>
+                     <xhtml:p>Patient identity is key to successful operation of the EHR.</xhtml:p>
+                  </xhtml:p>
+                  <xhtml:p>
+                     <xhtml:p>A bare identifier exposes the patient to potential privacy violation.</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:rationale></documentation></mif:annotations>
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="typeCode" sortKey="1"><enumerationValues>RCT</enumerationValues>
+            <derivedFrom attributeName="typeCode" className="Participation" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="RCT" codeSystemName="ParticipationType"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="contextControlCode" sortKey="2"><enumerationValues>AP</enumerationValues>
+            <derivedFrom attributeName="contextControlCode" className="Participation" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="AP" codeSystemName="ContextControl"/></supplierVocabulary>
+         </mif:attribute>
+      </mif:class>
+   </containedClass>
+   <containedClass>
+      <mif:class isAbstract="false" name="Subject">
+         <mif:businessName name="d:caused"><realmNamespace value="UV"/></mif:businessName>
+         <derivedFrom className="ActRelationship" staticModelDerivationId="1"/>
+         
+         <mif:annotations>
+            
+            
+         <documentation><mif:definition>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>This is the list of clinical and business issues that have been detected and/or managed involving the current action.</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:definition><mif:rationale>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>Any trigger event can result in errors or may allow for errors to be overridden or managed.</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:rationale></documentation></mif:annotations>
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="typeCode" sortKey="1"><enumerationValues>SUBJ</enumerationValues>
+            <derivedFrom attributeName="typeCode" className="ActRelationship" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="SUBJ" codeSystemName="ActRelationshipType"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="contextControlCode" sortKey="2"><enumerationValues>AP</enumerationValues>
+            <derivedFrom attributeName="contextControlCode" className="ActRelationship" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="AP" codeSystemName="ContextControl"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="contextConductionInd" sortKey="3"><enumerationValues>false</enumerationValues>
+            <derivedFrom attributeName="contextConductionInd" className="ActRelationship" staticModelDerivationId="1"/>
+            <mif:type name="BL"/>
+         </mif:attribute>
+      </mif:class>
+   </containedClass>
+   <containedClass>
+      <mif:class isAbstract="false" name="Subject2">
+         <mif:businessName name="f:refers to"><realmNamespace value="UV"/></mif:businessName>
+         <derivedFrom className="ActRelationship" staticModelDerivationId="1"/>
+         
+         <mif:annotations>
+            
+            
+            
+         <documentation><mif:definition>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>Indicates the item(s) being acted upon by this trigger event.</xhtml:p>
+                  </xhtml:p>
+                  <xhtml:p>
+                     <xhtml:p>Will be mandatory in wrappers with payload messages, otherwise not present.</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:definition><mif:usageNotes>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>If there are multiple subject items, the changes to all of them must be either accepted or rejected as a single action. I.e. One trigger event = 1 unit of work.</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:usageNotes><mif:rationale>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>Provides information about the thing being created, modified or removed.</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:rationale></documentation></mif:annotations>
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="typeCode" sortKey="1"><enumerationValues>SUBJ</enumerationValues>
+            <derivedFrom attributeName="typeCode" className="ActRelationship" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="SUBJ" codeSystemName="ActRelationshipType"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="contextControlCode" sortKey="2"><enumerationValues>AN</enumerationValues>
+            <derivedFrom attributeName="contextControlCode" className="ActRelationship" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="AN" codeSystemName="ContextControl"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="contextConductionInd" sortKey="3">
+            <mif:businessName name="Cascade Responsibility Indicator"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Indicates whether or not objects of the trigger event are to be cascaded to the payload.</xhtml:p>
+                     </xhtml:p>
+                     <xhtml:p>
+                        <xhtml:p>If true, associations in the parent act are conducted across the ActRelationship to the message payload (act). Conduction for each association is specifically indicated by each associations' contextControlCode value.</xhtml:p>
+                     </xhtml:p>
+                     <xhtml:p>
+                        <xhtml:p>In other words, if the "subject" act relationship has contextConductionInd=true; THEN the subjectOf association is carried (to the regsitrationEvent act) according to the subjectOf.contextControlCode (AP = propogate to the reg event and add to any subject(s) (issues) already present).</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Cascading of trigger event objects allows different messages to employ consistent and common objects.</xhtml:p>
+                     </xhtml:p>
+                     <xhtml:p>
+                        <xhtml:p>Attribute is mandatory to ensure that cascading will be specified one way or another.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation></mif:annotations>
+            <derivedFrom attributeName="contextConductionInd" className="ActRelationship" staticModelDerivationId="1"/>
+            <mif:type name="BL"/>
+         </mif:attribute>
+      </mif:class>
+   </containedClass>
+   <containedClass>
+      <mif:class isAbstract="false" name="Subject3">
+         <mif:businessName name="c:authorized by"><realmNamespace value="UV"/></mif:businessName>
+         <derivedFrom className="ActRelationship" staticModelDerivationId="1"/>
+         
+         <mif:annotations>
+            
+            
+            
+         <documentation><mif:definition>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>Information pertaining to a patient's agreement/acceptance to have his/her clinical information electronically stored and shared.</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:definition><mif:usageNotes>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>This will usually only be populated for queries, but could be used for updates if a jurisdiction requires consent before recording information in the EHR (e.g. consent to participate in electronic data exchange).</xhtml:p>
+                  </xhtml:p>
+                  <xhtml:p>
+                     <xhtml:p>Note: keywords canot be passed from one application to another via the EHR (e.g. prescriber to dispenser via a Drug Information System).</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:usageNotes><mif:rationale>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>Provides authorization to record and/or view patient information.</xhtml:p>
+                  </xhtml:p>
+                  <xhtml:p>
+                     <xhtml:p>Indicates the consent or keyword used to authorize access or update, including a reason for access; May also be used to override access restriction to the information ('break the glass') on a message by message basis.</xhtml:p>
+                  </xhtml:p>
+                  <xhtml:p>
+                     <xhtml:p>May be required on a Prescription Request to indicate a keyword for drug utilization processing.</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:rationale></documentation></mif:annotations>
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="typeCode" sortKey="1"><enumerationValues>SUBJ</enumerationValues>
+            <derivedFrom attributeName="typeCode" className="ActRelationship" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="SUBJ" codeSystemName="ActRelationshipType"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="contextControlCode" sortKey="2"><enumerationValues>AP</enumerationValues>
+            <derivedFrom attributeName="contextControlCode" className="ActRelationship" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="AP" codeSystemName="ContextControl"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="contextConductionInd" sortKey="3"><enumerationValues>false</enumerationValues>
+            <derivedFrom attributeName="contextConductionInd" className="ActRelationship" staticModelDerivationId="1"/>
+            <mif:type name="BL"/>
+         </mif:attribute>
+      </mif:class>
+   </containedClass>
+   <association sortKey="13">
+      
+      <mif:connections>
+         <mif:traversableConnection conformance="R" isMandatory="false" maximumMultiplicity="1" minimumMultiplicity="1" name="patientCareProvisionEvent" participantClassName="A_CareEventIdentified" sortKey="AZ">
+            <derivedFrom associationEndName="source" className="ActRelationship" staticModelDerivationId="1"/>
+         </mif:traversableConnection>
+         <mif:nonTraversableConnection participantClassName="Component">
+            <derivedFrom associationEndName="outboundRelationship" className="Act" staticModelDerivationId="1"/>
+         </mif:nonTraversableConnection>
+      </mif:connections>
+   </association>
+   <association sortKey="2">
+      
+      <mif:connections>
+         <mif:traversableConnection conformance="R" isMandatory="false" maximumMultiplicity="100" minimumMultiplicity="0" name="componentOf" participantClassName="Component" sortKey="CE________">
+            <derivedFrom associationEndName="inboundRelationship" className="Act" staticModelDerivationId="1"/>
+         </mif:traversableConnection>
+         <mif:nonTraversableConnection participantClassName="ControlActEvent">
+            <derivedFrom associationEndName="target" className="ActRelationship" staticModelDerivationId="1"/>
+         </mif:nonTraversableConnection>
+      </mif:connections>
+   </association>
+   <association sortKey="5">
+      
+      <mif:connections>
+         <mif:traversableConnection conformance="R" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="queryAck" participantClassName="QueryAck" sortKey="Z">
+            <derivedFrom associationEndName="queryEvent" className="ControlAct" staticModelDerivationId="1"/>
+         </mif:traversableConnection>
+         <mif:nonTraversableConnection participantClassName="ControlActEvent">
+            <derivedFrom associationEndName="controlAct" className="QueryEvent" staticModelDerivationId="1"/>
+         </mif:nonTraversableConnection>
+      </mif:connections>
+   </association>
+   <association sortKey="4">
+      
+      <mif:connections>
+         <mif:traversableConnection conformance="R" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="queryByParameter" participantClassName="QueryByParameter" sortKey="Z">
+            <derivedFrom associationEndName="queryEvent" className="ControlAct" staticModelDerivationId="1"/>
+         </mif:traversableConnection>
+         <mif:nonTraversableConnection participantClassName="ControlActEvent">
+            <derivedFrom associationEndName="controlAct" className="QueryEvent" staticModelDerivationId="1"/>
+         </mif:nonTraversableConnection>
+      </mif:connections>
+   </association>
+   <association sortKey="3">
+      
+      <mif:connections>
+         <mif:traversableConnection conformance="R" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="recordTarget" participantClassName="RecordTarget" sortKey="ABA_______">
+            <derivedFrom associationEndName="participation" className="Act" staticModelDerivationId="1"/>
+         </mif:traversableConnection>
+         <mif:nonTraversableConnection participantClassName="ControlActEvent">
+            <derivedFrom associationEndName="act" className="Participation" staticModelDerivationId="1"/>
+         </mif:nonTraversableConnection>
+      </mif:connections>
+   </association>
+   <association sortKey="6">
+      
+      <mif:connections>
+         <mif:traversableConnection conformance="R" isMandatory="false" maximumMultiplicity="1000" minimumMultiplicity="0" name="subject" participantClassName="Subject2" sortKey="BDB_______">
+            <derivedFrom associationEndName="outboundRelationship" className="Act" staticModelDerivationId="1"/>
+         </mif:traversableConnection>
+         <mif:nonTraversableConnection participantClassName="ControlActEvent">
+            <derivedFrom associationEndName="source" className="ActRelationship" staticModelDerivationId="1"/>
+         </mif:nonTraversableConnection>
+      </mif:connections>
+   </association>
+   <association sortKey="1">
+      
+      <mif:connections>
+         <mif:traversableConnection conformance="R" isMandatory="false" maximumMultiplicity="50" minimumMultiplicity="0" name="subjectOf1" participantClassName="Subject" sortKey="CDB_______">
+            <derivedFrom associationEndName="inboundRelationship" className="Act" staticModelDerivationId="1"/>
+         </mif:traversableConnection>
+         <mif:nonTraversableConnection participantClassName="ControlActEvent">
+            <derivedFrom associationEndName="target" className="ActRelationship" staticModelDerivationId="1"/>
+         </mif:nonTraversableConnection>
+      </mif:connections>
+   </association>
+   <association sortKey="0">
+      
+      <mif:connections>
+         <mif:traversableConnection conformance="R" isMandatory="false" maximumMultiplicity="1" minimumMultiplicity="0" name="subjectOf2" participantClassName="Subject3" sortKey="CDB_______">
+            <derivedFrom associationEndName="inboundRelationship" className="Act" staticModelDerivationId="1"/>
+         </mif:traversableConnection>
+         <mif:nonTraversableConnection participantClassName="ControlActEvent">
+            <derivedFrom associationEndName="target" className="ActRelationship" staticModelDerivationId="1"/>
+         </mif:nonTraversableConnection>
+      </mif:connections>
+   </association>
+   <association sortKey="19">
+      
+      <mif:connections>
+         <mif:traversableConnection conformance="R" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="parameterList" participantClassName="ParameterList" sortKey="Z">
+            <derivedFrom associationEndName="parameter" className="QueryByParameter" staticModelDerivationId="1"/>
+         </mif:traversableConnection>
+         <mif:nonTraversableConnection participantClassName="QueryByParameter">
+            <derivedFrom associationEndName="queryByParameter" className="Parameter" staticModelDerivationId="1"/>
+         </mif:nonTraversableConnection>
+      </mif:connections>
+   </association>
+   <association sortKey="17">
+      
+      <mif:connections>
+         <mif:traversableConnection conformance="R" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="patient1" participantClassName="Patient" sortKey="BZ">
+            <derivedFrom associationEndName="role" className="Participation" staticModelDerivationId="1"/>
+            <participantClassSpecialization className="R_PatientPersonIdentified-confirmable" traversalName="patient1"/>
+            <participantClassSpecialization className="R_PatientPersonInformational" traversalName="patient2"/>
+            <participantClassSpecialization className="R_PatientPersonIdentified" traversalName="patient3"/>
+         </mif:traversableConnection>
+         <mif:nonTraversableConnection participantClassName="RecordTarget">
+            <derivedFrom associationEndName="participation" className="Role" staticModelDerivationId="1"/>
+         </mif:nonTraversableConnection>
+      </mif:connections>
+   </association>
+   <association sortKey="10">
+      
+      <mif:connections>
+         <mif:traversableConnection conformance="R" isMandatory="false" maximumMultiplicity="1" minimumMultiplicity="1" name="detectedIssueEvent" participantClassName="A_IssueEventDetected-basic" sortKey="AZ">
+            <derivedFrom associationEndName="source" className="ActRelationship" staticModelDerivationId="1"/>
+         </mif:traversableConnection>
+         <mif:nonTraversableConnection participantClassName="Subject">
+            <derivedFrom associationEndName="outboundRelationship" className="Act" staticModelDerivationId="1"/>
+         </mif:nonTraversableConnection>
+      </mif:connections>
+   </association>
+   <association sortKey="24">
+      
+      <mif:connections>
+         <mif:traversableConnection conformance="R" isMandatory="false" maximumMultiplicity="1" minimumMultiplicity="1" name="act" participantClassName="Act" sortKey="BZ">
+            <derivedFrom associationEndName="target" className="ActRelationship" staticModelDerivationId="1"/>
+         </mif:traversableConnection>
+         <mif:nonTraversableConnection participantClassName="Subject2">
+            <derivedFrom associationEndName="inboundRelationship" className="Act" staticModelDerivationId="1"/>
+         </mif:nonTraversableConnection>
+      </mif:connections>
+   </association>
+   <association sortKey="7">
+      
+      <mif:connections>
+         <mif:traversableConnection conformance="R" isMandatory="false" maximumMultiplicity="1" minimumMultiplicity="1" name="consentEvent" participantClassName="A_ConsentEventBasic" sortKey="AZ">
+            <derivedFrom associationEndName="source" className="ActRelationship" staticModelDerivationId="1"/>
+         </mif:traversableConnection>
+         <mif:nonTraversableConnection participantClassName="Subject3">
+            <derivedFrom associationEndName="outboundRelationship" className="Act" staticModelDerivationId="1"/>
+         </mif:nonTraversableConnection>
+      </mif:connections>
+   </association>
+</mif:staticModel>

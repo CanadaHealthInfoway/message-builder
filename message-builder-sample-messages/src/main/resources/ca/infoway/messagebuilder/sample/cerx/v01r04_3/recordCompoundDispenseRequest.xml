@@ -4,7 +4,7 @@
 	<id root="8779d53c-e9c4-4489-90d7-e108ab55a8b8"></id>
 	<creationTime value="20090526095409.0451-0400"></creationTime>
 	<versionCode code="NE2006"></versionCode>
-	<interactionId displayable="true" specializationType="II.PUBLIC" extension="PORX_IN020190CA" root="2.16.840.1.113883.1.6"></interactionId>
+	<interactionId extension="PORX_IN020190CA" root="2.16.840.1.113883.1.6"></interactionId>
 	<profileId extension="tbd" root="tbd"></profileId>
 	<processingCode code="P"></processingCode>
 	<processingModeCode code="T"></processingModeCode>

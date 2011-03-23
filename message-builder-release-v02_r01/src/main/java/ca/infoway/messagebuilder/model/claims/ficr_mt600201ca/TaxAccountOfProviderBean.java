@@ -13,35 +13,33 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 
+/**
+ * <p>Tax Account of Provider</p>
+ * 
+ * <p>Can be used to specify the appropriate GST number and 
+ * other tax numbers.</p>
+ */
 @Hl7PartTypeMapping({"FICR_MT600201CA.ProviderBillingTaxAccount"})
 public class TaxAccountOfProviderBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110127L;
-    private CV actInvoiceDetailscode = new CVImpl();
+    private static final long serialVersionUID = 20100615L;
     private II taxNumber = new IIImpl();
+    private CV actInvoiceDetailscode = new CVImpl();
 
-
-    /**
-     * <p>ActInvoiceDetailscode</p>
-     */
-    @Hl7XmlMapping({"code"})
-    public Code getActInvoiceDetailscode() {
-        return (Code) this.actInvoiceDetailscode.getValue();
-    }
-    public void setActInvoiceDetailscode(Code actInvoiceDetailscode) {
-        this.actInvoiceDetailscode.setValue(actInvoiceDetailscode);
-    }
-
-
-    /**
-     * <p>Tax number</p>
-     */
     @Hl7XmlMapping({"id"})
     public Identifier getTaxNumber() {
         return this.taxNumber.getValue();
     }
     public void setTaxNumber(Identifier taxNumber) {
         this.taxNumber.setValue(taxNumber);
+    }
+
+    @Hl7XmlMapping({"code"})
+    public Code getActInvoiceDetailscode() {
+        return (Code) this.actInvoiceDetailscode.getValue();
+    }
+    public void setActInvoiceDetailscode(Code actInvoiceDetailscode) {
+        this.actInvoiceDetailscode.setValue(actInvoiceDetailscode);
     }
 
 }

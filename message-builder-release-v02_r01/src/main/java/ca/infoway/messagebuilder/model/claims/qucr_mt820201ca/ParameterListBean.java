@@ -17,58 +17,27 @@ import java.util.Date;
 
 
 
+/**
+ * <p>Either a AdjudResultsGroup.ID (which implies date, payee, 
+ * payor) or date, payee, payor needs to be specified.</p>
+ * 
+ * <p>At least one parameter item must be specified.</p>
+ */
 @Hl7PartTypeMapping({"QUCR_MT820201CA.ParameterList"})
 @Hl7RootType
 public class ParameterListBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110127L;
+    private static final long serialVersionUID = 20100615L;
+    private TS adjudResultsGroupAuthorTimeValue = new TSImpl();
+    private II adjudResultsGroupIdValue = new IIImpl();
     private II financialContractIdValue = new IIImpl();
     private II insuranceCarrierRoleIdValue = new IIImpl();
-    private II locationIdValue = new IIImpl();
     private CV invoiceElementGroupCodeValue = new CVImpl();
-    private TS adjudResultsGroupAuthorTimeValue = new TSImpl();
+    private II locationIdValue = new IIImpl();
+    private II payeeIdValue = new IIImpl();
     private II payorIdValue = new IIImpl();
     private II providerID = new IIImpl();
-    private II payeeIdValue = new IIImpl();
-    private II adjudResultsGroupIdValue = new IIImpl();
     private II sendingApplicationIdValue = new IIImpl();
-
-
-    @Hl7XmlMapping({"financialContractId/value"})
-    public Identifier getFinancialContractIdValue() {
-        return this.financialContractIdValue.getValue();
-    }
-    public void setFinancialContractIdValue(Identifier financialContractIdValue) {
-        this.financialContractIdValue.setValue(financialContractIdValue);
-    }
-
-
-    @Hl7XmlMapping({"insuranceCarrierRoleId/value"})
-    public Identifier getInsuranceCarrierRoleIdValue() {
-        return this.insuranceCarrierRoleIdValue.getValue();
-    }
-    public void setInsuranceCarrierRoleIdValue(Identifier insuranceCarrierRoleIdValue) {
-        this.insuranceCarrierRoleIdValue.setValue(insuranceCarrierRoleIdValue);
-    }
-
-
-    @Hl7XmlMapping({"locationId/value"})
-    public Identifier getLocationIdValue() {
-        return this.locationIdValue.getValue();
-    }
-    public void setLocationIdValue(Identifier locationIdValue) {
-        this.locationIdValue.setValue(locationIdValue);
-    }
-
-
-    @Hl7XmlMapping({"invoiceElementGroupCode/value"})
-    public Code getInvoiceElementGroupCodeValue() {
-        return (Code) this.invoiceElementGroupCodeValue.getValue();
-    }
-    public void setInvoiceElementGroupCodeValue(Code invoiceElementGroupCodeValue) {
-        this.invoiceElementGroupCodeValue.setValue(invoiceElementGroupCodeValue);
-    }
-
 
     @Hl7XmlMapping({"adjudResultsGroupAuthorTime/value"})
     public Date getAdjudResultsGroupAuthorTimeValue() {
@@ -78,27 +47,45 @@ public class ParameterListBean extends MessagePartBean {
         this.adjudResultsGroupAuthorTimeValue.setValue(adjudResultsGroupAuthorTimeValue);
     }
 
-
-    @Hl7XmlMapping({"payorId/value"})
-    public Identifier getPayorIdValue() {
-        return this.payorIdValue.getValue();
+    @Hl7XmlMapping({"adjudResultsGroupId/value"})
+    public Identifier getAdjudResultsGroupIdValue() {
+        return this.adjudResultsGroupIdValue.getValue();
     }
-    public void setPayorIdValue(Identifier payorIdValue) {
-        this.payorIdValue.setValue(payorIdValue);
-    }
-
-
-    /**
-     * <p>Provider ID</p>
-     */
-    @Hl7XmlMapping({"providerId/value"})
-    public Identifier getProviderID() {
-        return this.providerID.getValue();
-    }
-    public void setProviderID(Identifier providerID) {
-        this.providerID.setValue(providerID);
+    public void setAdjudResultsGroupIdValue(Identifier adjudResultsGroupIdValue) {
+        this.adjudResultsGroupIdValue.setValue(adjudResultsGroupIdValue);
     }
 
+    @Hl7XmlMapping({"financialContractId/value"})
+    public Identifier getFinancialContractIdValue() {
+        return this.financialContractIdValue.getValue();
+    }
+    public void setFinancialContractIdValue(Identifier financialContractIdValue) {
+        this.financialContractIdValue.setValue(financialContractIdValue);
+    }
+
+    @Hl7XmlMapping({"insuranceCarrierRoleId/value"})
+    public Identifier getInsuranceCarrierRoleIdValue() {
+        return this.insuranceCarrierRoleIdValue.getValue();
+    }
+    public void setInsuranceCarrierRoleIdValue(Identifier insuranceCarrierRoleIdValue) {
+        this.insuranceCarrierRoleIdValue.setValue(insuranceCarrierRoleIdValue);
+    }
+
+    @Hl7XmlMapping({"invoiceElementGroupCode/value"})
+    public Code getInvoiceElementGroupCodeValue() {
+        return (Code) this.invoiceElementGroupCodeValue.getValue();
+    }
+    public void setInvoiceElementGroupCodeValue(Code invoiceElementGroupCodeValue) {
+        this.invoiceElementGroupCodeValue.setValue(invoiceElementGroupCodeValue);
+    }
+
+    @Hl7XmlMapping({"locationId/value"})
+    public Identifier getLocationIdValue() {
+        return this.locationIdValue.getValue();
+    }
+    public void setLocationIdValue(Identifier locationIdValue) {
+        this.locationIdValue.setValue(locationIdValue);
+    }
 
     @Hl7XmlMapping({"payeeId/value"})
     public Identifier getPayeeIdValue() {
@@ -108,15 +95,21 @@ public class ParameterListBean extends MessagePartBean {
         this.payeeIdValue.setValue(payeeIdValue);
     }
 
-
-    @Hl7XmlMapping({"adjudResultsGroupId/value"})
-    public Identifier getAdjudResultsGroupIdValue() {
-        return this.adjudResultsGroupIdValue.getValue();
+    @Hl7XmlMapping({"payorId/value"})
+    public Identifier getPayorIdValue() {
+        return this.payorIdValue.getValue();
     }
-    public void setAdjudResultsGroupIdValue(Identifier adjudResultsGroupIdValue) {
-        this.adjudResultsGroupIdValue.setValue(adjudResultsGroupIdValue);
+    public void setPayorIdValue(Identifier payorIdValue) {
+        this.payorIdValue.setValue(payorIdValue);
     }
 
+    @Hl7XmlMapping({"providerId/value"})
+    public Identifier getProviderID() {
+        return this.providerID.getValue();
+    }
+    public void setProviderID(Identifier providerID) {
+        this.providerID.setValue(providerID);
+    }
 
     @Hl7XmlMapping({"sendingApplicationId/value"})
     public Identifier getSendingApplicationIdValue() {

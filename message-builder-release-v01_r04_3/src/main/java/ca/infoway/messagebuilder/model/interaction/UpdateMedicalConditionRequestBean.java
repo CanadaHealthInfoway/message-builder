@@ -3,15 +3,20 @@ package ca.infoway.messagebuilder.model.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.common.merged.HL7Message_1Bean;
-import ca.infoway.messagebuilder.model.common.merged.TriggerEvent_1Bean;
-import ca.infoway.messagebuilder.model.iehr.merged.MedicalConditionBean;
+import ca.infoway.messagebuilder.model.common.mcai_mt700210ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.common.mcci_mt000100ca.HL7MessageBean;
+import ca.infoway.messagebuilder.model.merged.MedicalConditionBean;
 
 
 
+/**
+ * <p>Requests that information such as severity, status, start 
+ * date and end date of a previously-recorded medical condition 
+ * be updated.</p>
+ */
 @Hl7PartTypeMapping({"REPC_IN000032CA"})
-public class UpdateMedicalConditionRequestBean extends HL7Message_1Bean<TriggerEvent_1Bean<MedicalConditionBean>> implements InteractionBean {
+public class UpdateMedicalConditionRequestBean extends HL7MessageBean<TriggerEventBean<MedicalConditionBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20110127L;
+    private static final long serialVersionUID = 20100614L;
 
 }

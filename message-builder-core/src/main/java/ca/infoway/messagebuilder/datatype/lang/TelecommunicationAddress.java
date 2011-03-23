@@ -1,6 +1,5 @@
 package ca.infoway.messagebuilder.datatype.lang;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
@@ -28,9 +27,8 @@ import ca.infoway.messagebuilder.domainvalue.URLScheme;
  * 
  * @sharpen.ignore - datatype - translated manually
  */
-public class TelecommunicationAddress implements Serializable {
+public class TelecommunicationAddress {
 	
-	private static final long serialVersionUID = 369059637226025872L;
 	private static final String SEPARATOR = ":";
 	private static final String SLASHES = "//";
 	

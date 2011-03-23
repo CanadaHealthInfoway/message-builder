@@ -18,32 +18,28 @@ import ca.infoway.messagebuilder.datatype.lang.Money;
 import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
 import ca.infoway.messagebuilder.datatype.lang.Ratio;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.merged.AdjudicatedResultOutcomeBean;
 
 
 
 @Hl7PartTypeMapping({"COCT_MT680000CA.AdjudicatedInvoiceElementDetail"})
-public class InvoiceElementDetailBean extends MessagePartBean implements AdjudicatedInvoiceElementChoice {
+public class InvoiceElementDetailBean extends MessagePartBean implements AdjudicatedInvoiceElementChoiceBean {
 
-    private static final long serialVersionUID = 20110127L;
+    private static final long serialVersionUID = 20100603L;
+    private AdjudicatedResultOutcomeBean outcomeOf;
     private CV productServiceCode = new CVImpl();
-    private RTO<Money, PhysicalQuantity> pricePerUnit = new RTOImpl<Money, PhysicalQuantity>();
     private PQ quantityPerUnit = new PQImpl();
+    private RTO<Money, PhysicalQuantity> pricePerUnit = new RTOImpl<Money, PhysicalQuantity>();
     private MO invoiceElementAmountBilled = new MOImpl();
     private INT multiplierForTaxes = new INTImpl();
-    private AdjudicatedResultOutcomeBean outcomeOf;
 
+    @Hl7XmlMapping({"outcomeOf"})
+    public AdjudicatedResultOutcomeBean getOutcomeOf() {
+        return this.outcomeOf;
+    }
+    public void setOutcomeOf(AdjudicatedResultOutcomeBean outcomeOf) {
+        this.outcomeOf = outcomeOf;
+    }
 
-    /**
-     * <p>Product/service Code</p>
-     * 
-     * <p><p>Domain for AdjudicatedInvoiceElementDetail.code is 
-     * GenericBillableItemModifier</p></p>
-     * 
-     * <p><p>Product/Service Code e.g. Office Visit ,Taxes, Markup, 
-     * Dispense, including Product/Service Code Modifier e.g. 
-     * northern isolation, off hours specialty, on call</p></p>
-     */
     @Hl7XmlMapping({"code"})
     public Code getProductServiceCode() {
         return (Code) this.productServiceCode.getValue();
@@ -52,26 +48,6 @@ public class InvoiceElementDetailBean extends MessagePartBean implements Adjudic
         this.productServiceCode.setValue(productServiceCode);
     }
 
-
-    /**
-     * <p>Price Per Unit</p>
-     * 
-     * <p><p>e.g. $50 CAD/ 1 {box}</p></p>
-     */
-    @Hl7XmlMapping({"unitPriceAmt"})
-    public Ratio<Money, PhysicalQuantity> getPricePerUnit() {
-        return this.pricePerUnit.getValue();
-    }
-    public void setPricePerUnit(Ratio<Money, PhysicalQuantity> pricePerUnit) {
-        this.pricePerUnit.setValue(pricePerUnit);
-    }
-
-
-    /**
-     * <p>Quantity per Unit</p>
-     * 
-     * <p><p>e.g. 3 {boxes}</p></p>
-     */
     @Hl7XmlMapping({"unitQuantity"})
     public PhysicalQuantity getQuantityPerUnit() {
         return this.quantityPerUnit.getValue();
@@ -80,13 +56,14 @@ public class InvoiceElementDetailBean extends MessagePartBean implements Adjudic
         this.quantityPerUnit.setValue(quantityPerUnit);
     }
 
+    @Hl7XmlMapping({"unitPriceAmt"})
+    public Ratio<Money, PhysicalQuantity> getPricePerUnit() {
+        return this.pricePerUnit.getValue();
+    }
+    public void setPricePerUnit(Ratio<Money, PhysicalQuantity> pricePerUnit) {
+        this.pricePerUnit.setValue(pricePerUnit);
+    }
 
-    /**
-     * <p>Invoice Element Amount billed</p>
-     * 
-     * <p><p>= unit_qty * unit_price_amt * factor_nbr * points_nbr. 
-     * E.g. $150 CAD</p></p>
-     */
     @Hl7XmlMapping({"netAmt"})
     public Money getInvoiceElementAmountBilled() {
         return this.invoiceElementAmountBilled.getValue();
@@ -95,28 +72,12 @@ public class InvoiceElementDetailBean extends MessagePartBean implements Adjudic
         this.invoiceElementAmountBilled.setValue(invoiceElementAmountBilled);
     }
 
-
-    /**
-     * <p>Multiplier for Taxes.</p>
-     * 
-     * <p><p>multiplier, can be used for tax percentages such as 
-     * 0.07</p></p>
-     */
     @Hl7XmlMapping({"factorNumber"})
     public Integer getMultiplierForTaxes() {
         return this.multiplierForTaxes.getValue();
     }
     public void setMultiplierForTaxes(Integer multiplierForTaxes) {
         this.multiplierForTaxes.setValue(multiplierForTaxes);
-    }
-
-
-    @Hl7XmlMapping({"outcomeOf"})
-    public AdjudicatedResultOutcomeBean getOutcomeOf() {
-        return this.outcomeOf;
-    }
-    public void setOutcomeOf(AdjudicatedResultOutcomeBean outcomeOf) {
-        this.outcomeOf = outcomeOf;
     }
 
 }

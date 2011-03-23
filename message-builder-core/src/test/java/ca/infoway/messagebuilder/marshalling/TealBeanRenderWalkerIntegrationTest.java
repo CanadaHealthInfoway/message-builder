@@ -3,10 +3,9 @@ package ca.infoway.messagebuilder.marshalling;
 import static ca.infoway.messagebuilder.domainvalue.transport.AcknowledgementDetailCode.SYNTAX_ERROR;
 import static ca.infoway.messagebuilder.domainvalue.transport.AcknowledgementDetailCode.UNKNOWN_SENDER;
 import static ca.infoway.messagebuilder.domainvalue.transport.AcknowledgementDetailType.ERROR;
-import static ca.infoway.messagebuilder.marshalling.MockVersionNumber.MOCK_MR2009;
+import static ca.infoway.messagebuilder.marshalling.MockVersionNumber.MOCK;
 import static org.junit.Assert.fail;
 
-import java.util.Date;
 import java.util.UUID;
 
 import org.junit.Before;
@@ -24,7 +23,6 @@ import ca.infoway.messagebuilder.model.common.GenericResponseMessageBean;
 import ca.infoway.messagebuilder.model.cr.FindCandidatesCriteria;
 import ca.infoway.messagebuilder.model.cr.FindCandidatesQueryMessageBean;
 import ca.infoway.messagebuilder.model.mock.AcknowledgementDetailBean;
-import ca.infoway.messagebuilder.model.mock.AuthorBean;
 import ca.infoway.messagebuilder.model.mock.MessageBeanBuilderSupport;
 import ca.infoway.messagebuilder.model.mock.QueryControlActEventBean;
 import ca.infoway.messagebuilder.resolver.CodeResolverRegistry;
@@ -55,7 +53,7 @@ public class TealBeanRenderWalkerIntegrationTest {
 		
 		XmlRenderingVisitor visitor = new XmlRenderingVisitor();
 		
-		this.walker = new TealBeanRenderWalker(tealBean, MOCK_MR2009, new MockTestCaseMessageDefinitionService());
+		this.walker = new TealBeanRenderWalker(tealBean, MOCK, new MockTestCaseMessageDefinitionService());
 		this.walker.accept(visitor);
 
 		String xml = visitor.toXml().getXmlMessage();
@@ -71,12 +69,7 @@ public class TealBeanRenderWalkerIntegrationTest {
 		MessageBeanBuilderSupport.populateMoreBetterStandardValues(tealBean);
 		tealBean.getControlActEventBean().setCode(HL7TriggerEventCode.FIND_CANDIDATES_QUERY);
 		
-		this.walker = new TealBeanRenderWalker(tealBean, MOCK_MR2009, new MockTestCaseMessageDefinitionService());
-		
-		AuthorBean author = new AuthorBean();
-		author.setTime(new Date());
-		author.setId(new Identifier("1.2.3.4", "authorExtension"));
-		tealBean.getControlActEventBean().setAuthor(author);
+		this.walker = new TealBeanRenderWalker(tealBean, MOCK, new MockTestCaseMessageDefinitionService());
 		
 		tealBean.getControlActEventBean().setQueryId(new Identifier(UUID.randomUUID().toString()));
 		tealBean.getControlActEventBean().setEventId(new Identifier(UUID.randomUUID().toString()));
@@ -85,7 +78,6 @@ public class TealBeanRenderWalkerIntegrationTest {
 		this.walker.accept(visitor);
 		
 		String xml = visitor.toXml().getXmlMessage();
-		System.out.println(xml);
 		assertValidHl7Message(xml);
 	}
 	
@@ -95,7 +87,7 @@ public class TealBeanRenderWalkerIntegrationTest {
 
 	private void assertValidHl7Message(String xml) throws SAXException {
 		Document document = new DocumentFactory().createFromString(xml);
-		MessageValidatorResult result = new MessageValidatorImpl(new MockTestCaseMessageDefinitionService()).validate(document, MOCK_MR2009.getVersionLiteral());
+		MessageValidatorResult result = new MessageValidatorImpl(new MockTestCaseMessageDefinitionService()).validate(document, MOCK.getVersionLiteral());
 		for (Hl7Error error : result.getHl7Errors()) {
 			fail(error.toString());
 		}

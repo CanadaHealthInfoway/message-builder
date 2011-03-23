@@ -10,16 +10,19 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 
+/**
+ * <p>Cross Reference Identifier</p>
+ * 
+ * <p>Unique identifier used for cross-referrence.</p>
+ * 
+ * <p>Identifier required to link invoices.</p>
+ */
 @Hl7PartTypeMapping({"FICR_MT600201CA.InvoiceElementCrossReference"})
 public class CrossReferenceIdentifierBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110127L;
+    private static final long serialVersionUID = 20100615L;
     private II crossReferenceIdentifier = new IIImpl();
 
-
-    /**
-     * <p>Cross Reference Identifier</p>
-     */
     @Hl7XmlMapping({"id"})
     public Identifier getCrossReferenceIdentifier() {
         return this.crossReferenceIdentifier.getValue();

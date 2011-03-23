@@ -2,8 +2,6 @@ package ca.infoway.messagebuilder.marshalling;
 
 import java.util.List;
 
-import ca.infoway.messagebuilder.domainvalue.NullFlavor;
-
 /**
  * <p>A part bridge maps between a Message Part and the Java class that represents it.
  * In the most simple case, one part maps to one Java class, but in some cases (such
@@ -25,17 +23,4 @@ interface PartBridge {
 	 */
 	public boolean isCollapsed();
 	public String getPropertyName();
-
-	/**
-	 * <p>Indicates whether or not the part has a null flavor.
-	 * 
-	 * @return whether the part has a null flavor set on it
-	 */
-	public boolean hasNullFlavor();
-	/**
-	 * <p>Returns the part's null flavor, if it has one, or null.
-	 * 
-	 * @return the null flavor
-	 */
-	public NullFlavor getNullFlavor();
 }

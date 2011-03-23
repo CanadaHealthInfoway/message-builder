@@ -8,46 +8,19 @@ import ca.infoway.messagebuilder.datatype.PQ;
 import ca.infoway.messagebuilder.datatype.impl.CVImpl;
 import ca.infoway.messagebuilder.datatype.impl.PQImpl;
 import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
-import ca.infoway.messagebuilder.domainvalue.CompliancePackageEntityType;
+import ca.infoway.messagebuilder.domainvalue.OrderableDrugForm;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.claims.coct_mt300000ca.DrugFormBean;
 
 
 
 @Hl7PartTypeMapping({"COCT_MT220100CA.Content","COCT_MT220110CA.Content","COCT_MT220200CA.Content","COCT_MT220210CA.Content","COCT_MT300000CA.Content"})
 public class DrugDispensedInBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110127L;
-    private CV drugContainerType = new CVImpl();
+    private static final long serialVersionUID = 20100615L;
     private PQ drugPackageQuantity = new PQImpl();
-    private DrugFormBean containedManufacturedMaterialKind;
+    private DrugPackageBean containerPackagedMedicine;
+    private CV drugForm = new CVImpl();
 
-
-    /**
-     * <p>DrugContainerType</p>
-     * 
-     * <p>Drug Container Type</p>
-     * 
-     * <p>E:Drug Container Type</p>
-     * 
-     * <p>A:Drug Container Type</p>
-     */
-    @Hl7XmlMapping({"containerPackagedMedicine/formCode"})
-    public CompliancePackageEntityType getDrugContainerType() {
-        return (CompliancePackageEntityType) this.drugContainerType.getValue();
-    }
-    public void setDrugContainerType(CompliancePackageEntityType drugContainerType) {
-        this.drugContainerType.setValue(drugContainerType);
-    }
-
-
-    /**
-     * <p>DrugPackageQuantity</p>
-     * 
-     * <p>B:Drug Package Quantity</p>
-     * 
-     * <p>F:Drug Package Quantity</p>
-     */
     @Hl7XmlMapping({"quantity"})
     public PhysicalQuantity getDrugPackageQuantity() {
         return this.drugPackageQuantity.getValue();
@@ -56,13 +29,20 @@ public class DrugDispensedInBean extends MessagePartBean {
         this.drugPackageQuantity.setValue(drugPackageQuantity);
     }
 
-
-    @Hl7XmlMapping({"containedManufacturedMaterialKind"})
-    public DrugFormBean getContainedManufacturedMaterialKind() {
-        return this.containedManufacturedMaterialKind;
+    @Hl7XmlMapping({"containerPackagedMedicine"})
+    public DrugPackageBean getContainerPackagedMedicine() {
+        return this.containerPackagedMedicine;
     }
-    public void setContainedManufacturedMaterialKind(DrugFormBean containedManufacturedMaterialKind) {
-        this.containedManufacturedMaterialKind = containedManufacturedMaterialKind;
+    public void setContainerPackagedMedicine(DrugPackageBean containerPackagedMedicine) {
+        this.containerPackagedMedicine = containerPackagedMedicine;
+    }
+
+    @Hl7XmlMapping({"containedManufacturedMaterialKind/formCode"})
+    public OrderableDrugForm getDrugForm() {
+        return (OrderableDrugForm) this.drugForm.getValue();
+    }
+    public void setDrugForm(OrderableDrugForm drugForm) {
+        this.drugForm.setValue(drugForm);
     }
 
 }

@@ -31,8 +31,6 @@ import ca.infoway.messagebuilder.xml.util.XmlWarningRenderer;
 
 class XmlRenderingVisitor implements Visitor {
 	
-	private static final String NULL_FLAVOR_FORMAT_FOR_ASSOCIATIONS = "nullFlavor=\"{0}\" xsi:nil=\"true\"";
-
 	class Buffer {
 		private final String name;
 		private final StringBuilder structuralBuilder = new StringBuilder();
@@ -126,8 +124,7 @@ class XmlRenderingVisitor implements Visitor {
 			this.propertyPathNames.push(part.getPropertyName());
 			this.buffers.push(new Buffer(determineXmlName(part, relationship), this.buffers.size()));
 			if (part.isEmpty() && relationship.getConformance() == ConformanceLevel.POPULATED) {
-				currentBuffer().getStructuralBuilder().append(
-						MessageFormat.format(NULL_FLAVOR_FORMAT_FOR_ASSOCIATIONS, getNullFlavor(part).getCodeValue()));
+				currentBuffer().getStructuralBuilder().append(MessageFormat.format("nullFlavor=\"{0}\"", getNullFlavor(part).getCodeValue()));
 			} else if (part.isEmpty() && relationship.getConformance() == ConformanceLevel.MANDATORY && !isTrivial(part)) {
 				currentBuffer().setWarning("Mandatory association has no data. (" + relationship.getName() + ")");
 			}
@@ -152,10 +149,12 @@ class XmlRenderingVisitor implements Visitor {
 	}
 
 	private NullFlavor getNullFlavor(PartBridge tealBean) {
+		//FIXME - AG: get null flavor!
 		NullFlavor nullFlavor = ca.infoway.messagebuilder.domainvalue.nullflavor.NullFlavor.NO_INFORMATION;
-		if (tealBean.hasNullFlavor()) {
-			nullFlavor = tealBean.getNullFlavor();
-		}
+//		if (tealBean.getBean()!=null && tealBean.getBean() instanceof MessagePartBean) {
+//			MessagePartBean beanPart = (MessagePartBean) tealBean.getBean();
+//			nullFlavor = beanPart.getAsNullFlavor(tealBean.getPropertyName());
+//		}
 		return nullFlavor;
 	}
 

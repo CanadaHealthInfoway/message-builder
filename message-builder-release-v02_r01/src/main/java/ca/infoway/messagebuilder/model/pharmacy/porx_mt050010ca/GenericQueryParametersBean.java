@@ -14,20 +14,24 @@ import java.util.List;
 
 
 
+/**
+ * <p>Generic Query Parameters</p>
+ * 
+ * <p>Defines the set of parameters that may be used to filter 
+ * the query response.</p>
+ * 
+ * <p>Root class for query definition</p>
+ */
 @Hl7PartTypeMapping({"PORX_MT050010CA.ParameterList"})
 @Hl7RootType
 public class GenericQueryParametersBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110127L;
-    private List<CV> drugCodes = new ArrayList<CV>();
+    private static final long serialVersionUID = 20100615L;
+    private List<CV> drugCode = new ArrayList<CV>();
 
-
-    /**
-     * <p>Drug Codes</p>
-     */
     @Hl7XmlMapping({"drugCode/value"})
-    public List<ClinicalDrug> getDrugCodes() {
-        return new RawListWrapper<CV, ClinicalDrug>(drugCodes, CVImpl.class);
+    public List<ClinicalDrug> getDrugCode() {
+        return new RawListWrapper<CV, ClinicalDrug>(drugCode, CVImpl.class);
     }
 
 }

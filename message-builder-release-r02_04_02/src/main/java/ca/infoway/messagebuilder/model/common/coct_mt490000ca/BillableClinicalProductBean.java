@@ -16,10 +16,10 @@ import ca.infoway.messagebuilder.datatype.impl.TSImpl;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.common.merged.DiagnosisInformationBean;
-import ca.infoway.messagebuilder.model.common.merged.HealthcareProviderBean;
-import ca.infoway.messagebuilder.model.common.merged.ManufacturedProductBean;
-import ca.infoway.messagebuilder.model.common.merged.ServiceLocationBean;
+import ca.infoway.messagebuilder.model.common.coct_mt280001ca.A_BillableActChoiceBean;
+import ca.infoway.messagebuilder.model.merged.DiagnosisInformationBean;
+import ca.infoway.messagebuilder.model.merged.HealthcareProviderBean;
+import ca.infoway.messagebuilder.model.merged.ServiceDeliveryLocation_2Bean;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -29,67 +29,29 @@ import java.util.List;
 /**
  * <p>Billable Clinical Product</p>
  * 
- * <p><p>Product being billed</p></p>
+ * <p>Product being billed</p>
  * 
- * <p><p>Patient classes are not referenced in the billable 
- * acts, as they are noted in the parent model (e.g. Invoice 
- * message) as the CoveredPartyAsPatient</p></p>
+ * <p>Patient classes are not referenced in the billable acts, 
+ * as they are noted in the parent model (e.g. Invoice message) 
+ * as the CoveredPartyAsPatient</p>
  */
 @Hl7PartTypeMapping({"COCT_MT490000CA.SupplyEvent"})
 @Hl7RootType
-public class BillableClinicalProductBean extends MessagePartBean implements ca.infoway.messagebuilder.model.common.coct_mt280001ca.A_BillableActChoice {
+public class BillableClinicalProductBean extends MessagePartBean implements A_BillableActChoiceBean {
 
-    private static final long serialVersionUID = 20110127L;
-    private ServiceLocationBean originServiceDeliveryLocation;
-    private CV methodOfPaymentForProduct = new CVImpl();
-    private ServiceLocationBean locationServiceDeliveryLocation;
+    private static final long serialVersionUID = 20100603L;
     private II billableClinicalProductID = new IIImpl();
-    private HealthcareProviderBean referrerHealthCareProvider;
-    private List<DiagnosisInformationBean> pertinentInformation = new ArrayList<DiagnosisInformationBean>();
-    private ManufacturedProductBean productManufacturedProduct;
-    private ServiceLocationBean destinationServiceDeliveryLocation;
-    private HealthcareProviderBean performerHealthCareProvider;
+    private CV methodOfPaymentForProduct = new CVImpl();
     private IVL<TS, Interval<Date>> timeOfSale = new IVLImpl<TS, Interval<Date>>();
+    private ManufacturedProductBean productManufacturedProduct;
+    private HealthcareProviderBean performerHealthCareProvider;
+    private HealthcareProviderBean referrerHealthCareProvider;
     private HealthcareProviderBean consultantHealthCareProvider;
+    private ServiceDeliveryLocation_2Bean originServiceDeliveryLocation;
+    private ServiceDeliveryLocation_2Bean destinationServiceDeliveryLocation;
+    private ServiceDeliveryLocation_2Bean locationServiceDeliveryLocation;
+    private List<DiagnosisInformationBean> pertinentInformation = new ArrayList<DiagnosisInformationBean>();
 
-
-    @Hl7XmlMapping({"origin/serviceDeliveryLocation"})
-    public ServiceLocationBean getOriginServiceDeliveryLocation() {
-        return this.originServiceDeliveryLocation;
-    }
-    public void setOriginServiceDeliveryLocation(ServiceLocationBean originServiceDeliveryLocation) {
-        this.originServiceDeliveryLocation = originServiceDeliveryLocation;
-    }
-
-
-    /**
-     * <p>Method of payment for product.</p>
-     * 
-     * <p><p>Rent or Sale.</p></p>
-     */
-    @Hl7XmlMapping({"code"})
-    public Code getMethodOfPaymentForProduct() {
-        return (Code) this.methodOfPaymentForProduct.getValue();
-    }
-    public void setMethodOfPaymentForProduct(Code methodOfPaymentForProduct) {
-        this.methodOfPaymentForProduct.setValue(methodOfPaymentForProduct);
-    }
-
-
-    @Hl7XmlMapping({"location/serviceDeliveryLocation"})
-    public ServiceLocationBean getLocationServiceDeliveryLocation() {
-        return this.locationServiceDeliveryLocation;
-    }
-    public void setLocationServiceDeliveryLocation(ServiceLocationBean locationServiceDeliveryLocation) {
-        this.locationServiceDeliveryLocation = locationServiceDeliveryLocation;
-    }
-
-
-    /**
-     * <p>Billable Clinical Product ID</p>
-     * 
-     * <p><p>receipt number for the sale or rental</p></p>
-     */
     @Hl7XmlMapping({"id"})
     public Identifier getBillableClinicalProductID() {
         return this.billableClinicalProductID.getValue();
@@ -98,21 +60,21 @@ public class BillableClinicalProductBean extends MessagePartBean implements ca.i
         this.billableClinicalProductID.setValue(billableClinicalProductID);
     }
 
-
-    @Hl7XmlMapping({"referrer/healthCareProvider"})
-    public HealthcareProviderBean getReferrerHealthCareProvider() {
-        return this.referrerHealthCareProvider;
+    @Hl7XmlMapping({"code"})
+    public Code getMethodOfPaymentForProduct() {
+        return (Code) this.methodOfPaymentForProduct.getValue();
     }
-    public void setReferrerHealthCareProvider(HealthcareProviderBean referrerHealthCareProvider) {
-        this.referrerHealthCareProvider = referrerHealthCareProvider;
-    }
-
-
-    @Hl7XmlMapping({"pertinentInformation"})
-    public List<DiagnosisInformationBean> getPertinentInformation() {
-        return this.pertinentInformation;
+    public void setMethodOfPaymentForProduct(Code methodOfPaymentForProduct) {
+        this.methodOfPaymentForProduct.setValue(methodOfPaymentForProduct);
     }
 
+    @Hl7XmlMapping({"effectiveTime"})
+    public Interval<Date> getTimeOfSale() {
+        return this.timeOfSale.getValue();
+    }
+    public void setTimeOfSale(Interval<Date> timeOfSale) {
+        this.timeOfSale.setValue(timeOfSale);
+    }
 
     @Hl7XmlMapping({"product/manufacturedProduct"})
     public ManufacturedProductBean getProductManufacturedProduct() {
@@ -122,16 +84,6 @@ public class BillableClinicalProductBean extends MessagePartBean implements ca.i
         this.productManufacturedProduct = productManufacturedProduct;
     }
 
-
-    @Hl7XmlMapping({"destination/serviceDeliveryLocation"})
-    public ServiceLocationBean getDestinationServiceDeliveryLocation() {
-        return this.destinationServiceDeliveryLocation;
-    }
-    public void setDestinationServiceDeliveryLocation(ServiceLocationBean destinationServiceDeliveryLocation) {
-        this.destinationServiceDeliveryLocation = destinationServiceDeliveryLocation;
-    }
-
-
     @Hl7XmlMapping({"performer/healthCareProvider"})
     public HealthcareProviderBean getPerformerHealthCareProvider() {
         return this.performerHealthCareProvider;
@@ -140,28 +92,13 @@ public class BillableClinicalProductBean extends MessagePartBean implements ca.i
         this.performerHealthCareProvider = performerHealthCareProvider;
     }
 
-
-    /**
-     * <p>Time of Sale</p>
-     * 
-     * <p><p>Date that the sale is transacted (change of ownership 
-     * for a sale) and could be different than the date that it is 
-     * invoiced. Similar in concept to the service date.</p><p>For 
-     * rentals, this is the rental period.</p></p>
-     * 
-     * <p><p>Date that the sale is transacted (change of ownership 
-     * for a sale) and could be different than the date that it is 
-     * invoiced. Similar in concept to the service date.</p><p>For 
-     * rentals, this is the rental period.</p></p>
-     */
-    @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getTimeOfSale() {
-        return this.timeOfSale.getValue();
+    @Hl7XmlMapping({"referrer/healthCareProvider"})
+    public HealthcareProviderBean getReferrerHealthCareProvider() {
+        return this.referrerHealthCareProvider;
     }
-    public void setTimeOfSale(Interval<Date> timeOfSale) {
-        this.timeOfSale.setValue(timeOfSale);
+    public void setReferrerHealthCareProvider(HealthcareProviderBean referrerHealthCareProvider) {
+        this.referrerHealthCareProvider = referrerHealthCareProvider;
     }
-
 
     @Hl7XmlMapping({"consultant/healthCareProvider"})
     public HealthcareProviderBean getConsultantHealthCareProvider() {
@@ -169,6 +106,35 @@ public class BillableClinicalProductBean extends MessagePartBean implements ca.i
     }
     public void setConsultantHealthCareProvider(HealthcareProviderBean consultantHealthCareProvider) {
         this.consultantHealthCareProvider = consultantHealthCareProvider;
+    }
+
+    @Hl7XmlMapping({"origin/serviceDeliveryLocation"})
+    public ServiceDeliveryLocation_2Bean getOriginServiceDeliveryLocation() {
+        return this.originServiceDeliveryLocation;
+    }
+    public void setOriginServiceDeliveryLocation(ServiceDeliveryLocation_2Bean originServiceDeliveryLocation) {
+        this.originServiceDeliveryLocation = originServiceDeliveryLocation;
+    }
+
+    @Hl7XmlMapping({"destination/serviceDeliveryLocation"})
+    public ServiceDeliveryLocation_2Bean getDestinationServiceDeliveryLocation() {
+        return this.destinationServiceDeliveryLocation;
+    }
+    public void setDestinationServiceDeliveryLocation(ServiceDeliveryLocation_2Bean destinationServiceDeliveryLocation) {
+        this.destinationServiceDeliveryLocation = destinationServiceDeliveryLocation;
+    }
+
+    @Hl7XmlMapping({"location/serviceDeliveryLocation"})
+    public ServiceDeliveryLocation_2Bean getLocationServiceDeliveryLocation() {
+        return this.locationServiceDeliveryLocation;
+    }
+    public void setLocationServiceDeliveryLocation(ServiceDeliveryLocation_2Bean locationServiceDeliveryLocation) {
+        this.locationServiceDeliveryLocation = locationServiceDeliveryLocation;
+    }
+
+    @Hl7XmlMapping({"pertinentInformation"})
+    public List<DiagnosisInformationBean> getPertinentInformation() {
+        return this.pertinentInformation;
     }
 
 }

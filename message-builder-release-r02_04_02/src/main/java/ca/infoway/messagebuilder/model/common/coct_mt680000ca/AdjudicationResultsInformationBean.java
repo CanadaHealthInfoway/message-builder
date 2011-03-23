@@ -10,19 +10,11 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 @Hl7PartTypeMapping({"COCT_MT680000CA.AdjudicationResultInformation"})
-public class AdjudicationResultsInformationBean extends MessagePartBean implements ca.infoway.messagebuilder.model.merged.AdjudicationCodeChoice {
+public class AdjudicationResultsInformationBean extends MessagePartBean implements AdjudicationCodeChoiceBean {
 
-    private static final long serialVersionUID = 20110127L;
+    private static final long serialVersionUID = 20100603L;
     private ST adjudicationResultInformationValue = new STImpl();
 
-
-    /**
-     * <p>Adjudication Result Information value</p>
-     * 
-     * <p><p>coded value denoting information</p></p>
-     * 
-     * <p><p>AdjudicationInformationCode</p></p>
-     */
     @Hl7XmlMapping({"value"})
     public String getAdjudicationResultInformationValue() {
         return this.adjudicationResultInformationValue.getValue();

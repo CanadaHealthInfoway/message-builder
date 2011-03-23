@@ -56,7 +56,7 @@ class BridgeFactoryImpl implements BridgeFactory {
 			Interaction interaction, MessagePartHolder currentMessagePart, BridgeContext context) {
 		List<BaseRelationshipBridge> relationships = new ArrayList<BaseRelationshipBridge>();
 		for (Relationship relationship : currentMessagePart.getRelationships()) {
-			Object o = sorter.get(relationship);
+			Object o = sorter.get(relationship.getName());
 			if (relationship.isAttribute() && relationship.isFixed()) {
 				relationships.add(new FixedValueAttributeBeanBridge(relationship, (BareANY) null));
 			} else if (relationship.isAttribute()) {
@@ -64,7 +64,7 @@ class BridgeFactoryImpl implements BridgeFactory {
 					createWarningIfPropertyIsNotMapped(sorter, currentMessagePart, relationship);
 					relationships.add(new AttributeBridgeImpl(relationship, null));
 				} else if (context.isIndexed()) {
-					Object field = sorter.getField(relationship);
+					Object field = sorter.getField(relationship.getName());
 					if (ListElementUtil.isCollection(field)) {
 						relationships.add(new CollapsedAttributeBridge(
 								((BeanProperty) o).getName(), relationship, 
@@ -150,18 +150,18 @@ class BridgeFactoryImpl implements BridgeFactory {
 			RelationshipSorter sorter, Interaction interaction,
 			MessagePartHolder currentMessagePart, BridgeContext context) {
 		
-		if (sorter.isCollapsedRelationship(relationship)) {
+		if (sorter.isCollapsedRelationship(relationship.getName())) {
 			if (relationship.getCardinality().isMultiple()) {
 				return createCollectionRelationshipBridge(relationship, sorter, interaction);
 			} else {
-				RelationshipSorter collapsedSorter = sorter.getAsRelationshipSorter(relationship);
+				RelationshipSorter collapsedSorter = sorter.getAsRelationshipSorter(relationship.getName());
 				PartBridge bridge = createPartBridge(collapsedSorter, interaction, 
 						getMessagePart(interaction, relationship, collapsedSorter.getBean()), 
 						new BridgeContext(true, context.getOriginalIndex()));
 				return new AssociationBridgeImpl(relationship, bridge);
 			}
 		} else {
-			Object o = sorter.get(relationship);
+			Object o = sorter.get(relationship.getName());
 			BeanProperty property = (BeanProperty) o;
 			Object value = property.get();
 			
@@ -169,7 +169,7 @@ class BridgeFactoryImpl implements BridgeFactory {
 			if (relationship.getCardinality().isMultiple() && value instanceof Iterable) {
 				this.log.debug("Association " + Describer.describe(currentMessagePart, relationship) 
 						+ " maps to collection property " + Describer.describe(sorter.getBeanType(), property));
-				return createCollectionOfCompositeBeanBridges(property.getName(), relationship, (Iterable<Object>) value, interaction);
+				return createCollectionOfCompositeBeanBridges(property.getName(), relationship, (Iterable) value, interaction);
 			} else if (context.isIndexed() && property.isCollection()) {
 				this.log.debug("Association " + Describer.describe(currentMessagePart, relationship) 
 						+ " maps to index " + context.getIndex() +  " of collection property " + Describer.describe(sorter.getBeanType(), property));
@@ -187,7 +187,7 @@ class BridgeFactoryImpl implements BridgeFactory {
 				
 				// Bug 13050 - should handle a single cardinality relationship if mapped to a collection
 				if (value instanceof Iterable) {
-					Iterator<Object> iterator = ((Iterable<Object>) value).iterator();
+					Iterator iterator = ((Iterable) value).iterator();
 					value = iterator.hasNext() ? iterator.next() : null;
 				}
 				
@@ -200,7 +200,7 @@ class BridgeFactoryImpl implements BridgeFactory {
 	private AssociationBridge createCollectionRelationshipBridge(
 			Relationship relationship, RelationshipSorter sorter, Interaction interaction) {
 
-		RelationshipSorter association = sorter.getAsRelationshipSorter(relationship);
+		RelationshipSorter association = sorter.getAsRelationshipSorter(relationship.getName());
 		
 		ArrayList<PartBridge> list = new ArrayList<PartBridge>();
 		int length = association.getSingleCollapsedPropertySize();
@@ -245,10 +245,6 @@ class BridgeFactoryImpl implements BridgeFactory {
 				Relationship option = argument.findChoiceOption(predicate);
 				if (option != null) {
 					typeName = option.getType();
-				} else {
-					// couldn't find a choice type to use (most likely, value is null)
-					// can't leave typeName as null, so just use first choice type from argument
-					typeName = argument.getChoices().get(0).getType();
 				}
 			} else {
 				typeName = argument.getName();

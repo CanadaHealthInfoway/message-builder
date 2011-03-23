@@ -164,15 +164,6 @@ public class StandardDataType extends EnumPattern implements Typed {
 	public static final StandardDataType LIST = new StandardDataType("LIST", "LIST"); 
 	public static final StandardDataType LIST_TEL_PHONEMAIL = new StandardDataType("LIST_TEL_PHONEMAIL", "LIST<TEL.PHONEMAIL>");
 	
-	public static final StandardDataType COLLECTION = new StandardDataType("COLLECTION", "COLLECTION");
-
-	/** 
-	 * <p>The BAG data type.  Note that this data type is not a standard part of the 
-	 * pan-Canadian Data Types specification.
-	 */
-	public static final StandardDataType BAG = new StandardDataType("BAG", "BAG"); 
-	
-	
 	private static final Map<StandardDataType,StandardDataType> widthType;
 	
 	private static final Set<StandardDataType> ignorable;
@@ -290,7 +281,6 @@ public class StandardDataType extends EnumPattern implements Typed {
 	 * @return whether the supplied HL7 datatype is a collection type
 	 */
 	public static boolean isSetOrList(String dataTypeName) {
-		// FIXME - TM - add isCollection here?
 		return dataTypeName!=null && (isSet(dataTypeName) || isList(dataTypeName));
 	}
 
@@ -302,16 +292,6 @@ public class StandardDataType extends EnumPattern implements Typed {
 	 */
 	public static boolean isSet(String dataTypeName) {
 		return dataTypeName!=null && dataTypeName.startsWith(SET.getRootType());
-	}
-
-	/**
-	 * <p>Determines if a given HL7 datatype name is a COLLECTION. 
-	 * 
-	 * @param dataTypeName the HL7 name of the datatype to check
-	 * @return whether the supplied HL7 datatype is a COLLECTION type
-	 */
-	public static boolean isCollection(String dataTypeName) {
-		return dataTypeName!=null && dataTypeName.startsWith(COLLECTION.getRootType());
 	}
 
 	/**
@@ -347,8 +327,6 @@ public class StandardDataType extends EnumPattern implements Typed {
 			result = StandardDataType.LIST;
 		} else if (isSet(name)) {
 			result = StandardDataType.SET;
-		} else if (isCollection(name)) {
-			result = StandardDataType.COLLECTION;
 		} else {
 			for (StandardDataType type : EnumPattern.values(StandardDataType.class)) {
 				if (StringUtils.equals(name, type.getType())) {

@@ -116,9 +116,7 @@ public class PqPropertyFormatterTest {
     @Test
     public void testFormatNonNullWithEmptyPq() throws ModelToXmlTransformationException {
     	TestablePqPropertyFormatter formatter = new TestablePqPropertyFormatter();
-    	PQImpl pqImpl = new PQImpl();
-    	pqImpl.setValue(new PhysicalQuantity());
-		String string = formatter.formatNonNullDataType(new FormatContextImpl("name", null, null), pqImpl, 0);
+    	String string = formatter.formatNonNullValue(new FormatContextImpl("name", null, null), new PhysicalQuantity(), 0);
 		assertEquals("<name nullFlavor=\"NI\"/>\n", string);
     }
     

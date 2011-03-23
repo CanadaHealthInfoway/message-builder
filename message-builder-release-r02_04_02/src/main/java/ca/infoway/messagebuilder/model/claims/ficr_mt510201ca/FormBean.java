@@ -13,13 +13,9 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"FICR_MT510201CA.Form"})
 public class FormBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110127L;
+    private static final long serialVersionUID = 20100603L;
     private TEL uRLForLocationForForm = new TELImpl();
 
-
-    /**
-     * <p>URL for location for form</p>
-     */
     @Hl7XmlMapping({"telecom"})
     public TelecommunicationAddress getURLForLocationForForm() {
         return this.uRLForLocationForForm.getValue();

@@ -3,16 +3,21 @@ package ca.infoway.messagebuilder.model.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.common.merged.HL7Message_1Bean;
+import ca.infoway.messagebuilder.model.common.mcci_mt000300ca.HL7MessageBean;
 import ca.infoway.messagebuilder.model.common.quqi_mt120000ca.TriggerEventBean;
-import ca.infoway.messagebuilder.model.merged.GenericQueryParametersBean;
-import ca.infoway.messagebuilder.model.pharmacy.merged.MedicationRecord;
+import ca.infoway.messagebuilder.model.merged.ParameterListBean;
+import ca.infoway.messagebuilder.model.pharmacy.porx_mt060190ca.MedicationRecordBean;
 
 
 
+/**
+ * <p>Returns basic information about a patient's 
+ * prescriptions, dispenses and other medications for a 
+ * specific patient optionally filtered by date.</p>
+ */
 @Hl7PartTypeMapping({"PORX_IN060400CA"})
-public class MedicationProfileSummaryQueryResponseBean extends HL7Message_1Bean<TriggerEventBean<MedicationRecord,GenericQueryParametersBean>> implements InteractionBean {
+public class MedicationProfileSummaryQueryResponseBean extends HL7MessageBean<TriggerEventBean<MedicationRecordBean,ParameterListBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20110127L;
+    private static final long serialVersionUID = 20100614L;
 
 }

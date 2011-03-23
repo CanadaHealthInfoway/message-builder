@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?><mif:staticModel xmlns:mif="urn:hl7-org:v3/mif" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:hl7-org:v3/mif" isAbstract="false" isSerializable="true" name="CA" packageKind="realmNamespace" representationKind="flat" schemaVersion="2.0" xsi:schemaLocation="">
+   <mif:packageLocation artifact="MT-deprecated" domain="MT" id="001103" realmNamespace="CA" root="DEFN" section="IM" subSection="CO"/>
+   <mif:header>
+      <mif:renderingInformation application="Visio to MIF transform"/>
+      <mif:legalese copyrightOwner="Health Level Seven" copyrightYears="2008"/>
+   </mif:header>
+   <mif:graphicRepresentation presentation="HL7">
+      <mif:graphElement name="Main">
+         <mif:position x="0" y="0"/>
+         <mif:size height="170" width="238"/>
+      </mif:graphElement>
+   <entryPoint name="Event ID"><mif:graphElement containerDiagramName="Main" shapeId="Sheet.5">
+            <mif:position x="65" y="2"/>
+            <mif:size height="43" width="103"/>
+            <mif:anchorage connectToShapeId="Sheet.5">
+               <mif:position x="115" y="46"/>
+               <mif:graphEdge>
+                  <mif:anchor connectToShapeId="Sheet.1">
+                     <mif:position x="119" y="98"/>
+                  </mif:anchor>
+               </mif:graphEdge>
+            </mif:anchorage>
+         </mif:graphElement></entryPoint><class className="ActEvent" presentation="HL7"><mif:graphElement containerDiagramName="Main" isHeightAutoSize="true" isWidthAutoSize="true" shapeId="Sheet.1" shapeTemplate="Act">
+               <mif:position x="18" y="98"/>
+               <mif:size height="72" width="201"/>
+            </mif:graphElement></class></mif:graphicRepresentation>
+   <derivedFrom staticModelDerivationId="1">
+      <mif:targetStaticModel artifact="RIM" root="DEFN" version="00"/>
+   </derivedFrom>
+   <entryPoint className="ActEvent" id="COMT_MT001103CA" isAbstract="false" name="Event ID">
+      
+   </entryPoint>
+   <containedClass>
+      <mif:class isAbstract="false" name="ActEvent">
+         <mif:businessName name="Referenced Record"><realmNamespace value="UV"/></mif:businessName>
+         <derivedFrom className="Act" staticModelDerivationId="1"/>
+         
+         <mif:annotations>
+            
+            
+         <documentation><mif:definition>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>References an existing event record by identifier.</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:definition><mif:rationale>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>As a request, refers to the event to be acted upon or which has been acted upon.</xhtml:p>
+                  </xhtml:p>
+                  <xhtml:p>
+                     <xhtml:p>As a response, may be used to indicate the identifier assigned to a created object.</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:rationale></documentation></mif:annotations>
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="classCode" sortKey="1"><enumerationValues>ACT</enumerationValues>
+            <derivedFrom attributeName="classCode" className="Act" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="ACT" codeSystemName="ActClass"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="moodCode" sortKey="2"><enumerationValues>EVN</enumerationValues>
+            <derivedFrom attributeName="moodCode" className="Act" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="EVN" codeSystemName="ActMood"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="true" maximumMultiplicity="2" minimumMultiplicity="1" name="id" sortKey="3">
+            <mif:businessName name="Record Ids"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>The identifier assigned by the central system (EHR) to the Event record being referred to.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Allows the event record to be uniquely referenced and is therefore mandatory.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation></mif:annotations>
+            <derivedFrom attributeName="id" className="Act" staticModelDerivationId="1"/>
+            <mif:type name="SET">
+               <argumentDatatype name="II.BUSVER"/>
+            </mif:type>
+         </mif:attribute>
+      </mif:class>
+   </containedClass>
+</mif:staticModel>

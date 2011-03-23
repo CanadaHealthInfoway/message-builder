@@ -14,23 +14,15 @@ import java.util.Date;
 
 
 /**
- * <p><p>For relating one role to another.</p></p>
+ * <p>For relating one role to another.</p>
  */
 @Hl7PartTypeMapping({"PRPM_MT301010CA.RelatedTo"})
 public class RelatedToBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110127L;
+    private static final long serialVersionUID = 20100603L;
     private IVL<TS, Interval<Date>> relationshipEffectiveDateAndTime = new IVLImpl<TS, Interval<Date>>();
-    private RoleChoice roleChoice;
+    private RoleChoiceBean roleChoice;
 
-
-    /**
-     * <p>Relationship Effective Date and Time</p>
-     * 
-     * <p><p>Effective date and time of the role relationships.</p></p>
-     * 
-     * <p><p>Required</p></p>
-     */
     @Hl7XmlMapping({"effectiveTime"})
     public Interval<Date> getRelationshipEffectiveDateAndTime() {
         return this.relationshipEffectiveDateAndTime.getValue();
@@ -39,12 +31,11 @@ public class RelatedToBean extends MessagePartBean {
         this.relationshipEffectiveDateAndTime.setValue(relationshipEffectiveDateAndTime);
     }
 
-
     @Hl7XmlMapping({"roleChoice"})
-    public RoleChoice getRoleChoice() {
+    public RoleChoiceBean getRoleChoice() {
         return this.roleChoice;
     }
-    public void setRoleChoice(RoleChoice roleChoice) {
+    public void setRoleChoice(RoleChoiceBean roleChoice) {
         this.roleChoice = roleChoice;
     }
 

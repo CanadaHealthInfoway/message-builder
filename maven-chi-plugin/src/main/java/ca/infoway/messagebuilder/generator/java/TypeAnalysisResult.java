@@ -15,18 +15,28 @@ public class TypeAnalysisResult implements TypeProvider, TypeNameHelper {
 
     protected final Map<TypeName,Type> types = Collections.synchronizedMap(new LinkedHashMap<TypeName,Type>());
     protected final Map<TypeName,ComplexTypePackage> packages = Collections.synchronizedMap(new LinkedHashMap<TypeName,ComplexTypePackage>());
+    protected final Map<TypeName,NamedType> removedTypes = Collections.synchronizedMap(new LinkedHashMap<TypeName,NamedType>());
+    protected final Map<TypeName,TypeName> removedTypeTranslation = Collections.synchronizedMap(new LinkedHashMap<TypeName,TypeName>());
     
+	public Map<TypeName, TypeName> getRemovedTypeTranslation() {
+		return this.removedTypeTranslation;
+	}
+
 	public void addType(Type type) {
-		TypeName rootName = type.getTypeName().getRootName();
+		TypeName rootName = type.getName().getRootName();
 		if (!this.packages.containsKey(rootName)) {
 			this.packages.put(rootName, new ComplexTypePackage(rootName));
 		}
-		this.packages.get(rootName).addInnerClass(type.getTypeName().getName(), type);
-		this.types.put(type.getTypeName(), type);
+		this.packages.get(rootName).addInnerClass(type.getName().getName(), type);
+		this.types.put(type.getName(), type);
 	}
 	
 	public Map<TypeName, Type> getTypes() {
 		return this.types;
+	}
+
+	public Map<TypeName, NamedType> getRemovedTypes() {
+		return this.removedTypes;
 	}
 
 	public Collection<ComplexTypePackage> getAllPackages() {
@@ -34,13 +44,19 @@ public class TypeAnalysisResult implements TypeProvider, TypeNameHelper {
 	}
 
 	public void removeType(Type type) {
-		TypeName rootName = type.getTypeName().getRootName();
+		TypeName rootName = type.getName().getRootName();
 		if (this.packages.containsKey(rootName)) {
-			this.packages.get(rootName).removeInnerClass(type.getTypeName());
+			this.packages.get(rootName).removeInnerClass(type.getName());
 		}
-		this.types.remove(type.getTypeName());
+		this.types.remove(type.getName());
+		this.removedTypes.put(type.getName(), type);
 	}
 	
+	public void removeType(Type removedType, Type newType) {
+		removeType(removedType);
+		this.removedTypeTranslation.put(removedType.getName(), newType.getName());
+	}
+
 	@SuppressWarnings("unchecked")
 	public Collection<Type> getAllMessageTypes() {
 		return filter(new Predicate<Type>() {
@@ -73,9 +89,11 @@ public class TypeAnalysisResult implements TypeProvider, TypeNameHelper {
 	/**
 	 * <p>Returns information about type name, whether or not it has been removed.
 	 */
-	public Type getNamedType(TypeName name) {
+	public NamedType getNamedType(TypeName name) {
 		if (this.types.containsKey(name)) {
 			return this.types.get(name);
+		} else if (this.removedTypes.containsKey(name)) {
+			return this.removedTypes.get(name);
 		} else {
 			return null;
 		}

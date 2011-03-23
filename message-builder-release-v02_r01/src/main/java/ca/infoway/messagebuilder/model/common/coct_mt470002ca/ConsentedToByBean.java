@@ -13,27 +13,35 @@ import ca.infoway.messagebuilder.model.merged.RelatedPersonBean;
 
 
 
+/**
+ * <p>b:consented to by</p>
+ * 
+ * <p>Indicates that the consent was provided by the patient or 
+ * representative.</p>
+ * 
+ * <p>Consent can be provided by the patient or representative 
+ * or the provider.</p>
+ * 
+ * <p>Authorization.Person</p>
+ * 
+ * <p>Authorization.signatory(PT)</p>
+ */
 @Hl7PartTypeMapping({"COCT_MT470002CA.Author"})
 public class ConsentedToByBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110127L;
-    private RelatedPersonBean personalRelationship;
-    private ED<String> keyword = new EDImpl<String>();
+    private static final long serialVersionUID = 20100615L;
     private CV patientConsentMechanism = new CVImpl();
+    private ED<String> keyword = new EDImpl<String>();
+    private RelatedPersonBean personalRelationship;
 
-
-    @Hl7XmlMapping({"personalRelationship"})
-    public RelatedPersonBean getPersonalRelationship() {
-        return this.personalRelationship;
+    @Hl7XmlMapping({"modeCode"})
+    public x_PhysicalVerbalParticipationMode getPatientConsentMechanism() {
+        return (x_PhysicalVerbalParticipationMode) this.patientConsentMechanism.getValue();
     }
-    public void setPersonalRelationship(RelatedPersonBean personalRelationship) {
-        this.personalRelationship = personalRelationship;
+    public void setPatientConsentMechanism(x_PhysicalVerbalParticipationMode patientConsentMechanism) {
+        this.patientConsentMechanism.setValue(patientConsentMechanism);
     }
 
-
-    /**
-     * <p>Keyword</p>
-     */
     @Hl7XmlMapping({"signatureText"})
     public String getKeyword() {
         return this.keyword.getValue();
@@ -42,16 +50,12 @@ public class ConsentedToByBean extends MessagePartBean {
         this.keyword.setValue(keyword);
     }
 
-
-    /**
-     * <p>Patient Consent Mechanism</p>
-     */
-    @Hl7XmlMapping({"modeCode"})
-    public x_PhysicalVerbalParticipationMode getPatientConsentMechanism() {
-        return (x_PhysicalVerbalParticipationMode) this.patientConsentMechanism.getValue();
+    @Hl7XmlMapping({"personalRelationship"})
+    public RelatedPersonBean getPersonalRelationship() {
+        return this.personalRelationship;
     }
-    public void setPatientConsentMechanism(x_PhysicalVerbalParticipationMode patientConsentMechanism) {
-        this.patientConsentMechanism.setValue(patientConsentMechanism);
+    public void setPersonalRelationship(RelatedPersonBean personalRelationship) {
+        this.personalRelationship = personalRelationship;
     }
 
 }

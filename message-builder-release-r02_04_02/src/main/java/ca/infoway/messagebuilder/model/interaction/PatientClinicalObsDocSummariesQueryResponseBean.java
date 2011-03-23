@@ -3,16 +3,16 @@ package ca.infoway.messagebuilder.model.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.common.merged.HL7Message_1Bean;
-import ca.infoway.messagebuilder.model.common.merged.TriggerEvent_6Bean;
+import ca.infoway.messagebuilder.model.common.mcci_mt002300ca.HL7MessageBean;
+import ca.infoway.messagebuilder.model.common.quqi_mt120006ca.TriggerEventBean;
 import ca.infoway.messagebuilder.model.iehr.repc_mt230002ca.ClinicalObservationDocumentBean;
 import ca.infoway.messagebuilder.model.iehr.repc_mt230004ca.QueryDefinitionBean;
 
 
 
 @Hl7PartTypeMapping({"REPC_IN000089CA"})
-public class PatientClinicalObsDocSummariesQueryResponseBean extends HL7Message_1Bean<TriggerEvent_6Bean<ClinicalObservationDocumentBean,QueryDefinitionBean>> implements InteractionBean {
+public class PatientClinicalObsDocSummariesQueryResponseBean extends HL7MessageBean<TriggerEventBean<ClinicalObservationDocumentBean,QueryDefinitionBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20110127L;
+    private static final long serialVersionUID = 20100603L;
 
 }

@@ -38,8 +38,8 @@ public abstract class TypeWriter {
     protected abstract void write(ComplexTypePackage messageType) throws IOException, GeneratorException;
     
     protected void writeType(Type type) throws IOException, GeneratorException {
-		this.log.log(DEBUG, "Writing: " + type.getTypeName().getName());
-		Writer writer = this.writerProvider.createWriter(type.getTypeName());
+		this.log.log(DEBUG, "Writing: " + type.getName().getName());
+		Writer writer = this.writerProvider.createWriter(type.getName());
 		try {
 			getHl7MessageTypeWriter(type).write(writer);
 		} finally {

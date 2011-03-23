@@ -3,15 +3,20 @@ package ca.infoway.messagebuilder.model.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.common.merged.HL7Message_1Bean;
-import ca.infoway.messagebuilder.model.common.merged.TriggerEvent_1Bean;
-import ca.infoway.messagebuilder.model.pharmacy.merged.ReferencedRecordBean;
+import ca.infoway.messagebuilder.model.common.mcai_mt700210ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.common.mcci_mt000100ca.HL7MessageBean;
+import ca.infoway.messagebuilder.model.merged.ReferencedRecordBean;
 
 
 
+/**
+ * <p>Requests that a previously submitted dispense be marked 
+ * as reversed. The medication has been disposed of without 
+ * having been picked up nor consumed by the patient.</p>
+ */
 @Hl7PartTypeMapping({"PORX_IN020370CA"})
-public class RecordDispenseReversalRequestBean extends HL7Message_1Bean<TriggerEvent_1Bean<ReferencedRecordBean>> implements InteractionBean {
+public class RecordDispenseReversalRequestBean extends HL7MessageBean<TriggerEventBean<ReferencedRecordBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20110127L;
+    private static final long serialVersionUID = 20100614L;
 
 }

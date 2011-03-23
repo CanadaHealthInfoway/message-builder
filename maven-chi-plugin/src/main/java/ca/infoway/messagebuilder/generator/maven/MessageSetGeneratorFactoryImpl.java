@@ -7,7 +7,6 @@ import org.apache.maven.plugin.Mojo;
 import ca.infoway.messagebuilder.generator.GeneratorException;
 import ca.infoway.messagebuilder.generator.MessageSetGenerator;
 import ca.infoway.messagebuilder.generator.MifToXmlGenerator;
-import ca.infoway.messagebuilder.generator.multiplemessageset.MultipleXmlToXmlGenerator;
 import ca.infoway.messagebuilder.maven.util.OutputUIImpl;
 
 /**
@@ -19,10 +18,6 @@ class MessageSetGeneratorFactoryImpl implements MessageSetGeneratorFactory {
 	
 	public MessageSetGenerator create(Mojo mojo, String version, File mifTransform) throws GeneratorException {
 		return new MifToXmlGenerator(new OutputUIImpl(mojo), version, mifTransform);
-	}
-
-	public MessageSetGenerator create(Mojo mojo, String version) throws GeneratorException {
-		return new MultipleXmlToXmlGenerator(new OutputUIImpl(mojo), version);
 	}
 
 }

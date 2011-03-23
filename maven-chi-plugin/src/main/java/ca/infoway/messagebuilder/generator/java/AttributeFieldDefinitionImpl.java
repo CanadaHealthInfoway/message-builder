@@ -53,8 +53,6 @@ class AttributeFieldDefinitionImpl implements FieldDefinition {
 				} else {
 					getterStyle = GetterBodyStyle.ATTRIBUTE_SET;
 				}
-			} else if (StandardDataType.isCollection(getDataType().getShortWrappedName())) {
-				getterStyle = GetterBodyStyle.ATTRIBUTE_COLLECTION;
 			} else if (getDataType().isCodedType()) {
 				getterStyle = GetterBodyStyle.CODED_ATTRIBUTE;
 			}
@@ -76,7 +74,7 @@ class AttributeFieldDefinitionImpl implements FieldDefinition {
 	
 	private String getBaseImplDefinition() {
 		DataType dataType = getDataType();
-		return isAnyType(dataType) ? getAnyImplDefinition() :  dataType.getParameterizedImplementationType(this.language);
+		return isAnyType(dataType) ? getAnyImplDefinition() :  dataType.getShortWrappedNameImpl(this.language);
 	}
 
 	private DataType getDataType() {
@@ -207,14 +205,6 @@ class AttributeFieldDefinitionImpl implements FieldDefinition {
 
 	public GetterBodyStyle getDerivedChoiceHasBodyStyle() {
 		return null;
-	}
-
-	public BaseRelationship getBaseRelationship() {
-		return this.attribute;
-	}
-
-	public ProgrammingLanguage getProgrammingLanguage() {
-		return this.language;
 	}
 
 }

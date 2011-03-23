@@ -8,15 +8,14 @@ import ca.infoway.messagebuilder.xml.TypeName;
 
 public interface RenderedType {
 
+	public TypeName getName();
 	public List<BaseRelationship> getRelationships();
 	public TypeDocumentation getTypeDocumentation();
-	public LanguageSpecificName getLanguageSpecificName();
 	public boolean isAbstract();
 	public boolean isRootType();
 	public boolean isTemplateType();
 	public String[] getPartTypeMapping();
 	public List<String> getTemplateVariables();
-	public Set<RenderedType> getInterfaceTypes();
-	public TypeName getTypeName();
+	public Set<TypeName> getInterfaceTypes();
 
 }

@@ -10,20 +10,10 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COCT_MT300000CA.SubstanceAdministrationOrder"})
 public class OriginalPrescriptionOrderBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110127L;
-    private PresriberRoleBean authorPresriberRole;
+    private static final long serialVersionUID = 20100615L;
     private OriginalPrescriptionBean component2SupplyOrder;
+    private PresriberRoleBean authorPresriberRole;
     private DispenseSubstitutionBean component1Substitution;
-
-
-    @Hl7XmlMapping({"author/presriberRole"})
-    public PresriberRoleBean getAuthorPresriberRole() {
-        return this.authorPresriberRole;
-    }
-    public void setAuthorPresriberRole(PresriberRoleBean authorPresriberRole) {
-        this.authorPresriberRole = authorPresriberRole;
-    }
-
 
     @Hl7XmlMapping({"component2/supplyOrder"})
     public OriginalPrescriptionBean getComponent2SupplyOrder() {
@@ -33,6 +23,13 @@ public class OriginalPrescriptionOrderBean extends MessagePartBean {
         this.component2SupplyOrder = component2SupplyOrder;
     }
 
+    @Hl7XmlMapping({"author/presriberRole"})
+    public PresriberRoleBean getAuthorPresriberRole() {
+        return this.authorPresriberRole;
+    }
+    public void setAuthorPresriberRole(PresriberRoleBean authorPresriberRole) {
+        this.authorPresriberRole = authorPresriberRole;
+    }
 
     @Hl7XmlMapping({"component1/substitution"})
     public DispenseSubstitutionBean getComponent1Substitution() {

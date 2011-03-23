@@ -115,7 +115,7 @@ public class PropertyGeneratorBuilder extends Indenter {
 		public void createAttributeDefinition(int indentLevel, Writer writer) throws IOException {
 			if (fieldDefinition != null) {
 				fieldDefinition.initializeContext(manager, resolver);
-				new FieldDefinitionGenerator(fieldDefinition).createFieldDeclaration(indentLevel, writer);
+				new FieldDefinitionGenerator(fieldDefinition, language).createFieldDeclaration(indentLevel, writer);
 				fieldDefinition.resetContext();
 			}
 		}
@@ -131,7 +131,7 @@ public class PropertyGeneratorBuilder extends Indenter {
 		private void createGettersAndSetters(int indentLevel, Writer writer, boolean isInterface) throws IOException {
 			if (fieldDefinition != null) {
 				fieldDefinition.initializeContext(this.manager, this.resolver);
-				new PropertyDefinitionGenerator(fieldDefinition).createPropertyDefinition(indentLevel, writer, isInterface);
+				new PropertyDefinitionGenerator(fieldDefinition, getLanguage()).createPropertyDefinition(indentLevel, writer, isInterface);
 				fieldDefinition.resetContext();
 			}			
 		}
@@ -140,7 +140,7 @@ public class PropertyGeneratorBuilder extends Indenter {
 				
 			if (fieldDefinition != null && fieldDefinition.isInitializedAtConstructionTime()) {
 				fieldDefinition.initializeContext(this.manager, this.resolver);
-				new FieldDefinitionGenerator(fieldDefinition).createConstructorInitialization(indentLevel, writer);
+				new FieldDefinitionGenerator(fieldDefinition, getLanguage()).createConstructorInitialization(indentLevel, writer);
 				fieldDefinition.resetContext();
 			}
 		}
@@ -149,7 +149,7 @@ public class PropertyGeneratorBuilder extends Indenter {
 			// this is same as for getters and setters (correct?)
 			if (fieldDefinition != null) {
 				fieldDefinition.initializeContext(this.manager, this.resolver);
-				new PropertyDefinitionGenerator(fieldDefinition).createPropertyDefinition(indentLevel, writer, false);
+				new PropertyDefinitionGenerator(fieldDefinition, getLanguage()).createPropertyDefinition(indentLevel, writer, false);
 				fieldDefinition.resetContext();
 			}			
 		}

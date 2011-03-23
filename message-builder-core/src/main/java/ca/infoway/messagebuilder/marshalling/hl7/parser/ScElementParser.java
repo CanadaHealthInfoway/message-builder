@@ -34,7 +34,7 @@ import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelTransformationExcepti
 class ScElementParser<V extends Code> extends AbstractSingleElementParser<CodedString<V>> {
 
 	@Override
-	protected CodedString<V> parseNonNullNode(ParseContext context, Node node, BareANY result, Type expectedReturnType, XmlToModelResult xmlToJavaResult) throws XmlToModelTransformationException {
+	protected CodedString<V> parseNonNullNode(ParseContext context, Node node, Type expectedReturnType, XmlToModelResult xmlToJavaResult) throws XmlToModelTransformationException {
 		
 		String value = null;
 		int childNodeCount = node.getChildNodes().getLength();

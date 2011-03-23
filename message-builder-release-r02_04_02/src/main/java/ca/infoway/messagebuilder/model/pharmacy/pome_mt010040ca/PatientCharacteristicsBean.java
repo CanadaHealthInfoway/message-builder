@@ -21,62 +21,20 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 /**
  * <p>Patient Characteristics</p>
  * 
- * <p><p>Indicates a characteristic that should be possessed by 
- * the patient for the dose to be appropriate.</p></p>
+ * <p>Indicates a characteristic that should be possessed by 
+ * the patient for the dose to be appropriate.</p>
  * 
- * <p><p>Allows filtering of dosages to be appropriate to the 
- * patient.</p></p>
+ * <p>Allows filtering of dosages to be appropriate to the 
+ * patient.</p>
  */
 @Hl7PartTypeMapping({"POME_MT010040CA.ObservationEventCriterion"})
 public class PatientCharacteristicsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110127L;
-    private IVL<PQ, Interval<PhysicalQuantity>> patientCharacteristicValue = new IVLImpl<PQ, Interval<PhysicalQuantity>>();
+    private static final long serialVersionUID = 20100603L;
     private CV patientCharacteristicType = new CVImpl();
     private BL excludeCharacteristic = new BLImpl();
+    private IVL<PQ, Interval<PhysicalQuantity>> patientCharacteristicValue = new IVLImpl<PQ, Interval<PhysicalQuantity>>();
 
-
-    /**
-     * <p>Patient Characteristic Value</p>
-     * 
-     * <p><p>Value should be mandatory if not using SNOMED</p></p>
-     * 
-     * <p><p>Indicates the specific value or range of values of the 
-     * characteristic a patient should have for the dosage to be 
-     * appropriate.</p></p>
-     * 
-     * <p><p>Allows comparison to actual patient characteristics to 
-     * see if the dosage is applicable. In some circumstances, the 
-     * specific range may not be known, thus the field is 
-     * &quot;populated&quot;</p><p>Example: This dosage 
-     * specification applies to people over 60 pounds&quot;.</p></p>
-     * 
-     * <p><p>Allows comparison to actual patient characteristics to 
-     * see if the dosage is applicable. In some circumstances, the 
-     * specific range may not be known, thus the field is 
-     * &quot;populated&quot;</p><p>Example: This dosage 
-     * specification applies to people over 60 pounds&quot;.</p></p>
-     */
-    @Hl7XmlMapping({"value"})
-    public Interval<PhysicalQuantity> getPatientCharacteristicValue() {
-        return this.patientCharacteristicValue.getValue();
-    }
-    public void setPatientCharacteristicValue(Interval<PhysicalQuantity> patientCharacteristicValue) {
-        this.patientCharacteristicValue.setValue(patientCharacteristicValue);
-    }
-
-
-    /**
-     * <p>Patient Characteristic Type</p>
-     * 
-     * <p><p>Indicates the type of patient characteristic being 
-     * expressed. E.g. Height, weight, age, lab values, etc. If 
-     * negation indicator is true, then this indicates a 
-     * characteristic the patient should *not* have.</p></p>
-     * 
-     * <p><p>Needed to identify what type of characteristic is 
-     * being expressed, and therefore mandatory.</p></p>
-     */
     @Hl7XmlMapping({"code"})
     public ObservationDosageDefinitionPreconditionType getPatientCharacteristicType() {
         return (ObservationDosageDefinitionPreconditionType) this.patientCharacteristicType.getValue();
@@ -85,32 +43,20 @@ public class PatientCharacteristicsBean extends MessagePartBean {
         this.patientCharacteristicType.setValue(patientCharacteristicType);
     }
 
-
-    /**
-     * <p>Exclude characteristic?</p>
-     * 
-     * <p><p>If true, indicates that the characteristic is one 
-     * which should *not* be held by the patient for the dosage to 
-     * apply.</p></p>
-     * 
-     * <p><p>Many dosages are inappropriate for patients with 
-     * certain characteristics (e.g. INR values, 
-     * etc.)</p><p>Because it must be known whether the 
-     * characteristic is included or excluded, this element is 
-     * mandatory.</p></p>
-     * 
-     * <p><p>Many dosages are inappropriate for patients with 
-     * certain characteristics (e.g. INR values, 
-     * etc.)</p><p>Because it must be known whether the 
-     * characteristic is included or excluded, this element is 
-     * mandatory.</p></p>
-     */
     @Hl7XmlMapping({"negationInd"})
     public Boolean getExcludeCharacteristic() {
         return this.excludeCharacteristic.getValue();
     }
     public void setExcludeCharacteristic(Boolean excludeCharacteristic) {
         this.excludeCharacteristic.setValue(excludeCharacteristic);
+    }
+
+    @Hl7XmlMapping({"value"})
+    public Interval<PhysicalQuantity> getPatientCharacteristicValue() {
+        return this.patientCharacteristicValue.getValue();
+    }
+    public void setPatientCharacteristicValue(Interval<PhysicalQuantity> patientCharacteristicValue) {
+        this.patientCharacteristicValue.setValue(patientCharacteristicValue);
     }
 
 }

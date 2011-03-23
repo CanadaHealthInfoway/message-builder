@@ -6,7 +6,7 @@ package ca.infoway.messagebuilder.generator;
  * 
  * @author administrator
  */
-public class GeneratorException extends RuntimeException {
+public class GeneratorException extends Exception {
 
 	private static final long serialVersionUID = 5359081721882569L;
 	

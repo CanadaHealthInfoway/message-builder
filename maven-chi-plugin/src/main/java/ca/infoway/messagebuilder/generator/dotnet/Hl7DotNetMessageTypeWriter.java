@@ -6,11 +6,11 @@ import static org.apache.commons.lang.SystemUtils.LINE_SEPARATOR;
 import java.io.IOException;
 import java.io.Writer;
 import java.util.List;
+import java.util.Map;
 
 import ca.infoway.messagebuilder.generator.GeneratorException;
 import ca.infoway.messagebuilder.generator.java.Association;
 import ca.infoway.messagebuilder.generator.java.BaseRelationship;
-import ca.infoway.messagebuilder.generator.java.Choice;
 import ca.infoway.messagebuilder.generator.java.Hl7TypeWriter;
 import ca.infoway.messagebuilder.generator.java.ImportTypeUtil;
 import ca.infoway.messagebuilder.generator.java.InteractionType;
@@ -22,8 +22,8 @@ import ca.infoway.messagebuilder.generator.java.RenderedType;
 import ca.infoway.messagebuilder.generator.java.Type;
 import ca.infoway.messagebuilder.generator.java.InteractionType.ArgumentType;
 import ca.infoway.messagebuilder.generator.lang.Hl7MessageTypeWriter;
-import ca.infoway.messagebuilder.generator.lang.TypeDocumentation;
-import ca.infoway.messagebuilder.xml.Documentation;
+import ca.infoway.messagebuilder.xml.Relationship;
+import ca.infoway.messagebuilder.xml.TypeName;
 
 /**
  * <p>Write out a valid C# message class.
@@ -41,15 +41,15 @@ class Hl7DotNetMessageTypeWriter extends Hl7MessageTypeWriter implements Hl7Type
 	Hl7DotNetMessageTypeWriter(Type type, NameTranslator nameTranslator, DependencyManager manager) throws GeneratorException {
 		super(type);
 		this.nameTranslator = nameTranslator;
-		this.namespace = this.nameTranslator.getPackageName(type.getTypeName());
+		this.namespace = this.nameTranslator.getPackageName(type.getName());
 		this.manager = manager;
 		this.nameResolver = new PropertyNameResolver(
-				this.type.getLanguageSpecificName().getUnqualifiedClassName(), 
+				this.nameTranslator.getClassNameWithoutPackage(this.type.getName()), 
 				type.getRelationships());
 	}
 	
-	Hl7DotNetMessageTypeWriter(Type type, NameTranslator translator, NamespaceContents contents) throws GeneratorException {
-		this(type, translator, new UsingManager(type.getTypeName(), ImportTypeUtil.getImports(type, C_SHARP), translator, contents));
+	Hl7DotNetMessageTypeWriter(Type type, NameTranslator translator, NamespaceContents contents, Map<TypeName, TypeName> removedTypesTranslation) throws GeneratorException {
+		this(type, translator, new UsingManager(type.getName(), ImportTypeUtil.getImports(type, C_SHARP, removedTypesTranslation), translator, contents));
 	}
 
 	public void write(Writer writer) throws IOException, GeneratorException {
@@ -96,8 +96,8 @@ class Hl7DotNetMessageTypeWriter extends Hl7MessageTypeWriter implements Hl7Type
 	}
 
 	@Override
-	protected PropertyGenerator createChoicePropertyGenerator(BaseRelationship rootChoice, Choice choice) {
-		return PropertyGeneratorBuilders.newDerivedChoiceBuilder(C_SHARP, (Association) rootChoice, choice).build(this.manager, this.nameResolver);
+	protected PropertyGenerator createChoicePropertyGenerator(BaseRelationship rootChoice, Relationship choiceRelationship) {
+		return PropertyGeneratorBuilders.newDerivedChoiceBuilder(C_SHARP, (Association) rootChoice, choiceRelationship).build(this.manager, this.nameResolver);
 	}
 	
 	@Override
@@ -142,13 +142,13 @@ class Hl7DotNetMessageTypeWriter extends Hl7MessageTypeWriter implements Hl7Type
 	    	}
 	        if (!this.type.getInterfaceTypes().isEmpty()) {
 	       		boolean first = this.type.isAbstract();
-	       		for (RenderedType interfaceType : this.type.getInterfaceTypes()) {
+	       		for (TypeName interfaceType : this.type.getInterfaceTypes()) {
 	       			if (!first) {
 	       				writer.write(", ");
 	       			} else {
 	       				writer.write(" : ");
 	       			}
-	       			writer.write(this.manager.getRepresentationOfClassName(interfaceType.getLanguageSpecificName().getFullyQualifiedName()));
+	       			writer.write(this.manager.getRepresentationOfTypeName(interfaceType));
 	       			first = false;
 				}
 	       	}
@@ -166,8 +166,8 @@ class Hl7DotNetMessageTypeWriter extends Hl7MessageTypeWriter implements Hl7Type
 	private void writeInteractionDeclaration(Writer writer) throws IOException {
 		writer.write(" : ");
 		InteractionType interaction = (InteractionType) this.type;
-		Type parent = interaction.getParentType();
-		writer.write(parent.getLanguageSpecificName().getUnqualifiedClassName());
+		TypeName parentTypeName = interaction.getParentType();
+		writer.write(this.nameTranslator.getClassNameWithoutPackage(parentTypeName));
 		
 		writeTemplateArguments(writer, interaction.getArguments());
 		
@@ -211,7 +211,7 @@ class Hl7DotNetMessageTypeWriter extends Hl7MessageTypeWriter implements Hl7Type
 	}
 
 	private String getClassName() {
-		return this.type.getLanguageSpecificName().getUnqualifiedClassName();
+		return this.nameTranslator.getClassNameWithoutPackage(this.type.getName());
 	}
 
 	private void writeNamespace(Writer writer) throws IOException {
@@ -224,9 +224,4 @@ class Hl7DotNetMessageTypeWriter extends Hl7MessageTypeWriter implements Hl7Type
 		return this.namespace;
 	}
 
-	@Override
-	protected void writeDocumentation(Documentation documentation, int indentLevel, Writer writer) throws IOException {
-		new TypeDocumentation(documentation).write(C_SHARP, writer, indentLevel);
-	}
-    
 }

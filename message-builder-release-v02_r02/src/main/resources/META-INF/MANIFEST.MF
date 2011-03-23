@@ -1,5 +1,0 @@
-Manifest-Version: 1.0
-MBT-Model-Version-Numbers: V02R02
-MBT-Message-Set: /messageSet_v02_r02_hotfix5.xml
-
-

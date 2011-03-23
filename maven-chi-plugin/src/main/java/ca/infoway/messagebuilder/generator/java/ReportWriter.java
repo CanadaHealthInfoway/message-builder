@@ -10,12 +10,9 @@ import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Set;
-import java.util.TreeSet;
 
 import org.apache.commons.io.IOUtils;
 
-import ca.infoway.messagebuilder.generator.FileDirectoryUtil;
 import ca.infoway.messagebuilder.generator.LogLevel;
 import ca.infoway.messagebuilder.generator.LogUI;
 import ca.infoway.messagebuilder.xml.MessagePart;
@@ -74,19 +71,16 @@ public class ReportWriter {
 	private final MessageSet messageSet;
 	private final TypeAnalysisResult result;
 	private final LogUI log;
-	private final SimplifiableDefinitions definitions;
 
-	public ReportWriter(TypeAnalysisResult result, MessageSet messageSet, LogUI log, SimplifiableDefinitions definitions) {
+	public ReportWriter(TypeAnalysisResult result, MessageSet messageSet, LogUI log) {
 		this.result = result;
 		this.messageSet = messageSet;
 		this.log = log;
-		this.definitions = definitions;
 	}
 
 	public void write(File report) throws IOException {
 		FileWriter writer = new FileWriter(report);
 		try {
-			FileDirectoryUtil.createDirectoriesIfNeeded(report);
 			write(writer);
 			this.log.log(LogLevel.INFO, "Simplification report written to " + report.getAbsolutePath());
 		} finally {
@@ -150,7 +144,7 @@ public class ReportWriter {
 		writer.write("<tbody>");
 		for (MessagePart part : this.messageSet.getAllMessageParts()) {
 			TypeName name = new TypeName(part.getName());
-			SimplifiableType simplifiableType = this.definitions.getType(name.getName());
+			
 			
 			writer.write(LINE_SEPARATOR);
 			writer.write("<tr><td>");
@@ -159,41 +153,20 @@ public class ReportWriter {
 
 			if (this.result.getTypes().containsKey(name)) {
 				writer.write("<td colspan=\"2\">written</td>");
-				writer.write("<td>");
-				Type type = this.result.getTypes().get(name);
-				writer.write(type.getLanguageSpecificName().getFullyQualifiedName());
-				writer.write("</td>");
-			} else if (simplifiableType != null && simplifiableType.isInlined()) {
-				if (simplifiableType.getMergedWithTypes().isEmpty()) {
-					writer.write("<td colspan=\"2\">inlined</td>");
-				} else {
-					writer.write("<td>inlined</td>");
-					writer.write("<td>also merges:<br>");
-					boolean first = true;
-					for (String mergedType : getAllMergedTypeNames(simplifiableType)) {
-						if (!first) {
-							writer.write("<br />");
-						}
-						writer.write(mergedType);
-						first = false;
-					}
-					writer.write("</td>");
-				}
-				writer.write("<td>n/a</td>");
 			} else if (mergedTypes.containsKey(name)) {
 				writer.write("<td>merged</td><td>");
 				Type type = mergedTypes.get(name);
 				boolean first = true;
-				for (NamedType merged : type.getMergedTypes()) {
+				for (TypeName merged : type.getMergedTypes()) {
 					if (!first) {
 						writer.write("<br />");
 					}
-					writer.write(merged.getTypeName().getName());
+					writer.write(merged.getName());
 					first = false;
 				}
-				writer.write("</td><td>");
-				writer.write(type.getLanguageSpecificName().getFullyQualifiedName());
 				writer.write("</td>");
+			} else {
+				writer.write("<td colspan=\"2\">inlined</td>");
 			}
 			writer.write("</tr>");
 			
@@ -205,21 +178,13 @@ public class ReportWriter {
 		writer.write(LINE_SEPARATOR);
 	}
 
-	private Set<String> getAllMergedTypeNames(SimplifiableType simplifiableType) {
-		Set<String> names = new TreeSet<String>();
-		for (SimplifiableType mergedType : simplifiableType.getMergedWithTypes()) {
-			names.add(mergedType.getName());
-		}
-		return names;
-	}
-
 	private Map<TypeName, Type> getAllCase3MergedTypes() {
 		Map<TypeName,Type> mergedType = new HashMap<TypeName,Type>();
 		for (Type type : this.result.getAllMessageTypes()) {
-			TypeName name = type.getTypeName();
+			TypeName name = type.getName();
 			if (name instanceof TemporaryTypeName) {
-				for (NamedType mergedName : type.getMergedTypes()) {
-					mergedType.put(mergedName.getTypeName(), type);
+				for (TypeName mergedName : type.getMergedTypes()) {
+					mergedType.put(mergedName, type);
 				}
 			}
 		}

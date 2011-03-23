@@ -22,11 +22,7 @@ import ca.infoway.messagebuilder.datatype.lang.Money;
 import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
 import ca.infoway.messagebuilder.datatype.lang.Ratio;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.common.coct_mt280001ca.A_BillableActChoice;
-import ca.infoway.messagebuilder.model.common.coct_mt280001ca.PreviousBillableActCrossReferenceBean;
-import ca.infoway.messagebuilder.model.common.coct_mt290000ca.BillableClinicalServiceBean;
-import ca.infoway.messagebuilder.model.common.coct_mt300000ca.SupplyEventBean;
-import ca.infoway.messagebuilder.model.common.coct_mt490000ca.BillableClinicalProductBean;
+import ca.infoway.messagebuilder.model.common.coct_mt280001ca.A_BillableActChoiceBean;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
@@ -34,62 +30,27 @@ import java.util.List;
 
 
 /**
- * <p><p>RTO used to specify 15 pills (each) out of a bottle of 
+ * <p>RTO used to specify 15 pills (each) out of a bottle of 
  * 100 pills (each) to reflect billing for a portion of a 
- * package (e.g. 0.15 of a bottle)</p></p>
+ * package (e.g. 0.15 of a bottle)</p>
  */
 @Hl7PartTypeMapping({"FICR_MT600201CA.InvoiceElementDetail"})
-public class InvoiceElementDetailBean extends MessagePartBean implements InvoiceElementChoice {
+public class InvoiceElementDetailBean extends MessagePartBean implements InvoiceElementChoiceBean {
 
-    private static final long serialVersionUID = 20110127L;
-    private CV submittedProductServiceCode = new CVImpl();
-    private RTO<Money, PhysicalQuantity> submittedUnitAmountPrice = new RTOImpl<Money, PhysicalQuantity>();
-    private PQ submittedUnitQuantity = new PQImpl();
+    private static final long serialVersionUID = 20100603L;
+    private List<A_BillableActChoiceBean> reasonOfBillableActChoice = new ArrayList<A_BillableActChoiceBean>();
     private II submittedInvoiceLineIdentifier = new IIImpl();
+    private CV submittedProductServiceCode = new CVImpl();
+    private PQ submittedUnitQuantity = new PQImpl();
+    private RTO<Money, PhysicalQuantity> submittedUnitAmountPrice = new RTOImpl<Money, PhysicalQuantity>();
     private MO submittedInvoiceLineAmount = new MOImpl();
     private REAL multiplierEG007 = new REALImpl();
-    private List<A_BillableActChoice> reasonOfBillableActChoice = new ArrayList<A_BillableActChoice>();
 
-
-    /**
-     * <p>Submitted Product/Service Code</p>
-     */
-    @Hl7XmlMapping({"code"})
-    public Code getSubmittedProductServiceCode() {
-        return (Code) this.submittedProductServiceCode.getValue();
-    }
-    public void setSubmittedProductServiceCode(Code submittedProductServiceCode) {
-        this.submittedProductServiceCode.setValue(submittedProductServiceCode);
+    @Hl7XmlMapping({"reasonOf/billableActChoice"})
+    public List<A_BillableActChoiceBean> getReasonOfBillableActChoice() {
+        return this.reasonOfBillableActChoice;
     }
 
-
-    /**
-     * <p>Submitted Unit Amount Price</p>
-     */
-    @Hl7XmlMapping({"unitPriceAmt"})
-    public Ratio<Money, PhysicalQuantity> getSubmittedUnitAmountPrice() {
-        return this.submittedUnitAmountPrice.getValue();
-    }
-    public void setSubmittedUnitAmountPrice(Ratio<Money, PhysicalQuantity> submittedUnitAmountPrice) {
-        this.submittedUnitAmountPrice.setValue(submittedUnitAmountPrice);
-    }
-
-
-    /**
-     * <p>Submitted Unit Quantity</p>
-     */
-    @Hl7XmlMapping({"unitQuantity"})
-    public PhysicalQuantity getSubmittedUnitQuantity() {
-        return this.submittedUnitQuantity.getValue();
-    }
-    public void setSubmittedUnitQuantity(PhysicalQuantity submittedUnitQuantity) {
-        this.submittedUnitQuantity.setValue(submittedUnitQuantity);
-    }
-
-
-    /**
-     * <p>Submitted Invoice Line Identifier</p>
-     */
     @Hl7XmlMapping({"id"})
     public Identifier getSubmittedInvoiceLineIdentifier() {
         return this.submittedInvoiceLineIdentifier.getValue();
@@ -98,10 +59,30 @@ public class InvoiceElementDetailBean extends MessagePartBean implements Invoice
         this.submittedInvoiceLineIdentifier.setValue(submittedInvoiceLineIdentifier);
     }
 
+    @Hl7XmlMapping({"code"})
+    public Code getSubmittedProductServiceCode() {
+        return (Code) this.submittedProductServiceCode.getValue();
+    }
+    public void setSubmittedProductServiceCode(Code submittedProductServiceCode) {
+        this.submittedProductServiceCode.setValue(submittedProductServiceCode);
+    }
 
-    /**
-     * <p>Submitted Invoice Line Amount</p>
-     */
+    @Hl7XmlMapping({"unitQuantity"})
+    public PhysicalQuantity getSubmittedUnitQuantity() {
+        return this.submittedUnitQuantity.getValue();
+    }
+    public void setSubmittedUnitQuantity(PhysicalQuantity submittedUnitQuantity) {
+        this.submittedUnitQuantity.setValue(submittedUnitQuantity);
+    }
+
+    @Hl7XmlMapping({"unitPriceAmt"})
+    public Ratio<Money, PhysicalQuantity> getSubmittedUnitAmountPrice() {
+        return this.submittedUnitAmountPrice.getValue();
+    }
+    public void setSubmittedUnitAmountPrice(Ratio<Money, PhysicalQuantity> submittedUnitAmountPrice) {
+        this.submittedUnitAmountPrice.setValue(submittedUnitAmountPrice);
+    }
+
     @Hl7XmlMapping({"netAmt"})
     public Money getSubmittedInvoiceLineAmount() {
         return this.submittedInvoiceLineAmount.getValue();
@@ -110,19 +91,9 @@ public class InvoiceElementDetailBean extends MessagePartBean implements Invoice
         this.submittedInvoiceLineAmount.setValue(submittedInvoiceLineAmount);
     }
 
-
-    /**
-     * <p>Multiplier, e.g. 0.07</p>
-     */
     @Hl7XmlMapping({"factorNumber"})
     public BigDecimal getMultiplierEG007() {
         return this.multiplierEG007.getValue();
-    }
-
-
-    @Hl7XmlMapping({"reasonOf/billableActChoice"})
-    public List<A_BillableActChoice> getReasonOfBillableActChoice() {
-        return this.reasonOfBillableActChoice;
     }
 
 }

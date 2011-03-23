@@ -15,27 +15,10 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PRPA_MT101103CA.FathersName"})
 public class FathersNameBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110127L;
+    private static final long serialVersionUID = 20100603L;
     private PN fatherSName = new PNImpl();
     private ST semanticsText = new STImpl();
 
-
-    /**
-     * <p>Father's Name</p>
-     * 
-     * <p><p>This query parameter item is the name of the focal 
-     * person's father.</p></p>
-     * 
-     * <p><p>It is included as a parameter item in order to further 
-     * constrain the possible number of responses and increase the 
-     * match probability to a single record.</p></p>
-     * 
-     * <p><p>This parameter does not map to a single RIM attribute, 
-     * instead, in RIM terms Father's name is the person name part 
-     * of &quot;family&quot; for the person who is the player in a 
-     * PersonalRelationship of type of &quot;father&quot; to the 
-     * focal person.</p></p>
-     */
     @Hl7XmlMapping({"value"})
     public PersonName getFatherSName() {
         return this.fatherSName.getValue();
@@ -43,7 +26,6 @@ public class FathersNameBean extends MessagePartBean {
     public void setFatherSName(PersonName fatherSName) {
         this.fatherSName.setValue(fatherSName);
     }
-
 
     @Hl7XmlMapping({"semanticsText"})
     public String getSemanticsText() {

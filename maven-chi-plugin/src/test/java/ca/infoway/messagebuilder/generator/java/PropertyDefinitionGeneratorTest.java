@@ -12,30 +12,26 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import ca.infoway.messagebuilder.generator.lang.ProgrammingLanguage;
-import ca.infoway.messagebuilder.xml.Cardinality;
-import ca.infoway.messagebuilder.xml.Relationship;
-import ca.infoway.messagebuilder.xml.TypeName;
 
 @RunWith(JMock.class)
 public class PropertyDefinitionGeneratorTest {
 
 	private Mockery jmock = new Mockery();
 	private FieldDefinition fieldDefinition;
+	private PropertyDefinitionGenerator csharpPropertyDefinition;
 	private PropertyDefinitionGenerator javaPropertyDefinition;
 	private StringWriter writer;
 	
 	@Before
 	public void setUp() throws Exception {
 		this.fieldDefinition = this.jmock.mock(FieldDefinition.class);
-		this.javaPropertyDefinition = new PropertyDefinitionGenerator(this.fieldDefinition);
+		this.csharpPropertyDefinition = new PropertyDefinitionGenerator(this.fieldDefinition, ProgrammingLanguage.C_SHARP);
+		this.javaPropertyDefinition = new PropertyDefinitionGenerator(this.fieldDefinition, ProgrammingLanguage.JAVA);
 		this.writer = new StringWriter();
 	}
 	
 	@Test
 	public void shouldCreateWritableJavaProperty() throws Exception {
-		Relationship relationship = new Relationship("relName", "ABCD_MT123456CA.SubjectOf2", Cardinality.create("1"));
-		final BaseRelationship association = Association.createStandardAssociation(relationship, new Type(new TypeName(relationship.getType())));
-
 		this.jmock.checking(new Expectations() {{
 			allowing(fieldDefinition).isWritable(); will(returnValue(true));
 			allowing(fieldDefinition).getXmlPathName(); will(returnValue(new String[] {"name/value", "myName/value"}));
@@ -52,8 +48,6 @@ public class PropertyDefinitionGeneratorTest {
 			allowing(fieldDefinition).getCollectionOfCodedPropertyElementType(); will(returnValue(""));
 			allowing(fieldDefinition).getFieldElementType(); will(returnValue(""));
 			allowing(fieldDefinition).getDerivedChoiceHasBodyStyle(); will(returnValue(null));
-			allowing(fieldDefinition).getProgrammingLanguage(); will(returnValue(ProgrammingLanguage.JAVA));
-			allowing(fieldDefinition).getBaseRelationship(); will(returnValue(association));
 		}});
 		
 		this.javaPropertyDefinition.createPropertyDefinition(1, writer, false);
@@ -65,9 +59,6 @@ public class PropertyDefinitionGeneratorTest {
 
 	@Test
 	public void shouldCreateReadOnlyJavaDerivedChoiceProperty() throws Exception {
-		Relationship relationship = new Relationship("relName", "ABCD_MT123456CA.SubjectOf2", Cardinality.create("1"));
-		final BaseRelationship association = Association.createStandardAssociation(relationship, new Type(new TypeName(relationship.getType())));
-
 		this.jmock.checking(new Expectations() {{
 			allowing(fieldDefinition).isWritable(); will(returnValue(false));
 			allowing(fieldDefinition).isDerivedChoice(); will(returnValue(true));
@@ -85,8 +76,6 @@ public class PropertyDefinitionGeneratorTest {
 			allowing(fieldDefinition).getCollectionOfCodedPropertyElementType(); will(returnValue(""));
 			allowing(fieldDefinition).getFieldElementType(); will(returnValue(""));
 			allowing(fieldDefinition).getDerivedChoiceHasBodyStyle(); will(returnValue(GetterBodyStyle.DERIVED_CHOICE_HAS));
-			allowing(fieldDefinition).getProgrammingLanguage(); will(returnValue(ProgrammingLanguage.JAVA));
-			allowing(fieldDefinition).getBaseRelationship(); will(returnValue(association));
 		}});
 		
 		this.javaPropertyDefinition.createPropertyDefinition(1, writer, false);
@@ -97,5 +86,5 @@ public class PropertyDefinitionGeneratorTest {
 		assertTrue("has", output.contains("public boolean hasChoiceFieldAsSubChoiceField() {"));
 		assertTrue("has body", output.contains("return (this.choiceField instanceof SubChoiceType);"));
 	}
-	
+
 }

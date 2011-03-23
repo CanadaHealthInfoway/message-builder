@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?><mif:staticModel xmlns:mif="urn:hl7-org:v3/mif" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:hl7-org:v3/mif" isAbstract="false" isSerializable="true" name="CA" packageKind="realmNamespace" representationKind="flat" schemaVersion="2.0" xsi:schemaLocation="">
+   <mif:packageLocation artifact="MT-deprecated" domain="MT" id="500001" realmNamespace="CA" root="DEFN" section="IM" subSection="CO"/>
+   <mif:header>
+      <mif:renderingInformation application="Visio to MIF transform"/>
+      <mif:legalese copyrightOwner="Health Level Seven" copyrightYears="2008"/>
+   </mif:header>
+   <mif:graphicRepresentation presentation="HL7">
+      <mif:graphElement name="Main">
+         <mif:position x="0" y="0"/>
+         <mif:size height="73" width="437"/>
+      </mif:graphElement>
+   <entryPoint name="Broadcast Message"><mif:graphElement containerDiagramName="Main" shapeId="Sheet.5">
+            <mif:position x="2" y="-107"/>
+            <mif:size height="43" width="133"/>
+            <mif:anchorage connectToShapeId="Sheet.5">
+               <mif:position x="135" y="36"/>
+               <mif:graphEdge>
+                  <mif:anchor connectToShapeId="Sheet.1">
+                     <mif:position x="183" y="36"/>
+                  </mif:anchor>
+               </mif:graphEdge>
+            </mif:anchorage>
+         </mif:graphElement></entryPoint><class className="InformEvent" presentation="HL7"><mif:graphElement containerDiagramName="Main" isHeightAutoSize="true" isWidthAutoSize="true" shapeId="Sheet.1" shapeTemplate="Act">
+               <mif:position x="183" y="0"/>
+               <mif:size height="74" width="252"/>
+            </mif:graphElement></class></mif:graphicRepresentation>
+   <derivedFrom staticModelDerivationId="1">
+      <mif:targetStaticModel artifact="RIM" root="DEFN" version="00"/>
+   </derivedFrom>
+   <entryPoint className="InformEvent" id="COMT_MT500001CA" isAbstract="false" name="Broadcast Message">
+      <mif:annotations>
+         
+      <documentation><mif:description>
+            <mif:text>
+               <xhtml:p>Description</xhtml:p>
+            </mif:text>
+         </mif:description></documentation></mif:annotations>
+      
+   </entryPoint>
+   <containedClass>
+      <mif:class isAbstract="false" name="InformEvent">
+         <mif:businessName name="Broadcast Message"><realmNamespace value="UV"/></mif:businessName>
+         <derivedFrom className="Act" staticModelDerivationId="1"/>
+         
+         <mif:annotations>
+            
+            
+         <documentation><mif:definition>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>Information being transmitted to proviers as a 'mass broadcast'</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:definition><mif:rationale>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>Allows conveying information such as stolen prescription pads, system availability information, etc.</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:rationale></documentation></mif:annotations>
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="classCode" sortKey="1"><enumerationValues>INFRM</enumerationValues>
+            <derivedFrom attributeName="classCode" className="Act" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="INFRM" codeSystemName="ActClass"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="moodCode" sortKey="2"><enumerationValues>EVN</enumerationValues>
+            <derivedFrom attributeName="moodCode" className="Act" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="EVN" codeSystemName="ActMood"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="true" maximumLength="2000" maximumMultiplicity="1" minimumMultiplicity="1" name="text" sortKey="3">
+            <mif:businessName name="Broadcast Message"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Contains the text to be displayed to the user of the system.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Allows conveying of system messages and other types of alerts. E.g. Planned outages, stolen prescription pads, etc.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation></mif:annotations>
+            <derivedFrom attributeName="text" className="Act" staticModelDerivationId="1"/>
+            <mif:type name="ST"/>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="statusCode" sortKey="4"><enumerationValues>completed</enumerationValues>
+            <derivedFrom attributeName="statusCode" className="Act" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="completed" codeSystemName="ActStatus"/></supplierVocabulary>
+         </mif:attribute>
+      </mif:class>
+   </containedClass>
+</mif:staticModel>

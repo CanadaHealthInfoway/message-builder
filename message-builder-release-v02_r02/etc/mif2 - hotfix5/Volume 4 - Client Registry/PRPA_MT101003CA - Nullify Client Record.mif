@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="UTF-8"?><mif:staticModel xmlns:mif="urn:hl7-org:v3/mif" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:hl7-org:v3/mif" isAbstract="false" isSerializable="true" name="CA" packageKind="realmNamespace" representationKind="flat" schemaVersion="2.0" xsi:schemaLocation="">
+   <mif:packageLocation artifact="MT-deprecated" domain="PA" id="101003" realmNamespace="CA" root="DEFN" section="AM" subSection="PR"/>
+   <mif:header>
+      <mif:renderingInformation application="Visio to MIF transform"/>
+      <mif:legalese copyrightOwner="Health Level Seven" copyrightYears="2008"/>
+   </mif:header>
+   <mif:graphicRepresentation presentation="HL7">
+      <mif:graphElement name="Main">
+         <mif:position x="0" y="0"/>
+         <mif:size height="816" width="1056"/>
+      </mif:graphElement>
+   <entryPoint name="Nullify Client Record"><mif:graphElement containerDiagramName="Main" shapeId="Sheet.1">
+            <mif:position x="121" y="172"/>
+            <mif:size height="48" width="184"/>
+            <mif:anchorage connectToShapeId="Sheet.1">
+               <mif:position x="192" y="220"/>
+               <mif:graphEdge>
+                  <mif:anchor connectToShapeId="Sheet.24">
+                     <mif:position x="236" y="336"/>
+                  </mif:anchor>
+               </mif:graphEdge>
+            </mif:anchorage>
+         </mif:graphElement></entryPoint><class className="IdentifiedEntity" presentation="HL7"><mif:graphElement containerDiagramName="Main" isHeightAutoSize="true" isWidthAutoSize="false" shapeId="Sheet.24" shapeTemplate="Role">
+               <mif:position x="67" y="336"/>
+               <mif:size height="62" width="211"/>
+            </mif:graphElement></class><class className="Person" presentation="HL7"><mif:graphElement containerDiagramName="Main" isHeightAutoSize="true" isWidthAutoSize="true" shapeId="Sheet.28" shapeTemplate="Entity">
+               <mif:position x="364" y="393"/>
+               <mif:size height="100" width="326"/>
+            </mif:graphElement></class><association className="Person" relationshipName="identifiedPerson"><mif:graphElement connectToShapeId="Sheet.24" containerDiagramName="Main">
+                     <mif:position x="257" y="391"/>
+                     <mif:graphEdge>
+                        <mif:anchor connectToShapeId="Sheet.28">
+                           <mif:position x="364" y="469"/>
+                        </mif:anchor>
+                     </mif:graphEdge>
+                  </mif:graphElement></association></mif:graphicRepresentation>
+   <derivedFrom staticModelDerivationId="1">
+      <mif:targetStaticModel artifact="RIM" root="DEFN" version="00"/>
+   </derivedFrom>
+   <entryPoint className="IdentifiedEntity" id="PRPA_MT101003CA" isAbstract="false" name="Nullify Client Record">
+      <mif:annotations>
+         
+      <documentation><mif:description>
+            <mif:text>
+               <xhtml:p>Entry point to Nullify Client message.</xhtml:p>
+            </mif:text>
+         </mif:description></documentation></mif:annotations>
+      
+   </entryPoint>
+   <containedClass>
+      <mif:class isAbstract="false" name="IdentifiedEntity">
+         <mif:businessName name="Identified Person"><realmNamespace value="UV"/></mif:businessName>
+         <derivedFrom className="Role" staticModelDerivationId="1"/>
+         
+         <mif:annotations>
+            
+            
+         <documentation><mif:definition>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>The IdentifiedEntity class is the entry point to the R-MIM and contains one or more identifiers (for example an "internal" id used only by computer systems and an "external" id for display to users) for the Person in the Client Registry. The statusCode is set to "active". The beginning of the effectiveTime is when the record was added to the registry.</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:definition><mif:rationale>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>Provides the message entry point required to add a person to the Client Registry</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:rationale></documentation></mif:annotations>
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="classCode" sortKey="1"><enumerationValues>IDENT</enumerationValues>
+            <mif:annotations>
+               
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>A code specifying the major category of a Role as defined by HL7 vocabulary.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:usageNotes>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>http://www.hl7.org/v3ballot/html/infrastructure/vocabulary/RoleClass.htm</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:usageNotes><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Provides a means to identify Roles played by entities</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation></mif:annotations>
+            <derivedFrom attributeName="classCode" className="Role" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="IDENT" codeSystemName="RoleClass"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="id" sortKey="2">
+            <mif:businessName name="Client Healthcare Identification Number"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>This identification attribute supports capture of a healthcare identifier specific to the client. This identifier may be assigned jurisdictionally or by care facility.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Mandatory attribute supports unique identification of the client.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation></mif:annotations>
+            <derivedFrom attributeName="id" className="Role" staticModelDerivationId="1"/>
+            <mif:type name="II.PUBLIC"/>
+         </mif:attribute>
+      </mif:class>
+   </containedClass>
+   <containedClass>
+      <mif:class isAbstract="false" name="Person">
+         <mif:businessName name="Person"><realmNamespace value="UV"/></mif:businessName>
+         <derivedFrom className="Person" staticModelDerivationId="1"/>
+         
+         <mif:annotations>
+            
+            
+         <documentation><mif:definition>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>The Person class contains identifying and demographic data elements for the focal person similar to those in the HL7 v2.x PID segment such as name, gender, date of birth, deceased indicator and time.</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:definition><mif:rationale>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>Provides additional demographic data elements for the focal class IdentifiedEntity</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:rationale></documentation></mif:annotations>
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="classCode" sortKey="1"><enumerationValues>PSN</enumerationValues>
+            <mif:annotations>
+               
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>An HL7 defined value representing the class or category that the Entity instance represents.</xhtml:p>
+                     </xhtml:p>
+                     <xhtml:p>
+                        <xhtml:p>Examples: Person, Animal, Chemical Substance, Group, Organization</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:usageNotes>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>http://www.hl7.org/v3ballot/html/infrastructure/vocabulary/EntityClass.htm</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:usageNotes><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Due to the extremely large number of potential values for a code set representing all physical things in the universe, the class code indicates both the subtype branch of the Entity hierarchy used as well as a high level classifier to represent the instance of Entity. This can be used to constrain the eligible value domains for the Entity.code attribute.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation></mif:annotations>
+            <derivedFrom attributeName="classCode" className="Person" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="PSN" codeSystemName="EntityClass"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="determinerCode" sortKey="2"><enumerationValues>INSTANCE</enumerationValues>
+            <mif:annotations>
+               
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>An HL7 defined value representing whether the Entity represents a kind-of or a specific instance.</xhtml:p>
+                     </xhtml:p>
+                     <xhtml:p>
+                        <xhtml:p>Examples: 1 human being (an instance), 3 syringes (quantified kind) or the population of Indianapolis (kind of group)</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:usageNotes>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>http://www.hl7.org/v3ballot/html/infrastructure/vocabulary/EntityDeterminer.htm</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:usageNotes><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>An Entity may at times represent information concerning a specific instance (the most common), a quantifiable group with common characteristics or a general type of Entity. This code distinguishes these different representations.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation></mif:annotations>
+            <derivedFrom attributeName="determinerCode" className="Person" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="INSTANCE" codeSystemName="EntityDeterminer"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="false" maximumMultiplicity="10" minimumMultiplicity="1" name="name" sortKey="3">
+            <mif:businessName name="Client Name"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Name(s) for the Client</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Populated attribute supports the identification of the client</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation></mif:annotations>
+            <derivedFrom attributeName="name" className="Person" staticModelDerivationId="1"/>
+            <mif:type name="LIST">
+               <argumentDatatype name="PN.FULL"/>
+            </mif:type>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="false" maximumMultiplicity="1" minimumMultiplicity="1" name="administrativeGenderCode" sortKey="4">
+            <mif:businessName name="Client Gender"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Gender of the Client, this is not to be confused with Clinical Gender of a client. Administrative Gender is typically restricted to Male (M), Female (F) or Unknown (U)</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Populated attribute supports the identification of the client</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation></mif:annotations>
+            <derivedFrom attributeName="administrativeGenderCode" className="Person" staticModelDerivationId="1"/>
+            <mif:type name="CV"/>
+            <supplierVocabulary codingStrength="CNE"><vocabularyDomain name="AdministrativeGender"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="false" maximumMultiplicity="1" minimumMultiplicity="1" name="birthTime" sortKey="5">
+            <mif:businessName name="Client Date of Birth"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Date of birth of the Client</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Populated attribute supports the identification of the client</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation></mif:annotations>
+            <derivedFrom attributeName="birthTime" className="Person" staticModelDerivationId="1"/>
+            <mif:type name="TS.DATETIME"/>
+         </mif:attribute>
+      </mif:class>
+   </containedClass>
+   <association sortKey="1">
+      
+      <mif:connections>
+         <mif:traversableConnection conformance="R" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="identifiedPerson" participantClassName="Person" sortKey="AZ">
+            <derivedFrom associationEndName="player" className="Role" staticModelDerivationId="1"/>
+         </mif:traversableConnection>
+         <mif:nonTraversableConnection participantClassName="IdentifiedEntity">
+            <derivedFrom associationEndName="playedRole" className="Entity" staticModelDerivationId="1"/>
+         </mif:nonTraversableConnection>
+      </mif:connections>
+   </association>
+</mif:staticModel>

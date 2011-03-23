@@ -15,18 +15,34 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 
+/**
+ * <p>Diagnosis Indications</p>
+ * 
+ * <p>Describes diagnosis-related indications</p>
+ * 
+ * <p>Allows separation of conditions from symptoms from other 
+ * forms of indication.</p>
+ * 
+ * <p>Code must be fixed to DX if not using SNOMED</p>
+ * 
+ * <p>Value is mandatory if not using SNOMED</p>
+ */
 @Hl7PartTypeMapping({"PORX_MT980050CA.ObservationDiagnosis"})
-public class DiagnosisIndicationsBean extends MessagePartBean implements Indications {
+public class DiagnosisIndicationsBean extends MessagePartBean implements IndicationsBean {
 
-    private static final long serialVersionUID = 20110127L;
+    private static final long serialVersionUID = 20100614L;
+    private CD diagnosisType = new CDImpl();
     private ST freeFormDiagnosisIndication = new STImpl();
     private CV diagnosisCode = new CVImpl();
-    private CD diagnosisType = new CDImpl();
 
+    @Hl7XmlMapping({"code"})
+    public ActCode getDiagnosisType() {
+        return (ActCode) this.diagnosisType.getValue();
+    }
+    public void setDiagnosisType(ActCode diagnosisType) {
+        this.diagnosisType.setValue(diagnosisType);
+    }
 
-    /**
-     * <p>Free Form Diagnosis Indication</p>
-     */
     @Hl7XmlMapping({"text"})
     public String getFreeFormDiagnosisIndication() {
         return this.freeFormDiagnosisIndication.getValue();
@@ -35,28 +51,12 @@ public class DiagnosisIndicationsBean extends MessagePartBean implements Indicat
         this.freeFormDiagnosisIndication.setValue(freeFormDiagnosisIndication);
     }
 
-
-    /**
-     * <p>A:Diagnosis Code</p>
-     */
     @Hl7XmlMapping({"value"})
     public DiagnosisValue getDiagnosisCode() {
         return (DiagnosisValue) this.diagnosisCode.getValue();
     }
     public void setDiagnosisCode(DiagnosisValue diagnosisCode) {
         this.diagnosisCode.setValue(diagnosisCode);
-    }
-
-
-    /**
-     * <p>Diagnosis Type</p>
-     */
-    @Hl7XmlMapping({"code"})
-    public ActCode getDiagnosisType() {
-        return (ActCode) this.diagnosisType.getValue();
-    }
-    public void setDiagnosisType(ActCode diagnosisType) {
-        this.diagnosisType.setValue(diagnosisType);
     }
 
 }

@@ -9,10 +9,10 @@ import ca.infoway.messagebuilder.datatype.impl.CEImpl;
 import ca.infoway.messagebuilder.datatype.impl.TSImpl;
 import ca.infoway.messagebuilder.domainvalue.ParticipationSignature;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import ca.infoway.messagebuilder.model.common.coct_mt090108ca.HealthcareWorkerBean;
 import ca.infoway.messagebuilder.model.common.coct_mt090508ca.HealthcareOrganizationBean;
 import ca.infoway.messagebuilder.model.common.coct_mt910108ca.RelatedPersonBean;
-import ca.infoway.messagebuilder.model.common.coct_mt911108ca.ActingPerson;
-import ca.infoway.messagebuilder.model.common.merged.HealthcareWorkerBean;
+import ca.infoway.messagebuilder.model.common.coct_mt911108ca.ActingPersonBean;
 import java.util.Date;
 
 
@@ -20,17 +20,32 @@ import java.util.Date;
 @Hl7PartTypeMapping({"REPC_MT230001CA.Author"})
 public class AuthorBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110127L;
-    private ActingPerson actingPerson;
+    private static final long serialVersionUID = 20100603L;
     private TS authoredDatetime = new TSImpl();
     private CE attestedIndicator = new CEImpl();
+    private ActingPersonBean actingPerson;
 
+    @Hl7XmlMapping({"time"})
+    public Date getAuthoredDatetime() {
+        return this.authoredDatetime.getValue();
+    }
+    public void setAuthoredDatetime(Date authoredDatetime) {
+        this.authoredDatetime.setValue(authoredDatetime);
+    }
+
+    @Hl7XmlMapping({"signatureCode"})
+    public ParticipationSignature getAttestedIndicator() {
+        return (ParticipationSignature) this.attestedIndicator.getValue();
+    }
+    public void setAttestedIndicator(ParticipationSignature attestedIndicator) {
+        this.attestedIndicator.setValue(attestedIndicator);
+    }
 
     @Hl7XmlMapping({"actingPerson"})
-    public ActingPerson getActingPerson() {
+    public ActingPersonBean getActingPerson() {
         return this.actingPerson;
     }
-    public void setActingPerson(ActingPerson actingPerson) {
+    public void setActingPerson(ActingPersonBean actingPerson) {
         this.actingPerson = actingPerson;
     }
 
@@ -53,30 +68,6 @@ public class AuthorBean extends MessagePartBean {
     }
     public boolean hasActingPersonAsPersonalRelationship() {
         return (this.actingPerson instanceof RelatedPersonBean);
-    }
-
-
-    /**
-     * <p>X: Authored Datetime</p>
-     */
-    @Hl7XmlMapping({"time"})
-    public Date getAuthoredDatetime() {
-        return this.authoredDatetime.getValue();
-    }
-    public void setAuthoredDatetime(Date authoredDatetime) {
-        this.authoredDatetime.setValue(authoredDatetime);
-    }
-
-
-    /**
-     * <p>K: Attested Indicator</p>
-     */
-    @Hl7XmlMapping({"signatureCode"})
-    public ParticipationSignature getAttestedIndicator() {
-        return (ParticipationSignature) this.attestedIndicator.getValue();
-    }
-    public void setAttestedIndicator(ParticipationSignature attestedIndicator) {
-        this.attestedIndicator.setValue(attestedIndicator);
     }
 
 }

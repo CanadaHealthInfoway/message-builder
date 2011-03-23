@@ -3,15 +3,19 @@ package ca.infoway.messagebuilder.model.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.common.merged.HL7Message_1Bean;
-import ca.infoway.messagebuilder.model.common.merged.TriggerEvent_2Bean;
-import ca.infoway.messagebuilder.model.pharmacy.merged.ReferencedRecordBean;
+import ca.infoway.messagebuilder.model.common.mcai_mt700220ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.common.mcci_mt000300ca.HL7MessageBean;
+import ca.infoway.messagebuilder.model.merged.ReferencedRecordBean;
 
 
 
+/**
+ * <p>Indicates that the request to record a ""refusal to 
+ * fill"" against a prescription has been refused.</p>
+ */
 @Hl7PartTypeMapping({"PORX_IN010080CA"})
-public class RecordRefusalToDispenseRequestRefusedBean extends HL7Message_1Bean<TriggerEvent_2Bean<ReferencedRecordBean>> implements InteractionBean {
+public class RecordRefusalToDispenseRequestRefusedBean extends HL7MessageBean<TriggerEventBean<ReferencedRecordBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20110127L;
+    private static final long serialVersionUID = 20100614L;
 
 }

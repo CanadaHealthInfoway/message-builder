@@ -3,8 +3,6 @@ package ca.infoway.messagebuilder.generator.report;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -43,16 +41,10 @@ public class ReportAnalyzer {
 	private Map<String,HSSFCellStyle> styles = new HashMap<String,HSSFCellStyle>();
 	
 	public static void main(String[] args) throws Exception {
-		MessageSet messageSet1 = new MessageSetMarshaller().unmarshall(new File("../message-builder-release-r02_04_02/src/main/resources/messageSet_r02_04_02.xml"));
-		MessageSet messageSet2 = new MessageSetMarshaller().unmarshall(new File("../message-builder-release-r02_04_02/src/main/resources/messageSet_r02_04_00.xml"));
-		MessageSet messageSet3 = new MessageSetMarshaller().unmarshall(new File("../message-builder-release-v02_r02/src/main/resources/messageSet_v02_r02.xml"));
-		MessageSet messageSet4 = new MessageSetMarshaller().unmarshall(new File("../message-builder-release-v01_r04_3/src/main/resources/messageSet_v01_r04_3_hotfix3.xml"));
-		MessageSet messageSet5 = new MessageSetMarshaller().unmarshall(new File("../message-builder-release-v01_r04_3/src/main/resources/messageSet_v01_r04_2.xml"));
-		HSSFWorkbook report = new ReportAnalyzer().createReport(messageSet1, 
-				messageSet2, 
-				messageSet3, messageSet4
-				, messageSet5
-				);
+		MessageSet messageSet = new MessageSetMarshaller().unmarshall(new File("../message-builder-release-r02_04_02/src/main/resources/messageSet_r02_04_02.xml"));
+		MessageSet messageSet2 = new MessageSetMarshaller().unmarshall(new File("../message-builder-release-v02_r02/src/main/resources/messageSet_v02_r02.xml"));
+		MessageSet messageSet3 = new MessageSetMarshaller().unmarshall(new File("../message-builder-release-v01_r04_3/src/main/resources/messageSet_v01r04_3.xml"));
+		HSSFWorkbook report = new ReportAnalyzer().createReport(messageSet, messageSet2, messageSet3);
 		
 		FileOutputStream output = new FileOutputStream(new File(new File(SystemUtils.USER_HOME), "report.xls"));
 		try {
@@ -74,9 +66,12 @@ public class ReportAnalyzer {
 		createMessagePartMergeSheet(workbook, messageSet);
 	}
 
-	private void createMessagePartMergeSheet(HSSFWorkbook workbook, MessageSet[] messageSet) {
+	private void createMessagePartMergeSheet(HSSFWorkbook workbook,
+			MessageSet[] messageSet) {
 		
 		HSSFSheet sheet = workbook.createSheet("Match results");
+		
+		
 		
 	}
 
@@ -109,7 +104,6 @@ public class ReportAnalyzer {
 			String messagePartName, MessageSet... messageSets) {
 		int firstRow = sheet.getLastRowNum() + 1;
 		int column = C;
-		System.out.println("Now working on message part: " + messagePartName);
 		MessagePartReportMatcher matcher = null;
 		for (MessageSet messageSet : messageSets) {
 			createCell(workbook, getRow(sheet, 0), column, messageSet.getVersion(), Style.HEADER);
@@ -132,27 +126,20 @@ public class ReportAnalyzer {
 					createCell(workbook, getRow(sheet, 1), column+1, "Relationship Type", Style.HEADER);
 					createCell(workbook, getRow(sheet, 1), column+2, "Card", Style.HEADER);
 					createCell(workbook, getRow(sheet, 1), column+3, "Conf", Style.HEADER);
-					createCell(workbook, getRow(sheet, 1), column+4, "Choice Differences", Style.HEADER);
 					if (relationship != null) {
-//						System.out.println("Relationship " + relationshipName + " for messageset " + messageSet.getVersion());
 						createCell(workbook, row, column, getBusinessName(relationship), matcher.getBusinessNameMatchStyle(relationship));
 						createCell(workbook, row, column+1, Renderer.createPartDefinitionSummary(relationship), matcher.getTypeMatchStyle(relationship));
-						createCell(workbook, row, column+2, relationship.getCardinality() == null ? "" : relationship.getCardinality().toString(), matcher.getTypeMatchStyle(relationship));
-						createCell(workbook, row, column+3, relationship.getConformance() == null ? "" : relationship.getConformance().getDescription(), matcher.getTypeMatchStyle(relationship));
-						
-						Relationship baseline = matcher.getBaseline().getRelationship(relationshipName);
-						String choiceDifferences = renderChoiceDifferences(relationship, baseline);
-						createCell(workbook, row, column+4, choiceDifferences, getDifferenceStyleArgumentChoices(choiceDifferences));
+						createCell(workbook, row, column+2, relationship.getCardinality() == null ? "" : relationship.getCardinality().toString());
+						createCell(workbook, row, column+3, relationship.getConformance() == null ? "" : relationship.getConformance().getDescription());
 					} else {
 						createCell(workbook, row, column, "", Style.NOT_APPLICABLE);
 						createCell(workbook, row, column+1, "", Style.NOT_APPLICABLE);
 						createCell(workbook, row, column+2, "", Style.NOT_APPLICABLE);
 						createCell(workbook, row, column+3, "", Style.NOT_APPLICABLE);
-						createCell(workbook, row, column+4, "", Style.NOT_APPLICABLE);
 					}
 				}
 			}
-			column += 5;
+			column += 4;
 		}
 		createEmptyRow(sheet);
 	}
@@ -206,8 +193,6 @@ public class ReportAnalyzer {
 			int column = C;
 			for (MessageSet messageSet : messageSets) {
 				createCell(workbook, headerRow, column, messageSet.getVersion(), Style.HEADER);
-				createCell(workbook, headerRow, column+1, "Traversal Name", Style.HEADER);
-				createCell(workbook, headerRow, column+2, "Choice Differences", Style.HEADER);
 			
 				Interaction interaction = messageSet.getInteractions().get(interactionId);
 				if (interaction != null) {
@@ -220,7 +205,7 @@ public class ReportAnalyzer {
 					createCell(workbook, row, column, interaction.getSuperTypeName(), getDifferenceStyle(new Matcher().matchesTypeName(interaction.getSuperTypeName(), getBaselineInteraction(interaction, messageSets).getSuperTypeName())));
 					addArguments(workbook, sheet, mainRow+1, column, interaction.getArguments(), 0, getBaselineInteraction(interaction, messageSets).getArguments());
 				}
-				column += 3;
+				column++;
 			}
 			sheet.createRow(sheet.getLastRowNum()+1);
 		}
@@ -273,88 +258,17 @@ public class ReportAnalyzer {
 		String[] labels = new String[] { "Trigger event:", "Payload:" };
 		for (int i = 0, length = arguments.size(); i < length; i++) {
 			Argument argument = arguments.get(i);
-			HSSFRow row = getRow(sheet, rowNumber+1+i);
+			HSSFRow row = getRow(sheet, rowNumber+1);
 			createCell(workbook, row, B, labels[depth], Style.HEADER);
 			Argument baseline = safeListGet(baselineArguments, i);
 			createCell(workbook, row, columnNumber, argument.getName(), getDifferenceStyleArgument(argument, baseline));
-			createCell(workbook, row, columnNumber+1, argument.getTraversalName(), getDifferenceStyleArgumentTraversalName(argument, baseline));
-			String choiceDifferences = renderChoiceDifferences(argument, baseline);
-			createCell(workbook, row, columnNumber+2, choiceDifferences, getDifferenceStyleArgumentChoices(choiceDifferences));
 			
 			addArguments(workbook, sheet, rowNumber+1, columnNumber, argument.getArguments(), depth+1, baseline == null ? null : baseline.getArguments());
 		}
 	}
 
-	private String renderChoiceDifferences(Argument argument, Argument baseline) {
-		String result = null; 
-		if (argument != baseline) {
-			List<Relationship> choices = (argument == null ? Collections.<Relationship>emptyList() : argument.getChoices());
-			List<Relationship> baselineChoices = (baseline == null ? Collections.<Relationship>emptyList() : baseline.getChoices());
-			result = renderChoiceDifferences(choices, baselineChoices, "");
-			if (StringUtils.isNotBlank(result)) {
-				System.out.println("arg: " + result);
-			}
-		}
-		return result;
-	}
-
-	private String renderChoiceDifferences(Relationship relationship, Relationship baseline) {
-		String result = null; 
-		if (relationship != baseline) {
-			List<Relationship> choices = (relationship == null ? Collections.<Relationship>emptyList() : relationship.getChoices());
-			List<Relationship> baselineChoices = (baseline == null ? Collections.<Relationship>emptyList() : baseline.getChoices());
-			result = renderChoiceDifferences(choices, baselineChoices, "");
-			if (StringUtils.isNotBlank(result)) {
-				String rel = baseline == null ? relationship.getType() : baseline.getType();
-				System.out.println(rel + ": \n" + result);
-			}
-		}
-		return result;
-	}
-
-	private String renderChoiceDifferences(List<Relationship> choices, List<Relationship> baselineChoices, String prefix) {
-		StringBuffer sb = new StringBuffer();
-		
-		Map<String, Relationship> baselineChoiceMap = new HashMap<String, Relationship>(); 
-
-		for (Relationship relationship : baselineChoices) {
-			baselineChoiceMap.put(relationship.getName(), relationship);
-		}
-		
-		for (Relationship relationship : choices) {
-			Relationship baselineRelationship = baselineChoiceMap.remove(relationship.getName());
-			if (baselineRelationship == null) {
-				sb.append("choice option " + prefix + relationship.getName() + " additional to this version; ");
-			} else if (!StringUtils.equals(relationship.getType(), baselineRelationship.getType())) {
-				sb.append("choice option " + prefix + relationship.getName() + " is different type (" + relationship.getType() + " versus " + baselineRelationship.getType() + "); ");
-			} else if (relationship.isChoice() && !baselineRelationship.isChoice()) {
-				sb.append("choice option " + prefix + relationship.getName() + " is itself a choice in this version, but not in baseline version; ");
-			} else if (!relationship.isChoice() && baselineRelationship.isChoice()) {
-				sb.append("choice option " + prefix + relationship.getName() + " is itself a choice in baseline version, but not in this version; ");
-			} else {
-				sb.append(renderChoiceDifferences(relationship.getChoices(), baselineRelationship.getChoices(), relationship.getName() + "."));
-			}
-		}
-
-		Collection<Relationship> values = baselineChoiceMap.values();
-		for (Relationship relationship : values) {
-			sb.append("choice option " + relationship.getName() + " not in this version; ");
-		}
-		
-		return sb.toString();
-	}
-
-	private Style getDifferenceStyleArgumentChoices(String choiceDifferences) {
-		return StringUtils.isBlank(choiceDifferences) ? Style.NO_DIFFERENCE : Style.DIFFERENCE;
-	}
-	
 	private Style getDifferenceStyleArgument(Argument argument, Argument baseline) {
 		return new Matcher().matchesArgumentRoot(argument, baseline)
-				? Style.NO_DIFFERENCE : Style.DIFFERENCE;
-	}
-
-	private Style getDifferenceStyleArgumentTraversalName(Argument argument, Argument baseline) {
-		return new Matcher().matchesArgumentTraversalName(argument, baseline)
 				? Style.NO_DIFFERENCE : Style.DIFFERENCE;
 	}
 

@@ -24,70 +24,24 @@ import ca.infoway.messagebuilder.datatype.lang.Money;
 import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
 import ca.infoway.messagebuilder.datatype.lang.Ratio;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.claims.merged.AllowableBean;
+import ca.infoway.messagebuilder.model.merged.AllowableBean;
 import java.math.BigDecimal;
 import java.util.Set;
 
 
 
 @Hl7PartTypeMapping({"FICR_MT510201CA.AdjudicatedInvoiceElementDetail"})
-public class AdjudicatedInvoiceElementDetailBean extends MessagePartBean implements AdjudicatedInvoiceElementChoice {
+public class AdjudicatedInvoiceElementDetailBean extends MessagePartBean implements AdjudicatedInvoiceElementChoiceBean {
 
-    private static final long serialVersionUID = 20110127L;
-    private CV adjudicatedProductServiceCode = new CVImpl();
-    private RTO<Money, PhysicalQuantity> adjudicatedUnitPrice = new RTOImpl<Money, PhysicalQuantity>();
-    private PQ adjudicatedUnitQuantity = new PQImpl();
-    private SET<II, Identifier> adjudicatedInvoiceElementIdentifier = new SETImpl<II, Identifier>(IIImpl.class);
+    private static final long serialVersionUID = 20100603L;
     private AllowableBean reference1Allowable;
+    private AdjudicationResultBean outcomeOfAdjudicationResult;
+    private SET<II, Identifier> adjudicatedInvoiceElementIdentifier = new SETImpl<II, Identifier>(IIImpl.class);
+    private CV adjudicatedProductServiceCode = new CVImpl();
+    private PQ adjudicatedUnitQuantity = new PQImpl();
+    private RTO<Money, PhysicalQuantity> adjudicatedUnitPrice = new RTOImpl<Money, PhysicalQuantity>();
     private MO adjudicatedLineAmount = new MOImpl();
     private REAL multiplierEG007 = new REALImpl();
-    private AdjudicationResultBean outcomeOfAdjudicationResult;
-
-
-    /**
-     * <p>Adjudicated Product/Service Code</p>
-     */
-    @Hl7XmlMapping({"code"})
-    public Code getAdjudicatedProductServiceCode() {
-        return (Code) this.adjudicatedProductServiceCode.getValue();
-    }
-    public void setAdjudicatedProductServiceCode(Code adjudicatedProductServiceCode) {
-        this.adjudicatedProductServiceCode.setValue(adjudicatedProductServiceCode);
-    }
-
-
-    /**
-     * <p>Adjudicated Unit Price</p>
-     */
-    @Hl7XmlMapping({"unitPriceAmt"})
-    public Ratio<Money, PhysicalQuantity> getAdjudicatedUnitPrice() {
-        return this.adjudicatedUnitPrice.getValue();
-    }
-    public void setAdjudicatedUnitPrice(Ratio<Money, PhysicalQuantity> adjudicatedUnitPrice) {
-        this.adjudicatedUnitPrice.setValue(adjudicatedUnitPrice);
-    }
-
-
-    /**
-     * <p>Adjudicated Unit Quantity</p>
-     */
-    @Hl7XmlMapping({"unitQuantity"})
-    public PhysicalQuantity getAdjudicatedUnitQuantity() {
-        return this.adjudicatedUnitQuantity.getValue();
-    }
-    public void setAdjudicatedUnitQuantity(PhysicalQuantity adjudicatedUnitQuantity) {
-        this.adjudicatedUnitQuantity.setValue(adjudicatedUnitQuantity);
-    }
-
-
-    /**
-     * <p>Adjudicated Invoice Element Identifier</p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Set<Identifier> getAdjudicatedInvoiceElementIdentifier() {
-        return this.adjudicatedInvoiceElementIdentifier.rawSet();
-    }
-
 
     @Hl7XmlMapping({"reference1/allowable"})
     public AllowableBean getReference1Allowable() {
@@ -97,10 +51,43 @@ public class AdjudicatedInvoiceElementDetailBean extends MessagePartBean impleme
         this.reference1Allowable = reference1Allowable;
     }
 
+    @Hl7XmlMapping({"outcomeOf/adjudicationResult"})
+    public AdjudicationResultBean getOutcomeOfAdjudicationResult() {
+        return this.outcomeOfAdjudicationResult;
+    }
+    public void setOutcomeOfAdjudicationResult(AdjudicationResultBean outcomeOfAdjudicationResult) {
+        this.outcomeOfAdjudicationResult = outcomeOfAdjudicationResult;
+    }
 
-    /**
-     * <p>Adjudicated Line Amount</p>
-     */
+    @Hl7XmlMapping({"id"})
+    public Set<Identifier> getAdjudicatedInvoiceElementIdentifier() {
+        return this.adjudicatedInvoiceElementIdentifier.rawSet();
+    }
+
+    @Hl7XmlMapping({"code"})
+    public Code getAdjudicatedProductServiceCode() {
+        return (Code) this.adjudicatedProductServiceCode.getValue();
+    }
+    public void setAdjudicatedProductServiceCode(Code adjudicatedProductServiceCode) {
+        this.adjudicatedProductServiceCode.setValue(adjudicatedProductServiceCode);
+    }
+
+    @Hl7XmlMapping({"unitQuantity"})
+    public PhysicalQuantity getAdjudicatedUnitQuantity() {
+        return this.adjudicatedUnitQuantity.getValue();
+    }
+    public void setAdjudicatedUnitQuantity(PhysicalQuantity adjudicatedUnitQuantity) {
+        this.adjudicatedUnitQuantity.setValue(adjudicatedUnitQuantity);
+    }
+
+    @Hl7XmlMapping({"unitPriceAmt"})
+    public Ratio<Money, PhysicalQuantity> getAdjudicatedUnitPrice() {
+        return this.adjudicatedUnitPrice.getValue();
+    }
+    public void setAdjudicatedUnitPrice(Ratio<Money, PhysicalQuantity> adjudicatedUnitPrice) {
+        this.adjudicatedUnitPrice.setValue(adjudicatedUnitPrice);
+    }
+
     @Hl7XmlMapping({"netAmt"})
     public Money getAdjudicatedLineAmount() {
         return this.adjudicatedLineAmount.getValue();
@@ -109,22 +96,9 @@ public class AdjudicatedInvoiceElementDetailBean extends MessagePartBean impleme
         this.adjudicatedLineAmount.setValue(adjudicatedLineAmount);
     }
 
-
-    /**
-     * <p>Multiplier,e.g. 0.07</p>
-     */
     @Hl7XmlMapping({"factorNumber"})
     public BigDecimal getMultiplierEG007() {
         return this.multiplierEG007.getValue();
-    }
-
-
-    @Hl7XmlMapping({"outcomeOf/adjudicationResult"})
-    public AdjudicationResultBean getOutcomeOfAdjudicationResult() {
-        return this.outcomeOfAdjudicationResult;
-    }
-    public void setOutcomeOfAdjudicationResult(AdjudicationResultBean outcomeOfAdjudicationResult) {
-        this.outcomeOfAdjudicationResult = outcomeOfAdjudicationResult;
     }
 
 }

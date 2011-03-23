@@ -15,7 +15,6 @@ import java.util.TreeSet;
 import org.apache.commons.lang.ClassUtils;
 import org.apache.commons.lang.StringUtils;
 
-import ca.infoway.messagebuilder.generator.GeneratorException;
 import ca.infoway.messagebuilder.util.iterator.EmptyIterable;
 import ca.infoway.messagebuilder.xml.TypeName;
 
@@ -24,10 +23,9 @@ public class ImportDeclarationGenerator extends Hl7TypeCodeGenerator implements 
 	private final Map<String,String> shortNameToFullNameMap = Collections.synchronizedMap(new HashMap<String,String>());
 	
 	private final Set<String> classes = Collections.synchronizedSet(new TreeSet<String>());
+	private final TypeName typeName;
 	private final NameTranslator nameTranslator;
-
-	private final LanguageSpecificName className;
-
+	private final Map<TypeName, TypeName> removedTypesTranslation;
 
 	/**
 	 *
@@ -36,11 +34,12 @@ public class ImportDeclarationGenerator extends Hl7TypeCodeGenerator implements 
 	 * @param classes
 	 * @param map 
 	 */
-	public ImportDeclarationGenerator(LanguageSpecificName className, Collection<Object> classes, NameTranslator nameTranslator) {
-		this.className = className;
+	public ImportDeclarationGenerator(TypeName typeName, Collection<Object> classes, NameTranslator nameTranslator, Map<TypeName, TypeName> removedTypesTranslation) {
+		this.typeName = typeName;
 		this.nameTranslator = nameTranslator;
+		this.removedTypesTranslation = removedTypesTranslation;
 		
-		this.shortNameToFullNameMap.put(this.className.getUnqualifiedClassName(), this.className.getFullyQualifiedName());
+		this.shortNameToFullNameMap.put(this.nameTranslator.getClassNameWithoutPackage(typeName), this.nameTranslator.getFullyQualifiedClassName(typeName));
 		
 		for (Object o : EmptyIterable.nullSafeIterable(classes)) {
 			if (o instanceof String) {
@@ -99,13 +98,13 @@ public class ImportDeclarationGenerator extends Hl7TypeCodeGenerator implements 
 	}
 
 	public String getPackageName() {
-		return this.className.getPackageName();
+		return this.nameTranslator.getPackageName(this.typeName);
 	}
 
 	@Override
 	protected boolean conflictsWithTypeName(String className) {
 		return StringUtils.equals(
-				this.className.getUnqualifiedClassName(), 
+				this.nameTranslator.getClassNameWithoutPackage(this.typeName), 
 				ClassUtils.getShortClassName(className));
 	}
 
@@ -127,16 +126,10 @@ public class ImportDeclarationGenerator extends Hl7TypeCodeGenerator implements 
 	}
 
 	public String getRepresentationOfTypeName(TypeName typeName) {
+		if (this.removedTypesTranslation.containsKey(typeName)) {
+			typeName = this.removedTypesTranslation.get(typeName);
+		}
 		String className = this.nameTranslator.getFullyQualifiedClassName(typeName);
 		return getRepresentationOfClassName(className);
-	}
-
-	public String getRepresentationOfType(Type type) {
-		LanguageSpecificName name = type == null ? null : type.getLanguageSpecificName();
-		if (name != null) {
-			return getRepresentationOfClassName(name.getFullyQualifiedName());
-		} else {
-			throw new GeneratorException("Type " + type.getTypeName() + " does not have a name assigned.");
-		}
 	}
 }

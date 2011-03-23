@@ -1,0 +1,533 @@
+<?xml version="1.0" encoding="UTF-8"?><mif:staticModel xmlns:mif="urn:hl7-org:v3/mif" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:hl7-org:v3/mif" isAbstract="false" isSerializable="true" name="CA" packageKind="realmNamespace" representationKind="flat" schemaVersion="2.0" xsi:schemaLocation="">
+   <mif:packageLocation artifact="MT-deprecated" domain="ME" id="010090" realmNamespace="CA" root="DEFN" section="HM" subSection="PO"/>
+   <mif:header>
+      <mif:renderingInformation application="Visio to MIF transform"/>
+      <mif:legalese copyrightOwner="Health Level Seven" copyrightYears="2008"/>
+   </mif:header>
+   <mif:graphicRepresentation presentation="HL7">
+      <mif:graphElement name="Main">
+         <mif:position x="0" y="0"/>
+         <mif:size height="774" width="1208"/>
+      </mif:graphElement>
+   <entryPoint name="Medication Lookup Query"><mif:graphElement containerDiagramName="Main" shapeId="Sheet.9">
+            <mif:position x="2" y="459"/>
+            <mif:size height="43" width="171"/>
+            <mif:anchorage connectToShapeId="Sheet.9">
+               <mif:position x="174" y="221"/>
+               <mif:graphEdge>
+                  <mif:anchor connectToShapeId="Sheet.5">
+                     <mif:position x="413" y="356"/>
+                  </mif:anchor>
+               </mif:graphEdge>
+            </mif:anchorage>
+         </mif:graphElement></entryPoint><class className="DrugCharacteristic" presentation="HL7"><mif:graphElement containerDiagramName="Main" isHeightAutoSize="true" isWidthAutoSize="true" shapeId="Sheet.166" shapeTemplate="OtherClass">
+               <mif:position x="917" y="605"/>
+               <mif:size height="72" width="257"/>
+            </mif:graphElement></class><class className="DrugCharacteristicType" presentation="HL7"><mif:graphElement containerDiagramName="Main" isHeightAutoSize="true" isWidthAutoSize="true" shapeId="Sheet.152" shapeTemplate="OtherClass">
+               <mif:position x="951" y="701"/>
+               <mif:size height="72" width="257"/>
+            </mif:graphElement></class><class className="DrugCharacteristics" presentation="HL7"><mif:graphElement containerDiagramName="Main" isHeightAutoSize="true" isWidthAutoSize="true" shapeId="Sheet.170" shapeTemplate="OtherClass">
+               <mif:position x="728" y="495"/>
+               <mif:size height="72" width="135"/>
+            </mif:graphElement></class><class className="DrugCode" presentation="HL7"><mif:graphElement containerDiagramName="Main" isHeightAutoSize="true" isWidthAutoSize="true" shapeId="Sheet.20" shapeTemplate="OtherClass">
+               <mif:position x="734" y="1"/>
+               <mif:size height="72" width="253"/>
+            </mif:graphElement></class><class className="DrugForm" presentation="HL7"><mif:graphElement containerDiagramName="Main" isHeightAutoSize="true" isWidthAutoSize="true" shapeId="Sheet.32" shapeTemplate="OtherClass">
+               <mif:position x="625" y="199"/>
+               <mif:size height="72" width="344"/>
+            </mif:graphElement></class><class className="DrugManufacturerName" presentation="HL7"><mif:graphElement containerDiagramName="Main" isHeightAutoSize="true" isWidthAutoSize="true" shapeId="Sheet.28" shapeTemplate="OtherClass">
+               <mif:position x="723" y="396"/>
+               <mif:size height="72" width="284"/>
+            </mif:graphElement></class><class className="DrugName" presentation="HL7"><mif:graphElement containerDiagramName="Main" isHeightAutoSize="true" isWidthAutoSize="true" shapeId="Sheet.138" shapeTemplate="OtherClass">
+               <mif:position x="713" y="96"/>
+               <mif:size height="72" width="219"/>
+            </mif:graphElement></class><class className="DrugRoute" presentation="HL7"><mif:graphElement containerDiagramName="Main" isHeightAutoSize="true" isWidthAutoSize="true" shapeId="Sheet.16" shapeTemplate="OtherClass">
+               <mif:position x="698" y="304"/>
+               <mif:size height="72" width="240"/>
+            </mif:graphElement></class><class className="ParameterList" presentation="HL7"><mif:graphElement containerDiagramName="Main" isHeightAutoSize="false" isWidthAutoSize="true" shapeId="Sheet.5" shapeTemplate="OtherClass">
+               <mif:position x="413" y="220"/>
+               <mif:size height="272" width="120"/>
+            </mif:graphElement></class><association className="DrugCharacteristic" relationshipName="drugCharacteristic"><mif:graphElement connectToShapeId="Sheet.170" containerDiagramName="Main" shapeId="Sheet.128">
+                                 <mif:position x="829" y="567"/>
+                                 <mif:graphEdge>
+                                    <mif:waypoint x="8.645" y="5.971"/>
+                                    <mif:waypoint x="8.645" y="6.500"/>
+                                    <mif:anchor connectToShapeId="Sheet.166">
+                                       <mif:position x="917" y="624"/>
+                                    </mif:anchor>
+                                 </mif:graphEdge>
+                              </mif:graphElement></association><association className="DrugCharacteristicType" relationshipName="drugCharacteristicType"><mif:graphElement connectToShapeId="Sheet.170" containerDiagramName="Main" shapeId="Sheet.156">
+                                 <mif:position x="796" y="567"/>
+                                 <mif:graphEdge>
+                                    <mif:waypoint x="8.292" y="6.090"/>
+                                    <mif:waypoint x="8.292" y="7.687"/>
+                                    <mif:anchor connectToShapeId="Sheet.152">
+                                       <mif:position x="951" y="737"/>
+                                    </mif:anchor>
+                                 </mif:graphEdge>
+                              </mif:graphElement></association><association className="DrugCharacteristics" relationshipName="drugCharacteristics"><mif:graphElement connectToShapeId="Sheet.5" containerDiagramName="Main" shapeId="Sheet.174">
+                     <mif:position x="533" y="492"/>
+                     <mif:graphEdge>
+                        <mif:waypoint x="6.573" y="5.135"/>
+                        <mif:waypoint x="6.573" y="5.537"/>
+                        <mif:anchor connectToShapeId="Sheet.170">
+                           <mif:position x="728" y="531"/>
+                        </mif:anchor>
+                     </mif:graphEdge>
+                  </mif:graphElement></association><association className="DrugCode" relationshipName="drugCode"><mif:graphElement connectToShapeId="Sheet.5" containerDiagramName="Main" shapeId="Sheet.50">
+                     <mif:position x="473" y="220"/>
+                     <mif:graphEdge>
+                        <mif:waypoint x="4.933" y="2.088"/>
+                        <mif:waypoint x="4.933" y="0.205"/>
+                        <mif:anchor connectToShapeId="Sheet.20">
+                           <mif:position x="734" y="19"/>
+                        </mif:anchor>
+                     </mif:graphEdge>
+                  </mif:graphElement></association><association className="DrugForm" relationshipName="drugForm"><mif:graphElement connectToShapeId="Sheet.5" containerDiagramName="Main" shapeId="Sheet.80">
+                     <mif:position x="533" y="288"/>
+                     <mif:graphEdge>
+                        <mif:waypoint x="6.039" y="3.006"/>
+                        <mif:waypoint x="6.039" y="2.452"/>
+                        <mif:anchor connectToShapeId="Sheet.32">
+                           <mif:position x="625" y="235"/>
+                        </mif:anchor>
+                     </mif:graphEdge>
+                  </mif:graphElement></association><association className="DrugManufacturerName" relationshipName="drugManufacturerName"><mif:graphElement connectToShapeId="Sheet.5" containerDiagramName="Main" shapeId="Sheet.70">
+                     <mif:position x="533" y="424"/>
+                     <mif:graphEdge>
+                        <mif:waypoint x="6.548" y="4.425"/>
+                        <mif:waypoint x="6.548" y="4.315"/>
+                        <mif:anchor connectToShapeId="Sheet.28">
+                           <mif:position x="723" y="414"/>
+                        </mif:anchor>
+                     </mif:graphEdge>
+                  </mif:graphElement></association><association className="DrugName" relationshipName="drugName"><mif:graphElement connectToShapeId="Sheet.5" containerDiagramName="Main" shapeId="Sheet.142">
+                     <mif:position x="503" y="220"/>
+                     <mif:graphEdge>
+                        <mif:waypoint x="5.246" y="2.224"/>
+                        <mif:waypoint x="5.246" y="1.565"/>
+                        <mif:anchor connectToShapeId="Sheet.138">
+                           <mif:position x="713" y="150"/>
+                        </mif:anchor>
+                     </mif:graphEdge>
+                  </mif:graphElement></association><association className="DrugRoute" relationshipName="drugRoute"><mif:graphElement connectToShapeId="Sheet.5" containerDiagramName="Main" shapeId="Sheet.40">
+                     <mif:position x="533" y="356"/>
+                     <mif:graphEdge>
+                        <mif:waypoint x="6.415" y="3.716"/>
+                        <mif:waypoint x="6.415" y="3.552"/>
+                        <mif:anchor connectToShapeId="Sheet.16">
+                           <mif:position x="698" y="340"/>
+                        </mif:anchor>
+                     </mif:graphEdge>
+                  </mif:graphElement></association><annotation id="8BD34032-3721-497E-BCFB-662C27D76CDC"><mif:graphElement containerDiagramName="Main" isHeightAutoSize="true" isWidthAutoSize="true" shapeId="Sheet.184">
+                     <mif:position x="67" y="398"/>
+                     <mif:size height="42" width="162"/>
+                     <mif:anchorage connectToShapeId="Sheet.184">
+                        <mif:position x="148" y="419"/>
+                        <mif:graphEdge>
+                           <mif:anchor connectToShapeId="Sheet.5">
+                              <mif:position x="413" y="356"/>
+                           </mif:anchor>
+                        </mif:graphEdge>
+                     </mif:anchorage>
+                  </mif:graphElement></annotation></mif:graphicRepresentation>
+   <derivedFrom staticModelDerivationId="1">
+      <mif:targetStaticModel artifact="RIM" root="DEFN" version="00"/>
+   </derivedFrom>
+   <entryPoint className="ParameterList" id="POME_MT010090CA" isAbstract="false" name="Medication Lookup Query">
+      
+   </entryPoint>
+   <containedClass>
+      <mif:class isAbstract="false" name="DrugCharacteristic">
+         <derivedFrom className="ParameterItem" staticModelDerivationId="1"/>
+         
+         <mif:annotations>
+            
+            
+         <documentation><mif:definition>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>Allows a textual description of the characterisitc</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:definition><mif:rationale>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>May not be a suitable coded attribute</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:rationale></documentation></mif:annotations>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="true" maximumLength="20" maximumMultiplicity="1" minimumMultiplicity="1" name="value" sortKey="1">
+            <mif:businessName name="G:Drug Characteristic"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Information pertaining to a specific instance of drug characteristic (color - red, shape - triangular, markings etc).</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Provides the 'value' part of the name-value pair describing the characteristic of drug product to be retrieved. Example:</xhtml:p>
+                     </xhtml:p>
+                     <xhtml:p>
+                        <xhtml:p>type: color</xhtml:p>
+                     </xhtml:p>
+                     <xhtml:p>
+                        <xhtml:p>value: blue</xhtml:p>
+                     </xhtml:p>
+                     <xhtml:p>
+                        <xhtml:p>type: shape</xhtml:p>
+                     </xhtml:p>
+                     <xhtml:p>
+                        <xhtml:p>value: rectangular</xhtml:p>
+                     </xhtml:p>
+                     <xhtml:p>
+                        <xhtml:p>The attribute is mandatory because there's no point searching for a characteristic without specifying a value.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation></mif:annotations>
+            <derivedFrom attributeName="value" className="ParameterItem" staticModelDerivationId="1"/>
+            <mif:type name="ST"/>
+         </mif:attribute>
+      </mif:class>
+   </containedClass>
+   <containedClass>
+      <mif:class isAbstract="false" name="DrugCharacteristicType">
+         <mif:businessName name="Characteristics"><realmNamespace value="UV"/></mif:businessName>
+         <derivedFrom className="ParameterItem" staticModelDerivationId="1"/>
+         
+         <mif:annotations>
+            
+            
+         <documentation><mif:definition>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>Indicates the characteristic to be searched by.</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:definition><mif:rationale>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>Allows searching by appearance characteristics of the drug.</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:rationale></documentation></mif:annotations>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="value" sortKey="1">
+            <mif:businessName name="H:Drug Characteristic Type Code"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>A coded value denoting the type of physical characteristic of a drug. Characteristics include: Color, Shape, Markings, Size, etc.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Allows retrieval based on specific characteristic of a drug. The attribute is mandatory because there's no point searching for a characteristic without identifying what kind of characteristic is being searched by.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation></mif:annotations>
+            <derivedFrom attributeName="value" className="ParameterItem" staticModelDerivationId="1"/>
+            <mif:type name="CV"/>
+            <supplierVocabulary codingStrength="CNE"><vocabularyDomain name="MedicationObservationType"/></supplierVocabulary>
+         </mif:attribute>
+      </mif:class>
+   </containedClass>
+   <containedClass>
+      <mif:class isAbstract="false" name="DrugCharacteristics">
+         <mif:businessName name="has characteristic"><realmNamespace value="UV"/></mif:businessName>
+         <derivedFrom className="ParameterList" staticModelDerivationId="1"/>
+         
+         <mif:annotations>
+            
+            
+         <documentation><mif:definition>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>Filters medications by their appearance.</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:definition><mif:rationale>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>Used to hold characteristic type and value pair as one set of query parameter item.</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:rationale></documentation></mif:annotations>
+      </mif:class>
+   </containedClass>
+   <containedClass>
+      <mif:class isAbstract="false" name="DrugCode">
+         <derivedFrom className="ParameterItem" staticModelDerivationId="1"/>
+         
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="value" sortKey="1">
+            <mif:businessName name="B:Drug Code"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>An identifier that describes a drug at any level of the clinical drug hierarchy. The code may describe (point to) a Manufactured drug, generic drug formulation, generic drug, therapeutic classification, etc.</xhtml:p>
+                     </xhtml:p>
+                     <xhtml:p>
+                        <xhtml:p>For example, using a therapeutic class code in the DrugCode parameter would return a list of all drugs that are within that class. Sending a drug name in the DrugName parameter would return a list of all drugs that have that name e.g. sending acetaminophen would return all of the acetaminophen products in the drug data base. By including the DoseForm, DoseRoute, DrugManufacturerName or DrugCharacteristic, the list could be further constrained.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Allows the requester to retrieve drugs of certain abstraction only. These drug abstractions include: Manufactured drug, generic formulation, generic, therapeutic class, etc.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation></mif:annotations>
+            <derivedFrom attributeName="value" className="ParameterItem" staticModelDerivationId="1"/>
+            <mif:type name="CV"/>
+            <supplierVocabulary codingStrength="CNE"><vocabularyDomain name="ClinicalDrug"/></supplierVocabulary>
+         </mif:attribute>
+      </mif:class>
+   </containedClass>
+   <containedClass>
+      <mif:class isAbstract="false" name="DrugForm">
+         <derivedFrom className="ParameterItem" staticModelDerivationId="1"/>
+         
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="value" sortKey="1">
+            <mif:businessName name="D:Orderable Drug Form"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Indicates the form in which the drug product must is manufactured.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Useful filter for searching drugs. Allows the requester to specify the drug form of interest for the retrieval.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation></mif:annotations>
+            <derivedFrom attributeName="value" className="ParameterItem" staticModelDerivationId="1"/>
+            <mif:type name="CV"/>
+            <supplierVocabulary codingStrength="CWE"><vocabularyDomain name="OrderableDrugForm"/></supplierVocabulary>
+         </mif:attribute>
+      </mif:class>
+   </containedClass>
+   <containedClass>
+      <mif:class isAbstract="false" name="DrugManufacturerName">
+         <derivedFrom className="ParameterItem" staticModelDerivationId="1"/>
+         
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="true" maximumLength="60" maximumMultiplicity="1" minimumMultiplicity="1" name="value" sortKey="1">
+            <mif:businessName name="F:Drug Manufacturer Name"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>The name of a drug manufacturer.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:usageNotes>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Manufacturer name search will be 'Starts with...' type of a search.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:usageNotes><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Allows for the retrieval of drug products based on the manufacturer.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation></mif:annotations>
+            <derivedFrom attributeName="value" className="ParameterItem" staticModelDerivationId="1"/>
+            <mif:type name="ST"/>
+         </mif:attribute>
+      </mif:class>
+   </containedClass>
+   <containedClass>
+      <mif:class isAbstract="false" name="DrugName">
+         <derivedFrom className="ParameterItem" staticModelDerivationId="1"/>
+         
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="true" maximumLength="60" maximumMultiplicity="1" minimumMultiplicity="1" name="value" sortKey="1">
+            <mif:businessName name="C:Drug Name"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>The name assigned to a drug.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Name may be the only identification of a drug known by many prescribers.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation></mif:annotations>
+            <derivedFrom attributeName="value" className="ParameterItem" staticModelDerivationId="1"/>
+            <mif:type name="ST"/>
+         </mif:attribute>
+      </mif:class>
+   </containedClass>
+   <containedClass>
+      <mif:class isAbstract="false" name="DrugRoute">
+         <derivedFrom className="ParameterItem" staticModelDerivationId="1"/>
+         
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="value" sortKey="1">
+            <mif:businessName name="E:Drug Route Code"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>A filter based on how the drug should be introduced into the patient's body (e.g. Oral, topical, etc.)</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Allows limiting the returned list of drugs to a single route.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation></mif:annotations>
+            <derivedFrom attributeName="value" className="ParameterItem" staticModelDerivationId="1"/>
+            <mif:type name="CV"/>
+            <supplierVocabulary codingStrength="CWE"><vocabularyDomain name="RouteOfAdministration"/></supplierVocabulary>
+         </mif:attribute>
+      </mif:class>
+   </containedClass>
+   <containedClass>
+      <mif:class isAbstract="false" name="ParameterList">
+         <mif:businessName name="Drug Query Parameters"><realmNamespace value="UV"/></mif:businessName>
+         <derivedFrom className="ParameterList" staticModelDerivationId="1"/>
+         
+         <mif:annotations>
+            
+            
+            
+         <documentation><mif:definition>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>Defines the set of parameters that may be used to filter the query response.</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:definition><mif:rationale>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>Root class for query parameters</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:rationale></documentation><appInfo><mif:constraint id="{8BD34032-3721-497E-BCFB-662C27D76CDC}">
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>At least one of drug code or drug name must be specified</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+               
+            </mif:constraint></appInfo></mif:annotations>
+      </mif:class>
+   </containedClass>
+   <association sortKey="8">
+      
+      <mif:connections>
+         <mif:traversableConnection conformance="R" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="drugCharacteristic" participantClassName="DrugCharacteristic" sortKey="Z ZZ">
+            <derivedFrom associationEndName="parameter" className="ParameterList" staticModelDerivationId="1"/>
+         </mif:traversableConnection>
+         <mif:nonTraversableConnection participantClassName="DrugCharacteristics">
+            <derivedFrom associationEndName="parameterList" className="Parameter" staticModelDerivationId="1"/>
+         </mif:nonTraversableConnection>
+      </mif:connections>
+   </association>
+   <association sortKey="7">
+      
+      <mif:connections>
+         <mif:traversableConnection conformance="R" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="drugCharacteristicType" participantClassName="DrugCharacteristicType" sortKey="Z ZZ">
+            <derivedFrom associationEndName="parameter" className="ParameterList" staticModelDerivationId="1"/>
+         </mif:traversableConnection>
+         <mif:nonTraversableConnection participantClassName="DrugCharacteristics">
+            <derivedFrom associationEndName="parameterList" className="Parameter" staticModelDerivationId="1"/>
+         </mif:nonTraversableConnection>
+      </mif:connections>
+   </association>
+   <association sortKey="0">
+      
+      <mif:connections>
+         <mif:traversableConnection conformance="R" isMandatory="false" maximumMultiplicity="5" minimumMultiplicity="0" name="drugCharacteristics" participantClassName="DrugCharacteristics" sortKey="Z">
+            <derivedFrom associationEndName="parameterList" className="Parameter" staticModelDerivationId="1"/>
+         </mif:traversableConnection>
+         <mif:nonTraversableConnection participantClassName="ParameterList">
+            <derivedFrom associationEndName="parameterList" className="Parameter" staticModelDerivationId="1"/>
+         </mif:nonTraversableConnection>
+      </mif:connections>
+   </association>
+   <association sortKey="4">
+      
+      <mif:connections>
+         <mif:traversableConnection conformance="R" isMandatory="false" maximumMultiplicity="1" minimumMultiplicity="0" name="drugCode" participantClassName="DrugCode" sortKey="Z ZZ">
+            <derivedFrom associationEndName="parameter" className="ParameterList" staticModelDerivationId="1"/>
+         </mif:traversableConnection>
+         <mif:nonTraversableConnection participantClassName="ParameterList">
+            <derivedFrom associationEndName="parameterList" className="Parameter" staticModelDerivationId="1"/>
+         </mif:nonTraversableConnection>
+      </mif:connections>
+   </association>
+   <association sortKey="3">
+      
+      <mif:connections>
+         <mif:traversableConnection conformance="R" isMandatory="false" maximumMultiplicity="1" minimumMultiplicity="0" name="drugForm" participantClassName="DrugForm" sortKey="Z ZZ">
+            <derivedFrom associationEndName="parameter" className="ParameterList" staticModelDerivationId="1"/>
+         </mif:traversableConnection>
+         <mif:nonTraversableConnection participantClassName="ParameterList">
+            <derivedFrom associationEndName="parameterList" className="Parameter" staticModelDerivationId="1"/>
+         </mif:nonTraversableConnection>
+      </mif:connections>
+   </association>
+   <association sortKey="1">
+      
+      <mif:connections>
+         <mif:traversableConnection conformance="R" isMandatory="false" maximumMultiplicity="1" minimumMultiplicity="0" name="drugManufacturerName" participantClassName="DrugManufacturerName" sortKey="Z ZZ">
+            <derivedFrom associationEndName="parameter" className="ParameterList" staticModelDerivationId="1"/>
+         </mif:traversableConnection>
+         <mif:nonTraversableConnection participantClassName="ParameterList">
+            <derivedFrom associationEndName="parameterList" className="Parameter" staticModelDerivationId="1"/>
+         </mif:nonTraversableConnection>
+      </mif:connections>
+   </association>
+   <association sortKey="5">
+      
+      <mif:connections>
+         <mif:traversableConnection conformance="R" isMandatory="false" maximumMultiplicity="1" minimumMultiplicity="0" name="drugName" participantClassName="DrugName" sortKey="Z ZZ">
+            <derivedFrom associationEndName="parameter" className="ParameterList" staticModelDerivationId="1"/>
+         </mif:traversableConnection>
+         <mif:nonTraversableConnection participantClassName="ParameterList">
+            <derivedFrom associationEndName="parameterList" className="Parameter" staticModelDerivationId="1"/>
+         </mif:nonTraversableConnection>
+      </mif:connections>
+   </association>
+   <association sortKey="2">
+      
+      <mif:connections>
+         <mif:traversableConnection conformance="R" isMandatory="false" maximumMultiplicity="1" minimumMultiplicity="0" name="drugRoute" participantClassName="DrugRoute" sortKey="Z ZZ">
+            <derivedFrom associationEndName="parameter" className="ParameterList" staticModelDerivationId="1"/>
+         </mif:traversableConnection>
+         <mif:nonTraversableConnection participantClassName="ParameterList">
+            <derivedFrom associationEndName="parameterList" className="Parameter" staticModelDerivationId="1"/>
+         </mif:nonTraversableConnection>
+      </mif:connections>
+   </association>
+</mif:staticModel>

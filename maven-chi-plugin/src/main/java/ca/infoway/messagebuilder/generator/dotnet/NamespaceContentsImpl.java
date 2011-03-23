@@ -15,8 +15,8 @@ class NamespaceContentsImpl implements NamespaceContents {
 	
 	NamespaceContentsImpl(NameTranslator translator, TypeProvider provider) {
 		for (Type type : provider.getAllMessageTypes()) {
-			String packageName = translator.getPackageName(type.getTypeName());
-			String className = translator.getClassNameWithoutPackage(type.getTypeName());
+			String packageName = translator.getPackageName(type.getName());
+			String className = translator.getClassNameWithoutPackage(type.getName());
 			if (!this.types.containsKey(packageName)) {
 				this.types.put(packageName, new ArrayList<String>());
 			}

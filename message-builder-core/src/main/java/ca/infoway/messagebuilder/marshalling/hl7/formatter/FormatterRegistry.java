@@ -2,6 +2,7 @@ package ca.infoway.messagebuilder.marshalling.hl7.formatter;
 
 import ca.infoway.messagebuilder.marshalling.hl7.Registry;
 
+@SuppressWarnings("unchecked")
 public class FormatterRegistry extends Registry<PropertyFormatter> {
 
     private static FormatterRegistry instance = new FormatterRegistry();
@@ -18,7 +19,6 @@ public class FormatterRegistry extends Registry<PropertyFormatter> {
         register(new AdBasicPropertyFormatter());
         register(new AdPropertyFormatter());
         register(new AnyPropertyFormatter());
-        register(new BagPropertyFormatter());
         register(new BlPropertyFormatter());
         register(new GtsBoundedPivlFormatter());
         register(new CdPropertyFormatter());

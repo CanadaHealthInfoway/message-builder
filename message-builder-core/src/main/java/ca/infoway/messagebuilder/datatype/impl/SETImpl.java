@@ -23,7 +23,7 @@ import ca.infoway.messagebuilder.domainvalue.NullFlavor;
  * @param <V> the underlying Java datatype held by the underlying Java Set
  * @sharpen.ignore - datatype - translated manually 
  */
-public class SETImpl<T extends ANY<V>, V> extends ANYImpl<Collection<T>> implements SET<T, V>, BareCollection, CollectionHelper {
+public class SETImpl<T extends ANY<V>, V> extends ANYImpl<Set<T>> implements SET<T, V>, BareCollection, CollectionHelper {
 	
 	private static final long serialVersionUID = -6170605246120245157L;
 	

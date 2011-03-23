@@ -13,7 +13,7 @@ public class JavaTypeWriter extends TypeWriter {
 
 	@Override
 	protected Hl7TypeWriter getHl7MessageTypeWriter(Type type) throws GeneratorException {
-		return new Hl7JavaMessageTypeWriter(type, this.translator);
+		return new Hl7JavaMessageTypeWriter(type, this.translator, this.result.getRemovedTypeTranslation());
 	}
 
 	@Override

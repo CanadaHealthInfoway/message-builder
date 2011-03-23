@@ -3,13 +3,17 @@ package ca.infoway.messagebuilder.model.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.common.merged.HL7Message_2Bean;
+import ca.infoway.messagebuilder.model.merged.HL7MessageBean;
 
 
 
+/**
+ * <p>Sends HL7 Poll Transmission to an HL7 interaction queue 
+ * manager.</p>
+ */
 @Hl7PartTypeMapping({"MCCI_IN102001CA"})
-public class SendPollTransmissionBean extends HL7Message_2Bean implements InteractionBean {
+public class SendPollTransmissionBean extends HL7MessageBean implements InteractionBean {
 
-    private static final long serialVersionUID = 20110127L;
+    private static final long serialVersionUID = 20100614L;
 
 }

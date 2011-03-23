@@ -16,37 +16,21 @@ import java.util.List;
 /**
  * <p>Territorial Authority</p>
  * 
- * <p><p>RoleClass necessary to support the Jurisdiction within 
- * which the scoping organization exists</p></p>
+ * <p>RoleClass necessary to support the Jurisdiction within 
+ * which the scoping organization exists</p>
  * 
- * <p><p>Supports business requirement to provide additional 
+ * <p>Supports business requirement to provide additional 
  * information regarding the jurisdication within the scoping 
- * organization exists.</p></p>
+ * organization exists.</p>
  */
 @Hl7PartTypeMapping({"PRPM_MT306011CA.TerritorialAuthority"})
 public class TerritorialAuthorityBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110127L;
-    private List<PartBean> part = new ArrayList<PartBean>();
+    private static final long serialVersionUID = 20100614L;
     private CV territorialAuthorityType = new CVImpl();
+    private List<PartBean> part = new ArrayList<PartBean>();
     private CV jurisdictionType = new CVImpl();
 
-
-    @Hl7XmlMapping({"part"})
-    public List<PartBean> getPart() {
-        return this.part;
-    }
-
-
-    /**
-     * <p>Territorial Authority Type</p>
-     * 
-     * <p><p>The code identifying the specific Territorial 
-     * Authority</p></p>
-     * 
-     * <p><p>Mandatory attribute supports the validation and 
-     * identification of the healthcare provider</p></p>
-     */
     @Hl7XmlMapping({"code"})
     public RoleCode getTerritorialAuthorityType() {
         return (RoleCode) this.territorialAuthorityType.getValue();
@@ -55,23 +39,11 @@ public class TerritorialAuthorityBean extends MessagePartBean {
         this.territorialAuthorityType.setValue(territorialAuthorityType);
     }
 
+    @Hl7XmlMapping({"part"})
+    public List<PartBean> getPart() {
+        return this.part;
+    }
 
-    /**
-     * <p>Jurisdiction Type</p>
-     * 
-     * <p><p>A character value that represents the Canadian 
-     * provincial or territorial geographical area within which the 
-     * Provider is operating.</p></p>
-     * 
-     * <p><p>Mandatory attribute supports the validation and 
-     * identification of the healthcare provider</p><p>.</p></p>
-     * 
-     * <p><p>Mandatory attribute supports the validation and 
-     * identification of the healthcare provider</p><p>.</p></p>
-     * 
-     * <p><p>If Jurisdiction is included in the message, then 
-     * Territorial Authority Type is Expected to Exist</p></p>
-     */
     @Hl7XmlMapping({"territory/code"})
     public PlaceEntityType getJurisdictionType() {
         return (PlaceEntityType) this.jurisdictionType.getValue();

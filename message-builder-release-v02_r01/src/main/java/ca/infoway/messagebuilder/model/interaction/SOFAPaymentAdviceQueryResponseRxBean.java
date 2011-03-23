@@ -3,16 +3,21 @@ package ca.infoway.messagebuilder.model.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.claims.merged.AdjudicatedResultsGroupBean;
 import ca.infoway.messagebuilder.model.claims.qucr_mt800201ca.ParameterListBean;
-import ca.infoway.messagebuilder.model.common.merged.HL7Message_1Bean;
-import ca.infoway.messagebuilder.model.common.merged.TriggerEvent_5Bean;
+import ca.infoway.messagebuilder.model.claims.qucr_mt810201ca.AdjudicatedResultsGroupBean;
+import ca.infoway.messagebuilder.model.common.mcci_mt002300ca.HL7MessageBean;
+import ca.infoway.messagebuilder.model.common.quqi_mt120008ca.TriggerEventBean;
 
 
 
+/**
+ * <p>The sender sends a SOFA (Statement of Financial Activity) 
+ * Payment Advice Query Response message for Pharmacy services 
+ * and/or products.</p>
+ */
 @Hl7PartTypeMapping({"QUCR_IN810102CA"})
-public class SOFAPaymentAdviceQueryResponseRxBean extends HL7Message_1Bean<TriggerEvent_5Bean<AdjudicatedResultsGroupBean,ParameterListBean>> implements InteractionBean {
+public class SOFAPaymentAdviceQueryResponseRxBean extends HL7MessageBean<TriggerEventBean<AdjudicatedResultsGroupBean,ParameterListBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20110127L;
+    private static final long serialVersionUID = 20100615L;
 
 }

@@ -3,15 +3,19 @@ package ca.infoway.messagebuilder.model.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.common.merged.HL7Message_1Bean;
-import ca.infoway.messagebuilder.model.common.merged.TriggerEvent_3Bean;
-import ca.infoway.messagebuilder.model.cr.merged.IdentifiedPersonBean;
+import ca.infoway.messagebuilder.model.common.mcci_mt002100ca.HL7MessageBean;
+import ca.infoway.messagebuilder.model.common.mfmi_mt700716ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.merged.IdentifiedPersonBean;
 
 
 
+/**
+ * <p>This interaction occurs after when a person record is to 
+ * be revised in a person registry.</p>
+ */
 @Hl7PartTypeMapping({"PRPA_IN101002CA"})
-public class PersonInformationRevisedBean extends HL7Message_1Bean<TriggerEvent_3Bean<IdentifiedPersonBean>> implements InteractionBean {
+public class PersonInformationRevisedBean extends HL7MessageBean<TriggerEventBean<IdentifiedPersonBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20110127L;
+    private static final long serialVersionUID = 20100614L;
 
 }

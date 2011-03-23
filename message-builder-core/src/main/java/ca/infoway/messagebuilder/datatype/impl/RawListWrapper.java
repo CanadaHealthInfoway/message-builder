@@ -25,8 +25,8 @@ public class RawListWrapper<T extends BareANY, V> implements List<V> {
 	private final List<T> original;
 	private final Class<? extends T> originalElementType;
 	
-	public RawListWrapper(Collection<T> original, Class<? extends T> originalElementType) {
-		this.original = (List<T>) original;
+	public RawListWrapper(List<T> original, Class<? extends T> originalElementType) {
+		this.original = original;
 		this.originalElementType = originalElementType;
 	}
 	

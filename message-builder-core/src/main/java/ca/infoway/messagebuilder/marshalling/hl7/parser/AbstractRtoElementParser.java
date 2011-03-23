@@ -16,7 +16,7 @@ import ca.infoway.messagebuilder.util.xml.NodeUtil;
 public abstract class AbstractRtoElementParser<N, D> extends AbstractSingleElementParser<Ratio<N, D>> {
 
     @Override
-	protected Ratio<N, D> parseNonNullNode(ParseContext context, Node node, BareANY parseResult, Type expectedReturnType, XmlToModelResult xmlToJavaResult) throws XmlToModelTransformationException {
+	protected Ratio<N, D> parseNonNullNode(ParseContext context, Node node, Type expectedReturnType, XmlToModelResult xmlToJavaResult) throws XmlToModelTransformationException {
 
         Ratio<N, D> result = new Ratio<N, D>();
         

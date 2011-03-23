@@ -23,7 +23,7 @@ import org.xml.sax.SAXException;
 
 import ca.infoway.messagebuilder.generator.util.XPathHelper;
 import ca.infoway.messagebuilder.util.xml.DocumentFactory;
-import ca.infoway.messagebuilder.xml.Annotation;
+import ca.infoway.messagebuilder.util.xml.NodeUtil;
 import ca.infoway.messagebuilder.xml.Argument;
 import ca.infoway.messagebuilder.xml.Documentation;
 import ca.infoway.messagebuilder.xml.Interaction;
@@ -72,15 +72,16 @@ class DmifProcessor {
 		Interaction interaction = new Interaction();
 		Element packageLocation = (Element) new XPathHelper().getSingleNode(element, "./mif:packageLocation", Namespaces.MIF_NAMESPACE);
 		Element parameterTypeModel = (Element) new XPathHelper().getSingleNode(element, "./mif:parameterTypeModel", Namespaces.MIF_NAMESPACE);
-		List<Annotation> documentationForInteraction = new MifXPathHelper().getDocumentationForInteraction(element);
+		Element documentation = (Element) new XPathHelper().getSingleNode(element, "./mif:annotations/mif:description", Namespaces.MIF_NAMESPACE);
+		String documentationText = NodeUtil.getTextValue(documentation);
 		String businessName = new XPathHelper().getAttributeValue(element, "./mif:businessName/@name", Namespaces.MIF_NAMESPACE);
 
 		interaction.setName(EntryPointAssembler.getEntryPoint(packageLocation));
 		String parent = EntryPointAssembler.getEntryPoint(parameterTypeModel);
 		interaction.setSuperTypeName(messageSet.getPackageLocationRootType(parent));
 		interaction.setBusinessName(businessName);
-		if (documentationForInteraction != null && !documentationForInteraction.isEmpty()) {
-			interaction.setDocumentation(new Documentation(documentationForInteraction));
+		if (StringUtils.isNotBlank(documentationText)) {
+			interaction.setDocumentation(new Documentation(documentationText));
 		}
 		
 		List<Argument> arguments = getArguments(messageSet, parameterTypeModel);
@@ -133,25 +134,20 @@ class DmifProcessor {
 		for (int i = 0, length = nodes == null ? 0 : nodes.getLength(); i < length; i++) {
 			Element specialization = (Element) nodes.item(i);
 			Relationship relationship = new Relationship();
-			String className = specialization.getAttribute("className");
+			String attribute = specialization.getAttribute("className");
 			
 			String nestedPackageName = packageName;
 			
-			String type = packageName + "." + className;
+			String type = packageName + "." + attribute;
 			if (messageSet.getMessagePart(type) != null) {
 				relationship.setType(type);
 				relationship.setName(specialization.getAttribute("traversalName"));
 				choices.add(relationship);
 			} else if (this.registry.isMifRegistered(packageName)) {
 				Mif mif = this.registry.getMif(packageName);
-				String referenceType = MifXPathHelper.getExternalReferenceType(mif.asDocument().getDocumentElement(), className);
-				if (referenceType == null) {
-					referenceType = MifXPathHelper.getExternalReferenceType(mif.asDocument().getDocumentElement(), i);
-					mif = this.registry.getMif(referenceType);
-					type = referenceType + "." + className;
-				} else {
-					type = messageSet.getPackageLocationRootType(referenceType);
-				}
+				String referenceType = MifXPathHelper.getExternalReferenceType(mif.asDocument().getDocumentElement(), attribute);
+				
+				type = referenceType == null ? null : messageSet.getPackageLocationRootType(referenceType);
 				
 				if (StringUtils.isNotBlank(type)) {
 					nestedPackageName = referenceType;
@@ -159,10 +155,10 @@ class DmifProcessor {
 					relationship.setName(specialization.getAttribute("traversalName"));
 					choices.add(relationship);
 				} else {
-					this.outputUI.log(WARN, "Name " + packageName + "." + className + " seems to resolve to " + referenceType + " but we can't resolve that.");
+					this.outputUI.log(WARN, "Name " + packageName + "." + attribute + " seems to resolve to " + referenceType + " but we can't resolve that.");
 				}
 			} else {
-				this.outputUI.log(WARN, "Cannot find type : " + className + " related to " + packageName);
+				this.outputUI.log(WARN, "Cannot find type : " + attribute + " related to " + packageName);
 			}
 			
 			// find nested choices

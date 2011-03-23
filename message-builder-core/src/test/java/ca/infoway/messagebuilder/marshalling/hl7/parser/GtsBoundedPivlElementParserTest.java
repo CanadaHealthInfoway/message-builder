@@ -56,33 +56,6 @@ public class GtsBoundedPivlElementParserTest extends MarshallingTestCase {
 	}
 	
 	@Test
-	public void shouldParseValidInformationWhenMissingInnerSpecializationTypes() throws Exception {
-		Node node = createNode("<effectiveTime specializationType=\"GTS.BOUNDEDPIVL\">" +
-				"  <comp operator=\"I\">" +
-				"    <low value=\"20050803\"/>" +
-				"    <width value=\"3\" unit=\"wk\"/>" +
-				"  </comp>" +
-				"  <comp>" +
-				"    <frequency>" +
-				"      <numerator value=\"3\"/>" +
-				"      <denominator value=\"1\" unit=\"d\"/>" +
-				"    </frequency>" +
-				"  </comp>" +
-				"</effectiveTime>");
-		ParseContext context = ParserContextImpl.create("GTS.BOUNDEDPIVL", GeneralTimingSpecification.class, V02R02.getVersionLiteral(), ConformanceLevel.MANDATORY);
-		GeneralTimingSpecification result = (GeneralTimingSpecification) new GtsBoundedPivlElementParser().parse(context, node, this.xmlJavaResult).getBareValue();
-		
-		assertNotNull("result", result);
-		
-		assertEquals("interval width value", new BigDecimal("3"), ((DateDiff) result.getDuration().getWidth()).getValueAsPhysicalQuantity().getQuantity());
-		assertEquals("interval width unit", "wk", ((DateDiff) result.getDuration().getWidth()).getUnit().getCodeValue());
-		
-		assertEquals("frequency times", new Integer(3), result.getFrequency().getRepetitions());
-		assertEquals("frequency period value", new BigDecimal("1"), result.getFrequency().getQuantity().getQuantity());
-		assertEquals("frequency period unit", "d", result.getFrequency().getQuantity().getUnit().getCodeValue());
-	}
-	
-	@Test
 	public void shouldDetectIncorrectElementType() throws Exception {
 		Node node = createNode("<effectiveTime>" +
 				"  <comp operator=\"I\">" +

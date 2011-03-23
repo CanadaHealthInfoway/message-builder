@@ -3,7 +3,7 @@
     <creationTime value="20080625141610-0400"/>
     <responseModeCode code="I"/>
     <versionCode code="V3-2007-05"/>
-    <interactionId displayable="true" extension="PRPA_IN101004CA" root="2.16.840.1.113883.1.6" />
+    <interactionId extension="PRPA_IN101004CA" root="2.16.840.1.113883.1.6" displayable="true" />
     <processingCode code="P"/>
     <processingModeCode code="T"/>
     <acceptAckCode code="NE"/>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mif:interaction xmlns:mif="urn:hl7-org:v3/mif" schemaVersion="2.0" name="400001"
+                 title="Masking Instantiated Revise Request Confidentiality">
+   <mif:businessName name="Change item masking request">
+      <mif:realmNamespace value="UV"/>
+   </mif:businessName>
+   <mif:packageLocation root="DEFN" section="IM" subSection="CO" domain="MT" artifact="IN"
+                        realmNamespace="CA"
+                        id="400001"/>
+   <mif:annotations>
+      <mif:documentation>
+         <mif:description>Requests that an identified item, group of items (identified by act type, medication, indication) or all items for a particular patient should have their confidentiality code changed to the specified value.</mif:description>
+      </mif:documentation>
+   </mif:annotations>
+   <mif:invokingTriggerEvent root="DEFN" section="IM" subSection="CO" domain="MT" artifact="TE"
+                             realmNamespace="CA"
+                             id="400001"/>
+   <mif:argumentMessage root="DEFN" section="IM" subSection="MC" domain="CI" artifact="MT-deprecated"
+                        realmNamespace="CA"
+                        id="002100">
+      <mif:parameterModel parameterName="ControlActEvent" root="DEFN" section="IM" subSection="MC"
+                          domain="AI"
+                          artifact="MT-deprecated"
+                          realmNamespace="CA"
+                          id="700210"
+                          traversalName="controlActEvent">
+         <mif:parameterModel parameterName="Act" root="DEFN" section="IM" subSection="CO" domain="MT"
+                             artifact="MT-deprecated"
+                             realmNamespace="CA"
+                             id="400001"
+                             traversalName="maskableActType"/>
+      </mif:parameterModel>
+   </mif:argumentMessage>
+   <mif:receiverResponsibilities>
+      <mif:reason>
+         <p xmlns="http://www.w3.org/1999/xhtml">Act masking updated</p>
+      </mif:reason>
+      <mif:invokeInteraction root="DEFN" section="IM" subSection="CO" domain="MT" artifact="IN"
+                             realmNamespace="CA"
+                             id="400002"/>
+      <mif:invokeTriggerEvent root="DEFN" section="IM" subSection="CO" domain="MT" artifact="TE"
+                              realmNamespace="CA"
+                              id="400002"/>
+   </mif:receiverResponsibilities>
+   <mif:receiverResponsibilities>
+      <mif:reason>
+         <p xmlns="http://www.w3.org/1999/xhtml">Act masking updated</p>
+      </mif:reason>
+      <mif:invokeInteraction root="DEFN" section="IM" subSection="CO" domain="MT" artifact="IN"
+                             realmNamespace="CA"
+                             id="400002"/>
+      <mif:invokeTriggerEvent root="DEFN" section="IM" subSection="CO" domain="MT" artifact="TE"
+                              realmNamespace="CA"
+                              id="400002"/>
+   </mif:receiverResponsibilities>
+</mif:interaction>

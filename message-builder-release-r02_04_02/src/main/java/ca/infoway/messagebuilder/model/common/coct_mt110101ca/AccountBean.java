@@ -15,21 +15,15 @@ import java.util.Set;
 
 
 /**
- * <p><p>Payor identifier, assigned by adjudicator.</p></p>
+ * <p>Payor identifier, assigned by adjudicator.</p>
  */
 @Hl7PartTypeMapping({"COCT_MT110101CA.Account"})
 @Hl7RootType
 public class AccountBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110127L;
+    private static final long serialVersionUID = 20100603L;
     private SET<II, Identifier> payorIdentifier = new SETImpl<II, Identifier>(IIImpl.class);
 
-
-    /**
-     * <p>Payor identifier</p>
-     * 
-     * <p><p>assigned by adjudicator</p></p>
-     */
     @Hl7XmlMapping({"holder/payorRole/id"})
     public Set<Identifier> getPayorIdentifier() {
         return this.payorIdentifier.rawSet();

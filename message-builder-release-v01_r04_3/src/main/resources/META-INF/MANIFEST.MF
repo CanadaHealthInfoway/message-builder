@@ -1,3 +1,4 @@
 Manifest-Version: 1.0
-MBT-Model-Version-Numbers: V01R04_3
 MBT-Message-Set: /messageSet_v01_r04_3_hotfix3.xml
+
+

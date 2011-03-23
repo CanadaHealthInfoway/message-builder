@@ -15,8 +15,8 @@ import ca.infoway.messagebuilder.datatype.impl.TSImpl;
 import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.domainvalue.ActStatus;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.lab.merged.ResultStatusProcessStepBean;
-import ca.infoway.messagebuilder.model.merged.IncludesBean;
+import ca.infoway.messagebuilder.model.merged.HasNotesBean;
+import ca.infoway.messagebuilder.model.merged.ResultStatusProcessStepBean;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -26,43 +26,20 @@ import java.util.List;
 /**
  * <p>Organism Identificaton Observations</p>
  * 
- * <p><p>Describes the observation associated with the 
- * identification of the organism.</p></p>
+ * <p>Describes the observation associated with the 
+ * identification of the organism.</p>
  */
 @Hl7PartTypeMapping({"POLB_MT004100CA.OrganismIdentificationEvent"})
 public class OrganismIdentificatonObservationsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110127L;
-    private CS organsimIdentificationObservationStatus = new CSImpl();
+    private static final long serialVersionUID = 20100603L;
     private CD organismIdentificationType = new CDImpl();
-    private List<IncludesBean> subjectOf1 = new ArrayList<IncludesBean>();
-    private IsolateParticipationBean specimen;
-    private ResultStatusProcessStepBean subjectOf2ResultStatusProcessStep;
+    private CS organsimIdentificationObservationStatus = new CSImpl();
     private IVL<TS, Interval<Date>> organismObservationEffectiveTime = new IVLImpl<TS, Interval<Date>>();
+    private IsolateParticipationBean specimen;
+    private List<HasNotesBean> subjectOf1 = new ArrayList<HasNotesBean>();
+    private ResultStatusProcessStepBean subjectOf2ResultStatusProcessStep;
 
-
-    /**
-     * <p>Organsim Identification Observation Status</p>
-     * 
-     * <p><p>Status associated with the organism identification 
-     * observation.</p></p>
-     */
-    @Hl7XmlMapping({"statusCode"})
-    public ActStatus getOrgansimIdentificationObservationStatus() {
-        return (ActStatus) this.organsimIdentificationObservationStatus.getValue();
-    }
-    public void setOrgansimIdentificationObservationStatus(ActStatus organsimIdentificationObservationStatus) {
-        this.organsimIdentificationObservationStatus.setValue(organsimIdentificationObservationStatus);
-    }
-
-
-    /**
-     * <p>Organism Identification Type</p>
-     * 
-     * <p><p>Describes the type of organism identification 
-     * observation and is bound to the LOINC code domain (e.g. 
-     * 612-2).</p></p>
-     */
     @Hl7XmlMapping({"code"})
     public Code getOrganismIdentificationType() {
         return (Code) this.organismIdentificationType.getValue();
@@ -71,12 +48,21 @@ public class OrganismIdentificatonObservationsBean extends MessagePartBean {
         this.organismIdentificationType.setValue(organismIdentificationType);
     }
 
-
-    @Hl7XmlMapping({"subjectOf1"})
-    public List<IncludesBean> getSubjectOf1() {
-        return this.subjectOf1;
+    @Hl7XmlMapping({"statusCode"})
+    public ActStatus getOrgansimIdentificationObservationStatus() {
+        return (ActStatus) this.organsimIdentificationObservationStatus.getValue();
+    }
+    public void setOrgansimIdentificationObservationStatus(ActStatus organsimIdentificationObservationStatus) {
+        this.organsimIdentificationObservationStatus.setValue(organsimIdentificationObservationStatus);
     }
 
+    @Hl7XmlMapping({"effectiveTime"})
+    public Interval<Date> getOrganismObservationEffectiveTime() {
+        return this.organismObservationEffectiveTime.getValue();
+    }
+    public void setOrganismObservationEffectiveTime(Interval<Date> organismObservationEffectiveTime) {
+        this.organismObservationEffectiveTime.setValue(organismObservationEffectiveTime);
+    }
 
     @Hl7XmlMapping({"specimen"})
     public IsolateParticipationBean getSpecimen() {
@@ -86,6 +72,10 @@ public class OrganismIdentificatonObservationsBean extends MessagePartBean {
         this.specimen = specimen;
     }
 
+    @Hl7XmlMapping({"subjectOf1"})
+    public List<HasNotesBean> getSubjectOf1() {
+        return this.subjectOf1;
+    }
 
     @Hl7XmlMapping({"subjectOf2/resultStatusProcessStep"})
     public ResultStatusProcessStepBean getSubjectOf2ResultStatusProcessStep() {
@@ -93,20 +83,6 @@ public class OrganismIdentificatonObservationsBean extends MessagePartBean {
     }
     public void setSubjectOf2ResultStatusProcessStep(ResultStatusProcessStepBean subjectOf2ResultStatusProcessStep) {
         this.subjectOf2ResultStatusProcessStep = subjectOf2ResultStatusProcessStep;
-    }
-
-
-    /**
-     * <p>Organism Observation Effective Time</p>
-     * 
-     * <p><p>Effective time of the Organism Observation.</p></p>
-     */
-    @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getOrganismObservationEffectiveTime() {
-        return this.organismObservationEffectiveTime.getValue();
-    }
-    public void setOrganismObservationEffectiveTime(Interval<Date> organismObservationEffectiveTime) {
-        this.organismObservationEffectiveTime.setValue(organismObservationEffectiveTime);
     }
 
 }

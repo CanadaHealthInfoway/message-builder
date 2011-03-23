@@ -15,7 +15,6 @@ import ca.infoway.messagebuilder.datatype.BareANY;
 import ca.infoway.messagebuilder.datatype.II;
 import ca.infoway.messagebuilder.datatype.SET;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
-import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelResult;
 import ca.infoway.messagebuilder.xml.ConformanceLevel;
 
 /**
@@ -32,7 +31,7 @@ public class SetIiElementParserTest extends ParserTestCase {
 		
 		BareANY result = new SetElementParser().parse(
 				ParserContextImpl.create("SET<II>", null, SpecificationVersion.V02R02.getVersionLiteral(), ConformanceLevel.MANDATORY), 
-				asList(node.getChildNodes()), new XmlToModelResult());
+				asList(node.getChildNodes()), null);
 		Set<Identifier> rawSet = ((SET<II,Identifier>) result).rawSet();
 		
 		assertNotNull("null", rawSet);

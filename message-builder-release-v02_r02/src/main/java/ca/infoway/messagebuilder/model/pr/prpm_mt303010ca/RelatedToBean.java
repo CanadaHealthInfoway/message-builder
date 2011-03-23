@@ -16,40 +16,9 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PRPM_MT303010CA.RelatedTo"})
 public class RelatedToBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110127L;
-    private RoleChoice roleChoice;
+    private static final long serialVersionUID = 20100614L;
     private IVL<TS, Interval<Date>> effectiveTime = new IVLImpl<TS, Interval<Date>>();
-
-
-    @Hl7XmlMapping({"roleChoice"})
-    public RoleChoice getRoleChoice() {
-        return this.roleChoice;
-    }
-    public void setRoleChoice(RoleChoice roleChoice) {
-        this.roleChoice = roleChoice;
-    }
-
-    public AssignedEntityBean getRoleChoiceAsAssignedEntity() {
-        return this.roleChoice instanceof AssignedEntityBean ? (AssignedEntityBean) this.roleChoice : null;
-    }
-    public boolean hasRoleChoiceAsAssignedEntity() {
-        return (this.roleChoice instanceof AssignedEntityBean);
-    }
-
-    public QualifiedEntityBean getRoleChoiceAsQualifiedEntity() {
-        return this.roleChoice instanceof QualifiedEntityBean ? (QualifiedEntityBean) this.roleChoice : null;
-    }
-    public boolean hasRoleChoiceAsQualifiedEntity() {
-        return (this.roleChoice instanceof QualifiedEntityBean);
-    }
-
-    public HealthcareProviderBean getRoleChoiceAsHealthCareProvider() {
-        return this.roleChoice instanceof HealthcareProviderBean ? (HealthcareProviderBean) this.roleChoice : null;
-    }
-    public boolean hasRoleChoiceAsHealthCareProvider() {
-        return (this.roleChoice instanceof HealthcareProviderBean);
-    }
-
+    private RoleChoiceBean roleChoice;
 
     @Hl7XmlMapping({"effectiveTime"})
     public Interval<Date> getEffectiveTime() {
@@ -57,6 +26,14 @@ public class RelatedToBean extends MessagePartBean {
     }
     public void setEffectiveTime(Interval<Date> effectiveTime) {
         this.effectiveTime.setValue(effectiveTime);
+    }
+
+    @Hl7XmlMapping({"roleChoice"})
+    public RoleChoiceBean getRoleChoice() {
+        return this.roleChoice;
+    }
+    public void setRoleChoice(RoleChoiceBean roleChoice) {
+        this.roleChoice = roleChoice;
     }
 
 }

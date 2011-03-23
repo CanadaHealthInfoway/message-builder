@@ -14,16 +14,14 @@ import ca.infoway.messagebuilder.datatype.impl.STImpl;
 import ca.infoway.messagebuilder.domainvalue.ClinicalReportDocumentType;
 import ca.infoway.messagebuilder.domainvalue.x_BasicConfidentialityKind;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import ca.infoway.messagebuilder.model.common.coct_mt011001ca.CareCompositionsBean;
+import ca.infoway.messagebuilder.model.common.coct_mt090108ca.HealthcareWorkerBean;
 import ca.infoway.messagebuilder.model.common.coct_mt090508ca.HealthcareOrganizationBean;
-import ca.infoway.messagebuilder.model.common.coct_mt910108ca.RelatedPersonBean;
-import ca.infoway.messagebuilder.model.common.merged.ActingPerson;
-import ca.infoway.messagebuilder.model.common.merged.HealthcareWorkerBean;
-import ca.infoway.messagebuilder.model.common.merged.Patient_2Bean;
-import ca.infoway.messagebuilder.model.common.merged.ServiceLocationBean;
-import ca.infoway.messagebuilder.model.iehr.merged.OldClinicalDocumentEventBean;
-import ca.infoway.messagebuilder.model.iehr.merged.Recipients;
-import ca.infoway.messagebuilder.model.merged.CareCompositionsBean;
-import ca.infoway.messagebuilder.model.merged.IncludesBean;
+import ca.infoway.messagebuilder.model.common.coct_mt911107ca.ActingPersonBean;
+import ca.infoway.messagebuilder.model.merged.HasNotesBean;
+import ca.infoway.messagebuilder.model.merged.OldClinicalDocumentEventBean;
+import ca.infoway.messagebuilder.model.merged.Patient_1Bean;
+import ca.infoway.messagebuilder.model.merged.RecipientsBean;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -33,45 +31,67 @@ import java.util.Set;
 /**
  * <p>Clinical Observation Document</p>
  * 
- * <p><p>Annotation is only permitted if Annotation Indicator 
- * is not present and vice versa</p></p>
+ * <p>Represents a particular health-related document 
+ * pertaining to a single patient.</p>
  * 
- * <p><p>Represents a particular health-related document 
- * pertaining to a single patient.</p></p>
- * 
- * <p><p>Allows the capture of patient health data in an 
+ * <p>Allows the capture of patient health data in an 
  * encapsulated, contextualized manner with capability of 
  * displaying rendered content and communication between simple 
- * systems.</p></p>
+ * systems.</p>
+ * 
+ * <p>Annotation is only permitted if Annotation Indicator is 
+ * not present and vice versa</p>
  */
 @Hl7PartTypeMapping({"REPC_MT230001CA.Document"})
 @Hl7RootType
 public class ClinicalObservationDocumentBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110127L;
-    private List<OldClinicalDocumentEventBean> predecessorOldClinicalDocumentEvent = new ArrayList<OldClinicalDocumentEventBean>();
-    private ActingPerson informantActingPerson;
+    private static final long serialVersionUID = 20100603L;
     private CV documentCategory = new CVImpl();
-    private List<CareCompositionsBean> componentOfPatientCareProvisionEvent = new ArrayList<CareCompositionsBean>();
-    private IncludesBean subjectOf;
-    private List<Recipients> primaryInformationRecipientRecipients = new ArrayList<Recipients>();
-    private SectionBean componentStructuredBodyComponentSection;
+    private ST documentTitle = new STImpl();
     private SET<CV, Code> documentMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);
     private AuthorBean author;
-    private ST documentTitle = new STImpl();
+    private ActingPersonBean informantActingPerson;
+    private List<RecipientsBean> primaryInformationRecipientRecipients = new ArrayList<RecipientsBean>();
+    private List<OldClinicalDocumentEventBean> predecessorOldClinicalDocumentEvent = new ArrayList<OldClinicalDocumentEventBean>();
+    private SectionBean componentStructuredBodyComponentSection;
+    private HasNotesBean subjectOf;
+    private List<CareCompositionsBean> componentOfPatientCareProvisionEvent = new ArrayList<CareCompositionsBean>();
 
-
-    @Hl7XmlMapping({"predecessor/oldClinicalDocumentEvent"})
-    public List<OldClinicalDocumentEventBean> getPredecessorOldClinicalDocumentEvent() {
-        return this.predecessorOldClinicalDocumentEvent;
+    @Hl7XmlMapping({"code"})
+    public ClinicalReportDocumentType getDocumentCategory() {
+        return (ClinicalReportDocumentType) this.documentCategory.getValue();
+    }
+    public void setDocumentCategory(ClinicalReportDocumentType documentCategory) {
+        this.documentCategory.setValue(documentCategory);
     }
 
+    @Hl7XmlMapping({"title"})
+    public String getDocumentTitle() {
+        return this.documentTitle.getValue();
+    }
+    public void setDocumentTitle(String documentTitle) {
+        this.documentTitle.setValue(documentTitle);
+    }
+
+    @Hl7XmlMapping({"confidentialityCode"})
+    public Set<x_BasicConfidentialityKind> getDocumentMaskingIndicators() {
+        return this.documentMaskingIndicators.rawSet(x_BasicConfidentialityKind.class);
+    }
+
+    @Hl7XmlMapping({"author"})
+    public AuthorBean getAuthor() {
+        return this.author;
+    }
+    public void setAuthor(AuthorBean author) {
+        this.author = author;
+    }
 
     @Hl7XmlMapping({"informant/actingPerson"})
-    public ActingPerson getInformantActingPerson() {
+    public ActingPersonBean getInformantActingPerson() {
         return this.informantActingPerson;
     }
-    public void setInformantActingPerson(ActingPerson informantActingPerson) {
+    public void setInformantActingPerson(ActingPersonBean informantActingPerson) {
         this.informantActingPerson = informantActingPerson;
     }
 
@@ -89,52 +109,22 @@ public class ClinicalObservationDocumentBean extends MessagePartBean {
         return (this.informantActingPerson instanceof HealthcareOrganizationBean);
     }
 
-    public Patient_2Bean getInformantActingPersonAsPatient() {
-        return this.informantActingPerson instanceof Patient_2Bean ? (Patient_2Bean) this.informantActingPerson : null;
+    public Patient_1Bean getInformantActingPersonAsPatient() {
+        return this.informantActingPerson instanceof Patient_1Bean ? (Patient_1Bean) this.informantActingPerson : null;
     }
     public boolean hasInformantActingPersonAsPatient() {
-        return (this.informantActingPerson instanceof Patient_2Bean);
+        return (this.informantActingPerson instanceof Patient_1Bean);
     }
-
-
-    /**
-     * <p>B: Document Category</p>
-     * 
-     * <p></p></p>
-     * 
-     * <p></p></p>
-     * 
-     * <p></p></p>
-     */
-    @Hl7XmlMapping({"code"})
-    public ClinicalReportDocumentType getDocumentCategory() {
-        return (ClinicalReportDocumentType) this.documentCategory.getValue();
-    }
-    public void setDocumentCategory(ClinicalReportDocumentType documentCategory) {
-        this.documentCategory.setValue(documentCategory);
-    }
-
-
-    @Hl7XmlMapping({"componentOf/patientCareProvisionEvent"})
-    public List<CareCompositionsBean> getComponentOfPatientCareProvisionEvent() {
-        return this.componentOfPatientCareProvisionEvent;
-    }
-
-
-    @Hl7XmlMapping({"subjectOf"})
-    public IncludesBean getSubjectOf() {
-        return this.subjectOf;
-    }
-    public void setSubjectOf(IncludesBean subjectOf) {
-        this.subjectOf = subjectOf;
-    }
-
 
     @Hl7XmlMapping({"primaryInformationRecipient/recipients"})
-    public List<Recipients> getPrimaryInformationRecipientRecipients() {
+    public List<RecipientsBean> getPrimaryInformationRecipientRecipients() {
         return this.primaryInformationRecipientRecipients;
     }
 
+    @Hl7XmlMapping({"predecessor/oldClinicalDocumentEvent"})
+    public List<OldClinicalDocumentEventBean> getPredecessorOldClinicalDocumentEvent() {
+        return this.predecessorOldClinicalDocumentEvent;
+    }
 
     @Hl7XmlMapping({"component/structuredBody/component/section"})
     public SectionBean getComponentStructuredBodyComponentSection() {
@@ -144,56 +134,17 @@ public class ClinicalObservationDocumentBean extends MessagePartBean {
         this.componentStructuredBodyComponentSection = componentStructuredBodyComponentSection;
     }
 
-
-    /**
-     * <p>E: Document Masking Indicators</p>
-     * 
-     * <p></p></p>
-     * 
-     * <p></p></p>
-     * 
-     * <p></p></p>
-     * 
-     * <p></p></p>
-     */
-    @Hl7XmlMapping({"confidentialityCode"})
-    public Set<x_BasicConfidentialityKind> getDocumentMaskingIndicators() {
-        return this.documentMaskingIndicators.rawSet(x_BasicConfidentialityKind.class);
+    @Hl7XmlMapping({"subjectOf"})
+    public HasNotesBean getSubjectOf() {
+        return this.subjectOf;
+    }
+    public void setSubjectOf(HasNotesBean subjectOf) {
+        this.subjectOf = subjectOf;
     }
 
-
-    @Hl7XmlMapping({"author"})
-    public AuthorBean getAuthor() {
-        return this.author;
-    }
-    public void setAuthor(AuthorBean author) {
-        this.author = author;
-    }
-
-
-    /**
-     * <p>J: Document Title</p>
-     * 
-     * <p><p>A human-readable label for this particular 
-     * document.</p></p>
-     * 
-     * <p><p>This is a human-recognizable name intended to be 
-     * displayed on the screen in list transactions and is 
-     * therefore mandatory. It provides a good indication of the 
-     * content of the document at a quick glance.</p></p>
-     * 
-     * <p><p>Titles do not necessarily need to be unique, but 
-     * should be precise-enough to give a pretty good idea of what 
-     * the document contains. For example &quot;Right Knee 
-     * Arthroscopy Report, Jan 3, 2006&quot; would represent a good 
-     * title. &quot;Surgery Report&quot; would not.</p></p>
-     */
-    @Hl7XmlMapping({"title"})
-    public String getDocumentTitle() {
-        return this.documentTitle.getValue();
-    }
-    public void setDocumentTitle(String documentTitle) {
-        this.documentTitle.setValue(documentTitle);
+    @Hl7XmlMapping({"componentOf/patientCareProvisionEvent"})
+    public List<CareCompositionsBean> getComponentOfPatientCareProvisionEvent() {
+        return this.componentOfPatientCareProvisionEvent;
     }
 
 }

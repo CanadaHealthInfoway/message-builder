@@ -101,20 +101,9 @@ class GenericDataTypeFactory {
 			return new LISTImpl<PN,PersonName>(PNImpl.class);
 		} else if ("LIST<TEL>".equals(typeName)) {
 			return new LISTImpl<TEL,TelecommunicationAddress>(TELImpl.class);
-		} else if ("BAG<AD>".equals(typeName)) {
-			return new LISTImpl<AD,PostalAddress>(ADImpl.class);
-		} else if ("BAG<GTS>".equals(typeName)) {
-			return new LISTImpl<GTS,GeneralTimingSpecification>(GTSImpl.class);
-		} else if ("BAG<II>".equals(typeName)) {
-			return new LISTImpl<II,Identifier>(IIImpl.class);
-		} else if ("BAG<PN>".equals(typeName)) {
-			return new LISTImpl<PN,PersonName>(PNImpl.class);
-		} else if ("BAG<ST>".equals(typeName)) {
-			return new LISTImpl<AD,PostalAddress>(ADImpl.class);
-		} else if ("BAG<TEL>".equals(typeName)) {
-			return new LISTImpl<TEL,TelecommunicationAddress>(TELImpl.class);
 		} else {
 			throw new MarshallingException("Cannot create a data type construct for data type " + dataType);
 		}
 	}
+	
 }

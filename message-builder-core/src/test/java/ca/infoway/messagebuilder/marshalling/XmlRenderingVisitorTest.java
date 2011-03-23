@@ -1,10 +1,8 @@
 package ca.infoway.messagebuilder.marshalling;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
 
-import java.util.List;
-
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -17,8 +15,6 @@ import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.TrivialName;
 import ca.infoway.messagebuilder.domainvalue.ActStatus;
 import ca.infoway.messagebuilder.domainvalue.nullflavor.NullFlavor;
-import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
-import ca.infoway.messagebuilder.marshalling.hl7.ModelToXmlResult;
 import ca.infoway.messagebuilder.resolver.CodeResolverRegistry;
 import ca.infoway.messagebuilder.resolver.EnumBasedCodeResolver;
 import ca.infoway.messagebuilder.xml.Argument;
@@ -117,26 +113,23 @@ public class XmlRenderingVisitorTest {
 	
 	@Test
 	public void shouldRenderNotNonStructuralAttributeFullDate() throws Exception {
-		this.attributeBridge.setHl7Value(new TNImpl(new TrivialName("Trivial Name")));
-		this.visitor.visitRootStart(this.partBridge, this.interation);
-		
-		Relationship relationship = new Relationship();
-		relationship.setName("value");
-		relationship.setType(StandardDataType.ANY_LAB.getType());
-
-		this.visitor.visitAttribute(attributeBridge, relationship, null);
-		
-		this.visitor.visitRootEnd(this.partBridge, this.interation);
-		
-		ModelToXmlResult result = this.visitor.toXml();
-		result.getXmlMessage();
-
-		List<Hl7Error> hl7Errors = result.getHl7Errors();
-		Assert.assertFalse("should have incompatable ANY.LAB value", hl7Errors.isEmpty());
-		Assert.assertEquals("should have incompatable ANY.LAB value", 1, hl7Errors.size());
-		Assert.assertEquals("should have incompatable ANY.LAB value", 
-							"Cannot support properties of type TN for ANY.LAB. Please specify a specializationType applicable for ANY.LAB in the appropriate message bean.", 
-							hl7Errors.get(0).getMessage());
+		try {
+			this.attributeBridge.setHl7Value(new TNImpl(new TrivialName("Trivial Name")));
+			this.visitor.visitRootStart(this.partBridge, this.interation);
+			
+			Relationship relationship = new Relationship();
+			relationship.setName("value");
+			relationship.setType(StandardDataType.ANY_LAB.getType());
+	
+			this.visitor.visitAttribute(attributeBridge, relationship, null);
+			
+			this.visitor.visitRootEnd(this.partBridge, this.interation);
+			
+			this.visitor.toXml().getXmlMessage();
+			fail("should have thrown RenderingException for incompatable ANY.LAB value");
+		} catch (RenderingException e) {
+			
+		}
 	}
 
 	@Test
@@ -228,25 +221,6 @@ public class XmlRenderingVisitorTest {
 	}
 
 	@Test
-	public void shouldRenderSimpleAssociationWithNullFlavor() throws Exception {
-		Relationship relationship = createSimpleAssociationRelationship();
-		
-		this.partBridge.setNullFlavor(NullFlavor.MASKED);
-		this.partBridge.setEmpty(true);
-		
-		this.visitor.visitRootStart(this.partBridge, this.interation);
-		this.visitor.visitAssociationStart(this.partBridge, relationship);
-		this.visitor.visitAssociationEnd(this.partBridge, relationship);
-		this.visitor.visitRootEnd(this.partBridge, this.interation);
-		
-		String xml = this.visitor.toXml().getXmlMessage();
-		assertXmlEquals("xml", "<ABCD_IN123456CA xmlns=\"urn:hl7-org:v3\" " +
-				"xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" ITSVersion=\"XML_1.0\">" 
-				+"<receiver nullFlavor=\"MSK\" xsi:nil=\"true\"/></ABCD_IN123456CA>", xml);
-		
-	}
-
-	@Test
 	public void shouldRenderTemplateAssociation() throws Exception {
 		Relationship relationship = createTemplateAssociationRelationship();
 
@@ -275,7 +249,7 @@ public class XmlRenderingVisitorTest {
 		String xml = this.visitor.toXml().getXmlMessage();
 		assertXmlEquals("xml", "<ABCD_IN123456CA xmlns=\"urn:hl7-org:v3\" " +
 				"xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" ITSVersion=\"XML_1.0\">" 
-				+"<receiver nullFlavor=\"NI\" xsi:nil=\"true\"/></ABCD_IN123456CA>", xml);
+				+"<receiver nullFlavor=\"NI\"/></ABCD_IN123456CA>", xml);
 		
 	}
 

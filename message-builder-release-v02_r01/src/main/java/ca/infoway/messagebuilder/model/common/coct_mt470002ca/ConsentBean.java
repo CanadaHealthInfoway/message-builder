@@ -16,29 +16,89 @@ import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.domainvalue.ActConsentInformationAccessReason;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.common.coct_mt050202ca.PatientBean;
-import ca.infoway.messagebuilder.model.common.merged.ActingPerson;
-import ca.infoway.messagebuilder.model.common.merged.HealthcareOrganizationBean;
 import ca.infoway.messagebuilder.model.merged.HealthcareWorkerBean;
-import ca.infoway.messagebuilder.model.merged.PrescribedByBean;
-import ca.infoway.messagebuilder.model.merged.RelatedPersonBean;
 import java.util.Date;
 
 
 
+/**
+ * <p>Consent</p>
+ * 
+ * <p>Information pertaining to a patient's 
+ * agreement/acceptance to have his/her clinical information 
+ * electronically stored and shared.</p>
+ * 
+ * <p>The keywords will not be passed from prescriber to 
+ * dispenser by the DIS.</p>
+ * 
+ * <p>Provides authorization to record and/or view patient 
+ * information.</p>
+ * 
+ * <p>Indicates the consent or keyword used to authorize access 
+ * or update, including a reason for access; May also be used 
+ * to override access restriction to the information ('break 
+ * the glass') on a message by message basis. May be required 
+ * on a Prescription Request to indicate a keyword for DUR 
+ * processing.</p>
+ * 
+ * <p>One and only one of author2 (Consenter) and author1 
+ * (Provider) must be specified.</p>
+ * 
+ * <p>If author1 (provider) is specified, reason code must be 
+ * specified.</p>
+ */
 @Hl7PartTypeMapping({"COCT_MT470002CA.ConsentEvent"})
 @Hl7RootType
 public class ConsentBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110127L;
-    private ConsentedToByBean author2;
-    private CV consentOverrideReason = new CVImpl();
-    private IVL<TS, Interval<Date>> consentEffectiveAndEndTime = new IVLImpl<TS, Interval<Date>>();
-    private AccessTypeBean subject2InformDefinition;
-    private PrescribedByBean author1;
+    private static final long serialVersionUID = 20100615L;
     private II consentFormNumber = new IIImpl();
-    private SubjectChoice subject1SubjectChoice;
+    private IVL<TS, Interval<Date>> consentEffectiveAndEndTime = new IVLImpl<TS, Interval<Date>>();
+    private CV consentOverrideReason = new CVImpl();
+    private SubjectChoiceBean subject1SubjectChoice;
+    private HealthcareWorkerBean author1AssignedEntity;
+    private ConsentedToByBean author2;
+    private ControlsBean subject2;
 
+    @Hl7XmlMapping({"id"})
+    public Identifier getConsentFormNumber() {
+        return this.consentFormNumber.getValue();
+    }
+    public void setConsentFormNumber(Identifier consentFormNumber) {
+        this.consentFormNumber.setValue(consentFormNumber);
+    }
+
+    @Hl7XmlMapping({"effectiveTime"})
+    public Interval<Date> getConsentEffectiveAndEndTime() {
+        return this.consentEffectiveAndEndTime.getValue();
+    }
+    public void setConsentEffectiveAndEndTime(Interval<Date> consentEffectiveAndEndTime) {
+        this.consentEffectiveAndEndTime.setValue(consentEffectiveAndEndTime);
+    }
+
+    @Hl7XmlMapping({"reasonCode"})
+    public ActConsentInformationAccessReason getConsentOverrideReason() {
+        return (ActConsentInformationAccessReason) this.consentOverrideReason.getValue();
+    }
+    public void setConsentOverrideReason(ActConsentInformationAccessReason consentOverrideReason) {
+        this.consentOverrideReason.setValue(consentOverrideReason);
+    }
+
+    @Hl7XmlMapping({"subject1/subjectChoice"})
+    public SubjectChoiceBean getSubject1SubjectChoice() {
+        return this.subject1SubjectChoice;
+    }
+    public void setSubject1SubjectChoice(SubjectChoiceBean subject1SubjectChoice) {
+        this.subject1SubjectChoice = subject1SubjectChoice;
+    }
+
+    @Hl7XmlMapping({"author1/assignedEntity"})
+    public HealthcareWorkerBean getAuthor1AssignedEntity() {
+        return this.author1AssignedEntity;
+    }
+    public void setAuthor1AssignedEntity(HealthcareWorkerBean author1AssignedEntity) {
+        this.author1AssignedEntity = author1AssignedEntity;
+    }
 
     @Hl7XmlMapping({"author2"})
     public ConsentedToByBean getAuthor2() {
@@ -48,102 +108,12 @@ public class ConsentBean extends MessagePartBean {
         this.author2 = author2;
     }
 
-
-    /**
-     * <p>E:Consent Override Reason</p>
-     */
-    @Hl7XmlMapping({"reasonCode"})
-    public ActConsentInformationAccessReason getConsentOverrideReason() {
-        return (ActConsentInformationAccessReason) this.consentOverrideReason.getValue();
+    @Hl7XmlMapping({"subject2"})
+    public ControlsBean getSubject2() {
+        return this.subject2;
     }
-    public void setConsentOverrideReason(ActConsentInformationAccessReason consentOverrideReason) {
-        this.consentOverrideReason.setValue(consentOverrideReason);
-    }
-
-
-    /**
-     * <p>C:Consent Effective and End Time</p>
-     */
-    @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getConsentEffectiveAndEndTime() {
-        return this.consentEffectiveAndEndTime.getValue();
-    }
-    public void setConsentEffectiveAndEndTime(Interval<Date> consentEffectiveAndEndTime) {
-        this.consentEffectiveAndEndTime.setValue(consentEffectiveAndEndTime);
-    }
-
-
-    @Hl7XmlMapping({"subject2/informDefinition"})
-    public AccessTypeBean getSubject2InformDefinition() {
-        return this.subject2InformDefinition;
-    }
-    public void setSubject2InformDefinition(AccessTypeBean subject2InformDefinition) {
-        this.subject2InformDefinition = subject2InformDefinition;
-    }
-
-
-    @Hl7XmlMapping({"author1"})
-    public PrescribedByBean getAuthor1() {
-        return this.author1;
-    }
-    public void setAuthor1(PrescribedByBean author1) {
-        this.author1 = author1;
-    }
-
-
-    /**
-     * <p>D:Consent Form Number</p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Identifier getConsentFormNumber() {
-        return this.consentFormNumber.getValue();
-    }
-    public void setConsentFormNumber(Identifier consentFormNumber) {
-        this.consentFormNumber.setValue(consentFormNumber);
-    }
-
-
-    @Hl7XmlMapping({"subject1/subjectChoice"})
-    public SubjectChoice getSubject1SubjectChoice() {
-        return this.subject1SubjectChoice;
-    }
-    public void setSubject1SubjectChoice(SubjectChoice subject1SubjectChoice) {
-        this.subject1SubjectChoice = subject1SubjectChoice;
-    }
-
-    public PatientBean getSubject1SubjectChoiceAsPatient1() {
-        return this.subject1SubjectChoice instanceof PatientBean ? (PatientBean) this.subject1SubjectChoice : null;
-    }
-    public boolean hasSubject1SubjectChoiceAsPatient1() {
-        return (this.subject1SubjectChoice instanceof PatientBean);
-    }
-
-    public HealthcareWorkerBean getSubject1SubjectChoiceAsAssignedEntity1() {
-        return this.subject1SubjectChoice instanceof HealthcareWorkerBean ? (HealthcareWorkerBean) this.subject1SubjectChoice : null;
-    }
-    public boolean hasSubject1SubjectChoiceAsAssignedEntity1() {
-        return (this.subject1SubjectChoice instanceof HealthcareWorkerBean);
-    }
-
-    public HealthcareOrganizationBean getSubject1SubjectChoiceAsAssignedEntity2() {
-        return this.subject1SubjectChoice instanceof HealthcareOrganizationBean ? (HealthcareOrganizationBean) this.subject1SubjectChoice : null;
-    }
-    public boolean hasSubject1SubjectChoiceAsAssignedEntity2() {
-        return (this.subject1SubjectChoice instanceof HealthcareOrganizationBean);
-    }
-
-    public RelatedPersonBean getSubject1SubjectChoiceAsPersonalRelationship() {
-        return this.subject1SubjectChoice instanceof RelatedPersonBean ? (RelatedPersonBean) this.subject1SubjectChoice : null;
-    }
-    public boolean hasSubject1SubjectChoiceAsPersonalRelationship() {
-        return (this.subject1SubjectChoice instanceof RelatedPersonBean);
-    }
-
-    public ActingPerson getSubject1SubjectChoiceAsActingPerson() {
-        return this.subject1SubjectChoice instanceof ActingPerson ? (ActingPerson) this.subject1SubjectChoice : null;
-    }
-    public boolean hasSubject1SubjectChoiceAsActingPerson() {
-        return (this.subject1SubjectChoice instanceof ActingPerson);
+    public void setSubject2(ControlsBean subject2) {
+        this.subject2 = subject2;
     }
 
 }

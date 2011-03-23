@@ -3,6 +3,8 @@ package ca.infoway.messagebuilder.generator.java;
 import org.apache.commons.lang.WordUtils;
 
 import ca.infoway.messagebuilder.generator.lang.ProgrammingLanguage;
+import ca.infoway.messagebuilder.xml.Relationship;
+import ca.infoway.messagebuilder.xml.TypeName;
 
 class DerivedChoiceFieldDefinition implements FieldDefinition {
 
@@ -10,11 +12,11 @@ class DerivedChoiceFieldDefinition implements FieldDefinition {
 	private ClassNameManager manager;
 	private BaseRelationshipNameResolver resolver;
 	private final ProgrammingLanguage language;
-	private final Choice choice;
+	private final Relationship derivedRelationship;
 
-	DerivedChoiceFieldDefinition(Association choiceAssociation, Choice choice, ProgrammingLanguage language) {
+	DerivedChoiceFieldDefinition(Association choiceAssociation, Relationship derivedRelationship, ProgrammingLanguage language) {
 		this.choiceAssociation = choiceAssociation;
-		this.choice = choice;
+		this.derivedRelationship = derivedRelationship;
 		this.language = language;
 	}
 	
@@ -28,7 +30,7 @@ class DerivedChoiceFieldDefinition implements FieldDefinition {
 	
 	public String getCapitalizedPropertyName() {
 		String baseName = WordUtils.capitalize(getFieldName());
-		String derivedChoiceName = WordUtils.capitalize(this.choice.getName());
+		String derivedChoiceName = WordUtils.capitalize(this.derivedRelationship.getName());
 		return baseName + "As" + derivedChoiceName;
 	}
 
@@ -53,7 +55,7 @@ class DerivedChoiceFieldDefinition implements FieldDefinition {
 	}
 
 	private String getBaseType() {
-		return getManager().getRepresentationOfType(this.choice.getType());
+			return getManager().getRepresentationOfTypeName(new TypeName(this.derivedRelationship.getType()));
 	}
 
 	public GetterBodyStyle getGetterBodyStyle() {
@@ -125,14 +127,6 @@ class DerivedChoiceFieldDefinition implements FieldDefinition {
 
 	public boolean isDerivedChoice() {
 		return true;
-	}
-
-	public BaseRelationship getBaseRelationship() {
-		return this.choiceAssociation;
-	}
-
-	public ProgrammingLanguage getProgrammingLanguage() {
-		return this.language;
 	}
 
 }

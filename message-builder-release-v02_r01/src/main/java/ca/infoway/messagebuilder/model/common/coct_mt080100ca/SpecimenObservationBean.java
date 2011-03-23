@@ -18,30 +18,32 @@ import java.util.Date;
 
 
 
+/**
+ * <p>Specimen Observation</p>
+ * 
+ * <p>One or more observation acts which describe aspects of a 
+ * specimen (color, adequacy, etc.)</p>
+ * 
+ * <p>It is sometimes relevant to know certain specimen 
+ * characteristics when evaluating a result regarding a 
+ * specimen.</p>
+ */
 @Hl7PartTypeMapping({"COCT_MT080100CA.SpecimenObservationEvent"})
 public class SpecimenObservationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110127L;
-    private ANY<Object> specimenObservationValue = new ANYImpl<Object>();
-    private IVL<TS, Interval<Date>> specimenObservationDateTime = new IVLImpl<TS, Interval<Date>>();
+    private static final long serialVersionUID = 20100615L;
     private CV specimenObservationType = new CVImpl();
+    private IVL<TS, Interval<Date>> specimenObservationDateTime = new IVLImpl<TS, Interval<Date>>();
+    private ANY<Object> specimenObservationValue = new ANYImpl<Object>();
 
-
-    /**
-     * <p>Specimen Observation Value</p>
-     */
-    @Hl7XmlMapping({"value"})
-    public Object getSpecimenObservationValue() {
-        return this.specimenObservationValue.getValue();
+    @Hl7XmlMapping({"code"})
+    public Code getSpecimenObservationType() {
+        return (Code) this.specimenObservationType.getValue();
     }
-    public void setSpecimenObservationValue(Object specimenObservationValue) {
-        this.specimenObservationValue.setValue(specimenObservationValue);
+    public void setSpecimenObservationType(Code specimenObservationType) {
+        this.specimenObservationType.setValue(specimenObservationType);
     }
 
-
-    /**
-     * <p>Specimen Observation Date/Time</p>
-     */
     @Hl7XmlMapping({"effectiveTime"})
     public Interval<Date> getSpecimenObservationDateTime() {
         return this.specimenObservationDateTime.getValue();
@@ -50,16 +52,12 @@ public class SpecimenObservationBean extends MessagePartBean {
         this.specimenObservationDateTime.setValue(specimenObservationDateTime);
     }
 
-
-    /**
-     * <p>Specimen Observation Type</p>
-     */
-    @Hl7XmlMapping({"code"})
-    public Code getSpecimenObservationType() {
-        return (Code) this.specimenObservationType.getValue();
+    @Hl7XmlMapping({"value"})
+    public Object getSpecimenObservationValue() {
+        return this.specimenObservationValue.getValue();
     }
-    public void setSpecimenObservationType(Code specimenObservationType) {
-        this.specimenObservationType.setValue(specimenObservationType);
+    public void setSpecimenObservationValue(Object specimenObservationValue) {
+        this.specimenObservationValue.setValue(specimenObservationValue);
     }
 
 }

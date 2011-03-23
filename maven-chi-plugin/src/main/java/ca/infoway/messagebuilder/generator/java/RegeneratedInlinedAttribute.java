@@ -19,6 +19,10 @@ public class RegeneratedInlinedAttribute extends InlinedAttribute implements Reg
 		this.builder = new PropertyGeneratorBuilder(ProgrammingLanguage.JAVA);
 	}
 
+	public Attribute getOriginalRelationship() {
+		return this.originalAttribute;
+	}
+	
 	public Attribute getNewRelationship() {
 		return this.newAttribute;
 	}

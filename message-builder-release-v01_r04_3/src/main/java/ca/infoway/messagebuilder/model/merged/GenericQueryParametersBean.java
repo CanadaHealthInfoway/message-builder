@@ -4,213 +4,37 @@ package ca.infoway.messagebuilder.model.merged;
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.annotation.Hl7RootType;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
-import ca.infoway.messagebuilder.datatype.BL;
-import ca.infoway.messagebuilder.datatype.CD;
 import ca.infoway.messagebuilder.datatype.CV;
 import ca.infoway.messagebuilder.datatype.II;
-import ca.infoway.messagebuilder.datatype.IVL;
 import ca.infoway.messagebuilder.datatype.PN;
 import ca.infoway.messagebuilder.datatype.TS;
-import ca.infoway.messagebuilder.datatype.impl.BLImpl;
-import ca.infoway.messagebuilder.datatype.impl.CDImpl;
 import ca.infoway.messagebuilder.datatype.impl.CVImpl;
 import ca.infoway.messagebuilder.datatype.impl.IIImpl;
-import ca.infoway.messagebuilder.datatype.impl.IVLImpl;
 import ca.infoway.messagebuilder.datatype.impl.PNImpl;
 import ca.infoway.messagebuilder.datatype.impl.TSImpl;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
-import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.datatype.lang.PersonName;
-import ca.infoway.messagebuilder.domainvalue.ActNonConditionIndicationCode;
-import ca.infoway.messagebuilder.domainvalue.ActProfessionalServiceCode;
-import ca.infoway.messagebuilder.domainvalue.ActStatus;
-import ca.infoway.messagebuilder.domainvalue.ActTherapyDurationWorkingListCode;
+import ca.infoway.messagebuilder.domainvalue.ActPatientAnnotationCode;
 import ca.infoway.messagebuilder.domainvalue.AdministrativeGender;
 import ca.infoway.messagebuilder.domainvalue.ClinicalDrug;
-import ca.infoway.messagebuilder.domainvalue.CommonClinicalObservationType;
-import ca.infoway.messagebuilder.domainvalue.DiagnosisValue;
-import ca.infoway.messagebuilder.domainvalue.IssueFilterCode;
-import ca.infoway.messagebuilder.domainvalue.ObservationIntoleranceType;
-import ca.infoway.messagebuilder.domainvalue.PrescriptionDispenseFilterCode;
-import ca.infoway.messagebuilder.domainvalue.SubjectReaction;
-import ca.infoway.messagebuilder.domainvalue.SymptomValue;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import java.util.Date;
 
 
 
-@Hl7PartTypeMapping({"PORX_MT060070CA.ParameterList","PORX_MT060080CA.ParameterList","PORX_MT060110CA.ParameterList","PORX_MT060130CA.ParameterList","PORX_MT060170CA.ParameterList","PORX_MT060180CA.ParameterList","PORX_MT060200CA.ParameterList","PORX_MT060220CA.ParameterList","PORX_MT060270CA.ParameterList","PORX_MT060280CA.ParameterList","PORX_MT060360CA.ParameterList","REPC_MT000004CA.ParameterList","REPC_MT000008CA.ParameterList","REPC_MT000015CA.ParameterList","REPC_MT000016CA.ParameterList","REPC_MT120001CA.ParameterList","REPC_MT120002CA.ParameterList"})
+@Hl7PartTypeMapping({"COMT_MT300002CA.ParameterList","PORX_MT050020CA.ParameterList","REPC_MT000008CA.ParameterList"})
 @Hl7RootType
 public class GenericQueryParametersBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110127L;
-    private IVL<TS, Interval<Date>> amendedInTimeRange = new IVLImpl<TS, Interval<Date>>();
-    private CV rxDispenserIndicators = new CVImpl();
-    private PN patientName = new PNImpl();
-    private IVL<TS, Interval<Date>> usageEffectivePeriod = new IVLImpl<TS, Interval<Date>>();
-    private II patientID = new IIImpl();
-    private CV issueFilterCode = new CVImpl();
-    private BL mostRecentByDeviceIndicator = new BLImpl();
-    private CV patientGender = new CVImpl();
+    private static final long serialVersionUID = 20100614L;
     private TS patientBirthDate = new TSImpl();
-    private IVL<TS, Interval<Date>> administrationEffectivePeriod = new IVLImpl<TS, Interval<Date>>();
-    private BL mostRecentByDrugIndicator = new BLImpl();
-    private CV prescriptionStatuses = new CVImpl();
-    private II prescriptionDispenseNumber = new IIImpl();
-    private II prescriptionOrderNumber = new IIImpl();
-    private II prescriberProviderID = new IIImpl();
-    private CV drugCode = new CVImpl();
-    private II otherMedicationRecordId = new IIImpl();
-    private BL includeNotesIndicator = new BLImpl();
-    private BL includeIssuesIndicator = new BLImpl();
-    private BL mostRecentDispenseForEachRxIndicator = new BLImpl();
-    private CV treatmentTypes = new CVImpl();
-    private CV diagnosisCode = new CVImpl();
-    private BL includeEventHistoryIndicator = new BLImpl();
-    private BL includePendingChangesIndicator = new BLImpl();
-    private CV otherIndicationCode = new CVImpl();
-    private CV symptomCode = new CVImpl();
-    private CV professionalServiceCodes = new CVImpl();
-    private IVL<TS, Interval<Date>> servicePeriod = new IVLImpl<TS, Interval<Date>>();
-    private CD measurementTypes = new CDImpl();
-    private IVL<TS, Interval<Date>> measurementEffectivePeriod = new IVLImpl<TS, Interval<Date>>();
-    private CV allergyIntoleranceStatus = new CVImpl();
-    private CD allergyIntoleranceType = new CDImpl();
-    private CV reactionTypeValue = new CVImpl();
-    private IVL<TS, Interval<Date>> allergyIntoleranceChangePeriod = new IVLImpl<TS, Interval<Date>>();
-    private IVL<TS, Interval<Date>> medicalConditionChangePeriod = new IVLImpl<TS, Interval<Date>>();
-    private CV medicalConditionStatus = new CVImpl();
-    private IVL<TS, Interval<Date>> reactionPeriod = new IVLImpl<TS, Interval<Date>>();
+    private CV patientGender = new CVImpl();
+    private II patientID = new IIImpl();
+    private PN patientName = new PNImpl();
+    private CV patientNoteCategoryCode = new CVImpl();
     private II conditionIdentifier = new IIImpl();
+    private CV drugCode = new CVImpl();
 
-
-    /**
-     * <p>AmendedInTimeRange</p>
-     * 
-     * <p>Amended In Time Range</p>
-     * 
-     * <p>Amended in Time Range</p>
-     */
-    @Hl7XmlMapping({"amendedInTimeRange/value"})
-    public Interval<Date> getAmendedInTimeRange() {
-        return this.amendedInTimeRange.getValue();
-    }
-    public void setAmendedInTimeRange(Interval<Date> amendedInTimeRange) {
-        this.amendedInTimeRange.setValue(amendedInTimeRange);
-    }
-
-
-    /**
-     * <p>RxDispenserIndicators</p>
-     * 
-     * <p>Rx Dispenser Indicators</p>
-     */
-    @Hl7XmlMapping({"rxDispenseIndicator/value"})
-    public PrescriptionDispenseFilterCode getRxDispenserIndicators() {
-        return (PrescriptionDispenseFilterCode) this.rxDispenserIndicators.getValue();
-    }
-    public void setRxDispenserIndicators(PrescriptionDispenseFilterCode rxDispenserIndicators) {
-        this.rxDispenserIndicators.setValue(rxDispenserIndicators);
-    }
-
-
-    /**
-     * <p>PatientName</p>
-     * 
-     * <p>Patient Name</p>
-     * 
-     * <p>C:Patient Name</p>
-     */
-    @Hl7XmlMapping({"patientName/value"})
-    public PersonName getPatientName() {
-        return this.patientName.getValue();
-    }
-    public void setPatientName(PersonName patientName) {
-        this.patientName.setValue(patientName);
-    }
-
-
-    /**
-     * <p>UsageEffectivePeriod</p>
-     * 
-     * <p>Usage Effective Period</p>
-     */
-    @Hl7XmlMapping({"usageEffectivePeriod/value"})
-    public Interval<Date> getUsageEffectivePeriod() {
-        return this.usageEffectivePeriod.getValue();
-    }
-    public void setUsageEffectivePeriod(Interval<Date> usageEffectivePeriod) {
-        this.usageEffectivePeriod.setValue(usageEffectivePeriod);
-    }
-
-
-    /**
-     * <p>PatientID</p>
-     * 
-     * <p>B:Patient ID</p>
-     * 
-     * <p>Patient ID</p>
-     */
-    @Hl7XmlMapping({"patientID/value"})
-    public Identifier getPatientID() {
-        return this.patientID.getValue();
-    }
-    public void setPatientID(Identifier patientID) {
-        this.patientID.setValue(patientID);
-    }
-
-
-    /**
-     * <p>IssueFilterCode</p>
-     * 
-     * <p>Issue Filter Code</p>
-     */
-    @Hl7XmlMapping({"issueFilterCode/value"})
-    public IssueFilterCode getIssueFilterCode() {
-        return (IssueFilterCode) this.issueFilterCode.getValue();
-    }
-    public void setIssueFilterCode(IssueFilterCode issueFilterCode) {
-        this.issueFilterCode.setValue(issueFilterCode);
-    }
-
-
-    /**
-     * <p>MostRecentByDeviceIndicator</p>
-     * 
-     * <p>Most Recent By Device Indicator</p>
-     */
-    @Hl7XmlMapping({"mostRecentByDeviceIndicator/value"})
-    public Boolean getMostRecentByDeviceIndicator() {
-        return this.mostRecentByDeviceIndicator.getValue();
-    }
-    public void setMostRecentByDeviceIndicator(Boolean mostRecentByDeviceIndicator) {
-        this.mostRecentByDeviceIndicator.setValue(mostRecentByDeviceIndicator);
-    }
-
-
-    /**
-     * <p>PatientGender</p>
-     * 
-     * <p>D:Patient Gender</p>
-     * 
-     * <p>Patient Gender</p>
-     */
-    @Hl7XmlMapping({"patientGender/value"})
-    public AdministrativeGender getPatientGender() {
-        return (AdministrativeGender) this.patientGender.getValue();
-    }
-    public void setPatientGender(AdministrativeGender patientGender) {
-        this.patientGender.setValue(patientGender);
-    }
-
-
-    /**
-     * <p>PatientBirthDate</p>
-     * 
-     * <p>Patient Birth Date</p>
-     * 
-     * <p>E:Patient Birth Date</p>
-     */
     @Hl7XmlMapping({"patientBirthDate/value"})
     public Date getPatientBirthDate() {
         return this.patientBirthDate.getValue();
@@ -219,420 +43,52 @@ public class GenericQueryParametersBean extends MessagePartBean {
         this.patientBirthDate.setValue(patientBirthDate);
     }
 
-
-    /**
-     * <p>AdministrationEffectivePeriod</p>
-     * 
-     * <p>Administration Effective Period</p>
-     * 
-     * <p>D:Administration Effective Period</p>
-     * 
-     * <p>E:Administration Effective Period</p>
-     */
-    @Hl7XmlMapping({"administrationEffectivePeriod/value"})
-    public Interval<Date> getAdministrationEffectivePeriod() {
-        return this.administrationEffectivePeriod.getValue();
+    @Hl7XmlMapping({"patientGender/value"})
+    public AdministrativeGender getPatientGender() {
+        return (AdministrativeGender) this.patientGender.getValue();
     }
-    public void setAdministrationEffectivePeriod(Interval<Date> administrationEffectivePeriod) {
-        this.administrationEffectivePeriod.setValue(administrationEffectivePeriod);
+    public void setPatientGender(AdministrativeGender patientGender) {
+        this.patientGender.setValue(patientGender);
     }
 
-
-    /**
-     * <p>MostRecentByDrugIndicator</p>
-     * 
-     * <p>Most Recent By Drug Indicator</p>
-     */
-    @Hl7XmlMapping({"mostRecentByDrugIndicator/value"})
-    public Boolean getMostRecentByDrugIndicator() {
-        return this.mostRecentByDrugIndicator.getValue();
+    @Hl7XmlMapping({"patientID/value"})
+    public Identifier getPatientID() {
+        return this.patientID.getValue();
     }
-    public void setMostRecentByDrugIndicator(Boolean mostRecentByDrugIndicator) {
-        this.mostRecentByDrugIndicator.setValue(mostRecentByDrugIndicator);
+    public void setPatientID(Identifier patientID) {
+        this.patientID.setValue(patientID);
     }
 
-
-    /**
-     * <p>PrescriptionStatuses</p>
-     * 
-     * <p>Prescription Statuses</p>
-     */
-    @Hl7XmlMapping({"prescriptionStatus/value"})
-    public ActStatus getPrescriptionStatuses() {
-        return (ActStatus) this.prescriptionStatuses.getValue();
+    @Hl7XmlMapping({"patientName/value"})
+    public PersonName getPatientName() {
+        return this.patientName.getValue();
     }
-    public void setPrescriptionStatuses(ActStatus prescriptionStatuses) {
-        this.prescriptionStatuses.setValue(prescriptionStatuses);
+    public void setPatientName(PersonName patientName) {
+        this.patientName.setValue(patientName);
     }
 
-
-    /**
-     * <p>PrescriptionDispenseNumber</p>
-     * 
-     * <p>D:Prescription Dispense Number</p>
-     * 
-     * <p>E:Prescription Dispense Number</p>
-     */
-    @Hl7XmlMapping({"prescriptionDispenseNumber/value"})
-    public Identifier getPrescriptionDispenseNumber() {
-        return this.prescriptionDispenseNumber.getValue();
+    @Hl7XmlMapping({"patientNoteCategoryCode/value"})
+    public ActPatientAnnotationCode getPatientNoteCategoryCode() {
+        return (ActPatientAnnotationCode) this.patientNoteCategoryCode.getValue();
     }
-    public void setPrescriptionDispenseNumber(Identifier prescriptionDispenseNumber) {
-        this.prescriptionDispenseNumber.setValue(prescriptionDispenseNumber);
+    public void setPatientNoteCategoryCode(ActPatientAnnotationCode patientNoteCategoryCode) {
+        this.patientNoteCategoryCode.setValue(patientNoteCategoryCode);
     }
 
-
-    /**
-     * <p>PrescriptionOrderNumber</p>
-     * 
-     * <p>Prescription order Number</p>
-     * 
-     * <p>D:Prescription Order Number</p>
-     */
-    @Hl7XmlMapping({"prescriptionOrderNumber/value"})
-    public Identifier getPrescriptionOrderNumber() {
-        return this.prescriptionOrderNumber.getValue();
-    }
-    public void setPrescriptionOrderNumber(Identifier prescriptionOrderNumber) {
-        this.prescriptionOrderNumber.setValue(prescriptionOrderNumber);
-    }
-
-
-    /**
-     * <p>PrescriberProviderID</p>
-     * 
-     * <p>Prescriber Provider ID</p>
-     * 
-     * <p>D:Prescriber Provider ID</p>
-     */
-    @Hl7XmlMapping({"prescriberProviderID/value"})
-    public Identifier getPrescriberProviderID() {
-        return this.prescriberProviderID.getValue();
-    }
-    public void setPrescriberProviderID(Identifier prescriberProviderID) {
-        this.prescriberProviderID.setValue(prescriberProviderID);
-    }
-
-
-    /**
-     * <p>DrugCode</p>
-     * 
-     * <p>Drug Code</p>
-     */
-    @Hl7XmlMapping({"drugCode/value"})
-    public ClinicalDrug getDrugCode() {
-        return (ClinicalDrug) this.drugCode.getValue();
-    }
-    public void setDrugCode(ClinicalDrug drugCode) {
-        this.drugCode.setValue(drugCode);
-    }
-
-
-    /**
-     * <p>OtherMedicationRecordId</p>
-     * 
-     * <p>E:Other Medication Record Id</p>
-     */
-    @Hl7XmlMapping({"otherMedicationRecordId/value"})
-    public Identifier getOtherMedicationRecordId() {
-        return this.otherMedicationRecordId.getValue();
-    }
-    public void setOtherMedicationRecordId(Identifier otherMedicationRecordId) {
-        this.otherMedicationRecordId.setValue(otherMedicationRecordId);
-    }
-
-
-    /**
-     * <p>IncludeNotesIndicator</p>
-     * 
-     * <p>Include Notes Indicator</p>
-     */
-    @Hl7XmlMapping({"includeNotesIndicator/value"})
-    public Boolean getIncludeNotesIndicator() {
-        return this.includeNotesIndicator.getValue();
-    }
-    public void setIncludeNotesIndicator(Boolean includeNotesIndicator) {
-        this.includeNotesIndicator.setValue(includeNotesIndicator);
-    }
-
-
-    /**
-     * <p>IncludeIssuesIndicator</p>
-     * 
-     * <p>Include Issues Indicator</p>
-     */
-    @Hl7XmlMapping({"includeIssuesIndicator/value"})
-    public Boolean getIncludeIssuesIndicator() {
-        return this.includeIssuesIndicator.getValue();
-    }
-    public void setIncludeIssuesIndicator(Boolean includeIssuesIndicator) {
-        this.includeIssuesIndicator.setValue(includeIssuesIndicator);
-    }
-
-
-    /**
-     * <p>MostRecentDispenseForEachRxIndicator</p>
-     * 
-     * <p>Most Recent Dispense for each Rx Indicator</p>
-     */
-    @Hl7XmlMapping({"mostRecentDispenseForEachRxIndicator/value"})
-    public Boolean getMostRecentDispenseForEachRxIndicator() {
-        return this.mostRecentDispenseForEachRxIndicator.getValue();
-    }
-    public void setMostRecentDispenseForEachRxIndicator(Boolean mostRecentDispenseForEachRxIndicator) {
-        this.mostRecentDispenseForEachRxIndicator.setValue(mostRecentDispenseForEachRxIndicator);
-    }
-
-
-    /**
-     * <p>TreatmentTypes</p>
-     * 
-     * <p>Treatment Types</p>
-     */
-    @Hl7XmlMapping({"treatmentType/value"})
-    public ActTherapyDurationWorkingListCode getTreatmentTypes() {
-        return (ActTherapyDurationWorkingListCode) this.treatmentTypes.getValue();
-    }
-    public void setTreatmentTypes(ActTherapyDurationWorkingListCode treatmentTypes) {
-        this.treatmentTypes.setValue(treatmentTypes);
-    }
-
-
-    /**
-     * <p>DiagnosisCode</p>
-     * 
-     * <p>Diagnosis Code</p>
-     */
-    @Hl7XmlMapping({"diagnosisCode/value"})
-    public DiagnosisValue getDiagnosisCode() {
-        return (DiagnosisValue) this.diagnosisCode.getValue();
-    }
-    public void setDiagnosisCode(DiagnosisValue diagnosisCode) {
-        this.diagnosisCode.setValue(diagnosisCode);
-    }
-
-
-    /**
-     * <p>IncludeEventHistoryIndicator</p>
-     * 
-     * <p>Include Event History Indicator</p>
-     */
-    @Hl7XmlMapping({"includeEventHistoryIndicator/value"})
-    public Boolean getIncludeEventHistoryIndicator() {
-        return this.includeEventHistoryIndicator.getValue();
-    }
-    public void setIncludeEventHistoryIndicator(Boolean includeEventHistoryIndicator) {
-        this.includeEventHistoryIndicator.setValue(includeEventHistoryIndicator);
-    }
-
-
-    /**
-     * <p>IncludePendingChangesIndicator</p>
-     * 
-     * <p>Include Pending Changes Indicator</p>
-     */
-    @Hl7XmlMapping({"includePendingChangesIndicator/value"})
-    public Boolean getIncludePendingChangesIndicator() {
-        return this.includePendingChangesIndicator.getValue();
-    }
-    public void setIncludePendingChangesIndicator(Boolean includePendingChangesIndicator) {
-        this.includePendingChangesIndicator.setValue(includePendingChangesIndicator);
-    }
-
-
-    /**
-     * <p>OtherIndicationCode</p>
-     * 
-     * <p>Other Indication Code</p>
-     */
-    @Hl7XmlMapping({"otherIndicationCode/value"})
-    public ActNonConditionIndicationCode getOtherIndicationCode() {
-        return (ActNonConditionIndicationCode) this.otherIndicationCode.getValue();
-    }
-    public void setOtherIndicationCode(ActNonConditionIndicationCode otherIndicationCode) {
-        this.otherIndicationCode.setValue(otherIndicationCode);
-    }
-
-
-    /**
-     * <p>SymptomCode</p>
-     * 
-     * <p>Symptom Code</p>
-     */
-    @Hl7XmlMapping({"symptomCode/value"})
-    public SymptomValue getSymptomCode() {
-        return (SymptomValue) this.symptomCode.getValue();
-    }
-    public void setSymptomCode(SymptomValue symptomCode) {
-        this.symptomCode.setValue(symptomCode);
-    }
-
-
-    /**
-     * <p>ProfessionalServiceCodes</p>
-     * 
-     * <p>Professional Service Codes</p>
-     */
-    @Hl7XmlMapping({"professionalServiceCode/value"})
-    public ActProfessionalServiceCode getProfessionalServiceCodes() {
-        return (ActProfessionalServiceCode) this.professionalServiceCodes.getValue();
-    }
-    public void setProfessionalServiceCodes(ActProfessionalServiceCode professionalServiceCodes) {
-        this.professionalServiceCodes.setValue(professionalServiceCodes);
-    }
-
-
-    /**
-     * <p>ServicePeriod</p>
-     * 
-     * <p>Service Period</p>
-     */
-    @Hl7XmlMapping({"servicePeriod/value"})
-    public Interval<Date> getServicePeriod() {
-        return this.servicePeriod.getValue();
-    }
-    public void setServicePeriod(Interval<Date> servicePeriod) {
-        this.servicePeriod.setValue(servicePeriod);
-    }
-
-
-    /**
-     * <p>MeasurementTypes</p>
-     * 
-     * <p>F:Measurement Types</p>
-     */
-    @Hl7XmlMapping({"measurementType/value"})
-    public CommonClinicalObservationType getMeasurementTypes() {
-        return (CommonClinicalObservationType) this.measurementTypes.getValue();
-    }
-    public void setMeasurementTypes(CommonClinicalObservationType measurementTypes) {
-        this.measurementTypes.setValue(measurementTypes);
-    }
-
-
-    /**
-     * <p>MeasurementEffectivePeriod</p>
-     * 
-     * <p>G:Measurement Effective Period</p>
-     */
-    @Hl7XmlMapping({"measurementEffectivePeriod/value"})
-    public Interval<Date> getMeasurementEffectivePeriod() {
-        return this.measurementEffectivePeriod.getValue();
-    }
-    public void setMeasurementEffectivePeriod(Interval<Date> measurementEffectivePeriod) {
-        this.measurementEffectivePeriod.setValue(measurementEffectivePeriod);
-    }
-
-
-    /**
-     * <p>AllergyIntoleranceStatus</p>
-     * 
-     * <p>G:Allergy/Intolerance Status</p>
-     */
-    @Hl7XmlMapping({"allergyIntoleranceStatus/value"})
-    public ActStatus getAllergyIntoleranceStatus() {
-        return (ActStatus) this.allergyIntoleranceStatus.getValue();
-    }
-    public void setAllergyIntoleranceStatus(ActStatus allergyIntoleranceStatus) {
-        this.allergyIntoleranceStatus.setValue(allergyIntoleranceStatus);
-    }
-
-
-    /**
-     * <p>AllergyIntoleranceType</p>
-     * 
-     * <p>H:Allergy/Intolerance Type</p>
-     */
-    @Hl7XmlMapping({"allergyIntoleranceType/value"})
-    public ObservationIntoleranceType getAllergyIntoleranceType() {
-        return (ObservationIntoleranceType) this.allergyIntoleranceType.getValue();
-    }
-    public void setAllergyIntoleranceType(ObservationIntoleranceType allergyIntoleranceType) {
-        this.allergyIntoleranceType.setValue(allergyIntoleranceType);
-    }
-
-
-    /**
-     * <p>I:Reaction</p>
-     * 
-     * <p>G:Reaction Type</p>
-     */
-    @Hl7XmlMapping({"reactionType/value"})
-    public SubjectReaction getReactionTypeValue() {
-        return (SubjectReaction) this.reactionTypeValue.getValue();
-    }
-    public void setReactionTypeValue(SubjectReaction reactionTypeValue) {
-        this.reactionTypeValue.setValue(reactionTypeValue);
-    }
-
-
-    /**
-     * <p>AllergyIntoleranceChangePeriod</p>
-     * 
-     * <p>F:Allergy/Intolerance Change Period</p>
-     */
-    @Hl7XmlMapping({"alllergyIntoleranceChangePeriod/value"})
-    public Interval<Date> getAllergyIntoleranceChangePeriod() {
-        return this.allergyIntoleranceChangePeriod.getValue();
-    }
-    public void setAllergyIntoleranceChangePeriod(Interval<Date> allergyIntoleranceChangePeriod) {
-        this.allergyIntoleranceChangePeriod.setValue(allergyIntoleranceChangePeriod);
-    }
-
-
-    /**
-     * <p>MedicalConditionChangePeriod</p>
-     * 
-     * <p>G:Medical Condition Change Period</p>
-     */
-    @Hl7XmlMapping({"medicalConditionChangePeriod/value"})
-    public Interval<Date> getMedicalConditionChangePeriod() {
-        return this.medicalConditionChangePeriod.getValue();
-    }
-    public void setMedicalConditionChangePeriod(Interval<Date> medicalConditionChangePeriod) {
-        this.medicalConditionChangePeriod.setValue(medicalConditionChangePeriod);
-    }
-
-
-    /**
-     * <p>MedicalConditionStatus</p>
-     * 
-     * <p>G:Medical Condition Status</p>
-     */
-    @Hl7XmlMapping({"medicalConditionStatus/value"})
-    public ActStatus getMedicalConditionStatus() {
-        return (ActStatus) this.medicalConditionStatus.getValue();
-    }
-    public void setMedicalConditionStatus(ActStatus medicalConditionStatus) {
-        this.medicalConditionStatus.setValue(medicalConditionStatus);
-    }
-
-
-    /**
-     * <p>ReactionPeriod</p>
-     * 
-     * <p>F:Reaction Period</p>
-     */
-    @Hl7XmlMapping({"reactionPeriod/value"})
-    public Interval<Date> getReactionPeriod() {
-        return this.reactionPeriod.getValue();
-    }
-    public void setReactionPeriod(Interval<Date> reactionPeriod) {
-        this.reactionPeriod.setValue(reactionPeriod);
-    }
-
-
-    /**
-     * <p>ConditionIdentifier</p>
-     * 
-     * <p>F:Condition Identifier</p>
-     */
     @Hl7XmlMapping({"conditionID/value"})
     public Identifier getConditionIdentifier() {
         return this.conditionIdentifier.getValue();
     }
     public void setConditionIdentifier(Identifier conditionIdentifier) {
         this.conditionIdentifier.setValue(conditionIdentifier);
+    }
+
+    @Hl7XmlMapping({"drugCode/value"})
+    public ClinicalDrug getDrugCode() {
+        return (ClinicalDrug) this.drugCode.getValue();
+    }
+    public void setDrugCode(ClinicalDrug drugCode) {
+        this.drugCode.setValue(drugCode);
     }
 
 }

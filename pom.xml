@@ -4,7 +4,7 @@
 	<groupId>ca.infoway.messagebuilder</groupId>
 	<artifactId>message-builder</artifactId>
 	<packaging>pom</packaging>
-	<version>1.1.2cr3-SNAPSHOT</version>
+	<version>1.1.1</version>
 	<name>Message Builder Parent</name>
 	<issueManagement>
 		<system>Bugzilla</system>
@@ -60,19 +60,17 @@
 		</snapshotRepository>
 	</distributionManagement>
 	<scm>
-		<connection>scm:svn:http://subversion.intelliware.ca/rep/infoway/trunk/message-builder
+		<connection>scm:svn:http://subversion.intelliware.ca/rep/infoway/tags/message-builder-1.1.1
 		</connection>
-		<developerConnection>scm:svn:http://subversion.intelliware.ca/rep/infoway/trunk/message-builder
+		<developerConnection>scm:svn:http://subversion.intelliware.ca/rep/infoway/tags/message-builder-1.1.1
 		</developerConnection>
-		<url>http://subversion.intelliware.ca/rep/infoway/trunk/message-builder
+		<url>http://subversion.intelliware.ca/rep/infoway/tags/message-builder-1.1.1
 		</url>
 	</scm>
 	<modules>
 		<module>message-builder-acceptance</module>
 		<module>maven-chi-plugin</module>
 		<module>message-builder-example</module>
-		<module>message-builder-util</module>
-		<module>message-builder-xml</module>
 		<module>message-builder-core</module>
 		<module>message-builder-sample-messages</module>
 		<module>message-builder-terminology</module>
@@ -299,28 +297,17 @@
 			        <configuration>
 			          <finalName>message-builder</finalName>
 			          <outputDirectory>target/assembly-directory</outputDirectory>
-    			          <!-- descriptorRefs>
-				    <descriptorRef>project</descriptorRef>
-			          </descriptorRefs -->
-				  <descriptors>
-				    <descriptor>./etc/assembly-descriptor-chi.xml</descriptor>
-				    <descriptor>./etc/assembly-descriptor-dev.xml</descriptor>
-				  </descriptors>
 			        </configuration>
 		      </plugin>
 
 			<plugin>
 				<artifactId>maven-source-plugin</artifactId>
-				<configuration>
-					<includePom>true</includePom>
-				</configuration>
 				<executions>
 					<execution>
 						<id>attach-sources</id>
 						<goals>
 							<goal>jar</goal>
 						</goals>
-		            	<phase>package</phase>
 					</execution>
 				</executions>
 			</plugin>
@@ -340,14 +327,12 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-release-plugin</artifactId>
-				<version>2.1</version>
+				<version>2.0-beta-9</version>
 				<configuration>
 					<tagBase>http://subversion.intelliware.ca/rep/infoway/tags
 					</tagBase>
 					<!-- See http://jira.codehaus.org/browse/SCM-406 -->
 					<remoteTagging>true</remoteTagging>
-                    			<preparationGoals>clean install</preparationGoals>
-
 				</configuration>
 			</plugin>
 		</plugins>
@@ -379,6 +364,10 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-report-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -434,4 +423,3 @@
 		</pluginRepository>
 	</pluginRepositories>
 </project>
-

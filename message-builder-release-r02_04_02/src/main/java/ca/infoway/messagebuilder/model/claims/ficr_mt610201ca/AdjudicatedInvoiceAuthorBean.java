@@ -13,14 +13,10 @@ import java.util.Date;
 @Hl7PartTypeMapping({"FICR_MT610201CA.AdjudicatedInvoiceAuthor"})
 public class AdjudicatedInvoiceAuthorBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110127L;
+    private static final long serialVersionUID = 20100603L;
     private TS adjudicationDateTime = new TSImpl();
     private AdjudicatorRoleBean adjudicatorRole;
 
-
-    /**
-     * <p>Adjudication date/time</p>
-     */
     @Hl7XmlMapping({"time"})
     public Date getAdjudicationDateTime() {
         return this.adjudicationDateTime.getValue();
@@ -28,7 +24,6 @@ public class AdjudicatedInvoiceAuthorBean extends MessagePartBean {
     public void setAdjudicationDateTime(Date adjudicationDateTime) {
         this.adjudicationDateTime.setValue(adjudicationDateTime);
     }
-
 
     @Hl7XmlMapping({"adjudicatorRole"})
     public AdjudicatorRoleBean getAdjudicatorRole() {

@@ -20,20 +20,32 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 @Hl7PartTypeMapping({"COCT_MT110200CA.PayeePerson"})
-public class PayeePersonBean extends MessagePartBean implements PayeeChoice {
+public class PayeePersonBean extends MessagePartBean implements PayeeChoiceBean {
 
-    private static final long serialVersionUID = 20110127L;
+    private static final long serialVersionUID = 20100615L;
+    private PayeeRelationshipRoleBean asPayeeRelationshipRole;
+    private PN payeeName = new PNImpl();
     private AD payeeAddress = new ADImpl();
     private CV payeeLanguageLanguageCode = new CVImpl();
-    private BL payeeLanguagePreferenceInd = new BLImpl();
     private CV receivedWritten = new CVImpl();
-    private PN payeeName = new PNImpl();
-    private PayeeRelationshipRoleBean asPayeeRelationshipRole;
+    private BL payeeLanguagePreferenceInd = new BLImpl();
 
+    @Hl7XmlMapping({"asPayeeRelationshipRole"})
+    public PayeeRelationshipRoleBean getAsPayeeRelationshipRole() {
+        return this.asPayeeRelationshipRole;
+    }
+    public void setAsPayeeRelationshipRole(PayeeRelationshipRoleBean asPayeeRelationshipRole) {
+        this.asPayeeRelationshipRole = asPayeeRelationshipRole;
+    }
 
-    /**
-     * <p>payee address</p>
-     */
+    @Hl7XmlMapping({"name"})
+    public PersonName getPayeeName() {
+        return this.payeeName.getValue();
+    }
+    public void setPayeeName(PersonName payeeName) {
+        this.payeeName.setValue(payeeName);
+    }
+
     @Hl7XmlMapping({"addr"})
     public PostalAddress getPayeeAddress() {
         return this.payeeAddress.getValue();
@@ -41,7 +53,6 @@ public class PayeePersonBean extends MessagePartBean implements PayeeChoice {
     public void setPayeeAddress(PostalAddress payeeAddress) {
         this.payeeAddress.setValue(payeeAddress);
     }
-
 
     @Hl7XmlMapping({"payeeLanguage/languageCode"})
     public HumanLanguage getPayeeLanguageLanguageCode() {
@@ -51,19 +62,6 @@ public class PayeePersonBean extends MessagePartBean implements PayeeChoice {
         this.payeeLanguageLanguageCode.setValue(payeeLanguageLanguageCode);
     }
 
-
-    @Hl7XmlMapping({"payeeLanguage/preferenceInd"})
-    public Boolean getPayeeLanguagePreferenceInd() {
-        return this.payeeLanguagePreferenceInd.getValue();
-    }
-    public void setPayeeLanguagePreferenceInd(Boolean payeeLanguagePreferenceInd) {
-        this.payeeLanguagePreferenceInd.setValue(payeeLanguagePreferenceInd);
-    }
-
-
-    /**
-     * <p>Received Written</p>
-     */
     @Hl7XmlMapping({"payeeLanguage/modeCode"})
     public LanguageAbilityMode getReceivedWritten() {
         return (LanguageAbilityMode) this.receivedWritten.getValue();
@@ -72,25 +70,12 @@ public class PayeePersonBean extends MessagePartBean implements PayeeChoice {
         this.receivedWritten.setValue(receivedWritten);
     }
 
-
-    /**
-     * <p>payee name</p>
-     */
-    @Hl7XmlMapping({"name"})
-    public PersonName getPayeeName() {
-        return this.payeeName.getValue();
+    @Hl7XmlMapping({"payeeLanguage/preferenceInd"})
+    public Boolean getPayeeLanguagePreferenceInd() {
+        return this.payeeLanguagePreferenceInd.getValue();
     }
-    public void setPayeeName(PersonName payeeName) {
-        this.payeeName.setValue(payeeName);
-    }
-
-
-    @Hl7XmlMapping({"asPayeeRelationshipRole"})
-    public PayeeRelationshipRoleBean getAsPayeeRelationshipRole() {
-        return this.asPayeeRelationshipRole;
-    }
-    public void setAsPayeeRelationshipRole(PayeeRelationshipRoleBean asPayeeRelationshipRole) {
-        this.asPayeeRelationshipRole = asPayeeRelationshipRole;
+    public void setPayeeLanguagePreferenceInd(Boolean payeeLanguagePreferenceInd) {
+        this.payeeLanguagePreferenceInd.setValue(payeeLanguagePreferenceInd);
     }
 
 }

@@ -39,11 +39,11 @@ import ca.infoway.messagebuilder.util.xml.XmlDescriber;
  *
  * http://www.hl7.org/v3ballot/html/infrastructure/itsxml/datatypes-its-xml.htm#dtimpl-IVL
  */
-abstract class AbstractIvlElementParser<T> extends AbstractSingleElementParser<Interval<T>> {
+public abstract class AbstractIvlElementParser<T> extends AbstractSingleElementParser<Interval<T>> {
 	
 	@Override
 	@SuppressWarnings("unchecked")
-	protected Interval<T> parseNonNullNode(ParseContext context, Node node, BareANY parseResult, Type expectedReturnType, XmlToModelResult xmlToJavaResult) throws XmlToModelTransformationException {
+	protected Interval<T> parseNonNullNode(ParseContext context, Node node, Type expectedReturnType, XmlToModelResult xmlToJavaResult) throws XmlToModelTransformationException {
 
 		Interval<T> result = null;
 		

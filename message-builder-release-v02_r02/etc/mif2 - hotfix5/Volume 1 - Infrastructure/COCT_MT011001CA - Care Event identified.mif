@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?><mif:staticModel xmlns:mif="urn:hl7-org:v3/mif" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:hl7-org:v3/mif" isAbstract="false" isSerializable="true" name="CA" packageKind="realmNamespace" representationKind="flat" schemaVersion="2.0" xsi:schemaLocation="">
+   <mif:packageLocation artifact="MT-deprecated" domain="CT" id="011001" realmNamespace="CA" root="DEFN" section="IM" subSection="CO"/>
+   <mif:header>
+      <mif:renderingInformation application="Visio to MIF transform"/>
+      <mif:legalese copyrightOwner="Health Level Seven" copyrightYears="2008"/>
+   </mif:header>
+   <mif:graphicRepresentation presentation="HL7">
+      <mif:graphElement name="Main">
+         <mif:position x="0" y="0"/>
+         <mif:size height="186" width="253"/>
+      </mif:graphElement>
+   <entryPoint name="Care Event identified"><mif:graphElement containerDiagramName="Main" shapeId="Sheet.1">
+            <mif:position x="44" y="2"/>
+            <mif:size height="43" width="140"/>
+            <mif:anchorage connectToShapeId="Sheet.1">
+               <mif:position x="103" y="46"/>
+               <mif:graphEdge>
+                  <mif:anchor connectToShapeId="Sheet.106">
+                     <mif:position x="126" y="97"/>
+                  </mif:anchor>
+               </mif:graphEdge>
+            </mif:anchorage>
+         </mif:graphElement></entryPoint><class className="PatientCareProvisionEvent" presentation="HL7"><mif:graphElement containerDiagramName="Main" isHeightAutoSize="true" isWidthAutoSize="true" shapeId="Sheet.106" shapeTemplate="Act">
+               <mif:position x="8" y="97"/>
+               <mif:size height="87" width="237"/>
+            </mif:graphElement></class></mif:graphicRepresentation>
+   <derivedFrom staticModelDerivationId="1">
+      <mif:targetStaticModel artifact="RIM" root="DEFN" version="00"/>
+   </derivedFrom>
+   <entryPoint className="PatientCareProvisionEvent" id="COCT_MT011001CA" isAbstract="false" name="Care Event identified">
+      
+   </entryPoint>
+   <containedClass>
+      <mif:class isAbstract="false" name="PatientCareProvisionEvent">
+         <mif:businessName name="Care Compositions"><realmNamespace value="UV"/></mif:businessName>
+         <derivedFrom className="Act" staticModelDerivationId="1"/>
+         
+         <mif:annotations>
+            
+            
+         <documentation><mif:definition>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>A care composition is a record with two purposes. It indicates that care of a given type has occurred or is occurring. It also acts as a collector for the events that happened during care, including who is responsible for the care provided.</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:definition><mif:rationale>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>Allows linking records to encounters, condition and care-based compositions. Useful for searching and navigation of the patient's record.</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:rationale></documentation></mif:annotations>
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="classCode" sortKey="1"><enumerationValues>PCPR</enumerationValues>
+            <derivedFrom attributeName="classCode" className="Act" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="PCPR" codeSystemName="ActClass"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="moodCode" sortKey="2"><enumerationValues>EVN</enumerationValues>
+            <derivedFrom attributeName="moodCode" className="Act" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="EVN" codeSystemName="ActMood"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="id" sortKey="3">
+            <mif:businessName name="B: Care Composition Identifier"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Unique identifier of an encounter, condition or care-based collection.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Allows care compositions to be uniquely identified and referenced, and is therefore mandatory</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation><appInfo><mif:mapping sourceName="EPHS">
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>IMMUNIZATION INTERPRETATION.REFERENCED DATA</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:mapping></appInfo></mif:annotations>
+            <derivedFrom attributeName="id" className="Act" staticModelDerivationId="1"/>
+            <mif:type name="II.BUS"/>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="code" sortKey="4">
+            <mif:businessName name="A: Care Composition Type"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Identifies the kind of composition represented. Examples include encounters ("Emergency Encounter", "Long Term Care Encounter", etc), health condition (episode)-based collections (e.g. "Diabetes", "Hypertension", etc) and general care-based collections such as "gynecological care".</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Allows care compositions to be captured and categorized at different levels of abstraction, and is therefore mandatory.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation><appInfo><mif:openIssues>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>EPHS: vocab concepts needed for LAB ID, Special Considerations ID etc.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:openIssues><mif:mapping sourceName="EPHS">
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>IMMUNIZATION INTERPRETATION.REFERENCED DATA</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:mapping></appInfo></mif:annotations>
+            <derivedFrom attributeName="code" className="Act" staticModelDerivationId="1"/>
+            <mif:type name="CV"/>
+            <supplierVocabulary codingStrength="CNE"><vocabularyDomain name="ActCareEventType"/></supplierVocabulary>
+         </mif:attribute>
+      </mif:class>
+   </containedClass>
+</mif:staticModel>

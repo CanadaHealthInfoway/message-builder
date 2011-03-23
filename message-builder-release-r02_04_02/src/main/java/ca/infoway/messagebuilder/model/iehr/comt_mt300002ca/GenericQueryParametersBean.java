@@ -14,35 +14,18 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 /**
  * <p>Generic Query Parameters</p>
  * 
- * <p><p>Defines the set of parameters that may be used to 
- * filter the query response.</p></p>
+ * <p>Defines the set of parameters that may be used to filter 
+ * the query response.</p>
  * 
- * <p><p>Root class for query definition</p></p>
+ * <p>Root class for query definition</p>
  */
 @Hl7PartTypeMapping({"COMT_MT300002CA.ParameterList"})
 @Hl7RootType
 public class GenericQueryParametersBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110127L;
+    private static final long serialVersionUID = 20100603L;
     private CV patientNoteCategoryCode = new CVImpl();
 
-
-    /**
-     * <p>Patient Note Category Code</p>
-     * 
-     * <p><p>Indicates that the result set is to be filtered to 
-     * include only those patient annotation pertaining to the 
-     * specified annotation category.</p><p>Valid patient note 
-     * categories include: General, Medication, Lab, DI, etc.</p></p>
-     * 
-     * <p><p>Indicates that the result set is to be filtered to 
-     * include only those patient annotation pertaining to the 
-     * specified annotation category.</p><p>Valid patient note 
-     * categories include: General, Medication, Lab, DI, etc.</p></p>
-     * 
-     * <p><p>Allows for the retrieval of all patient notes 
-     * pertaining to a specific note category.</p></p>
-     */
     @Hl7XmlMapping({"patientNoteCategoryCode/value"})
     public ActPatientAnnotationCode getPatientNoteCategoryCode() {
         return (ActPatientAnnotationCode) this.patientNoteCategoryCode.getValue();

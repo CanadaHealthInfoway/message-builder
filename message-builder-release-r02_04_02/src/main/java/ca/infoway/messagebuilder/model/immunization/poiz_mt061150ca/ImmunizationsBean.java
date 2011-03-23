@@ -18,8 +18,9 @@ import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.domainvalue.ActStatus;
 import ca.infoway.messagebuilder.domainvalue.ActUncertainty;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.immunization.merged.AdministeredToBean;
-import ca.infoway.messagebuilder.model.immunization.merged.InvestigationEventBean;
+import ca.infoway.messagebuilder.model.iehr.comt_mt111111ca.SummaryBean;
+import ca.infoway.messagebuilder.model.merged.AdministeredToBean;
+import ca.infoway.messagebuilder.model.merged.InvestigationEventBean;
 import java.util.Date;
 
 
@@ -27,50 +28,45 @@ import java.util.Date;
 /**
  * <p>Immunizations</p>
  * 
- * <p><p>A record of products administered to a patient 
- * specific to immunization.</p></p>
+ * <p>A record of products administered to a patient specific 
+ * to immunization.</p>
  * 
- * <p><p>Necessary component of a person's overall vaccine 
+ * <p>Necessary component of a person's overall vaccine 
  * profile. Helps deal with outbreaks and also vaccine 
- * contraindication checking.</p></p>
+ * contraindication checking.</p>
  */
 @Hl7PartTypeMapping({"POIZ_MT061150CA.Immunization"})
 @Hl7RootType
-public class ImmunizationsBean extends MessagePartBean implements ca.infoway.messagebuilder.model.iehr.comt_mt111111ca.Summary {
+public class ImmunizationsBean extends MessagePartBean implements SummaryBean {
 
-    private static final long serialVersionUID = 20110127L;
-    private BL subjectOf2AnnotationIndicator = new BLImpl();
+    private static final long serialVersionUID = 20100603L;
+    private II immunizationRecordId = new IIImpl();
+    private BL notImmunized = new BLImpl();
     private CS immunizationEventStatus = new CSImpl();
+    private TS immunizationDate = new TSImpl();
     private CV uncertaintyCode = new CVImpl();
     private AdministeredToBean subject;
     private VaccineBean consumableAdministerableMedicineAdministerableVaccine;
-    private II immunizationRecordId = new IIImpl();
-    private BL notImmunized = new BLImpl();
+    private BL subjectOf1DetectedIssuesIndicator = new BLImpl(false);
+    private BL subjectOf2AnnotationIndicator = new BLImpl(false);
     private InvestigationEventBean causeInvestigationEvent;
-    private BL subjectOf1DetectedIssuesIndicator = new BLImpl();
-    private TS immunizationDate = new TSImpl();
 
-
-    @Hl7XmlMapping({"subjectOf2/annotationIndicator"})
-    public Boolean getSubjectOf2AnnotationIndicator() {
-        return this.subjectOf2AnnotationIndicator.getValue();
+    @Hl7XmlMapping({"id"})
+    public Identifier getImmunizationRecordId() {
+        return this.immunizationRecordId.getValue();
     }
-    public void setSubjectOf2AnnotationIndicator(Boolean subjectOf2AnnotationIndicator) {
-        this.subjectOf2AnnotationIndicator.setValue(subjectOf2AnnotationIndicator);
+    public void setImmunizationRecordId(Identifier immunizationRecordId) {
+        this.immunizationRecordId.setValue(immunizationRecordId);
     }
 
+    @Hl7XmlMapping({"negationInd"})
+    public Boolean getNotImmunized() {
+        return this.notImmunized.getValue();
+    }
+    public void setNotImmunized(Boolean notImmunized) {
+        this.notImmunized.setValue(notImmunized);
+    }
 
-    /**
-     * <p>Immunization Event Status</p>
-     * 
-     * <p><p>Status of the immunization event</p></p>
-     * 
-     * <p><p>Needed to differentiate between valid, obsolete and 
-     * invalid immunization events (e.g. immunization event has 
-     * been retracted or nullified) and is therefore mandatory.</p></p>
-     * 
-     * <p><p>Nullified=Retracted</p></p>
-     */
     @Hl7XmlMapping({"statusCode"})
     public ActStatus getImmunizationEventStatus() {
         return (ActStatus) this.immunizationEventStatus.getValue();
@@ -79,17 +75,14 @@ public class ImmunizationsBean extends MessagePartBean implements ca.infoway.mes
         this.immunizationEventStatus.setValue(immunizationEventStatus);
     }
 
+    @Hl7XmlMapping({"effectiveTime"})
+    public Date getImmunizationDate() {
+        return this.immunizationDate.getValue();
+    }
+    public void setImmunizationDate(Date immunizationDate) {
+        this.immunizationDate.setValue(immunizationDate);
+    }
 
-    /**
-     * <p>Uncertainty Code</p>
-     * 
-     * <p><p>An indication of uncertainty regarding an immunization 
-     * event</p></p>
-     * 
-     * <p><p>Allows for users of information to determine the 
-     * degree of uncertainty regarding the details of an 
-     * immunization event and is therefore populated.</p></p>
-     */
     @Hl7XmlMapping({"uncertaintyCode"})
     public ActUncertainty getUncertaintyCode() {
         return (ActUncertainty) this.uncertaintyCode.getValue();
@@ -97,7 +90,6 @@ public class ImmunizationsBean extends MessagePartBean implements ca.infoway.mes
     public void setUncertaintyCode(ActUncertainty uncertaintyCode) {
         this.uncertaintyCode.setValue(uncertaintyCode);
     }
-
 
     @Hl7XmlMapping({"subject"})
     public AdministeredToBean getSubject() {
@@ -107,7 +99,6 @@ public class ImmunizationsBean extends MessagePartBean implements ca.infoway.mes
         this.subject = subject;
     }
 
-
     @Hl7XmlMapping({"consumable/administerableMedicine/administerableVaccine"})
     public VaccineBean getConsumableAdministerableMedicineAdministerableVaccine() {
         return this.consumableAdministerableMedicineAdministerableVaccine;
@@ -115,55 +106,6 @@ public class ImmunizationsBean extends MessagePartBean implements ca.infoway.mes
     public void setConsumableAdministerableMedicineAdministerableVaccine(VaccineBean consumableAdministerableMedicineAdministerableVaccine) {
         this.consumableAdministerableMedicineAdministerableVaccine = consumableAdministerableMedicineAdministerableVaccine;
     }
-
-
-    /**
-     * <p>A:Immunization Record Id</p>
-     * 
-     * <p><p>This is an identifier assigned to a unique instance of 
-     * an immunization record.</p></p>
-     * 
-     * <p><p>Allows for the unique referencing of a specific 
-     * immunization record. This should be known for query 
-     * responses and is, therefore, mandatory.</p></p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Identifier getImmunizationRecordId() {
-        return this.immunizationRecordId.getValue();
-    }
-    public void setImmunizationRecordId(Identifier immunizationRecordId) {
-        this.immunizationRecordId.setValue(immunizationRecordId);
-    }
-
-
-    /**
-     * <p>Not Immunized?</p>
-     * 
-     * <p><p>An explicit indication that a person has not been 
-     * immunized with the specified vaccine at the time 
-     * indicated.</p></p>
-     * 
-     * <p><p>Tracking failures to be immunized is also important in 
-     * immunization reporting. Marked as mandatory because it is 
-     * not meaningful for this flag to be 'unknown'.</p></p>
-     */
-    @Hl7XmlMapping({"negationInd"})
-    public Boolean getNotImmunized() {
-        return this.notImmunized.getValue();
-    }
-    public void setNotImmunized(Boolean notImmunized) {
-        this.notImmunized.setValue(notImmunized);
-    }
-
-
-    @Hl7XmlMapping({"cause/investigationEvent"})
-    public InvestigationEventBean getCauseInvestigationEvent() {
-        return this.causeInvestigationEvent;
-    }
-    public void setCauseInvestigationEvent(InvestigationEventBean causeInvestigationEvent) {
-        this.causeInvestigationEvent = causeInvestigationEvent;
-    }
-
 
     @Hl7XmlMapping({"subjectOf1/detectedIssuesIndicator"})
     public Boolean getSubjectOf1DetectedIssuesIndicator() {
@@ -173,23 +115,20 @@ public class ImmunizationsBean extends MessagePartBean implements ca.infoway.mes
         this.subjectOf1DetectedIssuesIndicator.setValue(subjectOf1DetectedIssuesIndicator);
     }
 
-
-    /**
-     * <p>Immunization Date</p>
-     * 
-     * <p><p>The date the vaccine was administered to the 
-     * patient.</p></p>
-     * 
-     * <p><p>Important information for establishing the validity of 
-     * the immunization records, and therefore mandatory. Also used 
-     * in the scheduling of subsequent immunizations.</p></p>
-     */
-    @Hl7XmlMapping({"effectiveTime"})
-    public Date getImmunizationDate() {
-        return this.immunizationDate.getValue();
+    @Hl7XmlMapping({"subjectOf2/annotationIndicator"})
+    public Boolean getSubjectOf2AnnotationIndicator() {
+        return this.subjectOf2AnnotationIndicator.getValue();
     }
-    public void setImmunizationDate(Date immunizationDate) {
-        this.immunizationDate.setValue(immunizationDate);
+    public void setSubjectOf2AnnotationIndicator(Boolean subjectOf2AnnotationIndicator) {
+        this.subjectOf2AnnotationIndicator.setValue(subjectOf2AnnotationIndicator);
+    }
+
+    @Hl7XmlMapping({"cause/investigationEvent"})
+    public InvestigationEventBean getCauseInvestigationEvent() {
+        return this.causeInvestigationEvent;
+    }
+    public void setCauseInvestigationEvent(InvestigationEventBean causeInvestigationEvent) {
+        this.causeInvestigationEvent = causeInvestigationEvent;
     }
 
 }

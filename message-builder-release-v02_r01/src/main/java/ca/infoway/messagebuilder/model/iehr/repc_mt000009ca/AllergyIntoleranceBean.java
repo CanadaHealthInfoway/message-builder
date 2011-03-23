@@ -26,16 +26,14 @@ import ca.infoway.messagebuilder.domainvalue.IntoleranceValue;
 import ca.infoway.messagebuilder.domainvalue.ObservationIntoleranceType;
 import ca.infoway.messagebuilder.domainvalue.x_NormalRestrictedTabooConfidentialityKind;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.common.coct_mt011001ca.CareCompositionsBean;
+import ca.infoway.messagebuilder.model.common.coct_mt090108ca.HealthcareWorkerBean;
 import ca.infoway.messagebuilder.model.common.coct_mt120600ca.NotesBean;
-import ca.infoway.messagebuilder.model.iehr.merged.AllergyTestsBean;
-import ca.infoway.messagebuilder.model.iehr.merged.Records;
-import ca.infoway.messagebuilder.model.iehr.merged.ReportedByBean;
-import ca.infoway.messagebuilder.model.iehr.merged.ReportedReactionsBean;
 import ca.infoway.messagebuilder.model.merged.AllergyIntoleranceSeverityLevelBean;
-import ca.infoway.messagebuilder.model.merged.CreatedAtBean;
-import ca.infoway.messagebuilder.model.merged.HealthcareWorkerBean;
-import ca.infoway.messagebuilder.model.merged.RefusedByBean;
+import ca.infoway.messagebuilder.model.merged.AuthoredByBean;
+import ca.infoway.messagebuilder.model.merged.Informant_1Bean;
+import ca.infoway.messagebuilder.model.merged.IsPartOfBean;
+import ca.infoway.messagebuilder.model.merged.StatusChangesBean;
+import ca.infoway.messagebuilder.model.merged.TargetedToPharmacyBean;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -43,61 +41,57 @@ import java.util.Set;
 
 
 
+/**
+ * <p>Allergy/Intolerance</p>
+ * 
+ * <p>A record of a patient's allergy or intolerance.</p>
+ * 
+ * <p>Necessary component of a person's overall medication and 
+ * clinical profile. Helps with drug contraindication checking.</p>
+ * 
+ * <p>Value is not permitted when using SNOMED, mandatory 
+ * otherwise</p>
+ */
 @Hl7PartTypeMapping({"REPC_MT000009CA.IntoleranceCondition"})
 @Hl7RootType
 public class AllergyIntoleranceBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110127L;
-    private RefusedByBean author;
-    private List<AllergyIntoleranceStatusChangesBean> subjectOf1ControlActEvent = new ArrayList<AllergyIntoleranceStatusChangesBean>();
-    private TS allergyIntoleranceDate = new TSImpl();
-    private BL allergyIntoleranceRefuted = new BLImpl();
-    private AllergyIntoleranceBean replacementOfIntoleranceCondition;
-    private List<NotesBean> subjectOf2Annotation = new ArrayList<NotesBean>();
+    private static final long serialVersionUID = 20100615L;
     private II allergyIntoleranceRecordId = new IIImpl();
-    private CreatedAtBean location;
-    private AllergyIntoleranceSeverityLevelBean subjectOf3SeverityObservation;
-    private CS allergyIntoleranceStatus = new CSImpl();
-    private SET<CV, Code> allergyIntoleranceMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);
-    private ReportedByBean informant;
-    private List<Records> supportRecords = new ArrayList<Records>();
-    private List<CareCompositionsBean> componentOfPatientCareProvisionEvent = new ArrayList<CareCompositionsBean>();
-    private CV agent = new CVImpl();
-    private CV confirmedIndicator = new CVImpl();
     private CD allergyIntoleranceType = new CDImpl();
+    private BL allergyIntoleranceRefuted = new BLImpl();
+    private CS allergyIntoleranceStatus = new CSImpl();
+    private TS allergyIntoleranceDate = new TSImpl();
+    private SET<CV, Code> allergyIntoleranceMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);
+    private CV confirmedIndicator = new CVImpl();
+    private CV agent = new CVImpl();
     private HealthcareWorkerBean responsiblePartyAssignedEntity;
+    private AuthoredByBean author;
+    private Informant_1Bean informant;
+    private TargetedToPharmacyBean location;
+    private AllergyIntoleranceBean replacementOfIntoleranceCondition;
+    private List<RecordsBean> supportRecords = new ArrayList<RecordsBean>();
+    private List<StatusChangesBean> subjectOf1ControlActEvent = new ArrayList<StatusChangesBean>();
+    private List<NotesBean> subjectOf2Annotation = new ArrayList<NotesBean>();
+    private AllergyIntoleranceSeverityLevelBean subjectOf3SeverityObservation;
+    private List<IsPartOfBean> componentOf = new ArrayList<IsPartOfBean>();
 
-
-    @Hl7XmlMapping({"author"})
-    public RefusedByBean getAuthor() {
-        return this.author;
+    @Hl7XmlMapping({"id"})
+    public Identifier getAllergyIntoleranceRecordId() {
+        return this.allergyIntoleranceRecordId.getValue();
     }
-    public void setAuthor(RefusedByBean author) {
-        this.author = author;
-    }
-
-
-    @Hl7XmlMapping({"subjectOf1/controlActEvent"})
-    public List<AllergyIntoleranceStatusChangesBean> getSubjectOf1ControlActEvent() {
-        return this.subjectOf1ControlActEvent;
-    }
-
-
-    /**
-     * <p>I:Allergy/Intolerance Date</p>
-     */
-    @Hl7XmlMapping({"effectiveTime"})
-    public Date getAllergyIntoleranceDate() {
-        return this.allergyIntoleranceDate.getValue();
-    }
-    public void setAllergyIntoleranceDate(Date allergyIntoleranceDate) {
-        this.allergyIntoleranceDate.setValue(allergyIntoleranceDate);
+    public void setAllergyIntoleranceRecordId(Identifier allergyIntoleranceRecordId) {
+        this.allergyIntoleranceRecordId.setValue(allergyIntoleranceRecordId);
     }
 
+    @Hl7XmlMapping({"code"})
+    public ObservationIntoleranceType getAllergyIntoleranceType() {
+        return (ObservationIntoleranceType) this.allergyIntoleranceType.getValue();
+    }
+    public void setAllergyIntoleranceType(ObservationIntoleranceType allergyIntoleranceType) {
+        this.allergyIntoleranceType.setValue(allergyIntoleranceType);
+    }
 
-    /**
-     * <p>G:Allergy/Intolerance Refuted</p>
-     */
     @Hl7XmlMapping({"negationInd"})
     public Boolean getAllergyIntoleranceRefuted() {
         return this.allergyIntoleranceRefuted.getValue();
@@ -106,6 +100,74 @@ public class AllergyIntoleranceBean extends MessagePartBean {
         this.allergyIntoleranceRefuted.setValue(allergyIntoleranceRefuted);
     }
 
+    @Hl7XmlMapping({"statusCode"})
+    public ActStatus getAllergyIntoleranceStatus() {
+        return (ActStatus) this.allergyIntoleranceStatus.getValue();
+    }
+    public void setAllergyIntoleranceStatus(ActStatus allergyIntoleranceStatus) {
+        this.allergyIntoleranceStatus.setValue(allergyIntoleranceStatus);
+    }
+
+    @Hl7XmlMapping({"effectiveTime"})
+    public Date getAllergyIntoleranceDate() {
+        return this.allergyIntoleranceDate.getValue();
+    }
+    public void setAllergyIntoleranceDate(Date allergyIntoleranceDate) {
+        this.allergyIntoleranceDate.setValue(allergyIntoleranceDate);
+    }
+
+    @Hl7XmlMapping({"confidentialityCode"})
+    public Set<x_NormalRestrictedTabooConfidentialityKind> getAllergyIntoleranceMaskingIndicators() {
+        return this.allergyIntoleranceMaskingIndicators.rawSet(x_NormalRestrictedTabooConfidentialityKind.class);
+    }
+
+    @Hl7XmlMapping({"uncertaintyCode"})
+    public ActUncertainty getConfirmedIndicator() {
+        return (ActUncertainty) this.confirmedIndicator.getValue();
+    }
+    public void setConfirmedIndicator(ActUncertainty confirmedIndicator) {
+        this.confirmedIndicator.setValue(confirmedIndicator);
+    }
+
+    @Hl7XmlMapping({"value"})
+    public IntoleranceValue getAgent() {
+        return (IntoleranceValue) this.agent.getValue();
+    }
+    public void setAgent(IntoleranceValue agent) {
+        this.agent.setValue(agent);
+    }
+
+    @Hl7XmlMapping({"responsibleParty/assignedEntity"})
+    public HealthcareWorkerBean getResponsiblePartyAssignedEntity() {
+        return this.responsiblePartyAssignedEntity;
+    }
+    public void setResponsiblePartyAssignedEntity(HealthcareWorkerBean responsiblePartyAssignedEntity) {
+        this.responsiblePartyAssignedEntity = responsiblePartyAssignedEntity;
+    }
+
+    @Hl7XmlMapping({"author"})
+    public AuthoredByBean getAuthor() {
+        return this.author;
+    }
+    public void setAuthor(AuthoredByBean author) {
+        this.author = author;
+    }
+
+    @Hl7XmlMapping({"informant"})
+    public Informant_1Bean getInformant() {
+        return this.informant;
+    }
+    public void setInformant(Informant_1Bean informant) {
+        this.informant = informant;
+    }
+
+    @Hl7XmlMapping({"location"})
+    public TargetedToPharmacyBean getLocation() {
+        return this.location;
+    }
+    public void setLocation(TargetedToPharmacyBean location) {
+        this.location = location;
+    }
 
     @Hl7XmlMapping({"replacementOf/intoleranceCondition"})
     public AllergyIntoleranceBean getReplacementOfIntoleranceCondition() {
@@ -115,33 +177,20 @@ public class AllergyIntoleranceBean extends MessagePartBean {
         this.replacementOfIntoleranceCondition = replacementOfIntoleranceCondition;
     }
 
+    @Hl7XmlMapping({"support/records"})
+    public List<RecordsBean> getSupportRecords() {
+        return this.supportRecords;
+    }
+
+    @Hl7XmlMapping({"subjectOf1/controlActEvent"})
+    public List<StatusChangesBean> getSubjectOf1ControlActEvent() {
+        return this.subjectOf1ControlActEvent;
+    }
 
     @Hl7XmlMapping({"subjectOf2/annotation"})
     public List<NotesBean> getSubjectOf2Annotation() {
         return this.subjectOf2Annotation;
     }
-
-
-    /**
-     * <p>D:Allergy/Intolerance Record Id</p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Identifier getAllergyIntoleranceRecordId() {
-        return this.allergyIntoleranceRecordId.getValue();
-    }
-    public void setAllergyIntoleranceRecordId(Identifier allergyIntoleranceRecordId) {
-        this.allergyIntoleranceRecordId.setValue(allergyIntoleranceRecordId);
-    }
-
-
-    @Hl7XmlMapping({"location"})
-    public CreatedAtBean getLocation() {
-        return this.location;
-    }
-    public void setLocation(CreatedAtBean location) {
-        this.location = location;
-    }
-
 
     @Hl7XmlMapping({"subjectOf3/severityObservation"})
     public AllergyIntoleranceSeverityLevelBean getSubjectOf3SeverityObservation() {
@@ -151,91 +200,9 @@ public class AllergyIntoleranceBean extends MessagePartBean {
         this.subjectOf3SeverityObservation = subjectOf3SeverityObservation;
     }
 
-
-    /**
-     * <p>E:Allergy/Intolerance Status</p>
-     */
-    @Hl7XmlMapping({"statusCode"})
-    public ActStatus getAllergyIntoleranceStatus() {
-        return (ActStatus) this.allergyIntoleranceStatus.getValue();
-    }
-    public void setAllergyIntoleranceStatus(ActStatus allergyIntoleranceStatus) {
-        this.allergyIntoleranceStatus.setValue(allergyIntoleranceStatus);
-    }
-
-
-    /**
-     * <p>H:Allergy/Intolerance Masking Indicators</p>
-     */
-    @Hl7XmlMapping({"confidentialityCode"})
-    public Set<x_NormalRestrictedTabooConfidentialityKind> getAllergyIntoleranceMaskingIndicators() {
-        return this.allergyIntoleranceMaskingIndicators.rawSet(x_NormalRestrictedTabooConfidentialityKind.class);
-    }
-
-
-    @Hl7XmlMapping({"informant"})
-    public ReportedByBean getInformant() {
-        return this.informant;
-    }
-    public void setInformant(ReportedByBean informant) {
-        this.informant = informant;
-    }
-
-
-    @Hl7XmlMapping({"support/records"})
-    public List<Records> getSupportRecords() {
-        return this.supportRecords;
-    }
-
-
-    @Hl7XmlMapping({"componentOf/patientCareProvisionEvent"})
-    public List<CareCompositionsBean> getComponentOfPatientCareProvisionEvent() {
-        return this.componentOfPatientCareProvisionEvent;
-    }
-
-
-    /**
-     * <p>B:Agent</p>
-     */
-    @Hl7XmlMapping({"value"})
-    public IntoleranceValue getAgent() {
-        return (IntoleranceValue) this.agent.getValue();
-    }
-    public void setAgent(IntoleranceValue agent) {
-        this.agent.setValue(agent);
-    }
-
-
-    /**
-     * <p>F:Confirmed Indicator</p>
-     */
-    @Hl7XmlMapping({"uncertaintyCode"})
-    public ActUncertainty getConfirmedIndicator() {
-        return (ActUncertainty) this.confirmedIndicator.getValue();
-    }
-    public void setConfirmedIndicator(ActUncertainty confirmedIndicator) {
-        this.confirmedIndicator.setValue(confirmedIndicator);
-    }
-
-
-    /**
-     * <p>A:Allergy/Intolerance Type</p>
-     */
-    @Hl7XmlMapping({"code"})
-    public ObservationIntoleranceType getAllergyIntoleranceType() {
-        return (ObservationIntoleranceType) this.allergyIntoleranceType.getValue();
-    }
-    public void setAllergyIntoleranceType(ObservationIntoleranceType allergyIntoleranceType) {
-        this.allergyIntoleranceType.setValue(allergyIntoleranceType);
-    }
-
-
-    @Hl7XmlMapping({"responsibleParty/assignedEntity"})
-    public HealthcareWorkerBean getResponsiblePartyAssignedEntity() {
-        return this.responsiblePartyAssignedEntity;
-    }
-    public void setResponsiblePartyAssignedEntity(HealthcareWorkerBean responsiblePartyAssignedEntity) {
-        this.responsiblePartyAssignedEntity = responsiblePartyAssignedEntity;
+    @Hl7XmlMapping({"componentOf"})
+    public List<IsPartOfBean> getComponentOf() {
+        return this.componentOf;
     }
 
 }

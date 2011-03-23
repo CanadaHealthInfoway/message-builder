@@ -18,30 +18,33 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 
+/**
+ * <p>Patient Characteristics</p>
+ * 
+ * <p>Indicates a characteristic that should be possessed by 
+ * the patient for the dose to be appropriate.</p>
+ * 
+ * <p>Allows filtering of dosages to be appropriate to the 
+ * patient.</p>
+ * 
+ * <p>Value should be mandatory if not using SNOMED</p>
+ */
 @Hl7PartTypeMapping({"POME_MT010040CA.ObservationEventCriterion"})
 public class PatientCharacteristicsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110127L;
-    private IVL<PQ, Interval<PhysicalQuantity>> patientCharacteristicValue = new IVLImpl<PQ, Interval<PhysicalQuantity>>();
-    private BL excludeCharacteristic = new BLImpl();
+    private static final long serialVersionUID = 20100615L;
     private CV patientCharacteristicType = new CVImpl();
+    private BL excludeCharacteristic = new BLImpl();
+    private IVL<PQ, Interval<PhysicalQuantity>> patientCharacteristicValue = new IVLImpl<PQ, Interval<PhysicalQuantity>>();
 
-
-    /**
-     * <p>Patient Characteristic Value</p>
-     */
-    @Hl7XmlMapping({"value"})
-    public Interval<PhysicalQuantity> getPatientCharacteristicValue() {
-        return this.patientCharacteristicValue.getValue();
+    @Hl7XmlMapping({"code"})
+    public ObservationDosageDefinitionPreconditionType getPatientCharacteristicType() {
+        return (ObservationDosageDefinitionPreconditionType) this.patientCharacteristicType.getValue();
     }
-    public void setPatientCharacteristicValue(Interval<PhysicalQuantity> patientCharacteristicValue) {
-        this.patientCharacteristicValue.setValue(patientCharacteristicValue);
+    public void setPatientCharacteristicType(ObservationDosageDefinitionPreconditionType patientCharacteristicType) {
+        this.patientCharacteristicType.setValue(patientCharacteristicType);
     }
 
-
-    /**
-     * <p>Exclude characteristic?</p>
-     */
     @Hl7XmlMapping({"negationInd"})
     public Boolean getExcludeCharacteristic() {
         return this.excludeCharacteristic.getValue();
@@ -50,16 +53,12 @@ public class PatientCharacteristicsBean extends MessagePartBean {
         this.excludeCharacteristic.setValue(excludeCharacteristic);
     }
 
-
-    /**
-     * <p>Patient Characteristic Type</p>
-     */
-    @Hl7XmlMapping({"code"})
-    public ObservationDosageDefinitionPreconditionType getPatientCharacteristicType() {
-        return (ObservationDosageDefinitionPreconditionType) this.patientCharacteristicType.getValue();
+    @Hl7XmlMapping({"value"})
+    public Interval<PhysicalQuantity> getPatientCharacteristicValue() {
+        return this.patientCharacteristicValue.getValue();
     }
-    public void setPatientCharacteristicType(ObservationDosageDefinitionPreconditionType patientCharacteristicType) {
-        this.patientCharacteristicType.setValue(patientCharacteristicType);
+    public void setPatientCharacteristicValue(Interval<PhysicalQuantity> patientCharacteristicValue) {
+        this.patientCharacteristicValue.setValue(patientCharacteristicValue);
     }
 
 }

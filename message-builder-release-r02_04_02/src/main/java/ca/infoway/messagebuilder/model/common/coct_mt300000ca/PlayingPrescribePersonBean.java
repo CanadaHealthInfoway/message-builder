@@ -13,25 +13,16 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 /**
  * <p>Playing Prescribe Person</p>
  * 
- * <p><p>ID cannot be mandatory as it may not be present on a 
- * pre-determination</p></p>
+ * <p>ID cannot be mandatory as it may not be present on a 
+ * pre-determination</p>
  */
 @Hl7PartTypeMapping({"COCT_MT300000CA.PresriberRole"})
 public class PlayingPrescribePersonBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110127L;
+    private static final long serialVersionUID = 20100603L;
     private II prescriberID = new IIImpl();
     private PersonPrescribingBean playingPrescriberPerson;
 
-
-    /**
-     * <p>Prescriber ID</p>
-     * 
-     * <p><p>Prescriber ID</p></p>
-     * 
-     * <p><p>This is mandatory for Invoices and required with 
-     * nullFlavor for Pre-Determinations.</p></p>
-     */
     @Hl7XmlMapping({"id"})
     public Identifier getPrescriberID() {
         return this.prescriberID.getValue();
@@ -39,7 +30,6 @@ public class PlayingPrescribePersonBean extends MessagePartBean {
     public void setPrescriberID(Identifier prescriberID) {
         this.prescriberID.setValue(prescriberID);
     }
-
 
     @Hl7XmlMapping({"playingPrescriberPerson"})
     public PersonPrescribingBean getPlayingPrescriberPerson() {

@@ -1,9 +1,7 @@
 package ca.infoway.messagebuilder.generator;
 
 import java.util.ArrayList;
-import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang.StringUtils;
@@ -28,26 +26,16 @@ public abstract class ChoiceTypeStrategy {
 		}
 
 		public List<ChoiceOption> getChoiceOptions(MessagePartResolver resolver) {
-			Map<Element, MessagePart> map = new LinkedHashMap<Element, MessagePart>(); 
-
-			List<Element> allParticipantClassSpecializations = MifXPathHelper.getParticipantSpecializations(this.targetConnection);
-			for (Element participantClassSpecialization : allParticipantClassSpecializations) {
-				map.put(participantClassSpecialization, null);
+			List<String> partNames = new ArrayList<String>();
+			List<Element> childs = MifXPathHelper.getParticipantClassSpecializationChilds(targetConnection);
+			for (Element child : childs) {
+				String type = new TypeResolver().resolveSpecializationChildType(resolver, child);
+				if (StringUtils.isNotBlank(type)) {
+					partNames.add(type);
+				}
 			}
-			
-			List<Element> specializationChilds = MifXPathHelper.getParticipantClassSpecializationChilds(this.targetConnection);
-			int i = 0;
-			int numChildren = specializationChilds.size();
-			for (Element specialization : allParticipantClassSpecializations) {
-				Element specializationChild = specializationChilds.get(i % numChildren);
-				String childType = new TypeResolver().resolveSpecializationChildType(resolver, specializationChild);
-				
-				MessagePart childMessagePart = resolver.getMessagePart(childType);
-				map.put(specialization, childMessagePart);
-				i++;
-			}
-			
-			return createOptions(resolver, map);
+			List<Element> specializations = MifXPathHelper.getParticipantSpecializations(this.targetConnection);
+			return createOptions(resolver, toParts(resolver, partNames), specializations);
 		}
 
 	}
@@ -84,56 +72,21 @@ public abstract class ChoiceTypeStrategy {
 		}
 
 		public List<ChoiceOption> getChoiceOptions(MessagePartResolver resolver) {
-			
 			MessagePart part = resolver.getMessagePart(getHighLevelType(resolver));
 			if (part == null) {
 				throw new MifProcessingException(this.targetConnection, "Cannot find message part: " + getHighLevelType(resolver));
 			} else {
+				List<String> partNames = part.getSpecializationChilds();
 				List<Element> specializations = MifXPathHelper.getParticipantSpecializations(this.targetConnection);
-				List<String> specializationChilds = part.getSpecializationChilds();
-				int numChildren = specializationChilds.size();
-				
-				Map<Element, MessagePart> map = new LinkedHashMap<Element, MessagePart>();
-				int i = 0;
-				for (Element specialization : specializations) {
-					String childType = specializationChilds.get(i % numChildren);
-					MessagePart childMessagePart = resolver.getMessagePart(childType);
-					map.put(specialization, childMessagePart);
-					i++;
-				}
-				return createOptions(resolver, map);
+				return createOptions(resolver, toParts(resolver, partNames), specializations);
 			}
 		}
+
 	}
 
 	public abstract String getHighLevelType(MessagePartResolver resolver);
 	public abstract List<ChoiceOption> getChoiceOptions(MessagePartResolver resolver);
 
-	protected ArrayList<ChoiceOption> createOptions(MessagePartResolver resolver, Map<Element, MessagePart> map) {
-		
-		ArrayList<ChoiceOption> result = new ArrayList<ChoiceOption>();
-		for (Element specialization : map.keySet()) {
-			String traversalName = specialization.getAttribute("traversalName");
-			MessagePart part = map.get(specialization);
-			if (part == null) {
-				System.out.println("break here");
-			}
-			String type = part.getName();
-			
-			if (hasSubspecializations(specialization) && !CollectionUtils.isEmpty(part.getSpecializationChilds())) {
-				
-				List<MessagePart> parts = toParts(resolver, part.getSpecializationChilds());
-				List<Element> subspecializations = MifXPathHelper.getSubspecializations(specialization);
-				List<ChoiceOption> subchoices = createOptions(resolver, parts, subspecializations);
-				
-				result.add(new ChoiceOption(traversalName, type, subchoices));
-			} else {
-				result.add(new ChoiceOption(traversalName, type));
-			}
-		}
-		return result;
-	}
-	
 	protected ArrayList<ChoiceOption> createOptions(MessagePartResolver resolver, 
 			List<MessagePart> parts,
 			List<Element> specializations) {
@@ -146,6 +99,7 @@ public abstract class ChoiceTypeStrategy {
 			ArrayList<ChoiceOption> result = new ArrayList<ChoiceOption>();
 			for (int i = 0, length = specializations.size(); i < length; i++) {
 				Element specialization = specializations.get(i);
+				String className = specialization.getAttribute("className");
 				String traversalName = specialization.getAttribute("traversalName");
 				MessagePart part = parts.get(i);
 				String type = part.getName();
@@ -154,9 +108,9 @@ public abstract class ChoiceTypeStrategy {
 					List<ChoiceOption> subchoices = createOptions(resolver, 
 							toParts(resolver, part.getSpecializationChilds()), 
 							MifXPathHelper.getSubspecializations(specialization));
-					result.add(new ChoiceOption(traversalName, type, subchoices));
+					result.add(new ChoiceOption(className, traversalName, type, subchoices));
 				} else {
-					result.add(new ChoiceOption(traversalName, type));
+					result.add(new ChoiceOption(className, traversalName, type));
 				}
 			}
 			return result;

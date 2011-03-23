@@ -16,7 +16,6 @@ import org.xml.sax.SAXException;
 
 import ca.infoway.messagebuilder.util.iterator.NodeListIterator;
 import ca.infoway.messagebuilder.xml.MessagePart;
-import ca.infoway.messagebuilder.xml.MessagePartResolver;
 import ca.infoway.messagebuilder.xml.MessageSet;
 import ca.infoway.messagebuilder.xml.PackageLocation;
 import ca.infoway.messagebuilder.xml.Relationship;
@@ -161,7 +160,6 @@ class Mif1Processor extends BaseMifProcessorImpl implements MifProcessor {
 		ChoiceTypeStrategy strategy = ChoiceTypeStrategy.getChoiceTypeStrategy(targetConnection);
 		choice.setType(strategy.getHighLevelType(messageSet));
 		choice.setCardinality(createCardinality(targetConnection));
-		choice.setUpdateMode(createUpdateMode(targetConnection));		
 		choice.setConformance(createConformance(targetConnection));
 		
 		List<ChoiceOption> choiceOptions = strategy.getChoiceOptions(messageSet);
@@ -212,21 +210,18 @@ class Mif1Processor extends BaseMifProcessorImpl implements MifProcessor {
 				? Integer.valueOf(element.getAttribute("maximumLength")) 
 				: null);
 		
-		relationship.setUpdateMode(createUpdateMode(element));
 		relationship.setCardinality(createCardinality(element));
 		relationship.setConformance(createConformance(element));
-		
 		if (TypeConverter.isCodedType(relationship.getType()) || TypeConverter.isCodedCollectionType(relationship.getType())) {
 			relationship.setDomainType(MifXPathHelper.getDomainType(element));
 			relationship.setCodingStrength(MifXPathHelper.getCodingStrength(element));
-			relationship.setDomainSource(MifXPathHelper.getDomainSource(element));
 		}
 		relationship.setConformance(createConformance(element));
 		part.getRelationships().add(relationship);
 		addDocumentation(element, relationship);
 	}
 
-	static String determineType(MessagePartResolver messagePartResolver, Element targetConnection) {
+	static String determineType(MessageSet messageSet, Element targetConnection) {
 		if (MifXPathHelper.isMifReferenceElementPresent(targetConnection) && !isExternalReference(targetConnection)) {
 			String type = MifXPathHelper.getMifReferenceType(targetConnection);
 			if (MifXPathHelper.isTypeDefinedInMif(type, targetConnection)) {
@@ -236,7 +231,7 @@ class Mif1Processor extends BaseMifProcessorImpl implements MifProcessor {
 			}
 		} else if (MifXPathHelper.isReferenceToOtherModelType(targetConnection)) {
 			String generalizationTarget = MifXPathHelper.getGeneralizationTarget(targetConnection);
-			return TypeResolver.getExternalType(messagePartResolver, targetConnection,
+			return TypeResolver.getExternalType(messageSet, targetConnection,
 					generalizationTarget);
 		} else if (isParticipantClass(targetConnection)) {
 			String unqualifiedName = MifXPathHelper.getParticipantClassName(targetConnection);
@@ -244,7 +239,7 @@ class Mif1Processor extends BaseMifProcessorImpl implements MifProcessor {
 		} else if (isTemplateParameter(targetConnection)) {
 			return null;
 		} else {
-			throw new MifProcessingException("Can't determine the type for relationship: " + targetConnection.getAttribute("name") + " " + targetConnection.getAttribute("className") + " " + targetConnection.getAttribute("traversalName"));
+			throw new MifProcessingException("Can't determine the type for relationship: " + targetConnection.getAttribute("name"));
 		}
 	}
 
@@ -264,7 +259,8 @@ class Mif1Processor extends BaseMifProcessorImpl implements MifProcessor {
 		return MifXPathHelper.isParticipantClassSpecializationPresent(element);
 	}
 
-	private MessagePart createPart(List<MessagePart> result, String qualifier, Element element) {
+	private MessagePart createPart(List<MessagePart> result, String qualifier,
+			Element element) {
 		Element classElement = MifXPathHelper.getClassElement(element);
 		String name = NameHelper.createName(qualifier, classElement.getAttribute("name"));
 		if (isAbstract(classElement)) {

@@ -17,10 +17,7 @@ import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.domainvalue.ControlActReason;
 import ca.infoway.messagebuilder.domainvalue.HL7TriggerEventCode;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.common.coct_mt090508ca.HealthcareOrganizationBean;
-import ca.infoway.messagebuilder.model.common.coct_mt910108ca.RelatedPersonBean;
-import ca.infoway.messagebuilder.model.common.coct_mt911108ca.ActingPerson;
-import ca.infoway.messagebuilder.model.common.merged.HealthcareWorkerBean;
+import ca.infoway.messagebuilder.model.merged.AnnotatedBy_1Bean;
 import java.util.Date;
 
 
@@ -28,103 +25,24 @@ import java.util.Date;
 /**
  * <p>Version Information</p>
  * 
- * <p><p>This records the history of changes that have been 
- * made to the record, including why the changes were made, who 
- * made them and when.</p></p>
+ * <p>This records the history of changes that have been made 
+ * to the record, including why the changes were made, who made 
+ * them and when.</p>
  * 
- * <p><p>Provides a record changes, providing deeper clinical 
- * understanding, particularly of past clinical decisions.</p></p>
+ * <p>Provides a record changes, providing deeper clinical 
+ * understanding, particularly of past clinical decisions.</p>
  */
 @Hl7PartTypeMapping({"COCT_MT130001CA.ControlActEvent"})
 @Hl7RootType
 public class VersionInformationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110127L;
-    private CV changeType = new CVImpl();
-    private ActingPerson authorActingPerson;
-    private TS changeDatetime = new TSImpl();
+    private static final long serialVersionUID = 20100603L;
     private II changeIdentifier = new IIImpl();
+    private CV changeType = new CVImpl();
     private IVL<TS, Interval<Date>> changeEffectiveDateAndEndDate = new IVLImpl<TS, Interval<Date>>();
     private CV changeReason = new CVImpl();
+    private AnnotatedBy_1Bean author;
 
-
-    /**
-     * <p>A:Change Type</p>
-     * 
-     * <p><p>Identifies what kind of change occurred.</p></p>
-     * 
-     * <p><p>This attribute is mandatory to ensure that change 
-     * types are distinguishable.</p></p>
-     */
-    @Hl7XmlMapping({"code"})
-    public HL7TriggerEventCode getChangeType() {
-        return (HL7TriggerEventCode) this.changeType.getValue();
-    }
-    public void setChangeType(HL7TriggerEventCode changeType) {
-        this.changeType.setValue(changeType);
-    }
-
-
-    @Hl7XmlMapping({"author/actingPerson"})
-    public ActingPerson getAuthorActingPerson() {
-        return this.authorActingPerson;
-    }
-    public void setAuthorActingPerson(ActingPerson authorActingPerson) {
-        this.authorActingPerson = authorActingPerson;
-    }
-
-    public HealthcareWorkerBean getAuthorActingPersonAsAssignedEntity1() {
-        return this.authorActingPerson instanceof HealthcareWorkerBean ? (HealthcareWorkerBean) this.authorActingPerson : null;
-    }
-    public boolean hasAuthorActingPersonAsAssignedEntity1() {
-        return (this.authorActingPerson instanceof HealthcareWorkerBean);
-    }
-
-    public HealthcareOrganizationBean getAuthorActingPersonAsAssignedEntity2() {
-        return this.authorActingPerson instanceof HealthcareOrganizationBean ? (HealthcareOrganizationBean) this.authorActingPerson : null;
-    }
-    public boolean hasAuthorActingPersonAsAssignedEntity2() {
-        return (this.authorActingPerson instanceof HealthcareOrganizationBean);
-    }
-
-    public RelatedPersonBean getAuthorActingPersonAsPersonalRelationship() {
-        return this.authorActingPerson instanceof RelatedPersonBean ? (RelatedPersonBean) this.authorActingPerson : null;
-    }
-    public boolean hasAuthorActingPersonAsPersonalRelationship() {
-        return (this.authorActingPerson instanceof RelatedPersonBean);
-    }
-
-
-    /**
-     * <p>Change Datetime</p>
-     * 
-     * <p><p>The date on which the change was made. Note that this 
-     * may be earlier or occassionally later than when the change 
-     * is actually effective.</p></p>
-     * 
-     * <p><p>Gives other providers the frame of reference in 
-     * evaluating any post-change issues with the event. Also used 
-     * for sorting and audit purposes. Time of change is always 
-     * known and thus the attribute is mandatory.</p></p>
-     */
-    @Hl7XmlMapping({"author/time"})
-    public Date getChangeDatetime() {
-        return this.changeDatetime.getValue();
-    }
-    public void setChangeDatetime(Date changeDatetime) {
-        this.changeDatetime.setValue(changeDatetime);
-    }
-
-
-    /**
-     * <p>B:Change Identifier</p>
-     * 
-     * <p><p>A unique identifier for this particular change.</p></p>
-     * 
-     * <p><p>Allows referencing (and potentially undoing) a 
-     * specific change. Every status change has an identifier, thus 
-     * this attribute is mandatory.</p></p>
-     */
     @Hl7XmlMapping({"id"})
     public Identifier getChangeIdentifier() {
         return this.changeIdentifier.getValue();
@@ -133,20 +51,14 @@ public class VersionInformationBean extends MessagePartBean {
         this.changeIdentifier.setValue(changeIdentifier);
     }
 
+    @Hl7XmlMapping({"code"})
+    public HL7TriggerEventCode getChangeType() {
+        return (HL7TriggerEventCode) this.changeType.getValue();
+    }
+    public void setChangeType(HL7TriggerEventCode changeType) {
+        this.changeType.setValue(changeType);
+    }
 
-    /**
-     * <p>C:Change Effective Date and End Date</p>
-     * 
-     * <p><p>The date on which the various changes of an event 
-     * become valid and applicable and potentially when the change 
-     * is supposed to cease.</p></p>
-     * 
-     * <p><p>Allows applications to sort and filter by time. The 
-     * date on which a change is effective should always be known 
-     * and thus is mandatory. The end date may be left unspecified 
-     * if there isn't a specific targetted end date (e.g. with a 
-     * suspend including a planned release date).</p></p>
-     */
     @Hl7XmlMapping({"effectiveTime"})
     public Interval<Date> getChangeEffectiveDateAndEndDate() {
         return this.changeEffectiveDateAndEndDate.getValue();
@@ -155,22 +67,20 @@ public class VersionInformationBean extends MessagePartBean {
         this.changeEffectiveDateAndEndDate.setValue(changeEffectiveDateAndEndDate);
     }
 
-
-    /**
-     * <p>D:Change Reason</p>
-     * 
-     * <p><p>Denotes the reason the record was modified.</p></p>
-     * 
-     * <p><p>Ensures consistent terminology in capturing and 
-     * interpreting reasons for change. Allows CWE because not all 
-     * reasons will correspond to a pre-defined code.</p></p>
-     */
     @Hl7XmlMapping({"reasonCode"})
     public ControlActReason getChangeReason() {
         return (ControlActReason) this.changeReason.getValue();
     }
     public void setChangeReason(ControlActReason changeReason) {
         this.changeReason.setValue(changeReason);
+    }
+
+    @Hl7XmlMapping({"author"})
+    public AnnotatedBy_1Bean getAuthor() {
+        return this.author;
+    }
+    public void setAuthor(AnnotatedBy_1Bean author) {
+        this.author = author;
     }
 
 }

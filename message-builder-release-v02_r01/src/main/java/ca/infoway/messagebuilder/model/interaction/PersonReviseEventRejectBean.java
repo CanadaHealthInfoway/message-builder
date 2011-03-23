@@ -3,15 +3,22 @@ package ca.infoway.messagebuilder.model.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.common.merged.HL7Message_1Bean;
+import ca.infoway.messagebuilder.model.common.mcci_mt002300ca.HL7MessageBean;
 import ca.infoway.messagebuilder.model.common.mfmi_mt700726ca.TriggerEventBean;
 import ca.infoway.messagebuilder.model.cr.prpa_mt101102ca.IdentifiedEntityBean;
 
 
 
+/**
+ * <p>A person registry rejects a request to revise an existing 
+ * record and responds back to the requesting application. The 
+ * reason for the rejection is returned as a Detected Issue in 
+ * the Master File / Reg Notif. Control Act, Role Subject 
+ * wrapper</p>
+ */
 @Hl7PartTypeMapping({"PRPA_IN101206CA"})
-public class PersonReviseEventRejectBean extends HL7Message_1Bean<TriggerEventBean<IdentifiedEntityBean>> implements InteractionBean {
+public class PersonReviseEventRejectBean extends HL7MessageBean<TriggerEventBean<IdentifiedEntityBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20110127L;
+    private static final long serialVersionUID = 20100615L;
 
 }

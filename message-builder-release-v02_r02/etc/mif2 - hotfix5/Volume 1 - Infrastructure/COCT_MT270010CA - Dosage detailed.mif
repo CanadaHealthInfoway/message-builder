@@ -1,0 +1,1440 @@
+<?xml version="1.0" encoding="UTF-8"?><mif:staticModel xmlns:mif="urn:hl7-org:v3/mif" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:hl7-org:v3/mif" isAbstract="false" isSerializable="true" name="CA" packageKind="realmNamespace" representationKind="flat" schemaVersion="2.0" xsi:schemaLocation="">
+   <mif:packageLocation artifact="MT-deprecated" domain="CT" id="270010" realmNamespace="CA" root="DEFN" section="IM" subSection="CO"/>
+   <mif:header>
+      <mif:renderingInformation application="Visio to MIF transform"/>
+      <mif:legalese copyrightOwner="Health Level Seven" copyrightYears="2008"/>
+   </mif:header>
+   <mif:graphicRepresentation presentation="HL7">
+      <mif:graphElement name="Main">
+         <mif:position x="0" y="0"/>
+         <mif:size height="701" width="1230"/>
+      </mif:graphElement>
+   <entryPoint name="Dosage detailed"><mif:graphElement containerDiagramName="Main" shapeId="Sheet.41">
+            <mif:position x="140" y="399"/>
+            <mif:size height="43" width="110"/>
+            <mif:anchorage connectToShapeId="Sheet.41">
+               <mif:position x="250" y="247"/>
+               <mif:graphEdge>
+                  <mif:anchor connectToShapeId="Sheet.1">
+                     <mif:position x="310" y="244"/>
+                  </mif:anchor>
+               </mif:graphEdge>
+            </mif:anchorage>
+         </mif:graphElement></entryPoint><class className="ActEventCriterion" presentation="HL7"><mif:graphElement containerDiagramName="Main" isHeightAutoSize="true" isWidthAutoSize="true" shapeId="Sheet.304" shapeTemplate="Act">
+               <mif:position x="137" y="628"/>
+               <mif:size height="72" width="247"/>
+            </mif:graphElement></class><class className="Component" presentation="HL7"><mif:graphElement containerDiagramName="Main" nodeOrientation="Right" shapeId="Sheet.318" shapeTemplate="ActRelationship" textWrappingWidth="66.0">
+               <mif:position x="643" y="209"/>
+               <mif:size height="54" width="251"/>
+            </mif:graphElement></class><class className="Component17" presentation="HL7"><mif:graphElement containerDiagramName="Main" nodeOrientation="Down" shapeId="Sheet.64" shapeTemplate="ActRelationship" textWrappingWidth="66.0">
+               <mif:position x="303" y="333"/>
+               <mif:size height="83" width="340"/>
+            </mif:graphElement></class><class className="Component18" presentation="HL7"><mif:graphElement containerDiagramName="Main" nodeOrientation="Down" shapeId="Sheet.298" shapeTemplate="ActRelationship" textWrappingWidth="30.0">
+               <mif:position x="516" y="529"/>
+               <mif:size height="97" width="160"/>
+            </mif:graphElement></class><class className="Consumable1" presentation="HL7"><mif:graphElement containerDiagramName="Main" nodeOrientation="Up" shapeId="Sheet.113" shapeTemplate="Participation" textWrappingWidth="66.0">
+               <mif:position x="372" y="97"/>
+               <mif:size height="58" width="215"/>
+            </mif:graphElement></class><class className="DosageInstruction" presentation="HL7"><mif:graphElement containerDiagramName="Main" isHeightAutoSize="true" isWidthAutoSize="true" shapeId="Sheet.1" shapeTemplate="Act">
+               <mif:position x="310" y="156"/>
+               <mif:size height="177" width="333"/>
+            </mif:graphElement></class><class className="DosageLine" presentation="HL7"><mif:graphElement containerDiagramName="Main" isHeightAutoSize="true" isWidthAutoSize="true" shapeId="Sheet.13" shapeTemplate="Act">
+               <mif:position x="309" y="415"/>
+               <mif:size height="113" width="317"/>
+            </mif:graphElement></class><class className="Medication" presentation="HL7"><mif:graphElement containerDiagramName="Main" isHeightAutoSize="true" isWidthAutoSize="true" nodeOrientation="Landscape" shapeId="Sheet.340" shapeTemplate="Choice">
+               <mif:position x="219" y="0"/>
+               <mif:size height="96" width="527"/>
+            </mif:graphElement></class><class className="R_MedicationAdministrable" presentation="HL7"><mif:graphElement containerDiagramName="Main" isHeightAutoSize="true" isWidthAutoSize="true" shapeId="Sheet.23" shapeTemplate="CMET">
+               <mif:position x="478" y="26"/>
+               <mif:size height="60" width="105"/>
+            </mif:graphElement></class><class className="R_MedicationAdministrable-response" presentation="HL7"><mif:graphElement containerDiagramName="Main" isHeightAutoSize="true" isWidthAutoSize="true" shapeId="Sheet.354" shapeTemplate="CMET">
+               <mif:position x="596" y="26"/>
+               <mif:size height="60" width="138"/>
+            </mif:graphElement></class><class className="R_MedicationOrderable" presentation="HL7"><mif:graphElement containerDiagramName="Main" isHeightAutoSize="true" isWidthAutoSize="true" shapeId="Sheet.342" shapeTemplate="CMET">
+               <mif:position x="231" y="26"/>
+               <mif:size height="60" width="105"/>
+            </mif:graphElement></class><class className="R_MedicationOrderable-response" presentation="HL7"><mif:graphElement containerDiagramName="Main" isHeightAutoSize="true" isWidthAutoSize="true" shapeId="Sheet.348" shapeTemplate="CMET">
+               <mif:position x="349" y="26"/>
+               <mif:size height="60" width="117"/>
+            </mif:graphElement></class><class className="SupplementalInstruction" presentation="HL7"><mif:graphElement containerDiagramName="Main" isHeightAutoSize="true" isWidthAutoSize="true" shapeId="Sheet.294" shapeTemplate="Act">
+               <mif:position x="439" y="626"/>
+               <mif:size height="72" width="317"/>
+            </mif:graphElement></class><class className="SupplementalInstruction" presentation="HL7Shadow"><mif:graphElement containerDiagramName="Main" isHeightAutoSize="true" isWidthAutoSize="true" shapeId="Sheet.314" shapeTemplate="Act">
+               <mif:position x="895" y="195"/>
+               <mif:size height="72" width="164"/>
+            </mif:graphElement></class><class className="Trigger" presentation="HL7"><mif:graphElement containerDiagramName="Main" nodeOrientation="Down" shapeId="Sheet.308" shapeTemplate="ActRelationship" textWrappingWidth="30.0">
+               <mif:position x="233" y="529"/>
+               <mif:size height="99" width="160"/>
+            </mif:graphElement></class><association className="SupplementalInstruction" relationshipName="supplementalInstruction"><mif:graphElement connectToShapeId="Sheet.318" containerDiagramName="Main">
+                                 <mif:position x="895" y="246"/>
+                                 <mif:graphEdge>
+                                    <mif:anchor connectToShapeId="Sheet.314">
+                                       <mif:position x="895" y="246"/>
+                                    </mif:anchor>
+                                 </mif:graphEdge>
+                              </mif:graphElement></association><association className="DosageLine" relationshipName="dosageLine"><mif:graphElement connectToShapeId="Sheet.64" containerDiagramName="Main">
+                                 <mif:position x="436" y="415"/>
+                                 <mif:graphEdge>
+                                    <mif:anchor connectToShapeId="Sheet.13">
+                                       <mif:position x="436" y="415"/>
+                                    </mif:anchor>
+                                 </mif:graphEdge>
+                              </mif:graphElement></association><association className="SupplementalInstruction" relationshipName="supplementalInstruction"><mif:graphElement connectToShapeId="Sheet.298" containerDiagramName="Main">
+                                                         <mif:position x="598" y="626"/>
+                                                         <mif:graphEdge>
+                                                            <mif:anchor connectToShapeId="Sheet.294">
+                                                               <mif:position x="598" y="626"/>
+                                                            </mif:anchor>
+                                                         </mif:graphEdge>
+                                                      </mif:graphElement></association><association className="Medication" relationshipName="medication1"><mif:graphElement connectToShapeId="Sheet.113" containerDiagramName="Main">
+                                 <mif:position x="483" y="97"/>
+                                 <mif:graphEdge>
+                                    <mif:anchor connectToShapeId="Sheet.340">
+                                       <mif:position x="483" y="97"/>
+                                    </mif:anchor>
+                                 </mif:graphEdge>
+                              </mif:graphElement></association><association className="Component" relationshipName="component1"><mif:graphElement connectToShapeId="Sheet.1" containerDiagramName="Main">
+                     <mif:position x="643" y="227"/>
+                     <mif:graphEdge>
+                        <mif:anchor connectToShapeId="Sheet.318">
+                           <mif:position x="643" y="227"/>
+                        </mif:anchor>
+                     </mif:graphEdge>
+                  </mif:graphElement></association><association className="Component17" relationshipName="component2"><mif:graphElement connectToShapeId="Sheet.1" containerDiagramName="Main">
+                     <mif:position x="510" y="333"/>
+                     <mif:graphEdge>
+                        <mif:anchor connectToShapeId="Sheet.64">
+                           <mif:position x="510" y="333"/>
+                        </mif:anchor>
+                     </mif:graphEdge>
+                  </mif:graphElement></association><association className="Consumable1" relationshipName="consumable"><mif:graphElement connectToShapeId="Sheet.1" containerDiagramName="Main">
+                     <mif:position x="477" y="156"/>
+                     <mif:graphEdge>
+                        <mif:anchor connectToShapeId="Sheet.113">
+                           <mif:position x="477" y="156"/>
+                        </mif:anchor>
+                     </mif:graphEdge>
+                  </mif:graphElement></association><association className="Component18" relationshipName="component"><mif:graphElement connectToShapeId="Sheet.13" containerDiagramName="Main">
+                                             <mif:position x="595" y="529"/>
+                                             <mif:graphEdge>
+                                                <mif:anchor connectToShapeId="Sheet.298">
+                                                   <mif:position x="595" y="529"/>
+                                                </mif:anchor>
+                                             </mif:graphEdge>
+                                          </mif:graphElement></association><association className="Trigger" relationshipName="trigger"><mif:graphElement connectToShapeId="Sheet.13" containerDiagramName="Main">
+                                             <mif:position x="341" y="529"/>
+                                             <mif:graphEdge>
+                                                <mif:anchor connectToShapeId="Sheet.308">
+                                                   <mif:position x="341" y="529"/>
+                                                </mif:anchor>
+                                             </mif:graphEdge>
+                                          </mif:graphElement></association><association className="ActEventCriterion" relationshipName="actEventCriterion"><mif:graphElement connectToShapeId="Sheet.308" containerDiagramName="Main">
+                                                         <mif:position x="286" y="628"/>
+                                                         <mif:graphEdge>
+                                                            <mif:anchor connectToShapeId="Sheet.304">
+                                                               <mif:position x="286" y="628"/>
+                                                            </mif:anchor>
+                                                         </mif:graphEdge>
+                                                      </mif:graphElement></association><annotation id="87BA37DC-D83E-435A-9E3D-4F5566EF5877"><mif:graphElement containerDiagramName="Main" isHeightAutoSize="true" isWidthAutoSize="true" shapeId="Sheet.360">
+                     <mif:position x="809" y="30"/>
+                     <mif:size height="53" width="307"/>
+                     <mif:anchorage connectToShapeId="Sheet.360">
+                        <mif:position x="962" y="56"/>
+                        <mif:graphEdge>
+                           <mif:anchor connectToShapeId="Sheet.113">
+                              <mif:position x="587" y="132"/>
+                           </mif:anchor>
+                        </mif:graphEdge>
+                     </mif:anchorage>
+                  </mif:graphElement></annotation><annotation id="67447620-7AA2-40E6-9125-5ADD81A1FF61"><mif:graphElement containerDiagramName="Main" isHeightAutoSize="true" isWidthAutoSize="true" shapeId="Sheet.328">
+                     <mif:position x="809" y="289"/>
+                     <mif:size height="65" width="134"/>
+                     <mif:anchorage connectToShapeId="Sheet.328">
+                        <mif:position x="876" y="321"/>
+                        <mif:graphEdge>
+                           <mif:anchor connectToShapeId="Sheet.1">
+                              <mif:position x="643" y="315"/>
+                           </mif:anchor>
+                        </mif:graphEdge>
+                     </mif:anchorage>
+                  </mif:graphElement></annotation><annotation id="457D3C6C-117F-4774-A3B5-48C9471F3E82"><mif:graphElement containerDiagramName="Main" isHeightAutoSize="true" isWidthAutoSize="true" shapeId="Sheet.324">
+                     <mif:position x="809" y="103"/>
+                     <mif:size height="65" width="403"/>
+                     <mif:anchorage connectToShapeId="Sheet.324">
+                        <mif:position x="1011" y="135"/>
+                        <mif:graphEdge>
+                           <mif:anchor connectToShapeId="Sheet.1">
+                              <mif:position x="643" y="156"/>
+                           </mif:anchor>
+                        </mif:graphEdge>
+                     </mif:anchorage>
+                  </mif:graphElement></annotation><annotation id="5C1E60C0-21DB-4F2E-A7B8-B72F901414F9"><mif:graphElement containerDiagramName="Main" isHeightAutoSize="true" isWidthAutoSize="true" shapeId="Sheet.336">
+                     <mif:position x="809" y="484"/>
+                     <mif:size height="53" width="403"/>
+                     <mif:anchorage connectToShapeId="Sheet.336">
+                        <mif:position x="1011" y="511"/>
+                        <mif:graphEdge>
+                           <mif:anchor connectToShapeId="Sheet.13">
+                              <mif:position x="627" y="506"/>
+                           </mif:anchor>
+                        </mif:graphEdge>
+                     </mif:anchorage>
+                  </mif:graphElement></annotation><annotation id="EA97CC13-CD4A-4D6E-A1E5-DEDC8472A95E"><mif:graphElement containerDiagramName="Main" isHeightAutoSize="true" isWidthAutoSize="true" shapeId="Sheet.9">
+                     <mif:position x="807" y="406"/>
+                     <mif:size height="65" width="319"/>
+                     <mif:anchorage connectToShapeId="Sheet.9">
+                        <mif:position x="967" y="439"/>
+                        <mif:graphEdge>
+                           <mif:anchor connectToShapeId="Sheet.13">
+                              <mif:position x="627" y="438"/>
+                           </mif:anchor>
+                        </mif:graphEdge>
+                     </mif:anchorage>
+                  </mif:graphElement></annotation><annotation id="01D0EB42-2CE2-435B-8DAE-31780BB7B260"><mif:graphElement containerDiagramName="Main" isHeightAutoSize="true" isWidthAutoSize="true" shapeId="Sheet.332">
+                     <mif:position x="813" y="625"/>
+                     <mif:size height="76" width="414"/>
+                     <mif:anchorage connectToShapeId="Sheet.332">
+                        <mif:position x="1020" y="663"/>
+                        <mif:graphEdge>
+                           <mif:anchor connectToShapeId="Sheet.294">
+                              <mif:position x="757" y="670"/>
+                           </mif:anchor>
+                        </mif:graphEdge>
+                     </mif:anchorage>
+                  </mif:graphElement></annotation></mif:graphicRepresentation>
+   <derivedFrom staticModelDerivationId="1">
+      <mif:targetStaticModel artifact="RIM" root="DEFN" version="00"/>
+   </derivedFrom>
+   <entryPoint className="DosageInstruction" id="COCT_MT270010CA" isAbstract="false" name="Dosage detailed">
+      
+   </entryPoint>
+   <containedClass>
+      <mif:class isAbstract="false" name="ActEventCriterion">
+         <mif:businessName name="Administration Precondition"><realmNamespace value="UV"/></mif:businessName>
+         <derivedFrom className="Act" staticModelDerivationId="1"/>
+         
+         <mif:annotations>
+            
+            
+            
+         <documentation><mif:definition>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>This sets the conditions for which a specific administration of the drug may be undertaken. Example: if headache persists for 2hrs or more 'take 2 tabs.</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:definition><mif:usageNotes>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>To flag a prescription as “PRN” without specifying a condition, include the association but specify a null flavor for the Dosage Condition.</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:usageNotes><mif:rationale>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>Indicates that prescription is a 'PRN' (as needed) prescription and that doses to be consumed cannot be accurately calculated. This has important compliance implications.</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:rationale></documentation></mif:annotations>
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="classCode" sortKey="1"><enumerationValues>ACT</enumerationValues>
+            <derivedFrom attributeName="classCode" className="Act" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="ACT" codeSystemName="ActClass"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="moodCode" sortKey="2"><enumerationValues>EVN.CRT</enumerationValues>
+            <derivedFrom attributeName="moodCode" className="Act" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="EVN.CRT" codeSystemName="ActMood"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="true" maximumLength="200" maximumMultiplicity="1" minimumMultiplicity="1" name="text" sortKey="3">
+            <mif:businessName name="A:Dosage Condition"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+               
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>A free-form textual description of condition that must be met before the product may be administered to/by the patient.</xhtml:p>
+                     </xhtml:p>
+                     <xhtml:p>
+                        <xhtml:p>Example: When pressure exceeds 150/90 - Take 2 tabs</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Allows un-coded specifications of conditions in which the medication should be taken.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation><appInfo><mif:mapping sourceName="PIN">
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>RepeatPattern.prn (true when present)</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:mapping><mif:mapping sourceName="PECS">
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>ZDP.13.6 (true when present)</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:mapping><mif:mapping sourceName="PECS">
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>ZDP.13.7</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:mapping></appInfo></mif:annotations>
+            <derivedFrom attributeName="text" className="Act" staticModelDerivationId="1"/>
+            <mif:type name="ST"/>
+         </mif:attribute>
+      </mif:class>
+   </containedClass>
+   <containedClass>
+      <mif:class isAbstract="false" name="Component">
+         <mif:businessName name="augmented by"><realmNamespace value="UV"/></mif:businessName>
+         <derivedFrom className="ActRelationship" staticModelDerivationId="1"/>
+         
+         <mif:annotations>
+            
+            
+         <documentation><mif:definition>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>Indicates additional dosage instructions at the overall structured dosage level.</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:definition><mif:rationale>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>Some drugs are more effective under specific body conditions and/or time of the day. This allows providers to ensure that administration of the drug is carried out at specific time and condition that they desire.</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:rationale></documentation></mif:annotations>
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="typeCode" sortKey="1"><enumerationValues>COMP</enumerationValues>
+            <derivedFrom attributeName="typeCode" className="ActRelationship" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="COMP" codeSystemName="ActRelationshipType"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="contextControlCode" sortKey="2"><enumerationValues>ON</enumerationValues>
+            <derivedFrom attributeName="contextControlCode" className="ActRelationship" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="ON" codeSystemName="ContextControl"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="contextConductionInd" sortKey="3"><enumerationValues>true</enumerationValues>
+            <derivedFrom attributeName="contextConductionInd" className="ActRelationship" staticModelDerivationId="1"/>
+            <mif:type name="BL"/>
+         </mif:attribute>
+      </mif:class>
+   </containedClass>
+   <containedClass>
+      <mif:class isAbstract="false" name="Component17">
+         <mif:businessName name="b:consists of"><realmNamespace value="UV"/></mif:businessName>
+         <derivedFrom className="ActRelationship" staticModelDerivationId="1"/>
+         
+         <mif:annotations>
+            
+            
+         <documentation><mif:definition>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>Dosage instructions may be given as textual information (as in Ad-hoc Dosage Instructions specified above) or as a structured set of dosage lines. This association allows for the specification of structured dosage lines.</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:definition><mif:rationale>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>Structured dosage lines facilitate the checking of dosage appropriateness. It also allows for the formal calculation of days supply based on administration instructions and supplied quantity.</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:rationale></documentation></mif:annotations>
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="typeCode" sortKey="1"><enumerationValues>COMP</enumerationValues>
+            <derivedFrom attributeName="typeCode" className="ActRelationship" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="COMP" codeSystemName="ActRelationshipType"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="contextControlCode" sortKey="2"><enumerationValues>ON</enumerationValues>
+            <derivedFrom attributeName="contextControlCode" className="ActRelationship" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="ON" codeSystemName="ContextControl"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="contextConductionInd" sortKey="3"><enumerationValues>true</enumerationValues>
+            <derivedFrom attributeName="contextConductionInd" className="ActRelationship" staticModelDerivationId="1"/>
+            <mif:type name="BL"/>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="true" maximumLength="2" maximumMultiplicity="1" minimumMultiplicity="1" name="sequenceNumber" sortKey="4">
+            <mif:businessName name="A:Dosage Line Order"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Indicates the order in which dosage lines should be performed. Ensures that each step of multiple and complex SIGs (e.g ramp up/down) is in the desired order. Dosage lines with the same sequence number should be performed in parallel. E.g. 2 tabs tid for 3 days (sequence 1) and then 1 tab tid for 4 days (sequence 2) E.g. 1 tab in the morning (sequence 1) and 2 tabs at bedtime (sequence 1)</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:usageNotes>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Need examples to illustrate use of sequence lines with 'ANDs' and 'THENs'.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:usageNotes><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Clearly expresses the order of each dosage line to ensure the correct dosage is given. Element is mandatory to ensure that dosage lines are specified and followed in the order intended.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation><appInfo><mif:mapping sourceName="PECS">
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>ZDP.13.10</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:mapping></appInfo></mif:annotations>
+            <derivedFrom attributeName="sequenceNumber" className="ActRelationship" staticModelDerivationId="1"/>
+            <mif:type name="INT.POS"/>
+         </mif:attribute>
+      </mif:class>
+   </containedClass>
+   <containedClass>
+      <mif:class isAbstract="false" name="Component18">
+         <mif:businessName name="augmented by"><realmNamespace value="UV"/></mif:businessName>
+         <derivedFrom className="ActRelationship" staticModelDerivationId="1"/>
+         
+         <mif:annotations>
+            
+            
+         <documentation><mif:definition>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>Indicates additional riders that may be put on a SIG. Each dosage line or the entire set of dosage lines may be augmented by a modifier that puts a rider on the administration. Examples of such modifiers include: At bed time, before breakfast, etc</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:definition><mif:rationale>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>Some drugs are more effective under specific body conditions and/or time of the day. This allows providers to ensure that administration of the drug is carried out at specific time and condition that they desire.</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:rationale></documentation></mif:annotations>
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="typeCode" sortKey="1"><enumerationValues>COMP</enumerationValues>
+            <derivedFrom attributeName="typeCode" className="ActRelationship" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="COMP" codeSystemName="ActRelationshipType"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="contextControlCode" sortKey="2"><enumerationValues>ON</enumerationValues>
+            <derivedFrom attributeName="contextControlCode" className="ActRelationship" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="ON" codeSystemName="ContextControl"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="contextConductionInd" sortKey="3"><enumerationValues>true</enumerationValues>
+            <derivedFrom attributeName="contextConductionInd" className="ActRelationship" staticModelDerivationId="1"/>
+            <mif:type name="BL"/>
+         </mif:attribute>
+      </mif:class>
+   </containedClass>
+   <containedClass>
+      <mif:class isAbstract="false" name="Consumable1">
+         <mif:businessName name="*a:administers package component"><realmNamespace value="UV"/></mif:businessName>
+         <derivedFrom className="Participation" staticModelDerivationId="1"/>
+         
+         <mif:annotations>
+            
+            
+            
+            
+         <documentation><mif:definition>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>Identification of drug product that the instruction pertains to.</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:definition><mif:usageNotes>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>The drug only needs to be specified if the administration instruction corresponds to one part of the overall product. For example, referring to the administration of a particular product from a combo-pack</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:usageNotes><mif:rationale>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>Allows the provider to have different instructions for different medications (in a package) within an overall therapy. For example, the dispensed drug could be Didrocal, and there will be a separate dosage instruction for each of the two drugs in the package. May also be used for Duo-Packs (e.g. vaginal products consisting of an ovule and a cream).</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:rationale></documentation><appInfo><mif:constraint id="{87BA37DC-D83E-435A-9E3D-4F5566EF5877}">
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>CMET selected must be 'response' for query responses, non-response otherwise. Must use 'administrable' when capturing dispenses, 'orderable' otherwise</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+               
+            </mif:constraint></appInfo></mif:annotations>
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="typeCode" sortKey="1"><enumerationValues>CSM</enumerationValues>
+            <derivedFrom attributeName="typeCode" className="Participation" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="CSM" codeSystemName="ParticipationType"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="contextControlCode" sortKey="2"><enumerationValues>OP</enumerationValues>
+            <derivedFrom attributeName="contextControlCode" className="Participation" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="OP" codeSystemName="ContextControl"/></supplierVocabulary>
+         </mif:attribute>
+      </mif:class>
+   </containedClass>
+   <containedClass>
+      <mif:class isAbstract="false" name="DosageInstruction">
+         <mif:businessName name="Administration Instructions"><realmNamespace value="UV"/></mif:businessName>
+         <derivedFrom className="SubstanceAdministration" staticModelDerivationId="1"/>
+         
+         <mif:annotations>
+            
+            
+            
+            
+         <documentation><mif:definition>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>This comprises all specifications necessary for the dispensed product to be administered to/by the patient in a manner as intended by the prescriber.</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:definition><mif:rationale>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>Allows providers to communicate intentions and to cross-check intended and actual methods of administration.</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:rationale></documentation><appInfo><mif:constraint id="{67447620-7AA2-40E6-9125-5ADD81A1FF61}">
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>routeCode is mandatory and apporachSiteCode is required if not using SNOMED</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+               
+            </mif:constraint><mif:constraint id="{457D3C6C-117F-4774-A3B5-48C9471F3E82}">
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>- moodCode must be DEFN for drug definitions (such as monographs) - moodCode must be RQO for orders; - moodCode must be EVN for dispenses and recording of other medications</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+               
+            </mif:constraint></appInfo></mif:annotations>
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="classCode" sortKey="1"><enumerationValues>SBADM</enumerationValues>
+            <derivedFrom attributeName="classCode" className="SubstanceAdministration" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="SBADM" codeSystemName="ActClass"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="moodCode" sortKey="2">
+            <mif:businessName name="Dosage Usage Context"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Indicates the context of the administration.</xhtml:p>
+                     </xhtml:p>
+                     <xhtml:p>
+                        <xhtml:p>moodCode = RQO, for administration instruction on orders</xhtml:p>
+                     </xhtml:p>
+                     <xhtml:p>
+                        <xhtml:p>moodCode = EVN, for administration instruction on dispenses</xhtml:p>
+                     </xhtml:p>
+                     <xhtml:p>
+                        <xhtml:p>moodCode = DEF, for administration instruction on medication definition documents/references (typically, monographs).</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Puts the class in context, and is therefore mandatory.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation></mif:annotations>
+            <derivedFrom attributeName="moodCode" className="SubstanceAdministration" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><vocabularyDomain name="x_ActMoodDefEvnRqo"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="code" sortKey="3">
+            <mif:businessName name="Dosage Type"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Distinguishes types of dosage.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:usageNotes>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>For SNOMED this will pre-coordinate route, body site and potentially drug. For non-SNOMED, this will be a fixed value of DRUG.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:usageNotes><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Distinguishes between types of dosage administration and is therefore mandatory. Datatype is CD to allow for SNOMED codes.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation></mif:annotations>
+            <derivedFrom attributeName="code" className="SubstanceAdministration" staticModelDerivationId="1"/>
+            <mif:type name="CD"/>
+            <supplierVocabulary codingStrength="CNE"><code code="DRUG" codeSystemName="ActCode"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="true" maximumLength="2000" maximumMultiplicity="1" minimumMultiplicity="1" name="text" sortKey="4">
+            <mif:businessName name="C:Rendered Dosage Instruction"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>A free form textual specification generated from the input specifications as created by the provider.</xhtml:p>
+                     </xhtml:p>
+                     <xhtml:p>
+                        <xhtml:p>This is made up of either an 'Ad-hoc dosage instruction' or 'Textual rendition of the structured dosage lines', plus route, dosage unit, and other pertinent administration information specified by the provider.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Allows the provider to verify the codified structured dosage information entered and ensure that the exploded instruction is consistent with the intended instructions.</xhtml:p>
+                     </xhtml:p>
+                     <xhtml:p>
+                        <xhtml:p>Also useful in bringing back administration instructions on query responses.</xhtml:p>
+                     </xhtml:p>
+                     <xhtml:p>
+                        <xhtml:p>This is mandatory as dosage instructions must always be available in rendered form.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation></mif:annotations>
+            <derivedFrom attributeName="text" className="SubstanceAdministration" staticModelDerivationId="1"/>
+            <mif:type name="ST"/>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="false" maximumMultiplicity="1" minimumMultiplicity="0" name="effectiveTime" sortKey="5">
+            <mif:businessName name="A:Administration Period"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+               
+               
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>The time period (begin and end dates) within which the dispensed medication is to be completely administered to/by the patient. May differ from date prescription was issued.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:usageNotes>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Frequently only the duration (width) component is specified. E.g. 100mg tid for 10 days. In that case, the start date is presumed to be the date the prescription was written</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:usageNotes><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Indicates the overall time boundaries in which the person is expected to take the drug. Denotes the reference point for calculating expected exhaustion date and quantity on hand.</xhtml:p>
+                     </xhtml:p>
+                     <xhtml:p>
+                        <xhtml:p>Facilitates compliance checking.</xhtml:p>
+                     </xhtml:p>
+                     <xhtml:p>
+                        <xhtml:p>Note: TID may be interpreted differently based on situation (e.g. based on schedules of a facility).</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation><appInfo><mif:mapping sourceName="PIN">
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Prescription.Admin istrationStartDate (Low)</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:mapping><mif:mapping sourceName="PIN">
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Prescription.Admin istrationStopDate (High)</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:mapping><mif:mapping sourceName="PIN">
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>DispensedItem.expectedStartDate</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:mapping></appInfo></mif:annotations>
+            <derivedFrom attributeName="effectiveTime" className="SubstanceAdministration" staticModelDerivationId="1"/>
+            <mif:type name="IVL">
+               <argumentDatatype name="TS.FULLDATE"/>
+            </mif:type>
+         </mif:attribute>
+         <mif:attribute isImmutable="false" isMandatory="false" maximumMultiplicity="1" minimumMultiplicity="0" name="routeCode" sortKey="6">
+            <mif:businessName name="A:Route Code"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+               
+               
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>This is the means by which the dispensed drug is to be administered to the patient.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Ensures consistency in description of routes. Provides potential for cross-checking dosage form and route. Route is an optional because it is pre-coordinated with SubstanceAdministration.code when using SNOMED.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation><appInfo><mif:mapping sourceName="PIN">
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Prescription.route</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:mapping><mif:mapping sourceName="PECS">
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>ZDP.14.2</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:mapping><mif:mapping sourceName="NCPDP">
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Compound.452-E8</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:mapping><mif:mapping sourceName="Immunization">
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>RXR.1</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:mapping></appInfo></mif:annotations>
+            <derivedFrom attributeName="routeCode" className="SubstanceAdministration" staticModelDerivationId="1"/>
+            <mif:type name="CV"/>
+            <supplierVocabulary codingStrength="CNE"><vocabularyDomain name="RouteOfAdministration"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute isImmutable="false" isMandatory="false" maximumMultiplicity="5" minimumMultiplicity="0" name="approachSiteCode" sortKey="7">
+            <mif:businessName name="Administration Sites"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>A value denoting the body area where the medicine should be administered. E.g. 'Right Elbow', 'Left Ear'. When multiples sites are specified they should be treated as 'AND'.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Allows specificity when a drug can potentially be applied to different parts of the patien's body. Multiple repetitions are used when the product should be administered to multiple parts of the body. CWE is used because using a code system is not essential for understanding or analyzing the prescription. The attribute is optional because it can be pre-coordinated with SubstanceAdministration.code when using SNOMED.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation></mif:annotations>
+            <derivedFrom attributeName="approachSiteCode" className="SubstanceAdministration" staticModelDerivationId="1"/>
+            <mif:type name="SET">
+               <argumentDatatype name="CV"/>
+            </mif:type>
+            <supplierVocabulary codingStrength="CNE"><vocabularyDomain name="HumanSubstanceAdministrationSite"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="false" maximumMultiplicity="2" minimumMultiplicity="0" name="maxDoseQuantity" sortKey="8">
+            <mif:businessName name="D:Maximum Daily/Weekly Doses"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>The maximum amount of the dispensed medication to be administered to the patient in a 24-hr period (doses per day) or in a 7 day period (doses per week).</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:usageNotes>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>This field can only capture maximum doses based on explicit time periods. Dosage maximums based on other constraints such as patient lifetime, menstrual cycles must be recorded using additional dosage instruction comments.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:usageNotes><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Sets an upper boundary for the quantity of the drug to be administered over a specified period of time. Particularly useful for PRN medications.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation><appInfo><mif:mapping sourceName="BC">
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>ZPB3.5(denominator=1D)</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:mapping></appInfo></mif:annotations>
+            <derivedFrom attributeName="maxDoseQuantity" className="SubstanceAdministration" staticModelDerivationId="1"/>
+            <mif:type name="SET">
+               <argumentDatatype name="RTO">
+                  <argumentDatatype name="PQ.DRUG"/>
+                  <argumentDatatype name="PQ.TIME"/>
+               </argumentDatatype>
+            </mif:type>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="false" maximumMultiplicity="1" minimumMultiplicity="0" name="administrationUnitCode" sortKey="9">
+            <mif:businessName name="Dosage Unit"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Identifies how the drug is measured for administration.</xhtml:p>
+                     </xhtml:p>
+                     <xhtml:p>
+                        <xhtml:p>Specified when not implicit from the drug form (e.g. puff, inhalation, drops, etc.).</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Needed when the dosage unit is not expressed as part of the dose quantity (mg, mL) or implicit as part of the drug form (capsules, tablets). Examples are Puffs, Actuations, etc.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation></mif:annotations>
+            <derivedFrom attributeName="administrationUnitCode" className="SubstanceAdministration" staticModelDerivationId="1"/>
+            <mif:type name="CV"/>
+            <supplierVocabulary codingStrength="CNE"><vocabularyDomain name="AdministrableDrugForm"/></supplierVocabulary>
+         </mif:attribute>
+      </mif:class>
+   </containedClass>
+   <containedClass>
+      <mif:class isAbstract="false" name="DosageLine">
+         <mif:businessName name="Structured Dosage Lines"><realmNamespace value="UV"/></mif:businessName>
+         <derivedFrom className="SubstanceAdministration" staticModelDerivationId="1"/>
+         
+         <mif:annotations>
+            
+            
+            
+            
+         <documentation><mif:definition>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>This information, along with the order/sequence of the dosage lines, constitutes the details of a structured dosage instruction.</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:definition><mif:rationale>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>Enables SIG instructions to be discretely specified. Also, supports scaling doses and parallel dose specification.</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:rationale></documentation><appInfo><mif:constraint id="{5C1E60C0-21DB-4F2E-A7B8-B72F901414F9}">
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>- moodCode must be DEFN for drug definitions (such as monographs) - moodCode must be RQO for orders; - moodCode must be EVN for dispenses and recording of other medications</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+               
+            </mif:constraint><mif:constraint id="{EA97CC13-CD4A-4D6E-A1E5-DEDC8472A95E}">
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>Either an Ad-hoc Dosage Line or (Dosage Timing/Frequency + Dosage Range + possibly Dosage Rate) may be specified t one time }</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+               
+            </mif:constraint></appInfo></mif:annotations>
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="classCode" sortKey="1"><enumerationValues>SBADM</enumerationValues>
+            <derivedFrom attributeName="classCode" className="SubstanceAdministration" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="SBADM" codeSystemName="ActClass"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="moodCode" sortKey="2">
+            <mif:businessName name="Dosage Usage Context"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Indicates the context of the administration.</xhtml:p>
+                     </xhtml:p>
+                     <xhtml:p>
+                        <xhtml:p>moodCode = RQO, for administration instruction on orders</xhtml:p>
+                     </xhtml:p>
+                     <xhtml:p>
+                        <xhtml:p>moodCode = EVN, for administration instruction on dispenses</xhtml:p>
+                     </xhtml:p>
+                     <xhtml:p>
+                        <xhtml:p>moodCode = DEF, for administration instruction on medication definition documents/references (typically, monographs).</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Puts the class in context, and is therefore mandatory.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation></mif:annotations>
+            <derivedFrom attributeName="moodCode" className="SubstanceAdministration" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><vocabularyDomain name="x_ActMoodDefEvnRqo"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="false" maximumLength="2000" maximumMultiplicity="1" minimumMultiplicity="0" name="text" sortKey="3">
+            <mif:businessName name="C:Ad-hoc Dosage Instruction"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+               
+               
+               
+               
+               
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>A free form description of how the dispensed medication is to be administered to the patient.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:usageNotes>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>This field must not be used for components of the prescription that are coded elsewhere.(e.g. Coded Dosage Timing).</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:usageNotes><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Not all dosage instructions can easily be expressed in formal terms</xhtml:p>
+                     </xhtml:p>
+                     <xhtml:p>
+                        <xhtml:p>Allows dosage instructions to be sent across as one string of information without breaking it up.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation><appInfo><mif:mapping sourceName="PIN">
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>DispensedItem.instruction</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:mapping><mif:mapping sourceName="PIN">
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Prescription.instruction</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:mapping><mif:mapping sourceName="MOXXI">
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>D99.02</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:mapping><mif:mapping sourceName="PEI">
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>X0201</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:mapping><mif:mapping sourceName="BC">
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>ZPB3.16</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:mapping><mif:mapping sourceName="eScript">
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>DRU.030-02</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:mapping></appInfo></mif:annotations>
+            <derivedFrom attributeName="text" className="SubstanceAdministration" staticModelDerivationId="1"/>
+            <mif:type name="ST"/>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="false" maximumMultiplicity="1" minimumMultiplicity="0" name="effectiveTime" sortKey="4">
+            <mif:businessName name="C:Dosage Timing/Frequency"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>A structure describing the frequency (how often the drug is to be administered), offset (elapse time between administrations) represented by one line of dosage administration instruction. Includes the overall time-period the dosage instruction applies.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Together with the dose quantity, indicates the overall quantity of drug.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation><appInfo><mif:mapping sourceName="PIN">
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>DosageItem.Duration(OuterInterval.Width)</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:mapping><mif:mapping sourceName="PIN">
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>DosageItem.StartDate(OuterInterval.Low)</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:mapping><mif:mapping sourceName="PIN">
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>RepeatPattern.PatternCode(PIVL - codes will need to be mapped to and from formal GTS expressions)</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:mapping><mif:mapping sourceName="PIN">
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>RepeatPattern.uncodedPattern (PIVL.originalText)</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:mapping><mif:mapping sourceName="PECS">
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>ZDP.13.2.1 (PIVL.period)</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:mapping><mif:mapping sourceName="PECS">
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>DP.13.2.2 (single time or list of times)</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:mapping><mif:mapping sourceName="PECS">
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>PID.13.3 (outer IVL&lt;TS&gt;.width)</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:mapping><mif:mapping sourceName="PECS">
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>PID.13.4 (outer IVL&lt;TS&gt;.low)</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:mapping><mif:mapping sourceName="PECS">
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>PID.13.5 (outer IVL&lt;TS&gt;.high)</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:mapping><mif:mapping sourceName="HC-SA">
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Frequency</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:mapping></appInfo></mif:annotations>
+            <derivedFrom attributeName="effectiveTime" className="SubstanceAdministration" staticModelDerivationId="1"/>
+            <mif:type name="GTS.BOUNDEDPIVL"/>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="false" maximumMultiplicity="1" minimumMultiplicity="0" name="doseQuantity" sortKey="5">
+            <mif:businessName name="D:Dosage Range"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+               
+               
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>This specifies the minimum and maximum amount of the medication to be taken during a single administration.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:usageNotes>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Where no range is needed, a single value should be specified as the center, with a width of 0.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:usageNotes><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Enables the checking of administration compliance that could results in fill-too-soon/fill-too-late contraindications. Supports circumstances where the dose can vary. (e.g. 1-2 tablets)</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation><appInfo><mif:mapping sourceName="PIN">
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>DosageItem.DosageRange</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:mapping><mif:mapping sourceName="PECS">
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>ZDP.13.1</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:mapping><mif:mapping sourceName="HC-SA">
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Dosage</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:mapping></appInfo></mif:annotations>
+            <derivedFrom attributeName="doseQuantity" className="SubstanceAdministration" staticModelDerivationId="1"/>
+            <mif:type name="URG">
+               <argumentDatatype name="PQ.DRUG"/>
+            </mif:type>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="false" maximumMultiplicity="1" minimumMultiplicity="0" name="rateQuantity" sortKey="6">
+            <mif:businessName name="E:Dosage Rate"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>For intravenous and other such routes, this is the time period over which one dose is to be administered. The flow rate is determined by dividing the dose quantity by the Dosage rate.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Required for intravenous administration</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation></mif:annotations>
+            <derivedFrom attributeName="rateQuantity" className="SubstanceAdministration" staticModelDerivationId="1"/>
+            <mif:type name="URG">
+               <argumentDatatype name="PQ.TIME"/>
+            </mif:type>
+         </mif:attribute>
+      </mif:class>
+   </containedClass>
+   <containedClass>
+      <mif:class isAbstract="true" name="Medication">
+         <derivedFrom className="Role" staticModelDerivationId="1"/>
+         
+         <childClass className="R_MedicationOrderable">
+            
+         </childClass>
+         <childClass className="R_MedicationOrderable-response">
+            
+         </childClass>
+         <childClass className="R_MedicationAdministrable">
+            
+         </childClass>
+         <childClass className="R_MedicationAdministrable-response">
+            
+         </childClass>
+      </mif:class>
+   </containedClass>
+   <containedClass>
+      <mif:commonModelElementRef name="R_MedicationAdministrable">
+         <derivedFrom className="Role" staticModelDerivationId="1"/>
+         <supplierVocabulary><vocabularyDomain xmlns="" name="RoleClass"/></supplierVocabulary>
+         
+         <cmet name="COCT_MT220200CA"/>
+      </mif:commonModelElementRef>
+   </containedClass>
+   <containedClass>
+      <mif:commonModelElementRef name="R_MedicationAdministrable-response">
+         <derivedFrom className="Role" staticModelDerivationId="1"/>
+         <supplierVocabulary><vocabularyDomain xmlns="" name="RoleClass"/></supplierVocabulary>
+         
+         <cmet name="COCT_MT220210CA"/>
+      </mif:commonModelElementRef>
+   </containedClass>
+   <containedClass>
+      <mif:commonModelElementRef name="R_MedicationOrderable">
+         <derivedFrom className="Role" staticModelDerivationId="1"/>
+         <supplierVocabulary><vocabularyDomain xmlns="" name="RoleClass"/></supplierVocabulary>
+         
+         <cmet name="COCT_MT220100CA"/>
+      </mif:commonModelElementRef>
+   </containedClass>
+   <containedClass>
+      <mif:commonModelElementRef name="R_MedicationOrderable-response">
+         <derivedFrom className="Role" staticModelDerivationId="1"/>
+         <supplierVocabulary><vocabularyDomain xmlns="" name="RoleClass"/></supplierVocabulary>
+         
+         <cmet name="COCT_MT220110CA"/>
+      </mif:commonModelElementRef>
+   </containedClass>
+   <containedClass>
+      <mif:class isAbstract="false" name="SupplementalInstruction">
+         <mif:businessName name="Additional SIG Instruction"><realmNamespace value="UV"/></mif:businessName>
+         <derivedFrom className="SubstanceAdministration" staticModelDerivationId="1"/>
+         
+         
+         <mif:annotations>
+            
+            
+            
+         <documentation><mif:definition>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>This is a modifier for a specific dosage line or for the entire SIG. Examples are: On empty stomach, At breakfast, before bedtime, etc.</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:definition><mif:rationale>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>Adds further constraint or flexibility to the primary administration instruction.</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:rationale></documentation><appInfo><mif:constraint id="{01D0EB42-2CE2-435B-8DAE-31780BB7B260}">
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>- moodCode must be DEFN for drug definitions (such as as monographs) - moodCode must be RQO for orders; - moodCode must be EVN for dispenses and recording of other medications { x.; }</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+               
+            </mif:constraint></appInfo></mif:annotations>
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="classCode" sortKey="1"><enumerationValues>SBADM</enumerationValues>
+            <derivedFrom attributeName="classCode" className="SubstanceAdministration" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="SBADM" codeSystemName="ActClass"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="moodCode" sortKey="2">
+            <mif:businessName name="Dosage Usage Context"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Indicates the context of the administration.</xhtml:p>
+                     </xhtml:p>
+                     <xhtml:p>
+                        <xhtml:p>moodCode = RQO, for administration instruction on orders</xhtml:p>
+                     </xhtml:p>
+                     <xhtml:p>
+                        <xhtml:p>moodCode = EVN, for administration instruction on dispenses</xhtml:p>
+                     </xhtml:p>
+                     <xhtml:p>
+                        <xhtml:p>moodCode = DEF, for administration instruction on medication definition documents/references (typically, monographs).</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Puts the class in context, and is therefore mandatory.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation></mif:annotations>
+            <derivedFrom attributeName="moodCode" className="SubstanceAdministration" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><vocabularyDomain name="x_ActMoodDefEvnRqo"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="true" maximumLength="200" maximumMultiplicity="1" minimumMultiplicity="1" name="text" sortKey="3">
+            <mif:businessName name="F:Additional Dosage Instruction"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>A free form textual description of extended instruction regarding the administration of the drug.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Allows for expression of non-codable qualifiers such as: 'on an empty stomach', 'add water' etc; which do not affect calculations of frequencies or quantity.</xhtml:p>
+                     </xhtml:p>
+                     <xhtml:p>
+                        <xhtml:p>This attribute is marked as 'mandatory' as it is the only information that can be specified here.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation><appInfo><mif:mapping sourceName="PECS">
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>ZDP.13.8</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:mapping></appInfo></mif:annotations>
+            <derivedFrom attributeName="text" className="SubstanceAdministration" staticModelDerivationId="1"/>
+            <mif:type name="ST"/>
+         </mif:attribute>
+      </mif:class>
+   </containedClass>
+   <containedClass>
+      <mif:class isAbstract="false" name="Trigger">
+         <mif:businessName name="performed when"><realmNamespace value="UV"/></mif:businessName>
+         <derivedFrom className="ActRelationship" staticModelDerivationId="1"/>
+         
+         <mif:annotations>
+            
+            
+            
+         <documentation><mif:definition>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>Indicates condition(s) that must be satisfied for the dosage instruction conveyed by a dosage line to be carried out.</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:definition><mif:usageNotes>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>The presence of this association indicates that the dosage line is "PRN" (as needed). If no condition is specified, the detailed condition and target time attributes may be omitted.</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:usageNotes><mif:rationale>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>Allows providers to specify administration constraints that are not frequency-related. . E.g. “Take on waking”, “Take 1 hour before intercourse”</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:rationale></documentation></mif:annotations>
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="typeCode" sortKey="1"><enumerationValues>TRIG</enumerationValues>
+            <derivedFrom attributeName="typeCode" className="ActRelationship" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="TRIG" codeSystemName="ActRelationshipType"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="contextControlCode" sortKey="2"><enumerationValues>AN</enumerationValues>
+            <derivedFrom attributeName="contextControlCode" className="ActRelationship" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="AN" codeSystemName="ContextControl"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="contextConductionInd" sortKey="3"><enumerationValues>false</enumerationValues>
+            <derivedFrom attributeName="contextConductionInd" className="ActRelationship" staticModelDerivationId="1"/>
+            <mif:type name="BL"/>
+         </mif:attribute>
+      </mif:class>
+   </containedClass>
+   <association sortKey="4">
+      
+      <mif:connections>
+         <mif:traversableConnection conformance="R" isMandatory="false" maximumMultiplicity="1" minimumMultiplicity="1" name="supplementalInstruction" participantClassName="SupplementalInstruction" sortKey="BZ">
+            <derivedFrom associationEndName="target" className="ActRelationship" staticModelDerivationId="1"/>
+         </mif:traversableConnection>
+         <mif:nonTraversableConnection participantClassName="Component">
+            <derivedFrom associationEndName="inboundRelationship" className="Act" staticModelDerivationId="1"/>
+         </mif:nonTraversableConnection>
+      </mif:connections>
+   </association>
+   <association sortKey="16">
+      
+      <mif:connections>
+         <mif:traversableConnection conformance="R" isMandatory="false" maximumMultiplicity="1" minimumMultiplicity="1" name="dosageLine" participantClassName="DosageLine" sortKey="BZ">
+            <derivedFrom associationEndName="target" className="ActRelationship" staticModelDerivationId="1"/>
+         </mif:traversableConnection>
+         <mif:nonTraversableConnection participantClassName="Component17">
+            <derivedFrom associationEndName="inboundRelationship" className="Act" staticModelDerivationId="1"/>
+         </mif:nonTraversableConnection>
+      </mif:connections>
+   </association>
+   <association sortKey="8">
+      
+      <mif:connections>
+         <mif:traversableConnection conformance="R" isMandatory="false" maximumMultiplicity="1" minimumMultiplicity="1" name="supplementalInstruction" participantClassName="SupplementalInstruction" sortKey="BZ">
+            <derivedFrom associationEndName="target" className="ActRelationship" staticModelDerivationId="1"/>
+         </mif:traversableConnection>
+         <mif:nonTraversableConnection participantClassName="Component18">
+            <derivedFrom associationEndName="inboundRelationship" className="Act" staticModelDerivationId="1"/>
+         </mif:nonTraversableConnection>
+      </mif:connections>
+   </association>
+   <association sortKey="18">
+      
+      <mif:connections>
+         <mif:traversableConnection conformance="R" isMandatory="false" maximumMultiplicity="1" minimumMultiplicity="1" name="medication1" participantClassName="Medication" sortKey="BZ">
+            <derivedFrom associationEndName="role" className="Participation" staticModelDerivationId="1"/>
+            <participantClassSpecialization className="R_MedicationOrderable" traversalName="medication1"/>
+            <participantClassSpecialization className="R_MedicationOrderable-response" traversalName="medication2"/>
+            <participantClassSpecialization className="R_MedicationAdministrable" traversalName="medication3"/>
+            <participantClassSpecialization className="R_MedicationAdministrable-response" traversalName="medication4"/>
+         </mif:traversableConnection>
+         <mif:nonTraversableConnection participantClassName="Consumable1">
+            <derivedFrom associationEndName="participation" className="Role" staticModelDerivationId="1"/>
+         </mif:nonTraversableConnection>
+      </mif:connections>
+   </association>
+   <association sortKey="0">
+      
+      <mif:connections>
+         <mif:traversableConnection conformance="R" isMandatory="false" maximumMultiplicity="1" minimumMultiplicity="0" name="component1" participantClassName="Component" sortKey="BE________">
+            <derivedFrom associationEndName="outboundRelationship" className="Act" staticModelDerivationId="1"/>
+         </mif:traversableConnection>
+         <mif:nonTraversableConnection participantClassName="DosageInstruction">
+            <derivedFrom associationEndName="source" className="ActRelationship" staticModelDerivationId="1"/>
+         </mif:nonTraversableConnection>
+      </mif:connections>
+   </association>
+   <association sortKey="1">
+      
+      <mif:connections>
+         <mif:traversableConnection conformance="R" isMandatory="false" maximumMultiplicity="20" minimumMultiplicity="0" name="component2" participantClassName="Component17" sortKey="BE________">
+            <derivedFrom associationEndName="outboundRelationship" className="Act" staticModelDerivationId="1"/>
+         </mif:traversableConnection>
+         <mif:nonTraversableConnection participantClassName="DosageInstruction">
+            <derivedFrom associationEndName="source" className="ActRelationship" staticModelDerivationId="1"/>
+         </mif:nonTraversableConnection>
+      </mif:connections>
+   </association>
+   <association sortKey="2">
+      
+      <mif:connections>
+         <mif:traversableConnection conformance="R" isMandatory="false" maximumMultiplicity="1" minimumMultiplicity="0" name="consumable" participantClassName="Consumable1" sortKey="AAE_______">
+            <derivedFrom associationEndName="participation" className="Act" staticModelDerivationId="1"/>
+         </mif:traversableConnection>
+         <mif:nonTraversableConnection participantClassName="DosageInstruction">
+            <derivedFrom associationEndName="act" className="Participation" staticModelDerivationId="1"/>
+         </mif:nonTraversableConnection>
+      </mif:connections>
+   </association>
+   <association sortKey="10">
+      
+      <mif:connections>
+         <mif:traversableConnection conformance="R" isMandatory="false" maximumMultiplicity="1" minimumMultiplicity="0" name="component" participantClassName="Component18" sortKey="BE________">
+            <derivedFrom associationEndName="outboundRelationship" className="Act" staticModelDerivationId="1"/>
+         </mif:traversableConnection>
+         <mif:nonTraversableConnection participantClassName="DosageLine">
+            <derivedFrom associationEndName="source" className="ActRelationship" staticModelDerivationId="1"/>
+         </mif:nonTraversableConnection>
+      </mif:connections>
+   </association>
+   <association sortKey="9">
+      
+      <mif:connections>
+         <mif:traversableConnection conformance="R" isMandatory="false" maximumMultiplicity="1" minimumMultiplicity="0" name="trigger" participantClassName="Trigger" sortKey="BCB_______">
+            <derivedFrom associationEndName="outboundRelationship" className="Act" staticModelDerivationId="1"/>
+         </mif:traversableConnection>
+         <mif:nonTraversableConnection participantClassName="DosageLine">
+            <derivedFrom associationEndName="source" className="ActRelationship" staticModelDerivationId="1"/>
+         </mif:nonTraversableConnection>
+      </mif:connections>
+   </association>
+   <association sortKey="13">
+      
+      <mif:connections>
+         <mif:traversableConnection conformance="R" isMandatory="false" maximumMultiplicity="1" minimumMultiplicity="1" name="actEventCriterion" participantClassName="ActEventCriterion" sortKey="BZ">
+            <derivedFrom associationEndName="target" className="ActRelationship" staticModelDerivationId="1"/>
+         </mif:traversableConnection>
+         <mif:nonTraversableConnection participantClassName="Trigger">
+            <derivedFrom associationEndName="inboundRelationship" className="Act" staticModelDerivationId="1"/>
+         </mif:nonTraversableConnection>
+      </mif:connections>
+   </association>
+</mif:staticModel>

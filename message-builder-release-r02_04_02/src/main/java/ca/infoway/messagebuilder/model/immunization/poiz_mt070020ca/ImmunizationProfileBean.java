@@ -5,7 +5,7 @@ import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.annotation.Hl7RootType;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.immunization.merged.AdministeredToBean;
+import ca.infoway.messagebuilder.model.merged.AdministeredToBean;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,11 +15,10 @@ import java.util.List;
 @Hl7RootType
 public class ImmunizationProfileBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110127L;
+    private static final long serialVersionUID = 20100603L;
     private AdministeredToBean subject1;
-    private AttachmentBean pertinentInformationAttachment;
     private List<ImmunizationForecastBean> subject2ImmunizationForecast = new ArrayList<ImmunizationForecastBean>();
-
+    private AttachmentBean pertinentInformationAttachment;
 
     @Hl7XmlMapping({"subject1"})
     public AdministeredToBean getSubject1() {
@@ -29,6 +28,10 @@ public class ImmunizationProfileBean extends MessagePartBean {
         this.subject1 = subject1;
     }
 
+    @Hl7XmlMapping({"subject2/immunizationForecast"})
+    public List<ImmunizationForecastBean> getSubject2ImmunizationForecast() {
+        return this.subject2ImmunizationForecast;
+    }
 
     @Hl7XmlMapping({"pertinentInformation/attachment"})
     public AttachmentBean getPertinentInformationAttachment() {
@@ -36,12 +39,6 @@ public class ImmunizationProfileBean extends MessagePartBean {
     }
     public void setPertinentInformationAttachment(AttachmentBean pertinentInformationAttachment) {
         this.pertinentInformationAttachment = pertinentInformationAttachment;
-    }
-
-
-    @Hl7XmlMapping({"subject2/immunizationForecast"})
-    public List<ImmunizationForecastBean> getSubject2ImmunizationForecast() {
-        return this.subject2ImmunizationForecast;
     }
 
 }

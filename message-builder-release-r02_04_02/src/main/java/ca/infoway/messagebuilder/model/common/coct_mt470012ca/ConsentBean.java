@@ -18,11 +18,8 @@ import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.common.coct_mt050202ca.PatientBean;
 import ca.infoway.messagebuilder.model.common.coct_mt090502ca.HealthcareOrganizationBean;
-import ca.infoway.messagebuilder.model.common.merged.AccessTypeBean;
-import ca.infoway.messagebuilder.model.common.merged.ActingPerson;
-import ca.infoway.messagebuilder.model.common.merged.ConsentedToByBean;
-import ca.infoway.messagebuilder.model.common.merged.HealthcareWorkerBean;
-import ca.infoway.messagebuilder.model.merged.PrescribedByBean;
+import ca.infoway.messagebuilder.model.merged.AssignedEntity_1Bean;
+import ca.infoway.messagebuilder.model.merged.ConsentedToByBean;
 import ca.infoway.messagebuilder.model.merged.RelatedPersonBean;
 import java.util.Date;
 
@@ -31,61 +28,68 @@ import java.util.Date;
 /**
  * <p>Consent</p>
  * 
- * <p><p>One and only one of author2 (Consenter) and author1 
- * (Provider) must be specified.</p></p>
- * 
- * <p><p>Information pertaining to a patient's (or client or 
+ * <p>Information pertaining to a patient's (or client or 
  * provider) agreement/acceptance to have his/her clinical or 
- * demographic information electronically stored and 
- * shared.</p></p>
+ * demographic information electronically stored and shared.</p>
  * 
- * <p><p>Provides authorization to record and/or view patient, 
- * client, or provider information.</p><p>Indicates the consent 
- * or keyword used to authorize access or update, including a 
- * reason for access; May also be used to override access 
- * restriction to the information ('break the glass') on a 
- * message by message basis. May be required on a Prescription 
- * Request to indicate a keyword for DUR processing.</p></p>
+ * <p>The keywords will not be passed from prescriber to 
+ * dispenser by the DIS.</p>
  * 
- * <p><p>Provides authorization to record and/or view patient, 
- * client, or provider information.</p><p>Indicates the consent 
- * or keyword used to authorize access or update, including a 
- * reason for access; May also be used to override access 
- * restriction to the information ('break the glass') on a 
- * message by message basis. May be required on a Prescription 
- * Request to indicate a keyword for DUR processing.</p></p>
+ * <p>Provides authorization to record and/or view patient, 
+ * client, or provider information.</p>
  * 
- * <p><p>The keywords will not be passed from prescriber to 
- * dispenser by the DIS.</p></p>
+ * <p>Indicates the consent or keyword used to authorize access 
+ * or update, including a reason for access; May also be used 
+ * to override access restriction to the information ('break 
+ * the glass') on a message by message basis. May be required 
+ * on a Prescription Request to indicate a keyword for DUR 
+ * processing.</p>
+ * 
+ * <p>One and only one of author2 (Consenter) and author1 
+ * (Provider) must be specified.</p>
  */
 @Hl7PartTypeMapping({"COCT_MT470012CA.ConsentEvent"})
 @Hl7RootType
 public class ConsentBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110127L;
-    private AccessTypeBean subject2InformDefinition;
-    private SubjectChoice subject1SubjectChoice;
-    private ConsentedToByBean author1;
-    private PrescribedByBean author2;
+    private static final long serialVersionUID = 20100603L;
     private II consentFormNumber = new IIImpl();
     private IVL<TS, Interval<Date>> consentEffectiveAndEndTime = new IVLImpl<TS, Interval<Date>>();
     private CV consentOverrideReason = new CVImpl();
+    private SubjectChoiceBean subject1SubjectChoice;
+    private ConsentedToByBean author1;
+    private AssignedEntity_1Bean author2AssignedEntity;
+    private AccessTypeBean subject2InformDefinition;
 
-
-    @Hl7XmlMapping({"subject2/informDefinition"})
-    public AccessTypeBean getSubject2InformDefinition() {
-        return this.subject2InformDefinition;
+    @Hl7XmlMapping({"id"})
+    public Identifier getConsentFormNumber() {
+        return this.consentFormNumber.getValue();
     }
-    public void setSubject2InformDefinition(AccessTypeBean subject2InformDefinition) {
-        this.subject2InformDefinition = subject2InformDefinition;
+    public void setConsentFormNumber(Identifier consentFormNumber) {
+        this.consentFormNumber.setValue(consentFormNumber);
     }
 
+    @Hl7XmlMapping({"effectiveTime"})
+    public Interval<Date> getConsentEffectiveAndEndTime() {
+        return this.consentEffectiveAndEndTime.getValue();
+    }
+    public void setConsentEffectiveAndEndTime(Interval<Date> consentEffectiveAndEndTime) {
+        this.consentEffectiveAndEndTime.setValue(consentEffectiveAndEndTime);
+    }
+
+    @Hl7XmlMapping({"reasonCode"})
+    public Code getConsentOverrideReason() {
+        return (Code) this.consentOverrideReason.getValue();
+    }
+    public void setConsentOverrideReason(Code consentOverrideReason) {
+        this.consentOverrideReason.setValue(consentOverrideReason);
+    }
 
     @Hl7XmlMapping({"subject1/subjectChoice"})
-    public SubjectChoice getSubject1SubjectChoice() {
+    public SubjectChoiceBean getSubject1SubjectChoice() {
         return this.subject1SubjectChoice;
     }
-    public void setSubject1SubjectChoice(SubjectChoice subject1SubjectChoice) {
+    public void setSubject1SubjectChoice(SubjectChoiceBean subject1SubjectChoice) {
         this.subject1SubjectChoice = subject1SubjectChoice;
     }
 
@@ -96,11 +100,11 @@ public class ConsentBean extends MessagePartBean {
         return (this.subject1SubjectChoice instanceof PatientBean);
     }
 
-    public HealthcareWorkerBean getSubject1SubjectChoiceAsAssignedEntity1() {
-        return this.subject1SubjectChoice instanceof HealthcareWorkerBean ? (HealthcareWorkerBean) this.subject1SubjectChoice : null;
+    public AssignedEntity_1Bean getSubject1SubjectChoiceAsAssignedEntity1() {
+        return this.subject1SubjectChoice instanceof AssignedEntity_1Bean ? (AssignedEntity_1Bean) this.subject1SubjectChoice : null;
     }
     public boolean hasSubject1SubjectChoiceAsAssignedEntity1() {
-        return (this.subject1SubjectChoice instanceof HealthcareWorkerBean);
+        return (this.subject1SubjectChoice instanceof AssignedEntity_1Bean);
     }
 
     public HealthcareOrganizationBean getSubject1SubjectChoiceAsAssignedEntity2() {
@@ -117,14 +121,6 @@ public class ConsentBean extends MessagePartBean {
         return (this.subject1SubjectChoice instanceof RelatedPersonBean);
     }
 
-    public ActingPerson getSubject1SubjectChoiceAsActingPerson() {
-        return this.subject1SubjectChoice instanceof ActingPerson ? (ActingPerson) this.subject1SubjectChoice : null;
-    }
-    public boolean hasSubject1SubjectChoiceAsActingPerson() {
-        return (this.subject1SubjectChoice instanceof ActingPerson);
-    }
-
-
     @Hl7XmlMapping({"author1"})
     public ConsentedToByBean getAuthor1() {
         return this.author1;
@@ -133,79 +129,20 @@ public class ConsentBean extends MessagePartBean {
         this.author1 = author1;
     }
 
-
-    @Hl7XmlMapping({"author2"})
-    public PrescribedByBean getAuthor2() {
-        return this.author2;
+    @Hl7XmlMapping({"author2/assignedEntity"})
+    public AssignedEntity_1Bean getAuthor2AssignedEntity() {
+        return this.author2AssignedEntity;
     }
-    public void setAuthor2(PrescribedByBean author2) {
-        this.author2 = author2;
-    }
-
-
-    /**
-     * <p>D:Consent Form Number</p>
-     * 
-     * <p><p>A unique identifier for a specific consent for a 
-     * patient, client or provider.</p></p>
-     * 
-     * <p><p>Authorization.formNumber</p></p>
-     * 
-     * <p><p>Provides a traceable audit link between a physical 
-     * consent form and its electronic record</p></p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Identifier getConsentFormNumber() {
-        return this.consentFormNumber.getValue();
-    }
-    public void setConsentFormNumber(Identifier consentFormNumber) {
-        this.consentFormNumber.setValue(consentFormNumber);
+    public void setAuthor2AssignedEntity(AssignedEntity_1Bean author2AssignedEntity) {
+        this.author2AssignedEntity = author2AssignedEntity;
     }
 
-
-    /**
-     * <p>C:Consent Effective and End Time</p>
-     * 
-     * <p><p>Indicates the time that the consent will expire. 'Low' 
-     * is effective time and 'High' is end time.</p></p>
-     * 
-     * <p><p>Authorization.endTime (high)</p></p>
-     * 
-     * <p><p>Most consents are not open-ended, to ensure the 
-     * patient, client, or provider retains a level of control.</p></p>
-     */
-    @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getConsentEffectiveAndEndTime() {
-        return this.consentEffectiveAndEndTime.getValue();
+    @Hl7XmlMapping({"subject2/informDefinition"})
+    public AccessTypeBean getSubject2InformDefinition() {
+        return this.subject2InformDefinition;
     }
-    public void setConsentEffectiveAndEndTime(Interval<Date> consentEffectiveAndEndTime) {
-        this.consentEffectiveAndEndTime.setValue(consentEffectiveAndEndTime);
-    }
-
-
-    /**
-     * <p>E:Consent Override Reason</p>
-     * 
-     * <p><p>If author1 (provider) is specified, reason code must 
-     * be specified.</p></p>
-     * 
-     * <p><p>Indicates a reason for overriding a patient's (or 
-     * client or provider) consent rules.</p></p>
-     * 
-     * <p><p>Authorization.reason 
-     * (mnemonic)</p><p>Authorization.comment (original text)</p></p>
-     * 
-     * <p><p>Authorization.reason 
-     * (mnemonic)</p><p>Authorization.comment (original text)</p></p>
-     * 
-     * <p><p>Important for audit purposes</p></p>
-     */
-    @Hl7XmlMapping({"reasonCode"})
-    public Code getConsentOverrideReason() {
-        return (Code) this.consentOverrideReason.getValue();
-    }
-    public void setConsentOverrideReason(Code consentOverrideReason) {
-        this.consentOverrideReason.setValue(consentOverrideReason);
+    public void setSubject2InformDefinition(AccessTypeBean subject2InformDefinition) {
+        this.subject2InformDefinition = subject2InformDefinition;
     }
 
 }

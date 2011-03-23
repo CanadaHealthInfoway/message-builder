@@ -65,7 +65,7 @@
 			</registrationEvent>
 		</subject>
 		<queryAck>
-			<queryId specializationType="II.TOKEN" root="1ee83ff1-08ab-4fe7-b573-ea777e9bad31" />
+			<queryId root="1ee83ff1-08ab-4fe7-b573-ea777e9bad31" />
 			<queryResponseCode code="OK" />
 			<resultTotalQuantity value="1" />
 			<resultCurrentQuantity value="1" />

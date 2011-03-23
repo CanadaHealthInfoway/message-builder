@@ -13,13 +13,9 @@ import java.util.Date;
 @Hl7PartTypeMapping({"PRPA_MT101103CA.DeceasedTime"})
 public class DeceasedTimeBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110127L;
+    private static final long serialVersionUID = 20100614L;
     private TS deceasedDate = new TSImpl();
 
-
-    /**
-     * <p>Deceased Date</p>
-     */
     @Hl7XmlMapping({"value"})
     public Date getDeceasedDate() {
         return this.deceasedDate.getValue();

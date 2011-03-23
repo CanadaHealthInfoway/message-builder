@@ -13,30 +13,36 @@ import java.util.List;
 
 
 
+/**
+ * <p>Geographic Coordinates</p>
+ * 
+ * <p>Allows the capturing of a physical location according to 
+ * a particular coordinate system, such as GPS, legal 
+ * designation (lot, block, plan), range-meridian, etc.</p>
+ * 
+ * <p>Some locations cannot be described by postal addresses. 
+ * Also, geographic coordinates allow calculation of distances 
+ * and proximity</p>
+ */
 @Hl7PartTypeMapping({"COCT_MT960002CA.Position"})
 @Hl7RootType
 public class GeographicCoordinatesBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110127L;
-    private List<CoordinateAxisBean> componentPositionCoordinate = new ArrayList<CoordinateAxisBean>();
+    private static final long serialVersionUID = 20100615L;
     private CV coordinateSystem = new CVImpl();
+    private List<DefinedByBean> component = new ArrayList<DefinedByBean>();
 
-
-    @Hl7XmlMapping({"component/positionCoordinate"})
-    public List<CoordinateAxisBean> getComponentPositionCoordinate() {
-        return this.componentPositionCoordinate;
-    }
-
-
-    /**
-     * <p>Coordinate System</p>
-     */
     @Hl7XmlMapping({"code"})
     public PositionObservationCode getCoordinateSystem() {
         return (PositionObservationCode) this.coordinateSystem.getValue();
     }
     public void setCoordinateSystem(PositionObservationCode coordinateSystem) {
         this.coordinateSystem.setValue(coordinateSystem);
+    }
+
+    @Hl7XmlMapping({"component"})
+    public List<DefinedByBean> getComponent() {
+        return this.component;
     }
 
 }

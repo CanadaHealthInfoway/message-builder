@@ -18,71 +18,32 @@ import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.domainvalue.ActStatus;
 import ca.infoway.messagebuilder.domainvalue.x_VeryBasicConfidentialityKind;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.merged.CreatedAtBean;
+import ca.infoway.messagebuilder.model.merged.TargetedToPharmacyBean;
 import java.util.Date;
 
 
 
+/**
+ * <p>Dispense</p>
+ * 
+ * <p>Indicates a particular dispense event that resulted in 
+ * the issue.</p>
+ * 
+ * <p>Used when the issue pertains to the supply of the drug 
+ * rather than the drug itself. E.g. Duplicate pharmacy, refill 
+ * too soon, etc.</p>
+ */
 @Hl7PartTypeMapping({"COCT_MT260030CA.SupplyEvent"})
-public class DispenseBean extends MessagePartBean implements ca.infoway.messagebuilder.model.common.merged.CausalActs {
+public class DispenseBean extends MessagePartBean implements CausalActsBean {
 
-    private static final long serialVersionUID = 20110127L;
-    private CV dispenseMaskingIndicator = new CVImpl();
+    private static final long serialVersionUID = 20100615L;
+    private II prescriptionDispenseNumber = new IIImpl();
     private CS dispenseStatus = new CSImpl();
     private IVL<TS, Interval<Date>> dispensedDate = new IVLImpl<TS, Interval<Date>>();
-    private CreatedAtBean location;
-    private II prescriptionDispenseNumber = new IIImpl();
+    private CV dispenseMaskingIndicator = new CVImpl();
     private DispensedBean product;
+    private TargetedToPharmacyBean location;
 
-
-    /**
-     * <p>C:Dispense Masking Indicator</p>
-     */
-    @Hl7XmlMapping({"confidentialityCode"})
-    public x_VeryBasicConfidentialityKind getDispenseMaskingIndicator() {
-        return (x_VeryBasicConfidentialityKind) this.dispenseMaskingIndicator.getValue();
-    }
-    public void setDispenseMaskingIndicator(x_VeryBasicConfidentialityKind dispenseMaskingIndicator) {
-        this.dispenseMaskingIndicator.setValue(dispenseMaskingIndicator);
-    }
-
-
-    /**
-     * <p>B:Dispense Status</p>
-     */
-    @Hl7XmlMapping({"statusCode"})
-    public ActStatus getDispenseStatus() {
-        return (ActStatus) this.dispenseStatus.getValue();
-    }
-    public void setDispenseStatus(ActStatus dispenseStatus) {
-        this.dispenseStatus.setValue(dispenseStatus);
-    }
-
-
-    /**
-     * <p>B:Dispensed Date</p>
-     */
-    @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getDispensedDate() {
-        return this.dispensedDate.getValue();
-    }
-    public void setDispensedDate(Interval<Date> dispensedDate) {
-        this.dispensedDate.setValue(dispensedDate);
-    }
-
-
-    @Hl7XmlMapping({"location"})
-    public CreatedAtBean getLocation() {
-        return this.location;
-    }
-    public void setLocation(CreatedAtBean location) {
-        this.location = location;
-    }
-
-
-    /**
-     * <p>A:Prescription Dispense Number</p>
-     */
     @Hl7XmlMapping({"id"})
     public Identifier getPrescriptionDispenseNumber() {
         return this.prescriptionDispenseNumber.getValue();
@@ -91,6 +52,29 @@ public class DispenseBean extends MessagePartBean implements ca.infoway.messageb
         this.prescriptionDispenseNumber.setValue(prescriptionDispenseNumber);
     }
 
+    @Hl7XmlMapping({"statusCode"})
+    public ActStatus getDispenseStatus() {
+        return (ActStatus) this.dispenseStatus.getValue();
+    }
+    public void setDispenseStatus(ActStatus dispenseStatus) {
+        this.dispenseStatus.setValue(dispenseStatus);
+    }
+
+    @Hl7XmlMapping({"effectiveTime"})
+    public Interval<Date> getDispensedDate() {
+        return this.dispensedDate.getValue();
+    }
+    public void setDispensedDate(Interval<Date> dispensedDate) {
+        this.dispensedDate.setValue(dispensedDate);
+    }
+
+    @Hl7XmlMapping({"confidentialityCode"})
+    public x_VeryBasicConfidentialityKind getDispenseMaskingIndicator() {
+        return (x_VeryBasicConfidentialityKind) this.dispenseMaskingIndicator.getValue();
+    }
+    public void setDispenseMaskingIndicator(x_VeryBasicConfidentialityKind dispenseMaskingIndicator) {
+        this.dispenseMaskingIndicator.setValue(dispenseMaskingIndicator);
+    }
 
     @Hl7XmlMapping({"product"})
     public DispensedBean getProduct() {
@@ -98,6 +82,14 @@ public class DispenseBean extends MessagePartBean implements ca.infoway.messageb
     }
     public void setProduct(DispensedBean product) {
         this.product = product;
+    }
+
+    @Hl7XmlMapping({"location"})
+    public TargetedToPharmacyBean getLocation() {
+        return this.location;
+    }
+    public void setLocation(TargetedToPharmacyBean location) {
+        this.location = location;
     }
 
 }

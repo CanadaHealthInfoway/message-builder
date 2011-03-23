@@ -9,13 +9,10 @@ import java.util.List;
 
 import org.apache.commons.collections.CollectionUtils;
 
-import ca.infoway.messagebuilder.generator.java.Association;
 import ca.infoway.messagebuilder.generator.java.BaseRelationship;
-import ca.infoway.messagebuilder.generator.java.Choice;
 import ca.infoway.messagebuilder.generator.java.JavaCodeGenerator;
 import ca.infoway.messagebuilder.generator.java.PropertyGenerator;
 import ca.infoway.messagebuilder.generator.java.RenderedType;
-import ca.infoway.messagebuilder.xml.Documentation;
 import ca.infoway.messagebuilder.xml.Relationship;
 
 public abstract class Hl7MessageTypeWriter extends JavaCodeGenerator {
@@ -62,23 +59,26 @@ public abstract class Hl7MessageTypeWriter extends JavaCodeGenerator {
 
         for (BaseRelationship relationship : nullSafeIterable(relationships)) {
             if (!relationship.isFixed()) {
-            	writeDocumentation(relationship.getDocumentation(), indentLevel, writer);
             	createPropertyGenerator(relationship).createGettersAndSetters(indentLevel, writer);
             	if (relationship.isChoice() && !relationship.isCardinalityMultiple()) {
             		List<Relationship> choices = relationship.getRelationship().getChoices();
-            		List<Choice> childTypes = ((Association) relationship).getAllChoiceTypes();
-            		createChoiceProperties(relationship, childTypes, indentLevel, writer);
+            		createChoiceProperties(relationship, choices, indentLevel, writer);
             	}
             	writer.write(LINE_SEPARATOR);
             }
         }
     }
 	
-	private void createChoiceProperties(BaseRelationship rootChoice, List<Choice> choices, int indentLevel, Writer writer) throws IOException {
-		for (Choice choice : choices) {
-        	writer.write(LINE_SEPARATOR);
-			PropertyGenerator choicePropertyGenerator = createChoicePropertyGenerator(rootChoice, choice);
-			choicePropertyGenerator.createDerivedChoiceGetterProperties(indentLevel, writer);
+	private void createChoiceProperties(BaseRelationship rootChoice, List<Relationship> choices, int indentLevel, Writer writer) throws IOException {
+		for (Relationship choiceRelationship : choices) {
+			if (choiceRelationship.isChoice()) {
+        		createChoiceProperties(rootChoice, choiceRelationship.getChoices(), indentLevel, writer);
+			} else {
+				// write this get/has (translate choice type and leaf choice type into useable names)
+            	writer.write(LINE_SEPARATOR);
+				PropertyGenerator choicePropertyGenerator = createChoicePropertyGenerator(rootChoice, choiceRelationship);
+				choicePropertyGenerator.createDerivedChoiceGetterProperties(indentLevel, writer);
+			}
 		}
 	}
 	
@@ -87,7 +87,7 @@ public abstract class Hl7MessageTypeWriter extends JavaCodeGenerator {
 	}
 
 	protected abstract PropertyGenerator createPropertyGenerator(BaseRelationship relationship);
-	protected abstract PropertyGenerator createChoicePropertyGenerator(BaseRelationship rootChoice, Choice choice);
-	protected abstract void writeDocumentation(Documentation documentation, int indentLevel, Writer writer) throws IOException;
+
+	protected abstract PropertyGenerator createChoicePropertyGenerator(BaseRelationship rootChoice, Relationship choiceRelationship);
 	
 }

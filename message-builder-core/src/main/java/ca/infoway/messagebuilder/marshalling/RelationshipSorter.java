@@ -4,11 +4,12 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import org.apache.commons.lang.ClassUtils;
 import org.apache.commons.lang.WordUtils;
 
-import ca.infoway.messagebuilder.NamedAndTyped;
+import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
 import ca.infoway.messagebuilder.j5goodies.BeanProperty;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.platform.ListElementUtil;
@@ -21,7 +22,7 @@ import ca.infoway.messagebuilder.platform.ListElementUtil;
  */
 class RelationshipSorter {
 	
-	private final RelationshipMap map = new RelationshipMap();
+	private final Map<String, Object> relationships = new LinkedHashMap<String,Object>();
 	private final Map<String, BeanProperty> properties = new LinkedHashMap<String,BeanProperty>();
 	
 	private final Class<?> beanType;
@@ -47,25 +48,24 @@ class RelationshipSorter {
 	void add(Mapping mapping, BeanProperty beanProperty) {
 		this.properties.put(beanProperty.getName(), beanProperty);
 		if (!mapping.isCompound()) {
-			this.map.put(mapping, beanProperty);
+			this.relationships.put(mapping.first(), beanProperty);
 		} else {
-			if (!this.map.containsMapping(mapping.firstPart())) {
-				RelationshipSorter sorter = new RelationshipSorter(beanProperty.getName(), getBeanType(), getBean(), true);
-				this.map.put(mapping.firstPart(), sorter);
+			if (!this.relationships.containsKey(mapping.first())) {
+				this.relationships.put(mapping.first(), new RelationshipSorter(beanProperty.getName(), getBeanType(), getBean(), true));
 			}
-			getAsRelationshipSorter(mapping.firstPart()).add(mapping.rest(), beanProperty);
+			getAsRelationshipSorter(mapping.first()).add(mapping.rest(), beanProperty);
 		}
 	}
 	
-	RelationshipSorter getAsRelationshipSorter(NamedAndTyped relationship) {
-		return (RelationshipSorter) this.map.get(relationship);
+	RelationshipSorter getAsRelationshipSorter(String relationshipName) {
+		return (RelationshipSorter) this.relationships.get(relationshipName);
 	}
 	
 	static RelationshipSorter create(String propertyName, Object tealBean) {
 		RelationshipSorter holder = new RelationshipSorter(propertyName, tealBean == null ? null : tealBean.getClass(), tealBean);
 		Map<String,BeanProperty> properties = BeanProperty.getProperties(tealBean);
 		for (BeanProperty property : properties.values()) {
-			List<Mapping> mappings = Mapping.from(property);
+			List<Mapping> mappings = Mapping.from(property.getAnnotation(Hl7XmlMapping.class));
 			for (Mapping mapping : mappings) {
 				holder.add(mapping, property);
 			}
@@ -73,31 +73,32 @@ class RelationshipSorter {
 		return holder;
 	}
 
-	boolean isCollapsedRelationship(NamedAndTyped relationshipName) {
+	boolean isCollapsedRelationship(String relationshipName) {
 		Object o = get(relationshipName);
 		return o != null && o instanceof RelationshipSorter;
 	}
 	
-	Object get(NamedAndTyped namedAndTyped) {
-		return this.map.get(namedAndTyped);
-	}
-	@Deprecated
 	Object get(String relationshipName) {
-		return this.map.get(relationshipName);
+		return this.relationships.get(relationshipName);
 	}
 	
-	Object getField(NamedAndTyped relationship) {
-		Object o = this.map.get(relationship);
+	Object getField(String relationshipName) {
+		Object o = this.relationships.get(relationshipName);
 		if (o instanceof BeanProperty) {
 			return getMessageBeanPart().getField(WordUtils.uncapitalize(((BeanProperty) o).getName()));
 		} else {
-			throw new MarshallingException("Relationship " + relationship.getName() + " of " + toString() + " does not resolve to a bean property");
+			throw new MarshallingException("Relationship " + relationshipName + " of " + toString() + " does not resolve to a bean property");
 		}
 	}
 
 	private MessagePartBean getMessageBeanPart() {
 		return (MessagePartBean) this.bean;
 	}
+
+	Set<String> keySet() {
+		return this.relationships.keySet();
+	}
+
 
 	// These methods only exist to support one case: the case of the collapsed relationship
 	// with cardinality changes

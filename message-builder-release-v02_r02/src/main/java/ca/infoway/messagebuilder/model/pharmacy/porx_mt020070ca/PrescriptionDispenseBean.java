@@ -5,11 +5,9 @@ import ca.infoway.messagebuilder.Code;
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.annotation.Hl7RootType;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
-import ca.infoway.messagebuilder.datatype.BL;
 import ca.infoway.messagebuilder.datatype.CV;
 import ca.infoway.messagebuilder.datatype.II;
 import ca.infoway.messagebuilder.datatype.SET;
-import ca.infoway.messagebuilder.datatype.impl.BLImpl;
 import ca.infoway.messagebuilder.datatype.impl.CVImpl;
 import ca.infoway.messagebuilder.datatype.impl.IIImpl;
 import ca.infoway.messagebuilder.datatype.impl.SETImpl;
@@ -18,8 +16,9 @@ import ca.infoway.messagebuilder.domainvalue.x_NormalRestrictedTabooConfidential
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.common.coct_mt120600ca.NotesBean;
 import ca.infoway.messagebuilder.model.common.coct_mt270010ca.AdministrationInstructionsBean;
-import ca.infoway.messagebuilder.model.pharmacy.merged.PrescriptionReferenceBean;
-import ca.infoway.messagebuilder.model.pharmacy.merged.SubstitutionBean;
+import ca.infoway.messagebuilder.model.merged.DispensedForBean;
+import ca.infoway.messagebuilder.model.merged.PrescriptionReferenceBean;
+import ca.infoway.messagebuilder.model.merged.SubstitutionBean;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -29,41 +28,26 @@ import java.util.Set;
 /**
  * <p>Prescription Dispense</p>
  * 
- * <p><p>This is the detailed information about a medication 
- * dispense that has been performed on behalf a patient.</p></p>
+ * <p>This is the detailed information about a medication 
+ * dispense that has been performed on behalf a patient.</p>
  * 
- * <p><p>Dispensing is an integral part of the overall 
- * medication process.</p></p>
+ * <p>Dispensing is an integral part of the overall medication 
+ * process.</p>
  */
 @Hl7PartTypeMapping({"PORX_MT020070CA.MedicationDispense"})
 @Hl7RootType
 public class PrescriptionDispenseBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110127L;
-    private List<AdministrationInstructionsBean> component2DosageInstruction = new ArrayList<AdministrationInstructionsBean>();
+    private static final long serialVersionUID = 20100614L;
     private II localDispenseId = new IIImpl();
     private SET<CV, Code> prescriptionMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);
-    private NotesBean subjectOfAnnotation;
-    private SupplyEventBean component3SupplyEvent;
+    private DispensedForBean subject;
     private PrescriptionReferenceBean inFulfillmentOfSubstanceAdministrationRequest;
     private SubstitutionBean component1SubstitutionMade;
-    private BL subject = new BLImpl(false);
+    private List<AdministrationInstructionsBean> component2DosageInstruction = new ArrayList<AdministrationInstructionsBean>();
+    private IncludesBean component3;
+    private NotesBean subjectOfAnnotation;
 
-
-    @Hl7XmlMapping({"component2/dosageInstruction"})
-    public List<AdministrationInstructionsBean> getComponent2DosageInstruction() {
-        return this.component2DosageInstruction;
-    }
-
-
-    /**
-     * <p>A:Local Dispense Id</p>
-     * 
-     * <p><p>Identifier assigned by the dispensing facility.</p></p>
-     * 
-     * <p><p>Allows formal tracking of centrally recorded dispenses 
-     * to local records for audit and related purposes.</p></p>
-     */
     @Hl7XmlMapping({"id"})
     public Identifier getLocalDispenseId() {
         return this.localDispenseId.getValue();
@@ -72,87 +56,18 @@ public class PrescriptionDispenseBean extends MessagePartBean {
         this.localDispenseId.setValue(localDispenseId);
     }
 
-
-    /**
-     * <p>E:Prescription Masking Indicators</p>
-     * 
-     * <p><p>Communicates the intent that the dispense should be 
-     * masked if it is created; If the dispense is masked, this 
-     * makes the complete prescription and all dispenses 
-     * masked.</p></p>
-     * 
-     * <p><p>Can be used to set a mask for a new dispense, if 
-     * present in a new dispense request.</p><p>Allows the patient 
-     * to have discrete control over access to their prescription 
-     * data.</p><p>Taboo allows the provider to request restricted 
-     * access to patient or their care giver.</p><p>Constraint: 
-     * Can'''t have both normal and one of the other codes 
-     * simultaneously.</p><p>The attribute is optional because not 
-     * all systems will support masking.</p></p>
-     * 
-     * <p><p>Can be used to set a mask for a new dispense, if 
-     * present in a new dispense request.</p><p>Allows the patient 
-     * to have discrete control over access to their prescription 
-     * data.</p><p>Taboo allows the provider to request restricted 
-     * access to patient or their care giver.</p><p>Constraint: 
-     * Can'''t have both normal and one of the other codes 
-     * simultaneously.</p><p>The attribute is optional because not 
-     * all systems will support masking.</p></p>
-     * 
-     * <p><p>Can be used to set a mask for a new dispense, if 
-     * present in a new dispense request.</p><p>Allows the patient 
-     * to have discrete control over access to their prescription 
-     * data.</p><p>Taboo allows the provider to request restricted 
-     * access to patient or their care giver.</p><p>Constraint: 
-     * Can'''t have both normal and one of the other codes 
-     * simultaneously.</p><p>The attribute is optional because not 
-     * all systems will support masking.</p></p>
-     * 
-     * <p><p>Can be used to set a mask for a new dispense, if 
-     * present in a new dispense request.</p><p>Allows the patient 
-     * to have discrete control over access to their prescription 
-     * data.</p><p>Taboo allows the provider to request restricted 
-     * access to patient or their care giver.</p><p>Constraint: 
-     * Can'''t have both normal and one of the other codes 
-     * simultaneously.</p><p>The attribute is optional because not 
-     * all systems will support masking.</p></p>
-     * 
-     * <p><p>Can be used to set a mask for a new dispense, if 
-     * present in a new dispense request.</p><p>Allows the patient 
-     * to have discrete control over access to their prescription 
-     * data.</p><p>Taboo allows the provider to request restricted 
-     * access to patient or their care giver.</p><p>Constraint: 
-     * Can'''t have both normal and one of the other codes 
-     * simultaneously.</p><p>The attribute is optional because not 
-     * all systems will support masking.</p></p>
-     * 
-     * <p><p>If a dispense is masked, it implicitly masks the 
-     * prescription being dispensed. (There's no point in masking a 
-     * dispense if the prescription is unmasked.)</p></p>
-     */
     @Hl7XmlMapping({"confidentialityCode"})
     public Set<x_NormalRestrictedTabooConfidentialityKind> getPrescriptionMaskingIndicators() {
         return this.prescriptionMaskingIndicators.rawSet(x_NormalRestrictedTabooConfidentialityKind.class);
     }
 
-
-    @Hl7XmlMapping({"subjectOf/annotation"})
-    public NotesBean getSubjectOfAnnotation() {
-        return this.subjectOfAnnotation;
+    @Hl7XmlMapping({"subject"})
+    public DispensedForBean getSubject() {
+        return this.subject;
     }
-    public void setSubjectOfAnnotation(NotesBean subjectOfAnnotation) {
-        this.subjectOfAnnotation = subjectOfAnnotation;
+    public void setSubject(DispensedForBean subject) {
+        this.subject = subject;
     }
-
-
-    @Hl7XmlMapping({"component3/supplyEvent"})
-    public SupplyEventBean getComponent3SupplyEvent() {
-        return this.component3SupplyEvent;
-    }
-    public void setComponent3SupplyEvent(SupplyEventBean component3SupplyEvent) {
-        this.component3SupplyEvent = component3SupplyEvent;
-    }
-
 
     @Hl7XmlMapping({"inFulfillmentOf/substanceAdministrationRequest"})
     public PrescriptionReferenceBean getInFulfillmentOfSubstanceAdministrationRequest() {
@@ -162,7 +77,6 @@ public class PrescriptionDispenseBean extends MessagePartBean {
         this.inFulfillmentOfSubstanceAdministrationRequest = inFulfillmentOfSubstanceAdministrationRequest;
     }
 
-
     @Hl7XmlMapping({"component1/substitutionMade"})
     public SubstitutionBean getComponent1SubstitutionMade() {
         return this.component1SubstitutionMade;
@@ -171,13 +85,25 @@ public class PrescriptionDispenseBean extends MessagePartBean {
         this.component1SubstitutionMade = component1SubstitutionMade;
     }
 
-
-    @Hl7XmlMapping({"subject"})
-    public Boolean getSubject() {
-        return this.subject.getValue();
+    @Hl7XmlMapping({"component2/dosageInstruction"})
+    public List<AdministrationInstructionsBean> getComponent2DosageInstruction() {
+        return this.component2DosageInstruction;
     }
-    public void setSubject(Boolean subject) {
-        this.subject.setValue(subject);
+
+    @Hl7XmlMapping({"component3"})
+    public IncludesBean getComponent3() {
+        return this.component3;
+    }
+    public void setComponent3(IncludesBean component3) {
+        this.component3 = component3;
+    }
+
+    @Hl7XmlMapping({"subjectOf/annotation"})
+    public NotesBean getSubjectOfAnnotation() {
+        return this.subjectOfAnnotation;
+    }
+    public void setSubjectOfAnnotation(NotesBean subjectOfAnnotation) {
+        this.subjectOfAnnotation = subjectOfAnnotation;
     }
 
 }

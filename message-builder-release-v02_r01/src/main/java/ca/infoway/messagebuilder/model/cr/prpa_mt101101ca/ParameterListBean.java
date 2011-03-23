@@ -11,18 +11,18 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 
+/**
+ * <p>either a Public or Business Identifier must be supplied 
+ * to support this Query</p>
+ */
 @Hl7PartTypeMapping({"PRPA_MT101101CA.ParameterList"})
 @Hl7RootType
 public class ParameterListBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110127L;
+    private static final long serialVersionUID = 20100615L;
     private II clientHealthcareIdentificationNumber = new IIImpl();
     private II clientIDPubValue = new IIImpl();
 
-
-    /**
-     * <p>Client Healthcare Identification Number</p>
-     */
     @Hl7XmlMapping({"clientIDBus/value"})
     public Identifier getClientHealthcareIdentificationNumber() {
         return this.clientHealthcareIdentificationNumber.getValue();
@@ -31,10 +31,6 @@ public class ParameterListBean extends MessagePartBean {
         this.clientHealthcareIdentificationNumber.setValue(clientHealthcareIdentificationNumber);
     }
 
-
-    /**
-     * <p>Client Healthcare Identification Number</p>
-     */
     @Hl7XmlMapping({"clientIDPub/value"})
     public Identifier getClientIDPubValue() {
         return this.clientIDPubValue.getValue();

@@ -9,16 +9,28 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 
+/**
+ * <p>Administration Precondition</p>
+ * 
+ * <p>This sets the conditions for which a specific 
+ * administration of the drug may be undertaken. Example: if 
+ * headache persists for 2hrs or more 'take 2 tabs.</p>
+ * 
+ * <p>To flag a prescription as '''PRN''' without specifying a 
+ * condition, include the association but specify a null flavor 
+ * for the Dosage Condition.</p>
+ * 
+ * <p>Indicates that prescription is a 'PRN' (as needed) 
+ * prescription and that doses to be consumed cannot be 
+ * accurately calculated. This has important compliance 
+ * implications.</p>
+ */
 @Hl7PartTypeMapping({"COCT_MT270010CA.ActEventCriterion"})
 public class AdministrationPreconditionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110127L;
+    private static final long serialVersionUID = 20100615L;
     private ST dosageCondition = new STImpl();
 
-
-    /**
-     * <p>A:Dosage Condition</p>
-     */
     @Hl7XmlMapping({"text"})
     public String getDosageCondition() {
         return this.dosageCondition.getValue();

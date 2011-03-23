@@ -15,34 +15,24 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 /**
  * <p>Payee Organisation</p>
  * 
- * <p><p>Organisation receiving payment.</p></p>
+ * <p>Organisation receiving payment.</p>
  */
 @Hl7PartTypeMapping({"COCT_MT110200CA.PayeeOrganization"})
-public class PayeeOrganisationBean extends MessagePartBean implements PayeeChoice {
+public class PayeeOrganisationBean extends MessagePartBean implements PayeeChoiceBean {
 
-    private static final long serialVersionUID = 20110127L;
-    private AD payeeOrganisationAddress = new ADImpl();
-    private ST payeeOrganisationName = new STImpl();
+    private static final long serialVersionUID = 20100603L;
     private PayeeRelationshipRoleBean asRole;
+    private ST payeeOrganisationName = new STImpl();
+    private AD payeeOrganisationAddress = new ADImpl();
 
-
-    /**
-     * <p>Payee Organisation address</p>
-     */
-    @Hl7XmlMapping({"addr"})
-    public PostalAddress getPayeeOrganisationAddress() {
-        return this.payeeOrganisationAddress.getValue();
+    @Hl7XmlMapping({"asRole"})
+    public PayeeRelationshipRoleBean getAsRole() {
+        return this.asRole;
     }
-    public void setPayeeOrganisationAddress(PostalAddress payeeOrganisationAddress) {
-        this.payeeOrganisationAddress.setValue(payeeOrganisationAddress);
+    public void setAsRole(PayeeRelationshipRoleBean asRole) {
+        this.asRole = asRole;
     }
 
-
-    /**
-     * <p>Payee Organisation name</p>
-     * 
-     * <p><p>name of organisation receiving payment.</p></p>
-     */
     @Hl7XmlMapping({"name"})
     public String getPayeeOrganisationName() {
         return this.payeeOrganisationName.getValue();
@@ -51,13 +41,12 @@ public class PayeeOrganisationBean extends MessagePartBean implements PayeeChoic
         this.payeeOrganisationName.setValue(payeeOrganisationName);
     }
 
-
-    @Hl7XmlMapping({"asRole"})
-    public PayeeRelationshipRoleBean getAsRole() {
-        return this.asRole;
+    @Hl7XmlMapping({"addr"})
+    public PostalAddress getPayeeOrganisationAddress() {
+        return this.payeeOrganisationAddress.getValue();
     }
-    public void setAsRole(PayeeRelationshipRoleBean asRole) {
-        this.asRole = asRole;
+    public void setPayeeOrganisationAddress(PostalAddress payeeOrganisationAddress) {
+        this.payeeOrganisationAddress.setValue(payeeOrganisationAddress);
     }
 
 }

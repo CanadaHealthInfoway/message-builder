@@ -35,12 +35,7 @@ class FormatContextImpl implements FormatContext {
 		return false;
 	}
 
-	public boolean isPassOnSpecializationType() {
-		return true;
-	}
-
 	public VersionNumber getVersion() {
 		return this.version;
 	}
-
 }

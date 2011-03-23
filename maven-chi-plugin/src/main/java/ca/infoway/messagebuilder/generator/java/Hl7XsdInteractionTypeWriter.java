@@ -32,7 +32,7 @@ public class Hl7XsdInteractionTypeWriter extends Hl7XsdTypeWriter {
 
 	@Override
 	protected String getTypeName() {
-		return this.interactionType.getTypeName().getName();
+		return this.interactionType.getName().getName();
 	}
 
 	private void addInteractionToSchema(Element schema) {
@@ -40,9 +40,9 @@ public class Hl7XsdInteractionTypeWriter extends Hl7XsdTypeWriter {
 		Element typeElement = document.createElement("xs:element");
 		typeElement.setAttribute("name", getNodeName());
 		typeElement.setAttribute("type", "chi:" + getTypeName());
-		String parentName = this.interactionType.getParentType().getTypeName().getName();
+		String parentName = this.interactionType.getParentType().getName();
 		List<ArgumentType> arguments = this.interactionType.getArguments();
-		addTemplateTypes(schema, parentName, arguments, this.interactionType.getParentType().getTypeName(), true);
+		addTemplateTypes(schema, parentName, arguments, this.interactionType.getParentType(), true);
 		schema.appendChild(typeElement);
 	}
 
@@ -51,7 +51,7 @@ public class Hl7XsdInteractionTypeWriter extends Hl7XsdTypeWriter {
 		if (StringUtils.isNotBlank(businessName)) {
 			return uncapitalize(cleanUpBusinessName(businessName));
 		} else {
-			return this.interactionType.getTypeName().getName();
+			return this.interactionType.getName().getName();
 		}
 	}
 
@@ -97,12 +97,12 @@ public class Hl7XsdInteractionTypeWriter extends Hl7XsdTypeWriter {
 				Association association = (Association) relationship;
 				addTemplateType(schema,	sequence,
 						association.getName(),
-						association.getAssociationType().getTypeName().getName(),
+						association.getAssociationType().getName().getName(),
 						argumentTypes.isEmpty());
 				addTemplateTypes(schema, 
-						association.getAssociationType().getTypeName().getName(), 
+						association.getAssociationType().getName().getName(), 
 						argumentTypes, 
-						association.getAssociationType().getTypeName(), 
+						association.getAssociationType().getName(), 
 						false);
 			}
 		}

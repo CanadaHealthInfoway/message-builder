@@ -2,24 +2,16 @@ package ca.infoway.messagebuilder.generator;
 
 import static ca.infoway.messagebuilder.generator.Namespaces.isMif1;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.xml.xpath.XPathExpressionException;
 
-import org.apache.commons.lang.StringUtils;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
-import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 import ca.infoway.messagebuilder.generator.util.XPathHelper;
-import ca.infoway.messagebuilder.lang.EnumPattern;
-import ca.infoway.messagebuilder.util.xml.DOMWriter;
-import ca.infoway.messagebuilder.xml.Annotation;
-import ca.infoway.messagebuilder.xml.AnnotationType;
-import ca.infoway.messagebuilder.xml.UpdateModeType;
 
 abstract class BaseMifXPathHelper {
 
@@ -74,61 +66,10 @@ abstract class BaseMifXPathHelper {
 		return document.getDocumentElement().getNamespaceURI();
 	}
 	
-	List<Annotation> getDocumentation(Element classElement, String preMifAnnotationPath, String postMifAnnotationPath) {
-		List<Annotation> result = new ArrayList<Annotation>();
-		for (AnnotationType annotationType : (List<AnnotationType>) EnumPattern.values(AnnotationType.class)) {
-			String[] elementNames = annotationType.getMifElementNames();
-			for (String elementName : elementNames) {
-				List<Element> elements = toElementList(getNodes(classElement, preMifAnnotationPath+elementName+postMifAnnotationPath));
-				List<Annotation> annotations = new ArrayList<Annotation>();
-				if (!elements.isEmpty()) {
-					Annotation annotation = new Annotation();
-					annotation.setAnnotationType(annotationType);
-					for (Element paragraph : elements) {
-						recurisvelyClearMifPrefix(paragraph);
-						try {
-							String text = StringUtils.trim(DOMWriter.renderAsString(paragraph));
-							if (StringUtils.isNotBlank(text)) {
-								annotation.setText((annotation.getText()!=null)?annotation.getText()+text:text);
-							}
-							String sourceName = paragraph.getAttribute("sourceName");
-							if (StringUtils.isNotBlank(sourceName)) {
-								annotation.setSourceName(sourceName);
-							}
-							String otherType = paragraph.getAttribute("type");
-							if (StringUtils.isNotBlank(otherType)) {
-								annotation.setOtherAnnotationType(otherType);
-							}
-						} catch (IOException e) {
-							throw new MifProcessingException(e);
-						}
-						annotations.add(annotation);
-					}
-				}
-				if (!annotations.isEmpty()) {
-					result.addAll(annotations);
-				}
-			}
-		}
-		return result;
-	}
-
-	private void recurisvelyClearMifPrefix(Element element) {
-		element.setPrefix(null);
-		NodeList children = element.getChildNodes();
-		for (int i = 0; i < children.getLength(); i++) {
-			Node child = children.item(i);
-			if (child instanceof Element) {
-				recurisvelyClearMifPrefix((Element)child);
-			}
-		}
-	}
-	
 	abstract String getOwnedEntryPoint(Document document);
 	abstract String getRootType(Element ownedEntryPoint);
-	abstract List<Annotation> getDocumentation(Element classElement);
+	abstract List<String> getDocumentation(Element classElement);
 	abstract String getBusinessName(Element element);
 	abstract Element getOwnedEntryPointElement(Document document);
-	abstract List<UpdateModeType> getAllowedUpdateModes(Element element);
 	
 }

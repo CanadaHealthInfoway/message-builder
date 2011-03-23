@@ -5,9 +5,15 @@ import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
 import ca.infoway.messagebuilder.datatype.CV;
 import ca.infoway.messagebuilder.datatype.II;
+import ca.infoway.messagebuilder.datatype.PN;
+import ca.infoway.messagebuilder.datatype.TEL;
 import ca.infoway.messagebuilder.datatype.impl.CVImpl;
 import ca.infoway.messagebuilder.datatype.impl.IIImpl;
+import ca.infoway.messagebuilder.datatype.impl.PNImpl;
+import ca.infoway.messagebuilder.datatype.impl.TELImpl;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
+import ca.infoway.messagebuilder.datatype.lang.PersonName;
+import ca.infoway.messagebuilder.datatype.lang.TelecommunicationAddress;
 import ca.infoway.messagebuilder.domainvalue.AdministrativeContactRoleType;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 
@@ -16,24 +22,20 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"FICR_MT600201CA.ContactParty"})
 public class AdministrativeContactsSBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110127L;
-    private AdministrativeContactPersonBean contactPerson;
-    private CV administrativeContactType = new CVImpl();
+    private static final long serialVersionUID = 20100615L;
     private II administrativeContactID = new IIImpl();
+    private CV administrativeContactType = new CVImpl();
+    private PN ownerName = new PNImpl();
+    private TEL contactPersonTelephoneOrEmailDetails = new TELImpl();
 
-
-    @Hl7XmlMapping({"contactPerson"})
-    public AdministrativeContactPersonBean getContactPerson() {
-        return this.contactPerson;
+    @Hl7XmlMapping({"id"})
+    public Identifier getAdministrativeContactID() {
+        return this.administrativeContactID.getValue();
     }
-    public void setContactPerson(AdministrativeContactPersonBean contactPerson) {
-        this.contactPerson = contactPerson;
+    public void setAdministrativeContactID(Identifier administrativeContactID) {
+        this.administrativeContactID.setValue(administrativeContactID);
     }
 
-
-    /**
-     * <p>Administrative Contact Type</p>
-     */
     @Hl7XmlMapping({"code"})
     public AdministrativeContactRoleType getAdministrativeContactType() {
         return (AdministrativeContactRoleType) this.administrativeContactType.getValue();
@@ -42,16 +44,20 @@ public class AdministrativeContactsSBean extends MessagePartBean {
         this.administrativeContactType.setValue(administrativeContactType);
     }
 
-
-    /**
-     * <p>Administrative Contact ID</p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Identifier getAdministrativeContactID() {
-        return this.administrativeContactID.getValue();
+    @Hl7XmlMapping({"contactPerson/name"})
+    public PersonName getOwnerName() {
+        return this.ownerName.getValue();
     }
-    public void setAdministrativeContactID(Identifier administrativeContactID) {
-        this.administrativeContactID.setValue(administrativeContactID);
+    public void setOwnerName(PersonName ownerName) {
+        this.ownerName.setValue(ownerName);
+    }
+
+    @Hl7XmlMapping({"contactPerson/telecom"})
+    public TelecommunicationAddress getContactPersonTelephoneOrEmailDetails() {
+        return this.contactPersonTelephoneOrEmailDetails.getValue();
+    }
+    public void setContactPersonTelephoneOrEmailDetails(TelecommunicationAddress contactPersonTelephoneOrEmailDetails) {
+        this.contactPersonTelephoneOrEmailDetails.setValue(contactPersonTelephoneOrEmailDetails);
     }
 
 }

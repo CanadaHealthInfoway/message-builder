@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="UTF-8"?><mif:staticModel xmlns:mif="urn:hl7-org:v3/mif" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:hl7-org:v3/mif" isAbstract="false" isSerializable="true" name="CA" packageKind="realmNamespace" representationKind="flat" schemaVersion="2.0" xsi:schemaLocation="">
+   <mif:packageLocation artifact="MT-deprecated" domain="CT" id="130001" realmNamespace="CA" root="DEFN" section="IM" subSection="CO"/>
+   <mif:header>
+      <mif:renderingInformation application="Visio to MIF transform"/>
+      <mif:legalese copyrightOwner="Health Level Seven" copyrightYears="2008"/>
+   </mif:header>
+   <mif:graphicRepresentation presentation="HL7">
+      <mif:graphElement name="Main">
+         <mif:position x="0" y="0"/>
+         <mif:size height="263" width="633"/>
+      </mif:graphElement>
+   <entryPoint name="Control Act Event basic"><mif:graphElement containerDiagramName="Main" shapeId="Sheet.87">
+            <mif:position x="2" y="47"/>
+            <mif:size height="43" width="158"/>
+            <mif:anchorage connectToShapeId="Sheet.87">
+               <mif:position x="161" y="60"/>
+               <mif:graphEdge>
+                  <mif:anchor connectToShapeId="Sheet.177">
+                     <mif:position x="227" y="64"/>
+                  </mif:anchor>
+               </mif:graphEdge>
+            </mif:anchorage>
+         </mif:graphElement></entryPoint><class className="Author3" presentation="HL7"><mif:graphElement containerDiagramName="Main" nodeOrientation="Down" shapeId="Sheet.187" shapeTemplate="Participation" textWrappingWidth="66.0">
+               <mif:position x="272" y="127"/>
+               <mif:size height="75" width="256"/>
+            </mif:graphElement></class><class className="ControlActEvent" presentation="HL7"><mif:graphElement containerDiagramName="Main" isHeightAutoSize="true" isWidthAutoSize="true" shapeId="Sheet.177" shapeTemplate="Act">
+               <mif:position x="227" y="0"/>
+               <mif:size height="126" width="342"/>
+            </mif:graphElement></class><class className="R_ActingPersonIdentified-informational" presentation="HL7"><mif:graphElement containerDiagramName="Main" isHeightAutoSize="true" isWidthAutoSize="true" shapeId="Sheet.5" shapeTemplate="CMET">
+               <mif:position x="334" y="202"/>
+               <mif:size height="60" width="136"/>
+            </mif:graphElement></class><association className="R_ActingPersonIdentified-informational" relationshipName="actingPerson"><mif:graphElement connectToShapeId="Sheet.187" containerDiagramName="Main">
+                                 <mif:position x="402" y="202"/>
+                                 <mif:graphEdge>
+                                    <mif:anchor connectToShapeId="Sheet.5">
+                                       <mif:position x="402" y="202"/>
+                                    </mif:anchor>
+                                 </mif:graphEdge>
+                              </mif:graphElement></association><association className="Author3" relationshipName="author"><mif:graphElement connectToShapeId="Sheet.177" containerDiagramName="Main">
+                     <mif:position x="398" y="127"/>
+                     <mif:graphEdge>
+                        <mif:anchor connectToShapeId="Sheet.187">
+                           <mif:position x="398" y="127"/>
+                        </mif:anchor>
+                     </mif:graphEdge>
+                  </mif:graphElement></association></mif:graphicRepresentation>
+   <derivedFrom staticModelDerivationId="1">
+      <mif:targetStaticModel artifact="RIM" root="DEFN" version="00"/>
+   </derivedFrom>
+   <entryPoint className="ControlActEvent" id="COCT_MT130001CA" isAbstract="false" name="Control Act Event basic">
+      
+   </entryPoint>
+   <containedClass>
+      <mif:class isAbstract="false" name="Author3">
+         <mif:businessName name="*changed by"><realmNamespace value="UV"/></mif:businessName>
+         <derivedFrom className="Participation" staticModelDerivationId="1"/>
+         
+         <mif:annotations>
+            
+            
+         <documentation><mif:definition>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>Identity of the health service provider responsible for the change.</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:definition><mif:rationale>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>In an EHR integrated health services environment, it is important that other providers are able to query who is responsible for a given change. Also used by applications for auditing and sorting. The attribute is mandatory because the responsible provider should always be known.</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:rationale></documentation></mif:annotations>
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="typeCode" sortKey="1"><enumerationValues>AUT</enumerationValues>
+            <derivedFrom attributeName="typeCode" className="Participation" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="AUT" codeSystemName="ParticipationType"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="contextControlCode" sortKey="2"><enumerationValues>AP</enumerationValues>
+            <derivedFrom attributeName="contextControlCode" className="Participation" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="AP" codeSystemName="ContextControl"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="time" sortKey="3">
+            <mif:businessName name="Change Datetime"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>The date on which the change was made. Note that this may be earlier or occassionally later than when the change is actually effective.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Gives other providers the frame of reference in evaluating any post-change issues with the event. Also used for sorting and audit purposes. Time of change is always known and thus the attribute is mandatory.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation></mif:annotations>
+            <derivedFrom attributeName="time" className="Participation" staticModelDerivationId="1"/>
+            <mif:type name="TS.FULLDATETIME"/>
+         </mif:attribute>
+      </mif:class>
+   </containedClass>
+   <containedClass>
+      <mif:class isAbstract="false" name="ControlActEvent">
+         <mif:businessName name="Version Information"><realmNamespace value="UV"/></mif:businessName>
+         <derivedFrom className="ControlAct" staticModelDerivationId="1"/>
+         
+         <mif:annotations>
+            
+            
+         <documentation><mif:definition>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>This records the history of changes that have been made to the record, including why the changes were made, who made them and when.</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:definition><mif:rationale>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>Provides a record changes, providing deeper clinical understanding, particularly of past clinical decisions.</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:rationale></documentation></mif:annotations>
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="classCode" sortKey="1"><enumerationValues>CACT</enumerationValues>
+            <derivedFrom attributeName="classCode" className="ControlAct" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="CACT" codeSystemName="ActClass"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="moodCode" sortKey="2"><enumerationValues>EVN</enumerationValues>
+            <derivedFrom attributeName="moodCode" className="ControlAct" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="EVN" codeSystemName="ActMood"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="id" sortKey="3">
+            <mif:businessName name="B:Change Identifier"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>A unique identifier for this particular change.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Allows referencing (and potentially undoing) a specific change. Every status change has an identifier, thus this attribute is mandatory.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation></mif:annotations>
+            <derivedFrom attributeName="id" className="ControlAct" staticModelDerivationId="1"/>
+            <mif:type name="II.BUS"/>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="code" sortKey="4">
+            <mif:businessName name="A:Change Type"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Identifies what kind of change occurred.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>This attribute is mandatory to ensure that change types are distinguishable.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation></mif:annotations>
+            <derivedFrom attributeName="code" className="ControlAct" staticModelDerivationId="1"/>
+            <mif:type name="CV"/>
+            <supplierVocabulary codingStrength="CNE"><vocabularyDomain name="HL7TriggerEventCode"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="statusCode" sortKey="5"><enumerationValues>completed</enumerationValues>
+            <derivedFrom attributeName="statusCode" className="ControlAct" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="completed" codeSystemName="ActStatus"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="effectiveTime" sortKey="6">
+            <mif:businessName name="C:Change Effective Date and End Date"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>The date on which the various changes of an event become valid and applicable and potentially when the change is supposed to cease.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Allows applications to sort and filter by time. The date on which a change is effective should always be known and thus is mandatory. The end date may be left unspecified if there isn't a specific targetted end date (e.g. with a suspend including a planned release date).</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation></mif:annotations>
+            <derivedFrom attributeName="effectiveTime" className="ControlAct" staticModelDerivationId="1"/>
+            <mif:type name="IVL">
+               <argumentDatatype name="TS.FULLDATE"/>
+            </mif:type>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="false" maximumMultiplicity="1" minimumMultiplicity="0" name="reasonCode" sortKey="7">
+            <mif:businessName name="D:Change Reason"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Denotes the reason the record was modified.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Ensures consistent terminology in capturing and interpreting reasons for change. Allows CWE because not all reasons will correspond to a pre-defined code.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation></mif:annotations>
+            <derivedFrom attributeName="reasonCode" className="ControlAct" staticModelDerivationId="1"/>
+            <mif:type name="CV"/>
+            <supplierVocabulary codingStrength="CWE"><vocabularyDomain name="ControlActReason"/></supplierVocabulary>
+         </mif:attribute>
+      </mif:class>
+   </containedClass>
+   <containedClass>
+      <mif:commonModelElementRef name="R_ActingPersonIdentified-informational">
+         <derivedFrom className="Role" staticModelDerivationId="1"/>
+         <supplierVocabulary><vocabularyDomain xmlns="" name="RoleClass"/></supplierVocabulary>
+         
+         <cmet name="COCT_MT911108CA"/>
+      </mif:commonModelElementRef>
+   </containedClass>
+   <association sortKey="2">
+      
+      <mif:connections>
+         <mif:traversableConnection conformance="R" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="actingPerson" participantClassName="R_ActingPersonIdentified-informational" sortKey="BZ">
+            <derivedFrom associationEndName="role" className="Participation" staticModelDerivationId="1"/>
+            <participantClassSpecialization className="AssignedEntity" traversalName="assignedEntity1"/>
+            <participantClassSpecialization className="AssignedEntity" traversalName="assignedEntity2"/>
+            <participantClassSpecialization className="PersonalRelationship" traversalName="personalRelationship"/>
+         </mif:traversableConnection>
+         <mif:nonTraversableConnection participantClassName="Author3">
+            <derivedFrom associationEndName="participation" className="Role" staticModelDerivationId="1"/>
+         </mif:nonTraversableConnection>
+      </mif:connections>
+   </association>
+   <association sortKey="3">
+      
+      <mif:connections>
+         <mif:traversableConnection conformance="R" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="author" participantClassName="Author3" sortKey="AEA_______">
+            <derivedFrom associationEndName="participation" className="Act" staticModelDerivationId="1"/>
+         </mif:traversableConnection>
+         <mif:nonTraversableConnection participantClassName="ControlActEvent">
+            <derivedFrom associationEndName="act" className="Participation" staticModelDerivationId="1"/>
+         </mif:nonTraversableConnection>
+      </mif:connections>
+   </association>
+</mif:staticModel>

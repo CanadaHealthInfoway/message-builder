@@ -1,0 +1,1152 @@
+<?xml version="1.0" encoding="UTF-8"?><mif:staticModel xmlns:mif="urn:hl7-org:v3/mif" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:hl7-org:v3/mif" isAbstract="false" isSerializable="true" name="CA" packageKind="realmNamespace" representationKind="flat" schemaVersion="2.0" xsi:schemaLocation="">
+   <mif:packageLocation artifact="MT-deprecated" domain="CT" id="080100" realmNamespace="CA" root="DEFN" section="IM" subSection="CO"/>
+   <mif:header>
+      <mif:renderingInformation application="Visio to MIF transform"/>
+      <mif:legalese copyrightOwner="Health Level Seven" copyrightYears="2008"/>
+   </mif:header>
+   <mif:graphicRepresentation presentation="HL7">
+      <mif:graphElement name="Main">
+         <mif:position x="0" y="0"/>
+         <mif:size height="768" width="1554"/>
+      </mif:graphElement>
+   <entryPoint name="R_Specimen minimal"><mif:graphElement containerDiagramName="Main" shapeId="Sheet.1">
+            <mif:position x="577" y="77"/>
+            <mif:size height="43" width="142"/>
+            <mif:anchorage connectToShapeId="Sheet.1">
+               <mif:position x="651" y="120"/>
+               <mif:graphEdge>
+                  <mif:anchor connectToShapeId="Sheet.8">
+                     <mif:position x="644" y="190"/>
+                  </mif:anchor>
+               </mif:graphEdge>
+            </mif:anchorage>
+         </mif:graphElement></entryPoint><class className="A_AnnotationUniversal" presentation="HL7"><mif:graphElement containerDiagramName="Main" isHeightAutoSize="true" isWidthAutoSize="true" shapeId="Sheet.43" shapeTemplate="CMET">
+               <mif:position x="1022" y="355"/>
+               <mif:size height="60" width="105"/>
+            </mif:graphElement></class><class className="Container" presentation="HL7"><mif:graphElement containerDiagramName="Main" isHeightAutoSize="true" isWidthAutoSize="true" shapeId="Sheet.97" shapeTemplate="Entity">
+               <mif:position x="224" y="577"/>
+               <mif:size height="74" width="192"/>
+            </mif:graphElement></class><class className="Content" presentation="HL7"><mif:graphElement containerDiagramName="Main" isHeightAutoSize="true" isWidthAutoSize="true" shapeId="Sheet.87" shapeTemplate="Role">
+               <mif:position x="297" y="489"/>
+               <mif:size height="48" width="120"/>
+            </mif:graphElement></class><class className="IdentifiedEntity" presentation="HL7"><mif:graphElement containerDiagramName="Main" isHeightAutoSize="true" isWidthAutoSize="true" shapeId="Sheet.145" shapeTemplate="Role">
+               <mif:position x="156" y="193"/>
+               <mif:size height="74" width="260"/>
+            </mif:graphElement></class><class className="Material" presentation="HL7"><mif:graphElement containerDiagramName="Main" isHeightAutoSize="true" isWidthAutoSize="true" shapeId="Sheet.33" shapeTemplate="Entity">
+               <mif:position x="97" y="366"/>
+               <mif:size height="74" width="319"/>
+            </mif:graphElement></class><class className="Organization" presentation="HL7"><mif:graphElement containerDiagramName="Main" isHeightAutoSize="true" isWidthAutoSize="true" shapeId="Sheet.155" shapeTemplate="Entity">
+               <mif:position x="163" y="51"/>
+               <mif:size height="74" width="253"/>
+            </mif:graphElement></class><class className="Performer2" presentation="HL7"><mif:graphElement containerDiagramName="Main" nodeOrientation="Right" shapeId="Sheet.48" shapeTemplate="Participation" textWrappingWidth="66.0">
+               <mif:position x="1197" y="210"/>
+               <mif:size height="29" width="141"/>
+            </mif:graphElement></class><class className="Product" presentation="HL7"><mif:graphElement containerDiagramName="Main" nodeOrientation="Left" shapeId="Sheet.22" shapeTemplate="Participation" textWrappingWidth="66.0">
+               <mif:position x="740" y="235"/>
+               <mif:size height="29" width="219"/>
+            </mif:graphElement></class><class className="R_AssignedPersonIdentified-confirmable" presentation="HL7"><mif:graphElement containerDiagramName="Main" isHeightAutoSize="true" isWidthAutoSize="true" shapeId="Sheet.54" shapeTemplate="CMET">
+               <mif:position x="1339" y="201"/>
+               <mif:size height="60" width="129"/>
+            </mif:graphElement></class><class className="Specimen" presentation="HL7"><mif:graphElement containerDiagramName="Main" isHeightAutoSize="false" isWidthAutoSize="true" shapeId="Sheet.8" shapeTemplate="Role">
+               <mif:position x="548" y="190"/>
+               <mif:size height="553" width="192"/>
+            </mif:graphElement></class><class className="SpecimenCollectionProcedureEvent" presentation="HL7"><mif:graphElement containerDiagramName="Main" isHeightAutoSize="true" isWidthAutoSize="true" shapeId="Sheet.18" shapeTemplate="Act">
+               <mif:position x="960" y="192"/>
+               <mif:size height="87" width="237"/>
+            </mif:graphElement></class><class className="SpecimenObservationEvent" presentation="HL7"><mif:graphElement containerDiagramName="Main" isHeightAutoSize="true" isWidthAutoSize="true" shapeId="Sheet.126" shapeTemplate="Act">
+               <mif:position x="960" y="622"/>
+               <mif:size height="113" width="258"/>
+            </mif:graphElement></class><class className="Subject2" presentation="HL7"><mif:graphElement containerDiagramName="Main" nodeOrientation="Up" shapeId="Sheet.37" shapeTemplate="ActRelationship" textWrappingWidth="66.0">
+               <mif:position x="969" y="279"/>
+               <mif:size height="75" width="214"/>
+            </mif:graphElement></class><class className="Subject3" presentation="HL7"><mif:graphElement containerDiagramName="Main" nodeOrientation="Left" shapeId="Sheet.105" shapeTemplate="Participation" textWrappingWidth="66.0">
+               <mif:position x="740" y="523"/>
+               <mif:size height="29" width="219"/>
+            </mif:graphElement></class><class className="Subject4" presentation="HL7"><mif:graphElement containerDiagramName="Main" nodeOrientation="Left" shapeId="Sheet.130" shapeTemplate="Participation" textWrappingWidth="66.0">
+               <mif:position x="740" y="663"/>
+               <mif:size height="29" width="219"/>
+            </mif:graphElement></class><class className="TransportationEvent" presentation="HL7"><mif:graphElement containerDiagramName="Main" isHeightAutoSize="true" isWidthAutoSize="true" shapeId="Sheet.101" shapeTemplate="Act">
+               <mif:position x="960" y="478"/>
+               <mif:size height="126" width="283"/>
+            </mif:graphElement></class><association className="Container" relationshipName="container"><mif:graphElement connectToShapeId="Sheet.87" containerDiagramName="Main">
+                                             <mif:position x="405" y="532"/>
+                                             <mif:graphEdge>
+                                                <mif:anchor connectToShapeId="Sheet.97">
+                                                   <mif:position x="272" y="577"/>
+                                                </mif:anchor>
+                                             </mif:graphEdge>
+                                          </mif:graphElement></association><association className="Organization" relationshipName="assigningOrganization"><mif:graphElement connectToShapeId="Sheet.145" containerDiagramName="Main">
+                                             <mif:position x="390" y="201"/>
+                                             <mif:graphEdge>
+                                                <mif:anchor connectToShapeId="Sheet.155">
+                                                   <mif:position x="290" y="126"/>
+                                                </mif:anchor>
+                                             </mif:graphEdge>
+                                          </mif:graphElement></association><association className="Content" relationshipName="asContent"><mif:graphElement connectToShapeId="Sheet.33" containerDiagramName="Main">
+                                 <mif:position x="177" y="441"/>
+                                 <mif:graphEdge>
+                                    <mif:anchor connectToShapeId="Sheet.87">
+                                       <mif:position x="405" y="494"/>
+                                    </mif:anchor>
+                                 </mif:graphEdge>
+                              </mif:graphElement></association><association className="IdentifiedEntity" relationshipName="asIdentifiedEntity"><mif:graphElement connectToShapeId="Sheet.33" containerDiagramName="Main">
+                                 <mif:position x="257" y="366"/>
+                                 <mif:graphEdge>
+                                    <mif:anchor connectToShapeId="Sheet.145">
+                                       <mif:position x="390" y="261"/>
+                                    </mif:anchor>
+                                 </mif:graphEdge>
+                              </mif:graphElement></association><association className="R_AssignedPersonIdentified-confirmable" relationshipName="assignedEntity"><mif:graphElement connectToShapeId="Sheet.48" containerDiagramName="Main">
+                                                         <mif:position x="1339" y="231"/>
+                                                         <mif:graphEdge>
+                                                            <mif:anchor connectToShapeId="Sheet.54">
+                                                               <mif:position x="1339" y="231"/>
+                                                            </mif:anchor>
+                                                         </mif:graphEdge>
+                                                      </mif:graphElement></association><association className="SpecimenCollectionProcedureEvent" relationshipName="specimenCollectionProcedureEvent"><mif:graphElement connectToShapeId="Sheet.22" containerDiagramName="Main">
+                                 <mif:position x="960" y="253"/>
+                                 <mif:graphEdge>
+                                    <mif:anchor connectToShapeId="Sheet.18">
+                                       <mif:position x="960" y="253"/>
+                                    </mif:anchor>
+                                 </mif:graphEdge>
+                              </mif:graphElement></association><association className="Product" relationshipName="productOf"><mif:graphElement connectToShapeId="Sheet.8" containerDiagramName="Main">
+                     <mif:position x="740" y="245"/>
+                     <mif:graphEdge>
+                        <mif:anchor connectToShapeId="Sheet.22">
+                           <mif:position x="740" y="245"/>
+                        </mif:anchor>
+                     </mif:graphEdge>
+                  </mif:graphElement></association><association className="Material" relationshipName="specimenMaterial"><mif:graphElement connectToShapeId="Sheet.8" containerDiagramName="Main">
+                     <mif:position x="567" y="245"/>
+                     <mif:graphEdge>
+                        <mif:anchor connectToShapeId="Sheet.33">
+                           <mif:position x="417" y="385"/>
+                        </mif:anchor>
+                     </mif:graphEdge>
+                  </mif:graphElement></association><association className="Subject3" relationshipName="subjectOf1"><mif:graphElement connectToShapeId="Sheet.8" containerDiagramName="Main">
+                     <mif:position x="740" y="522"/>
+                     <mif:graphEdge>
+                        <mif:anchor connectToShapeId="Sheet.105">
+                           <mif:position x="740" y="522"/>
+                        </mif:anchor>
+                     </mif:graphEdge>
+                  </mif:graphElement></association><association className="Subject4" relationshipName="subjectOf2"><mif:graphElement connectToShapeId="Sheet.8" containerDiagramName="Main">
+                     <mif:position x="740" y="688"/>
+                     <mif:graphEdge>
+                        <mif:anchor connectToShapeId="Sheet.130">
+                           <mif:position x="740" y="688"/>
+                        </mif:anchor>
+                     </mif:graphEdge>
+                  </mif:graphElement></association><association className="Performer2" relationshipName="performer"><mif:graphElement connectToShapeId="Sheet.18" containerDiagramName="Main">
+                                             <mif:position x="1197" y="218"/>
+                                             <mif:graphEdge>
+                                                <mif:anchor connectToShapeId="Sheet.48">
+                                                   <mif:position x="1197" y="218"/>
+                                                </mif:anchor>
+                                             </mif:graphEdge>
+                                          </mif:graphElement></association><association className="Subject2" relationshipName="subjectOf"><mif:graphElement connectToShapeId="Sheet.18" containerDiagramName="Main">
+                                             <mif:position x="1078" y="279"/>
+                                             <mif:graphEdge>
+                                                <mif:anchor connectToShapeId="Sheet.37">
+                                                   <mif:position x="1078" y="279"/>
+                                                </mif:anchor>
+                                             </mif:graphEdge>
+                                          </mif:graphElement></association><association className="A_AnnotationUniversal" relationshipName="annotation"><mif:graphElement connectToShapeId="Sheet.37" containerDiagramName="Main">
+                                                         <mif:position x="1075" y="355"/>
+                                                         <mif:graphEdge>
+                                                            <mif:anchor connectToShapeId="Sheet.43">
+                                                               <mif:position x="1075" y="355"/>
+                                                            </mif:anchor>
+                                                         </mif:graphEdge>
+                                                      </mif:graphElement></association><association className="TransportationEvent" relationshipName="transportationEvent"><mif:graphElement connectToShapeId="Sheet.105" containerDiagramName="Main">
+                                 <mif:position x="960" y="554"/>
+                                 <mif:graphEdge>
+                                    <mif:anchor connectToShapeId="Sheet.101">
+                                       <mif:position x="960" y="554"/>
+                                    </mif:anchor>
+                                 </mif:graphEdge>
+                              </mif:graphElement></association><association className="SpecimenObservationEvent" relationshipName="specimenObservationEvent"><mif:graphElement connectToShapeId="Sheet.130" containerDiagramName="Main">
+                                 <mif:position x="960" y="668"/>
+                                 <mif:graphEdge>
+                                    <mif:anchor connectToShapeId="Sheet.126">
+                                       <mif:position x="960" y="668"/>
+                                    </mif:anchor>
+                                 </mif:graphEdge>
+                              </mif:graphElement></association><annotation id="E03BD38B-B327-429C-83DF-97D9B82F08B6"><mif:graphElement containerDiagramName="Main" isHeightAutoSize="true" isWidthAutoSize="true" shapeId="Sheet.141">
+                     <mif:position x="24" y="287"/>
+                     <mif:size height="42" width="206"/>
+                     <mif:anchorage connectToShapeId="Sheet.141">
+                        <mif:position x="127" y="309"/>
+                        <mif:graphEdge>
+                           <mif:anchor connectToShapeId="Sheet.33">
+                              <mif:position x="177" y="366"/>
+                           </mif:anchor>
+                        </mif:graphEdge>
+                     </mif:anchorage>
+                  </mif:graphElement></annotation></mif:graphicRepresentation>
+   <derivedFrom staticModelDerivationId="1">
+      <mif:targetStaticModel artifact="RIM" root="DEFN" version="00"/>
+   </derivedFrom>
+   <entryPoint className="Specimen" id="COCT_MT080100CA" isAbstract="false" name="R_Specimen minimal">
+      
+   </entryPoint>
+   <containedClass>
+      <mif:commonModelElementRef name="A_AnnotationUniversal">
+         <derivedFrom className="Act" staticModelDerivationId="1"/>
+         <supplierVocabulary><vocabularyDomain xmlns="" name="ActClass"/></supplierVocabulary>
+         
+         <cmet name="COCT_MT120600CA"/>
+      </mif:commonModelElementRef>
+   </containedClass>
+   <containedClass>
+      <mif:class isAbstract="false" name="Container">
+         <mif:businessName name="Specimen Container"><realmNamespace value="UV"/></mif:businessName>
+         <derivedFrom className="Container" staticModelDerivationId="1"/>
+         
+         <mif:annotations>
+            
+            
+         <documentation><mif:definition>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>The container holding the specimen.</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:definition><mif:rationale>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>Used to document container risks to those who handle the container.</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:rationale></documentation></mif:annotations>
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="classCode" sortKey="1"><enumerationValues>CONT</enumerationValues>
+            <derivedFrom attributeName="classCode" className="Container" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="CONT" codeSystemName="EntityClass"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="determinerCode" sortKey="2"><enumerationValues>INSTANCE</enumerationValues>
+            <derivedFrom attributeName="determinerCode" className="Container" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="INSTANCE" codeSystemName="EntityDeterminer"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="false" maximumMultiplicity="1" minimumMultiplicity="1" name="riskCode" sortKey="3">
+            <mif:businessName name="Y:Specimen Container Risk"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Describes any risk to the handlers of this container (containing a specimen).</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Used to document container risks to those who handle the container.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation></mif:annotations>
+            <derivedFrom attributeName="riskCode" className="Container" staticModelDerivationId="1"/>
+            <mif:type name="CV"/>
+            <supplierVocabulary codingStrength="CNE"><vocabularyDomain name="EntityRisk"/></supplierVocabulary>
+         </mif:attribute>
+      </mif:class>
+   </containedClass>
+   <containedClass>
+      <mif:class isAbstract="false" name="Content">
+         <mif:businessName name="Content Role"><realmNamespace value="UV"/></mif:businessName>
+         <derivedFrom className="Role" staticModelDerivationId="1"/>
+         
+         <mif:annotations>
+            
+            
+         <documentation><mif:definition>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>Associates the specimen material (entity) with one or more containers (which contain that material).</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:definition><mif:rationale>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>Allows for the communication of any risk associated with the containers (containing the specimen material).</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:rationale></documentation></mif:annotations>
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="classCode" sortKey="1"><enumerationValues>CONT</enumerationValues>
+            <derivedFrom attributeName="classCode" className="Role" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="CONT" codeSystemName="RoleClass"/></supplierVocabulary>
+         </mif:attribute>
+      </mif:class>
+   </containedClass>
+   <containedClass>
+      <mif:class isAbstract="false" name="IdentifiedEntity">
+         <mif:businessName name="Other Specimen Identifications"><realmNamespace value="UV"/></mif:businessName>
+         <derivedFrom className="Role" staticModelDerivationId="1"/>
+         
+         <mif:annotations>
+            
+            
+         <documentation><mif:definition>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>Associated specimen identifiers.</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:definition><mif:rationale>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>For referral and redirected orders, this information helps keep track of the different id's assigned during each phase of processing.</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:rationale></documentation></mif:annotations>
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="classCode" sortKey="1"><enumerationValues>IDENT</enumerationValues>
+            <derivedFrom attributeName="classCode" className="Role" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="IDENT" codeSystemName="RoleClass"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="id" sortKey="2">
+            <mif:businessName name="Other Specimen Identifiers"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Associated specimen identifiers.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>For referral and redirected orders, this information helps keep track of the different id's assigned during each phase of processing.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation></mif:annotations>
+            <derivedFrom attributeName="id" className="Role" staticModelDerivationId="1"/>
+            <mif:type name="II.BUS"/>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="false" maximumMultiplicity="1" minimumMultiplicity="1" name="code" sortKey="3">
+            <mif:businessName name="Other Specimen Identifier Type"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Describes the type of other specimen identifier (referral, primary, etc.)</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Categorized the type of role identifier.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation></mif:annotations>
+            <derivedFrom attributeName="code" className="Role" staticModelDerivationId="1"/>
+            <mif:type name="CV"/>
+            <supplierVocabulary codingStrength="CNE"><vocabularyDomain name="SpecimenIdentifierRoleType"/></supplierVocabulary>
+         </mif:attribute>
+      </mif:class>
+   </containedClass>
+   <containedClass>
+      <mif:class isAbstract="false" name="Material">
+         <mif:businessName name="Specimen Material"><realmNamespace value="UV"/></mif:businessName>
+         <derivedFrom className="Material" staticModelDerivationId="1"/>
+         
+         <mif:annotations>
+            
+            
+            
+         <documentation><mif:definition>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>This entity object is the specimen material itself.</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:definition><mif:rationale>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>The specimen material is of primary importance when communicating a lab result.</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:rationale></documentation><appInfo><mif:constraint id="{E03BD38B-B327-429C-83DF-97D9B82F08B6}">
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>At least one of code and description must be present and non-null</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+               
+            </mif:constraint></appInfo></mif:annotations>
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="classCode" sortKey="1"><enumerationValues>MAT</enumerationValues>
+            <derivedFrom attributeName="classCode" className="Material" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="MAT" codeSystemName="EntityClass"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="determinerCode" sortKey="2"><enumerationValues>INSTANCE</enumerationValues>
+            <derivedFrom attributeName="determinerCode" className="Material" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="INSTANCE" codeSystemName="EntityDeterminer"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="false" maximumMultiplicity="1" minimumMultiplicity="0" name="code" sortKey="3">
+            <mif:businessName name="V:Specimen Code"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>The code of the specimen material collected e.g. skin, blood, etc.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>The specimen code differentiates testing types, methods, and resulting processing of specimen material.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation></mif:annotations>
+            <derivedFrom attributeName="code" className="Material" staticModelDerivationId="1"/>
+            <mif:type name="CV"/>
+            <supplierVocabulary codingStrength="CNE"><vocabularyDomain name="SpecimenTypeCode"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="false" maximumMultiplicity="1" minimumMultiplicity="0" name="desc" sortKey="4">
+            <mif:businessName name="W:Specimen Text"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Any descriptive specimen information not sufficiently communicated by the code attribute.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Used when information is not able to be coded or represented using the available other attributes.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation></mif:annotations>
+            <derivedFrom attributeName="desc" className="Material" staticModelDerivationId="1"/>
+            <mif:type name="ST"/>
+         </mif:attribute>
+      </mif:class>
+   </containedClass>
+   <containedClass>
+      <mif:class isAbstract="false" name="Organization">
+         <mif:businessName name="Specimen Scoping Organization"><realmNamespace value="UV"/></mif:businessName>
+         <derivedFrom className="Organization" staticModelDerivationId="1"/>
+         
+         <mif:annotations>
+            
+            
+         <documentation><mif:definition>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>Identifies the organization or group assigning the associated specimen identifier.</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:definition><mif:rationale>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>To identify or name the specimen identifier scoping organization.</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:rationale></documentation></mif:annotations>
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="classCode" sortKey="1"><enumerationValues>ORG</enumerationValues>
+            <derivedFrom attributeName="classCode" className="Organization" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="ORG" codeSystemName="EntityClass"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="determinerCode" sortKey="2"><enumerationValues>INSTANCE</enumerationValues>
+            <derivedFrom attributeName="determinerCode" className="Organization" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="INSTANCE" codeSystemName="EntityDeterminer"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="id" sortKey="3">
+            <mif:businessName name="Organization Identifier"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>A unique identifier for the organization</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Allows the organization to be referenced when determining privileges and for drill-downs to retrieve additional information. Because of its importance, the attribute is mandatory.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation></mif:annotations>
+            <derivedFrom attributeName="id" className="Organization" staticModelDerivationId="1"/>
+            <mif:type name="II.PUBLIC"/>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="true" maximumLength="120" maximumMultiplicity="1" minimumMultiplicity="1" name="name" sortKey="4">
+            <mif:businessName name="Organization Name"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Identifies the name of the organization</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Allows for human recognition of the organization as well as confirmation of the identifier. As a result, the attribute is mandatory.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation></mif:annotations>
+            <derivedFrom attributeName="name" className="Organization" staticModelDerivationId="1"/>
+            <mif:type name="ST"/>
+         </mif:attribute>
+      </mif:class>
+   </containedClass>
+   <containedClass>
+      <mif:class isAbstract="false" name="Performer2">
+         <mif:businessName name="was performed by"><realmNamespace value="UV"/></mif:businessName>
+         <derivedFrom className="Participation" staticModelDerivationId="1"/>
+         
+         <mif:annotations>
+            
+         <documentation><mif:definition>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>Associates the performer person information with the specimen collection procedure.</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:definition></documentation></mif:annotations>
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="typeCode" sortKey="1"><enumerationValues>PRF</enumerationValues>
+            <derivedFrom attributeName="typeCode" className="Participation" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="PRF" codeSystemName="ParticipationType"/></supplierVocabulary>
+         </mif:attribute>
+      </mif:class>
+   </containedClass>
+   <containedClass>
+      <mif:class isAbstract="false" name="Product">
+         <mif:businessName name="is product of"><realmNamespace value="UV"/></mif:businessName>
+         <derivedFrom className="Participation" staticModelDerivationId="1"/>
+         
+         <mif:annotations>
+            
+            
+         <documentation><mif:definition>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>Associates the specimen (role) with the collection procedure (information).</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:definition><mif:rationale>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>For communicating the associated specimen collection procedure information.</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:rationale></documentation></mif:annotations>
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="typeCode" sortKey="1"><enumerationValues>PRD</enumerationValues>
+            <derivedFrom attributeName="typeCode" className="Participation" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="PRD" codeSystemName="ParticipationType"/></supplierVocabulary>
+         </mif:attribute>
+      </mif:class>
+   </containedClass>
+   <containedClass>
+      <mif:commonModelElementRef name="R_AssignedPersonIdentified-confirmable">
+         <derivedFrom className="Role" staticModelDerivationId="1"/>
+         <supplierVocabulary><vocabularyDomain xmlns="" name="RoleClass"/></supplierVocabulary>
+         
+         <cmet name="COCT_MT090102CA"/>
+      </mif:commonModelElementRef>
+   </containedClass>
+   <containedClass>
+      <mif:class isAbstract="false" name="Specimen">
+         <mif:businessName name="Specimen Role"><realmNamespace value="UV"/></mif:businessName>
+         <derivedFrom className="Role" staticModelDerivationId="1"/>
+         
+         <mif:annotations>
+            
+         <documentation><mif:definition>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>The specimen role represents the information regarding a material collected from a patient to serve as a specimen for testing.</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:definition></documentation></mif:annotations>
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="classCode" sortKey="1">
+            <derivedFrom attributeName="classCode" className="Role" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="SPEC" codeSystemName="RoleClass"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="false" maximumMultiplicity="1" minimumMultiplicity="0" name="id" sortKey="2">
+            <mif:businessName name="A:Specimen Identifier"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>A unique identifier for the specimen. Frequently the accession number which often uniquely identifies the specimen is used as the unique specimen identifier in communications. However, accessioning may group multiple specimens (identified) under one accession number. Therefore, it is recommended that this be truly the specimen identifier and not the accession number.</xhtml:p>
+                     </xhtml:p>
+                     <xhtml:p>
+                        <xhtml:p>For a referral, this attribute should be Required so it is reflected back in the result. If Lab A has collected and or done something to the specimen, then the identifier would be sent.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>A unique specimen identifier is necessary for specimen tracking and management.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation></mif:annotations>
+            <derivedFrom attributeName="id" className="Role" staticModelDerivationId="1"/>
+            <mif:type name="II.BUS"/>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="code" sortKey="3"><enumerationValues>P</enumerationValues>
+            <derivedFrom attributeName="code" className="Role" staticModelDerivationId="1"/>
+            <mif:type name="CV"/>
+            <supplierVocabulary codingStrength="CNE"><code code="P" codeSystemName="RoleCode"/></supplierVocabulary>
+         </mif:attribute>
+      </mif:class>
+   </containedClass>
+   <containedClass>
+      <mif:class isAbstract="false" name="SpecimenCollectionProcedureEvent">
+         <mif:businessName name="Specimen Collection Procedure"><realmNamespace value="UV"/></mif:businessName>
+         <derivedFrom className="Procedure" staticModelDerivationId="1"/>
+         
+         <mif:annotations>
+            
+            
+         <documentation><mif:definition>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>This is the procedure act which describes the process/procedure used to collect the associated specimen.</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:definition><mif:rationale>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>For certain laboratory tests, the specimen collection procedure information is relevant in determining the result value.</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:rationale></documentation></mif:annotations>
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="classCode" sortKey="1"><enumerationValues>SPECCOLLECT</enumerationValues>
+            <derivedFrom attributeName="classCode" className="Procedure" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="SPECCOLLECT" codeSystemName="ActClass"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="moodCode" sortKey="2"><enumerationValues>EVN</enumerationValues>
+            <derivedFrom attributeName="moodCode" className="Procedure" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="EVN" codeSystemName="ActMood"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="false" maximumMultiplicity="1" minimumMultiplicity="0" name="text" sortKey="3">
+            <mif:businessName name="G:Specimen Collection Text"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Used to describe any additional information regarding the specimen collection procedure or the collected material, e.g. left ear; where "ear" is atomically represented by the Natural entity code but the "left" is not able, at this time, to also be communicated within the Natural entity. This attribute is not used for notes or comments regarding the specimen collection process. Notes and annotations are documented using the Annotation CMET.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>The text attribute documents any additional information regarding this specimen collection procedure event that is not able to be communicated using the other attribution of this act e.g. for granularity of coding reasons.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation></mif:annotations>
+            <derivedFrom attributeName="text" className="Procedure" staticModelDerivationId="1"/>
+            <mif:type name="ST"/>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="false" maximumMultiplicity="1" minimumMultiplicity="0" name="effectiveTime" sortKey="4">
+            <mif:businessName name="E:Specimen Collection Date/Time"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>The date/time the specimen was collected. This can be a date/time interval (start - stop).</xhtml:p>
+                     </xhtml:p>
+                     <xhtml:p>
+                        <xhtml:p>The time may not always be known, but a date should always be entered.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>The specimen collection date/time is relevant to the testing and resulting outcome of that specimen for some laboratory tests.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation></mif:annotations>
+            <derivedFrom attributeName="effectiveTime" className="Procedure" staticModelDerivationId="1"/>
+            <mif:type name="IVL">
+               <argumentDatatype name="TS.FULLDATETIME"/>
+            </mif:type>
+         </mif:attribute>
+      </mif:class>
+   </containedClass>
+   <containedClass>
+      <mif:class isAbstract="false" name="SpecimenObservationEvent">
+         <mif:businessName name="Specimen Observation"><realmNamespace value="UV"/></mif:businessName>
+         <derivedFrom className="Observation" staticModelDerivationId="1"/>
+         
+         <mif:annotations>
+            
+            
+         <documentation><mif:definition>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>One or more observation acts which describe aspects of a specimen (color, adequacy, etc.)</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:definition><mif:rationale>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>It is sometimes relevant to know certain specimen characteristics when evaluating a result regarding a specimen.</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:rationale></documentation></mif:annotations>
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="classCode" sortKey="1"><enumerationValues>OBS</enumerationValues>
+            <derivedFrom attributeName="classCode" className="Observation" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="OBS" codeSystemName="ActClass"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="moodCode" sortKey="2"><enumerationValues>EVN</enumerationValues>
+            <derivedFrom attributeName="moodCode" className="Observation" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="EVN" codeSystemName="ActMood"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="code" sortKey="3">
+            <mif:businessName name="Specimen Observation Type"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Describes the specific observation being performed/documented.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Type of observation.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation></mif:annotations>
+            <derivedFrom attributeName="code" className="Observation" staticModelDerivationId="1"/>
+            <mif:type name="CV"/>
+            <supplierVocabulary codingStrength="CNE"><vocabularyDomain name="SpecimenObservationCode"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="false" maximumMultiplicity="1" minimumMultiplicity="0" name="effectiveTime" sortKey="4">
+            <mif:businessName name="Specimen Observation Date/Time"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>When this observation took place (or over what time interval; for collection).</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>The date/time when the observation took place. The date and time of the specimen observation can be relevant in the result.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation></mif:annotations>
+            <derivedFrom attributeName="effectiveTime" className="Observation" staticModelDerivationId="1"/>
+            <mif:type name="IVL">
+               <argumentDatatype name="TS.FULLDATETIME"/>
+            </mif:type>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="value" sortKey="5">
+            <mif:businessName name="Specimen Observation Value"><realmNamespace value="UV"/></mif:businessName>
+            <derivedFrom attributeName="value" className="Observation" staticModelDerivationId="1"/>
+            <mif:type name="ANY.X1"/>
+         </mif:attribute>
+      </mif:class>
+   </containedClass>
+   <containedClass>
+      <mif:class isAbstract="false" name="Subject2">
+         <mif:businessName name="has notes"><realmNamespace value="UV"/></mif:businessName>
+         <derivedFrom className="ActRelationship" staticModelDerivationId="1"/>
+         
+         <mif:annotations>
+            
+            
+         <documentation><mif:definition>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>Associates notes or annotations with the specimen collection procedure event act.</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:definition><mif:rationale>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>To capture, communicate collector's notes.</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:rationale></documentation></mif:annotations>
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="typeCode" sortKey="1"><enumerationValues>SUBJ</enumerationValues>
+            <derivedFrom attributeName="typeCode" className="ActRelationship" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="SUBJ" codeSystemName="ActRelationshipType"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="contextControlCode" sortKey="2"><enumerationValues>AN</enumerationValues>
+            <derivedFrom attributeName="contextControlCode" className="ActRelationship" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="AN" codeSystemName="ContextControl"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="contextConductionInd" sortKey="3"><enumerationValues>true</enumerationValues>
+            <derivedFrom attributeName="contextConductionInd" className="ActRelationship" staticModelDerivationId="1"/>
+            <mif:type name="BL"/>
+         </mif:attribute>
+      </mif:class>
+   </containedClass>
+   <containedClass>
+      <mif:class isAbstract="false" name="Subject3">
+         <mif:businessName name="has transport information"><realmNamespace value="UV"/></mif:businessName>
+         <derivedFrom className="Participation" staticModelDerivationId="1"/>
+         
+         <mif:annotations>
+            
+            
+         <documentation><mif:definition>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>Associates the specimen (role) with one to ten transportation event acts.</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:definition><mif:rationale>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>For communicating specimen transit date/time as well as specimen received date/time.</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:rationale></documentation></mif:annotations>
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="typeCode" sortKey="1"><enumerationValues>SBJ</enumerationValues>
+            <derivedFrom attributeName="typeCode" className="Participation" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="SBJ" codeSystemName="ParticipationType"/></supplierVocabulary>
+         </mif:attribute>
+      </mif:class>
+   </containedClass>
+   <containedClass>
+      <mif:class isAbstract="false" name="Subject4">
+         <mif:businessName name="has subject observations"><realmNamespace value="UV"/></mif:businessName>
+         <derivedFrom className="Participation" staticModelDerivationId="1"/>
+         
+         <mif:annotations>
+            
+            
+         <documentation><mif:definition>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>Associates a specimen (role) with observations about that specimen</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:definition><mif:rationale>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>Used to communicate specimen characteristics such as color, adequacy, etc.</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:rationale></documentation></mif:annotations>
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="typeCode" sortKey="1"><enumerationValues>SBJ</enumerationValues>
+            <derivedFrom attributeName="typeCode" className="Participation" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="SBJ" codeSystemName="ParticipationType"/></supplierVocabulary>
+         </mif:attribute>
+      </mif:class>
+   </containedClass>
+   <containedClass>
+      <mif:class isAbstract="false" name="TransportationEvent">
+         <mif:businessName name="Specimen Process Steps"><realmNamespace value="UV"/></mif:businessName>
+         <derivedFrom className="Act" staticModelDerivationId="1"/>
+         
+         <mif:annotations>
+            
+            
+         <documentation><mif:definition>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>The specimen is subject to one or more process steps. e.g. the specimen receive date is documented using a process step object, specimen action codes are also represented and communicated using this process step object.</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:definition><mif:rationale>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>At this time, only the transportation specimen process steps are in scope for lab messaging.</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:rationale></documentation></mif:annotations>
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="classCode" sortKey="1"><enumerationValues>TRNS</enumerationValues>
+            <derivedFrom attributeName="classCode" className="Act" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="TRNS" codeSystemName="ActClass"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="moodCode" sortKey="2"><enumerationValues>EVN</enumerationValues>
+            <derivedFrom attributeName="moodCode" className="Act" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="EVN" codeSystemName="ActMood"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="false" maximumMultiplicity="1" minimumMultiplicity="0" name="code" sortKey="3">
+            <mif:businessName name="P:Transportation Type"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Describes the type of process step being documented and communicated e.g. specimen received data, specimen action codes, transportation type.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Categorizes the type of transportation act being communiated.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation></mif:annotations>
+            <derivedFrom attributeName="code" className="Act" staticModelDerivationId="1"/>
+            <mif:type name="CV"/>
+            <supplierVocabulary codingStrength="CNE"><vocabularyDomain name="ActSpecimenTransportationCode"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" defaultValue="completed" isImmutable="false" isMandatory="false" maximumMultiplicity="1" minimumMultiplicity="0" name="statusCode" sortKey="4">
+            <mif:businessName name="R:Transportation Status"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>The state or status of this transportation process step.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Indicates (along with the mood) whether this act's action has been completed or is still being acted upon (or has yet to be acted upon).</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation></mif:annotations>
+            <derivedFrom attributeName="statusCode" className="Act" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code codeSystemName="ActStatus"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="false" maximumMultiplicity="1" minimumMultiplicity="0" name="effectiveTime" sortKey="5">
+            <mif:businessName name="Q:Transportation Date/Time"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>The date/time the process step took place or the duration of that step (days or time in transit, start time, end time).</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Holds the date/time the process step took place. This attribute is especially important for those process steps which document the date/time the process happened (specimen received date/time).</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation></mif:annotations>
+            <derivedFrom attributeName="effectiveTime" className="Act" staticModelDerivationId="1"/>
+            <mif:type name="IVL">
+               <argumentDatatype name="TS.DATETIME"/>
+            </mif:type>
+         </mif:attribute>
+      </mif:class>
+   </containedClass>
+   <association sortKey="8">
+      
+      <mif:connections>
+         <mif:traversableConnection conformance="R" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="container" participantClassName="Container" sortKey="BZ">
+            <derivedFrom associationEndName="scoper" className="Role" staticModelDerivationId="1"/>
+         </mif:traversableConnection>
+         <mif:nonTraversableConnection participantClassName="Content">
+            <derivedFrom associationEndName="scopedRole" className="Entity" staticModelDerivationId="1"/>
+         </mif:nonTraversableConnection>
+      </mif:connections>
+   </association>
+   <association sortKey="11">
+      
+      <mif:connections>
+         <mif:traversableConnection conformance="R" isMandatory="false" maximumMultiplicity="1" minimumMultiplicity="0" name="assigningOrganization" participantClassName="Organization" sortKey="BZ">
+            <derivedFrom associationEndName="scoper" className="Role" staticModelDerivationId="1"/>
+         </mif:traversableConnection>
+         <mif:nonTraversableConnection participantClassName="IdentifiedEntity">
+            <derivedFrom associationEndName="scopedRole" className="Entity" staticModelDerivationId="1"/>
+         </mif:nonTraversableConnection>
+      </mif:connections>
+   </association>
+   <association sortKey="5">
+      
+      <mif:connections>
+         <mif:traversableConnection conformance="R" isMandatory="false" maximumMultiplicity="1" minimumMultiplicity="0" name="asContent" participantClassName="Content" sortKey="AABB______">
+            <derivedFrom associationEndName="playedRole" className="Entity" staticModelDerivationId="1"/>
+         </mif:traversableConnection>
+         <mif:nonTraversableConnection participantClassName="Material">
+            <derivedFrom associationEndName="player" className="Role" staticModelDerivationId="1"/>
+         </mif:nonTraversableConnection>
+      </mif:connections>
+   </association>
+   <association sortKey="6">
+      
+      <mif:connections>
+         <mif:traversableConnection conformance="R" isMandatory="false" maximumMultiplicity="10" minimumMultiplicity="0" name="asIdentifiedEntity" participantClassName="IdentifiedEntity" sortKey="AAABA_____">
+            <derivedFrom associationEndName="playedRole" className="Entity" staticModelDerivationId="1"/>
+         </mif:traversableConnection>
+         <mif:nonTraversableConnection participantClassName="Material">
+            <derivedFrom associationEndName="player" className="Role" staticModelDerivationId="1"/>
+         </mif:nonTraversableConnection>
+      </mif:connections>
+   </association>
+   <association sortKey="19">
+      
+      <mif:connections>
+         <mif:traversableConnection conformance="R" isMandatory="false" maximumMultiplicity="1" minimumMultiplicity="1" name="assignedEntity" participantClassName="R_AssignedPersonIdentified-confirmable" sortKey="BZ">
+            <derivedFrom associationEndName="role" className="Participation" staticModelDerivationId="1"/>
+         </mif:traversableConnection>
+         <mif:nonTraversableConnection participantClassName="Performer2">
+            <derivedFrom associationEndName="participation" className="Role" staticModelDerivationId="1"/>
+         </mif:nonTraversableConnection>
+      </mif:connections>
+   </association>
+   <association sortKey="13">
+      
+      <mif:connections>
+         <mif:traversableConnection conformance="R" isMandatory="false" maximumMultiplicity="1" minimumMultiplicity="1" name="specimenCollectionProcedureEvent" participantClassName="SpecimenCollectionProcedureEvent" sortKey="AZ">
+            <derivedFrom associationEndName="act" className="Participation" staticModelDerivationId="1"/>
+         </mif:traversableConnection>
+         <mif:nonTraversableConnection participantClassName="Product">
+            <derivedFrom associationEndName="participation" className="Act" staticModelDerivationId="1"/>
+         </mif:nonTraversableConnection>
+      </mif:connections>
+   </association>
+   <association sortKey="1">
+      
+      <mif:connections>
+         <mif:traversableConnection conformance="R" isMandatory="false" maximumMultiplicity="1" minimumMultiplicity="0" name="productOf" participantClassName="Product" sortKey="CAF_______">
+            <mif:annotations>
+                     
+                  <documentation><mif:definition>
+                        <mif:text>
+                           <xhtml:p>
+                              <xhtml:p>The specimen is a product of a specimen collection procedure. This productOf participation associates an identified specimen with the documentation of that specimen's collection process.</xhtml:p>
+                           </xhtml:p>
+                        </mif:text>
+                     </mif:definition></documentation></mif:annotations>
+            <derivedFrom associationEndName="participation" className="Role" staticModelDerivationId="1"/>
+         </mif:traversableConnection>
+         <mif:nonTraversableConnection participantClassName="Specimen">
+            <derivedFrom associationEndName="role" className="Participation" staticModelDerivationId="1"/>
+         </mif:nonTraversableConnection>
+      </mif:connections>
+   </association>
+   <association sortKey="0">
+      
+      <mif:connections>
+         <mif:traversableConnection conformance="R" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="specimenMaterial" participantClassName="Material" sortKey="AZ">
+            <derivedFrom associationEndName="player" className="Role" staticModelDerivationId="1"/>
+         </mif:traversableConnection>
+         <mif:nonTraversableConnection participantClassName="Specimen">
+            <derivedFrom associationEndName="playedRole" className="Entity" staticModelDerivationId="1"/>
+         </mif:nonTraversableConnection>
+      </mif:connections>
+   </association>
+   <association sortKey="2">
+      
+      <mif:connections>
+         <mif:traversableConnection conformance="R" isMandatory="false" maximumMultiplicity="10" minimumMultiplicity="0" name="subjectOf1" participantClassName="Subject3" sortKey="CAA_______">
+            <derivedFrom associationEndName="participation" className="Role" staticModelDerivationId="1"/>
+         </mif:traversableConnection>
+         <mif:nonTraversableConnection participantClassName="Specimen">
+            <derivedFrom associationEndName="role" className="Participation" staticModelDerivationId="1"/>
+         </mif:nonTraversableConnection>
+      </mif:connections>
+   </association>
+   <association sortKey="3">
+      
+      <mif:connections>
+         <mif:traversableConnection conformance="R" isMandatory="false" maximumMultiplicity="100" minimumMultiplicity="0" name="subjectOf2" participantClassName="Subject4" sortKey="CAA_______">
+            <derivedFrom associationEndName="participation" className="Role" staticModelDerivationId="1"/>
+         </mif:traversableConnection>
+         <mif:nonTraversableConnection participantClassName="Specimen">
+            <derivedFrom associationEndName="role" className="Participation" staticModelDerivationId="1"/>
+         </mif:nonTraversableConnection>
+      </mif:connections>
+   </association>
+   <association sortKey="16">
+      
+      <mif:connections>
+         <mif:traversableConnection conformance="R" isMandatory="false" maximumMultiplicity="1" minimumMultiplicity="0" name="performer" participantClassName="Performer2" sortKey="AD________">
+            <derivedFrom associationEndName="participation" className="Act" staticModelDerivationId="1"/>
+         </mif:traversableConnection>
+         <mif:nonTraversableConnection participantClassName="SpecimenCollectionProcedureEvent">
+            <derivedFrom associationEndName="act" className="Participation" staticModelDerivationId="1"/>
+         </mif:nonTraversableConnection>
+      </mif:connections>
+   </association>
+   <association sortKey="17">
+      
+      <mif:connections>
+         <mif:traversableConnection conformance="R" isMandatory="false" maximumMultiplicity="10" minimumMultiplicity="0" name="subjectOf" participantClassName="Subject2" sortKey="CDB_______">
+            <derivedFrom associationEndName="inboundRelationship" className="Act" staticModelDerivationId="1"/>
+         </mif:traversableConnection>
+         <mif:nonTraversableConnection participantClassName="SpecimenCollectionProcedureEvent">
+            <derivedFrom associationEndName="target" className="ActRelationship" staticModelDerivationId="1"/>
+         </mif:nonTraversableConnection>
+      </mif:connections>
+   </association>
+   <association sortKey="21">
+      
+      <mif:connections>
+         <mif:traversableConnection conformance="R" isMandatory="false" maximumMultiplicity="1" minimumMultiplicity="1" name="annotation" participantClassName="A_AnnotationUniversal" sortKey="AZ">
+            <derivedFrom associationEndName="source" className="ActRelationship" staticModelDerivationId="1"/>
+         </mif:traversableConnection>
+         <mif:nonTraversableConnection participantClassName="Subject2">
+            <derivedFrom associationEndName="outboundRelationship" className="Act" staticModelDerivationId="1"/>
+         </mif:nonTraversableConnection>
+      </mif:connections>
+   </association>
+   <association sortKey="24">
+      
+      <mif:connections>
+         <mif:traversableConnection conformance="R" isMandatory="false" maximumMultiplicity="1" minimumMultiplicity="1" name="transportationEvent" participantClassName="TransportationEvent" sortKey="AZ">
+            <derivedFrom associationEndName="act" className="Participation" staticModelDerivationId="1"/>
+         </mif:traversableConnection>
+         <mif:nonTraversableConnection participantClassName="Subject3">
+            <derivedFrom associationEndName="participation" className="Act" staticModelDerivationId="1"/>
+         </mif:nonTraversableConnection>
+      </mif:connections>
+   </association>
+   <association sortKey="27">
+      
+      <mif:connections>
+         <mif:traversableConnection conformance="R" isMandatory="false" maximumMultiplicity="1" minimumMultiplicity="1" name="specimenObservationEvent" participantClassName="SpecimenObservationEvent" sortKey="AZ">
+            <derivedFrom associationEndName="act" className="Participation" staticModelDerivationId="1"/>
+         </mif:traversableConnection>
+         <mif:nonTraversableConnection participantClassName="Subject4">
+            <derivedFrom associationEndName="participation" className="Act" staticModelDerivationId="1"/>
+         </mif:nonTraversableConnection>
+      </mif:connections>
+   </association>
+</mif:staticModel>

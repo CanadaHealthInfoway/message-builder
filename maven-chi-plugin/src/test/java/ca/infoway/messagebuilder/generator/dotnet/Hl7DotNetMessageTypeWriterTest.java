@@ -18,7 +18,6 @@ import ca.infoway.messagebuilder.generator.TypeConverter;
 import ca.infoway.messagebuilder.generator.java.Association;
 import ca.infoway.messagebuilder.generator.java.Attribute;
 import ca.infoway.messagebuilder.generator.java.InteractionType;
-import ca.infoway.messagebuilder.generator.java.LanguageSpecificName;
 import ca.infoway.messagebuilder.generator.java.NameTranslator;
 import ca.infoway.messagebuilder.generator.java.Type;
 import ca.infoway.messagebuilder.xml.Cardinality;
@@ -41,20 +40,10 @@ public class Hl7DotNetMessageTypeWriterTest {
 	public void setUp() throws Exception {
 		this.typeName = new TypeName("ABCD_MT123456CA.BatteryRequest");
 		this.type = new Type(this.typeName);
-		this.type.setLanguageSpecificName(new LanguageSpecificName("Ca.Infoway.Messagebuilder.Fred", "BatteryRequest"));
 		final String associationTypeName = "ABCD_MT123456CA.Component3";
 		this.type.getRelationships().add(new Attribute(new Relationship("id", "II.BUS", Cardinality.create("1")), new TypeConverter().convertToType("II.BUS", null)));
 		this.type.getRelationships().add(new Attribute(new Relationship("details", "ANY", Cardinality.create("1")), new TypeConverter().convertToType("ANY", null)));
-		final Association association = Association.createStandardAssociation(new Relationship("component", associationTypeName, Cardinality.create("1")), new Type(new TypeName(associationTypeName)));
-		association.getAssociationType().setLanguageSpecificName(new LanguageSpecificName("Ca.Infoway.Messagebuilder.Fred", "Component3"));
-		this.type.getRelationships().add(association);
-		
-		Relationship myChoice = new Relationship("myChoice", "ABCD_MT123456CA.MyChoice", Cardinality.create("1"));
-		myChoice.getChoices().add(new Relationship("option1", "ABCD_MT123456CA.Option1", Cardinality.create("1")));
-		myChoice.getChoices().add(new Relationship("option1", "ABCD_MT123456CA.Option2", Cardinality.create("1")));
-		final Association choiceAssociation = Association.createStandardAssociation(myChoice, new Type(new TypeName("ABCD_MT123456CA.MyChoice")));
-		choiceAssociation.getAssociationType().setLanguageSpecificName(new LanguageSpecificName("Ca.Infoway.Messagebuilder.Fred", "MyChoice"));
-		this.type.getRelationships().add(choiceAssociation);
+		this.type.getRelationships().add(Association.createStandardAssociation(new Relationship("component", associationTypeName, Cardinality.create("1")), new Type(new TypeName(associationTypeName)), 3));
 		this.translator = this.jmock.mock(NameTranslator.class);
 		this.manager = this.jmock.mock(DependencyManager.class);
 
@@ -65,10 +54,9 @@ public class Hl7DotNetMessageTypeWriterTest {
 			allowing(manager).getRepresentationOfClassName(Identifier.class.getName()); will(returnValue("Identifier"));
 			allowing(manager).getRepresentationOfClassName(ANY.class.getName()); will(returnValue("ANY"));
 			allowing(manager).getRepresentationOfClassName("System.object"); will(returnValue("object"));
-			allowing(manager).getRepresentationOfClassName(".IMyChoice"); will(returnValue("IMyChoice"));
-			allowing(manager).getRepresentationOfClassName(".IMyOtherChoice"); will(returnValue("IMyOtherChoice"));
-			allowing(manager).getRepresentationOfType(choiceAssociation.getAssociationType()); will(returnValue("IMyChoice"));
-			allowing(manager).getRepresentationOfType(association.getAssociationType()); will(returnValue("Requestor"));
+			allowing(manager).getRepresentationOfTypeName(new TypeName("ABCD_MT123456CA.MyChoice")); will(returnValue("IMyChoice"));
+			allowing(manager).getRepresentationOfTypeName(new TypeName("ABCD_MT123456CA.MyOtherChoice")); will(returnValue("IMyOtherChoice"));
+			allowing(manager).getRepresentationOfTypeName(new TypeName(associationTypeName)); will(returnValue("Requestor"));
 		}});
 		this.writer = new Hl7DotNetMessageTypeWriter(this.type, translator, this.manager);
 		this.stringWriter = new StringWriter();
@@ -112,9 +100,7 @@ public class Hl7DotNetMessageTypeWriterTest {
 			allowing(translator).getClassNameWithoutPackage(interactionName); will(returnValue("BetterBatterQuery"));
 		}});
 		InteractionType interactionType = new InteractionType(interactionName);
-		interactionType.setLanguageSpecificName(new LanguageSpecificName("Ca.Infoway.Messagebuilder.Interaction", "BetterBatterQuery"));
-		interactionType.setParentType(new Type(this.typeName));
-		interactionType.getParentType().setLanguageSpecificName(new LanguageSpecificName("Ca.Infoway.Messagebuilder.Interaction", "BatteryRequest"));
+		interactionType.setParentType(this.typeName);
 		
 		new Hl7DotNetMessageTypeWriter(interactionType, translator, this.manager).write(this.stringWriter);
 		String output = this.stringWriter.toString();
@@ -123,12 +109,8 @@ public class Hl7DotNetMessageTypeWriterTest {
 	
 	@Test
 	public void shouldWriteInterfaces() throws Exception {
-		Type type1 = new Type(new TypeName("ABCD_MT123456CA.MyChoice"));
-		type1.setLanguageSpecificName(new LanguageSpecificName("", "IMyChoice"));
-		this.type.getInterfaceTypes().add(type1);
-		Type type2 = new Type(new TypeName("ABCD_MT123456CA.MyOtherChoice"));
-		type2.setLanguageSpecificName(new LanguageSpecificName("", "IMyOtherChoice"));
-		this.type.getInterfaceTypes().add(type2);
+		this.type.getInterfaceTypes().add(new TypeName("ABCD_MT123456CA.MyChoice"));
+		this.type.getInterfaceTypes().add(new TypeName("ABCD_MT123456CA.MyOtherChoice"));
 		
 		this.writer.write(this.stringWriter);
 		String output = stringWriter.toString();
@@ -139,9 +121,7 @@ public class Hl7DotNetMessageTypeWriterTest {
 	@Test
 	public void shouldWriteInterfaceDefinition() throws Exception {
 		this.type.setAbstract(true);
-		Type type1 = new Type(new TypeName("ABCD_MT123456CA.MyChoice"));
-		type1.setLanguageSpecificName(new LanguageSpecificName("", "IMyChoice"));
-		this.type.getInterfaceTypes().add(type1);
+		this.type.getInterfaceTypes().add(new TypeName("ABCD_MT123456CA.MyChoice"));
 		
 		this.writer.write(this.stringWriter);
 		String output = stringWriter.toString();

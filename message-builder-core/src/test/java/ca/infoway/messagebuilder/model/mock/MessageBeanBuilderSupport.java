@@ -160,7 +160,6 @@ public class MessageBeanBuilderSupport {
 		messageAttributes.getSender().setDeviceId(new Identifier("2.16.124.113620.1.2.100", "111"));
 		messageAttributes.getReceiver().setDeviceId(new Identifier("2.16.124.113620.1.2.100", "222"));
 		messageAttributes.setMessageIdentifier(new Identifier("1ee83ff1-08ab-4fe7-b573-ea777e9bad51"));
-		messageAttributes.getConformanceProfileIdentifiers().add(new Identifier("1ee83ff1-08ab-4fe7-b573-ea777e9bad52"));
 		
 		if (messageAttributes instanceof NoPayloadResponseMessageBean) {
 			((NoPayloadResponseMessageBean) messageAttributes).setAcknowledgement(new AcknowledgementBean());

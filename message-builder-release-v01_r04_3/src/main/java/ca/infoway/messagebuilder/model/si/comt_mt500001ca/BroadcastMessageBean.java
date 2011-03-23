@@ -10,17 +10,22 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 
+/**
+ * <p>Broadcast Message</p>
+ * 
+ * <p>Information being transmitted to proviers as a 'mass 
+ * broadcast'</p>
+ * 
+ * <p>Allows conveying information such as stolen prescription 
+ * pads, system availability information, etc.</p>
+ */
 @Hl7PartTypeMapping({"COMT_MT500001CA.InformEvent"})
 @Hl7RootType
 public class BroadcastMessageBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110127L;
+    private static final long serialVersionUID = 20100614L;
     private ST broadcastMessage = new STImpl();
 
-
-    /**
-     * <p>Broadcast Message</p>
-     */
     @Hl7XmlMapping({"text"})
     public String getBroadcastMessage() {
         return this.broadcastMessage.getValue();

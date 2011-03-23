@@ -13,13 +13,9 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"FICR_MT400001CA.FormRole"})
 public class FormRoleBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110127L;
+    private static final long serialVersionUID = 20100603L;
     private II formNumberVersion = new IIImpl();
 
-
-    /**
-     * <p>Form Number + Version</p>
-     */
     @Hl7XmlMapping({"playingForm/id"})
     public Identifier getFormNumberVersion() {
         return this.formNumberVersion.getValue();

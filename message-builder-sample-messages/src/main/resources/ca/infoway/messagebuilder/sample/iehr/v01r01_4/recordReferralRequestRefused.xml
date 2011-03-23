@@ -4,7 +4,7 @@
     <creationTime value="20080625141610-0400"/>
     <responseModeCode code="I"/>
     <versionCode code="V3-2008N"/>
-    <interactionId specializationType="II.PUBLIC" displayable="true" extension="REPC_IN000098CA" root="2.16.840.1.113883.1.6"/>
+    <interactionId displayable="true" extension="REPC_IN000098CA" root="2.16.840.1.113883.1.6"/>
     <!-- WARNING: profileId is a mandatory field, but no value is specified -->
     <profileId nullFlavor="NI"/>
     <processingCode code="P"/>

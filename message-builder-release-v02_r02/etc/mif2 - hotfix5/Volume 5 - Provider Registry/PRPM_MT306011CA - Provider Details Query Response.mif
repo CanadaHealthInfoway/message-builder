@@ -1,0 +1,2425 @@
+<?xml version="1.0" encoding="UTF-8"?><mif:staticModel xmlns:mif="urn:hl7-org:v3/mif" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:hl7-org:v3/mif" isAbstract="false" isSerializable="true" name="CA" packageKind="realmNamespace" representationKind="flat" schemaVersion="2.0" xsi:schemaLocation="">
+   <mif:packageLocation artifact="MT-deprecated" domain="PM" id="306011" realmNamespace="CA" root="DEFN" section="AM" subSection="PR"/>
+   <mif:header>
+      <mif:renderingInformation application="Visio to MIF transform"/>
+      <mif:legalese copyrightOwner="Health Level Seven" copyrightYears="2008"/>
+   </mif:header>
+   <mif:graphicRepresentation presentation="HL7">
+      <mif:graphElement name="Main">
+         <mif:position x="0" y="0"/>
+         <mif:size height="1935" width="1883"/>
+      </mif:graphElement>
+   <entryPoint name="Provider Details Query Response"><mif:graphElement containerDiagramName="Main" shapeId="Sheet.125">
+            <mif:position x="1551" y="1215"/>
+            <mif:size height="48" width="219"/>
+            <mif:anchorage connectToShapeId="Sheet.125">
+               <mif:position x="1672" y="1215"/>
+               <mif:graphEdge>
+                  <mif:anchor connectToShapeId="Sheet.382">
+                     <mif:position x="1650" y="1025"/>
+                  </mif:anchor>
+               </mif:graphEdge>
+            </mif:anchorage>
+         </mif:graphElement></entryPoint><class className="ActDefinitionOrEvent" presentation="HL7"><mif:graphElement containerDiagramName="Main" isHeightAutoSize="true" isWidthAutoSize="false" shapeId="Sheet.196" shapeTemplate="Act">
+               <mif:position x="136" y="1156"/>
+               <mif:size height="74" width="347"/>
+            </mif:graphElement></class><class className="AssignedEntity" presentation="HL7"><mif:graphElement containerDiagramName="Main" isHeightAutoSize="false" isWidthAutoSize="false" shapeId="Sheet.11" shapeTemplate="Role">
+               <mif:position x="125" y="768"/>
+               <mif:size height="201" width="411"/>
+            </mif:graphElement></class><class className="Birthplace" presentation="HL7"><mif:graphElement containerDiagramName="Main" isHeightAutoSize="true" isWidthAutoSize="true" shapeId="Sheet.456" shapeTemplate="Role">
+               <mif:position x="1627" y="1730"/>
+               <mif:size height="49" width="214"/>
+            </mif:graphElement></class><class className="Choice" presentation="HL7"><mif:graphElement containerDiagramName="Main" isHeightAutoSize="true" isWidthAutoSize="true" nodeOrientation="Landscape" shapeId="Sheet.232" shapeTemplate="Choice">
+               <mif:position x="138" y="1549"/>
+               <mif:size height="176" width="705"/>
+            </mif:graphElement></class><class className="HealthCareProvider" presentation="HL7"><mif:graphElement containerDiagramName="Main" isHeightAutoSize="false" isWidthAutoSize="false" shapeId="Sheet.471" shapeTemplate="Role">
+               <mif:position x="926" y="771"/>
+               <mif:size height="194" width="692"/>
+            </mif:graphElement></class><class className="HealthCareProvider" presentation="HL7Shadow"><mif:graphElement containerDiagramName="Main" isHeightAutoSize="true" isWidthAutoSize="true" shapeId="Sheet.222" shapeTemplate="Role">
+               <mif:position x="699" y="1620"/>
+               <mif:size height="48" width="132"/>
+            </mif:graphElement></class><class className="IndirectTarget" presentation="HL7"><mif:graphElement containerDiagramName="Main" nodeOrientation="Down" shapeId="Sheet.234" shapeTemplate="Participation" textWrappingWidth="66.0">
+               <mif:position x="641" y="1429"/>
+               <mif:size height="119" width="100"/>
+            </mif:graphElement></class><class className="InformRequest" presentation="HL7"><mif:graphElement containerDiagramName="Main" isHeightAutoSize="true" isWidthAutoSize="false" shapeId="Sheet.212" shapeTemplate="Act">
+               <mif:position x="357" y="1357"/>
+               <mif:size height="72" width="460"/>
+            </mif:graphElement></class><class className="Jurisdiction" presentation="HL7"><mif:graphElement containerDiagramName="Main" isHeightAutoSize="true" isWidthAutoSize="true" shapeId="Sheet.842" shapeTemplate="Entity">
+               <mif:position x="1411" y="0"/>
+               <mif:size height="72" width="289"/>
+            </mif:graphElement></class><class className="LanguageCommunication" presentation="HL7"><mif:graphElement containerDiagramName="Main" isHeightAutoSize="true" isWidthAutoSize="true" shapeId="Sheet.37" shapeTemplate="OtherClass">
+               <mif:position x="1103" y="1794"/>
+               <mif:size height="139" width="327"/>
+            </mif:graphElement></class><class className="Location" presentation="HL7"><mif:graphElement containerDiagramName="Main" nodeOrientation="Down" shapeId="Sheet.200" shapeTemplate="Participation" textWrappingWidth="66.0">
+               <mif:position x="141" y="1231"/>
+               <mif:size height="343" width="146"/>
+            </mif:graphElement></class><class className="Organization" presentation="HL7"><mif:graphElement containerDiagramName="Main" isHeightAutoSize="true" isWidthAutoSize="false" shapeId="Sheet.55" shapeTemplate="Entity">
+               <mif:position x="1014" y="267"/>
+               <mif:size height="139" width="355"/>
+            </mif:graphElement></class><class className="Part" presentation="HL7"><mif:graphElement containerDiagramName="Main" nodeOrientation="DownRight" shapeId="Sheet.871" shapeTemplate="RoleLinkR" textWrappingWidth="66.0">
+               <mif:position x="1578" y="146"/>
+               <mif:size height="57" width="110"/>
+            </mif:graphElement></class><class className="Place" presentation="HL7"><mif:graphElement containerDiagramName="Main" isHeightAutoSize="true" isWidthAutoSize="true" shapeId="Sheet.171" shapeTemplate="Entity">
+               <mif:position x="237" y="1813"/>
+               <mif:size height="72" width="313"/>
+            </mif:graphElement></class><class className="PrimaryPerformer3" presentation="HL7"><mif:graphElement containerDiagramName="Main" nodeOrientation="Up" shapeId="Sheet.190" shapeTemplate="Participation" textWrappingWidth="66.0">
+               <mif:position x="133" y="969"/>
+               <mif:size height="186" width="110"/>
+            </mif:graphElement></class><class className="PrincipalPerson" presentation="HL7"><mif:graphElement containerDiagramName="Main" isHeightAutoSize="false" isWidthAutoSize="true" shapeId="Sheet.21" shapeTemplate="Entity">
+               <mif:position x="1214" y="1305"/>
+               <mif:size height="319" width="326"/>
+            </mif:graphElement></class><class className="Privilege" presentation="HL7"><mif:graphElement containerDiagramName="Main" isHeightAutoSize="true" isWidthAutoSize="true" shapeId="Sheet.529" shapeTemplate="Act">
+               <mif:position x="399" y="467"/>
+               <mif:size height="164" width="307"/>
+            </mif:graphElement></class><class className="PrivilegeCategorization" presentation="HL7"><mif:graphElement containerDiagramName="Main" isHeightAutoSize="true" isWidthAutoSize="true" shapeId="Sheet.550" shapeTemplate="Act">
+               <mif:position x="204" y="311"/>
+               <mif:size height="100" width="262"/>
+            </mif:graphElement></class><class className="QualifiedEntity" presentation="HL7"><mif:graphElement containerDiagramName="Main" isHeightAutoSize="false" isWidthAutoSize="false" shapeId="Sheet.1" shapeTemplate="Role">
+               <mif:position x="548" y="769"/>
+               <mif:size height="198" width="366"/>
+            </mif:graphElement></class><class className="RelatedTo" presentation="HL7"><mif:graphElement containerDiagramName="Main" nodeOrientation="DownRight" shapeId="Sheet.597" shapeTemplate="RoleLinkR" textWrappingWidth="66.0">
+               <mif:position x="1677" y="698"/>
+               <mif:size height="233" width="115"/>
+            </mif:graphElement></class><class className="ResponsibleParty" presentation="HL7"><mif:graphElement containerDiagramName="Main" nodeOrientation="Down" shapeId="Sheet.538" shapeTemplate="Participation" textWrappingWidth="66.0">
+               <mif:position x="542" y="631"/>
+               <mif:size height="66" width="111"/>
+            </mif:graphElement></class><class className="RoleChoice" presentation="HL7"><mif:graphElement containerDiagramName="Main" isHeightAutoSize="false" isWidthAutoSize="false" nodeOrientation="Landscape" shapeId="Sheet.382" shapeTemplate="Choice">
+               <mif:position x="113" y="698"/>
+               <mif:size height="326" width="1563"/>
+            </mif:graphElement></class><class className="SequelTo" presentation="HL7"><mif:graphElement containerDiagramName="Main" nodeOrientation="Up" shapeId="Sheet.206" shapeTemplate="ActRelationship" textWrappingWidth="66.0">
+               <mif:position x="314" y="1231"/>
+               <mif:size height="126" width="141"/>
+            </mif:graphElement></class><class className="ServiceDeliveryLocation" presentation="HL7"><mif:graphElement containerDiagramName="Main" isHeightAutoSize="false" isWidthAutoSize="false" shapeId="Sheet.180" shapeTemplate="Role">
+               <mif:position x="150" y="1574"/>
+               <mif:size height="140" width="536"/>
+            </mif:graphElement></class><class className="Subject" presentation="HL7"><mif:graphElement containerDiagramName="Main" nodeOrientation="Down" shapeId="Sheet.216" shapeTemplate="Participation" textWrappingWidth="66.0">
+               <mif:position x="338" y="1429"/>
+               <mif:size height="145" width="237"/>
+            </mif:graphElement></class><class className="Subject4" presentation="HL7"><mif:graphElement containerDiagramName="Main" nodeOrientation="Down" shapeId="Sheet.554" shapeTemplate="ActRelationship" textWrappingWidth="66.0">
+               <mif:position x="354" y="412"/>
+               <mif:size height="54" width="109"/>
+            </mif:graphElement></class><class className="TerritorialAuthority" presentation="HL7"><mif:graphElement containerDiagramName="Main" isHeightAutoSize="true" isWidthAutoSize="true" shapeId="Sheet.832" shapeTemplate="Role">
+               <mif:position x="1284" y="146"/>
+               <mif:size height="49" width="293"/>
+            </mif:graphElement></class><association className="Location" relationshipName="location"><mif:graphElement connectToShapeId="Sheet.196" containerDiagramName="Main">
+                                                      <mif:position x="171" y="1231"/>
+                                                      <mif:graphEdge>
+                                                         <mif:anchor connectToShapeId="Sheet.200">
+                                                            <mif:position x="171" y="1231"/>
+                                                         </mif:anchor>
+                                                      </mif:graphEdge>
+                                                   </mif:graphElement></association><association className="SequelTo" relationshipName="sequel"><mif:graphElement connectToShapeId="Sheet.196" containerDiagramName="Main">
+                                                      <mif:position x="414" y="1231"/>
+                                                      <mif:graphEdge>
+                                                         <mif:anchor connectToShapeId="Sheet.206">
+                                                            <mif:position x="414" y="1231"/>
+                                                         </mif:anchor>
+                                                      </mif:graphEdge>
+                                                   </mif:graphElement></association><association className="PrincipalPerson" relationshipName="assignedPrincipalPerson"><mif:graphElement connectToShapeId="Sheet.11" containerDiagramName="Main">
+                              <mif:position x="495" y="949"/>
+                              <mif:graphEdge>
+                                 <mif:anchor connectToShapeId="Sheet.21">
+                                    <mif:position x="1214" y="1465"/>
+                                 </mif:anchor>
+                              </mif:graphEdge>
+                           </mif:graphElement></association><association className="PrimaryPerformer3" relationshipName="performance"><mif:graphElement connectToShapeId="Sheet.11" containerDiagramName="Main">
+                              <mif:position x="207" y="969"/>
+                              <mif:graphEdge>
+                                 <mif:anchor connectToShapeId="Sheet.190">
+                                    <mif:position x="207" y="969"/>
+                                 </mif:anchor>
+                              </mif:graphEdge>
+                           </mif:graphElement></association><association className="Organization" relationshipName="representedOrganization"><mif:graphElement connectToShapeId="Sheet.11" containerDiagramName="Main">
+                              <mif:position x="495" y="788"/>
+                              <mif:graphEdge>
+                                 <mif:anchor connectToShapeId="Sheet.55">
+                                    <mif:position x="1014" y="354"/>
+                                 </mif:anchor>
+                              </mif:graphEdge>
+                           </mif:graphElement></association><association className="PrincipalPerson" relationshipName="healthCarePrincipalPerson"><mif:graphElement connectToShapeId="Sheet.471" containerDiagramName="Main">
+                                                                                                               <mif:position x="1550" y="946"/>
+                                                                                                               <mif:graphEdge>
+                                                                                                                  <mif:anchor connectToShapeId="Sheet.21">
+                                                                                                                     <mif:position x="1459" y="1305"/>
+                                                                                                                  </mif:anchor>
+                                                                                                               </mif:graphEdge>
+                                                                                                            </mif:graphElement></association><association className="Organization" relationshipName="issuingOrganization"><mif:graphElement connectToShapeId="Sheet.471" containerDiagramName="Main">
+                                                                                                               <mif:position x="1550" y="791"/>
+                                                                                                               <mif:graphEdge>
+                                                                                                                  <mif:anchor connectToShapeId="Sheet.55">
+                                                                                                                     <mif:position x="1281" y="406"/>
+                                                                                                                  </mif:anchor>
+                                                                                                               </mif:graphEdge>
+                                                                                                            </mif:graphElement></association><association className="Choice" relationshipName="choice"><mif:graphElement connectToShapeId="Sheet.234" containerDiagramName="Main">
+                                                                                          <mif:position x="703" y="1549"/>
+                                                                                          <mif:graphEdge>
+                                                                                             <mif:anchor connectToShapeId="Sheet.232">
+                                                                                                <mif:position x="703" y="1549"/>
+                                                                                             </mif:anchor>
+                                                                                          </mif:graphEdge>
+                                                                                       </mif:graphElement></association><association className="IndirectTarget" relationshipName="indirectTarget"><mif:graphElement connectToShapeId="Sheet.212" containerDiagramName="Main">
+                                                                              <mif:position x="679" y="1429"/>
+                                                                              <mif:graphEdge>
+                                                                                 <mif:anchor connectToShapeId="Sheet.234">
+                                                                                    <mif:position x="679" y="1429"/>
+                                                                                 </mif:anchor>
+                                                                              </mif:graphEdge>
+                                                                           </mif:graphElement></association><association className="Subject" relationshipName="subject"><mif:graphElement connectToShapeId="Sheet.212" containerDiagramName="Main">
+                                                                              <mif:position x="495" y="1429"/>
+                                                                              <mif:graphEdge>
+                                                                                 <mif:anchor connectToShapeId="Sheet.216">
+                                                                                    <mif:position x="495" y="1429"/>
+                                                                                 </mif:anchor>
+                                                                              </mif:graphEdge>
+                                                                           </mif:graphElement></association><association className="ServiceDeliveryLocation" relationshipName="serviceDeliveryLocation"><mif:graphElement connectToShapeId="Sheet.200" containerDiagramName="Main">
+                                                                  <mif:position x="258" y="1574"/>
+                                                                  <mif:graphEdge>
+                                                                     <mif:anchor connectToShapeId="Sheet.180">
+                                                                        <mif:position x="258" y="1574"/>
+                                                                     </mif:anchor>
+                                                                  </mif:graphEdge>
+                                                               </mif:graphElement></association><association className="TerritorialAuthority" relationshipName="territorialAuthority"><mif:graphElement connectToShapeId="Sheet.55" containerDiagramName="Main">
+                                                                                                                           <mif:position x="1281" y="267"/>
+                                                                                                                           <mif:graphEdge>
+                                                                                                                              <mif:anchor connectToShapeId="Sheet.832">
+                                                                                                                                 <mif:position x="1314" y="151"/>
+                                                                                                                              </mif:anchor>
+                                                                                                                           </mif:graphEdge>
+                                                                                                                        </mif:graphElement></association><association className="TerritorialAuthority" relationshipName="territorialAuthority"><mif:graphElement connectToShapeId="Sheet.871" containerDiagramName="Main">
+                                                                                                                                                   <mif:position x="1578" y="165"/>
+                                                                                                                                                   <mif:graphEdge>
+                                                                                                                                                      <mif:anchor connectToShapeId="Sheet.832">
+                                                                                                                                                         <mif:position x="1578" y="165"/>
+                                                                                                                                                      </mif:anchor>
+                                                                                                                                                   </mif:graphEdge>
+                                                                                                                                                </mif:graphElement></association><association className="ActDefinitionOrEvent" relationshipName="actDefinitionOrEvent"><mif:graphElement connectToShapeId="Sheet.190" containerDiagramName="Main">
+                                          <mif:position x="171" y="1156"/>
+                                          <mif:graphEdge>
+                                             <mif:anchor connectToShapeId="Sheet.196">
+                                                <mif:position x="171" y="1156"/>
+                                             </mif:anchor>
+                                          </mif:graphEdge>
+                                       </mif:graphElement></association><association className="Birthplace" relationshipName="birthplace"><mif:graphElement connectToShapeId="Sheet.21" containerDiagramName="Main">
+                                          <mif:position x="1459" y="1624"/>
+                                          <mif:graphEdge>
+                                             <mif:anchor connectToShapeId="Sheet.456">
+                                                <mif:position x="1648" y="1735"/>
+                                             </mif:anchor>
+                                          </mif:graphEdge>
+                                       </mif:graphElement></association><association className="LanguageCommunication" relationshipName="languageCommunication"><mif:graphElement connectToShapeId="Sheet.21" containerDiagramName="Main" shapeId="Sheet.41">
+                                          <mif:position x="1296" y="1624"/>
+                                          <mif:graphEdge>
+                                             <mif:waypoint x="13.506" y="17.808"/>
+                                             <mif:waypoint x="15.704" y="17.808"/>
+                                             <mif:waypoint x="15.704" y="19.419"/>
+                                             <mif:anchor connectToShapeId="Sheet.37">
+                                                <mif:position x="1430" y="1864"/>
+                                             </mif:anchor>
+                                          </mif:graphEdge>
+                                       </mif:graphElement></association><association className="Subject4" relationshipName="subjectOf"><mif:graphElement connectToShapeId="Sheet.529" containerDiagramName="Main">
+                                             <mif:position x="430" y="467"/>
+                                             <mif:graphEdge>
+                                                <mif:anchor connectToShapeId="Sheet.554">
+                                                   <mif:position x="430" y="467"/>
+                                                </mif:anchor>
+                                             </mif:graphEdge>
+                                          </mif:graphElement></association><association className="Organization" relationshipName="qualificationGrantingOrganization"><mif:graphElement connectToShapeId="Sheet.1" containerDiagramName="Main">
+                              <mif:position x="878" y="789"/>
+                              <mif:graphEdge>
+                                 <mif:anchor connectToShapeId="Sheet.55">
+                                    <mif:position x="1103" y="406"/>
+                                 </mif:anchor>
+                              </mif:graphEdge>
+                           </mif:graphElement></association><association className="PrincipalPerson" relationshipName="qualifiedPrincipalPerson"><mif:graphElement connectToShapeId="Sheet.1" containerDiagramName="Main">
+                              <mif:position x="878" y="948"/>
+                              <mif:graphEdge>
+                                 <mif:anchor connectToShapeId="Sheet.21">
+                                    <mif:position x="1296" y="1305"/>
+                                 </mif:anchor>
+                              </mif:graphEdge>
+                           </mif:graphElement></association><association className="RoleChoice" relationshipName="roleChoice"><mif:graphElement connectToShapeId="Sheet.597" containerDiagramName="Main">
+                                 <mif:position x="1677" y="763"/>
+                                 <mif:graphEdge>
+                                    <mif:anchor connectToShapeId="Sheet.382">
+                                       <mif:position x="1677" y="763"/>
+                                    </mif:anchor>
+                                 </mif:graphEdge>
+                              </mif:graphElement></association><association className="Privilege" relationshipName="privilege"><mif:graphElement connectToShapeId="Sheet.538" containerDiagramName="Main">
+                                 <mif:position x="614" y="631"/>
+                                 <mif:graphEdge>
+                                    <mif:anchor connectToShapeId="Sheet.529">
+                                       <mif:position x="614" y="631"/>
+                                    </mif:anchor>
+                                 </mif:graphEdge>
+                              </mif:graphElement></association><association className="RelatedTo" relationshipName="relatedTo"><mif:graphElement connectToShapeId="Sheet.382" containerDiagramName="Main">
+                     <mif:position x="1648" y="698"/>
+                     <mif:graphEdge>
+                        <mif:anchor connectToShapeId="Sheet.597">
+                           <mif:position x="1648" y="698"/>
+                        </mif:anchor>
+                     </mif:graphEdge>
+                  </mif:graphElement></association><association className="ResponsibleParty" relationshipName="responsibleFor"><mif:graphElement connectToShapeId="Sheet.382" containerDiagramName="Main">
+                     <mif:position x="582" y="698"/>
+                     <mif:graphEdge>
+                        <mif:anchor connectToShapeId="Sheet.538">
+                           <mif:position x="582" y="698"/>
+                        </mif:anchor>
+                     </mif:graphEdge>
+                  </mif:graphElement></association><association className="InformRequest" relationshipName="informRequest"><mif:graphElement connectToShapeId="Sheet.206" containerDiagramName="Main">
+                                                                  <mif:position x="357" y="1357"/>
+                                                                  <mif:graphEdge>
+                                                                     <mif:anchor connectToShapeId="Sheet.212">
+                                                                        <mif:position x="357" y="1357"/>
+                                                                     </mif:anchor>
+                                                                  </mif:graphEdge>
+                                                               </mif:graphElement></association><association className="Place" relationshipName="location"><mif:graphElement connectToShapeId="Sheet.180" containerDiagramName="Main">
+                                                                              <mif:position x="204" y="1700"/>
+                                                                              <mif:graphEdge>
+                                                                                 <mif:anchor connectToShapeId="Sheet.171">
+                                                                                    <mif:position x="393" y="1813"/>
+                                                                                 </mif:anchor>
+                                                                              </mif:graphEdge>
+                                                                           </mif:graphElement></association><association className="ServiceDeliveryLocation" relationshipName="serviceDeliveryLocation"><mif:graphElement connectToShapeId="Sheet.216" containerDiagramName="Main">
+                                                                                          <mif:position x="419" y="1574"/>
+                                                                                          <mif:graphEdge>
+                                                                                             <mif:anchor connectToShapeId="Sheet.180">
+                                                                                                <mif:position x="419" y="1574"/>
+                                                                                             </mif:anchor>
+                                                                                          </mif:graphEdge>
+                                                                                       </mif:graphElement></association><association className="PrivilegeCategorization" relationshipName="privilegeCategorization"><mif:graphElement connectToShapeId="Sheet.554" containerDiagramName="Main">
+                                                         <mif:position x="388" y="412"/>
+                                                         <mif:graphEdge>
+                                                            <mif:anchor connectToShapeId="Sheet.550">
+                                                               <mif:position x="388" y="412"/>
+                                                            </mif:anchor>
+                                                         </mif:graphEdge>
+                                                      </mif:graphElement></association><association className="Part" relationshipName="part"><mif:graphElement connectToShapeId="Sheet.832" containerDiagramName="Main">
+                                                                                                                                       <mif:position x="1490" y="146"/>
+                                                                                                                                       <mif:graphEdge>
+                                                                                                                                          <mif:anchor connectToShapeId="Sheet.871">
+                                                                                                                                             <mif:position x="1490" y="146"/>
+                                                                                                                                          </mif:anchor>
+                                                                                                                                       </mif:graphEdge>
+                                                                                                                                    </mif:graphElement></association><association className="Jurisdiction" relationshipName="territory"><mif:graphElement connectToShapeId="Sheet.832" containerDiagramName="Main">
+                                                                                                                                       <mif:position x="1314" y="190"/>
+                                                                                                                                       <mif:graphEdge>
+                                                                                                                                          <mif:anchor connectToShapeId="Sheet.842">
+                                                                                                                                             <mif:position x="1411" y="36"/>
+                                                                                                                                          </mif:anchor>
+                                                                                                                                       </mif:graphEdge>
+                                                                                                                                    </mif:graphElement></association></mif:graphicRepresentation>
+   <derivedFrom staticModelDerivationId="1">
+      <mif:targetStaticModel artifact="RIM" root="DEFN" version="00"/>
+   </derivedFrom>
+   <entryPoint className="RoleChoice" id="PRPM_MT306011CA" isAbstract="false" name="Provider Details Query Response">
+      <mif:annotations>
+         
+      <documentation><mif:description>
+            <mif:text>
+               <xhtml:p>Entry point to Provider Details Response.</xhtml:p>
+            </mif:text>
+         </mif:description></documentation></mif:annotations>
+      
+   </entryPoint>
+   <containedClass>
+      <mif:class isAbstract="false" name="ActDefinitionOrEvent">
+         <mif:businessName name="Act Definition or Event Name"><realmNamespace value="UV"/></mif:businessName>
+         <derivedFrom className="Act" staticModelDerivationId="1"/>
+         
+         <mif:annotations>
+            
+            
+         <documentation><mif:definition>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>A record of something that is being done, has been done, can be done, or is intended or requested to be done. Acts connect to Entities in their Roles through Participations and connect to other Acts through ActRelationships. Participations are the authors, performers and other responsible parties as well as subjects and beneficiaries (which includes tools and material used in the performance of the act, which are also subjects). The moodCode distinguishes between Acts that are meant as factual records, vs. records of intended or ordered services, and the other modalities in which act can appear.</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:definition><mif:rationale>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>Acts are the pivot of the RIM; all domain information and processes are represented primarily in Acts. Any profession or business, including healthcare, is primarily constituted of intentional and occasionally non-intentional actions, performed and recorded by responsible actors. An Act-instance is a record of such an action.</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:rationale></documentation></mif:annotations>
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="classCode" sortKey="1"><enumerationValues>ACT</enumerationValues>
+            <derivedFrom attributeName="classCode" className="Act" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="ACT" codeSystemName="ActClass"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="moodCode" sortKey="2"><enumerationValues>DEF</enumerationValues>
+            <derivedFrom attributeName="moodCode" className="Act" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="DEF" codeSystemName="ActMood"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="false" maximumMultiplicity="1" minimumMultiplicity="0" name="effectiveTime" sortKey="3">
+            <mif:businessName name="Act Definition or Event Name Effective Time"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Effective Time with regard to the act involved</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Required attribute indicating effective time of this act</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation></mif:annotations>
+            <derivedFrom attributeName="effectiveTime" className="Act" staticModelDerivationId="1"/>
+            <mif:type name="IVL">
+               <argumentDatatype name="TS.FULLDATE"/>
+            </mif:type>
+         </mif:attribute>
+      </mif:class>
+   </containedClass>
+   <containedClass>
+      <mif:class isAbstract="false" name="AssignedEntity">
+         <mif:businessName name="Assigned Entity"><realmNamespace value="UV"/></mif:businessName>
+         <derivedFrom className="Role" staticModelDerivationId="1"/>
+         
+         <mif:annotations>
+            
+            
+         <documentation><mif:definition>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>The role class, assigned entity, captures the critical information of the provider playing the role of interest. This includes an identifier for the role, mailing address, phone number, and the time within which the role is played (may be open ended). The scooping organization, which may be omitted if not needed, provides the organizational context for the entity that actually plays the role. For example, the role scoper will normally be the party that assigns the identifier for the role.</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:definition><mif:rationale>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>Roleclass required to provide additional information for the person responsible for providing healthcare services within a specific healthcare setting</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:rationale></documentation></mif:annotations>
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="classCode" sortKey="1"><enumerationValues>ASSIGNED</enumerationValues>
+            <derivedFrom attributeName="classCode" className="Role" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="ASSIGNED" codeSystemName="RoleClass"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="false" maximumMultiplicity="10" minimumMultiplicity="0" name="id" sortKey="2">
+            <mif:businessName name="Functional Role Identifier"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Identifies specific functional role that a provider may play within an organization.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Populated attribute supports the identification of the healthcare provider</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation></mif:annotations>
+            <derivedFrom attributeName="id" className="Role" staticModelDerivationId="1"/>
+            <mif:type name="SET">
+               <argumentDatatype name="II.PUBLICVER"/>
+            </mif:type>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="code" sortKey="3">
+            <mif:businessName name="Functional Role Type"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>The code identifying the specific functional role.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Mandatory attribute supports the identification of the healthcare provider</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation></mif:annotations>
+            <derivedFrom attributeName="code" className="Role" staticModelDerivationId="1"/>
+            <mif:type name="CV"/>
+            <supplierVocabulary codingStrength="CNE"><vocabularyDomain name="AssignedRoleType"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="false" maximumMultiplicity="5" minimumMultiplicity="0" name="name" sortKey="4">
+            <mif:businessName name="Functional Role Name"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>The provider’s name pertaining to the specific functional role.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Required attribute supports the identification of the healthcare provider</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation></mif:annotations>
+            <derivedFrom attributeName="name" className="Role" staticModelDerivationId="1"/>
+            <mif:type name="LIST">
+               <argumentDatatype name="PN.BASIC"/>
+            </mif:type>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="false" maximumMultiplicity="5" minimumMultiplicity="0" name="addr" sortKey="5">
+            <mif:businessName name="Functional Role Address"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Address of the provider when playing the functional role.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Required attribute supports the identification of the healthcare provider</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation></mif:annotations>
+            <derivedFrom attributeName="addr" className="Role" staticModelDerivationId="1"/>
+            <mif:type name="LIST">
+               <argumentDatatype name="AD.BASIC"/>
+            </mif:type>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="false" maximumMultiplicity="5" minimumMultiplicity="0" name="telecom" sortKey="6">
+            <mif:businessName name="Functional Role Telecom"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Telecom of the provider when playing the functional role.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Required attribute supports the identification of the healthcare provider</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation></mif:annotations>
+            <derivedFrom attributeName="telecom" className="Role" staticModelDerivationId="1"/>
+            <mif:type name="LIST">
+               <argumentDatatype name="TEL.PHONEMAIL"/>
+            </mif:type>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="false" maximumMultiplicity="1" minimumMultiplicity="0" name="statusCode" sortKey="7">
+            <mif:businessName name="Functional Role Status Code"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>The status of the provider in the functional role i.e. Active</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Required attribute supports the identification of the healthcare provider</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation></mif:annotations>
+            <derivedFrom attributeName="statusCode" className="Role" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><vocabularyDomain name="RoleStatus"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="false" maximumMultiplicity="1" minimumMultiplicity="0" name="effectiveTime" sortKey="8">
+            <mif:businessName name="Functional Role Effective Date"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>The effective date of the provider in the functional role.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Required attribute supports the identification of the healthcare provider</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation></mif:annotations>
+            <derivedFrom attributeName="effectiveTime" className="Role" staticModelDerivationId="1"/>
+            <mif:type name="IVL">
+               <argumentDatatype name="TS.FULLDATE"/>
+            </mif:type>
+         </mif:attribute>
+      </mif:class>
+   </containedClass>
+   <containedClass>
+      <mif:class isAbstract="false" name="Birthplace">
+         <mif:businessName name="Birthplace of Prinicipal Person"><realmNamespace value="UV"/></mif:businessName>
+         <derivedFrom className="Role" staticModelDerivationId="1"/>
+         
+         <mif:annotations>
+            
+            
+         <documentation><mif:definition>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>RoleClass to support birthplace of Principal Person</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:definition><mif:rationale>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>Supports business requirement to provide birthplace of Principal Person</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:rationale></documentation></mif:annotations>
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="classCode" sortKey="1"><enumerationValues>BIRTHPL</enumerationValues>
+            <derivedFrom attributeName="classCode" className="Role" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="BIRTHPL" codeSystemName="RoleClass"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="addr" sortKey="2">
+            <mif:businessName name="Birthplace Address"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Principal person's address at time of birth</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:usageNotes>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>If Birthplace is included in the message, then Address is Expected to Exist.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:usageNotes><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Mandatory attribute supports the identification of the healthcare provider</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation></mif:annotations>
+            <derivedFrom attributeName="addr" className="Role" staticModelDerivationId="1"/>
+            <mif:type name="AD.BASIC"/>
+         </mif:attribute>
+      </mif:class>
+   </containedClass>
+   <containedClass>
+      <mif:class isAbstract="true" name="Choice">
+         <derivedFrom className="Role" staticModelDerivationId="1"/>
+         
+         <childClass className="ServiceDeliveryLocation">
+            
+         </childClass>
+         <childClass className="HealthCareProvider">
+            
+         </childClass>
+      </mif:class>
+   </containedClass>
+   <containedClass>
+      <mif:class isAbstract="false" name="HealthCareProvider">
+         <mif:businessName name="Healthcare Provider"><realmNamespace value="UV"/></mif:businessName>
+         <derivedFrom className="LicensedEntity" staticModelDerivationId="1"/>
+         
+         
+         <mif:annotations>
+            
+            
+         <documentation><mif:definition>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>This roles the specific Healthcare provider role such as a Physician, Nurse or other type of caregivers.</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:definition><mif:rationale>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>Roleclass required to support the identification of person responsible for providing healthcare services</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:rationale></documentation></mif:annotations>
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="classCode" sortKey="1"><enumerationValues>PROV</enumerationValues>
+            <derivedFrom attributeName="classCode" className="LicensedEntity" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="PROV" codeSystemName="RoleClass"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="false" maximumMultiplicity="*" minimumMultiplicity="1" name="id" sortKey="2">
+            <mif:businessName name="Healthcare Provider Role Identification"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>A unique identifier for a provider in a specific healthcare role.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Mandatory attribute supports the identification of the healthcare provider</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation></mif:annotations>
+            <derivedFrom attributeName="id" className="LicensedEntity" staticModelDerivationId="1"/>
+            <mif:type name="SET">
+               <argumentDatatype name="II.PUBLICVER"/>
+            </mif:type>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="code" sortKey="3">
+            <mif:businessName name="Healthcare Provider Role Type"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>The code identifying the specific healthcare provider role.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Mandatory attribute supports the identification of the healthcare provider</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation></mif:annotations>
+            <derivedFrom attributeName="code" className="LicensedEntity" staticModelDerivationId="1"/>
+            <mif:type name="CV"/>
+            <supplierVocabulary codingStrength="CNE"><vocabularyDomain name="HealthCareProviderRoleType"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="false" maximumMultiplicity="5" minimumMultiplicity="0" name="name" sortKey="4">
+            <mif:businessName name="Healthcare Provider Role Name"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>The provider’s name pertaining to the specific healthcare provider role.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Mandatory attribute supports the identification of the healthcare provider</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation></mif:annotations>
+            <derivedFrom attributeName="name" className="LicensedEntity" staticModelDerivationId="1"/>
+            <mif:type name="LIST">
+               <argumentDatatype name="PN.BASIC"/>
+            </mif:type>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="false" maximumMultiplicity="5" minimumMultiplicity="0" name="addr" sortKey="5">
+            <mif:businessName name="Healthcare Provider Role Address"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>The address for the provider when playing the role of healthcare provider.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Mandatory attribute supports the identification of the healthcare provider</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation></mif:annotations>
+            <derivedFrom attributeName="addr" className="LicensedEntity" staticModelDerivationId="1"/>
+            <mif:type name="LIST">
+               <argumentDatatype name="AD.BASIC"/>
+            </mif:type>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="false" maximumMultiplicity="5" minimumMultiplicity="0" name="telecom" sortKey="6">
+            <mif:businessName name="Healthcare Provider Role Telecom"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>The telecom for the provider when playing the role of healthcare provider.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Required attribute supports the identification of the healthcare provider</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation></mif:annotations>
+            <derivedFrom attributeName="telecom" className="LicensedEntity" staticModelDerivationId="1"/>
+            <mif:type name="LIST">
+               <argumentDatatype name="TEL.PHONEMAIL"/>
+            </mif:type>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="false" maximumMultiplicity="1" minimumMultiplicity="0" name="statusCode" sortKey="7">
+            <mif:businessName name="Healthcare Provider Role Status Code"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>The status of the provider in the healthcare provider role i.e. Active</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Required attribute supports the identification of the healthcare provider</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation></mif:annotations>
+            <derivedFrom attributeName="statusCode" className="LicensedEntity" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><vocabularyDomain name="RoleStatus"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="false" maximumMultiplicity="1" minimumMultiplicity="0" name="effectiveTime" sortKey="8">
+            <mif:businessName name="Healthcare Provider Role Effective Date"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>The effective date of the provider in the healthcare provider role.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Required attribute supports the identification of the healthcare provider</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation></mif:annotations>
+            <derivedFrom attributeName="effectiveTime" className="LicensedEntity" staticModelDerivationId="1"/>
+            <mif:type name="IVL">
+               <argumentDatatype name="TS.FULLDATE"/>
+            </mif:type>
+         </mif:attribute>
+      </mif:class>
+   </containedClass>
+   <containedClass>
+      <mif:class isAbstract="false" name="IndirectTarget">
+         <derivedFrom className="Participation" staticModelDerivationId="1"/>
+         
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="typeCode" sortKey="1">
+            <derivedFrom attributeName="typeCode" className="Participation" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="IND" codeSystemName="ParticipationType"/></supplierVocabulary>
+         </mif:attribute>
+      </mif:class>
+   </containedClass>
+   <containedClass>
+      <mif:class isAbstract="false" name="InformRequest">
+         <mif:businessName name="Inform Request"><realmNamespace value="UV"/></mif:businessName>
+         <derivedFrom className="Act" staticModelDerivationId="1"/>
+         
+         <mif:annotations>
+            
+            
+         <documentation><mif:definition>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>A record of something that is being done, has been done, can be done, or is intended or requested to be done.</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:definition><mif:rationale>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>Acts are the pivot of the RIM; all domain information and processes are represented primarily in Acts. Any profession or business, including healthcare, is primarily constituted of intentional and occasionally non-intentional actions, performed and recorded by responsible actors. An Act-instance is a record of such an action.</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:rationale></documentation></mif:annotations>
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="classCode" sortKey="1">
+            <derivedFrom attributeName="classCode" className="Act" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="INFRM" codeSystemName="ActClass"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="moodCode" sortKey="2">
+            <derivedFrom attributeName="moodCode" className="Act" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="RQO" codeSystemName="ActMood"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="false" maximumMultiplicity="1" minimumMultiplicity="1" name="code" sortKey="3">
+            <mif:businessName name="Inform Request Code"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>A code specifying the particular kind of Act that the Act-instance represents within its class. Ex. Document Type</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Populated attribute supports the business requirement to provide coded information about the Act being described</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation></mif:annotations>
+            <derivedFrom attributeName="code" className="Act" staticModelDerivationId="1"/>
+            <mif:type name="CD"/>
+            <supplierVocabulary codingStrength="CWE"><vocabularyDomain name="ActCode"/></supplierVocabulary>
+         </mif:attribute>
+      </mif:class>
+   </containedClass>
+   <containedClass>
+      <mif:class isAbstract="false" name="Jurisdiction">
+         <mif:businessName name="Jurisdiction"><realmNamespace value="UV"/></mif:businessName>
+         <derivedFrom className="Place" staticModelDerivationId="1"/>
+         
+         <mif:annotations>
+            
+            
+         <documentation><mif:definition>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>Jurisdiction within which the scoping organization exists</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:definition><mif:rationale>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>Supports the business requirement to provide additional information about which jurisdication the scoping organization exists in.</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:rationale></documentation></mif:annotations>
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="classCode" sortKey="1"><enumerationValues>PLC</enumerationValues>
+            <derivedFrom attributeName="classCode" className="Place" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="PLC" codeSystemName="EntityClass"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="determinerCode" sortKey="2"><enumerationValues>INSTANCE</enumerationValues>
+            <derivedFrom attributeName="determinerCode" className="Place" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="INSTANCE" codeSystemName="EntityDeterminer"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="code" sortKey="3">
+            <mif:businessName name="Jurisdiction Type"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>A character value that represents the Canadian provincial or territorial geographical area within which the Provider is operating.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:usageNotes>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>If Jurisdiction is included in the message, then Territorial Authority Type is Expected to Exist</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:usageNotes><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Mandatory attribute supports the validation and identification of the healthcare provider</xhtml:p>
+                     </xhtml:p>
+                     <xhtml:p>
+                        <xhtml:p>.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation></mif:annotations>
+            <derivedFrom attributeName="code" className="Place" staticModelDerivationId="1"/>
+            <mif:type name="CV"/>
+            <supplierVocabulary codingStrength="CNE"><vocabularyDomain name="PlaceEntityType"/></supplierVocabulary>
+         </mif:attribute>
+      </mif:class>
+   </containedClass>
+   <containedClass>
+      <mif:class isAbstract="false" name="LanguageCommunication">
+         <mif:businessName name="Language of Communication"><realmNamespace value="UV"/></mif:businessName>
+         <derivedFrom className="LanguageCommunication" staticModelDerivationId="1"/>
+         
+         <mif:annotations>
+            
+            
+         <documentation><mif:definition>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>Information about what language(s) should be used to communicate with the focal person can be sent in the LanguageCommunication class.</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:definition><mif:rationale>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>Supports the business requirement to identify languages used by client for the purposes of communication</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:rationale></documentation></mif:annotations>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="false" maximumMultiplicity="1" minimumMultiplicity="0" name="languageCode" sortKey="1">
+            <mif:businessName name="Language of Communication Code"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>A code indicating the language of communication</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Required attribute conveying the expected language message elements are to be transmitted in</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation></mif:annotations>
+            <derivedFrom attributeName="languageCode" className="LanguageCommunication" staticModelDerivationId="1"/>
+            <mif:type name="CV"/>
+            <supplierVocabulary codingStrength="CNE"><vocabularyDomain name="HumanLanguage"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="false" maximumMultiplicity="1" minimumMultiplicity="0" name="modeCode" sortKey="2">
+            <mif:businessName name="Language of Communication Skills Code"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Indicates the healthcare provider's ability to communicate in the indicated language i.e. written, spoken, read</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Required attribute provides additional information about the healthcare provider's communication skills in a given language</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation></mif:annotations>
+            <derivedFrom attributeName="modeCode" className="LanguageCommunication" staticModelDerivationId="1"/>
+            <mif:type name="CV"/>
+            <supplierVocabulary codingStrength="CNE"><vocabularyDomain name="LanguageAbilityMode"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="false" maximumMultiplicity="1" minimumMultiplicity="0" name="proficiencyLevelCode" sortKey="3">
+            <mif:businessName name="Language of Communication Proficiency Level Code"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Indicates the proficiency level at which healthcare provider is able to communicate in the indicated language of communication</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Required attribute provides additional information about the healthcare provider's communication skills in a given language</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation></mif:annotations>
+            <derivedFrom attributeName="proficiencyLevelCode" className="LanguageCommunication" staticModelDerivationId="1"/>
+            <mif:type name="CV"/>
+            <supplierVocabulary codingStrength="CNE"><vocabularyDomain name="LanguageAbilityProficiency"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="false" maximumMultiplicity="1" minimumMultiplicity="0" name="preferenceInd" sortKey="4">
+            <mif:businessName name="Language of Communication Preference Indicator"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Indicates the preferred language for all communications.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Required attribute that supports the business requirement to indicate the preferred language for all communications.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation></mif:annotations>
+            <derivedFrom attributeName="preferenceInd" className="LanguageCommunication" staticModelDerivationId="1"/>
+            <mif:type name="BL"/>
+         </mif:attribute>
+      </mif:class>
+   </containedClass>
+   <containedClass>
+      <mif:class isAbstract="false" name="Location">
+         <derivedFrom className="Participation" staticModelDerivationId="1"/>
+         
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="typeCode" sortKey="1">
+            <derivedFrom attributeName="typeCode" className="Participation" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="LOC" codeSystemName="ParticipationType"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="false" maximumMultiplicity="1" minimumMultiplicity="1" name="sequenceNumber" sortKey="2">
+            <derivedFrom attributeName="sequenceNumber" className="Participation" staticModelDerivationId="1"/>
+            <mif:type name="INT"/>
+         </mif:attribute>
+      </mif:class>
+   </containedClass>
+   <containedClass>
+      <mif:class isAbstract="false" name="Organization">
+         <mif:businessName name="Organization"><realmNamespace value="UV"/></mif:businessName>
+         <derivedFrom className="Organization" staticModelDerivationId="1"/>
+         
+         <mif:annotations>
+            
+            
+         <documentation><mif:definition>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>The scoping organization for the specified role class</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:definition><mif:rationale>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>Supports the requirement to supply additional information regarding the assigning Organization of the specified RoleClass</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:rationale></documentation></mif:annotations>
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="classCode" sortKey="1"><enumerationValues>ORG</enumerationValues>
+            <derivedFrom attributeName="classCode" className="Organization" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="ORG" codeSystemName="EntityClass"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="determinerCode" sortKey="2"><enumerationValues>INSTANCE</enumerationValues>
+            <derivedFrom attributeName="determinerCode" className="Organization" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="INSTANCE" codeSystemName="EntityDeterminer"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="id" sortKey="3">
+            <mif:businessName name="Organization Id"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Unique identifier for the organization that assigned the specified roleClass identifier.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Mandatory attribute supports the validation and identification of the scoping organization assigning the id to the specified roleClass</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation></mif:annotations>
+            <derivedFrom attributeName="id" className="Organization" staticModelDerivationId="1"/>
+            <mif:type name="II"/>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="false" maximumLength="200" maximumMultiplicity="1" minimumMultiplicity="0" name="name" sortKey="4">
+            <mif:businessName name=" (Issuing Representing Qualification Granting Organization Name(s"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>1. Organization that is responsible for registering the provider for a specific healthcare provider role.</xhtml:p>
+                     </xhtml:p>
+                     <xhtml:p>
+                        <xhtml:p>2. Organization associated with a provider’s functional role.</xhtml:p>
+                     </xhtml:p>
+                     <xhtml:p>
+                        <xhtml:p>3. Organization that grants the qualifications or expertise.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Required attribute supports the validation and identification of the healthcare provider</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation></mif:annotations>
+            <derivedFrom attributeName="name" className="Organization" staticModelDerivationId="1"/>
+            <mif:type name="ST"/>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="false" maximumMultiplicity="5" minimumMultiplicity="0" name="addr" sortKey="5">
+            <mif:businessName name=" (Issuing Representing Qualification Granting Organization&#xA;   Address(es"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Address for any of the supported roles</xhtml:p>
+                     </xhtml:p>
+                     <xhtml:p>
+                        <xhtml:p>1. Issuing Oganization</xhtml:p>
+                     </xhtml:p>
+                     <xhtml:p>
+                        <xhtml:p>2. Representing Organization</xhtml:p>
+                     </xhtml:p>
+                     <xhtml:p>
+                        <xhtml:p>3. Qualification Granting Organization</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Required attribute supports the validation and identification of the healthcare provider</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation></mif:annotations>
+            <derivedFrom attributeName="addr" className="Organization" staticModelDerivationId="1"/>
+            <mif:type name="SET">
+               <argumentDatatype name="AD.BASIC"/>
+            </mif:type>
+         </mif:attribute>
+      </mif:class>
+   </containedClass>
+   <containedClass>
+      <mif:class isAbstract="false" name="Part">
+         <derivedFrom className="RoleLink" staticModelDerivationId="1"/>
+         
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="typeCode" sortKey="1">
+            <derivedFrom attributeName="typeCode" className="RoleLink" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="PART" codeSystemName="RoleLinkType"/></supplierVocabulary>
+         </mif:attribute>
+      </mif:class>
+   </containedClass>
+   <containedClass>
+      <mif:class isAbstract="false" name="Place">
+         <mif:businessName name="Service Delivery Location Place"><realmNamespace value="UV"/></mif:businessName>
+         <derivedFrom className="Place" staticModelDerivationId="1"/>
+         
+         <mif:annotations>
+            
+            
+         <documentation><mif:definition>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>The physical place playing the role of a service delivery location is sent in an E_Place class.</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:definition><mif:rationale>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>Provides additional information about the specified physical location</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:rationale></documentation></mif:annotations>
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="classCode" sortKey="1"><enumerationValues>PLC</enumerationValues>
+            <derivedFrom attributeName="classCode" className="Place" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="PLC" codeSystemName="EntityClass"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="determinerCode" sortKey="2"><enumerationValues>INSTANCE</enumerationValues>
+            <derivedFrom attributeName="determinerCode" className="Place" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="INSTANCE" codeSystemName="EntityDeterminer"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="true" maximumLength="200" maximumMultiplicity="1" minimumMultiplicity="1" name="name" sortKey="3">
+            <mif:businessName name="Service Delivery Location Name"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>The name of the service delivery location</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Mandatory attribute supports the validation and identification of the service delivery location</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation></mif:annotations>
+            <derivedFrom attributeName="name" className="Place" staticModelDerivationId="1"/>
+            <mif:type name="ST"/>
+         </mif:attribute>
+      </mif:class>
+   </containedClass>
+   <containedClass>
+      <mif:class isAbstract="false" name="PrimaryPerformer3">
+         <derivedFrom className="Participation" staticModelDerivationId="1"/>
+         
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="typeCode" sortKey="1">
+            <derivedFrom attributeName="typeCode" className="Participation" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="PPRF" codeSystemName="ParticipationType"/></supplierVocabulary>
+         </mif:attribute>
+      </mif:class>
+   </containedClass>
+   <containedClass>
+      <mif:class isAbstract="false" name="PrincipalPerson">
+         <mif:businessName name="Prinicpal Person"><realmNamespace value="UV"/></mif:businessName>
+         <derivedFrom className="Person" staticModelDerivationId="1"/>
+         
+         <mif:annotations>
+            
+            
+         <documentation><mif:definition>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>Identification of playing entity is required (0..1) to support the case in which information directly related to the playing party is not needed.</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:definition><mif:rationale>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>Provides additional information about the person playing the role of Healthcare Provider</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:rationale></documentation></mif:annotations>
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="classCode" sortKey="1"><enumerationValues>PSN</enumerationValues>
+            <derivedFrom attributeName="classCode" className="Person" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="PSN" codeSystemName="EntityClass"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="determinerCode" sortKey="2"><enumerationValues>INSTANCE</enumerationValues>
+            <derivedFrom attributeName="determinerCode" className="Person" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="INSTANCE" codeSystemName="EntityDeterminer"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="false" maximumMultiplicity="10" minimumMultiplicity="0" name="id" sortKey="3">
+            <mif:businessName name="Principal Person Aggregate Identifier"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>A unique identifier for the person who may play various healthcare provider roles. This identifier is specific to the person not their roles.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Required attribute supports the identification of the healthcare provider</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation></mif:annotations>
+            <derivedFrom attributeName="id" className="Person" staticModelDerivationId="1"/>
+            <mif:type name="SET">
+               <argumentDatatype name="II.PUBLIC"/>
+            </mif:type>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="false" maximumMultiplicity="5" minimumMultiplicity="0" name="name" sortKey="4">
+            <mif:businessName name="Principal Person Name"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>The person’s name independent of any role they may play.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:usageNotes>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>If Principal Person is included in the message, then Person Name Must Exist.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:usageNotes><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Required attribute supports the identification of the healthcare provider</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation></mif:annotations>
+            <derivedFrom attributeName="name" className="Person" staticModelDerivationId="1"/>
+            <mif:type name="LIST">
+               <argumentDatatype name="PN.BASIC"/>
+            </mif:type>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="false" maximumMultiplicity="1" minimumMultiplicity="0" name="administrativeGenderCode" sortKey="5">
+            <mif:businessName name="Principal Person Gender"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>The principal person’s gender.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:usageNotes>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>If Principal Person is included in the message, then Person Gender is Expected to Exist.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:usageNotes><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Required attribute supports the identification of the healthcare provider</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation></mif:annotations>
+            <derivedFrom attributeName="administrativeGenderCode" className="Person" staticModelDerivationId="1"/>
+            <mif:type name="CV"/>
+            <supplierVocabulary codingStrength="CNE"><vocabularyDomain name="AdministrativeGender"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="false" maximumMultiplicity="1" minimumMultiplicity="0" name="birthTime" sortKey="6">
+            <mif:businessName name="Principal Person Date of Birth"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>The principal person’s date of birth.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:usageNotes>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>If Principal Person is included in the message, then Prinicpal Person Date of Birth is Expected to Exist.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:usageNotes><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Required attribute supports the identification of the healthcare provider</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation></mif:annotations>
+            <derivedFrom attributeName="birthTime" className="Person" staticModelDerivationId="1"/>
+            <mif:type name="TS.FULLDATE"/>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="false" maximumMultiplicity="1" minimumMultiplicity="0" name="deceasedInd" sortKey="7">
+            <mif:businessName name="Principal Person Deceased Indicator"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>An indication that the principal person is deceased.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Required attribute supports the identification of the healthcare provider</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation></mif:annotations>
+            <derivedFrom attributeName="deceasedInd" className="Person" staticModelDerivationId="1"/>
+            <mif:type name="BL"/>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="false" maximumMultiplicity="1" minimumMultiplicity="0" name="deceasedTime" sortKey="8">
+            <mif:businessName name="Principal Person Deceased Date"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>The date and time that a healthcare provider's death occurred.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Required attribute supports verification of death from official source such as Vital Statistics.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation></mif:annotations>
+            <derivedFrom attributeName="deceasedTime" className="Person" staticModelDerivationId="1"/>
+            <mif:type name="TS.FULLDATE"/>
+         </mif:attribute>
+      </mif:class>
+   </containedClass>
+   <containedClass>
+      <mif:class isAbstract="false" name="Privilege">
+         <mif:businessName name="Privilege"><realmNamespace value="UV"/></mif:businessName>
+         <derivedFrom className="Act" staticModelDerivationId="1"/>
+         
+         <mif:annotations>
+            
+            
+         <documentation><mif:definition>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>A record of something that is being done, has been done, can be done, or is intended or requested to be done. In this instance it is a description of the privilege associated with the specified healthcare providers' practice</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:definition><mif:rationale>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>Supports the business requirement to identify privileges associated with the specified healthcare provider</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:rationale></documentation></mif:annotations>
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="classCode" sortKey="1"><enumerationValues>ACT</enumerationValues>
+            <derivedFrom attributeName="classCode" className="Act" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="ACT" codeSystemName="ActClass"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="moodCode" sortKey="2"><enumerationValues>PERM</enumerationValues>
+            <derivedFrom attributeName="moodCode" className="Act" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="PERM" codeSystemName="ActMood"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="false" maximumMultiplicity="1" minimumMultiplicity="0" name="id" sortKey="3">
+            <mif:businessName name="Restrictions to Practice Identifier"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Unique identifier for the restriction.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Required attribute supports the validation and identification of the healthcare provider and his/her given privileges</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation></mif:annotations>
+            <derivedFrom attributeName="id" className="Act" staticModelDerivationId="1"/>
+            <mif:type name="II.BUS"/>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="false" maximumMultiplicity="1" minimumMultiplicity="0" name="code" sortKey="4">
+            <mif:businessName name="Restrictions to Practice Type"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Type of restriction.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:usageNotes>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>If Restrictions to Practice are included in the message, then Type Must Exist</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:usageNotes><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Required attribute supports the validation and identification of the healthcare provider and his/her given privileges</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation></mif:annotations>
+            <derivedFrom attributeName="code" className="Act" staticModelDerivationId="1"/>
+            <mif:type name="CV"/>
+            <supplierVocabulary codingStrength="CNE"><vocabularyDomain name="ActCode"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="false" maximumMultiplicity="1" minimumMultiplicity="0" name="negationInd" sortKey="5">
+            <mif:businessName name="Restrictions to Practice Negation Indicator"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Indicating that the privilege is a restriction.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Required attribute supports the validation and identification of the healthcare provider and his/her given privileges</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation></mif:annotations>
+            <derivedFrom attributeName="negationInd" className="Act" staticModelDerivationId="1"/>
+            <mif:type name="BL"/>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="false" maximumMultiplicity="1" minimumMultiplicity="0" name="text" sortKey="6">
+            <mif:businessName name="Restrictions to Practice Text"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Comments pertaining to the restriction.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Required attribute supports the validation and identification of the healthcare provider and his/her given privileges</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation></mif:annotations>
+            <derivedFrom attributeName="text" className="Act" staticModelDerivationId="1"/>
+            <mif:type name="ST"/>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="false" maximumMultiplicity="1" minimumMultiplicity="0" name="effectiveTime" sortKey="7">
+            <mif:businessName name="Restrictions to Practice Effective Date"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Effective date of the restriction.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:usageNotes>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>If Restrictions to Practice are included in the message, then Effective Date Must Exist</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:usageNotes><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Required attribute supports the validation and identification of the healthcare provider and his/her given privileges</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation></mif:annotations>
+            <derivedFrom attributeName="effectiveTime" className="Act" staticModelDerivationId="1"/>
+            <mif:type name="IVL">
+               <argumentDatatype name="TS.FULLDATETIME"/>
+            </mif:type>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="false" maximumMultiplicity="1" minimumMultiplicity="0" name="confidentialityCode" sortKey="8">
+            <mif:businessName name="Restrictions to Practice Confidentiality Code"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Indicates the degree to which the restriction to practice is to be kept confidential.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:usageNotes>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Data in the EHR may at some point (and in some jurisdictions) be accessed directly by patients. Some health information may be deemed inappropriate for direct access by patients and requires interpretation by a clinician (e.g. prescription of placebos, analysis of certain psychiatric conditions, etc) Even where direct access by patient is not provided, there may need to be guidance to other providers viewing the record where care should be used in disclosing information to the patient. Non-clinical data (e.g. demographics) may need to be flagged as not for disclosure to patient and or next of kin. There may be professional policy and or legislative guidelines about when/if records may be flagged as not for direct disclosure.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:usageNotes><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Required attribute supports the validation and identification of the healthcare provider and his/her given privileges</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation></mif:annotations>
+            <derivedFrom attributeName="confidentialityCode" className="Act" staticModelDerivationId="1"/>
+            <mif:type name="CV"/>
+            <supplierVocabulary codingStrength="CNE"><vocabularyDomain name="Confidentiality"/></supplierVocabulary>
+         </mif:attribute>
+      </mif:class>
+   </containedClass>
+   <containedClass>
+      <mif:class isAbstract="false" name="PrivilegeCategorization">
+         <mif:businessName name="Privilege Categorization"><realmNamespace value="UV"/></mif:businessName>
+         <derivedFrom className="Observation" staticModelDerivationId="1"/>
+         
+         <mif:annotations>
+            
+            
+         <documentation><mif:definition>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>An act that is intended to result in new information about a subject. In this instance, regarding restrictions to practice for a specified healthcare provider.</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:definition><mif:rationale>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>Supports the business requirement to provide information about a healthcare provider where privileges have been restricted.</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:rationale></documentation></mif:annotations>
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="classCode" sortKey="1"><enumerationValues>OBS</enumerationValues>
+            <derivedFrom attributeName="classCode" className="Observation" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="OBS" codeSystemName="ActClass"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="moodCode" sortKey="2"><enumerationValues>EVN</enumerationValues>
+            <derivedFrom attributeName="moodCode" className="Observation" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="EVN" codeSystemName="ActMood"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="false" maximumMultiplicity="1" minimumMultiplicity="0" name="code" sortKey="3">
+            <mif:businessName name="Restrictions Categorization Type"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>The code identifying the specific privilege and/or restrictions on those privileges</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Required attribute supports the validation and identification of the healthcare provider and his/her given privileges</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation></mif:annotations>
+            <derivedFrom attributeName="code" className="Observation" staticModelDerivationId="1"/>
+            <mif:type name="CV"/>
+            <supplierVocabulary codingStrength="CNE"><code codeSystemName="ActPrivilegeCategorization"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="false" maximumMultiplicity="1" minimumMultiplicity="0" name="value" sortKey="4">
+            <mif:businessName name="Restrictions Categorization Value"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>The value identifying the specific privilege and/or restrictions on those privileges</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Required attribute supports the validation and identification of the healthcare provider and his/her given privileges</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation></mif:annotations>
+            <derivedFrom attributeName="value" className="Observation" staticModelDerivationId="1"/>
+            <mif:type name="CV"/>
+            <supplierVocabulary codingStrength="CNE"><vocabularyDomain name="ObservationValue"/></supplierVocabulary>
+         </mif:attribute>
+      </mif:class>
+   </containedClass>
+   <containedClass>
+      <mif:class isAbstract="false" name="QualifiedEntity">
+         <mif:businessName name="Qualified Entity"><realmNamespace value="UV"/></mif:businessName>
+         <derivedFrom className="QualifiedEntity" staticModelDerivationId="1"/>
+         
+         <mif:annotations>
+            
+            
+         <documentation><mif:definition>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>This role describes specific qualifications that may be held the provider as a result of training or experience, but having no legal force. Example: a medical degree or diploma. The current model does not include role attributes such as name, addr and telecom because there are no known use cases in this domain where this role is contactable.</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:definition><mif:rationale>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>Roleclass required to provide additional information for the person responsible for providing healthcare services</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:rationale></documentation></mif:annotations>
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="classCode" sortKey="1"><enumerationValues>QUAL</enumerationValues>
+            <derivedFrom attributeName="classCode" className="QualifiedEntity" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="QUAL" codeSystemName="RoleClass"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="false" maximumMultiplicity="10" minimumMultiplicity="0" name="id" sortKey="2">
+            <mif:businessName name="Expertise or Credentials Role Identifier"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Unique identifier for the Expertise or Credential.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Required attribute supports the identification of the healthcare provider credentials</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation></mif:annotations>
+            <derivedFrom attributeName="id" className="QualifiedEntity" staticModelDerivationId="1"/>
+            <mif:type name="SET">
+               <argumentDatatype name="II.PUBLICVER"/>
+            </mif:type>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="false" maximumMultiplicity="1" minimumMultiplicity="1" name="code" sortKey="3">
+            <mif:businessName name="Expertise or Credentials Role Type"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>A code for the degree or educational rank that the credential specifies. May also apply to an Expertise type.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:usageNotes>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>If Expertise or Credentials are included in the message, then Role Type Must Exist.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:usageNotes><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Populated attribute supports the identification of the healthcare provider credentials</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation></mif:annotations>
+            <derivedFrom attributeName="code" className="QualifiedEntity" staticModelDerivationId="1"/>
+            <mif:type name="CV"/>
+            <supplierVocabulary codingStrength="CNE"><vocabularyDomain name="QualifiedRoleType"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="false" maximumMultiplicity="1" minimumMultiplicity="1" name="effectiveTime" sortKey="4">
+            <mif:businessName name="Expertise or Credentials Role Effective Date"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>The effective date of the provider expertise or credentials in the healthcare provider role.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:usageNotes>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>If Expertise or Credentials are included in the message, then Role Effective Date Must Exist</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:usageNotes><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Populated attribute supports the identification of the healthcare provider credentials</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation></mif:annotations>
+            <derivedFrom attributeName="effectiveTime" className="QualifiedEntity" staticModelDerivationId="1"/>
+            <mif:type name="IVL">
+               <argumentDatatype name="TS.FULLDATE"/>
+            </mif:type>
+         </mif:attribute>
+      </mif:class>
+   </containedClass>
+   <containedClass>
+      <mif:class isAbstract="false" name="RelatedTo">
+         <derivedFrom className="RoleLink" staticModelDerivationId="1"/>
+         
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="typeCode" sortKey="1">
+            <derivedFrom attributeName="typeCode" className="RoleLink" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="REL" codeSystemName="RoleLinkType"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="false" maximumMultiplicity="1" minimumMultiplicity="0" name="effectiveTime" sortKey="2">
+            <derivedFrom attributeName="effectiveTime" className="RoleLink" staticModelDerivationId="1"/>
+            <mif:type name="IVL">
+               <argumentDatatype name="TS.FULLDATETIME"/>
+            </mif:type>
+         </mif:attribute>
+      </mif:class>
+   </containedClass>
+   <containedClass>
+      <mif:class isAbstract="false" name="ResponsibleParty">
+         <derivedFrom className="Participation" staticModelDerivationId="1"/>
+         
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="typeCode" sortKey="1">
+            <derivedFrom attributeName="typeCode" className="Participation" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="RESP" codeSystemName="ParticipationType"/></supplierVocabulary>
+         </mif:attribute>
+      </mif:class>
+   </containedClass>
+   <containedClass>
+      <mif:class isAbstract="true" name="RoleChoice">
+         <derivedFrom className="Role" staticModelDerivationId="1"/>
+         
+         <childClass className="AssignedEntity">
+            
+         </childClass>
+         <childClass className="QualifiedEntity">
+            
+         </childClass>
+         <childClass className="HealthCareProvider">
+            
+         </childClass>
+      </mif:class>
+   </containedClass>
+   <containedClass>
+      <mif:class isAbstract="false" name="SequelTo">
+         <derivedFrom className="ActRelationship" staticModelDerivationId="1"/>
+         
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="typeCode" sortKey="1">
+            <derivedFrom attributeName="typeCode" className="ActRelationship" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="SEQL" codeSystemName="ActRelationshipType"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute isImmutable="false" isMandatory="false" maximumMultiplicity="1" minimumMultiplicity="0" name="sequenceNumber" sortKey="2">
+            <derivedFrom attributeName="sequenceNumber" className="ActRelationship" staticModelDerivationId="1"/>
+            <mif:type name="INT"/>
+         </mif:attribute>
+      </mif:class>
+   </containedClass>
+   <containedClass>
+      <mif:class isAbstract="false" name="ServiceDeliveryLocation">
+         <mif:businessName name="Service Delivery Location"><realmNamespace value="UV"/></mif:businessName>
+         <derivedFrom className="Role" staticModelDerivationId="1"/>
+         
+         <mif:annotations>
+            
+            
+         <documentation><mif:definition>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>A role played by a place at which services may be provided. The RIM defines two specializations of service delivery location: 1. incidental service delivery location - A role played by a place at which health care services may be provided without prior designation or authorization and 2. dedicated service delivery location - A role played by a place that is intended to house the provision of services. Scoper is the Entity (typically Organization) that provides these services. This is not synonymous with "ownership". This can be further characterized by a role code of: A)DedicatedClinicalLocationRoleType - A role of a place that further classifies the clinical setting (e.g., cardiology clinic, primary care clinic, rehabilitation hospital, skilled nursing facility) in which care is delivered during an encounter or B)DedicatedNonClinicalLocationRoleType - A role of a place that further classifies the setting in which non-clinical services are delivered. A given physical place can play multiple service delivery location roles each with its own attributes. For example, a Podiatric clinic and Research clinic may meet on alternate days in the same physical location; each clinic uses its own mailing address and telephone number.</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:definition><mif:rationale>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>Roleclass required to support the identification of the physical location where healthcare services are provided</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:rationale></documentation></mif:annotations>
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="classCode" sortKey="1"><enumerationValues>SDLOC</enumerationValues>
+            <derivedFrom attributeName="classCode" className="Role" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="SDLOC" codeSystemName="RoleClass"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="false" maximumMultiplicity="10" minimumMultiplicity="0" name="id" sortKey="2">
+            <mif:businessName name="Service Delivery Location Identifier"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>A unique identifier for the service delivery location.</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Required attribute supports the validation and identification of the service delivery location</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation></mif:annotations>
+            <derivedFrom attributeName="id" className="Role" staticModelDerivationId="1"/>
+            <mif:type name="SET">
+               <argumentDatatype name="II.BUS"/>
+            </mif:type>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="false" maximumMultiplicity="1" minimumMultiplicity="1" name="code" sortKey="3">
+            <mif:businessName name="Service Delivery Location Type"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>The code identifying the specific service delivery location</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Populated attribute supports the validation and identification of the service delivery location</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation></mif:annotations>
+            <derivedFrom attributeName="code" className="Role" staticModelDerivationId="1"/>
+            <mif:type name="CV"/>
+            <supplierVocabulary codingStrength="CNE"><vocabularyDomain name="ServiceDeliveryLocationRoleType"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="false" maximumMultiplicity="5" minimumMultiplicity="0" name="addr" sortKey="4">
+            <mif:businessName name="Service Delivery Location Address"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Address of the specific service delivery location</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Required attribute supports the validation and identification of the service delivery location</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation></mif:annotations>
+            <derivedFrom attributeName="addr" className="Role" staticModelDerivationId="1"/>
+            <mif:type name="LIST">
+               <argumentDatatype name="AD.BASIC"/>
+            </mif:type>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="false" maximumMultiplicity="5" minimumMultiplicity="0" name="telecom" sortKey="5">
+            <mif:businessName name="Service Delivery Location Telecom"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>The telecom for the specific service delivery location</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Required attribute supports the validation and identification of the service delivery location</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation></mif:annotations>
+            <derivedFrom attributeName="telecom" className="Role" staticModelDerivationId="1"/>
+            <mif:type name="LIST">
+               <argumentDatatype name="TEL.PHONEMAIL"/>
+            </mif:type>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="false" maximumMultiplicity="1" minimumMultiplicity="0" name="effectiveTime" sortKey="6">
+            <mif:businessName name="Service Delivery Location Effective Date"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Effective date of the specific service delivery location</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Required attribute supports the validation and identification of the service delivery location</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation></mif:annotations>
+            <derivedFrom attributeName="effectiveTime" className="Role" staticModelDerivationId="1"/>
+            <mif:type name="IVL">
+               <argumentDatatype name="TS.FULLDATE"/>
+            </mif:type>
+         </mif:attribute>
+      </mif:class>
+   </containedClass>
+   <containedClass>
+      <mif:class isAbstract="false" name="Subject">
+         <derivedFrom className="Participation" staticModelDerivationId="1"/>
+         
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="typeCode" sortKey="1"><enumerationValues>SBJ</enumerationValues>
+            <derivedFrom attributeName="typeCode" className="Participation" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="SBJ" codeSystemName="ParticipationType"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="false" maximumMultiplicity="1" minimumMultiplicity="1" name="modeCode" sortKey="2">
+            <derivedFrom attributeName="modeCode" className="Participation" staticModelDerivationId="1"/>
+            <mif:type name="CE"/>
+            <supplierVocabulary codingStrength="CWE"><vocabularyDomain name="ParticipationMode"/></supplierVocabulary>
+         </mif:attribute>
+      </mif:class>
+   </containedClass>
+   <containedClass>
+      <mif:class isAbstract="false" name="Subject4">
+         <derivedFrom className="ActRelationship" staticModelDerivationId="1"/>
+         
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="typeCode" sortKey="1">
+            <derivedFrom attributeName="typeCode" className="ActRelationship" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="SUBJ" codeSystemName="ActRelationshipType"/></supplierVocabulary>
+         </mif:attribute>
+      </mif:class>
+   </containedClass>
+   <containedClass>
+      <mif:class isAbstract="false" name="TerritorialAuthority">
+         <mif:businessName name="Territorial Authority"><realmNamespace value="UV"/></mif:businessName>
+         <derivedFrom className="Role" staticModelDerivationId="1"/>
+         
+         <mif:annotations>
+            
+            
+         <documentation><mif:definition>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>RoleClass necessary to support the Jurisdiction within which the scoping organization exists</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:definition><mif:rationale>
+               <mif:text>
+                  <xhtml:p>
+                     <xhtml:p>Supports business requirement to provide additional information regarding the jurisdication within the scoping organization exists.</xhtml:p>
+                  </xhtml:p>
+               </mif:text>
+            </mif:rationale></documentation></mif:annotations>
+         <mif:attribute conformance="R" isImmutable="true" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="classCode" sortKey="1"><enumerationValues>TERR</enumerationValues>
+            <derivedFrom attributeName="classCode" className="Role" staticModelDerivationId="1"/>
+            <mif:type name="CS"/>
+            <supplierVocabulary codingStrength="CNE"><code code="TERR" codeSystemName="RoleClass"/></supplierVocabulary>
+         </mif:attribute>
+         <mif:attribute conformance="R" isImmutable="false" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="code" sortKey="2">
+            <mif:businessName name="Territorial Authority Type"><realmNamespace value="UV"/></mif:businessName>
+            <mif:annotations>
+               
+               
+            <documentation><mif:definition>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>The code identifying the specific Territorial Authority</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:definition><mif:rationale>
+                  <mif:text>
+                     <xhtml:p>
+                        <xhtml:p>Mandatory attribute supports the validation and identification of the healthcare provider</xhtml:p>
+                     </xhtml:p>
+                  </mif:text>
+               </mif:rationale></documentation></mif:annotations>
+            <derivedFrom attributeName="code" className="Role" staticModelDerivationId="1"/>
+            <mif:type name="CV"/>
+            <supplierVocabulary codingStrength="CNE"><vocabularyDomain name="RoleCode"/></supplierVocabulary>
+         </mif:attribute>
+      </mif:class>
+   </containedClass>
+   <association sortKey="37">
+      
+      <mif:connections>
+         <mif:traversableConnection conformance="R" isMandatory="false" maximumMultiplicity="25" minimumMultiplicity="0" name="location" participantClassName="Location" sortKey="AJ________">
+            <derivedFrom associationEndName="participation" className="Act" staticModelDerivationId="1"/>
+         </mif:traversableConnection>
+         <mif:nonTraversableConnection participantClassName="ActDefinitionOrEvent">
+            <derivedFrom associationEndName="act" className="Participation" staticModelDerivationId="1"/>
+         </mif:nonTraversableConnection>
+      </mif:connections>
+   </association>
+   <association sortKey="38">
+      
+      <mif:connections>
+         <mif:traversableConnection conformance="R" isMandatory="false" maximumMultiplicity="25" minimumMultiplicity="0" name="sequel" participantClassName="SequelTo" sortKey="CB________">
+            <derivedFrom associationEndName="inboundRelationship" className="Act" staticModelDerivationId="1"/>
+         </mif:traversableConnection>
+         <mif:nonTraversableConnection participantClassName="ActDefinitionOrEvent">
+            <derivedFrom associationEndName="target" className="ActRelationship" staticModelDerivationId="1"/>
+         </mif:nonTraversableConnection>
+      </mif:connections>
+   </association>
+   <association sortKey="0">
+      
+      <mif:connections>
+         <mif:traversableConnection conformance="R" isMandatory="false" maximumMultiplicity="1" minimumMultiplicity="0" name="assignedPrincipalPerson" participantClassName="PrincipalPerson" sortKey="AZ">
+            <derivedFrom associationEndName="player" className="Role" staticModelDerivationId="1"/>
+         </mif:traversableConnection>
+         <mif:nonTraversableConnection participantClassName="AssignedEntity">
+            <derivedFrom associationEndName="playedRole" className="Entity" staticModelDerivationId="1"/>
+         </mif:nonTraversableConnection>
+      </mif:connections>
+   </association>
+   <association sortKey="2">
+      
+      <mif:connections>
+         <mif:traversableConnection conformance="R" isMandatory="false" maximumMultiplicity="25" minimumMultiplicity="0" name="performance" participantClassName="PrimaryPerformer3" sortKey="CDA_______">
+            <derivedFrom associationEndName="participation" className="Role" staticModelDerivationId="1"/>
+         </mif:traversableConnection>
+         <mif:nonTraversableConnection participantClassName="AssignedEntity">
+            <derivedFrom associationEndName="role" className="Participation" staticModelDerivationId="1"/>
+         </mif:nonTraversableConnection>
+      </mif:connections>
+   </association>
+   <association sortKey="1">
+      
+      <mif:connections>
+         <mif:traversableConnection conformance="R" isMandatory="false" maximumMultiplicity="1" minimumMultiplicity="0" name="representedOrganization" participantClassName="Organization" sortKey="BZ">
+            <derivedFrom associationEndName="scoper" className="Role" staticModelDerivationId="1"/>
+         </mif:traversableConnection>
+         <mif:nonTraversableConnection participantClassName="AssignedEntity">
+            <derivedFrom associationEndName="scopedRole" className="Entity" staticModelDerivationId="1"/>
+         </mif:nonTraversableConnection>
+      </mif:connections>
+   </association>
+   <association sortKey="16">
+      
+      <mif:connections>
+         <mif:traversableConnection conformance="R" isMandatory="false" maximumMultiplicity="1" minimumMultiplicity="0" name="healthCarePrincipalPerson" participantClassName="PrincipalPerson" sortKey="AZ">
+            <derivedFrom associationEndName="player" className="Role" staticModelDerivationId="1"/>
+         </mif:traversableConnection>
+         <mif:nonTraversableConnection participantClassName="HealthCareProvider">
+            <derivedFrom associationEndName="playedRole" className="Entity" staticModelDerivationId="1"/>
+         </mif:nonTraversableConnection>
+      </mif:connections>
+   </association>
+   <association sortKey="17">
+      
+      <mif:connections>
+         <mif:traversableConnection conformance="R" isMandatory="false" maximumMultiplicity="1" minimumMultiplicity="0" name="issuingOrganization" participantClassName="Organization" sortKey="BZ">
+            <derivedFrom associationEndName="scoper" className="Role" staticModelDerivationId="1"/>
+         </mif:traversableConnection>
+         <mif:nonTraversableConnection participantClassName="HealthCareProvider">
+            <derivedFrom associationEndName="scopedRole" className="Entity" staticModelDerivationId="1"/>
+         </mif:nonTraversableConnection>
+      </mif:connections>
+   </association>
+   <association sortKey="48">
+      
+      <mif:connections>
+         <mif:traversableConnection conformance="R" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="choice" participantClassName="Choice" sortKey="BZ">
+            <derivedFrom associationEndName="role" className="Participation" staticModelDerivationId="1"/>
+            <participantClassSpecialization className="ServiceDeliveryLocation" traversalName="serviceDeliveryLocation"/>
+            <participantClassSpecialization className="HealthCareProvider" traversalName="healthCareProvider"/>
+         </mif:traversableConnection>
+         <mif:nonTraversableConnection participantClassName="IndirectTarget">
+            <derivedFrom associationEndName="participation" className="Role" staticModelDerivationId="1"/>
+         </mif:nonTraversableConnection>
+      </mif:connections>
+   </association>
+   <association sortKey="44">
+      
+      <mif:connections>
+         <mif:traversableConnection conformance="R" isMandatory="true" maximumMultiplicity="1" minimumMultiplicity="1" name="indirectTarget" participantClassName="IndirectTarget" sortKey="AB________">
+            <derivedFrom associationEndName="participation" className="Act" staticModelDerivationId="1"/>
+         </mif:traversableConnection>
+         <mif:nonTraversableConnection participantClassName="InformRequest">
+            <derivedFrom associationEndName="act" className="Participation" staticModelDerivationId="1"/>
+         </mif:nonTraversableConnection>
+      </mif:connections>
+   </association>
+   <association sortKey="43">
+      
+      <mif:connections>
+         <mif:traversableConnection isMandatory="false" maximumMultiplicity="1" minimumMultiplicity="0" name="subject" participantClassName="Subject" sortKey="AAA_______">
+            <derivedFrom associationEndName="participation" className="Act" staticModelDerivationId="1"/>
+         </mif:traversableConnection>
+         <mif:nonTraversableConnection participantClassName="InformRequest">
+            <derivedFrom associationEndName="act" className="Participation" staticModelDerivationId="1"/>
+         </mif:nonTraversableConnection>
+      </mif:connections>
+   </association>
+   <association sortKey="36">
+      
+      <mif:connections>
+         <mif:traversableConnection conformance="R" isMandatory="false" maximumMultiplicity="1" minimumMultiplicity="1" name="serviceDeliveryLocation" participantClassName="ServiceDeliveryLocation" sortKey="BZ">
+            <derivedFrom associationEndName="role" className="Participation" staticModelDerivationId="1"/>
+         </mif:traversableConnection>
+         <mif:nonTraversableConnection participantClassName="Location">
+            <derivedFrom associationEndName="participation" className="Role" staticModelDerivationId="1"/>
+         </mif:nonTraversableConnection>
+      </mif:connections>
+   </association>
+   <association sortKey="15">
+      
+      <mif:connections>
+         <mif:traversableConnection conformance="R" isMandatory="false" maximumMultiplicity="*" minimumMultiplicity="0" name="territorialAuthority" participantClassName="TerritorialAuthority" sortKey="BAABK_____">
+            <derivedFrom associationEndName="scopedRole" className="Entity" staticModelDerivationId="1"/>
+         </mif:traversableConnection>
+         <mif:nonTraversableConnection participantClassName="Organization">
+            <derivedFrom associationEndName="scoper" className="Role" staticModelDerivationId="1"/>
+         </mif:nonTraversableConnection>
+      </mif:connections>
+   </association>
+   <association sortKey="57">
+      
+      <mif:connections>
+         <mif:traversableConnection conformance="R" isMandatory="false" maximumMultiplicity="1" minimumMultiplicity="1" name="territorialAuthority" participantClassName="TerritorialAuthority" sortKey="BZ">
+            <derivedFrom associationEndName="target" className="RoleLink" staticModelDerivationId="1"/>
+         </mif:traversableConnection>
+         <mif:nonTraversableConnection participantClassName="Part">
+            <derivedFrom associationEndName="inboundLink" className="Role" staticModelDerivationId="1"/>
+         </mif:nonTraversableConnection>
+      </mif:connections>
+   </association>
+   <association sortKey="49">
+      
+      <mif:connections>
+         <mif:traversableConnection conformance="R" isMandatory="false" maximumMultiplicity="1" minimumMultiplicity="1" name="actDefinitionOrEvent" participantClassName="ActDefinitionOrEvent" sortKey="AZ">
+            <derivedFrom associationEndName="act" className="Participation" staticModelDerivationId="1"/>
+         </mif:traversableConnection>
+         <mif:nonTraversableConnection participantClassName="PrimaryPerformer3">
+            <derivedFrom associationEndName="participation" className="Act" staticModelDerivationId="1"/>
+         </mif:nonTraversableConnection>
+      </mif:connections>
+   </association>
+   <association sortKey="5">
+      
+      <mif:connections>
+         <mif:traversableConnection conformance="R" isMandatory="false" maximumMultiplicity="1" minimumMultiplicity="0" name="birthplace" participantClassName="Birthplace" sortKey="BAABL_____">
+            <derivedFrom associationEndName="scopedRole" className="Entity" staticModelDerivationId="1"/>
+         </mif:traversableConnection>
+         <mif:nonTraversableConnection participantClassName="PrincipalPerson">
+            <derivedFrom associationEndName="scoper" className="Role" staticModelDerivationId="1"/>
+         </mif:nonTraversableConnection>
+      </mif:connections>
+   </association>
+   <association sortKey="4">
+      
+      <mif:connections>
+         <mif:traversableConnection conformance="R" isMandatory="false" maximumMultiplicity="10" minimumMultiplicity="0" name="languageCommunication" participantClassName="LanguageCommunication" sortKey="CZ">
+            <derivedFrom associationEndName="languageCommunication" className="Entity" staticModelDerivationId="1"/>
+         </mif:traversableConnection>
+         <mif:nonTraversableConnection participantClassName="PrincipalPerson">
+            <derivedFrom associationEndName="entity" className="LanguageCommunication" staticModelDerivationId="1"/>
+         </mif:nonTraversableConnection>
+      </mif:connections>
+   </association>
+   <association sortKey="26">
+      
+      <mif:connections>
+         <mif:traversableConnection conformance="R" isMandatory="false" maximumMultiplicity="10" minimumMultiplicity="0" name="subjectOf" participantClassName="Subject4" sortKey="CDB_______">
+            <derivedFrom associationEndName="inboundRelationship" className="Act" staticModelDerivationId="1"/>
+         </mif:traversableConnection>
+         <mif:nonTraversableConnection participantClassName="Privilege">
+            <derivedFrom associationEndName="target" className="ActRelationship" staticModelDerivationId="1"/>
+         </mif:nonTraversableConnection>
+      </mif:connections>
+   </association>
+   <association sortKey="11">
+      
+      <mif:connections>
+         <mif:traversableConnection conformance="R" isMandatory="false" maximumMultiplicity="1" minimumMultiplicity="0" name="qualificationGrantingOrganization" participantClassName="Organization" sortKey="BZ">
+            <derivedFrom associationEndName="scoper" className="Role" staticModelDerivationId="1"/>
+         </mif:traversableConnection>
+         <mif:nonTraversableConnection participantClassName="QualifiedEntity">
+            <derivedFrom associationEndName="scopedRole" className="Entity" staticModelDerivationId="1"/>
+         </mif:nonTraversableConnection>
+      </mif:connections>
+   </association>
+   <association sortKey="10">
+      
+      <mif:connections>
+         <mif:traversableConnection conformance="R" isMandatory="false" maximumMultiplicity="1" minimumMultiplicity="0" name="qualifiedPrincipalPerson" participantClassName="PrincipalPerson" sortKey="AZ">
+            <derivedFrom associationEndName="player" className="Role" staticModelDerivationId="1"/>
+         </mif:traversableConnection>
+         <mif:nonTraversableConnection participantClassName="QualifiedEntity">
+            <derivedFrom associationEndName="playedRole" className="Entity" staticModelDerivationId="1"/>
+         </mif:nonTraversableConnection>
+      </mif:connections>
+   </association>
+   <association sortKey="22">
+      
+      <mif:connections>
+         <mif:traversableConnection conformance="R" isMandatory="false" maximumMultiplicity="1" minimumMultiplicity="1" name="roleChoice" participantClassName="RoleChoice" sortKey="BZ">
+            <derivedFrom associationEndName="target" className="RoleLink" staticModelDerivationId="1"/>
+            <participantClassSpecialization className="AssignedEntity" traversalName="assignedEntity"/>
+            <participantClassSpecialization className="QualifiedEntity" traversalName="qualifiedEntity"/>
+            <participantClassSpecialization className="HealthCareProvider" traversalName="healthCareProvider"/>
+         </mif:traversableConnection>
+         <mif:nonTraversableConnection participantClassName="RelatedTo">
+            <derivedFrom associationEndName="inboundLink" className="Role" staticModelDerivationId="1"/>
+         </mif:nonTraversableConnection>
+      </mif:connections>
+   </association>
+   <association sortKey="23">
+      
+      <mif:connections>
+         <mif:traversableConnection conformance="R" isMandatory="false" maximumMultiplicity="1" minimumMultiplicity="1" name="privilege" participantClassName="Privilege" sortKey="AZ">
+            <derivedFrom associationEndName="act" className="Participation" staticModelDerivationId="1"/>
+         </mif:traversableConnection>
+         <mif:nonTraversableConnection participantClassName="ResponsibleParty">
+            <derivedFrom associationEndName="participation" className="Act" staticModelDerivationId="1"/>
+         </mif:nonTraversableConnection>
+      </mif:connections>
+   </association>
+   <association sortKey="20">
+      
+      <mif:connections>
+         <mif:traversableConnection conformance="R" isMandatory="false" maximumMultiplicity="100" minimumMultiplicity="0" name="relatedTo" participantClassName="RelatedTo" sortKey="DA________">
+            <derivedFrom associationEndName="outboundLink" className="Role" staticModelDerivationId="1"/>
+         </mif:traversableConnection>
+         <mif:nonTraversableConnection participantClassName="RoleChoice">
+            <derivedFrom associationEndName="source" className="RoleLink" staticModelDerivationId="1"/>
+         </mif:nonTraversableConnection>
+      </mif:connections>
+   </association>
+   <association sortKey="19">
+      
+      <mif:connections>
+         <mif:traversableConnection conformance="R" isMandatory="false" maximumMultiplicity="100" minimumMultiplicity="0" name="responsibleFor" participantClassName="ResponsibleParty" sortKey="CC________">
+            <derivedFrom associationEndName="participation" className="Role" staticModelDerivationId="1"/>
+         </mif:traversableConnection>
+         <mif:nonTraversableConnection participantClassName="RoleChoice">
+            <derivedFrom associationEndName="role" className="Participation" staticModelDerivationId="1"/>
+         </mif:nonTraversableConnection>
+      </mif:connections>
+   </association>
+   <association sortKey="40">
+      
+      <mif:connections>
+         <mif:traversableConnection conformance="R" isMandatory="false" maximumMultiplicity="1" minimumMultiplicity="1" name="informRequest" participantClassName="InformRequest" sortKey="AZ">
+            <derivedFrom associationEndName="source" className="ActRelationship" staticModelDerivationId="1"/>
+         </mif:traversableConnection>
+         <mif:nonTraversableConnection participantClassName="SequelTo">
+            <derivedFrom associationEndName="outboundRelationship" className="Act" staticModelDerivationId="1"/>
+         </mif:nonTraversableConnection>
+      </mif:connections>
+   </association>
+   <association sortKey="31">
+      
+      <mif:connections>
+         <mif:traversableConnection conformance="R" isMandatory="false" maximumMultiplicity="1" minimumMultiplicity="0" name="location" participantClassName="Place" sortKey="AZ">
+            <derivedFrom associationEndName="player" className="Role" staticModelDerivationId="1"/>
+         </mif:traversableConnection>
+         <mif:nonTraversableConnection participantClassName="ServiceDeliveryLocation">
+            <derivedFrom associationEndName="playedRole" className="Entity" staticModelDerivationId="1"/>
+         </mif:nonTraversableConnection>
+      </mif:connections>
+   </association>
+   <association sortKey="46">
+      
+      <mif:connections>
+         <mif:traversableConnection isMandatory="false" maximumMultiplicity="1" minimumMultiplicity="1" name="serviceDeliveryLocation" participantClassName="ServiceDeliveryLocation" sortKey="BZ">
+            <derivedFrom associationEndName="role" className="Participation" staticModelDerivationId="1"/>
+         </mif:traversableConnection>
+         <mif:nonTraversableConnection participantClassName="Subject">
+            <derivedFrom associationEndName="participation" className="Role" staticModelDerivationId="1"/>
+         </mif:nonTraversableConnection>
+      </mif:connections>
+   </association>
+   <association sortKey="27">
+      
+      <mif:connections>
+         <mif:traversableConnection conformance="R" isMandatory="false" maximumMultiplicity="1" minimumMultiplicity="1" name="privilegeCategorization" participantClassName="PrivilegeCategorization" sortKey="AZ">
+            <derivedFrom associationEndName="source" className="ActRelationship" staticModelDerivationId="1"/>
+         </mif:traversableConnection>
+         <mif:nonTraversableConnection participantClassName="Subject4">
+            <derivedFrom associationEndName="outboundRelationship" className="Act" staticModelDerivationId="1"/>
+         </mif:nonTraversableConnection>
+      </mif:connections>
+   </association>
+   <association sortKey="54">
+      
+      <mif:connections>
+         <mif:traversableConnection conformance="R" isMandatory="false" maximumMultiplicity="*" minimumMultiplicity="0" name="part" participantClassName="Part" sortKey="DAC_______">
+            <derivedFrom associationEndName="outboundLink" className="Role" staticModelDerivationId="1"/>
+         </mif:traversableConnection>
+         <mif:nonTraversableConnection participantClassName="TerritorialAuthority">
+            <derivedFrom associationEndName="source" className="RoleLink" staticModelDerivationId="1"/>
+         </mif:nonTraversableConnection>
+      </mif:connections>
+   </association>
+   <association sortKey="51">
+      
+      <mif:connections>
+         <mif:traversableConnection conformance="R" isMandatory="false" maximumMultiplicity="1" minimumMultiplicity="0" name="territory" participantClassName="Jurisdiction" sortKey="AZ">
+            <derivedFrom associationEndName="player" className="Role" staticModelDerivationId="1"/>
+         </mif:traversableConnection>
+         <mif:nonTraversableConnection participantClassName="TerritorialAuthority">
+            <derivedFrom associationEndName="playedRole" className="Entity" staticModelDerivationId="1"/>
+         </mif:nonTraversableConnection>
+      </mif:connections>
+   </association>
+</mif:staticModel>

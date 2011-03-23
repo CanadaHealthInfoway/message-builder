@@ -40,7 +40,7 @@ import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelTransformationExcepti
 class RealElementParser extends AbstractSingleElementParser<BigDecimal>{
 
 	@Override
-	protected BigDecimal parseNonNullNode(ParseContext context, Node node, BareANY parseResult, Type expectedReturnType, XmlToModelResult xmlToJavaResult) throws XmlToModelTransformationException {
+	protected BigDecimal parseNonNullNode(ParseContext context, Node node, Type expectedReturnType, XmlToModelResult xmlToJavaResult) throws XmlToModelTransformationException {
 		validateNoChildren(context, node);
 		BigDecimal result = null;
 

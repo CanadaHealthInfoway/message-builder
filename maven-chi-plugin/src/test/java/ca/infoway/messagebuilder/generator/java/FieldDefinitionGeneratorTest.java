@@ -25,12 +25,12 @@ public class FieldDefinitionGeneratorTest {
 	@Before
 	public void setUp() throws Exception {
 		this.fieldDefinition = this.jmock.mock(FieldDefinition.class);
-		this.propertyDefinition = new FieldDefinitionGenerator(this.fieldDefinition);
-		this.javaPropertyDefinition = new FieldDefinitionGenerator(this.fieldDefinition);
+		this.propertyDefinition = new FieldDefinitionGenerator(this.fieldDefinition, ProgrammingLanguage.C_SHARP);
+		this.javaPropertyDefinition = new FieldDefinitionGenerator(this.fieldDefinition, ProgrammingLanguage.JAVA);
 		
 	}
 
-	private void expectTypicalAttribute(final ProgrammingLanguage language) {
+	private void expectTypicalAttribute() {
 		this.jmock.checking(new Expectations() {{
 			allowing(fieldDefinition).getXmlPathName(); will(returnValue(new String[] {"name/value", "myName/value"}));
 			allowing(fieldDefinition).getFieldName(); will(returnValue("myName"));
@@ -47,12 +47,10 @@ public class FieldDefinitionGeneratorTest {
 			allowing(fieldDefinition).getCollectionOfCodedPropertyElementType(); will(returnValue(""));
 			allowing(fieldDefinition).getFieldElementType(); will(returnValue(""));
 			allowing(fieldDefinition).getDerivedChoiceHasBodyStyle(); will(returnValue(null));
-			allowing(fieldDefinition).getProgrammingLanguage(); will(returnValue(language));
-			allowing(fieldDefinition).getBaseRelationship(); will(returnValue(null));
 		}});
 	}
 	
-	private void expectTypicalAssociation(final ProgrammingLanguage language) {
+	private void expectTypicalAssociation() {
 		this.jmock.checking(new Expectations() {{
 			allowing(fieldDefinition).getXmlPathName(); will(returnValue(new String[] {"patient"}));
 			allowing(fieldDefinition).getFieldName(); will(returnValue("patient"));
@@ -69,14 +67,12 @@ public class FieldDefinitionGeneratorTest {
 			allowing(fieldDefinition).getCollectionOfCodedPropertyElementType(); will(returnValue(""));
 			allowing(fieldDefinition).getFieldElementType(); will(returnValue(""));
 			allowing(fieldDefinition).getDerivedChoiceHasBodyStyle(); will(returnValue(null));
-			allowing(fieldDefinition).getProgrammingLanguage(); will(returnValue(language));
-			allowing(fieldDefinition).getBaseRelationship(); will(returnValue(null));
 		}});
 	}
 	
 	@Test
 	public void shouldCreateConstructorDefinition() throws Exception {
-		expectTypicalAttribute(ProgrammingLanguage.C_SHARP);
+		expectTypicalAttribute();
 		this.propertyDefinition.createConstructorInitialization(1, writer);
 		String output = this.writer.toString();
 		assertTrue("results", output.contains("this.myName = new STImpl();"));
@@ -84,7 +80,7 @@ public class FieldDefinitionGeneratorTest {
 	
 	@Test
 	public void shouldCreateFieldDefinition() throws Exception {
-		expectTypicalAttribute(ProgrammingLanguage.C_SHARP);
+		expectTypicalAttribute();
 		this.propertyDefinition.createFieldDeclaration(1, writer);
 		String output = this.writer.toString();
 		assertTrue("results", output.contains("private ST myName;"));
@@ -92,7 +88,7 @@ public class FieldDefinitionGeneratorTest {
 	
 	@Test
 	public void shouldCreateAssociationDefinitionForCsharp() throws Exception {
-		expectTypicalAssociation(ProgrammingLanguage.C_SHARP);
+		expectTypicalAssociation();
 		this.propertyDefinition.createFieldDeclaration(1, writer);
 		String output = this.writer.toString();
 		assertTrue("results", output.contains("private Author_1Bean patient;"));
@@ -100,7 +96,7 @@ public class FieldDefinitionGeneratorTest {
 	
 	@Test
 	public void shouldCreateFieldDefinitionForJava() throws Exception {
-		expectTypicalAttribute(ProgrammingLanguage.JAVA);
+		expectTypicalAttribute();
 		this.javaPropertyDefinition.createFieldDeclaration(1, writer);
 		String output = this.writer.toString();
 		assertTrue("results", output.contains("private ST myName = new STImpl();"));
@@ -108,7 +104,7 @@ public class FieldDefinitionGeneratorTest {
 	
 	@Test
 	public void shouldCreateAssociationFieldDefinitionForJava() throws Exception {
-		expectTypicalAssociation(ProgrammingLanguage.JAVA);
+		expectTypicalAssociation();
 		this.javaPropertyDefinition.createFieldDeclaration(1, writer);
 		String output = this.writer.toString();
 		assertTrue("results", output.contains("private Author_1Bean patient;"));

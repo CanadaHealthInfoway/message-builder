@@ -12,26 +12,47 @@ import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.domainvalue.ActInformationCategoryCode;
 import ca.infoway.messagebuilder.domainvalue.x_VeryBasicConfidentialityKind;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.common.merged.PatientBean;
+import ca.infoway.messagebuilder.model.merged.Patient_1Bean;
 
 
 
+/**
+ * <p>Maskable Record</p>
+ * 
+ * <p>A particular record or type of record for which masking 
+ * is supported.</p>
+ * 
+ * <p>The root construct for masking and unmasking specific 
+ * record or type of record.</p>
+ */
 @Hl7PartTypeMapping({"COMT_MT400001CA.MaskableActType"})
 @Hl7RootType
 public class MaskableRecordBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110127L;
+    private static final long serialVersionUID = 20100614L;
+    private II recordIdentifier = new IIImpl();
+    private CV recordType = new CVImpl();
     private CV maskedIndicator = new CVImpl();
-    private PatientBean recordTargetPatient;
+    private Patient_1Bean recordTargetPatient;
     private RoleBean directTargetRole;
     private DiagnosisBean reasonDiagnosis;
-    private CV recordType = new CVImpl();
-    private II recordIdentifier = new IIImpl();
 
+    @Hl7XmlMapping({"id"})
+    public Identifier getRecordIdentifier() {
+        return this.recordIdentifier.getValue();
+    }
+    public void setRecordIdentifier(Identifier recordIdentifier) {
+        this.recordIdentifier.setValue(recordIdentifier);
+    }
 
-    /**
-     * <p>A:Masked Indicator</p>
-     */
+    @Hl7XmlMapping({"code"})
+    public ActInformationCategoryCode getRecordType() {
+        return (ActInformationCategoryCode) this.recordType.getValue();
+    }
+    public void setRecordType(ActInformationCategoryCode recordType) {
+        this.recordType.setValue(recordType);
+    }
+
     @Hl7XmlMapping({"confidentialityCode"})
     public x_VeryBasicConfidentialityKind getMaskedIndicator() {
         return (x_VeryBasicConfidentialityKind) this.maskedIndicator.getValue();
@@ -40,15 +61,13 @@ public class MaskableRecordBean extends MessagePartBean {
         this.maskedIndicator.setValue(maskedIndicator);
     }
 
-
     @Hl7XmlMapping({"recordTarget/patient"})
-    public PatientBean getRecordTargetPatient() {
+    public Patient_1Bean getRecordTargetPatient() {
         return this.recordTargetPatient;
     }
-    public void setRecordTargetPatient(PatientBean recordTargetPatient) {
+    public void setRecordTargetPatient(Patient_1Bean recordTargetPatient) {
         this.recordTargetPatient = recordTargetPatient;
     }
-
 
     @Hl7XmlMapping({"directTarget/role"})
     public RoleBean getDirectTargetRole() {
@@ -58,37 +77,12 @@ public class MaskableRecordBean extends MessagePartBean {
         this.directTargetRole = directTargetRole;
     }
 
-
     @Hl7XmlMapping({"reason/diagnosis"})
     public DiagnosisBean getReasonDiagnosis() {
         return this.reasonDiagnosis;
     }
     public void setReasonDiagnosis(DiagnosisBean reasonDiagnosis) {
         this.reasonDiagnosis = reasonDiagnosis;
-    }
-
-
-    /**
-     * <p>B:Record Type</p>
-     */
-    @Hl7XmlMapping({"code"})
-    public ActInformationCategoryCode getRecordType() {
-        return (ActInformationCategoryCode) this.recordType.getValue();
-    }
-    public void setRecordType(ActInformationCategoryCode recordType) {
-        this.recordType.setValue(recordType);
-    }
-
-
-    /**
-     * <p>C:Record Identifier</p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Identifier getRecordIdentifier() {
-        return this.recordIdentifier.getValue();
-    }
-    public void setRecordIdentifier(Identifier recordIdentifier) {
-        this.recordIdentifier.setValue(recordIdentifier);
     }
 
 }

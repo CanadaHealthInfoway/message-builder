@@ -51,16 +51,16 @@ class Case3MergeResult implements TypeNameSubstituter {
 	 * @param otherType - the other of two types that have been identified as matching.
 	 * @return true if the match hasn't been previously discovered.
 	 */
-	boolean recordMatch(NamedType type, NamedType otherType) {
-		TypeName typeName = type.getTypeName();
-		TypeName otherTypeName = otherType.getTypeName();
+	boolean recordMatch(Type type, Type otherType) {
+		TypeName typeName = type.getName();
+		TypeName otherTypeName = otherType.getName();
 		return recordMatch(typeName, otherTypeName);
 	}
 	
-	boolean isUnmergeable(NamedType type, NamedType otherType) {
-		return isUnmergeable(type.getTypeName(), otherType.getTypeName());
+	boolean isUnmergeable(Type type, Type otherType) {
+		return isUnmergeable(type.getName(), otherType.getName());
 	}
-	boolean isUnmergeable(TypeName name1, TypeName name2) {
+	private boolean isUnmergeable(TypeName name1, TypeName name2) {
 		if (this.unmergeableTypes.contains(new TypeNameTuple(name1, name2))) {
 			return true;
 		} else if (!isMerged(name1) && !isMerged(name2)) {
@@ -87,8 +87,8 @@ class Case3MergeResult implements TypeNameSubstituter {
 		return this.mergedTypes.get(name1).getMergedTypes();
 	}
 
-	boolean isKnownMatch(NamedType type, NamedType otherType) {
-		return isKnownMatch(type.getTypeName(), otherType.getTypeName());
+	boolean isKnownMatch(Type type, Type otherType) {
+		return isKnownMatch(type.getName(), otherType.getName());
 	}
 	boolean isKnownMatch(TypeName typeName, TypeName otherTypeName) {
 		MergedTypeDescriptor descriptor = getDescriptorByName(typeName);
@@ -159,16 +159,15 @@ class Case3MergeResult implements TypeNameSubstituter {
 	 * 
 	 * @param result
 	 */
-	public void initialize(SimplifiableTypeProvider result) {
+	public void initialize(TypeProvider result) {
 		Map<TypeName,Set<TypeName>> choices = new HashMap<TypeName,Set<TypeName>>();
 		if (!this.initialized) {
-			for (SimplifiableType type : result.getAllTypes()) {
-				for (String choice : type.getInterfaceTypes()) {
-					TypeName choiceName = new TypeName(choice);
-					if (!choices.containsKey(choiceName)) {
-						choices.put(choiceName, new HashSet<TypeName>());
+			for (Type type : result.getAllMessageTypes()) {
+				for (TypeName choice : type.getInterfaceTypes()) {
+					if (!choices.containsKey(choice)) {
+						choices.put(choice, new HashSet<TypeName>());
 					}
-					choices.get(choiceName).add(type.getTypeName());
+					choices.get(choice).add(type.getName());
 				}
 			}
 			

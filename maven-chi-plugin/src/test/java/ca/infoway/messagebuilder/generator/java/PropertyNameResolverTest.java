@@ -11,50 +11,70 @@ import ca.infoway.messagebuilder.xml.Cardinality;
 public class PropertyNameResolverTest {
 	
 	@Test
+	public void shouldRegisterOriginalAndNewIfCardinalityChanged() throws Exception {
+		Association originalAssociation = new AssociationBuilder().setName("name").setCardinality(new Cardinality(0, 1)).buildStandard();
+		Association newAssociation = new AssociationBuilder().setName("name").setCardinality(new Cardinality(0, 5)).buildStandard();
+		
+		RegeneratedAssociationImpl merged = new RegeneratedAssociationImpl(originalAssociation, newAssociation);
+		PropertyNameResolver resolver = new PropertyNameResolver("HealthcareWorker", Arrays.<BaseRelationship>asList(merged));
+		
+		assertEquals("Name", resolver.getName(originalAssociation));
+		assertEquals("Names", resolver.getName(newAssociation));
+	}
+
+	@Test
+	public void shouldRegisterOriginalOnlyIfCardinalityNotChanged() throws Exception {
+		Association originalAssociation = new AssociationBuilder().setName("name").setCardinality(new Cardinality(0, 1)).buildStandard();
+		Association newAssociation = new AssociationBuilder().setName("name").setCardinality(new Cardinality(0, 1)).buildStandard();
+		
+		RegeneratedAssociationImpl merged = new RegeneratedAssociationImpl(originalAssociation, newAssociation);
+		PropertyNameResolver resolver = new PropertyNameResolver("HealthcareWorker", Arrays.<BaseRelationship>asList(merged));
+		
+		assertEquals("Name", resolver.getName(originalAssociation));
+	}
+
+	@Test
+	public void shouldRegisterOriginalAndNewIfCardinalityChangedAndSameBusinessName() throws Exception {
+		Association originalAssociation = new AssociationBuilder()
+			.setName("name").setBusinessName("businessName").setCardinality(new Cardinality(0, 1))
+			.buildStandard();
+		Association newAssociation = new AssociationBuilder()
+			.setName("name").setBusinessName("businessName").setCardinality(new Cardinality(0, 5))
+			.buildStandard();
+		
+		RegeneratedAssociationImpl merged = new RegeneratedAssociationImpl(originalAssociation, newAssociation);
+		PropertyNameResolver resolver = new PropertyNameResolver("HealthcareWorker", Arrays.<BaseRelationship>asList(merged));
+		
+		assertEquals("BusinessName", resolver.getName(originalAssociation));
+		assertEquals("BusinessNames", resolver.getName(newAssociation));
+	}
+
+	@Test
+	public void shouldRegisterOriginalAndNewIfDifferentBusinessName() throws Exception {
+		Association originalAssociation = new AssociationBuilder()
+			.setName("name").setBusinessName("originalBusinessName").setCardinality(new Cardinality(0, 1))
+			.buildStandard();
+		Association newAssociation = new AssociationBuilder()
+			.setName("name").setBusinessName("newBusinessName").setCardinality(new Cardinality(0, 1))
+			.buildStandard();
+		
+		RegeneratedAssociationImpl merged = new RegeneratedAssociationImpl(originalAssociation, newAssociation);
+		PropertyNameResolver resolver = new PropertyNameResolver("HealthcareWorker", Arrays.<BaseRelationship>asList(merged));
+		
+		assertEquals("OriginalBusinessName", resolver.getName(originalAssociation));
+		assertEquals("NewBusinessName", resolver.getName(newAssociation));
+	}
+	
+	
+	@Test
 	public void shouldNotRegisterBusinessNameIfCollidesWithTypeName() throws Exception {
 		Association association = new AssociationBuilder()
 			.setName("name").setBusinessName("healthcareWorker").setCardinality(new Cardinality(0, 1))
 			.buildStandard();
 		
-		PropertyNameResolver resolver = new PropertyNameResolver("HealthcareWorker", 
-				Arrays.<BaseRelationship>asList(association));
+		PropertyNameResolver resolver = new PropertyNameResolver("HealthcareWorker", Arrays.<BaseRelationship>asList(association));
 		
 		assertEquals("Name", resolver.getName(association));
-	}
-	
-	@Test
-	public void shouldInventUniqueNamesIfThereAreDuplicates() throws Exception {
-		Association association1 = new AssociationBuilder()
-				.setName("assignedEntity").setCardinality(new Cardinality(0, 1))
-				.buildStandard();
-		Association association2 = new AssociationBuilder()
-			.setName("assignedEntity").setCardinality(new Cardinality(0, 1))
-			.buildStandard();
-		
-		PropertyNameResolver resolver = new PropertyNameResolver("HealthcareWorker", 
-				Arrays.<BaseRelationship>asList(association1, association2));
-		
-		assertEquals("AssignedEntity1", resolver.getName(association1));
-		assertEquals("AssignedEntity2", resolver.getName(association2));
-	}
-	
-	@Test
-	public void shouldWorkHardToDetermineUniqueNamesIfThereAreDuplicates() throws Exception {
-		Association association1 = new AssociationBuilder()
-				.setName("assignedEntity").setCardinality(new Cardinality(0, 1))
-				.buildStandard();
-		Association association2 = new AssociationBuilder()
-				.setName("assignedEntity").setCardinality(new Cardinality(0, 1))
-				.buildStandard();
-		Association association3 = new AssociationBuilder()
-				.setName("assignedEntity1").setCardinality(new Cardinality(0, 1))
-				.buildStandard();
-		
-		PropertyNameResolver resolver = new PropertyNameResolver("HealthcareWorker", 
-				Arrays.<BaseRelationship>asList(association1, association2, association3));
-		
-		assertEquals("AssignedEntityAssociation1", resolver.getName(association1));
-		assertEquals("AssignedEntityAssociation2", resolver.getName(association2));
 	}
 	
 }

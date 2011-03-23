@@ -3,15 +3,20 @@ package ca.infoway.messagebuilder.model.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.common.merged.HL7Message_1Bean;
-import ca.infoway.messagebuilder.model.common.merged.TriggerEvent_3Bean;
-import ca.infoway.messagebuilder.model.pr.prpm_mt303010ca.RoleChoice;
+import ca.infoway.messagebuilder.model.common.mcci_mt002100ca.HL7MessageBean;
+import ca.infoway.messagebuilder.model.common.mfmi_mt700716ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.pr.prpm_mt303010ca.RoleChoiceBean;
 
 
 
+/**
+ * <p>This interaction is used to send a notification that a 
+ * provider record has been updated in a provider registry 
+ * system. No response is expected from the recipient system.</p>
+ */
 @Hl7PartTypeMapping({"PRPM_IN303030CA"})
-public class UpdateProviderNotificationBean extends HL7Message_1Bean<TriggerEvent_3Bean<RoleChoice>> implements InteractionBean {
+public class UpdateProviderNotificationBean extends HL7MessageBean<TriggerEventBean<RoleChoiceBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20110127L;
+    private static final long serialVersionUID = 20100614L;
 
 }

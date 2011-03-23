@@ -17,36 +17,24 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 /**
  * <p>Care Compositions</p>
  * 
- * <p><p>A care composition is a record with two purposes. It 
+ * <p>A care composition is a record with two purposes. It 
  * indicates that care of a given type has occurred or is 
  * occurring. It also acts as a collector for the events that 
  * happened during care, including who is responsible for the 
- * care provided.</p></p>
+ * care provided.</p>
  * 
- * <p><p>Allows linking records to encounters, condition and 
+ * <p>Allows linking records to encounters, condition and 
  * care-based compositions. Useful for searching and navigation 
- * of the patient's record.</p></p>
+ * of the patient's record.</p>
  */
 @Hl7PartTypeMapping({"COCT_MT011001CA.PatientCareProvisionEvent"})
 @Hl7RootType
 public class CareCompositionsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110127L;
+    private static final long serialVersionUID = 20100614L;
     private II careCompositionIdentifier = new IIImpl();
     private CV careCompositionType = new CVImpl();
 
-
-    /**
-     * <p>B: Care Composition Identifier</p>
-     * 
-     * <p><p>Unique identifier of an encounter, condition or 
-     * care-based collection.</p></p>
-     * 
-     * <p><p>IMMUNIZATION INTERPRETATION.REFERENCED DATA</p></p>
-     * 
-     * <p><p>Allows care compositions to be uniquely identified and 
-     * referenced, and is therefore mandatory</p></p>
-     */
     @Hl7XmlMapping({"id"})
     public Identifier getCareCompositionIdentifier() {
         return this.careCompositionIdentifier.getValue();
@@ -55,27 +43,6 @@ public class CareCompositionsBean extends MessagePartBean {
         this.careCompositionIdentifier.setValue(careCompositionIdentifier);
     }
 
-
-    /**
-     * <p>A: Care Composition Type</p>
-     * 
-     * <p><p>Identifies the kind of composition represented. 
-     * Examples include encounters (&quot;Emergency 
-     * Encounter&quot;, &quot;Long Term Care Encounter&quot;, etc), 
-     * health condition (episode)-based collections (e.g. 
-     * &quot;Diabetes&quot;, &quot;Hypertension&quot;, etc) and 
-     * general care-based collections such as &quot;gynecological 
-     * care&quot;.</p></p>
-     * 
-     * <p><p>IMMUNIZATION INTERPRETATION.REFERENCED DATA</p></p>
-     * 
-     * <p><p>EPHS: vocab concepts needed for LAB ID, Special 
-     * Considerations ID etc.</p></p>
-     * 
-     * <p><p>Allows care compositions to be captured and 
-     * categorized at different levels of abstraction, and is 
-     * therefore mandatory.</p></p>
-     */
     @Hl7XmlMapping({"code"})
     public ActCareEventType getCareCompositionType() {
         return (ActCareEventType) this.careCompositionType.getValue();

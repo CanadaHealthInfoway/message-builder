@@ -15,11 +15,11 @@ import ca.infoway.messagebuilder.datatype.impl.STImpl;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.domainvalue.transport.AcknowledgementDetailCode;
 import ca.infoway.messagebuilder.domainvalue.transport.AcknowledgementDetailType;
-import ca.infoway.messagebuilder.model.common.merged.AcknowledgementBean;
-import ca.infoway.messagebuilder.model.common.merged.ErrorsOrWarningsBean;
-import ca.infoway.messagebuilder.model.common.merged.SenderBean;
 import ca.infoway.messagebuilder.model.iehr.repc_mt230001ca.AuthorBean;
 import ca.infoway.messagebuilder.model.interaction.FindCandidatesQueryBean;
+import ca.infoway.messagebuilder.model.merged.AcknowledgementBean;
+import ca.infoway.messagebuilder.model.merged.ErrorsOrWarningsBean;
+import ca.infoway.messagebuilder.model.merged.SenderBean;
 
 
 public class MessagePartWrapperTest {

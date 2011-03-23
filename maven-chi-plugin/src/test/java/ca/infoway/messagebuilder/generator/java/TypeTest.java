@@ -47,7 +47,7 @@ public class TypeTest {
 		Relationship relationship = new Relationship();
 		relationship.setName("myName");
 		relationship.setTemplateParameterName("MyTemplateParameter");
-		type.getRelationships().add(Association.createTemplateAssociation(relationship, new TemplateVariable("T")));
+		type.getRelationships().add(Association.createTemplateAssociation(relationship, new TemplateVariable("T"), 0));
 		return type;
 	}
 	
@@ -58,7 +58,7 @@ public class TypeTest {
 		Relationship relationship = new Relationship();
 		relationship.setName("controlAct");
 		relationship.setType("ABCD_MT123456CA.SomeType");
-		type.getRelationships().add(Association.createStandardAssociation(relationship, createTemplateType()));
+		type.getRelationships().add(Association.createStandardAssociation(relationship, createTemplateType(), 0));
 		
 		assertTrue("template type", type.isTemplateType());
 		assertTrue("template variables" + type.getTemplateVariables(), type.getTemplateVariables().contains("T"));

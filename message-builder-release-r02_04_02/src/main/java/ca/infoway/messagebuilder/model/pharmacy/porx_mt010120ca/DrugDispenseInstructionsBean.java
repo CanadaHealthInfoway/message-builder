@@ -13,8 +13,8 @@ import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 import ca.infoway.messagebuilder.model.common.coct_mt220100ca.DrugProductBean;
-import ca.infoway.messagebuilder.model.pharmacy.merged.FirstFillBean;
-import ca.infoway.messagebuilder.model.pharmacy.merged.SubsequentSupplyRequestBean;
+import ca.infoway.messagebuilder.model.merged.FirstFillBean;
+import ca.infoway.messagebuilder.model.merged.SubsequentSupplyRequestBean;
 import java.util.Date;
 
 
@@ -22,80 +22,23 @@ import java.util.Date;
 /**
  * <p>Drug Dispense Instructions</p>
  * 
- * <p><p>Specification of the overall use duration of the 
+ * <p>Specification of the overall use duration of the 
  * prescrbed medication and/or overall quantity to be 
- * dispensed.</p></p>
+ * dispensed.</p>
  * 
- * <p><p>Sets the parameters within which the dispenser must 
- * operate in dispensing the medication to the patient.</p></p>
+ * <p>Sets the parameters within which the dispenser must 
+ * operate in dispensing the medication to the patient.</p>
  */
 @Hl7PartTypeMapping({"PORX_MT010120CA.SupplyRequestItem"})
 public class DrugDispenseInstructionsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110127L;
-    private IVL<TS, Interval<Date>> totalDaysSupply = new IVLImpl<TS, Interval<Date>>();
+    private static final long serialVersionUID = 20100603L;
     private PQ totalPrescribedQuantity = new PQImpl();
-    private SubsequentSupplyRequestBean component1SubsequentSupplyRequest;
+    private IVL<TS, Interval<Date>> totalDaysSupply = new IVLImpl<TS, Interval<Date>>();
     private FirstFillBean component2InitialSupplyRequest;
+    private SubsequentSupplyRequestBean component1SubsequentSupplyRequest;
     private DrugProductBean productMedication;
 
-
-    /**
-     * <p>A:Total Days Supply</p>
-     * 
-     * <p><p>The number of days that the overall prescribed item is 
-     * expected to last, if the patient is compliant with the 
-     * dispensing and administration of the prescription.</p></p>
-     * 
-     * <p><p>Used to specify a total authorization as a duration 
-     * rather than a quantity with refills. E.g. dispense 30 at a 
-     * time, refill for 1 year. May also be sent as an estimate of 
-     * the expected overall duration of the prescription based on 
-     * the quantity prescribed.</p><p>This attribute is mandatory 
-     * because the prescriber (in discussion with the patient) has 
-     * a better understanding of the days supply needed by the 
-     * patient.</p></p>
-     * 
-     * <p><p>Used to specify a total authorization as a duration 
-     * rather than a quantity with refills. E.g. dispense 30 at a 
-     * time, refill for 1 year. May also be sent as an estimate of 
-     * the expected overall duration of the prescription based on 
-     * the quantity prescribed.</p><p>This attribute is mandatory 
-     * because the prescriber (in discussion with the patient) has 
-     * a better understanding of the days supply needed by the 
-     * patient.</p></p>
-     */
-    @Hl7XmlMapping({"expectedUseTime"})
-    public Interval<Date> getTotalDaysSupply() {
-        return this.totalDaysSupply.getValue();
-    }
-    public void setTotalDaysSupply(Interval<Date> totalDaysSupply) {
-        this.totalDaysSupply.setValue(totalDaysSupply);
-    }
-
-
-    /**
-     * <p>B:Total Prescribed Quantity</p>
-     * 
-     * <p><p>The overall amount of amount medication to be 
-     * dispensed under this prescription. Includes any first fills 
-     * (trials, aligning quantities), the initial standard fill 
-     * plus all refills.</p></p>
-     * 
-     * <p><p>Sets upper limit for medication to be dispensed. Can 
-     * be used to verify the intention of the prescriber with 
-     * respect to the overall medication. Used for comparison when 
-     * determining whether additional quantity may be dispensed in 
-     * the context of a part-fill prescription.</p><p>Narcotics 
-     * must always be specified as a total.</p></p>
-     * 
-     * <p><p>Sets upper limit for medication to be dispensed. Can 
-     * be used to verify the intention of the prescriber with 
-     * respect to the overall medication. Used for comparison when 
-     * determining whether additional quantity may be dispensed in 
-     * the context of a part-fill prescription.</p><p>Narcotics 
-     * must always be specified as a total.</p></p>
-     */
     @Hl7XmlMapping({"quantity"})
     public PhysicalQuantity getTotalPrescribedQuantity() {
         return this.totalPrescribedQuantity.getValue();
@@ -104,15 +47,13 @@ public class DrugDispenseInstructionsBean extends MessagePartBean {
         this.totalPrescribedQuantity.setValue(totalPrescribedQuantity);
     }
 
-
-    @Hl7XmlMapping({"component1/subsequentSupplyRequest"})
-    public SubsequentSupplyRequestBean getComponent1SubsequentSupplyRequest() {
-        return this.component1SubsequentSupplyRequest;
+    @Hl7XmlMapping({"expectedUseTime"})
+    public Interval<Date> getTotalDaysSupply() {
+        return this.totalDaysSupply.getValue();
     }
-    public void setComponent1SubsequentSupplyRequest(SubsequentSupplyRequestBean component1SubsequentSupplyRequest) {
-        this.component1SubsequentSupplyRequest = component1SubsequentSupplyRequest;
+    public void setTotalDaysSupply(Interval<Date> totalDaysSupply) {
+        this.totalDaysSupply.setValue(totalDaysSupply);
     }
-
 
     @Hl7XmlMapping({"component2/initialSupplyRequest"})
     public FirstFillBean getComponent2InitialSupplyRequest() {
@@ -122,6 +63,13 @@ public class DrugDispenseInstructionsBean extends MessagePartBean {
         this.component2InitialSupplyRequest = component2InitialSupplyRequest;
     }
 
+    @Hl7XmlMapping({"component1/subsequentSupplyRequest"})
+    public SubsequentSupplyRequestBean getComponent1SubsequentSupplyRequest() {
+        return this.component1SubsequentSupplyRequest;
+    }
+    public void setComponent1SubsequentSupplyRequest(SubsequentSupplyRequestBean component1SubsequentSupplyRequest) {
+        this.component1SubsequentSupplyRequest = component1SubsequentSupplyRequest;
+    }
 
     @Hl7XmlMapping({"product/medication"})
     public DrugProductBean getProductMedication() {

@@ -51,29 +51,29 @@ public class Hl7XsdMessageTypeWriter extends Hl7XsdTypeWriter {
 	private void writeChoices(Element schema, Type type) {
 		Document document = schema.getOwnerDocument();
 		Element choices = document.createElement("xs:group");
-		choices.setAttribute("name", type.getTypeName().getName());
+		choices.setAttribute("name", type.getName().getName());
 		Element choice = document.createElement("xs:choice");
 		choices.appendChild(choice);
 		document.createElement("xs:element");
-		for (RenderedType childTypeName : type.getChildTypes()) {
+		for (TypeName childTypeName : type.getChildTypes()) {
 
-			Type childType = getType(childTypeName.getTypeName());
+			Type childType = getType(childTypeName);
 			
 			if (childType == null) {
-				throw new IllegalStateException("Could not find childType '" + childTypeName.getTypeName()
+				throw new IllegalStateException("Could not find childType '" + childTypeName.getName()
 						+ "' in result types");
 			} else if (childType.isInterface()) {
 				Element propertyElement = document.createElement("xs:group");
 				choice.appendChild(propertyElement);
-				propertyElement.setAttribute("ref", "chi:" + childTypeName.getTypeName());
+				propertyElement.setAttribute("ref", "chi:" + childTypeName.getName());
 			} else {
 				Element propertyElement = document.createElement("xs:element");
 				choice.appendChild(propertyElement);
-				String name = WordUtils.uncapitalize(this.translator.getClassNameWithoutPackage(childTypeName.getTypeName()));
+				String name = WordUtils.uncapitalize(this.translator.getClassNameWithoutPackage(childTypeName));
 				propertyElement.setAttribute("name", name);
-				propertyElement.setAttribute("type", "chi:" + childTypeName.getTypeName());
+				propertyElement.setAttribute("type", "chi:" + childTypeName.getName());
 			}
-			addInclude(schema, childTypeName.getTypeName().getParent().getName());
+			addInclude(schema, childTypeName.getParent().getName());
 		}
 		schema.appendChild(choices);
 	}
@@ -81,7 +81,7 @@ public class Hl7XsdMessageTypeWriter extends Hl7XsdTypeWriter {
 	void writeRelationships(Element schema, Type type) throws DOMException, GeneratorException {
 		Document document = schema.getOwnerDocument();
 		Element complexType = document.createElement("xs:complexType");
-		complexType.setAttribute("name", type.getTypeName().getName());
+		complexType.setAttribute("name", type.getName().getName());
 		Element sequence = document.createElement("xs:sequence");
 		complexType.appendChild(sequence);
 		PropertyNameResolver propertyNameResolver = new PropertyNameResolver(

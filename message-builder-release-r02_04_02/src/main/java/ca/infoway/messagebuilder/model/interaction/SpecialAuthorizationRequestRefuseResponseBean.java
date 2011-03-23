@@ -3,14 +3,14 @@ package ca.infoway.messagebuilder.model.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.common.merged.HL7Message_1Bean;
-import ca.infoway.messagebuilder.model.common.merged.TriggerEvent_2Bean;
+import ca.infoway.messagebuilder.model.common.mcai_mt700237ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.common.mcci_mt002300ca.HL7MessageBean;
 
 
 
 @Hl7PartTypeMapping({"FICR_IN400003CA"})
-public class SpecialAuthorizationRequestRefuseResponseBean extends HL7Message_1Bean<TriggerEvent_2Bean> implements InteractionBean {
+public class SpecialAuthorizationRequestRefuseResponseBean extends HL7MessageBean<TriggerEventBean> implements InteractionBean {
 
-    private static final long serialVersionUID = 20110127L;
+    private static final long serialVersionUID = 20100603L;
 
 }

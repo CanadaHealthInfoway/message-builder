@@ -19,19 +19,25 @@ import java.util.List;
 
 
 
+/**
+ * <p>Specimen Collection Procedure</p>
+ * 
+ * <p>This is the procedure act which describes the 
+ * process/procedure used to collect the associated specimen.</p>
+ * 
+ * <p>For certain laboratory tests, the specimen collection 
+ * procedure information is relevant in determining the result 
+ * value.</p>
+ */
 @Hl7PartTypeMapping({"COCT_MT080100CA.SpecimenCollectionProcedureEvent"})
 public class SpecimenCollectionProcedureBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110127L;
+    private static final long serialVersionUID = 20100615L;
     private ST specimenCollectionText = new STImpl();
     private IVL<TS, Interval<Date>> specimenCollectionDateTime = new IVLImpl<TS, Interval<Date>>();
-    private HealthcareWorkerBean performerAssignedEntity;
     private List<NotesBean> subjectOfAnnotation = new ArrayList<NotesBean>();
+    private HealthcareWorkerBean performerAssignedEntity;
 
-
-    /**
-     * <p>G:Specimen Collection Text</p>
-     */
     @Hl7XmlMapping({"text"})
     public String getSpecimenCollectionText() {
         return this.specimenCollectionText.getValue();
@@ -40,10 +46,6 @@ public class SpecimenCollectionProcedureBean extends MessagePartBean {
         this.specimenCollectionText.setValue(specimenCollectionText);
     }
 
-
-    /**
-     * <p>E:Specimen Collection Date/Time</p>
-     */
     @Hl7XmlMapping({"effectiveTime"})
     public Interval<Date> getSpecimenCollectionDateTime() {
         return this.specimenCollectionDateTime.getValue();
@@ -52,6 +54,10 @@ public class SpecimenCollectionProcedureBean extends MessagePartBean {
         this.specimenCollectionDateTime.setValue(specimenCollectionDateTime);
     }
 
+    @Hl7XmlMapping({"subjectOf/annotation"})
+    public List<NotesBean> getSubjectOfAnnotation() {
+        return this.subjectOfAnnotation;
+    }
 
     @Hl7XmlMapping({"performer/assignedEntity"})
     public HealthcareWorkerBean getPerformerAssignedEntity() {
@@ -59,12 +65,6 @@ public class SpecimenCollectionProcedureBean extends MessagePartBean {
     }
     public void setPerformerAssignedEntity(HealthcareWorkerBean performerAssignedEntity) {
         this.performerAssignedEntity = performerAssignedEntity;
-    }
-
-
-    @Hl7XmlMapping({"subjectOf/annotation"})
-    public List<NotesBean> getSubjectOfAnnotation() {
-        return this.subjectOfAnnotation;
     }
 
 }

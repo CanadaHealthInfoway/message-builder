@@ -13,23 +13,9 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COMT_MT400001CA.Role"})
 public class RoleBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110127L;
+    private static final long serialVersionUID = 20100614L;
     private CV maskableMaterial = new CVImpl();
 
-
-    /**
-     * <p>Maskable Material</p>
-     * 
-     * <p><p>Indicates the materia (e.g drug) whose associated 
-     * records should be masked.</p></p>
-     * 
-     * <p><p>Allows masking a drug, avoiding the requirement to 
-     * mask each prescription and dispense individually.</p></p>
-     * 
-     * <p><p>Usually specified at the generic or 
-     * therapeutic-equivalent level to ensure related medications 
-     * are also covered.</p></p>
-     */
     @Hl7XmlMapping({"playingEntityKind/code"})
     public MaskableMaterialEntityType getMaskableMaterial() {
         return (MaskableMaterialEntityType) this.maskableMaterial.getValue();

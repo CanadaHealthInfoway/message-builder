@@ -43,14 +43,4 @@ class MockMessageDefinitionService implements MessageDefinitionService {
 	public void addInteraction(String type, Interaction interaction) {
 		this.interactions.put(type, interaction);
 	}
-	public Map<String, MessagePart> getAllRelatedMessageParts(
-			MessagePart messagePart, String version) {
-		throw new UnsupportedOperationException();
-	}
-	public List<MessagePart> getAllRootMessageParts() {
-		throw new UnsupportedOperationException();
-	}
-	public List<MessagePart> getAllRootMessageParts(String version) {
-		throw new UnsupportedOperationException();
-	}
 }

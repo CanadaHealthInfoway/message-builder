@@ -3,14 +3,18 @@ package ca.infoway.messagebuilder.model.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.common.merged.HL7Message_1Bean;
-import ca.infoway.messagebuilder.model.common.merged.TriggerEvent_3Bean;
+import ca.infoway.messagebuilder.model.common.mcai_mt700222ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.common.mcci_mt000300ca.HL7MessageBean;
 
 
 
+/**
+ * <p>Indicates that the specified issue has been successfully 
+ * updated to include the identified management(s).</p>
+ */
 @Hl7PartTypeMapping({"COMT_IN700002CA"})
-public class AddIssueManagementRequestAcceptedBean extends HL7Message_1Bean<TriggerEvent_3Bean> implements InteractionBean {
+public class AddIssueManagementRequestAcceptedBean extends HL7MessageBean<TriggerEventBean> implements InteractionBean {
 
-    private static final long serialVersionUID = 20110127L;
+    private static final long serialVersionUID = 20100614L;
 
 }

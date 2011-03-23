@@ -20,11 +20,10 @@ import java.util.Date;
 @Hl7PartTypeMapping({"COMT_MT300003CA.Location","MCAI_MT700210CA.Location","MCAI_MT700221CA.Location","MCAI_MT700223CA.Location","POIZ_MT060150CA.Location","PORX_MT010110CA.Location2","PORX_MT010120CA.Location2","PORX_MT010140CA.Location","PORX_MT030040CA.Location","PORX_MT030040CA.Location2","PORX_MT060010CA.Location","PORX_MT060020CA.Location","PORX_MT060040CA.Location","PORX_MT060040CA.Location2","PORX_MT060040CA.Location3","PORX_MT060040CA.Location4","PORX_MT060060CA.Location","PORX_MT060060CA.Location2","PORX_MT060090CA.Location","PORX_MT060100CA.Location","PORX_MT060160CA.Location","PORX_MT060160CA.Location2","PORX_MT060160CA.Location3","PORX_MT060160CA.Location4","PORX_MT060160CA.Location5","PORX_MT060190CA.Location2","PORX_MT060190CA.Location3","PORX_MT060190CA.Location4","PORX_MT060210CA.Location2","PORX_MT060340CA.Location","PORX_MT060340CA.Location2","PORX_MT060340CA.Location3","PORX_MT060340CA.Location4","PORX_MT980010CA.Location","PORX_MT980020CA.Location","PORX_MT980030CA.Location","QUQI_MT020000CA.Location","REPC_MT000005CA.Location","REPC_MT000006CA.Location","REPC_MT000007CA.Location","REPC_MT000009CA.Location","REPC_MT000010CA.Location","REPC_MT100001CA.Location","REPC_MT100002CA.Location"})
 public class RecordedAtBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110127L;
+    private static final long serialVersionUID = 20100614L;
     private ServiceLocationBean serviceDeliveryLocation;
     private IVL<TS, Interval<Date>> toBePickedUpWhen = new IVLImpl<TS, Interval<Date>>();
-    private CV substitutionConditionCode = new CVImpl();
-
+    private CV dispenseFacilityNotAssignableIndicator = new CVImpl();
 
     @Hl7XmlMapping({"serviceDeliveryLocation"})
     public ServiceLocationBean getServiceDeliveryLocation() {
@@ -34,14 +33,6 @@ public class RecordedAtBean extends MessagePartBean {
         this.serviceDeliveryLocation = serviceDeliveryLocation;
     }
 
-
-    /**
-     * <p>ToBePickedUpWhen</p>
-     * 
-     * <p>to be picked up when</p>
-     * 
-     * <p>To be picked up when</p>
-     */
     @Hl7XmlMapping({"time"})
     public Interval<Date> getToBePickedUpWhen() {
         return this.toBePickedUpWhen.getValue();
@@ -50,20 +41,12 @@ public class RecordedAtBean extends MessagePartBean {
         this.toBePickedUpWhen.setValue(toBePickedUpWhen);
     }
 
-
-    /**
-     * <p>Dispense Facility Not Reassignable</p>
-     * 
-     * <p>Assigned Facility Not Reassignable Indicator</p>
-     * 
-     * <p>Dispense Facility Not Assignable Indicator</p>
-     */
     @Hl7XmlMapping({"substitutionConditionCode"})
-    public x_SubstitutionConditionNoneOrUnconditional getSubstitutionConditionCode() {
-        return (x_SubstitutionConditionNoneOrUnconditional) this.substitutionConditionCode.getValue();
+    public x_SubstitutionConditionNoneOrUnconditional getDispenseFacilityNotAssignableIndicator() {
+        return (x_SubstitutionConditionNoneOrUnconditional) this.dispenseFacilityNotAssignableIndicator.getValue();
     }
-    public void setSubstitutionConditionCode(x_SubstitutionConditionNoneOrUnconditional substitutionConditionCode) {
-        this.substitutionConditionCode.setValue(substitutionConditionCode);
+    public void setDispenseFacilityNotAssignableIndicator(x_SubstitutionConditionNoneOrUnconditional dispenseFacilityNotAssignableIndicator) {
+        this.dispenseFacilityNotAssignableIndicator.setValue(dispenseFacilityNotAssignableIndicator);
     }
 
 }

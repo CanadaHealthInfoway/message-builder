@@ -3,15 +3,19 @@ package ca.infoway.messagebuilder.model.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.common.merged.HL7Message_1Bean;
-import ca.infoway.messagebuilder.model.common.merged.TriggerEvent_1Bean;
+import ca.infoway.messagebuilder.model.common.mcai_mt700210ca.TriggerEventBean;
+import ca.infoway.messagebuilder.model.common.mcci_mt000100ca.HL7MessageBean;
 import ca.infoway.messagebuilder.model.immunization.poiz_mt030050ca.ImmunizationBean;
 
 
 
+/**
+ * <p>Requests that a particular immunization be added to a 
+ * patient's record.</p>
+ */
 @Hl7PartTypeMapping({"POIZ_IN010020CA"})
-public class RecordImmunizationRequestBean extends HL7Message_1Bean<TriggerEvent_1Bean<ImmunizationBean>> implements InteractionBean {
+public class RecordImmunizationRequestBean extends HL7MessageBean<TriggerEventBean<ImmunizationBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20110127L;
+    private static final long serialVersionUID = 20100614L;
 
 }

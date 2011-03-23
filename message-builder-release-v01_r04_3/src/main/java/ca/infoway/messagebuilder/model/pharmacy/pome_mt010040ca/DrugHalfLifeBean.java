@@ -10,16 +10,21 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 
+/**
+ * <p>Drug Half-Life</p>
+ * 
+ * <p>Specification of the length of time a particular drug 
+ * remains in the body (as active)</p>
+ * 
+ * <p>Impacts contraindication checking for drugs no longer 
+ * being taken by patients.</p>
+ */
 @Hl7PartTypeMapping({"POME_MT010040CA.HalfLife"})
 public class DrugHalfLifeBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110127L;
+    private static final long serialVersionUID = 20100614L;
     private PQ halfLifePeriod = new PQImpl();
 
-
-    /**
-     * <p>Half-Life Period</p>
-     */
     @Hl7XmlMapping({"value"})
     public PhysicalQuantity getHalfLifePeriod() {
         return this.halfLifePeriod.getValue();

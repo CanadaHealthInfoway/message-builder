@@ -7,6 +7,8 @@ import java.util.List;
 import java.util.Set;
 
 import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang.builder.EqualsBuilder;
+import org.apache.commons.lang.builder.HashCodeBuilder;
 
 import ca.infoway.messagebuilder.generator.lang.TypeDocumentation;
 import ca.infoway.messagebuilder.xml.Documentation;
@@ -17,17 +19,14 @@ public class Type implements RenderedType, NamedType {
 	private final TypeName name;
     private TypeDocumentation typeDocumentation;
     private List<BaseRelationship> relationships = Collections.synchronizedList(new ArrayList<BaseRelationship>());
-    private Set<RenderedType> interfaceTypes = Collections.synchronizedSet(new HashSet<RenderedType>());
-    private Set<Type> childTypes = Collections.synchronizedSet(new HashSet<Type>());
+    private Set<TypeName> interfaceTypes = Collections.synchronizedSet(new HashSet<TypeName>());
+    private Set<TypeName> childTypes = Collections.synchronizedSet(new HashSet<TypeName>());
 	private boolean isAbstract = false;
 	private String businessName;
 	private boolean rootType;
 	private String category;
-	private TypeName mergedName;
 	
-	private LanguageSpecificName languageSpecificName;
-	
-    private Set<NamedType> mergedTypes = Collections.synchronizedSet(new HashSet<NamedType>());
+    private Set<TypeName> mergedTypes = Collections.synchronizedSet(new HashSet<TypeName>());
 	
     public Type(TypeName typeName, boolean rootType) {
     	this.name = typeName;
@@ -38,7 +37,7 @@ public class Type implements RenderedType, NamedType {
     	this(typeName, false);
     }
 
-	public TypeName getTypeName() {
+	public TypeName getName() {
         return this.name;
     }
 	
@@ -52,13 +51,6 @@ public class Type implements RenderedType, NamedType {
 
     public List<BaseRelationship> getRelationships() {
         return this.relationships;
-    }
-    
-    public void replace(BaseRelationship oldRelationship, BaseRelationship newRelationship) {
-    	int index = this.relationships.indexOf(oldRelationship);
-    	if (index >= 0) {
-    		this.relationships.set(index, newRelationship);
-    	}
     }
     
     public BaseRelationship getRelationship(String name) {
@@ -101,8 +93,8 @@ public class Type implements RenderedType, NamedType {
 			if (relationship.getRelationshipType() == RelationshipType.ASSOCIATION) {
 				Association association = (Association) relationship;
 				Type associationType = association.getAssociationType();
-				if (associationType != null && !visitedTypes.contains(associationType.getTypeName())) {
-					visitedTypes.add(associationType.getTypeName());
+				if (associationType != null && !visitedTypes.contains(associationType.getName())) {
+					visitedTypes.add(associationType.getName());
 					if (associationType.isTemplateType(visitedTypes)) {
 						result = true;
 						break;
@@ -117,7 +109,7 @@ public class Type implements RenderedType, NamedType {
 	}
 	@Override
 	public String toString() {
-		return getTypeName() == null ? "unknown type" : getTypeName().toString();
+		return getName() == null ? "unknown type" : getName().toString();
 	}
 	
 	public boolean isAbstract() {
@@ -129,15 +121,14 @@ public class Type implements RenderedType, NamedType {
 	}
 
 	public boolean isInterface() {
-		// TODO - TM - hmmmm, but abtract types can have relationships
 		return this.isAbstract &&  this.relationships.isEmpty();
 	}
 
-	public Set<RenderedType> getInterfaceTypes() {
+	public Set<TypeName> getInterfaceTypes() {
 		return this.interfaceTypes;
 	}
 	
-	public Set<Type> getChildTypes() {
+	public Set<TypeName> getChildTypes() {
 		return this.childTypes;
 	}
 
@@ -158,6 +149,7 @@ public class Type implements RenderedType, NamedType {
 		this.category = category;
 	}
 
+	// FIXME TM/AG - equals still needs to check relationships (which needs its own equals())
 	@Override
 	public boolean equals(Object obj) {
 		if (obj == null) {
@@ -166,13 +158,31 @@ public class Type implements RenderedType, NamedType {
 			return false;
 		} else {
 			Type that = (Type) obj;
-			return this.getTypeName().equals(that.getTypeName());
+			return new EqualsBuilder()
+					.append(this.name, that.name)
+					.append(this.isAbstract, that.isAbstract)
+					.append(this.rootType, that.rootType)
+					.append(this.typeDocumentation, that.typeDocumentation)
+					.append(this.businessName, that.businessName)
+					.append(this.category, that.category)
+					.append(this.interfaceTypes, that.interfaceTypes)
+					.append(this.childTypes, that.childTypes)
+					.isEquals();
 		}
 	}
 	
 	@Override
 	public int hashCode() {
-		return this.getTypeName().hashCode();
+		return new HashCodeBuilder()
+				.append(this.name)
+				.append(this.isAbstract)
+				.append(this.rootType)
+				.append(this.typeDocumentation)
+				.append(this.businessName)
+				.append(this.category)
+				.append(this.interfaceTypes)
+				.append(this.childTypes)
+				.toHashCode();
 	}
 
 	public List<String> getTemplateVariables() {
@@ -196,8 +206,11 @@ public class Type implements RenderedType, NamedType {
 		Collections.sort(result);
 		return result;
 	}
-	public Set<NamedType> getMergedTypes() {
+	public Set<TypeName> getMergedTypes() {
 		return this.mergedTypes;
+	}
+	public void setMergedTypes(Set<TypeName> mergedTypes) {
+		this.mergedTypes = mergedTypes;
 	}
 	
 	public String[] getPartTypeMapping() {
@@ -205,8 +218,8 @@ public class Type implements RenderedType, NamedType {
 			return new String[] { this.name.toString() };
 		} else {
 			List<String> result = new ArrayList<String>();
-			for (NamedType type : this.mergedTypes) {
-				result.add(type.getTypeName().getName());
+			for (TypeName name : this.mergedTypes) {
+				result.add(name.toString());
 			}
 			Collections.sort(result);
 			return result.toArray(new String[result.size()]);
@@ -214,27 +227,5 @@ public class Type implements RenderedType, NamedType {
 	}
 	public void setRootType(boolean rootType) {
 		this.rootType = rootType;
-	}
-	public void setLanguageSpecificName(LanguageSpecificName languageSpecificName) {
-		this.languageSpecificName = languageSpecificName;
-	}
-	public LanguageSpecificName getLanguageSpecificName() {
-		return this.languageSpecificName;
-	}
-	/**
-	 * <p>Return the temporary name that was assigned during the case 3 simplification 
-	 * process.  
-	 * 
-	 * <p>The presence or absence of a value in this field does not indicate that the 
-	 * final type will be merged.  If it is inlined, we might not care if it is merged.
-	 * In reality, the type might have been inlined away.  But we want to remember its
-	 * merged-ness when we try to process similar relationships.
-	 * @return
-	 */
-	TypeName getMergedName() {
-		return this.mergedName;
-	}
-	void setMergedName(TypeName mergedName) {
-		this.mergedName = mergedName;
 	}
 }

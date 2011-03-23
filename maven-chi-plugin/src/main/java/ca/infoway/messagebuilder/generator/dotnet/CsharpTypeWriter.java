@@ -23,7 +23,7 @@ public class CsharpTypeWriter extends TypeWriter {
 
 	@Override
 	protected Hl7TypeWriter getHl7MessageTypeWriter(Type type) throws GeneratorException {
-		return new Hl7DotNetMessageTypeWriter(type, this.translator, this.contents);
+		return new Hl7DotNetMessageTypeWriter(type, this.translator, this.contents, this.result.getRemovedTypeTranslation());
 	}
 
 	@Override

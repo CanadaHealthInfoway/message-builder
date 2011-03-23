@@ -51,7 +51,7 @@ class TsElementParser extends AbstractSingleElementParser<Date> {
 				"yyyyMMddHHmmss.SSSZZZZZ", 
 				"yyyyMMddHHmmssZZZZZ"
 				));
-		// this is an abstract type and these formats are only used after issuing a warning (there should be a specializationType)
+		// this is an abstract type and these formats are only used afer issuing a warning (there should be a specializationType)
 		map.put(StandardDataType.TS_FULLDATEWITHTIME, Arrays.asList(
 				"yyyyMMddHHmmss.SSSZZZZZ", 
 				"yyyyMMddHHmmssZZZZZ",
@@ -103,12 +103,15 @@ class TsElementParser extends AbstractSingleElementParser<Date> {
 		Map<String, Map<StandardDataType, List<String>>> versionMap = new HashMap<String, Map<StandardDataType,List<String>>>();
 		versionMap.put(SpecificationVersion.V02R01.getVersionLiteral(), Collections.unmodifiableMap(exceptionMapV02R01));
 		versionMap.put(SpecificationVersion.V01R04_3.getVersionLiteral(), Collections.unmodifiableMap(exceptionMapV01R04_3));
+		versionMap.put(SpecificationVersion.V01R04_3_HOTFIX1.getVersionLiteral(), Collections.unmodifiableMap(exceptionMapV01R04_3));
+		versionMap.put(SpecificationVersion.V01R04_3_HOTFIX2.getVersionLiteral(), Collections.unmodifiableMap(exceptionMapV01R04_3));
+		versionMap.put(SpecificationVersion.V01R04_3_HOTFIX3.getVersionLiteral(), Collections.unmodifiableMap(exceptionMapV01R04_3));
 
 		this.versionFormatExceptions = Collections.unmodifiableMap(versionMap);
 	}
 	
 	@Override
-	protected Date parseNonNullNode(ParseContext context, Node node, BareANY result, Type expectedReturnType, XmlToModelResult xmlToJavaResult) throws XmlToModelTransformationException {
+	protected Date parseNonNullNode(ParseContext context, Node node, Type expectedReturnType, XmlToModelResult xmlToJavaResult) throws XmlToModelTransformationException {
 		if (isAbstractFullDateWithTime(context)) {
 			context = handleSpecializationType(context, node, xmlToJavaResult);
 		}

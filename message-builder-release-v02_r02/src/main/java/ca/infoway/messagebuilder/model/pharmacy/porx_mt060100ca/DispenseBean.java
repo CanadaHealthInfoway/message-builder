@@ -5,13 +5,11 @@ import ca.infoway.messagebuilder.Code;
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.annotation.Hl7RootType;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
-import ca.infoway.messagebuilder.datatype.BL;
 import ca.infoway.messagebuilder.datatype.CS;
 import ca.infoway.messagebuilder.datatype.CV;
 import ca.infoway.messagebuilder.datatype.II;
 import ca.infoway.messagebuilder.datatype.SET;
 import ca.infoway.messagebuilder.datatype.ST;
-import ca.infoway.messagebuilder.datatype.impl.BLImpl;
 import ca.infoway.messagebuilder.datatype.impl.CSImpl;
 import ca.infoway.messagebuilder.datatype.impl.CVImpl;
 import ca.infoway.messagebuilder.datatype.impl.IIImpl;
@@ -21,10 +19,10 @@ import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.domainvalue.ActStatus;
 import ca.infoway.messagebuilder.domainvalue.x_NormalRestrictedTabooConfidentialityKind;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.common.merged.HealthcareWorkerBean;
-import ca.infoway.messagebuilder.model.merged.CreatedAtBean;
-import ca.infoway.messagebuilder.model.pharmacy.merged.SubstanceAdministrationRequestBean;
-import ca.infoway.messagebuilder.model.pharmacy.merged.SupplyEventBean;
+import ca.infoway.messagebuilder.model.common.coct_mt090108ca.HealthcareWorkerBean;
+import ca.infoway.messagebuilder.model.merged.AnnotationIndicatorBean;
+import ca.infoway.messagebuilder.model.merged.DetectedIssueIndicatorBean;
+import ca.infoway.messagebuilder.model.merged.TargetedToPharmacyBean;
 import java.util.Set;
 
 
@@ -32,78 +30,50 @@ import java.util.Set;
 /**
  * <p>Dispense</p>
  * 
- * <p><p>Describes the issuing of a drug in response to an 
- * authorizing prescription.</p></p>
+ * <p>Describes the issuing of a drug in response to an 
+ * authorizing prescription.</p>
  * 
- * <p><p>This is a 'core' class of the medication model and is 
+ * <p>This is a 'core' class of the medication model and is 
  * important for understanding what drugs the patient is 
- * actually receiving.</p></p>
+ * actually receiving.</p>
  */
 @Hl7PartTypeMapping({"PORX_MT060100CA.MedicationDispense"})
 @Hl7RootType
 public class DispenseBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110127L;
-    private ST renderedDosageInstruction = new STImpl();
-    private HealthcareWorkerBean responsiblePartyAssignedEntity;
-    private SupplyEventBean component1SupplyEvent;
-    private HealthcareWorkerBean performerAssignedEntity;
-    private BL subjectOf2AnnotationIndicator = new BLImpl();
+    private static final long serialVersionUID = 20100614L;
     private II prescriptionDispenseNumber = new IIImpl();
-    private CreatedAtBean location;
-    private SET<CV, Code> prescriptionMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);
     private CS dispenseStatus = new CSImpl();
-    private SubstanceAdministrationRequestBean fulfillmentSubstanceAdministrationRequest;
-    private BL subjectOf1DetectedIssueIndicator = new BLImpl();
+    private SET<CV, Code> prescriptionMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);
+    private HealthcareWorkerBean responsiblePartyAssignedEntity;
+    private HealthcareWorkerBean performerAssignedEntity;
+    private TargetedToPharmacyBean location;
+    private IncludesBean component1;
+    private ST renderedDosageInstruction = new STImpl();
+    private PrescriptionBean fulfillmentSubstanceAdministrationRequest;
+    private DetectedIssueIndicatorBean subjectOf1DetectedIssueIndicator;
+    private AnnotationIndicatorBean subjectOf2AnnotationIndicator;
 
-
-    /**
-     * <p>Rendered Dosage Instruction</p>
-     * 
-     * <p><p>A free form textual specification generated from the 
-     * input specifications as created by the provider.</p><p>This 
-     * is made up of either an 'Ad-hoc dosage instruction' or 
-     * 'Textual rendition of the structured dosage lines', plus 
-     * route, dosage unit, and other pertinent administration 
-     * information specified by the provider.</p></p>
-     * 
-     * <p><p>A free form textual specification generated from the 
-     * input specifications as created by the provider.</p><p>This 
-     * is made up of either an 'Ad-hoc dosage instruction' or 
-     * 'Textual rendition of the structured dosage lines', plus 
-     * route, dosage unit, and other pertinent administration 
-     * information specified by the provider.</p></p>
-     * 
-     * <p><p>Allows the provider to verify the codified structured 
-     * dosage information entered and ensure that the exploded 
-     * instruction is consistent with the intended 
-     * instructions.</p><p>Also useful in bringing back 
-     * administration instructions on query responses. Because all 
-     * prescriptions and dispenses have dosage, this attribute is 
-     * mandatory.</p></p>
-     * 
-     * <p><p>Allows the provider to verify the codified structured 
-     * dosage information entered and ensure that the exploded 
-     * instruction is consistent with the intended 
-     * instructions.</p><p>Also useful in bringing back 
-     * administration instructions on query responses. Because all 
-     * prescriptions and dispenses have dosage, this attribute is 
-     * mandatory.</p></p>
-     * 
-     * <p><p>For dosage instructions which cannot be summarized in 
-     * the space allocated, a string such as &quot;Complex 
-     * dose&quot; or &quot;Scaling dose&quot; or something similar 
-     * should be sent. Dosage instructions should never be 
-     * truncated.</p></p>
-     */
-    @Hl7XmlMapping({"component2/administrationInstructions/text"})
-    public String getRenderedDosageInstruction() {
-        return this.renderedDosageInstruction.getValue();
+    @Hl7XmlMapping({"id"})
+    public Identifier getPrescriptionDispenseNumber() {
+        return this.prescriptionDispenseNumber.getValue();
     }
-    public void setRenderedDosageInstruction(String renderedDosageInstruction) {
-        this.renderedDosageInstruction.setValue(renderedDosageInstruction);
+    public void setPrescriptionDispenseNumber(Identifier prescriptionDispenseNumber) {
+        this.prescriptionDispenseNumber.setValue(prescriptionDispenseNumber);
     }
 
+    @Hl7XmlMapping({"statusCode"})
+    public ActStatus getDispenseStatus() {
+        return (ActStatus) this.dispenseStatus.getValue();
+    }
+    public void setDispenseStatus(ActStatus dispenseStatus) {
+        this.dispenseStatus.setValue(dispenseStatus);
+    }
+
+    @Hl7XmlMapping({"confidentialityCode"})
+    public Set<x_NormalRestrictedTabooConfidentialityKind> getPrescriptionMaskingIndicators() {
+        return this.prescriptionMaskingIndicators.rawSet(x_NormalRestrictedTabooConfidentialityKind.class);
+    }
 
     @Hl7XmlMapping({"responsibleParty/assignedEntity"})
     public HealthcareWorkerBean getResponsiblePartyAssignedEntity() {
@@ -113,16 +83,6 @@ public class DispenseBean extends MessagePartBean {
         this.responsiblePartyAssignedEntity = responsiblePartyAssignedEntity;
     }
 
-
-    @Hl7XmlMapping({"component1/supplyEvent"})
-    public SupplyEventBean getComponent1SupplyEvent() {
-        return this.component1SupplyEvent;
-    }
-    public void setComponent1SupplyEvent(SupplyEventBean component1SupplyEvent) {
-        this.component1SupplyEvent = component1SupplyEvent;
-    }
-
-
     @Hl7XmlMapping({"performer/assignedEntity"})
     public HealthcareWorkerBean getPerformerAssignedEntity() {
         return this.performerAssignedEntity;
@@ -131,181 +91,52 @@ public class DispenseBean extends MessagePartBean {
         this.performerAssignedEntity = performerAssignedEntity;
     }
 
-
-    @Hl7XmlMapping({"subjectOf2/annotationIndicator"})
-    public Boolean getSubjectOf2AnnotationIndicator() {
-        return this.subjectOf2AnnotationIndicator.getValue();
-    }
-    public void setSubjectOf2AnnotationIndicator(Boolean subjectOf2AnnotationIndicator) {
-        this.subjectOf2AnnotationIndicator.setValue(subjectOf2AnnotationIndicator);
-    }
-
-
-    /**
-     * <p>A:Prescription Dispense Number</p>
-     * 
-     * <p><p>The Prescription Dispense Number is a globally unique 
-     * number assigned to a prescription dispense by the EHR/DIS 
-     * irrespective of the source of the supply event</p><p>It is 
-     * created by the EHR/DIS once the dispense has passed all 
-     * edits and validation.</p></p>
-     * 
-     * <p><p>The Prescription Dispense Number is a globally unique 
-     * number assigned to a prescription dispense by the EHR/DIS 
-     * irrespective of the source of the supply event</p><p>It is 
-     * created by the EHR/DIS once the dispense has passed all 
-     * edits and validation.</p></p>
-     * 
-     * <p><p>Allows dispense events to be uniquely referenced and 
-     * is therefore mandatory.</p></p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Identifier getPrescriptionDispenseNumber() {
-        return this.prescriptionDispenseNumber.getValue();
-    }
-    public void setPrescriptionDispenseNumber(Identifier prescriptionDispenseNumber) {
-        this.prescriptionDispenseNumber.setValue(prescriptionDispenseNumber);
-    }
-
-
     @Hl7XmlMapping({"location"})
-    public CreatedAtBean getLocation() {
+    public TargetedToPharmacyBean getLocation() {
         return this.location;
     }
-    public void setLocation(CreatedAtBean location) {
+    public void setLocation(TargetedToPharmacyBean location) {
         this.location = location;
     }
 
-
-    /**
-     * <p>E:Prescription Masking Indicators</p>
-     * 
-     * <p><p>Communicates the intent of the patient to restrict 
-     * access to their prescriptions.</p><p>Provides support for 
-     * additional confidentiality constraint, giving patients a 
-     * level of control over their information.</p><p>Allows a 
-     * provider to request restricted access by the 
-     * patient</p><p>Valid values are: 'N' (normal - denotes 'Not 
-     * Masked'); 'R' (restricted - denotes 'Masked') and 'T' (taboo 
-     * - denotes 'Patient Access Restricted').</p><p>The default is 
-     * 'normal' signifying 'Not Masked'.</p></p>
-     * 
-     * <p><p>Communicates the intent of the patient to restrict 
-     * access to their prescriptions.</p><p>Provides support for 
-     * additional confidentiality constraint, giving patients a 
-     * level of control over their information.</p><p>Allows a 
-     * provider to request restricted access by the 
-     * patient</p><p>Valid values are: 'N' (normal - denotes 'Not 
-     * Masked'); 'R' (restricted - denotes 'Masked') and 'T' (taboo 
-     * - denotes 'Patient Access Restricted').</p><p>The default is 
-     * 'normal' signifying 'Not Masked'.</p></p>
-     * 
-     * <p><p>Communicates the intent of the patient to restrict 
-     * access to their prescriptions.</p><p>Provides support for 
-     * additional confidentiality constraint, giving patients a 
-     * level of control over their information.</p><p>Allows a 
-     * provider to request restricted access by the 
-     * patient</p><p>Valid values are: 'N' (normal - denotes 'Not 
-     * Masked'); 'R' (restricted - denotes 'Masked') and 'T' (taboo 
-     * - denotes 'Patient Access Restricted').</p><p>The default is 
-     * 'normal' signifying 'Not Masked'.</p></p>
-     * 
-     * <p><p>Communicates the intent of the patient to restrict 
-     * access to their prescriptions.</p><p>Provides support for 
-     * additional confidentiality constraint, giving patients a 
-     * level of control over their information.</p><p>Allows a 
-     * provider to request restricted access by the 
-     * patient</p><p>Valid values are: 'N' (normal - denotes 'Not 
-     * Masked'); 'R' (restricted - denotes 'Masked') and 'T' (taboo 
-     * - denotes 'Patient Access Restricted').</p><p>The default is 
-     * 'normal' signifying 'Not Masked'.</p></p>
-     * 
-     * <p><p>Communicates the intent of the patient to restrict 
-     * access to their prescriptions.</p><p>Provides support for 
-     * additional confidentiality constraint, giving patients a 
-     * level of control over their information.</p><p>Allows a 
-     * provider to request restricted access by the 
-     * patient</p><p>Valid values are: 'N' (normal - denotes 'Not 
-     * Masked'); 'R' (restricted - denotes 'Masked') and 'T' (taboo 
-     * - denotes 'Patient Access Restricted').</p><p>The default is 
-     * 'normal' signifying 'Not Masked'.</p></p>
-     * 
-     * <p><p>Allows the patient to have discrete control over 
-     * access to their medication data.</p><p>Taboo allows the 
-     * provider to request restricted access to patient or their 
-     * care giver.</p><p>Constraint: Can'''t have both normal and 
-     * one of the other codes simultaneously.</p><p>The attribute 
-     * is required because even if a jurisdiction doesn't support 
-     * masking on the way in, it will need to need to communicate 
-     * masked data returned from other jurisdictions.</p></p>
-     * 
-     * <p><p>Allows the patient to have discrete control over 
-     * access to their medication data.</p><p>Taboo allows the 
-     * provider to request restricted access to patient or their 
-     * care giver.</p><p>Constraint: Can'''t have both normal and 
-     * one of the other codes simultaneously.</p><p>The attribute 
-     * is required because even if a jurisdiction doesn't support 
-     * masking on the way in, it will need to need to communicate 
-     * masked data returned from other jurisdictions.</p></p>
-     * 
-     * <p><p>Allows the patient to have discrete control over 
-     * access to their medication data.</p><p>Taboo allows the 
-     * provider to request restricted access to patient or their 
-     * care giver.</p><p>Constraint: Can'''t have both normal and 
-     * one of the other codes simultaneously.</p><p>The attribute 
-     * is required because even if a jurisdiction doesn't support 
-     * masking on the way in, it will need to need to communicate 
-     * masked data returned from other jurisdictions.</p></p>
-     * 
-     * <p><p>Allows the patient to have discrete control over 
-     * access to their medication data.</p><p>Taboo allows the 
-     * provider to request restricted access to patient or their 
-     * care giver.</p><p>Constraint: Can'''t have both normal and 
-     * one of the other codes simultaneously.</p><p>The attribute 
-     * is required because even if a jurisdiction doesn't support 
-     * masking on the way in, it will need to need to communicate 
-     * masked data returned from other jurisdictions.</p></p>
-     */
-    @Hl7XmlMapping({"confidentialityCode"})
-    public Set<x_NormalRestrictedTabooConfidentialityKind> getPrescriptionMaskingIndicators() {
-        return this.prescriptionMaskingIndicators.rawSet(x_NormalRestrictedTabooConfidentialityKind.class);
+    @Hl7XmlMapping({"component1"})
+    public IncludesBean getComponent1() {
+        return this.component1;
+    }
+    public void setComponent1(IncludesBean component1) {
+        this.component1 = component1;
     }
 
-
-    /**
-     * <p>C:Dispense Status</p>
-     * 
-     * <p><p>Indicates whether the dispense has been picked up 
-     * ('complete') or has just been processed ('active').</p></p>
-     * 
-     * <p><p>Indicates how far along the process the dispense event 
-     * is. It should always be known and is therefore 
-     * mandatory.</p></p>
-     */
-    @Hl7XmlMapping({"statusCode"})
-    public ActStatus getDispenseStatus() {
-        return (ActStatus) this.dispenseStatus.getValue();
+    @Hl7XmlMapping({"component2/administrationInstructions/text"})
+    public String getRenderedDosageInstruction() {
+        return this.renderedDosageInstruction.getValue();
     }
-    public void setDispenseStatus(ActStatus dispenseStatus) {
-        this.dispenseStatus.setValue(dispenseStatus);
+    public void setRenderedDosageInstruction(String renderedDosageInstruction) {
+        this.renderedDosageInstruction.setValue(renderedDosageInstruction);
     }
-
 
     @Hl7XmlMapping({"fulfillment/substanceAdministrationRequest"})
-    public SubstanceAdministrationRequestBean getFulfillmentSubstanceAdministrationRequest() {
+    public PrescriptionBean getFulfillmentSubstanceAdministrationRequest() {
         return this.fulfillmentSubstanceAdministrationRequest;
     }
-    public void setFulfillmentSubstanceAdministrationRequest(SubstanceAdministrationRequestBean fulfillmentSubstanceAdministrationRequest) {
+    public void setFulfillmentSubstanceAdministrationRequest(PrescriptionBean fulfillmentSubstanceAdministrationRequest) {
         this.fulfillmentSubstanceAdministrationRequest = fulfillmentSubstanceAdministrationRequest;
     }
 
-
     @Hl7XmlMapping({"subjectOf1/detectedIssueIndicator"})
-    public Boolean getSubjectOf1DetectedIssueIndicator() {
-        return this.subjectOf1DetectedIssueIndicator.getValue();
+    public DetectedIssueIndicatorBean getSubjectOf1DetectedIssueIndicator() {
+        return this.subjectOf1DetectedIssueIndicator;
     }
-    public void setSubjectOf1DetectedIssueIndicator(Boolean subjectOf1DetectedIssueIndicator) {
-        this.subjectOf1DetectedIssueIndicator.setValue(subjectOf1DetectedIssueIndicator);
+    public void setSubjectOf1DetectedIssueIndicator(DetectedIssueIndicatorBean subjectOf1DetectedIssueIndicator) {
+        this.subjectOf1DetectedIssueIndicator = subjectOf1DetectedIssueIndicator;
+    }
+
+    @Hl7XmlMapping({"subjectOf2/annotationIndicator"})
+    public AnnotationIndicatorBean getSubjectOf2AnnotationIndicator() {
+        return this.subjectOf2AnnotationIndicator;
+    }
+    public void setSubjectOf2AnnotationIndicator(AnnotationIndicatorBean subjectOf2AnnotationIndicator) {
+        this.subjectOf2AnnotationIndicator = subjectOf2AnnotationIndicator;
     }
 
 }

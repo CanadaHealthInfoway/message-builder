@@ -42,7 +42,7 @@ class GtsBoundedPivlFormatter extends AbstractNullFlavorPropertyFormatter<Genera
 		
 		PeriodicIntervalTime frequency = value.getFrequency();
 		buffer.append(new IvlTsPropertyFormatter().format(
-				new FormatContextImpl("comp", "IVL<TS.FULLDATE>", ConformanceLevel.MANDATORY, true, null, false), 
+				new FormatContextImpl("comp", "IVL<TS.FULLDATE>", ConformanceLevel.MANDATORY, true, null), 
 				ivlDuration, 
 				indentLevel + 1)
 			);

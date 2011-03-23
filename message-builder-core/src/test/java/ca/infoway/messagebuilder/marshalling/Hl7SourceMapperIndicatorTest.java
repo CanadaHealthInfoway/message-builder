@@ -71,8 +71,7 @@ public class Hl7SourceMapperIndicatorTest {
 		assertNotNull("teal", teal);
 		
 		assertNotNull("indicator", teal.getImmunizationPlan());
-		boolean indValue = teal.getImmunizationPlan().booleanValue();
-		assertTrue("indicator", indValue);
+		assertTrue("indicator", teal.getImmunizationPlan());
 		assertFalse("indicator", ((BL) teal.getField("immunizationPlan")).isNull());
 		assertEquals("dose number", 2, teal.getDoseNumber().intValue());
 	}
@@ -90,9 +89,8 @@ public class Hl7SourceMapperIndicatorTest {
 		
 		assertFalse("null flavor", ((BL) teal.getField("immunizationPlan")).isNull());
 		assertEquals("dose number", 2, teal.getDoseNumber().intValue());
-		boolean indValue = teal.getImmunizationPlan().booleanValue();
-		assertNotNull("indicator", indValue); 
-		assertFalse("indicator", teal.getImmunizationPlan().booleanValue());
+		assertNotNull("indicator", teal.getImmunizationPlan()); 
+		assertFalse("indicator", teal.getImmunizationPlan());
 	}
 
 	@Test

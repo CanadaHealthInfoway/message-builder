@@ -27,44 +27,27 @@ import java.util.List;
 
 
 
+/**
+ * <p>Query Parameters</p>
+ * 
+ * <p>Defines the set of parameters that may be used to filter 
+ * the query response.</p>
+ * 
+ * <p>Root class for query definition</p>
+ */
 @Hl7PartTypeMapping({"PORX_MT060070CA.ParameterList"})
 @Hl7RootType
 public class QueryParametersBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110127L;
-    private CV issueFilterCode = new CVImpl();
-    private List<II> careCompositionIDs = new ArrayList<II>();
+    private static final long serialVersionUID = 20100615L;
     private IVL<TS, Interval<Date>> amendedInTimeRange = new IVLImpl<TS, Interval<Date>>();
+    private List<II> careCompositionIDs = new ArrayList<II>();
     private List<CV> careCompositionTypes = new ArrayList<CV>();
+    private CV issueFilterCode = new CVImpl();
     private BL mostRecentByDeviceIndicator = new BLImpl();
-    private IVL<TS, Interval<Date>> usageEffectivePeriod = new IVLImpl<TS, Interval<Date>>();
     private List<CV> rxDispenserIndicators = new ArrayList<CV>();
+    private IVL<TS, Interval<Date>> usageEffectivePeriod = new IVLImpl<TS, Interval<Date>>();
 
-
-    /**
-     * <p>Issue Filter Code</p>
-     */
-    @Hl7XmlMapping({"issueFilterCode/value"})
-    public IssueFilterCode getIssueFilterCode() {
-        return (IssueFilterCode) this.issueFilterCode.getValue();
-    }
-    public void setIssueFilterCode(IssueFilterCode issueFilterCode) {
-        this.issueFilterCode.setValue(issueFilterCode);
-    }
-
-
-    /**
-     * <p>Care Composition IDs</p>
-     */
-    @Hl7XmlMapping({"careCompositionID/value"})
-    public List<Identifier> getCareCompositionIDs() {
-        return new RawListWrapper<II, Identifier>(careCompositionIDs, IIImpl.class);
-    }
-
-
-    /**
-     * <p>Amended in Time Range</p>
-     */
     @Hl7XmlMapping({"amendedInTimeRange/value"})
     public Interval<Date> getAmendedInTimeRange() {
         return this.amendedInTimeRange.getValue();
@@ -73,19 +56,24 @@ public class QueryParametersBean extends MessagePartBean {
         this.amendedInTimeRange.setValue(amendedInTimeRange);
     }
 
+    @Hl7XmlMapping({"careCompositionID/value"})
+    public List<Identifier> getCareCompositionIDs() {
+        return new RawListWrapper<II, Identifier>(careCompositionIDs, IIImpl.class);
+    }
 
-    /**
-     * <p>Care Composition Types</p>
-     */
     @Hl7XmlMapping({"careCompositionType/value"})
     public List<ActCareEventType> getCareCompositionTypes() {
         return new RawListWrapper<CV, ActCareEventType>(careCompositionTypes, CVImpl.class);
     }
 
+    @Hl7XmlMapping({"issueFilterCode/value"})
+    public IssueFilterCode getIssueFilterCode() {
+        return (IssueFilterCode) this.issueFilterCode.getValue();
+    }
+    public void setIssueFilterCode(IssueFilterCode issueFilterCode) {
+        this.issueFilterCode.setValue(issueFilterCode);
+    }
 
-    /**
-     * <p>Most Recent By Device Indicator</p>
-     */
     @Hl7XmlMapping({"mostRecentByDeviceIndicator/value"})
     public Boolean getMostRecentByDeviceIndicator() {
         return this.mostRecentByDeviceIndicator.getValue();
@@ -94,25 +82,17 @@ public class QueryParametersBean extends MessagePartBean {
         this.mostRecentByDeviceIndicator.setValue(mostRecentByDeviceIndicator);
     }
 
+    @Hl7XmlMapping({"rxDispenseIndicator/value"})
+    public List<PrescriptionDispenseFilterCode> getRxDispenserIndicators() {
+        return new RawListWrapper<CV, PrescriptionDispenseFilterCode>(rxDispenserIndicators, CVImpl.class);
+    }
 
-    /**
-     * <p>Usage Effective Period</p>
-     */
     @Hl7XmlMapping({"usageEffectivePeriod/value"})
     public Interval<Date> getUsageEffectivePeriod() {
         return this.usageEffectivePeriod.getValue();
     }
     public void setUsageEffectivePeriod(Interval<Date> usageEffectivePeriod) {
         this.usageEffectivePeriod.setValue(usageEffectivePeriod);
-    }
-
-
-    /**
-     * <p>Rx Dispenser Indicators</p>
-     */
-    @Hl7XmlMapping({"rxDispenseIndicator/value"})
-    public List<PrescriptionDispenseFilterCode> getRxDispenserIndicators() {
-        return new RawListWrapper<CV, PrescriptionDispenseFilterCode>(rxDispenserIndicators, CVImpl.class);
     }
 
 }

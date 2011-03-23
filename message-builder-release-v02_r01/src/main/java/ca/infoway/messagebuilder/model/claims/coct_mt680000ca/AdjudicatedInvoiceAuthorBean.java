@@ -14,10 +14,9 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COCT_MT680000CA.AdjudicatedInvoiceAuthor"})
 public class AdjudicatedInvoiceAuthorBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110127L;
+    private static final long serialVersionUID = 20100615L;
     private ED<String> signatureText = new EDImpl<String>();
     private ST adjudicatorRolePlayingAdjudicatorDeviceSoftwareName = new STImpl();
-
 
     @Hl7XmlMapping({"signatureText"})
     public String getSignatureText() {
@@ -26,7 +25,6 @@ public class AdjudicatedInvoiceAuthorBean extends MessagePartBean {
     public void setSignatureText(String signatureText) {
         this.signatureText.setValue(signatureText);
     }
-
 
     @Hl7XmlMapping({"adjudicatorRole/playingAdjudicatorDevice/softwareName"})
     public String getAdjudicatorRolePlayingAdjudicatorDeviceSoftwareName() {

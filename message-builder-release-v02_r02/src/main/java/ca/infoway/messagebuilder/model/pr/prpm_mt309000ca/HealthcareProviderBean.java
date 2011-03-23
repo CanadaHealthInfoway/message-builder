@@ -17,7 +17,6 @@ import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.datatype.lang.PersonName;
 import ca.infoway.messagebuilder.domainvalue.HealthcareProviderRoleType;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.pr.merged.ResponsiblePartyBean;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -27,79 +26,39 @@ import java.util.Set;
 /**
  * <p>Healthcare Provider</p>
  * 
- * <p><p>This roles the specific Healthcare provider role such 
- * as a Physician, Nurse or other type of caregivers.</p></p>
+ * <p>This roles the specific Healthcare provider role such as 
+ * a Physician, Nurse or other type of caregivers.</p>
  * 
- * <p><p>Roleclass required to support the identification of 
- * person responsible for providing healthcare services</p></p>
+ * <p>Roleclass required to support the identification of 
+ * person responsible for providing healthcare services</p>
  */
 @Hl7PartTypeMapping({"PRPM_MT309000CA.HealthCareProvider"})
-public class HealthcareProviderBean extends MessagePartBean implements RoleChoice {
+public class HealthcareProviderBean extends MessagePartBean implements RoleChoiceBean {
 
-    private static final long serialVersionUID = 20110127L;
-    private LIST<PN, PersonName> healthcareProviderRoleName = new LISTImpl<PN, PersonName>(PNImpl.class);
+    private static final long serialVersionUID = 20100614L;
     private List<ResponsiblePartyBean> responsibleFor = new ArrayList<ResponsiblePartyBean>();
     private SET<II, Identifier> healthcareProviderRoleIdentification = new SETImpl<II, Identifier>(IIImpl.class);
-    private OrganizationBean issuingOrganization;
-    private CV healthcareProviderRoleType = new CVImpl();
-    private PrinicpalPersonBean healthCarePrincipalPerson;
     private List<RelatedToBean> relatedTo = new ArrayList<RelatedToBean>();
-
-
-    /**
-     * <p>Healthcare Provider Role Name</p>
-     * 
-     * <p><p>The provider'''s name pertaining to the specific 
-     * healthcare provider role.</p></p>
-     * 
-     * <p><p>Required attribute supports the identification of the 
-     * healthcare provider</p></p>
-     */
-    @Hl7XmlMapping({"name"})
-    public List<PersonName> getHealthcareProviderRoleName() {
-        return this.healthcareProviderRoleName.rawList();
-    }
-
+    private CV healthcareProviderRoleType = new CVImpl();
+    private LIST<PN, PersonName> healthcareProviderRoleName = new LISTImpl<PN, PersonName>(PNImpl.class);
+    private PrinicpalPersonBean healthCarePrincipalPerson;
+    private OrganizationBean issuingOrganization;
 
     @Hl7XmlMapping({"responsibleFor"})
     public List<ResponsiblePartyBean> getResponsibleFor() {
         return this.responsibleFor;
     }
 
-
-    /**
-     * <p>Healthcare Provider Role Identification</p>
-     * 
-     * <p><p>A unique identifier for a provider in a specific 
-     * healthcare role.</p></p>
-     * 
-     * <p><p>Mandatory attribute supports the identification of the 
-     * healthcare provider</p></p>
-     */
     @Hl7XmlMapping({"id"})
     public Set<Identifier> getHealthcareProviderRoleIdentification() {
         return this.healthcareProviderRoleIdentification.rawSet();
     }
 
-
-    @Hl7XmlMapping({"issuingOrganization"})
-    public OrganizationBean getIssuingOrganization() {
-        return this.issuingOrganization;
-    }
-    public void setIssuingOrganization(OrganizationBean issuingOrganization) {
-        this.issuingOrganization = issuingOrganization;
+    @Hl7XmlMapping({"relatedTo"})
+    public List<RelatedToBean> getRelatedTo() {
+        return this.relatedTo;
     }
 
-
-    /**
-     * <p>Healthcare Provider Role Type</p>
-     * 
-     * <p><p>The code identifying the specific healthcare provider 
-     * role.</p></p>
-     * 
-     * <p><p>Mandatory attribute supports the identification of the 
-     * healthcare provider</p></p>
-     */
     @Hl7XmlMapping({"code"})
     public HealthcareProviderRoleType getHealthcareProviderRoleType() {
         return (HealthcareProviderRoleType) this.healthcareProviderRoleType.getValue();
@@ -108,6 +67,10 @@ public class HealthcareProviderBean extends MessagePartBean implements RoleChoic
         this.healthcareProviderRoleType.setValue(healthcareProviderRoleType);
     }
 
+    @Hl7XmlMapping({"name"})
+    public List<PersonName> getHealthcareProviderRoleName() {
+        return this.healthcareProviderRoleName.rawList();
+    }
 
     @Hl7XmlMapping({"healthCarePrincipalPerson"})
     public PrinicpalPersonBean getHealthCarePrincipalPerson() {
@@ -117,10 +80,12 @@ public class HealthcareProviderBean extends MessagePartBean implements RoleChoic
         this.healthCarePrincipalPerson = healthCarePrincipalPerson;
     }
 
-
-    @Hl7XmlMapping({"relatedTo"})
-    public List<RelatedToBean> getRelatedTo() {
-        return this.relatedTo;
+    @Hl7XmlMapping({"issuingOrganization"})
+    public OrganizationBean getIssuingOrganization() {
+        return this.issuingOrganization;
+    }
+    public void setIssuingOrganization(OrganizationBean issuingOrganization) {
+        this.issuingOrganization = issuingOrganization;
     }
 
 }

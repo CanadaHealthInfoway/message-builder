@@ -19,8 +19,8 @@ import ca.infoway.messagebuilder.datatype.impl.TSImpl;
 import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.domainvalue.ActStatus;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.lab.merged.ResultStatusProcessStepBean;
-import ca.infoway.messagebuilder.model.merged.IncludesBean;
+import ca.infoway.messagebuilder.model.merged.HasNotesBean;
+import ca.infoway.messagebuilder.model.merged.ResultStatusProcessStepBean;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -30,65 +30,27 @@ import java.util.List;
 /**
  * <p>Culture Observations</p>
  * 
- * <p><p>Act for describing any observations about the culture 
+ * <p>Act for describing any observations about the culture 
  * e.g. Protein measurements, gram stains, culture-level 
  * supporting clinical information observations use this act 
  * and are associated using the pertinentInformation act 
  * relationship. Those test (result) components which are not 
- * supporting but are observation which are &quot;part of&quot; 
- * the resulted values should be associated using this act and 
- * the component act relationship.</p></p>
+ * supporting but are observation which are "part of" the 
+ * resulted values should be associated using this act and the 
+ * component act relationship.</p>
  */
 @Hl7PartTypeMapping({"POLB_MT004100CA.CultureObservationEvent"})
 public class CultureObservationsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110127L;
-    private ANY<Object> cultureObservationValue = new ANYImpl<Object>();
-    private CS cultureObservationStatus = new CSImpl();
+    private static final long serialVersionUID = 20100603L;
     private CD cultureObservationType = new CDImpl();
-    private List<IncludesBean> subjectOf1 = new ArrayList<IncludesBean>();
     private ST cultureObservationComment = new STImpl();
-    private ResultStatusProcessStepBean subjectOf2ResultStatusProcessStep;
+    private CS cultureObservationStatus = new CSImpl();
     private IVL<TS, Interval<Date>> cultureObservationDateTime = new IVLImpl<TS, Interval<Date>>();
+    private ANY<Object> cultureObservationValue = new ANYImpl<Object>();
+    private List<HasNotesBean> subjectOf1 = new ArrayList<HasNotesBean>();
+    private ResultStatusProcessStepBean subjectOf2ResultStatusProcessStep;
 
-
-    /**
-     * <p>Culture Observation Value</p>
-     * 
-     * <p><p>The result value of this culture observation e.g. the 
-     * number value associated with a protein measurement, etc. 
-     * When a coded value applies, values must be selected from the 
-     * CultureObservationValue Concept Domain.</p></p>
-     */
-    @Hl7XmlMapping({"value"})
-    public Object getCultureObservationValue() {
-        return this.cultureObservationValue.getValue();
-    }
-    public void setCultureObservationValue(Object cultureObservationValue) {
-        this.cultureObservationValue.setValue(cultureObservationValue);
-    }
-
-
-    /**
-     * <p>Culture Observation Status</p>
-     * 
-     * <p><p>Status associated with the Culture Observation.</p></p>
-     */
-    @Hl7XmlMapping({"statusCode"})
-    public ActStatus getCultureObservationStatus() {
-        return (ActStatus) this.cultureObservationStatus.getValue();
-    }
-    public void setCultureObservationStatus(ActStatus cultureObservationStatus) {
-        this.cultureObservationStatus.setValue(cultureObservationStatus);
-    }
-
-
-    /**
-     * <p>Culture Observation Type</p>
-     * 
-     * <p><p>Act for describing the type of observations about the 
-     * culture e.g. gram stain, etc.</p></p>
-     */
     @Hl7XmlMapping({"code"})
     public Code getCultureObservationType() {
         return (Code) this.cultureObservationType.getValue();
@@ -97,18 +59,6 @@ public class CultureObservationsBean extends MessagePartBean {
         this.cultureObservationType.setValue(cultureObservationType);
     }
 
-
-    @Hl7XmlMapping({"subjectOf1"})
-    public List<IncludesBean> getSubjectOf1() {
-        return this.subjectOf1;
-    }
-
-
-    /**
-     * <p>Culture Observation Comment</p>
-     * 
-     * <p><p>Comments associated with the Culture Observation.</p></p>
-     */
     @Hl7XmlMapping({"text"})
     public String getCultureObservationComment() {
         return this.cultureObservationComment.getValue();
@@ -117,6 +67,34 @@ public class CultureObservationsBean extends MessagePartBean {
         this.cultureObservationComment.setValue(cultureObservationComment);
     }
 
+    @Hl7XmlMapping({"statusCode"})
+    public ActStatus getCultureObservationStatus() {
+        return (ActStatus) this.cultureObservationStatus.getValue();
+    }
+    public void setCultureObservationStatus(ActStatus cultureObservationStatus) {
+        this.cultureObservationStatus.setValue(cultureObservationStatus);
+    }
+
+    @Hl7XmlMapping({"effectiveTime"})
+    public Interval<Date> getCultureObservationDateTime() {
+        return this.cultureObservationDateTime.getValue();
+    }
+    public void setCultureObservationDateTime(Interval<Date> cultureObservationDateTime) {
+        this.cultureObservationDateTime.setValue(cultureObservationDateTime);
+    }
+
+    @Hl7XmlMapping({"value"})
+    public Object getCultureObservationValue() {
+        return this.cultureObservationValue.getValue();
+    }
+    public void setCultureObservationValue(Object cultureObservationValue) {
+        this.cultureObservationValue.setValue(cultureObservationValue);
+    }
+
+    @Hl7XmlMapping({"subjectOf1"})
+    public List<HasNotesBean> getSubjectOf1() {
+        return this.subjectOf1;
+    }
 
     @Hl7XmlMapping({"subjectOf2/resultStatusProcessStep"})
     public ResultStatusProcessStepBean getSubjectOf2ResultStatusProcessStep() {
@@ -124,21 +102,6 @@ public class CultureObservationsBean extends MessagePartBean {
     }
     public void setSubjectOf2ResultStatusProcessStep(ResultStatusProcessStepBean subjectOf2ResultStatusProcessStep) {
         this.subjectOf2ResultStatusProcessStep = subjectOf2ResultStatusProcessStep;
-    }
-
-
-    /**
-     * <p>Culture Observation Date/Time</p>
-     * 
-     * <p><p>The date/time interval when this culture observation 
-     * took place.</p></p>
-     */
-    @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getCultureObservationDateTime() {
-        return this.cultureObservationDateTime.getValue();
-    }
-    public void setCultureObservationDateTime(Interval<Date> cultureObservationDateTime) {
-        this.cultureObservationDateTime.setValue(cultureObservationDateTime);
     }
 
 }

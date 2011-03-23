@@ -10,39 +10,40 @@ import ca.infoway.messagebuilder.datatype.impl.IIImpl;
 import ca.infoway.messagebuilder.datatype.impl.STImpl;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import ca.infoway.messagebuilder.model.merged.ChangedByBean;
 
 
 
+/**
+ * <p>Application</p>
+ * 
+ * <p>An identification of a system/application that can 
+ * initiate an event to change the status of an object.</p>
+ * 
+ * <p>Allows an application to be uniquely identified.</p>
+ */
 @Hl7PartTypeMapping({"COCT_MT090302CA.AssignedDevice"})
 @Hl7RootType
-public class ApplicationBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pharmacy.merged.ChangedBy {
+public class ApplicationBean extends MessagePartBean implements ChangedByBean {
 
-    private static final long serialVersionUID = 20110127L;
-    private ST applicationName = new STImpl();
+    private static final long serialVersionUID = 20100614L;
     private II applicationId = new IIImpl();
+    private ST applicationName = new STImpl();
 
-
-    /**
-     * <p>B:Application Name</p>
-     */
-    @Hl7XmlMapping({"assignedDevice/name"})
-    public String getApplicationName() {
-        return this.applicationName.getValue();
-    }
-    public void setApplicationName(String applicationName) {
-        this.applicationName.setValue(applicationName);
-    }
-
-
-    /**
-     * <p>C:Application Id</p>
-     */
     @Hl7XmlMapping({"id"})
     public Identifier getApplicationId() {
         return this.applicationId.getValue();
     }
     public void setApplicationId(Identifier applicationId) {
         this.applicationId.setValue(applicationId);
+    }
+
+    @Hl7XmlMapping({"assignedDevice/name"})
+    public String getApplicationName() {
+        return this.applicationName.getValue();
+    }
+    public void setApplicationName(String applicationName) {
+        this.applicationName.setValue(applicationName);
     }
 
 }

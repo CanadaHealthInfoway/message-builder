@@ -39,6 +39,11 @@ import ca.infoway.messagebuilder.xml.ConformanceLevel;
 class StElementParser extends AbstractSingleElementParser<String> {
 
 	@Override
+    protected String parseNonNullNode(ParseContext context, Node node, Type expectedReturnType, XmlToModelResult xmlToJavaResult) throws XmlToModelTransformationException {
+		throw new UnsupportedOperationException("Different parseNonNullNode handler used for ST");
+    }
+
+	@Override
 	protected String parseNonNullNode(ParseContext context, Node node, BareANY dataType, Type returnType, XmlToModelResult xmlToJavaResult)	throws XmlToModelTransformationException {
 
     	Element element = (Element) node;

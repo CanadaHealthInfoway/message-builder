@@ -14,36 +14,41 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 
+/**
+ * <p>Care Compositions</p>
+ * 
+ * <p>A care composition is a record with two purposes. It 
+ * indicates that care of a given type has occurred or is 
+ * occurring. It also acts as a collector for the events that 
+ * happened during care, including who is responsible for the 
+ * care provided.</p>
+ * 
+ * <p>Allows linking records to encounters, condition and 
+ * care-based compositions. Useful for searching and navigation 
+ * of the patient's record.</p>
+ */
 @Hl7PartTypeMapping({"COCT_MT011001CA.PatientCareProvisionEvent"})
 @Hl7RootType
 public class CareCompositionsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110127L;
-    private CV careCompositionType = new CVImpl();
+    private static final long serialVersionUID = 20100615L;
     private II careCompositionIdentifier = new IIImpl();
+    private CV careCompositionType = new CVImpl();
 
-
-    /**
-     * <p>A: Care Composition Type</p>
-     */
-    @Hl7XmlMapping({"code"})
-    public ActCareEventType getCareCompositionType() {
-        return (ActCareEventType) this.careCompositionType.getValue();
-    }
-    public void setCareCompositionType(ActCareEventType careCompositionType) {
-        this.careCompositionType.setValue(careCompositionType);
-    }
-
-
-    /**
-     * <p>B: Care Composition Identifier</p>
-     */
     @Hl7XmlMapping({"id"})
     public Identifier getCareCompositionIdentifier() {
         return this.careCompositionIdentifier.getValue();
     }
     public void setCareCompositionIdentifier(Identifier careCompositionIdentifier) {
         this.careCompositionIdentifier.setValue(careCompositionIdentifier);
+    }
+
+    @Hl7XmlMapping({"code"})
+    public ActCareEventType getCareCompositionType() {
+        return (ActCareEventType) this.careCompositionType.getValue();
+    }
+    public void setCareCompositionType(ActCareEventType careCompositionType) {
+        this.careCompositionType.setValue(careCompositionType);
     }
 
 }

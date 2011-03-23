@@ -3,15 +3,22 @@ package ca.infoway.messagebuilder.model.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.common.merged.HL7Message_1Bean;
+import ca.infoway.messagebuilder.model.common.mcci_mt000100ca.HL7MessageBean;
 import ca.infoway.messagebuilder.model.common.quqi_mt020000ca.TriggerEventBean;
-import ca.infoway.messagebuilder.model.merged.GenericQueryParametersBean;
+import ca.infoway.messagebuilder.model.iehr.repc_mt120002ca.CommonObservationQueryParametersBean;
 
 
 
+/**
+ * <p>Requests retrieval of the basic observations (height, 
+ * weight, blood-pressure, etc.) which have been recorded for a 
+ * particular patient, optionally filtered by the type of 
+ * observation and/or by the date-range for which the 
+ * observation was recorded.</p>
+ */
 @Hl7PartTypeMapping({"REPC_IN000054CA"})
-public class PatientBasicObservationsQueryBean extends HL7Message_1Bean<TriggerEventBean<GenericQueryParametersBean>> implements InteractionBean {
+public class PatientBasicObservationsQueryBean extends HL7MessageBean<TriggerEventBean<CommonObservationQueryParametersBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20110127L;
+    private static final long serialVersionUID = 20100614L;
 
 }

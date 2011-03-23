@@ -14,7 +14,6 @@ public class ParserRegistry extends Registry<ElementParser> {
     protected void registerAll() {
         register(new AdElementParser());
         register(new AnyElementParser());
-        register(new BagElementParser());
         register(new BlElementParser());
         register(new CsElementParser());
         register(new CvElementParser());

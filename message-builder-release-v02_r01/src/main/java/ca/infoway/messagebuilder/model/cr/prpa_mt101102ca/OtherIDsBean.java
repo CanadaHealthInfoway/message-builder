@@ -21,16 +21,17 @@ import java.util.Set;
 @Hl7PartTypeMapping({"PRPA_MT101102CA.OtherIDs"})
 public class OtherIDsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110127L;
-    private CV nonHealthcareIdentificationCode = new CVImpl();
+    private static final long serialVersionUID = 20100615L;
     private SET<II, Identifier> nonHealthcareIdentification = new SETImpl<II, Identifier>(IIImpl.class);
+    private CV nonHealthcareIdentificationCode = new CVImpl();
     private II nonHealthcareOrganizationIdentifier = new IIImpl();
     private ST nonHealthcareOrganizationName = new STImpl();
 
+    @Hl7XmlMapping({"id"})
+    public Set<Identifier> getNonHealthcareIdentification() {
+        return this.nonHealthcareIdentification.rawSet();
+    }
 
-    /**
-     * <p>NonHealthcare Identification Code</p>
-     */
     @Hl7XmlMapping({"code"})
     public OtherIDsRoleCode getNonHealthcareIdentificationCode() {
         return (OtherIDsRoleCode) this.nonHealthcareIdentificationCode.getValue();
@@ -39,19 +40,6 @@ public class OtherIDsBean extends MessagePartBean {
         this.nonHealthcareIdentificationCode.setValue(nonHealthcareIdentificationCode);
     }
 
-
-    /**
-     * <p>NonHealthcare Identification</p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Set<Identifier> getNonHealthcareIdentification() {
-        return this.nonHealthcareIdentification.rawSet();
-    }
-
-
-    /**
-     * <p>NonHealthcare Organization Identifier</p>
-     */
     @Hl7XmlMapping({"scopingIdOrganization/id"})
     public Identifier getNonHealthcareOrganizationIdentifier() {
         return this.nonHealthcareOrganizationIdentifier.getValue();
@@ -60,10 +48,6 @@ public class OtherIDsBean extends MessagePartBean {
         this.nonHealthcareOrganizationIdentifier.setValue(nonHealthcareOrganizationIdentifier);
     }
 
-
-    /**
-     * <p>NonHealthcare Organization Name</p>
-     */
     @Hl7XmlMapping({"scopingIdOrganization/name"})
     public String getNonHealthcareOrganizationName() {
         return this.nonHealthcareOrganizationName.getValue();

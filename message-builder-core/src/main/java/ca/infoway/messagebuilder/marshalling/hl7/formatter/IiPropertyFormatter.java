@@ -2,22 +2,15 @@ package ca.infoway.messagebuilder.marshalling.hl7.formatter;
 
 import static ca.infoway.messagebuilder.datatype.StandardDataType.II_BUS;
 import static ca.infoway.messagebuilder.datatype.StandardDataType.II_PUBLIC;
-import static ca.infoway.messagebuilder.datatype.StandardDataType.II_VER;
 
-import java.util.Arrays;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Map;
-import java.util.Set;
 
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.SystemUtils;
 
 import ca.infoway.messagebuilder.SpecificationVersion;
 import ca.infoway.messagebuilder.VersionNumber;
-import ca.infoway.messagebuilder.datatype.BareANY;
-import ca.infoway.messagebuilder.datatype.StandardDataType;
-import ca.infoway.messagebuilder.datatype.impl.IIImpl;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
 import ca.infoway.messagebuilder.util.text.Indenter;
@@ -25,17 +18,11 @@ import ca.infoway.messagebuilder.util.text.Indenter;
 @DataTypeHandler("II")
 class IiPropertyFormatter extends AbstractAttributePropertyFormatter<Identifier> {
 
-	private static Set<StandardDataType> abstractIiTypes = new HashSet<StandardDataType>(Arrays.asList(
-			StandardDataType.II, 
-			StandardDataType.II_BUS_AND_VER));
-	
 	@Override
-	String formatNonNullDataType(FormatContext context, BareANY bareAny, int indentLevel) throws ModelToXmlTransformationException {
-		
-		IIImpl ii = (IIImpl) bareAny;
-		
+    String formatNonNullValue(FormatContext context, Identifier ii, int indentLevel)
+			throws ModelToXmlTransformationException {
     	StringBuilder builder = new StringBuilder();
-        if (StringUtils.isBlank(ii.getValue().getRoot())) {
+        if (StringUtils.isBlank(ii.getRoot())) {
         	Indenter.indentBuilder(builder, indentLevel);
         	builder.append("<!-- WARNING: ")
         			.append("Property root on oid property ")
@@ -45,7 +32,7 @@ class IiPropertyFormatter extends AbstractAttributePropertyFormatter<Identifier>
         			.append(" -->");
         	builder.append(SystemUtils.LINE_SEPARATOR);
         }
-        builder.append(super.formatNonNullDataType(context, ii, indentLevel));
+        builder.append(super.formatNonNullValue(context, ii, indentLevel));
 		return builder.toString();
 	}
 
@@ -66,35 +53,23 @@ class IiPropertyFormatter extends AbstractAttributePropertyFormatter<Identifier>
      * http://www.hl7.org/v3ballot/html/infrastructure/itsxml/datatypes-its-xml.htm#dtimpl-II
      */
     @Override
-    Map<String,String> getAttributeNameValuePairs(FormatContext context, Identifier ii, BareANY bareAny) throws ModelToXmlTransformationException {
-    	
-    	Map<String, String> result = new HashMap<String, String>();
-    	result.put("root", ii.getRoot() == null ? StringUtils.EMPTY : ii.getRoot());
+    Map<String, String> getAttributeNameValuePairs(FormatContext context, Identifier ii) throws ModelToXmlTransformationException {
 
-    	String type = context.getType();
-    	if (StandardDataType.II.getType().equals(type) || StandardDataType.II_BUS_AND_VER.getType().equals(type)) {
-    		StandardDataType dataType = bareAny.getDataType();
-    		if (!abstractIiTypes.contains(dataType)) {
-    			// only set a specialization type if we have a concrete II type supplied
-    			type = dataType.getType();
-    			result.put("specializationType", type);
-    		}
-    	}
+        Map<String, String> result = new HashMap<String, String>();
+        result.put("root", ii.getRoot() == null ? StringUtils.EMPTY : ii.getRoot());
         
         if (StringUtils.isNotBlank(ii.getExtension())) {
             result.put("extension", ii.getExtension());
         }
         
-		if (StringUtils.equals(II_BUS.getType(), type)) {
+        if (StringUtils.equals(II_BUS.getType(), context.getType())) {
             result.put("use", "BUS");
-        } else if (StringUtils.equals(II_VER.getType(), type)) {
-            result.put("use", "VER");
-        } else if (StringUtils.equals(II_PUBLIC.getType(), type)) {
+        } else if (StringUtils.equals(II_PUBLIC.getType(), context.getType())) {
             result.put("displayable", "true");
             VersionNumber version = context.getVersion();
             if (version != null) {
 				String versionLiteral = version.getVersionLiteral();
-				if (!StringUtils.equals(versionLiteral, SpecificationVersion.V01R04_3.getVersionLiteral()) &&
+				if (!StringUtils.equals(versionLiteral, SpecificationVersion.V01R04_3_HOTFIX3.getVersionLiteral()) &&
 						!StringUtils.equals(versionLiteral, "V02R01") &&
 						!StringUtils.equals(versionLiteral, SpecificationVersion.V02R02.getVersionLiteral()) &&
 						!StringUtils.equals(versionLiteral, SpecificationVersion.NEWFOUNDLAND.getVersionLiteral())) {

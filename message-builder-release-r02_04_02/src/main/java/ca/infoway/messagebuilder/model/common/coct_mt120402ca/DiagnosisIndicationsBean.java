@@ -15,52 +15,32 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 /**
  * <p>Diagnosis Indications</p>
  * 
- * <p><p>Describes diagnosis-related indications</p></p>
+ * <p>Describes diagnosis-related indications</p>
  * 
- * <p><p>Allows separation of conditions from symptoms from 
- * other forms of indication.</p></p>
+ * <p>Allows separation of conditions from symptoms from other 
+ * forms of indication.</p>
  */
 @Hl7PartTypeMapping({"COCT_MT120402CA.ObservationProblem"})
-public class DiagnosisIndicationsBean extends MessagePartBean implements Indications {
+public class DiagnosisIndicationsBean extends MessagePartBean implements IndicationsBean {
 
-    private static final long serialVersionUID = 20110127L;
-    private CD problemCode = new CDImpl();
+    private static final long serialVersionUID = 20100603L;
     private CV problemType = new CVImpl();
+    private CD problemCode = new CDImpl();
 
-
-    /**
-     * <p>A:Problem Code</p>
-     * 
-     * <p><p>A coded form of the problem that is the reason for the 
-     * current action.</p></p>
-     * 
-     * <p></p></p>
-     * 
-     * <p></p></p>
-     */
-    @Hl7XmlMapping({"value"})
-    public Code getProblemCode() {
-        return (Code) this.problemCode.getValue();
-    }
-    public void setProblemCode(Code problemCode) {
-        this.problemCode.setValue(problemCode);
-    }
-
-
-    /**
-     * <p>Problem Type</p>
-     * 
-     * <p><p>Identifies the type of problem described.</p></p>
-     * 
-     * <p><p>Identifies this measurement as a type of diagnosis and 
-     * is therefore mandatory.</p></p>
-     */
     @Hl7XmlMapping({"code"})
     public Code getProblemType() {
         return (Code) this.problemType.getValue();
     }
     public void setProblemType(Code problemType) {
         this.problemType.setValue(problemType);
+    }
+
+    @Hl7XmlMapping({"value"})
+    public Code getProblemCode() {
+        return (Code) this.problemCode.getValue();
+    }
+    public void setProblemCode(Code problemCode) {
+        this.problemCode.setValue(problemCode);
     }
 
 }

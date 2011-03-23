@@ -11,17 +11,21 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 
+/**
+ * <p>Condition History Query Parameters</p>
+ * 
+ * <p>Defines the set of parameters that may be used to filter 
+ * the query response</p>
+ * 
+ * <p>Root class for query definition</p>
+ */
 @Hl7PartTypeMapping({"REPC_MT000019CA.ParameterList"})
 @Hl7RootType
 public class ConditionHistoryQueryParametersBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110127L;
+    private static final long serialVersionUID = 20100615L;
     private II allergyIntoleranceIdentifier = new IIImpl();
 
-
-    /**
-     * <p>F:Allergy Intolerance Identifier</p>
-     */
     @Hl7XmlMapping({"allergyIntoleranceID/value"})
     public Identifier getAllergyIntoleranceIdentifier() {
         return this.allergyIntoleranceIdentifier.getValue();

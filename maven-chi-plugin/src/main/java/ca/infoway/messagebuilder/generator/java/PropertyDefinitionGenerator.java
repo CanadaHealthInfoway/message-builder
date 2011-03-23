@@ -4,10 +4,11 @@ import java.io.IOException;
 import java.io.Writer;
 
 import ca.infoway.messagebuilder.generator.lang.CodeTemplate;
+import ca.infoway.messagebuilder.generator.lang.ProgrammingLanguage;
 
 class PropertyDefinitionGenerator extends FieldTemplateProcessor {
 	
-	private static final String JAVA_PROPERTY_READ_DEFINITION = "@Hl7XmlMapping('{'{0}'}'){11}\n" + 
+	private static final String JAVA_PROPERTY_READ_DEFINITION = "@Hl7XmlMapping('{'{0}'}')\n" + 
 			"public {8} get{2}() '{'\n" +
 			"    {3}\n" +
 			"'}'";
@@ -19,17 +20,17 @@ class PropertyDefinitionGenerator extends FieldTemplateProcessor {
 		"    {10}\n" +
 		"'}'";
 	private static final String CSHARP_DERIVED_CHOICE_HAS_PROPERTY_DEFINITION =
-		"public bool Has{2}() '{'\n" +
+		"public bool has{2}() '{'\n" +
 		"    {10}\n" +
 		"'}'";
 	private static final String JAVA_INTERFACE_READ_DEFINITION = "public {8} get{2}();";
-	private static final String CSHARP_ANNOTATION = "[Hl7XmlMappingAttribute(new string[] '{'{0}'}')]{11}\n";
+	private static final String CSHARP_ANNOTATION = "[Hl7XmlMappingAttribute(new string[] '{'{0}'}')]";
 	private static final String CSHARP_PROPERTY_DEFINITION = "public {8} {2} '{'\n";
 	private static final String CSHARP_PROPERTY_GETTER_DEFINITION = 
 		"    get '{' {3} '}'";
 	private static final String CSHARP_PROPERTY_SETTER_DEFINITION = 
 			"    set '{' {5} '}'";
-	private static final CodeTemplate CSHARP_READ_ONLY_PROPERTY = new CodeTemplate(CSHARP_ANNOTATION + 
+	private static final CodeTemplate CSHARP_READ_ONLY_PROPERTY = new CodeTemplate(CSHARP_ANNOTATION + "\n" + 
 			CSHARP_PROPERTY_DEFINITION +
 			CSHARP_PROPERTY_GETTER_DEFINITION + "\n" +
 			"'}'");
@@ -38,16 +39,16 @@ class PropertyDefinitionGenerator extends FieldTemplateProcessor {
 			CSHARP_PROPERTY_GETTER_DEFINITION + "\n" +
 			"'}'\n\n" +
 			CSHARP_DERIVED_CHOICE_HAS_PROPERTY_DEFINITION);
-	private static final CodeTemplate CSHARP_READ_ONLY_INTERFACE = new CodeTemplate(CSHARP_ANNOTATION + 
+	private static final CodeTemplate CSHARP_READ_ONLY_INTERFACE = new CodeTemplate(CSHARP_ANNOTATION + "\n" + 
 			"{8} {2} '{'\n" +
 			"    get;\n" +
 			"'}'");
-	private static final CodeTemplate CSHARP_READ_WRITE_PROPERTY = new CodeTemplate(CSHARP_ANNOTATION + 
+	private static final CodeTemplate CSHARP_READ_WRITE_PROPERTY = new CodeTemplate(CSHARP_ANNOTATION + "\n" + 
 			CSHARP_PROPERTY_DEFINITION +
 			CSHARP_PROPERTY_GETTER_DEFINITION + "\n" +
 			CSHARP_PROPERTY_SETTER_DEFINITION + "\n" +
 			"'}'");
-	private static final CodeTemplate CSHARP_READ_WRITE_INTERFACE = new CodeTemplate(CSHARP_ANNOTATION + 
+	private static final CodeTemplate CSHARP_READ_WRITE_INTERFACE = new CodeTemplate(CSHARP_ANNOTATION + "\n" + 
 			"{8} {2} '{'\n" +
 			"    get;\n" +
 			"    set;\n" +
@@ -62,8 +63,11 @@ class PropertyDefinitionGenerator extends FieldTemplateProcessor {
 			"'}'");
 	private static final CodeTemplate JAVA_DERIVED_CHOICE_PROPERTY = new CodeTemplate(JAVA_DERIVED_CHOICE_PROPERTY_DEFINITION);
 		
-	PropertyDefinitionGenerator(FieldDefinition fieldDefinition) {
-		super(fieldDefinition);
+	private final ProgrammingLanguage language;
+
+	PropertyDefinitionGenerator(FieldDefinition fieldDefinition, ProgrammingLanguage language) {
+		super(fieldDefinition, language);
+		this.language = language;
 	}
 	
 	public void createPropertyDefinition(int indent, Writer writer, boolean isAbstract) throws IOException {
@@ -71,7 +75,7 @@ class PropertyDefinitionGenerator extends FieldTemplateProcessor {
 	}
 
 	private CodeTemplate chooseTemplate(boolean isAbstract) {
-		if (getFieldDefinition().getProgrammingLanguage().isJava()) {
+		if (this.language.isJava()) {
 			if (getFieldDefinition().isWritable()) {
 				return isAbstract ? JAVA_READ_WRITE_INTERFACE : JAVA_READ_WRITE_PROPERTY;
 			} else if (getFieldDefinition().isDerivedChoice()) {
@@ -89,5 +93,4 @@ class PropertyDefinitionGenerator extends FieldTemplateProcessor {
 			}
 		}
 	}
-	
 }

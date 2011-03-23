@@ -1,8 +1,5 @@
 package ca.infoway.messagebuilder.generator.java;
 
-import java.util.Collections;
-import java.util.List;
-
 import org.apache.commons.lang.WordUtils;
 
 import ca.infoway.messagebuilder.xml.Cardinality;
@@ -14,7 +11,7 @@ public class InlinedAssociation extends Association {
 	private final BaseRelationship elidedRelationship;
 
 	public InlinedAssociation(Association inlinedRelationship, BaseRelationship elidedRelationship) {
-		super(inlinedRelationship.getRelationship(), inlinedRelationship.getAssociationType(), Collections.<Choice>emptyList());
+		super(inlinedRelationship.getRelationship(), inlinedRelationship.getAssociationType());
 		this.inlinedRelationship = inlinedRelationship;
 		this.elidedRelationship = elidedRelationship;
 	}
@@ -24,12 +21,11 @@ public class InlinedAssociation extends Association {
 		return this.elidedRelationship.getName() + WordUtils.capitalize(this.inlinedRelationship.getName());
 	}
 	
-	
 	@Override
-	XmlMappingHelper getXmlMappingHelper() {
-		return this.elidedRelationship.getXmlMappingHelper().concat(inlinedRelationship.getXmlMappingHelper());
+	public String getXmlMapping() {
+		return this.elidedRelationship.getXmlMapping() + "/" + this.inlinedRelationship.getXmlMapping();
 	}
-	
+
 	@Override
 	public Cardinality getCardinality() {
 		Cardinality cardinality = super.getCardinality();
@@ -58,18 +54,4 @@ public class InlinedAssociation extends Association {
 		return this.elidedRelationship;
 	}
 
-	@Override
-	public Type getAssociationType() {
-		return this.inlinedRelationship.getAssociationType();
-	}
-	
-	@Override
-	public List<Choice> getAllChoiceTypes() {
-		return this.inlinedRelationship.getAllChoiceTypes();
-	}
-	
-	@Override
-	public Fingerprint getFingerprint() {
-		return getElidedRelationship().getFingerprint().concat(getInlinedRelationship().getFingerprint());
-	}
 }

@@ -16,20 +16,13 @@ import java.util.List;
 
 
 @Hl7PartTypeMapping({"COCT_MT680000CA.InvoiceElementIntent"})
-public class InventElementChoiceBean extends MessagePartBean implements ca.infoway.messagebuilder.model.merged.InvoiceElementChoice {
+public class InventElementChoiceBean extends MessagePartBean implements InvoiceElementChoiceBean {
 
-    private static final long serialVersionUID = 20110127L;
+    private static final long serialVersionUID = 20100603L;
     private CV invoiceElementIntentCode = new CVImpl();
-    private List<InvoiceElementComponentBean> component = new ArrayList<InvoiceElementComponentBean>();
     private MO totalAmountBilledForInvoiceElement = new MOImpl();
+    private List<InvoiceElementComponentBean> component = new ArrayList<InvoiceElementComponentBean>();
 
-
-    /**
-     * <p>Invoice Element Intent Code</p>
-     * 
-     * <p><p>(Invoice Type e.g. Healthcare Services, Rx Dispense, 
-     * Rx Compound, Healthcare Goods, Preferred Accomodation</p></p>
-     */
     @Hl7XmlMapping({"code"})
     public Code getInvoiceElementIntentCode() {
         return (Code) this.invoiceElementIntentCode.getValue();
@@ -38,25 +31,17 @@ public class InventElementChoiceBean extends MessagePartBean implements ca.infow
         this.invoiceElementIntentCode.setValue(invoiceElementIntentCode);
     }
 
-
-    @Hl7XmlMapping({"component"})
-    public List<InvoiceElementComponentBean> getComponent() {
-        return this.component;
-    }
-
-
-    /**
-     * <p>Total amount billed for invoice element</p>
-     * 
-     * <p><p>Identifies the total monetary amount billed for the 
-     * invoice element.</p></p>
-     */
     @Hl7XmlMapping({"netAmt"})
     public Money getTotalAmountBilledForInvoiceElement() {
         return this.totalAmountBilledForInvoiceElement.getValue();
     }
     public void setTotalAmountBilledForInvoiceElement(Money totalAmountBilledForInvoiceElement) {
         this.totalAmountBilledForInvoiceElement.setValue(totalAmountBilledForInvoiceElement);
+    }
+
+    @Hl7XmlMapping({"component"})
+    public List<InvoiceElementComponentBean> getComponent() {
+        return this.component;
     }
 
 }

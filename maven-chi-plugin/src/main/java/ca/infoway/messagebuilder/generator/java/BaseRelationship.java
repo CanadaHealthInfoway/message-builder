@@ -7,13 +7,12 @@ import java.util.Set;
 
 import org.apache.commons.lang.StringUtils;
 
-import ca.infoway.messagebuilder.Named;
 import ca.infoway.messagebuilder.xml.Cardinality;
 import ca.infoway.messagebuilder.xml.ConformanceLevel;
 import ca.infoway.messagebuilder.xml.Documentation;
 import ca.infoway.messagebuilder.xml.Relationship;
 
-public abstract class BaseRelationship implements PropertyGeneratorProvider, Named, Fingerprintable {
+public abstract class BaseRelationship implements PropertyGeneratorProvider {
 
     private final String type;
     private final String wrappedType;
@@ -33,13 +32,13 @@ public abstract class BaseRelationship implements PropertyGeneratorProvider, Nam
         return this.relationship.getName();
     }
 
-    public final String[] getAllXmlMappings() {
-    	return getXmlMappingHelper().getAllXmlMappings();
+    public String getXmlMapping() {
+        return this.relationship.getName();
     }
-
-	XmlMappingHelper getXmlMappingHelper() {
-		return new XmlMappingHelper(this.relationship);
-	}
+    
+    public String[] getAllXmlMappings() {
+    	return new String[] { getXmlMapping() };
+    }
 
     public boolean isMandatory() {
         return this.relationship.isMandatory();
@@ -110,10 +109,6 @@ public abstract class BaseRelationship implements PropertyGeneratorProvider, Nam
 	public Set<Object> getImportTypes() {
 		Set<Object> result = new HashSet<Object>();
 		result.add("ca.infoway.messagebuilder.annotation.Hl7XmlMapping");
-		if (requiresMapByPartTypeAnnotation()) {
-			result.add("ca.infoway.messagebuilder.annotation.Hl7MapByPartTypes");
-			result.add("ca.infoway.messagebuilder.annotation.Hl7MapByPartType");
-		}
 		return result;
 	}
 	
@@ -137,12 +132,4 @@ public abstract class BaseRelationship implements PropertyGeneratorProvider, Nam
 		return getDocumentation()!=null ? getDocumentation().getBusinessName() : null; 
 	}
 	
-	boolean requiresMapByPartTypeAnnotation() {
-		return getAllXmlMappings().length > 1 && !isTemplateType();
-	}
-
-	final Set<NameAndType> getMapByPartTypeMappings() {
-		return getXmlMappingHelper().getMapByPartTypeMappings();
-	}	
-	public abstract Fingerprint getFingerprint();
 }

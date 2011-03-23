@@ -10,13 +10,34 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 
+/**
+ * <p>Attachments</p>
+ * 
+ * <p>Could be used to attach a Limited Use Form or a Consent 
+ * Form.</p>
+ * 
+ * <p>Use of attachments must be pre-approved by the NeCST 
+ * Pharmacy SIG.</p>
+ * 
+ * <p>RxS1: Not permitted, as attachments are not included in 
+ * this scenario.</p>
+ * 
+ * <p>If this relationship is required, it may only be 
+ * specified for the Root Invoice Element Group and is not 
+ * permitted for all other Invoice Element Groups.</p>
+ * 
+ * <p>Look into what HL7 is currently doing, as well as timing. 
+ * Each SIG to revisit based on HL7's work. Want the ability to 
+ * send attachments with the invoice as well as sending it upon 
+ * request. Need to ensure that the vocab in the info codes for 
+ * inv adj response supports the needed attachments.</p>
+ */
 @Hl7PartTypeMapping({"FICR_MT600201CA.InvoiceElementGroupAttachment"})
 public class AttachmentsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110127L;
+    private static final long serialVersionUID = 20100615L;
     private CS typeCode = new CSImpl();
     private HealthDocumentAttachmentBean healthDocumentAttachment;
-
 
     @Hl7XmlMapping({"typeCode"})
     public ActRelationshipType getTypeCode() {
@@ -25,7 +46,6 @@ public class AttachmentsBean extends MessagePartBean {
     public void setTypeCode(ActRelationshipType typeCode) {
         this.typeCode.setValue(typeCode);
     }
-
 
     @Hl7XmlMapping({"healthDocumentAttachment"})
     public HealthDocumentAttachmentBean getHealthDocumentAttachment() {

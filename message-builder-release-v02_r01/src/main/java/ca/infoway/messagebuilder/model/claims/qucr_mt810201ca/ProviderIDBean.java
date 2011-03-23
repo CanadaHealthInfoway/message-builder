@@ -13,9 +13,8 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"QUCR_MT810201CA.AdjudResultsProviderRole"})
 public class ProviderIDBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110127L;
+    private static final long serialVersionUID = 20100615L;
     private II id = new IIImpl();
-
 
     @Hl7XmlMapping({"id"})
     public Identifier getId() {

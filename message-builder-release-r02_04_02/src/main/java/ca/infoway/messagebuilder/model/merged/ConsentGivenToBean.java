@@ -4,72 +4,21 @@ package ca.infoway.messagebuilder.model.merged;
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.common.merged.HealthcareWorkerBean;
-import ca.infoway.messagebuilder.model.common.merged.ServiceLocationBean;
+import ca.infoway.messagebuilder.model.common.coct_mt090108ca.HealthcareWorkerBean;
 
 
 
-/**
- * <p>ConsentGivenTo</p>
- * 
- * <p>RCMR_MT010001CA.Receiver: *consent given to</p>
- * 
- * <p><p>Identifies the beneficiary of the consent as being a 
- * Provider or Service Location.</p></p>
- * 
- * <p><p>Indicates who is being authorized to receive the 
- * information, and is therefore populated.</p></p>
- * 
- * <p>COCT_MT470012CA.Receiver: *consent given to</p>
- * 
- * <p><p>Identifies the beneficiary of the consent as being a 
- * Provider or Service Location.</p></p>
- * 
- * <p><p>Indicates who is receiving consent to view 
- * information.</p><p>This participation is marked as 
- * &quot;populated&quot; as receiver must be specified when 
- * keyword is involved.</p></p>
- * 
- * <p><p>Indicates who is receiving consent to view 
- * information.</p><p>This participation is marked as 
- * &quot;populated&quot; as receiver must be specified when 
- * keyword is involved.</p></p>
- * 
- * <p>COCT_MT470002CA.Receiver: *consent given to</p>
- * 
- * <p><p>Identifies the beneficiary of the consent as being a 
- * Provider or Service Location.</p></p>
- * 
- * <p><p>Indicates who is receiving consent to view 
- * information.</p><p>This participation is marked as 
- * &quot;populated&quot; as receiver must be specified when 
- * keyword is involved.</p></p>
- * 
- * <p><p>Indicates who is receiving consent to view 
- * information.</p><p>This participation is marked as 
- * &quot;populated&quot; as receiver must be specified when 
- * keyword is involved.</p></p>
- * 
- * <p>POIZ_MT030060CA.Receiver: (no business name)</p>
- * 
- * <p><p>Identifies the beneficiary of the consent.</p></p>
- * 
- * <p><p>Indicates who is receiving consent to administer the 
- * vaccine. This information may not always be known. As a 
- * result, this association is required.</p></p>
- */
-@Hl7PartTypeMapping({"COCT_MT470002CA.Receiver","COCT_MT470012CA.Receiver","POIZ_MT030050CA.Receiver","POIZ_MT030060CA.Receiver","POIZ_MT060150CA.Receiver","RCMR_MT010001CA.Receiver"})
+@Hl7PartTypeMapping({"POIZ_MT030050CA.Receiver","POIZ_MT030060CA.Receiver","POIZ_MT060150CA.Receiver","RCMR_MT010001CA.Receiver"})
 public class ConsentGivenToBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110127L;
-    private Recipient recipient;
-
+    private static final long serialVersionUID = 20100603L;
+    private RecipientBean recipient;
 
     @Hl7XmlMapping({"recipient"})
-    public Recipient getRecipient() {
+    public RecipientBean getRecipient() {
         return this.recipient;
     }
-    public void setRecipient(Recipient recipient) {
+    public void setRecipient(RecipientBean recipient) {
         this.recipient = recipient;
     }
 
@@ -80,11 +29,11 @@ public class ConsentGivenToBean extends MessagePartBean {
         return (this.recipient instanceof HealthcareWorkerBean);
     }
 
-    public ServiceLocationBean getRecipientAsServiceDeliveryLocation() {
-        return this.recipient instanceof ServiceLocationBean ? (ServiceLocationBean) this.recipient : null;
+    public ServiceDeliveryLocation_2Bean getRecipientAsServiceDeliveryLocation() {
+        return this.recipient instanceof ServiceDeliveryLocation_2Bean ? (ServiceDeliveryLocation_2Bean) this.recipient : null;
     }
     public boolean hasRecipientAsServiceDeliveryLocation() {
-        return (this.recipient instanceof ServiceLocationBean);
+        return (this.recipient instanceof ServiceDeliveryLocation_2Bean);
     }
 
 }

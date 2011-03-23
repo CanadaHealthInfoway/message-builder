@@ -1,12 +1,10 @@
 package ca.infoway.messagebuilder.marshalling.hl7.formatter;
 
-import java.util.HashMap;
 import java.util.Map;
 
 import org.apache.commons.lang.StringUtils;
 
 import ca.infoway.messagebuilder.Code;
-import ca.infoway.messagebuilder.datatype.CD;
 import ca.infoway.messagebuilder.marshalling.hl7.DataTypeHandler;
 
 /**
@@ -37,27 +35,4 @@ class CdPropertyFormatter extends AbstractCodePropertyFormatter {
         }
         return result;
     }
-    
-    @Override
-    protected boolean hasChildContent(CD cd, FormatContext context) {
-    	return hasTranslations(cd) || super.hasChildContent(cd, context);
-    }
-
-	private boolean hasTranslations(CD cd) {
-		return !cd.getTranslations().isEmpty();
-	}
-    
-    @Override
-    protected void createChildContent(CD cd, StringBuilder result) {
-    	super.createChildContent(cd, result);
-    	if (hasTranslations(cd)) {
-    		for (CD translation : cd.getTranslations()) {
-    			Map<String, String> attributes = new HashMap<String, String>();
-    			attributes.put("code", translation.getValue().getCodeValue());
-    			attributes.put("codeSystem", translation.getValue().getCodeSystem());
-    			result.append(createElement("translation", attributes, 0, true, false));
-			}
-    	}
-    }
-    
 }

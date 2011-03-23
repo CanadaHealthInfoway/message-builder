@@ -1,4 +1,4 @@
 Manifest-Version: 1.0
-MBT-Model-Version-Numbers: V02R02 NEWFOUNDLAND V01R04_3
+MBT-Model-Version-Numbers: V02R02 NEWFOUNDLAND V01R04_3_HOTFIX3
 
 

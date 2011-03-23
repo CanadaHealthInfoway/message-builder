@@ -2,7 +2,7 @@
   <id root="1ee83ff1-08ab-4fe7-b573-ea777e9bad51"/>
   <creationTime value="20080625141610-0400"/>
   <versionCode code="V3-2007-05"/>
-  <interactionId displayable="true" specializationType="II.PUBLIC" extension="PORX_IN060180CA" root="2.16.840.1.113883.1.6"/>
+  <interactionId extension="PORX_IN060180CA" root="2.16.840.1.113883.1.6"/>
   <processingCode code="P"/>
   <processingModeCode code="T"/>
   <acceptAckCode code="AL"/>
@@ -62,10 +62,10 @@
             </representedPerson>
           </assignedPerson>
         </author>
-        <location nullFlavor="NI" xsi:nil="true"/>
-        <reason nullFlavor="NI" xsi:nil="true"/>
+        <location nullFlavor="NI"/>
+        <reason nullFlavor="NI"/>
         <derivedFrom typeCode="DRIV" contextControlCode="ON" contextConductionInd="false">
-          <sourceDispense nullFlavor="NI" xsi:nil="true"/>
+          <sourceDispense nullFlavor="NI"/>
         </derivedFrom>
         <component1 typeCode="COMP" contextControlCode="ON" contextConductionInd="true">
           <dosageInstruction classCode="SBADM" moodCode="DEF">
@@ -114,7 +114,7 @@
                 <text>ad hoc dosage instruction</text>
                 <effectiveTime specializationType="GTS.BOUNDEDPIVL" xsi:type="SXPR_TS">
                   <comp specializationType="IVL_TS.FULLDATE" xsi:type="IVL_TS">
-                    <low value="19691231"/>
+                    <low specializationType="TS.FULLDATE" value="19691231" xsi:type="TS"/>
                     <width unit="wk" value="3"/>
                   </comp>
                   <comp operator="I" specializationType="PIVL_TS.DATETIME" xsi:type="PIVL_TS">
@@ -149,7 +149,7 @@
             <code code="TF"/>
           </trialSupplyPermission>
         </component2>
-        <component3 nullFlavor="NI" xsi:nil="true"/>
+        <component3 nullFlavor="NI"/>
         <fulfillment2 typeCode="FLFS" contextControlCode="ON" contextConductionInd="true">
           <subsetCode code="RECENT"/>
           <supplyEventLastSummary classCode="SPLY" moodCode="EVN">
@@ -182,7 +182,7 @@
             <quantity unit="U" value="1"/>
           </supplyEventPastSummary>
         </fulfillment5>
-        <componentOf nullFlavor="NI" xsi:nil="true"/>
+        <componentOf nullFlavor="NI"/>
       </combinedMedicationRequest>
     </subject>
     <subjectOf typeCode="SUBJ" contextControlCode="AP" contextConductionInd="false">

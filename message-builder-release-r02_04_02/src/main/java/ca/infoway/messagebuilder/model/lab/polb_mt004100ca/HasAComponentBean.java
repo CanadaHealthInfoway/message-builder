@@ -12,25 +12,14 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 /**
  * <p>has a component</p>
  * 
- * <p><p>Associates a Culture with a 
- * SpecimenObservationCluster.</p></p>
+ * <p>Associates a Culture with a SpecimenObservationCluster.</p>
  */
 @Hl7PartTypeMapping({"POLB_MT004100CA.Component2"})
 public class HasAComponentBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110127L;
-    private SpecimenObservationClusterBean specimenObservationCluster;
+    private static final long serialVersionUID = 20100603L;
     private BL contextConductionInd = new BLImpl();
-
-
-    @Hl7XmlMapping({"specimenObservationCluster"})
-    public SpecimenObservationClusterBean getSpecimenObservationCluster() {
-        return this.specimenObservationCluster;
-    }
-    public void setSpecimenObservationCluster(SpecimenObservationClusterBean specimenObservationCluster) {
-        this.specimenObservationCluster = specimenObservationCluster;
-    }
-
+    private SpecimenObservationClusterBean specimenObservationCluster;
 
     @Hl7XmlMapping({"contextConductionInd"})
     public Boolean getContextConductionInd() {
@@ -38,6 +27,14 @@ public class HasAComponentBean extends MessagePartBean {
     }
     public void setContextConductionInd(Boolean contextConductionInd) {
         this.contextConductionInd.setValue(contextConductionInd);
+    }
+
+    @Hl7XmlMapping({"specimenObservationCluster"})
+    public SpecimenObservationClusterBean getSpecimenObservationCluster() {
+        return this.specimenObservationCluster;
+    }
+    public void setSpecimenObservationCluster(SpecimenObservationClusterBean specimenObservationCluster) {
+        this.specimenObservationCluster = specimenObservationCluster;
     }
 
 }

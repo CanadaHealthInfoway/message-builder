@@ -208,9 +208,4 @@ public class Hl7Error {
 				MessageFormat.format("Attribute \"{0}\" is required, but is specified as nullFlavor=\"{1}\".", elementName, nullFlavor), 
 				element);
 	}
-	public static Hl7Error createNullFlavorMissingXsiNilError(String elementName, Element element) {
-		return new Hl7Error(Hl7ErrorCode.MANDATORY_FIELD_NOT_PROVIDED,
-				MessageFormat.format("Association \"{0}\" has a nullFlavor, but does not specify xsi:nil=\"true\".", elementName), 
-				element);
-	}
 }

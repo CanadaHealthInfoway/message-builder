@@ -21,7 +21,7 @@ import ca.infoway.messagebuilder.domainvalue.nullflavor.NullFlavor;
  * @param <V> the underlying Java datatype held by the underlying Java List
  * @sharpen.ignore - datatype - translated manually 
  */
-public class LISTImpl<T extends ANY<V>, V> extends ANYImpl<Collection<T>> implements LIST<T, V>, CollectionHelper, BareCollection {
+public class LISTImpl<T extends ANY<V>, V> extends ANYImpl<List<T>> implements LIST<T, V>, CollectionHelper, BareCollection {
 	private static final long serialVersionUID = -1016261753587524757L;
 	
 	private final Class<T> hl7Class;

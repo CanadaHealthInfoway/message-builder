@@ -18,33 +18,39 @@ import ca.infoway.messagebuilder.datatype.lang.PersonName;
 import ca.infoway.messagebuilder.datatype.lang.PostalAddress;
 import ca.infoway.messagebuilder.datatype.lang.TelecommunicationAddress;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import ca.infoway.messagebuilder.model.merged.Patient_2Bean;
 import java.util.Set;
 
 
 
+/**
+ * <p>Animal Patient</p>
+ * 
+ * <p>An animal that is receiving or may receive healthcare 
+ * services.</p>
+ * 
+ * <p>Used when animal services are attached to a human patient 
+ * record. E.g. narcotics prescribed for a pet may be attached 
+ * to the owner's record for monitoring of abuse.</p>
+ */
 @Hl7PartTypeMapping({"COCT_MT050303CA.Patient"})
 @Hl7RootType
-public class AnimalPatientBean extends MessagePartBean implements ca.infoway.messagebuilder.model.pharmacy.merged.Patient {
+public class AnimalPatientBean extends MessagePartBean implements Patient_2Bean {
 
-    private static final long serialVersionUID = 20110127L;
-    private SET<TEL, TelecommunicationAddress> ownerPhonesAndEmails = new SETImpl<TEL, TelecommunicationAddress>(TELImpl.class);
-    private AD ownerAddress = new ADImpl();
-    private PN ownerName = new PNImpl();
+    private static final long serialVersionUID = 20100614L;
     private ST animalName = new STImpl();
+    private AD ownerAddress = new ADImpl();
+    private SET<TEL, TelecommunicationAddress> ownerPhonesAndEmails = new SETImpl<TEL, TelecommunicationAddress>(TELImpl.class);
+    private PN ownerName = new PNImpl();
 
-
-    /**
-     * <p>Owner Phones and Emails</p>
-     */
-    @Hl7XmlMapping({"patientAnimal/contactParty/telecom"})
-    public Set<TelecommunicationAddress> getOwnerPhonesAndEmails() {
-        return this.ownerPhonesAndEmails.rawSet();
+    @Hl7XmlMapping({"patientAnimal/name"})
+    public String getAnimalName() {
+        return this.animalName.getValue();
+    }
+    public void setAnimalName(String animalName) {
+        this.animalName.setValue(animalName);
     }
 
-
-    /**
-     * <p>Owner address</p>
-     */
     @Hl7XmlMapping({"patientAnimal/contactParty/addr"})
     public PostalAddress getOwnerAddress() {
         return this.ownerAddress.getValue();
@@ -53,28 +59,17 @@ public class AnimalPatientBean extends MessagePartBean implements ca.infoway.mes
         this.ownerAddress.setValue(ownerAddress);
     }
 
+    @Hl7XmlMapping({"patientAnimal/contactParty/telecom"})
+    public Set<TelecommunicationAddress> getOwnerPhonesAndEmails() {
+        return this.ownerPhonesAndEmails.rawSet();
+    }
 
-    /**
-     * <p>Owner Name</p>
-     */
     @Hl7XmlMapping({"patientAnimal/contactParty/contactPerson/name"})
     public PersonName getOwnerName() {
         return this.ownerName.getValue();
     }
     public void setOwnerName(PersonName ownerName) {
         this.ownerName.setValue(ownerName);
-    }
-
-
-    /**
-     * <p>B:Animal name</p>
-     */
-    @Hl7XmlMapping({"patientAnimal/name"})
-    public String getAnimalName() {
-        return this.animalName.getValue();
-    }
-    public void setAnimalName(String animalName) {
-        this.animalName.setValue(animalName);
     }
 
 }

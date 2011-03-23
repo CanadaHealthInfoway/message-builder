@@ -10,12 +10,17 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 
+/**
+ * <p>Payee Choice</p>
+ * 
+ * <p>Covered Party/Patient is the scoper of this role, but is 
+ * not necessary in this CMET</p>
+ */
 @Hl7PartTypeMapping({"COCT_MT110200CA.PayeeRelationshipRole"})
 public class PayeeRelationshipRoleBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110127L;
+    private static final long serialVersionUID = 20100615L;
     private CS classCode = new CSImpl();
-
 
     @Hl7XmlMapping({"classCode"})
     public Code getClassCode() {

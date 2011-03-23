@@ -3,12 +3,9 @@ package ca.infoway.messagebuilder.model.merged;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
-import ca.infoway.messagebuilder.datatype.CV;
 import ca.infoway.messagebuilder.datatype.PQ;
-import ca.infoway.messagebuilder.datatype.impl.CVImpl;
 import ca.infoway.messagebuilder.datatype.impl.PQImpl;
 import ca.infoway.messagebuilder.datatype.lang.PhysicalQuantity;
-import ca.infoway.messagebuilder.domainvalue.CompliancePackageEntityType;
 import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
@@ -16,44 +13,24 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COCT_MT220100CA.Content","COCT_MT220110CA.Content","COCT_MT220200CA.Content","COCT_MT220210CA.Content","POME_MT010040CA.Content","POME_MT010100CA.Content"})
 public class DispensedInBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110127L;
-    private CV containerPackagedMedicineFormCode = new CVImpl();
-    private PQ quantity = new PQImpl();
+    private static final long serialVersionUID = 20100614L;
+    private PQ drugPackageQuantity = new PQImpl();
+    private DrugPackageBean containerPackagedMedicine;
 
-
-    /**
-     * <p>Drug Container Type</p>
-     * 
-     * <p>Container Type</p>
-     * 
-     * <p>E:Drug Container Type</p>
-     * 
-     * <p>A:Drug Container Type</p>
-     * 
-     * <p>H:Container Type</p>
-     */
-    @Hl7XmlMapping({"containerPackagedMedicine/formCode"})
-    public CompliancePackageEntityType getContainerPackagedMedicineFormCode() {
-        return (CompliancePackageEntityType) this.containerPackagedMedicineFormCode.getValue();
-    }
-    public void setContainerPackagedMedicineFormCode(CompliancePackageEntityType containerPackagedMedicineFormCode) {
-        this.containerPackagedMedicineFormCode.setValue(containerPackagedMedicineFormCode);
-    }
-
-
-    /**
-     * <p>B:Drug Package Quantity</p>
-     * 
-     * <p>Package Quantity</p>
-     * 
-     * <p>F:Drug Package Quantity</p>
-     */
     @Hl7XmlMapping({"quantity"})
-    public PhysicalQuantity getQuantity() {
-        return this.quantity.getValue();
+    public PhysicalQuantity getDrugPackageQuantity() {
+        return this.drugPackageQuantity.getValue();
     }
-    public void setQuantity(PhysicalQuantity quantity) {
-        this.quantity.setValue(quantity);
+    public void setDrugPackageQuantity(PhysicalQuantity drugPackageQuantity) {
+        this.drugPackageQuantity.setValue(drugPackageQuantity);
+    }
+
+    @Hl7XmlMapping({"containerPackagedMedicine"})
+    public DrugPackageBean getContainerPackagedMedicine() {
+        return this.containerPackagedMedicine;
+    }
+    public void setContainerPackagedMedicine(DrugPackageBean containerPackagedMedicine) {
+        this.containerPackagedMedicine = containerPackagedMedicine;
     }
 
 }

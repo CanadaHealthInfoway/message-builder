@@ -12,17 +12,21 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 
 
 
+/**
+ * <p>has characteristic</p>
+ * 
+ * <p>Filters medications by their appearance.</p>
+ * 
+ * <p>Used to hold characteristic type and value pair as one 
+ * set of query parameter item.</p>
+ */
 @Hl7PartTypeMapping({"POME_MT010090CA.DrugCharacteristics"})
 public class HasCharacteristicBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110127L;
+    private static final long serialVersionUID = 20100614L;
     private ST drugCharacteristic = new STImpl();
     private CV drugCharacteristicTypeCode = new CVImpl();
 
-
-    /**
-     * <p>G:Drug Characteristic</p>
-     */
     @Hl7XmlMapping({"drugCharacteristic/value"})
     public String getDrugCharacteristic() {
         return this.drugCharacteristic.getValue();
@@ -31,10 +35,6 @@ public class HasCharacteristicBean extends MessagePartBean {
         this.drugCharacteristic.setValue(drugCharacteristic);
     }
 
-
-    /**
-     * <p>H:Drug Characteristic Type Code</p>
-     */
     @Hl7XmlMapping({"drugCharacteristicType/value"})
     public MedicationObservationType getDrugCharacteristicTypeCode() {
         return (MedicationObservationType) this.drugCharacteristicTypeCode.getValue();

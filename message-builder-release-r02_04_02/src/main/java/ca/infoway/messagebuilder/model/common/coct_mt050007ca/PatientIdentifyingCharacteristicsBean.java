@@ -15,57 +15,33 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 /**
  * <p>Patient Identifying Characteristics</p>
  * 
- * <p><p>For this model, the observation is a description of 
- * patient characteristics used for identification.</p></p>
+ * <p>For this model, the observation is a description of 
+ * patient characteristics used for identification.</p>
  * 
- * <p><p>Used for patient identification when the client 
- * registry is not available.</p></p>
+ * <p>Used for patient identification when the client registry 
+ * is not available.</p>
  */
 @Hl7PartTypeMapping({"COCT_MT050007CA.IdentifyingCharacteristicsObservationEvent"})
 public class PatientIdentifyingCharacteristicsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110127L;
-    private ST patientCharacteristicsText = new STImpl();
+    private static final long serialVersionUID = 20100603L;
     private CV identifyingCharacteristicsObservationType = new CVImpl();
+    private ST patientCharacteristicsText = new STImpl();
 
-
-    /**
-     * <p>I:Patient Characteristics Text</p>
-     * 
-     * <p><p>A text attribute that is specifically used to describe 
-     * identifying characteristics of a patient.</p></p>
-     * 
-     * <p><p>When a lab does not have access to the client registry 
-     * to identify the patient, additional information is helpful 
-     * in patient identification. This text description allows for 
-     * non-coded patient descriptive details which don't change 
-     * measurable over time and can be used to assist in patient 
-     * identification.</p></p>
-     */
-    @Hl7XmlMapping({"value"})
-    public String getPatientCharacteristicsText() {
-        return this.patientCharacteristicsText.getValue();
-    }
-    public void setPatientCharacteristicsText(String patientCharacteristicsText) {
-        this.patientCharacteristicsText.setValue(patientCharacteristicsText);
-    }
-
-
-    /**
-     * <p>Identifying Characteristics Observation Type</p>
-     * 
-     * <p><p>Describes the observation type.</p></p>
-     * 
-     * <p><p>Used to categorize this observation event. For this 
-     * model, the observation is a description of patient 
-     * characteristics used for identification.</p></p>
-     */
     @Hl7XmlMapping({"code"})
     public PatientCharacteristicObservationType getIdentifyingCharacteristicsObservationType() {
         return (PatientCharacteristicObservationType) this.identifyingCharacteristicsObservationType.getValue();
     }
     public void setIdentifyingCharacteristicsObservationType(PatientCharacteristicObservationType identifyingCharacteristicsObservationType) {
         this.identifyingCharacteristicsObservationType.setValue(identifyingCharacteristicsObservationType);
+    }
+
+    @Hl7XmlMapping({"value"})
+    public String getPatientCharacteristicsText() {
+        return this.patientCharacteristicsText.getValue();
+    }
+    public void setPatientCharacteristicsText(String patientCharacteristicsText) {
+        this.patientCharacteristicsText.setValue(patientCharacteristicsText);
     }
 
 }

@@ -4,33 +4,16 @@
 	<parent>
 		<artifactId>message-builder</artifactId>
 		<groupId>ca.infoway.messagebuilder</groupId>
-		<version>1.1.2cr3-SNAPSHOT</version>
+		<version>1.1.1</version>
 	</parent>
 	<groupId>ca.infoway.messagebuilder</groupId>
 	<artifactId>message-builder-core</artifactId>
-	<version>1.1.2cr3-SNAPSHOT</version>
+	<version>1.1.1</version>
 	<name>message-builder-core</name>
 	<url>http://maven.apache.org</url>
 	
 	<dependencies>
 		<!-- message-builder -->
-		<dependency>
-			<groupId>ca.infoway.messagebuilder</groupId>
-			<artifactId>message-builder-util</artifactId>
-			<version>${project.version}</version>
-		</dependency>				
-		<dependency>
-			<groupId>ca.infoway.messagebuilder</groupId>
-			<artifactId>message-builder-xml</artifactId>
-			<version>${project.version}</version>
-		</dependency>		
-		<dependency>
-			<groupId>ca.infoway.messagebuilder</groupId>
-			<artifactId>message-builder-xml</artifactId>
-			<classifier>tests</classifier>
-			<scope>test</scope>
-			<version>${project.version}</version>		
-		</dependency>		
 		<!-- other -->	
 		<dependency>
 			<groupId>org.simpleframework</groupId>
@@ -67,7 +50,7 @@
 		<dependency>
 			<groupId>commons-httpclient</groupId>
 			<artifactId>commons-httpclient</artifactId>
-			<version>3.1</version>
+			<version>[3.0.1,3.1]</version>
 			<exclusions>
 				<exclusion>
 					<groupId>junit</groupId>

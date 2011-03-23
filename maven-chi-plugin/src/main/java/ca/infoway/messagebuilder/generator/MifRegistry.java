@@ -131,7 +131,7 @@ class MifRegistry {
 			return getMif(file.getName());
 		} else {
 			try {
-				this.log.log(LogLevel.INFO, "Now parsing file \"" + file.getName() + "\"");
+				this.log.log(LogLevel.ERROR, "Now parsing file \"" + file.getName() + "\"");
 				Document document = createDocument(file);
 				checkVersion(document, file);
 				register(file.getName(), document, mifReference.getCategory());

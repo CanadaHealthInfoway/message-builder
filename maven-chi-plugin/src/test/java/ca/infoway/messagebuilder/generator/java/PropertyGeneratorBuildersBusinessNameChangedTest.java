@@ -16,6 +16,7 @@ import org.junit.Test;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.junit.JMockMockeryRule;
 import ca.infoway.messagebuilder.xml.Cardinality;
+import ca.infoway.messagebuilder.xml.TypeName;
 
 public class PropertyGeneratorBuildersBusinessNameChangedTest {
 
@@ -50,7 +51,7 @@ public class PropertyGeneratorBuildersBusinessNameChangedTest {
 		this.jmock.checking(new Expectations() {{
 			atLeast(1).of(nameResolver).getName(originalRelationship); will(returnValue("oldBusinessName"));
 			atLeast(1).of(nameResolver).getName(newRelationship); will(returnValue("newBusinessName")); 
-			atLeast(1).of(manager).getRepresentationOfType(newRelationship.getAssociationType()); will(returnValue("FooBean"));
+			atLeast(1).of(manager).getRepresentationOfTypeName(new TypeName("FooBean")); will(returnValue("FooBean"));
 		}});
 		
 		StringWriter writer = new StringWriter();
@@ -92,7 +93,7 @@ public class PropertyGeneratorBuildersBusinessNameChangedTest {
 		this.jmock.checking(new Expectations() {{
 			atLeast(1).of(nameResolver).getName(originalRelationship); will(returnValue("oldBusinessName"));
 			atLeast(1).of(nameResolver).getName(newRelationship); will(returnValue("newBusinessName")); 
-			atLeast(1).of(manager).getRepresentationOfType(originalRelationship.getAssociationType()); will(returnValue("FooBean"));
+			atLeast(1).of(manager).getRepresentationOfTypeName(new TypeName("FooBean")); will(returnValue("FooBean"));
 		}});
 		
 		StringWriter writer = new StringWriter();
@@ -114,6 +115,9 @@ public class PropertyGeneratorBuildersBusinessNameChangedTest {
 	}
 	
 	private void generate(RegeneratedAssociation regenerated, StringWriter writer) throws IOException {
+		PropertyGenerator generator = PropertyGeneratorBuilders.newAssociationBusinessNameChangedBuilder(regenerated).build(this.manager, this.nameResolver);
+		generator.createAttributeDefinition(0, writer);
+		generator.createGettersAndSetters(0, writer);
 	}
 	
 	@Test @Ignore
@@ -198,6 +202,9 @@ public class PropertyGeneratorBuildersBusinessNameChangedTest {
 	}
 	
 	private void generate(RegeneratedAttribute regenerated, StringWriter writer) throws IOException {
+		PropertyGenerator generator = PropertyGeneratorBuilders.newAttributeBusinessNameChangedBuilder(regenerated).build(this.manager, this.nameResolver);
+		generator.createAttributeDefinition(0, writer);
+		generator.createGettersAndSetters(0, writer);
 	}
 	
 }

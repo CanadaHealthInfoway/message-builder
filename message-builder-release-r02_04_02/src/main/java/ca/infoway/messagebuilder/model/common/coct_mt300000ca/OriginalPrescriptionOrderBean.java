@@ -10,11 +10,10 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"COCT_MT300000CA.SubstanceAdministrationOrder"})
 public class OriginalPrescriptionOrderBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110127L;
+    private static final long serialVersionUID = 20100603L;
     private OriginalPrescriptionBean component2SupplyOrder;
     private PlayingPrescribePersonBean authorPresriberRole;
     private DispenseSubstitutionBean component1Substitution;
-
 
     @Hl7XmlMapping({"component2/supplyOrder"})
     public OriginalPrescriptionBean getComponent2SupplyOrder() {
@@ -24,7 +23,6 @@ public class OriginalPrescriptionOrderBean extends MessagePartBean {
         this.component2SupplyOrder = component2SupplyOrder;
     }
 
-
     @Hl7XmlMapping({"author/presriberRole"})
     public PlayingPrescribePersonBean getAuthorPresriberRole() {
         return this.authorPresriberRole;
@@ -32,7 +30,6 @@ public class OriginalPrescriptionOrderBean extends MessagePartBean {
     public void setAuthorPresriberRole(PlayingPrescribePersonBean authorPresriberRole) {
         this.authorPresriberRole = authorPresriberRole;
     }
-
 
     @Hl7XmlMapping({"component1/substitution"})
     public DispenseSubstitutionBean getComponent1Substitution() {

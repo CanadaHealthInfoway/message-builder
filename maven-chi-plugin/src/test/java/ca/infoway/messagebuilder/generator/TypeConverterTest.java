@@ -3,37 +3,34 @@ package ca.infoway.messagebuilder.generator;
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
+import org.junit.experimental.theories.DataPoint;
+import org.junit.experimental.theories.Theories;
+import org.junit.experimental.theories.Theory;
+import org.junit.runner.RunWith;
 
-import ca.infoway.messagebuilder.generator.lang.ProgrammingLanguage;
 import ca.infoway.messagebuilder.xml.Relationship;
 
+@RunWith(Theories.class)
 public class TypeConverterTest {
 	
 //	@DataPoint public static final TypeNameExpectation STRING = new TypeNameExpectation("ST", "ST", "String");
 //	@DataPoint public static final TypeNameExpectation II_OID = new TypeNameExpectation("II.OID", "II", "Identifier");
-	public static final TypeNameExpectation LIST_OF_STRINGS = new TypeNameExpectation("LIST<ST>", "LIST<ST, String>", "List<String>");
-	public static final TypeNameExpectation COLLECTION_OF_STRINGS = new TypeNameExpectation("COLLECTION<ST>", "COLLECTION<ST>", "Collection<String>");
+	@DataPoint public static final TypeNameExpectation LIST_OF_STRINGS = new TypeNameExpectation("LIST<ST>", "LIST<ST, String>", "List<String>");
 //	@DataPoint public static final TypeNameExpectation RATIO = new TypeNameExpectation("RTO<PQ.DRUG, PQ.TIME>", "RTO<PQ, PQ>", "Ratio<PhysicalQuantity, PhysicalQuantity>");
 //	@DataPoint public static final TypeNameExpectation SET_RATIO = new TypeNameExpectation("SET<RTO<PQ.DRUG, PQ.TIME>>", "SET<RTO<PQ, PQ>>", "Set<Ratio<PhysicalQuantity, PhysicalQuantity>>");
 //	@DataPoint public static final TypeNameExpectation GTS_BOUNDEDPIVL = new TypeNameExpectation("GTS.BOUNDEDPIVL", "GTS", "GeneralTimingSpecification");
 //	@DataPoint public static final TypeNameExpectation BOGUS_DATA_TYPE = new TypeNameExpectation("BOGUS.STEPHEN", "ANY", "Object");
 	
-	void assertTranslateTypeToShortName(TypeNameExpectation expectation) throws Exception {
+	@Theory
+	public void shouldTranslateTypeToShortName(TypeNameExpectation expectation) throws Exception {
 		Relationship relationship = new Relationship();
 		relationship.setType(expectation.getHl7TypeName());
 		DataType type = new TypeConverter().convertToType(relationship);
-		assertEquals("returned type", expectation.getShortName(), type.getShortName(ProgrammingLanguage.JAVA));
+		assertEquals("returned type", expectation.getShortName(), type.getShortName());
 	}
 
-	@Test
-	public void shouldTranslateTypeToShortWrappedName() throws Exception {
-		assertTranslateTypeToShortName(LIST_OF_STRINGS);
-		assertTranslateTypeToShortName(COLLECTION_OF_STRINGS);
-		assertShortWrappedName(LIST_OF_STRINGS);
-		assertShortWrappedName(COLLECTION_OF_STRINGS);
-	}
-
-	private void assertShortWrappedName(TypeNameExpectation expectation) {
+	@Theory
+	public void shouldTranslateTypeToShortWrappedName(TypeNameExpectation expectation) throws Exception {
 		Relationship relationship = new Relationship();
 		relationship.setType(expectation.getHl7TypeName());
 		DataType type = new TypeConverter().convertToType(relationship);

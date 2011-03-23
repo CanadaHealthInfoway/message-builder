@@ -13,16 +13,25 @@ import java.util.Date;
 
 
 
+/**
+ * <p>Drug Validity Period</p>
+ * 
+ * <p>Defines upper limits for period in which a prescribed 
+ * drug may be dispensed. Although an attempt will be made to 
+ * obtain and define panCanadian validity periods for drug, it 
+ * is possible that drug validity periods wii be 
+ * jurisdiction-specific</p>
+ * 
+ * <p>Allows for business rules regarding dispenses against a 
+ * prescription. Controlled and monitored drugs have shorter 
+ * prescription lifespans that other drugs.</p>
+ */
 @Hl7PartTypeMapping({"POME_MT010040CA.InitialDispense"})
 public class DrugValidityPeriodBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110127L;
+    private static final long serialVersionUID = 20100615L;
     private IVL<TS, Interval<Date>> firstFillPeriod = new IVLImpl<TS, Interval<Date>>();
 
-
-    /**
-     * <p>First Fill Period</p>
-     */
     @Hl7XmlMapping({"effectiveTime"})
     public Interval<Date> getFirstFillPeriod() {
         return this.firstFillPeriod.getValue();

@@ -15,25 +15,10 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"PORX_MT060190CA.AdministrationInstructions"})
 public class AdministrationInstructionsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110127L;
+    private static final long serialVersionUID = 20100603L;
     private CD medicationType = new CDImpl();
     private ST renderedDosageInstruction = new STImpl();
 
-
-    /**
-     * <p>Medication type</p>
-     * 
-     * <p><p>Differentiates the type of medication e.g. drug, 
-     * vaccine</p></p>
-     * 
-     * <p><p>Important in providing the context of the rendered 
-     * dosage instruction.</p><p>For this reason the attribute is 
-     * Mandatory.</p></p>
-     * 
-     * <p><p>Important in providing the context of the rendered 
-     * dosage instruction.</p><p>For this reason the attribute is 
-     * Mandatory.</p></p>
-     */
     @Hl7XmlMapping({"code"})
     public Code getMedicationType() {
         return (Code) this.medicationType.getValue();
@@ -42,25 +27,6 @@ public class AdministrationInstructionsBean extends MessagePartBean {
         this.medicationType.setValue(medicationType);
     }
 
-
-    /**
-     * <p>Rendered Dosage Instruction</p>
-     * 
-     * <p><p>A textual rendition of structured (or non-structure) 
-     * original dosage instruction specified by the prescriber.</p></p>
-     * 
-     * <p><p>Allows the prescriber to verify the structured dosage 
-     * instruction.</p><p>Attribute is marked as 
-     * &quot;mandatory&quot; as the rendition of the dosage 
-     * instruction must always be made available to the 
-     * prescriber.</p></p>
-     * 
-     * <p><p>Allows the prescriber to verify the structured dosage 
-     * instruction.</p><p>Attribute is marked as 
-     * &quot;mandatory&quot; as the rendition of the dosage 
-     * instruction must always be made available to the 
-     * prescriber.</p></p>
-     */
     @Hl7XmlMapping({"text"})
     public String getRenderedDosageInstruction() {
         return this.renderedDosageInstruction.getValue();

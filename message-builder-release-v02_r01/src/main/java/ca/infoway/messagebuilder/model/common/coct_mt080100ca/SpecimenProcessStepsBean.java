@@ -19,18 +19,33 @@ import java.util.Date;
 
 
 
+/**
+ * <p>Specimen Process Steps</p>
+ * 
+ * <p>The specimen is subject to one or more process steps. 
+ * e.g. the specimen receive date is documented using a process 
+ * step object, specimen action codes are also represented and 
+ * communicated using this process step object.</p>
+ * 
+ * <p>At this time, only the transportation specimen process 
+ * steps are in scope for lab messaging.</p>
+ */
 @Hl7PartTypeMapping({"COCT_MT080100CA.TransportationEvent"})
 public class SpecimenProcessStepsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110127L;
+    private static final long serialVersionUID = 20100615L;
+    private CV transportationType = new CVImpl();
     private CS transportationStatus = new CSImpl();
     private IVL<TS, Interval<Date>> transportationDateTime = new IVLImpl<TS, Interval<Date>>();
-    private CV transportationType = new CVImpl();
 
+    @Hl7XmlMapping({"code"})
+    public Code getTransportationType() {
+        return (Code) this.transportationType.getValue();
+    }
+    public void setTransportationType(Code transportationType) {
+        this.transportationType.setValue(transportationType);
+    }
 
-    /**
-     * <p>R:Transportation Status</p>
-     */
     @Hl7XmlMapping({"statusCode"})
     public ActStatus getTransportationStatus() {
         return (ActStatus) this.transportationStatus.getValue();
@@ -39,28 +54,12 @@ public class SpecimenProcessStepsBean extends MessagePartBean {
         this.transportationStatus.setValue(transportationStatus);
     }
 
-
-    /**
-     * <p>Q:Transportation Date/Time</p>
-     */
     @Hl7XmlMapping({"effectiveTime"})
     public Interval<Date> getTransportationDateTime() {
         return this.transportationDateTime.getValue();
     }
     public void setTransportationDateTime(Interval<Date> transportationDateTime) {
         this.transportationDateTime.setValue(transportationDateTime);
-    }
-
-
-    /**
-     * <p>P:Transportation Type</p>
-     */
-    @Hl7XmlMapping({"code"})
-    public Code getTransportationType() {
-        return (Code) this.transportationType.getValue();
-    }
-    public void setTransportationType(Code transportationType) {
-        this.transportationType.setValue(transportationType);
     }
 
 }

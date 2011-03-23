@@ -13,22 +13,16 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 /**
  * <p>Provider ID</p>
  * 
- * <p><p>Provider is the health care practitioner or goods 
+ * <p>Provider is the health care practitioner or goods 
  * provider that is providing the service or good that is being 
- * invoiced (e.g. Pharmacist and not Ordering Physician).</p></p>
+ * invoiced (e.g. Pharmacist and not Ordering Physician).</p>
  */
 @Hl7PartTypeMapping({"QUCR_MT810201CA.AdjudResultsProviderRole"})
 public class ProviderIDBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110127L;
+    private static final long serialVersionUID = 20100603L;
     private II summaryBreakdownProviderID = new IIImpl();
 
-
-    /**
-     * <p>Summary Breakdown Provider ID</p>
-     * 
-     * <p><p>Identity of provider for summary breakdowns.</p></p>
-     */
     @Hl7XmlMapping({"id"})
     public Identifier getSummaryBreakdownProviderID() {
         return this.summaryBreakdownProviderID.getValue();

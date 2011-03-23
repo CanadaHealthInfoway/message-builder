@@ -3,16 +3,16 @@ package ca.infoway.messagebuilder.model.interaction;
 
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.model.InteractionBean;
-import ca.infoway.messagebuilder.model.common.merged.HL7Message_1Bean;
-import ca.infoway.messagebuilder.model.common.merged.TriggerEvent_6Bean;
+import ca.infoway.messagebuilder.model.common.mcci_mt002300ca.HL7MessageBean;
+import ca.infoway.messagebuilder.model.common.quqi_mt120008ca.TriggerEventBean;
 import ca.infoway.messagebuilder.model.immunization.poiz_mt061140ca.ImmunizationCandidateQueryParametersBean;
 import ca.infoway.messagebuilder.model.immunization.poiz_mt061150ca.ImmunizationsBean;
 
 
 
 @Hl7PartTypeMapping({"POIZ_IN021020CA"})
-public class ImmunizationCandidateQueryResponseBean extends HL7Message_1Bean<TriggerEvent_6Bean<ImmunizationsBean,ImmunizationCandidateQueryParametersBean>> implements InteractionBean {
+public class ImmunizationCandidateQueryResponseBean extends HL7MessageBean<TriggerEventBean<ImmunizationsBean,ImmunizationCandidateQueryParametersBean>> implements InteractionBean {
 
-    private static final long serialVersionUID = 20110127L;
+    private static final long serialVersionUID = 20100603L;
 
 }

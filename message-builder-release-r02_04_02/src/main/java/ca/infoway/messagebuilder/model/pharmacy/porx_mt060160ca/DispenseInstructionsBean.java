@@ -12,10 +12,9 @@ import ca.infoway.messagebuilder.datatype.impl.TSImpl;
 import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.domainvalue.ActStatus;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import ca.infoway.messagebuilder.model.merged.DispenseShipToLocationBean;
 import ca.infoway.messagebuilder.model.merged.OccurredAtBean;
 import ca.infoway.messagebuilder.model.merged.RelatedPersonBean;
-import ca.infoway.messagebuilder.model.pharmacy.merged.Component3Bean;
-import ca.infoway.messagebuilder.model.pharmacy.merged.DispenseShipToLocationBean;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -25,25 +24,45 @@ import java.util.List;
 /**
  * <p>Dispense Instructions</p>
  * 
- * <p><p>Specification of how the prescribed medication is to 
- * be dispensed to the patient. Dispensed instruction 
- * information includes the quantity to be dispensed, how often 
- * the quantity is to be dispensed, etc.</p></p>
+ * <p>Specification of how the prescribed medication is to be 
+ * dispensed to the patient. Dispensed instruction information 
+ * includes the quantity to be dispensed, how often the 
+ * quantity is to be dispensed, etc.</p>
  * 
- * <p><p>Sets the parameters within which the dispenser must 
- * operate in dispensing the medication to the patient.</p></p>
+ * <p>Sets the parameters within which the dispenser must 
+ * operate in dispensing the medication to the patient.</p>
  */
 @Hl7PartTypeMapping({"PORX_MT060160CA.SupplyRequest"})
 public class DispenseInstructionsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110127L;
+    private static final long serialVersionUID = 20100603L;
+    private CS prescriptionDispensableIndicator = new CSImpl();
+    private IVL<TS, Interval<Date>> dispensingAllowedPeriod = new IVLImpl<TS, Interval<Date>>();
+    private List<RelatedPersonBean> receiverPersonalRelationship = new ArrayList<RelatedPersonBean>();
     private OccurredAtBean location;
     private List<Component3Bean> component = new ArrayList<Component3Bean>();
-    private CS prescriptionDispensableIndicator = new CSImpl();
     private DispenseShipToLocationBean destinationServiceDeliveryLocation;
-    private List<RelatedPersonBean> receiverPersonalRelationship = new ArrayList<RelatedPersonBean>();
-    private IVL<TS, Interval<Date>> dispensingAllowedPeriod = new IVLImpl<TS, Interval<Date>>();
 
+    @Hl7XmlMapping({"statusCode"})
+    public ActStatus getPrescriptionDispensableIndicator() {
+        return (ActStatus) this.prescriptionDispensableIndicator.getValue();
+    }
+    public void setPrescriptionDispensableIndicator(ActStatus prescriptionDispensableIndicator) {
+        this.prescriptionDispensableIndicator.setValue(prescriptionDispensableIndicator);
+    }
+
+    @Hl7XmlMapping({"effectiveTime"})
+    public Interval<Date> getDispensingAllowedPeriod() {
+        return this.dispensingAllowedPeriod.getValue();
+    }
+    public void setDispensingAllowedPeriod(Interval<Date> dispensingAllowedPeriod) {
+        this.dispensingAllowedPeriod.setValue(dispensingAllowedPeriod);
+    }
+
+    @Hl7XmlMapping({"receiver/personalRelationship"})
+    public List<RelatedPersonBean> getReceiverPersonalRelationship() {
+        return this.receiverPersonalRelationship;
+    }
 
     @Hl7XmlMapping({"location"})
     public OccurredAtBean getLocation() {
@@ -53,40 +72,10 @@ public class DispenseInstructionsBean extends MessagePartBean {
         this.location = location;
     }
 
-
     @Hl7XmlMapping({"component"})
     public List<Component3Bean> getComponent() {
         return this.component;
     }
-
-
-    /**
-     * <p>Prescription Dispensable Indicator</p>
-     * 
-     * <p><p>This generally mirrors the status for the 
-     * prescription, but in some circumstances may be changed to 
-     * 'aborted' while the prescription is still active. When this 
-     * occurs, it means the prescription may no longer be 
-     * dispensed, though it may still be administered.</p></p>
-     * 
-     * <p><p>Allows a prescriber to say &quot;Finish what you have 
-     * on hand, but don't get any more.&quot;</p><p>Because the 
-     * status should always be known, this element is 
-     * mandatory.</p></p>
-     * 
-     * <p><p>Allows a prescriber to say &quot;Finish what you have 
-     * on hand, but don't get any more.&quot;</p><p>Because the 
-     * status should always be known, this element is 
-     * mandatory.</p></p>
-     */
-    @Hl7XmlMapping({"statusCode"})
-    public ActStatus getPrescriptionDispensableIndicator() {
-        return (ActStatus) this.prescriptionDispensableIndicator.getValue();
-    }
-    public void setPrescriptionDispensableIndicator(ActStatus prescriptionDispensableIndicator) {
-        this.prescriptionDispensableIndicator.setValue(prescriptionDispensableIndicator);
-    }
-
 
     @Hl7XmlMapping({"destination/serviceDeliveryLocation"})
     public DispenseShipToLocationBean getDestinationServiceDeliveryLocation() {
@@ -94,40 +83,6 @@ public class DispenseInstructionsBean extends MessagePartBean {
     }
     public void setDestinationServiceDeliveryLocation(DispenseShipToLocationBean destinationServiceDeliveryLocation) {
         this.destinationServiceDeliveryLocation = destinationServiceDeliveryLocation;
-    }
-
-
-    @Hl7XmlMapping({"receiver/personalRelationship"})
-    public List<RelatedPersonBean> getReceiverPersonalRelationship() {
-        return this.receiverPersonalRelationship;
-    }
-
-
-    /**
-     * <p>A:Dispensing Allowed Period</p>
-     * 
-     * <p><p>This indicates the validity period of a prescription 
-     * (stale dating the Prescription). It reflects the prescriber 
-     * perspective for the validity of the prescription. Dispenses 
-     * must not be made against the prescription outside of this 
-     * period. The lower-bound of the Prescription Effective Period 
-     * signifies the earliest date that the prescription can be 
-     * filled for the first time. If an upper-bound is not 
-     * specified then the Prescription is open-ended or will 
-     * default to a stale-date based on regulations.</p></p>
-     * 
-     * <p><p>Indicates when the Order becomes valid, and when it 
-     * ceases to be an actionable Order. Some jurisdictions place a 
-     * 'stale date' on prescriptions that cause them to become 
-     * invalid a certain amount of time after they are written. 
-     * This time may vary by medication.</p></p>
-     */
-    @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getDispensingAllowedPeriod() {
-        return this.dispensingAllowedPeriod.getValue();
-    }
-    public void setDispensingAllowedPeriod(Interval<Date> dispensingAllowedPeriod) {
-        this.dispensingAllowedPeriod.setValue(dispensingAllowedPeriod);
     }
 
 }

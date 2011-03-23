@@ -5,7 +5,6 @@ import java.lang.reflect.Type;
 import org.apache.commons.lang.StringUtils;
 import org.w3c.dom.Attr;
 import org.w3c.dom.Element;
-import org.w3c.dom.Node;
 
 import ca.infoway.messagebuilder.Code;
 import ca.infoway.messagebuilder.datatype.BareANY;
@@ -43,9 +42,7 @@ public class CsElementParser extends AbstractCodeTypeElementParser {
 	
     @SuppressWarnings("unchecked")
 	@Override
-    protected Code parseNonNullNode(ParseContext context, Node node, BareANY parseResult, Type expectedReturnType, XmlToModelResult xmlToJavaResult) throws XmlToModelTransformationException {
-    	
-    	Element element = (Element) node;
+    protected Code parseNonNullNode(ParseContext context, Element element, Type expectedReturnType, XmlToModelResult xmlToJavaResult) throws XmlToModelTransformationException {
         
     	validateUnallowedAttributes(context.getType(), element, xmlToJavaResult, "codeSystem");
     	validateUnallowedAttributes(context.getType(), element, xmlToJavaResult, "codeSystemName");

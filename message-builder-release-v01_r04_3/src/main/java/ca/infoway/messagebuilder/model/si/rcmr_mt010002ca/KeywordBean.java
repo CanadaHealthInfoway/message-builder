@@ -5,77 +5,52 @@ import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.annotation.Hl7RootType;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
 import ca.infoway.messagebuilder.datatype.CV;
-import ca.infoway.messagebuilder.datatype.ST;
 import ca.infoway.messagebuilder.datatype.impl.CVImpl;
 import ca.infoway.messagebuilder.datatype.impl.RawListWrapper;
-import ca.infoway.messagebuilder.datatype.impl.STImpl;
 import ca.infoway.messagebuilder.domainvalue.ActInformationAccessTypeCode;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.common.coct_mt040205ca.ResponsiblePersonBean;
-import ca.infoway.messagebuilder.model.merged.Consenter;
+import ca.infoway.messagebuilder.model.merged.Patient_1Bean;
+import ca.infoway.messagebuilder.model.merged.RequestedByBean;
 import java.util.ArrayList;
 import java.util.List;
 
 
 
+/**
+ * <p>Keyword</p>
+ * 
+ * <p>Information pertaining to a patient's secret password 
+ * used to control access to his/her health information.</p>
+ * 
+ * <p>Allows a patient to control access to their health 
+ * information. Provides authorization for providers to view 
+ * patient information.</p>
+ */
 @Hl7PartTypeMapping({"RCMR_MT010002CA.KeywordEvent"})
 @Hl7RootType
 public class KeywordBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110127L;
-    private Consenter authorConsenter;
-    private ST keyword = new STImpl();
-    private ca.infoway.messagebuilder.model.common.merged.PatientBean subject1Patient;
+    private static final long serialVersionUID = 20100614L;
+    private Patient_1Bean subject1Patient;
+    private RequestedByBean author;
     private List<CV> consentInformationTypes = new ArrayList<CV>();
 
-
-    @Hl7XmlMapping({"author/consenter"})
-    public Consenter getAuthorConsenter() {
-        return this.authorConsenter;
-    }
-    public void setAuthorConsenter(Consenter authorConsenter) {
-        this.authorConsenter = authorConsenter;
-    }
-
-    public PatientBean getAuthorConsenterAsPatient() {
-        return this.authorConsenter instanceof PatientBean ? (PatientBean) this.authorConsenter : null;
-    }
-    public boolean hasAuthorConsenterAsPatient() {
-        return (this.authorConsenter instanceof PatientBean);
-    }
-
-    public ResponsiblePersonBean getAuthorConsenterAsResponsibleParty() {
-        return this.authorConsenter instanceof ResponsiblePersonBean ? (ResponsiblePersonBean) this.authorConsenter : null;
-    }
-    public boolean hasAuthorConsenterAsResponsibleParty() {
-        return (this.authorConsenter instanceof ResponsiblePersonBean);
-    }
-
-
-    /**
-     * <p>Keyword</p>
-     */
-    @Hl7XmlMapping({"author/signatureText"})
-    public String getKeyword() {
-        return this.keyword.getValue();
-    }
-    public void setKeyword(String keyword) {
-        this.keyword.setValue(keyword);
-    }
-
-
     @Hl7XmlMapping({"subject1/patient"})
-    public ca.infoway.messagebuilder.model.common.merged.PatientBean getSubject1Patient() {
+    public Patient_1Bean getSubject1Patient() {
         return this.subject1Patient;
     }
-    public void setSubject1Patient(ca.infoway.messagebuilder.model.common.merged.PatientBean subject1Patient) {
+    public void setSubject1Patient(Patient_1Bean subject1Patient) {
         this.subject1Patient = subject1Patient;
     }
 
+    @Hl7XmlMapping({"author"})
+    public RequestedByBean getAuthor() {
+        return this.author;
+    }
+    public void setAuthor(RequestedByBean author) {
+        this.author = author;
+    }
 
-    /**
-     * <p>B:Consent Information Types</p>
-     */
     @Hl7XmlMapping({"subject2/recordType/code"})
     public List<ActInformationAccessTypeCode> getConsentInformationTypes() {
         return new RawListWrapper<CV, ActInformationAccessTypeCode>(consentInformationTypes, CVImpl.class);

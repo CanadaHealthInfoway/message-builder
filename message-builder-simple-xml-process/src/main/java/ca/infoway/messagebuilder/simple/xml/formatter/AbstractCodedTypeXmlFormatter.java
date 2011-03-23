@@ -65,16 +65,16 @@ public abstract class AbstractCodedTypeXmlFormatter extends AbstractSimpleXmlFor
         		
 		Code result = getCode(formatContext, codeType, code, codeSystem);
 		
+		if (result == null && !StringUtils.isBlank(codeSystem)) {
+			result = FullCodeWrapper.wrap(codeType, null, codeSystem);
+		}
+		
         // if a code is specified and there is no matching enum value for it,
 		// something is seriously wrong
         if (StringUtils.isNotBlank(code) && result == null) {
         	processError(formatContext, "Could not find code [" + code + "]", value);
         }
         
-		if (result == null && !StringUtils.isBlank(codeSystem)) {
-			result = FullCodeWrapper.wrap(codeType, null, codeSystem);
-		}
-		
     	return result;
     }
 

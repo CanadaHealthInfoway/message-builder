@@ -22,54 +22,22 @@ import java.util.Date;
 /**
  * <p>Specimen Process Steps</p>
  * 
- * <p><p>The specimen is subject to one or more process steps. 
+ * <p>The specimen is subject to one or more process steps. 
  * e.g. the specimen receive date is documented using a process 
  * step object, specimen action codes are also represented and 
- * communicated using this process step object.</p></p>
+ * communicated using this process step object.</p>
  * 
- * <p><p>At this time, only the transportation specimen process 
- * steps are in scope for lab messaging.</p></p>
+ * <p>At this time, only the transportation specimen process 
+ * steps are in scope for lab messaging.</p>
  */
 @Hl7PartTypeMapping({"COCT_MT080100CA.TransportationEvent"})
 public class SpecimenProcessStepsBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110127L;
-    private IVL<TS, Interval<Date>> transportationDateTime = new IVLImpl<TS, Interval<Date>>();
+    private static final long serialVersionUID = 20100614L;
     private CV transportationType = new CVImpl();
     private CS transportationStatus = new CSImpl();
+    private IVL<TS, Interval<Date>> transportationDateTime = new IVLImpl<TS, Interval<Date>>();
 
-
-    /**
-     * <p>Q:Transportation Date/Time</p>
-     * 
-     * <p><p>The date/time the process step took place or the 
-     * duration of that step (days or time in transit, start time, 
-     * end time).</p></p>
-     * 
-     * <p><p>Holds the date/time the process step took place. This 
-     * attribute is especially important for those process steps 
-     * which document the date/time the process happened (specimen 
-     * received date/time).</p></p>
-     */
-    @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getTransportationDateTime() {
-        return this.transportationDateTime.getValue();
-    }
-    public void setTransportationDateTime(Interval<Date> transportationDateTime) {
-        this.transportationDateTime.setValue(transportationDateTime);
-    }
-
-
-    /**
-     * <p>P:Transportation Type</p>
-     * 
-     * <p><p>Describes the type of process step being documented 
-     * and communicated e.g. specimen received data, specimen 
-     * action codes, transportation type.</p></p>
-     * 
-     * <p><p>Categorizes the type of transportation act being 
-     * communiated.</p></p>
-     */
     @Hl7XmlMapping({"code"})
     public Code getTransportationType() {
         return (Code) this.transportationType.getValue();
@@ -78,23 +46,20 @@ public class SpecimenProcessStepsBean extends MessagePartBean {
         this.transportationType.setValue(transportationType);
     }
 
-
-    /**
-     * <p>R:Transportation Status</p>
-     * 
-     * <p><p>The state or status of this transportation process 
-     * step.</p></p>
-     * 
-     * <p><p>Indicates (along with the mood) whether this act's 
-     * action has been completed or is still being acted upon (or 
-     * has yet to be acted upon).</p></p>
-     */
     @Hl7XmlMapping({"statusCode"})
     public ActStatus getTransportationStatus() {
         return (ActStatus) this.transportationStatus.getValue();
     }
     public void setTransportationStatus(ActStatus transportationStatus) {
         this.transportationStatus.setValue(transportationStatus);
+    }
+
+    @Hl7XmlMapping({"effectiveTime"})
+    public Interval<Date> getTransportationDateTime() {
+        return this.transportationDateTime.getValue();
+    }
+    public void setTransportationDateTime(Interval<Date> transportationDateTime) {
+        this.transportationDateTime.setValue(transportationDateTime);
     }
 
 }

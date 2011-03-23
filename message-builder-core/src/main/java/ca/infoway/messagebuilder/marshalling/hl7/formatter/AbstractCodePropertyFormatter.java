@@ -1,8 +1,7 @@
 package ca.infoway.messagebuilder.marshalling.hl7.formatter;
 
-import static ca.infoway.messagebuilder.xml.ConformanceLevel.MANDATORY;
 import static org.apache.commons.lang.SystemUtils.LINE_SEPARATOR;
-
+import static ca.infoway.messagebuilder.xml.ConformanceLevel.MANDATORY;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -48,7 +47,7 @@ abstract class AbstractCodePropertyFormatter extends AbstractAttributePropertyFo
     			} else {
     				attributes.putAll(createNullFlavorAttributes(hl7Value.getNullFlavor()));
     			}
-    		} else if (!hasValue(cd, context)) {
+    		} else if (!hasValue(cd)) {
     			if (context.getConformanceLevel() == null || isMandatoryOrPopulated(context)) {
         			if (context.getConformanceLevel() == MANDATORY) {
         				warning = createWarning(context, indentLevel);
@@ -61,35 +60,24 @@ abstract class AbstractCodePropertyFormatter extends AbstractAttributePropertyFo
     		}
     		
     		result.append(warning);
-    		
-    		boolean hasChildContent = hasChildContent(cd, context);
-    		if (hasChildContent || (!attributes.isEmpty() || context.getConformanceLevel() == MANDATORY)) {
-    			result.append(createElement(context, attributes, indentLevel, !hasChildContent, !hasChildContent));
-    			if (hasChildContent) {
-    				createChildContent(cd, result);
-	    			result.append("</").append(context.getElementName()).append(">");
-	    			result.append(LINE_SEPARATOR);
-    			}
+    		if (hasOriginalText(cd)) {
+    			result.append(createElement(context, attributes, indentLevel, false, false));
+    			result.append(createElement("originalText", null, 0, false, false));
+    			result.append(XmlStringEscape.escape(cd.getOriginalText()));
+    			result.append("</").append("originalText").append(">");
+    			result.append("</").append(context.getElementName()).append(">");
+    			result.append(LINE_SEPARATOR);    			
+    		} else if (!attributes.isEmpty() || context.getConformanceLevel() == MANDATORY) {
+    			result.append(createElement(context, attributes, indentLevel, true, true));
     		}
+    		
     		
     	}
         return result.toString();
     }
-
-	protected boolean hasChildContent(CD cd, FormatContext context) {
-		return hasOriginalText(cd);
-	}
-
-	protected void createChildContent(CD cd, StringBuilder result) {
-		if (hasOriginalText(cd)) {
-			result.append(createElement("originalText", null, 0, false, false));
-			result.append(XmlStringEscape.escape(cd.getOriginalText()));
-			result.append("</").append("originalText").append(">");
-		}
-	}
 	
-    protected boolean hasValue(CD cd, FormatContext context) {
-		return cd!=null && (cd.getValue()!=null || hasChildContent(cd, context));
+    protected boolean hasValue(CD cd) {
+		return cd!=null && (cd.getValue()!=null || !StringUtils.isEmpty(cd.getOriginalText()));
 	}
 
 	private boolean hasOriginalText(CD cd) {

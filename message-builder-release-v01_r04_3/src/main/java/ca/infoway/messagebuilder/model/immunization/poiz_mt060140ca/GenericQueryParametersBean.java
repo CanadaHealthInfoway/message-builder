@@ -28,99 +28,31 @@ import java.util.Date;
 
 
 
+/**
+ * <p>Generic Query Parameters</p>
+ * 
+ * <p>Defines the set of parameters that may be used to filter 
+ * the query response.</p>
+ * 
+ * <p>Root class for query definition</p>
+ */
 @Hl7PartTypeMapping({"POIZ_MT060140CA.ParameterList"})
 @Hl7RootType
 public class GenericQueryParametersBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110127L;
-    private INT vaccineDoseNumber = new INTImpl();
-    private PN patientName = new PNImpl();
-    private CV vaccineCode = new CVImpl();
-    private IVL<TS, Interval<Date>> renewalPeriod = new IVLImpl<TS, Interval<Date>>();
-    private II patientID = new IIImpl();
-    private IVL<TS, Interval<Date>> nextPlannedDosePeriod = new IVLImpl<TS, Interval<Date>>();
+    private static final long serialVersionUID = 20100614L;
     private IVL<TS, Interval<Date>> immunizationPeriod = new IVLImpl<TS, Interval<Date>>();
-    private BL includeNotesIndicator = new BLImpl();
     private BL includeIssuesIndicator = new BLImpl();
-    private CV patientGender = new CVImpl();
+    private BL includeNotesIndicator = new BLImpl();
+    private IVL<TS, Interval<Date>> nextPlannedDosePeriod = new IVLImpl<TS, Interval<Date>>();
     private TS patientBirthDate = new TSImpl();
+    private CV patientGender = new CVImpl();
+    private II patientID = new IIImpl();
+    private PN patientName = new PNImpl();
+    private IVL<TS, Interval<Date>> renewalPeriod = new IVLImpl<TS, Interval<Date>>();
+    private CV vaccineCode = new CVImpl();
+    private INT vaccineDoseNumber = new INTImpl();
 
-
-    /**
-     * <p>F:Vaccine Dose Number</p>
-     */
-    @Hl7XmlMapping({"vaccineDoseNumber/value"})
-    public Integer getVaccineDoseNumber() {
-        return this.vaccineDoseNumber.getValue();
-    }
-    public void setVaccineDoseNumber(Integer vaccineDoseNumber) {
-        this.vaccineDoseNumber.setValue(vaccineDoseNumber);
-    }
-
-
-    /**
-     * <p>C:Patient Name</p>
-     */
-    @Hl7XmlMapping({"patientName/value"})
-    public PersonName getPatientName() {
-        return this.patientName.getValue();
-    }
-    public void setPatientName(PersonName patientName) {
-        this.patientName.setValue(patientName);
-    }
-
-
-    /**
-     * <p>E:Vaccine Code</p>
-     */
-    @Hl7XmlMapping({"vaccineCode/value"})
-    public VaccineEntityType getVaccineCode() {
-        return (VaccineEntityType) this.vaccineCode.getValue();
-    }
-    public void setVaccineCode(VaccineEntityType vaccineCode) {
-        this.vaccineCode.setValue(vaccineCode);
-    }
-
-
-    /**
-     * <p>I:Renewal Period</p>
-     */
-    @Hl7XmlMapping({"renewalPeriod/value"})
-    public Interval<Date> getRenewalPeriod() {
-        return this.renewalPeriod.getValue();
-    }
-    public void setRenewalPeriod(Interval<Date> renewalPeriod) {
-        this.renewalPeriod.setValue(renewalPeriod);
-    }
-
-
-    /**
-     * <p>B:Patient ID</p>
-     */
-    @Hl7XmlMapping({"patientID/value"})
-    public Identifier getPatientID() {
-        return this.patientID.getValue();
-    }
-    public void setPatientID(Identifier patientID) {
-        this.patientID.setValue(patientID);
-    }
-
-
-    /**
-     * <p>H:Next Planned Dose Period</p>
-     */
-    @Hl7XmlMapping({"nextPlannedDosePeriod/value"})
-    public Interval<Date> getNextPlannedDosePeriod() {
-        return this.nextPlannedDosePeriod.getValue();
-    }
-    public void setNextPlannedDosePeriod(Interval<Date> nextPlannedDosePeriod) {
-        this.nextPlannedDosePeriod.setValue(nextPlannedDosePeriod);
-    }
-
-
-    /**
-     * <p>G:Immunization Period</p>
-     */
     @Hl7XmlMapping({"immunizationPeriod/value"})
     public Interval<Date> getImmunizationPeriod() {
         return this.immunizationPeriod.getValue();
@@ -129,22 +61,6 @@ public class GenericQueryParametersBean extends MessagePartBean {
         this.immunizationPeriod.setValue(immunizationPeriod);
     }
 
-
-    /**
-     * <p>Include Notes Indicator</p>
-     */
-    @Hl7XmlMapping({"includeNotesIndicator/value"})
-    public Boolean getIncludeNotesIndicator() {
-        return this.includeNotesIndicator.getValue();
-    }
-    public void setIncludeNotesIndicator(Boolean includeNotesIndicator) {
-        this.includeNotesIndicator.setValue(includeNotesIndicator);
-    }
-
-
-    /**
-     * <p>Include Issues Indicator</p>
-     */
     @Hl7XmlMapping({"includeIssuesIndicator/value"})
     public Boolean getIncludeIssuesIndicator() {
         return this.includeIssuesIndicator.getValue();
@@ -153,10 +69,30 @@ public class GenericQueryParametersBean extends MessagePartBean {
         this.includeIssuesIndicator.setValue(includeIssuesIndicator);
     }
 
+    @Hl7XmlMapping({"includeNotesIndicator/value"})
+    public Boolean getIncludeNotesIndicator() {
+        return this.includeNotesIndicator.getValue();
+    }
+    public void setIncludeNotesIndicator(Boolean includeNotesIndicator) {
+        this.includeNotesIndicator.setValue(includeNotesIndicator);
+    }
 
-    /**
-     * <p>C:Patient Gender</p>
-     */
+    @Hl7XmlMapping({"nextPlannedDosePeriod/value"})
+    public Interval<Date> getNextPlannedDosePeriod() {
+        return this.nextPlannedDosePeriod.getValue();
+    }
+    public void setNextPlannedDosePeriod(Interval<Date> nextPlannedDosePeriod) {
+        this.nextPlannedDosePeriod.setValue(nextPlannedDosePeriod);
+    }
+
+    @Hl7XmlMapping({"patientBirthDate/value"})
+    public Date getPatientBirthDate() {
+        return this.patientBirthDate.getValue();
+    }
+    public void setPatientBirthDate(Date patientBirthDate) {
+        this.patientBirthDate.setValue(patientBirthDate);
+    }
+
     @Hl7XmlMapping({"patientGender/value"})
     public AdministrativeGender getPatientGender() {
         return (AdministrativeGender) this.patientGender.getValue();
@@ -165,16 +101,44 @@ public class GenericQueryParametersBean extends MessagePartBean {
         this.patientGender.setValue(patientGender);
     }
 
-
-    /**
-     * <p>D:Patient Birth Date</p>
-     */
-    @Hl7XmlMapping({"patientBirthDate/value"})
-    public Date getPatientBirthDate() {
-        return this.patientBirthDate.getValue();
+    @Hl7XmlMapping({"patientID/value"})
+    public Identifier getPatientID() {
+        return this.patientID.getValue();
     }
-    public void setPatientBirthDate(Date patientBirthDate) {
-        this.patientBirthDate.setValue(patientBirthDate);
+    public void setPatientID(Identifier patientID) {
+        this.patientID.setValue(patientID);
+    }
+
+    @Hl7XmlMapping({"patientName/value"})
+    public PersonName getPatientName() {
+        return this.patientName.getValue();
+    }
+    public void setPatientName(PersonName patientName) {
+        this.patientName.setValue(patientName);
+    }
+
+    @Hl7XmlMapping({"renewalPeriod/value"})
+    public Interval<Date> getRenewalPeriod() {
+        return this.renewalPeriod.getValue();
+    }
+    public void setRenewalPeriod(Interval<Date> renewalPeriod) {
+        this.renewalPeriod.setValue(renewalPeriod);
+    }
+
+    @Hl7XmlMapping({"vaccineCode/value"})
+    public VaccineEntityType getVaccineCode() {
+        return (VaccineEntityType) this.vaccineCode.getValue();
+    }
+    public void setVaccineCode(VaccineEntityType vaccineCode) {
+        this.vaccineCode.setValue(vaccineCode);
+    }
+
+    @Hl7XmlMapping({"vaccineDoseNumber/value"})
+    public Integer getVaccineDoseNumber() {
+        return this.vaccineDoseNumber.getValue();
+    }
+    public void setVaccineDoseNumber(Integer vaccineDoseNumber) {
+        this.vaccineDoseNumber.setValue(vaccineDoseNumber);
     }
 
 }

@@ -23,21 +23,25 @@ import java.util.List;
 
 
 
+/**
+ * <p>Generic Query Parameters</p>
+ * 
+ * <p>Defines the set of parameters that may be used to filter 
+ * the query response.</p>
+ * 
+ * <p>Root class for query definition</p>
+ */
 @Hl7PartTypeMapping({"PORX_MT060030CA.ParameterList"})
 @Hl7RootType
 public class GenericQueryParametersBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110127L;
+    private static final long serialVersionUID = 20100615L;
     private CV issueFilterCode = new CVImpl();
-    private BL mostRecentDispenseForEachRxIndicator = new BLImpl();
     private BL mostRecentByDeviceIndicator = new BLImpl();
-    private IVL<TS, Interval<Date>> usageEffectivePeriod = new IVLImpl<TS, Interval<Date>>();
+    private BL mostRecentDispenseForEachRxIndicator = new BLImpl();
     private List<CV> rxDispenserIndicators = new ArrayList<CV>();
+    private IVL<TS, Interval<Date>> usageEffectivePeriod = new IVLImpl<TS, Interval<Date>>();
 
-
-    /**
-     * <p>Issue Filter Code</p>
-     */
     @Hl7XmlMapping({"issueFilterCode/value"})
     public IssueFilterCode getIssueFilterCode() {
         return (IssueFilterCode) this.issueFilterCode.getValue();
@@ -46,22 +50,6 @@ public class GenericQueryParametersBean extends MessagePartBean {
         this.issueFilterCode.setValue(issueFilterCode);
     }
 
-
-    /**
-     * <p>Most Recent Dispense for each Rx Indicator</p>
-     */
-    @Hl7XmlMapping({"mostRecentDispenseForEachRxIndicator/value"})
-    public Boolean getMostRecentDispenseForEachRxIndicator() {
-        return this.mostRecentDispenseForEachRxIndicator.getValue();
-    }
-    public void setMostRecentDispenseForEachRxIndicator(Boolean mostRecentDispenseForEachRxIndicator) {
-        this.mostRecentDispenseForEachRxIndicator.setValue(mostRecentDispenseForEachRxIndicator);
-    }
-
-
-    /**
-     * <p>Most Recent By Device Indicator</p>
-     */
     @Hl7XmlMapping({"mostRecentByDeviceIndicator/value"})
     public Boolean getMostRecentByDeviceIndicator() {
         return this.mostRecentByDeviceIndicator.getValue();
@@ -70,25 +58,25 @@ public class GenericQueryParametersBean extends MessagePartBean {
         this.mostRecentByDeviceIndicator.setValue(mostRecentByDeviceIndicator);
     }
 
+    @Hl7XmlMapping({"mostRecentDispenseForEachRxIndicator/value"})
+    public Boolean getMostRecentDispenseForEachRxIndicator() {
+        return this.mostRecentDispenseForEachRxIndicator.getValue();
+    }
+    public void setMostRecentDispenseForEachRxIndicator(Boolean mostRecentDispenseForEachRxIndicator) {
+        this.mostRecentDispenseForEachRxIndicator.setValue(mostRecentDispenseForEachRxIndicator);
+    }
 
-    /**
-     * <p>D:Usage Effective Period</p>
-     */
+    @Hl7XmlMapping({"rxDispenseIndicator/value"})
+    public List<PrescriptionDispenseFilterCode> getRxDispenserIndicators() {
+        return new RawListWrapper<CV, PrescriptionDispenseFilterCode>(rxDispenserIndicators, CVImpl.class);
+    }
+
     @Hl7XmlMapping({"usageEffectivePeriod/value"})
     public Interval<Date> getUsageEffectivePeriod() {
         return this.usageEffectivePeriod.getValue();
     }
     public void setUsageEffectivePeriod(Interval<Date> usageEffectivePeriod) {
         this.usageEffectivePeriod.setValue(usageEffectivePeriod);
-    }
-
-
-    /**
-     * <p>Rx Dispenser Indicators</p>
-     */
-    @Hl7XmlMapping({"rxDispenseIndicator/value"})
-    public List<PrescriptionDispenseFilterCode> getRxDispenserIndicators() {
-        return new RawListWrapper<CV, PrescriptionDispenseFilterCode>(rxDispenserIndicators, CVImpl.class);
     }
 
 }

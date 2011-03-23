@@ -4,56 +4,40 @@ package ca.infoway.messagebuilder.model.pharmacy.pome_mt010100ca;
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.annotation.Hl7RootType;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
-import ca.infoway.messagebuilder.datatype.CS;
-import ca.infoway.messagebuilder.datatype.CV;
-import ca.infoway.messagebuilder.datatype.SET;
-import ca.infoway.messagebuilder.datatype.ST;
-import ca.infoway.messagebuilder.datatype.TN;
-import ca.infoway.messagebuilder.datatype.impl.CSImpl;
-import ca.infoway.messagebuilder.datatype.impl.CVImpl;
-import ca.infoway.messagebuilder.datatype.impl.SETImpl;
-import ca.infoway.messagebuilder.datatype.impl.STImpl;
-import ca.infoway.messagebuilder.datatype.impl.TNImpl;
-import ca.infoway.messagebuilder.datatype.lang.TrivialName;
-import ca.infoway.messagebuilder.domainvalue.ClinicalDrug;
-import ca.infoway.messagebuilder.domainvalue.OrderableDrugForm;
-import ca.infoway.messagebuilder.domainvalue.RoleStatusNormal;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.merged.DispensedInBean;
-import ca.infoway.messagebuilder.model.merged.DrugContainsBean;
-import ca.infoway.messagebuilder.model.merged.ManufacturerBean;
-import ca.infoway.messagebuilder.model.pharmacy.merged.AppearanceCharacteristicsBean;
-import ca.infoway.messagebuilder.model.pharmacy.merged.DrugCostBean;
-import ca.infoway.messagebuilder.model.pharmacy.merged.GroupedWithinBean;
+import ca.infoway.messagebuilder.model.merged.AppearanceCharacteristicsBean;
+import ca.infoway.messagebuilder.model.merged.DrugCostBean;
+import ca.infoway.messagebuilder.model.merged.DrugOrCompoundBean;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 
 
+/**
+ * <p>Medication</p>
+ * 
+ * <p>Represents a particular medicine or herbal product which 
+ * might be prescribed or administered.</p>
+ * 
+ * <p>Allows retrieval of summary about one or more products 
+ * when searching for a medication</p>
+ */
 @Hl7PartTypeMapping({"POME_MT010100CA.Medication"})
 @Hl7RootType
 public class MedicationBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110127L;
-    private List<AppearanceCharacteristicsBean> subjectOf2Characteristic = new ArrayList<AppearanceCharacteristicsBean>();
+    private static final long serialVersionUID = 20100614L;
+    private DrugOrCompoundBean player;
     private DrugCostBean subjectOf1PotentialCharge;
-    private CV drugForm = new CVImpl();
-    private List<GroupedWithinBean> playerAsSpecializedKind = new ArrayList<GroupedWithinBean>();
-    private CS regulatoryStatusCode = new CSImpl();
-    private SET<TN, TrivialName> drugNames = new SETImpl<TN, TrivialName>(TNImpl.class);
-    private ST description = new STImpl();
-    private DispensedInBean playerAsContent;
-    private ManufacturerBean playerAsManufacturedProductManufacturer;
-    private List<DrugContainsBean> playerIngredient = new ArrayList<DrugContainsBean>();
-    private CV drugCode = new CVImpl();
+    private List<AppearanceCharacteristicsBean> subjectOf2Characteristic = new ArrayList<AppearanceCharacteristicsBean>();
 
-
-    @Hl7XmlMapping({"subjectOf2/characteristic"})
-    public List<AppearanceCharacteristicsBean> getSubjectOf2Characteristic() {
-        return this.subjectOf2Characteristic;
+    @Hl7XmlMapping({"player"})
+    public DrugOrCompoundBean getPlayer() {
+        return this.player;
     }
-
+    public void setPlayer(DrugOrCompoundBean player) {
+        this.player = player;
+    }
 
     @Hl7XmlMapping({"subjectOf1/potentialCharge"})
     public DrugCostBean getSubjectOf1PotentialCharge() {
@@ -63,91 +47,9 @@ public class MedicationBean extends MessagePartBean {
         this.subjectOf1PotentialCharge = subjectOf1PotentialCharge;
     }
 
-
-    /**
-     * <p>D:Drug Form</p>
-     */
-    @Hl7XmlMapping({"player/formCode"})
-    public OrderableDrugForm getDrugForm() {
-        return (OrderableDrugForm) this.drugForm.getValue();
-    }
-    public void setDrugForm(OrderableDrugForm drugForm) {
-        this.drugForm.setValue(drugForm);
-    }
-
-
-    @Hl7XmlMapping({"player/asSpecializedKind"})
-    public List<GroupedWithinBean> getPlayerAsSpecializedKind() {
-        return this.playerAsSpecializedKind;
-    }
-
-
-    /**
-     * <p>Regulatory Status Code</p>
-     */
-    @Hl7XmlMapping({"player/asRegulatedProduct/statusCode"})
-    public RoleStatusNormal getRegulatoryStatusCode() {
-        return (RoleStatusNormal) this.regulatoryStatusCode.getValue();
-    }
-    public void setRegulatoryStatusCode(RoleStatusNormal regulatoryStatusCode) {
-        this.regulatoryStatusCode.setValue(regulatoryStatusCode);
-    }
-
-
-    /**
-     * <p>B:Drug Names</p>
-     */
-    @Hl7XmlMapping({"player/name"})
-    public Set<TrivialName> getDrugNames() {
-        return this.drugNames.rawSet();
-    }
-
-
-    /**
-     * <p>Description</p>
-     */
-    @Hl7XmlMapping({"player/desc"})
-    public String getDescription() {
-        return this.description.getValue();
-    }
-    public void setDescription(String description) {
-        this.description.setValue(description);
-    }
-
-
-    @Hl7XmlMapping({"player/asContent"})
-    public DispensedInBean getPlayerAsContent() {
-        return this.playerAsContent;
-    }
-    public void setPlayerAsContent(DispensedInBean playerAsContent) {
-        this.playerAsContent = playerAsContent;
-    }
-
-
-    @Hl7XmlMapping({"player/asManufacturedProduct/manufacturer"})
-    public ManufacturerBean getPlayerAsManufacturedProductManufacturer() {
-        return this.playerAsManufacturedProductManufacturer;
-    }
-    public void setPlayerAsManufacturedProductManufacturer(ManufacturerBean playerAsManufacturedProductManufacturer) {
-        this.playerAsManufacturedProductManufacturer = playerAsManufacturedProductManufacturer;
-    }
-
-
-    @Hl7XmlMapping({"player/ingredient"})
-    public List<DrugContainsBean> getPlayerIngredient() {
-        return this.playerIngredient;
-    }
-
-
-    /**
-     * <p>A:Drug Code</p>
-     */
-    @Hl7XmlMapping({"player/code"})
-    public ClinicalDrug getDrugCode() {
-        return (ClinicalDrug) this.drugCode.getValue();
-    }
-    public void setDrugCode(ClinicalDrug drugCode) {
-        this.drugCode.setValue(drugCode);
+    @Hl7XmlMapping({"subjectOf2/characteristic"})
+    public List<AppearanceCharacteristicsBean> getSubjectOf2Characteristic() {
+        return this.subjectOf2Characteristic;
     }
 
 }

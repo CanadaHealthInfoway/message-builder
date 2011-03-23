@@ -13,17 +13,9 @@ import ca.infoway.messagebuilder.model.MessagePartBean;
 @Hl7PartTypeMapping({"REPC_MT610002CA.NewProcedureEvent"})
 public class NewProcedureEventBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110127L;
+    private static final long serialVersionUID = 20100603L;
     private II replacedByRecordId = new IIImpl();
 
-
-    /**
-     * <p>I:Replaced by Record Id</p>
-     * 
-     * <p></p></p>
-     * 
-     * <p></p></p>
-     */
     @Hl7XmlMapping({"id"})
     public Identifier getReplacedByRecordId() {
         return this.replacedByRecordId.getValue();

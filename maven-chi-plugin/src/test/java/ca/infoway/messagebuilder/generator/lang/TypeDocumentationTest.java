@@ -10,7 +10,6 @@ import java.io.StringWriter;
 import org.junit.Before;
 import org.junit.Test;
 
-import ca.infoway.messagebuilder.xml.Annotation;
 import ca.infoway.messagebuilder.xml.Documentation;
 
 
@@ -34,7 +33,7 @@ public class TypeDocumentationTest {
 	@Test
 	public void shouldWriteVeryBasicDocumentationInCSharp() throws Exception {
 		Documentation documentation = new Documentation();
-		documentation.getAnnotations().add(new Annotation("I am the very model of a modern markup paragraph."));
+		documentation.getParagraphs().add("I am the very model of a modern markup paragraph.");
 		String output = write(documentation);	
 		assertTrue("business name", output.contains("<summary>I am the very model of a modern markup paragraph.</summary>"));
 		assertFalse("business name", output.contains("<remarks>"));
@@ -42,9 +41,9 @@ public class TypeDocumentationTest {
 	@Test
 	public void shouldWriteMultipleParagraphDocumentationInCSharp() throws Exception {
 		Documentation documentation = new Documentation();
-		documentation.getAnnotations().add(new Annotation("Antimony arsenic aluminum selenium."));
-		documentation.getAnnotations().add(new Annotation("And hydrogen and oxygen and nitrogen and rhenium."));
-		documentation.getAnnotations().add(new Annotation("And nickel, neodymium, neptunium, germanium."));
+		documentation.getParagraphs().add("Antimony arsenic aluminum selenium.");
+		documentation.getParagraphs().add("And hydrogen and oxygen and nitrogen and rhenium.");
+		documentation.getParagraphs().add("And nickel, neodymium, neptunium, germanium.");
 		String output = write(documentation);	
 		assertTrue("summary", output.contains("<summary>Antimony arsenic aluminum selenium.</summary>"));
 		assertTrue("remarks", output.contains("<remarks>"));

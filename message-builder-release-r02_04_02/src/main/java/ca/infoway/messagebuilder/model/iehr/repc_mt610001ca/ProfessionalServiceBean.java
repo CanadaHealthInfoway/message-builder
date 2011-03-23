@@ -21,19 +21,18 @@ import ca.infoway.messagebuilder.datatype.lang.Interval;
 import ca.infoway.messagebuilder.domainvalue.ActProfessionalServiceCode;
 import ca.infoway.messagebuilder.domainvalue.x_BasicConfidentialityKind;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import ca.infoway.messagebuilder.model.common.coct_mt011001ca.CareCompositionsBean;
+import ca.infoway.messagebuilder.model.common.coct_mt090108ca.HealthcareWorkerBean;
 import ca.infoway.messagebuilder.model.common.coct_mt090508ca.HealthcareOrganizationBean;
-import ca.infoway.messagebuilder.model.common.coct_mt910108ca.RelatedPersonBean;
-import ca.infoway.messagebuilder.model.common.merged.ActingPerson;
-import ca.infoway.messagebuilder.model.common.merged.HealthcareWorkerBean;
-import ca.infoway.messagebuilder.model.common.merged.Patient_2Bean;
-import ca.infoway.messagebuilder.model.iehr.merged.ActDefinitionBean;
-import ca.infoway.messagebuilder.model.iehr.merged.ClinicalDocumentEventBean;
-import ca.infoway.messagebuilder.model.iehr.merged.OldProcedureEventBean;
-import ca.infoway.messagebuilder.model.iehr.merged.Request_3Bean;
+import ca.infoway.messagebuilder.model.common.coct_mt911107ca.ActingPersonBean;
+import ca.infoway.messagebuilder.model.merged.ActDefinitionBean;
+import ca.infoway.messagebuilder.model.merged.ActRequest_5Bean;
 import ca.infoway.messagebuilder.model.merged.BecauseOfBean;
-import ca.infoway.messagebuilder.model.merged.CareCompositionsBean;
-import ca.infoway.messagebuilder.model.merged.IncludesBean;
+import ca.infoway.messagebuilder.model.merged.ClinicalDocumentEventBean;
+import ca.infoway.messagebuilder.model.merged.HasNotesBean;
 import ca.infoway.messagebuilder.model.merged.OccurredAtBean;
+import ca.infoway.messagebuilder.model.merged.OldProcedureEventBean;
+import ca.infoway.messagebuilder.model.merged.Patient_1Bean;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -44,143 +43,40 @@ import java.util.Set;
 /**
  * <p>Professional Service</p>
  * 
- * <p><p>This is the information that is recorded and 
- * maintained on a consultative, surgical or physical service 
- * (procedure) provided to the patient.</p><p>Counseling, 
- * education, surgeries and physical therapy are examples of 
- * the types of services that can be captured.</p></p>
+ * <p>This is the information that is recorded and maintained 
+ * on a consultative, surgical or physical service (procedure) 
+ * provided to the patient.</p>
  * 
- * <p><p>This is the information that is recorded and 
- * maintained on a consultative, surgical or physical service 
- * (procedure) provided to the patient.</p><p>Counseling, 
- * education, surgeries and physical therapy are examples of 
- * the types of services that can be captured.</p></p>
+ * <p>Counseling, education, surgeries and physical therapy are 
+ * examples of the types of services that can be captured.</p>
  * 
- * <p><p>A_BillableClinicalService</p></p>
- * 
- * <p><p>Information about surgeries, councilling and other 
+ * <p>Information about surgeries, councilling and other 
  * professional services is a key element of the EHR. It 
  * provides context around services provided and may inform 
- * choices about how best to manage the patient's 
- * healthcare.</p></p>
+ * choices about how best to manage the patient's healthcare.</p>
+ * 
+ * <p>A_BillableClinicalService</p>
  */
 @Hl7PartTypeMapping({"REPC_MT610001CA.ProcedureEvent"})
 @Hl7RootType
 public class ProfessionalServiceBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110127L;
-    private OccurredAtBean location;
+    private static final long serialVersionUID = 20100603L;
     private CD serviceType = new CDImpl();
-    private List<CareCompositionsBean> componentOfPatientCareProvisionEvent = new ArrayList<CareCompositionsBean>();
-    private IncludesBean subjectOf1;
-    private SET<CV, Code> serviceMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);
-    private List<ca.infoway.messagebuilder.model.common.coct_mt911108ca.ActingPerson> performerActingPerson = new ArrayList<ca.infoway.messagebuilder.model.common.coct_mt911108ca.ActingPerson>();
     private BL refutedIndicator = new BLImpl();
-    private Request_3Bean inFulfillmentOfActRequest;
-    private List<BecauseOfBean> reason = new ArrayList<BecauseOfBean>();
-    private List<OldProcedureEventBean> predecessorOldProcedureEvent = new ArrayList<OldProcedureEventBean>();
-    private ActingPerson informantActingPerson;
-    private ClinicalDocumentEventBean subjectOf2ClinicalDocumentEvent;
-    private List<ActDefinitionBean> definitionActDefinition = new ArrayList<ActDefinitionBean>();
     private IVL<TS, Interval<Date>> serviceTimeAndLength = new IVLImpl<TS, Interval<Date>>();
+    private SET<CV, Code> serviceMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);
+    private List<ca.infoway.messagebuilder.model.common.coct_mt911108ca.ActingPersonBean> performerActingPerson = new ArrayList<ca.infoway.messagebuilder.model.common.coct_mt911108ca.ActingPersonBean>();
+    private ActingPersonBean informantActingPerson;
+    private OccurredAtBean location;
+    private ActRequest_5Bean inFulfillmentOfActRequest;
+    private List<ActDefinitionBean> definitionActDefinition = new ArrayList<ActDefinitionBean>();
+    private List<OldProcedureEventBean> predecessorOldProcedureEvent = new ArrayList<OldProcedureEventBean>();
+    private List<BecauseOfBean> reason = new ArrayList<BecauseOfBean>();
+    private HasNotesBean subjectOf1;
+    private ClinicalDocumentEventBean subjectOf2ClinicalDocumentEvent;
+    private List<CareCompositionsBean> componentOfPatientCareProvisionEvent = new ArrayList<CareCompositionsBean>();
 
-
-    @Hl7XmlMapping({"location"})
-    public OccurredAtBean getLocation() {
-        return this.location;
-    }
-    public void setLocation(OccurredAtBean location) {
-        this.location = location;
-    }
-
-
-    /**
-     * <p>B:Service Type</p>
-     * 
-     * <p></p><p>e.g. appendectomy, smoking cessation counseling, 
-     * physiotherapy</p></p>
-     * 
-     * <p></p><p>e.g. appendectomy, smoking cessation counseling, 
-     * physiotherapy</p></p>
-     * 
-     * <p><p>PatientConsultation.category</p><p>D57</p><p>ZPS.5.1</p><p>ZPS.5.2 
-     * (experience handled as qualifier)</p><p>Claim.436-E1 (code 
-     * system)</p><p>Claim.407-D7 (mnemonic)</p><p>Claim.459-ER 
-     * (modifier)</p><p>Claim.418-DI 
-     * (modifier)</p><p>DUR/PPS.474-8E 
-     * (modifier)</p><p>A_BillableClinicalService</p></p>
-     * 
-     * <p><p>PatientConsultation.category</p><p>D57</p><p>ZPS.5.1</p><p>ZPS.5.2 
-     * (experience handled as qualifier)</p><p>Claim.436-E1 (code 
-     * system)</p><p>Claim.407-D7 (mnemonic)</p><p>Claim.459-ER 
-     * (modifier)</p><p>Claim.418-DI 
-     * (modifier)</p><p>DUR/PPS.474-8E 
-     * (modifier)</p><p>A_BillableClinicalService</p></p>
-     * 
-     * <p><p>PatientConsultation.category</p><p>D57</p><p>ZPS.5.1</p><p>ZPS.5.2 
-     * (experience handled as qualifier)</p><p>Claim.436-E1 (code 
-     * system)</p><p>Claim.407-D7 (mnemonic)</p><p>Claim.459-ER 
-     * (modifier)</p><p>Claim.418-DI 
-     * (modifier)</p><p>DUR/PPS.474-8E 
-     * (modifier)</p><p>A_BillableClinicalService</p></p>
-     * 
-     * <p><p>PatientConsultation.category</p><p>D57</p><p>ZPS.5.1</p><p>ZPS.5.2 
-     * (experience handled as qualifier)</p><p>Claim.436-E1 (code 
-     * system)</p><p>Claim.407-D7 (mnemonic)</p><p>Claim.459-ER 
-     * (modifier)</p><p>Claim.418-DI 
-     * (modifier)</p><p>DUR/PPS.474-8E 
-     * (modifier)</p><p>A_BillableClinicalService</p></p>
-     * 
-     * <p><p>PatientConsultation.category</p><p>D57</p><p>ZPS.5.1</p><p>ZPS.5.2 
-     * (experience handled as qualifier)</p><p>Claim.436-E1 (code 
-     * system)</p><p>Claim.407-D7 (mnemonic)</p><p>Claim.459-ER 
-     * (modifier)</p><p>Claim.418-DI 
-     * (modifier)</p><p>DUR/PPS.474-8E 
-     * (modifier)</p><p>A_BillableClinicalService</p></p>
-     * 
-     * <p><p>PatientConsultation.category</p><p>D57</p><p>ZPS.5.1</p><p>ZPS.5.2 
-     * (experience handled as qualifier)</p><p>Claim.436-E1 (code 
-     * system)</p><p>Claim.407-D7 (mnemonic)</p><p>Claim.459-ER 
-     * (modifier)</p><p>Claim.418-DI 
-     * (modifier)</p><p>DUR/PPS.474-8E 
-     * (modifier)</p><p>A_BillableClinicalService</p></p>
-     * 
-     * <p><p>PatientConsultation.category</p><p>D57</p><p>ZPS.5.1</p><p>ZPS.5.2 
-     * (experience handled as qualifier)</p><p>Claim.436-E1 (code 
-     * system)</p><p>Claim.407-D7 (mnemonic)</p><p>Claim.459-ER 
-     * (modifier)</p><p>Claim.418-DI 
-     * (modifier)</p><p>DUR/PPS.474-8E 
-     * (modifier)</p><p>A_BillableClinicalService</p></p>
-     * 
-     * <p><p>PatientConsultation.category</p><p>D57</p><p>ZPS.5.1</p><p>ZPS.5.2 
-     * (experience handled as qualifier)</p><p>Claim.436-E1 (code 
-     * system)</p><p>Claim.407-D7 (mnemonic)</p><p>Claim.459-ER 
-     * (modifier)</p><p>Claim.418-DI 
-     * (modifier)</p><p>DUR/PPS.474-8E 
-     * (modifier)</p><p>A_BillableClinicalService</p></p>
-     * 
-     * <p><p>PatientConsultation.category</p><p>D57</p><p>ZPS.5.1</p><p>ZPS.5.2 
-     * (experience handled as qualifier)</p><p>Claim.436-E1 (code 
-     * system)</p><p>Claim.407-D7 (mnemonic)</p><p>Claim.459-ER 
-     * (modifier)</p><p>Claim.418-DI 
-     * (modifier)</p><p>DUR/PPS.474-8E 
-     * (modifier)</p><p>A_BillableClinicalService</p></p>
-     * 
-     * <p><p>PatientConsultation.category</p><p>D57</p><p>ZPS.5.1</p><p>ZPS.5.2 
-     * (experience handled as qualifier)</p><p>Claim.436-E1 (code 
-     * system)</p><p>Claim.407-D7 (mnemonic)</p><p>Claim.459-ER 
-     * (modifier)</p><p>Claim.418-DI 
-     * (modifier)</p><p>DUR/PPS.474-8E 
-     * (modifier)</p><p>A_BillableClinicalService</p></p>
-     * 
-     * <p></p></p>
-     * 
-     * <p></p></p>
-     * 
-     * <p></p></p>
-     * 
-     * <p></p></p>
-     */
     @Hl7XmlMapping({"code"})
     public ActProfessionalServiceCode getServiceType() {
         return (ActProfessionalServiceCode) this.serviceType.getValue();
@@ -189,54 +85,6 @@ public class ProfessionalServiceBean extends MessagePartBean {
         this.serviceType.setValue(serviceType);
     }
 
-
-    @Hl7XmlMapping({"componentOf/patientCareProvisionEvent"})
-    public List<CareCompositionsBean> getComponentOfPatientCareProvisionEvent() {
-        return this.componentOfPatientCareProvisionEvent;
-    }
-
-
-    @Hl7XmlMapping({"subjectOf1"})
-    public IncludesBean getSubjectOf1() {
-        return this.subjectOf1;
-    }
-    public void setSubjectOf1(IncludesBean subjectOf1) {
-        this.subjectOf1 = subjectOf1;
-    }
-
-
-    /**
-     * <p>D:Service Masking Indicators</p>
-     * 
-     * <p></p></p>
-     * 
-     * <p></p></p>
-     * 
-     * <p></p></p>
-     * 
-     * <p></p></p>
-     */
-    @Hl7XmlMapping({"confidentialityCode"})
-    public Set<x_BasicConfidentialityKind> getServiceMaskingIndicators() {
-        return this.serviceMaskingIndicators.rawSet(x_BasicConfidentialityKind.class);
-    }
-
-
-    @Hl7XmlMapping({"performer/actingPerson"})
-    public List<ca.infoway.messagebuilder.model.common.coct_mt911108ca.ActingPerson> getPerformerActingPerson() {
-        return this.performerActingPerson;
-    }
-
-
-    /**
-     * <p>C:Refuted Indicator</p>
-     * 
-     * <p></p></p>
-     * 
-     * <p></p></p>
-     * 
-     * <p></p></p>
-     */
     @Hl7XmlMapping({"negationInd"})
     public Boolean getRefutedIndicator() {
         return this.refutedIndicator.getValue();
@@ -245,33 +93,29 @@ public class ProfessionalServiceBean extends MessagePartBean {
         this.refutedIndicator.setValue(refutedIndicator);
     }
 
-
-    @Hl7XmlMapping({"inFulfillmentOf/actRequest"})
-    public Request_3Bean getInFulfillmentOfActRequest() {
-        return this.inFulfillmentOfActRequest;
+    @Hl7XmlMapping({"effectiveTime"})
+    public Interval<Date> getServiceTimeAndLength() {
+        return this.serviceTimeAndLength.getValue();
     }
-    public void setInFulfillmentOfActRequest(Request_3Bean inFulfillmentOfActRequest) {
-        this.inFulfillmentOfActRequest = inFulfillmentOfActRequest;
-    }
-
-
-    @Hl7XmlMapping({"reason"})
-    public List<BecauseOfBean> getReason() {
-        return this.reason;
+    public void setServiceTimeAndLength(Interval<Date> serviceTimeAndLength) {
+        this.serviceTimeAndLength.setValue(serviceTimeAndLength);
     }
 
-
-    @Hl7XmlMapping({"predecessor/oldProcedureEvent"})
-    public List<OldProcedureEventBean> getPredecessorOldProcedureEvent() {
-        return this.predecessorOldProcedureEvent;
+    @Hl7XmlMapping({"confidentialityCode"})
+    public Set<x_BasicConfidentialityKind> getServiceMaskingIndicators() {
+        return this.serviceMaskingIndicators.rawSet(x_BasicConfidentialityKind.class);
     }
 
+    @Hl7XmlMapping({"performer/actingPerson"})
+    public List<ca.infoway.messagebuilder.model.common.coct_mt911108ca.ActingPersonBean> getPerformerActingPerson() {
+        return this.performerActingPerson;
+    }
 
     @Hl7XmlMapping({"informant/actingPerson"})
-    public ActingPerson getInformantActingPerson() {
+    public ActingPersonBean getInformantActingPerson() {
         return this.informantActingPerson;
     }
-    public void setInformantActingPerson(ActingPerson informantActingPerson) {
+    public void setInformantActingPerson(ActingPersonBean informantActingPerson) {
         this.informantActingPerson = informantActingPerson;
     }
 
@@ -289,13 +133,51 @@ public class ProfessionalServiceBean extends MessagePartBean {
         return (this.informantActingPerson instanceof HealthcareOrganizationBean);
     }
 
-    public Patient_2Bean getInformantActingPersonAsPatient() {
-        return this.informantActingPerson instanceof Patient_2Bean ? (Patient_2Bean) this.informantActingPerson : null;
+    public Patient_1Bean getInformantActingPersonAsPatient() {
+        return this.informantActingPerson instanceof Patient_1Bean ? (Patient_1Bean) this.informantActingPerson : null;
     }
     public boolean hasInformantActingPersonAsPatient() {
-        return (this.informantActingPerson instanceof Patient_2Bean);
+        return (this.informantActingPerson instanceof Patient_1Bean);
     }
 
+    @Hl7XmlMapping({"location"})
+    public OccurredAtBean getLocation() {
+        return this.location;
+    }
+    public void setLocation(OccurredAtBean location) {
+        this.location = location;
+    }
+
+    @Hl7XmlMapping({"inFulfillmentOf/actRequest"})
+    public ActRequest_5Bean getInFulfillmentOfActRequest() {
+        return this.inFulfillmentOfActRequest;
+    }
+    public void setInFulfillmentOfActRequest(ActRequest_5Bean inFulfillmentOfActRequest) {
+        this.inFulfillmentOfActRequest = inFulfillmentOfActRequest;
+    }
+
+    @Hl7XmlMapping({"definition/actDefinition"})
+    public List<ActDefinitionBean> getDefinitionActDefinition() {
+        return this.definitionActDefinition;
+    }
+
+    @Hl7XmlMapping({"predecessor/oldProcedureEvent"})
+    public List<OldProcedureEventBean> getPredecessorOldProcedureEvent() {
+        return this.predecessorOldProcedureEvent;
+    }
+
+    @Hl7XmlMapping({"reason"})
+    public List<BecauseOfBean> getReason() {
+        return this.reason;
+    }
+
+    @Hl7XmlMapping({"subjectOf1"})
+    public HasNotesBean getSubjectOf1() {
+        return this.subjectOf1;
+    }
+    public void setSubjectOf1(HasNotesBean subjectOf1) {
+        this.subjectOf1 = subjectOf1;
+    }
 
     @Hl7XmlMapping({"subjectOf2/clinicalDocumentEvent"})
     public ClinicalDocumentEventBean getSubjectOf2ClinicalDocumentEvent() {
@@ -305,56 +187,9 @@ public class ProfessionalServiceBean extends MessagePartBean {
         this.subjectOf2ClinicalDocumentEvent = subjectOf2ClinicalDocumentEvent;
     }
 
-
-    @Hl7XmlMapping({"definition/actDefinition"})
-    public List<ActDefinitionBean> getDefinitionActDefinition() {
-        return this.definitionActDefinition;
-    }
-
-
-    /**
-     * <p>E:Service Time and Length</p>
-     * 
-     * <p><p>Center date cannot be null but duration can be left 
-     * unspecified if not known.</p></p>
-     * 
-     * <p><p>The date and time during which the professional 
-     * service was performed, as well as the duration of the 
-     * service. May be specified as any one or two of start time, 
-     * end time and duration.</p></p>
-     * 
-     * <p><p>PatientConsultation.eventTime(Low)</p><p>patientConsultation.eventDuration(Width)</p><p>ZPS.4 
-     * (center)</p><p>ZPS.5.2(timing portion of code 
-     * set)</p><p>Claim.457-EP</p><p>A_BillableClinicalService</p></p>
-     * 
-     * <p><p>PatientConsultation.eventTime(Low)</p><p>patientConsultation.eventDuration(Width)</p><p>ZPS.4 
-     * (center)</p><p>ZPS.5.2(timing portion of code 
-     * set)</p><p>Claim.457-EP</p><p>A_BillableClinicalService</p></p>
-     * 
-     * <p><p>PatientConsultation.eventTime(Low)</p><p>patientConsultation.eventDuration(Width)</p><p>ZPS.4 
-     * (center)</p><p>ZPS.5.2(timing portion of code 
-     * set)</p><p>Claim.457-EP</p><p>A_BillableClinicalService</p></p>
-     * 
-     * <p><p>PatientConsultation.eventTime(Low)</p><p>patientConsultation.eventDuration(Width)</p><p>ZPS.4 
-     * (center)</p><p>ZPS.5.2(timing portion of code 
-     * set)</p><p>Claim.457-EP</p><p>A_BillableClinicalService</p></p>
-     * 
-     * <p><p>PatientConsultation.eventTime(Low)</p><p>patientConsultation.eventDuration(Width)</p><p>ZPS.4 
-     * (center)</p><p>ZPS.5.2(timing portion of code 
-     * set)</p><p>Claim.457-EP</p><p>A_BillableClinicalService</p></p>
-     * 
-     * <p><p>PatientConsultation.eventTime(Low)</p><p>patientConsultation.eventDuration(Width)</p><p>ZPS.4 
-     * (center)</p><p>ZPS.5.2(timing portion of code 
-     * set)</p><p>Claim.457-EP</p><p>A_BillableClinicalService</p></p>
-     * 
-     * <p></p></p>
-     */
-    @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getServiceTimeAndLength() {
-        return this.serviceTimeAndLength.getValue();
-    }
-    public void setServiceTimeAndLength(Interval<Date> serviceTimeAndLength) {
-        this.serviceTimeAndLength.setValue(serviceTimeAndLength);
+    @Hl7XmlMapping({"componentOf/patientCareProvisionEvent"})
+    public List<CareCompositionsBean> getComponentOfPatientCareProvisionEvent() {
+        return this.componentOfPatientCareProvisionEvent;
     }
 
 }

@@ -7,7 +7,6 @@ import java.io.IOException;
 
 import ca.infoway.messagebuilder.generator.GeneratorException;
 import ca.infoway.messagebuilder.generator.OutputUI;
-import ca.infoway.messagebuilder.generator.lang.ProgrammingLanguage;
 
 public class IntermediateToJavaGenerator extends IntermediateToModelGenerator {
 	
@@ -24,9 +23,9 @@ public class IntermediateToJavaGenerator extends IntermediateToModelGenerator {
 	 * <p>The Case 3 algorithm only applies to Java and .Net. 
 	 */
 	@Override
-	public void simplify(SimplifiableDefinitions definitions) throws GeneratorException {
-		new Case3Simplifier(this.outputUI, definitions).execute();
-		super.simplify(definitions);
+	public void simplify(TypeAnalysisResult result) throws GeneratorException {
+		new Case3Simplifier(this.outputUI, result).execute();
+		super.simplify(result);
 	}
 	
 	@Override
@@ -34,9 +33,5 @@ public class IntermediateToJavaGenerator extends IntermediateToModelGenerator {
 		SimpleNameTranslator translator = new SimpleNameTranslator(JAVA, this.basePackageName, result);
 		JavaSourceFileWriterProvider writerProvider = new JavaSourceFileWriterProvider(this.sourceFolder, translator);
 		new JavaTypeWriter(this.outputUI, writerProvider, translator, result).writeTypes();
-	}
-	@Override
-	protected ProgrammingLanguage getProgrammingLanguage() {
-		return ProgrammingLanguage.JAVA;
 	}
 }

@@ -19,49 +19,57 @@ import ca.infoway.messagebuilder.domainvalue.ActCode;
 import ca.infoway.messagebuilder.domainvalue.SubjectReaction;
 import ca.infoway.messagebuilder.domainvalue.x_VeryBasicConfidentialityKind;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.common.merged.PatientBean;
-import ca.infoway.messagebuilder.model.iehr.merged.ReportedByBean;
-import ca.infoway.messagebuilder.model.iehr.merged.ReportedReactionsBean;
 import ca.infoway.messagebuilder.model.merged.AllergyIntoleranceSeverityLevelBean;
-import ca.infoway.messagebuilder.model.merged.CommentBean;
+import ca.infoway.messagebuilder.model.merged.CausalityAssessment_1Bean;
+import ca.infoway.messagebuilder.model.merged.NotesBean;
+import ca.infoway.messagebuilder.model.merged.Patient_1Bean;
+import ca.infoway.messagebuilder.model.merged.ReportedByBean;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 
 
+/**
+ * <p>Reported Reaction</p>
+ * 
+ * <p>This is a record of an adverse reaction considered 
+ * relevant to the patient's clincal record.</p>
+ * 
+ * <p>Useful in tracking reactions when it is not known 
+ * precisely what product they are associated with and whether 
+ * the reaction is due to an allergy or intolerance, a drug 
+ * interaction or some other cause. Effectively gives a 'heads 
+ * up' to clinicians using the drug or combination of drugs.</p>
+ * 
+ * <p>Value is mandatory if not using SNOMED</p>
+ * 
+ * <p>Code is fixed to DX if not using SNOMED</p>
+ */
 @Hl7PartTypeMapping({"REPC_MT000002CA.ReactionObservationEvent"})
 @Hl7RootType
 public class ReportedReactionBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110127L;
-    private CV adverseReactionMaskingIndicator = new CVImpl();
-    private ST description = new STImpl();
-    private CommentBean subjectOf1Annotation;
-    private PatientBean subjectPatient;
-    private AllergyIntoleranceSeverityLevelBean subjectOf2SeverityObservation;
-    private ReportedByBean informant;
-    private List<ReportedReactionsBean> subjectOf3CausalityAssessment = new ArrayList<ReportedReactionsBean>();
-    private CV reaction = new CVImpl();
-    private IVL<TS, Interval<Date>> reactionOnsetDate = new IVLImpl<TS, Interval<Date>>();
+    private static final long serialVersionUID = 20100614L;
     private CD diagnosisType = new CDImpl();
+    private ST description = new STImpl();
+    private IVL<TS, Interval<Date>> reactionOnsetDate = new IVLImpl<TS, Interval<Date>>();
+    private CV adverseReactionMaskingIndicator = new CVImpl();
+    private CV reaction = new CVImpl();
+    private Patient_1Bean subjectPatient;
+    private ReportedByBean informant;
+    private NotesBean subjectOf1Annotation;
+    private AllergyIntoleranceSeverityLevelBean subjectOf2SeverityObservation;
+    private List<CausalityAssessment_1Bean> subjectOf3CausalityAssessment = new ArrayList<CausalityAssessment_1Bean>();
 
-
-    /**
-     * <p>G:Adverse Reaction Masking Indicator</p>
-     */
-    @Hl7XmlMapping({"confidentialityCode"})
-    public x_VeryBasicConfidentialityKind getAdverseReactionMaskingIndicator() {
-        return (x_VeryBasicConfidentialityKind) this.adverseReactionMaskingIndicator.getValue();
+    @Hl7XmlMapping({"code"})
+    public ActCode getDiagnosisType() {
+        return (ActCode) this.diagnosisType.getValue();
     }
-    public void setAdverseReactionMaskingIndicator(x_VeryBasicConfidentialityKind adverseReactionMaskingIndicator) {
-        this.adverseReactionMaskingIndicator.setValue(adverseReactionMaskingIndicator);
+    public void setDiagnosisType(ActCode diagnosisType) {
+        this.diagnosisType.setValue(diagnosisType);
     }
 
-
-    /**
-     * <p>G:Description</p>
-     */
     @Hl7XmlMapping({"text"})
     public String getDescription() {
         return this.description.getValue();
@@ -70,33 +78,37 @@ public class ReportedReactionBean extends MessagePartBean {
         this.description.setValue(description);
     }
 
-
-    @Hl7XmlMapping({"subjectOf1/annotation"})
-    public CommentBean getSubjectOf1Annotation() {
-        return this.subjectOf1Annotation;
+    @Hl7XmlMapping({"effectiveTime"})
+    public Interval<Date> getReactionOnsetDate() {
+        return this.reactionOnsetDate.getValue();
     }
-    public void setSubjectOf1Annotation(CommentBean subjectOf1Annotation) {
-        this.subjectOf1Annotation = subjectOf1Annotation;
+    public void setReactionOnsetDate(Interval<Date> reactionOnsetDate) {
+        this.reactionOnsetDate.setValue(reactionOnsetDate);
     }
 
+    @Hl7XmlMapping({"confidentialityCode"})
+    public x_VeryBasicConfidentialityKind getAdverseReactionMaskingIndicator() {
+        return (x_VeryBasicConfidentialityKind) this.adverseReactionMaskingIndicator.getValue();
+    }
+    public void setAdverseReactionMaskingIndicator(x_VeryBasicConfidentialityKind adverseReactionMaskingIndicator) {
+        this.adverseReactionMaskingIndicator.setValue(adverseReactionMaskingIndicator);
+    }
+
+    @Hl7XmlMapping({"value"})
+    public SubjectReaction getReaction() {
+        return (SubjectReaction) this.reaction.getValue();
+    }
+    public void setReaction(SubjectReaction reaction) {
+        this.reaction.setValue(reaction);
+    }
 
     @Hl7XmlMapping({"subject/patient"})
-    public PatientBean getSubjectPatient() {
+    public Patient_1Bean getSubjectPatient() {
         return this.subjectPatient;
     }
-    public void setSubjectPatient(PatientBean subjectPatient) {
+    public void setSubjectPatient(Patient_1Bean subjectPatient) {
         this.subjectPatient = subjectPatient;
     }
-
-
-    @Hl7XmlMapping({"subjectOf2/severityObservation"})
-    public AllergyIntoleranceSeverityLevelBean getSubjectOf2SeverityObservation() {
-        return this.subjectOf2SeverityObservation;
-    }
-    public void setSubjectOf2SeverityObservation(AllergyIntoleranceSeverityLevelBean subjectOf2SeverityObservation) {
-        this.subjectOf2SeverityObservation = subjectOf2SeverityObservation;
-    }
-
 
     @Hl7XmlMapping({"informant"})
     public ReportedByBean getInformant() {
@@ -106,46 +118,25 @@ public class ReportedReactionBean extends MessagePartBean {
         this.informant = informant;
     }
 
+    @Hl7XmlMapping({"subjectOf1/annotation"})
+    public NotesBean getSubjectOf1Annotation() {
+        return this.subjectOf1Annotation;
+    }
+    public void setSubjectOf1Annotation(NotesBean subjectOf1Annotation) {
+        this.subjectOf1Annotation = subjectOf1Annotation;
+    }
+
+    @Hl7XmlMapping({"subjectOf2/severityObservation"})
+    public AllergyIntoleranceSeverityLevelBean getSubjectOf2SeverityObservation() {
+        return this.subjectOf2SeverityObservation;
+    }
+    public void setSubjectOf2SeverityObservation(AllergyIntoleranceSeverityLevelBean subjectOf2SeverityObservation) {
+        this.subjectOf2SeverityObservation = subjectOf2SeverityObservation;
+    }
 
     @Hl7XmlMapping({"subjectOf3/causalityAssessment"})
-    public List<ReportedReactionsBean> getSubjectOf3CausalityAssessment() {
+    public List<CausalityAssessment_1Bean> getSubjectOf3CausalityAssessment() {
         return this.subjectOf3CausalityAssessment;
-    }
-
-
-    /**
-     * <p>B:Reaction</p>
-     */
-    @Hl7XmlMapping({"value"})
-    public SubjectReaction getReaction() {
-        return (SubjectReaction) this.reaction.getValue();
-    }
-    public void setReaction(SubjectReaction reaction) {
-        this.reaction.setValue(reaction);
-    }
-
-
-    /**
-     * <p>F:Reaction Onset Date</p>
-     */
-    @Hl7XmlMapping({"effectiveTime"})
-    public Interval<Date> getReactionOnsetDate() {
-        return this.reactionOnsetDate.getValue();
-    }
-    public void setReactionOnsetDate(Interval<Date> reactionOnsetDate) {
-        this.reactionOnsetDate.setValue(reactionOnsetDate);
-    }
-
-
-    /**
-     * <p>Diagnosis Type</p>
-     */
-    @Hl7XmlMapping({"code"})
-    public ActCode getDiagnosisType() {
-        return (ActCode) this.diagnosisType.getValue();
-    }
-    public void setDiagnosisType(ActCode diagnosisType) {
-        this.diagnosisType.setValue(diagnosisType);
     }
 
 }

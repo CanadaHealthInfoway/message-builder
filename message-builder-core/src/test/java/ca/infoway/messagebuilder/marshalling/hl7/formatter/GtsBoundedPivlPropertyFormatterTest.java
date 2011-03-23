@@ -29,8 +29,8 @@ public class GtsBoundedPivlPropertyFormatterTest extends FormatterTestCase {
 		System.out.println(result);
 		assertXml("result", "<name specializationType=\"GTS.BOUNDEDPIVL\" xsi:type=\"SXPR_TS\">" +
 				"<comp specializationType=\"IVL_TS.FULLDATE\" xsi:type=\"IVL_TS\">" +
-				"<low value=\"19691231\"/>" +
-				"<high value=\"19691231\"/></comp>" +
+				"<low specializationType=\"TS.FULLDATE\" value=\"19691231\" xsi:type=\"TS\"/>" +
+				"<high specializationType=\"TS.FULLDATE\" value=\"19691231\" xsi:type=\"TS\"/></comp>" +
 				"<comp operator=\"I\" specializationType=\"PIVL_TS.DATETIME\" xsi:type=\"PIVL_TS\">" +
 				"<period unit=\"min\" value=\"3\"/></comp></name>", result);
 	}
@@ -45,7 +45,7 @@ public class GtsBoundedPivlPropertyFormatterTest extends FormatterTestCase {
 		System.out.println(result);
 		assertXml("result", "<name specializationType=\"GTS.BOUNDEDPIVL\" xsi:type=\"SXPR_TS\">" +
 				"<comp specializationType=\"IVL_TS.FULLDATE\" xsi:type=\"IVL_TS\">" +
-				"<low value=\"19691231\"/>" +
+				"<low specializationType=\"TS.FULLDATE\" value=\"19691231\" xsi:type=\"TS\"/>" +
 				"<width unit=\"min\" value=\"3\"/></comp>" +
 				"<comp operator=\"I\" specializationType=\"PIVL_TS.DATETIME\" xsi:type=\"PIVL_TS\">" +
 				"<frequency><numerator specializationType=\"INT.NONNEG\" value=\"3\" xsi:type=\"INT\"/>" +
@@ -63,8 +63,8 @@ public class GtsBoundedPivlPropertyFormatterTest extends FormatterTestCase {
 		System.out.println(result);
 		assertXml("result", "<name specializationType=\"GTS.BOUNDEDPIVL\" xsi:type=\"SXPR_TS\">" +
 				"<comp specializationType=\"IVL_TS.FULLDATE\" xsi:type=\"IVL_TS\">" +
-				"<low value=\"19691231\"/>" +
-				"<high value=\"19691231\"/></comp>" +
+				"<low specializationType=\"TS.FULLDATE\" value=\"19691231\" xsi:type=\"TS\"/>" +
+				"<high specializationType=\"TS.FULLDATE\" value=\"19691231\" xsi:type=\"TS\"/></comp>" +
 				"<comp operator=\"I\" specializationType=\"PIVL_TS.DATETIME\" xsi:type=\"PIVL_TS\">" +
 				"<period/><phase><low value=\"19691231\"/><high value=\"19691231\"/></phase></comp></name>", result);
 	}
@@ -79,8 +79,8 @@ public class GtsBoundedPivlPropertyFormatterTest extends FormatterTestCase {
 		System.out.println(result);
 		assertXml("result", "<name specializationType=\"GTS.BOUNDEDPIVL\" xsi:type=\"SXPR_TS\">" +
 				"<comp specializationType=\"IVL_TS.FULLDATE\" xsi:type=\"IVL_TS\">" +
-				"<low value=\"19691231\"/>" +
-				"<high value=\"19691231\"/></comp>" +
+				"<low specializationType=\"TS.FULLDATE\" value=\"19691231\" xsi:type=\"TS\"/>" +
+				"<high specializationType=\"TS.FULLDATE\" value=\"19691231\" xsi:type=\"TS\"/></comp>" +
 				"<comp operator=\"I\" specializationType=\"PIVL_TS.DATETIME\" xsi:type=\"PIVL_TS\">" +
 				"<phase><low value=\"19691231\"/><high value=\"19691231\"/></phase></comp></name>", result);
 	}

@@ -7,10 +7,8 @@ import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
 import ca.infoway.messagebuilder.datatype.CV;
 import ca.infoway.messagebuilder.datatype.impl.CVImpl;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.claims.merged.InvoiceElementDetailBean;
-import ca.infoway.messagebuilder.model.claims.merged.InvoiceElementGroupBean;
-import ca.infoway.messagebuilder.model.merged.InvoiceElementChoice;
-import ca.infoway.messagebuilder.model.merged.IssuesBean;
+import ca.infoway.messagebuilder.model.common.coct_mt260020ca.DetectedIssueEventBean;
+import ca.infoway.messagebuilder.model.merged.Trigger2Bean;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,17 +17,13 @@ import java.util.List;
 @Hl7PartTypeMapping({"FICR_MT510201CA.AdjudicationResult"})
 public class AdjudicationResultBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110127L;
+    private static final long serialVersionUID = 20100603L;
     private CV adjudicationResultsAdjudicationCode = new CVImpl();
-    private List<AdjudicationCodeChoice> pertinentInformationAdjudicationCodeChoice = new ArrayList<AdjudicationCodeChoice>();
-    private List<IssuesBean> reasonOfDetectedIssueEvent = new ArrayList<IssuesBean>();
-    private List<InvoiceElementChoice> referenceInvoiceElementChoice = new ArrayList<InvoiceElementChoice>();
-    private List<Trigger1Bean> trigger = new ArrayList<Trigger1Bean>();
+    private List<Trigger2Bean> trigger = new ArrayList<Trigger2Bean>();
+    private List<InvoiceElementChoiceBean> referenceInvoiceElementChoice = new ArrayList<InvoiceElementChoiceBean>();
+    private List<AdjudicationCodeChoiceBean> pertinentInformationAdjudicationCodeChoice = new ArrayList<AdjudicationCodeChoiceBean>();
+    private List<DetectedIssueEventBean> reasonOfDetectedIssueEvent = new ArrayList<DetectedIssueEventBean>();
 
-
-    /**
-     * <p>Adjudication Results Adjudication Code</p>
-     */
     @Hl7XmlMapping({"code"})
     public Code getAdjudicationResultsAdjudicationCode() {
         return (Code) this.adjudicationResultsAdjudicationCode.getValue();
@@ -38,28 +32,24 @@ public class AdjudicationResultBean extends MessagePartBean {
         this.adjudicationResultsAdjudicationCode.setValue(adjudicationResultsAdjudicationCode);
     }
 
-
-    @Hl7XmlMapping({"pertinentInformation/adjudicationCodeChoice"})
-    public List<AdjudicationCodeChoice> getPertinentInformationAdjudicationCodeChoice() {
-        return this.pertinentInformationAdjudicationCodeChoice;
+    @Hl7XmlMapping({"trigger"})
+    public List<Trigger2Bean> getTrigger() {
+        return this.trigger;
     }
-
-
-    @Hl7XmlMapping({"reasonOf/detectedIssueEvent"})
-    public List<IssuesBean> getReasonOfDetectedIssueEvent() {
-        return this.reasonOfDetectedIssueEvent;
-    }
-
 
     @Hl7XmlMapping({"reference/invoiceElementChoice"})
-    public List<InvoiceElementChoice> getReferenceInvoiceElementChoice() {
+    public List<InvoiceElementChoiceBean> getReferenceInvoiceElementChoice() {
         return this.referenceInvoiceElementChoice;
     }
 
+    @Hl7XmlMapping({"pertinentInformation/adjudicationCodeChoice"})
+    public List<AdjudicationCodeChoiceBean> getPertinentInformationAdjudicationCodeChoice() {
+        return this.pertinentInformationAdjudicationCodeChoice;
+    }
 
-    @Hl7XmlMapping({"trigger"})
-    public List<Trigger1Bean> getTrigger() {
-        return this.trigger;
+    @Hl7XmlMapping({"reasonOf/detectedIssueEvent"})
+    public List<DetectedIssueEventBean> getReasonOfDetectedIssueEvent() {
+        return this.reasonOfDetectedIssueEvent;
     }
 
 }

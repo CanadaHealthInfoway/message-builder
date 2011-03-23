@@ -19,19 +19,20 @@ import ca.infoway.messagebuilder.datatype.lang.Identifier;
 import ca.infoway.messagebuilder.domainvalue.ReferralDocumentType;
 import ca.infoway.messagebuilder.domainvalue.x_BasicConfidentialityKind;
 import ca.infoway.messagebuilder.model.MessagePartBean;
+import ca.infoway.messagebuilder.model.common.coct_mt011001ca.CareCompositionsBean;
+import ca.infoway.messagebuilder.model.common.coct_mt090108ca.HealthcareWorkerBean;
+import ca.infoway.messagebuilder.model.common.coct_mt090310ca.EHRRepositoryBean;
 import ca.infoway.messagebuilder.model.common.coct_mt090508ca.HealthcareOrganizationBean;
 import ca.infoway.messagebuilder.model.common.coct_mt910108ca.RelatedPersonBean;
-import ca.infoway.messagebuilder.model.common.coct_mt911108ca.ActingPerson;
-import ca.infoway.messagebuilder.model.common.merged.EHRRepositoryBean;
-import ca.infoway.messagebuilder.model.common.merged.HealthcareWorkerBean;
-import ca.infoway.messagebuilder.model.common.merged.ServiceLocationBean;
-import ca.infoway.messagebuilder.model.iehr.merged.DocumentContent_1;
-import ca.infoway.messagebuilder.model.iehr.merged.NewClinicalDocumentEventBean;
-import ca.infoway.messagebuilder.model.iehr.merged.OldClinicalDocumentEventBean;
-import ca.infoway.messagebuilder.model.iehr.merged.Recipients;
-import ca.infoway.messagebuilder.model.iehr.merged.RequestedByBean;
-import ca.infoway.messagebuilder.model.merged.CareCompositionsBean;
-import ca.infoway.messagebuilder.model.merged.IncludesBean;
+import ca.infoway.messagebuilder.model.common.coct_mt911108ca.ActingPersonBean;
+import ca.infoway.messagebuilder.model.iehr.comt_mt111111ca.SHRBean;
+import ca.infoway.messagebuilder.model.merged.Author_3Bean;
+import ca.infoway.messagebuilder.model.merged.DocumentContent_1Bean;
+import ca.infoway.messagebuilder.model.merged.HasNotesBean;
+import ca.infoway.messagebuilder.model.merged.NewClinicalDocumentEventBean;
+import ca.infoway.messagebuilder.model.merged.OldClinicalDocumentEventBean;
+import ca.infoway.messagebuilder.model.merged.RecipientsBean;
+import ca.infoway.messagebuilder.model.merged.ServiceDeliveryLocation_2Bean;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -41,57 +42,46 @@ import java.util.Set;
 /**
  * <p>Referral</p>
  * 
- * <p><p>Annotation is only permitted if Annotation Indicator 
- * is not present and vice versa</p></p>
+ * <p>Represents a particular health-related document 
+ * pertaining to a single patient.</p>
  * 
- * <p><p>Represents a particular health-related document 
- * pertaining to a single patient.</p></p>
- * 
- * <p><p>Allows the capture of patient health data in an 
+ * <p>Allows the capture of patient health data in an 
  * encapsulated, contextualized manner with capability of 
  * displaying rendered content and communication between simple 
- * systems.</p></p>
+ * systems.</p>
+ * 
+ * <p>Annotation is only permitted if Annotation Indicator is 
+ * not present and vice versa</p>
  */
 @Hl7PartTypeMapping({"REPC_MT210002CA.Document"})
 @Hl7RootType
-public class ReferralBean extends MessagePartBean implements ca.infoway.messagebuilder.model.iehr.comt_mt111111ca.SHR {
+public class ReferralBean extends MessagePartBean implements SHRBean {
 
-    private static final long serialVersionUID = 20110127L;
-    private EHRRepositoryBean custodian2AssignedDevice;
-    private CV referralDocumentCategory = new CVImpl();
-    private ActingPerson responsiblePartyActingPerson;
-    private ServiceLocationBean custodian1ServiceDeliveryLocation;
-    private DocumentContent_1 componentStructuredBodyComponentSectionComponentDocumentContent;
-    private List<CareCompositionsBean> componentOfPatientCareProvisionEvent = new ArrayList<CareCompositionsBean>();
-    private RequestedByBean author;
-    private IncludesBean subjectOf1;
-    private BL subjectOf2AnnotationIndicator = new BLImpl();
-    private SET<CV, Code> documentMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);
-    private ST documentTitle = new STImpl();
-    private List<OldClinicalDocumentEventBean> predecessorOldClinicalDocumentEvent = new ArrayList<OldClinicalDocumentEventBean>();
-    private List<Recipients> primaryInformationRecipientRecipients = new ArrayList<Recipients>();
+    private static final long serialVersionUID = 20100603L;
     private II documentIdentifier = new IIImpl();
+    private CV referralDocumentCategory = new CVImpl();
+    private ST documentTitle = new STImpl();
+    private SET<CV, Code> documentMaskingIndicators = new SETImpl<CV, Code>(CVImpl.class);
+    private ActingPersonBean responsiblePartyActingPerson;
+    private Author_3Bean author;
+    private ServiceDeliveryLocation_2Bean custodian1ServiceDeliveryLocation;
+    private EHRRepositoryBean custodian2AssignedDevice;
+    private List<RecipientsBean> primaryInformationRecipientRecipients = new ArrayList<RecipientsBean>();
+    private List<OldClinicalDocumentEventBean> predecessorOldClinicalDocumentEvent = new ArrayList<OldClinicalDocumentEventBean>();
+    private DocumentContent_1Bean componentStructuredBodyComponentSectionComponentDocumentContent;
     private NewClinicalDocumentEventBean successorNewClinicalDocumentEvent;
+    private HasNotesBean subjectOf1;
+    private BL subjectOf2AnnotationIndicator = new BLImpl(false);
+    private List<CareCompositionsBean> componentOfPatientCareProvisionEvent = new ArrayList<CareCompositionsBean>();
 
-
-    @Hl7XmlMapping({"custodian2/assignedDevice"})
-    public EHRRepositoryBean getCustodian2AssignedDevice() {
-        return this.custodian2AssignedDevice;
+    @Hl7XmlMapping({"id"})
+    public Identifier getDocumentIdentifier() {
+        return this.documentIdentifier.getValue();
     }
-    public void setCustodian2AssignedDevice(EHRRepositoryBean custodian2AssignedDevice) {
-        this.custodian2AssignedDevice = custodian2AssignedDevice;
+    public void setDocumentIdentifier(Identifier documentIdentifier) {
+        this.documentIdentifier.setValue(documentIdentifier);
     }
 
-
-    /**
-     * <p>B: Referral Document Category</p>
-     * 
-     * <p></p></p>
-     * 
-     * <p></p></p>
-     * 
-     * <p></p></p>
-     */
     @Hl7XmlMapping({"code"})
     public ReferralDocumentType getReferralDocumentCategory() {
         return (ReferralDocumentType) this.referralDocumentCategory.getValue();
@@ -100,12 +90,24 @@ public class ReferralBean extends MessagePartBean implements ca.infoway.messageb
         this.referralDocumentCategory.setValue(referralDocumentCategory);
     }
 
+    @Hl7XmlMapping({"title"})
+    public String getDocumentTitle() {
+        return this.documentTitle.getValue();
+    }
+    public void setDocumentTitle(String documentTitle) {
+        this.documentTitle.setValue(documentTitle);
+    }
+
+    @Hl7XmlMapping({"confidentialityCode"})
+    public Set<x_BasicConfidentialityKind> getDocumentMaskingIndicators() {
+        return this.documentMaskingIndicators.rawSet(x_BasicConfidentialityKind.class);
+    }
 
     @Hl7XmlMapping({"responsibleParty/actingPerson"})
-    public ActingPerson getResponsiblePartyActingPerson() {
+    public ActingPersonBean getResponsiblePartyActingPerson() {
         return this.responsiblePartyActingPerson;
     }
-    public void setResponsiblePartyActingPerson(ActingPerson responsiblePartyActingPerson) {
+    public void setResponsiblePartyActingPerson(ActingPersonBean responsiblePartyActingPerson) {
         this.responsiblePartyActingPerson = responsiblePartyActingPerson;
     }
 
@@ -130,55 +132,70 @@ public class ReferralBean extends MessagePartBean implements ca.infoway.messageb
         return (this.responsiblePartyActingPerson instanceof RelatedPersonBean);
     }
 
-
-    @Hl7XmlMapping({"custodian1/serviceDeliveryLocation"})
-    public ServiceLocationBean getCustodian1ServiceDeliveryLocation() {
-        return this.custodian1ServiceDeliveryLocation;
-    }
-    public void setCustodian1ServiceDeliveryLocation(ServiceLocationBean custodian1ServiceDeliveryLocation) {
-        this.custodian1ServiceDeliveryLocation = custodian1ServiceDeliveryLocation;
-    }
-
-
-    @Hl7XmlMapping({"component/structuredBody/component/section/component/documentContent"})
-    public DocumentContent_1 getComponentStructuredBodyComponentSectionComponentDocumentContent() {
-        return this.componentStructuredBodyComponentSectionComponentDocumentContent;
-    }
-    public void setComponentStructuredBodyComponentSectionComponentDocumentContent(DocumentContent_1 componentStructuredBodyComponentSectionComponentDocumentContent) {
-        this.componentStructuredBodyComponentSectionComponentDocumentContent = componentStructuredBodyComponentSectionComponentDocumentContent;
-    }
-
-    public ca.infoway.messagebuilder.model.iehr.merged.ReferralBean getComponentStructuredBodyComponentSectionComponentDocumentContentAsPatientCareProvisionRequest() {
-        return this.componentStructuredBodyComponentSectionComponentDocumentContent instanceof ca.infoway.messagebuilder.model.iehr.merged.ReferralBean ? (ca.infoway.messagebuilder.model.iehr.merged.ReferralBean) this.componentStructuredBodyComponentSectionComponentDocumentContent : null;
-    }
-    public boolean hasComponentStructuredBodyComponentSectionComponentDocumentContentAsPatientCareProvisionRequest() {
-        return (this.componentStructuredBodyComponentSectionComponentDocumentContent instanceof ca.infoway.messagebuilder.model.iehr.merged.ReferralBean);
-    }
-
-
-    @Hl7XmlMapping({"componentOf/patientCareProvisionEvent"})
-    public List<CareCompositionsBean> getComponentOfPatientCareProvisionEvent() {
-        return this.componentOfPatientCareProvisionEvent;
-    }
-
-
     @Hl7XmlMapping({"author"})
-    public RequestedByBean getAuthor() {
+    public Author_3Bean getAuthor() {
         return this.author;
     }
-    public void setAuthor(RequestedByBean author) {
+    public void setAuthor(Author_3Bean author) {
         this.author = author;
     }
 
+    @Hl7XmlMapping({"custodian1/serviceDeliveryLocation"})
+    public ServiceDeliveryLocation_2Bean getCustodian1ServiceDeliveryLocation() {
+        return this.custodian1ServiceDeliveryLocation;
+    }
+    public void setCustodian1ServiceDeliveryLocation(ServiceDeliveryLocation_2Bean custodian1ServiceDeliveryLocation) {
+        this.custodian1ServiceDeliveryLocation = custodian1ServiceDeliveryLocation;
+    }
+
+    @Hl7XmlMapping({"custodian2/assignedDevice"})
+    public EHRRepositoryBean getCustodian2AssignedDevice() {
+        return this.custodian2AssignedDevice;
+    }
+    public void setCustodian2AssignedDevice(EHRRepositoryBean custodian2AssignedDevice) {
+        this.custodian2AssignedDevice = custodian2AssignedDevice;
+    }
+
+    @Hl7XmlMapping({"primaryInformationRecipient/recipients"})
+    public List<RecipientsBean> getPrimaryInformationRecipientRecipients() {
+        return this.primaryInformationRecipientRecipients;
+    }
+
+    @Hl7XmlMapping({"predecessor/oldClinicalDocumentEvent"})
+    public List<OldClinicalDocumentEventBean> getPredecessorOldClinicalDocumentEvent() {
+        return this.predecessorOldClinicalDocumentEvent;
+    }
+
+    @Hl7XmlMapping({"component/structuredBody/component/section/component/documentContent"})
+    public DocumentContent_1Bean getComponentStructuredBodyComponentSectionComponentDocumentContent() {
+        return this.componentStructuredBodyComponentSectionComponentDocumentContent;
+    }
+    public void setComponentStructuredBodyComponentSectionComponentDocumentContent(DocumentContent_1Bean componentStructuredBodyComponentSectionComponentDocumentContent) {
+        this.componentStructuredBodyComponentSectionComponentDocumentContent = componentStructuredBodyComponentSectionComponentDocumentContent;
+    }
+
+    public ca.infoway.messagebuilder.model.merged.ReferralBean getComponentStructuredBodyComponentSectionComponentDocumentContentAsPatientCareProvisionRequest() {
+        return this.componentStructuredBodyComponentSectionComponentDocumentContent instanceof ca.infoway.messagebuilder.model.merged.ReferralBean ? (ca.infoway.messagebuilder.model.merged.ReferralBean) this.componentStructuredBodyComponentSectionComponentDocumentContent : null;
+    }
+    public boolean hasComponentStructuredBodyComponentSectionComponentDocumentContentAsPatientCareProvisionRequest() {
+        return (this.componentStructuredBodyComponentSectionComponentDocumentContent instanceof ca.infoway.messagebuilder.model.merged.ReferralBean);
+    }
+
+    @Hl7XmlMapping({"successor/newClinicalDocumentEvent"})
+    public NewClinicalDocumentEventBean getSuccessorNewClinicalDocumentEvent() {
+        return this.successorNewClinicalDocumentEvent;
+    }
+    public void setSuccessorNewClinicalDocumentEvent(NewClinicalDocumentEventBean successorNewClinicalDocumentEvent) {
+        this.successorNewClinicalDocumentEvent = successorNewClinicalDocumentEvent;
+    }
 
     @Hl7XmlMapping({"subjectOf1"})
-    public IncludesBean getSubjectOf1() {
+    public HasNotesBean getSubjectOf1() {
         return this.subjectOf1;
     }
-    public void setSubjectOf1(IncludesBean subjectOf1) {
+    public void setSubjectOf1(HasNotesBean subjectOf1) {
         this.subjectOf1 = subjectOf1;
     }
-
 
     @Hl7XmlMapping({"subjectOf2/annotationIndicator"})
     public Boolean getSubjectOf2AnnotationIndicator() {
@@ -188,84 +205,9 @@ public class ReferralBean extends MessagePartBean implements ca.infoway.messageb
         this.subjectOf2AnnotationIndicator.setValue(subjectOf2AnnotationIndicator);
     }
 
-
-    /**
-     * <p>E: Document Masking Indicators</p>
-     * 
-     * <p></p></p>
-     * 
-     * <p></p></p>
-     * 
-     * <p></p></p>
-     * 
-     * <p></p></p>
-     */
-    @Hl7XmlMapping({"confidentialityCode"})
-    public Set<x_BasicConfidentialityKind> getDocumentMaskingIndicators() {
-        return this.documentMaskingIndicators.rawSet(x_BasicConfidentialityKind.class);
-    }
-
-
-    /**
-     * <p>J: Document Title</p>
-     * 
-     * <p><p>A human-readable label for this particular 
-     * document.</p></p>
-     * 
-     * <p><p>This is a human-recognizable name intended to be 
-     * displayed on the screen in list transactions and is 
-     * therefore mandatory. It provides a good indication of the 
-     * content of the document at a quick glance.</p></p>
-     * 
-     * <p><p>Titles do not necessarily need to be unique, but 
-     * should be precise-enough to give a pretty good idea of what 
-     * the document contains. For example &quot;Right Knee 
-     * Arthroscopy Report, Jan 3, 2006&quot; would represent a good 
-     * title. &quot;Surgery Report&quot; would not.</p></p>
-     */
-    @Hl7XmlMapping({"title"})
-    public String getDocumentTitle() {
-        return this.documentTitle.getValue();
-    }
-    public void setDocumentTitle(String documentTitle) {
-        this.documentTitle.setValue(documentTitle);
-    }
-
-
-    @Hl7XmlMapping({"predecessor/oldClinicalDocumentEvent"})
-    public List<OldClinicalDocumentEventBean> getPredecessorOldClinicalDocumentEvent() {
-        return this.predecessorOldClinicalDocumentEvent;
-    }
-
-
-    @Hl7XmlMapping({"primaryInformationRecipient/recipients"})
-    public List<Recipients> getPrimaryInformationRecipientRecipients() {
-        return this.primaryInformationRecipientRecipients;
-    }
-
-
-    /**
-     * <p>A: Document Identifier</p>
-     * 
-     * <p></p></p>
-     * 
-     * <p></p></p>
-     */
-    @Hl7XmlMapping({"id"})
-    public Identifier getDocumentIdentifier() {
-        return this.documentIdentifier.getValue();
-    }
-    public void setDocumentIdentifier(Identifier documentIdentifier) {
-        this.documentIdentifier.setValue(documentIdentifier);
-    }
-
-
-    @Hl7XmlMapping({"successor/newClinicalDocumentEvent"})
-    public NewClinicalDocumentEventBean getSuccessorNewClinicalDocumentEvent() {
-        return this.successorNewClinicalDocumentEvent;
-    }
-    public void setSuccessorNewClinicalDocumentEvent(NewClinicalDocumentEventBean successorNewClinicalDocumentEvent) {
-        this.successorNewClinicalDocumentEvent = successorNewClinicalDocumentEvent;
+    @Hl7XmlMapping({"componentOf/patientCareProvisionEvent"})
+    public List<CareCompositionsBean> getComponentOfPatientCareProvisionEvent() {
+        return this.componentOfPatientCareProvisionEvent;
     }
 
 }

@@ -44,7 +44,7 @@ public class BlElementParser extends AbstractSingleElementParser<Boolean> {
 	}
 	
 	@Override
-	protected Boolean parseNonNullNode(ParseContext context, Node node, BareANY result, Type expectedReturnType, XmlToModelResult xmlToJavaResult) throws XmlToModelTransformationException {
+	protected Boolean parseNonNullNode(ParseContext context, Node node, Type expectedReturnType, XmlToModelResult xmlToJavaResult) throws XmlToModelTransformationException {
 		return parseNonNullNode(context, (Element) node, xmlToJavaResult);
 	}
 

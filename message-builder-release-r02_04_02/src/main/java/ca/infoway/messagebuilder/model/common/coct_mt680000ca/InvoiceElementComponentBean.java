@@ -4,22 +4,20 @@ package ca.infoway.messagebuilder.model.common.coct_mt680000ca;
 import ca.infoway.messagebuilder.annotation.Hl7PartTypeMapping;
 import ca.infoway.messagebuilder.annotation.Hl7XmlMapping;
 import ca.infoway.messagebuilder.model.MessagePartBean;
-import ca.infoway.messagebuilder.model.merged.InvoiceElementChoice;
 
 
 
 @Hl7PartTypeMapping({"COCT_MT680000CA.InvoiceElementComponent"})
 public class InvoiceElementComponentBean extends MessagePartBean {
 
-    private static final long serialVersionUID = 20110127L;
-    private InvoiceElementChoice invoiceElementChoice;
-
+    private static final long serialVersionUID = 20100603L;
+    private InvoiceElementChoiceBean invoiceElementChoice;
 
     @Hl7XmlMapping({"invoiceElementChoice"})
-    public InvoiceElementChoice getInvoiceElementChoice() {
+    public InvoiceElementChoiceBean getInvoiceElementChoice() {
         return this.invoiceElementChoice;
     }
-    public void setInvoiceElementChoice(InvoiceElementChoice invoiceElementChoice) {
+    public void setInvoiceElementChoice(InvoiceElementChoiceBean invoiceElementChoice) {
         this.invoiceElementChoice = invoiceElementChoice;
     }
 

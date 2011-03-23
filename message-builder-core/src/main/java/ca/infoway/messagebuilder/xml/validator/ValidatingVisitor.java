@@ -16,7 +16,6 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 
 import ca.infoway.messagebuilder.Code;
-import ca.infoway.messagebuilder.Typed;
 import ca.infoway.messagebuilder.datatype.StandardDataType;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7Error;
 import ca.infoway.messagebuilder.marshalling.hl7.Hl7ErrorCode;
@@ -25,7 +24,6 @@ import ca.infoway.messagebuilder.marshalling.hl7.XmlToModelTransformationExcepti
 import ca.infoway.messagebuilder.marshalling.hl7.parser.BlElementParser;
 import ca.infoway.messagebuilder.marshalling.hl7.parser.CsElementParser;
 import ca.infoway.messagebuilder.marshalling.hl7.parser.ElementParser;
-import ca.infoway.messagebuilder.marshalling.hl7.parser.NullFlavorHelper;
 import ca.infoway.messagebuilder.marshalling.hl7.parser.ParserRegistry;
 import ca.infoway.messagebuilder.util.xml.NodeUtil;
 import ca.infoway.messagebuilder.xml.ConformanceLevel;
@@ -60,16 +58,6 @@ public class ValidatingVisitor implements MessageVisitor {
 			this.result.addHl7Error(Hl7Error.createMissingPopulatedAssociationError(xmlName, base));
 		} else if (!relationship.getCardinality().contains(elements.size())) {
 			this.result.addHl7Error(Hl7Error.createWrongNumberOfAssociationsError(xmlName, base, elements.size(), relationship.getCardinality()));
-		}
-		if (relationship.getCardinality().isSingle() && elements.size() == 1) {
-			checkForInvalidNullFlavor(elements.get(0), relationship);
-		}
-	}
-
-	private void checkForInvalidNullFlavor(Element element, Relationship relationship) {
-		NullFlavorHelper nullFlavorHelper = new NullFlavorHelper(relationship.getConformance(), element, this.result, true);
-		if (nullFlavorHelper.hasValidNullFlavorAttribute()) {
-			nullFlavorHelper.parseNullNode();
 		}
 	}
 
@@ -118,9 +106,9 @@ public class ValidatingVisitor implements MessageVisitor {
 
 	@SuppressWarnings("unchecked")
 	private void validateStructuralAttributeValue(Element base, Attr attr, Relationship relationship) {
-		if (StandardDataType.BL == StandardDataType.getByTypeName((Typed) relationship)) {
+		if (StandardDataType.BL == StandardDataType.getByTypeName(relationship)) {
 			new BlElementParser().parseBooleanValue(this.result, attr.getValue(), base, attr);
-		} else if (StandardDataType.CS == StandardDataType.getByTypeName((Typed) relationship)) {
+		} else if (StandardDataType.CS == StandardDataType.getByTypeName(relationship)) {
 			new CsElementParser().parseCodedSimpleValue(attr.getValue(), (Class<? extends Code>) getReturnType(relationship), base, this.result, attr);
 		} else {
 			this.result.addHl7Error(Hl7Error.createUnknownStructuralTypeError(relationship.getType(), relationship.getName(), base, attr));
@@ -143,7 +131,7 @@ public class ValidatingVisitor implements MessageVisitor {
 				this.result.addHl7Error(Hl7Error.createMissingPopulatedAttributeError(relationship.getName(), base));
 			} else {
 				try {
-					ElementParser parser = ParserRegistry.getInstance().get((Typed) relationship);
+					ElementParser parser = ParserRegistry.getInstance().get(relationship);
 					if (parser != null) {
 						parser.parse(ParseContextImpl.create(relationship, this.version), toNodeList(elements), this.result);
 					} else {

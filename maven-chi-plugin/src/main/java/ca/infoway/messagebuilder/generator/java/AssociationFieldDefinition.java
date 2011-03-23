@@ -52,7 +52,7 @@ class AssociationFieldDefinition implements FieldDefinition {
 		if (this.association.isTemplateType()) {
 			return this.association.getTemplateVariable().getType();
 		} else {
-			String name = getManager().getRepresentationOfType(this.association.getAssociationType());
+			String name = getManager().getRepresentationOfTypeName(this.association.getPropertyTypeName());
 			name += this.association.getTypeParameters();
 			return name;
 		}
@@ -127,14 +127,6 @@ class AssociationFieldDefinition implements FieldDefinition {
 
 	public GetterBodyStyle getDerivedChoiceHasBodyStyle() {
 		return null;
-	}
-
-	public BaseRelationship getBaseRelationship() {
-		return this.association;
-	}
-
-	public ProgrammingLanguage getProgrammingLanguage() {
-		return this.language;
 	}
 
 }

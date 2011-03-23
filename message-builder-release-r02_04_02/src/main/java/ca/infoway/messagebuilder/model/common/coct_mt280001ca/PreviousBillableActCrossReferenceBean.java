@@ -16,37 +16,22 @@ import java.util.Set;
 /**
  * <p>Previous Billable Act Cross Reference</p>
  * 
- * <p><p>Used to reference a previous act (e.g. billable act) 
- * by including its Act.id. May only be used to reference a 
+ * <p>Used to reference a previous act (e.g. billable act) by 
+ * including its Act.id. May only be used to reference a 
  * billable act in the SAME message, not for past messages 
- * (this would require adjudicators to keep a lot of 
- * history).</p></p>
+ * (this would require adjudicators to keep a lot of history).</p>
  * 
- * <p><p>Used to reference a previous act (e.g. billable act) 
- * by including its Act.id. May only be used to reference a 
+ * <p>Used to reference a previous act (e.g. billable act) by 
+ * including its Act.id. May only be used to reference a 
  * billable act in the SAME message, not for past messages 
- * (this would require adjudicators to keep a lot of 
- * history).</p></p>
+ * (this would require adjudicators to keep a lot of history).</p>
  */
 @Hl7PartTypeMapping({"COCT_MT280001CA.CrossReference"})
-public class PreviousBillableActCrossReferenceBean extends MessagePartBean implements A_BillableActChoice {
+public class PreviousBillableActCrossReferenceBean extends MessagePartBean implements A_BillableActChoiceBean {
 
-    private static final long serialVersionUID = 20110127L;
+    private static final long serialVersionUID = 20100603L;
     private SET<II, Identifier> actId = new SETImpl<II, Identifier>(IIImpl.class);
 
-
-    /**
-     * <p>) (Act.id.</p>
-     * 
-     * <p><p>Act.id. referencing a previous act (e.g. billable act) 
-     * in the SAME message,</p></p>
-     * 
-     * <p><p>Used to reference a previous act (e.g. billable act) 
-     * by including its Act.id. May only be used to reference a 
-     * billable act in the SAME message, not for past messages 
-     * (this would require adjudicators to keep a lot of 
-     * history).</p></p>
-     */
     @Hl7XmlMapping({"id"})
     public Set<Identifier> getActId() {
         return this.actId.rawSet();

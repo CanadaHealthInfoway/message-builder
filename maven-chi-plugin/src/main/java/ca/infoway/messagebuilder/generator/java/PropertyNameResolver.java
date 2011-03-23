@@ -4,16 +4,15 @@ import static ca.infoway.messagebuilder.generator.java.BusinessNameUtil.cleanUpB
 import static ca.infoway.messagebuilder.generator.java.BusinessNameUtil.toCamelCase;
 import static org.apache.commons.lang.StringUtils.isNotEmpty;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
 import org.apache.commons.lang.StringUtils;
 
+import ca.infoway.messagebuilder.generator.DataType;
 import ca.infoway.messagebuilder.generator.GeneratorException;
+import ca.infoway.messagebuilder.xml.Cardinality;
 
 public class PropertyNameResolver implements BaseRelationshipNameResolver {
 
@@ -21,81 +20,102 @@ public class PropertyNameResolver implements BaseRelationshipNameResolver {
 	private final String finalTypeName;
 
 	public PropertyNameResolver(String finalTypeName, List<BaseRelationship> relationships) throws GeneratorException {
+		
 		this.finalTypeName = finalTypeName;
+		// first put in relationship names
 		for (BaseRelationship baseRelationship : relationships) {
-			registerName(baseRelationship);
-		}
-		
-		for (BaseRelationship baseRelationship : relationships) {
-			registerBusinessNameIfPossible(baseRelationship);
-		}
-		if (isDuplicateValue()) {
-			removeDuplicates();
-		}
-	}
-
-	private boolean isDuplicateValue() {
-		return new HashSet<String>(this.map.values()).size() != this.map.size();
-	}
-
-	private void removeDuplicates() {
-		Map<String,List<BaseRelationship>> nameToRelationship = new HashMap<String,List<BaseRelationship>>();
-		for (Map.Entry<BaseRelationship,String> entry : this.map.entrySet()) {
-			if (!nameToRelationship.containsKey(entry.getValue())) {
-				nameToRelationship.put(entry.getValue(), new ArrayList<BaseRelationship>());
+			if (baseRelationship instanceof RegeneratedRelationship) {
+				registerNameForRegeneratedRelationship(baseRelationship);
+			} else {
+				registerName(baseRelationship);
 			}
-			nameToRelationship.get(entry.getValue()).add(entry.getKey());
 		}
 		
-		for (Map.Entry<String, List<BaseRelationship>> entry : nameToRelationship.entrySet()) {
-			if (entry.getValue().size() > 1) {
-				createSuffixes(entry.getKey(), entry.getValue());
+		// then change to business names if possible
+		for (BaseRelationship baseRelationship : relationships) {
+			if (baseRelationship instanceof RegeneratedRelationship) {
+				registerBusinessNameForRegeneratedRelationship(baseRelationship);
+			} else {
+				registerBusinessNameIfPossible(baseRelationship);
 			}
 		}
 	}
 
-	private void createSuffixes(String name, List<BaseRelationship> relationships) {
-		String suffixLeader = "";
-		if (Character.isDigit(name.charAt(name.length()-1))){
-			suffixLeader = "Association";
-		}
-		if (isCollision(name, suffixLeader, relationships.size())) {
-			suffixLeader = findSuffixLeader(name, suffixLeader, relationships.size());
-		}
-		
-		int number = 1;
-		for (BaseRelationship baseRelationship : relationships) {
-			this.map.put(baseRelationship, name + suffixLeader + number);
-			number++;
+	private void registerBusinessNameForRegeneratedRelationship(BaseRelationship baseRelationship) throws GeneratorException {
+		RegeneratedRelationship mergedRelationship = (RegeneratedRelationship) baseRelationship;
+		if (hasCardinalityChanged(mergedRelationship)) {
+			registerBusinessNameForRegeneratedRelationship(pickMultiple(mergedRelationship), pickSingle(mergedRelationship));
+		} else {
+			registerBusinessNameIfPossible(mergedRelationship.getOriginalRelationship());
+			registerBusinessNameIfPossible(mergedRelationship.getNewRelationship());
 		}
 	}
 
-	private String findSuffixLeader(String name, String suffixLeader, int size) {
-		String result = null;
-		String[] choices = new String[] { "Association", "_", "Association_", "AssociationType", "AssociationType_ " };
-		
-		for (String string : choices) {
-			if (!isCollision(name, string, size)) {
-				result = string;
-				break;
-			}
-		}
-		if (result == null) {
-			throw new GeneratorException(
-					"Cannot determine a unique name for multiple associations " +
-					"with the name " + name);
-		}
-		return result;
+	private boolean hasCardinalityChanged(RegeneratedRelationship mergedRelationship) {
+		BaseRelationship original = mergedRelationship.getOriginalRelationship();
+		BaseRelationship newRelationship = mergedRelationship.getNewRelationship();
+
+		return hasCardinalityChanged(original.getCardinality(), newRelationship.getCardinality())
+		    || hasAttributeCardinalityChanged(original, newRelationship);
 	}
 
-	private boolean isCollision(String name, String suffixLeader, int length) {
-		boolean found = false;
-		for (int i = 1; i <= length; i++) {
-			found |= this.map.containsValue(name + suffixLeader + i);
+	private boolean hasAttributeCardinalityChanged(BaseRelationship original, BaseRelationship newRelationship) {
+		boolean changed = false;
+		if (original instanceof Attribute && newRelationship instanceof Attribute) {
+			DataType orginalDataType = ((Attribute) original).getDataType();
+			DataType newDataType = ((Attribute) newRelationship).getDataType();
+			changed = orginalDataType.isTypeCollection() != newDataType.isTypeCollection();
 		}
-		return found;
+		return changed;
 	}
 
+	private boolean hasCardinalityChanged(Cardinality original, Cardinality newCardinality) {
+		return (original!=null && newCardinality!=null) 
+	        && (original.isMultiple() != newCardinality.isMultiple());
+	}
+	
+	private void registerNameForRegeneratedRelationship(BaseRelationship baseRelationship) throws GeneratorException {
+		RegeneratedRelationship mergedRelationship = (RegeneratedRelationship) baseRelationship;
+		if (hasCardinalityChanged(mergedRelationship)) {
+			registerNameForRegeneratedRelationship(pickMultiple(mergedRelationship), pickSingle(mergedRelationship));
+		} else {
+			registerName(mergedRelationship.getOriginalRelationship());
+		}
+	}
+
+	private void registerNameForRegeneratedRelationship(BaseRelationship multiple, BaseRelationship single) throws GeneratorException {
+		registerName(multiple, pluralize(multiple.getName()));
+		registerName(single, singularize(single.getName()));
+	}
+
+	private void registerBusinessNameForRegeneratedRelationship(BaseRelationship multiple, BaseRelationship single) throws GeneratorException {
+		if (StringUtils.equals(multiple.getBusinessName(), single.getBusinessName())) {
+			registerBusinessNameIfPossible(multiple, pluralize(multiple.getBusinessName()));
+			registerBusinessNameIfPossible(single, singularize(single.getBusinessName()));
+		} else {
+			registerBusinessNameIfPossible(multiple, multiple.getBusinessName());
+			registerBusinessNameIfPossible(single, single.getBusinessName());
+		}
+	}
+
+	private String singularize(String name) {
+		return name!=null && name.endsWith("s") ? StringUtils.removeEnd(name, "s") : name;
+	}
+
+	private String pluralize(String name) {
+		return name!=null && !name.endsWith("s") ? name + "s" : name;	
+	}
+
+	private BaseRelationship pickMultiple(RegeneratedRelationship mergedRelationship) {
+		BaseRelationship originalRelationship = mergedRelationship.getOriginalRelationship();
+		return originalRelationship.getCardinality().isMultiple() ? originalRelationship : mergedRelationship.getNewRelationship();
+	}
+
+	private BaseRelationship pickSingle(RegeneratedRelationship mergedRelationship) {
+		BaseRelationship originalRelationship = mergedRelationship.getOriginalRelationship();
+		return originalRelationship.getCardinality().isSingle() ? originalRelationship : mergedRelationship.getNewRelationship();
+	}
+	
 	private void registerBusinessNameIfPossible(BaseRelationship baseRelationship) {
 		registerBusinessNameIfPossible(baseRelationship, baseRelationship.getBusinessName());
 	}
@@ -130,6 +150,10 @@ public class PropertyNameResolver implements BaseRelationshipNameResolver {
 		if (!isValidCsharpName(camelCaseRelationshipName)) {
 			camelCaseRelationshipName += "Value";
 		}
+		if (this.map.containsValue(camelCaseRelationshipName)) {
+			throw new GeneratorException("relationship name collision. '" + 
+					camelCaseRelationshipName + "' already exists in map.");
+		}
 		this.map.put(baseRelationship, camelCaseRelationshipName);
 	}
 	
@@ -137,4 +161,5 @@ public class PropertyNameResolver implements BaseRelationshipNameResolver {
 	public String getName(BaseRelationship relationship) {
 		return this.map.get(relationship);
 	}
+
 }
