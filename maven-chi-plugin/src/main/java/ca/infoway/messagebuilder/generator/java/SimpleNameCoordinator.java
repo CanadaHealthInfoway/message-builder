@@ -15,6 +15,7 @@ import java.util.TreeSet;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang.StringUtils;
 
+import ca.infoway.messagebuilder.generator.NamingPolicy;
 import ca.infoway.messagebuilder.j5goodies.Counter;
 import ca.infoway.messagebuilder.j5goodies.CounterOrder;
 import ca.infoway.messagebuilder.j5goodies.Tally;
@@ -58,13 +59,12 @@ public class SimpleNameCoordinator implements NameCoordinator {
 				return this.type.getTypeName().getRootName().toString();
 			}
 		}
-		@SuppressWarnings("unchecked")
 		public List<String> getPreferredNames() {
 			String businessName = cleanUpBusinessName(this.type.getBusinessName());
-			if (StringUtils.isNotBlank(businessName)) {
+			if (StringUtils.isNotBlank(businessName) && isBusinessNameUsed()) {
 				return Arrays.asList(businessName);
 			} else {
-				return Collections.EMPTY_LIST;
+				return Collections.<String>emptyList();
 			}
 		}
 		public String getDefaultName() {
@@ -99,7 +99,7 @@ public class SimpleNameCoordinator implements NameCoordinator {
 			Counter<String> counter2 = new Counter<String>();
 			for (NamedType mergedType : this.type.getMergedTypes()) {
 				String businessName = cleanUpBusinessName(mergedType.getBusinessName());
-				if (StringUtils.isNotBlank(businessName)) {
+				if (StringUtils.isNotBlank(businessName) && isBusinessNameUsed()) {
 					counter1.increment(businessName);
 				}
 				counter2.increment(mergedType.getTypeName().getUnqualifiedName());
@@ -188,8 +188,13 @@ public class SimpleNameCoordinator implements NameCoordinator {
 	}
 
 	private Map<TypeName,Name> names = Collections.synchronizedMap(new HashMap<TypeName,Name>());
+	private final NamingPolicy policy;
 
 	public SimpleNameCoordinator(TypeNameHelper typeNameHelper) {
+		this(typeNameHelper, NamingPolicy.getDefaultPolicy());
+	}
+	public SimpleNameCoordinator(TypeNameHelper typeNameHelper, NamingPolicy policy) {
+		this.policy = policy;
 		setupNames(typeNameHelper.getTypes());
 	}
 
@@ -261,5 +266,8 @@ public class SimpleNameCoordinator implements NameCoordinator {
 		} else {
 			return name.getUnqualifiedName();
 		}
+	}
+	boolean isBusinessNameUsed() {
+		return policy != NamingPolicy.STANDARD_NAMES;
 	}
 }

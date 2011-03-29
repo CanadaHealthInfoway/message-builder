@@ -12,10 +12,13 @@ import ca.infoway.messagebuilder.generator.lang.ProgrammingLanguage;
 public class IntermediateToJavaGenerator extends IntermediateToModelGenerator {
 	
 	public IntermediateToJavaGenerator(OutputUI outputUI, File sourceFolder, String basePackageName) {
-		this(outputUI, sourceFolder, basePackageName, null);
+		this(outputUI, new IntermediateToModelConfiguration(sourceFolder, basePackageName, null, null));
 	}
 	public IntermediateToJavaGenerator(OutputUI outputUI, File sourceFolder, String basePackageName, File reportDir) {
-		super(outputUI, sourceFolder, basePackageName, reportDir);
+		super(outputUI, new IntermediateToModelConfiguration(sourceFolder, basePackageName, reportDir, null));
+	}
+	public IntermediateToJavaGenerator(OutputUI outputUI, IntermediateToModelConfiguration configuration) {
+		super(outputUI, configuration);
 	}
 	
 	/**
@@ -31,9 +34,9 @@ public class IntermediateToJavaGenerator extends IntermediateToModelGenerator {
 	
 	@Override
 	protected void writeClasses(TypeAnalysisResult result) throws IOException, GeneratorException {
-		SimpleNameTranslator translator = new SimpleNameTranslator(JAVA, this.basePackageName, result);
+		SimpleNameTranslator translator = new SimpleNameTranslator(JAVA, this.basePackageName, result, getNamingPolicy());
 		JavaSourceFileWriterProvider writerProvider = new JavaSourceFileWriterProvider(this.sourceFolder, translator);
-		new JavaTypeWriter(this.outputUI, writerProvider, translator, result).writeTypes();
+		new JavaTypeWriter(this.outputUI, writerProvider, translator, result, getNamingPolicy()).writeTypes();
 	}
 	@Override
 	protected ProgrammingLanguage getProgrammingLanguage() {

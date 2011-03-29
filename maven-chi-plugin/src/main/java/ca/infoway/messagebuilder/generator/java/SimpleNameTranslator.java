@@ -6,6 +6,7 @@ import java.util.Map;
 
 import org.apache.commons.lang.StringUtils;
 
+import ca.infoway.messagebuilder.generator.NamingPolicy;
 import ca.infoway.messagebuilder.generator.lang.ProgrammingLanguage;
 import ca.infoway.messagebuilder.xml.TypeName;
 
@@ -17,12 +18,12 @@ public class SimpleNameTranslator implements NameTranslator {
 	private final ProgrammingLanguage language;
 	private final TypeNameHelper helper;
 	
-	public SimpleNameTranslator(ProgrammingLanguage language, String basePackageName, TypeNameHelper helper) {
+	public SimpleNameTranslator(ProgrammingLanguage language, String basePackageName, TypeNameHelper helper, NamingPolicy namingPolicy) {
 		this.language = language;
 		this.basePackageName = basePackageName;
 		this.helper = helper;
 		this.types = helper.getTypes();
-		this.nameCoordinator = new SimpleNameCoordinator(helper);
+		this.nameCoordinator = new SimpleNameCoordinator(helper, namingPolicy);
 	}
 	public SimpleNameTranslator(ProgrammingLanguage language, String basePackageName, TypeNameHelper helper, NameCoordinator nameCoordinator) {
 		this.language = language;

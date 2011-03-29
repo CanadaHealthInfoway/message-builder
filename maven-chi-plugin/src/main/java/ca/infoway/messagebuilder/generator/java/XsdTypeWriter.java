@@ -7,11 +7,15 @@ import java.io.Writer;
 
 import ca.infoway.messagebuilder.generator.GeneratorException;
 import ca.infoway.messagebuilder.generator.LogUI;
+import ca.infoway.messagebuilder.generator.NamingPolicy;
 
 public class XsdTypeWriter extends TypeWriter {
 
-	public XsdTypeWriter(LogUI log, WriterProvider writerProvider, NameTranslator translator, TypeAnalysisResult result) {
+	private final NamingPolicy namingPolicy;
+
+	public XsdTypeWriter(LogUI log, WriterProvider writerProvider, NameTranslator translator, TypeAnalysisResult result, NamingPolicy namingPolicy) {
 		super(log, writerProvider, translator, result);
+		this.namingPolicy = namingPolicy;
 	}
 
 	@Override
@@ -24,7 +28,7 @@ public class XsdTypeWriter extends TypeWriter {
     	this.log.log(DEBUG, "Writing: " + messageType.getName().getName());
     	Writer writer = this.writerProvider.createWriter(messageType.getName());
     	try {
-			new Hl7XsdMessageTypeWriter(messageType, this.translator, this.result).write(writer);
+			new Hl7XsdMessageTypeWriter(messageType, this.translator, this.result, this.namingPolicy).write(writer);
     	} finally {
     		writer.close();
     	}

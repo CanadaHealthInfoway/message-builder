@@ -15,6 +15,7 @@ import org.apache.commons.collections.CollectionUtils;
 
 import ca.infoway.messagebuilder.generator.GeneratorException;
 import ca.infoway.messagebuilder.generator.LogLevel;
+import ca.infoway.messagebuilder.generator.NamingPolicy;
 import ca.infoway.messagebuilder.generator.OutputUI;
 import ca.infoway.messagebuilder.generator.TypeConverter;
 import ca.infoway.messagebuilder.generator.java.InteractionType.ArgumentType;
@@ -34,13 +35,16 @@ class DefinitionToResultConverter {
 	private final String basePackageName;
 	private final ProgrammingLanguage programmingLanguage;
 	private final OutputUI outputUI;
+	private final NamingPolicy namingPolicy;
 
 	DefinitionToResultConverter(SimplifiableDefinitions definitions,
-			String basePackageName, ProgrammingLanguage programmingLanguage, OutputUI outputUI) {
+			String basePackageName, ProgrammingLanguage programmingLanguage, OutputUI outputUI,
+			NamingPolicy namingPolicy) {
 		this.definitions = definitions;
 		this.basePackageName = basePackageName;
 		this.programmingLanguage = programmingLanguage;
 		this.outputUI = outputUI;
+		this.namingPolicy = namingPolicy;
 	}
 
 	public TypeAnalysisResult convert() throws GeneratorException {
@@ -146,7 +150,7 @@ class DefinitionToResultConverter {
 	}
 
 	private void createLanguageSpecificNames(TypeAnalysisResult result) {
-		SimpleNameTranslator translator = new SimpleNameTranslator(this.programmingLanguage, this.basePackageName, result);
+		SimpleNameTranslator translator = new SimpleNameTranslator(this.programmingLanguage, this.basePackageName, result, this.namingPolicy);
 		for (Type type : result.getAllMessageTypes()) {
 			type.setLanguageSpecificName(translator.getLanguageSpecificName(type.getTypeName()));
 		}

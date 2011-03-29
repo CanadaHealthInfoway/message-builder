@@ -14,6 +14,7 @@ import org.junit.Test;
 import org.junit.experimental.theories.Theories;
 import org.junit.runner.RunWith;
 
+import ca.infoway.messagebuilder.generator.NamingPolicy;
 import ca.infoway.messagebuilder.xml.TypeName;
 
 @RunWith(Theories.class)
@@ -76,6 +77,24 @@ public class SimpleNameCoordinatorTest {
 		assertEquals("BusinessNameForPurpleType", translator.getName(name));
 	}
 
+	@Test
+	public void shouldNotReturnBusinessNameWhenTypeHasBusinessNameButPolicyPrecludesItsUse() throws Exception {
+		HashMap<TypeName, Type> types = new HashMap<TypeName, Type>();
+		TypeName name = new TypeName("REPC_IN002120.Purple");
+		Type type = new Type(name);
+		type.setBusinessName("Business name for purple type.");
+		types.put(name, type);
+
+		SimpleNameCoordinator translator = new SimpleNameCoordinator(new HelperImpl(types), NamingPolicy.STANDARD_NAMES);
+		assertEquals("Purple", translator.getName(name));
+		
+		translator = new SimpleNameCoordinator(new HelperImpl(types), NamingPolicy.MIXED_NAMES);
+		assertEquals("BusinessNameForPurpleType", translator.getName(name));
+		
+		translator = new SimpleNameCoordinator(new HelperImpl(types), NamingPolicy.BUSINESS_NAMES);
+		assertEquals("BusinessNameForPurpleType", translator.getName(name));
+	}
+	
 	@Test
 	public void shouldReturnFriendlyNameWhenTypeHasBusinessName() throws Exception {
 		HashMap<TypeName, Type> types = new HashMap<TypeName, Type>();

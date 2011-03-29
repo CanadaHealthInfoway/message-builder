@@ -16,6 +16,7 @@ import org.apache.commons.collections.CollectionUtils;
 import org.junit.Test;
 
 import ca.infoway.messagebuilder.generator.LogLevel;
+import ca.infoway.messagebuilder.generator.NamingPolicy;
 import ca.infoway.messagebuilder.generator.OutputUI;
 import ca.infoway.messagebuilder.generator.TypeConverter;
 import ca.infoway.messagebuilder.xml.Cardinality;
@@ -33,7 +34,7 @@ public class DefinitionToResultConverterTest {
 	}
 
 	private SimplifiableDefinitions definitions = new SimplifiableDefinitions();
-	private DefinitionToResultConverter converter = new DefinitionToResultConverter(this.definitions, "ca.infoway.test", JAVA, new TrivialLogger());
+	private DefinitionToResultConverter converter = new DefinitionToResultConverter(this.definitions, "ca.infoway.test", JAVA, new TrivialLogger(), NamingPolicy.getDefaultPolicy());
 	private TypeConverter typeConverter = new TypeConverter();
 	
 	@Test

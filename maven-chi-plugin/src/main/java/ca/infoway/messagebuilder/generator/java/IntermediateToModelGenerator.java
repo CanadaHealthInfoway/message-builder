@@ -14,6 +14,7 @@ import ca.infoway.messagebuilder.Named;
 import ca.infoway.messagebuilder.generator.DataType;
 import ca.infoway.messagebuilder.generator.GeneratorException;
 import ca.infoway.messagebuilder.generator.LogLevel;
+import ca.infoway.messagebuilder.generator.NamingPolicy;
 import ca.infoway.messagebuilder.generator.OutputUI;
 import ca.infoway.messagebuilder.generator.TypeConverter;
 import ca.infoway.messagebuilder.generator.lang.ProgrammingLanguage;
@@ -35,7 +36,12 @@ public abstract class IntermediateToModelGenerator {
 	protected final File sourceFolder;
 	protected final String basePackageName;
 	private final File reportDir;
+	private NamingPolicy namingPolicy;
 	
+	protected NamingPolicy getNamingPolicy() {
+		return namingPolicy;
+	}
+
 	protected abstract ProgrammingLanguage getProgrammingLanguage();
 
 	public IntermediateToModelGenerator(OutputUI outputUI, File sourceFolder, String basePackageName) {
@@ -48,6 +54,14 @@ public abstract class IntermediateToModelGenerator {
 		this.reportDir = reportDir;
 	}
 	
+	public IntermediateToModelGenerator(OutputUI outputUI, IntermediateToModelConfiguration configuration) {
+		this.outputUI = outputUI;
+		this.sourceFolder = configuration.getSourceFolder();
+		this.basePackageName = configuration.getBasePackageName();
+		this.reportDir = configuration.getReportDirectory();
+		this.namingPolicy = configuration.getNamingPolicy();
+	}
+
 	public TypeAnalysisResult generate(MessageSet messageSet) throws IOException, GeneratorException {
 		SimplifiableDefinitions definitions = new SimplifiableDefinitions();
 		
@@ -101,7 +115,7 @@ public abstract class IntermediateToModelGenerator {
 	}
 
 	protected TypeAnalysisResult createResultFromDefinitions(SimplifiableDefinitions definitions) throws GeneratorException {
-		return new DefinitionToResultConverter(definitions, this.basePackageName, getProgrammingLanguage(), this.outputUI).convert();
+		return new DefinitionToResultConverter(definitions, this.basePackageName, getProgrammingLanguage(), this.outputUI, getNamingPolicy()).convert();
 	}
 	
 	public void simplify(SimplifiableDefinitions definitions) throws GeneratorException {

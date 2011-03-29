@@ -8,6 +8,7 @@ import java.io.Writer;
 import java.util.List;
 
 import ca.infoway.messagebuilder.generator.GeneratorException;
+import ca.infoway.messagebuilder.generator.NamingPolicy;
 import ca.infoway.messagebuilder.generator.java.Association;
 import ca.infoway.messagebuilder.generator.java.BaseRelationship;
 import ca.infoway.messagebuilder.generator.java.Choice;
@@ -38,18 +39,18 @@ class Hl7DotNetMessageTypeWriter extends Hl7MessageTypeWriter implements Hl7Type
 	private String namespace;
 
 	// assuming that this method is not important for passing in removed references
-	Hl7DotNetMessageTypeWriter(Type type, NameTranslator nameTranslator, DependencyManager manager) throws GeneratorException {
+	Hl7DotNetMessageTypeWriter(Type type, NameTranslator nameTranslator, DependencyManager manager, NamingPolicy namingPolicy) throws GeneratorException {
 		super(type);
 		this.nameTranslator = nameTranslator;
 		this.namespace = this.nameTranslator.getPackageName(type.getTypeName());
 		this.manager = manager;
 		this.nameResolver = new PropertyNameResolver(
 				this.type.getLanguageSpecificName().getUnqualifiedClassName(), 
-				type.getRelationships());
+				type.getRelationships(), namingPolicy);
 	}
 	
-	Hl7DotNetMessageTypeWriter(Type type, NameTranslator translator, NamespaceContents contents) throws GeneratorException {
-		this(type, translator, new UsingManager(type.getTypeName(), ImportTypeUtil.getImports(type, C_SHARP), translator, contents));
+	Hl7DotNetMessageTypeWriter(Type type, NameTranslator translator, NamespaceContents contents, NamingPolicy namingPolicy) throws GeneratorException {
+		this(type, translator, new UsingManager(type.getTypeName(), ImportTypeUtil.getImports(type, C_SHARP), translator, contents), namingPolicy);
 	}
 
 	public void write(Writer writer) throws IOException, GeneratorException {

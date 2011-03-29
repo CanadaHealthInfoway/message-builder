@@ -14,20 +14,23 @@ import java.util.Map;
 import org.apache.commons.lang.StringUtils;
 
 import ca.infoway.messagebuilder.generator.GeneratorException;
+import ca.infoway.messagebuilder.generator.NamingPolicy;
 
 public class PropertyNameResolver implements BaseRelationshipNameResolver {
 
 	private Map<BaseRelationship, String> map = new LinkedHashMap<BaseRelationship, String>();
 	private final String finalTypeName;
 
-	public PropertyNameResolver(String finalTypeName, List<BaseRelationship> relationships) throws GeneratorException {
+	public PropertyNameResolver(String finalTypeName, List<BaseRelationship> relationships, NamingPolicy namingPolicy) throws GeneratorException {
 		this.finalTypeName = finalTypeName;
 		for (BaseRelationship baseRelationship : relationships) {
 			registerName(baseRelationship);
 		}
 		
-		for (BaseRelationship baseRelationship : relationships) {
-			registerBusinessNameIfPossible(baseRelationship);
+		if (namingPolicy == NamingPolicy.BUSINESS_NAMES) {
+			for (BaseRelationship baseRelationship : relationships) {
+				registerBusinessNameIfPossible(baseRelationship);
+			}
 		}
 		if (isDuplicateValue()) {
 			removeDuplicates();

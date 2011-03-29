@@ -8,6 +8,7 @@ import java.io.IOException;
 import ca.infoway.messagebuilder.generator.GeneratorException;
 import ca.infoway.messagebuilder.generator.OutputUI;
 import ca.infoway.messagebuilder.generator.java.Case3Simplifier;
+import ca.infoway.messagebuilder.generator.java.IntermediateToModelConfiguration;
 import ca.infoway.messagebuilder.generator.java.IntermediateToModelGenerator;
 import ca.infoway.messagebuilder.generator.java.NameTranslator;
 import ca.infoway.messagebuilder.generator.java.SimpleNameTranslator;
@@ -21,7 +22,10 @@ public class IntermediateToCsharpGenerator extends IntermediateToModelGenerator 
 		this(outputUI, sourceFolder, basePackageName, null);
 	}
 	public IntermediateToCsharpGenerator(OutputUI outputUI, File sourceFolder, String basePackageName, File reportDir) {
-		super(outputUI, sourceFolder, basePackageName, reportDir);
+		super(outputUI, new IntermediateToModelConfiguration(sourceFolder, basePackageName, reportDir, null));
+	}
+	public IntermediateToCsharpGenerator(OutputUI outputUI, IntermediateToModelConfiguration configuration) {
+		super(outputUI, configuration);
 	}
 	
 	/**
@@ -37,9 +41,9 @@ public class IntermediateToCsharpGenerator extends IntermediateToModelGenerator 
 	
 	@Override
 	protected void writeClasses(TypeAnalysisResult result) throws IOException, GeneratorException {
-		NameTranslator translator = new CsharpPackageNameAdjustingDecorator(new SimpleNameTranslator(C_SHARP, this.basePackageName, result));
+		NameTranslator translator = new CsharpPackageNameAdjustingDecorator(new SimpleNameTranslator(C_SHARP, this.basePackageName, result, getNamingPolicy()));
 		CsharpSourceFileWriterProvider writerProvider = new CsharpSourceFileWriterProvider(this.sourceFolder, translator);
-		new CsharpTypeWriter(this.outputUI, writerProvider, translator, result).writeTypes();
+		new CsharpTypeWriter(this.outputUI, writerProvider, translator, result, getNamingPolicy()).writeTypes();
 	}
 	@Override
 	protected ProgrammingLanguage getProgrammingLanguage() {

@@ -8,6 +8,7 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
 import ca.infoway.messagebuilder.generator.GeneratorException;
+import ca.infoway.messagebuilder.generator.NamingPolicy;
 import ca.infoway.messagebuilder.generator.XsdDataType;
 import ca.infoway.messagebuilder.generator.XsdTypeConverter;
 import ca.infoway.messagebuilder.xml.TypeName;
@@ -17,11 +18,13 @@ public class Hl7XsdMessageTypeWriter extends Hl7XsdTypeWriter {
 	private final ComplexTypePackage complexTypePackage;
 	private final NameTranslator translator;
 	private XsdTypeConverter converter = new XsdTypeConverter();
+	private final NamingPolicy namingPolicy;
 	
-	public Hl7XsdMessageTypeWriter(ComplexTypePackage complexTypePackage, NameTranslator translator, TypeAnalysisResult typeResults) {
+	public Hl7XsdMessageTypeWriter(ComplexTypePackage complexTypePackage, NameTranslator translator, TypeAnalysisResult typeResults, NamingPolicy namingPolicy) {
 		super(typeResults);
 		this.translator = translator;
 		this.complexTypePackage = complexTypePackage;
+		this.namingPolicy = namingPolicy;
 	}
 
 	protected void writeContents(Element schema)	throws GeneratorException {
@@ -86,7 +89,7 @@ public class Hl7XsdMessageTypeWriter extends Hl7XsdTypeWriter {
 		complexType.appendChild(sequence);
 		PropertyNameResolver propertyNameResolver = new PropertyNameResolver(
 				this.translator.getClassNameWithoutPackage(this.complexTypePackage.getName()), 
-				type.getRelationships());
+				type.getRelationships(), this.namingPolicy);
 		for (BaseRelationship baseRelationship : type.getRelationships()) {
 			if (!isTemplateRelationship(baseRelationship)) {
 				writeRelationship(document, schema, sequence, baseRelationship, propertyNameResolver);

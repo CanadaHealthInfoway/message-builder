@@ -9,6 +9,7 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 
+import ca.infoway.messagebuilder.generator.NamingPolicy;
 import ca.infoway.messagebuilder.xml.Cardinality;
 import ca.infoway.messagebuilder.xml.Documentation;
 
@@ -25,7 +26,7 @@ public class NameResolverTest {
 	
 	@Test
 	public void shouldUseRelationshipNameIfNoBusinessNames() throws Exception {
-		PropertyNameResolver resolver = new PropertyNameResolver("Fred", this.relationships);
+		PropertyNameResolver resolver = new PropertyNameResolver("Fred", this.relationships, NamingPolicy.getDefaultPolicy());
 		assertEquals("Id", resolver.getName(this.relationships.get(0)));
 		assertEquals("PersonId", resolver.getName(this.relationships.get(1)));
 	}
@@ -40,7 +41,7 @@ public class NameResolverTest {
 		documentation1.setBusinessName("*o: person identifier");
 		this.relationships.get(1).getRelationship().setDocumentation(documentation1);
 		
-		PropertyNameResolver resolver = new PropertyNameResolver("Fred", this.relationships);
+		PropertyNameResolver resolver = new PropertyNameResolver("Fred", this.relationships, NamingPolicy.getDefaultPolicy());
 		assertEquals("DrugProductIdentifier", resolver.getName(this.relationships.get(0)));
 		assertEquals("PersonIdentifier", resolver.getName(this.relationships.get(1)));
 	}
@@ -55,7 +56,7 @@ public class NameResolverTest {
 		documentation1.setBusinessName("*o: drug product identifier");
 		this.relationships.get(1).getRelationship().setDocumentation(documentation1);
 		
-		PropertyNameResolver resolver = new PropertyNameResolver("Fred", this.relationships);
+		PropertyNameResolver resolver = new PropertyNameResolver("Fred", this.relationships, NamingPolicy.getDefaultPolicy());
 		assertEquals("DrugProductIdentifier", resolver.getName(this.relationships.get(0)));
 		assertEquals("PersonId", resolver.getName(this.relationships.get(1)));
 	}

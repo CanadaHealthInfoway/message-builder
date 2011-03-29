@@ -10,6 +10,7 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
 import ca.infoway.messagebuilder.generator.Namespaces;
+import ca.infoway.messagebuilder.generator.NamingPolicy;
 import ca.infoway.messagebuilder.generator.util.XPathHelper;
 import ca.infoway.messagebuilder.util.xml.DocumentFactory;
 import ca.infoway.messagebuilder.xml.Cardinality;
@@ -53,7 +54,7 @@ public class Hl7XsdMessageTypeWriterTest {
 		Attribute attribute = new Attribute(relationship, null);
 		type.getRelationships().add(attribute);
 
-		Hl7XsdMessageTypeWriter typeWriter = new Hl7XsdMessageTypeWriter(complexTypePackage, this.translator, null);
+		Hl7XsdMessageTypeWriter typeWriter = new Hl7XsdMessageTypeWriter(complexTypePackage, this.translator, null, NamingPolicy.getDefaultPolicy());
 		Document document = new DocumentFactory().createFromString("<?xml version=\"1.0\" encoding=\"UTF-8\"?>" +
 				"<xs:schema xmlns:chi=\"urn:ca.infoway.messagebuilder.simplexml.v1\" elementFormDefault=\"qualified\" targetNamespace=\"urn:ca.infoway.messagebuilder.simplexml.v1\" xmlns:xs=\"http://www.w3.org/2001/XMLSchema\">"
 				+ "  <xs:complexType name=\"OtherIdentifiersBean\"><xs:sequence /></xs:complexType>" +
@@ -61,7 +62,7 @@ public class Hl7XsdMessageTypeWriterTest {
 
 		Element sequence = (Element) new XPathHelper().getSingleNode(document, "//xs:sequence", Namespaces.XSD_NAMESPACE);
 
-		typeWriter.writeRelationship(document, document.getDocumentElement(), sequence, attribute, new PropertyNameResolver("Fred", type.getRelationships()));
+		typeWriter.writeRelationship(document, document.getDocumentElement(), sequence, attribute, new PropertyNameResolver("Fred", type.getRelationships(), NamingPolicy.getDefaultPolicy()));
 		
 	}
 	

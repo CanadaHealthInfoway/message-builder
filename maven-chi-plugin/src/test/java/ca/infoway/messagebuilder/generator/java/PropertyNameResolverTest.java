@@ -6,6 +6,7 @@ import java.util.Arrays;
 
 import org.junit.Test;
 
+import ca.infoway.messagebuilder.generator.NamingPolicy;
 import ca.infoway.messagebuilder.xml.Cardinality;
 
 public class PropertyNameResolverTest {
@@ -17,7 +18,7 @@ public class PropertyNameResolverTest {
 			.buildStandard();
 		
 		PropertyNameResolver resolver = new PropertyNameResolver("HealthcareWorker", 
-				Arrays.<BaseRelationship>asList(association));
+				Arrays.<BaseRelationship>asList(association), NamingPolicy.getDefaultPolicy());
 		
 		assertEquals("Name", resolver.getName(association));
 	}
@@ -28,7 +29,7 @@ public class PropertyNameResolverTest {
 				.setName("person.name").build();
 		
 		PropertyNameResolver resolver = new PropertyNameResolver("Person", 
-				Arrays.<BaseRelationship>asList(attribute));
+				Arrays.<BaseRelationship>asList(attribute), NamingPolicy.getDefaultPolicy());
 		
 		assertEquals("PersonName", resolver.getName(attribute));
 	}
@@ -43,7 +44,7 @@ public class PropertyNameResolverTest {
 			.buildStandard();
 		
 		PropertyNameResolver resolver = new PropertyNameResolver("HealthcareWorker", 
-				Arrays.<BaseRelationship>asList(association1, association2));
+				Arrays.<BaseRelationship>asList(association1, association2), NamingPolicy.getDefaultPolicy());
 		
 		assertEquals("AssignedEntity1", resolver.getName(association1));
 		assertEquals("AssignedEntity2", resolver.getName(association2));
@@ -62,7 +63,7 @@ public class PropertyNameResolverTest {
 				.buildStandard();
 		
 		PropertyNameResolver resolver = new PropertyNameResolver("HealthcareWorker", 
-				Arrays.<BaseRelationship>asList(association1, association2, association3));
+				Arrays.<BaseRelationship>asList(association1, association2, association3), NamingPolicy.getDefaultPolicy());
 		
 		assertEquals("AssignedEntityAssociation1", resolver.getName(association1));
 		assertEquals("AssignedEntityAssociation2", resolver.getName(association2));

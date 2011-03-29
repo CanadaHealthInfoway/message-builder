@@ -13,6 +13,7 @@ import java.util.Set;
 import org.apache.commons.lang.time.DateFormatUtils;
 
 import ca.infoway.messagebuilder.generator.GeneratorException;
+import ca.infoway.messagebuilder.generator.NamingPolicy;
 import ca.infoway.messagebuilder.generator.java.InteractionType.ArgumentType;
 import ca.infoway.messagebuilder.generator.lang.Hl7MessageTypeWriter;
 import ca.infoway.messagebuilder.generator.lang.TypeDocumentation;
@@ -24,10 +25,10 @@ public class Hl7JavaMessageTypeWriter extends Hl7MessageTypeWriter implements Hl
     private final NameTranslator nameTranslator;
 	private final BaseRelationshipNameResolver nameResolver;
 
-	public Hl7JavaMessageTypeWriter(RenderedType type, NameTranslator nameTranslator) throws GeneratorException {
+	public Hl7JavaMessageTypeWriter(RenderedType type, NameTranslator nameTranslator, NamingPolicy namingPolicy) throws GeneratorException {
 		super(type);
 		this.nameTranslator = nameTranslator;
-		this.nameResolver = new PropertyNameResolver(type.getLanguageSpecificName().getUnqualifiedClassName(), type.getRelationships());
+		this.nameResolver = new PropertyNameResolver(type.getLanguageSpecificName().getUnqualifiedClassName(), type.getRelationships(), namingPolicy);
 		Set<Object> importTypes = new HashSet<Object>(ImportTypeUtil.getImports(this.type, JAVA));
         this.importDeclarationGenerator = new ImportDeclarationGenerator(this.type.getLanguageSpecificName(), importTypes, this.nameTranslator);
 	}

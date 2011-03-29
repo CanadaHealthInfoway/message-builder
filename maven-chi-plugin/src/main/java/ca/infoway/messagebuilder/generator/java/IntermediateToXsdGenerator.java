@@ -13,13 +13,16 @@ public class IntermediateToXsdGenerator extends IntermediateToModelGenerator {
 		this(outputUI, sourceFolder, basePackageName, null);
 	}
 	public IntermediateToXsdGenerator(OutputUI outputUI, File sourceFolder, String basePackageName, File report) {
-		super(outputUI, sourceFolder, basePackageName, report);
+		this(outputUI, new IntermediateToModelConfiguration(sourceFolder, basePackageName, report, null));
+	}
+	public IntermediateToXsdGenerator(OutputUI outputUI, IntermediateToModelConfiguration configuration) {
+		super(outputUI, configuration);
 	}
 
 	protected void writeClasses(TypeAnalysisResult result) throws IOException, GeneratorException {
 		XsdNameTranslator translator = new XsdNameTranslator(this.basePackageName, result);
 		XsdSourceFileWriterProvider writerProvider = new XsdSourceFileWriterProvider(this.sourceFolder, translator);
-		new XsdTypeWriter(this.outputUI, writerProvider, translator, result).writeTypes();
+		new XsdTypeWriter(this.outputUI, writerProvider, translator, result, getNamingPolicy()).writeTypes();
 	}
 	@Override
 	protected ProgrammingLanguage getProgrammingLanguage() {

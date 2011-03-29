@@ -14,6 +14,7 @@ import org.junit.runner.RunWith;
 
 import ca.infoway.messagebuilder.datatype.ANY;
 import ca.infoway.messagebuilder.datatype.lang.Identifier;
+import ca.infoway.messagebuilder.generator.NamingPolicy;
 import ca.infoway.messagebuilder.generator.TypeConverter;
 import ca.infoway.messagebuilder.generator.java.Association;
 import ca.infoway.messagebuilder.generator.java.Attribute;
@@ -70,7 +71,7 @@ public class Hl7DotNetMessageTypeWriterTest {
 			allowing(manager).getRepresentationOfType(choiceAssociation.getAssociationType()); will(returnValue("IMyChoice"));
 			allowing(manager).getRepresentationOfType(association.getAssociationType()); will(returnValue("Requestor"));
 		}});
-		this.writer = new Hl7DotNetMessageTypeWriter(this.type, translator, this.manager);
+		this.writer = new Hl7DotNetMessageTypeWriter(this.type, translator, this.manager, NamingPolicy.getDefaultPolicy());
 		this.stringWriter = new StringWriter();
 	}
 
@@ -116,7 +117,7 @@ public class Hl7DotNetMessageTypeWriterTest {
 		interactionType.setParentType(new Type(this.typeName));
 		interactionType.getParentType().setLanguageSpecificName(new LanguageSpecificName("Ca.Infoway.Messagebuilder.Interaction", "BatteryRequest"));
 		
-		new Hl7DotNetMessageTypeWriter(interactionType, translator, this.manager).write(this.stringWriter);
+		new Hl7DotNetMessageTypeWriter(interactionType, translator, this.manager, NamingPolicy.getDefaultPolicy()).write(this.stringWriter);
 		String output = this.stringWriter.toString();
 		assertContains("class BetterBatterQuery : BatteryRequest, IInteraction ", output);
 	}
