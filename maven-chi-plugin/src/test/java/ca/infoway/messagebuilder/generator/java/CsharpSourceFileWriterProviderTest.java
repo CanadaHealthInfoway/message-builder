@@ -19,7 +19,8 @@ public class CsharpSourceFileWriterProviderTest {
 				SystemUtils.getJavaIoTmpDir(), new SimpleNameTranslator(C_SHARP, "ca.infoway.test", new TypeNameHelperImpl()));
 		File file = provider.createFile(new TypeName("ABCD_MT123456CA.Subject23"));
 		
-		assertTrue("file name: " + file.getAbsolutePath(), 
-				file.getAbsolutePath().endsWith("ca/infoway/test/abcd_mt123456ca/Subject23.java"));
+        String expectedPathEnd = "ca/infoway/test/abcd_mt123456ca/Subject23.java".replace('/', System.getProperty("file.separator").charAt(0));
+        assertTrue("file name: " + file.getAbsolutePath(),
+                file.getAbsolutePath().endsWith(expectedPathEnd));
 	}
 }
