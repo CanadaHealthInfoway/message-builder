@@ -13,7 +13,7 @@ import org.apache.commons.httpclient.params.HttpClientParams;
  *
  * @sharpen.ignore - transport - TBD!
  */
-interface Client {
+public interface Client {
 	
 	/**
 	 * <p>Obtains the http state of the underlying client. 
