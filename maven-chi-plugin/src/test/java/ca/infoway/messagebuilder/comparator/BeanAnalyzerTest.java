@@ -27,7 +27,7 @@ public class BeanAnalyzerTest {
 				convertPathString("./src/test/java/ca/infoway/messagebuilder/comparator/oldbean/"),
 				convertPathString("./src/test/java/ca/infoway/messagebuilder/comparator/newbean/")
 		).analyze();
-		List<BeanAnalysisError> errors = result.getBeanAnalysisErrors("./src/test/java/ca/infoway/messagebuilder/comparator/oldbean/SampleBean.java");
+		List<BeanAnalysisError> errors = result.getBeanAnalysisErrors(convertPathString("./src/test/java/ca/infoway/messagebuilder/comparator/oldbean/SampleBean.java"));
 		assertEquals(3, errors.size());
 		assertEquals(ErrorType.EXTENDS, errors.get(0).getErrorType());
 		assertEquals(ErrorType.IMPLEMENTS, errors.get(1).getErrorType());
