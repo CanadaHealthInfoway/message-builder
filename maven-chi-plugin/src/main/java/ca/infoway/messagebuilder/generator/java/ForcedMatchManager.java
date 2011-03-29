@@ -6,6 +6,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import ca.infoway.messagebuilder.generator.MifProcessingException;
 import ca.infoway.messagebuilder.generator.dependency.DependencyTracker;
 import ca.infoway.messagebuilder.xml.Difference;
 import ca.infoway.messagebuilder.xml.DifferenceType;
@@ -33,7 +34,12 @@ class ForcedMatchManager implements Fuzziness {
 		this.tracker = DependencyTracker.create(this.definitions);
 		for (String part : new HashSet<String>(this.parts)) {
 			Node<String> node = this.tracker.getPrimaryLayeredGraph().getNode(part);
-			this.parts.addAll(node.getEfferentCouplings());
+			if (node == null) {
+				throw new MifProcessingException("Dependency mapping error: cannot find part \"" 
+						+ part + "\" in dependency map");
+			} else {
+				this.parts.addAll(node.getEfferentCouplings());
+			}
 		}
 	}
 

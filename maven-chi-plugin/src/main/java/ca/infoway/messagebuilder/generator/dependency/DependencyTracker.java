@@ -8,6 +8,9 @@ import ca.infoway.messagebuilder.generator.java.SimplifiableDefinitions;
 import ca.infoway.messagebuilder.generator.java.SimplifiableInteraction;
 import ca.infoway.messagebuilder.generator.java.SimplifiableType;
 import ca.infoway.messagebuilder.xml.Argument;
+import ca.infoway.messagebuilder.xml.Difference;
+import ca.infoway.messagebuilder.xml.DifferenceType;
+import ca.infoway.messagebuilder.xml.DifferenceValue;
 import ca.infoway.messagebuilder.xml.Interaction;
 import ca.infoway.messagebuilder.xml.MessagePart;
 import ca.infoway.messagebuilder.xml.MessageSet;
@@ -67,8 +70,22 @@ public class DependencyTracker {
 			if (relationship.isAssociation() 
 					&& StringUtils.isNotBlank(relationship.getType())) {
 				this.manager.add(name, relationship.getType());
+				buildDifferenceDependencies(name, relationship);
 				List<Relationship> choices = relationship.getChoices();
 				buildChoiceDependencies(this.choiceManager, name, choices);
+			}
+		}
+	}
+
+	// Redmine bug #673
+	// - if there's an association type change, we need to build the dependencies 
+	//   to both the old and new values
+	private void buildDifferenceDependencies(String name, Relationship relationship) {
+		for (Difference difference : relationship.getDifferences()) {
+			if (difference.getType() == DifferenceType.ASSOCIATION_TYPE) {
+				for (DifferenceValue value : difference.getDifferences()) {
+					this.manager.add(name, value.getValue());
+				}
 			}
 		}
 	}
