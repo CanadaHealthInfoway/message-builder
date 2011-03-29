@@ -14,8 +14,8 @@ public class BeanAnalyzerTest {
 	@Test
 	public void analyze() throws Exception {
 		 BeanAnalysisResult result = new BeanAnalyzer(
-				 "./src/test/java/ca/infoway/messagebuilder/comparator/oldbean/",
-				 "./src/test/java/ca/infoway/messagebuilder/comparator/newbean/"
+				 convertPathString("./src/test/java/ca/infoway/messagebuilder/comparator/oldbean/"),
+						 convertPathString("./src/test/java/ca/infoway/messagebuilder/comparator/newbean/")
 				 ).analyze();
 		 System.out.println(result.getBeanAnalysisReport());
 		 System.out.println("DONE!");
@@ -24,8 +24,8 @@ public class BeanAnalyzerTest {
 	@Test
 	public void shouldFindErrorsForOneBeanInSuiteRun() throws Exception {
 		BeanAnalysisResult result = new BeanAnalyzer(
-				"./src/test/java/ca/infoway/messagebuilder/comparator/oldbean/",
-				"./src/test/java/ca/infoway/messagebuilder/comparator/newbean/"
+				convertPathString("./src/test/java/ca/infoway/messagebuilder/comparator/oldbean/"),
+				convertPathString("./src/test/java/ca/infoway/messagebuilder/comparator/newbean/")
 		).analyze();
 		List<BeanAnalysisError> errors = result.getBeanAnalysisErrors("./src/test/java/ca/infoway/messagebuilder/comparator/oldbean/SampleBean.java");
 		assertEquals(3, errors.size());
@@ -38,12 +38,16 @@ public class BeanAnalyzerTest {
 	public void shouldFindErrorsForOneBean() throws Exception {
 		List<BeanAnalysisError> errors = 
 			new BeanAnalyzer(
-					"./src/test/java/ca/infoway/messagebuilder/comparator/oldbean/",
-					"./src/test/java/ca/infoway/messagebuilder/comparator/newbean/"
+					convertPathString("./src/test/java/ca/infoway/messagebuilder/comparator/oldbean/"),
+					convertPathString("./src/test/java/ca/infoway/messagebuilder/comparator/newbean/")
 			).analyzeFile(new File("./src/test/java/ca/infoway/messagebuilder/comparator/oldbean/SampleBean.java"));
 		assertEquals(3, errors.size());
 		assertEquals(ErrorType.EXTENDS, errors.get(0).getErrorType());
 		assertEquals(ErrorType.IMPLEMENTS, errors.get(1).getErrorType());
 		assertEquals(ErrorType.METHOD_NOT_FOUND, errors.get(2).getErrorType());
 	}
+	
+    private String convertPathString(String path) {
+        return path.replace('/', System.getProperty("file.separator").charAt(0));
+    }
 }
