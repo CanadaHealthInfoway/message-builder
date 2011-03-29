@@ -354,7 +354,7 @@ class DefinitionToResultConverter {
 		// don't need to worry about inlining a merged type - merging has not been handled yet
 		int index = type.getRelationships().indexOf(relationship);
 		Type elidedType = this.types.get(relationship.getType());
-		if (isIndicatorBean(elidedType)) {
+		if (isIndicatorBean(elidedType, relationship)) {
 			Attribute newRelationship = new Attribute(relationship.getRelationship(), new TypeConverter().convertToType("BL", null), true);
 			type.getRelationships().set(index, newRelationship);
 		} else {
@@ -370,12 +370,12 @@ class DefinitionToResultConverter {
 		}
 	}
 
-	private boolean isIndicatorBean(Type elidedType) throws GeneratorException {
+	private boolean isIndicatorBean(Type elidedType, BaseRelationship relationship) throws GeneratorException {
 		SimplifiableType type = this.definitions.getType(elidedType.getTypeName().getName());
 		if (type == null) {
 			throw new GeneratorException("Could not find type " + elidedType.getTypeName().getName() + " when trying to determine if is indicator bean");
 		}
-		return type.isIndicator();
+		return type.isIndicator() && !relationship.isMandatory();
 	}
 
 	private boolean isInlined(Type containingType, BaseRelationship relationship) {
