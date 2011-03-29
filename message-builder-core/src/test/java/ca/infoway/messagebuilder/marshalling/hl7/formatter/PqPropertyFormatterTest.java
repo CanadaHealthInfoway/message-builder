@@ -119,7 +119,8 @@ public class PqPropertyFormatterTest {
     	PQImpl pqImpl = new PQImpl();
     	pqImpl.setValue(new PhysicalQuantity());
 		String string = formatter.formatNonNullDataType(new FormatContextImpl("name", null, null), pqImpl, 0);
-		assertEquals("<name nullFlavor=\"NI\"/>\n", string);
+		String lineBreak = System.getProperty("line.separator");
+		assertEquals("<name nullFlavor=\"NI\"/>" + lineBreak, string);
     }
     
     @Test

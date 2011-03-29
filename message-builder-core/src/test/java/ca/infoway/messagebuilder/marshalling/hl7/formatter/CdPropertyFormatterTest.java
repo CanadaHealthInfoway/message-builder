@@ -77,7 +77,8 @@ public class CdPropertyFormatterTest extends FormatterTestCase {
 	public void testNoValueAndMandatory() throws Exception {
 		CDImpl cd = new CDImpl(null);
 		String result = new CdPropertyFormatter().format(new FormatContextImpl("name", null, ConformanceLevel.MANDATORY), cd);
-		assertEquals("result", "<!-- WARNING: name is a mandatory field, but no value is specified -->\n<name/>", StringUtils.trim(result));
+		String lineBreak = System.getProperty("line.separator");
+		assertEquals("result", "<!-- WARNING: name is a mandatory field, but no value is specified -->" + lineBreak + "<name/>", StringUtils.trim(result));
 	}
 	
 	@Test
