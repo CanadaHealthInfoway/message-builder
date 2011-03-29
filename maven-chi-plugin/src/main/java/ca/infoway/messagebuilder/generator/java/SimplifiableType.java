@@ -6,8 +6,8 @@ import static ca.infoway.messagebuilder.generator.java.DifferenceHelper.hasDiffe
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.HashSet;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -52,7 +52,7 @@ public class SimplifiableType implements Named, NamedType {
 	}
 
 	public Map<Fingerprint,Collection<SimplifiableRelationship>> getMatchedRelationships() {
-		Map<Fingerprint,Collection<SimplifiableRelationship>> result = new HashMap<Fingerprint, Collection<SimplifiableRelationship>>();
+		Map<Fingerprint,Collection<SimplifiableRelationship>> result = new LinkedHashMap<Fingerprint, Collection<SimplifiableRelationship>>();
 		
 		for (SimplifiableRelationship relationship : getRelationships()) {
 			Fingerprint fingerprint = relationship.getFingerprint();
