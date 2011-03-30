@@ -3,12 +3,15 @@ package ca.infoway.messagebuilder.generator.maven;
 import java.io.File;
 import java.io.IOException;
 
+import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.SystemUtils;
 import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
 
+import ca.infoway.messagebuilder.generator.NamingPolicy;
 import ca.infoway.messagebuilder.generator.java.IntermediateToJavaGenerator;
+import ca.infoway.messagebuilder.generator.java.IntermediateToModelConfiguration;
 import ca.infoway.messagebuilder.maven.util.OutputUIImpl;
 import ca.infoway.messagebuilder.xml.MessageSet;
 import ca.infoway.messagebuilder.xml.MessageSetMarshaller;
@@ -42,6 +45,13 @@ public class XmlToJavaGeneratorMojo extends AbstractMojo {
      * @required
      */
     private String basePackageName;
+    
+    /**
+     * The policy for handling the naming of the resulting classes and properties.
+     * 
+     * @parameter
+     */
+    private String namingPolicy;
     
     /**
      * The messageSet to be converted.
@@ -79,13 +89,31 @@ public class XmlToJavaGeneratorMojo extends AbstractMojo {
 			this.generatedReportsDirectory.mkdirs();
 			
 			MessageSet messages = new MessageSetMarshaller().unmarshall(this.messageSet);
-			IntermediateToJavaGenerator generator = new IntermediateToJavaGenerator(new OutputUIImpl(this), 
-					this.javaSourceFolder, this.basePackageName, this.generatedReportsDirectory);
+			IntermediateToJavaGenerator generator = new IntermediateToJavaGenerator(
+					new OutputUIImpl(this), createConfiguration());
 			generator.generate(messages);
 		} catch (IOException e) {
 			throw new MojoExecutionException("IOException", e);
 		} catch (Exception e) {
 			throw new MojoExecutionException("Exception", e);
+		}
+	}
+
+	private IntermediateToModelConfiguration createConfiguration() throws MojoFailureException {
+		return new IntermediateToModelConfiguration(
+				this.javaSourceFolder, this.basePackageName, 
+				this.generatedReportsDirectory, getNamingPolicy());
+	}
+
+	private NamingPolicy getNamingPolicy() throws MojoFailureException {
+		try {
+			if (StringUtils.isBlank(this.namingPolicy)) {
+				return null;
+			} else {
+				return NamingPolicy.valueOf(StringUtils.trim(StringUtils.upperCase(this.namingPolicy)));
+			}
+		} catch (IllegalArgumentException e) {
+			throw new MojoFailureException("Naming policy \"" + this.namingPolicy + "\" is not a valid value.");
 		}
 	}
 
