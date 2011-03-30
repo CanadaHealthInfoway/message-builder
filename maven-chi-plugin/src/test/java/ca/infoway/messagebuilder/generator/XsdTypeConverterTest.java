@@ -30,9 +30,16 @@ public class XsdTypeConverterTest {
 	
 	@Theory
 	public void shouldResolveSimpleType(String[] parameters) throws Exception {
-		XsdDataType type = new XsdTypeConverter().convertToType(createRelationship(parameters[0]));
+		XsdDataType type = new XsdTypeConverter().convertToType(createRelationship(parameters[0]), false);
 		assertNotNull("type found: " + parameters[0], type);
 		assertEquals("type", parameters[1], type.getQualifiedName());
+	}
+
+	@Theory
+	public void shouldResolveSimpleIndicatorType(String[] parameters) throws Exception {
+		XsdDataType type = new XsdTypeConverter().convertToType(createRelationship(parameters[0]), true);
+		assertNotNull("type found: " + parameters[0], type);
+		assertEquals("type", "xs:boolean", type.getQualifiedName());
 	}
 
 	@Theory
@@ -43,7 +50,7 @@ public class XsdTypeConverterTest {
 		Assume.assumeTrue(!"BAG".equals(standardDataType.getType()));
 		Assume.assumeTrue(standardDataType.isPartOfCanadianSpec());
 
-		XsdDataType type = new XsdTypeConverter().convertToType(createRelationship(standardDataType.getType()));
+		XsdDataType type = new XsdTypeConverter().convertToType(createRelationship(standardDataType.getType()), false);
 		assertNotNull("type found: " + standardDataType.getType(), type);
 	}
 	

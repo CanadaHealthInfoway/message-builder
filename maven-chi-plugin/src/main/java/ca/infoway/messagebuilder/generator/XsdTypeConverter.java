@@ -14,7 +14,8 @@ import ca.infoway.messagebuilder.xml.Relationship;
  */
 public class XsdTypeConverter {
 
-    protected static final Map<String,XsdDataType> BASIC_TYPES;
+    private static final String BL = "BL";
+	protected static final Map<String,XsdDataType> BASIC_TYPES;
 	
     static {
         Map<String,XsdDataType> map = new HashMap<String,XsdDataType>();
@@ -24,7 +25,7 @@ public class XsdTypeConverter {
     
     protected static void addAllHl7BasicTypes(Map<String, XsdDataType> map) {
         map.put("ANY", new XsdDataType("anyType", Namespaces.XSD_NAMESPACE));
-        map.put("BL", new XsdDataType("boolean", Namespaces.XSD_NAMESPACE));
+        map.put(BL, new XsdDataType("boolean", Namespaces.XSD_NAMESPACE));
         map.put("INT", new XsdDataType("integer", Namespaces.XSD_NAMESPACE));
         map.put("REAL", new XsdDataType("decimal", Namespaces.XSD_NAMESPACE));
         
@@ -69,15 +70,20 @@ public class XsdTypeConverter {
         
     }
     
-	public XsdDataType convertToType(Relationship relationship) throws GeneratorException {
-		Hl7TypeName name = Hl7TypeName.parse(relationship.getType());
-		if (isCollection(name)) {
-			name = name.getParameters().get(0);
-		}
-		
-		XsdDataType result = BASIC_TYPES.get(name.toString());
-		if (result == null) {
-			result = BASIC_TYPES.get(name.getUnspecializedName());
+	public XsdDataType convertToType(Relationship relationship, boolean isIndicator) throws GeneratorException {
+		XsdDataType result = null;
+		if (isIndicator) {
+			result = BASIC_TYPES.get(BL);
+		} else {
+			Hl7TypeName name = Hl7TypeName.parse(relationship.getType());
+			if (isCollection(name)) {
+				name = name.getParameters().get(0);
+			}
+			
+			result = BASIC_TYPES.get(name.toString());
+			if (result == null) {
+				result = BASIC_TYPES.get(name.getUnspecializedName());
+			}
 		}
 		return result;
 	}

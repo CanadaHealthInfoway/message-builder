@@ -27,6 +27,7 @@ public class Hl7XsdMessageTypeWriter extends Hl7XsdTypeWriter {
 		this.namingPolicy = namingPolicy;
 	}
 
+	@Override
 	protected void writeContents(Element schema)	throws GeneratorException {
 		Collection<Type> values = this.complexTypePackage.getTypes().values();
 		for (Type type : values) {
@@ -128,7 +129,7 @@ public class Hl7XsdMessageTypeWriter extends Hl7XsdTypeWriter {
 			Element propertyElement =  document.createElement("xs:element");
 			propertyElement.setAttribute("name", WordUtils.uncapitalize(resolver.getName(relationship)));
 			if (relationship.getRelationshipType() == RelationshipType.ATTRIBUTE) {
-				XsdDataType xsdType = this.converter.convertToType(relationship.getRelationship());
+				XsdDataType xsdType = this.converter.convertToType(relationship.getRelationship(), ((Attribute) relationship).isIndicator());
 				propertyElement.setAttribute("type", xsdType.getQualifiedName());
 				addSimpleDataTypesInclude(document, schema);
 			} else {

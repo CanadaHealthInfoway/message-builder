@@ -13,7 +13,7 @@ public class InlinedAttribute extends Attribute {
 	private final Attribute inlinedRelationship;
 
 	protected InlinedAttribute(Attribute inlinedRelationship, BaseRelationship elidedRelationship) {
-		this(inlinedRelationship, elidedRelationship, false);
+		this(inlinedRelationship, elidedRelationship, inlinedRelationship.isIndicator());
 	}
 	
 	protected InlinedAttribute(Attribute inlinedRelationship, BaseRelationship elidedRelationship, boolean indicator) {
