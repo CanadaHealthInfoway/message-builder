@@ -9,7 +9,7 @@ import org.apache.commons.httpclient.params.HttpClientParams;
 /**
  * @sharpen.ignore - transport - TBD!
  */
-interface Client {
+public interface Client {
 	public HttpState getState();
 	public HttpClientParams getParams();
 	public int executeMethod(PostMethod method) throws IOException;

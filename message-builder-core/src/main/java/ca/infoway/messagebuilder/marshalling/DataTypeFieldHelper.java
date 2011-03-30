@@ -31,7 +31,7 @@ class DataTypeFieldHelper {
 	private final Object bean;
 	private final String fieldName;
 
-	static class ErrorLogger {
+	public static class ErrorLogger {
 		public void logNotMessagePartBean(Log log, Object bean) {
 			log.error(MessageFormat.format("Unable to extract HL7 value. The bean {0} does not extend {1}", 
 					bean.getClass().getSimpleName(), 
