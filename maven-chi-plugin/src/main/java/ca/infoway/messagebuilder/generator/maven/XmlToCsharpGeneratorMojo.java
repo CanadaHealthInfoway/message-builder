@@ -3,12 +3,15 @@ package ca.infoway.messagebuilder.generator.maven;
 import java.io.File;
 import java.io.IOException;
 
+import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.SystemUtils;
 import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
 
+import ca.infoway.messagebuilder.generator.NamingPolicy;
 import ca.infoway.messagebuilder.generator.dotnet.IntermediateToCsharpGenerator;
+import ca.infoway.messagebuilder.generator.java.IntermediateToModelConfiguration;
 import ca.infoway.messagebuilder.generator.java.IntermediateToModelGenerator;
 import ca.infoway.messagebuilder.maven.util.OutputUIImpl;
 import ca.infoway.messagebuilder.xml.MessageSet;
@@ -54,6 +57,13 @@ public class XmlToCsharpGeneratorMojo extends AbstractMojo {
     private File messageSet;
 	
     /**
+     * The policy for handling the naming of the resulting classes and properties.
+     * 
+     * @parameter
+     */
+    private String namingPolicy;
+    
+    /**
      * <p>Perform the generation.  Read in the message set, and create
      * the corresponding Java classes.
      * 
@@ -81,13 +91,28 @@ public class XmlToCsharpGeneratorMojo extends AbstractMojo {
 			this.generatedReportsDirectory.mkdirs();
 			
 			MessageSet messages = new MessageSetMarshaller().unmarshall(this.messageSet);
-			IntermediateToModelGenerator generator = new IntermediateToCsharpGenerator(new OutputUIImpl(this), 
-					this.csSourceFolder, this.basePackageName, this.generatedReportsDirectory);
+			IntermediateToModelGenerator generator = new IntermediateToCsharpGenerator(
+					new OutputUIImpl(this), createConfiguration());
 			generator.generate(messages);
 		} catch (IOException e) {
 			throw new MojoExecutionException("IOException", e);
 		} catch (Exception e) {
 			throw new MojoExecutionException("Exception", e);
+		}
+	}
+
+	private IntermediateToModelConfiguration createConfiguration() throws MojoFailureException {
+		return new IntermediateToModelConfiguration(
+				this.csSourceFolder, this.basePackageName, 
+				this.generatedReportsDirectory, getNamingPolicy());
+	}
+	
+	private NamingPolicy getNamingPolicy() throws MojoFailureException {
+		NamingPolicy policy = NamingPolicy.from(this.namingPolicy);
+		if (StringUtils.isNotBlank(this.namingPolicy) && policy == null) {
+			throw new MojoFailureException("Naming policy \"" + this.namingPolicy + "\" is not a valid value.");
+		} else {
+			return policy;
 		}
 	}
 

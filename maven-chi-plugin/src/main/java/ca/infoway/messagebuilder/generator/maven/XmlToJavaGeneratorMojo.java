@@ -106,14 +106,11 @@ public class XmlToJavaGeneratorMojo extends AbstractMojo {
 	}
 
 	private NamingPolicy getNamingPolicy() throws MojoFailureException {
-		try {
-			if (StringUtils.isBlank(this.namingPolicy)) {
-				return null;
-			} else {
-				return NamingPolicy.valueOf(StringUtils.trim(StringUtils.upperCase(this.namingPolicy)));
-			}
-		} catch (IllegalArgumentException e) {
+		NamingPolicy policy = NamingPolicy.from(this.namingPolicy);
+		if (StringUtils.isNotBlank(this.namingPolicy) && policy == null) {
 			throw new MojoFailureException("Naming policy \"" + this.namingPolicy + "\" is not a valid value.");
+		} else {
+			return policy;
 		}
 	}
 

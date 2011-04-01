@@ -1,5 +1,7 @@
 package ca.infoway.messagebuilder.generator;
 
+import org.apache.commons.lang.StringUtils;
+
 /**
  * <p>When we generate model classes from the message sets, we can use one of three
  * policies toward naming:
@@ -22,5 +24,17 @@ public enum NamingPolicy {
 
 	public static NamingPolicy getDefaultPolicy() {
 		return BUSINESS_NAMES;
+	}
+
+	public static NamingPolicy from(String namingPolicy) {
+		if (StringUtils.isBlank(namingPolicy)) {
+			return null;
+		} else {
+			try {
+				return NamingPolicy.valueOf(StringUtils.trim(StringUtils.upperCase(namingPolicy)));
+			} catch (IllegalArgumentException e) {
+				return null;
+			}
+		}
 	}
 }
