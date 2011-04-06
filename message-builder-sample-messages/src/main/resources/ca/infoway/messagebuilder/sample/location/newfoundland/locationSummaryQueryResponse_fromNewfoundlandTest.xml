@@ -29,7 +29,7 @@
    </hl7:acknowledgement>
    <hl7:controlActEvent classCode="CACT" moodCode="EVN">
       <hl7:id extension="33434" root="2.16.840.1.113883.3.133.1.30.101.2" />
-      <hl7:code code="PRLO_TE202011UV" codeSystem="2.16.840.1.113883.5.4" />
+      <hl7:code code="PRLO_TE202011UV" codeSystem="2.16.840.1.113883.1.18" />
       <hl7:statusCode code="completed" />
       <hl7:effectiveTime nullFlavor="UNK" />
       <hl7:subject contextControlCode="ON" typeCode="SUBJ">

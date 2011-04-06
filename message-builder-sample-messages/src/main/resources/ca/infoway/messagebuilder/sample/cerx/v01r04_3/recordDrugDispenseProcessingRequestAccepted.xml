@@ -28,7 +28,7 @@
   </acknowledgement>
   <controlActEvent classCode="CACT" moodCode="EVN">
     <id extension="1" root="2.16.124.113618.1234.1.1.2.1227543788248.2148.1233933814329.2148"/>
-    <code code="PORX_TE020190UV" codeSystem="2.16.840.1.113883.5.4"/>
+    <code code="PORX_TE020190UV" codeSystem="2.16.840.1.113883.1.18"/>
     <statusCode code="completed"/>
     <subject typeCode="SUBJ" contextConductionInd="false">
       <supplyEvent classCode="SPLY" moodCode="EVN">

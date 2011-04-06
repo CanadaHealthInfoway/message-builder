@@ -29,7 +29,7 @@
     </acknowledgement>
     <controlActEvent classCode="CACT" moodCode="EVN">
       <id extension="8141234" root="2.16.840.1.113883.1.6"/>
-      <code code="PORX_TE060530UV" codeSystem="2.16.840.1.113883.5.4"/>
+      <code code="PORX_TE060530UV" codeSystem="2.16.840.1.113883.1.18"/>
       <statusCode code="completed"/>
       <effectiveTime value="20080918000000-0400"/>
       <subject typeCode="SUBJ" contextConductionInd="false">
@@ -155,7 +155,7 @@
           </fulfillment4>
             <subjectOf3 typeCode="SUBJ" contextControlCode="AN" contextConductionInd="false">
               <refusalToFill classCode="CACT" moodCode="EVN">
-                <code code="PORX_TE010210UV" codeSystem="2.16.840.1.113883.5.4"/>
+                <code code="PORX_TE010210UV" codeSystem="2.16.840.1.113883.1.18"/>
                 <statusCode code="completed"/>
                 <effectiveTime value="19691231"/>
                 <reasonCode code="FRR01" codeSystem="2.16.840.1.113883.5.8"/>
@@ -307,7 +307,7 @@
           </fulfillment4>
             <subjectOf3 typeCode="SUBJ" contextControlCode="AN" contextConductionInd="false">
               <refusalToFill classCode="CACT" moodCode="EVN">
-                <code code="PORX_TE010210UV" codeSystem="2.16.840.1.113883.5.4"/>
+                <code code="PORX_TE010210UV" codeSystem="2.16.840.1.113883.1.18"/>
                 <statusCode code="completed"/>
                 <effectiveTime value="19691231"/>
                 <reasonCode code="FRR01" codeSystem="2.16.840.1.113883.5.8"/>

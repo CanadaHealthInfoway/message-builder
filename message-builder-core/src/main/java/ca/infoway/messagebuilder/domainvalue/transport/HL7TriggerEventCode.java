@@ -309,11 +309,11 @@ public class HL7TriggerEventCode extends EnumPattern implements ca.infoway.messa
 	private final String version;
 
     private HL7TriggerEventCode(String name, String codeValue) {
-    	this(name, codeValue, CodeSystem.VOCABULARY_ACT_CODE, null);
+    	this(name, codeValue, CodeSystem.VOCABULARY_TRIGGER_EVENT_ID, null);
     }
 
     private HL7TriggerEventCode(String name, String codeValue, String version) {
-    	this(name, codeValue, CodeSystem.VOCABULARY_ACT_CODE, version);
+    	this(name, codeValue, CodeSystem.VOCABULARY_TRIGGER_EVENT_ID, version);
     }
 
     private HL7TriggerEventCode(String name, String codeValue, CodeSystem codeSystem) {
@@ -331,7 +331,7 @@ public class HL7TriggerEventCode extends EnumPattern implements ca.infoway.messa
 	 * {@inheritDoc}
 	 */
 	public String getCodeSystem() {
-		return this.codeSystem == null ? CodeSystem.VOCABULARY_ACT_CODE.getRoot() : this.codeSystem.getRoot();
+		return this.codeSystem == null ? CodeSystem.VOCABULARY_TRIGGER_EVENT_ID.getRoot() : this.codeSystem.getRoot();
 	}
 
 	/**

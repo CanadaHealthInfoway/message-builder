@@ -31,7 +31,7 @@
     </acknowledgement>
     <controlActEvent classCode="CACT" moodCode="EVN">
       <id extension="8141234" root="2.16.840.1.113883.1.6"/>
-      <code code="REPC_TE000009UV" codeSystem="2.16.840.1.113883.5.4"/>
+      <code code="REPC_TE000009UV" codeSystem="2.16.840.1.113883.1.18"/>
       <statusCode code="completed"/>
       <effectiveTime value="20080918000000-0400"/>
       <subject typeCode="SUBJ" contextConductionInd="false">
@@ -200,7 +200,7 @@
                         </support>
                         <subjectOf1 typeCode="SUBJ" contextControlCode="AN" contextConductionInd="false">
                           <controlActEvent classCode="CACT" moodCode="EVN">
-                            <code code="REPC_TE000009UV" codeSystem="2.16.840.1.113883.5.4"/>
+                            <code code="REPC_TE000009UV" codeSystem="2.16.840.1.113883.1.18"/>
                             <statusCode code="completed"/>
                             <effectiveTime>
                               <low value="20090201"/>
@@ -271,7 +271,7 @@
                     </support>
                     <subjectOf1 typeCode="SUBJ" contextControlCode="AN" contextConductionInd="false">
                       <controlActEvent classCode="CACT" moodCode="EVN">
-                        <code code="REPC_TE000009UV" codeSystem="2.16.840.1.113883.5.4"/>
+                        <code code="REPC_TE000009UV" codeSystem="2.16.840.1.113883.1.18"/>
                         <statusCode code="completed"/>
                         <effectiveTime>
                           <low value="20090201"/>
@@ -342,7 +342,7 @@
                 </support>
                 <subjectOf1 typeCode="SUBJ" contextControlCode="AN" contextConductionInd="false">
                   <controlActEvent classCode="CACT" moodCode="EVN">
-                    <code code="REPC_TE000009UV" codeSystem="2.16.840.1.113883.5.4"/>
+                    <code code="REPC_TE000009UV" codeSystem="2.16.840.1.113883.1.18"/>
                     <statusCode code="completed"/>
                     <effectiveTime>
                       <low value="20090201"/>
@@ -413,7 +413,7 @@
             </support>
             <subjectOf1 typeCode="SUBJ" contextControlCode="AN" contextConductionInd="false">
               <controlActEvent classCode="CACT" moodCode="EVN">
-                <code code="REPC_TE000009UV" codeSystem="2.16.840.1.113883.5.4"/>
+                <code code="REPC_TE000009UV" codeSystem="2.16.840.1.113883.1.18"/>
                 <statusCode code="completed"/>
                 <effectiveTime>
                   <low value="20090201"/>
@@ -513,7 +513,7 @@
             </support>
             <subjectOf1 typeCode="SUBJ" contextControlCode="AN" contextConductionInd="false">
               <controlActEvent classCode="CACT" moodCode="EVN">
-                <code code="REPC_TE000009UV" codeSystem="2.16.840.1.113883.5.4"/>
+                <code code="REPC_TE000009UV" codeSystem="2.16.840.1.113883.1.18"/>
                 <statusCode code="completed"/>
                 <effectiveTime>
                   <low value="20090201"/>
@@ -642,7 +642,7 @@
                 </support>
                 <subjectOf1 typeCode="SUBJ" contextControlCode="AN" contextConductionInd="false">
                   <controlActEvent classCode="CACT" moodCode="EVN">
-                    <code code="REPC_TE000009UV" codeSystem="2.16.840.1.113883.5.4"/>
+                    <code code="REPC_TE000009UV" codeSystem="2.16.840.1.113883.1.18"/>
                     <statusCode code="completed"/>
                     <effectiveTime>
                       <low value="20090201"/>
@@ -713,7 +713,7 @@
             </support>
             <subjectOf1 typeCode="SUBJ" contextControlCode="AN" contextConductionInd="false">
               <controlActEvent classCode="CACT" moodCode="EVN">
-                <code code="REPC_TE000009UV" codeSystem="2.16.840.1.113883.5.4"/>
+                <code code="REPC_TE000009UV" codeSystem="2.16.840.1.113883.1.18"/>
                 <statusCode code="completed"/>
                 <effectiveTime>
                   <low value="20090201"/>

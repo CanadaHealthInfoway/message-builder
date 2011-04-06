@@ -27,7 +27,7 @@
     <controlActEvent classCode="CACT" moodCode="EVN">
         <id extension="23"
             root="2.16.124.113618.1234.1.1.2.1243365086473.2183" use="BUS"/>
-        <code code="PRPA_TE101999UV" codeSystem="2.16.840.1.113883.5.4">
+        <code code="PRPA_TE101999UV" codeSystem="2.16.840.1.113883.1.18">
             <originalText/>
         </code>
         <statusCode code="completed"/>
