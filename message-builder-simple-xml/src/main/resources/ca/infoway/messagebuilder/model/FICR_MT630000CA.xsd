@@ -1,47 +1,60 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:chi="urn:ca.infoway.messagebuilder.simplexml.v1" elementFormDefault="qualified" targetNamespace="urn:ca.infoway.messagebuilder.simplexml.v1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:include schemaLocation="COCT_MT110101CA.xsd"/>
-  <xs:include schemaLocation="COCT_MT110200CA.xsd"/>
-  <xs:include schemaLocation="../../../../../../classes/simpleDataTypes.xsd"/>
-  <xs:complexType name="FICR_MT630000CA.AdjudResultsGroupSummary">
-    <xs:sequence>
-      <xs:element maxOccurs="1" minOccurs="1" name="summaryPeriodAmt" type="chi:CodedValue"/>
-      <xs:element maxOccurs="1" minOccurs="1" name="summaryTotalAmt" type="chi:PhysicalQuantity"/>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="FICR_MT630000CA.AdjudResultsRef">
-    <xs:sequence>
-      <xs:element maxOccurs="1" minOccurs="1" name="breakdownOfFinancialActivity" type="chi:CodedValue"/>
-      <xs:element maxOccurs="1" minOccurs="1" name="timePeriodForThePayment" type="chi:DateInterval"/>
-      <xs:element maxOccurs="1" minOccurs="1" name="summaryPeriodAmt" type="chi:Money"/>
-      <xs:element maxOccurs="10" minOccurs="0" name="adjudResultsGroupSummary" type="chi:FICR_MT630000CA.AdjudResultsGroupSummary"/>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="FICR_MT630000CA.AdjudicatedInvoiceElementGroup">
-    <xs:sequence>
-      <xs:element maxOccurs="1" minOccurs="1" name="adjudicationResultId" type="chi:InstanceIdentifier"/>
-      <xs:element maxOccurs="1" minOccurs="1" name="invoiceType" type="chi:CodedValue"/>
-      <xs:element maxOccurs="1" minOccurs="1" name="invoiceStatus" type="chi:SimpleCodedType"/>
-      <xs:element maxOccurs="1" minOccurs="1" name="paidAmount" type="chi:Money"/>
-      <xs:element maxOccurs="1" minOccurs="0" name="reason" type="chi:FICR_MT630000CA.PaymentIntentReason"/>
-      <xs:element maxOccurs="1" minOccurs="0" name="referenceAdjudicatedInvoiceElementGroup" type="chi:FICR_MT630000CA.AdjudicatedInvoiceElementGroup"/>
-      <xs:element maxOccurs="1" minOccurs="0" name="referencedBy" type="chi:FICR_MT630000CA.AdjudResultsRef"/>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="FICR_MT630000CA.InvoiceElementGroup">
-    <xs:sequence>
-      <xs:element maxOccurs="1" minOccurs="1" name="invoiceGroupID" type="chi:InstanceIdentifier"/>
-      <xs:element maxOccurs="1" minOccurs="1" name="invoiceType" type="chi:CodedValue"/>
-      <xs:element maxOccurs="1" minOccurs="1" name="invoiceSubTotal" type="chi:Money"/>
-      <xs:element maxOccurs="10" minOccurs="0" name="referenceAdjudicatedInvoiceElementGroup" type="chi:FICR_MT630000CA.AdjudicatedInvoiceElementGroup"/>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="FICR_MT630000CA.PaymentIntentReason">
-    <xs:sequence>
-      <xs:element maxOccurs="1" minOccurs="0" name="paymentIntentDateTime" type="chi:PartialDate"/>
-      <xs:element maxOccurs="1" minOccurs="1" name="paymentAmount" type="chi:Money"/>
-      <xs:element maxOccurs="1" minOccurs="0" name="paymentIntentCreditAccount" type="chi:COCT_MT110200CA.Account"/>
-      <xs:element maxOccurs="1" minOccurs="0" name="paymentIntentDebitAccount" type="chi:COCT_MT110101CA.Account"/>
-    </xs:sequence>
-  </xs:complexType>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:chi="urn:ca.infoway.messagebuilder.simplexml.v1"
+           elementFormDefault="qualified"
+           targetNamespace="urn:ca.infoway.messagebuilder.simplexml.v1">
+   <xs:include schemaLocation="COCT_MT110101CA.xsd"/>
+   <xs:include schemaLocation="COCT_MT110200CA.xsd"/>
+   <xs:include schemaLocation="../../../../../../classes/simpleDataTypes.xsd"/>
+   <xs:complexType name="FICR_MT630000CA.AdjudResultsGroup">
+      <xs:sequence>
+         <xs:element maxOccurs="1" minOccurs="1" name="breakdownOfFinancialActivity"
+                     type="chi:CodedValue"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="timePeriodForThePayment"
+                     type="chi:DateInterval"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="summaryPeriodAmt" type="chi:Money"/>
+         <xs:element maxOccurs="10" minOccurs="0" name="summaryAdjudResultsGroupSummaryData"
+                     type="chi:FICR_MT630000CA.AdjudResultsGroupSummaryData"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="FICR_MT630000CA.AdjudResultsGroupSummaryData">
+      <xs:sequence>
+         <xs:element maxOccurs="1" minOccurs="1" name="summaryPeriodAmt" type="chi:CodedValue"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="summaryTotalAmt" type="chi:PhysicalQuantity"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="FICR_MT630000CA.AdjudicatedInvoiceElementGroup">
+      <xs:sequence>
+         <xs:element maxOccurs="1" minOccurs="1" name="adjudicationResultId"
+                     type="chi:InstanceIdentifier"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="invoiceType" type="chi:CodedValue"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="invoiceStatus" type="chi:SimpleCodedType"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="paidAmount" type="chi:Money"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="reasonPaymentIntent"
+                     type="chi:FICR_MT630000CA.PaymentIntent"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="referenceAdjudicatedInvoiceElementGroup"
+                     type="chi:FICR_MT630000CA.AdjudicatedInvoiceElementGroup"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="referencedByAdjudResultsGroup"
+                     type="chi:FICR_MT630000CA.AdjudResultsGroup"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="FICR_MT630000CA.InvoiceElementGroup">
+      <xs:sequence>
+         <xs:element maxOccurs="1" minOccurs="1" name="invoiceGroupID" type="chi:InstanceIdentifier"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="invoiceType" type="chi:CodedValue"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="invoiceSubTotal" type="chi:Money"/>
+         <xs:element maxOccurs="10" minOccurs="0" name="referenceAdjudicatedInvoiceElementGroup"
+                     type="chi:FICR_MT630000CA.AdjudicatedInvoiceElementGroup"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="FICR_MT630000CA.PaymentIntent">
+      <xs:sequence>
+         <xs:element maxOccurs="1" minOccurs="0" name="paymentIntentDateTime" type="chi:PartialDate"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="paymentAmount" type="chi:Money"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="creditAccount"
+                     type="chi:COCT_MT110200CA.Account"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="debitAccount"
+                     type="chi:COCT_MT110101CA.Account"/>
+      </xs:sequence>
+   </xs:complexType>
 </xs:schema>

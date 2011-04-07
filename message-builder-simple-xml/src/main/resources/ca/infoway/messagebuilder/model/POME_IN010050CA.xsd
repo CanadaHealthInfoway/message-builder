@@ -1,34 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:chi="urn:ca.infoway.messagebuilder.simplexml.v1" elementFormDefault="qualified" targetNamespace="urn:ca.infoway.messagebuilder.simplexml.v1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:include schemaLocation="POME_MT010030CA.xsd"/>
-  <xs:include schemaLocation="QUQI_MT020002CA.xsd"/>
-  <xs:include schemaLocation="MCCI_MT002100CA.xsd"/>
-  <xs:complexType name="POME_IN010050CA.QUQI_MT020002CA.QueryByParameter">
-    <xs:complexContent>
-      <xs:extension base="chi:QUQI_MT020002CA.QueryByParameter">
-        <xs:sequence>
-          <xs:element name="parameterList" type="chi:POME_MT010030CA.ParameterList"/>
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:complexType name="POME_IN010050CA.QUQI_MT020002CA.ControlActEvent">
-    <xs:complexContent>
-      <xs:extension base="chi:QUQI_MT020002CA.ControlActEvent">
-        <xs:sequence>
-          <xs:element name="queryByParameter" type="chi:POME_IN010050CA.QUQI_MT020002CA.QueryByParameter"/>
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:complexType name="POME_IN010050CA">
-    <xs:complexContent>
-      <xs:extension base="chi:MCCI_MT002100CA.Message">
-        <xs:sequence>
-          <xs:element name="controlActEvent" type="chi:POME_IN010050CA.QUQI_MT020002CA.ControlActEvent"/>
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:element name="drugProductDetailQuery" type="chi:POME_IN010050CA"/>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:chi="urn:ca.infoway.messagebuilder.simplexml.v1"
+           elementFormDefault="qualified"
+           targetNamespace="urn:ca.infoway.messagebuilder.simplexml.v1">
+   <xs:include schemaLocation="POME_MT010030CA.xsd"/>
+   <xs:include schemaLocation="QUQI_MT020002CA.xsd"/>
+   <xs:include schemaLocation="MCCI_MT002100CA.xsd"/>
+   <xs:complexType name="POME_IN010050CA.QUQI_MT020002CA.QueryByParameter">
+      <xs:complexContent>
+         <xs:extension base="chi:QUQI_MT020002CA.QueryByParameter">
+            <xs:sequence>
+               <xs:element name="parameterList" type="chi:POME_MT010030CA.ParameterList"/>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="POME_IN010050CA.QUQI_MT020002CA.ControlActEvent">
+      <xs:complexContent>
+         <xs:extension base="chi:QUQI_MT020002CA.ControlActEvent">
+            <xs:sequence>
+               <xs:element name="queryByParameter"
+                           type="chi:POME_IN010050CA.QUQI_MT020002CA.QueryByParameter"/>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="POME_IN010050CA">
+      <xs:complexContent>
+         <xs:extension base="chi:MCCI_MT002100CA.Message">
+            <xs:sequence>
+               <xs:element name="controlActEvent"
+                           type="chi:POME_IN010050CA.QUQI_MT020002CA.ControlActEvent"/>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:element name="drugProductDetailQuery" type="chi:POME_IN010050CA"/>
 </xs:schema>

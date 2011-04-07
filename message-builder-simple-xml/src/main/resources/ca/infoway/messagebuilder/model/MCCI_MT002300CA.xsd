@@ -1,70 +1,92 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:chi="urn:ca.infoway.messagebuilder.simplexml.v1" elementFormDefault="qualified" targetNamespace="urn:ca.infoway.messagebuilder.simplexml.v1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:include schemaLocation="../../../../../../classes/simpleDataTypes.xsd"/>
-  <xs:complexType name="MCCI_MT002300CA.Acknowledgement">
-    <xs:sequence>
-      <xs:element maxOccurs="1" minOccurs="1" name="acknowledgementCode" type="chi:SimpleCodedType"/>
-      <xs:element maxOccurs="1" minOccurs="0" name="numberOfWaitingMessages" type="xs:integer"/>
-      <xs:element maxOccurs="1" minOccurs="0" name="messageWaitingPriority" type="chi:CodedValue"/>
-      <xs:element maxOccurs="50" minOccurs="0" name="acknowledgementDetail" type="chi:MCCI_MT002300CA.AcknowledgementDetail"/>
-      <xs:element maxOccurs="1" minOccurs="1" name="acknowledgedMessageId" type="chi:InstanceIdentifier"/>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="MCCI_MT002300CA.AcknowledgementDetail">
-    <xs:sequence>
-      <xs:element maxOccurs="1" minOccurs="1" name="messageType" type="chi:SimpleCodedType"/>
-      <xs:element maxOccurs="1" minOccurs="1" name="responseCode" type="chi:CodedValue"/>
-      <xs:element maxOccurs="1" minOccurs="0" name="messageDescription" type="xs:string"/>
-      <xs:element maxOccurs="5" minOccurs="0" name="referencedMessageLocations" type="xs:string"/>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="MCCI_MT002300CA.AttentionLine">
-    <xs:sequence>
-      <xs:element maxOccurs="1" minOccurs="1" name="routingType" type="xs:string"/>
-      <xs:element maxOccurs="1" minOccurs="0" name="routingName" type="xs:string"/>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="MCCI_MT002300CA.Message">
-    <xs:sequence>
-      <xs:element maxOccurs="1" minOccurs="1" name="messageIdentifier" type="chi:InstanceIdentifier"/>
-      <xs:element maxOccurs="1" minOccurs="1" name="messageTimestamp" type="chi:FullDateTime"/>
-      <xs:element maxOccurs="1" minOccurs="0" name="securityToken" type="xs:string"/>
-      <xs:element maxOccurs="1" minOccurs="1" name="responseType" type="chi:SimpleCodedType"/>
-      <xs:element maxOccurs="1" minOccurs="1" name="interactionType" type="chi:InstanceIdentifier"/>
-      <xs:element maxOccurs="10" minOccurs="1" name="conformanceProfileIdentifiers" type="chi:InstanceIdentifier"/>
-      <xs:element maxOccurs="1" minOccurs="1" name="processingCode" type="chi:SimpleCodedType"/>
-      <xs:element maxOccurs="1" minOccurs="1" name="desiredAcknowledgmentType" type="chi:SimpleCodedType"/>
-      <xs:element maxOccurs="1" minOccurs="1" name="acknowledgement" type="chi:MCCI_MT002300CA.Acknowledgement"/>
-      <xs:element maxOccurs="5" minOccurs="0" name="attentionLine" type="chi:MCCI_MT002300CA.AttentionLine"/>
-      <xs:element maxOccurs="1" minOccurs="1" name="receiver" type="chi:MCCI_MT002300CA.Receiver"/>
-      <xs:element maxOccurs="1" minOccurs="0" name="respondTo" type="chi:MCCI_MT002300CA.RespondTo"/>
-      <xs:element maxOccurs="1" minOccurs="1" name="sender" type="chi:MCCI_MT002300CA.Sender"/>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="MCCI_MT002300CA.Receiver">
-    <xs:sequence>
-      <xs:element maxOccurs="1" minOccurs="0" name="receiverNetworkAddress" type="chi:Uri"/>
-      <xs:element maxOccurs="1" minOccurs="1" name="receiverApplicationIdentifier" type="chi:InstanceIdentifier"/>
-      <xs:element maxOccurs="1" minOccurs="0" name="receiverApplicationName" type="xs:string"/>
-      <xs:element maxOccurs="1" minOccurs="1" name="receiverOrganizationIdentifier" type="chi:InstanceIdentifier"/>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="MCCI_MT002300CA.RespondTo">
-    <xs:sequence>
-      <xs:element maxOccurs="1" minOccurs="0" name="respondToNetworkAddress" type="chi:Uri"/>
-      <xs:element maxOccurs="1" minOccurs="1" name="respondToApplicationIdentifier" type="chi:InstanceIdentifier"/>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="MCCI_MT002300CA.Sender">
-    <xs:sequence>
-      <xs:element maxOccurs="1" minOccurs="0" name="sendingNetworkAddress" type="chi:Uri"/>
-      <xs:element maxOccurs="1" minOccurs="1" name="sendingApplicationIdentifier" type="chi:InstanceIdentifier"/>
-      <xs:element maxOccurs="1" minOccurs="0" name="sendingApplicationName" type="xs:string"/>
-      <xs:element maxOccurs="1" minOccurs="0" name="sendingApplicationConfigurationInformation" type="xs:string"/>
-      <xs:element maxOccurs="1" minOccurs="0" name="sendingApplicationVersionDate" type="chi:DateInterval"/>
-      <xs:element maxOccurs="1" minOccurs="0" name="sendingSoftwareVersionNumber" type="xs:string"/>
-      <xs:element maxOccurs="1" minOccurs="0" name="sendingApplicationSoftwareName" type="xs:string"/>
-      <xs:element maxOccurs="1" minOccurs="0" name="sendingOrganizationIdentifier" type="chi:InstanceIdentifier"/>
-    </xs:sequence>
-  </xs:complexType>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:chi="urn:ca.infoway.messagebuilder.simplexml.v1"
+           elementFormDefault="qualified"
+           targetNamespace="urn:ca.infoway.messagebuilder.simplexml.v1">
+   <xs:include schemaLocation="../../../../../../classes/simpleDataTypes.xsd"/>
+   <xs:complexType name="MCCI_MT002300CA.Acknowledgement">
+      <xs:sequence>
+         <xs:element maxOccurs="1" minOccurs="1" name="acknowledgementCode"
+                     type="chi:SimpleCodedType"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="numberOfWaitingMessages" type="xs:integer"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="messageWaitingPriority" type="chi:CodedValue"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="acknowledgedMessageId"
+                     type="chi:InstanceIdentifier"/>
+         <xs:element maxOccurs="50" minOccurs="0" name="acknowledgementDetail"
+                     type="chi:MCCI_MT002300CA.AcknowledgementDetail"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="MCCI_MT002300CA.AcknowledgementDetail">
+      <xs:sequence>
+         <xs:element maxOccurs="1" minOccurs="1" name="messageType" type="chi:SimpleCodedType"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="responseCode" type="chi:CodedValue"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="messageDescription" type="xs:string"/>
+         <xs:element maxOccurs="5" minOccurs="0" name="referencedMessageLocations" type="xs:string"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="MCCI_MT002300CA.AttentionLine">
+      <xs:sequence>
+         <xs:element maxOccurs="1" minOccurs="1" name="routingType" type="xs:string"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="routingName" type="xs:string"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="MCCI_MT002300CA.Message">
+      <xs:sequence>
+         <xs:element maxOccurs="1" minOccurs="1" name="messageIdentifier"
+                     type="chi:InstanceIdentifier"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="messageTimestamp" type="chi:FullDateTime"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="securityToken" type="xs:string"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="responseType" type="chi:SimpleCodedType"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="interactionType"
+                     type="chi:InstanceIdentifier"/>
+         <xs:element maxOccurs="10" minOccurs="1" name="conformanceProfileIdentifiers"
+                     type="chi:InstanceIdentifier"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="processingCode" type="chi:SimpleCodedType"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="desiredAcknowledgmentType"
+                     type="chi:SimpleCodedType"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="receiver" type="chi:MCCI_MT002300CA.Receiver"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="respondTo"
+                     type="chi:MCCI_MT002300CA.RespondTo"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="sender" type="chi:MCCI_MT002300CA.Sender"/>
+         <xs:element maxOccurs="5" minOccurs="0" name="attentionLine"
+                     type="chi:MCCI_MT002300CA.AttentionLine"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="acknowledgement"
+                     type="chi:MCCI_MT002300CA.Acknowledgement"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="MCCI_MT002300CA.Receiver">
+      <xs:sequence>
+         <xs:element maxOccurs="1" minOccurs="0" name="receiverNetworkAddress" type="chi:Uri"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="receiverApplicationIdentifier"
+                     type="chi:InstanceIdentifier"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="receiverApplicationName" type="xs:string"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="receiverOrganizationIdentifier"
+                     type="chi:InstanceIdentifier"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="MCCI_MT002300CA.RespondTo">
+      <xs:sequence>
+         <xs:element maxOccurs="1" minOccurs="0" name="respondToNetworkAddress" type="chi:Uri"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="respondToApplicationIdentifier"
+                     type="chi:InstanceIdentifier"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="MCCI_MT002300CA.Sender">
+      <xs:sequence>
+         <xs:element maxOccurs="1" minOccurs="0" name="sendingNetworkAddress" type="chi:Uri"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="sendingApplicationIdentifier"
+                     type="chi:InstanceIdentifier"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="sendingApplicationName" type="xs:string"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="sendingApplicationConfigurationInformation"
+                     type="xs:string"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="sendingApplicationVersionDate"
+                     type="chi:DateInterval"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="sendingSoftwareVersionNumber"
+                     type="xs:string"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="sendingApplicationSoftwareName"
+                     type="xs:string"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="sendingOrganizationIdentifier"
+                     type="chi:InstanceIdentifier"/>
+      </xs:sequence>
+   </xs:complexType>
 </xs:schema>

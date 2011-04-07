@@ -1,25 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:chi="urn:ca.infoway.messagebuilder.simplexml.v1" elementFormDefault="qualified" targetNamespace="urn:ca.infoway.messagebuilder.simplexml.v1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:include schemaLocation="COCT_MT120600CA.xsd"/>
-  <xs:include schemaLocation="COCT_MT220200CA.xsd"/>
-  <xs:include schemaLocation="../../../../../../classes/simpleDataTypes.xsd"/>
-  <xs:include schemaLocation="COCT_MT090108CA.xsd"/>
-  <xs:complexType name="PORX_MT020050CA.InFulfillmentOf">
-    <xs:sequence>
-      <xs:element maxOccurs="1" minOccurs="1" name="supplyRequestAuthorAssignedEntity" type="chi:COCT_MT090108CA.AssignedEntity"/>
-      <xs:element maxOccurs="1" minOccurs="1" name="supplyRequestResponsiblePartyAssignedEntity" type="chi:COCT_MT090108CA.AssignedEntity"/>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="PORX_MT020050CA.SupplyEvent">
-    <xs:sequence>
-      <xs:element maxOccurs="1" minOccurs="0" name="localDispenseID" type="chi:InstanceIdentifier"/>
-      <xs:element maxOccurs="1" minOccurs="1" name="dispenseType" type="chi:CodedValue"/>
-      <xs:element maxOccurs="1" minOccurs="1" name="supplyDate" type="chi:FullDateTime"/>
-      <xs:element maxOccurs="1" minOccurs="1" name="suppliedQuantity" type="chi:PhysicalQuantity"/>
-      <xs:element maxOccurs="1" minOccurs="1" name="shipToFacilityId" type="chi:InstanceIdentifier"/>
-      <xs:element maxOccurs="1" minOccurs="0" name="fulfillment" type="chi:PORX_MT020050CA.InFulfillmentOf"/>
-      <xs:element maxOccurs="1" minOccurs="1" name="productMedication" type="chi:COCT_MT220200CA.Medication"/>
-      <xs:element maxOccurs="1" minOccurs="0" name="subjectOfAnnotation" type="chi:COCT_MT120600CA.Annotation"/>
-    </xs:sequence>
-  </xs:complexType>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:chi="urn:ca.infoway.messagebuilder.simplexml.v1"
+           elementFormDefault="qualified"
+           targetNamespace="urn:ca.infoway.messagebuilder.simplexml.v1">
+   <xs:include schemaLocation="COCT_MT120600CA.xsd"/>
+   <xs:include schemaLocation="COCT_MT220200CA.xsd"/>
+   <xs:include schemaLocation="../../../../../../classes/simpleDataTypes.xsd"/>
+   <xs:include schemaLocation="COCT_MT090108CA.xsd"/>
+   <xs:complexType name="PORX_MT020050CA.Author2">
+      <xs:sequence>
+         <xs:element maxOccurs="1" minOccurs="1" name="assignedEntity"
+                     type="chi:COCT_MT090108CA.AssignedEntity"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="PORX_MT020050CA.SupplyEvent">
+      <xs:sequence>
+         <xs:element maxOccurs="1" minOccurs="0" name="localDispenseID"
+                     type="chi:InstanceIdentifier"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="supplyDate" type="chi:FullDateTime"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="suppliedQuantity" type="chi:PhysicalQuantity"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="productMedication"
+                     type="chi:COCT_MT220200CA.Medication"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="shipToFacilityId"
+                     type="chi:InstanceIdentifier"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="fulfillmentSupplyRequest"
+                     type="chi:PORX_MT020050CA.SupplyRequest"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="subjectOfAnnotation"
+                     type="chi:COCT_MT120600CA.Annotation"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="PORX_MT020050CA.SupplyRequest">
+      <xs:sequence>
+         <xs:element maxOccurs="1" minOccurs="0" name="responsiblePartyAssignedEntity"
+                     type="chi:COCT_MT090108CA.AssignedEntity"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="author" type="chi:PORX_MT020050CA.Author2"/>
+      </xs:sequence>
+   </xs:complexType>
 </xs:schema>

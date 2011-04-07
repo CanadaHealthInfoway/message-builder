@@ -1,49 +1,73 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:chi="urn:ca.infoway.messagebuilder.simplexml.v1" elementFormDefault="qualified" targetNamespace="urn:ca.infoway.messagebuilder.simplexml.v1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:include schemaLocation="COCT_MT130001CA.xsd"/>
-  <xs:include schemaLocation="COCT_MT120600CA.xsd"/>
-  <xs:include schemaLocation="COCT_MT090310CA.xsd"/>
-  <xs:include schemaLocation="COCT_MT240003CA.xsd"/>
-  <xs:include schemaLocation="COCT_MT011001CA.xsd"/>
-  <xs:include schemaLocation="../../../../../../classes/simpleDataTypes.xsd"/>
-  <xs:complexType name="REPC_MT000010CA.Author">
-    <xs:sequence>
-      <xs:element maxOccurs="1" minOccurs="1" name="authoredDatetime" type="chi:FullDateTime"/>
-      <xs:group maxOccurs="1" minOccurs="1" ref="chi:COCT_MT911108CA.ActingPerson"/>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="REPC_MT000010CA.ConditionEvent">
-    <xs:sequence>
-      <xs:element maxOccurs="2" minOccurs="2" name="conditionIdentifier" type="chi:InstanceIdentifier"/>
-      <xs:element maxOccurs="1" minOccurs="1" name="conditionType" type="chi:CodedValue"/>
-      <xs:element maxOccurs="1" minOccurs="1" name="refutedIndicator" type="xs:boolean"/>
-      <xs:element maxOccurs="1" minOccurs="1" name="conditionStatus" type="chi:SimpleCodedType"/>
-      <xs:element maxOccurs="1" minOccurs="0" name="conditionTimePeriod" type="chi:DateInterval"/>
-      <xs:element maxOccurs="2" minOccurs="0" name="conditionMaskingIndicators" type="chi:CodedValue"/>
-      <xs:element maxOccurs="1" minOccurs="1" name="condition" type="chi:CodedType"/>
-      <xs:element maxOccurs="1" minOccurs="1" name="author" type="chi:REPC_MT000010CA.Author"/>
-      <xs:element maxOccurs="100" minOccurs="0" name="componentOfPatientCareProvisionEvent" type="chi:COCT_MT011001CA.PatientCareProvisionEvent"/>
-      <xs:element maxOccurs="1" minOccurs="1" name="custodian1ServiceDeliveryLocation" type="chi:COCT_MT240003CA.ServiceDeliveryLocation"/>
-      <xs:element maxOccurs="1" minOccurs="1" name="custodian2AssignedDevice" type="chi:COCT_MT090310CA.AssignedDevice"/>
-      <xs:group maxOccurs="1" minOccurs="0" ref="chi:COCT_MT911107CA.ActingPerson"/>
-      <xs:element maxOccurs="10" minOccurs="0" name="replacesRecordIds" type="chi:InstanceIdentifier"/>
-      <xs:element maxOccurs="1" minOccurs="0" name="replacementOfConditionEvent" type="chi:REPC_MT000010CA.ConditionEvent"/>
-      <xs:group maxOccurs="1" minOccurs="1" ref="chi:COCT_MT911108CA.ActingPerson"/>
-      <xs:element maxOccurs="1" minOccurs="0" name="subjectOf1" type="chi:REPC_MT000010CA.Subject"/>
-      <xs:element maxOccurs="100" minOccurs="0" name="subjectOf2Annotation" type="chi:COCT_MT120600CA.Annotation"/>
-      <xs:element maxOccurs="1" minOccurs="0" name="subjectOf3ControlActEvent" type="chi:COCT_MT130001CA.ControlActEvent"/>
-      <xs:element maxOccurs="1" minOccurs="0" name="subjectOf4" type="chi:REPC_MT000010CA.Subject6"/>
-      <xs:element maxOccurs="1" minOccurs="0" name="replacedByRecordId" type="chi:InstanceIdentifier"/>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="REPC_MT000010CA.Subject">
-    <xs:sequence>
-      <xs:element maxOccurs="1" minOccurs="0" name="amendReason" type="chi:CodedValue"/>
-      <xs:element maxOccurs="1" minOccurs="1" name="amendDatetime" type="chi:FullDateTime"/>
-      <xs:group maxOccurs="1" minOccurs="1" ref="chi:COCT_MT911108CA.ActingPerson"/>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="REPC_MT000010CA.Subject6">
-    <xs:sequence/>
-  </xs:complexType>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:chi="urn:ca.infoway.messagebuilder.simplexml.v1"
+           elementFormDefault="qualified"
+           targetNamespace="urn:ca.infoway.messagebuilder.simplexml.v1">
+   <xs:include schemaLocation="COCT_MT011001CA.xsd"/>
+   <xs:include schemaLocation="COCT_MT130001CA.xsd"/>
+   <xs:include schemaLocation="COCT_MT120600CA.xsd"/>
+   <xs:include schemaLocation="COCT_MT090310CA.xsd"/>
+   <xs:include schemaLocation="COCT_MT240003CA.xsd"/>
+   <xs:include schemaLocation="../../../../../../classes/simpleDataTypes.xsd"/>
+   <xs:complexType name="REPC_MT000010CA.Author">
+      <xs:sequence>
+         <xs:element maxOccurs="1" minOccurs="1" name="authoredDatetime" type="chi:FullDateTime"/>
+         <xs:group maxOccurs="1" minOccurs="1" ref="chi:COCT_MT911108CA.ActingPerson"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="REPC_MT000010CA.ConditionEvent">
+      <xs:sequence>
+         <xs:element maxOccurs="2" minOccurs="2" name="conditionIdentifier"
+                     type="chi:InstanceIdentifier"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="conditionType" type="chi:CodedValue"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="refutedIndicator" type="xs:boolean"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="conditionStatus" type="chi:SimpleCodedType"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="conditionTimePeriod" type="chi:DateInterval"/>
+         <xs:element maxOccurs="2" minOccurs="0" name="conditionMaskingIndicators"
+                     type="chi:CodedValue"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="condition" type="chi:CodedType"/>
+         <xs:group maxOccurs="1" minOccurs="1" ref="chi:COCT_MT911108CA.ActingPerson"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="author" type="chi:REPC_MT000010CA.Author"/>
+         <xs:group maxOccurs="1" minOccurs="0" ref="chi:COCT_MT911107CA.ActingPerson"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="custodian1ServiceDeliveryLocation"
+                     type="chi:COCT_MT240003CA.ServiceDeliveryLocation"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="custodian2AssignedDevice"
+                     type="chi:COCT_MT090310CA.AssignedDevice"/>
+         <xs:element maxOccurs="10" minOccurs="0" name="predecessorOldCondition"
+                     type="chi:REPC_MT000010CA.OldCondition"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="replacementOfConditionEvent"
+                     type="chi:REPC_MT000010CA.ConditionEvent"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="successorNewCondition"
+                     type="chi:REPC_MT000010CA.NewCondition"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="subjectOf1ControlActEvent"
+                     type="chi:REPC_MT000010CA.ControlActEvent"/>
+         <xs:element maxOccurs="100" minOccurs="0" name="subjectOf2Annotation"
+                     type="chi:COCT_MT120600CA.Annotation"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="subjectOf3ControlActEvent"
+                     type="chi:COCT_MT130001CA.ControlActEvent"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="subjectOf4AnnotationIndicator"
+                     type="xs:boolean"/>
+         <xs:element maxOccurs="100" minOccurs="0" name="componentOfPatientCareProvisionEvent"
+                     type="chi:COCT_MT011001CA.PatientCareProvisionEvent"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="REPC_MT000010CA.ControlActEvent">
+      <xs:sequence>
+         <xs:element maxOccurs="1" minOccurs="0" name="amendReason" type="chi:CodedValue"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="amendDatetime" type="chi:FullDateTime"/>
+         <xs:group maxOccurs="1" minOccurs="1" ref="chi:COCT_MT911108CA.ActingPerson"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="REPC_MT000010CA.NewCondition">
+      <xs:sequence>
+         <xs:element maxOccurs="1" minOccurs="1" name="replacedByRecordId"
+                     type="chi:InstanceIdentifier"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="REPC_MT000010CA.OldCondition">
+      <xs:sequence>
+         <xs:element maxOccurs="1" minOccurs="1" name="replacesRecordIds"
+                     type="chi:InstanceIdentifier"/>
+      </xs:sequence>
+   </xs:complexType>
 </xs:schema>

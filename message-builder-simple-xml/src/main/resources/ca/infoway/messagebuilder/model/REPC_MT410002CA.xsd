@@ -1,26 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:chi="urn:ca.infoway.messagebuilder.simplexml.v1" elementFormDefault="qualified" targetNamespace="urn:ca.infoway.messagebuilder.simplexml.v1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:include schemaLocation="../../../../../../classes/simpleDataTypes.xsd"/>
-  <xs:complexType name="REPC_MT410002CA.ParameterList">
-    <xs:sequence>
-      <xs:element maxOccurs="1" minOccurs="0" name="updatedSinceDateTime" type="chi:FullDateTime"/>
-      <xs:element maxOccurs="10" minOccurs="0" name="careCompositionIds" type="chi:InstanceIdentifier"/>
-      <xs:element maxOccurs="5" minOccurs="0" name="careCompositionTypes" type="chi:CodedValue"/>
-      <xs:element maxOccurs="1" minOccurs="0" name="eHRRepositoryId" type="chi:InstanceIdentifier"/>
-      <xs:element maxOccurs="1" minOccurs="0" name="effectiveDateRange" type="chi:DateInterval"/>
-      <xs:element maxOccurs="10" minOccurs="0" name="eventCategories" type="chi:CodedValue"/>
-      <xs:element maxOccurs="1" minOccurs="0" name="eventLocationId" type="chi:InstanceIdentifier"/>
-      <xs:element maxOccurs="1" minOccurs="0" name="eventLocationType" type="chi:CodedValue"/>
-      <xs:element maxOccurs="5" minOccurs="0" name="healthConditions" type="chi:CodedType"/>
-      <xs:element maxOccurs="1" minOccurs="1" name="includeNotesIndicator" type="xs:boolean"/>
-      <xs:element maxOccurs="1" minOccurs="0" name="indication" type="chi:CodedType"/>
-      <xs:element maxOccurs="1" minOccurs="1" name="mostRecentByTypeIndicator" type="xs:boolean"/>
-      <xs:element maxOccurs="5" minOccurs="0" name="protocolIds" type="chi:InstanceIdentifier"/>
-      <xs:element maxOccurs="100" minOccurs="0" name="recordIds" type="chi:InstanceIdentifier"/>
-      <xs:element maxOccurs="10" minOccurs="0" name="recordTypes" type="chi:CodedType"/>
-      <xs:element maxOccurs="1" minOccurs="0" name="requestingProviderId" type="chi:InstanceIdentifier"/>
-      <xs:element maxOccurs="1" minOccurs="0" name="responsibleProviderId" type="chi:InstanceIdentifier"/>
-      <xs:element maxOccurs="1" minOccurs="0" name="responsibleProviderType" type="chi:CodedValue"/>
-    </xs:sequence>
-  </xs:complexType>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:chi="urn:ca.infoway.messagebuilder.simplexml.v1"
+           elementFormDefault="qualified"
+           targetNamespace="urn:ca.infoway.messagebuilder.simplexml.v1">
+   <xs:include schemaLocation="../../../../../../classes/simpleDataTypes.xsd"/>
+   <xs:complexType name="REPC_MT410002CA.ParameterList">
+      <xs:sequence>
+         <xs:element maxOccurs="1" minOccurs="0" name="updatedSinceDateTime" type="chi:FullDateTime"/>
+         <xs:element maxOccurs="10" minOccurs="0" name="careCompositionIds"
+                     type="chi:InstanceIdentifier"/>
+         <xs:element maxOccurs="5" minOccurs="0" name="careCompositionTypes" type="chi:CodedValue"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="eHRRepositoryId"
+                     type="chi:InstanceIdentifier"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="effectiveDateRange" type="chi:DateInterval"/>
+         <xs:element maxOccurs="10" minOccurs="0" name="eventCategories" type="chi:CodedValue"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="eventLocationId"
+                     type="chi:InstanceIdentifier"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="eventLocationType" type="chi:CodedValue"/>
+         <xs:element maxOccurs="5" minOccurs="0" name="healthConditions" type="chi:CodedType"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="includeNotesIndicator" type="xs:boolean"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="indication" type="chi:CodedType"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="mostRecentByTypeIndicator" type="xs:boolean"/>
+         <xs:element maxOccurs="5" minOccurs="0" name="protocolIds" type="chi:InstanceIdentifier"/>
+         <xs:element maxOccurs="100" minOccurs="0" name="recordIds" type="chi:InstanceIdentifier"/>
+         <xs:element maxOccurs="10" minOccurs="0" name="recordTypes" type="chi:CodedType"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="requestingProviderId"
+                     type="chi:InstanceIdentifier"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="responsibleProviderId"
+                     type="chi:InstanceIdentifier"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="responsibleProviderType"
+                     type="chi:CodedValue"/>
+      </xs:sequence>
+   </xs:complexType>
 </xs:schema>

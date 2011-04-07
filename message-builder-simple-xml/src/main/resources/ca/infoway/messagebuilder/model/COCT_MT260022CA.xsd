@@ -1,26 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:chi="urn:ca.infoway.messagebuilder.simplexml.v1" elementFormDefault="qualified" targetNamespace="urn:ca.infoway.messagebuilder.simplexml.v1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:include schemaLocation="COCT_MT090108CA.xsd"/>
-  <xs:include schemaLocation="../../../../../../classes/simpleDataTypes.xsd"/>
-  <xs:complexType name="COCT_MT260022CA.DetectedIssueEvent">
-    <xs:sequence>
-      <xs:element maxOccurs="1" minOccurs="1" name="issueType" type="chi:CodedValue"/>
-      <xs:element maxOccurs="1" minOccurs="0" name="issueDetails" type="xs:string"/>
-      <xs:element maxOccurs="1" minOccurs="1" name="issuePriority" type="chi:CodedValue"/>
-      <xs:element maxOccurs="5" minOccurs="0" name="messageIssueLocation" type="xs:string"/>
-      <xs:element maxOccurs="25" minOccurs="0" name="mitigatedBy" type="chi:COCT_MT260022CA.Mitigates"/>
-      <xs:element maxOccurs="1" minOccurs="0" name="triggerFor" type="chi:COCT_MT260022CA.Trigger2"/>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="COCT_MT260022CA.Mitigates">
-    <xs:sequence>
-      <xs:element maxOccurs="1" minOccurs="1" name="managementType" type="chi:CodedValue"/>
-      <xs:element maxOccurs="1" minOccurs="0" name="managementDescription" type="xs:string"/>
-      <xs:element maxOccurs="1" minOccurs="1" name="managementDate" type="chi:FullDateTime"/>
-      <xs:element maxOccurs="1" minOccurs="1" name="detectedIssueManagementAuthorAssignedEntity" type="chi:COCT_MT090108CA.AssignedEntity"/>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="COCT_MT260022CA.Trigger2">
-    <xs:sequence/>
-  </xs:complexType>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:chi="urn:ca.infoway.messagebuilder.simplexml.v1"
+           elementFormDefault="qualified"
+           targetNamespace="urn:ca.infoway.messagebuilder.simplexml.v1">
+   <xs:include schemaLocation="COCT_MT090108CA.xsd"/>
+   <xs:include schemaLocation="../../../../../../classes/simpleDataTypes.xsd"/>
+   <xs:complexType name="COCT_MT260022CA.DetectedIssueEvent">
+      <xs:sequence>
+         <xs:element maxOccurs="1" minOccurs="1" name="issueType" type="chi:CodedValue"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="issueDetails" type="xs:string"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="issuePriority" type="chi:CodedValue"/>
+         <xs:element maxOccurs="5" minOccurs="0" name="messageIssueLocation" type="xs:string"/>
+         <xs:element maxOccurs="25" minOccurs="0" name="mitigatedByDetectedIssueManagement"
+                     type="chi:COCT_MT260022CA.DetectedIssueManagement"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="triggerForActRequest" type="xs:boolean"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="COCT_MT260022CA.DetectedIssueManagement">
+      <xs:sequence>
+         <xs:element maxOccurs="1" minOccurs="1" name="managementType" type="chi:CodedValue"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="managementDescription" type="xs:string"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="managementDate" type="chi:FullDateTime"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="authorAssignedEntity"
+                     type="chi:COCT_MT090108CA.AssignedEntity"/>
+      </xs:sequence>
+   </xs:complexType>
 </xs:schema>

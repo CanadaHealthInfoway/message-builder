@@ -6,6 +6,7 @@
 	<interactionType root="2.16.840.1.113883.1.6" extension="PRPA_IN101103CA"/>
 	<conformanceProfileIdentifiers root="2.1.1.1.1" extension="V02R02"/>
 	<processingCode code="P" />
+	<processingMode code="T" />
 	<desiredAcknowledgmentType code="ER" />
 	<receiver>
 		<receiverNetworkAddress value="http://localhost:8080/" />

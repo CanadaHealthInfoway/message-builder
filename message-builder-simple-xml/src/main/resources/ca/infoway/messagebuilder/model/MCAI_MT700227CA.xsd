@@ -1,31 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:chi="urn:ca.infoway.messagebuilder.simplexml.v1" elementFormDefault="qualified" targetNamespace="urn:ca.infoway.messagebuilder.simplexml.v1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:include schemaLocation="COCT_MT050202CA.xsd"/>
-  <xs:include schemaLocation="COCT_MT050207CA.xsd"/>
-  <xs:include schemaLocation="COCT_MT050201CA.xsd"/>
-  <xs:include schemaLocation="COCT_MT260022CA.xsd"/>
-  <xs:include schemaLocation="../../../../../../classes/simpleDataTypes.xsd"/>
-  <xs:complexType name="MCAI_MT700227CA.ControlActEvent">
-    <xs:sequence>
-      <xs:element maxOccurs="1" minOccurs="1" name="eventIdentifier" type="chi:InstanceIdentifier"/>
-      <xs:element maxOccurs="1" minOccurs="1" name="eventType" type="chi:CodedValue"/>
-      <xs:element maxOccurs="1" minOccurs="0" name="eventEffectivePeriod" type="chi:DateInterval"/>
-      <xs:element maxOccurs="1" minOccurs="0" name="eventReason" type="chi:CodedValue"/>
-      <xs:element maxOccurs="1" minOccurs="0" name="messageLanguage" type="chi:CodedType"/>
-      <xs:group maxOccurs="1" minOccurs="1" ref="chi:MCAI_MT700227CA.Patient"/>
-      <xs:element maxOccurs="50" minOccurs="0" name="subjectOfDetectedIssueEvent" type="chi:COCT_MT260022CA.DetectedIssueEvent"/>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:group name="MCAI_MT700227CA.Patient">
-    <xs:choice>
-      <xs:element name="patient" type="chi:COCT_MT050201CA.Patient"/>
-      <xs:element name="patient" type="chi:COCT_MT050207CA.Patient"/>
-      <xs:element name="patient" type="chi:COCT_MT050202CA.Patient"/>
-    </xs:choice>
-  </xs:group>
-  <xs:complexType name="MCAI_MT700227CA.Subject2">
-    <xs:sequence>
-      <xs:element maxOccurs="1" minOccurs="1" name="cascadeResponsibilityIndicator" type="xs:boolean"/>
-    </xs:sequence>
-  </xs:complexType>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:chi="urn:ca.infoway.messagebuilder.simplexml.v1"
+           elementFormDefault="qualified"
+           targetNamespace="urn:ca.infoway.messagebuilder.simplexml.v1">
+   <xs:include schemaLocation="COCT_MT050202CA.xsd"/>
+   <xs:include schemaLocation="COCT_MT050207CA.xsd"/>
+   <xs:include schemaLocation="COCT_MT050201CA.xsd"/>
+   <xs:include schemaLocation="COCT_MT260022CA.xsd"/>
+   <xs:include schemaLocation="../../../../../../classes/simpleDataTypes.xsd"/>
+   <xs:complexType name="MCAI_MT700227CA.ControlActEvent">
+      <xs:sequence>
+         <xs:element maxOccurs="1" minOccurs="1" name="eventIdentifier"
+                     type="chi:InstanceIdentifier"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="eventType" type="chi:CodedValue"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="eventEffectivePeriod" type="chi:DateInterval"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="eventReason" type="chi:CodedValue"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="messageLanguage" type="chi:CodedType"/>
+         <xs:group maxOccurs="1" minOccurs="1" ref="chi:MCAI_MT700227CA.Patient"/>
+         <xs:element maxOccurs="50" minOccurs="0" name="subjectOfDetectedIssueEvent"
+                     type="chi:COCT_MT260022CA.DetectedIssueEvent"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:group name="MCAI_MT700227CA.Patient">
+      <xs:choice>
+         <xs:element name="patient" type="chi:COCT_MT050201CA.Patient"/>
+         <xs:element name="patient" type="chi:COCT_MT050207CA.Patient"/>
+         <xs:element name="patient" type="chi:COCT_MT050202CA.Patient"/>
+      </xs:choice>
+   </xs:group>
+   <xs:complexType name="MCAI_MT700227CA.Subject2">
+      <xs:sequence>
+         <xs:element maxOccurs="1" minOccurs="1" name="cascadeResponsibilityIndicator"
+                     type="xs:boolean"/>
+      </xs:sequence>
+   </xs:complexType>
 </xs:schema>

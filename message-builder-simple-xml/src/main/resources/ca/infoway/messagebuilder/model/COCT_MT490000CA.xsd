@@ -1,58 +1,84 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:chi="urn:ca.infoway.messagebuilder.simplexml.v1" elementFormDefault="qualified" targetNamespace="urn:ca.infoway.messagebuilder.simplexml.v1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:include schemaLocation="COCT_MT240003CA.xsd"/>
-  <xs:include schemaLocation="../../../../../../classes/simpleDataTypes.xsd"/>
-  <xs:complexType name="COCT_MT490000CA.DiagnosisInformation">
-    <xs:sequence>
-      <xs:element maxOccurs="1" minOccurs="0" name="diagnosisPriority" type="xs:integer"/>
-      <xs:element maxOccurs="1" minOccurs="1" name="diagnosisCode" type="chi:CodedValue"/>
-      <xs:element maxOccurs="1" minOccurs="1" name="diagnosisValue" type="chi:CodedValue"/>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="COCT_MT490000CA.HealthCareProvider">
-    <xs:sequence>
-      <xs:element maxOccurs="9" minOccurs="0" name="providerID" type="chi:InstanceIdentifier"/>
-      <xs:element maxOccurs="1" minOccurs="1" name="healthcareProviderCode" type="chi:CodedValue"/>
-      <xs:element maxOccurs="1" minOccurs="0" name="providerName" type="chi:PersonName"/>
-      <xs:element maxOccurs="1" minOccurs="0" name="providerTelecom" type="chi:PhonemailTelecommunicationAddress"/>
-      <xs:element maxOccurs="1" minOccurs="0" name="providerGender" type="chi:CodedValue"/>
-      <xs:element maxOccurs="1" minOccurs="0" name="providerBirthDate" type="chi:FullDate"/>
-      <xs:element maxOccurs="1" minOccurs="0" name="providerAddress" type="chi:PostalAddress"/>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="COCT_MT490000CA.ManufacturedMaterialKind">
-    <xs:sequence>
-      <xs:element maxOccurs="1" minOccurs="1" name="manufacturedMaterialCode" type="chi:CodedValue"/>
-      <xs:element maxOccurs="1" minOccurs="0" name="packageDescription" type="xs:string"/>
-      <xs:element maxOccurs="1" minOccurs="0" name="packageQuantity" type="chi:PhysicalQuantity"/>
-      <xs:element maxOccurs="1" minOccurs="0" name="contentPackagedProductContainedManufacturedMaterialKind" type="chi:COCT_MT490000CA.ManufacturedMaterialKind"/>
-      <xs:element maxOccurs="1" minOccurs="0" name="timeOfWarranty" type="chi:DateInterval"/>
-      <xs:element maxOccurs="1" minOccurs="0" name="warrantorOrganisationName" type="xs:string"/>
-      <xs:element maxOccurs="1" minOccurs="0" name="warrantorOrganisationTelecom" type="chi:PhoneNumber"/>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="COCT_MT490000CA.Product">
-    <xs:sequence>
-      <xs:element maxOccurs="1" minOccurs="0" name="productID" type="chi:InstanceIdentifier"/>
-      <xs:element maxOccurs="1" minOccurs="1" name="productCode" type="chi:CodedValue"/>
-      <xs:element maxOccurs="1" minOccurs="0" name="manufacturedProductManufacturedMaterialKind" type="chi:COCT_MT490000CA.ManufacturedMaterialKind"/>
-      <xs:element maxOccurs="1" minOccurs="0" name="organisationName" type="xs:string"/>
-      <xs:element maxOccurs="1" minOccurs="0" name="organisationTelephoneEmail" type="chi:PhonemailTelecommunicationAddress"/>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="COCT_MT490000CA.SupplyEvent">
-    <xs:sequence>
-      <xs:element maxOccurs="1" minOccurs="0" name="billableClinicalProductID" type="chi:InstanceIdentifier"/>
-      <xs:element maxOccurs="1" minOccurs="1" name="methodOfPaymentForProduct" type="chi:CodedValue"/>
-      <xs:element maxOccurs="1" minOccurs="1" name="timeOfSale" type="chi:DateInterval"/>
-      <xs:element maxOccurs="1" minOccurs="0" name="consultantHealthCareProvider" type="chi:COCT_MT490000CA.HealthCareProvider"/>
-      <xs:element maxOccurs="1" minOccurs="0" name="destinationServiceDeliveryLocation" type="chi:COCT_MT240003CA.ServiceDeliveryLocation"/>
-      <xs:element maxOccurs="1" minOccurs="0" name="locationServiceDeliveryLocation" type="chi:COCT_MT240003CA.ServiceDeliveryLocation"/>
-      <xs:element maxOccurs="1" minOccurs="0" name="originServiceDeliveryLocation" type="chi:COCT_MT240003CA.ServiceDeliveryLocation"/>
-      <xs:element maxOccurs="1" minOccurs="0" name="performerHealthCareProvider" type="chi:COCT_MT490000CA.HealthCareProvider"/>
-      <xs:element maxOccurs="10" minOccurs="0" name="pertinentInformation" type="chi:COCT_MT490000CA.DiagnosisInformation"/>
-      <xs:element maxOccurs="1" minOccurs="1" name="product" type="chi:COCT_MT490000CA.Product"/>
-      <xs:element maxOccurs="1" minOccurs="0" name="referrerHealthCareProvider" type="chi:COCT_MT490000CA.HealthCareProvider"/>
-    </xs:sequence>
-  </xs:complexType>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:chi="urn:ca.infoway.messagebuilder.simplexml.v1"
+           elementFormDefault="qualified"
+           targetNamespace="urn:ca.infoway.messagebuilder.simplexml.v1">
+   <xs:include schemaLocation="COCT_MT240003CA.xsd"/>
+   <xs:include schemaLocation="../../../../../../classes/simpleDataTypes.xsd"/>
+   <xs:complexType name="COCT_MT490000CA.Diagnosis">
+      <xs:sequence>
+         <xs:element maxOccurs="1" minOccurs="1" name="diagnosisCode" type="chi:CodedValue"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="diagnosisValue" type="chi:CodedValue"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="COCT_MT490000CA.DiagnosisInformation">
+      <xs:sequence>
+         <xs:element maxOccurs="1" minOccurs="0" name="diagnosisPriority" type="xs:integer"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="diagnosis"
+                     type="chi:COCT_MT490000CA.Diagnosis"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="COCT_MT490000CA.HealthCareProvider">
+      <xs:sequence>
+         <xs:element maxOccurs="9" minOccurs="0" name="providerID" type="chi:InstanceIdentifier"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="healthcareProviderCode" type="chi:CodedValue"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="providerName" type="chi:PersonName"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="providerTelecom"
+                     type="chi:PhonemailTelecommunicationAddress"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="providerGender" type="chi:CodedValue"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="providerBirthDate" type="chi:FullDate"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="providerAddress" type="chi:PostalAddress"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="COCT_MT490000CA.ManufacturedMaterialKind">
+      <xs:sequence>
+         <xs:element maxOccurs="1" minOccurs="1" name="manufacturedMaterialCode"
+                     type="chi:CodedValue"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="packageDescription" type="xs:string"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="timeOfWarranty" type="chi:DateInterval"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="warrantorOrganisationName" type="xs:string"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="warrantorOrganisationTelecom"
+                     type="chi:PhoneNumber"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="packageQuantity" type="chi:PhysicalQuantity"/>
+         <xs:element maxOccurs="1" minOccurs="0"
+                     name="contentPackagedProductContainedManufacturedMaterialKind"
+                     type="chi:COCT_MT490000CA.ManufacturedMaterialKind"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="COCT_MT490000CA.ManufacturedProduct">
+      <xs:sequence>
+         <xs:element maxOccurs="1" minOccurs="0" name="productID" type="chi:InstanceIdentifier"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="productCode" type="chi:CodedValue"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="manufacturedMaterialKind"
+                     type="chi:COCT_MT490000CA.ManufacturedMaterialKind"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="organisationName" type="xs:string"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="organisationTelephoneEmail"
+                     type="chi:PhonemailTelecommunicationAddress"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="COCT_MT490000CA.SupplyEvent">
+      <xs:sequence>
+         <xs:element maxOccurs="1" minOccurs="0" name="billableClinicalProductID"
+                     type="chi:InstanceIdentifier"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="methodOfPaymentForProduct"
+                     type="chi:CodedValue"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="timeOfSale" type="chi:DateInterval"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="productManufacturedProduct"
+                     type="chi:COCT_MT490000CA.ManufacturedProduct"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="performerHealthCareProvider"
+                     type="chi:COCT_MT490000CA.HealthCareProvider"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="referrerHealthCareProvider"
+                     type="chi:COCT_MT490000CA.HealthCareProvider"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="consultantHealthCareProvider"
+                     type="chi:COCT_MT490000CA.HealthCareProvider"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="originServiceDeliveryLocation"
+                     type="chi:COCT_MT240003CA.ServiceDeliveryLocation"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="destinationServiceDeliveryLocation"
+                     type="chi:COCT_MT240003CA.ServiceDeliveryLocation"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="locationServiceDeliveryLocation"
+                     type="chi:COCT_MT240003CA.ServiceDeliveryLocation"/>
+         <xs:element maxOccurs="10" minOccurs="0" name="pertinentInformation"
+                     type="chi:COCT_MT490000CA.DiagnosisInformation"/>
+      </xs:sequence>
+   </xs:complexType>
 </xs:schema>

@@ -1,34 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:chi="urn:ca.infoway.messagebuilder.simplexml.v1" elementFormDefault="qualified" targetNamespace="urn:ca.infoway.messagebuilder.simplexml.v1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:include schemaLocation="PRPA_MT101106CA.xsd"/>
-  <xs:include schemaLocation="MFMI_MT700726CA.xsd"/>
-  <xs:include schemaLocation="MCCI_MT002300CA.xsd"/>
-  <xs:complexType name="PRPA_IN101202CA.MFMI_MT700726CA.Subject2">
-    <xs:complexContent>
-      <xs:extension base="chi:MFMI_MT700726CA.Subject2">
-        <xs:sequence>
-          <xs:element name="registeredRole" type="chi:PRPA_MT101106CA.IdentifiedEntity"/>
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:complexType name="PRPA_IN101202CA.MFMI_MT700726CA.ControlActEvent">
-    <xs:complexContent>
-      <xs:extension base="chi:MFMI_MT700726CA.ControlActEvent">
-        <xs:sequence>
-          <xs:element name="subject" type="chi:PRPA_IN101202CA.MFMI_MT700726CA.Subject2"/>
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:complexType name="PRPA_IN101202CA">
-    <xs:complexContent>
-      <xs:extension base="chi:MCCI_MT002300CA.Message">
-        <xs:sequence>
-          <xs:element name="controlActEvent" type="chi:PRPA_IN101202CA.MFMI_MT700726CA.ControlActEvent"/>
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:element name="personCreateEventAccept" type="chi:PRPA_IN101202CA"/>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:chi="urn:ca.infoway.messagebuilder.simplexml.v1"
+           elementFormDefault="qualified"
+           targetNamespace="urn:ca.infoway.messagebuilder.simplexml.v1">
+   <xs:include schemaLocation="PRPA_MT101106CA.xsd"/>
+   <xs:include schemaLocation="MFMI_MT700726CA.xsd"/>
+   <xs:include schemaLocation="MCCI_MT002300CA.xsd"/>
+   <xs:complexType name="PRPA_IN101202CA.MFMI_MT700726CA.Subject4">
+      <xs:complexContent>
+         <xs:extension base="chi:MFMI_MT700726CA.Subject4">
+            <xs:sequence>
+               <xs:element name="registeredRole" type="chi:PRPA_MT101106CA.IdentifiedEntity"/>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="PRPA_IN101202CA.MFMI_MT700726CA.Subject2">
+      <xs:complexContent>
+         <xs:extension base="chi:MFMI_MT700726CA.Subject2">
+            <xs:sequence>
+               <xs:element name="registrationEventSubject"
+                           type="chi:PRPA_IN101202CA.MFMI_MT700726CA.Subject4"/>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="PRPA_IN101202CA.MFMI_MT700726CA.ControlActEvent">
+      <xs:complexContent>
+         <xs:extension base="chi:MFMI_MT700726CA.ControlActEvent">
+            <xs:sequence>
+               <xs:element name="subject" type="chi:PRPA_IN101202CA.MFMI_MT700726CA.Subject2"/>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="PRPA_IN101202CA">
+      <xs:complexContent>
+         <xs:extension base="chi:MCCI_MT002300CA.Message">
+            <xs:sequence>
+               <xs:element name="controlActEvent"
+                           type="chi:PRPA_IN101202CA.MFMI_MT700726CA.ControlActEvent"/>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:element name="personCreateEventAccept" type="chi:PRPA_IN101202CA"/>
 </xs:schema>

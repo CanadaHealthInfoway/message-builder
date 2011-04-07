@@ -1,34 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:chi="urn:ca.infoway.messagebuilder.simplexml.v1" elementFormDefault="qualified" targetNamespace="urn:ca.infoway.messagebuilder.simplexml.v1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:include schemaLocation="COMT_MT001103CA.xsd"/>
-  <xs:include schemaLocation="MCAI_MT700226CA.xsd"/>
-  <xs:include schemaLocation="MCCI_MT002300CA.xsd"/>
-  <xs:complexType name="COMT_IN600003CA.MCAI_MT700226CA.Subject2">
-    <xs:complexContent>
-      <xs:extension base="chi:MCAI_MT700226CA.Subject2">
-        <xs:sequence>
-          <xs:element name="act" type="chi:COMT_MT001103CA.ActEvent"/>
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:complexType name="COMT_IN600003CA.MCAI_MT700226CA.ControlActEvent">
-    <xs:complexContent>
-      <xs:extension base="chi:MCAI_MT700226CA.ControlActEvent">
-        <xs:sequence>
-          <xs:element name="subject" type="chi:COMT_IN600003CA.MCAI_MT700226CA.Subject2"/>
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:complexType name="COMT_IN600003CA">
-    <xs:complexContent>
-      <xs:extension base="chi:MCCI_MT002300CA.Message">
-        <xs:sequence>
-          <xs:element name="controlActEvent" type="chi:COMT_IN600003CA.MCAI_MT700226CA.ControlActEvent"/>
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:element name="retractActionRequestRefused" type="chi:COMT_IN600003CA"/>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:chi="urn:ca.infoway.messagebuilder.simplexml.v1"
+           elementFormDefault="qualified"
+           targetNamespace="urn:ca.infoway.messagebuilder.simplexml.v1">
+   <xs:include schemaLocation="COMT_MT001103CA.xsd"/>
+   <xs:include schemaLocation="MCAI_MT700226CA.xsd"/>
+   <xs:include schemaLocation="MCCI_MT002300CA.xsd"/>
+   <xs:complexType name="COMT_IN600003CA.MCAI_MT700226CA.Subject2">
+      <xs:complexContent>
+         <xs:extension base="chi:MCAI_MT700226CA.Subject2">
+            <xs:sequence>
+               <xs:element name="act" type="chi:COMT_MT001103CA.ActEvent"/>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="COMT_IN600003CA.MCAI_MT700226CA.ControlActEvent">
+      <xs:complexContent>
+         <xs:extension base="chi:MCAI_MT700226CA.ControlActEvent">
+            <xs:sequence>
+               <xs:element name="subject" type="chi:COMT_IN600003CA.MCAI_MT700226CA.Subject2"/>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="COMT_IN600003CA">
+      <xs:complexContent>
+         <xs:extension base="chi:MCCI_MT002300CA.Message">
+            <xs:sequence>
+               <xs:element name="controlActEvent"
+                           type="chi:COMT_IN600003CA.MCAI_MT700226CA.ControlActEvent"/>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:element name="retractActionRequestRefused" type="chi:COMT_IN600003CA"/>
 </xs:schema>

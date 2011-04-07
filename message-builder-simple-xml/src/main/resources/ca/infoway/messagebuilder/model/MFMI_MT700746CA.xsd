@@ -1,48 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:chi="urn:ca.infoway.messagebuilder.simplexml.v1" elementFormDefault="qualified" targetNamespace="urn:ca.infoway.messagebuilder.simplexml.v1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:include schemaLocation="COCT_MT090310CA.xsd"/>
-  <xs:include schemaLocation="COCT_MT260022CA.xsd"/>
-  <xs:include schemaLocation="../../../../../../classes/simpleDataTypes.xsd"/>
-  <xs:complexType name="MFMI_MT700746CA.ControlActEvent">
-    <xs:sequence>
-      <xs:element maxOccurs="1" minOccurs="1" name="eventIdentifier" type="chi:InstanceIdentifier"/>
-      <xs:element maxOccurs="1" minOccurs="1" name="eventType" type="chi:CodedValue"/>
-      <xs:element maxOccurs="1" minOccurs="0" name="eventEffectivePeriod" type="chi:DateInterval"/>
-      <xs:element maxOccurs="1" minOccurs="0" name="eventReason" type="chi:CodedValue"/>
-      <xs:element maxOccurs="1" minOccurs="0" name="messageLanguage" type="chi:CodedType"/>
-      <xs:element maxOccurs="1" minOccurs="1" name="queryAck" type="chi:MFMI_MT700746CA.QueryAck"/>
-      <xs:element maxOccurs="50" minOccurs="0" name="subjectOfDetectedIssueEvent" type="chi:COCT_MT260022CA.DetectedIssueEvent"/>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="MFMI_MT700746CA.QueryAck">
-    <xs:sequence>
-      <xs:element maxOccurs="1" minOccurs="1" name="queryResponseIdentifier" type="chi:InstanceIdentifier"/>
-      <xs:element maxOccurs="1" minOccurs="1" name="queryStatus" type="chi:SimpleCodedType"/>
-      <xs:element maxOccurs="1" minOccurs="1" name="totalMatchingRows" type="xs:integer"/>
-      <xs:element maxOccurs="1" minOccurs="1" name="returnedRows" type="xs:integer"/>
-      <xs:element maxOccurs="1" minOccurs="1" name="remainingRows" type="xs:integer"/>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="MFMI_MT700746CA.QueryByParameter">
-    <xs:sequence>
-      <xs:element maxOccurs="1" minOccurs="1" name="queryIdentifier" type="chi:InstanceIdentifier"/>
-      <xs:element maxOccurs="1" minOccurs="0" name="expeditedQueryIndicator" type="chi:SimpleCodedType"/>
-      <xs:element maxOccurs="1" minOccurs="0" name="queryLimit" type="xs:integer"/>
-      <xs:element maxOccurs="1" minOccurs="0" name="queryLimitType" type="chi:CodedValue"/>
-      <xs:element maxOccurs="10" minOccurs="0" name="sortControl" type="chi:MFMI_MT700746CA.SortControl"/>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="MFMI_MT700746CA.SortControl">
-    <xs:sequence>
-      <xs:element maxOccurs="1" minOccurs="1" name="sequenceNumber" type="xs:integer"/>
-      <xs:element maxOccurs="1" minOccurs="1" name="sortElementName" type="xs:string"/>
-      <xs:element maxOccurs="1" minOccurs="0" name="sortControlDirection" type="chi:SimpleCodedType"/>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="MFMI_MT700746CA.Subject2">
-    <xs:sequence>
-      <xs:element maxOccurs="10" minOccurs="0" name="priorRegisteredRoleIds" type="chi:InstanceIdentifier"/>
-      <xs:element maxOccurs="1" minOccurs="1" name="registrationEventCustodianAssignedDevice" type="chi:COCT_MT090310CA.AssignedDevice"/>
-    </xs:sequence>
-  </xs:complexType>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:chi="urn:ca.infoway.messagebuilder.simplexml.v1"
+           elementFormDefault="qualified"
+           targetNamespace="urn:ca.infoway.messagebuilder.simplexml.v1">
+   <xs:include schemaLocation="COCT_MT090310CA.xsd"/>
+   <xs:include schemaLocation="COCT_MT260022CA.xsd"/>
+   <xs:include schemaLocation="../../../../../../classes/simpleDataTypes.xsd"/>
+   <xs:complexType name="MFMI_MT700746CA.ControlActEvent">
+      <xs:sequence>
+         <xs:element maxOccurs="1" minOccurs="1" name="eventIdentifier"
+                     type="chi:InstanceIdentifier"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="eventType" type="chi:CodedValue"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="eventEffectivePeriod" type="chi:DateInterval"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="eventReason" type="chi:CodedValue"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="messageLanguage" type="chi:CodedType"/>
+         <xs:element maxOccurs="50" minOccurs="0" name="subjectOfDetectedIssueEvent"
+                     type="chi:COCT_MT260022CA.DetectedIssueEvent"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="queryAck" type="chi:MFMI_MT700746CA.QueryAck"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="MFMI_MT700746CA.PriorRegistration">
+      <xs:sequence>
+         <xs:element maxOccurs="1" minOccurs="1" name="priorRegisteredRoleIds"
+                     type="chi:InstanceIdentifier"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="MFMI_MT700746CA.QueryAck">
+      <xs:sequence>
+         <xs:element maxOccurs="1" minOccurs="1" name="queryResponseIdentifier"
+                     type="chi:InstanceIdentifier"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="queryStatus" type="chi:SimpleCodedType"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="totalMatchingRows" type="xs:integer"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="returnedRows" type="xs:integer"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="remainingRows" type="xs:integer"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="MFMI_MT700746CA.QueryByParameter">
+      <xs:sequence>
+         <xs:element maxOccurs="1" minOccurs="1" name="queryIdentifier"
+                     type="chi:InstanceIdentifier"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="expeditedQueryIndicator"
+                     type="chi:SimpleCodedType"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="queryLimit" type="xs:integer"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="queryLimitType" type="chi:CodedValue"/>
+         <xs:element maxOccurs="10" minOccurs="0" name="sortControl"
+                     type="chi:MFMI_MT700746CA.SortControl"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="MFMI_MT700746CA.RegistrationEvent">
+      <xs:sequence>
+         <xs:element maxOccurs="1" minOccurs="1" name="custodianAssignedDevice"
+                     type="chi:COCT_MT090310CA.AssignedDevice"/>
+         <xs:element maxOccurs="10" minOccurs="0" name="replacementOfPriorRegistration"
+                     type="chi:MFMI_MT700746CA.PriorRegistration"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="MFMI_MT700746CA.SortControl">
+      <xs:sequence>
+         <xs:element maxOccurs="1" minOccurs="1" name="sequenceNumber" type="xs:integer"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="sortElementName" type="xs:string"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="sortControlDirection"
+                     type="chi:SimpleCodedType"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="MFMI_MT700746CA.Subject4">
+      <xs:sequence/>
+   </xs:complexType>
 </xs:schema>

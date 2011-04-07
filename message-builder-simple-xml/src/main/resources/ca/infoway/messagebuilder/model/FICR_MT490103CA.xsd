@@ -1,28 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:chi="urn:ca.infoway.messagebuilder.simplexml.v1" elementFormDefault="qualified" targetNamespace="urn:ca.infoway.messagebuilder.simplexml.v1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:include schemaLocation="../../../../../../classes/simpleDataTypes.xsd"/>
-  <xs:complexType name="FICR_MT490103CA.PertinentInformation2">
-    <xs:sequence>
-      <xs:element maxOccurs="1" minOccurs="1" name="attachmentIdentifier" type="chi:InstanceIdentifier"/>
-      <xs:element maxOccurs="1" minOccurs="1" name="attachmentType" type="chi:CodedValue"/>
-      <xs:element maxOccurs="1" minOccurs="1" name="attachmentContent" type="chi:EncapsulatedDocumentType"/>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="FICR_MT490103CA.SpecialAuthorizationAdditionalInformationResponse">
-    <xs:sequence>
-      <xs:element maxOccurs="1" minOccurs="1" name="additionalInformationResponseID" type="chi:InstanceIdentifier"/>
-      <xs:element maxOccurs="1" minOccurs="1" name="additionalInformationAnswer" type="xs:string"/>
-      <xs:element maxOccurs="10" minOccurs="0" name="pertinentInformation" type="chi:FICR_MT490103CA.PertinentInformation2"/>
-      <xs:element maxOccurs="100" minOccurs="0" name="support" type="chi:FICR_MT490103CA.Support"/>
-      <xs:element maxOccurs="1" minOccurs="1" name="additionalInformationRequestID" type="chi:InstanceIdentifier"/>
-      <xs:element maxOccurs="1" minOccurs="1" name="additionalInformationQuestion" type="xs:string"/>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="FICR_MT490103CA.Support">
-    <xs:sequence>
-      <xs:element maxOccurs="1" minOccurs="1" name="generalSupportingInformationType" type="chi:CodedValue"/>
-      <xs:element maxOccurs="1" minOccurs="0" name="generalSupportingInformationText" type="xs:string"/>
-      <xs:element maxOccurs="1" minOccurs="1" name="generalSupportingInformationValue" type="xs:string"/>
-    </xs:sequence>
-  </xs:complexType>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:chi="urn:ca.infoway.messagebuilder.simplexml.v1"
+           elementFormDefault="qualified"
+           targetNamespace="urn:ca.infoway.messagebuilder.simplexml.v1">
+   <xs:include schemaLocation="../../../../../../classes/simpleDataTypes.xsd"/>
+   <xs:complexType name="FICR_MT490103CA.HealthDocumentAttachment">
+      <xs:sequence>
+         <xs:element maxOccurs="1" minOccurs="1" name="attachmentIdentifier"
+                     type="chi:InstanceIdentifier"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="attachmentType" type="chi:CodedValue"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="attachmentContent"
+                     type="chi:EncapsulatedDocumentType"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="FICR_MT490103CA.SpecialAuthorizationAdditionalInformationRequest">
+      <xs:sequence>
+         <xs:element maxOccurs="1" minOccurs="1" name="additionalInformationRequestID"
+                     type="chi:InstanceIdentifier"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="additionalInformationQuestion"
+                     type="xs:string"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="FICR_MT490103CA.SpecialAuthorizationAdditionalInformationResponse">
+      <xs:sequence>
+         <xs:element maxOccurs="1" minOccurs="1" name="additionalInformationResponseID"
+                     type="chi:InstanceIdentifier"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="additionalInformationAnswer" type="xs:string"/>
+         <xs:element maxOccurs="1" minOccurs="1"
+                     name="inFulfillmentOfSpecialAuthorizationAdditionalInformationRequest"
+                     type="chi:FICR_MT490103CA.SpecialAuthorizationAdditionalInformationRequest"/>
+         <xs:element maxOccurs="100" minOccurs="0" name="supportSpecialAuthorizationCriteria"
+                     type="chi:FICR_MT490103CA.SpecialAuthorizationCriteria"/>
+         <xs:element maxOccurs="10" minOccurs="0"
+                     name="pertinentInformationHealthDocumentAttachment"
+                     type="chi:FICR_MT490103CA.HealthDocumentAttachment"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="FICR_MT490103CA.SpecialAuthorizationCriteria">
+      <xs:sequence>
+         <xs:element maxOccurs="1" minOccurs="1" name="generalSupportingInformationType"
+                     type="chi:CodedValue"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="generalSupportingInformationText"
+                     type="xs:string"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="generalSupportingInformationValue"
+                     type="xs:string"/>
+      </xs:sequence>
+   </xs:complexType>
 </xs:schema>

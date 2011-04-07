@@ -1,15 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:chi="urn:ca.infoway.messagebuilder.simplexml.v1" elementFormDefault="qualified" targetNamespace="urn:ca.infoway.messagebuilder.simplexml.v1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:include schemaLocation="COCT_MT960002CA.xsd"/>
-  <xs:include schemaLocation="../../../../../../classes/simpleDataTypes.xsd"/>
-  <xs:complexType name="COCT_MT240007CA.ServiceDeliveryLocation">
-    <xs:sequence>
-      <xs:element maxOccurs="1" minOccurs="0" name="serviceLocationIdentifier" type="chi:InstanceIdentifier"/>
-      <xs:element maxOccurs="1" minOccurs="1" name="serviceLocationType" type="chi:CodedValue"/>
-      <xs:element maxOccurs="1" minOccurs="1" name="serviceLocationAddress" type="chi:PostalAddress"/>
-      <xs:element maxOccurs="5" minOccurs="1" name="serviceLocationPhonesAndEMails" type="chi:PhonemailTelecommunicationAddress"/>
-      <xs:element maxOccurs="5" minOccurs="0" name="subjectOfPosition" type="chi:COCT_MT960002CA.Position"/>
-      <xs:element maxOccurs="1" minOccurs="1" name="serviceLocationName" type="xs:string"/>
-    </xs:sequence>
-  </xs:complexType>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:chi="urn:ca.infoway.messagebuilder.simplexml.v1"
+           elementFormDefault="qualified"
+           targetNamespace="urn:ca.infoway.messagebuilder.simplexml.v1">
+   <xs:include schemaLocation="COCT_MT960002CA.xsd"/>
+   <xs:include schemaLocation="../../../../../../classes/simpleDataTypes.xsd"/>
+   <xs:complexType name="COCT_MT240007CA.ServiceDeliveryLocation">
+      <xs:sequence>
+         <xs:element maxOccurs="1" minOccurs="0" name="serviceLocationIdentifier"
+                     type="chi:InstanceIdentifier"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="serviceLocationType" type="chi:CodedValue"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="serviceLocationAddress"
+                     type="chi:PostalAddress"/>
+         <xs:element maxOccurs="5" minOccurs="1" name="serviceLocationPhonesAndEMails"
+                     type="chi:PhonemailTelecommunicationAddress"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="serviceLocationName" type="xs:string"/>
+         <xs:element maxOccurs="5" minOccurs="0" name="subjectOfPosition"
+                     type="chi:COCT_MT960002CA.Position"/>
+      </xs:sequence>
+   </xs:complexType>
 </xs:schema>

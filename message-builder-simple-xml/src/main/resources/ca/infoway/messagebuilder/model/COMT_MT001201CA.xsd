@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:chi="urn:ca.infoway.messagebuilder.simplexml.v1" elementFormDefault="qualified" targetNamespace="urn:ca.infoway.messagebuilder.simplexml.v1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:include schemaLocation="../../../../../../classes/simpleDataTypes.xsd"/>
-  <xs:complexType name="COMT_MT001201CA.Role">
-    <xs:sequence>
-      <xs:element maxOccurs="2" minOccurs="1" name="recordIds" type="chi:InstanceIdentifier"/>
-    </xs:sequence>
-  </xs:complexType>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:chi="urn:ca.infoway.messagebuilder.simplexml.v1"
+           elementFormDefault="qualified"
+           targetNamespace="urn:ca.infoway.messagebuilder.simplexml.v1">
+   <xs:include schemaLocation="../../../../../../classes/simpleDataTypes.xsd"/>
+   <xs:complexType name="COMT_MT001201CA.Role">
+      <xs:sequence>
+         <xs:element maxOccurs="2" minOccurs="1" name="recordIds" type="chi:InstanceIdentifier"/>
+      </xs:sequence>
+   </xs:complexType>
 </xs:schema>

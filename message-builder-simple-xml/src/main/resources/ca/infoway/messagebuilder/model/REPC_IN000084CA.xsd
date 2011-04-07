@@ -1,34 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:chi="urn:ca.infoway.messagebuilder.simplexml.v1" elementFormDefault="qualified" targetNamespace="urn:ca.infoway.messagebuilder.simplexml.v1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:include schemaLocation="REPC_MT210004CA.xsd"/>
-  <xs:include schemaLocation="QUQI_MT020000CA.xsd"/>
-  <xs:include schemaLocation="MCCI_MT002100CA.xsd"/>
-  <xs:complexType name="REPC_IN000084CA.QUQI_MT020000CA.QueryByParameter">
-    <xs:complexContent>
-      <xs:extension base="chi:QUQI_MT020000CA.QueryByParameter">
-        <xs:sequence>
-          <xs:element name="parameterList" type="chi:REPC_MT210004CA.ParameterList"/>
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:complexType name="REPC_IN000084CA.QUQI_MT020000CA.ControlActEvent">
-    <xs:complexContent>
-      <xs:extension base="chi:QUQI_MT020000CA.ControlActEvent">
-        <xs:sequence>
-          <xs:element name="queryByParameter" type="chi:REPC_IN000084CA.QUQI_MT020000CA.QueryByParameter"/>
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:complexType name="REPC_IN000084CA">
-    <xs:complexContent>
-      <xs:extension base="chi:MCCI_MT002100CA.Message">
-        <xs:sequence>
-          <xs:element name="controlActEvent" type="chi:REPC_IN000084CA.QUQI_MT020000CA.ControlActEvent"/>
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:element name="patientReferralSummariesQuery" type="chi:REPC_IN000084CA"/>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:chi="urn:ca.infoway.messagebuilder.simplexml.v1"
+           elementFormDefault="qualified"
+           targetNamespace="urn:ca.infoway.messagebuilder.simplexml.v1">
+   <xs:include schemaLocation="REPC_MT210004CA.xsd"/>
+   <xs:include schemaLocation="QUQI_MT020000CA.xsd"/>
+   <xs:include schemaLocation="MCCI_MT002100CA.xsd"/>
+   <xs:complexType name="REPC_IN000084CA.QUQI_MT020000CA.QueryByParameter">
+      <xs:complexContent>
+         <xs:extension base="chi:QUQI_MT020000CA.QueryByParameter">
+            <xs:sequence>
+               <xs:element name="parameterList" type="chi:REPC_MT210004CA.ParameterList"/>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="REPC_IN000084CA.QUQI_MT020000CA.ControlActEvent">
+      <xs:complexContent>
+         <xs:extension base="chi:QUQI_MT020000CA.ControlActEvent">
+            <xs:sequence>
+               <xs:element name="queryByParameter"
+                           type="chi:REPC_IN000084CA.QUQI_MT020000CA.QueryByParameter"/>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="REPC_IN000084CA">
+      <xs:complexContent>
+         <xs:extension base="chi:MCCI_MT002100CA.Message">
+            <xs:sequence>
+               <xs:element name="controlActEvent"
+                           type="chi:REPC_IN000084CA.QUQI_MT020000CA.ControlActEvent"/>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:element name="patientReferralSummariesQuery" type="chi:REPC_IN000084CA"/>
 </xs:schema>

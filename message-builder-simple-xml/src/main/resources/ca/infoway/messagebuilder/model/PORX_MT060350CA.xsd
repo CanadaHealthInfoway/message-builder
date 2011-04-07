@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:chi="urn:ca.infoway.messagebuilder.simplexml.v1" elementFormDefault="qualified" targetNamespace="urn:ca.infoway.messagebuilder.simplexml.v1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:include schemaLocation="PORX_MT060340CA.xsd"/>
-  <xs:include schemaLocation="PORX_MT060040CA.xsd"/>
-  <xs:group name="PORX_MT060350CA.Prescription">
-    <xs:choice>
-      <xs:element name="prescription" type="chi:PORX_MT060040CA.DeviceRequest"/>
-      <xs:element name="prescription" type="chi:PORX_MT060340CA.CombinedMedicationRequest"/>
-    </xs:choice>
-  </xs:group>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:chi="urn:ca.infoway.messagebuilder.simplexml.v1"
+           elementFormDefault="qualified"
+           targetNamespace="urn:ca.infoway.messagebuilder.simplexml.v1">
+   <xs:include schemaLocation="PORX_MT060340CA.xsd"/>
+   <xs:include schemaLocation="PORX_MT060040CA.xsd"/>
+   <xs:group name="PORX_MT060350CA.Prescription">
+      <xs:choice>
+         <xs:element name="prescription" type="chi:PORX_MT060040CA.DeviceRequest"/>
+         <xs:element name="prescription" type="chi:PORX_MT060340CA.CombinedMedicationRequest"/>
+      </xs:choice>
+   </xs:group>
 </xs:schema>

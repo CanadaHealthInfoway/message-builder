@@ -1,191 +1,265 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:chi="urn:ca.infoway.messagebuilder.simplexml.v1" elementFormDefault="qualified" targetNamespace="urn:ca.infoway.messagebuilder.simplexml.v1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:include schemaLocation="COCT_MT240003CA.xsd"/>
-  <xs:include schemaLocation="COCT_MT090108CA.xsd"/>
-  <xs:include schemaLocation="COCT_MT120600CA.xsd"/>
-  <xs:include schemaLocation="COCT_MT050207CA.xsd"/>
-  <xs:include schemaLocation="COCT_MT240007CA.xsd"/>
-  <xs:include schemaLocation="COCT_MT910107CA.xsd"/>
-  <xs:include schemaLocation="../../../../../../classes/simpleDataTypes.xsd"/>
-  <xs:complexType name="POIZ_MT030060CA.AssignedEntity">
-    <xs:sequence>
-      <xs:element maxOccurs="1" minOccurs="1" name="healthcareWorkerIdentifier" type="chi:InstanceIdentifier"/>
-      <xs:element maxOccurs="1" minOccurs="1" name="healthcareWorkerType" type="chi:CodedValue"/>
-      <xs:element maxOccurs="5" minOccurs="0" name="healthcareWorkerPhoneAndEmails" type="chi:PhonemailTelecommunicationAddress"/>
-      <xs:element maxOccurs="1" minOccurs="0" name="organizationIdentifier" type="chi:InstanceIdentifier"/>
-      <xs:element maxOccurs="1" minOccurs="0" name="organizationName" type="xs:string"/>
-      <xs:element maxOccurs="1" minOccurs="0" name="organizationType" type="chi:CodedValue"/>
-      <xs:element maxOccurs="5" minOccurs="0" name="organizationPhoneAndEmails" type="chi:PhonemailTelecommunicationAddress"/>
-      <xs:element maxOccurs="1" minOccurs="1" name="healthcareWorkerName" type="chi:PersonName"/>
-      <xs:element maxOccurs="1" minOccurs="1" name="licenseNumber" type="chi:InstanceIdentifier"/>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="POIZ_MT030060CA.Authorization">
-    <xs:sequence>
-      <xs:element maxOccurs="1" minOccurs="1" name="consentID" type="chi:InstanceIdentifier"/>
-      <xs:element maxOccurs="1" minOccurs="1" name="consentWitheldIndicator" type="xs:boolean"/>
-      <xs:element maxOccurs="1" minOccurs="0" name="consentEffectiveAndEndTime" type="chi:DateInterval"/>
-      <xs:group maxOccurs="1" minOccurs="0" ref="chi:POIZ_MT030060CA.Recipient"/>
-      <xs:element maxOccurs="1" minOccurs="0" name="consentMethod" type="chi:CodedType"/>
-      <xs:group maxOccurs="1" minOccurs="0" ref="chi:POIZ_MT030060CA.Consenter"/>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="POIZ_MT030060CA.CauseOf">
-    <xs:sequence>
-      <xs:element maxOccurs="1" minOccurs="1" name="adverseEventReportID" type="chi:InstanceIdentifier"/>
-      <xs:element maxOccurs="1" minOccurs="1" name="reportType" type="chi:CodedValue"/>
-      <xs:element maxOccurs="1" minOccurs="0" name="adverseEventText" type="xs:string"/>
-      <xs:element maxOccurs="1" minOccurs="1" name="reportStatus" type="chi:SimpleCodedType"/>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="POIZ_MT030060CA.CauseOf2">
-    <xs:sequence>
-      <xs:element maxOccurs="1" minOccurs="1" name="allergyIntoleranceRecordID" type="chi:InstanceIdentifier"/>
-      <xs:element maxOccurs="1" minOccurs="1" name="allergyIntoleranceType" type="chi:CodedType"/>
-      <xs:element maxOccurs="1" minOccurs="1" name="allergyIntoleranceRefuted" type="xs:boolean"/>
-      <xs:element maxOccurs="1" minOccurs="1" name="allergyIntoleranceStatus" type="chi:SimpleCodedType"/>
-      <xs:element maxOccurs="1" minOccurs="1" name="confirmedIndicator" type="chi:CodedValue"/>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:group name="POIZ_MT030060CA.Choice">
-    <xs:choice>
-      <xs:element name="noImmunizationReason" type="chi:POIZ_MT030060CA.NoImmunizationReason"/>
-      <xs:element name="immunizationReason" type="chi:POIZ_MT030060CA.ImmunizationReason"/>
-    </xs:choice>
-  </xs:group>
-  <xs:group name="POIZ_MT030060CA.Consenter">
-    <xs:choice>
-      <xs:element name="relatedPerson" type="chi:COCT_MT910107CA.PersonalRelationship"/>
-      <xs:element name="patient" type="chi:POIZ_MT030060CA.Patient"/>
-    </xs:choice>
-  </xs:group>
-  <xs:complexType name="POIZ_MT030060CA.Consumable">
-    <xs:sequence>
-      <xs:element maxOccurs="1" minOccurs="1" name="vaccineCode" type="chi:CodedValue"/>
-      <xs:element maxOccurs="1" minOccurs="1" name="vaccineName" type="xs:string"/>
-      <xs:element maxOccurs="1" minOccurs="0" name="vaccineDescription" type="xs:string"/>
-      <xs:element maxOccurs="1" minOccurs="0" name="drugForm" type="chi:CodedValue"/>
-      <xs:element maxOccurs="1" minOccurs="0" name="vaccineLotNumber" type="xs:string"/>
-      <xs:element maxOccurs="1" minOccurs="0" name="vaccineExpiryDate" type="chi:DateInterval"/>
-      <xs:element maxOccurs="1" minOccurs="0" name="administerableMedicineAdministerableVaccineAsManufacturedProduct" type="chi:POIZ_MT030060CA.ManufacturedProduct"/>
-      <xs:element maxOccurs="15" minOccurs="0" name="administerableMedicineAdministerableVaccineIngredients" type="chi:POIZ_MT030060CA.Ingredients"/>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="POIZ_MT030060CA.HealthChart">
-    <xs:sequence>
-      <xs:element maxOccurs="1" minOccurs="0" name="antigenCountValue" type="xs:integer"/>
-      <xs:element maxOccurs="1" minOccurs="0" name="invalidAntigenReasonCode" type="chi:CodedValue"/>
-      <xs:element maxOccurs="1" minOccurs="0" name="antigenValidityIndicator" type="xs:boolean"/>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="POIZ_MT030060CA.Immunization">
-    <xs:sequence>
-      <xs:element maxOccurs="1" minOccurs="1" name="immunizationEventID" type="chi:InstanceIdentifier"/>
-      <xs:element maxOccurs="1" minOccurs="1" name="notImmunized" type="xs:boolean"/>
-      <xs:element maxOccurs="1" minOccurs="1" name="immunizationEventStatus" type="chi:SimpleCodedType"/>
-      <xs:element maxOccurs="2" minOccurs="0" name="immunizationMaskingIndicators" type="chi:CodedValue"/>
-      <xs:element maxOccurs="1" minOccurs="1" name="uncertaintyCode" type="chi:CodedValue"/>
-      <xs:element maxOccurs="1" minOccurs="0" name="routeOfAdministration" type="chi:CodedValue"/>
-      <xs:element maxOccurs="1" minOccurs="0" name="anatomicalSite" type="chi:CodedValue"/>
-      <xs:element maxOccurs="1" minOccurs="1" name="quantityAdministered" type="chi:PhysicalQuantity"/>
-      <xs:element maxOccurs="1" minOccurs="0" name="authenticatorAssignedEntity" type="chi:POIZ_MT030060CA.AssignedEntity"/>
-      <xs:element maxOccurs="1" minOccurs="1" name="authorAssignedEntity" type="chi:POIZ_MT030060CA.AssignedEntity"/>
-      <xs:element maxOccurs="1" minOccurs="0" name="authorization" type="chi:POIZ_MT030060CA.Authorization"/>
-      <xs:element maxOccurs="1" minOccurs="0" name="cause1" type="chi:POIZ_MT030060CA.CauseOf"/>
-      <xs:element maxOccurs="99" minOccurs="0" name="cause2" type="chi:POIZ_MT030060CA.CauseOf2"/>
-      <xs:element maxOccurs="1" minOccurs="1" name="consumable" type="chi:POIZ_MT030060CA.Consumable"/>
-      <xs:element maxOccurs="1" minOccurs="0" name="doseNumber" type="xs:integer"/>
-      <xs:element maxOccurs="1" minOccurs="0" name="informant" type="chi:POIZ_MT030060CA.Informant"/>
-      <xs:element maxOccurs="1" minOccurs="1" name="locationServiceDeliveryLocation" type="chi:COCT_MT240007CA.ServiceDeliveryLocation"/>
-      <xs:element maxOccurs="1" minOccurs="0" name="performer" type="chi:POIZ_MT030060CA.Performer"/>
-      <xs:element maxOccurs="10" minOccurs="0" name="pertinentInformation" type="chi:POIZ_MT030060CA.PertinentInformation"/>
-      <xs:group maxOccurs="1" minOccurs="1" ref="chi:POIZ_MT030060CA.Choice"/>
-      <xs:element maxOccurs="1" minOccurs="0" name="referencedBy" type="chi:POIZ_MT030060CA.Reference"/>
-      <xs:element maxOccurs="1" minOccurs="0" name="responsiblePartyAssignedEntity" type="chi:POIZ_MT030060CA.AssignedEntity"/>
-      <xs:element maxOccurs="1" minOccurs="1" name="subjectPatient" type="chi:COCT_MT050207CA.Patient"/>
-      <xs:element maxOccurs="99" minOccurs="0" name="subjectOfAnnotation" type="chi:COCT_MT120600CA.Annotation"/>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="POIZ_MT030060CA.ImmunizationReason">
-    <xs:sequence>
-      <xs:element maxOccurs="1" minOccurs="0" name="immunizationReasonText" type="xs:string"/>
-      <xs:element maxOccurs="1" minOccurs="1" name="immunizationReason" type="chi:CodedValue"/>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="POIZ_MT030060CA.Informant">
-    <xs:sequence>
-      <xs:element maxOccurs="1" minOccurs="0" name="dateOfInformation" type="chi:DateInterval"/>
-      <xs:element maxOccurs="1" minOccurs="0" name="informationSourceForm" type="chi:CodedValue"/>
-      <xs:group maxOccurs="1" minOccurs="1" ref="chi:POIZ_MT030060CA.InformationSourceChoice"/>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:group name="POIZ_MT030060CA.InformationSourceChoice">
-    <xs:choice>
-      <xs:element name="personalRelationshipRole" type="chi:POIZ_MT030060CA.PersonalRelationshipRole"/>
-      <xs:element name="patientRole" type="chi:POIZ_MT030060CA.PatientRole"/>
-      <xs:element name="licensedEntityRole" type="chi:POIZ_MT030060CA.LicensedEntityRole"/>
-    </xs:choice>
-  </xs:group>
-  <xs:complexType name="POIZ_MT030060CA.Ingredients">
-    <xs:sequence>
-      <xs:element maxOccurs="1" minOccurs="0" name="antigenCode" type="chi:CodedValue"/>
-      <xs:element maxOccurs="1" minOccurs="0" name="antigenName" type="xs:string"/>
-      <xs:element maxOccurs="1" minOccurs="0" name="ingredientAsHealthChart" type="chi:POIZ_MT030060CA.HealthChart"/>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="POIZ_MT030060CA.LicensedEntityRole">
-    <xs:sequence>
-      <xs:element maxOccurs="1" minOccurs="1" name="licensedEntityType" type="chi:CodedValue"/>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="POIZ_MT030060CA.ManufacturedProduct">
-    <xs:sequence>
-      <xs:element maxOccurs="1" minOccurs="0" name="manufacturerID" type="chi:InstanceIdentifier"/>
-      <xs:element maxOccurs="1" minOccurs="1" name="manufacturerName" type="xs:string"/>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="POIZ_MT030060CA.NoImmunizationReason">
-    <xs:sequence>
-      <xs:element maxOccurs="1" minOccurs="0" name="immunizationRefusalReasonText" type="xs:string"/>
-      <xs:element maxOccurs="1" minOccurs="1" name="immunizationRefusalReason" type="chi:CodedValue"/>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="POIZ_MT030060CA.Patient">
-    <xs:sequence/>
-  </xs:complexType>
-  <xs:complexType name="POIZ_MT030060CA.PatientRole">
-    <xs:sequence/>
-  </xs:complexType>
-  <xs:complexType name="POIZ_MT030060CA.Performer">
-    <xs:sequence>
-      <xs:element maxOccurs="1" minOccurs="0" name="signingMethod" type="chi:CodedValue"/>
-      <xs:element maxOccurs="1" minOccurs="0" name="signatureCode" type="chi:CodedValue"/>
-      <xs:element maxOccurs="1" minOccurs="0" name="digitalSignature" type="chi:EncapsulatedSignatureType"/>
-      <xs:element maxOccurs="1" minOccurs="1" name="assignedEntity" type="chi:POIZ_MT030060CA.AssignedEntity"/>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="POIZ_MT030060CA.PersonalRelationshipRole">
-    <xs:sequence>
-      <xs:element maxOccurs="1" minOccurs="1" name="personalRelationshipType" type="chi:CodedValue"/>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="POIZ_MT030060CA.PertinentInformation">
-    <xs:sequence>
-      <xs:element maxOccurs="1" minOccurs="1" name="patientImmunizationObservationType" type="chi:CodedValue"/>
-      <xs:element maxOccurs="1" minOccurs="1" name="patientImmunizationObservationValue" type="xs:anyType"/>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:group name="POIZ_MT030060CA.Recipient">
-    <xs:choice>
-      <xs:element name="healthcareWorker" type="chi:COCT_MT090108CA.AssignedEntity"/>
-      <xs:element name="serviceLocation" type="chi:COCT_MT240003CA.ServiceDeliveryLocation"/>
-    </xs:choice>
-  </xs:group>
-  <xs:complexType name="POIZ_MT030060CA.Reference">
-    <xs:sequence>
-      <xs:element maxOccurs="1" minOccurs="0" name="healthDocumentID" type="chi:InstanceIdentifier"/>
-      <xs:element maxOccurs="1" minOccurs="0" name="healthDocumentTitle" type="xs:string"/>
-      <xs:element maxOccurs="1" minOccurs="0" name="healthDocumentText" type="chi:EncapsulatedDocumentType"/>
-    </xs:sequence>
-  </xs:complexType>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:chi="urn:ca.infoway.messagebuilder.simplexml.v1"
+           elementFormDefault="qualified"
+           targetNamespace="urn:ca.infoway.messagebuilder.simplexml.v1">
+   <xs:include schemaLocation="COCT_MT240003CA.xsd"/>
+   <xs:include schemaLocation="COCT_MT090108CA.xsd"/>
+   <xs:include schemaLocation="COCT_MT240007CA.xsd"/>
+   <xs:include schemaLocation="COCT_MT120600CA.xsd"/>
+   <xs:include schemaLocation="COCT_MT050207CA.xsd"/>
+   <xs:include schemaLocation="COCT_MT910107CA.xsd"/>
+   <xs:include schemaLocation="../../../../../../classes/simpleDataTypes.xsd"/>
+   <xs:complexType name="POIZ_MT030060CA.AntigenCount">
+      <xs:sequence>
+         <xs:element maxOccurs="1" minOccurs="1" name="antigenCountValue" type="xs:integer"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="POIZ_MT030060CA.AntigenValidity">
+      <xs:sequence>
+         <xs:element maxOccurs="1" minOccurs="0" name="invalidAntigenReasonCode"
+                     type="chi:CodedValue"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="antigenValidityIndicator" type="xs:boolean"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="POIZ_MT030060CA.Antigens">
+      <xs:sequence>
+         <xs:element maxOccurs="1" minOccurs="0" name="antigenCode" type="chi:CodedValue"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="antigenName" type="xs:string"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="asHealthChart"
+                     type="chi:POIZ_MT030060CA.HealthChart"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="POIZ_MT030060CA.AssignedEntity">
+      <xs:sequence>
+         <xs:element maxOccurs="1" minOccurs="1" name="healthcareWorkerIdentifier"
+                     type="chi:InstanceIdentifier"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="healthcareWorkerType" type="chi:CodedValue"/>
+         <xs:element maxOccurs="5" minOccurs="0" name="healthcareWorkerPhoneAndEmails"
+                     type="chi:PhonemailTelecommunicationAddress"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="healthcareWorkerName" type="chi:PersonName"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="licenseNumber" type="chi:InstanceIdentifier"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="organizationIdentifier"
+                     type="chi:InstanceIdentifier"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="organizationName" type="xs:string"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="organizationType" type="chi:CodedValue"/>
+         <xs:element maxOccurs="5" minOccurs="0" name="organizationPhoneAndEmails"
+                     type="chi:PhonemailTelecommunicationAddress"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:group name="POIZ_MT030060CA.Choice">
+      <xs:choice>
+         <xs:element name="noImmunizationReason" type="chi:POIZ_MT030060CA.NoImmunizationReason"/>
+         <xs:element name="immunizationReason" type="chi:POIZ_MT030060CA.ImmunizationReason"/>
+      </xs:choice>
+   </xs:group>
+   <xs:complexType name="POIZ_MT030060CA.Consent">
+      <xs:sequence>
+         <xs:element maxOccurs="1" minOccurs="1" name="consentID" type="chi:InstanceIdentifier"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="consentWitheldIndicator" type="xs:boolean"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="consentEffectiveAndEndTime"
+                     type="chi:DateInterval"/>
+         <xs:group maxOccurs="1" minOccurs="0" ref="chi:POIZ_MT030060CA.Recipient"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="consentMethod" type="chi:CodedType"/>
+         <xs:group maxOccurs="1" minOccurs="0" ref="chi:POIZ_MT030060CA.Consenter"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:group name="POIZ_MT030060CA.Consenter">
+      <xs:choice>
+         <xs:element name="relatedPerson" type="chi:COCT_MT910107CA.PersonalRelationship"/>
+         <xs:element name="patient" type="chi:POIZ_MT030060CA.Patient"/>
+      </xs:choice>
+   </xs:group>
+   <xs:complexType name="POIZ_MT030060CA.HealthChart">
+      <xs:sequence>
+         <xs:element maxOccurs="1" minOccurs="0" name="subjectOf1AntigenValidity"
+                     type="chi:POIZ_MT030060CA.AntigenValidity"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="subjectOf2AntigenCount"
+                     type="chi:POIZ_MT030060CA.AntigenCount"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="POIZ_MT030060CA.HealthDocument">
+      <xs:sequence>
+         <xs:element maxOccurs="1" minOccurs="0" name="healthDocumentID"
+                     type="chi:InstanceIdentifier"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="healthDocumentTitle" type="xs:string"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="healthDocumentText"
+                     type="chi:EncapsulatedDocumentType"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="POIZ_MT030060CA.Immunization">
+      <xs:sequence>
+         <xs:element maxOccurs="1" minOccurs="1" name="immunizationEventID"
+                     type="chi:InstanceIdentifier"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="notImmunized" type="xs:boolean"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="immunizationEventStatus"
+                     type="chi:SimpleCodedType"/>
+         <xs:element maxOccurs="2" minOccurs="0" name="immunizationMaskingIndicators"
+                     type="chi:CodedValue"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="uncertaintyCode" type="chi:CodedValue"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="anatomicalSite" type="chi:CodedValue"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="routeOfAdministration" type="chi:CodedValue"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="quantityAdministered"
+                     type="chi:PhysicalQuantity"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="subjectPatient"
+                     type="chi:COCT_MT050207CA.Patient"/>
+         <xs:element maxOccurs="1" minOccurs="1"
+                     name="consumableAdministerableMedicineAdministerableVaccine"
+                     type="chi:POIZ_MT030060CA.Vaccine"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="responsiblePartyAssignedEntity"
+                     type="chi:POIZ_MT030060CA.AssignedEntity"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="performer"
+                     type="chi:POIZ_MT030060CA.Performer"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="authorAssignedEntity"
+                     type="chi:POIZ_MT030060CA.AssignedEntity"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="informant"
+                     type="chi:POIZ_MT030060CA.Informant"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="authenticatorAssignedEntity"
+                     type="chi:POIZ_MT030060CA.AssignedEntity"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="location" type="chi:POIZ_MT030060CA.Location"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="inFulfillmentOf"
+                     type="chi:POIZ_MT030060CA.InFulfillmentOf"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="reason" type="chi:POIZ_MT030060CA.Reason"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="authorizationConsent"
+                     type="chi:POIZ_MT030060CA.Consent"/>
+         <xs:element maxOccurs="10" minOccurs="0"
+                     name="pertinentInformationPatientImmunizationObservations"
+                     type="chi:POIZ_MT030060CA.PatientImmunizationObservations"/>
+         <xs:element maxOccurs="99" minOccurs="0" name="subjectOfAnnotation"
+                     type="chi:COCT_MT120600CA.Annotation"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="cause1InvestigationEvent"
+                     type="chi:POIZ_MT030060CA.InvestigationEvent"/>
+         <xs:element maxOccurs="99" minOccurs="0" name="cause2IntoleranceCondition"
+                     type="chi:POIZ_MT030060CA.IntoleranceCondition"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="referencedByHealthDocument"
+                     type="chi:POIZ_MT030060CA.HealthDocument"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="POIZ_MT030060CA.ImmunizationReason">
+      <xs:sequence>
+         <xs:element maxOccurs="1" minOccurs="0" name="immunizationReasonText" type="xs:string"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="immunizationReason" type="chi:CodedValue"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="POIZ_MT030060CA.InFulfillmentOf">
+      <xs:sequence>
+         <xs:element maxOccurs="1" minOccurs="1" name="doseNumber" type="xs:integer"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="immunizationPlan" type="xs:boolean"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="POIZ_MT030060CA.Informant">
+      <xs:sequence>
+         <xs:element maxOccurs="1" minOccurs="0" name="dateOfInformation" type="chi:DateInterval"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="informationSourceForm" type="chi:CodedValue"/>
+         <xs:group maxOccurs="1" minOccurs="1" ref="chi:POIZ_MT030060CA.InformationSourceChoice"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:group name="POIZ_MT030060CA.InformationSourceChoice">
+      <xs:choice>
+         <xs:element name="personalRelationshipRole"
+                     type="chi:POIZ_MT030060CA.PersonalRelationshipRole"/>
+         <xs:element name="patientRole" type="chi:POIZ_MT030060CA.PatientRole"/>
+         <xs:element name="licensedEntityRole" type="chi:POIZ_MT030060CA.LicensedEntityRole"/>
+      </xs:choice>
+   </xs:group>
+   <xs:complexType name="POIZ_MT030060CA.IntoleranceCondition">
+      <xs:sequence>
+         <xs:element maxOccurs="1" minOccurs="1" name="allergyIntoleranceRecordID"
+                     type="chi:InstanceIdentifier"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="allergyIntoleranceType" type="chi:CodedType"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="allergyIntoleranceRefuted" type="xs:boolean"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="allergyIntoleranceStatus"
+                     type="chi:SimpleCodedType"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="confirmedIndicator" type="chi:CodedValue"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="POIZ_MT030060CA.InvestigationEvent">
+      <xs:sequence>
+         <xs:element maxOccurs="1" minOccurs="1" name="adverseEventReportID"
+                     type="chi:InstanceIdentifier"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="reportType" type="chi:CodedValue"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="adverseEventText" type="xs:string"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="reportStatus" type="chi:SimpleCodedType"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="POIZ_MT030060CA.LicensedEntityRole">
+      <xs:sequence>
+         <xs:element maxOccurs="1" minOccurs="1" name="licensedEntityType" type="chi:CodedValue"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="POIZ_MT030060CA.Location">
+      <xs:sequence>
+         <xs:element maxOccurs="1" minOccurs="1" name="serviceDeliveryLocation"
+                     type="chi:COCT_MT240007CA.ServiceDeliveryLocation"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="POIZ_MT030060CA.Manufacturer">
+      <xs:sequence>
+         <xs:element maxOccurs="1" minOccurs="0" name="manufacturerID" type="chi:InstanceIdentifier"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="manufacturerName" type="xs:string"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="POIZ_MT030060CA.NoImmunizationReason">
+      <xs:sequence>
+         <xs:element maxOccurs="1" minOccurs="0" name="immunizationRefusalReasonText"
+                     type="xs:string"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="immunizationRefusalReason"
+                     type="chi:CodedValue"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="POIZ_MT030060CA.Patient">
+      <xs:sequence/>
+   </xs:complexType>
+   <xs:complexType name="POIZ_MT030060CA.PatientImmunizationObservations">
+      <xs:sequence>
+         <xs:element maxOccurs="1" minOccurs="1" name="patientImmunizationObservationType"
+                     type="chi:CodedValue"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="patientImmunizationObservationValue"
+                     type="xs:anyType"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="POIZ_MT030060CA.PatientRole">
+      <xs:sequence/>
+   </xs:complexType>
+   <xs:complexType name="POIZ_MT030060CA.Performer">
+      <xs:sequence>
+         <xs:element maxOccurs="1" minOccurs="0" name="signingMethod" type="chi:CodedValue"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="signatureCode" type="chi:CodedValue"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="digitalSignature"
+                     type="chi:EncapsulatedSignatureType"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="assignedEntity"
+                     type="chi:POIZ_MT030060CA.AssignedEntity"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="POIZ_MT030060CA.PersonalRelationshipRole">
+      <xs:sequence>
+         <xs:element maxOccurs="1" minOccurs="1" name="personalRelationshipType"
+                     type="chi:CodedValue"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="POIZ_MT030060CA.Reason">
+      <xs:sequence>
+         <xs:group maxOccurs="1" minOccurs="1" ref="chi:POIZ_MT030060CA.Choice"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:group name="POIZ_MT030060CA.Recipient">
+      <xs:choice>
+         <xs:element name="healthcareWorker" type="chi:COCT_MT090108CA.AssignedEntity"/>
+         <xs:element name="serviceLocation" type="chi:COCT_MT240003CA.ServiceDeliveryLocation"/>
+      </xs:choice>
+   </xs:group>
+   <xs:complexType name="POIZ_MT030060CA.Vaccine">
+      <xs:sequence>
+         <xs:element maxOccurs="1" minOccurs="1" name="vaccineCode" type="chi:CodedValue"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="vaccineName" type="xs:string"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="vaccineDescription" type="xs:string"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="drugForm" type="chi:CodedValue"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="vaccineLotNumber" type="xs:string"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="vaccineExpiryDate" type="chi:DateInterval"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="asManufacturedProductManufacturer"
+                     type="chi:POIZ_MT030060CA.Manufacturer"/>
+         <xs:element maxOccurs="15" minOccurs="0" name="ingredientsIngredient"
+                     type="chi:POIZ_MT030060CA.Antigens"/>
+      </xs:sequence>
+   </xs:complexType>
 </xs:schema>

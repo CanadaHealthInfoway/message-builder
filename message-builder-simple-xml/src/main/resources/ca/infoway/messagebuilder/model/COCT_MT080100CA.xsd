@@ -1,47 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:chi="urn:ca.infoway.messagebuilder.simplexml.v1" elementFormDefault="qualified" targetNamespace="urn:ca.infoway.messagebuilder.simplexml.v1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:include schemaLocation="COCT_MT120600CA.xsd"/>
-  <xs:include schemaLocation="COCT_MT090502CA.xsd"/>
-  <xs:include schemaLocation="COCT_MT090102CA.xsd"/>
-  <xs:include schemaLocation="../../../../../../classes/simpleDataTypes.xsd"/>
-  <xs:complexType name="COCT_MT080100CA.IdentifiedEntity">
-    <xs:sequence>
-      <xs:element maxOccurs="1" minOccurs="1" name="otherSpecimenIdentifiers" type="chi:InstanceIdentifier"/>
-      <xs:element maxOccurs="1" minOccurs="1" name="otherSpecimenIdentifierType" type="chi:CodedValue"/>
-      <xs:element maxOccurs="1" minOccurs="0" name="organizationIdentifier" type="chi:InstanceIdentifier"/>
-      <xs:element maxOccurs="1" minOccurs="0" name="organizationName" type="xs:string"/>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:group name="COCT_MT080100CA.PerformerChoice">
-    <xs:choice>
-      <xs:element name="healthcareWorker" type="chi:COCT_MT090102CA.AssignedEntity"/>
-      <xs:element name="healthcareOrganization" type="chi:COCT_MT090502CA.AssignedEntity"/>
-    </xs:choice>
-  </xs:group>
-  <xs:complexType name="COCT_MT080100CA.Specimen">
-    <xs:sequence>
-      <xs:element maxOccurs="1" minOccurs="0" name="specimenIdentifier" type="chi:InstanceIdentifier"/>
-      <xs:element maxOccurs="10" minOccurs="0" name="subjectOf" type="chi:COCT_MT080100CA.Subject2"/>
-      <xs:element maxOccurs="1" minOccurs="0" name="specimenCode" type="chi:CodedType"/>
-      <xs:element maxOccurs="1" minOccurs="0" name="specimenText" type="xs:string"/>
-      <xs:element maxOccurs="10" minOccurs="0" name="specimenMaterialAsIdentifiedEntity" type="chi:COCT_MT080100CA.IdentifiedEntity"/>
-      <xs:element maxOccurs="1" minOccurs="1" name="specimenContainerRisk" type="chi:CodedValue"/>
-      <xs:element maxOccurs="1" minOccurs="0" name="productOfSpecimenCollectionProcedureEvent" type="chi:COCT_MT080100CA.SpecimenCollectionProcedureEvent"/>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="COCT_MT080100CA.SpecimenCollectionProcedureEvent">
-    <xs:sequence>
-      <xs:element maxOccurs="1" minOccurs="0" name="specimenCollectionText" type="xs:string"/>
-      <xs:element maxOccurs="1" minOccurs="0" name="specimenCollectionDateTime" type="chi:DateInterval"/>
-      <xs:element maxOccurs="1" minOccurs="0" name="specimenCollectionProcedureMethod" type="chi:CodedValue"/>
-      <xs:group maxOccurs="2" minOccurs="0" ref="chi:COCT_MT080100CA.PerformerChoice"/>
-      <xs:element maxOccurs="10" minOccurs="0" name="subjectOfAnnotation" type="chi:COCT_MT120600CA.Annotation"/>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="COCT_MT080100CA.Subject2">
-    <xs:sequence>
-      <xs:element maxOccurs="1" minOccurs="0" name="transportationStatus" type="chi:SimpleCodedType"/>
-      <xs:element maxOccurs="1" minOccurs="0" name="transportationDateTime" type="chi:DateInterval"/>
-    </xs:sequence>
-  </xs:complexType>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:chi="urn:ca.infoway.messagebuilder.simplexml.v1"
+           elementFormDefault="qualified"
+           targetNamespace="urn:ca.infoway.messagebuilder.simplexml.v1">
+   <xs:include schemaLocation="COCT_MT120600CA.xsd"/>
+   <xs:include schemaLocation="COCT_MT090502CA.xsd"/>
+   <xs:include schemaLocation="COCT_MT090102CA.xsd"/>
+   <xs:include schemaLocation="../../../../../../classes/simpleDataTypes.xsd"/>
+   <xs:complexType name="COCT_MT080100CA.IdentifiedEntity">
+      <xs:sequence>
+         <xs:element maxOccurs="1" minOccurs="1" name="otherSpecimenIdentifiers"
+                     type="chi:InstanceIdentifier"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="otherSpecimenIdentifierType"
+                     type="chi:CodedValue"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="organizationIdentifier"
+                     type="chi:InstanceIdentifier"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="organizationName" type="xs:string"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:group name="COCT_MT080100CA.PerformerChoice">
+      <xs:choice>
+         <xs:element name="healthcareWorker" type="chi:COCT_MT090102CA.AssignedEntity"/>
+         <xs:element name="healthcareOrganization" type="chi:COCT_MT090502CA.AssignedEntity"/>
+      </xs:choice>
+   </xs:group>
+   <xs:complexType name="COCT_MT080100CA.Specimen">
+      <xs:sequence>
+         <xs:element maxOccurs="1" minOccurs="0" name="specimenIdentifier"
+                     type="chi:InstanceIdentifier"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="specimenCode" type="chi:CodedType"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="specimenText" type="xs:string"/>
+         <xs:element maxOccurs="10" minOccurs="0" name="specimenMaterialAsIdentifiedEntity"
+                     type="chi:COCT_MT080100CA.IdentifiedEntity"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="specimenContainerRisk" type="chi:CodedValue"/>
+         <xs:element maxOccurs="10" minOccurs="0" name="subjectOfTransportationEvent"
+                     type="chi:COCT_MT080100CA.TransportationEvent"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="productOfSpecimenCollectionProcedureEvent"
+                     type="chi:COCT_MT080100CA.SpecimenCollectionProcedureEvent"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="COCT_MT080100CA.SpecimenCollectionProcedureEvent">
+      <xs:sequence>
+         <xs:element maxOccurs="1" minOccurs="0" name="specimenCollectionText" type="xs:string"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="specimenCollectionDateTime"
+                     type="chi:DateInterval"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="specimenCollectionProcedureMethod"
+                     type="chi:CodedValue"/>
+         <xs:group maxOccurs="2" minOccurs="0" ref="chi:COCT_MT080100CA.PerformerChoice"/>
+         <xs:element maxOccurs="10" minOccurs="0" name="subjectOfAnnotation"
+                     type="chi:COCT_MT120600CA.Annotation"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="COCT_MT080100CA.TransportationEvent">
+      <xs:sequence>
+         <xs:element maxOccurs="1" minOccurs="0" name="transportationStatus"
+                     type="chi:SimpleCodedType"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="transportationDateTime"
+                     type="chi:DateInterval"/>
+      </xs:sequence>
+   </xs:complexType>
 </xs:schema>

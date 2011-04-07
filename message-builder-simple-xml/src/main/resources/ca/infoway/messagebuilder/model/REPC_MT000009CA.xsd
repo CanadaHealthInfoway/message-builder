@@ -1,91 +1,133 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:chi="urn:ca.infoway.messagebuilder.simplexml.v1" elementFormDefault="qualified" targetNamespace="urn:ca.infoway.messagebuilder.simplexml.v1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:include schemaLocation="COCT_MT050202CA.xsd"/>
-  <xs:include schemaLocation="COCT_MT910107CA.xsd"/>
-  <xs:include schemaLocation="COCT_MT120600CA.xsd"/>
-  <xs:include schemaLocation="COCT_MT240003CA.xsd"/>
-  <xs:include schemaLocation="COCT_MT011001CA.xsd"/>
-  <xs:include schemaLocation="COCT_MT090108CA.xsd"/>
-  <xs:include schemaLocation="../../../../../../classes/simpleDataTypes.xsd"/>
-  <xs:complexType name="REPC_MT000009CA.AllergyTestEvent">
-    <xs:sequence>
-      <xs:element maxOccurs="1" minOccurs="0" name="allergyTestRecordId" type="chi:InstanceIdentifier"/>
-      <xs:element maxOccurs="1" minOccurs="1" name="allergyTestType" type="chi:CodedType"/>
-      <xs:element maxOccurs="1" minOccurs="0" name="allergyTestDate" type="chi:PartialDate"/>
-      <xs:element maxOccurs="1" minOccurs="0" name="allergyTestResult" type="chi:CodedValue"/>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="REPC_MT000009CA.Author">
-    <xs:sequence>
-      <xs:element maxOccurs="1" minOccurs="1" name="createTimestamp" type="chi:FullDateTime"/>
-      <xs:element maxOccurs="1" minOccurs="1" name="assignedEntity" type="chi:COCT_MT090108CA.AssignedEntity"/>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="REPC_MT000009CA.CausalityAssessment">
-    <xs:sequence>
-      <xs:element maxOccurs="1" minOccurs="1" name="assessmentType" type="chi:CodedType"/>
-      <xs:element maxOccurs="1" minOccurs="0" name="relatednessAssessment" type="chi:CodedValue"/>
-      <xs:element maxOccurs="1" minOccurs="0" name="incidenceIdentifier" type="chi:InstanceIdentifier"/>
-      <xs:element maxOccurs="1" minOccurs="0" name="exposureMethod" type="chi:CodedValue"/>
-      <xs:element maxOccurs="1" minOccurs="0" name="exposedMaterialType" type="chi:CodedValue"/>
-      <xs:element maxOccurs="1" minOccurs="0" name="reactionRecordId" type="chi:InstanceIdentifier"/>
-      <xs:element maxOccurs="1" minOccurs="1" name="diagnosisType" type="chi:CodedType"/>
-      <xs:element maxOccurs="1" minOccurs="1" name="noReactionOccurred" type="xs:boolean"/>
-      <xs:element maxOccurs="1" minOccurs="0" name="description" type="xs:string"/>
-      <xs:element maxOccurs="1" minOccurs="0" name="reactionOnsetDate" type="chi:DateInterval"/>
-      <xs:element maxOccurs="1" minOccurs="0" name="reaction" type="chi:CodedValue"/>
-      <xs:element maxOccurs="1" minOccurs="1" name="severityLevel" type="chi:CodedValue"/>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="REPC_MT000009CA.Informant">
-    <xs:sequence>
-      <xs:element maxOccurs="1" minOccurs="1" name="reportedDate" type="chi:FullDate"/>
-      <xs:group maxOccurs="1" minOccurs="1" ref="chi:REPC_MT000009CA.Party"/>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="REPC_MT000009CA.IntoleranceCondition">
-    <xs:sequence>
-      <xs:element maxOccurs="1" minOccurs="1" name="allergyIntoleranceRecordId" type="chi:InstanceIdentifier"/>
-      <xs:element maxOccurs="1" minOccurs="1" name="allergyIntoleranceType" type="chi:CodedType"/>
-      <xs:element maxOccurs="1" minOccurs="1" name="allergyIntoleranceRefuted" type="xs:boolean"/>
-      <xs:element maxOccurs="1" minOccurs="1" name="allergyIntoleranceStatus" type="chi:SimpleCodedType"/>
-      <xs:element maxOccurs="1" minOccurs="0" name="allergyIntoleranceDate" type="chi:PartialDate"/>
-      <xs:element maxOccurs="2" minOccurs="0" name="allergyIntoleranceMaskingIndicators" type="chi:CodedValue"/>
-      <xs:element maxOccurs="1" minOccurs="1" name="confirmedIndicator" type="chi:CodedValue"/>
-      <xs:element maxOccurs="1" minOccurs="0" name="agent" type="chi:CodedValue"/>
-      <xs:element maxOccurs="1" minOccurs="1" name="author" type="chi:REPC_MT000009CA.Author"/>
-      <xs:element maxOccurs="100" minOccurs="0" name="componentOfPatientCareProvisionEvent" type="chi:COCT_MT011001CA.PatientCareProvisionEvent"/>
-      <xs:element maxOccurs="1" minOccurs="0" name="informant" type="chi:REPC_MT000009CA.Informant"/>
-      <xs:element maxOccurs="1" minOccurs="1" name="locationServiceDeliveryLocation" type="chi:COCT_MT240003CA.ServiceDeliveryLocation"/>
-      <xs:element maxOccurs="1" minOccurs="0" name="replacementOfIntoleranceCondition" type="chi:REPC_MT000009CA.IntoleranceCondition"/>
-      <xs:element maxOccurs="1" minOccurs="0" name="responsiblePartyAssignedEntity" type="chi:COCT_MT090108CA.AssignedEntity"/>
-      <xs:element maxOccurs="1" minOccurs="1" name="subjectOf1" type="chi:REPC_MT000009CA.Subject4"/>
-      <xs:element maxOccurs="99" minOccurs="0" name="subjectOf2Annotation" type="chi:COCT_MT120600CA.Annotation"/>
-      <xs:element maxOccurs="1" minOccurs="0" name="severityLevel" type="chi:CodedValue"/>
-      <xs:group maxOccurs="20" minOccurs="0" ref="chi:REPC_MT000009CA.Records"/>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:group name="REPC_MT000009CA.Party">
-    <xs:choice>
-      <xs:element name="healthcareWorker" type="chi:COCT_MT090108CA.AssignedEntity"/>
-      <xs:element name="relatedPerson" type="chi:COCT_MT910107CA.PersonalRelationship"/>
-      <xs:element name="patient" type="chi:COCT_MT050202CA.Patient"/>
-    </xs:choice>
-  </xs:group>
-  <xs:group name="REPC_MT000009CA.Records">
-    <xs:choice>
-      <xs:element name="reportedReactions" type="chi:REPC_MT000009CA.CausalityAssessment"/>
-      <xs:element name="allergyTests" type="chi:REPC_MT000009CA.AllergyTestEvent"/>
-    </xs:choice>
-  </xs:group>
-  <xs:complexType name="REPC_MT000009CA.Subject4">
-    <xs:sequence>
-      <xs:element maxOccurs="1" minOccurs="1" name="allergyIntoleranceStatusChangeType" type="chi:CodedValue"/>
-      <xs:element maxOccurs="1" minOccurs="1" name="allergyIntoleranceStatusChangeEffectiveDate" type="chi:FullDate"/>
-      <xs:element maxOccurs="1" minOccurs="0" name="allergyIntoleranceStatusChangeReason" type="chi:CodedValue"/>
-      <xs:element maxOccurs="1" minOccurs="1" name="changeTime" type="chi:FullDateTime"/>
-      <xs:element maxOccurs="1" minOccurs="1" name="controlActEventAuthorAssignedEntity" type="chi:COCT_MT090108CA.AssignedEntity"/>
-      <xs:element maxOccurs="1" minOccurs="0" name="controlActEventResponsiblePartyAssignedEntity" type="chi:COCT_MT090108CA.AssignedEntity"/>
-    </xs:sequence>
-  </xs:complexType>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:chi="urn:ca.infoway.messagebuilder.simplexml.v1"
+           elementFormDefault="qualified"
+           targetNamespace="urn:ca.infoway.messagebuilder.simplexml.v1">
+   <xs:include schemaLocation="COCT_MT050202CA.xsd"/>
+   <xs:include schemaLocation="COCT_MT910107CA.xsd"/>
+   <xs:include schemaLocation="COCT_MT011001CA.xsd"/>
+   <xs:include schemaLocation="COCT_MT120600CA.xsd"/>
+   <xs:include schemaLocation="COCT_MT240003CA.xsd"/>
+   <xs:include schemaLocation="COCT_MT090108CA.xsd"/>
+   <xs:include schemaLocation="../../../../../../classes/simpleDataTypes.xsd"/>
+   <xs:complexType name="REPC_MT000009CA.AllergyTestEvent">
+      <xs:sequence>
+         <xs:element maxOccurs="1" minOccurs="0" name="allergyTestRecordId"
+                     type="chi:InstanceIdentifier"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="allergyTestType" type="chi:CodedType"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="allergyTestDate" type="chi:PartialDate"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="allergyTestResult" type="chi:CodedValue"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="REPC_MT000009CA.Author">
+      <xs:sequence>
+         <xs:element maxOccurs="1" minOccurs="1" name="createTimestamp" type="chi:FullDateTime"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="assignedEntity"
+                     type="chi:COCT_MT090108CA.AssignedEntity"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="REPC_MT000009CA.CausalityAssessment">
+      <xs:sequence>
+         <xs:element maxOccurs="1" minOccurs="1" name="assessmentType" type="chi:CodedType"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="relatednessAssessment" type="chi:CodedValue"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="subjectObservationEvent"
+                     type="chi:REPC_MT000009CA.ObservationEvent"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="startsAfterStartOfExposureEvent"
+                     type="chi:REPC_MT000009CA.ExposureEvent"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="REPC_MT000009CA.ControlActEvent">
+      <xs:sequence>
+         <xs:element maxOccurs="1" minOccurs="1" name="allergyIntoleranceStatusChangeType"
+                     type="chi:CodedValue"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="allergyIntoleranceStatusChangeEffectiveDate"
+                     type="chi:FullDate"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="allergyIntoleranceStatusChangeReason"
+                     type="chi:CodedValue"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="responsiblePartyAssignedEntity"
+                     type="chi:COCT_MT090108CA.AssignedEntity"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="changeTime" type="chi:FullDateTime"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="authorAssignedEntity"
+                     type="chi:COCT_MT090108CA.AssignedEntity"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="REPC_MT000009CA.ExposureEvent">
+      <xs:sequence>
+         <xs:element maxOccurs="1" minOccurs="0" name="incidenceIdentifier"
+                     type="chi:InstanceIdentifier"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="exposureMethod" type="chi:CodedValue"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="exposedMaterialType" type="chi:CodedValue"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="REPC_MT000009CA.Informant">
+      <xs:sequence>
+         <xs:element maxOccurs="1" minOccurs="1" name="reportedDate" type="chi:FullDate"/>
+         <xs:group maxOccurs="1" minOccurs="1" ref="chi:REPC_MT000009CA.Party"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="REPC_MT000009CA.IntoleranceCondition">
+      <xs:sequence>
+         <xs:element maxOccurs="1" minOccurs="1" name="allergyIntoleranceRecordId"
+                     type="chi:InstanceIdentifier"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="allergyIntoleranceType" type="chi:CodedType"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="allergyIntoleranceRefuted" type="xs:boolean"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="allergyIntoleranceStatus"
+                     type="chi:SimpleCodedType"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="allergyIntoleranceDate"
+                     type="chi:PartialDate"/>
+         <xs:element maxOccurs="2" minOccurs="0" name="allergyIntoleranceMaskingIndicators"
+                     type="chi:CodedValue"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="confirmedIndicator" type="chi:CodedValue"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="agent" type="chi:CodedValue"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="responsiblePartyAssignedEntity"
+                     type="chi:COCT_MT090108CA.AssignedEntity"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="author" type="chi:REPC_MT000009CA.Author"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="informant"
+                     type="chi:REPC_MT000009CA.Informant"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="locationServiceDeliveryLocation"
+                     type="chi:COCT_MT240003CA.ServiceDeliveryLocation"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="replacementOfIntoleranceCondition"
+                     type="chi:REPC_MT000009CA.IntoleranceCondition"/>
+         <xs:group maxOccurs="20" minOccurs="0" ref="chi:REPC_MT000009CA.Records"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="subjectOf1ControlActEvent"
+                     type="chi:REPC_MT000009CA.ControlActEvent"/>
+         <xs:element maxOccurs="99" minOccurs="0" name="subjectOf2Annotation"
+                     type="chi:COCT_MT120600CA.Annotation"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="subjectOf3SeverityObservation"
+                     type="chi:REPC_MT000009CA.SeverityObservation"/>
+         <xs:element maxOccurs="100" minOccurs="0" name="componentOfPatientCareProvisionEvent"
+                     type="chi:COCT_MT011001CA.PatientCareProvisionEvent"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="REPC_MT000009CA.ObservationEvent">
+      <xs:sequence>
+         <xs:element maxOccurs="1" minOccurs="0" name="reactionRecordId"
+                     type="chi:InstanceIdentifier"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="diagnosisType" type="chi:CodedType"/>
+         <xs:element maxOccurs="1" minOccurs="1" name="noReactionOccurred" type="xs:boolean"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="description" type="xs:string"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="reactionOnsetDate" type="chi:DateInterval"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="reaction" type="chi:CodedValue"/>
+         <xs:element maxOccurs="1" minOccurs="0" name="subjectOfSeverityObservation"
+                     type="chi:REPC_MT000009CA.SeverityObservation"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:group name="REPC_MT000009CA.Party">
+      <xs:choice>
+         <xs:element name="healthcareWorker" type="chi:COCT_MT090108CA.AssignedEntity"/>
+         <xs:element name="relatedPerson" type="chi:COCT_MT910107CA.PersonalRelationship"/>
+         <xs:element name="patient" type="chi:COCT_MT050202CA.Patient"/>
+      </xs:choice>
+   </xs:group>
+   <xs:group name="REPC_MT000009CA.Records">
+      <xs:choice>
+         <xs:element name="reportedReactions" type="chi:REPC_MT000009CA.CausalityAssessment"/>
+         <xs:element name="allergyTests" type="chi:REPC_MT000009CA.AllergyTestEvent"/>
+      </xs:choice>
+   </xs:group>
+   <xs:complexType name="REPC_MT000009CA.SeverityObservation">
+      <xs:sequence>
+         <xs:element maxOccurs="1" minOccurs="1" name="severityLevel" type="chi:CodedValue"/>
+      </xs:sequence>
+   </xs:complexType>
 </xs:schema>
