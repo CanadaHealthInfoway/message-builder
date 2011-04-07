@@ -33,7 +33,7 @@ public class TsFullDateTimePropertyFormatterTest {
 		assertEquals("map size", 1, result.size());
 		
 		assertTrue("key as expected", result.containsKey("value"));
-		assertEquals("value as expected", "19990423101112.000-0400", result.get("value"));
+		assertEquals("value as expected", "19990423101112.0000-0400", result.get("value"));
 	}
 
 	@Test
@@ -73,18 +73,18 @@ public class TsFullDateTimePropertyFormatterTest {
 		);
 		String result = resultXml.substring("<name value=\"".length(), resultXml.indexOf("\"/>"));
 				
-		assertEquals("value length as expected", "yyyyMMddHHmmss.SSSZZZZZ".length(), result.length());
+		assertEquals("value length as expected", "yyyyMMddHHmmss.SSS0ZZZZZ".length(), result.length());
 		assertTrue("value as expected", result.startsWith("19990423101112.000"));
 	}
 	
 	@Test
 	public void testVersionDefault() throws Exception  {
-		handleVersion(null, "19990423101112.000-0400");
+		handleVersion(null, "19990423101112.0000-0400");
 	}
 
 	@Test
 	public void testVersionNew() throws Exception  {
-		handleVersion(SpecificationVersion.R02_04_02, "19990423101112.000-0400");
+		handleVersion(SpecificationVersion.R02_04_02, "19990423101112.0000-0400");
 	}
 	
 	@Test

@@ -36,7 +36,7 @@ public class SetTsPropertyFormatterTest extends FormatterTestCase {
 				new FormatContextImpl("blah", "SET<TS>", MANDATORY), 
 				set);
 		
-        assertXml("non null", "<blah value=\"19990101122959.000-0500\"/><blah value=\"20010203133000.000-0500\"/>", result);
+        assertXml("non null", "<blah value=\"19990101122959.0000-0500\"/><blah value=\"20010203133000.0000-0500\"/>", result);
     }
 
     private Set<Date> makeSet(Date... dates) {

@@ -27,7 +27,7 @@ import ca.infoway.messagebuilder.platform.DateFormatUtil;
 public class TsFullDateTimePropertyFormatter extends AbstractValueNullFlavorPropertyFormatter<Date> {
 
     public final static String DATE_FORMAT_YYYYMMDDHHMMSS = "yyyyMMddHHmmss";
-    public final static String DATE_FORMAT_YYYYMMDDHHMMSS_SSSZZZZZ = "yyyyMMddHHmmss.SSSZZZZZ";
+    public final static String DATE_FORMAT_YYYYMMDDHHMMSS_SSSZZZZZ = "yyyyMMddHHmmss.SSS0ZZZZZ";
     public final static String DATE_FORMAT_YYYYMMDDHHMMSSZZZZZ = "yyyyMMddHHmmssZZZZZ";
 
     @Override
